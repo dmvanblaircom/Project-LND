@@ -89,12 +89,22 @@ values. `docs/engineering/phase-6-team-identity.md`,
 
 Allow a user to select a team and instantiate the corresponding Suite.
 
-Carried into this phase, with evidence from Phases 5 and 6: the service worker
-precaches one team's shell (`teams/notre-dame.js`, its artwork) and one team's snapshot
-files whatever team is configured, because a worker cannot read `TEAM_CONFIG`; the
-static `index.html` head and `:root` defaults carry the deployed team; and switching
-teams required clearing the shell and HTTP caches by hand. Whatever mechanism Phase 7
-chooses for selecting a team has to answer all three together.
+Status: **complete 2026-09-20**, in two milestones. **7A** made the team a run-time
+choice - `boot.js` resolves an id from `?team=`, then from what a previous visit
+remembered, and loads that config before `app.js` - while keeping the shipped
+behaviour identical. **7B** added `teams/index.js`, the registry of all 138 FBS
+programs, and the chooser a first visit sees; only teams with a real TeamOS config are
+selectable, and that is derived from the contents of `teams/` rather than kept as a
+second list. `buckeye.html` became a redirect.
+
+The three findings this phase carried are closed: the worker's install list is the
+application shell and nothing team-specific, with a team's own files declared by the
+page; its seeded data is league-wide only; and switching teams needs no cache clearing.
+One is accepted rather than closed - a crawler still sees `index.html`'s static head, so
+`?team=` links preview generically, which GitHub Pages cannot fix without per-team HTML.
+
+`docs/engineering/phase-7-team-selection.md`,
+`docs/decisions/0011-the-registry-is-not-the-menu.md`.
 
 ## Phase 8: My Teams
 
