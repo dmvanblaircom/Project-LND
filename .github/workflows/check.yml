@@ -19,3 +19,5 @@ jobs:
         run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js; do node --check "$f"; done
       - name: TeamOS ESPN adapter
         run: node tools/adaptercheck.js
+      - name: Every surface agrees on one live game state
+        run: node tools/livecheck.js

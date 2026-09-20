@@ -13,7 +13,7 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "lnd-2026-09-20a";
+var VERSION = "lnd-2026-09-20b";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -25,7 +25,7 @@ var DATA    = VERSION + "-data";
 // change when the team does.
 var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./boot.js", "./app.js",
-  "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js", "./teamos/espn.js"
+  "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js", "./teamos/live.js", "./teamos/espn.js"
 ];
 
 // League-wide data the Action commits - true for every team, so it can be
