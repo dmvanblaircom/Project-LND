@@ -115,6 +115,19 @@ TeamOS.espn = (function () {
   }
 
   // One ESPN schedule event -> one Game, from the team's point of view.
+  // ESPN writes a competitor's score as an object, a string or a number
+  // depending on the endpoint. null only when there is genuinely none.
+  function scoreOf(c){
+    var s = c ? c.score : null;
+    if (s == null) return null;
+    if (typeof s === "object") {
+      if (s.displayValue != null) return str(s.displayValue);
+      if (s.value != null) return str(s.value);
+      return null;
+    }
+    return str(s);
+  }
+
   function game(ev, team, config){
     var teamId = config.sources.espn.teamId;
     var comp=(ev.competitions&&ev.competitions[0])||{}, cs=comp.competitors||[];
@@ -137,8 +150,11 @@ TeamOS.espn = (function () {
       odds: odds(comp),
       series: seriesFor(config.series, oppLong),
       state: st.state||"pre", detail: st.shortDetail||"",
-      us: us&&us.score?(us.score.displayValue||us.score.value||us.score):null,
-      them: them&&them.score?(them.score.displayValue||them.score.value||them.score):null,
+      // A score of 0 is a score. The old truthiness test turned a real 0
+      // into null, which the view then printed as 0 by coincidence and
+      // which left the model unable to tell "0-0 in progress" from "no
+      // score yet".
+      us: scoreOf(us), them: scoreOf(them),
       won: us?us.winner===true:null
     };
   }
@@ -566,7 +582,12 @@ TeamOS.espn = (function () {
     // ESPN sends none.
     teamStatus: function(json){
       var t=(json&&json.team)||{};
-      var r=t.record&&t.record.items&&t.record.items[0];
+      // The overall record, by name rather than by position: ESPN usually
+      // sends one item but is free to send home/away/conference beside it,
+      // and reading whichever happened to be first is how a header ends up
+      // showing a 0-0 split record during a season.
+      var items=(t.record&&t.record.items)||[];
+      var r=items.filter(function(x){ return x && x.type==="total"; })[0] || items[0];
       return {
         rank:   (t.rank && t.rank<TOP25) ? t.rank : null,
         record: r ? str(r.summary) : null
