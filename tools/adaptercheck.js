@@ -22,7 +22,7 @@ function read(p) { return fs.readFileSync(path.join(root, p), "utf8"); }
 // A context with nothing but the two globals the scripts define.
 function load(teamFile) {
   var c = vm.createContext({});
-  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/espn.js"].forEach(function (f) {
+  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/espn.js"].forEach(function (f) {
     vm.runInContext(read(f), c, { filename: f });
   });
   return c;
@@ -548,6 +548,151 @@ eq(osuMan.start_url, "../../buckeye.html", "installing it opens Buckeye Watch, n
 eq(osuMan.icons, [], "no icons, because there is no approved artwork");
 eq(ndMan.start_url, "../../", "Notre Dame's still opens the site root");
 ok(osuMan.theme_color !== ndMan.theme_color, "the two manifests carry different theme colours");
+
+
+// ---- one live state per game ----
+// 2026-09-19: the Game Center showed Ohio State 49-0 in the fourth quarter
+// while the hero and the schedule row still showed 0-0, because the team's
+// schedule payload and the league scoreboard are different endpoints and only
+// one of them was being refreshed. TeamOS.live.reconcile is the rule that
+// makes the scoreboard the live truth for a game both describe; these checks
+// are that rule, and the screenshot itself as a fixture.
+console.log("teamos/live.js");
+var liveSrc = read("teamos/live.js");
+ok(!/\bfetch\s*\(/.test(liveSrc), "does not fetch");
+ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(uncomment(liveSrc)), "does not touch the DOM");
+ok(!/espn|ESPN/.test(uncomment(liveSrc)), "names no provider: it reads domain objects");
+ok(!/notre|irish|ohio|buckeye/i.test(uncomment(liveSrc)), "names no team");
+eq(Object.keys(TeamOS.live).sort(), ["anyLive", "isLive", "reconcile", "reconcileAll"], "exactly the documented functions");
+
+// The Kent State game as the app saw it: a Game from the schedule endpoint
+// that never left the pre-game snapshot, and the scoreboard's live view.
+function kentGame(over) {
+  return { id: "401858464", date: "2026-09-19T16:00Z", timeSet: true, home: true, neutral: false,
+           oppName: "Kent State", oppRank: null, venue: "Ohio Stadium", city: "Columbus",
+           venueState: "OH", zip: "43210", net: "FOX", odds: { line: "OSU -52.5", total: 59.5 },
+           series: null, state: over ? "pre" : "pre", detail: "", us: null, them: null, won: null };
+}
+function kentLeague(state, ours, theirs, detail) {
+  return { id: "401858464", date: "2026-09-19T16:00Z", timeSet: true, state: state, detail: detail,
+           venue: "Ohio Stadium", net: "FOX", odds: null,
+           home: { name: "Ohio State", rank: 6, score: ours },
+           away: { name: "Kent State", rank: null, score: theirs },
+           mine: true,
+           live: state === "in" ? { downDistance: "1st & 10", lastPlay: "Timeout Ohio State" } : null };
+}
+
+console.log(" the screenshot, as a fixture");
+var pre = kentGame();
+eq(pre.us, null, "before kickoff the schedule carries no score");
+
+var atKickoff = TeamOS.live.reconcile(pre, kentLeague("in", "0", "0", "15:00 - 1st"));
+eq([atKickoff.state, atKickoff.us, atKickoff.them], ["in", "0", "0"], "kickoff: 0-0 and in play");
+eq(atKickoff.detail, "15:00 - 1st", "and the clock");
+
+var fourth = TeamOS.live.reconcile(pre, kentLeague("in", "49", "0", "14:27 - 4th"));
+eq([fourth.state, fourth.us, fourth.them, fourth.detail], ["in", "49", "0", "14:27 - 4th"],
+   "the state the Game Center had, now on the Game every other surface reads");
+ok(fourth.us !== "0" && fourth.them !== "49", "our side is ours: the Game is the team's point of view");
+eq(fourth.won, null, "nobody has won while it is being played");
+
+// the away perspective of the same game
+var away = kentGame(); away.home = false;
+var awayFourth = TeamOS.live.reconcile(away, kentLeague("in", "49", "0", "14:27 - 4th"));
+eq([awayFourth.us, awayFourth.them], ["0", "49"], "the visiting team reads the same scoreboard the other way round");
+
+console.log(" a score of zero is a score");
+var shutout = TeamOS.live.reconcile(pre, kentLeague("post", "59", "0", "Final"));
+eq([shutout.state, shutout.us, shutout.them, shutout.won], ["post", "59", "0", true], "final 59-0: won, and the 0 survives");
+var lost = TeamOS.live.reconcile(pre, kentLeague("post", "0", "17", "Final"));
+eq([lost.us, lost.them, lost.won], ["0", "17", false], "and a 0 of our own is not mistaken for no score");
+var tied = TeamOS.live.reconcile(pre, kentLeague("post", "20", "20", "Final"));
+eq(tied.won, null, "a tie is neither won nor lost");
+
+console.log(" it never moves a game backwards");
+var running = TeamOS.live.reconcile(pre, kentLeague("in", "21", "7", "2:00 - 2nd"));
+var stale = TeamOS.live.reconcile(running, kentLeague("pre", null, null, "4:00 PM"));
+eq([stale.state, stale.us, stale.them], ["in", "21", "7"],
+   "a scoreboard that still says pre cannot un-start a game in progress");
+var done = TeamOS.live.reconcile(running, kentLeague("post", "49", "7", "Final"));
+eq([done.state, done.us, done.them], ["post", "49", "7"], "but post is allowed to follow in");
+
+console.log(" it leaves alone what the scoreboard has no opinion about");
+var keep = TeamOS.live.reconcile(pre, kentLeague("in", "49", "0", "14:27 - 4th"));
+["venue", "city", "venueState", "zip", "net", "odds", "series", "timeSet", "home", "neutral", "oppName", "date"].forEach(function (k) {
+  eq(keep[k], pre[k], "keeps " + k);
+});
+ok(keep !== pre, "and returns a new object rather than mutating the schedule's");
+eq(pre.state, "pre", "the input is untouched");
+
+console.log(" a different game is not reconciled");
+var other = TeamOS.live.reconcile(pre, kentLeague("in", "49", "0", "14:27 - 4th"));
+var wrongId = kentLeague("in", "99", "0", "1:00 - 4th"); wrongId.id = "999999";
+eq(TeamOS.live.reconcile(pre, wrongId), pre, "an id that does not match returns the game untouched");
+eq(TeamOS.live.reconcile(pre, null), pre, "no scoreboard entry returns the game untouched");
+eq(TeamOS.live.reconcile(null, wrongId), null, "no game returns nothing");
+
+console.log(" the whole schedule against the whole scoreboard");
+var season = [kentGame(), { id: "401858465", state: "pre", home: false, us: null, them: null, detail: "" }];
+var board = [kentLeague("in", "49", "0", "14:27 - 4th")];
+var out = TeamOS.live.reconcileAll(season, board);
+eq([out[0].state, out[0].us], ["in", "49"], "the game the scoreboard knows is updated");
+eq(out[1], season[1], "the one it does not know is passed through unchanged");
+eq(TeamOS.live.reconcileAll(season, []), season, "an empty scoreboard changes nothing");
+eq(TeamOS.live.reconcileAll(season, null), season, "and neither does a missing one");
+ok(TeamOS.live.anyLive(board), "anyLive sees a game in play");
+ok(!TeamOS.live.anyLive([kentLeague("post", "59", "3", "Final")]), "and sees that a final is not");
+ok(TeamOS.live.isLive(fourth) && !TeamOS.live.isLive(pre), "isLive reads one game's state");
+
+// ---- a Top 25 game that is not ours ----
+console.log(" a Top 25 game nobody here follows");
+var neutralGame = { id: "555", date: "2026-09-19T20:00Z", state: "pre", home: true, us: null, them: null, detail: "", oppName: "Somebody" };
+var neutralBoard = { id: "555", state: "in", detail: "3:12 - 3rd",
+                     home: { name: "Team A", rank: 4, score: "17" }, away: { name: "Team B", rank: 12, score: "21" },
+                     mine: false, live: { downDistance: "3rd & 2", lastPlay: "Pass complete" } };
+var n = TeamOS.live.reconcile(neutralGame, neutralBoard);
+eq([n.state, n.us, n.them, n.detail], ["in", "17", "21", "3:12 - 3rd"],
+   "reconciles by id whether or not the game is the configured team's");
+
+// ---- the Suite is wired to one clock ----
+console.log("app.js: one live loop");
+var appLive = read("app.js");
+ok(!/G\.poll/.test(appLive), "the Game tab no longer keeps its own timer");
+ok(/TeamOS\.live\.reconcileAll\(games, SB\.games\)/.test(appLive),
+   "the schedule is reconciled with the scoreboard where S.games is set");
+ok(/getScoreboard\(0\)[\s\S]{0,200}refreshSchedule\(false\)/.test(appLive),
+   "and the tick refreshes the scoreboard before the schedule, in that order");
+ok(/if\(!\$\("panel-game"\)\.hidden && G\.live\) loadGame\(true\)/.test(appLive),
+   "the same tick drives the Game tab");
+ok(/if\(S\.tick\)\{ clearInterval\(S\.tick\); S\.tick=null; \}[\s\S]{0,120}Playing now/.test(appLive),
+   "the countdown is cancelled when a game goes live");
+ok(/S\.next\.state==="pre"[\s\S]{0,140}refreshSchedule\(false\)/.test(appLive),
+   "and a session opened before kickoff goes looking once kickoff passes");
+
+console.log("teamos/espn.js: a 0 is a 0");
+var espnSrc = read("teamos/espn.js");
+ok(/function scoreOf\(c\)/.test(espnSrc), "scores go through one reader");
+ok(!/us&&us\.score\?/.test(espnSrc), "the truthiness test that turned a real 0 into null is gone");
+var zero = TeamOS.espn.schedule({ events: [{ id: "1", date: "2026-09-19T16:00Z",
+  competitions: [{ status: { type: { state: "in", shortDetail: "14:27 - 4th" } },
+    competitors: [{ id: "87", homeAway: "home", score: { value: 0, displayValue: "0" }, team: { id: "87" } },
+                  { id: "999", homeAway: "away", score: { value: 49, displayValue: "49" }, team: { id: "999", displayName: "Them" } }] }] }] },
+  ND, TEAM_CONFIG)[0];
+eq([zero.us, zero.them], ["0", "49"], "a schedule payload with a real 0 keeps it");
+var none = TeamOS.espn.schedule({ events: [{ id: "2", date: "2026-09-19T16:00Z",
+  competitions: [{ status: { type: { state: "pre" } },
+    competitors: [{ id: "87", homeAway: "home", team: { id: "87" } },
+                  { id: "999", homeAway: "away", team: { id: "999", displayName: "Them" } }] }] }] },
+  ND, TEAM_CONFIG)[0];
+eq([none.us, none.them], [null, null], "and no score at all is still null");
+
+console.log("teamos/espn.js: the overall record by name");
+eq(TeamOS.espn.teamStatus({ team: { record: { items: [
+  { type: "home", summary: "0-0" }, { type: "total", summary: "3-0" }] } } }).record, "3-0",
+  "the total record is found even when it is not first");
+eq(TeamOS.espn.teamStatus({ team: { record: { items: [{ type: "total", summary: "2-1" }] } } }).record, "2-1",
+  "and when it is the only one");
+eq(TeamOS.espn.teamStatus({ team: {} }).record, null, "no record at all is null");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "all adapter checks passed"));
 process.exit(failures ? 1 : 0);
