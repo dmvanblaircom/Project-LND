@@ -560,6 +560,50 @@ details.fold>summary{padding:.75rem .9rem;background:rgba(var(--t-surface-rgb),.
 .tabbar button#tab-game[aria-selected="true"] svg{stroke-width:1.75}
 
 /* ====================================================================
+   THE CHOOSER
+   ==================================================================== */
+/* Shown by boot.js on a first visit, before any team config has loaded, so
+   it paints in whatever the stylesheet's own team tokens say - the deployed
+   team's. It is a way in, not a destination: pick a team and the page
+   reloads at ?team=<id> and never comes back here. */
+html.choosing .page,
+html.choosing .tabbar{display:none}
+html.choosing,html.choosing body{background:var(--t-abyss) !important}
+#chooser{min-height:100vh;padding:calc(1.5rem + env(safe-area-inset-top,0px)) var(--gutter) 3rem;
+  display:flex;justify-content:center}
+.choosebox{width:100%;max-width:34rem}
+.choosebox .kicker{font-family:var(--t-font-display);font-weight:700;font-size:.62rem;
+  letter-spacing:.2em;color:var(--dim);margin:0 0 .25rem}
+.choosebox h1{font-family:var(--t-font-display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;font-size:1.9rem;line-height:1.05;margin:0;color:var(--paper)}
+.choosebox .sub{color:var(--dim);margin:.45rem 0 1.1rem;font-size:.95rem;max-width:30rem}
+#teamFilter{width:100%;box-sizing:border-box;min-height:2.9rem;padding:0 .9rem;
+  border-radius:9px;border:1px solid var(--line);background:rgba(var(--t-surface-rgb),.55);
+  color:var(--paper);font-family:var(--t-font-ui);font-size:1rem}
+#teamFilter:focus{outline:2px solid var(--t-focus);outline-offset:2px;border-color:var(--t-accent)}
+#teamFilter::placeholder{color:var(--dim)}
+.choosebox h2.sec{display:flex;align-items:baseline;gap:.5rem;font-family:var(--t-font-display);
+  font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;
+  color:var(--t-accent-text);margin:1.5rem 0 .4rem;padding:.55rem 0 0;
+  border-top:1px solid var(--line);border-bottom:0}
+.choosebox h2.sec .count{margin-left:auto;font-size:.78rem;color:var(--dim);font-weight:600}
+ul.picks{margin:0;padding:0;list-style:none}
+ul.picks li{margin:0 0 .3rem}
+.pick{display:flex;flex-wrap:wrap;align-items:baseline;gap:.45rem;width:100%;text-align:left;
+  min-height:3rem;padding:.6rem .8rem;border-radius:9px;border:1px solid var(--line);
+  background:rgba(var(--t-surface-rgb),.5);color:var(--paper);
+  font-family:var(--t-font-ui);font-size:1.02rem;font-weight:600;
+  transition:border-color .15s ease,background .15s ease}
+button.pick{cursor:pointer}
+button.pick:hover{border-color:var(--t-accent);background:rgba(var(--t-accent-rgb),.09)}
+button.pick:focus-visible{outline:2px solid var(--t-focus);outline-offset:2px}
+.pick .nick{font-weight:400;color:var(--dim);font-size:.92rem}
+.pick .conf{margin-left:auto;font-size:.74rem;color:var(--dim);font-weight:500;
+  font-family:var(--t-font-display);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.pick.off{opacity:.5;cursor:default;background:transparent}
+.choosebox .none{color:var(--dim);margin:1rem 0 0}
+
+/* ====================================================================
    RESPONSIVE - widest first, so a narrower block always wins
    ==================================================================== */
 @media (min-width:48rem){
@@ -579,6 +623,9 @@ details.fold>summary{padding:.75rem .9rem;background:rgba(var(--t-surface-rgb),.
   .tabbar button#tab-game svg{width:37px;height:37px}
 }
 @media (max-width:32rem){
+  .choosebox h1{font-size:1.6rem}
+  .pick .conf{display:none}
+  #chooser{padding-left:.8rem;padding-right:.8rem}
   :root{--gutter:.8rem}
   .bar{min-height:4.15rem}
   .brand-kicker{font-size:.57rem;letter-spacing:.14em}

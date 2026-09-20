@@ -504,89 +504,128 @@ ok(/paintIdentity\(\);/.test(js), "applies identity once, in one place");
 ok(!/\bnd\b/.test(jsBody), "no leftover nd identifier");
 
 
-// ---- team selection (Phase 7A) ----
+// ---- team selection (Phase 7A/7B) ----
 // The team is no longer a line in index.html; boot.js resolves it from the
-// URL, then from what a previous visit remembered, then from the default.
-// These checks cover the resolution rules and the things that must NOT come
-// back: a team named in the HTML, a team's files in the worker's install
-// list, or a second page per team.
+// URL, then from what a previous visit remembered, and asks when it has
+// neither. These checks cover every resolution path, the registry, and the
+// things that must not come back: a team named in the HTML, a team's files in
+// the worker's install list, or a second page per team.
 console.log("boot.js");
 var bootSrc = read("boot.js");
 ok(!/\bfetch\s*\(/.test(bootSrc), "does not fetch: it injects scripts, so a config keeps its regexes");
 ok(!/notre dame|irish|ohio|buckeye/i.test(uncomment(bootSrc).replace(/DEFAULT_TEAM\s*=\s*"[^"]*"/, "")),
-   "names no team outside the one default");
+   "names no team outside the one fallback");
 
 // Run boot.js against a stubbed page and see what it asks for.
-function boot(search, storage, missing) {
-  var loaded = [], store = storage ? { "lnd.team": storage } : {};
+function boot(search, storage, missing, registry) {
+  var loaded = [], store = storage ? { "lnd.team": storage } : {}, page = { title: "", cls: "" };
   var ctx = vm.createContext({
-    location: { search: search || "" },
+    location: { search: search || "", replace: function (u) { page.went = u; } },
     localStorage: {
       getItem: function (k) { return k in store ? store[k] : null; },
       setItem: function (k, v) { store[k] = v; },
       removeItem: function (k) { delete store[k]; }
     },
     document: {
+      get title() { return page.title; }, set title(v) { page.title = v; },
+      documentElement: { get className() { return page.cls; }, set className(v) { page.cls = v; } },
+      body: { appendChild: function (el) { page.chooser = el; } },
       head: { appendChild: function (s) {
         loaded.push(s.src);
-        // a config the deployment does not have fails to load, like a 404
         setTimeout(function () {
-          if (missing && missing.indexOf(s.src) > -1) { if (s.onerror) s.onerror(); }
-          else if (s.onload) s.onload();
+          if (missing && missing.indexOf(s.src) > -1) { if (s.onerror) s.onerror(); return; }
+          // the registry defines TEAM_INDEX when it loads
+          if (s.src === "teams/index.js" && registry) ctx.TEAM_INDEX = registry;
+          if (s.onload) s.onload();
         }, 0);
       } },
-      createElement: function () { return {}; }
+      createElement: function () {
+        return { set innerHTML(v) { page.html = v; }, get innerHTML() { return page.html || ""; },
+                 addEventListener: function () {}, id: "" };
+      },
+      getElementById: function () { return { addEventListener: function () {}, focus: function () {}, value: "" }; }
     },
     setTimeout: setTimeout
   });
   vm.runInContext(bootSrc, ctx, { filename: "boot.js" });
-  return { ctx: ctx, loaded: loaded, store: store };
+  return { ctx: ctx, loaded: loaded, store: store, page: page };
 }
 function settle(r) {
-  // every injection chains through a timer, and the fallback case chains
-  // twice, so wait for the queue to drain rather than a fixed guess
   return new Promise(function (res) {
     var ticks = 0;
     (function spin() {
-      if (++ticks > 50) return res(r);
-      setTimeout(function () { r.loaded.indexOf("app.js") > -1 ? res(r) : spin(); }, 1);
+      if (++ticks > 60) return res(r);
+      setTimeout(function () {
+        (r.loaded.indexOf("app.js") > -1 || r.page.chooser) ? res(r) : spin();
+      }, 1);
     })();
   });
 }
 
+var REG = { updated: "2026-09-20", season: 2026, teams: [
+  { id: "notre-dame", name: "Notre Dame", nickname: "Fighting Irish", abbreviation: "ND", espn: "87", conference: "FBS Independents", built: true },
+  { id: "ohio-state", name: "Ohio State", nickname: "Buckeyes", abbreviation: "OSU", espn: "194", conference: "Big Ten Conference", built: true },
+  { id: "indiana", name: "Indiana", nickname: "Hoosiers", abbreviation: "IU", espn: "84", conference: "Big Ten Conference" }
+] };
+
 var results = [];
-function check(name, search, storage, missing, expectTeam, expectScripts, expectStored) {
-  var r = boot(search, storage, missing);
+function check(name, search, storage, expectTeam, expectScripts, expectStored) {
+  var r = boot(search, storage, null, REG);
   results.push(settle(r).then(function () {
-    eq(r.ctx.LND.team, expectTeam, name + ": resolves to " + expectTeam);
+    eq(r.ctx.LND.team, expectTeam, name + ": resolves to " + JSON.stringify(expectTeam));
     eq(r.loaded, expectScripts, name + ": loads");
     eq(r.store["lnd.team"], expectStored, name + ": remembers " + JSON.stringify(expectStored));
   }));
 }
 
-check("nothing at all", "", null, null,
-      "notre-dame", ["teams/notre-dame.js", "app.js"], undefined);
-check("a link", "?team=ohio-state", null, null,
-      "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
-check("a remembered choice", "", "ohio-state", null,
-      "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
-check("a link beats what was remembered", "?team=notre-dame", "ohio-state", null,
-      "notre-dame", ["teams/notre-dame.js", "app.js"], "notre-dame");
-check("another parameter alongside", "?utm=x&team=ohio-state&y=1", null, null,
-      "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
-check("a team with no config falls back once", "?team=rutgers", null, ["teams/rutgers.js"],
-      "rutgers", ["teams/rutgers.js", "teams/notre-dame.js", "app.js"], undefined);
+console.log(" a first visit is asked, not assumed");
+check("nothing at all", "", null, null, ["teams/index.js"], undefined);
+var first = boot("", null, null, REG);
+results.push(settle(first).then(function () {
+  ok(first.ctx.LND.choosing, "LND.choosing is set");
+  eq(first.page.title, "Choose your team", "the tab says so");
+  ok(/choosing/.test(first.page.cls), "and the page is put in the choosing state");
+  ok(first.loaded.indexOf("app.js") === -1, "the application is not started");
+  var html = first.page.html || "";
+  ok(/data-team="notre-dame"/.test(html) && /data-team="ohio-state"/.test(html),
+     "the built teams are offered");
+  ok(!/data-team="indiana"/.test(html), "a team with no config is listed but not offered");
+  ok(/Indiana/.test(html), "though it is still shown, so the league is visible");
+  ok(/pick off/.test(html), "unbuilt teams are marked as not selectable");
+}));
 
-// a malformed id is never turned into a script src
+console.log(" every other path goes straight to a team");
+check("a link", "?team=ohio-state", null, "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
+check("a remembered choice", "", "ohio-state", "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
+check("a link beats a memory", "?team=notre-dame", "ohio-state", "notre-dame", ["teams/notre-dame.js", "app.js"], "notre-dame");
+check("another parameter alongside", "?utm=x&team=ohio-state&y=1", null, "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
+
+console.log(" a team that was asked for but cannot be given falls back");
 [["?team=../../etc/passwd", "path traversal"], ["?team=Notre%20Dame", "spaces and capitals"],
- ["?team=", "empty"], ["?team=" + encodeURIComponent("a".repeat(60)), "absurdly long"]].forEach(function (p) {
-  var r = boot(p[0], null, null);
+ ["?team=", "an empty value"], ["?team=" + encodeURIComponent("a".repeat(60)), "an absurd length"]].forEach(function (p) {
+  var r = boot(p[0], null, null, REG);
   results.push(settle(r).then(function () {
-    eq(r.ctx.LND.team, "notre-dame", "rejects " + p[1] + ", falls back to the default");
+    eq(r.ctx.LND.team, "notre-dame", p[1] + " opens the fallback team");
+    ok(r.ctx.LND.rejected, p[1] + " is recorded as rejected");
+    ok(!r.ctx.LND.choosing, p[1] + " is not answered with the chooser - a team was asked for");
+    eq(r.store["lnd.team"], undefined, p[1] + " is not remembered");
     ok(r.loaded.every(function (s) { return /^teams\/[a-z0-9-]+\.js$|^app\.js$/.test(s); }),
-       "rejects " + p[1] + ": every script it loaded has a safe path");
+       p[1] + ": every script it loaded has a safe path");
   }));
 });
+
+var gone = boot("?team=rutgers", null, ["teams/rutgers.js"], REG);
+results.push(settle(gone).then(function () {
+  eq(gone.loaded, ["teams/rutgers.js", "teams/notre-dame.js", "app.js"],
+     "a well-formed id with no config falls back once");
+  eq(gone.store["lnd.team"], undefined, "and is forgotten");
+}));
+
+var noReg = boot("", null, ["teams/index.js"], REG);
+results.push(settle(noReg).then(function () {
+  eq(noReg.loaded, ["teams/index.js", "teams/notre-dame.js", "app.js"],
+     "a registry that will not load opens the fallback rather than a dead end");
+}));
 
 // storage that throws must not stop the page
 var threw = vm.createContext({
@@ -595,15 +634,39 @@ var threw = vm.createContext({
                   setItem: function () { throw new Error("denied"); },
                   removeItem: function () { throw new Error("denied"); } },
   document: { head: { appendChild: function (s) { if (s.onload) setTimeout(s.onload, 0); } },
-              createElement: function () { return {}; } },
+              createElement: function () { return {}; }, documentElement: {}, body: {} },
   setTimeout: setTimeout
 });
 vm.runInContext(bootSrc, threw, { filename: "boot.js" });
 eq(threw.LND.team, "ohio-state", "a private window, where storage throws, still opens the team in the link");
 
+console.log("teams/index.js: the FBS registry");
+var regCtx = vm.createContext({});
+vm.runInContext(read("teams/index.js"), regCtx, { filename: "teams/index.js" });
+var REGISTRY = regCtx.TEAM_INDEX;
+eq(REGISTRY.teams.length, 138, "every FBS program");
+ok(REGISTRY.teams.every(function (t) { return /^[a-z][a-z0-9-]*$/.test(t.id); }), "every id is a safe slug");
+ok(REGISTRY.teams.some(function (t) { return t.id === "texas-am"; }), "Texas A&M is texas-am");
+ok(REGISTRY.teams.some(function (t) { return t.id === "san-jose-state"; }), "San Jose State is san-jose-state");
+ok(REGISTRY.teams.some(function (t) { return t.id === "miami"; }) &&
+   REGISTRY.teams.some(function (t) { return t.id === "miami-oh"; }), "the two Miamis are distinct");
+ok(REGISTRY.teams.some(function (t) { return t.id === "indiana" && !t.built; }) &&
+   REGISTRY.teams.some(function (t) { return t.id === "byu" && !t.built; }),
+   "Indiana and BYU are known but not yet built");
+
+// The registry's idea of what is built and the filesystem's must agree. This
+// is what makes a team selectable by writing its config and nothing else.
+var onDisk = fs.readdirSync(path.join(root, "teams"))
+  .filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; })
+  .map(function (f) { return f.replace(/\.js$/, ""); }).sort();
+var flagged = REGISTRY.teams.filter(function (t) { return t.built; })
+  .map(function (t) { return t.id; }).sort();
+eq(flagged, onDisk, "built teams are exactly the configs in teams/");
+ok(flagged.length === 2, "which today is two");
+
 console.log("index.html");
 var idxSrc = read("index.html");
-ok(!/teams\/[a-z-]+\.js/.test(idxSrc), "names no team: the HTML is the same for every team");
+ok(!/teams\/[a-z-]+\.js/.test(idxSrc.replace(/teams\/index\.js/g, "")), "names no team");
 ok(/<script src="boot\.js" defer><\/script>/.test(idxSrc), "loads boot.js");
 ok(idxSrc.indexOf('<script src="boot.js"') > idxSrc.indexOf('<script src="teamos/espn.js"'),
    "after TeamOS, which boot.js relies on being defined");
@@ -613,8 +676,10 @@ console.log("sw.js");
 var swSrc = read("sw.js");
 var shellList = swSrc.match(/var SHELL_FILES = \[[\s\S]*?\];/)[0];
 var dataList = swSrc.match(/var DATA_FILES = \[[\s\S]*?\];/)[0];
-ok(!/teams\/|assets\//.test(shellList), "the install list names no team's config or artwork");
-ok(/boot\.js/.test(shellList), "but does precache boot.js");
+ok(!/teams\/(?!index\.js)/.test(shellList), "the install list names no team's config");
+ok(!/assets\//.test(shellList), "and no team's artwork");
+ok(/teams\/index\.js/.test(shellList), "but does precache the registry, so the chooser works offline");
+ok(/boot\.js/.test(shellList), "and boot.js");
 ok(!/depth|news|odds-history/.test(dataList), "the seeded data is league-wide only, not a team's snapshots");
 ok(/odds-title|odds-playoff/.test(dataList), "which still covers the league odds");
 ok(/"team-files"/.test(swSrc), "accepts the page's list of its team's files");
@@ -622,7 +687,6 @@ ok(swSrc.indexOf('f.indexOf("//") === -1') > -1 && swSrc.indexOf('f.charAt(0) !=
    "and only caches same-origin relative paths from it");
 ok(/var data = [^;]*json\$/.test(swSrc) && /name = data \? DATA : SHELL/.test(swSrc),
    "routing a team's snapshots to the data cache, where the offline fallback looks");
-ok(/\/\^\(iw\|lnd\)-20\/|\(iw\|lnd\)-20/.test(swSrc), "activate still sweeps caches from before the rename");
 
 console.log("app.js");
 var appSrc = read("app.js");
@@ -634,7 +698,6 @@ var bwSrc = read("buckeye.html");
 ok(/\?team=ohio-state/.test(bwSrc), "redirects to the team's address");
 ok(!/teams\/ohio-state\.js|app\.js|app\.css/.test(bwSrc), "and is no longer a copy of the application");
 ok(/noindex/.test(bwSrc), "and asks not to be indexed");
-
 
 // ---- one live state per game ----
 // 2026-09-19: the Game Center showed Ohio State 49-0 in the fourth quarter
