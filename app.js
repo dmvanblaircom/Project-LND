@@ -292,6 +292,10 @@ function paintHero(g){
     : "";
 
   if(g.state==="in"){
+    // The countdown belongs to a game that has not started. Leaving it
+    // running here let it fire once more, see that kickoff had passed and
+    // overwrite the live clock with the word "Kickoff".
+    if(S.tick){ clearInterval(S.tick); S.tick=null; }
     $("heroWhen").textContent="Playing now \u00B7 "+
       (g.neutral?"neutral site":(g.home?"home game":"road game"));
     $("heroLine").innerHTML="<b>"+esc(TEAM.name)+" "+(g.us||0)+", "+esc(g.oppName)+" "+(g.them||0)+"</b>";
@@ -314,7 +318,7 @@ function paintHero(g){
   if(g.series) $("heroSeries").textContent="Playing for the "+g.series;
   paintWeather(g);
 
-  if(S.tick) clearInterval(S.tick);
+  if(S.tick){ clearInterval(S.tick); S.tick=null; }
   if(!known){ $("heroClock").textContent=""; return; }
   function tickOnce(){
     var ms=new Date(g.date)-new Date();
@@ -1103,7 +1107,7 @@ function loadHistory(){
 
 // box: whether the full box score fold is open, remembered across the team
 // toggle and the 25-second live repaint.
-var G = { poll:null, id:null, side:null, box:false, pending:false };
+var G = { live:false, id:null, side:null, box:false, pending:false };
 
 function numOf(v){ var n=parseFloat(String(v).replace(/[^0-9.\-]/g,"")); return isNaN(n)?null:n; }
 // "5-13" is a made/attempted pair, not the number 5. Compare the rate.
@@ -1170,7 +1174,9 @@ function loadGame(force){
   if(el.dataset.loaded===g.id && !force) return;
   if(!el.dataset.loaded) el.innerHTML='<p class="loading">Loading the game…</p>';
 
-  summaryFor(g.id, g.state==="in").then(function(raw){
+  // g.state is the reconciled state, so a game the scoreboard says is in
+  // play is fetched fresh even if the schedule payload still lags.
+  summaryFor(g.id, g.state==="in" || G.live).then(function(raw){
     var gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
     var shape=gameShape(gd);
     if(el.dataset.loaded===g.id && el.dataset.shape===shape){
@@ -1190,15 +1196,13 @@ function loadGame(force){
   });
 }
 
-// Poll only while the ball is actually in play, and stop when the tab is hidden.
+// The Game tab used to keep its own 25-second timer, which is how it could
+// be three hours ahead of the hero: it polled the summary endpoint while
+// nothing refreshed the schedule. There is now one live loop (autoTick), and
+// this only records whether the ball is in play so that loop knows to include
+// the Game tab.
 function schedulePoll(gd){
-  if(G.poll){ clearInterval(G.poll); G.poll=null; }
-  if(gd.state!=="in") return;
-  G.poll=setInterval(function(){
-    if(document.hidden) return;
-    if($("panel-game").hidden) return;
-    loadGame(true);
-  }, 25000);
+  G.live = gd.state==="in";
 }
 document.addEventListener("visibilitychange", function(){
   if(!document.hidden && !$("panel-game").hidden) loadGame(true);
@@ -1799,10 +1803,9 @@ function selectTab(tab, focusIt){
   window.scrollTo(0,0);
   var name=tab.id.replace("tab-","");
   UI.tab=name; layoutForTab();
-  // Force a refresh on entry: the dataset guard would otherwise skip
-  // schedulePoll and the tab would sit frozen after the first visit.
+  // Force a refresh on entry: the dataset guard would otherwise leave the
+  // tab showing whatever it held the last time it was open.
   if(name==="game")   loadGame(true);
-  else if(G.poll){ clearInterval(G.poll); G.poll=null; }   // left the tab, stop polling
   if(name==="around") loadAround();
   if(name==="depth")  loadDepth();
   if(name==="news")   loadNews();
@@ -1891,11 +1894,21 @@ function startAuto(){
 function autoTick(){
   if(document.hidden) return;
   if(!somethingLive()){ startAuto(); return; }   // everything finished, stand down
-  refreshSchedule(false);
+
+  // One tick, one live state. The scoreboard is refreshed first because the
+  // schedule is reconciled against it, so the hero, the schedule rows, the
+  // Top 25 row and the Game Center all move together rather than each on
+  // their own clock.
+  getScoreboard(0).catch(function(){ return null; }).then(function(){
+    return refreshSchedule(false);
+  }).then(function(){
+    if(!$("panel-game").hidden && G.live) loadGame(true);
+  }).catch(function(){});
+
   if(!$("panel-around").hidden){
     // Looking at the list. Patch the rows that moved rather than rebuilding the
     // tab, so scroll position, open folds and the pill selection all survive.
-    getScoreboard(0).then(function(){
+    getScoreboard(30000).then(function(){
       if($("panel-around").hidden) return;
       if(!patchRanked(SB.games)){
         var y=window.scrollY;
@@ -1990,6 +2003,12 @@ function refreshSchedule(first){
   // then again when ESPN answers. paintSchedule keeps any open box score.
   function apply(d){
     var games=TeamOS.espn.schedule(d, TEAM, TEAM_CONFIG);
+    // The scoreboard is the league's live feed and the schedule is a season
+    // list; where they describe the same game, the scoreboard is what is
+    // happening now. Reconciling here means every surface fed by S.games -
+    // hero, hero-mini, schedule rows, and which game the Game tab shows -
+    // reads one state (docs/decisions/0010-one-live-state-per-game.md).
+    games=TeamOS.live.reconcileAll(games, SB.games);
     S.games=games;
     var live=games.filter(function(g){return g.state==="in";})[0];
     var up=games.filter(function(g){return g.state==="pre";})[0];
@@ -2196,7 +2215,27 @@ document.addEventListener("visibilitychange", function(){
   if(away>FRESH.afterHidden || Date.now()-FRESH.at>FRESH.whileVisible) refreshAll(true);
 });
 setInterval(function(){
-  if(document.hidden || somethingLive()) return;   // the live poller is already refreshing
+  if(document.hidden) return;
+  if(somethingLive()) return;                      // the live poller is already refreshing
+
+  // Kickoff has come and gone but our snapshot still calls the game upcoming.
+  // Nothing else would notice for up to half an hour: startAuto() only runs
+  // after a fetch, and without a fetch there is no fetch. Look once.
+  if(S.next && S.next.state==="pre" && S.next.timeSet &&
+     Date.now() >= new Date(S.next.date).getTime()){
+    refreshSchedule(false);
+    return;
+  }
+  // Reading the Top 25 while the league starts playing: the same blind spot,
+  // one endpoint over.
+  if(!$("panel-around").hidden && Date.now()-SB.at > 60000){
+    getScoreboard(0).then(function(){
+      if(!$("panel-around").hidden && SB.games && !patchRanked(SB.games)){
+        $("panel-around").dataset.loaded=""; loadAround();
+      }
+    }).catch(function(){});
+    return;
+  }
   if(Date.now()-FRESH.at>FRESH.whileVisible) refreshAll(true);
 }, 60e3);
 
