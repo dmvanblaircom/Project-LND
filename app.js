@@ -158,6 +158,31 @@ function paintIdentity(){
 }
 paintIdentity();
 
+// The service worker precaches the application shell, which is the same for
+// every team. What it cannot know is which team this visit is for - a worker
+// has no access to the URL that opened the page, nor to what boot.js
+// remembered - so the page tells it, once, as soon as identity is applied.
+// Phase 7 removed the team's files from the worker's install list for exactly
+// this reason: it was precaching one team's config and snapshots whatever
+// team was configured (docs/engineering/phase-6-team-identity.md).
+function cacheTeamFiles(){
+  if(!("serviceWorker" in navigator)) return;
+  var files = ["teams/"+TEAM.id+".js", ID.manifest];
+  ["favicon","icon32","icon64","appleTouch","og"].forEach(function(k){
+    if(ID.assets[k]) files.push(ID.assets[k]);
+  });
+  ["depth","oddsHistory","beatNews"].forEach(function(kind){
+    var snap = TeamOS.snapshots.get(TEAM_CONFIG, kind);
+    if(!snap) return;
+    files.push(snap.file);
+    if(snap.history) files.push(snap.history);
+  });
+  navigator.serviceWorker.ready.then(function(reg){
+    if(reg.active) reg.active.postMessage({ type:"team-files", team:TEAM.id, files:files });
+  }).catch(function(){});
+}
+cacheTeamFiles();
+
 
 function get(url){
   return fetch(url,{cache:"no-store"}).then(function(r){

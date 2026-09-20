@@ -504,50 +504,138 @@ ok(/paintIdentity\(\);/.test(js), "applies identity once, in one place");
 ok(!/\bnd\b/.test(jsBody), "no leftover nd identifier");
 
 
-// ---- the Buckeye Watch test page ----
-// buckeye.html is index.html with the team swapped: a different config script
-// and the identity words that are visible before app.js runs. Nothing else may
-// differ, or the two pages start drifting into two applications - so the check
-// below neutralises exactly the identity and compares everything else byte for
-// byte. Team selection proper, and what the worker should precache for it, is
-// Phase 7; this page is a deployment convenience, not that.
-console.log("buckeye.html");
-var idx = read("index.html").replace(/\r\n/g, "\n");
-var bw = read("buckeye.html").replace(/\r\n/g, "\n");
+// ---- team selection (Phase 7A) ----
+// The team is no longer a line in index.html; boot.js resolves it from the
+// URL, then from what a previous visit remembered, then from the default.
+// These checks cover the resolution rules and the things that must NOT come
+// back: a team named in the HTML, a team's files in the worker's install
+// list, or a second page per team.
+console.log("boot.js");
+var bootSrc = read("boot.js");
+ok(!/\bfetch\s*\(/.test(bootSrc), "does not fetch: it injects scripts, so a config keeps its regexes");
+ok(!/notre dame|irish|ohio|buckeye/i.test(uncomment(bootSrc).replace(/DEFAULT_TEAM\s*=\s*"[^"]*"/, "")),
+   "names no team outside the one default");
 
-function skeleton(t) {
-  return t
-    .replace(/<!--[\s\S]*?-->/g, "")                                  // comments
-    .slice(t.replace(/<!--[\s\S]*?-->/g, "").indexOf("</head>"))      // head is identity
-    .replace(/<script src="teams\/[a-z-]+\.js" defer><\/script>/, '<script src="TEAM" defer></script>')
-    .replace(/(<div class="brand-kicker">)[^<]*(<\/div>)/, "$1KICKER$2")
-    .replace(/(<h1>)[^<]*(<\/h1>)/, "$1PRODUCT$2")
-    .replace(/(<h2 class="sr-only" id="heroHead">)[^<]*(<\/h2>)/, "$1HERO$2")
-    .replace(/(<h2 class="sr-only" id="dataHead">)[^<]*(<\/h2>)/, "$1DATA$2")
-    .replace(/(<p class="motto" id="motto">)[^<]*(<\/p>)/, "$1MOTTO$2");
+// Run boot.js against a stubbed page and see what it asks for.
+function boot(search, storage, missing) {
+  var loaded = [], store = storage ? { "lnd.team": storage } : {};
+  var ctx = vm.createContext({
+    location: { search: search || "" },
+    localStorage: {
+      getItem: function (k) { return k in store ? store[k] : null; },
+      setItem: function (k, v) { store[k] = v; },
+      removeItem: function (k) { delete store[k]; }
+    },
+    document: {
+      head: { appendChild: function (s) {
+        loaded.push(s.src);
+        // a config the deployment does not have fails to load, like a 404
+        setTimeout(function () {
+          if (missing && missing.indexOf(s.src) > -1) { if (s.onerror) s.onerror(); }
+          else if (s.onload) s.onload();
+        }, 0);
+      } },
+      createElement: function () { return {}; }
+    },
+    setTimeout: setTimeout
+  });
+  vm.runInContext(bootSrc, ctx, { filename: "boot.js" });
+  return { ctx: ctx, loaded: loaded, store: store };
 }
-ok(skeleton(bw) === skeleton(idx),
-   "identical to index.html below </head> once the team's own words are set aside");
-ok(/<script src="teams\/ohio-state\.js" defer><\/script>/.test(bw), "loads the Ohio State config");
-ok(/<script src="teams\/notre-dame\.js" defer><\/script>/.test(idx), "and index.html still loads Notre Dame's");
+function settle(r) {
+  // every injection chains through a timer, and the fallback case chains
+  // twice, so wait for the queue to drain rather than a fixed guess
+  return new Promise(function (res) {
+    var ticks = 0;
+    (function spin() {
+      if (++ticks > 50) return res(r);
+      setTimeout(function () { r.loaded.indexOf("app.js") > -1 ? res(r) : spin(); }, 1);
+    })();
+  });
+}
 
-var bwHead = bw.slice(0, bw.indexOf("</head>")).replace(/<!--[\s\S]*?-->/g, "");
-var bwVisible = bw.replace(/<!--[\s\S]*?-->/g, "");
-ok(!/notre-dame|irish-watch/i.test(bwVisible), "references no Notre Dame file");
-ok(!/Notre Dame|Irish Watch|Leave No Doubt/.test(bwVisible), "shows no Notre Dame words before a script runs");
-ok(!/rel="icon"|apple-touch-icon|og:image|twitter:image|twitter:card/.test(bwHead),
-   "declares no artwork tags, because Ohio State has no artwork");
-ok(/<link rel="manifest" href="assets\/ohio-state\/manifest\.json">/.test(bwHead), "points at its own manifest");
-ok(/<title>Buckeye Watch/.test(bwHead), "the tab says Buckeye Watch before any script runs");
+var results = [];
+function check(name, search, storage, missing, expectTeam, expectScripts, expectStored) {
+  var r = boot(search, storage, missing);
+  results.push(settle(r).then(function () {
+    eq(r.ctx.LND.team, expectTeam, name + ": resolves to " + expectTeam);
+    eq(r.loaded, expectScripts, name + ": loads");
+    eq(r.store["lnd.team"], expectStored, name + ": remembers " + JSON.stringify(expectStored));
+  }));
+}
 
-console.log(" its manifest");
-var osuMan = JSON.parse(read("assets/ohio-state/manifest.json"));
-var ndMan = JSON.parse(read("assets/notre-dame/manifest.json"));
-eq(osuMan.short_name, "Buckeye Watch", "short name");
-eq(osuMan.start_url, "../../buckeye.html", "installing it opens Buckeye Watch, not the Notre Dame page");
-eq(osuMan.icons, [], "no icons, because there is no approved artwork");
-eq(ndMan.start_url, "../../", "Notre Dame's still opens the site root");
-ok(osuMan.theme_color !== ndMan.theme_color, "the two manifests carry different theme colours");
+check("nothing at all", "", null, null,
+      "notre-dame", ["teams/notre-dame.js", "app.js"], undefined);
+check("a link", "?team=ohio-state", null, null,
+      "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
+check("a remembered choice", "", "ohio-state", null,
+      "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
+check("a link beats what was remembered", "?team=notre-dame", "ohio-state", null,
+      "notre-dame", ["teams/notre-dame.js", "app.js"], "notre-dame");
+check("another parameter alongside", "?utm=x&team=ohio-state&y=1", null, null,
+      "ohio-state", ["teams/ohio-state.js", "app.js"], "ohio-state");
+check("a team with no config falls back once", "?team=rutgers", null, ["teams/rutgers.js"],
+      "rutgers", ["teams/rutgers.js", "teams/notre-dame.js", "app.js"], undefined);
 
-console.log("\n" + (failures ? failures + " check(s) FAILED" : "all adapter checks passed"));
-process.exit(failures ? 1 : 0);
+// a malformed id is never turned into a script src
+[["?team=../../etc/passwd", "path traversal"], ["?team=Notre%20Dame", "spaces and capitals"],
+ ["?team=", "empty"], ["?team=" + encodeURIComponent("a".repeat(60)), "absurdly long"]].forEach(function (p) {
+  var r = boot(p[0], null, null);
+  results.push(settle(r).then(function () {
+    eq(r.ctx.LND.team, "notre-dame", "rejects " + p[1] + ", falls back to the default");
+    ok(r.loaded.every(function (s) { return /^teams\/[a-z0-9-]+\.js$|^app\.js$/.test(s); }),
+       "rejects " + p[1] + ": every script it loaded has a safe path");
+  }));
+});
+
+// storage that throws must not stop the page
+var threw = vm.createContext({
+  location: { search: "?team=ohio-state" },
+  localStorage: { getItem: function () { throw new Error("denied"); },
+                  setItem: function () { throw new Error("denied"); },
+                  removeItem: function () { throw new Error("denied"); } },
+  document: { head: { appendChild: function (s) { if (s.onload) setTimeout(s.onload, 0); } },
+              createElement: function () { return {}; } },
+  setTimeout: setTimeout
+});
+vm.runInContext(bootSrc, threw, { filename: "boot.js" });
+eq(threw.LND.team, "ohio-state", "a private window, where storage throws, still opens the team in the link");
+
+console.log("index.html");
+var idxSrc = read("index.html");
+ok(!/teams\/[a-z-]+\.js/.test(idxSrc), "names no team: the HTML is the same for every team");
+ok(/<script src="boot\.js" defer><\/script>/.test(idxSrc), "loads boot.js");
+ok(idxSrc.indexOf('<script src="boot.js"') > idxSrc.indexOf('<script src="teamos/espn.js"'),
+   "after TeamOS, which boot.js relies on being defined");
+ok(!/<script src="app\.js"/.test(idxSrc), "does not load app.js itself - boot.js does, once a team is known");
+
+console.log("sw.js");
+var swSrc = read("sw.js");
+var shellList = swSrc.match(/var SHELL_FILES = \[[\s\S]*?\];/)[0];
+var dataList = swSrc.match(/var DATA_FILES = \[[\s\S]*?\];/)[0];
+ok(!/teams\/|assets\//.test(shellList), "the install list names no team's config or artwork");
+ok(/boot\.js/.test(shellList), "but does precache boot.js");
+ok(!/depth|news|odds-history/.test(dataList), "the seeded data is league-wide only, not a team's snapshots");
+ok(/odds-title|odds-playoff/.test(dataList), "which still covers the league odds");
+ok(/"team-files"/.test(swSrc), "accepts the page's list of its team's files");
+ok(swSrc.indexOf('f.indexOf("//") === -1') > -1 && swSrc.indexOf('f.charAt(0) !== "/"') > -1,
+   "and only caches same-origin relative paths from it");
+ok(/var data = [^;]*json\$/.test(swSrc) && /name = data \? DATA : SHELL/.test(swSrc),
+   "routing a team's snapshots to the data cache, where the offline fallback looks");
+ok(/\/\^\(iw\|lnd\)-20\/|\(iw\|lnd\)-20/.test(swSrc), "activate still sweeps caches from before the rename");
+
+console.log("app.js");
+var appSrc = read("app.js");
+ok(/cacheTeamFiles\(\);/.test(appSrc), "tells the worker which files are this team's");
+ok(/postMessage\(\{ type:"team-files"/.test(appSrc), "by message, because a worker cannot read the URL or storage");
+
+console.log("buckeye.html");
+var bwSrc = read("buckeye.html");
+ok(/\?team=ohio-state/.test(bwSrc), "redirects to the team's address");
+ok(!/teams\/ohio-state\.js|app\.js|app\.css/.test(bwSrc), "and is no longer a copy of the application");
+ok(/noindex/.test(bwSrc), "and asks not to be indexed");
+
+Promise.all(results).then(function () {
+  console.log("\n" + (failures ? failures + " check(s) FAILED" : "all adapter checks passed"));
+  process.exit(failures ? 1 : 0);
+});

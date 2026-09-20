@@ -1,4 +1,4 @@
-/* Irish Watch service worker.
+/* The Suite's service worker.
 
    The point is the stadium: bad signal, a page that still opens. Three rules:
 
@@ -13,27 +13,27 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "iw-2026-09-18d";
+var VERSION = "lnd-2026-09-20a";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
+// The application shell, and nothing team-specific: this list is the same
+// whichever team the visit turns out to be for. A team's own config, manifest
+// and artwork are added to the same cache by the "team-files" message the
+// page sends once it knows (see app.js, cacheTeamFiles) - which is also what
+// makes switching teams need no cache clearing, since nothing here has to
+// change when the team does.
 var SHELL_FILES = [
-  "./", "./index.html", "./app.css", "./app.js", "./teams/notre-dame.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js", "./teamos/espn.js",
-  // The team's own manifest and artwork, at the paths its identity
-  // declares. A second team's shell names its own folder here; making that
-  // selection automatic is the Phase 7 question, not this one.
-  "./assets/notre-dame/manifest.json",
-  "./assets/notre-dame/favicon.svg", "./assets/notre-dame/favicon-32.png", "./assets/notre-dame/favicon-64.png",
-  "./assets/notre-dame/icon-180.png", "./assets/notre-dame/icon-192.png"
+  "./", "./index.html", "./app.css", "./boot.js", "./app.js",
+  "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js", "./teamos/espn.js"
 ];
 
-// The files the Action commits. Seeded at install so the very first visit is
-// covered too - fetches made before the worker takes control are not seen by
-// it, so without this a phone that installs and then loses signal would have
-// the page but no odds, depth chart or news.
+// League-wide data the Action commits - true for every team, so it can be
+// seeded at install. A team's own snapshots (its depth chart, price history
+// and beat feed) arrive with the "team-files" message instead, because which
+// ones exist is a property of the team (docs/decisions/0008).
 var DATA_FILES = [
-  "./odds-title.json", "./odds-playoff.json", "./odds-history.json",
-  "./depth.json", "./depth-history.json", "./news.json"
+  "./odds-title.json", "./odds-playoff.json"
 ];
 
 // Revalidate with the server rather than trusting the browser's HTTP cache:
@@ -61,13 +61,42 @@ self.addEventListener("install", function (e) {
   );
 });
 
+// The page names its team's files once identity is applied - its config, its
+// manifest and artwork, and whichever snapshots it declares. Each goes to the
+// cache the fetch handler will actually look in: code and images to the shell,
+// the Action's JSON to the data cache under the same key a live fetch would
+// use, or the offline copy would sit somewhere nothing reads. Both caches are
+// versioned, so this never accumulates across versions.
+self.addEventListener("message", function (e) {
+  var msg = e.data;
+  if (!msg || msg.type !== "team-files" || !Array.isArray(msg.files)) return;
+  var files = msg.files.filter(function (f) {
+    return typeof f === "string" && f && f.indexOf("//") === -1 && f.charAt(0) !== "/";
+  });
+  if (!files.length) return;
+  e.waitUntil(Promise.all(files.map(function (f) {
+    var data = /\.json$/.test(f) && !/manifest\.json$/.test(f);
+    var name = data ? DATA : SHELL;
+    // the data cache is keyed on the absolute URL with the page's ?t= removed
+    var key = data ? new URL(f, self.location.href).href : f;
+    return caches.open(name).then(function (c) {
+      return c.match(key).then(function (hit) {
+        if (hit) return;                       // already there, leave it alone
+        return fetch(fresh(f)).then(function (res) {
+          if (res && res.ok) return c.put(key, res);
+        }).catch(function () {});
+      });
+    });
+  })));
+});
+
 self.addEventListener("activate", function (e) {
   e.waitUntil(
     caches.keys().then(function (keys) {
       return Promise.all(keys.map(function (k) {
         // only this worker's own versioned caches; the page keeps its own
         // store of final box scores under a different name
-        if (k.indexOf("iw-20") === 0 && k !== SHELL && k !== DATA) return caches.delete(k);
+        if (/^(iw|lnd)-20/.test(k) && k !== SHELL && k !== DATA) return caches.delete(k);
       }));
     }).then(function () { return self.clients.claim(); })
   );

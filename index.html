@@ -112,12 +112,13 @@
   <button type="button" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h13v15H6.5A1.5 1.5 0 0 1 5 18Z"/><path d="M8 8h7M8 11.5h7M8 15h4"/></svg><span>News</span></button>
 </nav>
 
-<!-- the team this Suite is for, then TeamOS: the Team model and the ESPN adapter app.js consumes -->
-<script src="teams/notre-dame.js" defer></script>
+<!-- TeamOS first - none of it reads a team config at load - then boot.js,
+     which resolves which team this visit is for and loads that config and
+     app.js in turn. See boot.js for the resolution order. -->
 <script src="teamos/team.js" defer></script>
 <script src="teamos/snapshots.js" defer></script>
 <script src="teamos/identity.js" defer></script>
 <script src="teamos/espn.js" defer></script>
-<script src="app.js" defer></script>
+<script src="boot.js" defer></script>
 </body>
 </html>
