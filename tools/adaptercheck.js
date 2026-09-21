@@ -22,7 +22,7 @@ function read(p) { return fs.readFileSync(path.join(root, p), "utf8"); }
 // A context with nothing but the two globals the scripts define.
 function load(teamFile) {
   var c = vm.createContext({});
-  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/espn.js"].forEach(function (f) {
+  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js"].forEach(function (f) {
     vm.runInContext(read(f), c, { filename: f });
   });
   return c;
@@ -280,11 +280,120 @@ eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", abb
 console.log("seasonStats()");
 var stats = JSON.parse(read("tools/fixtures/espn-season-stats.json"));
 var nd = TeamOS.espn.seasonStats(stats.teams["87"]);
-eq(nd.map(function (r) { return r.label; }), ["Scoring offense","Total offense","Rushing offense","Passing offense","Scoring defense","Total defense","Turnover margin","Third down"], "the eight preview rows in order");
-nd.forEach(function (r) { eq(Object.keys(r), ["label","value","rank","rankText"], r.label + " is a SeasonStat"); });
-eq(nd[0], { label:"Scoring offense", value:"46.5", rank:21, rankText:"Tied-21st" }, "value, rank and ESPN's rank text from the first name it files the stat under");
-eq(nd[4], { label:"Scoring defense", value:null, rank:null, rankText:null }, "a row the feed has no name for -> null value");
+var op = TeamOS.espn.seasonStats(stats.teams["127"]);
+eq(nd.map(function (r) { return r.key; }),
+   ["pointsFor","pointsAllowed","totalOffense","rushOffense","passOffense",
+    "yardsPerPlay","sacks","tacklesForLoss","turnoverMargin"],
+   "the nine preview rows in order");
+nd.forEach(function (r) { eq(Object.keys(r), ["key","label","value","rank","rankText"], r.key + " is a SeasonStat"); });
+eq(nd[0], { key:"pointsFor", label:"Points per game", value:"40.0", rank:28, rankText:"Tied-28th" },
+   "value, rank and ESPN's rank text from the first name it files the stat under");
+eq([nd[2].value, nd[3].value, nd[4].value, nd[5].value], ["407.7","130.0","277.7","6.3"],
+   "the yardage rows");
+eq([nd[8].value, op[8].value], ["6","-2"], "turnover margin keeps a negative");
 ok(!/splits|categories|rankDisplayValue|espn/i.test(JSON.stringify(nd)), "carries no ESPN keys or names");
+
+console.log(" the sacks collision");
+// ESPN files "sacks" under passing (given up by this offence) AND defensive
+// (made by this defence). A bare lookup takes whichever category the feed
+// lists last, which is luck, not a decision. The rows name the category.
+eq(nd[6], { key:"sacks", label:"Sacks", value:"7", rank:36, rankText:"Tied-36th" },
+   "Sacks is the defence's 7, not the offence's 2 from the passing category");
+eq(op[6].value, "3", "and the same for the other side");
+
+// The fixture lists passing before defensive, as ESPN does today, so a bare
+// "sacks" lookup would land on the right value by luck. Feed the SAME two
+// categories in the opposite order: a qualified lookup is unmoved, a bare one
+// flips to the offence's number. This is the check that has teeth.
+function sacksFrom(order) {
+  var cat = {
+    passing:   { name:"passing",   stats:[{ name:"sacks", displayValue:"2", value:2, rank:108, rankDisplayValue:"Tied-108th" }] },
+    defensive: { name:"defensive", stats:[{ name:"sacks", displayValue:"7", value:7, rank:36,  rankDisplayValue:"Tied-36th" }] }
+  };
+  return TeamOS.espn.seasonStats({ splits: { categories: order.map(function (k) { return cat[k]; }) } })[6];
+}
+eq(sacksFrom(["passing","defensive"]).value, "7", "defence's sacks with the feed in today's order");
+eq(sacksFrom(["defensive","passing"]).value, "7", "and still the defence's with the categories swapped");
+eq(sacksFrom(["defensive"]).value, "7", "and with the passing category absent entirely");
+eq(sacksFrom(["passing"]).value, null, "a payload with only the offence's sacks answers nothing");
+
+console.log(" the fields ESPN publishes but never fills");
+// pointsAllowed and yardsAllowed are in every payload, always 0, always
+// ranked "Tied-1st". Mapping them would print a confident 0.0 #1.
+var rawNd = JSON.stringify(stats.teams["87"]);
+ok(/pointsAllowed/.test(rawNd) && /yardsAllowed/.test(rawNd), "the fixture still carries both stubs");
+eq(nd[1], { key:"pointsAllowed", label:"Points allowed", value:null, rank:null, rankText:null },
+   "the points-allowed row comes back empty for TeamOS.season to fill");
+
+// Behavioural, not a grep: a payload of NOTHING BUT the stubs must produce a
+// card with no values at all. If any row ever learns to read pointsAllowed or
+// yardsAllowed, this is what catches it.
+var stubsOnly = TeamOS.espn.seasonStats({ splits: { categories: [ { name: "defensive", stats: [
+  { name:"pointsAllowed", displayValue:"0", value:0, rank:1, rankDisplayValue:"Tied-1st" },
+  { name:"yardsAllowed",  displayValue:"0", value:0, rank:1, rankDisplayValue:"Tied-1st" } ] } ] } });
+eq(stubsOnly.map(function (r) { return r.value; }), [null,null,null,null,null,null,null,null,null],
+   "a payload of nothing but ESPN's zero stubs yields nine empty rows");
+eq(stubsOnly.map(function (r) { return r.rank; }), [null,null,null,null,null,null,null,null,null],
+   "and never ESPN's phantom Tied-1st rank");
+
+console.log("scoreLines()");
+var lines = TeamOS.espn.scoreLines(fixture, "87");
+eq(lines.length, 4, "one line per event on the schedule");
+eq(lines[1], { state:"post", us:"41", them:"13" }, "a finished game, from this team's point of view");
+eq(lines[0], { state:"pre", us:null, them:null }, "an unplayed one carries no score");
+eq(TeamOS.espn.scoreLines(fixture, "275")[1], { state:"post", us:"13", them:"41" },
+   "the same game read for the other team is the mirror");
+eq(TeamOS.espn.scoreLines(fixture, "999")[1], { state:"post", us:null, them:"13" },
+   "a team not in the game has no score of its own");
+eq(TeamOS.espn.scoreLines(null, "87"), [], "no payload -> no lines");
+ok(!/competitions|competitors|displayValue|homeAway/.test(JSON.stringify(lines)), "carries no ESPN keys");
+
+console.log("teamScheduleUrl");
+eq(TeamOS.espn.teamScheduleUrl("194"),
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194/schedule",
+   "the same URL shape as the configured team's, for a team with no config");
+eq(TeamOS.espn.teamScheduleUrl(TEAM_CONFIG.sources.espn.teamId), TeamOS.espn.scheduleUrl(TEAM_CONFIG),
+   "and it agrees with scheduleUrl for the configured team (SW cache key)");
+
+// ---- teamos/season.js: what a team's own results already answer ----
+console.log("teamos/season.js");
+var seasonSrc = read("teamos/season.js");
+ok(!/\bfetch\s*\(/.test(seasonSrc), "does not call fetch()");
+ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(seasonSrc), "does not touch the DOM or browser storage");
+ok(!/espn|kalshi|open-meteo/i.test(uncomment(seasonSrc)), "names no provider");
+ok(!/notre|irish|ohio|buckeye/i.test(uncomment(seasonSrc)), "names no team");
+eq(Object.keys(TeamOS.season).sort(), ["gamesCounted","pointsAllowedPerGame","pointsPerGame"],
+   "exactly the documented functions");
+
+var season = [ { state:"post", us:"56", them:"13" },
+               { state:"post", us:"32", them:"0"  },
+               { state:"in",   us:"7",  them:"21" },
+               { state:"pre",  us:null, them:null } ];
+eq(TeamOS.season.pointsAllowedPerGame(season), 6.5, "points allowed averages the finished games only");
+eq(TeamOS.season.pointsPerGame(season), 44, "and so does points scored");
+eq(TeamOS.season.gamesCounted(season), 2, "two games have finished");
+eq(TeamOS.season.pointsAllowedPerGame([{ state:"post", us:"3", them:"0" }]), 0,
+   "a shutout is 0 allowed, not no answer");
+eq(TeamOS.season.pointsAllowedPerGame([{ state:"pre", us:null, them:null }]), null,
+   "nothing finished -> null, and the view drops the row");
+eq(TeamOS.season.pointsAllowedPerGame([]), null, "no games -> null");
+eq(TeamOS.season.pointsAllowedPerGame(null), null, "no list at all -> null");
+eq(TeamOS.season.pointsAllowedPerGame([{ state:"post", us:"10", them:null }]), null,
+   "a finished game with no score cannot answer");
+eq(TeamOS.season.pointsAllowedPerGame([{ state:"post", us:"1", them:"1,223" }]), 1223,
+   "a score the provider printed with a comma still parses");
+eq(TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(fixture, "87")), 13,
+   "it reads score lines and Games the same way");
+
+// The whole point, end to end: the one row ESPN cannot answer, answered.
+console.log(" the derived row, end to end");
+var filled = nd.map(function (r) {
+  return r.key === "pointsAllowed"
+    ? { key:r.key, label:r.label, value:(13).toFixed(1), rank:r.rank, rankText:r.rankText }
+    : r;
+});
+eq(filled[1], { key:"pointsAllowed", label:"Points allowed", value:"13.0", rank:null, rankText:null },
+   "filled from results, with no national rank because none exists");
 
 // ---- news ----
 var newsFixture = JSON.parse(read("tools/fixtures/espn-news.json"));
@@ -321,7 +430,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamScheduleUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
 
 // ---- snapshot ownership: the same questions, two teams, two answers ----

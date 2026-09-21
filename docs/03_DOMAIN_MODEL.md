@@ -157,7 +157,23 @@ One team in a `GameDetail`: `{ key, name, abbreviation, record, score, mine }`. 
 
 ### SeasonStat
 
-`{ label, value, rank, rankText }` — one row of the pregame matchup preview. **Implemented in Phase 4B**, produced by `TeamOS.espn.seasonStats(json)` as a fixed list of eight rows (Scoring offense … Third down) in order; `value` is `null` when the feed has the stat under none of the names that row is filed under, and the view skips a row null on both sides.
+`{ key, label, value, rank, rankText }` — one row of the pregame matchup card. **Implemented in Phase 4B**, produced by `TeamOS.espn.seasonStats(json)` as a fixed list of nine rows in order:
+
+| `key` | `label` | Source |
+|---|---|---|
+| `pointsFor` | Points per game | provider |
+| `pointsAllowed` | Points allowed | **derived** by `TeamOS.season` from the team's own results |
+| `totalOffense` | Total offense | provider |
+| `rushOffense` | Rushing offense | provider |
+| `passOffense` | Passing offense | provider |
+| `yardsPerPlay` | Yards per play | provider |
+| `sacks` | Sacks | provider (`defensive.sacks` — the bare name is ambiguous) |
+| `tacklesForLoss` | Tackles for loss | provider |
+| `turnoverMargin` | Turnover margin | provider |
+
+`key` is stable and provider-neutral; it is what lets a caller fill a row the provider cannot answer without matching on display copy. `value` is `null` when the feed has the stat under none of the names that row is filed under, and the view skips a row null on both sides. `rank`/`rankText` are `null` for a derived row — computing a national rank would mean holding every team's season — and the view then omits the rank and the better-rank marker for it.
+
+Rushing and passing *defense* are deliberately absent: ESPN's team statistics endpoint carries no opponent-facing data, and the `pointsAllowed`/`yardsAllowed` fields it does publish are permanently `0` ranked `Tied-1st`. See `docs/decisions/0011-derived-season-figures.md`.
 
 ### Player
 

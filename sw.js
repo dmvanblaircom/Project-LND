@@ -13,12 +13,12 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "iw-2026-09-21a";
+var VERSION = "iw-2026-09-21b";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
 var SHELL_FILES = [
-  "./", "./index.html", "./app.css", "./app.js", "./teams/notre-dame.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js", "./teamos/live.js", "./teamos/espn.js",
+  "./", "./index.html", "./app.css", "./app.js", "./teams/notre-dame.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js", "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",
   // The team's own manifest and artwork, at the paths its identity
   // declares. A second team's shell names its own folder here; making that
   // selection automatic is the Phase 7 question, not this one.
