@@ -113,6 +113,23 @@ Support multiple followed teams and personalized cross-team experiences.
 
 Validate the domain model against additional sports and leagues. Add sport-specific capabilities only where needed.
 
+## Data Sources
+
+Irish Watch reaches providers two ways, chosen by **how fresh the data has to
+be**, not by who publishes it (decision 0012):
+
+- **Browser -> provider**, for anything a fan watches change: ESPN scores,
+  schedule, scoreboard, summary, news. No key possible, CORS must be permitted,
+  rate limits land per device.
+- **Action -> provider -> a committed snapshot**, for anything that changes over
+  days: the odds history, the depth chart, beat news, and — proposed — opponent
+  statistics from CollegeFootballData.com. A key is safe in repository secrets,
+  CORS does not apply, and the cost is a handful of calls a week.
+
+A new provider takes the Action path unless the data must be current. Snapshots
+are owned by declaration (decision 0008), so a team without a source for a kind
+declares none and the Suite shows that kind as unavailable.
+
 ## Parallel Product Track
 
 Platform architecture does not determine consumer scope by itself. Product work should run in parallel:
