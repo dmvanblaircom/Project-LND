@@ -8,6 +8,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Grenze+Gotisch:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
+<!-- This team's colour and type tokens, in force before any script runs.
+
+     app.css has to declare a set of :root values or the page cannot paint at
+     all, and those values are one team's. Without this block a second team's
+     first paint is therefore the first team's - and on iOS Safari that first
+     paint is what tints the status bar and the toolbar, which are not
+     repainted when paintIdentity() runs a moment later. Reported 2026-09-21:
+     Buckeye Watch under navy bars.
+
+     These are the same values paintIdentity() sets from teams/<id>.js, so
+     nothing here is a second opinion about the team. tools/adaptercheck.js
+     re-derives this block from that config and fails if the two disagree.
+
+     Phase 7 chooses the team at runtime rather than by which page was opened,
+     so it replaces this with the stored choice written before first paint. -->
+<style id="team-boot">:root{--t-accent:#C99700;--t-accent-rgb:201,151,0;--t-accent-text:#C99700;--t-accent-ink:#07192F;--t-accent-soft:#D8B84F;--t-accent-tint:#FFE38A;--t-accent-tint-soft:#FFF7D6;--t-focus:#FFD966;--t-surface:#0C2340;--t-surface-rgb:12,35,64;--t-deep:#07192F;--t-deep-rgb:7,25,47;--t-abyss:#061525;--t-abyss-rgb:6,21,37;--t-raise:#143865;--t-raise-rgb:20,56,101;--t-news-label:"LATEST FROM SOUTH BEND";--t-font-ui:'Barlow',system-ui,-apple-system,sans-serif;--t-font-display:'Barlow Condensed',sans-serif;--t-font-headline:'Grenze Gotisch','Barlow Condensed',serif}</style>
 <meta name="description" content="Irish Watch — a Notre Dame football game-day dashboard.">
 
 <meta name="theme-color" content="#0C2340">

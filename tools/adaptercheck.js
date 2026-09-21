@@ -550,6 +550,76 @@ eq(ndMan.start_url, "../../", "Notre Dame's still opens the site root");
 ok(osuMan.theme_color !== ndMan.theme_color, "the two manifests carry different theme colours");
 
 
+// ---- the first paint is the page's own team ----
+// 2026-09-21: Buckeye Watch under Notre Dame navy bars. app.css must declare
+// :root values or the page cannot paint before a script runs, and those
+// values are one team's - so every other team's first paint was Notre Dame's,
+// and on iOS Safari the first paint is what tints the status bar and toolbar,
+// which are never repainted when paintIdentity() runs. Each page now carries
+// its own team's tokens in the head. That is a second copy of the team's
+// colours, so it is derived from the config here and compared: the copy
+// cannot drift, and it cannot be the wrong team's.
+console.log("the team boot block");
+
+// The same tokens paintIdentity() sets, in the same order. The list is read
+// back out of app.js below, so a token added there and not here fails.
+function bootCss(teamFile) {
+  var c2 = load(teamFile);
+  var idt = c2.TeamOS.identity.create(c2.TEAM_CONFIG, c2.TeamOS.createTeam(c2.TEAM_CONFIG.team));
+  var c = idt.colors, d = [
+    ["--t-accent", c.accent], ["--t-accent-rgb", c.accentRgb], ["--t-accent-text", c.accentText],
+    ["--t-accent-ink", c.accentInk], ["--t-accent-soft", c.accentSoft], ["--t-accent-tint", c.accentTint],
+    ["--t-accent-tint-soft", c.accentTintSoft], ["--t-focus", c.focus],
+    ["--t-surface", c.surface], ["--t-surface-rgb", c.surfaceRgb],
+    ["--t-deep", c.surfaceDeep], ["--t-deep-rgb", c.surfaceDeepRgb],
+    ["--t-abyss", c.surfaceAbyss], ["--t-abyss-rgb", c.surfaceAbyssRgb],
+    ["--t-raise", c.surfaceRaise], ["--t-raise-rgb", c.surfaceRaiseRgb],
+    ["--t-news-label", JSON.stringify(idt.newsLabel)],
+    ["--t-font-ui", idt.fonts.ui], ["--t-font-display", idt.fonts.display],
+    ["--t-font-headline", idt.fonts.headline]];
+  if (c.text) d.push(["--paper", c.text]);
+  if (c.textDim) d.push(["--dim", c.textDim]);
+  return ":root{" + d.map(function (x) { return x[0] + ":" + x[1]; }).join(";") + "}";
+}
+function bootOf(html) {
+  var m = html.match(/<style id="team-boot">([\s\S]*?)<\/style>/);
+  return m ? m[1].trim() : null;
+}
+
+[["index.html", idx, "teams/notre-dame.js"],
+ ["buckeye.html", bw, "teams/ohio-state.js"]].forEach(function (p) {
+  var name = p[0], html = p[1], teamFile = p[2];
+  var got = bootOf(html);
+  ok(got !== null, name + " declares its team's tokens before any script runs");
+  eq(got, bootCss(teamFile), name + "'s block is exactly what " + teamFile + " says");
+  // Equal specificity, so source order decides: the block has to come after
+  // the stylesheet it is overriding or it does nothing at all.
+  ok(html.indexOf('<link rel="stylesheet" href="app.css">') < html.indexOf('<style id="team-boot">'),
+     " and comes after app.css, which is what makes it win");
+  ok(got.indexOf("--t-deep:") !== -1 && got.indexOf("--t-surface:") !== -1,
+     " and carries the surfaces the canvas and the iOS bars are painted from");
+});
+
+// The negative control: without it the check would pass on two pages that
+// both shipped Notre Dame's palette, which is the bug being fixed.
+ok(bootOf(idx) !== bootOf(bw), "the two pages do not carry the same palette");
+ok(!/#C99700|#0C2340|#07192F|#061525|#143865|201,151,0|12,35,64|SOUTH BEND/.test(bootOf(bw)),
+   "and no Notre Dame value reaches the Buckeye Watch first paint");
+
+// Every token the boot blocks set is one paintIdentity() also sets, and the
+// other way round - the two must not drift apart.
+var painted = (read("app.js").match(/paintIdentity[\s\S]*?\n}/) || [""])[0]
+  .match(/"(--[a-z-]+)"/g) || [];
+painted = painted.map(function (s) { return s.replace(/"/g, ""); });
+var booted = (bootOf(idx) + ";" + bootOf(bw)).match(/--[a-z-]+(?=:)/g) || [];
+var missing = painted.filter(function (t) { return booted.indexOf(t) === -1; });
+var extra = booted.filter(function (t) { return painted.indexOf(t) === -1; });
+ok(painted.length > 15, "paintIdentity's token list was found to compare against");
+eq(missing, [], "every token paintIdentity sets is in the boot blocks too");
+eq(extra, [], "and the boot blocks invent none of their own");
+
+
+
 // ---- one live state per game ----
 // 2026-09-19: the Game Center showed Ohio State 49-0 in the fourth quarter
 // while the hero and the schedule row still showed 0-0, because the team's

@@ -72,7 +72,6 @@ var TEAM_CONFIG = {
       accentText:     "#EFF1F2",   // BUX gray-light-80, 16.77:1 on the page
       accentInk:      "#FFFFFF",   // on a scarlet fill, 6.60:1
       accentSoft:     "#A7B1B7",   // BUX gray, 8.70:1 - small labels
-      accentSoft:     "#A7B1B7",   // BUX gray, 8.70:1 - small labels
       accentTint:     "#EFF1F2",
       accentTintSoft: "#F6F7F8",   // BUX gray-light-90
       focus:          "#EFF1F2",
