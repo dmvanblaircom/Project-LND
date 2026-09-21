@@ -1646,6 +1646,36 @@ function seasonYear(){
 }
 
 
+// Points allowed per game, for one side of the matchup. For the configured
+// team the answer is already on the page - S.games is the whole season - so
+// nothing is fetched. For the opponent it costs one request for their
+// schedule, cached for the session like the stats themselves. A failure
+// resolves to null rather than rejecting: a missing row is better than a
+// missing card.
+var PTS_ALLOWED={};               // side key -> number|null
+
+function pointsAllowedFor(key, ourGames){
+  if(!key) return Promise.resolve(null);
+  if(PTS_ALLOWED.hasOwnProperty(key)) return Promise.resolve(PTS_ALLOWED[key]);
+  var p = ourGames
+    ? Promise.resolve(TeamOS.season.pointsAllowedPerGame(ourGames))
+    : get(TeamOS.espn.teamScheduleUrl(key)).then(function(d){
+        return TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(d, key));
+      }).catch(function(){ return null; });
+  return p.then(function(v){ PTS_ALLOWED[key]=v; return v; });
+}
+
+// The one row no provider fills. Copies rather than writes, because the rows
+// themselves are cached in SEASON_STATS and shared between renders.
+function withPointsAllowed(rows, perGame){
+  if(perGame==null) return rows;
+  return rows.map(function(r){
+    if(r.key!=="pointsAllowed") return r;
+    return { key:r.key, label:r.label, value:perGame.toFixed(1),
+             rank:r.rank, rankText:r.rankText };
+  });
+}
+
 function teamSeasonStats(key){
   if(!key) return Promise.reject(new Error("no team"));
   if(SEASON_STATS[key]) return Promise.resolve(SEASON_STATS[key]);
@@ -1680,7 +1710,7 @@ function renderPreview(awayStats, homeStats, awayAb, homeAb){
     '<div class="statrow head"><span class="v">'+esc(awayAb)+"</span>"+
     '<span class="lbl">SEASON \u00B7 NATIONAL RANK</span>'+
     '<span class="v r">'+esc(homeAb)+"</span></div>"+body+
-    '<p class="stamp">Per-game figures and national ranks for the season to date.</p>';
+    '<p class="stamp">Per-game figures for the season to date, with the national rank where one is published.</p>';
 }
 
 // Kick off the preview for a GameDetail that renderGame just painted into
@@ -1695,8 +1725,14 @@ function loadPreview(away, home, root){
   var slot=(root||$("panel-game")).querySelector(".gpreview");
   if(!slot) return;
   slot.innerHTML='<p class="loading">Loading the matchup…</p>';
-  Promise.all([teamSeasonStats(away.key), teamSeasonStats(home.key)]).then(function(r){
-    var html=renderPreview(r[0], r[1], away.abbreviation, home.abbreviation);
+  Promise.all([
+    teamSeasonStats(away.key), teamSeasonStats(home.key),
+    pointsAllowedFor(away.key, away.mine ? S.games : null),
+    pointsAllowedFor(home.key, home.mine ? S.games : null)
+  ]).then(function(r){
+    var html=renderPreview(withPointsAllowed(r[0], r[2]),
+                           withPointsAllowed(r[1], r[3]),
+                           away.abbreviation, home.abbreviation);
     slot.innerHTML=html;
   }).catch(function(){
     slot.innerHTML="";            // no ranks available, show nothing rather than a broken block

@@ -498,30 +498,47 @@ TeamOS.espn = (function () {
   }
 
   /* ---------- matchup preview: season stats ---------- */
-  // Label, then the stat names ESPN might use for it; whichever is present wins.
+  // key, label, then the provider's stat names for it; whichever is present
+  // wins. A name may be qualified with its category ("defensive.sacks") when
+  // the bare name is ambiguous - ESPN files "sacks" under BOTH passing (sacks
+  // this offence gave up) and defensive (sacks this defence made), and an
+  // unqualified lookup picks whichever category the feed happens to list last.
+  //
+  // NOT mapped, deliberately: ESPN publishes `defensive.pointsAllowed` and
+  // `defensive.yardsAllowed` on this endpoint and both are always 0 with rank
+  // "Tied-1st" - unpopulated stubs, not data (decision 0011). The points a
+  // team has allowed is derived from its own results instead, by
+  // TeamOS.season, and arrives here as the `pointsAllowed` row's value.
   var PREVIEW_ROWS=[
-    ["Scoring offense",  ["totalpointspergame","pointspergame","avgpointsfor"]],
-    ["Total offense",    ["totalyardspergame","netttotalyardspergame","yardspergame","totalyards"]],
-    ["Rushing offense",  ["rushingyardspergame","netrushingyardspergame"]],
-    ["Passing offense",  ["netpassingyardspergame","passingyardspergame"]],
-    ["Scoring defense",  ["avgpointsagainst","opponenttotalpointspergame","pointsagainstpergame"]],
-    ["Total defense",    ["opponenttotalyardspergame","yardsallowedpergame"]],
-    ["Turnover margin",  ["turnoverdifferential","turnovermargin","totalturnoverdifferential"]],
-    ["Third down",       ["thirddownconvpct","thirddownconversionpct","thirddownpct"]]
+    ["pointsFor",     "Points per game",  ["scoring.totalpointspergame","totalpointspergame","pointspergame"]],
+    ["pointsAllowed", "Points allowed",   []],
+    ["totalOffense",  "Total offense",    ["yardspergame","netyardspergame","totalyardspergame"]],
+    ["rushOffense",   "Rushing offense",  ["rushing.rushingyardspergame","rushingyardspergame"]],
+    ["passOffense",   "Passing offense",  ["passing.netpassingyardspergame","netpassingyardspergame","passingyardspergame"]],
+    ["yardsPerPlay",  "Yards per play",   ["avggain"]],
+    ["sacks",         "Sacks",            ["defensive.sacks"]],
+    ["tacklesForLoss","Tackles for loss", ["defensive.tacklesforloss"]],
+    ["turnoverMargin","Turnover margin",  ["turnoverdifferential","turnovermargin"]]
   ];
   // Flatten every category into one map so lookups do not care where ESPN
-  // filed a stat this year.
+  // filed a stat this year. Each stat is keyed twice: qualified by its
+  // category, and bare. Bare names collide across categories and the last one
+  // listed wins - which is why anything ambiguous is looked up qualified.
   function flattenStats(d){
     var out={};
     var cats=pick(d,["splits","categories"],[])||[];
     cats.forEach(function(c){
+      var cat=String((c&&c.name)||"").toLowerCase();
       (c.stats||[]).forEach(function(s){
         if(!s||!s.name) return;
-        out[String(s.name).toLowerCase()]={
+        var v={
           display: s.displayValue!=null?s.displayValue:s.value,
           rank: typeof s.rank==="number" ? s.rank : null,
           rankText: s.rankDisplayValue||null
         };
+        var n=String(s.name).toLowerCase();
+        if(cat) out[cat+"."+n]=v;
+        out[n]=v;
       });
     });
     return out;
@@ -529,11 +546,18 @@ TeamOS.espn = (function () {
 
   /* ---------- team ---------- */
 
+  function teamSchedule(teamId){ return SITE+"/teams/"+teamId+"/schedule"; }
+
   return {
     // The URLs app.js fetches. Must not change shape: the service worker's
     // data cache and the page's cache-first paint are keyed on them.
     scheduleUrl: function(config){
-      return SITE+"/teams/"+config.sources.espn.teamId+"/schedule";
+      return teamSchedule(config.sources.espn.teamId);
+    },
+    // The same URL for a team we have no config for - the preview needs the
+    // opponent's results to work out what they have allowed.
+    teamScheduleUrl: function(teamId){
+      return teamSchedule(teamId);
     },
     rosterUrl: function(config){
       return SITE+"/teams/"+config.sources.espn.teamId+"/roster";
@@ -646,17 +670,38 @@ TeamOS.espn = (function () {
     },
 
     // ESPN's core-API season statistics for one team -> SeasonStat[]: the
-    // eight matchup-preview rows in a fixed order, value null where the feed
-    // has nothing under any of the names that row is filed under.
+    // nine matchup-preview rows in a fixed order, value null where the feed
+    // has nothing under any of the names that row is filed under. A row with
+    // no names at all is one this provider cannot answer; it comes back null
+    // for TeamOS.season to fill, and the view skips it if nothing does.
     seasonStats: function(json){
       var map=flattenStats(json);
       return PREVIEW_ROWS.map(function(r){
-        var hit=null;
-        for(var i=0;i<r[1].length&&!hit;i++) hit=map[r[1][i]]||null;
-        return { label:r[0],
+        var names=r[2], hit=null;
+        for(var i=0;i<names.length&&!hit;i++) hit=map[names[i]]||null;
+        return { key:r[0], label:r[1],
                  value: hit ? str(hit.display) : null,
                  rank: hit ? hit.rank : null,
                  rankText: hit ? hit.rankText : null };
+      });
+    },
+
+    // A team's own schedule payload -> the score line of every game on it,
+    // from that team's point of view: { state, us, them }. The same three
+    // fields a Game carries, so TeamOS.season reads either. This exists
+    // because the preview needs the OPPONENT's results, and Game requires a
+    // team config that only the configured team has.
+    scoreLines: function(json, teamId){
+      var id=str(teamId);
+      return ((json&&json.events)||[]).map(function(ev){
+        var comp=(ev.competitions&&ev.competitions[0])||{}, cs=comp.competitors||[];
+        var us=null, them=null;
+        cs.forEach(function(c){
+          var cid=c.id||(c.team&&c.team.id);
+          if(str(cid)===id) us=c; else them=c;
+        });
+        var st=(comp.status&&comp.status.type)||(ev.status&&ev.status.type)||{};
+        return { state: st.state||"pre", us: scoreOf(us), them: scoreOf(them) };
       });
     }
   };
