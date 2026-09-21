@@ -89,7 +89,16 @@ values. `docs/engineering/phase-6-team-identity.md`,
 
 Allow a user to select a team and instantiate the corresponding Suite.
 
-Carried into this phase, with evidence from Phases 5 and 6: the service worker
+Carried into this phase, with evidence from Phases 5 and 6, plus one more found
+on 2026-09-21: `app.css` declares the `--t-*` tokens on `:root` with one team's
+values, because the page must paint before any script runs, so every other
+team's *first paint* is that team's — which on iOS Safari is what tints the
+status bar and toolbar and is never repainted. Each entry point now carries its
+own team's tokens in the head as an interim fix
+(`docs/engineering/first-paint-team-tokens.md`); a runtime-selected team has to
+write them before first paint instead, and `:root` should then be team-neutral.
+
+Also carried into this phase: the service worker
 precaches one team's shell (`teams/notre-dame.js`, its artwork) and one team's snapshot
 files whatever team is configured, because a worker cannot read `TEAM_CONFIG`; the
 static `index.html` head and `:root` defaults carry the deployed team; and switching

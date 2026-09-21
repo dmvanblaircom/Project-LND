@@ -28,6 +28,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Grenze+Gotisch:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
+<!-- This team's colour and type tokens, in force before any script runs.
+
+     app.css has to declare a set of :root values or the page cannot paint at
+     all, and those values are one team's. Without this block a second team's
+     first paint is therefore the first team's - and on iOS Safari that first
+     paint is what tints the status bar and the toolbar, which are not
+     repainted when paintIdentity() runs a moment later. Reported 2026-09-21:
+     Buckeye Watch under navy bars.
+
+     These are the same values paintIdentity() sets from teams/<id>.js, so
+     nothing here is a second opinion about the team. tools/adaptercheck.js
+     re-derives this block from that config and fails if the two disagree.
+
+     Phase 7 chooses the team at runtime rather than by which page was opened,
+     so it replaces this with the stored choice written before first paint. -->
+<style id="team-boot">:root{--t-accent:#BA0C2F;--t-accent-rgb:186,12,47;--t-accent-text:#EFF1F2;--t-accent-ink:#FFFFFF;--t-accent-soft:#A7B1B7;--t-accent-tint:#EFF1F2;--t-accent-tint-soft:#F6F7F8;--t-focus:#EFF1F2;--t-surface:#212325;--t-surface-rgb:33,35,37;--t-deep:#0B1115;--t-deep-rgb:11,17,21;--t-abyss:#070A0C;--t-abyss-rgb:7,10,12;--t-raise:#3F4443;--t-raise-rgb:63,68,67;--t-news-label:"LATEST BUCKEYE NEWS";--t-font-ui:'BuckeyeSans','Barlow',system-ui,-apple-system,sans-serif;--t-font-display:'BuckeyeSans','Barlow Condensed',sans-serif;--t-font-headline:'BuckeyeSerif','Barlow Condensed',serif;--paper:#FFFFFF;--dim:#A7B1B7}</style>
 <meta name="description" content="Buckeye Watch — an Ohio State football game-day dashboard.">
 
 <meta name="theme-color" content="#212325">

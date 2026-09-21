@@ -13,7 +13,7 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "iw-2026-09-20a";
+var VERSION = "iw-2026-09-21a";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
