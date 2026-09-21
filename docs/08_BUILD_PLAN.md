@@ -89,21 +89,25 @@ values. `docs/engineering/phase-6-team-identity.md`,
 
 Allow a user to select a team and instantiate the corresponding Suite.
 
-Carried into this phase, with evidence from Phases 5 and 6, plus one more found
-on 2026-09-21: `app.css` declares the `--t-*` tokens on `:root` with one team's
-values, because the page must paint before any script runs, so every other
-team's *first paint* is that team's — which on iOS Safari is what tints the
-status bar and toolbar and is never repainted. Each entry point now carries its
-own team's tokens in the head as an interim fix
-(`docs/engineering/first-paint-team-tokens.md`); a runtime-selected team has to
-write them before first paint instead, and `:root` should then be team-neutral.
+**7A complete 2026-09-21.** The team is chosen at runtime, not by which file the
+markup names. A boot script in `index.html` resolves the team from `?team=`,
+then the last choice this browser made, then the default, stores it, replays
+that team's colours before anything loads, and injects the config, TeamOS and
+`app.js` in order. `app.css`'s `:root` is now team-neutral, so a page that has
+not yet learned its team paints nobody's colours rather than the default team's.
+`buckeye.html` is retired: Ohio State is `/?team=ohio-state` on the same page.
+`tools/bootcheck.js` covers the selection, the replay, the cross-team isolation
+and the load order. `docs/decisions/0013-the-page-chooses-its-team.md`.
 
-Also carried into this phase: the service worker
-precaches one team's shell (`teams/notre-dame.js`, its artwork) and one team's snapshot
-files whatever team is configured, because a worker cannot read `TEAM_CONFIG`; the
-static `index.html` head and `:root` defaults carry the deployed team; and switching
-teams required clearing the shell and HTTP caches by hand. Whatever mechanism Phase 7
-chooses for selecting a team has to answer all three together.
+**7B, next:** the service worker still precaches the default team's config and
+snapshots, because a worker cannot read the page's choice at install time. A
+second team works online (its files are fetched and cached on demand) but not
+offline on a first visit. The worker needs to be told, and a team switch needs
+to purge what the previous team left.
+
+**7C, needs a product decision:** where selection lives for a fan — a first-run
+screen, a switcher in the header, or separate URLs per team. `?team=` is a
+mechanism, not an experience.
 
 ## Phase 8: My Teams
 

@@ -5,7 +5,7 @@ name: Check the stylesheet
 
 on:
   push:
-    paths: ["app.css", "app.js", "sw.js", "index.html", "tools/**", "teams/**", "teamos/**"]
+    paths: ["app.css", "app.js", "sw.js", "index.html", "tools/**", "teams/**", "teamos/**", "assets/**"]
   workflow_dispatch:
 
 jobs:
@@ -17,6 +17,8 @@ jobs:
         run: python3 tools/csscheck.py app.css
       - name: JavaScript parses
         run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js; do node --check "$f"; done
+      - name: The page knows which team it is
+        run: node tools/bootcheck.js
       - name: TeamOS ESPN adapter
         run: node tools/adaptercheck.js
       - name: Every surface agrees on one live game state

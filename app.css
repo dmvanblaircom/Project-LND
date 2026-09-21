@@ -30,26 +30,35 @@
   --gutter:1rem;
 
   /* ---- team tokens ----------------------------------------------------
-     The ten colours, four rgb channel triples and three type stacks that
-     belong to whichever team this Suite is built for. The values below are
-     Notre Dame's, because this repository deploys Irish Watch and the page
-     must paint correctly before any script runs; paintIdentity() in app.js
-     sets every one of them from TEAM_CONFIG.identity at startup, so a
-     different team config repaints the whole stylesheet without a single
-     team-specific selector. Nothing outside this block names a team.
+     The colours, rgb channel triples and type stacks belonging to whichever
+     team this Suite is showing. The values below are NOBODY'S - a neutral
+     slate, so a page that has not yet learned its team paints something
+     legible instead of some other team's colours.
+
+     They used to be Notre Dame's, which meant every other team's FIRST paint
+     was Notre Dame's, and on iOS Safari the browser chrome kept it for the
+     life of the page (docs/engineering/first-paint-team-tokens.md). A default
+     that is nobody's cannot be the wrong team.
+
+     paintIdentity() in app.js sets every one of them from TEAM_CONFIG.identity
+     at startup and stores the set; the boot script in the page head replays it
+     on the next visit, before this file is even parsed. So these are what a
+     first-ever visit to a team sees, and nothing else.
 
      accent is a FILL - rules, indicators, active states, marks.
      accent-text is text that must stay legible on the page, which is not
-     always the same colour: gold clears 6.65:1 here, another team's crest
-     colour may not, and TeamOS refuses a config whose accent-text does not
-     reach 4.5:1 (docs/decisions/0007-identity-is-team-data.md). */
-  --t-accent:#C99700;--t-accent-rgb:201,151,0;--t-accent-text:#C99700;--t-accent-ink:#07192F;
-  --t-accent-soft:#D8B84F;--t-accent-tint:#FFE38A;--t-accent-tint-soft:#FFF7D6;--t-focus:#FFD966;
-  --t-surface:#0C2340;--t-surface-rgb:12,35,64;
-  --t-deep:#07192F;--t-deep-rgb:7,25,47;
-  --t-abyss:#061525;--t-abyss-rgb:6,21,37;
-  --t-raise:#143865;--t-raise-rgb:20,56,101;
-  --t-news-label:"LATEST FROM SOUTH BEND";
+     always the same colour: a team's crest colour often is not, and TeamOS
+     refuses a config whose accent-text does not reach 4.5:1
+     (docs/decisions/0009-identity-is-team-data.md). The neutral below clears
+     it: accent-text 11.7:1 on deep, accent-soft 7.7:1, accent-ink 4.7:1 on
+     the accent fill. */
+  --t-accent:#737E8D;--t-accent-rgb:115,126,141;--t-accent-text:#C2CBD6;--t-accent-ink:#0B0E12;
+  --t-accent-soft:#9AA5B3;--t-accent-tint:#D6DDE6;--t-accent-tint-soft:#EDF1F5;--t-focus:#C2CBD6;
+  --t-surface:#161A20;--t-surface-rgb:22,26,32;
+  --t-deep:#0C0F13;--t-deep-rgb:12,15,19;
+  --t-abyss:#07090C;--t-abyss-rgb:7,9,12;
+  --t-raise:#232932;--t-raise-rgb:35,41,50;
+  --t-news-label:"LATEST NEWS";
   --t-font-ui:'Barlow',system-ui,-apple-system,sans-serif;
   --t-font-display:'Barlow Condensed',sans-serif;
   --t-font-headline:'Grenze Gotisch','Barlow Condensed',serif;

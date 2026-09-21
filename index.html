@@ -8,22 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Grenze+Gotisch:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
-<!-- This team's colour and type tokens, in force before any script runs.
 
-     app.css has to declare a set of :root values or the page cannot paint at
-     all, and those values are one team's. Without this block a second team's
-     first paint is therefore the first team's - and on iOS Safari that first
-     paint is what tints the status bar and the toolbar, which are not
-     repainted when paintIdentity() runs a moment later. Reported 2026-09-21:
-     Buckeye Watch under navy bars.
-
-     These are the same values paintIdentity() sets from teams/<id>.js, so
-     nothing here is a second opinion about the team. tools/adaptercheck.js
-     re-derives this block from that config and fails if the two disagree.
-
-     Phase 7 chooses the team at runtime rather than by which page was opened,
-     so it replaces this with the stored choice written before first paint. -->
-<style id="team-boot">:root{--t-accent:#C99700;--t-accent-rgb:201,151,0;--t-accent-text:#C99700;--t-accent-ink:#07192F;--t-accent-soft:#D8B84F;--t-accent-tint:#FFE38A;--t-accent-tint-soft:#FFF7D6;--t-focus:#FFD966;--t-surface:#0C2340;--t-surface-rgb:12,35,64;--t-deep:#07192F;--t-deep-rgb:7,25,47;--t-abyss:#061525;--t-abyss-rgb:6,21,37;--t-raise:#143865;--t-raise-rgb:20,56,101;--t-news-label:"LATEST FROM SOUTH BEND";--t-font-ui:'Barlow',system-ui,-apple-system,sans-serif;--t-font-display:'Barlow Condensed',sans-serif;--t-font-headline:'Grenze Gotisch','Barlow Condensed',serif}</style>
 <meta name="description" content="Irish Watch — a Notre Dame football game-day dashboard.">
 
 <meta name="theme-color" content="#0C2340">
@@ -50,6 +35,92 @@
 <meta name="twitter:title" content="Irish Watch — Notre Dame Football">
 <meta name="twitter:description" content="Game day. Every day.">
 <meta name="twitter:image" content="assets/notre-dame/og-1200x630.png">
+<!-- Which team this page is, decided before anything else runs.
+
+     Order: ?team= (so a link can carry it), then the last choice this browser
+     made, then the default. The choice is stored, so the next visit opens the
+     same Suite with no query string.
+
+     Then the colours. app.css declares a team-NEUTRAL :root so the page can
+     paint at all - the team's own tokens live in teams/<id>.js, which has not
+     loaded yet. Rather than duplicate them here, paintIdentity() writes the
+     set it applied into localStorage and this replays it: the first visit to
+     a team paints neutral for a moment, every visit after paints the team,
+     and there is nothing to keep in sync. A stored set is only ever replayed
+     under the team it was stored for, so one team can never flash in
+     another's colours - which is the bug of 2026-09-21, in the form it would
+     come back.
+
+     Then the scripts, in order. They used to be eight tags in the markup,
+     which is what made the team "whichever file the markup names" and why
+     buckeye.html had to exist. app.js reads the DOM as it runs, so it is
+     injected at DOMContentLoaded; nothing before it needs a DOM. -->
+<script id="team-boot">
+(function(){
+  "use strict";
+  var TEAMS   = ["notre-dame", "ohio-state"];   // one per teams/<id>.js; tools/bootcheck.js keeps this honest
+  var DEFAULT = "notre-dame";                   // what a first-ever visitor gets
+  var TEAM_KEY = "iw-team", BOOT_KEY = "iw-boot-";
+
+  function get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+
+  var asked = null;
+  try { asked = new URLSearchParams(location.search).get("team"); } catch(e){}
+  var id = DEFAULT;
+  [asked, get(TEAM_KEY)].some(function(t){
+    if (t && TEAMS.indexOf(t) !== -1) { id = t; return true; }
+    return false;                               // an unknown team falls through to the default
+  });
+  if (id !== get(TEAM_KEY)) set(TEAM_KEY, id);
+  document.documentElement.setAttribute("data-team", id);
+
+  // Replay what this browser last saw for THIS team. Values come from the
+  // page's own storage, but they are still read as data: a token name has to
+  // look like one, and a value carrying CSS punctuation is dropped.
+  var saved = null;
+  try { saved = JSON.parse(get(BOOT_KEY + id) || "null"); } catch(e){}
+  // The browser chrome, decided once at the end. iOS takes theme-color at
+  // first paint and keeps it, so it must never be left pointing at the
+  // DEFAULT team's colour when this page is some other team
+  // (docs/engineering/first-paint-team-tokens.md). Preference: what the team
+  // stored, then the surface we actually applied, then the neutral. A value
+  // that is not a plain hex colour is not used at all.
+  var hex = /^#[0-9a-f]{6}$/i, chrome = "#161A20";   // --t-surface, the neutral
+
+  if (saved && typeof saved === "object") {
+    // Values come from this page's own storage, but they are read as data:
+    // a token name has to look like one, and anything carrying CSS
+    // punctuation or a fetch is dropped.
+    var root = document.documentElement.style, k, v;
+    for (k in saved) {
+      v = saved[k];
+      if (!/^--[a-z-]+$/.test(k) || typeof v !== "string") continue;
+      if (/[;{}<>\\]|url\(/i.test(v)) continue;
+      root.setProperty(k, v);
+      if (k === "--t-surface" && hex.test(v)) chrome = v;
+    }
+    if (typeof saved.title === "string") document.title = saved.title;
+    if (typeof saved.themeColor === "string" && hex.test(saved.themeColor)) chrome = saved.themeColor;
+  }
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", chrome);
+
+  function inject(src){
+    var s = document.createElement("script");
+    s.src = src;
+    s.async = false;                            // injected scripts stay in insertion order
+    document.head.appendChild(s);
+  }
+  ["teams/" + id + ".js", "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js",
+   "teamos/live.js", "teamos/season.js", "teamos/espn.js"].forEach(inject);
+  // app.js reads the DOM at parse time, so it waits for one. async=false still
+  // queues it behind everything above however long they take.
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", function(){ inject("app.js"); });
+  else inject("app.js");
+})();
+</script>
 </head>
 <body>
 <a class="skip" href="#tabpanel">Skip to the season</a>
@@ -128,14 +199,7 @@
   <button type="button" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h13v15H6.5A1.5 1.5 0 0 1 5 18Z"/><path d="M8 8h7M8 11.5h7M8 15h4"/></svg><span>News</span></button>
 </nav>
 
-<!-- the team this Suite is for, then TeamOS: the Team model and the ESPN adapter app.js consumes -->
-<script src="teams/notre-dame.js" defer></script>
-<script src="teamos/team.js" defer></script>
-<script src="teamos/snapshots.js" defer></script>
-<script src="teamos/identity.js" defer></script>
-<script src="teamos/live.js" defer></script>
-<script src="teamos/season.js" defer></script>
-<script src="teamos/espn.js" defer></script>
-<script src="app.js" defer></script>
+<!-- The team config, TeamOS and app.js are injected by the boot script in
+     the head, which is what decides the team. Nothing is named here. -->
 </body>
 </html>

@@ -613,119 +613,28 @@ ok(/paintIdentity\(\);/.test(js), "applies identity once, in one place");
 ok(!/\bnd\b/.test(jsBody), "no leftover nd identifier");
 
 
-// ---- the Buckeye Watch test page ----
-// buckeye.html is index.html with the team swapped: a different config script
-// and the identity words that are visible before app.js runs. Nothing else may
-// differ, or the two pages start drifting into two applications - so the check
-// below neutralises exactly the identity and compares everything else byte for
-// byte. Team selection proper, and what the worker should precache for it, is
-// Phase 7; this page is a deployment convenience, not that.
-console.log("buckeye.html");
+// ---- the page names no team ----
+// index.html used to name Notre Dame in eight script tags, which is what made
+// buckeye.html necessary: a second team meant a second copy of the page. 7A
+// moved that decision into the boot script, so the markup names nobody.
+console.log("index.html");
 var idx = read("index.html").replace(/\r\n/g, "\n");
-var bw = read("buckeye.html").replace(/\r\n/g, "\n");
-
-function skeleton(t) {
-  return t
-    .replace(/<!--[\s\S]*?-->/g, "")                                  // comments
-    .slice(t.replace(/<!--[\s\S]*?-->/g, "").indexOf("</head>"))      // head is identity
-    .replace(/<script src="teams\/[a-z-]+\.js" defer><\/script>/, '<script src="TEAM" defer></script>')
-    .replace(/(<div class="brand-kicker">)[^<]*(<\/div>)/, "$1KICKER$2")
-    .replace(/(<h1>)[^<]*(<\/h1>)/, "$1PRODUCT$2")
-    .replace(/(<h2 class="sr-only" id="heroHead">)[^<]*(<\/h2>)/, "$1HERO$2")
-    .replace(/(<h2 class="sr-only" id="dataHead">)[^<]*(<\/h2>)/, "$1DATA$2")
-    .replace(/(<p class="motto" id="motto">)[^<]*(<\/p>)/, "$1MOTTO$2");
-}
-ok(skeleton(bw) === skeleton(idx),
-   "identical to index.html below </head> once the team's own words are set aside");
-ok(/<script src="teams\/ohio-state\.js" defer><\/script>/.test(bw), "loads the Ohio State config");
-ok(/<script src="teams\/notre-dame\.js" defer><\/script>/.test(idx), "and index.html still loads Notre Dame's");
-
-var bwHead = bw.slice(0, bw.indexOf("</head>")).replace(/<!--[\s\S]*?-->/g, "");
-var bwVisible = bw.replace(/<!--[\s\S]*?-->/g, "");
-ok(!/notre-dame|irish-watch/i.test(bwVisible), "references no Notre Dame file");
-ok(!/Notre Dame|Irish Watch|Leave No Doubt/.test(bwVisible), "shows no Notre Dame words before a script runs");
-ok(!/rel="icon"|apple-touch-icon|og:image|twitter:image|twitter:card/.test(bwHead),
-   "declares no artwork tags, because Ohio State has no artwork");
-ok(/<link rel="manifest" href="assets\/ohio-state\/manifest\.json">/.test(bwHead), "points at its own manifest");
-ok(/<title>Buckeye Watch/.test(bwHead), "the tab says Buckeye Watch before any script runs");
+var boot = (idx.match(/<script id="team-boot">([\s\S]*?)<\/script>/) || [])[1] || "";
+ok(!!boot, "carries the boot script that decides the team");
+var markup = idx.replace(/<script id="team-boot">[\s\S]*?<\/script>/, "");
+ok(!/<script src=/.test(markup), "and loads no script by name of its own");
+ok(!/teams\/[a-z-]+\.js/.test(markup), "no team config is named in the markup");
+ok(!/<style id="team-boot">/.test(idx), "the static token blocks are gone, replaced by the replay");
+ok(!fs.existsSync(path.join(root, "buckeye.html")), "and buckeye.html is retired");
 
 console.log(" its manifest");
 var osuMan = JSON.parse(read("assets/ohio-state/manifest.json"));
 var ndMan = JSON.parse(read("assets/notre-dame/manifest.json"));
 eq(osuMan.short_name, "Buckeye Watch", "short name");
-eq(osuMan.start_url, "../../buckeye.html", "installing it opens Buckeye Watch, not the Notre Dame page");
+eq(osuMan.start_url, "../../?team=ohio-state", "installing it opens Buckeye Watch - the page plus its team, now that there is one page");
 eq(osuMan.icons, [], "no icons, because there is no approved artwork");
 eq(ndMan.start_url, "../../", "Notre Dame's still opens the site root");
 ok(osuMan.theme_color !== ndMan.theme_color, "the two manifests carry different theme colours");
-
-
-// ---- the first paint is the page's own team ----
-// 2026-09-21: Buckeye Watch under Notre Dame navy bars. app.css must declare
-// :root values or the page cannot paint before a script runs, and those
-// values are one team's - so every other team's first paint was Notre Dame's,
-// and on iOS Safari the first paint is what tints the status bar and toolbar,
-// which are never repainted when paintIdentity() runs. Each page now carries
-// its own team's tokens in the head. That is a second copy of the team's
-// colours, so it is derived from the config here and compared: the copy
-// cannot drift, and it cannot be the wrong team's.
-console.log("the team boot block");
-
-// The same tokens paintIdentity() sets, in the same order. The list is read
-// back out of app.js below, so a token added there and not here fails.
-function bootCss(teamFile) {
-  var c2 = load(teamFile);
-  var idt = c2.TeamOS.identity.create(c2.TEAM_CONFIG, c2.TeamOS.createTeam(c2.TEAM_CONFIG.team));
-  var c = idt.colors, d = [
-    ["--t-accent", c.accent], ["--t-accent-rgb", c.accentRgb], ["--t-accent-text", c.accentText],
-    ["--t-accent-ink", c.accentInk], ["--t-accent-soft", c.accentSoft], ["--t-accent-tint", c.accentTint],
-    ["--t-accent-tint-soft", c.accentTintSoft], ["--t-focus", c.focus],
-    ["--t-surface", c.surface], ["--t-surface-rgb", c.surfaceRgb],
-    ["--t-deep", c.surfaceDeep], ["--t-deep-rgb", c.surfaceDeepRgb],
-    ["--t-abyss", c.surfaceAbyss], ["--t-abyss-rgb", c.surfaceAbyssRgb],
-    ["--t-raise", c.surfaceRaise], ["--t-raise-rgb", c.surfaceRaiseRgb],
-    ["--t-news-label", JSON.stringify(idt.newsLabel)],
-    ["--t-font-ui", idt.fonts.ui], ["--t-font-display", idt.fonts.display],
-    ["--t-font-headline", idt.fonts.headline]];
-  if (c.text) d.push(["--paper", c.text]);
-  if (c.textDim) d.push(["--dim", c.textDim]);
-  return ":root{" + d.map(function (x) { return x[0] + ":" + x[1]; }).join(";") + "}";
-}
-function bootOf(html) {
-  var m = html.match(/<style id="team-boot">([\s\S]*?)<\/style>/);
-  return m ? m[1].trim() : null;
-}
-
-[["index.html", idx, "teams/notre-dame.js"],
- ["buckeye.html", bw, "teams/ohio-state.js"]].forEach(function (p) {
-  var name = p[0], html = p[1], teamFile = p[2];
-  var got = bootOf(html);
-  ok(got !== null, name + " declares its team's tokens before any script runs");
-  eq(got, bootCss(teamFile), name + "'s block is exactly what " + teamFile + " says");
-  // Equal specificity, so source order decides: the block has to come after
-  // the stylesheet it is overriding or it does nothing at all.
-  ok(html.indexOf('<link rel="stylesheet" href="app.css">') < html.indexOf('<style id="team-boot">'),
-     " and comes after app.css, which is what makes it win");
-  ok(got.indexOf("--t-deep:") !== -1 && got.indexOf("--t-surface:") !== -1,
-     " and carries the surfaces the canvas and the iOS bars are painted from");
-});
-
-// The negative control: without it the check would pass on two pages that
-// both shipped Notre Dame's palette, which is the bug being fixed.
-ok(bootOf(idx) !== bootOf(bw), "the two pages do not carry the same palette");
-ok(!/#C99700|#0C2340|#07192F|#061525|#143865|201,151,0|12,35,64|SOUTH BEND/.test(bootOf(bw)),
-   "and no Notre Dame value reaches the Buckeye Watch first paint");
-
-// Every token the boot blocks set is one paintIdentity() also sets, and the
-// other way round - the two must not drift apart.
-var painted = (read("app.js").match(/paintIdentity[\s\S]*?\n}/) || [""])[0]
-  .match(/"(--[a-z-]+)"/g) || [];
-painted = painted.map(function (s) { return s.replace(/"/g, ""); });
-var booted = (bootOf(idx) + ";" + bootOf(bw)).match(/--[a-z-]+(?=:)/g) || [];
-var missing = painted.filter(function (t) { return booted.indexOf(t) === -1; });
-var extra = booted.filter(function (t) { return painted.indexOf(t) === -1; });
-ok(painted.length > 15, "paintIdentity's token list was found to compare against");
-eq(missing, [], "every token paintIdentity sets is in the boot blocks too");
-eq(extra, [], "and the boot blocks invent none of their own");
 
 
 

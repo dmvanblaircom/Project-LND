@@ -13,15 +13,17 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "iw-2026-09-21b";
+var VERSION = "iw-2026-09-21c";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
 var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./app.js", "./teams/notre-dame.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js", "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",
-  // The team's own manifest and artwork, at the paths its identity
-  // declares. A second team's shell names its own folder here; making that
-  // selection automatic is the Phase 7 question, not this one.
+  // Still the DEFAULT team's config and artwork. 7A made the page choose its
+  // team at runtime, but a worker cannot read that choice at install time, so
+  // a second team's shell is fetched on demand and cached then - fine online,
+  // not yet offline on a first visit. Teaching the worker which team to
+  // precache is 7B.
   "./assets/notre-dame/manifest.json",
   "./assets/notre-dame/favicon.svg", "./assets/notre-dame/favicon-32.png", "./assets/notre-dame/favicon-64.png",
   "./assets/notre-dame/icon-180.png", "./assets/notre-dame/icon-192.png"

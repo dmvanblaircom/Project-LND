@@ -155,6 +155,22 @@ function paintIdentity(){
   // Suite's own. Left undeclared, the stylesheet's values stand.
   if(c.text)    r.setProperty("--paper", c.text);
   if(c.textDim) r.setProperty("--dim",   c.textDim);
+
+  // Leave this team's boot set behind for the next visit. app.css's :root is
+  // team-neutral, so without this every visit would paint neutral for the
+  // moment before this function runs; with it, only the first ever visit to a
+  // team does. Stored under the team's own id, so one team's colours can never
+  // be replayed onto another (docs/engineering/first-paint-team-tokens.md).
+  try{
+    var boot={};
+    for(var i=0;i<r.length;i++){
+      var name=r[i];
+      if(name.indexOf("--")===0) boot[name]=r.getPropertyValue(name);
+    }
+    boot.title      = ID.title;
+    boot.themeColor = ID.colors.surface;
+    localStorage.setItem("iw-boot-"+TEAM.id, JSON.stringify(boot));
+  }catch(e){}   // private mode, blocked storage, a full quota: the page is fine without it
 }
 paintIdentity();
 
