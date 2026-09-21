@@ -73,3 +73,40 @@ David (decision) / Claude Code (proposal and implementation)
 - `docs/05_TEAMOS.md`, `docs/07_DATA_ARCHITECTURE.md` — the snapshot paths
 - `docs/decisions/0007-newsitem-and-the-snapshot-boundary.md` — why the snapshot is not a provider
 - `teamos/snapshots.js`, `tools/adaptercheck.js`
+
+---
+
+## Extension, 2026-09-21: a provider source is a capability too
+
+The rule above was written for the files the Action commits. It applies equally
+to a **provider that does not cover every team**.
+
+Kalshi prices the championship contenders, not all of FBS. A team it takes no
+market on has no number to show, and a card reading "No market" every week is
+worse than no card — it occupies the same space to say nothing. So the Kalshi
+markets are a declared capability, exactly like a snapshot:
+
+- `TEAM_CONFIG.sources.kalshi` present → the team has the odds surface.
+- Absent → `loadStrip()` removes the two cards, the hint that explains tapping
+  them, and the board they open. `loadBoard()` and `loadSparklines()` return
+  early. Kalshi is never called.
+- Present, but the feed carries no market for this team on **either** event →
+  the surface goes then too, once both queries have answered.
+
+**The bug this fixed:** `teamMarket()` read `TEAM_CONFIG.sources.kalshi.tickerSuffix`
+with no guard, so a config declaring no Kalshi source **threw** rather than
+degrading. Notre Dame and Ohio State both declare one, so nothing hit it — the
+next team to become selectable would have. Verified with a temporary Indiana
+config (ESPN id 84, no Kalshi block): the page rendered as Hoosier Watch with
+the whole odds surface absent and no console errors, while Notre Dame kept all
+three elements.
+
+Checked by `tools/adaptercheck.js`, which runs the real `loadStrip()` against a
+stubbed page and asserts the surface was removed and Kalshi never asked.
+
+**A harness bug found on the way, worth recording because it makes checks lie:**
+the `liftFn` helper pulls a function out of `app.js` by matching to a closing
+brace in column 1. A one-liner has none, so the match ran on and swallowed the
+functions that followed — including a redefinition of the very stub the check
+was watching. The check passed on a broken build. `liftFn` now refuses an
+over-capture, and one-liners are stubbed instead of lifted.

@@ -612,6 +612,92 @@ ok(!/:before{content:"[^"]*[A-Z]{2,}[^"]*"}/.test(cssRules.replace(/#panel-(sche
    "every other section label is team-neutral copy");
 ok(!/'Barlow|'Grenze/.test(cssRules), "type comes from the team's stacks, not from the rules");
 
+// ---- a team without a provider's data does not see that surface ----
+// Kalshi prices the championship contenders, not all of FBS. A team it takes
+// no market on has nothing to show, and a card reading "No market" every week
+// is worse than no card. Same shape as the snapshot rule (decision 0008): the
+// capability is declared, and a team without it never sees the surface.
+// Before this, a config with no kalshi block threw on the first market check.
+console.log("app.js: Kalshi is a capability");
+var appSrc = read("app.js").replace(/\r\n/g, "\n");
+
+// Lift a function out of app.js by matching to a closing brace in column 1.
+// A ONE-LINER has no such brace, so the match runs on and swallows whatever
+// follows - which silently redefined the very stub a check was watching, and
+// made the check pass on a broken build. Refuse to return an over-capture.
+function liftFn(name) {
+  var m = appSrc.match(new RegExp("^function " + name + "\\([^)]*\\)\\{[\\s\\S]*?^\\}", "m"));
+  if (!m) throw new Error("could not find " + name + " in app.js");
+  var extra = m[0].slice(("function " + name).length).match(/^function\s+\w+/m);
+  if (extra) throw new Error("lifting " + name + " swallowed " + extra[0] +
+                             " - it is probably a one-liner; stub it instead");
+  return m[0] + "\n";
+}
+// The two one-liners this needs, stubbed rather than lifted, per the above.
+var ONELINERS =
+  "function teamOf(m){ return m.yes_sub_title||m.subtitle||m.title||m.ticker; }\n" +
+  "function isTeamMarket(m){ return teamMarket(m.ticker, teamOf(m)); }\n";
+
+function kalshiCtx(config) {
+  var c = vm.createContext({});
+  vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
+  vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + ONELINERS, c);
+  return c;
+}
+function has(config) { return vm.runInContext("hasKalshi()", kalshiCtx(config)); }
+function market(config, ticker, name) {
+  var c = kalshiCtx(config);
+  c.__t = ticker; c.__n = name;
+  // A throw is the bug, not a crash of this file: report it as a failure so
+  // the line that broke is named rather than a stack trace being the answer.
+  try { return vm.runInContext("teamMarket(__t, __n)", c); }
+  catch (e) { return "THREW: " + e.message; }
+}
+
+var ndCfg = JSON.stringify({ sources: { kalshi: { tickerSuffix: "-ND" } } });
+ok(has(ndCfg), "a team that declares Kalshi markets has the capability");
+ok(!has(JSON.stringify({ sources: {} })), "a team whose config has no kalshi block does not");
+ok(!has(JSON.stringify({})), "nor one with no sources at all");
+ok(!has(JSON.stringify({ sources: { kalshi: null } })), "nor one that declares it as null");
+
+// The bug: these used to throw, which is what a second team without Kalshi
+// would have hit the moment it became selectable.
+eq(market(JSON.stringify({ sources: {} }), "KXNCAAF-27-ND", "Notre Dame"), false,
+   "asking whether a market is ours, with no kalshi config, answers no");
+eq(market(JSON.stringify({}), "KXNCAAF-27-ND", "Notre Dame"), false, "and does not throw with no sources");
+eq(market(ndCfg, "KXNCAAF-27-ND", "Somebody"), true, "a matching ticker suffix is ours");
+eq(market(ndCfg, "KXNCAAF-27-OSU", "Ohio St."), false, "another team's ticker is not");
+
+console.log(" and the surface actually goes");
+// Behavioural, not a grep: run the real loadStrip against a stubbed page and
+// see whether it removed anything.
+function stripRun(config) {
+  var c = vm.createContext({ console: console });
+  vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
+  vm.runInContext([
+    "var dropped = 0, asked = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
+    "var cells = {};",
+    "function $(id){ return cells[id] || (cells[id] = { textContent:'', innerHTML:'', className:'' }); }",
+    "function dropOddsSurface(){ dropped++; }",
+    "function loadSparklines(){}",
+    "function price(){ return null; }",
+    "function prevPrice(){ return null; }",
+    "function kalshi(){ asked++; return Promise.resolve({ markets: [] }); }"
+  ].join("\n"), c);
+  vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + liftFn("loadStrip") + ONELINERS, c);
+  vm.runInContext("loadStrip();", c);
+  return c;
+}
+var noKalshi = stripRun(JSON.stringify({ sources: {} }));
+eq(noKalshi.dropped, 1, "a team with no Kalshi markets loses the odds surface");
+eq(noKalshi.asked, 0, "and Kalshi is never even asked");
+
+var withKalshi = stripRun(ndCfg);
+eq(withKalshi.dropped, 0, "a team that has them keeps it at first");
+eq(withKalshi.asked, 2, "and both event queries go out");
+
+ok(/function dropOddsSurface/.test(appSrc), "there is one place that takes the surface away");
+
 // ---- app.js names no team, no colour, no team branch ----
 console.log("app.js");
 var js = read("app.js");

@@ -803,12 +803,38 @@ function prevPrice(m){
   return num(m.previous_price);
 }
 function teamOf(m){ return m.yes_sub_title||m.subtitle||m.title||m.ticker; }
+
+// Kalshi lists the programs it takes a market on - the championship
+// contenders - not all of FBS. A team the market does not cover has no number
+// to show, and a card reading "No market" every week is worse than no card:
+// it takes up the same space to say nothing. So this is a CAPABILITY, declared
+// the same way snapshots are (decision 0008): a team either has Kalshi markets
+// or it does not, and a team that does not never sees the surface.
+//
+// A config declaring no kalshi source used to throw here, which is what a
+// second team without one would have hit the moment it became selectable.
+function hasKalshi(){
+  var k = TEAM_CONFIG.sources && TEAM_CONFIG.sources.kalshi;
+  return !!(k && (k.tickerSuffix || k.namePattern));
+}
+
 // Whether a Kalshi market is this team's: by ticker suffix, then by name.
 function teamMarket(ticker, name){
-  var k=TEAM_CONFIG.sources.kalshi;
-  return String(ticker||"").endsWith(k.tickerSuffix) || k.namePattern.test(String(name||""));
+  var k = TEAM_CONFIG.sources && TEAM_CONFIG.sources.kalshi;
+  if(!k) return false;
+  return (k.tickerSuffix && String(ticker||"").endsWith(k.tickerSuffix)) ||
+         (k.namePattern  && k.namePattern.test(String(name||""))) || false;
 }
 function isTeamMarket(m){ return teamMarket(m.ticker, teamOf(m)); }
+
+// Take the whole surface away: the two cards, the hint that explains tapping
+// them, and the board they open. Called when the team declares no markets, and
+// again if the feed turns out to carry none for them.
+function dropOddsSurface(){
+  ["strip","oddsHint","oddsboard"].forEach(function(id){
+    var el=$(id); if(el && el.parentNode) el.parentNode.removeChild(el);
+  });
+}
 
 function kalshiHelp(){
   return '<p class="msg"><strong>Kalshi didn\u2019t answer.</strong>'+
@@ -858,6 +884,7 @@ function renderBoard(ms, heading){
 }
 
 function loadBoard(kind){
+  if(!hasKalshi()) return;
   var el=$("oddsboard");
   var ev  = kind==="playoff" ? PLAYOFF_EVENT : TITLE_EVENT;
   var head= kind==="playoff" ? "Kalshi: who makes the playoff"
@@ -899,14 +926,26 @@ function toggleBoard(kind){
 }
 
 function loadStrip(){
+  // A team Kalshi takes no market on gets no odds surface at all.
+  if(!hasKalshi()){ dropOddsSurface(); return; }
+
   // Two separate event queries, each the same shape as the title board that we
   // know works. The team is picked out of each payload by ticker or by name.
+  var found = 0, asked = 0;
   [{ ev: TITLE_EVENT,   cell: "mTitle"   },
    { ev: PLAYOFF_EVENT, cell: "mPlayoff" }].forEach(function(q){
     kalshi("/markets?event_ticker="+q.ev+"&limit=200&status=open").then(function(d){
       var m = (d.markets||[]).filter(isTeamMarket)[0];
       var p = m ? price(m) : null;
-      if(p==null){ $(q.cell).textContent="No market"; return; }
+      // The feed answered and this team is not in it: they are not a program
+      // Kalshi prices. Once BOTH queries have said so, the surface goes -
+      // a team that is simply not a contender should not carry an empty card.
+      if(p==null){
+        if(++asked === 2 && found === 0) dropOddsSurface();
+        else $(q.cell).textContent = "No market";
+        return;
+      }
+      found++; asked++;
       var pp = prevPrice(m);
       var mv = (pp!==null) ? p-pp : null;
       var move = (mv==null||Math.abs(mv)<0.5) ? ""
@@ -940,6 +979,7 @@ function sparkline(vals){
     '<polyline points="'+pts.join(" ")+'"/></svg>';
 }
 function loadSparklines(){
+  if(!hasKalshi()) return;
   var snap=TeamOS.snapshots.get(TEAM_CONFIG,"oddsHistory");
   if(!snap) return;
   get(snap.file+"?t="+Date.now()).then(function(d){
