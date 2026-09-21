@@ -189,7 +189,37 @@ function get(url){
 // the page, so it works at / on localhost and under /<repo>/ on Pages.
 if("serviceWorker" in navigator){
   window.addEventListener("load", function(){
-    navigator.serviceWorker.register("sw.js").catch(function(){});
+    navigator.serviceWorker.register("sw.js").then(function(){
+      return navigator.serviceWorker.ready;
+    }).then(tellWorkerOurTeam).catch(function(){});
+  });
+}
+
+// What this team's offline copy consists of. The worker has no TEAM_CONFIG
+// and no localStorage, so it cannot work this out for itself - it precaches
+// only the half of the shell that belongs to no team, and the page tells it
+// the rest (decision 0015). Every path is derived from the team's own
+// configuration, so a team that adds artwork or a snapshot gets it cached
+// without a second list to remember.
+function teamCacheManifest(){
+  var shell = ["teams/"+TEAM.id+".js", ID.manifest];
+  ["favicon","icon32","icon64","appleTouch","og"].forEach(function(k){
+    if(ID.assets[k]) shell.push(ID.assets[k]);
+  });
+  return { type:"team", team:TEAM.id, shell:shell, manifest:ID.manifest,
+           data:TeamOS.snapshots.files(TEAM_CONFIG) };
+}
+
+function tellWorkerOurTeam(){
+  var sw = navigator.serviceWorker.controller;
+  if(!sw) return;                       // first load: no controller yet, the next one has it
+  try{ sw.postMessage(teamCacheManifest()); }catch(e){}
+}
+
+// A worker taking control after an update has not been told anything yet.
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.addEventListener("controllerchange", function(){
+    tellWorkerOurTeam();
   });
 }
 function paintStale(){

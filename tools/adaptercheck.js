@@ -440,7 +440,17 @@ ok(!/\bfetch\s*\(/.test(snapSrc),                                        "does n
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(snapSrc),   "does not touch the DOM or browser storage");
 ok(!/\bTEAM_ID\b|\bS\.\w|\bTEAM\b(?!_CONFIG)/.test(snapSrc), "does not read application globals (TEAM, TEAM_ID, S)");
 ok(!/notre|irish|ohio|buckeye/i.test(snapSrc.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, "")), "names no team in code");
-eq(Object.keys(TeamOS.snapshots).sort(), ["get","owned"], "exactly the documented functions");
+eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the documented functions");
+
+console.log(" every file a team declares, for the worker to cache");
+eq(TeamOS.snapshots.files(TEAM_CONFIG),
+   ["depth.json", "depth-history.json", "odds-history.json", "news.json"],
+   "Notre Dame's snapshots, files and histories together");
+eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), [],
+   "Ohio State declares none, so there is nothing to cache for it");
+eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
+eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.json"],
+   "a kind with no history contributes one file");
 
 var osu = load("teams/ohio-state.js");
 var ND = TeamOS.createTeam(TEAM_CONFIG.team), OSU = osu.TeamOS.createTeam(osu.TEAM_CONFIG.team);
@@ -633,7 +643,10 @@ var ndMan = JSON.parse(read("assets/notre-dame/manifest.json"));
 eq(osuMan.short_name, "Buckeye Watch", "short name");
 eq(osuMan.start_url, "../../?team=ohio-state", "installing it opens Buckeye Watch - the page plus its team, now that there is one page");
 eq(osuMan.icons, [], "no icons, because there is no approved artwork");
-eq(ndMan.start_url, "../../", "Notre Dame's still opens the site root");
+eq(ndMan.start_url, "../../?team=notre-dame", "Notre Dame's carries its team too");
+ok(/\?team=/.test(ndMan.start_url) && /\?team=/.test(osuMan.start_url),
+   "every manifest names its team in start_url - one installed app per team, each opening its own");
+ok(ndMan.start_url !== osuMan.start_url, "and no two teams install to the same start URL");
 ok(osuMan.theme_color !== ndMan.theme_color, "the two manifests carry different theme colours");
 
 

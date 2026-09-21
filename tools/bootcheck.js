@@ -36,6 +36,7 @@ if (!BOOT) { console.log("  FAIL index.html has no boot script"); process.exit(1
 function run(opts) {
   opts = opts || {};
   var store = Object.assign({}, opts.storage || {});
+  var pending = [];                     // script load/error callbacks, run after the script returns
   var applied = {}, injected = [], meta = { "theme-color": opts.staticTheme || "#0C2340" };
   var attrs = {}, doc;
 
@@ -46,8 +47,17 @@ function run(opts) {
     title: opts.staticTitle || "Irish Watch — Notre Dame football",
     readyState: opts.readyState || "loading",
     documentElement: { style: rootStyle, setAttribute: function (k, v) { attrs[k] = v; } },
-    head: { appendChild: function (el) { injected.push(el.src); } },
-    createElement: function () { return { src: null, async: true }; },
+    head: { appendChild: function (el) {
+      injected.push(el.src);
+      // A config the repository does not have 404s. That is the mechanism
+      // that replaced a hard-coded list of known teams. Both callbacks are
+      // deferred, as a browser defers them - firing onerror inline would hide
+      // exactly the ordering bug this is here to catch.
+      var missing = opts.missing && opts.missing.indexOf(el.src) !== -1;
+      if (missing && el.onerror) pending.push(el.onerror);
+      if (!missing && el.onload) pending.push(el.onload);
+    } },
+    createElement: function () { return { src: null, async: true, onerror: null }; },
     querySelector: function (sel) {
       var m = /^meta\[name="([^"]+)"\]$/.exec(sel);
       if (!m || !(m[1] in meta)) return null;
@@ -73,7 +83,12 @@ function run(opts) {
     sandbox.localStorage.getItem = function () { throw new Error("blocked"); };
   }
   vm.runInNewContext(BOOT, sandbox, { filename: "team-boot" });
-  if (doc.__domReady) doc.__domReady();          // the DOM arrives; app.js goes in
+  // The order a browser would use: the parser finishes, then the network
+  // results land. Both are drained until nothing new is queued.
+  if (opts.domFirst !== false && doc.__domReady) doc.__domReady();
+  for (var guard = 0; pending.length && guard < 50; guard++) pending.shift()();
+  if (opts.domFirst === false && doc.__domReady) doc.__domReady();
+  for (guard = 0; pending.length && guard < 50; guard++) pending.shift()();
   return { team: attrs["data-team"], applied: applied, injected: injected,
            meta: meta, title: doc.title, store: store };
 }
@@ -91,13 +106,26 @@ eq(run({ search: "?team=ohio-state" }).team, "ohio-state", "?team= wins");
 eq(run({ storage: { "iw-team": "ohio-state" } }).team, "ohio-state", "then the last choice this browser made");
 eq(run({ search: "?team=notre-dame", storage: { "iw-team": "ohio-state" } }).team, "notre-dame",
    "?team= beats the stored choice, so a link can override it");
-eq(run({ search: "?team=alabama" }).team, "notre-dame", "a team with no config falls back rather than loading nothing");
-eq(run({ storage: { "iw-team": "alabama" } }).team, "notre-dame", "and so does a stale stored one");
+eq(run({ search: "?team=alabama" }).team, "alabama",
+   "an id the boot script has never heard of is still taken - the registry has not loaded, so it cannot know");
+eq(run({ search: "?team=../../etc/passwd" }).team, "notre-dame", "but an id that is not an id is refused");
+eq(run({ search: "?team=Notre-Dame" }).team, "notre-dame", "and so is one with capitals, because it becomes a file path");
 eq(run({ search: "?team=" }).team, "notre-dame", "an empty ?team= is not a team");
+
+console.log(" a team with no config falls back when its config 404s");
+var gone = run({ search: "?team=alabama", missing: ["teams/alabama.js"] });
+eq(gone.team, "notre-dame", "the page ends up on the default rather than an app with no team");
+eq(gone.store["iw-team"], "notre-dame", "and the bad choice is not left stored to fail again tomorrow");
+eq(gone.injected.filter(function (s) { return /^teams\/[a-z-]+\.js$/.test(s); }),
+   ["teams/alabama.js", "teams/index.js", "teams/notre-dame.js"],
+   "the default's config is loaded after the failure");
+var stillND = run({ missing: ["teams/notre-dame.js"] });
+eq(stillND.team, "notre-dame", "the default failing has nowhere to fall back to, and does not loop");
 
 console.log(" and it is remembered");
 eq(run({ search: "?team=ohio-state" }).store["iw-team"], "ohio-state", "the choice is stored");
-eq(run({ search: "?team=alabama" }).store["iw-team"], "notre-dame", "an unknown one stores the fallback, not itself");
+eq(run({ search: "?team=alabama" }).store["iw-team"], "alabama",
+   "an id is stored as asked - nothing here knows yet whether it has a config");
 
 console.log("what it paints before anything loads");
 var cold = run({ search: "?team=ohio-state" });
@@ -148,8 +176,9 @@ console.log("what it loads");
 var order = run({ search: "?team=ohio-state" }).injected;
 eq(order[0], "teams/ohio-state.js", "the team's config first - app.js reads it at parse time");
 eq(order[order.length - 1], "app.js", "and app.js last");
-eq(order, ["teams/ohio-state.js", "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js",
-           "teamos/live.js", "teamos/season.js", "teamos/espn.js", "app.js"],
+eq(order, ["teams/ohio-state.js", "teams/index.js", "teamos/registry.js", "teamos/team.js",
+           "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js",
+           "teamos/espn.js", "app.js"],
    "every file the page needs, in dependency order");
 ok(/async\s*=\s*false/.test(BOOT), "injected with async=false, which is what keeps them in order");
 ok(/DOMContentLoaded/.test(BOOT),
@@ -159,14 +188,31 @@ ok(/DOMContentLoaded/.test(BOOT),
 var early = run({ readyState: "loading" });
 ok(early.injected.indexOf("app.js") === early.injected.length - 1, "and is still last when it arrives");
 
-console.log("the team list matches the configs on disk");
-var listed = (BOOT.match(/var TEAMS\s*=\s*\[([^\]]*)\]/) || [, ""])[1]
-  .split(",").map(function (s) { return s.trim().replace(/^"|"$/g, ""); })
-  .filter(Boolean).sort();
-var onDisk = fs.readdirSync(path.join(root, "teams"))
-  .filter(function (f) { return /\.js$/.test(f); })
-  .map(function (f) { return f.replace(/\.js$/, ""); }).sort();
-eq(listed, onDisk, "every team the boot script offers has a config, and every config is offered");
+console.log(" app.js waits for the team config, not just the DOM");
+// The bug this was written for: a 404 on the team config is reported
+// asynchronously, so the fallback config is injected LATER than everything
+// else. If app.js went in at DOMContentLoaded it could parse before
+// TEAM_CONFIG existed and throw. It waits for both, in either order.
+var raced = run({ search: "?team=alabama", missing: ["teams/alabama.js"] });
+var iFallback = raced.injected.indexOf("teams/notre-dame.js");
+var iApp      = raced.injected.indexOf("app.js");
+ok(iFallback !== -1 && iApp !== -1, "both the fallback config and app.js are loaded");
+ok(iFallback < iApp, "and app.js goes in after the config it needs, not before");
+var domLast = run({ search: "?team=alabama", missing: ["teams/alabama.js"], domFirst: false });
+ok(domLast.injected.indexOf("teams/notre-dame.js") < domLast.injected.indexOf("app.js"),
+   "the same when the DOM is the thing that arrives last");
+eq(run({ readyState: "complete" }).injected.slice(-1), ["app.js"],
+   "and on a document that is already parsed, app.js still goes last");
+
+console.log("it keeps no team list of its own");
+// teams/index.js is the one registry (decision 0014). A list here would be a
+// second one, and second lists drift.
+ok(!/var TEAMS\s*=/.test(BOOT), "no TEAMS array");
+var names = (BOOT.match(/"[a-z][a-z0-9-]{2,}"/g) || [])
+  .map(function (q) { return q.replace(/"/g, ""); })
+  .filter(function (n) { return n !== "notre-dame" && !/^(iw-|--|team$|script$)/.test(n); });
+ok(names.every(function (n) { return !fs.existsSync(path.join(root, "teams", n + ".js")); }),
+   "and names no team config but the default's, which it needs to fall back to");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the page knows which team it is"));
 process.exit(failures ? 1 : 0);

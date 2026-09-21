@@ -58,19 +58,24 @@
 <script id="team-boot">
 (function(){
   "use strict";
-  var TEAMS   = ["notre-dame", "ohio-state"];   // one per teams/<id>.js; tools/bootcheck.js keeps this honest
-  var DEFAULT = "notre-dame";                   // what a first-ever visitor gets
+  var DEFAULT  = "notre-dame";                  // until a fan has chosen; 7C replaces this with the chooser
+  var ID       = /^[a-z0-9-]+$/;                // an id becomes a file path, so it is shape-checked here
   var TEAM_KEY = "iw-team", BOOT_KEY = "iw-boot-";
 
   function get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
   function set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
 
+  // The URL wins, then the last choice this browser made, then the default.
+  // There is deliberately NO list of known teams here: teams/index.js is the
+  // one registry (decision 0014), and it has not loaded yet. An id that names
+  // no config simply fails to load, and onerror below falls back - which also
+  // covers a team removed from the registry after someone bookmarked it.
   var asked = null;
   try { asked = new URLSearchParams(location.search).get("team"); } catch(e){}
   var id = DEFAULT;
   [asked, get(TEAM_KEY)].some(function(t){
-    if (t && TEAMS.indexOf(t) !== -1) { id = t; return true; }
-    return false;                               // an unknown team falls through to the default
+    if (t && ID.test(t)) { id = t; return true; }
+    return false;
   });
   if (id !== get(TEAM_KEY)) set(TEAM_KEY, id);
   document.documentElement.setAttribute("data-team", id);
@@ -106,19 +111,50 @@
   var meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.setAttribute("content", chrome);
 
-  function inject(src){
+  function inject(src, onerror, onload){
     var s = document.createElement("script");
     s.src = src;
     s.async = false;                            // injected scripts stay in insertion order
+    if (onerror) s.onerror = onerror;
+    if (onload)  s.onload  = onload;
     document.head.appendChild(s);
   }
-  ["teams/" + id + ".js", "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js",
-   "teamos/live.js", "teamos/season.js", "teamos/espn.js"].forEach(inject);
-  // app.js reads the DOM at parse time, so it waits for one. async=false still
-  // queues it behind everything above however long they take.
-  if (document.readyState === "loading")
-    document.addEventListener("DOMContentLoaded", function(){ inject("app.js"); });
-  else inject("app.js");
+
+  // app.js needs two things that arrive independently: a DOM, because it
+  // queries one as it parses, and TEAM_CONFIG, because it reads that as it
+  // parses too. A 404 on the team's config is reported asynchronously, so the
+  // fallback config can be injected LATER than everything else - which is
+  // fine for order (async=false keeps app.js behind it) but means app.js
+  // cannot simply go in at DOMContentLoaded. It waits for both.
+  var domReady = document.readyState !== "loading", teamReady = false, started = false;
+  function start(){
+    if (!domReady || !teamReady || started) return;
+    started = true;
+    inject("app.js");
+  }
+
+  function loadTeam(tid, mayFallBack){
+    inject("teams/" + tid + ".js",
+      function(){                               // no config under that id
+        if (!mayFallBack) return;               // the default itself is missing; stop rather than loop
+        set(TEAM_KEY, DEFAULT);
+        document.documentElement.setAttribute("data-team", DEFAULT);
+        loadTeam(DEFAULT, false);
+      },
+      function(){ teamReady = true; start(); });
+  }
+  // The team's config first, because app.js reads TEAM_CONFIG as it parses.
+  // A missing one falls back to the default rather than loading an
+  // application with no team. This is what replaces a hard-coded list of
+  // known teams: the file system is the list (decision 0014).
+  loadTeam(id, id !== DEFAULT);
+
+  ["teams/index.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
+   "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js"]
+    .forEach(function(src){ inject(src); });
+
+  if (domReady) start();
+  else document.addEventListener("DOMContentLoaded", function(){ domReady = true; start(); });
 })();
 </script>
 </head>

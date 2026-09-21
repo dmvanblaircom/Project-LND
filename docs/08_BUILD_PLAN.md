@@ -99,11 +99,22 @@ not yet learned its team paints nobody's colours rather than the default team's.
 `tools/bootcheck.js` covers the selection, the replay, the cross-team isolation
 and the load order. `docs/decisions/0013-the-page-chooses-its-team.md`.
 
-**7B, next:** the service worker still precaches the default team's config and
-snapshots, because a worker cannot read the page's choice at install time. A
-second team works online (its files are fetched and cached on demand) but not
-offline on a first visit. The worker needs to be told, and a team switch needs
-to purge what the previous team left.
+**7B complete 2026-09-21.** The worker precaches only the half of the shell that
+belongs to no team; the page posts this team's config, artwork, manifest and
+declared snapshots, and the worker caches those and records whose they are.
+Switching teams deletes exactly the previous team's declared files - by name, so
+league-wide data nobody owns survives. It also caches the icons the team's
+manifest names. Verified Notre Dame -> Ohio State -> Notre Dame, online and
+offline, with no contamination either way.
+`docs/decisions/0015-the-worker-is-told-its-team.md`.
+
+Alongside it, `teams/index.js` became the canonical registry: a program is
+selectable because it names a config, and there is no second list.
+`docs/decisions/0014-one-registry.md`.
+
+A first visit to a team while offline still cannot work - those files have never
+been fetched. Once a team has been opened online it works offline, and switching
+between opened teams works offline.
 
 **7C, needs a product decision:** where selection lives for a fan — a first-run
 screen, a switcher in the header, or separate URLs per team. `?team=` is a
