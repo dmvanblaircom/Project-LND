@@ -357,6 +357,10 @@ jobs:
           def parse_pdf(game, doc_url, data, final_url):
               text = pdf_text(data)
               lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
+              if "Purdue" in game:
+                  print("  DEBUG Purdue extracted lines:")
+                  for x in lines[:120]:
+                      print("   ", repr(x))
               groups = {}
               current_group = current_pos = None
               depth = 0
