@@ -155,6 +155,22 @@ function paintIdentity(){
   // Suite's own. Left undeclared, the stylesheet's values stand.
   if(c.text)    r.setProperty("--paper", c.text);
   if(c.textDim) r.setProperty("--dim",   c.textDim);
+
+  // Leave this team's boot set behind for the next visit. app.css's :root is
+  // team-neutral, so without this every visit would paint neutral for the
+  // moment before this function runs; with it, only the first ever visit to a
+  // team does. Stored under the team's own id, so one team's colours can never
+  // be replayed onto another (docs/engineering/first-paint-team-tokens.md).
+  try{
+    var boot={};
+    for(var i=0;i<r.length;i++){
+      var name=r[i];
+      if(name.indexOf("--")===0) boot[name]=r.getPropertyValue(name);
+    }
+    boot.title      = ID.title;
+    boot.themeColor = ID.colors.surface;
+    localStorage.setItem("iw-boot-"+TEAM.id, JSON.stringify(boot));
+  }catch(e){}   // private mode, blocked storage, a full quota: the page is fine without it
 }
 paintIdentity();
 
@@ -173,7 +189,37 @@ function get(url){
 // the page, so it works at / on localhost and under /<repo>/ on Pages.
 if("serviceWorker" in navigator){
   window.addEventListener("load", function(){
-    navigator.serviceWorker.register("sw.js").catch(function(){});
+    navigator.serviceWorker.register("sw.js").then(function(){
+      return navigator.serviceWorker.ready;
+    }).then(tellWorkerOurTeam).catch(function(){});
+  });
+}
+
+// What this team's offline copy consists of. The worker has no TEAM_CONFIG
+// and no localStorage, so it cannot work this out for itself - it precaches
+// only the half of the shell that belongs to no team, and the page tells it
+// the rest (decision 0015). Every path is derived from the team's own
+// configuration, so a team that adds artwork or a snapshot gets it cached
+// without a second list to remember.
+function teamCacheManifest(){
+  var shell = ["teams/"+TEAM.id+".js", ID.manifest];
+  ["favicon","icon32","icon64","appleTouch","og"].forEach(function(k){
+    if(ID.assets[k]) shell.push(ID.assets[k]);
+  });
+  return { type:"team", team:TEAM.id, shell:shell, manifest:ID.manifest,
+           data:TeamOS.snapshots.files(TEAM_CONFIG) };
+}
+
+function tellWorkerOurTeam(){
+  var sw = navigator.serviceWorker.controller;
+  if(!sw) return;                       // first load: no controller yet, the next one has it
+  try{ sw.postMessage(teamCacheManifest()); }catch(e){}
+}
+
+// A worker taking control after an update has not been told anything yet.
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.addEventListener("controllerchange", function(){
+    tellWorkerOurTeam();
   });
 }
 function paintStale(){
@@ -757,12 +803,38 @@ function prevPrice(m){
   return num(m.previous_price);
 }
 function teamOf(m){ return m.yes_sub_title||m.subtitle||m.title||m.ticker; }
+
+// Kalshi lists the programs it takes a market on - the championship
+// contenders - not all of FBS. A team the market does not cover has no number
+// to show, and a card reading "No market" every week is worse than no card:
+// it takes up the same space to say nothing. So this is a CAPABILITY, declared
+// the same way snapshots are (decision 0008): a team either has Kalshi markets
+// or it does not, and a team that does not never sees the surface.
+//
+// A config declaring no kalshi source used to throw here, which is what a
+// second team without one would have hit the moment it became selectable.
+function hasKalshi(){
+  var k = TEAM_CONFIG.sources && TEAM_CONFIG.sources.kalshi;
+  return !!(k && (k.tickerSuffix || k.namePattern));
+}
+
 // Whether a Kalshi market is this team's: by ticker suffix, then by name.
 function teamMarket(ticker, name){
-  var k=TEAM_CONFIG.sources.kalshi;
-  return String(ticker||"").endsWith(k.tickerSuffix) || k.namePattern.test(String(name||""));
+  var k = TEAM_CONFIG.sources && TEAM_CONFIG.sources.kalshi;
+  if(!k) return false;
+  return (k.tickerSuffix && String(ticker||"").endsWith(k.tickerSuffix)) ||
+         (k.namePattern  && k.namePattern.test(String(name||""))) || false;
 }
 function isTeamMarket(m){ return teamMarket(m.ticker, teamOf(m)); }
+
+// Take the whole surface away: the two cards, the hint that explains tapping
+// them, and the board they open. Called when the team declares no markets, and
+// again if the feed turns out to carry none for them.
+function dropOddsSurface(){
+  ["strip","oddsHint","oddsboard"].forEach(function(id){
+    var el=$(id); if(el && el.parentNode) el.parentNode.removeChild(el);
+  });
+}
 
 function kalshiHelp(){
   return '<p class="msg"><strong>Kalshi didn\u2019t answer.</strong>'+
@@ -812,6 +884,7 @@ function renderBoard(ms, heading){
 }
 
 function loadBoard(kind){
+  if(!hasKalshi()) return;
   var el=$("oddsboard");
   var ev  = kind==="playoff" ? PLAYOFF_EVENT : TITLE_EVENT;
   var head= kind==="playoff" ? "Kalshi: who makes the playoff"
@@ -853,14 +926,26 @@ function toggleBoard(kind){
 }
 
 function loadStrip(){
+  // A team Kalshi takes no market on gets no odds surface at all.
+  if(!hasKalshi()){ dropOddsSurface(); return; }
+
   // Two separate event queries, each the same shape as the title board that we
   // know works. The team is picked out of each payload by ticker or by name.
+  var found = 0, asked = 0;
   [{ ev: TITLE_EVENT,   cell: "mTitle"   },
    { ev: PLAYOFF_EVENT, cell: "mPlayoff" }].forEach(function(q){
     kalshi("/markets?event_ticker="+q.ev+"&limit=200&status=open").then(function(d){
       var m = (d.markets||[]).filter(isTeamMarket)[0];
       var p = m ? price(m) : null;
-      if(p==null){ $(q.cell).textContent="No market"; return; }
+      // The feed answered and this team is not in it: they are not a program
+      // Kalshi prices. Once BOTH queries have said so, the surface goes -
+      // a team that is simply not a contender should not carry an empty card.
+      if(p==null){
+        if(++asked === 2 && found === 0) dropOddsSurface();
+        else $(q.cell).textContent = "No market";
+        return;
+      }
+      found++; asked++;
       var pp = prevPrice(m);
       var mv = (pp!==null) ? p-pp : null;
       var move = (mv==null||Math.abs(mv)<0.5) ? ""
@@ -894,6 +979,7 @@ function sparkline(vals){
     '<polyline points="'+pts.join(" ")+'"/></svg>';
 }
 function loadSparklines(){
+  if(!hasKalshi()) return;
   var snap=TeamOS.snapshots.get(TEAM_CONFIG,"oddsHistory");
   if(!snap) return;
   get(snap.file+"?t="+Date.now()).then(function(d){
@@ -1646,6 +1732,36 @@ function seasonYear(){
 }
 
 
+// Points allowed per game, for one side of the matchup. For the configured
+// team the answer is already on the page - S.games is the whole season - so
+// nothing is fetched. For the opponent it costs one request for their
+// schedule, cached for the session like the stats themselves. A failure
+// resolves to null rather than rejecting: a missing row is better than a
+// missing card.
+var PTS_ALLOWED={};               // side key -> number|null
+
+function pointsAllowedFor(key, ourGames){
+  if(!key) return Promise.resolve(null);
+  if(PTS_ALLOWED.hasOwnProperty(key)) return Promise.resolve(PTS_ALLOWED[key]);
+  var p = ourGames
+    ? Promise.resolve(TeamOS.season.pointsAllowedPerGame(ourGames))
+    : get(TeamOS.espn.teamScheduleUrl(key)).then(function(d){
+        return TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(d, key));
+      }).catch(function(){ return null; });
+  return p.then(function(v){ PTS_ALLOWED[key]=v; return v; });
+}
+
+// The one row no provider fills. Copies rather than writes, because the rows
+// themselves are cached in SEASON_STATS and shared between renders.
+function withPointsAllowed(rows, perGame){
+  if(perGame==null) return rows;
+  return rows.map(function(r){
+    if(r.key!=="pointsAllowed") return r;
+    return { key:r.key, label:r.label, value:perGame.toFixed(1),
+             rank:r.rank, rankText:r.rankText };
+  });
+}
+
 function teamSeasonStats(key){
   if(!key) return Promise.reject(new Error("no team"));
   if(SEASON_STATS[key]) return Promise.resolve(SEASON_STATS[key]);
@@ -1680,7 +1796,7 @@ function renderPreview(awayStats, homeStats, awayAb, homeAb){
     '<div class="statrow head"><span class="v">'+esc(awayAb)+"</span>"+
     '<span class="lbl">SEASON \u00B7 NATIONAL RANK</span>'+
     '<span class="v r">'+esc(homeAb)+"</span></div>"+body+
-    '<p class="stamp">Per-game figures and national ranks for the season to date.</p>';
+    '<p class="stamp">Per-game figures for the season to date, with the national rank where one is published.</p>';
 }
 
 // Kick off the preview for a GameDetail that renderGame just painted into
@@ -1695,8 +1811,14 @@ function loadPreview(away, home, root){
   var slot=(root||$("panel-game")).querySelector(".gpreview");
   if(!slot) return;
   slot.innerHTML='<p class="loading">Loading the matchup…</p>';
-  Promise.all([teamSeasonStats(away.key), teamSeasonStats(home.key)]).then(function(r){
-    var html=renderPreview(r[0], r[1], away.abbreviation, home.abbreviation);
+  Promise.all([
+    teamSeasonStats(away.key), teamSeasonStats(home.key),
+    pointsAllowedFor(away.key, away.mine ? S.games : null),
+    pointsAllowedFor(home.key, home.mine ? S.games : null)
+  ]).then(function(r){
+    var html=renderPreview(withPointsAllowed(r[0], r[2]),
+                           withPointsAllowed(r[1], r[3]),
+                           away.abbreviation, home.abbreviation);
     slot.innerHTML=html;
   }).catch(function(){
     slot.innerHTML="";            // no ranks available, show nothing rather than a broken block

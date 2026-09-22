@@ -22,7 +22,7 @@ function read(p) { return fs.readFileSync(path.join(root, p), "utf8"); }
 // A context with nothing but the two globals the scripts define.
 function load(teamFile) {
   var c = vm.createContext({});
-  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/espn.js"].forEach(function (f) {
+  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js"].forEach(function (f) {
     vm.runInContext(read(f), c, { filename: f });
   });
   return c;
@@ -280,11 +280,120 @@ eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", abb
 console.log("seasonStats()");
 var stats = JSON.parse(read("tools/fixtures/espn-season-stats.json"));
 var nd = TeamOS.espn.seasonStats(stats.teams["87"]);
-eq(nd.map(function (r) { return r.label; }), ["Scoring offense","Total offense","Rushing offense","Passing offense","Scoring defense","Total defense","Turnover margin","Third down"], "the eight preview rows in order");
-nd.forEach(function (r) { eq(Object.keys(r), ["label","value","rank","rankText"], r.label + " is a SeasonStat"); });
-eq(nd[0], { label:"Scoring offense", value:"46.5", rank:21, rankText:"Tied-21st" }, "value, rank and ESPN's rank text from the first name it files the stat under");
-eq(nd[4], { label:"Scoring defense", value:null, rank:null, rankText:null }, "a row the feed has no name for -> null value");
+var op = TeamOS.espn.seasonStats(stats.teams["127"]);
+eq(nd.map(function (r) { return r.key; }),
+   ["pointsFor","pointsAllowed","totalOffense","rushOffense","passOffense",
+    "yardsPerPlay","sacks","tacklesForLoss","turnoverMargin"],
+   "the nine preview rows in order");
+nd.forEach(function (r) { eq(Object.keys(r), ["key","label","value","rank","rankText"], r.key + " is a SeasonStat"); });
+eq(nd[0], { key:"pointsFor", label:"Points per game", value:"40.0", rank:28, rankText:"Tied-28th" },
+   "value, rank and ESPN's rank text from the first name it files the stat under");
+eq([nd[2].value, nd[3].value, nd[4].value, nd[5].value], ["407.7","130.0","277.7","6.3"],
+   "the yardage rows");
+eq([nd[8].value, op[8].value], ["6","-2"], "turnover margin keeps a negative");
 ok(!/splits|categories|rankDisplayValue|espn/i.test(JSON.stringify(nd)), "carries no ESPN keys or names");
+
+console.log(" the sacks collision");
+// ESPN files "sacks" under passing (given up by this offence) AND defensive
+// (made by this defence). A bare lookup takes whichever category the feed
+// lists last, which is luck, not a decision. The rows name the category.
+eq(nd[6], { key:"sacks", label:"Sacks", value:"7", rank:36, rankText:"Tied-36th" },
+   "Sacks is the defence's 7, not the offence's 2 from the passing category");
+eq(op[6].value, "3", "and the same for the other side");
+
+// The fixture lists passing before defensive, as ESPN does today, so a bare
+// "sacks" lookup would land on the right value by luck. Feed the SAME two
+// categories in the opposite order: a qualified lookup is unmoved, a bare one
+// flips to the offence's number. This is the check that has teeth.
+function sacksFrom(order) {
+  var cat = {
+    passing:   { name:"passing",   stats:[{ name:"sacks", displayValue:"2", value:2, rank:108, rankDisplayValue:"Tied-108th" }] },
+    defensive: { name:"defensive", stats:[{ name:"sacks", displayValue:"7", value:7, rank:36,  rankDisplayValue:"Tied-36th" }] }
+  };
+  return TeamOS.espn.seasonStats({ splits: { categories: order.map(function (k) { return cat[k]; }) } })[6];
+}
+eq(sacksFrom(["passing","defensive"]).value, "7", "defence's sacks with the feed in today's order");
+eq(sacksFrom(["defensive","passing"]).value, "7", "and still the defence's with the categories swapped");
+eq(sacksFrom(["defensive"]).value, "7", "and with the passing category absent entirely");
+eq(sacksFrom(["passing"]).value, null, "a payload with only the offence's sacks answers nothing");
+
+console.log(" the fields ESPN publishes but never fills");
+// pointsAllowed and yardsAllowed are in every payload, always 0, always
+// ranked "Tied-1st". Mapping them would print a confident 0.0 #1.
+var rawNd = JSON.stringify(stats.teams["87"]);
+ok(/pointsAllowed/.test(rawNd) && /yardsAllowed/.test(rawNd), "the fixture still carries both stubs");
+eq(nd[1], { key:"pointsAllowed", label:"Points allowed", value:null, rank:null, rankText:null },
+   "the points-allowed row comes back empty for TeamOS.season to fill");
+
+// Behavioural, not a grep: a payload of NOTHING BUT the stubs must produce a
+// card with no values at all. If any row ever learns to read pointsAllowed or
+// yardsAllowed, this is what catches it.
+var stubsOnly = TeamOS.espn.seasonStats({ splits: { categories: [ { name: "defensive", stats: [
+  { name:"pointsAllowed", displayValue:"0", value:0, rank:1, rankDisplayValue:"Tied-1st" },
+  { name:"yardsAllowed",  displayValue:"0", value:0, rank:1, rankDisplayValue:"Tied-1st" } ] } ] } });
+eq(stubsOnly.map(function (r) { return r.value; }), [null,null,null,null,null,null,null,null,null],
+   "a payload of nothing but ESPN's zero stubs yields nine empty rows");
+eq(stubsOnly.map(function (r) { return r.rank; }), [null,null,null,null,null,null,null,null,null],
+   "and never ESPN's phantom Tied-1st rank");
+
+console.log("scoreLines()");
+var lines = TeamOS.espn.scoreLines(fixture, "87");
+eq(lines.length, 4, "one line per event on the schedule");
+eq(lines[1], { state:"post", us:"41", them:"13" }, "a finished game, from this team's point of view");
+eq(lines[0], { state:"pre", us:null, them:null }, "an unplayed one carries no score");
+eq(TeamOS.espn.scoreLines(fixture, "275")[1], { state:"post", us:"13", them:"41" },
+   "the same game read for the other team is the mirror");
+eq(TeamOS.espn.scoreLines(fixture, "999")[1], { state:"post", us:null, them:"13" },
+   "a team not in the game has no score of its own");
+eq(TeamOS.espn.scoreLines(null, "87"), [], "no payload -> no lines");
+ok(!/competitions|competitors|displayValue|homeAway/.test(JSON.stringify(lines)), "carries no ESPN keys");
+
+console.log("teamScheduleUrl");
+eq(TeamOS.espn.teamScheduleUrl("194"),
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194/schedule",
+   "the same URL shape as the configured team's, for a team with no config");
+eq(TeamOS.espn.teamScheduleUrl(TEAM_CONFIG.sources.espn.teamId), TeamOS.espn.scheduleUrl(TEAM_CONFIG),
+   "and it agrees with scheduleUrl for the configured team (SW cache key)");
+
+// ---- teamos/season.js: what a team's own results already answer ----
+console.log("teamos/season.js");
+var seasonSrc = read("teamos/season.js");
+ok(!/\bfetch\s*\(/.test(seasonSrc), "does not call fetch()");
+ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(seasonSrc), "does not touch the DOM or browser storage");
+ok(!/espn|kalshi|open-meteo/i.test(uncomment(seasonSrc)), "names no provider");
+ok(!/notre|irish|ohio|buckeye/i.test(uncomment(seasonSrc)), "names no team");
+eq(Object.keys(TeamOS.season).sort(), ["gamesCounted","pointsAllowedPerGame","pointsPerGame"],
+   "exactly the documented functions");
+
+var season = [ { state:"post", us:"56", them:"13" },
+               { state:"post", us:"32", them:"0"  },
+               { state:"in",   us:"7",  them:"21" },
+               { state:"pre",  us:null, them:null } ];
+eq(TeamOS.season.pointsAllowedPerGame(season), 6.5, "points allowed averages the finished games only");
+eq(TeamOS.season.pointsPerGame(season), 44, "and so does points scored");
+eq(TeamOS.season.gamesCounted(season), 2, "two games have finished");
+eq(TeamOS.season.pointsAllowedPerGame([{ state:"post", us:"3", them:"0" }]), 0,
+   "a shutout is 0 allowed, not no answer");
+eq(TeamOS.season.pointsAllowedPerGame([{ state:"pre", us:null, them:null }]), null,
+   "nothing finished -> null, and the view drops the row");
+eq(TeamOS.season.pointsAllowedPerGame([]), null, "no games -> null");
+eq(TeamOS.season.pointsAllowedPerGame(null), null, "no list at all -> null");
+eq(TeamOS.season.pointsAllowedPerGame([{ state:"post", us:"10", them:null }]), null,
+   "a finished game with no score cannot answer");
+eq(TeamOS.season.pointsAllowedPerGame([{ state:"post", us:"1", them:"1,223" }]), 1223,
+   "a score the provider printed with a comma still parses");
+eq(TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(fixture, "87")), 13,
+   "it reads score lines and Games the same way");
+
+// The whole point, end to end: the one row ESPN cannot answer, answered.
+console.log(" the derived row, end to end");
+var filled = nd.map(function (r) {
+  return r.key === "pointsAllowed"
+    ? { key:r.key, label:r.label, value:(13).toFixed(1), rank:r.rank, rankText:r.rankText }
+    : r;
+});
+eq(filled[1], { key:"pointsAllowed", label:"Points allowed", value:"13.0", rank:null, rankText:null },
+   "filled from results, with no national rank because none exists");
 
 // ---- news ----
 var newsFixture = JSON.parse(read("tools/fixtures/espn-news.json"));
@@ -321,7 +430,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamScheduleUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
 
 // ---- snapshot ownership: the same questions, two teams, two answers ----
@@ -331,7 +440,17 @@ ok(!/\bfetch\s*\(/.test(snapSrc),                                        "does n
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(snapSrc),   "does not touch the DOM or browser storage");
 ok(!/\bTEAM_ID\b|\bS\.\w|\bTEAM\b(?!_CONFIG)/.test(snapSrc), "does not read application globals (TEAM, TEAM_ID, S)");
 ok(!/notre|irish|ohio|buckeye/i.test(snapSrc.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, "")), "names no team in code");
-eq(Object.keys(TeamOS.snapshots).sort(), ["get","owned"], "exactly the documented functions");
+eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the documented functions");
+
+console.log(" every file a team declares, for the worker to cache");
+eq(TeamOS.snapshots.files(TEAM_CONFIG),
+   ["depth.json", "depth-history.json", "odds-history.json", "news.json"],
+   "Notre Dame's snapshots, files and histories together");
+eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), [],
+   "Ohio State declares none, so there is nothing to cache for it");
+eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
+eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.json"],
+   "a kind with no history contributes one file");
 
 var osu = load("teams/ohio-state.js");
 var ND = TeamOS.createTeam(TEAM_CONFIG.team), OSU = osu.TeamOS.createTeam(osu.TEAM_CONFIG.team);
@@ -493,6 +612,92 @@ ok(!/:before{content:"[^"]*[A-Z]{2,}[^"]*"}/.test(cssRules.replace(/#panel-(sche
    "every other section label is team-neutral copy");
 ok(!/'Barlow|'Grenze/.test(cssRules), "type comes from the team's stacks, not from the rules");
 
+// ---- a team without a provider's data does not see that surface ----
+// Kalshi prices the championship contenders, not all of FBS. A team it takes
+// no market on has nothing to show, and a card reading "No market" every week
+// is worse than no card. Same shape as the snapshot rule (decision 0008): the
+// capability is declared, and a team without it never sees the surface.
+// Before this, a config with no kalshi block threw on the first market check.
+console.log("app.js: Kalshi is a capability");
+var appSrc = read("app.js").replace(/\r\n/g, "\n");
+
+// Lift a function out of app.js by matching to a closing brace in column 1.
+// A ONE-LINER has no such brace, so the match runs on and swallows whatever
+// follows - which silently redefined the very stub a check was watching, and
+// made the check pass on a broken build. Refuse to return an over-capture.
+function liftFn(name) {
+  var m = appSrc.match(new RegExp("^function " + name + "\\([^)]*\\)\\{[\\s\\S]*?^\\}", "m"));
+  if (!m) throw new Error("could not find " + name + " in app.js");
+  var extra = m[0].slice(("function " + name).length).match(/^function\s+\w+/m);
+  if (extra) throw new Error("lifting " + name + " swallowed " + extra[0] +
+                             " - it is probably a one-liner; stub it instead");
+  return m[0] + "\n";
+}
+// The two one-liners this needs, stubbed rather than lifted, per the above.
+var ONELINERS =
+  "function teamOf(m){ return m.yes_sub_title||m.subtitle||m.title||m.ticker; }\n" +
+  "function isTeamMarket(m){ return teamMarket(m.ticker, teamOf(m)); }\n";
+
+function kalshiCtx(config) {
+  var c = vm.createContext({});
+  vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
+  vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + ONELINERS, c);
+  return c;
+}
+function has(config) { return vm.runInContext("hasKalshi()", kalshiCtx(config)); }
+function market(config, ticker, name) {
+  var c = kalshiCtx(config);
+  c.__t = ticker; c.__n = name;
+  // A throw is the bug, not a crash of this file: report it as a failure so
+  // the line that broke is named rather than a stack trace being the answer.
+  try { return vm.runInContext("teamMarket(__t, __n)", c); }
+  catch (e) { return "THREW: " + e.message; }
+}
+
+var ndCfg = JSON.stringify({ sources: { kalshi: { tickerSuffix: "-ND" } } });
+ok(has(ndCfg), "a team that declares Kalshi markets has the capability");
+ok(!has(JSON.stringify({ sources: {} })), "a team whose config has no kalshi block does not");
+ok(!has(JSON.stringify({})), "nor one with no sources at all");
+ok(!has(JSON.stringify({ sources: { kalshi: null } })), "nor one that declares it as null");
+
+// The bug: these used to throw, which is what a second team without Kalshi
+// would have hit the moment it became selectable.
+eq(market(JSON.stringify({ sources: {} }), "KXNCAAF-27-ND", "Notre Dame"), false,
+   "asking whether a market is ours, with no kalshi config, answers no");
+eq(market(JSON.stringify({}), "KXNCAAF-27-ND", "Notre Dame"), false, "and does not throw with no sources");
+eq(market(ndCfg, "KXNCAAF-27-ND", "Somebody"), true, "a matching ticker suffix is ours");
+eq(market(ndCfg, "KXNCAAF-27-OSU", "Ohio St."), false, "another team's ticker is not");
+
+console.log(" and the surface actually goes");
+// Behavioural, not a grep: run the real loadStrip against a stubbed page and
+// see whether it removed anything.
+function stripRun(config) {
+  var c = vm.createContext({ console: console });
+  vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
+  vm.runInContext([
+    "var dropped = 0, asked = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
+    "var cells = {};",
+    "function $(id){ return cells[id] || (cells[id] = { textContent:'', innerHTML:'', className:'' }); }",
+    "function dropOddsSurface(){ dropped++; }",
+    "function loadSparklines(){}",
+    "function price(){ return null; }",
+    "function prevPrice(){ return null; }",
+    "function kalshi(){ asked++; return Promise.resolve({ markets: [] }); }"
+  ].join("\n"), c);
+  vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + liftFn("loadStrip") + ONELINERS, c);
+  vm.runInContext("loadStrip();", c);
+  return c;
+}
+var noKalshi = stripRun(JSON.stringify({ sources: {} }));
+eq(noKalshi.dropped, 1, "a team with no Kalshi markets loses the odds surface");
+eq(noKalshi.asked, 0, "and Kalshi is never even asked");
+
+var withKalshi = stripRun(ndCfg);
+eq(withKalshi.dropped, 0, "a team that has them keeps it at first");
+eq(withKalshi.asked, 2, "and both event queries go out");
+
+ok(/function dropOddsSurface/.test(appSrc), "there is one place that takes the surface away");
+
 // ---- app.js names no team, no colour, no team branch ----
 console.log("app.js");
 var js = read("app.js");
@@ -504,50 +709,32 @@ ok(/paintIdentity\(\);/.test(js), "applies identity once, in one place");
 ok(!/\bnd\b/.test(jsBody), "no leftover nd identifier");
 
 
-// ---- the Buckeye Watch test page ----
-// buckeye.html is index.html with the team swapped: a different config script
-// and the identity words that are visible before app.js runs. Nothing else may
-// differ, or the two pages start drifting into two applications - so the check
-// below neutralises exactly the identity and compares everything else byte for
-// byte. Team selection proper, and what the worker should precache for it, is
-// Phase 7; this page is a deployment convenience, not that.
-console.log("buckeye.html");
+// ---- the page names no team ----
+// index.html used to name Notre Dame in eight script tags, which is what made
+// buckeye.html necessary: a second team meant a second copy of the page. 7A
+// moved that decision into the boot script, so the markup names nobody.
+console.log("index.html");
 var idx = read("index.html").replace(/\r\n/g, "\n");
-var bw = read("buckeye.html").replace(/\r\n/g, "\n");
-
-function skeleton(t) {
-  return t
-    .replace(/<!--[\s\S]*?-->/g, "")                                  // comments
-    .slice(t.replace(/<!--[\s\S]*?-->/g, "").indexOf("</head>"))      // head is identity
-    .replace(/<script src="teams\/[a-z-]+\.js" defer><\/script>/, '<script src="TEAM" defer></script>')
-    .replace(/(<div class="brand-kicker">)[^<]*(<\/div>)/, "$1KICKER$2")
-    .replace(/(<h1>)[^<]*(<\/h1>)/, "$1PRODUCT$2")
-    .replace(/(<h2 class="sr-only" id="heroHead">)[^<]*(<\/h2>)/, "$1HERO$2")
-    .replace(/(<h2 class="sr-only" id="dataHead">)[^<]*(<\/h2>)/, "$1DATA$2")
-    .replace(/(<p class="motto" id="motto">)[^<]*(<\/p>)/, "$1MOTTO$2");
-}
-ok(skeleton(bw) === skeleton(idx),
-   "identical to index.html below </head> once the team's own words are set aside");
-ok(/<script src="teams\/ohio-state\.js" defer><\/script>/.test(bw), "loads the Ohio State config");
-ok(/<script src="teams\/notre-dame\.js" defer><\/script>/.test(idx), "and index.html still loads Notre Dame's");
-
-var bwHead = bw.slice(0, bw.indexOf("</head>")).replace(/<!--[\s\S]*?-->/g, "");
-var bwVisible = bw.replace(/<!--[\s\S]*?-->/g, "");
-ok(!/notre-dame|irish-watch/i.test(bwVisible), "references no Notre Dame file");
-ok(!/Notre Dame|Irish Watch|Leave No Doubt/.test(bwVisible), "shows no Notre Dame words before a script runs");
-ok(!/rel="icon"|apple-touch-icon|og:image|twitter:image|twitter:card/.test(bwHead),
-   "declares no artwork tags, because Ohio State has no artwork");
-ok(/<link rel="manifest" href="assets\/ohio-state\/manifest\.json">/.test(bwHead), "points at its own manifest");
-ok(/<title>Buckeye Watch/.test(bwHead), "the tab says Buckeye Watch before any script runs");
+var boot = (idx.match(/<script id="team-boot">([\s\S]*?)<\/script>/) || [])[1] || "";
+ok(!!boot, "carries the boot script that decides the team");
+var markup = idx.replace(/<script id="team-boot">[\s\S]*?<\/script>/, "");
+ok(!/<script src=/.test(markup), "and loads no script by name of its own");
+ok(!/teams\/[a-z-]+\.js/.test(markup), "no team config is named in the markup");
+ok(!/<style id="team-boot">/.test(idx), "the static token blocks are gone, replaced by the replay");
+ok(!fs.existsSync(path.join(root, "buckeye.html")), "and buckeye.html is retired");
 
 console.log(" its manifest");
 var osuMan = JSON.parse(read("assets/ohio-state/manifest.json"));
 var ndMan = JSON.parse(read("assets/notre-dame/manifest.json"));
 eq(osuMan.short_name, "Buckeye Watch", "short name");
-eq(osuMan.start_url, "../../buckeye.html", "installing it opens Buckeye Watch, not the Notre Dame page");
+eq(osuMan.start_url, "../../?team=ohio-state", "installing it opens Buckeye Watch - the page plus its team, now that there is one page");
 eq(osuMan.icons, [], "no icons, because there is no approved artwork");
-eq(ndMan.start_url, "../../", "Notre Dame's still opens the site root");
+eq(ndMan.start_url, "../../?team=notre-dame", "Notre Dame's carries its team too");
+ok(/\?team=/.test(ndMan.start_url) && /\?team=/.test(osuMan.start_url),
+   "every manifest names its team in start_url - one installed app per team, each opening its own");
+ok(ndMan.start_url !== osuMan.start_url, "and no two teams install to the same start URL");
 ok(osuMan.theme_color !== ndMan.theme_color, "the two manifests carry different theme colours");
+
 
 
 // ---- one live state per game ----

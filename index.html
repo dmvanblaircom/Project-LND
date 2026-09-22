@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Grenze+Gotisch:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
+
 <meta name="description" content="Irish Watch — a Notre Dame football game-day dashboard.">
 
 <meta name="theme-color" content="#0C2340">
@@ -34,6 +35,143 @@
 <meta name="twitter:title" content="Irish Watch — Notre Dame Football">
 <meta name="twitter:description" content="Game day. Every day.">
 <meta name="twitter:image" content="assets/notre-dame/og-1200x630.png">
+<!-- Which team this page is, decided before anything else runs.
+
+     Order: ?team= (so a link can carry it), then the last choice this browser
+     made, then the default. The choice is stored, so the next visit opens the
+     same Suite with no query string.
+
+     Then the colours. app.css declares a team-NEUTRAL :root so the page can
+     paint at all - the team's own tokens live in teams/<id>.js, which has not
+     loaded yet. Rather than duplicate them here, paintIdentity() writes the
+     set it applied into localStorage and this replays it: the first visit to
+     a team paints neutral for a moment, every visit after paints the team,
+     and there is nothing to keep in sync. A stored set is only ever replayed
+     under the team it was stored for, so one team can never flash in
+     another's colours - which is the bug of 2026-09-21, in the form it would
+     come back.
+
+     Then the scripts, in order. They used to be eight tags in the markup,
+     which is what made the team "whichever file the markup names" and why
+     buckeye.html had to exist. app.js reads the DOM as it runs, so it is
+     injected at DOMContentLoaded; nothing before it needs a DOM. -->
+<script id="team-boot">
+(function(){
+  "use strict";
+  var DEFAULT  = "notre-dame";                  // until a fan has chosen; 7C replaces this with the chooser
+  var ID       = /^[a-z0-9-]+$/;                // an id becomes a file path, so it is shape-checked here
+  var TEAM_KEY = "iw-team", BOOT_KEY = "iw-boot-";
+
+  function get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+
+  // The URL wins, then the last choice this browser made, then the default.
+  // There is deliberately NO list of known teams here: teams/index.js is the
+  // one registry (decision 0014), and it has not loaded yet. An id that names
+  // no config simply fails to load, and onerror below falls back - which also
+  // covers a team removed from the registry after someone bookmarked it.
+  var asked = null;
+  try { asked = new URLSearchParams(location.search).get("team"); } catch(e){}
+  var id = null;
+  [asked, get(TEAM_KEY)].some(function(t){
+    if (t && ID.test(t)) { id = t; return true; }
+    return false;
+  });
+  // NOTHING ASKED AND NOTHING STORED is a real state, not a reason to guess.
+  // A fan arriving for the first time has not picked a team, and picking one
+  // for them means whoever gets here first sees somebody else's club. The
+  // chooser is what happens instead (decision 0016); app.js is not loaded at
+  // all, because there is no team for it to render.
+  var choosing = !id;
+  if (!choosing && id !== get(TEAM_KEY)) set(TEAM_KEY, id);
+  document.documentElement.setAttribute("data-team", choosing ? "" : id);
+
+  // Replay what this browser last saw for THIS team. Values come from the
+  // page's own storage, but they are still read as data: a token name has to
+  // look like one, and a value carrying CSS punctuation is dropped.
+  var saved = null;
+  try { saved = choosing ? null : JSON.parse(get(BOOT_KEY + id) || "null"); } catch(e){}
+  // The browser chrome, decided once at the end. iOS takes theme-color at
+  // first paint and keeps it, so it must never be left pointing at the
+  // DEFAULT team's colour when this page is some other team
+  // (docs/engineering/first-paint-team-tokens.md). Preference: what the team
+  // stored, then the surface we actually applied, then the neutral. A value
+  // that is not a plain hex colour is not used at all.
+  var hex = /^#[0-9a-f]{6}$/i, chrome = "#161A20";   // --t-surface, the neutral
+
+  if (saved && typeof saved === "object") {
+    // Values come from this page's own storage, but they are read as data:
+    // a token name has to look like one, and anything carrying CSS
+    // punctuation or a fetch is dropped.
+    var root = document.documentElement.style, k, v;
+    for (k in saved) {
+      v = saved[k];
+      if (!/^--[a-z-]+$/.test(k) || typeof v !== "string") continue;
+      if (/[;{}<>\\]|url\(/i.test(v)) continue;
+      root.setProperty(k, v);
+      if (k === "--t-surface" && hex.test(v)) chrome = v;
+    }
+    if (typeof saved.title === "string") document.title = saved.title;
+    if (typeof saved.themeColor === "string" && hex.test(saved.themeColor)) chrome = saved.themeColor;
+  }
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", chrome);
+
+  function inject(src, onerror, onload){
+    var s = document.createElement("script");
+    s.src = src;
+    s.async = false;                            // injected scripts stay in insertion order
+    if (onerror) s.onerror = onerror;
+    if (onload)  s.onload  = onload;
+    document.head.appendChild(s);
+  }
+
+  // app.js needs two things that arrive independently: a DOM, because it
+  // queries one as it parses, and TEAM_CONFIG, because it reads that as it
+  // parses too. A 404 on the team's config is reported asynchronously, so the
+  // fallback config can be injected LATER than everything else - which is
+  // fine for order (async=false keeps app.js behind it) but means app.js
+  // cannot simply go in at DOMContentLoaded. It waits for both.
+  var domReady = document.readyState !== "loading", teamReady = false, started = false;
+  function start(){
+    if (!domReady || !teamReady || started) return;
+    started = true;
+    inject("app.js");
+  }
+
+  function loadTeam(tid, mayFallBack){
+    inject("teams/" + tid + ".js",
+      function(){                               // no config under that id
+        if (!mayFallBack) return;               // the default itself is missing; stop rather than loop
+        set(TEAM_KEY, DEFAULT);
+        document.documentElement.setAttribute("data-team", DEFAULT);
+        loadTeam(DEFAULT, false);
+      },
+      function(){ teamReady = true; start(); });
+  }
+
+  // The team's config first, because app.js reads TEAM_CONFIG as it parses.
+  // A missing one falls back to the default rather than loading an
+  // application with no team. This is what replaces a hard-coded list of
+  // known teams: the file system is the list (decision 0014).
+  if (!choosing) loadTeam(id, id !== DEFAULT);
+
+  // The registry and TeamOS load either way - the chooser needs them too.
+  ["teams/index.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
+   "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js"]
+    .forEach(function(src){ inject(src); });
+
+  if (choosing) {
+    // No team, so no Suite. The chooser renders instead, from the registry.
+    document.documentElement.setAttribute("data-choosing", "");
+    inject("chooser.js");
+  } else if (domReady) {
+    start();
+  } else {
+    document.addEventListener("DOMContentLoaded", function(){ domReady = true; start(); });
+  }
+})();
+</script>
 </head>
 <body>
 <a class="skip" href="#tabpanel">Skip to the season</a>
@@ -112,13 +250,7 @@
   <button type="button" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h13v15H6.5A1.5 1.5 0 0 1 5 18Z"/><path d="M8 8h7M8 11.5h7M8 15h4"/></svg><span>News</span></button>
 </nav>
 
-<!-- the team this Suite is for, then TeamOS: the Team model and the ESPN adapter app.js consumes -->
-<script src="teams/notre-dame.js" defer></script>
-<script src="teamos/team.js" defer></script>
-<script src="teamos/snapshots.js" defer></script>
-<script src="teamos/identity.js" defer></script>
-<script src="teamos/live.js" defer></script>
-<script src="teamos/espn.js" defer></script>
-<script src="app.js" defer></script>
+<!-- The team config, TeamOS and app.js are injected by the boot script in
+     the head, which is what decides the team. Nothing is named here. -->
 </body>
 </html>

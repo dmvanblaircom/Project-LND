@@ -1,8 +1,8 @@
 {
-  "name": "Irish Watch — Notre Dame football",
+  "name": "Irish Watch \u2014 Notre Dame football",
   "short_name": "Irish Watch",
   "description": "Notre Dame schedule, depth chart, rankings and championship odds.",
-  "start_url": "../../",
+  "start_url": "../../?team=notre-dame",
   "scope": "../../",
   "display": "standalone",
   "orientation": "portrait",

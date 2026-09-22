@@ -5,6 +5,9 @@
    1. The shell - this page, its CSS and JS, the manifest, icons and fonts -
       is served from cache the instant it is asked for, then refreshed in the
       background. An update shows up on the next open.
+      Since 7B the shell is in two halves: the part that belongs to no team,
+      precached at install, and the part that belongs to THIS team, which the
+      worker cannot know at install time and is told by the page instead.
    2. Data - the JSON files the Action commits, ESPN, Kalshi, Open-Meteo - is
       fetched live, and the last good copy is kept. Offline, that copy comes
       back with an X-IW-Cached header so the page can say the data is old.
@@ -13,28 +16,23 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "iw-2026-09-20a";
+var VERSION = "iw-2026-09-22a";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
+// The half of the shell that belongs to no team. A worker has no TEAM_CONFIG
+// and no localStorage, so it cannot know which team this browser chose; what
+// it can do is precache everything that is the same whichever team is showing
+// - and nothing that is not.
 var SHELL_FILES = [
-  "./", "./index.html", "./app.css", "./app.js", "./teams/notre-dame.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js", "./teamos/live.js", "./teamos/espn.js",
-  // The team's own manifest and artwork, at the paths its identity
-  // declares. A second team's shell names its own folder here; making that
-  // selection automatic is the Phase 7 question, not this one.
-  "./assets/notre-dame/manifest.json",
-  "./assets/notre-dame/favicon.svg", "./assets/notre-dame/favicon-32.png", "./assets/notre-dame/favicon-64.png",
-  "./assets/notre-dame/icon-180.png", "./assets/notre-dame/icon-192.png"
+  "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
+  "./teams/index.js",
+  "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
+  "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js"
 ];
 
-// The files the Action commits. Seeded at install so the very first visit is
-// covered too - fetches made before the worker takes control are not seen by
-// it, so without this a phone that installs and then loses signal would have
-// the page but no odds, depth chart or news.
-var DATA_FILES = [
-  "./odds-title.json", "./odds-playoff.json", "./odds-history.json",
-  "./depth.json", "./depth-history.json", "./news.json"
-];
+// Where the worker records which team it has cached, inside the shell cache.
+var TEAM_MARK = "./__team";
 
 // Revalidate with the server rather than trusting the browser's HTTP cache:
 // GitHub Pages sends max-age=600, so a plain fetch here could seed a cache
@@ -55,10 +53,95 @@ function addAll(cacheName, files) {
 }
 
 self.addEventListener("install", function (e) {
-  e.waitUntil(
-    Promise.all([addAll(SHELL, SHELL_FILES), addAll(DATA, DATA_FILES)])
-      .then(function () { return self.skipWaiting(); })
-  );
+  e.waitUntil(addAll(SHELL, SHELL_FILES).then(function () { return self.skipWaiting(); }));
+});
+
+/* ---- the team, told to the worker by the page ----------------------------
+
+   The page knows which team it is; the worker does not. So after identity is
+   applied, the page posts this team's own files: its config, its artwork and
+   manifest, and the snapshot files the Action commits for it. The worker
+   caches those and records whose they are.
+
+   Switching teams has to undo the last one. Without that, the data cache
+   keeps the previous team's depth chart and odds and serves them, offline, to
+   a team that declares no snapshots at all - which is exactly the ownership
+   rule decision 0008 exists to enforce. So a message naming a DIFFERENT team
+   empties the data cache first. The shared shell is left alone: it is the
+   same for every team. */
+
+function readMark() {
+  return caches.open(SHELL)
+    .then(function (c) { return c.match(TEAM_MARK); })
+    .then(function (r) { return r ? r.json() : null; })
+    .catch(function () { return null; });
+}
+
+function writeMark(mark) {
+  return caches.open(SHELL).then(function (c) {
+    return c.put(TEAM_MARK, new Response(JSON.stringify(mark),
+      { headers: { "Content-Type": "application/json" } }));
+  });
+}
+
+// A manifest names icons the identity block does not - the install icons and
+// the maskable one. Cache what it actually lists, so adding an icon to a
+// manifest is enough and there is no second list of artwork.
+function cacheManifestIcons(manifestPath) {
+  return caches.open(SHELL).then(function (c) {
+    return c.match(manifestPath).then(function (r) {
+      if (!r) return null;
+      return r.json().catch(function () { return null; });
+    }).then(function (m) {
+      if (!m || !m.icons || !m.icons.length) return null;
+      var base = manifestPath.replace(/[^/]*$/, "");      // icons are relative to the manifest
+      return addAll(SHELL, m.icons
+        .map(function (i) { return i && i.src; })
+        .filter(function (src) { return typeof src === "string" && src && !/^https?:/i.test(src); })
+        .map(function (src) { return base + src; }));
+    });
+  });
+}
+
+function adoptTeam(msg) {
+  var id = msg && msg.team;
+  if (typeof id !== "string" || !/^[a-z0-9-]+$/.test(id)) return Promise.resolve(false);
+  var shell = (msg.shell || []).filter(function (f) { return typeof f === "string" && f; });
+  var data  = (msg.data  || []).filter(function (f) { return typeof f === "string" && f; });
+  var manifest = msg.manifest;
+
+  return readMark().then(function (was) {
+    // A different team than the one cached. Drop exactly what the PREVIOUS
+    // team declared - not the whole data cache, because league-wide files and
+    // provider responses in there belong to nobody and a fan who switches
+    // teams should not lose the Top 25 odds they already had offline.
+    var clear = Promise.resolve();
+    if (was && was.team && was.team !== id && was.data && was.data.length) {
+      clear = caches.open(DATA).then(function (c) {
+        return Promise.all(was.data.map(function (f) {
+          return c.delete(f).catch(function () {});
+        }));
+      });
+    }
+    return clear
+      .then(function () { return Promise.all([addAll(SHELL, shell), addAll(DATA, data)]); })
+      .then(function () { return manifest ? cacheManifestIcons(manifest) : null; })
+      .then(function () { return writeMark({ team: id, data: data }); })
+      .then(function () { return true; });
+  });
+}
+
+self.addEventListener("message", function (e) {
+  var msg = e.data;
+  if (!msg || msg.type !== "team") return;
+  var done = adoptTeam(msg);
+  if (e.waitUntil) e.waitUntil(done);
+  // Reply only to the port that asked, so the page can tell whether its team
+  // is actually cached rather than assuming it.
+  if (e.ports && e.ports[0]) {
+    done.then(function (ok) { e.ports[0].postMessage({ ok: !!ok, team: msg.team }); },
+              function ()   { e.ports[0].postMessage({ ok: false, team: msg.team }); });
+  }
 });
 
 self.addEventListener("activate", function (e) {

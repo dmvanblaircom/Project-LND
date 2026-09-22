@@ -66,5 +66,22 @@ TeamOS.snapshots = (function () {
     return json.team === team.id;
   }
 
-  return { get: get, owned: owned };
+  // Every file this team declares, across all kinds - the file and, where a
+  // kind keeps one, its history. The service worker asks for this: it has no
+  // TEAM_CONFIG of its own, so the page has to tell it what this team's
+  // offline copy consists of (decision 0015). Deriving it here rather than
+  // listing it in the worker means a team that adds a snapshot gets it cached
+  // without anyone remembering to update a second list.
+  function files(config) {
+    var out = [];
+    Object.keys(KINDS).forEach(function (kind) {
+      var s = get(config, kind);
+      if (!s) return;
+      out.push(s.file);
+      if (s.history) out.push(s.history);
+    });
+    return out;
+  }
+
+  return { get: get, owned: owned, files: files };
 })();

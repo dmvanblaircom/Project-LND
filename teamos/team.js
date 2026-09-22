@@ -12,7 +12,14 @@
    field throws at startup with the field named, which beats rendering
    "undefined" into the neutral-site rule for a second team's config. */
 
-var TeamOS = (function () {
+/* Every TeamOS module EXTENDS this namespace rather than replacing it, so
+   they can load in any order. This file used to assign the namespace whole -
+   `var TeamOS = (function(){...})()` - which silently erased anything already
+   on it. It cost an hour on 2026-09-22 when teamos/registry.js was loaded
+   first and simply vanished. tools/adaptercheck.js now checks the shape. */
+var TeamOS = TeamOS || {};
+
+TeamOS.createTeam = (function () {
   "use strict";
 
   function fail(field, why) {
@@ -48,5 +55,5 @@ var TeamOS = (function () {
     return Object.freeze(team);
   }
 
-  return { createTeam: createTeam };
+  return createTeam;
 })();

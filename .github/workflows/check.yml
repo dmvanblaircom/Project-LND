@@ -5,7 +5,7 @@ name: Check the stylesheet
 
 on:
   push:
-    paths: ["app.css", "app.js", "sw.js", "index.html", "tools/**", "teams/**", "teamos/**"]
+    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "tools/**", "teams/**", "teamos/**", "assets/**"]
   workflow_dispatch:
 
 jobs:
@@ -16,8 +16,18 @@ jobs:
       - name: Dead and shadowed CSS
         run: python3 tools/csscheck.py app.css
       - name: JavaScript parses
-        run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js; do node --check "$f"; done
+        run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js tools/*.js; do node --check "$f"; done
+      - name: The page knows which team it is
+        run: node tools/bootcheck.js
+      - name: One registry, matching the repository
+        run: node tools/registrycheck.js
+      - name: The chooser offers what it can open
+        run: node tools/choosercheck.js
+      - name: The worker caches one team at a time
+        run: node tools/swcheck.js
       - name: TeamOS ESPN adapter
         run: node tools/adaptercheck.js
       - name: Every surface agrees on one live game state
         run: node tools/livecheck.js
+      - name: The matchup card agrees with the data
+        run: node tools/matchupcheck.js

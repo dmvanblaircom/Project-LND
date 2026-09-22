@@ -1,8 +1,8 @@
 {
-  "name": "Buckeye Watch · Ohio State Football",
+  "name": "Buckeye Watch \u00b7 Ohio State Football",
   "short_name": "Buckeye Watch",
   "description": "Ohio State schedule, rankings, scores and news in one place.",
-  "start_url": "../../buckeye.html",
+  "start_url": "../../?team=ohio-state",
   "scope": "../../",
   "display": "standalone",
   "orientation": "portrait",

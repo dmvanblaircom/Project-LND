@@ -125,7 +125,6 @@ var TEAM_CONFIG = {
       accentText:     "#C99700",
       accentInk:      "#07192F",
       accentSoft:     "#D8B84F",
-      accentSoft:     "#D8B84F",
       accentTint:     "#FFE38A",
       accentTintSoft: "#FFF7D6",
       focus:          "#FFD966",

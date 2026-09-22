@@ -46,7 +46,6 @@ TeamOS.identity = (function () {
     "accentText",      // accent-coloured TEXT - must pass on surfaceDeep
     "accentInk",       // text and icons drawn ON an accent fill
     "accentSoft",      // a muted tone of the accent, for small labels
-    "accentSoft",      // a muted tone of the accent, for small labels
     "accentTint",      // a light tone of the accent, for emphasis on dark
     "accentTintSoft",  // a lighter one still
     "focus",           // the focus ring
@@ -146,7 +145,6 @@ TeamOS.identity = (function () {
     // ---- the checks that keep a team legible ----
     id.contrast = Object.freeze({
       accentText: require([c.accentText, c.surfaceDeep], MIN, "identity.colors.accentText on surfaceDeep"),
-      accentSoft: require([c.accentSoft, c.surfaceDeep], MIN, "identity.colors.accentSoft on surfaceDeep"),
       accentSoft: require([c.accentSoft, c.surfaceDeep], MIN, "identity.colors.accentSoft on surfaceDeep"),
       accentInk:  require([c.accentInk,  c.accent],      MIN, "identity.colors.accentInk on accent"),
       text: c.text == null ? null : require([c.text, c.surfaceDeep], MIN, "identity.colors.text on surfaceDeep"),

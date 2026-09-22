@@ -89,12 +89,51 @@ values. `docs/engineering/phase-6-team-identity.md`,
 
 Allow a user to select a team and instantiate the corresponding Suite.
 
-Carried into this phase, with evidence from Phases 5 and 6: the service worker
-precaches one team's shell (`teams/notre-dame.js`, its artwork) and one team's snapshot
-files whatever team is configured, because a worker cannot read `TEAM_CONFIG`; the
-static `index.html` head and `:root` defaults carry the deployed team; and switching
-teams required clearing the shell and HTTP caches by hand. Whatever mechanism Phase 7
-chooses for selecting a team has to answer all three together.
+**7A complete 2026-09-21.** The team is chosen at runtime, not by which file the
+markup names. A boot script in `index.html` resolves the team from `?team=`,
+then the last choice this browser made, then the default, stores it, replays
+that team's colours before anything loads, and injects the config, TeamOS and
+`app.js` in order. `app.css`'s `:root` is now team-neutral, so a page that has
+not yet learned its team paints nobody's colours rather than the default team's.
+`buckeye.html` is retired: Ohio State is `/?team=ohio-state` on the same page.
+`tools/bootcheck.js` covers the selection, the replay, the cross-team isolation
+and the load order. `docs/decisions/0013-the-page-chooses-its-team.md`.
+
+**7B complete 2026-09-21.** The worker precaches only the half of the shell that
+belongs to no team; the page posts this team's config, artwork, manifest and
+declared snapshots, and the worker caches those and records whose they are.
+Switching teams deletes exactly the previous team's declared files - by name, so
+league-wide data nobody owns survives. It also caches the icons the team's
+manifest names. Verified Notre Dame -> Ohio State -> Notre Dame, online and
+offline, with no contamination either way.
+`docs/decisions/0015-the-worker-is-told-its-team.md`.
+
+Alongside it, `teams/index.js` became the canonical registry: a program is
+selectable because it names a config, and there is no second list.
+`docs/decisions/0014-one-registry.md`.
+
+A first visit to a team while offline still cannot work - those files have never
+been fetched. Once a team has been opened online it works offline, and switching
+between opened teams works offline.
+
+**7C complete 2026-09-22.** A fan who arrives having asked for nobody in
+particular has not chosen a team, and the Suite no longer chooses for them:
+`chooser.js` renders from the registry, `app.js` is not loaded at all, and
+picking a team navigates to `?team=<id>`. Selectable means a config exists;
+everything else is listed greyed as *Not yet*. The page paints in the neutral
+`:root`. `docs/decisions/0016-no-team-yet-is-a-state.md`.
+
+**Phase 7 is complete.** The team is chosen at runtime (7A), cached per team
+offline (7B), and picked by the fan (7C).
+
+Carried forward, none of it blocking:
+- There is no way to change teams from inside a Suite — a switcher is the
+  obvious next thing.
+- The registry holds four programs. Filling it needs an FBS roster; ESPN's
+  `/teams` endpoint cannot supply one (decision 0014) and `groups=80` does not
+  filter it. The Action, which has network access, is the way in.
+- No conference data beyond the four hand-authored rows.
+- A first visit to a team while offline still cannot work.
 
 ## Phase 8: My Teams
 
@@ -103,6 +142,23 @@ Support multiple followed teams and personalized cross-team experiences.
 ## Phase 9: Expand Sports
 
 Validate the domain model against additional sports and leagues. Add sport-specific capabilities only where needed.
+
+## Data Sources
+
+Irish Watch reaches providers two ways, chosen by **how fresh the data has to
+be**, not by who publishes it (decision 0012):
+
+- **Browser -> provider**, for anything a fan watches change: ESPN scores,
+  schedule, scoreboard, summary, news. No key possible, CORS must be permitted,
+  rate limits land per device.
+- **Action -> provider -> a committed snapshot**, for anything that changes over
+  days: the odds history, the depth chart, beat news, and — proposed — opponent
+  statistics from CollegeFootballData.com. A key is safe in repository secrets,
+  CORS does not apply, and the cost is a handful of calls a week.
+
+A new provider takes the Action path unless the data must be current. Snapshots
+are owned by declaration (decision 0008), so a team without a source for a kind
+declares none and the Suite shows that kind as unavailable.
 
 ## Parallel Product Track
 
