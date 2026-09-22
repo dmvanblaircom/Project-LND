@@ -508,7 +508,8 @@ function paintSchedule(games){
   var wasOpen=!!(prev&&prev.open);
   var detail=el.querySelector("li.gamedetail");
 
-  var html='<h2 class="sr-only">2026 '+esc(TEAM.name)+' schedule</h2>';
+  var html='<div class="season-head"><div><span class="season-eyebrow">Season</span><h2>Schedule</h2></div>'+
+    '<span class="season-meta">'+done.length+' played · '+rest.length+' remaining</span></div>';
   if(fold){
     html+='<details class="fold"'+(wasOpen?" open":"")+'><summary>Earlier results '+
       '<span class="count">'+older.length+" games</span></summary>"+
