@@ -70,6 +70,10 @@
      surface; everything else here is the Suite's. Two tones are deliberate
      lifts for contrast: --inplay reaches 5.8:1 and --dim 7.3:1. */
   --ink-2:#102844;--ink-3:#294A6E;--parch:#F2EFE6;--dim:#9DAABC;--win:#6FD69B;--loss:#F5A79C;--live-fg:#FFFFFF;--live-fg-2:#FFD9D3;--neutral:#7FC8E8;--live:#FF5A4E;--inplay:#4FAE78;color-scheme:dark;--paper:#F8F4EC;--muted:#9AA9BA;--line:rgba(154,169,186,.18);
+  /* A Suite-owned ring for light editorial surfaces. Team focus colours are
+     validated against dark team surfaces, so (for example) Ohio State's
+     near-white ring cannot be reused on the ivory shell. */
+  --suite-focus:#245C72;
 
   /* Derived from the accent, so a team supplies one colour and not three. */
   --t-accent-line:rgba(var(--t-accent-rgb),.30)}
@@ -150,7 +154,7 @@ body{font-family:var(--t-font-ui);font-size:1rem;line-height:1.5;-webkit-font-sm
    ACCESSIBILITY PRIMITIVES
    ==================================================================== */
 /* 2.4.7 - one visible focus style everywhere, never removed. */
-:focus-visible{outline:3px solid var(--t-focus);outline-offset:2px;border-radius:2px}
+:focus-visible{outline:3px solid var(--suite-focus);outline-offset:2px;border-radius:2px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip{position:absolute;left:1rem;top:-4rem;z-index:10;background:var(--t-accent);color:var(--t-accent-ink);font-weight:600;padding:.75rem 1rem;border-radius:3px;text-decoration:none}
 .skip:focus{top:.75rem}
@@ -202,6 +206,15 @@ details.fold > summary::after,
 .motto{text-wrap:balance;position:relative;}
 .refresh{cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border:1px solid rgba(var(--t-accent-rgb),.45);color:var(--paper);min-height:2.65rem;font-family:var(--t-font-display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:all .18s ease;}
 .refresh:hover{border-color:var(--t-accent-text);color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.08);transform:translateY(-1px)}
+.refresh:focus-visible{outline-color:var(--t-focus)}
+.more-wrap{position:relative;flex:none}
+.more-trigger{display:inline-flex;align-items:center;justify-content:center;width:2.7rem;height:2.7rem;padding:0;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(255,255,255,.06);color:var(--paper);font:700 1rem/1 var(--t-font-ui);letter-spacing:.08em;cursor:pointer}
+.more-trigger:hover{border-color:var(--t-accent-text);color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.08)}
+.more-trigger:focus-visible{outline-color:var(--t-focus)}
+.more-menu{position:absolute;right:0;top:calc(100% + .45rem);z-index:90;min-width:10.5rem;padding:.3rem;border:1px solid #d8d4cc;border-radius:10px;background:#fff;box-shadow:0 12px 30px rgba(7,14,25,.22)}
+.more-menu[hidden]{display:none}
+.more-menu button{width:100%;min-height:2.75rem;padding:.6rem .8rem;border:0;border-radius:7px;background:transparent;color:#142033;font:600 .9rem/1.2 var(--t-font-ui);text-align:left;cursor:pointer}
+.more-menu button:hover{background:rgba(var(--t-accent-rgb),.09)}
 
 /* ====================================================================
    NEXT GAME / LIVE HERO
@@ -256,6 +269,7 @@ details.fold > summary::after,
    MARKET STRIP AND ODDS BOARD
    ==================================================================== */
 .strip{display:flex;border-radius:0 0 8px 8px;align-items:stretch;background:transparent;border:0;}
+.strip[hidden]{display:none}
 .up{color:var(--win)}
 .down{color:var(--loss)}
 
@@ -298,7 +312,7 @@ ul.plain,ol.plain{list-style:none;margin:0;padding:0}
 /* Every schedule row expands in place to show that game. */
 .row.tappable{cursor:pointer}
 .row.tappable:hover{}
-.row.tappable:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
+.row.tappable:focus-visible{outline:3px solid var(--suite-focus);outline-offset:-3px}
 /* The chevron is a flex child of the row itself, so it sits in the same
    column on every row regardless of what the score/network cell is showing.
    Shares its look with the fold and market-card indicators (see .disclose). */
@@ -379,7 +393,7 @@ details.fold > summary::-webkit-details-marker{display:none}
 details.fold > summary::after{content:"\25BE";margin-left:auto;transition:transform .15s ease}
 details.fold[open] > summary::after{transform:rotate(180deg)}
 details.fold > summary .count{font-weight:500;color:var(--dim);font-size:.85rem;letter-spacing:0}
-details.fold > summary:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
+details.fold > summary:focus-visible{outline:3px solid var(--suite-focus);outline-offset:-3px}
 details.fold .foldbody{padding-bottom:.5rem}
 .more{display:block;width:100%;min-height:2.75rem;margin:.6rem 0 0;border:1px solid var(--ink-3);font-family:var(--t-font-display);font-weight:600;font-size:.95rem;letter-spacing:.04em;cursor:pointer}
 .more:hover{}
@@ -460,7 +474,7 @@ details.fold .foldbody{padding-bottom:.5rem}
 .seg{display:flex;gap:0;margin:.1rem 0 .2rem;overflow:hidden;border-radius:999px;border:1px solid rgba(var(--t-accent-rgb),.16);background:rgba(var(--t-surface-rgb),.5)}
 .seg button{flex:1;background:none;border:none;cursor:pointer;font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.06em;padding:.4rem .5rem;min-height:2.55rem;color:#AAB8C7}
 .seg button+button{border-left:1px solid var(--ink-3)}
-.seg button:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
+.seg button:focus-visible{outline:3px solid var(--suite-focus);outline-offset:-3px}
 .seg .sub{display:block;font-family:var(--t-font-ui);font-weight:500;font-size:.68rem;letter-spacing:.04em;opacity:.75}
 .seg.pills{margin:.7rem 0 .3rem}
 .seg.pills button{min-height:2.5rem;font-size:.92rem;letter-spacing:.05em}
@@ -503,7 +517,7 @@ details.fold .foldbody{padding-bottom:.5rem}
   background:rgba(var(--t-surface-rgb),.5);border:1px solid var(--line);border-radius:999px;
 }
 .filter input::placeholder{color:var(--dim)}
-.filter input:focus-visible{outline:3px solid var(--t-focus);outline-offset:1px;border-color:transparent}
+.filter input:focus-visible{outline:3px solid var(--suite-focus);outline-offset:1px;border-color:transparent}
 .stamp{font-size:.78rem;color:var(--dim);padding:.5rem .15rem 0}
 .stamp a{color:var(--t-accent-text)}
 
@@ -561,11 +575,11 @@ a.art:hover{background:rgba(var(--t-raise-rgb),.72);border-color:var(--t-accent-
 .tabbar button[role="tab"] span{font-family:var(--t-font-display);font-weight:600;font-size:.7rem;letter-spacing:.04em;line-height:1;white-space:nowrap}
 .tabbar button[role="tab"][aria-selected="true"]{}
 .tabbar button[role="tab"][aria-selected="true"] svg{stroke-width:1.9}
-.tabbar button[role="tab"]:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
+.tabbar button[role="tab"]:focus-visible{outline:3px solid var(--suite-focus);outline-offset:-3px}
 /* The two market cards are buttons - each expands the shared odds board. */
 .strip .cell{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:.3rem;position:relative;cursor:pointer;font:inherit;padding:.8rem 1rem;text-align:left;}
 .strip .cell:last-child{border-right:1px solid var(--line);border-top:2px solid rgba(154,169,186,.55)}
-.strip .cell:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
+.strip .cell:focus-visible{outline:3px solid var(--suite-focus);outline-offset:-3px}
 .strip .cell .k{display:block;font-family:var(--t-font-ui);font-size:.64rem;font-weight:600;line-height:1.25;letter-spacing:.11em;text-transform:uppercase;padding-right:.9rem}
 .strip .cell .v{display:block;margin-top:.25rem;font-family:var(--t-font-display);font-weight:700;font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums;}
 .strip .cell .v em{font-style:normal;font-size:.6em;font-weight:600;margin-left:.3rem}
@@ -668,6 +682,13 @@ details.fold>summary{padding:.75rem .9rem;background:rgba(var(--t-surface-rgb),.
 body{
   background:#f6f3ec !important;
   color:#142033;
+}
+/* :root intentionally starts dark for the no-team chooser. Once a team is
+   known, make the viewport and native controls agree with vNext's light
+   editorial shell. This also prevents dark rubber-band/overscroll flashes. */
+html:not([data-choosing]){
+  background:#f6f3ec !important;
+  color-scheme:light;
 }
 .page{
   background:#f6f3ec !important;

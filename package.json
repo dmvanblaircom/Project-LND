@@ -1,0 +1,10 @@
+{
+  "name": "project-lnd-suite",
+  "private": true,
+  "scripts": {
+    "test:visual": "node tools/visualcheck.js"
+  },
+  "devDependencies": {
+    "playwright": "1.55.0"
+  }
+}
