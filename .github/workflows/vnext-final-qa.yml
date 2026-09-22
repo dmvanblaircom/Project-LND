@@ -232,6 +232,7 @@ jobs:
             await page.goto(base+"?team=ohio-state",{waitUntil:"domcontentloaded"});
             await page.waitForTimeout(1000);
             const osu=await waitMark(page,"ohio-state");
+            await page.waitForFunction(()=>document.title==="Buckeye Watch · Ohio State Football",null,{timeout:5000});
             assert(await page.title()==="Buckeye Watch · Ohio State Football","Ohio State switch did not apply identity");
             assert(!osu.data.some(u=>/\/(depth|depth-history|news|odds-history)\.json$/.test(new URL(u).pathname)),"ND team snapshots leaked into Ohio State data cache");
             await page.click("#tab-depth"); await page.waitForTimeout(600);
@@ -242,13 +243,15 @@ jobs:
             await page.goto(base+"?team=notre-dame",{waitUntil:"domcontentloaded"});
             await page.waitForTimeout(1000);
             const nd2=await waitMark(page,"notre-dame");
+            await page.waitForFunction(()=>document.title==="Irish Watch · Notre Dame Football",null,{timeout:5000});
             assert(await page.title()==="Irish Watch · Notre Dame Football","ND switch-back did not restore identity");
             assert(nd2.data.some(u=>/\/depth\.json$/.test(new URL(u).pathname)),"ND depth snapshot was not restored after switch-back");
 
             await context.setOffline(true);
             await page.reload({waitUntil:"domcontentloaded"});
             await page.waitForTimeout(1000);
-            assert(await page.title()==="Irish Watch · Notre Dame Football","offline shell did not restore Notre Dame");
+            await page.waitForFunction(()=>/^Irish Watch/.test(document.title),null,{timeout:5000});
+            assert(/^Irish Watch/.test(await page.title()),"offline shell did not restore Notre Dame");
             await page.click("#tab-depth"); await page.waitForTimeout(700);
             const off=await state(page,"#panel-depth");
             assert(off.panelVisible && /Depth|Personnel|Roster/i.test(off.panelText),"offline Depth did not render from cache");
@@ -274,6 +277,7 @@ jobs:
           node final-qa-runner.mjs
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: suite-vnext-final-qa
           path: final-qa/
