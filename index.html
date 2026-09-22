@@ -3,38 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Irish Watch — Notre Dame football</title>
+<title>Suite — College football</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Grenze+Gotisch:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
 
-<meta name="description" content="Irish Watch — a Notre Dame football game-day dashboard.">
+<meta name="description" content="Suite — your team, every day.">
 
-<meta name="theme-color" content="#0C2340">
-<meta name="application-name" content="Irish Watch">
-
-<link rel="manifest" href="assets/notre-dame/manifest.json">
+<meta name="theme-color" content="#161A20">
+<meta name="application-name" content="Suite">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Irish Watch">
-
-<link rel="icon" type="image/svg+xml" href="assets/notre-dame/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/notre-dame/favicon-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="assets/notre-dame/favicon-64.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/notre-dame/icon-180.png">
+<meta name="apple-mobile-web-app-title" content="Suite">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Irish Watch — Notre Dame Football">
-<meta property="og:description" content="Game day. Every day.">
-<meta property="og:image" content="assets/notre-dame/og-1200x630.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Irish Watch — Notre Dame Football">
-<meta name="twitter:description" content="Game day. Every day.">
-<meta name="twitter:image" content="assets/notre-dame/og-1200x630.png">
+<meta property="og:title" content="Suite — College Football">
+<meta property="og:description" content="Your team, every day.">
+<meta name="twitter:title" content="Suite — College Football">
+<meta name="twitter:description" content="Your team, every day.">
 <!-- Which team this page is, decided before anything else runs.
 
      Order: ?team= (so a link can carry it), then the last choice this browser
@@ -181,18 +169,24 @@
   <header class="bar">
     <div class="brand-group">
       <div class="brand-lockup">
-        <div class="brand-kicker">NOTRE DAME FOOTBALL</div>
-        <h1>Irish Watch</h1>
+        <div class="brand-kicker">COLLEGE FOOTBALL</div>
+        <h1>Suite</h1>
       </div>
     </div>
     <span class="rank" id="rank" hidden></span>
     <span class="rec" id="rec"></span>
     <span class="spacer"></span>
     <button type="button" class="refresh" id="refresh" aria-label="Refresh data" title="Refresh"><span class="refresh-icon" aria-hidden="true">↻</span><span class="refresh-label">Refresh</span></button>
+    <div class="more-wrap">
+      <button type="button" class="more-trigger" id="moreTrigger" aria-label="More options" aria-haspopup="menu" aria-expanded="false" aria-controls="moreMenu"><span aria-hidden="true">•••</span></button>
+      <div class="more-menu" id="moreMenu" role="menu" hidden>
+        <button type="button" id="changeTeam" role="menuitem">Change team</button>
+      </div>
+    </div>
   </header>
 
   <!-- 2026 team motto -->
-  <p class="motto" id="motto">Leave No Doubt</p>
+  <p class="motto" id="motto"></p>
 
   <!-- 4.1.3 — one polite region announces every load result -->
   <p class="sr-only" id="live" role="status" aria-live="polite"></p>
@@ -200,7 +194,7 @@
   <main>
     <section class="hero" id="hero" aria-labelledby="heroHead" hidden>
       <div class="hero-brand" aria-hidden="true"><span class="hero-brand-mark"></span><span class="hero-brand-name"></span></div>
-      <h2 class="sr-only" id="heroHead">Next Notre Dame game</h2>
+      <h2 class="sr-only" id="heroHead">Next team game</h2>
       <p class="when" id="heroWhen">Next up</p>
       <p class="opp" id="heroOpp"></p>
       <p class="line" id="heroLine"></p>
@@ -214,17 +208,17 @@
     <!-- the hero, folded to one line, on tabs where the full card is in the way -->
     <button type="button" class="heromini" id="heroMini" hidden></button>
 
-    <div class="strip" id="strip">
+    <div class="strip" id="strip" hidden>
       <button type="button" class="cell" id="btnTitle" aria-expanded="false" aria-controls="oddsboard">
-        <span class="k">National title</span>
+        <span class="k">Title outlook</span>
         <span class="v pending" id="mTitle">Loading…</span>
       </button>
       <button type="button" class="cell" id="btnPlayoff" aria-expanded="false" aria-controls="oddsboard">
-        <span class="k">Playoff</span>
+        <span class="k">Playoff outlook</span>
         <span class="v pending" id="mPlayoff">Loading…</span>
       </button>
     </div>
-    <p class="hint" id="oddsHint">Tap either card for the full board</p>
+    <p class="hint" id="oddsHint" hidden>Market-implied outlook · Kalshi · Tap for the full field</p>
     <div id="oddsboard" hidden></div>
 
     <section class="home-snapshot" id="homeSnapshot" aria-label="Season snapshot">
@@ -233,7 +227,7 @@
       <div class="snapshot-stat"><span class="snapshot-k">Next</span><strong id="snapshotNext">—</strong></div>
     </section>
 
-    <h2 class="sr-only" id="dataHead">Notre Dame and national football data</h2>
+    <h2 class="sr-only" id="dataHead">Team and national football data</h2>
 
     <div id="tabpanel" tabindex="-1">
       <div role="tabpanel" id="panel-schedule" aria-labelledby="tab-schedule" tabindex="0">
@@ -253,7 +247,7 @@
   <button type="button" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4.5l8 7"/><path d="M6 10v9.5h12V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></button>
   <button type="button" role="tab" id="tab-around" aria-controls="panel-around" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19.5h14"/><path d="M7 17V12h3v5M11 17V8h3v9M15 17V5h3v12"/></svg><span>Top 25</span></button>
   <button type="button" role="tab" id="tab-game" aria-controls="panel-game" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9.5h18M12 9.5v10"/><path d="M6 7h4M14 7h4"/><path d="M5.5 12h4v2.75h-4v2.75h4"/><path d="M14.5 12h4l-2.6 5.5"/></svg><span>Game</span></button>
-  <button type="button" role="tab" id="tab-depth" aria-controls="panel-depth" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="2.5"/><path d="M4 19c0-3 1.8-5 4.5-5s4.5 2 4.5 5M15.5 11.5a2.5 2.5 0 1 0 0-5M15 14c2.7 0 4.5 1.8 4.5 5"/></svg><span>Depth</span></button>
+  <button type="button" role="tab" id="tab-depth" aria-controls="panel-depth" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="2.5"/><path d="M4 19c0-3 1.8-5 4.5-5s4.5 2 4.5 5M15.5 11.5a2.5 2.5 0 1 0 0-5M15 14c2.7 0 4.5 1.8 4.5 5"/></svg><span>Players</span></button>
   <button type="button" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h13v15H6.5A1.5 1.5 0 0 1 5 18Z"/><path d="M8 8h7M8 11.5h7M8 15h4"/></svg><span>News</span></button>
 </nav>
 

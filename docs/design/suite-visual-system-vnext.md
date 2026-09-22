@@ -33,7 +33,7 @@ The five Suite destinations remain:
 - Home
 - Top 25
 - Game
-- Depth
+- Players
 - News
 
 This visual system does not authorize a new IA.
@@ -157,9 +157,11 @@ The same Game renderer is also used for expanded schedule game details through a
 
 No second polling path or component-local score truth was introduced.
 
-## Depth
+## Players
 
-Depth is a unified personnel surface.
+Players is a unified personnel surface. The fan-facing name stays broader than
+a depth chart without becoming the vague “Team”: every program has a roster,
+while depth and availability remain capabilities inside the destination.
 
 It contains, when supported:
 - official/current two-deep
@@ -297,7 +299,7 @@ Confirmed statically on the build branch:
 - JavaScript parses
 - CSS braces balance
 - reduced-motion Game-nav regression fixed
-- Home / Top 25 / Game / Depth / News all have vNext component hooks
+- Home / Top 25 / Game / Players / News all have vNext component hooks
 - official ND depth and availability source declarations are wired into ingestion
 
 Still required before merge:

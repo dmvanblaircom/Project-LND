@@ -19,7 +19,7 @@ Every team uses:
 4. Screen-specific editorial content
 5. Conventional five-item bottom navigation
 
-The five destinations remain Home / Top 25 / Game / Depth / News.
+The five destinations are Home / Top 25 / Game / Players / News.
 
 ## Home reference
 
@@ -100,7 +100,7 @@ Light/editorial supporting surface.
 ### Inline schedule detail
 Expanded schedule games reuse GameDetail in a compact light shell and preserve Close behavior.
 
-## Depth reference
+## Players reference
 
 Header:
 - eyebrow: Personnel
@@ -193,7 +193,7 @@ Ohio State currently has no declared Depth snapshot, so its Depth surface must r
 | Game | light pregame | immersive team scoreboard | light editorial support |
 | Schedule | next highlighted | live row explicit | final row compact |
 | Top 25 | network/time | score + live context | score + final context |
-| Depth | independent of game state | independent | independent |
+| Players | independent of game state | independent | independent |
 | News | independent | independent | independent |
 
 ## Responsive reference

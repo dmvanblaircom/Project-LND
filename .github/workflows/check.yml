@@ -31,3 +31,20 @@ jobs:
         run: node tools/livecheck.js
       - name: The matchup card agrees with the data
         run: node tools/matchupcheck.js
+      - name: Suite interaction contract
+        run: node tools/uicheck.js
+  visual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:visual
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: suite-visual-smoke
+          path: artifacts/visual

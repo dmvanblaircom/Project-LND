@@ -853,6 +853,12 @@ function dropOddsSurface(){
   });
 }
 
+function showOddsSurface(){
+  var strip=$("strip"), hint=$("oddsHint");
+  if(strip) strip.hidden=false;
+  if(hint && !BOARD.open) hint.hidden=false;
+}
+
 function kalshiHelp(){
   return '<p class="msg"><strong>Kalshi didn\u2019t answer.</strong>'+
     'Kalshi sends no CORS header, and the public relays this page falls back on are '+
@@ -963,6 +969,7 @@ function loadStrip(){
         return;
       }
       found++; asked++;
+      showOddsSurface();
       var pp = prevPrice(m);
       var mv = (pp!==null) ? p-pp : null;
       var move = (mv==null||Math.abs(mv)<0.5) ? ""
@@ -1916,11 +1923,14 @@ function loadNews(){
     count=list.length;
     var srcs={}; list.forEach(function(a){ srcs[a.source]=1; });
     sources=Object.keys(srcs).length;
+    var latest=list[0].publishedAt
+      ? new Date(list[0].publishedAt).toLocaleDateString([],{month:"short",day:"numeric"}) : "";
 
     var FIRST=15;
     var html='<div class="news-shell"><div class="news-head"><div>'+
       '<span class="news-eyebrow">News</span><h2>Latest stories</h2></div>'+
-      '<span class="news-meta">'+sources+' source'+(sources===1?"":"s")+'</span></div>'+
+      '<span class="news-meta">'+sources+' source'+(sources===1?"":"s")+
+      (latest?' · Latest '+esc(latest):"")+'</span></div>'+
       '<h2 class="sr-only">Latest '+esc(TEAM.name)+' stories</h2><ul class="plain">';
     list.forEach(function(a,idx){
       var when=a.publishedAt ? new Date(a.publishedAt).toLocaleDateString([],{month:"long",day:"numeric"}) : "";
@@ -2357,6 +2367,32 @@ function refreshAll(silent){
 }
 $("refresh").addEventListener("click", function(){ refreshAll(false); });
 $("heroMini").addEventListener("click", function(){ selectTab($("tab-game"), false); });
+
+/* More is the quiet home for destination-level actions. Changing teams is
+   important but not a primary game-day action, and this menu can accept future
+   account/preferences work without consuming another navigation destination. */
+var moreTrigger=$("moreTrigger"), moreMenu=$("moreMenu");
+function closeMore(focusTrigger){
+  moreMenu.hidden=true;
+  moreTrigger.setAttribute("aria-expanded","false");
+  if(focusTrigger) moreTrigger.focus();
+}
+moreTrigger.addEventListener("click", function(){
+  var opening=moreMenu.hidden;
+  moreMenu.hidden=!opening;
+  moreTrigger.setAttribute("aria-expanded",String(opening));
+  if(opening) $("changeTeam").focus();
+});
+$("changeTeam").addEventListener("click", function(){
+  try{ localStorage.removeItem("iw-team"); }catch(e){}
+  location.replace(location.pathname);
+});
+document.addEventListener("click", function(e){
+  if(!moreMenu.hidden && !e.target.closest(".more-wrap")) closeMore(false);
+});
+document.addEventListener("keydown", function(e){
+  if(e.key==="Escape" && !moreMenu.hidden){ e.preventDefault(); closeMore(true); }
+});
 
 // How long data may sit before a silent refresh: on return to a tab that was
 // hidden this long, and on a timer while it stays visible.

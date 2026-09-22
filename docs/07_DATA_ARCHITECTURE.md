@@ -72,7 +72,7 @@ odds-history.json                ->  sparklines under the odds numbers          
 news.json                        ->  beatItem() -> NewsItem[] merged into the News tab    or ESPN alone
 ```
 
-The four files `.github/workflows/odds.yml` commits are Notre Dame's data, not the application's. Since 5B the Suite reads their names from the team config's `snapshots` section and asks TeamOS whether a loaded file is the team's; a team that declares no snapshot for a kind fetches nothing for it and shows the unavailable state. The files carry no `team` field yet, so today ownership rests on the declaration (decision 0008 records the limitation); when the Action stamps one, a mismatched file is refused without a Suite change. The service worker's `DATA_FILES` precache list still names the six Notre Dame files for whichever team is loaded — a Phase 7 concern, noted in decision 0008.
+The four files `.github/workflows/odds.yml` commits are Notre Dame's data, not the application's. Since 5B the Suite reads their names from the team config's `snapshots` section and asks TeamOS whether a loaded file is the team's; a team that declares no snapshot for a kind fetches nothing for it and shows the unavailable state. The official personnel snapshots now carry `team: "notre-dame"`; the older market-history and beat-news shapes still rest on their declaration. A stamped mismatch is refused without a Suite change. Since Phase 7 the service worker receives the active team's declared files from the page, clears the previous team's snapshot data on a switch, and caches no team-owned file at install time.
 
 ## Target Flow
 

@@ -465,8 +465,10 @@ ok(TeamOS.snapshots.owned(ND, ndFiles.depth),   "owns the committed depth.json")
 ok(TeamOS.snapshots.owned(ND, ndFiles.history), "owns the committed depth-history.json");
 ok(TeamOS.snapshots.owned(ND, ndFiles.odds),    "owns the committed odds-history.json");
 ok(TeamOS.snapshots.owned(ND, ndFiles.news),    "owns the committed news.json");
-ok(ndFiles.depth.team == null && ndFiles.odds.team == null && ndFiles.news.team == null,
-   "(the committed files carry no team field - ownership rests on the declaration; see decision 0008)");
+eq([ndFiles.depth.team, ndFiles.history.team], ["notre-dame", "notre-dame"],
+   "official personnel snapshots are stamped with their owning team");
+ok(ndFiles.odds.team == null && ndFiles.news.team == null,
+   "legacy market/news snapshots still rely on their team declaration");
 
 console.log(" ohio-state");
 eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "depth"),       null, "declares no depth chart");
