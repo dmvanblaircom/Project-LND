@@ -73,7 +73,9 @@ var TEAM_CONFIG = {
     // this declaration rather than owning a separate hard-coded source.
     official: {
       depthChartIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
-      depthChartLabel: "FightingIrish.com"
+      depthChartLabel: "FightingIrish.com",
+      availabilityReportIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
+      availabilityReportLabel: "FightingIrish.com"
     }
   },
 
