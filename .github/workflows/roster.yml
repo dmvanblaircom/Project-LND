@@ -1,0 +1,121 @@
+# Keeps teams/index.js — the program registry — in step with FBS.
+#
+# The roster is not typed by hand. It is built from what ESPN serves, here,
+# because the Action has network access where a working session may not.
+#
+# Why these two requests and not the obvious one: ESPN's /teams endpoint
+# cannot produce an FBS list. Without groups=80 it returns every division and
+# silently truncates at 500 by internal id; WITH groups=80 it returns exactly
+# the same 500, the parameter being ignored (verified 2026-09-22). Nothing in
+# that payload marks division, so it cannot be filtered afterwards either.
+#
+# What does work is the scoreboard with groups=80 — the request the
+# application itself has depended on since Phase 4A. It says who is FBS. The
+# roster payload then says what each one is called. tools/build-registry.js
+# joins them on the ESPN id.
+#
+# No single week contains every program, so the registry is a union across
+# runs. It converges, and the generator refuses to shrink it.
+name: Refresh the team registry
+
+on:
+  schedule:
+    - cron: "23 9 * * 2"      # Tuesday mornings, after the weekend's games are final
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: roster
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch from ESPN
+        run: |
+          set -uo pipefail
+          SITE="https://site.api.espn.com/apis/site/v2/sports/football/college-football"
+          UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+
+          grab () {   # grab <url> <outfile>
+            for attempt in 1 2 3 4 5; do
+              code=$(curl -sS -w '%{http_code}' -o "$2.tmp" \
+                     -H "accept: application/json" -H "user-agent: $UA" "$1" || echo 000)
+              if [ "$code" = "200" ]; then
+                mv "$2.tmp" "$2"
+                echo "  $2 <- HTTP 200 ($(wc -c <"$2") bytes)"
+                return 0
+              fi
+              echo "  attempt $attempt for $2 got HTTP $code: $(head -c 160 "$2.tmp")"
+              sleep $((attempt * 10))
+            done
+            echo "::error::gave up on $2"
+            return 1
+          }
+
+          grab "$SITE/scoreboard?groups=80&limit=400" scoreboard.json
+          grab "$SITE/teams?limit=500"                teams.json
+
+      - name: Refuse to use anything that is not what we asked for
+        run: |
+          python3 - <<'PY'
+          import json, sys
+
+          # The scoreboard is the FBS membership list. Out of season it is
+          # legitimately empty, which is not an error - the generator will
+          # simply change nothing. A malformed one IS an error.
+          try:
+              sb = json.load(open("scoreboard.json"))
+          except Exception as e:
+              sys.exit(f"scoreboard.json is not valid JSON: {e}")
+          if "events" not in sb:
+              sys.exit("scoreboard.json has no events key - refusing to use it")
+          ids = {c.get("id") for e in sb["events"]
+                   for c in (e.get("competitions") or [{}])[0].get("competitors", [])}
+          ids.discard(None)
+          print(f"scoreboard: {len(sb['events'])} events, {len(ids)} distinct teams")
+          if sb["events"] and len(ids) < 10:
+              sys.exit("a scoreboard with games but almost no teams is malformed")
+
+          # The roster payload supplies the names. It is always truncated at
+          # 500 and always contains every division; both are expected, and
+          # neither matters, because the scoreboard decides who is in.
+          try:
+              tp = json.load(open("teams.json"))
+              teams = tp["sports"][0]["leagues"][0]["teams"]
+          except Exception as e:
+              sys.exit(f"teams.json is not the roster payload: {e}")
+          named = sum(1 for t in teams if t.get("team", {}).get("location"))
+          print(f"roster: {len(teams)} entries, {named} with a program name")
+          if named < 400:
+              sys.exit("the roster payload is too thin to name a season of teams")
+          PY
+
+      - name: Rebuild the registry
+        run: node tools/build-registry.js scoreboard.json teams.json --write
+
+      - name: The registry must still be valid
+        run: |
+          node --check teams/index.js
+          node tools/registrycheck.js
+          node tools/choosercheck.js
+
+      - name: Commit if anything changed
+        run: |
+          rm -f scoreboard.json teams.json scoreboard.json.tmp teams.json.tmp
+          if git diff --quiet -- teams/index.js; then
+            echo "registry unchanged"
+            exit 0
+          fi
+          before=$(git show HEAD:teams/index.js | grep -c '{ id:' || true)
+          after=$(grep -c '{ id:' teams/index.js || true)
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add teams/index.js
+          git commit -m "Refresh the team registry: ${before} -> ${after} programs"
+          git push

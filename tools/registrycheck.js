@@ -102,5 +102,56 @@ var bigTen = groups.filter(function (g) { return g.conference === "Big Ten"; })[
 eq(bigTen.teams.map(function (t) { return t.id; }), ["indiana", "ohio-state"],
    "teams within a conference are alphabetical, available or not");
 
+console.log("the generator");
+// teams/index.js is generated (decision 0017). The two things that must hold:
+// it preserves what only a person can know, and it derives what only the
+// repository can know.
+var gen = read("tools/build-registry.js");
+ok(!/\bfetch\s*\(/.test(gen) && !/https?:\/\//.test(gen.replace(/\/\*[\s\S]*?\*\//g, "")),
+   "the generator makes no network request of its own - the Action fetches");
+ok(/configOnDisk/.test(gen) && /fs\.existsSync/.test(gen),
+   "it reads the filesystem to decide availability, rather than being told");
+ok(/conference/.test(gen) && /t\.conference \|\| null/.test(gen),
+   "and it carries a hand-authored conference through, because no payload has one");
+
+// Run it for real against fixtures and read the result back.
+var os = require("os");
+var tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reg-"));
+function writeJson(name, obj) {
+  var p = path.join(tmp, name); fs.writeFileSync(p, JSON.stringify(obj)); return p;
+}
+// two programs already in the registry, one of them new to the scoreboard
+var sbPath = writeJson("sb.json", { events: [ { id: "1", competitions: [ { competitors: [
+  { id: "87",  team: { id: "87",  displayName: "Notre Dame Fighting Irish", shortDisplayName: "Notre Dame" } },
+  { id: "999", team: { id: "999", displayName: "Somewhere Tigers", shortDisplayName: "Somewhere" } } ] } ] } ] });
+var tpPath = writeJson("tp.json", { sports: [ { leagues: [ { teams: [
+  { team: { id: "87",  location: "Notre Dame", shortDisplayName: "Notre Dame" } },
+  { team: { id: "999", location: "Somewhere", shortDisplayName: "Somewhere" } } ] } ] } ] });
+
+var cp = require("child_process");
+var run = cp.spawnSync(process.execPath,
+  [path.join(root, "tools", "build-registry.js"), sbPath, tpPath],
+  { encoding: "utf8" });
+eq(run.status, 0, "it runs clean on a well-formed pair of payloads");
+var out = run.stdout;
+ok(/var TEAM_REGISTRY/.test(out), "and emits a registry");
+
+var gctx = vm.createContext({});
+vm.runInContext(out, gctx, { filename: "generated" });
+var G = ctx.TeamOS.registry.create(gctx.TEAM_REGISTRY);
+ok(G.all().length >= REG.all().length, "the roster is a union - nothing already known is dropped");
+eq(G.get("notre-dame").conference, "Independent",
+   "a hand-authored conference survives a regeneration");
+eq(G.get("notre-dame").config, "teams/notre-dame.js",
+   "and a config is filled in because the file is on disk");
+eq(G.get("somewhere").conference, "Independent",
+   "a program the scoreboard introduced has no conference, which reads as Independent");
+eq(G.get("somewhere").available, false, "and is not selectable, because it has no config");
+eq(G.get("byu") && G.get("byu").name, "BYU",
+   "a program absent from this week's scoreboard is still in the registry");
+ok(G.available().length >= 2, "the teams that could be opened before still can");
+
+fs.rmSync(tmp, { recursive: true, force: true });
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "one registry, and it matches the repository"));
 process.exit(failures ? 1 : 0);
