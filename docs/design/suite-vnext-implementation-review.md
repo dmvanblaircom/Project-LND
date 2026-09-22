@@ -1,6 +1,6 @@
 # Suite vNext Implementation Review
 
-Status: BUILD COMPLETE / BROWSER QA PENDING  
+Status: BUILD + MOBILE BROWSER QA COMPLETE  
 Branch: `design/suite-vnext-build`  
 Base: `main`
 
@@ -164,32 +164,35 @@ Confirmed:
 - old UHND depth parser is removed
 - official depth and availability declarations are config-driven
 
-## Browser QA still required
+## Mobile browser QA completed
 
-This branch should not be described as fully visually approved until actual browser rendering is reviewed.
+A temporary branch-only Playwright harness rendered the real branch with controlled ESPN fixtures and captured 32 states across Notre Dame and Ohio State at 375px and 430px.
 
-Required:
-- 375px
-- 430px
-- tablet/wide
-- Notre Dame Home
-- Ohio State Home
-- pregame Game
-- live Game
-- final Game
-- expanded schedule detail
-- open odds board
-- Top 25 Games
-- Top 25 Rankings
-- Notre Dame official Depth
-- Ohio State unavailable Depth
+Covered:
+- Home upcoming + live
+- Top 25
+- Game pregame + live + final
+- Depth
 - News
-- reduced motion
-- keyboard focus
-- offline/cache behavior
-- ND -> OSU -> ND switch
+- both teams at both widths
 
-Also confirm no console errors.
+Results:
+- 32 rendered states
+- 0 horizontal-overflow failures
+- 0 console/page errors
+- conventional bottom navigation remained level
+- Ohio State light-shell contrast remained readable
+- live Game hierarchy remained dominant without breaking supporting content
+- Notre Dame Depth rendered as the full personnel surface
+- Ohio State Depth rendered its honest unavailable state
+
+The screenshot harness was temporary and was removed after review.
+
+Still required before merge:
+- tablet/wide browser spot check
+- keyboard/focus walkthrough
+- offline/cache behavior
+- ND -> OSU -> ND switch on a real browser/session
 
 ## Data-source QA after merge/run
 
@@ -204,8 +207,6 @@ After the updated Refresh team data workflow runs, verify:
 
 ## Merge recommendation
 
-**Do not merge yet solely on static validation.**
-
-The architecture and static checks are in good shape, but the remaining browser QA is visual/product acceptance, not a code-style check. Once that review passes and the final automated repository checks are green, this branch is appropriate to open as the Suite vNext PR.
+The mobile visual acceptance pass is now complete. Open the Suite vNext PR and use the PR checks plus the remaining wide/offline/switch spot checks as the final gate.
 
 Do not automatically merge the PR.
