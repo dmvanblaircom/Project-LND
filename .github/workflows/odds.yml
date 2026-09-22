@@ -2,6 +2,7 @@
 # GitHub Pages then serves it from your own domain, so the browser makes a
 # same-origin request and CORS never enters into it.
 #
+# Verification trigger: 2026-09-22 official-source refresh.
 # This runs from a GitHub-hosted runner, which is a different IP range than
 # Cloudflare's shared edge — the one that Kalshi rate-limits into the ground.
 name: Refresh team data
