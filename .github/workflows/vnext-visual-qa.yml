@@ -30,7 +30,7 @@ jobs:
 
       - name: Capture mobile reference screens
         run: |
-          cat > /tmp/visual-qa.mjs <<'JS'
+          cat > visual-qa-runner.mjs <<'JS'
           import { chromium } from "playwright";
           import fs from "fs";
 
@@ -99,7 +99,7 @@ jobs:
           await browser.close();
           fs.writeFileSync("visual-qa/report.json", JSON.stringify(report, null, 2));
           JS
-          node /tmp/visual-qa.mjs
+          node visual-qa-runner.mjs
 
       - uses: actions/upload-artifact@v4
         with:
