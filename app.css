@@ -844,6 +844,84 @@ body{
 .game-shell .ldr .cat,.game-shell .ldr .line{color:#727d88}
 .game-shell details.fold>summary{background:#fff;color:#142033;border:1px solid #e0dcd4;border-radius:8px}
 .game-shell .stamp{color:#8a929a}
+/* Top 25 vNext: editorial national snapshot. */
+#panel-around:before{display:none}
+#panel-around{padding-top:.9rem}
+.around-shell{color:#142033}
+.around-head{
+  display:flex;align-items:end;justify-content:space-between;gap:1rem;
+  margin:0 0 .7rem;padding-bottom:.7rem;border-bottom:1px solid #d9d5cd;
+}
+.around-head h2{margin:.05rem 0 0;font-family:var(--t-font-display);font-size:1.45rem;line-height:1.05;color:#142033}
+.around-eyebrow{display:block;font-size:.61rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7a8490}
+.around-meta{padding-bottom:.05rem;font-size:.72rem;font-weight:600;color:#7a8490;white-space:nowrap}
+.around-view{margin:0 0 .8rem;padding:.18rem;border:1px solid #ded9d1;border-radius:10px;background:#ece8df;box-shadow:none}
+.around-view button{
+  min-height:2.55rem;border:0;border-radius:8px;background:transparent;color:#65717d;
+  font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+}
+.around-view button[aria-pressed="true"]{
+  background:#fff !important;color:#142033 !important;box-shadow:0 2px 8px rgba(20,32,51,.08);
+}
+.around-view button .n{
+  display:inline-flex;align-items:center;justify-content:center;min-width:1.4rem;height:1.4rem;
+  margin-left:.4rem;padding:0 .35rem;border-radius:999px;background:rgba(var(--t-accent-rgb),.12);
+  color:var(--t-surface);font-size:.66rem;
+}
+#ar-games>ul.plain,#ar-rankings ol.plain{margin:0}
+#ar-games .row{
+  margin:0;min-height:4.7rem;padding:.78rem .15rem;border:0;border-bottom:1px solid #e1ddd5;border-radius:0;background:transparent;
+}
+#ar-games .row .date .m{color:#8a929a}
+#ar-games .row .date .d{color:#142033}
+#ar-games .row .team{color:#142033}
+#ar-games .row .team .pre{color:#89919a}
+#ar-games .row .sub{color:#707b86}
+#ar-games .row .status{color:#6f7983}
+#ar-games .row .net{color:var(--t-surface);background:rgba(var(--t-accent-rgb),.08)}
+#ar-games .row.mine{
+  margin:.35rem 0;padding:.8rem .75rem;border:1px solid rgba(var(--t-accent-rgb),.3);
+  border-left:4px solid var(--t-accent);border-radius:10px;
+  background:linear-gradient(95deg,rgba(var(--t-accent-rgb),.11),#fff 62%);
+  box-shadow:0 4px 14px rgba(20,32,51,.04);
+}
+#ar-games .row .live{
+  display:block;margin-top:.28rem;color:#58636f;font-size:.75rem;line-height:1.35;
+}
+#ar-games .row .live .lbl{
+  display:inline-block;margin-right:.4rem;color:#9f1d2e;font-size:.62rem;font-weight:800;letter-spacing:.1em;
+}
+#ar-games .row .score{font-size:1.25rem;color:#142033}
+#ar-rankings .polls{
+  margin:.1rem 0 .55rem;padding:.15rem;border:1px solid #e0dbd3;border-radius:10px;background:#f0ede6;box-shadow:none;
+}
+#ar-rankings .polls button{
+  min-height:2.35rem;border:0;border-radius:8px;background:transparent;color:#65717d;font-size:.72rem;
+}
+#ar-rankings .polls button[aria-pressed="true"]{
+  background:#fff !important;color:#142033 !important;box-shadow:0 2px 7px rgba(20,32,51,.07);
+}
+#ar-rankings .polls .n{margin-left:.35rem;color:var(--t-surface);font-weight:800}
+#ar-rankings .pollnote{margin:.55rem .1rem .35rem;color:#7a8490;font-size:.72rem}
+#ar-rankings .poll-row{
+  margin:0;min-height:3.65rem;padding:.48rem .15rem;border:0;border-bottom:1px solid #e3dfd8;border-radius:0;background:transparent;
+}
+#ar-rankings .poll-row .date{
+  display:flex;align-items:center;justify-content:center;width:2.35rem;height:2.35rem;border-radius:50%;
+  background:#ebe7df;color:#142033;
+}
+#ar-rankings .poll-row .date .d{font-size:1rem;color:#142033}
+#ar-rankings .poll-row .team{color:#142033}
+#ar-rankings .poll-row .status{color:#66717d}
+#ar-rankings .poll-row.mine{
+  margin:.3rem 0;padding:.55rem .7rem;border:1px solid rgba(var(--t-accent-rgb),.3);
+  border-left:4px solid var(--t-accent);border-radius:10px;
+  background:linear-gradient(95deg,rgba(var(--t-accent-rgb),.11),#fff 65%);
+}
+#ar-rankings .poll-row.mine .date{background:var(--t-surface);color:#fff}
+#ar-rankings .poll-row.mine .date .d{color:#fff}
+#ar-rankings .up{color:#2f7b54}
+#ar-rankings .down{color:#a84747}
 #panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{
   color:#142033;font-family:var(--t-font-ui);font-weight:700;letter-spacing:0;text-transform:none;font-size:1.15rem;
 }
@@ -897,6 +975,10 @@ footer .foot{color:#747d88}
   .game-shell>.gscore{min-height:5rem;padding:.8rem .85rem}
   .game-shell>.gscore .pts{font-size:2.55rem}
   .game-shell>#gWinProb{grid-template-columns:4rem 1fr 4rem;padding:.7rem .75rem}
+  .around-head{align-items:start}
+  .around-meta{font-size:.66rem;padding-top:.2rem}
+  #ar-games .row.mine{padding:.72rem .65rem}
+  #ar-rankings .poll-row.mine{padding:.52rem .6rem}
   .tabbar button#tab-game{width:auto;height:auto;min-height:3.65rem;border-radius:10px;transform:none}
   .tabbar button#tab-game svg{width:23px;height:23px}
 }
