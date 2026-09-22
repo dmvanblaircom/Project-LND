@@ -694,7 +694,21 @@
     "pos": "S",
     "name": "Luke Talich",
     "detail": "Left Wrist",
-    "weeks": 0
+    "weeks": 0,
+    "newer": [
+     {
+      "source": "One Foot Down",
+      "title": "NOTRE DAME FOOTBALL: Injury report and depth charts for Purdue Boilermakers",
+      "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/85034/notre-dame-football-injury-report-and-depth-charts-for-purdue-boilermakers",
+      "published": "2026-09-22T10:37:00+00:00"
+     },
+     {
+      "source": "UHND",
+      "title": "Luke Talich\u2019s Hand Injury Adds to Notre Dame Football\u2019s Safety Questions Ahead of Purdue",
+      "link": "https://www.uhnd.com/football/2026/09/22/luke-talichs-hand-injury-adds-to-notre-dame-footballs-safety-questions-ahead-of-purdue/",
+      "published": "2026-09-22T10:33:59+00:00"
+     }
+    ]
    }
   ],
   "out": [
@@ -731,7 +745,15 @@
     "pos": "S",
     "name": "Brauntae Johnson",
     "detail": "Left Foot",
-    "weeks": 3
+    "weeks": 3,
+    "newer": [
+     {
+      "source": "UHND",
+      "title": "Luke Talich\u2019s Hand Injury Adds to Notre Dame Football\u2019s Safety Questions Ahead of Purdue",
+      "link": "https://www.uhnd.com/football/2026/09/22/luke-talichs-hand-injury-adds-to-notre-dame-footballs-safety-questions-ahead-of-purdue/",
+      "published": "2026-09-22T10:33:59+00:00"
+     }
+    ]
    },
    {
     "no": "47",
