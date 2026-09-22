@@ -131,16 +131,16 @@
    the background on html, body AND .page so at least one of them wins. */
 html,body{margin:0;padding:0;background:radial-gradient(circle at 50% -10%, rgba(var(--t-raise-rgb),.55), transparent 38rem),
       var(--t-deep) !important}
-body{font-family:var(--t-font-ui);font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased;color:var(--paper);background:linear-gradient(180deg,var(--t-abyss) 0%,var(--t-surface) 45%,var(--t-abyss) 100%) !important}
+body{font-family:var(--t-font-ui);font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased;}
 /* .page once used overflow:hidden to clip its decorative circle, but that makes
    it a scroll container and position:sticky then has nothing to stick to.
    overflow:clip clips without creating one. */
-.page{position:relative;isolation:isolate;min-height:100dvh;padding-top:0;padding-bottom:calc(8rem + env(safe-area-inset-bottom, 0px));overflow:visible;overflow-x:clip;background:transparent !important}
+.page{position:relative;isolation:isolate;min-height:100dvh;padding-top:0;overflow:visible;overflow-x:clip;}
 /* Gutters carry the responsive step AND the iOS notch inset together, in one
    calc(), so no later rule can drop one without the other. */
 .wrap{
   margin:0 auto;
-  max-width:54rem;
+  
   padding:0 0 3rem;
   padding-left:calc(var(--gutter) + env(safe-area-inset-left, 0px));
   padding-right:calc(var(--gutter) + env(safe-area-inset-right, 0px));
@@ -172,14 +172,14 @@ details.fold > summary::after,
    so Safari does not re-composite it at the moment it becomes stuck, and opaque
    enough that nothing ghosts through as content scrolls underneath. */
 .bar{
-  display:flex;align-items:center;flex-wrap:wrap;gap:.7rem;
-  min-height:4.6rem;
+  display:flex;align-items:center;gap:.7rem;
+  
   position:sticky;top:0;z-index:60;
-  background:rgba(var(--t-abyss-rgb),.97);
+  
   -webkit-backdrop-filter:blur(14px);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-  box-shadow:0 8px 28px rgba(0,0,0,.16);
+  
+  
   transform:translateZ(0);
   -webkit-transform:translateZ(0);
   will-change:transform;
@@ -192,15 +192,15 @@ details.fold > summary::after,
   padding-left:calc(var(--gutter) + env(safe-area-inset-left, 0px));
   padding-right:calc(var(--gutter) + env(safe-area-inset-right, 0px));
 }
-.bar h1{font-weight:700;margin:0;font-family:var(--t-font-display);text-transform:uppercase;text-shadow:0 1px 18px rgba(var(--t-accent-rgb),.16);font-size:1.55rem;letter-spacing:.075em;color:var(--paper);line-height:1.05}
-.bar .rank{font-family:var(--t-font-display);font-weight:600;font-size:.72rem;letter-spacing:.06em;background:var(--t-accent);color:var(--t-accent-ink);border-radius:999px;padding:.16rem .5rem}
-.bar .rec{font-variant-numeric:tabular-nums;color:#BAC6D5;font-family:var(--t-font-display);font-size:.86rem;letter-spacing:.04em}
+.bar h1{font-weight:700;margin:0;font-family:var(--t-font-display);text-shadow:0 1px 18px rgba(var(--t-accent-rgb),.16);color:var(--paper);line-height:1.05}
+.bar .rank{font-family:var(--t-font-display);font-weight:600;font-size:.72rem;letter-spacing:.06em;background:var(--t-accent);color:var(--t-accent-ink);padding:.16rem .5rem}
+.bar .rec{font-variant-numeric:tabular-nums;font-family:var(--t-font-display);font-size:.86rem;letter-spacing:.04em}
 .bar .spacer{flex:1}
 /* 2026 team motto. One line to change next season. Grenze Gotisch keeps the
    gothic character but with open counters, so it reads at a glance - mixed case
    on purpose, uppercase gothic is much harder to parse. */
-.motto{text-align:center;font-weight:700;text-wrap:balance;position:relative;font-family:var(--t-font-headline);line-height:.92;text-shadow:0 2px 28px rgba(0,0,0,.28);max-width:17ch;margin:.95rem 0 1rem;padding:.2rem 0 .9rem;border-bottom:1px solid var(--line);color:var(--t-accent-text);font-size:clamp(2.1rem,8vw,4rem);letter-spacing:.015em}
-.refresh{min-width:5.5rem;font-size:.9rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border:1px solid rgba(var(--t-accent-rgb),.45);background:rgba(var(--t-surface-rgb),.7);color:var(--paper);min-height:2.65rem;padding:0 1rem;font-family:var(--t-font-display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:all .18s ease;border-color:var(--line);border-radius:999px}
+.motto{text-wrap:balance;position:relative;}
+.refresh{cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border:1px solid rgba(var(--t-accent-rgb),.45);color:var(--paper);min-height:2.65rem;font-family:var(--t-font-display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:all .18s ease;}
 .refresh:hover{border-color:var(--t-accent-text);color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.08);transform:translateY(-1px)}
 
 /* ====================================================================
@@ -208,15 +208,14 @@ details.fold > summary::after,
    ==================================================================== */
 /* The broadcast card. Two columns on a desktop; the phone block at the foot of
    this file collapses it to a single flow. */
-.hero{position:relative;overflow:hidden;opacity:0;animation:reveal .7s cubic-bezier(.2,.7,.3,1) forwards;margin:0;color:var(--paper);display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto 1fr auto;column-gap:1.25rem;border:1px solid var(--t-accent-line);border-radius:12px;min-height:13rem;margin-top:.85rem;padding:1.35rem 1.4rem 1.25rem;background:radial-gradient(circle at 86% 18%,rgba(var(--t-accent-rgb),.13),transparent 14rem),
-      linear-gradient(135deg,var(--t-raise) 0%,var(--t-surface) 50%,var(--t-abyss) 100%);box-shadow:0 18px 45px rgba(0,0,0,.22)}
+.hero{position:relative;overflow:hidden;opacity:0;animation:reveal .7s cubic-bezier(.2,.7,.3,1) forwards;margin:0;color:var(--paper);display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:1.25rem;}
 .hero .when,.hero .opp{padding-right:5.5rem}
-.hero .when{font-weight:600;grid-column:1;grid-row:1;color:var(--t-accent-soft);text-transform:uppercase;letter-spacing:.13em;font-size:.68rem}
-.hero .opp{font-family:var(--t-font-display);font-weight:700;line-height:1.03;text-transform:uppercase;text-shadow:0 2px 16px rgba(0,0,0,.24);grid-column:1;grid-row:2;margin:.3rem 0 .45rem;font-size:clamp(2rem,7vw,3.15rem);letter-spacing:-.025em}
+.hero .when{font-weight:600;grid-column:1;grid-row:1;color:var(--t-accent-soft);text-transform:uppercase;}
+.hero .opp{font-family:var(--t-font-display);font-weight:700;line-height:1.03;text-transform:uppercase;text-shadow:0 2px 16px rgba(0,0,0,.24);grid-column:1;grid-row:2;letter-spacing:-.025em}
 .hero .opp .vs{font-weight:500;font-size:.62em;margin-right:.35rem;opacity:1;color:var(--t-accent-text)}
-.hero .line{font-weight:500;grid-column:1;grid-row:3;color:#E8EEF5;font-size:1rem}
+.hero .line{font-weight:500;grid-column:1;grid-row:3;color:#E8EEF5;}
 .hero .line b{font-weight:600}
-.hero .venue{font-size:.85rem;margin-top:.1rem;grid-column:1;grid-row:4;align-self:end;color:#9FB0C4}
+.hero .venue{font-size:.85rem;margin-top:.1rem;grid-column:1;grid-row:4;align-self:end;}
 .hero .series{font-size:.9rem;font-weight:600;margin:.4rem 0 0;padding-right:5.5rem;color:var(--t-accent-text);letter-spacing:.02em;grid-column:1;grid-row:4;align-self:end;margin-left:0;margin-top:0}
 /* Kickoff forecast, full width under everything. Only painted for a game
    inside Open-Meteo's 16-day window. */
@@ -225,11 +224,10 @@ details.fold > summary::after,
 .hero .wx .k{font-family:var(--t-font-display);font-weight:700;font-size:.7rem;
   letter-spacing:.14em;text-transform:uppercase;color:var(--t-accent-soft);margin-right:.5rem}
 .hero .wx .glyph{font-size:1.15rem;line-height:1;vertical-align:-.1em;margin-right:.15rem}
-.hero .clock{font-family:var(--t-font-display);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em;grid-column:2;grid-row:3 / span 2;align-self:end;margin:0;padding:.7rem 0 0 .9rem;border-top:0;border-left:1px solid rgba(var(--t-accent-rgb),.24);font-size:1.9rem;color:var(--paper)}
+.hero .clock{font-family:var(--t-font-display);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em;grid-column:2;grid-row:3 / span 2;align-self:end;margin:0;padding:.7rem 0 0 .9rem;border-top:0;border-left:1px solid rgba(var(--t-accent-rgb),.24);color:var(--paper)}
 .hero .clock small{font-size:.5em;font-weight:600;margin-left:.1rem;margin-right:.55rem}
 .hero .spread{margin:0;font-weight:600;line-height:1.35;text-align:right;font-variant-numeric:tabular-nums;top:1.35rem;right:1.35rem;grid-column:2;grid-row:1 / span 2;position:static;min-width:6rem;padding:.35rem 0 0 .9rem;border-left:1px solid rgba(var(--t-accent-rgb),.24);font-family:var(--t-font-display);font-size:1rem;color:#E8EEF5}
-.hero.live{color:var(--live-fg);box-shadow:none;background:radial-gradient(circle at 86% 18%,rgba(255,110,100,.13),transparent 14rem),
-    linear-gradient(135deg,#7E2925 0%,#471817 62%,#241214 100%);border-color:rgba(255,122,112,.38)}
+.hero.live{color:var(--live-fg);box-shadow:none;border-color:rgba(255,122,112,.38)}
 .hero.live .when,.hero.live .venue{color:var(--live-fg-2)}
 .hero.live .clock{border-top-color:rgba(255,255,255,.4)}
 /* The hero folded to one line, for tabs where the full card is in the way.
@@ -237,8 +235,8 @@ details.fold > summary::after,
 .heromini{
   display:flex;align-items:center;gap:.7rem;width:100%;min-height:2.9rem;
   margin:.85rem 0 .2rem;padding:.55rem .9rem;
-  font:inherit;color:var(--paper);text-align:left;cursor:pointer;
-  background:rgba(var(--t-surface-rgb),.6);border:1px solid var(--t-accent-line);border-radius:8px;
+  font:inherit;text-align:left;cursor:pointer;
+  border:1px solid var(--t-accent-line);border-radius:8px;
   transition:border-color .16s ease,background .16s ease;
 }
 .heromini:hover{border-color:var(--t-accent-text);background:rgba(var(--t-raise-rgb),.5)}
@@ -247,7 +245,7 @@ details.fold > summary::after,
 .heromini .mopp{font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;
   letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
 .heromini .mopp .vs{color:var(--t-accent-text);font-weight:600;font-size:.85em}
-.heromini .mwhen{flex:1;min-width:0;font-size:.86rem;color:#9FB0C4;
+.heromini .mwhen{flex:1;min-width:0;font-size:.86rem;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .heromini .mwhen .live-lbl{font-family:var(--t-font-display);font-weight:700;
   font-size:.74rem;letter-spacing:.09em;color:var(--live)}
@@ -257,7 +255,7 @@ details.fold > summary::after,
 /* ====================================================================
    MARKET STRIP AND ODDS BOARD
    ==================================================================== */
-.strip{display:flex;border-radius:0 0 8px 8px;box-shadow:0 12px 30px rgba(0,0,0,.16);align-items:stretch;gap:.55rem;background:transparent;border:0;margin:.7rem 0 0}
+.strip{display:flex;border-radius:0 0 8px 8px;align-items:stretch;background:transparent;border:0;}
 .up{color:var(--win)}
 .down{color:var(--loss)}
 
@@ -277,11 +275,11 @@ details.fold > summary::after,
    SHARED LIST PRIMITIVES
    ==================================================================== */
 ul.plain,ol.plain{list-style:none;margin:0;padding:0}
-.row{display:flex;align-items:center;gap:.75rem;margin:.22rem 0;border:1px solid transparent;border-bottom-color:rgba(169,183,201,.10);border-radius:5px;transition:background .16s ease,border-color .16s ease,transform .16s ease;min-height:4.5rem;padding:.85rem .6rem;border-bottom:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:.75rem;transition:background .16s ease,border-color .16s ease,transform .16s ease;}
 .row .date{flex:none;text-align:center;font-family:var(--t-font-display);line-height:1.05;width:3.8rem}
 .row .date .m,.row .date .d{display:block}
-.row .date .m{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#879AB0}
-.row .date .d{font-weight:700;color:var(--paper);font-size:1.5rem}
+.row .date .m{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+.row .date .d{font-weight:700;font-size:1.5rem}
 .row .mid{flex:1;min-width:0}
 .row .team,.row .sub,.row .score,.row .wl,.row .status{display:block}
 .row .team{font-size:1.03rem;font-weight:600}
@@ -296,10 +294,10 @@ ul.plain,ol.plain{list-style:none;margin:0;padding:0}
 .row .status{font-size:.78rem;font-weight:600;color:var(--dim)}
 .row .net{display:inline-block;font-size:.78rem;font-weight:600;border:1px solid var(--t-accent);padding:.15rem .4rem;white-space:nowrap;background:rgba(var(--t-accent-rgb),.06);border-radius:999px;color:var(--t-accent-text);border-color:rgba(var(--t-accent-rgb),.5)}
 .row .net.tbd{color:var(--dim);border-color:var(--dim)}
-.row.past{opacity:.85}
+.row.past{}
 /* Every schedule row expands in place to show that game. */
 .row.tappable{cursor:pointer}
-.row.tappable:hover{background:rgba(var(--t-accent-rgb),.07)}
+.row.tappable:hover{}
 .row.tappable:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
 /* The chevron is a flex child of the row itself, so it sits in the same
    column on every row regardless of what the score/network cell is showing.
@@ -311,20 +309,20 @@ ul.plain,ol.plain{list-style:none;margin:0;padding:0}
 .row.tappable[aria-expanded="true"]::after{transform:rotate(90deg)}
 li.gamedetail{
   list-style:none;
-  margin:0 -.55rem .4rem;
-  padding:.6rem .7rem .8rem;
-  background:rgba(255,255,255,.025);
-  border-left:3px solid var(--t-accent);
-  border-bottom:1px solid var(--ink-3);
-  border-radius:0 4px 4px 0;
+  
+  
+  
+  
+  
+  
 }
 li.gamedetail .sec{margin-top:.7rem}
 li.gamedetail .gscore{padding:.5rem .1rem}
 li.gamedetail .gscore .pts{font-size:1.6rem}
-.row.mine{margin:.35rem 0;padding-left:.72rem;padding-right:.72rem;border:1px solid rgba(var(--t-accent-rgb),.28);border-left:3px solid var(--t-accent);background:linear-gradient(90deg,rgba(var(--t-accent-rgb),.14),rgba(var(--t-accent-rgb),.035));box-shadow:0 6px 18px rgba(0,0,0,.10)}
+.row.mine{}
 .rk{color:var(--t-accent-text);font-weight:600;font-size:.88em;margin-right:.15rem}
 .tag{display:inline-block;font-family:var(--t-font-display);font-weight:700;font-size:.7rem;letter-spacing:.07em;line-height:1;padding:.22rem .34rem;border-radius:2px;border:1px solid;vertical-align:.08em;margin-right:.4rem}
-.tag.h{background:var(--t-accent);border-color:var(--t-accent-text);color:var(--t-accent-ink)}
+.tag.h{background:var(--t-accent);color:var(--t-accent-ink)}
 .tag.a{background:none;border-color:#657990;color:#A8B7C9}
 .tag.n{background:none;color:#5BC48A;border-color:#338B60}
 .trophy{display:block;font-size:.78rem;font-weight:600;margin-top:.12rem;color:var(--t-accent-soft)}
@@ -383,8 +381,8 @@ details.fold[open] > summary::after{transform:rotate(180deg)}
 details.fold > summary .count{font-weight:500;color:var(--dim);font-size:.85rem;letter-spacing:0}
 details.fold > summary:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
 details.fold .foldbody{padding-bottom:.5rem}
-.more{display:block;width:100%;min-height:2.75rem;margin:.6rem 0 0;background:none;border:1px solid var(--ink-3);border-radius:3px;color:var(--parch);font-family:var(--t-font-display);font-weight:600;font-size:.95rem;letter-spacing:.04em;cursor:pointer}
-.more:hover{border-color:var(--t-accent-text);color:var(--t-accent-text)}
+.more{display:block;width:100%;min-height:2.75rem;margin:.6rem 0 0;border:1px solid var(--ink-3);font-family:var(--t-font-display);font-weight:600;font-size:.95rem;letter-spacing:.04em;cursor:pointer}
+.more:hover{}
 .pollnote{font-size:.82rem;color:var(--dim);padding:.55rem .15rem}
 
 /* ====================================================================
@@ -521,10 +519,10 @@ a.art .hl{font-weight:600;display:block;font-size:.98rem;line-height:1.3;color:#
 a.art .meta{display:block;margin-top:.3rem;color:#7F92A6;font-size:.67rem;letter-spacing:.07em;text-transform:uppercase}
 a.art .src{color:var(--t-accent-text);font-weight:600}
 a.art.beat{padding-left:.55rem;border-left:3px solid rgba(var(--t-accent-rgb),.65)}
-.msg{color:var(--parch);font-size:.95rem;line-height:1.6;margin-top:1rem;padding:1.25rem 1rem;border:1px solid rgba(var(--t-accent-rgb),.16);border-radius:6px;background:rgba(var(--t-raise-rgb),.18)}
+.msg{font-size:.95rem;line-height:1.6;margin-top:1rem;padding:1.25rem 1rem;border:1px solid rgba(var(--t-accent-rgb),.16);border-radius:6px;}
 .msg strong{display:block;font-weight:600;margin-bottom:.3rem}
-.msg a{color:var(--t-accent-text)}
-.loading{font-size:.95rem;padding:1.35rem .7rem;color:#8FA2B8}
+.msg a{}
+.loading{font-size:.95rem;padding:1.35rem .7rem;}
 .foot{padding:1.4rem .25rem 0;font-size:.8rem;line-height:1.6;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(var(--t-accent-rgb),.14);color:#73879E}
 [hidden]{display:none !important}
 
@@ -535,9 +533,9 @@ a.art.beat{padding-left:.55rem;border-left:3px solid rgba(var(--t-accent-rgb),.6
    header sits over it, and letting it scroll away read as the header shifting. */
 .page::before{content:"";inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--t-surface),var(--t-accent),var(--t-accent),var(--t-accent),var(--t-surface));position:fixed;z-index:70}
 .page::after{content:"";position:absolute;width:34rem;height:34rem;right:-24rem;top:9rem;border:1px solid rgba(var(--t-accent-rgb),.08);border-radius:50%;box-shadow:0 0 0 4rem rgba(var(--t-accent-rgb),.025),0 0 0 8rem rgba(var(--t-accent-rgb),.018);pointer-events:none;z-index:-1}
-.brand-lockup{display:flex;flex-direction:column;gap:.05rem}
-.brand-kicker{font-family:var(--t-font-display);font-weight:700;font-size:.61rem;line-height:1;letter-spacing:.2em;color:#9AA9BA}
-.refresh-icon{font-size:1rem;line-height:1}
+.brand-lockup{flex-direction:column;}
+.brand-kicker{font-family:var(--t-font-display);font-weight:700;line-height:1;}
+.refresh-icon{line-height:1}
 .motto::after{content:"";position:absolute;left:0;bottom:0;background:var(--t-accent);box-shadow:12px 0 0 rgba(var(--t-accent-rgb),.28);width:4.25rem;height:2px}
 .hero::before{content:"GAME DAY";position:absolute;right:1.2rem;bottom:1rem;font-family:var(--t-font-display);font-size:.62rem;font-weight:700;letter-spacing:.22em;color:rgba(var(--t-accent-rgb),.42);transform:rotate(-90deg) translateX(100%);transform-origin:right bottom;pointer-events:none}
 .hero.live .when{color:#FFD9D3}
@@ -555,23 +553,23 @@ a.art:hover{background:rgba(var(--t-raise-rgb),.72);border-color:var(--t-accent-
 /* Five destinations, GAME the raised centre action. The top edge is drawn by
    ::before a few pixels down rather than by a border, so roughly the top third
    of the Game circle clears the rule. */
-.tabbar{border-bottom:none;overflow:visible;position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(5,1fr);gap:0;padding:.35rem max(.45rem,env(safe-area-inset-left)) max(.35rem,env(safe-area-inset-bottom));background:rgba(var(--t-abyss-rgb),.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 -12px 32px rgba(0,0,0,.28);padding-top:.42rem;border-top:0}
-.tabbar:before{content:"";position:absolute;top:.42rem;left:0;right:0;height:1px;background:rgba(154,169,186,.18);pointer-events:none}
+.tabbar{border-bottom:none;overflow:visible;position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(5,1fr);gap:0;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-top:0}
+.tabbar:before{content:"";position:absolute;left:0;right:0;height:1px;pointer-events:none}
 #refresh.polling::before{content:"";display:inline-block;width:.42rem;height:.42rem;border-radius:50%;background:var(--live);margin-right:.4rem;vertical-align:.06em;animation:pulse 1.6s ease-in-out infinite}
-.tabbar button[role="tab"]{flex:1 1 0;background:none;cursor:pointer;position:relative;min-width:0;min-height:3.55rem;border:0;border-radius:10px;color:#72869A;padding:.4rem .2rem .25rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.13rem;font-family:var(--t-font-ui);font-size:.62rem;font-weight:600;letter-spacing:.02em}
+.tabbar button[role="tab"]{flex:1 1 0;background:none;cursor:pointer;position:relative;min-width:0;border:0;border-radius:10px;padding:.4rem .2rem .25rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.13rem;font-family:var(--t-font-ui);font-size:.62rem;font-weight:600;letter-spacing:.02em}
 .tabbar button[role="tab"] svg{flex:none;width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;filter:none;transition:none}
 .tabbar button[role="tab"] span{font-family:var(--t-font-display);font-weight:600;font-size:.7rem;letter-spacing:.04em;line-height:1;white-space:nowrap}
-.tabbar button[role="tab"][aria-selected="true"]{color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.09)}
+.tabbar button[role="tab"][aria-selected="true"]{}
 .tabbar button[role="tab"][aria-selected="true"] svg{stroke-width:1.9}
 .tabbar button[role="tab"]:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
 /* The two market cards are buttons - each expands the shared odds board. */
-.strip .cell{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:.3rem;position:relative;cursor:pointer;font:inherit;min-height:5rem;padding:.8rem 1rem;text-align:left;color:var(--paper);background:rgba(var(--t-surface-rgb),.72);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.strip .cell{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:.3rem;position:relative;cursor:pointer;font:inherit;padding:.8rem 1rem;text-align:left;}
 .strip .cell:last-child{border-right:1px solid var(--line);border-top:2px solid rgba(154,169,186,.55)}
 .strip .cell:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
-.strip .cell .k{display:block;font-family:var(--t-font-ui);font-size:.64rem;font-weight:600;line-height:1.25;letter-spacing:.11em;text-transform:uppercase;color:#8FA2B8;padding-right:.9rem}
-.strip .cell .v{display:block;margin-top:.25rem;font-family:var(--t-font-display);font-weight:700;font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--t-accent-text)}
+.strip .cell .k{display:block;font-family:var(--t-font-ui);font-size:.64rem;font-weight:600;line-height:1.25;letter-spacing:.11em;text-transform:uppercase;padding-right:.9rem}
+.strip .cell .v{display:block;margin-top:.25rem;font-family:var(--t-font-display);font-weight:700;font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums;}
 .strip .cell .v em{font-style:normal;font-size:.6em;font-weight:600;margin-left:.3rem}
-.strip .cell .v.pending{font-size:.95rem;font-weight:500;color:var(--dim);font-family:var(--t-font-ui)}
+.strip .cell .v.pending{font-size:.95rem;font-weight:500;font-family:var(--t-font-ui)}
 /* season sparkline under the number, drawn once odds-history.json has two points */
 .strip .cell .spark{display:block;width:100%;height:1.35rem;margin-top:.4rem;overflow:visible}
 .strip .cell .spark path{fill:rgba(var(--t-accent-rgb),.12)}
@@ -579,20 +577,20 @@ a.art:hover{background:rgba(var(--t-raise-rgb),.72);border-color:var(--t-accent-
   stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .strip .cell::after{content:"\25BE";position:absolute;top:.6rem;right:.7rem;transition:transform .15s ease}
 .strip .cell[aria-expanded="true"]::after{transform:rotate(180deg)}
-.hint{text-transform:uppercase;letter-spacing:.1em;font-size:.58rem;color:#71849A;text-align:right;margin:.4rem .2rem .8rem}
+.hint{text-transform:uppercase;letter-spacing:.1em;font-size:.58rem;text-align:right;margin:.4rem .2rem .8rem}
 #oddsboard{margin-top:.4rem}
 main{position:relative}
 .hero.live .when::before{content:"";display:inline-block;width:.42rem;height:.42rem;margin-right:.42rem;vertical-align:.08em;border-radius:50%;background:#FF7A70;box-shadow:0 0 0 .22rem rgba(255,122,112,.12)}
 /* The Game circle is the focal point of the whole app: half again the size of
    a normal tab, rising well clear of the bar. .page reserves room for it. */
-.tabbar button#tab-game{position:relative;z-index:2;justify-self:center;align-self:end;width:6.3rem;height:6.3rem;min-height:6.3rem;padding:0;border-radius:50%;background:rgba(var(--t-abyss-rgb),.96);border:1.5px solid rgba(var(--t-accent-rgb),.5);box-shadow:0 10px 26px rgba(0,0,0,.34),0 0 0 5px rgba(var(--t-surface-rgb),.92);transform:translateY(-1.5rem)}
-.tabbar button#tab-game svg{width:40px;height:40px;stroke-width:1.6}
+.tabbar button#tab-game{position:relative;z-index:2;justify-self:center;align-self:end;padding:0;}
+.tabbar button#tab-game svg{}
 .seg button:hover:not([aria-selected="true"]){background:rgba(var(--t-accent-rgb),.08)}
 footer{opacity:.92}
-.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,transparent,var(--t-accent),transparent)}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;}
 .hero .spread b{color:var(--t-accent-text)}
 .strip .cell:first-child{border-top:2px solid var(--t-accent)}
-#panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{display:block;margin:.9rem 0 .35rem;font-family:var(--t-font-display);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8093A8}
+#panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{display:block;margin:.9rem 0 .35rem;}
 #panel-schedule:before{content:"THE SEASON"}
 #panel-around:before{content:"TOP 25 THIS WEEK"}
 #panel-game:before{content:"GAME CENTER"}
@@ -609,7 +607,7 @@ details.fold>summary{padding:.75rem .9rem;background:rgba(var(--t-surface-rgb),.
 .tabbar button#tab-game span{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.1rem}
 /* Selected, the circle stays navy and only the glyph and label go gold, like
    every other tab; a solid gold disc that size pulled the eye off the page. */
-.tabbar button#tab-game[aria-selected="true"]{color:var(--t-accent-text);border-color:var(--t-accent-text);background:rgba(var(--t-surface-rgb),.98)}
+.tabbar button#tab-game[aria-selected="true"]{border-color:var(--t-accent-text);}
 .tabbar button#tab-game:after{content:"";position:absolute;left:50%;width:.45rem;height:.45rem;border-radius:50%;transform:translateX(-50%);background:#55C98A;box-shadow:0 0 0 .2rem rgba(85,201,138,.12);opacity:0;top:-.55rem}
 .tabbar button#tab-game.live:after{opacity:1}
 .brand-group{display:flex;align-items:center;gap:.65rem;min-width:0}
@@ -622,43 +620,43 @@ details.fold>summary{padding:.75rem .9rem;background:rgba(var(--t-surface-rgb),.
    ==================================================================== */
 @media (min-width:48rem){
   :root{--gutter:1.25rem}
-  .wrap{max-width:58rem}
-  .bar{min-height:4.9rem}
-  .motto{margin-top:1rem}
+  .wrap{}
+  .bar{}
+  .motto{}
   [role="tabpanel"]{padding-top:.35rem}
   .row,.obar,a.art{padding-left:.9rem;padding-right:.9rem}
   h2.sec{margin-top:1.9rem}
-  .tabbar{left:50%;right:auto;width:min(42rem,calc(100% - 2rem));transform:translateX(-50%);border:0;border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:16px 16px 0 0}
-  .hero{padding:1.55rem 1.6rem 1.35rem}
+  .tabbar{left:50%;right:auto;transform:translateX(-50%);border:0;border-left:1px solid var(--line);border-right:1px solid var(--line);}
+  .hero{}
   #panel-news>ul.plain{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:760px){
-  .tabbar button#tab-game{width:5.9rem;height:5.9rem;min-height:5.9rem;border-radius:50%;transform:translateY(-1.3rem)}
-  .tabbar button#tab-game svg{width:37px;height:37px}
+  .tabbar button#tab-game{}
+  .tabbar button#tab-game svg{}
 }
 @media (max-width:32rem){
   :root{--gutter:.8rem}
-  .bar{min-height:4.15rem}
-  .brand-kicker{font-size:.57rem;letter-spacing:.14em}
-  .bar h1{font-size:1.5rem}
-  .refresh{padding:0 .75rem;font-size:.78rem}
-  .refresh-icon{font-size:.9rem}
-  .hero{min-height:0;display:block;border-radius:10px;padding:1.2rem 1rem 1.05rem}
+  .bar{}
+  .brand-kicker{}
+  .bar h1{}
+  .refresh{}
+  .refresh-icon{}
+  .hero{display:block;}
   .hero .spread{position:absolute;top:1.1rem;right:1rem;min-width:0;padding:0;border-left:0;font-family:var(--t-font-ui);font-size:.82rem}
-  .motto{max-width:14ch;font-size:clamp(2rem,10vw,2.8rem)}
+  .motto{}
   .hero .clock{margin-top:.8rem;padding:.7rem 0 0;border-top:1px solid rgba(var(--t-accent-rgb),.28);border-left:0}
-  .strip .cell{padding:.7rem .65rem;min-height:4.6rem}
+  .strip .cell{padding:.7rem .65rem;}
   .strip .cell .k{font-size:.58rem}
   .strip .cell .v{font-size:1.45rem}
-  .hero .opp{font-size:2rem}
-  .strip{gap:.4rem}
+  .hero .opp{}
+  .strip{}
   a.art img{width:4.6rem;height:3.25rem}
   .brand-group{gap:.55rem}
-  .tabbar button#tab-game{width:5.9rem;height:5.9rem;min-height:5.9rem;border-radius:50%;transform:translateY(-1.2rem)}
-  .tabbar button#tab-game svg{width:37px;height:37px}
+  .tabbar button#tab-game{}
+  .tabbar button#tab-game svg{}
 }
 @media (max-width:22rem){
-  .motto{font-size:2.6rem;line-height:1.05}
+  .motto{}
 }
 
 /* ====================================================================
