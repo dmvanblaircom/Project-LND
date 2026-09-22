@@ -780,6 +780,66 @@ body{
   color:#66717e;font-size:.76rem;
 }
 #panel-schedule details.fold .count{color:#89919b}
+#panel-schedule .row .rk,
+#panel-schedule .row .net,
+#panel-schedule .row .trophy{color:var(--t-surface)}
+.heromini::after,.heromini .mopp .vs{color:var(--t-surface)}
+footer .foot a{color:var(--t-surface)}
+#oddsboard{color:#142033}
+#oddsboard h2.sec{
+  margin:1.1rem 0 .35rem;padding:.55rem 0 .45rem;border:0;border-bottom:1px solid #d9d5cd;
+  background:none;color:#142033;font-size:.78rem;letter-spacing:.12em;
+}
+#oddsboard .foot{color:#747d88;border-color:#ddd8cf}
+#oddsboard .obar{
+  margin:0;min-height:3.35rem;padding:.65rem .25rem;border:0;border-bottom:1px solid #e3dfd7;
+  border-radius:0;background:transparent;color:#142033;
+}
+#oddsboard .obar .orank{color:#7a8490}
+#oddsboard .obar .nm{color:#142033}
+#oddsboard .obar .track{background:#e9e5dd;border-color:#d9d5cd}
+#oddsboard .obar .pc{color:var(--t-surface)}
+#oddsboard .obar.mine{
+  margin:.3rem 0;padding:.7rem .65rem;border:1px solid rgba(var(--t-accent-rgb),.3);
+  border-left:4px solid var(--t-accent);border-radius:9px;
+  background:linear-gradient(95deg,rgba(var(--t-accent-rgb),.11),#fff 65%);
+}
+#oddsboard details.fold{
+  margin:.55rem 0;border:1px solid #dedad2;border-radius:9px;background:#fff;
+}
+#oddsboard details.fold>summary{background:#fff;color:#142033}
+li.gamedetail{
+  margin:0 0 .55rem;padding:.75rem .7rem;background:#f1eee7;
+  border-left:3px solid var(--t-accent);border-bottom:0;border-radius:0 0 9px 9px;
+}
+.game-inline{color:#142033}
+.game-inline .gscore{
+  min-height:4.4rem;padding:.7rem .75rem;border:1px solid #ddd8cf;background:#fff;color:#142033;
+}
+.game-inline .gscore+.gscore{border-top:0}
+.game-inline .gscore .side .nm,.game-inline .gscore .pts{color:#142033}
+.game-inline .gscore .side .rec{color:#7a8490}
+.game-inline .gscore.lead .pts{color:var(--t-surface)}
+.game-inline .gstatus{
+  margin:0 0 .65rem;padding:.55rem .75rem;background:#e9e5dd;border-color:#ddd8cf;color:#55616e;
+}
+.game-inline h2.sec{
+  margin:1rem 0 .35rem;padding:.45rem 0;border:0;border-bottom:1px solid #d9d5cd;
+  background:none;color:#142033;font-size:.74rem;
+}
+.game-inline .statrow,.game-inline .ldr{border-color:#e1ddd5;color:#142033}
+.game-inline .statrow .lbl,.game-inline .ldr .cat,.game-inline .ldr .line{color:#727d88}
+.game-inline .statrow .v,.game-inline .statrow.head .v{color:#142033}
+.game-inline .statrow .v.win,.game-inline .statrow.head .v.mine{color:var(--t-surface)}
+.game-inline .linescore{background:#fff;border-color:#dedad2}
+.game-inline .linescore th,.game-inline .linescore td{border-color:#e5e1da;color:#142033}
+.game-inline .linescore th{color:#7a8490}
+.game-inline .linescore td.tot{color:var(--t-surface)}
+.game-inline .lastplay{background:#fff;border-color:#dedad2;border-left-color:var(--t-accent);color:#142033}
+.game-inline .lastplay .k{color:var(--t-surface)}
+.game-inline details.fold>summary{background:#fff;color:#142033}
+.game-inline .more{background:#fff;border-color:#d8d4cc;color:#142033;border-radius:8px}
+.game-inline .stamp{color:#858d96}
 /* Game Center vNext: one renderer, three visual states. */
 #panel-game:before{display:none}
 #panel-game{padding-top:.9rem}
