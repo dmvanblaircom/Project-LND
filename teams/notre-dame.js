@@ -67,6 +67,15 @@ var TEAM_CONFIG = {
     kalshi: {
       tickerSuffix: "-ND",
       namePattern:  /notre dame|fighting irish/i
+    },
+
+    // Official athletics source for the weekly two-deep. The producer reads
+    // this declaration rather than owning a separate hard-coded source.
+    official: {
+      depthChartIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
+      depthChartLabel: "FightingIrish.com",
+      availabilityReportIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
+      availabilityReportLabel: "FightingIrish.com"
     }
   },
 
@@ -154,13 +163,13 @@ var TEAM_CONFIG = {
 
   // The snapshots .github/workflows/odds.yml commits for this team. Each
   // is a capability the team has because a source exists for it: the
-  // two-deep comes from UHND's weekly post (label = how the source is named
-  // when the file does not say), the price history from the Kalshi
+  // two-deep comes from Notre Dame's official FightingIrish.com media page,
+  // the price history from the Kalshi
   // markets above, the beat stories from six Notre Dame RSS feeds. The
   // files do not yet carry a team field, so declaring one here is what
   // says it is ours (docs/decisions/0008-snapshots-are-owned-by-declaration.md).
   snapshots: {
-    depth:       { file: "depth.json", history: "depth-history.json", label: "UHND" },
+    depth:       { file: "depth.json", history: "depth-history.json", label: "FightingIrish.com" },
     oddsHistory: { file: "odds-history.json" },
     beatNews:    { file: "news.json" }
   }

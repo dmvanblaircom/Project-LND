@@ -458,7 +458,7 @@ var ndFiles = { depth: JSON.parse(read("depth.json")), history: JSON.parse(read(
                 odds: JSON.parse(read("odds-history.json")), news: JSON.parse(read("news.json")) };
 
 console.log(" notre-dame");
-eq(TeamOS.snapshots.get(TEAM_CONFIG, "depth"),       { file:"depth.json", history:"depth-history.json", label:"UHND" }, "declares a depth chart");
+eq(TeamOS.snapshots.get(TEAM_CONFIG, "depth"),       { file:"depth.json", history:"depth-history.json", label:"FightingIrish.com" }, "declares a depth chart");
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "oddsHistory"), { file:"odds-history.json" }, "declares an odds history");
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "beatNews"),    { file:"news.json" },         "declares beat news");
 ok(TeamOS.snapshots.owned(ND, ndFiles.depth),   "owns the committed depth.json");
