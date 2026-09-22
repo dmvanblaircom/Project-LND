@@ -710,6 +710,9 @@ body{
     linear-gradient(145deg,var(--t-surface) 0%,var(--t-deep) 58%,var(--t-abyss) 100%);
   box-shadow:0 14px 32px rgba(8,24,43,.20);
 }
+.hero-brand{position:absolute;right:1.35rem;bottom:1.15rem;display:flex;align-items:center;gap:.5rem;opacity:.13;pointer-events:none}
+.hero-brand-mark{width:2.2rem;height:2.2rem;border:2px solid var(--t-accent);transform:rotate(45deg);border-radius:5px}
+.hero-brand-name{max-width:9rem;font-family:var(--t-font-display);font-weight:700;font-size:.82rem;line-height:1.05;letter-spacing:.08em;text-transform:uppercase;color:var(--t-accent-text)}
 .hero:before{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
   background:
@@ -740,6 +743,14 @@ body{
 .strip .cell .v.pending{color:#7a8490}
 .strip .cell::after{color:#7a8490}
 .hint{color:#7a8490}
+.home-snapshot{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:.85rem 0 1.1rem;
+  background:#fff;border:1px solid #e1ddd4;border-radius:10px;box-shadow:0 4px 14px rgba(20,32,51,.05);
+}
+.snapshot-stat{min-width:0;padding:.8rem .9rem;border-right:1px solid #e6e2da}
+.snapshot-stat:last-child{border-right:0}
+.snapshot-k{display:block;margin-bottom:.15rem;font-size:.62rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#7a8490}
+.snapshot-stat strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--t-font-display);font-size:1.08rem;line-height:1.2;color:#142033}
 [role="tabpanel"]{color:#142033}
 #panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{
   color:#142033;font-family:var(--t-font-ui);font-weight:700;letter-spacing:0;text-transform:none;font-size:1.15rem;
@@ -784,6 +795,11 @@ footer .foot{color:#747d88}
   .hero .opp{font-size:2.5rem}
   .hero .spread{color:#dce3eb}
   .hero .clock{font-size:1.85rem}
+  .hero-brand{right:.9rem;bottom:.9rem}
+  .hero-brand-name{display:none}
+  .home-snapshot{margin-top:.7rem}
+  .snapshot-stat{padding:.7rem .65rem}
+  .snapshot-stat strong{font-size:.98rem}
   .tabbar button#tab-game{width:auto;height:auto;min-height:3.65rem;border-radius:10px;transform:none}
   .tabbar button#tab-game svg{width:23px;height:23px}
 }
