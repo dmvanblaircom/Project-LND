@@ -361,6 +361,15 @@ jobs:
           def parse_pdf(game, doc_url, data, final_url):
               text = pdf_text(data)
               lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
+              if "Purdue" in game:
+                  dbg = PdfReader(io.BytesIO(data))
+                  normal = "\n".join((p.extract_text() or "") for p in dbg.pages)
+                  print("  DEBUG NORMAL")
+                  for x in normal.splitlines()[:90]:
+                      if x.strip(): print("   N", repr(re.sub(r"\\s+", " ", x).strip()))
+                  print("  DEBUG LAYOUT")
+                  for x in text.splitlines()[:90]:
+                      if x.strip(): print("   L", repr(re.sub(r"\\s+", " ", x).strip()))
               groups = {}
               current_group = current_pos = None
               depth = 0
