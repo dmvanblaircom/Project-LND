@@ -30,7 +30,9 @@ var TEAM_CONFIG = {
     kalshi: { tickerSuffix: "-ND", namePattern: /notre dame|fighting irish/i },
     official: {
       depthChartIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
-      depthChartLabel: "FightingIrish.com"
+      depthChartLabel: "FightingIrish.com",
+      availabilityReportIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
+      availabilityReportLabel: "FightingIrish.com"
     }
   },
 
@@ -82,7 +84,7 @@ Notre Dame's gold reaches 6.65:1 and Ohio State's scarlet only 2.88:1. TeamOS re
 a config whose text colours fall below 4.5:1 rather than inventing a lighter tone
 (`docs/decisions/0009-identity-is-team-data.md`).
 
-Not yet in configuration, pending a real need: history. Beat-news feed lists still live in `.github/workflows/odds.yml`. Depth is different: the weekly two-deep must declare its **official athletics source** under `sources.official`, and the producer reads that declaration. A team without an official depth source leaves the capability unavailable rather than substituting a beat writer.
+Not yet in configuration, pending a real need: history. Beat-news feed lists still live in `.github/workflows/odds.yml`. Authoritative team data is different: the producer checks `sources.official` first. Notre Dame currently declares official sources for both its weekly two-deep and availability report. When a school does not publish a needed artifact, a reputable media source may be used as a clearly identified fallback; it must never be presented as official or borrowed from another team.
 
 ## What Does Not Belong in Configuration
 
