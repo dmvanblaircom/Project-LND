@@ -238,6 +238,30 @@ ok(!/Ready now/.test(r.html), "and what you CAN open carries no label - it is th
 ok(/aria-label="Programs you can open now"/.test(r.html),
    "though the list names itself for a screen reader, so it is not anonymous");
 
+console.log(" a punctuated name reaches the page as the provider spells it");
+// The id is folded and the search haystack is folded; the NAME is not. What
+// a fan reads has to be how the program is written - Hawai'i keeps its
+// apostrophe, San Jose State keeps its accent, Miami keeps its brackets and
+// Texas A&M keeps its ampersand. The ampersand is the one that has to travel
+// as &amp; through the markup and come back out as "&", so it is checked
+// against the parsed name rather than against the raw HTML.
+var punctuated = render([
+  { id: "a", name: "Hawai'i", conference: "Mountain West Conference", config: "teams/notre-dame.js" },
+  { id: "b", name: "San Jos\u00e9 State", conference: "Mountain West Conference", config: "teams/ohio-state.js" },
+  { id: "c", name: "Miami (OH)", conference: "Mid-American Conference" },
+  { id: "d", name: "Texas A&M", conference: "Southeastern Conference" }
+]);
+eq(punctuated.picks.map(function (p) { return p.name; }),
+   ["Hawai'i", "San Jos\u00e9 State", "Miami (OH)", "Texas A&M"],
+   "every character survives the round trip to the page");
+ok(/Texas A&amp;M/.test(punctuated.html),
+   "the ampersand is escaped in the markup, which is how it renders as one");
+ok(!/Texas A&M</.test(punctuated.html), "and not left raw");
+// Whatever search does to a name internally must not reach what is printed.
+ok(!/texasam|hawaii|sanjosestate/.test(
+     punctuated.html.replace(/data-find="[^"]*"/g, "")),
+   "the folded form stays in data-find and never becomes the label");
+
 console.log("search");
 var total = REGLIVE.all().length;
 eq(r.search("").names.length, total, "an empty box shows every program");

@@ -185,19 +185,53 @@ console.log(" the id a program gets");
 // An id becomes teams/<id>.js and a ?team= value, so it has to be the
 // spelling a person would type. Both of these were wrong once: the accent
 // took the whole letter with it, and the ampersand was spelled out.
+//
+// These are programs the registry has NEVER seen. That matters: the union
+// preserves `name` for an id it already knows, so running the real roster
+// through here would prove only that preservation works, never that a fresh
+// parse keeps its characters. Every one of these is invented.
+var novel = [["1", "K\u0101\u02bbu State"], ["2", "C\u00f3rdoba Tech"],
+             ["3", "Denver (CO)"], ["4", "Smith & Wesson A&M"],
+             ["5", "O'Fallon"], ["6", "Saint-Denis"]];
 var spell = cp.spawnSync(process.execPath,
   [path.join(root, "tools", "build-registry.js"),
-   page(conf.concat([{ name: "Spelling", standings: [
-     team("1", "San Jos\u00e9 State"), team("2", "Texas A&M"),
-     team("3", "Hawai'i"), team("4", "Miami (OH)") ] }]))], { encoding: "utf8" });
+   page(conf.concat([{ name: "Spelling", standings: novel.map(function (n) {
+     return team(n[0], n[1]);
+   }) }]))], { encoding: "utf8" });
 var sctx = vm.createContext({});
 vm.runInContext(spell.stdout || "var TEAM_REGISTRY=[]", sctx, { filename: "spelled" });
-var ids = {};
-(sctx.TEAM_REGISTRY || []).forEach(function (t) { ids[t.name] = t.id; });
-eq(ids["San Jos\u00e9 State"], "san-jose-state", "an accent folds to its letter rather than vanishing");
-eq(ids["Texas A&M"], "texas-am", "an ampersand is dropped, not spelled out");
-eq(ids["Hawai'i"], "hawaii", "an apostrophe closes up");
-eq(ids["Miami (OH)"], "miami-oh", "and brackets become a separator");
+var byName = {}, byId = {};
+(sctx.TEAM_REGISTRY || []).forEach(function (t) { byName[t.name] = t; byId[t.id] = t; });
+
+eq((byName["C\u00f3rdoba Tech"] || {}).id, "cordoba-tech", "an accent folds to its letter rather than vanishing");
+eq((byName["Smith & Wesson A&M"] || {}).id, "smith-wesson-am", "an ampersand is dropped, not spelled out");
+eq((byName["O'Fallon"] || {}).id, "ofallon", "an apostrophe closes up");
+eq((byName["Denver (CO)"] || {}).id, "denver-co", "brackets become a separator");
+eq((byName["K\u0101\u02bbu State"] || {}).id, "kau-state", "and a macron and an okina both fold away");
+
+console.log(" but the NAME is the provider's, character for character");
+// The id is ours - it is a file path, so it is folded. The name is not: it is
+// how the program is written, and the fan reads it. Nothing in this pipeline
+// may tidy it. Each of these is a program the registry had never seen, so
+// this is the fresh-parse path, not preservation.
+novel.forEach(function (n) {
+  ok(!!byName[n[1]], JSON.stringify(n[1]) + " survives the generator character for character");
+});
+novel.forEach(function (n) {
+  var t = byName[n[1]];
+  if (t) eq(t.short, n[1], "and short is the same string, not a tidied one");
+});
+
+console.log(" and a name already in the registry is never rewritten");
+// The other half: the union keeps `name` for an id it knows, so a bad parse
+// cannot retroactively mangle a program the roster already spells correctly.
+var kept = REG.all().filter(function (t) { return /[^A-Za-z0-9 ]/.test(t.name); });
+ok(kept.length > 0, "the live roster carries punctuated names (" +
+   kept.map(function (t) { return t.name; }).join(", ") + ")");
+ok(kept.every(function (t) { return t.name === t.short; }),
+   "each with short identical to it");
+ok(!REG.all().some(function (t) { return /\uFFFD/.test(t.name); }),
+   "and none carries a replacement character, which is what a bad decode leaves");
 
 console.log(" a program cannot end up in the registry twice");
 // The one failure the other refusals cannot see: change how slug() spells a

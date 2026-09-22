@@ -94,7 +94,12 @@ function slug(s) {
   var t = String(s).toLowerCase();
   if (t.normalize) t = t.normalize("NFD").replace(/[̀-ͯ]/g, "");
   return t
-    .replace(/[‘’'`.&]/g, "")
+    // Apostrophe-like characters CLOSE UP rather than becoming a separator:
+    // straight, curly, and the two modifier letters a Hawaiian okina is
+    // written with. ESPN spells Hawai'i with a plain apostrophe today, but
+    // the okina is the correct spelling and is one provider change away -
+    // and it is not a combining mark, so NFD leaves it standing.
+    .replace(/[‘’ʻʼ'`.&]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }

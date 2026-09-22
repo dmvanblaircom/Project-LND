@@ -160,6 +160,24 @@ fixed — accents fold through NFD, `&` is dropped — and both rows are renamed
 in place to `san-jose-state` and `texas-am`. Caught before either program had
 a config, which is the only cheap moment to catch it.
 
+**The id is ours; the name is the provider's.** An id is a file path, so it
+folds: accents through NFD, apostrophes and ampersands closed up, everything
+else a separator. A **name is never touched** — it is how the program is
+written and it is what the fan reads. The roster keeps Hawai'i's apostrophe,
+Miami (OH)'s brackets, San José State's accent and Texas A&M's ampersand,
+character for character, and all 138 names were verified byte-identical to
+ESPN's `location`. `registrycheck` now pins this against programs the
+registry has **never seen** — the union preserves `name` for an id it already
+knows, so running the real roster through would have proved only that
+preservation works, never that a fresh parse keeps its characters. Both
+halves are covered, and both were observed failing.
+
+While pinning it, one gap: the ʻokina (U+02BB) was not in the fold list and
+is not a combining mark, so NFD leaves it standing and it would have become a
+separator. ESPN spells Hawai'i with a plain apostrophe today, so nothing was
+wrong — but the ʻokina is the correct spelling and one provider change away,
+and it would have silently renamed the program. Folded now, with U+02BC.
+
 That fix exposed the one way this generator could quietly **double** the
 roster. Change how `slug()` spells a name and the union keeps the old row and
 adds a new one, so a program appears twice under two ids — and because nothing
