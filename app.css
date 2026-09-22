@@ -993,7 +993,7 @@ footer .foot{color:#747d88}
   #refresh.polling::before{animation:none}
   .strip .cell::after{transition:none}
   a.art{transition:none}
-  .tabbar button#tab-game{transform:translateY(-.9rem)}
+  .tabbar button#tab-game{transform:none}
   .tabbar button[role="tab"] svg{transition:none}
   .row.tappable::after{transition:none}
 }
