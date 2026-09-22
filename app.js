@@ -292,9 +292,10 @@ function layoutForTab(){
   var home = UI.tab==="schedule";
   var g=S.next, pre=!!g && g.state!=="in";
   var full = !!g && (home || (UI.tab==="game" && pre));
-  ["motto","strip","oddsHint","oddsboard"].forEach(function(id){
+  ["motto","strip","oddsHint","oddsboard","homeSnapshot"].forEach(function(id){
     var el=$(id); if(!el) return;
     if(id==="oddsboard"){ el.hidden = !home || !BOARD.open; return; }
+    if(id==="homeSnapshot"){ el.hidden = !home; return; }
     el.hidden = !home || (id==="oddsHint" && !!BOARD.open);
   });
   $("hero").hidden = !full;
