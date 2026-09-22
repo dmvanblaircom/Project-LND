@@ -922,6 +922,92 @@ body{
 #ar-rankings .poll-row.mine .date .d{color:#fff}
 #ar-rankings .up{color:#2f7b54}
 #ar-rankings .down{color:#a84747}
+/* Depth vNext: personnel, availability and roster. */
+#panel-depth:before{display:none}
+#panel-depth{padding-top:.9rem}
+.depth-shell{color:#142033}
+.depth-head{
+  display:flex;align-items:end;justify-content:space-between;gap:1rem;
+  margin:0 0 .75rem;padding-bottom:.7rem;border-bottom:1px solid #d9d5cd;
+}
+.depth-head h2{margin:.05rem 0 0;font-family:var(--t-font-display);font-size:1.45rem;line-height:1.05;color:#142033}
+.depth-eyebrow{display:block;font-size:.61rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7a8490}
+.depth-meta{padding-bottom:.05rem;font-size:.72rem;font-weight:600;color:#7a8490;white-space:nowrap}
+#panel-depth h2.sec{
+  margin:1.25rem 0 .35rem;padding:.55rem 0 .45rem;border:0;border-bottom:1px solid #d9d5cd;
+  background:none;color:#142033;font-size:.78rem;letter-spacing:.12em;
+}
+#panel-depth .asof{
+  margin:0 0 .55rem;padding:.1rem 0 .35rem;color:#77818b;font-size:.76rem;line-height:1.45;
+}
+#panel-depth .asof a,#panel-depth .weeksrc a,#panel-depth .stamp a{color:var(--t-surface)}
+#panel-depth details.fold{
+  margin:.45rem 0;border:1px solid #dedad2;border-radius:10px;background:#fff;overflow:hidden;
+}
+#panel-depth details.fold>summary{
+  min-height:2.8rem;padding:.7rem .8rem;background:#fff;color:#142033;border:0;border-radius:0;
+}
+#panel-depth details.fold[open]>summary{border-bottom:1px solid #e5e1da}
+#panel-depth details.fold>summary .count{color:#7b858f}
+#panel-depth details.fold .foldbody{padding:.15rem .75rem .65rem}
+#panel-depth .depth-pos{
+  margin:.85rem 0 .2rem;padding:.35rem .5rem;border:0;border-left:3px solid var(--t-accent);
+  border-bottom:1px solid #e4e0d8;background:rgba(var(--t-accent-rgb),.07);
+}
+#panel-depth .depth-pos b{color:#142033;font-size:.86rem;letter-spacing:.08em}
+#panel-depth .depth-pos .battle{
+  background:var(--t-surface);color:#fff;border-radius:999px;padding:.14rem .42rem;font-size:.6rem;
+}
+#panel-depth ul.ladder li{
+  min-height:2.55rem;padding:.45rem .25rem;border-color:#e7e3dc;color:#142033;
+}
+#panel-depth ul.ladder li.d1{
+  padding:.5rem .45rem;background:#f3f0e9;border-radius:7px;color:#142033;font-weight:700;
+}
+#panel-depth ul.ladder li.d2,#panel-depth ul.ladder li.d3,#panel-depth ul.ladder li.d4{
+  padding-left:.9rem;color:#66717d;
+}
+#panel-depth ul.ladder .jersey{color:#7a8490}
+#panel-depth ul.ladder .cl{color:#818a94}
+#panel-depth ul.ladder .ortag{color:var(--t-surface);border-color:rgba(var(--t-accent-rgb),.5);background:rgba(var(--t-accent-rgb),.06)}
+#panel-depth .avail li{padding:.6rem .15rem;border-color:#e5e1da;color:#142033}
+#panel-depth .avail .part,#panel-depth .avail .pos{color:#727d88}
+#panel-depth .avail .weeks{color:var(--t-surface)}
+#panel-depth .newer{
+  background:#f0f5f7;border-left-color:#4c8da8;color:#52626e;
+}
+#panel-depth .newer b{color:#356f87}
+#panel-depth .newer a{color:#245c72}
+#panel-depth details.week{border-color:#e4e0d8}
+#panel-depth details.week summary{color:#142033}
+#panel-depth details.week summary .wd{color:var(--t-surface)}
+#panel-depth details.week summary .ws{color:#727d88}
+#panel-depth details.week[open] summary .ws{color:#142033}
+#panel-depth details.week .weeksrc{color:#7a8490}
+#panel-depth .seg.pills.roster{
+  margin:.55rem .45rem .35rem;padding:.14rem;border:1px solid #dfdbd3;border-radius:10px;background:#f0ede6;
+}
+#panel-depth .seg.pills.roster button{
+  min-height:2.35rem;border:0;border-radius:8px;color:#66717d;background:transparent;
+}
+#panel-depth .seg.pills.roster button+button{border-left:0}
+#panel-depth .seg.pills.roster button[aria-pressed="true"]{
+  background:#fff !important;color:#142033 !important;box-shadow:0 2px 7px rgba(20,32,51,.07);
+}
+#panel-depth .seg.pills.roster .n{color:var(--t-surface)}
+#panel-depth .filter{margin:.55rem .45rem .65rem}
+#panel-depth .filter input{
+  min-height:2.7rem;background:#fff;border-color:#d8d4cc;color:#142033;border-radius:10px;
+}
+#panel-depth .filter input::placeholder{color:#8a929a}
+#panel-depth .plr{padding:.5rem .2rem;border-color:#e7e3dc;color:#142033}
+#panel-depth .plr .no,#panel-depth .plr .meta,#panel-depth .plr .cl{color:#7a8490}
+#panel-depth .plr .pos{color:var(--t-surface)}
+#panel-depth .msg{
+  margin:.75rem 0;background:#fff;border-color:#dedad2;color:#55616e;border-radius:10px;
+}
+#panel-depth .msg strong{color:#142033}
+#panel-depth .stamp{color:#858d96}
 #panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{
   color:#142033;font-family:var(--t-font-ui);font-weight:700;letter-spacing:0;text-transform:none;font-size:1.15rem;
 }
@@ -977,6 +1063,8 @@ footer .foot{color:#747d88}
   .game-shell>#gWinProb{grid-template-columns:4rem 1fr 4rem;padding:.7rem .75rem}
   .around-head{align-items:start}
   .around-meta{font-size:.66rem;padding-top:.2rem}
+  .depth-head{align-items:start}
+  .depth-meta{font-size:.66rem;padding-top:.2rem}
   #ar-games .row.mine{padding:.72rem .65rem}
   #ar-rankings .poll-row.mine{padding:.52rem .6rem}
   .tabbar button#tab-game{width:auto;height:auto;min-height:3.65rem;border-radius:10px;transform:none}
