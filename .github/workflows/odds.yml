@@ -307,7 +307,14 @@ jobs:
 
           def pdf_text(data):
               reader = PdfReader(io.BytesIO(data))
-              return "\n".join((p.extract_text() or "") for p in reader.pages)
+              pages = []
+              for p in reader.pages:
+                  try:
+                      text = p.extract_text(extraction_mode="layout")
+                  except Exception:
+                      text = p.extract_text()
+                  pages.append(text or "")
+              return "\n".join(pages)
 
           def parse_availability(doc_url):
               if not doc_url:
