@@ -780,6 +780,70 @@ body{
   color:#66717e;font-size:.76rem;
 }
 #panel-schedule details.fold .count{color:#89919b}
+/* Game Center vNext: one renderer, three visual states. */
+#panel-game:before{display:none}
+#panel-game{padding-top:.9rem}
+.game-shell{color:#142033}
+.game-shell>.gscore{
+  min-height:5.5rem;margin:0;padding:.95rem 1rem;
+  border:1px solid #ddd8cf;border-radius:0;background:#fff;
+}
+.game-shell>.gscore:first-child{border-radius:12px 12px 0 0}
+.game-shell>.gscore:nth-child(2){border-top:0}
+.game-shell>.gscore .side .nm{font-family:var(--t-font-display);font-size:1.08rem;color:#142033}
+.game-shell>.gscore .side .rec{color:#7a8490}
+.game-shell>.gscore .pts{font-size:3rem;color:#142033}
+.game-shell>.gscore.lead .pts{color:var(--t-surface)}
+.game-shell>.gstatus{
+  justify-content:center;margin:0 0 .85rem;padding:.65rem 1rem;
+  border:1px solid #ddd8cf;border-top:0;border-radius:0 0 12px 12px;
+  background:#f0ede6;color:#55616e;font-weight:700;text-align:center;
+}
+.game-shell.is-live>.gscore{
+  background:linear-gradient(110deg,var(--t-surface),var(--t-deep));border-color:rgba(var(--t-accent-rgb),.25);
+}
+.game-shell.is-live>.gscore .side .nm,
+.game-shell.is-live>.gscore .pts{color:#fff}
+.game-shell.is-live>.gscore .side .rec{color:rgba(255,255,255,.62)}
+.game-shell.is-live>.gscore.lead .pts{color:var(--t-accent-text)}
+.game-shell.is-live>.gstatus{
+  background:var(--t-surface);border-color:rgba(var(--t-accent-rgb),.25);color:#fff;
+}
+.game-shell.is-final>.gstatus span:before{
+  content:"FINAL · ";font-size:.72rem;letter-spacing:.09em;color:#7a8490;
+}
+.game-shell>.lastplay{
+  margin:.75rem 0;padding:.9rem 1rem;border:1px solid #dedad2;border-left:4px solid var(--t-accent);
+  background:#fff;color:#142033;box-shadow:0 4px 14px rgba(20,32,51,.045);
+}
+.game-shell>.lastplay .k{color:var(--t-surface)}
+.game-shell>.lastplay .dd{color:#6e7883}
+.game-shell>#gWinProb{
+  display:grid;grid-template-columns:4.5rem 1fr 4.5rem;align-items:center;
+  margin:.75rem 0;padding:.8rem 1rem;border:1px solid rgba(var(--t-accent-rgb),.3);
+  background:linear-gradient(90deg,rgba(var(--t-accent-rgb),.10),#fff);
+}
+.game-shell>#gWinProb .v{width:auto;font-size:1.35rem;color:var(--t-surface)}
+.game-shell>#gWinProb .lbl{color:#65717d;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.game-shell h2.sec{
+  margin:1.35rem 0 .4rem;padding-bottom:.45rem;border-bottom:1px solid #ddd8cf;
+  color:#142033;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+}
+.game-shell .linescore{background:#fff;border-color:#dedad2}
+.game-shell .linescore th,.game-shell .linescore td{border-color:#e7e3dc;color:#142033}
+.game-shell .linescore th{color:#7a8490}
+.game-shell .linescore td.tot{color:var(--t-surface)}
+.game-shell .statrow{border-color:#e5e1da}
+.game-shell .statrow .lbl{color:#727d88}
+.game-shell .statrow .v{color:#142033}
+.game-shell .statrow .v.win{color:var(--t-surface)}
+.game-shell .statrow.head{border-color:#ddd8cf;border-bottom-color:var(--t-accent)}
+.game-shell .statrow.head .v{color:#142033}
+.game-shell .statrow.head .v.mine{color:var(--t-surface)}
+.game-shell .ldr{border-color:#e5e1da}
+.game-shell .ldr .cat,.game-shell .ldr .line{color:#727d88}
+.game-shell details.fold>summary{background:#fff;color:#142033;border:1px solid #e0dcd4;border-radius:8px}
+.game-shell .stamp{color:#8a929a}
 #panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{
   color:#142033;font-family:var(--t-font-ui);font-weight:700;letter-spacing:0;text-transform:none;font-size:1.15rem;
 }
@@ -830,6 +894,9 @@ footer .foot{color:#747d88}
   .snapshot-stat strong{font-size:.98rem}
   .season-head{align-items:start}
   .season-meta{font-size:.66rem;padding-top:.2rem}
+  .game-shell>.gscore{min-height:5rem;padding:.8rem .85rem}
+  .game-shell>.gscore .pts{font-size:2.55rem}
+  .game-shell>#gWinProb{grid-template-columns:4rem 1fr 4rem;padding:.7rem .75rem}
   .tabbar button#tab-game{width:auto;height:auto;min-height:3.65rem;border-radius:10px;transform:none}
   .tabbar button#tab-game svg{width:23px;height:23px}
 }
