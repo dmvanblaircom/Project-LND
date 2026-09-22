@@ -1403,7 +1403,8 @@ function patchGame(gd){
 function renderGame(gd, inline){
   var home=gd.home, away=gd.away;
   var live=gd.state==="in", done=gd.state==="post";
-  var html="";
+  var html='<div class="game-shell '+(live?"is-live":(done?"is-final":"is-pregame"))+'">';
+
 
   // ---- score line ----
   function side(c){
@@ -1590,7 +1591,7 @@ function renderGame(gd, inline){
     return sec.head+sec.people+sec.quarters+sec.stats+sec.play+sec.scoring+
       '<button type="button" class="more" data-close-detail>Close</button>'+stamp;
   }
-  return sec.head+sec.play+sec.winprob+sec.quarters+sec.stats+sec.people+sec.scoring+stamp;
+  return html+sec.head+sec.play+sec.winprob+sec.quarters+sec.stats+sec.people+sec.scoring+stamp+"</div>";
 }
 
 /* ---------- full roster ---------- */
