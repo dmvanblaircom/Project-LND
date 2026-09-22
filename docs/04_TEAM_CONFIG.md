@@ -27,7 +27,11 @@ var TEAM_CONFIG = {
   // Read by app.js for now; moves inside the Phase 3 adapters.
   sources: {
     espn:   { teamId: "87", broadcastFallback: [ /* [opponent regex, network] */ ] },
-    kalshi: { tickerSuffix: "-ND", namePattern: /notre dame|fighting irish/i }
+    kalshi: { tickerSuffix: "-ND", namePattern: /notre dame|fighting irish/i },
+    official: {
+      depthChartIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
+      depthChartLabel: "FightingIrish.com"
+    }
   },
 
   // Trophy games by opponent. Schedule data, headed for Game in Phase 3.
@@ -41,7 +45,7 @@ var TEAM_CONFIG = {
   // surface as unavailable instead of reading another team's file.
   // Read through TeamOS.snapshots (Phase 5B, decision 0008).
   snapshots: {
-    depth:       { file: "depth.json", history: "depth-history.json", label: "UHND" },
+    depth:       { file: "depth.json", history: "depth-history.json", label: "FightingIrish.com" },
     oddsHistory: { file: "odds-history.json" },
     beatNews:    { file: "news.json" }
   },
@@ -66,7 +70,7 @@ The real files are `teams/notre-dame.js` and `teams/ohio-state.js` (which declar
 ## What Belongs in Configuration
 
 - `team` — stable identity: id, name, abbreviation, sport, league, home venue
-- `sources` — provider identifiers and provider-specific matching or fallback rules
+- `sources` — provider identifiers and source declarations. For official team data such as depth charts, the official athletics source takes precedence over media/beat sources.
 - `series` — team-specific schedule data no public feed carries
 - `links` — the team's official pages
 - `snapshots` — which of the Action-written team-data files this team has (the depth chart is a capability; the beat feed is a content source; the odds history is team-scoped) and where they are
@@ -78,7 +82,7 @@ Notre Dame's gold reaches 6.65:1 and Ohio State's scarlet only 2.88:1. TeamOS re
 a config whose text colours fall below 4.5:1 rather than inventing a lighter tone
 (`docs/decisions/0009-identity-is-team-data.md`).
 
-Not yet in configuration, pending a real need: history. The sources behind the snapshots — the RSS feed list and the depth-chart scrape — still live in `.github/workflows/odds.yml`; the config declares that the team has them, not yet how they are produced.
+Not yet in configuration, pending a real need: history. Beat-news feed lists still live in `.github/workflows/odds.yml`. Depth is different: the weekly two-deep must declare its **official athletics source** under `sources.official`, and the producer reads that declaration. A team without an official depth source leaves the capability unavailable rather than substituting a beat writer.
 
 ## What Does Not Belong in Configuration
 
