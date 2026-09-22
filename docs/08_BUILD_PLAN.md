@@ -129,9 +129,9 @@ offline (7B), and picked by the fan (7C).
 Carried forward, none of it blocking:
 - There is no way to change teams from inside a Suite — a switcher is the
   obvious next thing.
-- The registry is generated weekly by the Action from the FBS scoreboard
-  joined to the roster payload (decision 0017). It holds four programs until
-  that first runs, then converges. `conference` is still unsourced.
+- The registry is generated weekly by the Action from ESPN's standings page
+  (decision 0017): 138 FBS programs, each with its conference, none of it
+  hand-maintained.
 - No conference data beyond the four hand-authored rows.
 - A first visit to a team while offline still cannot work.
 

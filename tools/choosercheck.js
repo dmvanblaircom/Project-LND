@@ -88,13 +88,22 @@ var live = vm.createContext({});
 vm.runInContext(read("teams/index.js"), live, { filename: "teams/index.js" });
 
 console.log("the real registry");
+// Structural: the registry is generated, so asserting a fixed roster here
+// would be a second copy of it to maintain.
 var r = render(live.TEAM_REGISTRY);
-eq(r.picks.map(function (p) { return p.name; }).sort(),
-   ["BYU", "Indiana", "Notre Dame", "Ohio State"], "every program in the registry is shown");
+var REGLIVE = vm.runInContext("TeamOS.registry", (function () {
+  var c2 = vm.createContext({});
+  vm.runInContext(read("teamos/registry.js"), c2);
+  return c2;
+})()).create(live.TEAM_REGISTRY);
+
+eq(r.picks.length, REGLIVE.all().length, "every program in the registry is shown");
 eq(r.picks.filter(function (p) { return p.selectable; }).map(function (p) { return p.id; }).sort(),
-   ["notre-dame", "ohio-state"], "and only the ones with a config can be picked");
-eq(r.picks.filter(function (p) { return !p.selectable; }).map(function (p) { return p.name; }).sort(),
-   ["BYU", "Indiana"], "the rest are shown, not hidden");
+   REGLIVE.available().map(function (t) { return t.id; }).sort(),
+   "and exactly the ones with a config can be picked");
+ok(r.picks.filter(function (p) { return !p.selectable; }).length > 0,
+   "programs without a config are shown, not hidden");
+ok(REGLIVE.all().length > 100, "the roster is a full FBS one, not a stub");
 eq(r.title, "Pick your team", "the tab says what the page is");
 
 console.log(" selectable means it will actually open");

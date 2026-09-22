@@ -94,13 +94,25 @@ REG.all().forEach(function (t) {
 });
 
 console.log(" grouped for a chooser");
+// Structural, not a fixed list: teams/index.js is generated (decision 0017)
+// and its contents change every time FBS does. Asserting the 2026 alignment
+// here would be the hand-maintained copy this whole change removes.
 var groups = REG.byConference();
 ok(groups.length >= 2, "conferences are grouped");
-eq(groups.map(function (g) { return g.conference; }).sort(), ["Big 12", "Big Ten", "Independent"],
-   "every conference in the registry appears once");
-var bigTen = groups.filter(function (g) { return g.conference === "Big Ten"; })[0];
-eq(bigTen.teams.map(function (t) { return t.id; }), ["indiana", "ohio-state"],
-   "teams within a conference are alphabetical, available or not");
+eq(groups.map(function (g) { return g.conference; }).sort(),
+   groups.map(function (g) { return g.conference; }).sort().filter(function (c, i, a) { return a.indexOf(c) === i; }),
+   "every conference appears exactly once");
+eq(groups.reduce(function (n, g) { return n + g.teams.length; }, 0), REG.all().length,
+   "every program lands in exactly one conference");
+groups.forEach(function (g) {
+  var names = g.teams.map(function (t) { return t.name; });
+  eq(names, names.slice().sort(), g.conference + " is alphabetical");
+});
+ok(REG.all().every(function (t) { return t.conference; }),
+   "every program has a conference - the generator reads it from the standings");
+ok(!REG.all().some(function (t) { return t.conference === "Independent" && t.id !== "independent"; }) ||
+   REG.all().filter(function (t) { return t.conference === "Independent"; }).length < REG.all().length,
+   "not everything fell back to Independent, which is what a failed parse looks like");
 
 console.log("the generator");
 // teams/index.js is generated (decision 0017). The two things that must hold:
@@ -112,44 +124,51 @@ ok(!/\bfetch\s*\(/.test(gen) && !/https?:\/\//.test(gen.replace(/\/\*[\s\S]*?\*\
 ok(/configOnDisk/.test(gen) && /fs\.existsSync/.test(gen),
    "it reads the filesystem to decide availability, rather than being told");
 ok(/conference/.test(gen) && /t\.conference \|\| null/.test(gen),
-   "and it carries a hand-authored conference through, because no payload has one");
+   "and it carries an existing conference through rather than blanking it");
 
-// Run it for real against fixtures and read the result back.
+// Run it for real against a miniature standings page and read the result back.
 var os = require("os");
 var tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reg-"));
-function writeJson(name, obj) {
-  var p = path.join(tmp, name); fs.writeFileSync(p, JSON.stringify(obj)); return p;
+function page(groups) {
+  var p = path.join(tmp, "s.html");
+  fs.writeFileSync(p, "<html><script>window['__espnfitt__'] = " +
+    JSON.stringify({ page: { content: { standings: { groups: { groups: groups } } } } }) +
+    ";</script></html>");
+  return p;
 }
-// two programs already in the registry, one of them new to the scoreboard
-var sbPath = writeJson("sb.json", { events: [ { id: "1", competitions: [ { competitors: [
-  { id: "87",  team: { id: "87",  displayName: "Notre Dame Fighting Irish", shortDisplayName: "Notre Dame" } },
-  { id: "999", team: { id: "999", displayName: "Somewhere Tigers", shortDisplayName: "Somewhere" } } ] } ] } ] });
-var tpPath = writeJson("tp.json", { sports: [ { leagues: [ { teams: [
-  { team: { id: "87",  location: "Notre Dame", shortDisplayName: "Notre Dame" } },
-  { team: { id: "999", location: "Somewhere", shortDisplayName: "Somewhere" } } ] } ] } ] });
+function team(id, location) {
+  return { team: { id: String(id), location: location, shortDisplayName: "Nickname", abbrev: "ABC" } };
+}
+// Enough conferences and programs to clear the generator's own floors, one of
+// them nested in divisions the way the Sun Belt is on the real page.
+var conf = [];
+for (var i = 0; i < 10; i++) {
+  var teams = [];
+  for (var j = 0; j < 12; j++) teams.push(team(9000 + i * 100 + j, "Prog " + i + "" + j));
+  conf.push({ name: "Conference " + i, standings: teams });
+}
+conf.push({ name: "FBS Independents", children: [
+  { name: "East", standings: [ team("87", "Notre Dame") ] },
+  { name: "West", standings: [ team("7777", "Somewhere") ] } ] });
 
 var cp = require("child_process");
 var run = cp.spawnSync(process.execPath,
-  [path.join(root, "tools", "build-registry.js"), sbPath, tpPath],
-  { encoding: "utf8" });
-eq(run.status, 0, "it runs clean on a well-formed pair of payloads");
-var out = run.stdout;
-ok(/var TEAM_REGISTRY/.test(out), "and emits a registry");
+  [path.join(root, "tools", "build-registry.js"), page(conf)], { encoding: "utf8" });
+eq(run.status, 0, "it runs clean on a well-formed standings page");
+ok(/var TEAM_REGISTRY/.test(run.stdout), "and emits a registry");
 
 var gctx = vm.createContext({});
-vm.runInContext(out, gctx, { filename: "generated" });
+vm.runInContext(run.stdout, gctx, { filename: "generated" });
 var G = ctx.TeamOS.registry.create(gctx.TEAM_REGISTRY);
 ok(G.all().length >= REG.all().length, "the roster is a union - nothing already known is dropped");
-eq(G.get("notre-dame").conference, "Independent",
-   "a hand-authored conference survives a regeneration");
 eq(G.get("notre-dame").config, "teams/notre-dame.js",
-   "and a config is filled in because the file is on disk");
-eq(G.get("somewhere").conference, "Independent",
-   "a program the scoreboard introduced has no conference, which reads as Independent");
-eq(G.get("somewhere").available, false, "and is not selectable, because it has no config");
-eq(G.get("byu") && G.get("byu").name, "BYU",
-   "a program absent from this week's scoreboard is still in the registry");
-ok(G.available().length >= 2, "the teams that could be opened before still can");
+   "a config is filled in because the file is on disk");
+eq(G.get("notre-dame").conference, "FBS Independents",
+   "a conference nested inside divisions is still read");
+eq(G.get("somewhere").available, false, "a program with no config is not selectable");
+ok(G.all().every(function (t) { return t.conference; }), "every generated row carries a conference");
+eq(G.get("prog-00") && G.get("prog-00").conference, "Conference 0",
+   "and it is the conference the page put it under");
 
 fs.rmSync(tmp, { recursive: true, force: true });
 

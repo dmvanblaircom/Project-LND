@@ -1,21 +1,21 @@
 # Keeps teams/index.js — the program registry — in step with FBS.
 #
-# The roster is not typed by hand. It is built from what ESPN serves, here,
-# because the Action has network access where a working session may not.
+# The roster is not typed by hand. It is read from ESPN's own standings page,
+# here, because the Action has network access where a working session may not.
 #
-# Why these two requests and not the obvious one: ESPN's /teams endpoint
-# cannot produce an FBS list. Without groups=80 it returns every division and
-# silently truncates at 500 by internal id; WITH groups=80 it returns exactly
-# the same 500, the parameter being ignored (verified 2026-09-22). Nothing in
-# that payload marks division, so it cannot be filtered afterwards either.
+# Why a page and not an API: ESPN has no endpoint that states FBS membership.
+# /teams ignores groups=80 and truncates at 500 by internal id (so Wyoming,
+# Sam Houston and Missouri State are simply absent); the standings API returns
+# a stub whose only content is a link to this very page; the core API's group
+# children 404. Verified, all of them, 2026-09-22. The page is where ESPN
+# actually keeps this, embedded as JSON in window['__espnfitt__'], and it is
+# the only source that carries CONFERENCE at all.
 #
-# What does work is the scoreboard with groups=80 — the request the
-# application itself has depended on since Phase 4A. It says who is FBS. The
-# roster payload then says what each one is called. tools/build-registry.js
-# joins them on the ESPN id.
-#
-# No single week contains every program, so the registry is a union across
-# runs. It converges, and the generator refuses to shrink it.
+# A page is more fragile than an endpoint, so tools/build-registry.js asserts
+# the shape rather than assuming it and refuses anything that does not look
+# like FBS. If ESPN restructures, this job fails loudly and the last good
+# registry stays exactly where it is.
+
 name: Refresh the team registry
 
 on:
@@ -36,68 +36,72 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch from ESPN
+      - name: Fetch the standings page
         run: |
           set -uo pipefail
-          SITE="https://site.api.espn.com/apis/site/v2/sports/football/college-football"
           UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+          for attempt in 1 2 3 4 5; do
+            code=$(curl -sSL -w '%{http_code}' -o standings.html.tmp \
+                   -H "accept: text/html" -H "user-agent: $UA" \
+                   "https://www.espn.com/college-football/standings" || echo 000)
+            if [ "$code" = "200" ]; then
+              mv standings.html.tmp standings.html
+              echo "  standings.html <- HTTP 200 ($(wc -c <standings.html) bytes)"
+              break
+            fi
+            echo "  attempt $attempt got HTTP $code"
+            sleep $((attempt * 10))
+          done
+          test -f standings.html || { echo "::error::could not fetch the standings page"; exit 1; }
 
-          grab () {   # grab <url> <outfile>
-            for attempt in 1 2 3 4 5; do
-              code=$(curl -sS -w '%{http_code}' -o "$2.tmp" \
-                     -H "accept: application/json" -H "user-agent: $UA" "$1" || echo 000)
-              if [ "$code" = "200" ]; then
-                mv "$2.tmp" "$2"
-                echo "  $2 <- HTTP 200 ($(wc -c <"$2") bytes)"
-                return 0
-              fi
-              echo "  attempt $attempt for $2 got HTTP $code: $(head -c 160 "$2.tmp")"
-              sleep $((attempt * 10))
-            done
-            echo "::error::gave up on $2"
-            return 1
-          }
-
-          grab "$SITE/scoreboard?groups=80&limit=400" scoreboard.json
-          grab "$SITE/teams?limit=500"                teams.json
-
-      - name: Refuse to use anything that is not what we asked for
+      - name: Refuse to use anything that is not the standings
         run: |
           python3 - <<'PY'
-          import json, sys
-
-          # The scoreboard is the FBS membership list. Out of season it is
-          # legitimately empty, which is not an error - the generator will
-          # simply change nothing. A malformed one IS an error.
+          import json, re, sys
+          doc = open("standings.html", encoding="utf-8", errors="replace").read()
+          m = re.search(r"window\['__espnfitt__'\]\s*=\s*", doc)
+          if not m:
+              sys.exit("no __espnfitt__ in the page - ESPN may have changed it")
+          # brace-match, the same way the generator does
+          i, depth, instr, esc = m.end(), 0, False, False
+          start = i
+          while i < len(doc):
+              c = doc[i]
+              if instr:
+                  if esc: esc = False
+                  elif c == "\\": esc = True
+                  elif c == '"': instr = False
+              elif c == '"': instr = True
+              elif c == "{": depth += 1
+              elif c == "}":
+                  depth -= 1
+                  if depth == 0: break
+              i += 1
+          if depth != 0:
+              sys.exit("the embedded JSON is truncated - the page did not finish loading")
           try:
-              sb = json.load(open("scoreboard.json"))
+              d = json.loads(doc[start:i+1])
+              groups = d["page"]["content"]["standings"]["groups"]["groups"]
           except Exception as e:
-              sys.exit(f"scoreboard.json is not valid JSON: {e}")
-          if "events" not in sb:
-              sys.exit("scoreboard.json has no events key - refusing to use it")
-          ids = {c.get("id") for e in sb["events"]
-                   for c in (e.get("competitions") or [{}])[0].get("competitors", [])}
-          ids.discard(None)
-          print(f"scoreboard: {len(sb['events'])} events, {len(ids)} distinct teams")
-          if sb["events"] and len(ids) < 10:
-              sys.exit("a scoreboard with games but almost no teams is malformed")
+              sys.exit(f"the page has no standings groups: {e}")
 
-          # The roster payload supplies the names. It is always truncated at
-          # 500 and always contains every division; both are expected, and
-          # neither matters, because the scoreboard decides who is in.
-          try:
-              tp = json.load(open("teams.json"))
-              teams = tp["sports"][0]["leagues"][0]["teams"]
-          except Exception as e:
-              sys.exit(f"teams.json is not the roster payload: {e}")
-          named = sum(1 for t in teams if t.get("team", {}).get("location"))
-          print(f"roster: {len(teams)} entries, {named} with a program name")
-          if named < 400:
-              sys.exit("the roster payload is too thin to name a season of teams")
+          def teams(g):
+              out = [r for r in g.get("standings", []) if r.get("team")]
+              for c in g.get("children", []): out += teams(c)
+              return out
+
+          total = sum(len(teams(g)) for g in groups)
+          print(f"{total} programs across {len(groups)} conferences")
+          for g in groups:
+              print(f"  {g.get('name','?'):<34} {len(teams(g)):3d}")
+          if len(groups) < 8:  sys.exit(f"only {len(groups)} conferences - refusing")
+          if total < 100:      sys.exit(f"only {total} programs - FBS is ~134, refusing")
+          named = sum(1 for g in groups for r in teams(g) if r["team"].get("location"))
+          if named < total:    sys.exit(f"{total - named} program(s) have no name - refusing")
           PY
 
       - name: Rebuild the registry
-        run: node tools/build-registry.js scoreboard.json teams.json --write
+        run: node tools/build-registry.js standings.html --write
 
       - name: The registry must still be valid
         run: |
@@ -107,7 +111,7 @@ jobs:
 
       - name: Commit if anything changed
         run: |
-          rm -f scoreboard.json teams.json scoreboard.json.tmp teams.json.tmp
+          rm -f standings.html standings.html.tmp
           if git diff --quiet -- teams/index.js; then
             echo "registry unchanged"
             exit 0

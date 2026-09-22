@@ -11,24 +11,32 @@ Accepted
 ## Decision
 
 `teams/index.js` is **generated**, weekly, by `.github/workflows/roster.yml`.
-Three inputs, each answering the one question it can:
+Two inputs, each answering the one question it can:
 
 ```text
-scoreboard?groups=80   ->  WHICH programs are FBS      (ESPN ids)
-teams?limit=500        ->  what each one is CALLED     (location = the program)
-the filesystem         ->  which ones we can RENDER    (teams/<id>.js exists)
+www.espn.com/college-football/standings
+  -> window['__espnfitt__']
+    -> page.content.standings.groups.groups[]   a conference, by name
+         .standings[].team                      its programs
+         .children[].standings[].team           or its divisions'
+
+the filesystem  ->  which ones we can RENDER  (teams/<id>.js exists)
 ```
 
-`tools/build-registry.js` joins them on the ESPN id and writes the file.
+One page answers every question the registry has: **which** programs are FBS
+(exactly the ones on it — no Division II or III to filter out), what each is
+**called** (`location` is the program, where a display name carries the
+nickname), and what **conference** it plays in, which no API payload carries.
 
-**The roster is a union across runs.** No week contains every program — byes,
-and the occasional non-FBS opponent — so the generator adds what it sees and
-never removes what it has. It converges over a few runs, and it refuses to
-shrink.
+**The roster is a union across runs.** The generator adds what it sees and
+never removes what it has, and it refuses to shrink. The page does list every
+program, so this is not how the registry fills — it is what stops a bad parse
+or a half-rendered page from emptying it.
 
-**Two fields are preserved, never generated:** `name`, when the product calls a
-program something the provider does not, and `conference`, which neither
-payload carries. Those are the only things to hand-edit in that file.
+**One field is preserved, never generated:** `name`, for the case where the
+product calls a program something the provider does not. That is the only
+thing to hand-edit in that file. `conference` used to be preserved too; the
+standings page supplies it, so it no longer is.
 
 **Availability stays derived**, and is now derived literally: the generator
 checks the filesystem for `teams/<id>.js` rather than anyone declaring it
@@ -47,16 +55,21 @@ distinct failures:
 | `standings?season=2026&group=80` | a stub: `{"fullViewLink":{…}}` |
 | core API `groups/80/children` | `404 application error` |
 | `scoreboard?groups=80&dates=…` | `400` — **my error**, adding a parameter to a request that works without it |
+| `standings` with no params | the same stub — whose `fullViewLink` points at the page that turned out to be the answer |
 
 - **FACT.** Nothing in any `/teams` payload marks division, so an unfiltered
   dump cannot be filtered after the fact either.
-- **FACT.** `scoreboard?groups=80&limit=400` *does* honour the group. It is the
-  request `TeamOS.espn.scoreboardUrl()` has used since Phase 4A and the Top 25
-  has been built on it ever since.
-- **FACT.** A scoreboard's team object carries `id` and display names but not
-  `location`; the roster payload carries `location`, which is the program
-  ("Ohio State") where a display name carries the nickname too ("Ohio State
-  Buckeyes"). Hence the join.
+- **FACT.** The standings API stub's only content is a link to
+  `www.espn.com/college-football/standings`. That page carries the data, as
+  JSON in `window['__espnfitt__']`. Reading it is not a workaround for the
+  stub; it is following the stub to where ESPN keeps this.
+- **FACT, measured 2026-09-22.** That page yields **138 programs across 11
+  conferences**, with Wyoming (2751), Sam Houston (2534) and Missouri State
+  (2623) all present — the three the `/teams` truncation dropped — and no
+  Division II or III programs at all. Every row carries a `location`.
+- **FACT.** A conference either lists its teams directly or splits them across
+  divisions. Both shapes appear on the same page: the Sun Belt has divisions,
+  the Big Ten does not.
 - **FACT.** The registry does **not** need ESPN ids. Those live in a team's
   `sources.espn.teamId`, and only a selectable team has a config. Four of the
   five attempts above were spent chasing ids the registry never wanted.
@@ -79,6 +92,14 @@ makes any typed list wrong within a season.
 
 That is a second list, which decision 0014 forbids for good reason.
 
+### Join a scoreboard to the roster payload
+
+Built first, and superseded within the hour. `scoreboard?groups=80` does say
+who is FBS, and joining it to `/teams` on the ESPN id does produce names — but
+it needs two requests, converges over several runs because no week contains
+every program, and still leaves conference unsourced. The standings page
+answers all three in one request.
+
 ### Generate the registry itself, in the Action (chosen)
 
 One file. The Action has the network access this session does not, and it can
@@ -99,26 +120,35 @@ availability be read off the filesystem instead of asserted.
 - `tools/build-registry.js` (new), `tools/registry-header.txt` (the generated
   file's header, kept separate so the generator is not printing prose).
 - `.github/workflows/roster.yml` (new), Tuesdays, after the weekend is final.
-  It validates both payloads before the generator sees them, reruns
-  `registrycheck` and `choosercheck` on the result, and commits only a change.
+  It validates the page before the generator sees it, reruns `registrycheck`
+  and `choosercheck` on the result, and commits only a change.
 - **`teams/index.js` is no longer hand-authored.** Its header says so. Editing
   the roster there is overwritten on the next run; editing `name` or
   `conference` is not.
-- Out of season the scoreboard is legitimately empty. That is not an error: the
-  generator changes nothing and the Action commits nothing.
+- Out of season the page still lists last season's alignment, which is the
+  right answer until the new one exists. A run that finds nothing changed
+  commits nothing.
 - `registrycheck` grew 12 checks covering the generator, including that it
   makes no network request of its own. Three negative controls **observed
   failing**: dropping conference preservation, declaring availability instead
   of deriving it, and replacing the union with an overwrite — the last of which
   fires the shrink guard, which is what that guard is for.
-- **The registry is still four programs until the Action runs.** Nothing was
-  back-filled here, because the only scoreboard available in this session was
-  synthetic.
-- **OPEN QUESTION — conference.** Neither payload carries it, so a filled
-  registry groups everything under "Independent". Either a source is found, or
-  the chooser stops grouping by conference. At 134 programs on a phone,
-  alphabetical with a search box is likely the better answer anyway, and that
-  is a Suite question for the visual system rather than a data one.
+- **The registry is filled: 138 programs, every one with a conference.**
+  Generated in this session from a saved copy of the page, so the Action's
+  first run has something to compare against rather than something to create.
+- **Nothing about the roster is hand-maintained any more.** `conference` used
+  to be the one field no provider supplied; the standings page supplies it.
+  `name` is the only field still preserved across runs, for the case where the
+  product wants to call a program something ESPN does not.
+- **This reads a page, not an endpoint.** That is the cost of being the only
+  source with conference. Mitigations, all of them verified by forcing the
+  condition: no `__espnfitt__`, a truncated blob, a missing `standings.groups`,
+  fewer than 8 conferences and fewer than 100 programs each refuse, in the
+  Action's validation step *and* again in the generator. The roster is a union
+  and cannot shrink. A restructured page fails the job loudly and leaves the
+  last good registry in place.
+- `tools/import-teams.js` is deleted. It existed to turn a `/teams` payload
+  into rows, and that payload is no longer a source.
 
 ## Owner
 
