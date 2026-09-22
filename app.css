@@ -693,7 +693,7 @@ body{
   border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);
   font-size:0;
 }
-.refresh-icon{font-size:1.25rem}
+.refresh-icon{font-size:1.25rem}.refresh-label{display:none}
 .motto{
   max-width:none;margin:.85rem 0 .65rem;padding:0;border:0;text-align:left;
   font-family:var(--t-font-ui);font-size:.68rem;line-height:1.2;font-weight:700;
