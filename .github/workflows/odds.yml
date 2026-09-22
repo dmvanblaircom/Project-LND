@@ -324,8 +324,11 @@ jobs:
               hits = [i for i,x in enumerate(lines)
                       if re.search(r"availab|out for|questionable", x, re.I)]
               print("  DEBUG availability hits:", len(hits))
-              for i in hits[:40]:
-                  for x in lines[max(0,i-2):min(len(lines),i+4)]:
+              current = [i for i,x in enumerate(lines)
+                         if re.match(r"AVAILABILITY UPDATE", x, re.I)]
+              if current:
+                  print("  DEBUG current availability block")
+                  for x in lines[current[-1]:min(len(lines),current[-1]+32)]:
                       print("   A", repr(x))
               # The official notes identify the list as an availability update.
               # If the heading is absent, do not infer an all-clear.
