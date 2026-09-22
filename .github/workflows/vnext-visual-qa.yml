@@ -1,0 +1,108 @@
+name: Suite vNext visual QA
+
+on:
+  push:
+    branches: ["design/suite-vnext-build"]
+    paths: [".github/workflows/vnext-visual-qa.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Chromium harness
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --silent playwright
+          npx playwright install --with-deps chromium
+
+      - name: Serve Suite
+        run: |
+          python3 -m http.server 8000 > /tmp/suite-http.log 2>&1 &
+          echo $! > /tmp/suite-http.pid
+          sleep 2
+
+      - name: Capture mobile reference screens
+        run: |
+          cat > /tmp/visual-qa.mjs <<'JS'
+          import { chromium } from "playwright";
+          import fs from "fs";
+
+          const base = "http://127.0.0.1:8000/";
+          const teams = ["notre-dame", "ohio-state"];
+          const widths = [375, 430];
+          const tabs = [
+            ["home", "#tab-schedule", "#panel-schedule"],
+            ["top25", "#tab-around", "#panel-around"],
+            ["game", "#tab-game", "#panel-game"],
+            ["depth", "#tab-depth", "#panel-depth"],
+            ["news", "#tab-news", "#panel-news"]
+          ];
+          const report = [];
+          fs.mkdirSync("visual-qa", { recursive: true });
+
+          const browser = await chromium.launch({ headless: true });
+          for (const team of teams) {
+            for (const width of widths) {
+              const context = await browser.newContext({
+                viewport: { width, height: 900 },
+                deviceScaleFactor: 1,
+                serviceWorkers: "block",
+                reducedMotion: "no-preference"
+              });
+              const page = await context.newPage();
+              const errors = [];
+              page.on("console", m => { if (m.type() === "error") errors.push("console: " + m.text()); });
+              page.on("pageerror", e => errors.push("pageerror: " + e.message));
+
+              await page.goto(base + "?team=" + team, { waitUntil: "domcontentloaded", timeout: 30000 });
+              await page.waitForTimeout(10000);
+
+              for (const [name, tab, panel] of tabs) {
+                if (name !== "home") {
+                  await page.click(tab);
+                  await page.waitForTimeout(6500);
+                }
+                const state = await page.evaluate(({name,panel}) => {
+                  const root = document.documentElement;
+                  const p = document.querySelector(panel);
+                  const rects = [...document.querySelectorAll("body *")].map(el => {
+                    const r = el.getBoundingClientRect();
+                    return {tag:el.tagName, id:el.id||"", cls:(typeof el.className==="string"?el.className:"").slice(0,90), left:r.left, right:r.right, width:r.width};
+                  }).filter(r => r.width > 1 && (r.left < -1 || r.right > innerWidth + 1));
+                  return {
+                    name,
+                    title: document.title,
+                    viewport: innerWidth,
+                    documentWidth: root.scrollWidth,
+                    horizontalOverflow: root.scrollWidth > innerWidth + 1,
+                    visiblePanel: !!p && !p.hidden,
+                    panelText: p ? p.innerText.slice(0,500) : "",
+                    overflows: rects.slice(0,20)
+                  };
+                }, {name,panel});
+                report.push({ team, width, ...state, errors:[...errors] });
+                await page.screenshot({
+                  path: `visual-qa/${team}-${width}-${name}.png`,
+                  fullPage: true
+                });
+              }
+              await context.close();
+            }
+          }
+          await browser.close();
+          fs.writeFileSync("visual-qa/report.json", JSON.stringify(report, null, 2));
+          JS
+          node /tmp/visual-qa.mjs
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: suite-vnext-mobile-qa
+          path: visual-qa/
+          if-no-files-found: error
