@@ -311,14 +311,7 @@ jobs:
 
           def pdf_text(data):
               reader = PdfReader(io.BytesIO(data))
-              pages = []
-              for p in reader.pages:
-                  try:
-                      text = p.extract_text(extraction_mode="layout")
-                  except Exception:
-                      text = p.extract_text()
-                  pages.append(text or "")
-              return "\n".join(pages)
+              return "\n".join((p.extract_text() or "") for p in reader.pages)
 
           def parse_availability(doc_url):
               if not doc_url:
@@ -361,15 +354,6 @@ jobs:
           def parse_pdf(game, doc_url, data, final_url):
               text = pdf_text(data)
               lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
-              if "Purdue" in game:
-                  dbg = PdfReader(io.BytesIO(data))
-                  normal = "\n".join((p.extract_text() or "") for p in dbg.pages)
-                  print("  DEBUG NORMAL")
-                  for x in normal.splitlines()[:90]:
-                      if x.strip(): print("   N", repr(re.sub(r"\\s+", " ", x).strip()))
-                  print("  DEBUG LAYOUT")
-                  for x in text.splitlines()[:90]:
-                      if x.strip(): print("   L", repr(re.sub(r"\\s+", " ", x).strip()))
               groups = {}
               current_group = current_pos = None
               depth = 0
