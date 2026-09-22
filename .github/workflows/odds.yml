@@ -203,7 +203,6 @@ jobs:
           PY
 
       - name: Pull official Notre Dame depth charts
-        continue-on-error: true
         run: |
           pip install --quiet beautifulsoup4 pypdf
           python3 - <<'PY'
@@ -252,12 +251,6 @@ jobs:
               year = next((h for h in soup.find_all(["h2","h3"])
                            if h.get_text(" ", strip=True) == SEASON), None)
               if year is None:
-                  print(f"  DEBUG official index bytes: {len(html)}")
-                  for needle in ("2026", "Notre Dame Depth Chart", "70b346c6-0b51-4389-b1e4-00cbf773efbe", "__NEXT_DATA__"):
-                      p = html.find(needle)
-                      print(f"  DEBUG {needle}: {p}")
-                      if p >= 0:
-                          print("  DEBUG context:", re.sub(r"\\s+", " ", html[max(0,p-240):p+520])[:800])
                   sys.exit(f"{SEASON} section not found at official media index")
               table = year.find_next("table")
               if table is None:
@@ -281,16 +274,27 @@ jobs:
               return out
 
           def resolve_pdf(doc_url):
-              if doc_url.lower().endswith(".pdf"):
-                  data, final = fetch_bytes(doc_url)
+              # FightingIrish document URLs end in .pdf but are often HTML
+              # wrapper pages. Trust the bytes, not the extension.
+              data, final = fetch_bytes(doc_url)
+              if data[:5] == b"%PDF-":
                   return data, final
-              html, final = fetch_text(doc_url)
+
+              try:
+                  html = data.decode("utf-8", "replace")
+              except Exception:
+                  html = ""
               soup = BeautifulSoup(html, "html.parser")
-              link = next((a.get("href") for a in soup.find_all("a", href=True)
-                           if ".pdf" in a.get("href","").lower()), None)
+              candidates = [a.get("href") for a in soup.find_all("a", href=True)]
+              link = next((u for u in candidates
+                           if u and (u.lower().endswith(".pdf") or
+                                     "storage.googleapis.com/fightingirish-com/" in u)), None)
               if not link:
-                  sys.exit(f"official document page has no PDF: {doc_url}")
-              return fetch_bytes(urljoin(final, link))
+                  sys.exit(f"official document page has no downloadable PDF: {doc_url}")
+              pdf, pdf_url = fetch_bytes(urljoin(final, link))
+              if pdf[:5] != b"%PDF-":
+                  sys.exit(f"official download is not a PDF: {pdf_url}")
+              return pdf, pdf_url
 
           ROW = re.compile(
               r"^(?:(?P<tag>or|[A-Z][A-Z0-9/-]*)\s+)?"
