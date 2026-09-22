@@ -440,7 +440,17 @@ ok(!/\bfetch\s*\(/.test(snapSrc),                                        "does n
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(snapSrc),   "does not touch the DOM or browser storage");
 ok(!/\bTEAM_ID\b|\bS\.\w|\bTEAM\b(?!_CONFIG)/.test(snapSrc), "does not read application globals (TEAM, TEAM_ID, S)");
 ok(!/notre|irish|ohio|buckeye/i.test(snapSrc.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, "")), "names no team in code");
-eq(Object.keys(TeamOS.snapshots).sort(), ["get","owned"], "exactly the documented functions");
+eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the documented functions");
+
+console.log(" every file a team declares, for the worker to cache");
+eq(TeamOS.snapshots.files(TEAM_CONFIG),
+   ["depth.json", "depth-history.json", "odds-history.json", "news.json"],
+   "Notre Dame's snapshots, files and histories together");
+eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), [],
+   "Ohio State declares none, so there is nothing to cache for it");
+eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
+eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.json"],
+   "a kind with no history contributes one file");
 
 var osu = load("teams/ohio-state.js");
 var ND = TeamOS.createTeam(TEAM_CONFIG.team), OSU = osu.TeamOS.createTeam(osu.TEAM_CONFIG.team);
@@ -602,6 +612,92 @@ ok(!/:before{content:"[^"]*[A-Z]{2,}[^"]*"}/.test(cssRules.replace(/#panel-(sche
    "every other section label is team-neutral copy");
 ok(!/'Barlow|'Grenze/.test(cssRules), "type comes from the team's stacks, not from the rules");
 
+// ---- a team without a provider's data does not see that surface ----
+// Kalshi prices the championship contenders, not all of FBS. A team it takes
+// no market on has nothing to show, and a card reading "No market" every week
+// is worse than no card. Same shape as the snapshot rule (decision 0008): the
+// capability is declared, and a team without it never sees the surface.
+// Before this, a config with no kalshi block threw on the first market check.
+console.log("app.js: Kalshi is a capability");
+var appSrc = read("app.js").replace(/\r\n/g, "\n");
+
+// Lift a function out of app.js by matching to a closing brace in column 1.
+// A ONE-LINER has no such brace, so the match runs on and swallows whatever
+// follows - which silently redefined the very stub a check was watching, and
+// made the check pass on a broken build. Refuse to return an over-capture.
+function liftFn(name) {
+  var m = appSrc.match(new RegExp("^function " + name + "\\([^)]*\\)\\{[\\s\\S]*?^\\}", "m"));
+  if (!m) throw new Error("could not find " + name + " in app.js");
+  var extra = m[0].slice(("function " + name).length).match(/^function\s+\w+/m);
+  if (extra) throw new Error("lifting " + name + " swallowed " + extra[0] +
+                             " - it is probably a one-liner; stub it instead");
+  return m[0] + "\n";
+}
+// The two one-liners this needs, stubbed rather than lifted, per the above.
+var ONELINERS =
+  "function teamOf(m){ return m.yes_sub_title||m.subtitle||m.title||m.ticker; }\n" +
+  "function isTeamMarket(m){ return teamMarket(m.ticker, teamOf(m)); }\n";
+
+function kalshiCtx(config) {
+  var c = vm.createContext({});
+  vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
+  vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + ONELINERS, c);
+  return c;
+}
+function has(config) { return vm.runInContext("hasKalshi()", kalshiCtx(config)); }
+function market(config, ticker, name) {
+  var c = kalshiCtx(config);
+  c.__t = ticker; c.__n = name;
+  // A throw is the bug, not a crash of this file: report it as a failure so
+  // the line that broke is named rather than a stack trace being the answer.
+  try { return vm.runInContext("teamMarket(__t, __n)", c); }
+  catch (e) { return "THREW: " + e.message; }
+}
+
+var ndCfg = JSON.stringify({ sources: { kalshi: { tickerSuffix: "-ND" } } });
+ok(has(ndCfg), "a team that declares Kalshi markets has the capability");
+ok(!has(JSON.stringify({ sources: {} })), "a team whose config has no kalshi block does not");
+ok(!has(JSON.stringify({})), "nor one with no sources at all");
+ok(!has(JSON.stringify({ sources: { kalshi: null } })), "nor one that declares it as null");
+
+// The bug: these used to throw, which is what a second team without Kalshi
+// would have hit the moment it became selectable.
+eq(market(JSON.stringify({ sources: {} }), "KXNCAAF-27-ND", "Notre Dame"), false,
+   "asking whether a market is ours, with no kalshi config, answers no");
+eq(market(JSON.stringify({}), "KXNCAAF-27-ND", "Notre Dame"), false, "and does not throw with no sources");
+eq(market(ndCfg, "KXNCAAF-27-ND", "Somebody"), true, "a matching ticker suffix is ours");
+eq(market(ndCfg, "KXNCAAF-27-OSU", "Ohio St."), false, "another team's ticker is not");
+
+console.log(" and the surface actually goes");
+// Behavioural, not a grep: run the real loadStrip against a stubbed page and
+// see whether it removed anything.
+function stripRun(config) {
+  var c = vm.createContext({ console: console });
+  vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
+  vm.runInContext([
+    "var dropped = 0, asked = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
+    "var cells = {};",
+    "function $(id){ return cells[id] || (cells[id] = { textContent:'', innerHTML:'', className:'' }); }",
+    "function dropOddsSurface(){ dropped++; }",
+    "function loadSparklines(){}",
+    "function price(){ return null; }",
+    "function prevPrice(){ return null; }",
+    "function kalshi(){ asked++; return Promise.resolve({ markets: [] }); }"
+  ].join("\n"), c);
+  vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + liftFn("loadStrip") + ONELINERS, c);
+  vm.runInContext("loadStrip();", c);
+  return c;
+}
+var noKalshi = stripRun(JSON.stringify({ sources: {} }));
+eq(noKalshi.dropped, 1, "a team with no Kalshi markets loses the odds surface");
+eq(noKalshi.asked, 0, "and Kalshi is never even asked");
+
+var withKalshi = stripRun(ndCfg);
+eq(withKalshi.dropped, 0, "a team that has them keeps it at first");
+eq(withKalshi.asked, 2, "and both event queries go out");
+
+ok(/function dropOddsSurface/.test(appSrc), "there is one place that takes the surface away");
+
 // ---- app.js names no team, no colour, no team branch ----
 console.log("app.js");
 var js = read("app.js");
@@ -613,119 +709,31 @@ ok(/paintIdentity\(\);/.test(js), "applies identity once, in one place");
 ok(!/\bnd\b/.test(jsBody), "no leftover nd identifier");
 
 
-// ---- the Buckeye Watch test page ----
-// buckeye.html is index.html with the team swapped: a different config script
-// and the identity words that are visible before app.js runs. Nothing else may
-// differ, or the two pages start drifting into two applications - so the check
-// below neutralises exactly the identity and compares everything else byte for
-// byte. Team selection proper, and what the worker should precache for it, is
-// Phase 7; this page is a deployment convenience, not that.
-console.log("buckeye.html");
+// ---- the page names no team ----
+// index.html used to name Notre Dame in eight script tags, which is what made
+// buckeye.html necessary: a second team meant a second copy of the page. 7A
+// moved that decision into the boot script, so the markup names nobody.
+console.log("index.html");
 var idx = read("index.html").replace(/\r\n/g, "\n");
-var bw = read("buckeye.html").replace(/\r\n/g, "\n");
-
-function skeleton(t) {
-  return t
-    .replace(/<!--[\s\S]*?-->/g, "")                                  // comments
-    .slice(t.replace(/<!--[\s\S]*?-->/g, "").indexOf("</head>"))      // head is identity
-    .replace(/<script src="teams\/[a-z-]+\.js" defer><\/script>/, '<script src="TEAM" defer></script>')
-    .replace(/(<div class="brand-kicker">)[^<]*(<\/div>)/, "$1KICKER$2")
-    .replace(/(<h1>)[^<]*(<\/h1>)/, "$1PRODUCT$2")
-    .replace(/(<h2 class="sr-only" id="heroHead">)[^<]*(<\/h2>)/, "$1HERO$2")
-    .replace(/(<h2 class="sr-only" id="dataHead">)[^<]*(<\/h2>)/, "$1DATA$2")
-    .replace(/(<p class="motto" id="motto">)[^<]*(<\/p>)/, "$1MOTTO$2");
-}
-ok(skeleton(bw) === skeleton(idx),
-   "identical to index.html below </head> once the team's own words are set aside");
-ok(/<script src="teams\/ohio-state\.js" defer><\/script>/.test(bw), "loads the Ohio State config");
-ok(/<script src="teams\/notre-dame\.js" defer><\/script>/.test(idx), "and index.html still loads Notre Dame's");
-
-var bwHead = bw.slice(0, bw.indexOf("</head>")).replace(/<!--[\s\S]*?-->/g, "");
-var bwVisible = bw.replace(/<!--[\s\S]*?-->/g, "");
-ok(!/notre-dame|irish-watch/i.test(bwVisible), "references no Notre Dame file");
-ok(!/Notre Dame|Irish Watch|Leave No Doubt/.test(bwVisible), "shows no Notre Dame words before a script runs");
-ok(!/rel="icon"|apple-touch-icon|og:image|twitter:image|twitter:card/.test(bwHead),
-   "declares no artwork tags, because Ohio State has no artwork");
-ok(/<link rel="manifest" href="assets\/ohio-state\/manifest\.json">/.test(bwHead), "points at its own manifest");
-ok(/<title>Buckeye Watch/.test(bwHead), "the tab says Buckeye Watch before any script runs");
+var boot = (idx.match(/<script id="team-boot">([\s\S]*?)<\/script>/) || [])[1] || "";
+ok(!!boot, "carries the boot script that decides the team");
+var markup = idx.replace(/<script id="team-boot">[\s\S]*?<\/script>/, "");
+ok(!/<script src=/.test(markup), "and loads no script by name of its own");
+ok(!/teams\/[a-z-]+\.js/.test(markup), "no team config is named in the markup");
+ok(!/<style id="team-boot">/.test(idx), "the static token blocks are gone, replaced by the replay");
+ok(!fs.existsSync(path.join(root, "buckeye.html")), "and buckeye.html is retired");
 
 console.log(" its manifest");
 var osuMan = JSON.parse(read("assets/ohio-state/manifest.json"));
 var ndMan = JSON.parse(read("assets/notre-dame/manifest.json"));
 eq(osuMan.short_name, "Buckeye Watch", "short name");
-eq(osuMan.start_url, "../../buckeye.html", "installing it opens Buckeye Watch, not the Notre Dame page");
+eq(osuMan.start_url, "../../?team=ohio-state", "installing it opens Buckeye Watch - the page plus its team, now that there is one page");
 eq(osuMan.icons, [], "no icons, because there is no approved artwork");
-eq(ndMan.start_url, "../../", "Notre Dame's still opens the site root");
+eq(ndMan.start_url, "../../?team=notre-dame", "Notre Dame's carries its team too");
+ok(/\?team=/.test(ndMan.start_url) && /\?team=/.test(osuMan.start_url),
+   "every manifest names its team in start_url - one installed app per team, each opening its own");
+ok(ndMan.start_url !== osuMan.start_url, "and no two teams install to the same start URL");
 ok(osuMan.theme_color !== ndMan.theme_color, "the two manifests carry different theme colours");
-
-
-// ---- the first paint is the page's own team ----
-// 2026-09-21: Buckeye Watch under Notre Dame navy bars. app.css must declare
-// :root values or the page cannot paint before a script runs, and those
-// values are one team's - so every other team's first paint was Notre Dame's,
-// and on iOS Safari the first paint is what tints the status bar and toolbar,
-// which are never repainted when paintIdentity() runs. Each page now carries
-// its own team's tokens in the head. That is a second copy of the team's
-// colours, so it is derived from the config here and compared: the copy
-// cannot drift, and it cannot be the wrong team's.
-console.log("the team boot block");
-
-// The same tokens paintIdentity() sets, in the same order. The list is read
-// back out of app.js below, so a token added there and not here fails.
-function bootCss(teamFile) {
-  var c2 = load(teamFile);
-  var idt = c2.TeamOS.identity.create(c2.TEAM_CONFIG, c2.TeamOS.createTeam(c2.TEAM_CONFIG.team));
-  var c = idt.colors, d = [
-    ["--t-accent", c.accent], ["--t-accent-rgb", c.accentRgb], ["--t-accent-text", c.accentText],
-    ["--t-accent-ink", c.accentInk], ["--t-accent-soft", c.accentSoft], ["--t-accent-tint", c.accentTint],
-    ["--t-accent-tint-soft", c.accentTintSoft], ["--t-focus", c.focus],
-    ["--t-surface", c.surface], ["--t-surface-rgb", c.surfaceRgb],
-    ["--t-deep", c.surfaceDeep], ["--t-deep-rgb", c.surfaceDeepRgb],
-    ["--t-abyss", c.surfaceAbyss], ["--t-abyss-rgb", c.surfaceAbyssRgb],
-    ["--t-raise", c.surfaceRaise], ["--t-raise-rgb", c.surfaceRaiseRgb],
-    ["--t-news-label", JSON.stringify(idt.newsLabel)],
-    ["--t-font-ui", idt.fonts.ui], ["--t-font-display", idt.fonts.display],
-    ["--t-font-headline", idt.fonts.headline]];
-  if (c.text) d.push(["--paper", c.text]);
-  if (c.textDim) d.push(["--dim", c.textDim]);
-  return ":root{" + d.map(function (x) { return x[0] + ":" + x[1]; }).join(";") + "}";
-}
-function bootOf(html) {
-  var m = html.match(/<style id="team-boot">([\s\S]*?)<\/style>/);
-  return m ? m[1].trim() : null;
-}
-
-[["index.html", idx, "teams/notre-dame.js"],
- ["buckeye.html", bw, "teams/ohio-state.js"]].forEach(function (p) {
-  var name = p[0], html = p[1], teamFile = p[2];
-  var got = bootOf(html);
-  ok(got !== null, name + " declares its team's tokens before any script runs");
-  eq(got, bootCss(teamFile), name + "'s block is exactly what " + teamFile + " says");
-  // Equal specificity, so source order decides: the block has to come after
-  // the stylesheet it is overriding or it does nothing at all.
-  ok(html.indexOf('<link rel="stylesheet" href="app.css">') < html.indexOf('<style id="team-boot">'),
-     " and comes after app.css, which is what makes it win");
-  ok(got.indexOf("--t-deep:") !== -1 && got.indexOf("--t-surface:") !== -1,
-     " and carries the surfaces the canvas and the iOS bars are painted from");
-});
-
-// The negative control: without it the check would pass on two pages that
-// both shipped Notre Dame's palette, which is the bug being fixed.
-ok(bootOf(idx) !== bootOf(bw), "the two pages do not carry the same palette");
-ok(!/#C99700|#0C2340|#07192F|#061525|#143865|201,151,0|12,35,64|SOUTH BEND/.test(bootOf(bw)),
-   "and no Notre Dame value reaches the Buckeye Watch first paint");
-
-// Every token the boot blocks set is one paintIdentity() also sets, and the
-// other way round - the two must not drift apart.
-var painted = (read("app.js").match(/paintIdentity[\s\S]*?\n}/) || [""])[0]
-  .match(/"(--[a-z-]+)"/g) || [];
-painted = painted.map(function (s) { return s.replace(/"/g, ""); });
-var booted = (bootOf(idx) + ";" + bootOf(bw)).match(/--[a-z-]+(?=:)/g) || [];
-var missing = painted.filter(function (t) { return booted.indexOf(t) === -1; });
-var extra = booted.filter(function (t) { return painted.indexOf(t) === -1; });
-ok(painted.length > 15, "paintIdentity's token list was found to compare against");
-eq(missing, [], "every token paintIdentity sets is in the boot blocks too");
-eq(extra, [], "and the boot blocks invent none of their own");
 
 
 
