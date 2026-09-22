@@ -37,8 +37,20 @@ Rendering the Suite in place would be a second way to start the application.
 
 **Everything shown comes from the registry** (decision 0014). A program is
 selectable because it names a config. One that does not is still listed,
-greyed, reading *Not yet* — because "we know about your team and cannot open
-it yet" is useful where silence reads as "your team is not here".
+still listed — because "we know about your team and cannot open it yet" is
+useful where silence reads as "your team is not here".
+
+**The list is one alphabetical run with a search box, not conference
+sections** (David, 2026-09-22). Conference is shown on every program and is a
+search term; it does not organise the page.
+
+**What you can open and what is not built yet are drawn as two different
+kinds of thing**, not the same row at two opacities. An openable program is a
+full-width control with somewhere to go. An unbuilt one is a small card in a
+dense grid under *Coming soon* — not a button, not focusable, nothing to press
+that would do nothing. The openable ones sit at the top and carry no label of
+their own; being first, under the heading that asks the question, is the
+label.
 
 The page paints in the neutral `:root` — nobody's colours — because the fan has
 not told us whose to use.
@@ -93,9 +105,15 @@ installed.
   `?team=` link is unaffected. Notre Dame is `/?team=notre-dame`.
 - `tools/choosercheck.js` (new, in `check.yml`). The check that matters most:
   every team offered as selectable has a config on disk, so the first screen
-  cannot be a dead end. Three negative controls **observed failing**: making
-  unavailable teams selectable, hiding them instead of greying them, and
-  dropping the escaping.
+  cannot be a dead end. It runs `chooser.js` against a stubbed document that
+  parses the markup into nodes it can hide, so typing a query and reading back
+  what is left is a test of the wiring rather than of a string. Negative
+  controls **observed failing**: making unavailable teams selectable, hiding
+  them instead of showing them, dropping the escaping, rendering unbuilt
+  programs as buttons, leaving openable ones in place instead of first,
+  leaving an emptied heading on screen, dropping the conference from a row,
+  leaving the redundant word on it, letting a name reach `data-find`
+  unescaped, freezing the section count, and not removing the tab bar.
 
 ### A landmine removed on the way
 
@@ -110,15 +128,64 @@ extend, and load order no longer matters.
 - **7C is the mechanism, not the finished experience.** There is no way to
   change teams from inside a Suite yet; it takes a URL or clearing storage. A
   switcher is the obvious next thing and is deliberately not in this change.
-- **The registry is four programs.** The chooser is therefore short. Filling it
-  is additive and blocked only on an FBS roster (decision 0014).
-- **No conference data** beyond the four hand-authored rows, so a filled
-  registry would group everything under "Independent" until a source is found.
+- **There is still no way to change teams from inside a Suite.** It takes a
+  URL or clearing storage.
+
+## The chooser at 138 programs
+
+Written for four programs, the chooser met the real roster (decision 0017) and
+two things it did were wrong at that size.
+
+**Eleven conference sections, in the provider's order.** `byConference()`
+grouped in first-seen order, so the page opened on the Mountain West and put
+the Big Ten tenth for no reason a fan could name — ESPN's page order reaching
+rendering, which architecture rule 3 exists to stop. It also asked the fan to
+know their team's 2026 conference to find it, in a season where five programs
+reclassified and the Pac-12 was rebuilt.
+
+**DECISION (David, 2026-09-22): one A-Z list, and a search box.** Conference
+stays as a per-program label and a search term. `byConference()` is replaced by
+`sorted()`.
+
+- Sorting is `localeCompare(…, "en", {sensitivity:"base"})`, not `<`. Byte
+  order puts San José State and lower-cased names where nobody looks for them.
+- Search folds both sides to letters and digits: accents stripped,
+  **punctuation removed rather than turned into a space**. Turning it into a
+  space looks tidier and is wrong — it leaves `hawai i`, which `hawaii` never
+  matches, and `hawaii` is what a fan types. Observed failing before the fix,
+  on Hawai'i and Texas A&M.
+- An ampersand reads both ways, so a program carries `texasam` and
+  `texasandm`, joined by a space a squashed query cannot span.
+- Filtering hides items rather than re-rendering: 138 items rebuilt on every
+  keystroke, and the focused input thrown away with them.
+- A section heading counts what is under it *now*. Left at the resting total
+  it reads "136 programs" over seventeen of them.
+
+**DECISION (David, 2026-09-22): stop greying the unbuilt ones.** 136 of 138
+dimmed rows read as a mostly broken page, and stacked full width they were a
+quarter-mile of scroll. They are cards now, in a dense grid, under *Coming
+soon*. They are not buttons, which also takes the chooser from 139 tab stops
+to three.
+
+### Two things this surfaced
+
+- **The tab bar survived on the chooser.** The furniture removal only ever
+  looked inside `.page`, and `nav.tabbar` and the skip link are *siblings* of
+  it. So a fan with no team was looking at Home / Top 25 / Game / Depth /
+  News with nothing behind any of them. Shipped that way in 7C. The removal
+  now queries the document, and `choosercheck` models furniture outside the
+  host so it cannot come back.
+- **`hidden` is not enough on its own.** Filtering sets the `hidden`
+  attribute, and these elements carry a `display` that outranks it. Chromium's
+  UA sheet marks `[hidden]` important and would have hidden them anyway;
+  WebKit's does not — so on the browser this product actually ships to, a
+  filtered-out program would still have been on screen. `app.css` now says it
+  in the author sheet.
 
 ## Owner
 
-David (the rules above, and that the bare domain changes) / Claude Code (the
-mechanism and the checks)
+David (the rules above, that the bare domain changes, and the two decisions in
+"The chooser at 138 programs") / Claude Code (the mechanism and the checks)
 
 ## Related Documents
 

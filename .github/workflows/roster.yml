@@ -1,0 +1,125 @@
+# Keeps teams/index.js — the program registry — in step with FBS.
+#
+# The roster is not typed by hand. It is read from ESPN's own standings page,
+# here, because the Action has network access where a working session may not.
+#
+# Why a page and not an API: ESPN has no endpoint that states FBS membership.
+# /teams ignores groups=80 and truncates at 500 by internal id (so Wyoming,
+# Sam Houston and Missouri State are simply absent); the standings API returns
+# a stub whose only content is a link to this very page; the core API's group
+# children 404. Verified, all of them, 2026-09-22. The page is where ESPN
+# actually keeps this, embedded as JSON in window['__espnfitt__'], and it is
+# the only source that carries CONFERENCE at all.
+#
+# A page is more fragile than an endpoint, so tools/build-registry.js asserts
+# the shape rather than assuming it and refuses anything that does not look
+# like FBS. If ESPN restructures, this job fails loudly and the last good
+# registry stays exactly where it is.
+
+name: Refresh the team registry
+
+on:
+  schedule:
+    - cron: "23 9 * * 2"      # Tuesday mornings, after the weekend's games are final
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: roster
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the standings page
+        run: |
+          set -uo pipefail
+          UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+          for attempt in 1 2 3 4 5; do
+            code=$(curl -sSL -w '%{http_code}' -o standings.html.tmp \
+                   -H "accept: text/html" -H "user-agent: $UA" \
+                   "https://www.espn.com/college-football/standings" || echo 000)
+            if [ "$code" = "200" ]; then
+              mv standings.html.tmp standings.html
+              echo "  standings.html <- HTTP 200 ($(wc -c <standings.html) bytes)"
+              break
+            fi
+            echo "  attempt $attempt got HTTP $code"
+            sleep $((attempt * 10))
+          done
+          test -f standings.html || { echo "::error::could not fetch the standings page"; exit 1; }
+
+      - name: Refuse to use anything that is not the standings
+        run: |
+          python3 - <<'PY'
+          import json, re, sys
+          doc = open("standings.html", encoding="utf-8", errors="replace").read()
+          m = re.search(r"window\['__espnfitt__'\]\s*=\s*", doc)
+          if not m:
+              sys.exit("no __espnfitt__ in the page - ESPN may have changed it")
+          # brace-match, the same way the generator does
+          i, depth, instr, esc = m.end(), 0, False, False
+          start = i
+          while i < len(doc):
+              c = doc[i]
+              if instr:
+                  if esc: esc = False
+                  elif c == "\\": esc = True
+                  elif c == '"': instr = False
+              elif c == '"': instr = True
+              elif c == "{": depth += 1
+              elif c == "}":
+                  depth -= 1
+                  if depth == 0: break
+              i += 1
+          if depth != 0:
+              sys.exit("the embedded JSON is truncated - the page did not finish loading")
+          try:
+              d = json.loads(doc[start:i+1])
+              groups = d["page"]["content"]["standings"]["groups"]["groups"]
+          except Exception as e:
+              sys.exit(f"the page has no standings groups: {e}")
+
+          def teams(g):
+              out = [r for r in g.get("standings", []) if r.get("team")]
+              for c in g.get("children", []): out += teams(c)
+              return out
+
+          total = sum(len(teams(g)) for g in groups)
+          print(f"{total} programs across {len(groups)} conferences")
+          for g in groups:
+              print(f"  {g.get('name','?'):<34} {len(teams(g)):3d}")
+          if len(groups) < 8:  sys.exit(f"only {len(groups)} conferences - refusing")
+          if total < 100:      sys.exit(f"only {total} programs - FBS is ~134, refusing")
+          named = sum(1 for g in groups for r in teams(g) if r["team"].get("location"))
+          if named < total:    sys.exit(f"{total - named} program(s) have no name - refusing")
+          PY
+
+      - name: Rebuild the registry
+        run: node tools/build-registry.js standings.html --write
+
+      - name: The registry must still be valid
+        run: |
+          node --check teams/index.js
+          node tools/registrycheck.js
+          node tools/choosercheck.js
+
+      - name: Commit if anything changed
+        run: |
+          rm -f standings.html standings.html.tmp
+          if git diff --quiet -- teams/index.js; then
+            echo "registry unchanged"
+            exit 0
+          fi
+          before=$(git show HEAD:teams/index.js | grep -c '{ id:' || true)
+          after=$(grep -c '{ id:' teams/index.js || true)
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add teams/index.js
+          git commit -m "Refresh the team registry: ${before} -> ${after} programs"
+          git push

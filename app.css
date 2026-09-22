@@ -82,19 +82,46 @@
    ==================================================================== */
 .chooser{max-width:34rem;margin:0 auto;padding:2.5rem 0 4rem}
 .chooser h1{font-family:var(--t-font-display);font-weight:700;font-size:2.1rem;line-height:1.1;letter-spacing:.01em;margin:0 0 .5rem;color:var(--paper)}
-.chooser-sub{margin:0 0 2rem;color:var(--dim);font-size:1rem;line-height:1.5}
-.chooser-conf{font-family:var(--t-font-display);font-weight:600;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t-accent-text);margin:1.75rem 0 .5rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+.chooser-sub{margin:0 0 1.5rem;color:var(--dim);font-size:1rem;line-height:1.5}
+
+/* Filtering sets the hidden attribute, and these elements carry a display
+   that would otherwise beat it: .chooser-group is flex, the two lists are
+   grid, a .soon card is flex. Chromium's UA sheet marks [hidden] important
+   and would win anyway; WebKit's does not, so on the browser this product
+   actually ships to, a filtered-out program would still be on screen. Say it
+   in the author sheet and it holds everywhere. */
+.chooser [hidden]{display:none}
+
+/* Search. type=search for the platform's own clear affordance; the field is
+   full width because on a phone it is the primary control on the page. */
+.chooser-search{margin:0 0 .6rem}
+.chooser-search input{width:100%;box-sizing:border-box;min-height:3rem;padding:.7rem 1rem;border:1px solid var(--line);border-radius:10px;background:rgba(var(--t-surface-rgb),.55);color:var(--paper);font-family:var(--t-font-ui);font-size:1.05rem;-webkit-appearance:none;appearance:none}
+.chooser-search input::placeholder{color:var(--dim)}
+.chooser-search input:focus-visible{outline:2px solid var(--t-focus);outline-offset:2px;border-color:var(--t-accent-text)}
+.chooser-count{margin:0 0 1.5rem;color:var(--dim);font-size:.85rem;min-height:1.2em}
+
+/* What you can open. A real control: full width, its own surface, an arrow. */
 .chooser-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
-.pick{display:flex;align-items:center;justify-content:space-between;gap:.75rem;width:100%;min-height:3.25rem;padding:.75rem 1rem;border:1px solid var(--line);border-radius:10px;background:rgba(var(--t-surface-rgb),.55);color:var(--paper);font-family:var(--t-font-ui);font-size:1.05rem;text-align:left;cursor:pointer;transition:border-color .16s,background .16s,transform .16s}
+.pick{display:flex;align-items:center;justify-content:space-between;gap:.75rem;width:100%;min-height:3.5rem;padding:.7rem 1rem;border:1px solid var(--line);border-radius:10px;background:rgba(var(--t-surface-rgb),.55);color:var(--paper);font-family:var(--t-font-ui);font-size:1.05rem;text-align:left;cursor:pointer;transition:border-color .16s,background .16s,transform .16s}
 .pick:hover{border-color:var(--t-accent-text);background:rgba(var(--t-raise-rgb),.55);transform:translateY(-1px)}
 .pick:focus-visible{outline:2px solid var(--t-focus);outline-offset:2px}
+.pick-main{display:flex;flex-direction:column;gap:.15rem;min-width:0}
 .pick-name{font-weight:500}
+.pick-conf{font-size:.78rem;color:var(--dim);letter-spacing:.01em}
 .pick-go{color:var(--t-accent-text);font-size:1.15rem;flex:none}
-.pick.soon{cursor:default;opacity:.5;background:none;border-style:dashed}
-.pick.soon:hover{border-color:var(--line);background:none;transform:none}
-.pick-note{font-family:var(--t-font-display);font-weight:600;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);flex:none}
-.chooser-foot{margin:2.25rem 0 0;color:var(--dim);font-size:.85rem;line-height:1.55}
-.chooser-foot em{font-style:normal;font-weight:600;color:var(--paper)}
+
+/* What is not built yet. Deliberately NOT a dimmed copy of the row above:
+   a different kind of thing, drawn as one. Small, dense, no button, no tab
+   stop, nothing to press that would do nothing. 136 of these stacked full
+   width would be a quarter-mile of scroll and would read as a broken page. */
+.chooser-group{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;font-family:var(--t-font-display);font-weight:600;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t-accent-text);margin:2.25rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+.chooser-groupnote{font-weight:500;letter-spacing:.06em;color:var(--dim);flex:none}
+.chooser-soon{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.4rem}
+.soon{display:flex;flex-direction:column;gap:.1rem;min-width:0;padding:.5rem .7rem;border:1px dashed var(--line);border-radius:8px;color:var(--dim)}
+.soon-name{font-family:var(--t-font-ui);font-size:.9rem;font-weight:500;color:var(--paper);opacity:.72}
+.soon-conf{font-size:.7rem;letter-spacing:.01em}
+
+.chooser-empty{margin:1.5rem 0 0;color:var(--dim);font-size:.9rem;line-height:1.55}
 
 /* ====================================================================
    BASE
