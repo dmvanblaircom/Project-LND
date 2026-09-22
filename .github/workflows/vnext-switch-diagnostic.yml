@@ -1,0 +1,103 @@
+name: Suite vNext switch diagnostic
+
+on:
+  push:
+    branches: ["design/suite-vnext-build"]
+    paths: [".github/workflows/vnext-switch-diagnostic.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Chromium
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --silent playwright
+          npx playwright install --with-deps chromium
+      - name: Serve Suite
+        run: |
+          python3 -m http.server 8000 >/tmp/suite-http.log 2>&1 &
+          sleep 2
+      - name: Trace ND OSU ND
+        run: |
+          cat > switch-diag.mjs <<'JS'
+          import { chromium } from "playwright";
+          const base="http://127.0.0.1:8000/";
+          const browser=await chromium.launch({headless:true});
+          const context=await browser.newContext({viewport:{width:430,height:900},serviceWorkers:"allow"});
+          const page=await context.newPage();
+          const errors=[];
+          page.on("console",m=>{ if(m.type()==="error") errors.push("console: "+m.text()); });
+          page.on("pageerror",e=>errors.push("pageerror: "+e.message));
+
+          async function cacheState(){
+            return page.evaluate(async()=>{
+              const names=await caches.keys();
+              const shell=names.find(x=>/-shell$/.test(x));
+              const data=names.find(x=>/-data$/.test(x));
+              let mark=null;
+              if(shell){
+                const c=await caches.open(shell), r=await c.match("./__team");
+                if(r) mark=await r.json();
+              }
+              return {names,shell,data,mark};
+            });
+          }
+          async function waitMark(id){
+            for(let i=0;i<50;i++){
+              const c=await cacheState();
+              if(c.mark&&c.mark.team===id) return c;
+              await page.waitForTimeout(200);
+            }
+            return await cacheState();
+          }
+          async function diag(label){
+            await page.waitForTimeout(2500);
+            const state=await page.evaluate(()=>({
+              title:document.title,
+              dataTeam:document.documentElement.getAttribute("data-team"),
+              stored:localStorage.getItem("iw-team"),
+              teamGlobal:typeof TEAM==="undefined"?null:{id:TEAM.id,name:TEAM.name},
+              configGlobal:typeof TEAM_CONFIG==="undefined"?null:{id:TEAM_CONFIG.team&&TEAM_CONFIG.team.id,name:TEAM_CONFIG.team&&TEAM_CONFIG.team.name},
+              teamOS:typeof TeamOS,
+              scripts:[...document.scripts].map(s=>({src:s.getAttribute("src"),ready:s.readyState||null})),
+              brand:(document.querySelector(".brand-kicker")||{}).textContent||null,
+              h1:(document.querySelector(".bar h1")||{}).textContent||null
+            }));
+            console.log("DIAG "+label+" "+JSON.stringify(state));
+            console.log("CACHE "+label+" "+JSON.stringify(await cacheState()));
+            console.log("ERRORS "+label+" "+JSON.stringify(errors));
+            await page.screenshot({path:"diag-"+label+".png",fullPage:true});
+          }
+
+          await page.goto(base+"?team=notre-dame",{waitUntil:"domcontentloaded"});
+          await page.evaluate(async()=>{
+            await navigator.serviceWorker.ready;
+            if(!navigator.serviceWorker.controller){
+              await new Promise(resolve=>navigator.serviceWorker.addEventListener("controllerchange",resolve,{once:true}));
+            }
+          });
+          await waitMark("notre-dame");
+          await diag("nd1");
+
+          await page.goto(base+"?team=ohio-state",{waitUntil:"domcontentloaded"});
+          await waitMark("ohio-state");
+          await diag("osu");
+
+          await page.goto(base+"?team=notre-dame",{waitUntil:"domcontentloaded"});
+          await waitMark("notre-dame");
+          await diag("nd2");
+
+          await browser.close();
+          JS
+          node switch-diag.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: suite-vnext-switch-diagnostic
+          path: diag-*.png
