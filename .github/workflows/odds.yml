@@ -318,6 +318,15 @@ jobs:
                   return {"questionable": [], "out": [], "reported": False}
               data, final_url = resolve_pdf(doc_url)
               text = pdf_text(data)
+              # Temporary diagnostic: capture the exact current official-report
+              # wording before normalizing the parser to it.
+              lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
+              hits = [i for i,x in enumerate(lines)
+                      if re.search(r"availab|out for|questionable", x, re.I)]
+              print("  DEBUG availability hits:", len(hits))
+              for i in hits[:40]:
+                  for x in lines[max(0,i-2):min(len(lines),i+4)]:
+                      print("   A", repr(x))
               # The official notes identify the list as an availability update.
               # If the heading is absent, do not infer an all-clear.
               if not re.search(r"AVAILABILITY\s+(?:UPDATE|REPORT)", text, re.I):
