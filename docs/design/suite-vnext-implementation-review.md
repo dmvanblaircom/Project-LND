@@ -1,6 +1,6 @@
 # Suite vNext Implementation Review
 
-Status: BUILD + MOBILE BROWSER QA COMPLETE  
+Status: BUILD + BROWSER ACCEPTANCE COMPLETE  
 Branch: `design/suite-vnext-build`  
 Base: `main`
 
@@ -188,11 +188,20 @@ Results:
 
 The screenshot harness was temporary and was removed after review.
 
-Still required before merge:
-- tablet/wide browser spot check
-- keyboard/focus walkthrough
-- offline/cache behavior
-- ND -> OSU -> ND switch on a real browser/session
+Additional browser acceptance completed:
+- 20 tablet/wide states across Notre Dame and Ohio State at 768px and 1280px
+- no horizontal overflow in those states
+- wide Home, Top 25, Game, Depth and News visually reviewed for both teams
+- wide live Game visually reviewed for both teams
+- keyboard focus visible as a 3px solid outline
+- ArrowRight / End / Home ARIA tab navigation verified
+- real service-worker ND -> OSU -> ND cache isolation verified
+- Ohio State clears Notre Dame's declared snapshot files
+- switching back to Notre Dame restores its declared snapshot files
+- offline reload restores Irish Watch and renders Notre Dame Depth from the cached snapshot
+- stored team preference remains Notre Dame while offline
+
+The temporary browser acceptance and switch-diagnostic workflows were removed after the pass.
 
 ## Data-source QA after merge/run
 
@@ -207,6 +216,10 @@ After the updated Refresh team data workflow runs, verify:
 
 ## Merge recommendation
 
-The mobile visual acceptance pass is now complete. Open the Suite vNext PR and use the PR checks plus the remaining wide/offline/switch spot checks as the final gate.
+Suite vNext has passed the implemented visual, responsive, keyboard, service-worker isolation, offline-cache and repository regression gates.
 
-Do not automatically merge the PR.
+PR #2 can move out of draft and is appropriate to merge once the product owner is satisfied with the reviewed reference screens.
+
+One post-merge operational verification remains: run the updated team-data workflow and confirm Notre Dame's generated depth and availability snapshots now come from FightingIrish.com as declared.
+
+Do not automatically merge without the product owner's merge decision.
