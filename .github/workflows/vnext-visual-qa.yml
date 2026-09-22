@@ -1,4 +1,5 @@
 name: Suite vNext visual QA
+# Temporary branch-only browser acceptance harness for Suite vNext.
 
 on:
   push:
