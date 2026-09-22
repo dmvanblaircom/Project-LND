@@ -1071,6 +1071,7 @@ function loadDepth(){
       '<span class="depth-meta">'+(unavailableCount ? unavailableCount+' listed' : 'No players listed')+'</span></div>';
     outCount=av.out.length;
     var mmdd=function(iso){ return esc((iso||"").replace(/^\d{4}-/,"").replace("-","/")); };
+    var chartLabel=function(x){ return esc((x&&x.game)||mmdd(x&&x.date)||"Current"); };
     var srcLink=function(url, label){
       return '<a href="'+esc(url||"#")+'" target="_blank" rel="noopener">'+esc(label)+
         '<span class="sr-only"> (opens in a new tab)</span></a>';
@@ -1080,7 +1081,7 @@ function loadDepth(){
     var groupNames=Object.keys(d.groups||{});
     if(groupNames.length){
       html+='<h2 class="sec">Depth chart</h2>'+
-        '<p class="asof">Week of '+mmdd(d.date)+', from '+srcLink(d.source, d.title||snap.label||"the source")+
+        '<p class="asof">'+chartLabel(d)+', from '+srcLink(d.source, d.title||snap.label||"the source")+
         '. '+esc(TEAM.name)+' publishes a new two-deep most Tuesdays.</p>';
     }
     groupNames.forEach(function(label, gi){
@@ -1123,16 +1124,15 @@ function loadDepth(){
     // ---- 3. the injury report: this week's list, then week by week ----
     html+='<h2 class="sec">Injury report</h2>';
     if(av.reported===false){
-      html+='<p class="asof">The '+mmdd(d.date)+' official depth chart from '+
-        srcLink(d.source,snap.label||"the official athletics site")+
-        ' does not include an availability report. No injury status is inferred from that absence.</p>';
+      html+='<p class="asof">No official availability report is attached to the current '+chartLabel(d)+
+        ' materials yet. No injury status is inferred from that absence.</p>';
     } else if(av.carried_from){
-      html+='<p class="asof">No availability report was published with the '+mmdd(d.date)+
-        ' chart, so this is '+esc(TEAM.name)+'\u2019s '+mmdd(av.carried_from)+
-        ' report from '+srcLink(av.carried_source,snap.label||"the source")+'.</p>';
+      html+='<p class="asof">No official availability report was published with the current chart, so this is '+
+        esc(TEAM.name)+'\u2019s '+mmdd(av.carried_from)+' report from '+
+        srcLink(av.carried_source,snap.label||"the source")+'.</p>';
     } else {
-      html+='<p class="asof">'+esc(TEAM.name)+'\u2019s availability report, released '+mmdd(d.date)+
-        ', from '+srcLink(d.source,snap.label||"the source")+'.</p>';
+      html+='<p class="asof">'+esc(TEAM.name)+'\u2019s official availability report from '+
+        srcLink(av.source||d.source,av.label||snap.label||"the official athletics site")+'.</p>';
     }
     if(av.out.length||av.questionable.length){
       [["Out",av.out],["Questionable",av.questionable]].forEach(function(pair){
@@ -1186,9 +1186,10 @@ function loadHistory(){
     var slot=$("panel-depth").querySelector("#depthHistory");
     if(!slot || snaps.length<2) return;
     var html='<details class="fold" open><summary>Week by week '+
-      '<span class="count">'+snaps.length+" reports</span></summary><div class=\"foldbody\">";
+      '<span class="count">'+snaps.length+" charts</span></summary><div class=\"foldbody\">";
     snaps.forEach(function(s,i){
-      var av=s.availability||{}, ch=s.changes||[], mmdd=(s.date||"").slice(5).replace("-","/");
+      var av=s.availability||{}, ch=s.changes||[];
+      var when=s.game || ((s.date||"").slice(5).replace("-","/")) || "Current";
       var outN=(av.out||[]).length, qN=(av.questionable||[]).length;
       var status = av.reported===false ? "official two-deep"
         : av.carried_from
