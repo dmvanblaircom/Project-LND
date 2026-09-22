@@ -1,7 +1,7 @@
 {
- "source": "https://www.uhnd.com/football/2026/09/14/notre-dame-football-depth-chart-2026-week-3-vs-michigan-state",
- "title": "Notre Dame Football Depth Chart 2026: Week 3 vs. Michigan State",
- "fetched": "2026-09-14T19:12:39.033121+00:00",
+ "source": "https://www.uhnd.com/football/2026/09/21/notre-dame-football-depth-chart-changes-ahead-of-purdue-game",
+ "title": "Notre Dame Football Depth Chart: Changes Ahead of Purdue Game",
+ "fetched": "2026-09-22T06:43:39.640314+00:00",
  "groups": {
   "Offense": [
    {
@@ -246,8 +246,8 @@
    },
    {
     "pos": "RB",
-    "depth": 2,
-    "or": false,
+    "depth": 1,
+    "or": true,
     "no": "2",
     "name": "Nolan James Jr.",
     "cl": "So."
@@ -255,22 +255,22 @@
    {
     "pos": "RB",
     "depth": 2,
-    "or": true,
+    "or": false,
     "no": "21",
     "name": "Kedren Young",
     "cl": "Jr."
    },
    {
     "pos": "RB",
-    "depth": 3,
-    "or": false,
+    "depth": 2,
+    "or": true,
     "no": "20",
     "name": "Jonaz Walton",
     "cl": "Fr."
    },
    {
     "pos": "RB",
-    "depth": 3,
+    "depth": 2,
     "or": true,
     "no": "26",
     "name": "Javian Osborne",
@@ -556,17 +556,17 @@
     "pos": "KO",
     "depth": 1,
     "or": false,
-    "no": "18",
-    "name": "Erik Schmidt",
-    "cl": "So."
+    "no": "36",
+    "name": "Micah Drescher",
+    "cl": "Fr."
    },
    {
     "pos": "KO",
     "depth": 1,
     "or": true,
-    "no": "36",
-    "name": "Micah Drescher",
-    "cl": "Fr."
+    "no": "18",
+    "name": "Erik Schmidt",
+    "cl": "So."
    },
    {
     "pos": "PK",
@@ -623,14 +623,6 @@
     "no": "39",
     "name": "Jasper Scaife",
     "cl": "Fr."
-   },
-   {
-    "pos": "HLD",
-    "depth": 2,
-    "or": false,
-    "no": "33",
-    "name": "Matt Jeffery",
-    "cl": "Jr."
    }
   ]
  },
@@ -662,6 +654,14 @@
    ]
   },
   {
+   "group": "Offense",
+   "pos": "RB",
+   "names": [
+    "Aneyas Williams",
+    "Nolan James Jr."
+   ]
+  },
+  {
    "group": "Defense",
    "pos": "DT",
    "names": [
@@ -682,33 +682,19 @@
    "group": "Special Teams",
    "pos": "KO",
    "names": [
-    "Erik Schmidt",
-    "Micah Drescher"
+    "Micah Drescher",
+    "Erik Schmidt"
    ]
   }
  ],
  "availability": {
   "questionable": [
    {
-    "no": "27",
-    "pos": "LB",
-    "name": "Kyngstonn Viliamu-Asa",
-    "detail": "Left Knee",
-    "weeks": 0,
-    "newer": [
-     {
-      "source": "UHND",
-      "title": "Notre Dame Star LB Kyngstonn Viliamu-Asa Returns, Makes an Immediate Impact",
-      "link": "https://www.uhnd.com/football/2026/09/12/notre-dame-star-lb-kyngstonn-viliamu-asa-returns-makes-an-immediate-impact/",
-      "published": "2026-09-13T03:27:30+00:00"
-     },
-     {
-      "source": "UHND",
-      "title": "Notre Dame vs. Rice Postgame: Faison, Carr, Traore, and Viliamu-Asa on Irish Shutout, Fast Start",
-      "link": "https://www.uhnd.com/video/2026/09/12/notre-dame-vs-rice-postgame-faison-carr-traore-and-viliamu-asa-on-irish-shutout-fast-start/",
-      "published": "2026-09-13T01:50:14+00:00"
-     }
-    ]
+    "no": "28",
+    "pos": "S",
+    "name": "Luke Talich",
+    "detail": "Left Wrist",
+    "weeks": 0
    }
   ],
   "out": [
@@ -717,49 +703,34 @@
     "pos": "OL",
     "name": "Matty Augustine",
     "detail": "Right Foot",
-    "weeks": 3
+    "weeks": 4
    },
    {
     "no": "6",
     "pos": "DL",
     "name": "Christopher Burgess Jr.",
     "detail": "Left Tibia",
-    "weeks": 3
+    "weeks": 4
    },
    {
     "no": "55",
     "pos": "DL",
     "name": "Tiki Hola",
     "detail": "Right Knee",
-    "weeks": 3
+    "weeks": 4
    },
    {
     "no": "56",
     "pos": "OL",
     "name": "Charles Jagusah",
     "detail": "Left Humerus",
-    "weeks": 3
+    "weeks": 4
    },
    {
     "no": "9",
     "pos": "S",
     "name": "Brauntae Johnson",
     "detail": "Left Foot",
-    "weeks": 2,
-    "newer": [
-     {
-      "source": "One Foot Down",
-      "title": "UPDATED Notre Dame injury report for home opener VS Rice Owls",
-      "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/84559/updated-notre-dame-injury-report-for-home-opener-vs-rice-owls",
-      "published": "2026-09-10T23:46:32+00:00"
-     }
-    ]
-   },
-   {
-    "no": "16",
-    "pos": "LB",
-    "name": "Ko\u2019o Kia",
-    "detail": "Left Shoulder",
     "weeks": 3
    },
    {
@@ -767,44 +738,36 @@
     "pos": "DL",
     "name": "Jason Onye",
     "detail": "Left Ankle",
-    "weeks": 2,
-    "newer": [
-     {
-      "source": "One Foot Down",
-      "title": "UPDATED Notre Dame injury report for home opener VS Rice Owls",
-      "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/84559/updated-notre-dame-injury-report-for-home-opener-vs-rice-owls",
-      "published": "2026-09-10T23:46:32+00:00"
-     }
-    ]
+    "weeks": 3
    },
    {
     "no": "0",
     "pos": "WR",
     "name": "Quincy Porter",
     "detail": "Left Knee",
-    "weeks": 3
+    "weeks": 4
    },
    {
     "no": "26",
     "pos": "DB",
     "name": "Chaz Smith",
     "detail": "Right Wrist",
-    "weeks": 3
+    "weeks": 4
    },
    {
     "no": "55",
     "pos": "OL",
     "name": "Chris Terek",
     "detail": "Right Knee",
-    "weeks": 3
+    "weeks": 4
    }
   ],
-  "reported": false,
-  "carried_from": "2026-09-08",
-  "carried_source": "https://www.uhnd.com/football/2026/09/08/notre-dame-football-week-2-depth-chart-2026-rice"
+  "reported": true
  },
- "date": "2026-09-14",
+ "date": "2026-09-21",
  "changes": [
-  "Matt Jeffery moves from WR to HLD"
+  "Matt Jeffery moves from HLD to WR",
+  "Javian Osborne moves up to 2 at RB",
+  "Ko\u2019o Kia no longer listed out"
  ]
 }
