@@ -661,6 +661,133 @@ details.fold>summary{padding:.75rem .9rem;background:rgba(var(--t-surface-rgb),.
   .motto{font-size:2.6rem;line-height:1.05}
 }
 
+/* ====================================================================
+   SUITE vNEXT — APPROVED VISUAL DIRECTION
+   First production translation of the 2026-09-22 reference board.
+   This changes presentation only: existing TeamOS data contracts, live truth,
+   tab semantics and team configuration remain authoritative.
+   ==================================================================== */
+body{
+  background:#f6f3ec !important;
+  color:#142033;
+}
+.page{
+  background:#f6f3ec !important;
+  padding-bottom:calc(5.8rem + env(safe-area-inset-bottom,0px));
+}
+.wrap{max-width:48rem;padding-bottom:2rem}
+.bar{
+  min-height:4.2rem;
+  flex-wrap:nowrap;
+  background:linear-gradient(135deg,var(--t-deep),var(--t-surface));
+  border-bottom:1px solid rgba(var(--t-accent-rgb),.34);
+  box-shadow:0 8px 24px rgba(8,24,43,.16);
+}
+.brand-lockup{display:flex;align-items:baseline;gap:.55rem}
+.brand-kicker{font-size:.61rem;letter-spacing:.13em;color:var(--t-accent-soft)}
+.bar h1{font-size:1.35rem;letter-spacing:.035em;text-transform:none}
+.bar .rec{color:#d8e0e9}
+.bar .rank{border-radius:4px}
+.refresh{
+  min-width:2.7rem;width:2.7rem;height:2.7rem;padding:0;border-radius:50%;
+  border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);
+  font-size:0;
+}
+.refresh-icon{font-size:1.25rem}
+.motto{
+  max-width:none;margin:.85rem 0 .65rem;padding:0;border:0;text-align:left;
+  font-family:var(--t-font-ui);font-size:.68rem;line-height:1.2;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:#6e7783;text-shadow:none;
+}
+.hero{
+  min-height:17rem;margin-top:0;border:0;border-radius:0;
+  margin-left:calc(-1 * var(--gutter));margin-right:calc(-1 * var(--gutter));
+  padding:2rem calc(var(--gutter) + .25rem) 1.45rem;
+  grid-template-rows:auto auto auto 1fr auto;
+  background:
+    radial-gradient(circle at 88% 12%,rgba(var(--t-accent-rgb),.32),transparent 13rem),
+    radial-gradient(circle at 72% 55%,rgba(var(--t-accent-rgb),.10),transparent 16rem),
+    linear-gradient(145deg,var(--t-surface) 0%,var(--t-deep) 58%,var(--t-abyss) 100%);
+  box-shadow:0 14px 32px rgba(8,24,43,.20);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
+  background:
+    linear-gradient(115deg,transparent 0 58%,rgba(255,255,255,.12) 58.2% 58.8%,transparent 59%),
+    repeating-linear-gradient(90deg,transparent 0 34px,rgba(var(--t-accent-rgb),.16) 35px,transparent 36px 70px);
+  mask-image:linear-gradient(to left,#000,transparent 68%);
+}
+.hero:after{height:2px;background:linear-gradient(90deg,var(--t-accent),transparent 75%)}
+.hero .when{font-size:.7rem;letter-spacing:.16em}
+.hero .opp{font-size:clamp(2.35rem,9vw,4.25rem);max-width:11ch;margin:.5rem 0 .55rem}
+.hero .line{font-size:1.03rem}
+.hero .venue{color:#b5c0cd}
+.hero .clock{font-size:2.15rem}
+.hero .wx{border-top-color:rgba(255,255,255,.16)}
+.hero.live{
+  background:
+    radial-gradient(circle at 88% 12%,rgba(255,90,78,.24),transparent 13rem),
+    linear-gradient(145deg,#511b1a 0%,#261113 62%,#110b0c 100%);
+}
+.strip{margin:.85rem 0 0;gap:.65rem;box-shadow:none}
+.strip .cell{
+  min-height:4.6rem;border-radius:10px;background:#fff;color:#142033;
+  border:1px solid #e1ddd4;box-shadow:0 4px 14px rgba(20,32,51,.06);
+}
+.strip .cell:first-child,.strip .cell:last-child{border-top:1px solid #e1ddd4}
+.strip .cell .k{color:#687281}
+.strip .cell .v{color:#142033}
+.strip .cell .v.pending{color:#7a8490}
+.strip .cell::after{color:#7a8490}
+.hint{color:#7a8490}
+[role="tabpanel"]{color:#142033}
+#panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{
+  color:#142033;font-family:var(--t-font-ui);font-weight:700;letter-spacing:0;text-transform:none;font-size:1.15rem;
+}
+.row{
+  min-height:4.1rem;margin:0;padding:.75rem .25rem;border:0;border-bottom:1px solid #e3dfd7;
+  border-radius:0;color:#142033;background:transparent;
+}
+.row .date .m{color:#7a8490}.row .date .d{color:#142033}
+.row .team{color:#142033}.row .team .pre,.row .sub,.row .status{color:#707a87}
+.row.past{opacity:1}
+.row.tappable:hover{background:rgba(var(--t-accent-rgb),.06)}
+.row.mine{
+  margin:.3rem 0;padding:.75rem .6rem;border:0;border-left:3px solid var(--t-accent);
+  border-radius:6px;background:rgba(var(--t-accent-rgb),.08);box-shadow:none;
+}
+.tag.h{border-color:var(--t-accent);}.tag.a,.tag.n{color:#586474}
+.heromini{background:#fff;color:#142033;border-color:#dedad1;box-shadow:0 3px 12px rgba(20,32,51,.05)}
+.heromini .mwhen{color:#687281}
+.tabbar{
+  padding:.32rem max(.45rem,env(safe-area-inset-left)) max(.32rem,env(safe-area-inset-bottom));
+  background:rgba(250,249,246,.97);box-shadow:0 -5px 22px rgba(20,32,51,.10);
+}
+.tabbar:before{top:0;background:#dedad1}
+.tabbar button[role="tab"]{min-height:3.65rem;color:#737d89}
+.tabbar button[role="tab"][aria-selected="true"]{color:var(--t-surface);background:none}
+.tabbar button#tab-game{
+  width:auto;height:auto;min-height:3.65rem;border:0;border-radius:10px;background:none;
+  box-shadow:none;transform:none;
+}
+.tabbar button#tab-game svg{width:23px;height:23px;stroke-width:1.75}
+.tabbar button#tab-game[aria-selected="true"]{background:none;color:var(--t-surface)}
+footer .foot{color:#747d88}
+@media (min-width:48rem){
+  .hero{border-radius:14px;margin-left:0;margin-right:0;padding-left:1.6rem;padding-right:1.6rem}
+  .tabbar{width:min(40rem,calc(100% - 2rem));border-radius:14px 14px 0 0}
+}
+@media (max-width:32rem){
+  .bar h1{font-size:1.25rem}
+  .brand-kicker{display:none}
+  .hero{border-radius:0;padding:1.65rem var(--gutter) 1.2rem}
+  .hero .opp{font-size:2.5rem}
+  .hero .spread{color:#dce3eb}
+  .hero .clock{font-size:1.85rem}
+  .tabbar button#tab-game{width:auto;height:auto;min-height:3.65rem;border-radius:10px;transform:none}
+  .tabbar button#tab-game svg{width:23px;height:23px}
+}
+
 /* Motion and preference queries last, so they override everything above. */
 @media (prefers-reduced-motion:reduce){
   .hero{animation:none;opacity:1}
