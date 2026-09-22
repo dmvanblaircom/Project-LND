@@ -840,6 +840,35 @@ li.gamedetail{
 .game-inline details.fold>summary{background:#fff;color:#142033}
 .game-inline .more{background:#fff;border-color:#d8d4cc;color:#142033;border-radius:8px}
 .game-inline .stamp{color:#858d96}
+.game-shell .seg,.game-inline .seg{
+  border:1px solid #ddd8cf;background:#ece8df;border-radius:10px;
+}
+.game-shell .seg button,.game-inline .seg button{color:#66717d;background:transparent}
+.game-shell .seg button+button,.game-inline .seg button+button{border-left:1px solid #d9d5cd}
+.game-shell .seg button[aria-pressed="true"],
+.game-shell .seg button[aria-selected="true"],
+.game-inline .seg button[aria-pressed="true"],
+.game-inline .seg button[aria-selected="true"]{
+  background:#fff !important;color:#142033 !important;box-shadow:0 2px 7px rgba(20,32,51,.07);
+}
+.game-shell .boxcat,.game-inline .boxcat{color:#142033}
+.game-shell .boxwrap,.game-inline .boxwrap{border-color:#dedad2;background:#fff}
+.game-shell .boxtable,.game-inline .boxtable{color:#142033;background:#fff}
+.game-shell .boxtable th,.game-shell .boxtable td,
+.game-inline .boxtable th,.game-inline .boxtable td{border-color:#e5e1da}
+.game-shell .boxtable th[scope="row"],
+.game-inline .boxtable th[scope="row"]{background:#fff;color:#142033}
+.game-shell .boxtable thead th,.game-inline .boxtable thead th{background:#f0ede6;color:#65717d}
+.game-shell .boxtable .jn,.game-inline .boxtable .jn{color:#7a8490}
+.game-shell .scorply,.game-inline .scorply{border-color:#e5e1da;color:#142033}
+.game-shell .scorply .qc,.game-shell .scorply .tm,.game-shell .scorply .sc,
+.game-inline .scorply .qc,.game-inline .scorply .tm,.game-inline .scorply .sc{color:#6f7983}
+.game-shell .scorply.byus,.game-inline .scorply.byus{
+  border-left-color:var(--t-accent);background:rgba(var(--t-accent-rgb),.08);
+}
+.game-shell .scorply.byus .tm,.game-shell .scorply .sc .ahead,
+.game-inline .scorply.byus .tm,.game-inline .scorply .sc .ahead{color:var(--t-surface)}
+.game-shell .scorply .sc .tie,.game-inline .scorply .sc .tie{color:#142033}
 /* Game Center vNext: one renderer, three visual states. */
 #panel-game:before{display:none}
 #panel-game{padding-top:.9rem}
@@ -1106,6 +1135,12 @@ li.gamedetail{
   margin:.75rem 0;background:#fff;border-color:#dedad2;color:#55616e;border-radius:10px;
 }
 #panel-news .msg strong{color:#142033}
+.loading{color:#6f7983}
+.msg{background:#fff;border-color:#dedad2;color:#55616e}
+.msg strong{color:#142033}
+.msg a{color:var(--t-surface)}
+.more{background:#fff;border-color:#d8d4cc;color:#142033;border-radius:8px}
+.more:hover{border-color:rgba(var(--t-accent-rgb),.55);color:var(--t-surface)}
 #panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{
   color:#142033;font-family:var(--t-font-ui);font-weight:700;letter-spacing:0;text-transform:none;font-size:1.15rem;
 }
