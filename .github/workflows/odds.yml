@@ -7,6 +7,9 @@
 name: Refresh team data
 
 on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/odds.yml"] # temporary one-shot trigger; removed after verification
   schedule:
     - cron: "7,37 * * * *"   # twice an hour, off the hour to dodge the crowd
   workflow_dispatch:          # and a Run workflow button in the Actions tab
