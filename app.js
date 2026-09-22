@@ -1122,18 +1122,17 @@ function loadDepth(){
 
     // ---- 3. the injury report: this week's list, then week by week ----
     html+='<h2 class="sec">Injury report</h2>';
-    if(av.carried_from){
-      // The source posted the chart without the team's availability report.
-      // The Action carries the last one forward rather than pretending
-      // everyone is fit.
+    if(av.reported===false){
+      html+='<p class="asof">The '+mmdd(d.date)+' official depth chart from '+
+        srcLink(d.source,snap.label||"the official athletics site")+
+        ' does not include an availability report. No injury status is inferred from that absence.</p>';
+    } else if(av.carried_from){
       html+='<p class="asof">No availability report was published with the '+mmdd(d.date)+
-        ' chart ('+srcLink(d.source,"see the article")+'), so this is '+esc(TEAM.name)+'\u2019s '+
-        mmdd(av.carried_from)+' report, from '+srcLink(av.carried_source,snap.label||"the source")+
-        '. Beat writers often update it later in the week \u2014 anything newer is flagged below.</p>';
+        ' chart, so this is '+esc(TEAM.name)+'\u2019s '+mmdd(av.carried_from)+
+        ' report from '+srcLink(av.carried_source,snap.label||"the source")+'.</p>';
     } else {
-      html+='<p class="asof">'+esc(TEAM.name)+'\u2019s official report, released '+mmdd(d.date)+
-        ', from '+srcLink(d.source,snap.label||"the source")+
-        '. Beat writers often update it later in the week \u2014 anything newer is flagged below.</p>';
+      html+='<p class="asof">'+esc(TEAM.name)+'\u2019s availability report, released '+mmdd(d.date)+
+        ', from '+srcLink(d.source,snap.label||"the source")+'.</p>';
     }
     if(av.out.length||av.questionable.length){
       [["Out",av.out],["Questionable",av.questionable]].forEach(function(pair){
@@ -1156,6 +1155,8 @@ function loadDepth(){
         });
         html+="</ul>";
       });
+    } else if(av.reported===false) {
+      html+='<p class="msg">No official availability report was published with this depth chart.</p>';
     } else {
       html+='<p class="msg">Nobody is listed out or questionable.</p>';
     }
@@ -1189,9 +1190,10 @@ function loadHistory(){
     snaps.forEach(function(s,i){
       var av=s.availability||{}, ch=s.changes||[], mmdd=(s.date||"").slice(5).replace("-","/");
       var outN=(av.out||[]).length, qN=(av.questionable||[]).length;
-      var status = av.carried_from
-        ? "no report published; "+esc(av.carried_from.slice(5).replace("-","/"))+" carried forward"
-        : outN+" out"+(qN?", "+qN+" questionable":"");
+      var status = av.reported===false ? "official two-deep"
+        : av.carried_from
+          ? "no report published; "+esc(av.carried_from.slice(5).replace("-","/"))+" carried forward"
+          : outN+" out"+(qN?", "+qN+" questionable":"");
       var moves = i===snaps.length-1 ? "first chart of the season"
         : (ch.length ? ch.length+(ch.length===1?" change":" changes") : "no changes");
       html+='<details class="week"'+(i===0?" open":"")+'><summary><span class="wd">'+esc(mmdd)+"</span>"+
