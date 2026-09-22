@@ -752,6 +752,34 @@ body{
 .snapshot-k{display:block;margin-bottom:.15rem;font-size:.62rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#7a8490}
 .snapshot-stat strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--t-font-display);font-size:1.08rem;line-height:1.2;color:#142033}
 [role="tabpanel"]{color:#142033}
+#panel-schedule:before{display:none}
+.season-head{
+  display:flex;align-items:end;justify-content:space-between;gap:1rem;
+  margin:1.35rem 0 .45rem;padding-bottom:.7rem;border-bottom:1px solid #d9d5cd;
+}
+.season-head h2{margin:.05rem 0 0;font-family:var(--t-font-display);font-size:1.45rem;line-height:1.05;color:#142033}
+.season-eyebrow{display:block;font-size:.61rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7a8490}
+.season-meta{padding-bottom:.05rem;font-size:.72rem;font-weight:600;color:#7a8490;white-space:nowrap}
+#panel-schedule>ul.plain{margin:0}
+#panel-schedule .row{position:relative}
+#panel-schedule .row.next{
+  margin:.55rem 0 .65rem;padding:.9rem .8rem;border:1px solid rgba(var(--t-accent-rgb),.42);
+  border-left:4px solid var(--t-accent);border-radius:10px;
+  background:linear-gradient(100deg,rgba(var(--t-accent-rgb),.13),#fff 58%);
+  box-shadow:0 5px 16px rgba(20,32,51,.06);
+}
+#panel-schedule .row.next:before{
+  content:"NEXT";position:absolute;right:.65rem;top:.42rem;
+  font-size:.53rem;font-weight:800;letter-spacing:.12em;color:var(--t-surface);
+}
+#panel-schedule .row.next .team{color:#142033}
+#panel-schedule .row.next .sub{padding-right:2.8rem}
+#panel-schedule details.fold{margin:.15rem 0 .4rem;border:0}
+#panel-schedule details.fold>summary{
+  min-height:2.7rem;padding:.65rem .2rem;background:transparent;border-bottom:1px solid #e3dfd7;
+  color:#66717e;font-size:.76rem;
+}
+#panel-schedule details.fold .count{color:#89919b}
 #panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{
   color:#142033;font-family:var(--t-font-ui);font-weight:700;letter-spacing:0;text-transform:none;font-size:1.15rem;
 }
@@ -800,6 +828,8 @@ footer .foot{color:#747d88}
   .home-snapshot{margin-top:.7rem}
   .snapshot-stat{padding:.7rem .65rem}
   .snapshot-stat strong{font-size:.98rem}
+  .season-head{align-items:start}
+  .season-meta{font-size:.66rem;padding-top:.2rem}
   .tabbar button#tab-game{width:auto;height:auto;min-height:3.65rem;border-radius:10px;transform:none}
   .tabbar button#tab-game svg{width:23px;height:23px}
 }
