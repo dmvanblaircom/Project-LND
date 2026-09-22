@@ -226,6 +226,8 @@ jobs:
               return m.group(1)
           INDEX = declared("depthChartIndex")
           SOURCE_LABEL = declared("depthChartLabel")
+          AVAIL_INDEX = declared("availabilityReportIndex")
+          AVAIL_LABEL = declared("availabilityReportLabel")
 
           def request(url):
               return urllib.request.Request(url, headers={"user-agent": UA})
@@ -239,26 +241,34 @@ jobs:
                   return r.read(), r.geturl()
 
           def chart_links():
+              # Notre Dame's official media table keeps the depth chart and
+              # current Notre Dame notes on the same game row. The notes are
+              # the program's official availability-report channel.
               html, _ = fetch_text(INDEX)
               soup = BeautifulSoup(html, "html.parser")
               year = next((h for h in soup.find_all(["h2","h3"])
                            if h.get_text(" ", strip=True) == SEASON), None)
               if year is None:
-                  sys.exit(f"{SEASON} section not found at official depth index")
+                  sys.exit(f"{SEASON} section not found at official media index")
               table = year.find_next("table")
               if table is None:
-                  sys.exit(f"{SEASON} depth table not found at official depth index")
+                  sys.exit(f"{SEASON} media table not found at official media index")
 
               out = []
               for tr in table.find_all("tr"):
                   cells = tr.find_all(["th","td"])
-                  if len(cells) < 2:
+                  if len(cells) < 3:
                       continue
                   game = cells[0].get_text(" ", strip=True)
-                  link = cells[1].find("a", href=True)
-                  if not link:
+                  depth_link = cells[1].find("a", href=True)
+                  notes_link = cells[2].find("a", href=True)
+                  if not depth_link:
                       continue
-                  out.append((game, urljoin(INDEX, link["href"])))
+                  out.append({
+                      "game": game,
+                      "depth": urljoin(INDEX, depth_link["href"]),
+                      "availability": urljoin(AVAIL_INDEX, notes_link["href"]) if notes_link else None,
+                  })
               return out
 
           def resolve_pdf(doc_url):
@@ -282,13 +292,50 @@ jobs:
               r"(?P<cl>Fr\.|So\.|Jr\.|Sr\.|5th|Gr\.|R-Fr\.|R-So\.|R-Jr\.|R-Sr\.)$"
           )
 
-          def pdf_date(url):
-              m = re.search(r"/(\d{4})/(\d{2})/(\d{2})/", url)
-              return "-".join(m.groups()) if m else None
+          def pdf_text(data):
+              reader = PdfReader(io.BytesIO(data))
+              return "\n".join((p.extract_text() or "") for p in reader.pages)
+
+          def parse_availability(doc_url):
+              if not doc_url:
+                  return {"questionable": [], "out": [], "reported": False}
+              data, final_url = resolve_pdf(doc_url)
+              text = pdf_text(data)
+              # The official notes identify the list as an availability update.
+              # If the heading is absent, do not infer an all-clear.
+              if not re.search(r"AVAILABILITY\s+(?:UPDATE|REPORT)", text, re.I):
+                  return {
+                      "questionable": [], "out": [], "reported": False,
+                      "source": doc_url, "pdf": final_url, "label": AVAIL_LABEL,
+                  }
+
+              out = {"questionable": [], "out": [], "reported": True,
+                     "source": doc_url, "pdf": final_url, "label": AVAIL_LABEL}
+              row = re.compile(
+                  r"No\.?\s*(?P<no>\d+)\s+(?P<pos>[A-Z/]+)\s+(?P<name>.+?)\s+"
+                  r"[-–—]\s+(?P<status>Out for the season|Out for the game|"
+                  r"Questionable for the game)\s*\((?P<detail>[^)]+)\)",
+                  re.I
+              )
+              for m in row.finditer(text):
+                  status = m.group("status").lower()
+                  bucket = "questionable" if status.startswith("questionable") else "out"
+                  scope = ("Out for season" if "season" in status
+                           else "Out for game" if bucket == "out"
+                           else "Questionable")
+                  out[bucket].append({
+                      "no": m.group("no"), "pos": m.group("pos"),
+                      "name": re.sub(r"\s+", " ", m.group("name")).strip(),
+                      "detail": scope + " · " + m.group("detail").strip(),
+                  })
+              # A heading with zero parsed rows is more likely a format change
+              # than an all-clear, so fail closed instead of publishing bad data.
+              if not out["out"] and not out["questionable"]:
+                  out["reported"] = False
+              return out
 
           def parse_pdf(game, doc_url, data, final_url):
-              reader = PdfReader(io.BytesIO(data))
-              text = "\n".join((p.extract_text() or "") for p in reader.pages)
+              text = pdf_text(data)
               lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
               groups = {}
               current_group = current_pos = None
@@ -345,11 +392,10 @@ jobs:
                   "pdf": final_url,
                   "title": title,
                   "fetched": datetime.now(timezone.utc).isoformat(),
-                  "date": pdf_date(final_url),
+                  "game": game,
+                  "date": None,
                   "groups": groups,
                   "battles": battles,
-                  # The official depth PDF is a two-deep, not an injury report.
-                  # Absence of a report must never be rendered as "everyone healthy."
                   "availability": {"questionable": [], "out": [], "reported": False},
               }
 
@@ -381,18 +427,16 @@ jobs:
               return changes[:40]
 
           history = []
-          for game, doc_url in chart_links():
+          for item in chart_links():
+              game, doc_url = item["game"], item["depth"]
               print("  official depth:", game)
               try:
                   data, final_url = resolve_pdf(doc_url)
                   snap = parse_pdf(game, doc_url, data, final_url)
+                  snap["availability"] = parse_availability(item["availability"])
               except Exception as e:
                   print(f"    SKIP: {str(e)[:120]}")
                   continue
-              # Storage URLs include the athletics posting date. If that ever
-              # changes, preserve official table order rather than inventing a date.
-              if snap["date"] is None:
-                  snap["date"] = f"{SEASON}-00-{len(history)+1:02d}"
               history.append(snap)
 
           if not history:
