@@ -316,52 +316,72 @@ jobs:
           def parse_availability(doc_url):
               if not doc_url:
                   return {"questionable": [], "out": [], "reported": False}
+
               data, final_url = resolve_pdf(doc_url)
               text = pdf_text(data)
-              # Temporary diagnostic: capture the exact current official-report
-              # wording before normalizing the parser to it.
-              lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
-              hits = [i for i,x in enumerate(lines)
-                      if re.search(r"availab|out for|questionable", x, re.I)]
-              print("  DEBUG availability hits:", len(hits))
-              current = [i for i,x in enumerate(lines)
-                         if re.match(r"AVAILABILITY UPDATE", x, re.I)]
-              if current:
-                  print("  DEBUG current availability block")
-                  for x in lines[current[-1]:min(len(lines),current[-1]+32)]:
-                      print("   A", repr(x))
-              # The official notes identify the list as an availability update.
-              # If the heading is absent, do not infer an all-clear.
-              if not re.search(r"AVAILABILITY\s+(?:UPDATE|REPORT)", text, re.I):
-                  return {
-                      "questionable": [], "out": [], "reported": False,
-                      "source": doc_url, "pdf": final_url, "label": AVAIL_LABEL,
-                  }
+              lines = [re.sub(r"\s+", " ", x).strip()
+                       for x in text.splitlines() if x.strip()]
 
-              out = {"questionable": [], "out": [], "reported": True,
-                     "source": doc_url, "pdf": final_url, "label": AVAIL_LABEL}
-              row = re.compile(
-                  r"No\.?\s*(?P<no>\d+)\s+(?P<pos>[A-Z/]+)\s+(?P<name>.+?)\s+"
-                  r"[-–—]\s+(?P<status>Out for the season|Out for the game|"
-                  r"Questionable for the game)\s*\((?P<detail>[^)]+)\)",
-                  re.I
+              # A Notre Dame game-notes PDF contains policy language headed
+              # AVAILABILITY UPDATES and, when a report exists, a dated block
+              # headed AVAILABILITY UPDATE (SEPT. 21). Parse only the last
+              # dated report so policy prose cannot be mistaken for player data.
+              report_heads = [i for i,x in enumerate(lines)
+                              if re.match(r"^AVAILABILITY UPDATE\s*\(", x, re.I)]
+              base = {
+                  "questionable": [], "out": [], "reported": False,
+                  "source": doc_url, "pdf": final_url, "label": AVAIL_LABEL,
+              }
+              if not report_heads:
+                  return base
+
+              section = None
+              item = re.compile(
+                  r"^[•*]?\s*(?:No\.?\s*(?P<no>\d+)\s+)?"
+                  r"(?P<pos>[A-Z][A-Z/]*)\s+(?P<body>.+)$"
               )
-              for m in row.finditer(text):
-                  status = m.group("status").lower()
-                  bucket = "questionable" if status.startswith("questionable") else "out"
-                  scope = ("Out for season" if "season" in status
-                           else "Out for game" if bucket == "out"
-                           else "Questionable")
-                  out[bucket].append({
-                      "no": m.group("no"), "pos": m.group("pos"),
-                      "name": re.sub(r"\s+", " ", m.group("name")).strip(),
-                      "detail": scope + " · " + m.group("detail").strip(),
+
+              # Current reports end at the pronunciation note / two-deep.
+              for line in lines[report_heads[-1]+1:]:
+                  low = line.lower()
+                  if line.startswith("NOTRE DAME ") or line.startswith("DEPTH CHART") or \
+                     low.startswith("pronunciation guide"):
+                      break
+                  if re.fullmatch(r"Questionable(?: for the Game)?", line, re.I):
+                      section = ("questionable", "Questionable")
+                      continue
+                  if re.fullmatch(r"Out for the Game", line, re.I):
+                      section = ("out", "Out for game")
+                      continue
+                  if re.fullmatch(r"Out for the Season", line, re.I):
+                      section = ("out", "Out for season")
+                      continue
+                  if section is None or not line.lstrip().startswith(("•","*")):
+                      continue
+
+                  m = item.match(line)
+                  if not m:
+                      continue
+                  body = m.group("body")
+                  # Player surnames can contain a hyphen. Greedy name capture
+                  # makes the final dash the ailment separator.
+                  split = re.match(r"^(?P<name>.+)\s*[–—]\s*(?P<detail>.+)$", body)
+                  if not split:
+                      split = re.match(r"^(?P<name>.+)\s*-\s*(?P<detail>[^-]+)$", body)
+                  if not split:
+                      continue
+
+                  bucket, scope = section
+                  base[bucket].append({
+                      "no": m.group("no") or "",
+                      "pos": m.group("pos"),
+                      "name": split.group("name").strip(),
+                      "detail": scope + " · " + split.group("detail").strip(),
                   })
-              # A heading with zero parsed rows is more likely a format change
-              # than an all-clear, so fail closed instead of publishing bad data.
-              if not out["out"] and not out["questionable"]:
-                  out["reported"] = False
-              return out
+
+              if base["out"] or base["questionable"]:
+                  base["reported"] = True
+              return base
 
           def parse_pdf(game, doc_url, data, final_url):
               text = pdf_text(data)
