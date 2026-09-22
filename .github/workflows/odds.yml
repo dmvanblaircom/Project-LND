@@ -285,12 +285,16 @@ jobs:
               except Exception:
                   html = ""
               soup = BeautifulSoup(html, "html.parser")
-              candidates = [a.get("href") for a in soup.find_all("a", href=True)]
-              link = next((u for u in candidates
-                           if u and (u.lower().endswith(".pdf") or
-                                     "storage.googleapis.com/fightingirish-com/" in u)), None)
+              anchors = soup.find_all("a", href=True)
+              # WMT document wrappers include unrelated PDF links in the
+              # global footer. Use the wrapper's explicit Download control.
+              download = next((a for a in anchors
+                               if "download" in a.get_text(" ", strip=True).lower() and
+                                  (a["href"].lower().endswith(".pdf") or
+                                   "storage.googleapis.com/fightingirish-com/" in a["href"])), None)
+              link = download["href"] if download else None
               if not link:
-                  sys.exit(f"official document page has no downloadable PDF: {doc_url}")
+                  sys.exit(f"official document page has no Download PDF link: {doc_url}")
               pdf, pdf_url = fetch_bytes(urljoin(final, link))
               if pdf[:5] != b"%PDF-":
                   sys.exit(f"official download is not a PDF: {pdf_url}")
@@ -357,10 +361,6 @@ jobs:
           def parse_pdf(game, doc_url, data, final_url):
               text = pdf_text(data)
               lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
-              if "Purdue" in game:
-                  print("  DEBUG Purdue extracted lines:")
-                  for x in lines[:120]:
-                      print("   ", repr(x))
               groups = {}
               current_group = current_pos = None
               depth = 0
