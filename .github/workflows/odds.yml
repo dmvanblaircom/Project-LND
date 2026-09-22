@@ -199,298 +199,219 @@ jobs:
                 f"{len({i['source'] for i in keep})} sources")
           PY
 
-      - name: Parse the UHND depth chart, availability and week-by-week history
+      - name: Pull official Notre Dame depth charts
         continue-on-error: true
         run: |
-          pip install --quiet beautifulsoup4
+          pip install --quiet beautifulsoup4 pypdf
           python3 - <<'PY'
-          """Parse UHND's weekly Notre Dame depth chart + availability update."""
-          import copy, json, re, sys, urllib.request
+          """Build Notre Dame's depth snapshot from FightingIrish.com's official PDFs."""
+          import io, json, re, sys, urllib.request
           from datetime import datetime, timezone
+          from urllib.parse import urljoin
           from bs4 import BeautifulSoup
+          from pypdf import PdfReader
 
-          INDEX = "https://www.uhnd.com/football/team-news/depth-charts/"
+          TEAM_ID = "notre-dame"
+          SEASON = "2026"
           UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
 
-          def fetch(url):
-              req = urllib.request.Request(url, headers={"user-agent": UA})
-              return urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "replace")
+          # The producer reads the team's declaration rather than owning a second
+          # source URL that can drift away from TEAM_CONFIG.
+          config = open("teams/notre-dame.js", encoding="utf-8").read()
+          def declared(name):
+              m = re.search(r"\b" + re.escape(name) + r'\s*:\s*"([^"]+)"', config)
+              if not m:
+                  sys.exit(f"TEAM_CONFIG has no {name} declaration")
+              return m.group(1)
+          INDEX = declared("depthChartIndex")
+          SOURCE_LABEL = declared("depthChartLabel")
 
-          SEASON = "2026"
+          def request(url):
+              return urllib.request.Request(url, headers={"user-agent": UA})
 
-          def all_articles():
-              """Every depth chart post for this season, oldest first. The index paginates,
-              so walk a few pages. Dates come from the URL, which UHND puts there."""
-              found = {}
-              for page in range(1, 5):
-                  url = INDEX if page == 1 else INDEX.rstrip("/") + f"/page/{page}/"
-                  try:
-                      html = fetch(url)
-                  except Exception:
-                      break
-                  hits = re.findall(
-                      r'href="(https://www\.uhnd\.com/football/(\d{4})/(\d{2})/(\d{2})/[^"]*depth-chart[^"]*?)"',
-                      html)
-                  if not hits:
-                      break
-                  for link, y, m, d in hits:
-                      if y == SEASON:
-                          found[link.rstrip("/")] = f"{y}-{m}-{d}"
-              return sorted(found.items(), key=lambda kv: kv[1])
+          def fetch_text(url):
+              with urllib.request.urlopen(request(url), timeout=30) as r:
+                  return r.read().decode("utf-8", "replace"), r.geturl()
 
+          def fetch_bytes(url):
+              with urllib.request.urlopen(request(url), timeout=30) as r:
+                  return r.read(), r.geturl()
 
-          def weeks_out(name, history):
-              """Consecutive snapshots, counting back from the latest, where this player
-              was listed out. Turns a status into a trend."""
-              n = 0
-              for snap in reversed(history):
-                  names = {p["name"] for p in snap.get("availability", {}).get("out", [])}
-                  if name in names:
-                      n += 1
-                  else:
-                      break
-              return n
+          def chart_links():
+              html, _ = fetch_text(INDEX)
+              soup = BeautifulSoup(html, "html.parser")
+              year = next((h for h in soup.find_all(["h2","h3"])
+                           if h.get_text(" ", strip=True) == SEASON), None)
+              if year is None:
+                  sys.exit(f"{SEASON} section not found at official depth index")
+              table = year.find_next("table")
+              if table is None:
+                  sys.exit(f"{SEASON} depth table not found at official depth index")
 
-          def cells(tr):
-              return [c.get_text(" ", strip=True) for c in tr.find_all(["td", "th"])]
-
-          def parse_group(table):
-              """Rows carry position forward. A blank Pos cell means next man down;
-              'or' means co-listed at the SAME depth — that is a job battle."""
-              rows, pos, depth = [], None, 0
+              out = []
               for tr in table.find_all("tr"):
-                  c = cells(tr)
-                  if len(c) < 3 or c[0].lower() in ("pos", "pos."):
+                  cells = tr.find_all(["th","td"])
+                  if len(cells) < 2:
                       continue
-                  tag = c[0].strip()
-                  is_or = tag.lower() == "or"
-                  if tag and not is_or:
-                      pos, depth = tag, 1
-                  elif is_or:
-                      pass                      # same depth as the row above
-                  else:
-                      depth += 1
-                  if pos is None:
+                  game = cells[0].get_text(" ", strip=True)
+                  link = cells[1].find("a", href=True)
+                  if not link:
                       continue
-                  rows.append({"pos": pos, "depth": depth, "or": is_or, "no": c[1],
-                               "name": c[2],
-                               "cl": c[5] if len(c) > 5 else (c[-1] if len(c) > 3 else "")})
-              return rows
-
-          def parse_availability(soup):
-              """Find the AVAILABILITY heading, then read each status heading + list.
-              `reported` says whether the article carried a report at all: UHND's
-              Week 3 post had only an editor's placeholder where it belonged, and
-              an absent report must not be read as everyone healthy."""
-              out = {"questionable": [], "out": [], "reported": False}
-              head = None
-              for h in soup.find_all(re.compile("^h[1-6]$")):
-                  if "availability" in h.get_text(" ", strip=True).lower():
-                      head = h; break
-              if head is None:
-                  return out
-              out["reported"] = True
-              bucket = None
-              for el in head.find_all_next():
-                  if el.name and re.match(r"^h[1-3]$", el.name) and el is not head:
-                      break                      # left the availability block
-                  if el.name and re.match(r"^h[4-6]$", el.name):
-                      t = el.get_text(" ", strip=True).lower()
-                      bucket = "questionable" if "question" in t else ("out" if "out" in t else None)
-                  elif el.name == "li" and bucket:
-                      txt = el.get_text(" ", strip=True)
-                      # separator must have spaces around it, or a hyphenated surname
-                      # like Viliamu-Asa gets split in half
-                      m = (re.match(r"No\.?\s*(\d+)\s+([A-Za-z/]+)\s+(.+?)\s+[–—]\s+(.+)$", txt)
-                           or re.match(r"No\.?\s*(\d+)\s+([A-Za-z/]+)\s+(.+?)\s+-\s+(.+)$", txt))
-                      if m:
-                          out[bucket].append({"no": m.group(1), "pos": m.group(2),
-                                              "name": m.group(3), "detail": m.group(4)})
-                      elif txt:
-                          out[bucket].append({"no": "", "pos": "", "name": txt, "detail": ""})
+                  out.append((game, urljoin(INDEX, link["href"])))
               return out
 
-          def build(url, html):
+          def resolve_pdf(doc_url):
+              if doc_url.lower().endswith(".pdf"):
+                  data, final = fetch_bytes(doc_url)
+                  return data, final
+              html, final = fetch_text(doc_url)
               soup = BeautifulSoup(html, "html.parser")
+              link = next((a.get("href") for a in soup.find_all("a", href=True)
+                           if ".pdf" in a.get("href","").lower()), None)
+              if not link:
+                  sys.exit(f"official document page has no PDF: {doc_url}")
+              return fetch_bytes(urljoin(final, link))
+
+          ROW = re.compile(
+              r"^(?:(?P<tag>or|[A-Z][A-Z0-9/-]*)\s+)?"
+              r"(?P<no>\d+[A-Z]?)\s+"
+              r"(?P<name>.+?)\s+"
+              r"(?P<ht>\d-\d+)\s+"
+              r"(?P<wt>\d+)\s+"
+              r"(?P<cl>Fr\.|So\.|Jr\.|Sr\.|5th|Gr\.|R-Fr\.|R-So\.|R-Jr\.|R-Sr\.)$"
+          )
+
+          def pdf_date(url):
+              m = re.search(r"/(\d{4})/(\d{2})/(\d{2})/", url)
+              return "-".join(m.groups()) if m else None
+
+          def parse_pdf(game, doc_url, data, final_url):
+              reader = PdfReader(io.BytesIO(data))
+              text = "\n".join((p.extract_text() or "") for p in reader.pages)
+              lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
               groups = {}
-              for tbl in soup.find_all("table"):
-                  head = tbl.find_previous(re.compile("^h[1-3]$"))
-                  label = head.get_text(" ", strip=True) if head else "Depth Chart"
-                  label = re.sub(r"\s*Depth Chart\s*$", "", label).strip() or "Depth Chart"
-                  rows = parse_group(tbl)
-                  if rows:
-                      groups.setdefault(label, []).extend(rows)
+              current_group = current_pos = None
+              depth = 0
+              title = next((x for x in lines if x.startswith("DEPTH CHART")), f"Depth chart - {game}")
+
+              for line in lines:
+                  gm = re.fullmatch(r"NOTRE DAME (OFFENSE|DEFENSE|SPECIAL TEAMS)", line)
+                  if gm:
+                      current_group = gm.group(1).title()
+                      groups.setdefault(current_group, [])
+                      current_pos, depth = None, 0
+                      continue
+                  if current_group is None or line.startswith("Pos.") or line.startswith("DEPTH CHART"):
+                      continue
+                  m = ROW.match(line)
+                  if not m:
+                      continue
+                  tag = m.group("tag")
+                  is_or = bool(tag and tag.lower() == "or")
+                  if tag and not is_or:
+                      current_pos, depth = tag, 1
+                  elif is_or:
+                      if current_pos is None:
+                          continue
+                  else:
+                      if current_pos is None:
+                          continue
+                      depth += 1
+                  groups[current_group].append({
+                      "pos": current_pos, "depth": depth, "or": is_or,
+                      "no": m.group("no"), "name": m.group("name"), "cl": m.group("cl")
+                  })
+
+              rows = sum(len(v) for v in groups.values())
+              if rows < 25:
+                  raise ValueError(f"only {rows} depth rows parsed from {game}")
 
               battles = []
-              for label, rows in groups.items():
-                  for r in rows:
-                      if r["or"] and r["depth"] == 1:
-                          mates = [x["name"] for x in rows if x["pos"] == r["pos"] and x["depth"] == 1]
-                          if len(mates) > 1 and not any(b["pos"] == r["pos"] for b in battles):
-                              battles.append({"group": label, "pos": r["pos"], "names": mates})
+              for label, rows_in_group in groups.items():
+                  for r in rows_in_group:
+                      if not (r["or"] and r["depth"] == 1):
+                          continue
+                      mates = [x["name"] for x in rows_in_group
+                               if x["pos"] == r["pos"] and x["depth"] == 1]
+                      if len(mates) > 1 and not any(b["group"] == label and b["pos"] == r["pos"]
+                                                   for b in battles):
+                          battles.append({"group": label, "pos": r["pos"], "names": mates})
 
-              title = soup.find("h1")
               return {
-                  "source": url,
-                  "title": title.get_text(" ", strip=True) if title else "Depth chart",
+                  "team": TEAM_ID,
+                  "source": doc_url,
+                  "sourceLabel": SOURCE_LABEL,
+                  "pdf": final_url,
+                  "title": title,
                   "fetched": datetime.now(timezone.utc).isoformat(),
+                  "date": pdf_date(final_url),
                   "groups": groups,
                   "battles": battles,
-                  "availability": parse_availability(soup),
+                  # The official depth PDF is a two-deep, not an injury report.
+                  # Absence of a report must never be rendered as "everyone healthy."
+                  "availability": {"questionable": [], "out": [], "reported": False},
               }
 
           def diff(new, old):
-              """Week over week: who moved, who appeared, who dropped off."""
               def flat(d):
-                  m = {}
+                  out = {}
                   for label, rows in (d.get("groups") or {}).items():
                       for r in rows:
-                          m[r["name"]] = (r["pos"], r["depth"])
-                  return m
+                          out[r["name"]] = (label, r["pos"], r["depth"])
+                  return out
               if not old:
                   return []
               a, b = flat(old), flat(new)
-              out = []
-              for name, (pos, dep) in b.items():
+              changes = []
+              for name, (grp, pos, dep) in b.items():
                   if name not in a:
-                      out.append(f"{name} enters the two-deep at {pos}")
-                  elif a[name] != (pos, dep):
-                      op, od = a[name]
-                      if op != pos:
-                          out.append(f"{name} moves from {op} to {pos}")
-                      elif dep < od:
-                          out.append(f"{name} moves up to {dep} at {pos}")
-                      else:
-                          out.append(f"{name} drops to {dep} at {pos}")
+                      changes.append(f"{name} enters the two-deep at {pos}")
+                      continue
+                  ogrp, opos, odep = a[name]
+                  if (grp, pos) != (ogrp, opos):
+                      changes.append(f"{name} moves from {opos} to {pos}")
+                  elif dep < odep:
+                      changes.append(f"{name} moves up to {dep} at {pos}")
+                  elif dep > odep:
+                      changes.append(f"{name} drops to {dep} at {pos}")
               for name in a:
                   if name not in b:
-                      out.append(f"{name} off the two-deep")
-              ao = {x["name"] for x in (old.get("availability") or {}).get("out", [])}
-              bo = {x["name"] for x in new["availability"]["out"]}
-              for n in sorted(bo - ao): out.append(f"{n} now listed out")
-              for n in sorted(ao - bo): out.append(f"{n} no longer listed out")
-              return out[:25]
+                      changes.append(f"{name} off the two-deep")
+              return changes[:40]
 
-
-          def later_reporting(latest, chart_date):
-              """Flag players written about AFTER this chart was published. This never
-              decides who is right — it only says newer reporting exists, and links it.
-              Matching is exact: full name, or a last name that is unique on the roster."""
+          history = []
+          for game, doc_url in chart_links():
+              print("  official depth:", game)
               try:
-                  news = json.load(open("news.json")).get("items", [])
-              except Exception:
-                  return
+                  data, final_url = resolve_pdf(doc_url)
+                  snap = parse_pdf(game, doc_url, data, final_url)
+              except Exception as e:
+                  print(f"    SKIP: {str(e)[:120]}")
+                  continue
+              # Storage URLs include the athletics posting date. If that ever
+              # changes, preserve official table order rather than inventing a date.
+              if snap["date"] is None:
+                  snap["date"] = f"{SEASON}-00-{len(history)+1:02d}"
+              history.append(snap)
 
-              everyone = [r["name"] for rows in latest["groups"].values() for r in rows]
-              for p in latest["availability"]["out"] + latest["availability"]["questionable"]:
-                  everyone.append(p["name"])
-              surnames = {}
-              for n in everyone:
-                  last = n.split()[-1].strip(".")
-                  surnames.setdefault(last, set()).add(n)
+          if not history:
+              sys.exit("no official depth chart parsed - leaving existing snapshots alone")
 
-              fresh = [i for i in news if (i.get("published") or "") > chart_date + "T23:59:59"]
+          for i, snap in enumerate(history):
+              snap["changes"] = diff(snap, history[i-1] if i else None)
 
-              for p in latest["availability"]["out"] + latest["availability"]["questionable"]:
-                  blob_hits, name = [], p["name"]
-                  last = name.split()[-1].strip(".")
-                  unique_last = len(surnames.get(last, set())) == 1 and len(last) >= 5
-                  for item in fresh:
-                      hay = (item.get("title", "") + " " + item.get("summary", ""))
-                      if name in hay or (unique_last and re.search(r"\b" + re.escape(last) + r"\b", hay)):
-                          blob_hits.append({"source": item.get("source"), "title": item.get("title"),
-                                            "link": item.get("link"), "published": item.get("published")})
-                  if blob_hits:
-                      blob_hits.sort(key=lambda x: x["published"] or "", reverse=True)
-                      p["newer"] = blob_hits[:2]
+          latest = history[-1]
+          json.dump(latest, open("depth.json", "w"), indent=1)
+          json.dump({
+              "team": TEAM_ID,
+              "updated": datetime.now(timezone.utc).isoformat(),
+              "snapshots": history
+          }, open("depth-history.json", "w"), indent=1)
 
-          if __name__ == "__main__":
-              # Anything already parsed stays put; only genuinely new posts are fetched.
-              # This file is written as {"updated":..., "snapshots":[...]}. Read it back
-              # the same way, and tolerate a bare list from an older run.
-              try:
-                  raw = json.load(open("depth-history.json"))
-                  history = raw.get("snapshots", []) if isinstance(raw, dict) else raw
-                  if not isinstance(history, list):
-                      history = []
-              except Exception:
-                  history = []
-              history = [h for h in history if isinstance(h, dict) and h.get("source")]
-              known = {h["source"].rstrip("/") for h in history}
-
-              articles = all_articles()
-              print(f"  {len(articles)} depth chart posts found for {SEASON}")
-              if not articles:
-                  sys.exit("index returned nothing — leaving existing files alone")
-
-              added = 0
-              for url, date in articles:
-                  if url in known:
-                      continue
-                  print("  fetching", date, url.split("/")[-1][:52])
-                  try:
-                      snap = build(url, fetch(url))
-                  except Exception as e:
-                      print(f"    SKIP: {str(e)[:90]}")
-                      continue
-                  rows = sum(len(v) for v in snap["groups"].values())
-                  if rows < 25:
-                      print(f"    SKIP: only {rows} rows parsed")
-                      continue
-                  snap["date"] = date
-                  history.append(snap)
-                  added += 1
-
-              if not history:
-                  sys.exit("nothing parsed — refusing to write")
-
-              history.sort(key=lambda h: h["date"])
-
-              # A chart posted without an availability report inherits the previous
-              # week's, and says so. Older snapshots on file predate the `reported`
-              # flag; for those, an empty report is taken to mean none was published.
-              # Runs over the whole history every time, so it is idempotent.
-              for i, snap in enumerate(history):
-                  av = snap.get("availability") or {}
-                  reported = av.get("reported", bool(av.get("out") or av.get("questionable")))
-                  if reported or i == 0:
-                      av.pop("carried_from", None); av.pop("carried_source", None)
-                      snap["availability"] = av
-                      continue
-                  prev = history[i - 1]["availability"]
-                  snap["availability"] = {
-                      "questionable": copy.deepcopy(prev.get("questionable", [])),
-                      "out": copy.deepcopy(prev.get("out", [])),
-                      "reported": False,
-                      "carried_from": history[i - 1]["date"],
-                      "carried_source": history[i - 1].get("source"),
-                  }
-                  print(f"  {snap['date']}: no availability report in the article; "
-                        f"carrying the {history[i - 1]['date']} report forward")
-
-              # each snapshot carries its diff against the one before it
-              for i, snap in enumerate(history):
-                  snap["changes"] = diff(snap, history[i - 1] if i else None)
-
-              latest = history[-1]
-              for p in latest["availability"]["out"] + latest["availability"]["questionable"]:
-                  p["weeks"] = weeks_out(p["name"], history)
-              later_reporting(latest, latest["date"])
-              flagged = sum(1 for p in latest["availability"]["out"]
-                            + latest["availability"]["questionable"] if p.get("newer"))
-              print(f"  {flagged} player(s) have reporting newer than the {latest['date']} chart")
-
-              json.dump(latest, open("depth.json", "w"), indent=1)
-              json.dump({"updated": datetime.now(timezone.utc).isoformat(),
-                         "snapshots": history}, open("depth-history.json", "w"), indent=1)
-
-              print(f"  {added} new snapshot(s); history now {len(history)} weeks "
-                    f"({history[0]['date']} to {latest['date']})")
-              print(f"  latest: {len(latest['battles'])} battles, "
-                    f"{len(latest['availability']['out'])} out, "
-                    f"{len(latest['changes'])} changes vs prior week")
-
+          print(f"  wrote {len(history)} official chart(s); latest {latest['title']}")
+          print(f"  latest: {sum(len(v) for v in latest['groups'].values())} rows, "
+                f"{len(latest['battles'])} battles, {len(latest['changes'])} changes")
           PY
 
       - name: Commit if the numbers moved
@@ -498,5 +419,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add odds-title.json odds-playoff.json odds-history.json news.json depth.json depth-history.json
-          git diff --staged --quiet || git commit -m "Refresh Kalshi odds"
+          git diff --staged --quiet || git commit -m "Refresh team data"
           git push
