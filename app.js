@@ -1598,8 +1598,8 @@ function renderGame(gd, inline){
     // Score, then straight to the box score. Everything else follows, and a
     // Close at the foot so a long expansion can be dismissed without
     // scrolling back up to the row.
-    return sec.head+sec.people+sec.quarters+sec.stats+sec.play+sec.scoring+
-      '<button type="button" class="more" data-close-detail>Close</button>'+stamp;
+    return '<div class="game-inline">'+sec.head+sec.people+sec.quarters+sec.stats+sec.play+sec.scoring+
+      '<button type="button" class="more" data-close-detail>Close</button>'+stamp+'</div>';
   }
   return html+sec.head+sec.play+sec.winprob+sec.quarters+sec.stats+sec.people+sec.scoring+stamp+"</div>";
 }
