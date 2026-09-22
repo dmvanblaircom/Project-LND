@@ -589,7 +589,7 @@ function pollBody(p){
     var move = mv>0 ? '<span class="up"><span class="sr-only">up '+mv+'</span><span aria-hidden="true">\u25B2'+mv+"</span></span>"
              : mv<0 ? '<span class="down"><span class="sr-only">down '+Math.abs(mv)+'</span><span aria-hidden="true">\u25BC'+Math.abs(mv)+"</span></span>"
              : (x.isNew ? '<span class="up"><span class="sr-only">new</span><span aria-hidden="true">NEW</span></span>' : "");
-    html+='<li class="row '+(x.mine?"mine":"")+'" style="padding:.45rem .15rem">'+
+    html+='<li class="row poll-row '+(x.mine?"mine":"")+'">'+
       '<span class="date" style="width:2rem"><span class="sr-only">Rank </span>'+
       '<span class="d">'+x.rank+"</span></span>"+
       '<span class="mid"><span class="team">'+esc(x.team)+"</span></span>"+
@@ -778,14 +778,17 @@ function loadAround(){
       var view=AROUND.view;
       if(view==="rankings" && !pollHtml) view="games";
       if(view==="games" && !gameHtml)    view="rankings";
-      html='<div class="seg pills" role="group" aria-label="Show">'+
+      html='<div class="around-shell">'+
+        '<div class="around-head"><div><span class="around-eyebrow">Top 25</span><h2>National picture</h2></div>'+
+        '<span class="around-meta">Games + polls</span></div>'+
+        '<div class="seg pills around-view" role="group" aria-label="Show">'+
         '<button type="button" data-view="games" aria-pressed="'+(view==="games")+'">'+
           'Games<span class="n">'+gameCount+"</span></button>"+
         '<button type="button" data-view="rankings" aria-pressed="'+(view==="rankings")+'">'+
           "Rankings</button>"+
         "</div>"+
         '<div id="ar-games"'+(view==="games"?"":" hidden")+">"+gameHtml+"</div>"+
-        '<div id="ar-rankings"'+(view==="rankings"?"":" hidden")+">"+pollHtml+"</div>";
+        '<div id="ar-rankings"'+(view==="rankings"?"":" hidden")+">"+pollHtml+"</div></div>";
       AROUND.view=view;
     }
     return html;
