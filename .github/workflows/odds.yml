@@ -252,6 +252,12 @@ jobs:
               year = next((h for h in soup.find_all(["h2","h3"])
                            if h.get_text(" ", strip=True) == SEASON), None)
               if year is None:
+                  print(f"  DEBUG official index bytes: {len(html)}")
+                  for needle in ("2026", "Notre Dame Depth Chart", "70b346c6-0b51-4389-b1e4-00cbf773efbe", "__NEXT_DATA__"):
+                      p = html.find(needle)
+                      print(f"  DEBUG {needle}: {p}")
+                      if p >= 0:
+                          print("  DEBUG context:", re.sub(r"\\s+", " ", html[max(0,p-240):p+520])[:800])
                   sys.exit(f"{SEASON} section not found at official media index")
               table = year.find_next("table")
               if table is None:
