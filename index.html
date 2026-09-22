@@ -72,19 +72,25 @@
   // covers a team removed from the registry after someone bookmarked it.
   var asked = null;
   try { asked = new URLSearchParams(location.search).get("team"); } catch(e){}
-  var id = DEFAULT;
+  var id = null;
   [asked, get(TEAM_KEY)].some(function(t){
     if (t && ID.test(t)) { id = t; return true; }
     return false;
   });
-  if (id !== get(TEAM_KEY)) set(TEAM_KEY, id);
-  document.documentElement.setAttribute("data-team", id);
+  // NOTHING ASKED AND NOTHING STORED is a real state, not a reason to guess.
+  // A fan arriving for the first time has not picked a team, and picking one
+  // for them means whoever gets here first sees somebody else's club. The
+  // chooser is what happens instead (decision 0016); app.js is not loaded at
+  // all, because there is no team for it to render.
+  var choosing = !id;
+  if (!choosing && id !== get(TEAM_KEY)) set(TEAM_KEY, id);
+  document.documentElement.setAttribute("data-team", choosing ? "" : id);
 
   // Replay what this browser last saw for THIS team. Values come from the
   // page's own storage, but they are still read as data: a token name has to
   // look like one, and a value carrying CSS punctuation is dropped.
   var saved = null;
-  try { saved = JSON.parse(get(BOOT_KEY + id) || "null"); } catch(e){}
+  try { saved = choosing ? null : JSON.parse(get(BOOT_KEY + id) || "null"); } catch(e){}
   // The browser chrome, decided once at the end. iOS takes theme-color at
   // first paint and keeps it, so it must never be left pointing at the
   // DEFAULT team's colour when this page is some other team
@@ -143,18 +149,27 @@
       },
       function(){ teamReady = true; start(); });
   }
+
   // The team's config first, because app.js reads TEAM_CONFIG as it parses.
   // A missing one falls back to the default rather than loading an
   // application with no team. This is what replaces a hard-coded list of
   // known teams: the file system is the list (decision 0014).
-  loadTeam(id, id !== DEFAULT);
+  if (!choosing) loadTeam(id, id !== DEFAULT);
 
+  // The registry and TeamOS load either way - the chooser needs them too.
   ["teams/index.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
    "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js"]
     .forEach(function(src){ inject(src); });
 
-  if (domReady) start();
-  else document.addEventListener("DOMContentLoaded", function(){ domReady = true; start(); });
+  if (choosing) {
+    // No team, so no Suite. The chooser renders instead, from the registry.
+    document.documentElement.setAttribute("data-choosing", "");
+    inject("chooser.js");
+  } else if (domReady) {
+    start();
+  } else {
+    document.addEventListener("DOMContentLoaded", function(){ domReady = true; start(); });
+  }
 })();
 </script>
 </head>

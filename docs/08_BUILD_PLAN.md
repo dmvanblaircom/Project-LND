@@ -116,9 +116,24 @@ A first visit to a team while offline still cannot work - those files have never
 been fetched. Once a team has been opened online it works offline, and switching
 between opened teams works offline.
 
-**7C, needs a product decision:** where selection lives for a fan — a first-run
-screen, a switcher in the header, or separate URLs per team. `?team=` is a
-mechanism, not an experience.
+**7C complete 2026-09-22.** A fan who arrives having asked for nobody in
+particular has not chosen a team, and the Suite no longer chooses for them:
+`chooser.js` renders from the registry, `app.js` is not loaded at all, and
+picking a team navigates to `?team=<id>`. Selectable means a config exists;
+everything else is listed greyed as *Not yet*. The page paints in the neutral
+`:root`. `docs/decisions/0016-no-team-yet-is-a-state.md`.
+
+**Phase 7 is complete.** The team is chosen at runtime (7A), cached per team
+offline (7B), and picked by the fan (7C).
+
+Carried forward, none of it blocking:
+- There is no way to change teams from inside a Suite — a switcher is the
+  obvious next thing.
+- The registry holds four programs. Filling it needs an FBS roster; ESPN's
+  `/teams` endpoint cannot supply one (decision 0014) and `groups=80` does not
+  filter it. The Action, which has network access, is the way in.
+- No conference data beyond the four hand-authored rows.
+- A first visit to a team while offline still cannot work.
 
 ## Phase 8: My Teams
 

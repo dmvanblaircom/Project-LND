@@ -75,6 +75,28 @@
   --t-accent-line:rgba(var(--t-accent-rgb),.30)}
 
 /* ====================================================================
+   THE CHOOSER
+   A fan who has not picked a team yet. Painted entirely in the neutral
+   :root - nobody's colours - because we have not been told whose to use
+   (docs/decisions/0016-no-team-yet-is-a-state.md).
+   ==================================================================== */
+.chooser{max-width:34rem;margin:0 auto;padding:2.5rem 0 4rem}
+.chooser h1{font-family:var(--t-font-display);font-weight:700;font-size:2.1rem;line-height:1.1;letter-spacing:.01em;margin:0 0 .5rem;color:var(--paper)}
+.chooser-sub{margin:0 0 2rem;color:var(--dim);font-size:1rem;line-height:1.5}
+.chooser-conf{font-family:var(--t-font-display);font-weight:600;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t-accent-text);margin:1.75rem 0 .5rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+.chooser-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.pick{display:flex;align-items:center;justify-content:space-between;gap:.75rem;width:100%;min-height:3.25rem;padding:.75rem 1rem;border:1px solid var(--line);border-radius:10px;background:rgba(var(--t-surface-rgb),.55);color:var(--paper);font-family:var(--t-font-ui);font-size:1.05rem;text-align:left;cursor:pointer;transition:border-color .16s,background .16s,transform .16s}
+.pick:hover{border-color:var(--t-accent-text);background:rgba(var(--t-raise-rgb),.55);transform:translateY(-1px)}
+.pick:focus-visible{outline:2px solid var(--t-focus);outline-offset:2px}
+.pick-name{font-weight:500}
+.pick-go{color:var(--t-accent-text);font-size:1.15rem;flex:none}
+.pick.soon{cursor:default;opacity:.5;background:none;border-style:dashed}
+.pick.soon:hover{border-color:var(--line);background:none;transform:none}
+.pick-note{font-family:var(--t-font-display);font-weight:600;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);flex:none}
+.chooser-foot{margin:2.25rem 0 0;color:var(--dim);font-size:.85rem;line-height:1.55}
+.chooser-foot em{font-style:normal;font-weight:600;color:var(--paper)}
+
+/* ====================================================================
    BASE
    ==================================================================== */
 *{box-sizing:border-box}

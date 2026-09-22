@@ -16,7 +16,7 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "iw-2026-09-21d";
+var VERSION = "iw-2026-09-22a";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -25,7 +25,7 @@ var DATA    = VERSION + "-data";
 // it can do is precache everything that is the same whichever team is showing
 // - and nothing that is not.
 var SHELL_FILES = [
-  "./", "./index.html", "./app.css", "./app.js",
+  "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
   "./teams/index.js",
   "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
   "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js"

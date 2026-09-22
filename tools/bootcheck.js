@@ -89,7 +89,7 @@ function run(opts) {
   for (var guard = 0; pending.length && guard < 50; guard++) pending.shift()();
   if (opts.domFirst === false && doc.__domReady) doc.__domReady();
   for (guard = 0; pending.length && guard < 50; guard++) pending.shift()();
-  return { team: attrs["data-team"], applied: applied, injected: injected,
+  return { team: attrs["data-team"], attrs: attrs, applied: applied, injected: injected,
            meta: meta, title: doc.title, store: store };
 }
 
@@ -101,16 +101,32 @@ var ND = { "--t-accent": "#C99700", "--t-surface": "#0C2340", "--t-deep": "#0719
 function saved(id, set) { var s = {}; s["iw-boot-" + id] = JSON.stringify(set); return s; }
 
 console.log("which team");
-eq(run({}).team, "notre-dame", "nothing asked, nothing stored -> the default");
+eq(run({}).team, "", "nothing asked and nothing stored is NOT a reason to guess a team");
+eq(run({}).attrs["data-choosing"], "", "it is its own state, and the page says so");
+eq(run({}).injected.indexOf("app.js"), -1,
+   "app.js is never loaded without a team - it reads TEAM_CONFIG as it parses");
+ok(run({}).injected.indexOf("chooser.js") !== -1, "the chooser is loaded instead");
+eq(run({}).injected.filter(function (s) { return /^teams\/[a-z-]+\.js$/.test(s); }),
+   ["teams/index.js"], "and no team config is fetched, because none was chosen");
+eq(run({}).store["iw-team"], undefined, "nothing is stored, so the next visit asks again");
 eq(run({ search: "?team=ohio-state" }).team, "ohio-state", "?team= wins");
 eq(run({ storage: { "iw-team": "ohio-state" } }).team, "ohio-state", "then the last choice this browser made");
 eq(run({ search: "?team=notre-dame", storage: { "iw-team": "ohio-state" } }).team, "notre-dame",
    "?team= beats the stored choice, so a link can override it");
 eq(run({ search: "?team=alabama" }).team, "alabama",
    "an id the boot script has never heard of is still taken - the registry has not loaded, so it cannot know");
-eq(run({ search: "?team=../../etc/passwd" }).team, "notre-dame", "but an id that is not an id is refused");
-eq(run({ search: "?team=Notre-Dame" }).team, "notre-dame", "and so is one with capitals, because it becomes a file path");
-eq(run({ search: "?team=" }).team, "notre-dame", "an empty ?team= is not a team");
+eq(run({ search: "?team=../../etc/passwd" }).team, "", "but an id that is not an id is refused, and that is a choice not yet made");
+eq(run({ search: "?team=Notre-Dame" }).team, "", "and so is one with capitals, because it becomes a file path");
+eq(run({ search: "?team=" }).team, "", "an empty ?team= is not a team");
+
+console.log(" but a chosen team goes straight through");
+["?team=ohio-state", ""].forEach(function (q, i) {
+  var r = run(q ? { search: q } : { storage: { "iw-team": "ohio-state" } });
+  eq(r.team, "ohio-state", (i ? "a stored choice" : "a URL choice") + " skips the chooser");
+  eq(r.attrs["data-choosing"], undefined, " and the page is not in choosing state");
+  ok(r.injected.indexOf("chooser.js") === -1, " and the chooser is not loaded");
+  ok(r.injected.indexOf("app.js") !== -1, " and app.js is");
+});
 
 console.log(" a team with no config falls back when its config 404s");
 var gone = run({ search: "?team=alabama", missing: ["teams/alabama.js"] });
@@ -119,13 +135,15 @@ eq(gone.store["iw-team"], "notre-dame", "and the bad choice is not left stored t
 eq(gone.injected.filter(function (s) { return /^teams\/[a-z-]+\.js$/.test(s); }),
    ["teams/alabama.js", "teams/index.js", "teams/notre-dame.js"],
    "the default's config is loaded after the failure");
-var stillND = run({ missing: ["teams/notre-dame.js"] });
+var stillND = run({ storage: { "iw-team": "notre-dame" }, missing: ["teams/notre-dame.js"] });
 eq(stillND.team, "notre-dame", "the default failing has nowhere to fall back to, and does not loop");
 
 console.log(" and it is remembered");
 eq(run({ search: "?team=ohio-state" }).store["iw-team"], "ohio-state", "the choice is stored");
 eq(run({ search: "?team=alabama" }).store["iw-team"], "alabama",
    "an id is stored as asked - nothing here knows yet whether it has a config");
+eq(run({ storage: { "iw-boot-notre-dame": "{}" } }).team, "",
+   "colours left over from a team is not a choice of that team");
 
 console.log("what it paints before anything loads");
 var cold = run({ search: "?team=ohio-state" });
@@ -169,8 +187,11 @@ eq(run({ storage: { "iw-boot-notre-dame": "\"a string\"" } }).applied, {}, "and 
 
 console.log(" storage can be unavailable");
 var blocked = run({ storageThrows: true });
-eq(blocked.team, "notre-dame", "private mode or blocked storage still resolves a team");
-eq(blocked.applied, {}, "and paints the neutral");
+eq(blocked.team, "", "with storage blocked and no URL there is no choice to read, so the chooser");
+eq(blocked.applied, {}, "and it paints the neutral");
+var blockedUrl = run({ storageThrows: true, search: "?team=ohio-state" });
+eq(blockedUrl.team, "ohio-state", "but a URL still works without storage - it needs nothing remembered");
+eq(blockedUrl.applied, {}, "with no stored colours to replay, so the neutral again");
 
 console.log("what it loads");
 var order = run({ search: "?team=ohio-state" }).injected;
@@ -185,7 +206,7 @@ ok(/DOMContentLoaded/.test(BOOT),
    "app.js waits for a DOM, because it reads one as it runs (app.js:~1827)");
 // If app.js were injected with the rest it could run before <body> is parsed
 // and querySelectorAll would come back empty. Prove it is held back.
-var early = run({ readyState: "loading" });
+var early = run({ readyState: "loading", search: "?team=ohio-state" });
 ok(early.injected.indexOf("app.js") === early.injected.length - 1, "and is still last when it arrives");
 
 console.log(" app.js waits for the team config, not just the DOM");
@@ -201,7 +222,7 @@ ok(iFallback < iApp, "and app.js goes in after the config it needs, not before")
 var domLast = run({ search: "?team=alabama", missing: ["teams/alabama.js"], domFirst: false });
 ok(domLast.injected.indexOf("teams/notre-dame.js") < domLast.injected.indexOf("app.js"),
    "the same when the DOM is the thing that arrives last");
-eq(run({ readyState: "complete" }).injected.slice(-1), ["app.js"],
+eq(run({ readyState: "complete", search: "?team=ohio-state" }).injected.slice(-1), ["app.js"],
    "and on a document that is already parsed, app.js still goes last");
 
 console.log("it keeps no team list of its own");
