@@ -4,7 +4,7 @@
  "sourceLabel": "FightingIrish.com",
  "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/21/8I2scYdjeLSEysalUv1sfPIZWSBCET2i9rX0CYz9.pdf",
  "title": "DEPTH CHART - GAME 4 AT PURDUE",
- "fetched": "2026-09-22T16:34:02.114810+00:00",
+ "fetched": "2026-09-22T16:36:20.792502+00:00",
  "game": "at Purdue",
  "date": null,
  "groups": {
@@ -701,9 +701,71 @@
   }
  ],
  "availability": {
-  "questionable": [],
-  "out": [],
-  "reported": false,
+  "questionable": [
+   {
+    "no": "",
+    "pos": "S",
+    "name": "Luke Talich",
+    "detail": "Questionable \u00b7 left wrist"
+   }
+  ],
+  "out": [
+   {
+    "no": "",
+    "pos": "OL",
+    "name": "Matty Augustine",
+    "detail": "Out for game \u00b7 Right Foot"
+   },
+   {
+    "no": "",
+    "pos": "DL",
+    "name": "Christopher Burgess Jr.",
+    "detail": "Out for game \u00b7 Left Tibia"
+   },
+   {
+    "no": "",
+    "pos": "DL",
+    "name": "Tiki Hola",
+    "detail": "Out for game \u00b7 Right Knee"
+   },
+   {
+    "no": "",
+    "pos": "S",
+    "name": "Brauntae Johnson",
+    "detail": "Out for game \u00b7 Left Foot"
+   },
+   {
+    "no": "",
+    "pos": "OL",
+    "name": "Charles Jagusah",
+    "detail": "Out for game \u00b7 Left Humerus"
+   },
+   {
+    "no": "",
+    "pos": "DL",
+    "name": "Jason Onye",
+    "detail": "Out for game \u00b7 Left Ankle"
+   },
+   {
+    "no": "",
+    "pos": "WR",
+    "name": "Quincy Porter",
+    "detail": "Out for game \u00b7 Left Knee"
+   },
+   {
+    "no": "",
+    "pos": "DB",
+    "name": "Chaz Smith",
+    "detail": "Out for game \u00b7 Right Wrist"
+   },
+   {
+    "no": "",
+    "pos": "OL",
+    "name": "Chris Terek",
+    "detail": "Out for game \u00b7 Right Knee"
+   }
+  ],
+  "reported": true,
   "source": "https://fightingirish.com/documents/a2264cba-eca9-4031-bac3-07e8a80c99a0.pdf",
   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/21/TM63of2JoyNu92VIidauJf4PAkZRFy0JbMD1lBYf.pdf",
   "label": "FightingIrish.com"
