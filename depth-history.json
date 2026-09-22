@@ -1,11 +1,227 @@
 {
- "updated": "2026-09-22T12:31:16.178355+00:00",
+ "team": "notre-dame",
+ "updated": "2026-09-22T16:30:37.474382+00:00",
  "snapshots": [
   {
-   "source": "https://www.uhnd.com/football/2026/08/31/notre-dame-football-depth-chart-2026-week-1-vs-wisconsin",
-   "title": "Notre Dame Football Depth Chart 2026: Week 1 vs. Wisconsin",
-   "fetched": "2026-09-11T03:59:42.669022+00:00",
+   "team": "notre-dame",
+   "source": "https://fightingirish.com/documents/36278e88-54fe-4237-a04b-06e35db8f749.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/01/kx1zoYdImCM3lRDc3IgcTMKqzlLEDTbSG5lYMndt.pdf",
+   "title": "DEPTH CHART - GAME 1 VS WISCONSIN",
+   "fetched": "2026-09-22T16:30:17.210318+00:00",
+   "game": "vs. Wisconsin",
+   "date": null,
    "groups": {
+    "Defense": [
+     {
+      "pos": "DE",
+      "depth": 1,
+      "or": false,
+      "no": "5",
+      "name": "Boubacar Traore",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DE",
+      "depth": 2,
+      "or": false,
+      "no": "10",
+      "name": "Loghan Thomas",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 3,
+      "or": false,
+      "no": "44",
+      "name": "Rodney Dunham",
+      "cl": "Fr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": false,
+      "no": "88",
+      "name": "Armel Mukam",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DT",
+      "depth": 2,
+      "or": false,
+      "no": "7",
+      "name": "Francis Brewu",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 3,
+      "or": false,
+      "no": "56",
+      "name": "Elijah Hughes",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DT",
+      "depth": 4,
+      "or": false,
+      "no": "0",
+      "name": "Tionne Gray",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 5,
+      "or": false,
+      "no": "59",
+      "name": "Sean Sevillano Jr.",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 1,
+      "or": false,
+      "no": "95",
+      "name": "Bryce Young",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 2,
+      "or": false,
+      "no": "11",
+      "name": "Keon Keeley",
+      "cl": "Sr."
+     },
+     {
+      "pos": "WILL",
+      "depth": 1,
+      "or": false,
+      "no": "4",
+      "name": "Jaiden Ausberry",
+      "cl": "Sr."
+     },
+     {
+      "pos": "WILL",
+      "depth": 2,
+      "or": false,
+      "no": "3",
+      "name": "Jaylen Sneed",
+      "cl": "5th"
+     },
+     {
+      "pos": "MIKE",
+      "depth": 1,
+      "or": false,
+      "no": "34",
+      "name": "Drayk Bowen",
+      "cl": "Sr."
+     },
+     {
+      "pos": "MIKE",
+      "depth": 2,
+      "or": false,
+      "no": "27",
+      "name": "Kyngstonn Viliamu-Asa",
+      "cl": "Jr."
+     },
+     {
+      "pos": "MIKE",
+      "depth": 2,
+      "or": true,
+      "no": "19",
+      "name": "Madden Faraimo",
+      "cl": "So."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 1,
+      "or": false,
+      "no": "29",
+      "name": "Christian Gray",
+      "cl": "Sr."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 2,
+      "or": false,
+      "no": "1",
+      "name": "Dallas Golden",
+      "cl": "So."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 2,
+      "or": true,
+      "no": "12",
+      "name": "Jayden Sanders",
+      "cl": "So."
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": false,
+      "no": "15",
+      "name": "Leonard Moore",
+      "cl": "Jr."
+     },
+     {
+      "pos": "CB",
+      "depth": 2,
+      "or": false,
+      "no": "24",
+      "name": "Mark Zackery IV",
+      "cl": "So."
+     },
+     {
+      "pos": "BOUND",
+      "depth": 1,
+      "or": false,
+      "no": "8",
+      "name": "Adon Shuler",
+      "cl": "Sr."
+     },
+     {
+      "pos": "BOUND",
+      "depth": 2,
+      "or": false,
+      "no": "20",
+      "name": "Joey O\u2019Brien",
+      "cl": "Fr."
+     },
+     {
+      "pos": "FIELD",
+      "depth": 1,
+      "or": false,
+      "no": "9",
+      "name": "Brauntae Johnson",
+      "cl": "Jr."
+     },
+     {
+      "pos": "FIELD",
+      "depth": 2,
+      "or": false,
+      "no": "28",
+      "name": "Luke Talich",
+      "cl": "Sr."
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": false,
+      "no": "2",
+      "name": "DJ McKinney",
+      "cl": "5th"
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": true,
+      "no": "12",
+      "name": "Jayden Sanders",
+      "cl": "So."
+     }
+    ],
     "Offense": [
      {
       "pos": "WR",
@@ -280,225 +496,23 @@
       "cl": "Fr."
      }
     ],
-    "Defense": [
-     {
-      "pos": "DE",
-      "depth": 1,
-      "or": false,
-      "no": "5",
-      "name": "Boubacar Traore",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DE",
-      "depth": 2,
-      "or": false,
-      "no": "10",
-      "name": "Loghan Thomas",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 3,
-      "or": false,
-      "no": "44",
-      "name": "Rodney Dunham",
-      "cl": "Fr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": false,
-      "no": "88",
-      "name": "Armel Mukam",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DT",
-      "depth": 2,
-      "or": false,
-      "no": "7",
-      "name": "Francis Brewu",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 3,
-      "or": false,
-      "no": "56",
-      "name": "Elijah Hughes",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": false,
-      "no": "47",
-      "name": "Jason Onye",
-      "cl": "6th"
-     },
-     {
-      "pos": "DT",
-      "depth": 2,
-      "or": false,
-      "no": "0",
-      "name": "Tionne Gray",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 3,
-      "or": false,
-      "no": "59",
-      "name": "Sean Sevillano Jr.",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 1,
-      "or": false,
-      "no": "95",
-      "name": "Bryce Young",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 2,
-      "or": false,
-      "no": "11",
-      "name": "Keon Keeley",
-      "cl": "Sr."
-     },
-     {
-      "pos": "WILL",
-      "depth": 1,
-      "or": false,
-      "no": "4",
-      "name": "Jaiden Ausberry",
-      "cl": "Sr."
-     },
-     {
-      "pos": "WILL",
-      "depth": 2,
-      "or": false,
-      "no": "3",
-      "name": "Jaylen Sneed",
-      "cl": "5th"
-     },
-     {
-      "pos": "MIKE",
-      "depth": 1,
-      "or": false,
-      "no": "34",
-      "name": "Drayk Bowen",
-      "cl": "Sr."
-     },
-     {
-      "pos": "MIKE",
-      "depth": 2,
-      "or": false,
-      "no": "27",
-      "name": "Kyngstonn Viliamu-Asa",
-      "cl": "Jr."
-     },
-     {
-      "pos": "MIKE",
-      "depth": 2,
-      "or": true,
-      "no": "19",
-      "name": "Madden Faraimo",
-      "cl": "So."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 1,
-      "or": false,
-      "no": "29",
-      "name": "Christian Gray",
-      "cl": "Sr."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 2,
-      "or": false,
-      "no": "1",
-      "name": "Dallas Golden",
-      "cl": "So."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 2,
-      "or": true,
-      "no": "12",
-      "name": "Jayden Sanders",
-      "cl": "So."
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": false,
-      "no": "15",
-      "name": "Leonard Moore",
-      "cl": "Jr."
-     },
-     {
-      "pos": "CB",
-      "depth": 2,
-      "or": false,
-      "no": "24",
-      "name": "Mark Zackery IV",
-      "cl": "So."
-     },
-     {
-      "pos": "BOUND",
-      "depth": 1,
-      "or": false,
-      "no": "8",
-      "name": "Adon Shuler",
-      "cl": "Sr."
-     },
-     {
-      "pos": "BOUND",
-      "depth": 2,
-      "or": false,
-      "no": "20",
-      "name": "Joey O\u2019Brien",
-      "cl": "Fr."
-     },
-     {
-      "pos": "FIELD",
-      "depth": 1,
-      "or": false,
-      "no": "9",
-      "name": "Brauntae Johnson",
-      "cl": "Jr."
-     },
-     {
-      "pos": "FIELD",
-      "depth": 2,
-      "or": false,
-      "no": "28",
-      "name": "Luke Talich",
-      "cl": "Sr."
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": false,
-      "no": "2",
-      "name": "DJ McKinney",
-      "cl": "5th"
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": true,
-      "no": "12",
-      "name": "Jayden Sanders",
-      "cl": "So."
-     }
-    ],
     "Special Teams": [
+     {
+      "pos": "HLD",
+      "depth": 1,
+      "or": false,
+      "no": "39",
+      "name": "Jasper Scaife",
+      "cl": "Fr."
+     },
+     {
+      "pos": "HLD",
+      "depth": 2,
+      "or": false,
+      "no": "33",
+      "name": "Matt Jeffery",
+      "cl": "Jr."
+     },
      {
       "pos": "PR",
       "depth": 1,
@@ -618,44 +632,10 @@
       "no": "49",
       "name": "Andrew Kros",
       "cl": "Sr."
-     },
-     {
-      "pos": "HLD",
-      "depth": 1,
-      "or": false,
-      "no": "39",
-      "name": "Jasper Scaife",
-      "cl": "Fr."
      }
     ]
    },
    "battles": [
-    {
-     "group": "Offense",
-     "pos": "WR",
-     "names": [
-      "Jordan Faison",
-      "Jaden Greathouse",
-      "Mylan Graham",
-      "Micah Gilbert"
-     ]
-    },
-    {
-     "group": "Offense",
-     "pos": "RG",
-     "names": [
-      "Sullivan Absher",
-      "Styles Prescod"
-     ]
-    },
-    {
-     "group": "Offense",
-     "pos": "TE",
-     "names": [
-      "Cooper Flanagan",
-      "James Flanigan"
-     ]
-    },
     {
      "group": "Defense",
      "pos": "CB",
@@ -666,6 +646,32 @@
      ]
     },
     {
+     "group": "Offense",
+     "pos": "WR",
+     "names": [
+      "Jordan Faison",
+      "Jaden Greathouse",
+      "Mylan Graham",
+      "Micah Gilbert"
+     ]
+    },
+    {
+     "group": "Offense",
+     "pos": "RG",
+     "names": [
+      "Sullivan Absher",
+      "Styles Prescod"
+     ]
+    },
+    {
+     "group": "Offense",
+     "pos": "TE",
+     "names": [
+      "Cooper Flanagan",
+      "James Flanigan"
+     ]
+    },
+    {
      "group": "Special Teams",
      "pos": "KR",
      "names": [
@@ -675,73 +681,243 @@
     }
    ],
    "availability": {
-    "questionable": [
-     {
-      "no": "27",
-      "pos": "LB",
-      "name": "Kyngstonn Viliamu-Asa",
-      "detail": "Left Knee"
-     }
-    ],
-    "out": [
-     {
-      "no": "58",
-      "pos": "OL",
-      "name": "Matty Augustine",
-      "detail": "Right Foot"
-     },
-     {
-      "no": "6",
-      "pos": "DL",
-      "name": "Christopher Burgess Jr.",
-      "detail": "Left Tibia"
-     },
-     {
-      "no": "55",
-      "pos": "DL",
-      "name": "Tiki Hola",
-      "detail": "Right Knee"
-     },
-     {
-      "no": "56",
-      "pos": "OL",
-      "name": "Charles Jagusah",
-      "detail": "Left Humerus"
-     },
-     {
-      "no": "16",
-      "pos": "LB",
-      "name": "Ko\u2019o Kia",
-      "detail": "Left Shoulder"
-     },
-     {
-      "no": "0",
-      "pos": "WR",
-      "name": "Quincy Porter",
-      "detail": "Left Knee"
-     },
-     {
-      "no": "26",
-      "pos": "DB",
-      "name": "Chaz Smith",
-      "detail": "Right Wrist"
-     },
-     {
-      "no": "55",
-      "pos": "OL",
-      "name": "Chris Terek",
-      "detail": "Right Knee"
-     }
-    ]
+    "questionable": [],
+    "out": [],
+    "reported": false,
+    "source": "https://fightingirish.com/documents/7eb88fcd-ad56-4b31-8972-35f9c371fef5.pdf",
+    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/04/3i4LwKW4b6HpjocmfhKpj1TM2oC6YbX3qu8mXEw6.pdf",
+    "label": "FightingIrish.com"
    },
-   "date": "2026-08-31",
    "changes": []
   },
   {
-   "source": "https://www.uhnd.com/football/2026/09/08/notre-dame-football-week-2-depth-chart-2026-rice",
-   "title": "Notre Dame Football Depth Chart: Week 2 Rice",
-   "fetched": "2026-09-11T03:59:43.592074+00:00",
+   "team": "notre-dame",
+   "source": "https://fightingirish.com/documents/cb2a41d9-ebbb-47e7-9439-299260e77496.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/08/Z5Boxjvnou9KNUGIdcfJ8jZiXoy6wXJt5LgWWDqc.pdf",
+   "title": "DEPTH CHART - GAME 2 VS RICE",
+   "fetched": "2026-09-22T16:30:22.874870+00:00",
+   "game": "Rice",
+   "date": null,
    "groups": {
+    "Defense": [
+     {
+      "pos": "DE",
+      "depth": 1,
+      "or": false,
+      "no": "5",
+      "name": "Boubacar Traore",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DE",
+      "depth": 2,
+      "or": false,
+      "no": "10",
+      "name": "Loghan Thomas",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 3,
+      "or": false,
+      "no": "44",
+      "name": "Rodney Dunham",
+      "cl": "Fr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": false,
+      "no": "88",
+      "name": "Armel Mukam",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DT",
+      "depth": 2,
+      "or": false,
+      "no": "7",
+      "name": "Francis Brewu",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 3,
+      "or": false,
+      "no": "56",
+      "name": "Elijah Hughes",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": false,
+      "no": "0",
+      "name": "Tionne Gray",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": true,
+      "no": "7",
+      "name": "Francis Brewu",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 2,
+      "or": false,
+      "no": "59",
+      "name": "Sean Sevillano Jr.",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 1,
+      "or": false,
+      "no": "95",
+      "name": "Bryce Young",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 2,
+      "or": false,
+      "no": "11",
+      "name": "Keon Keeley",
+      "cl": "Sr."
+     },
+     {
+      "pos": "WILL",
+      "depth": 1,
+      "or": false,
+      "no": "4",
+      "name": "Jaiden Ausberry",
+      "cl": "Sr."
+     },
+     {
+      "pos": "WILL",
+      "depth": 2,
+      "or": false,
+      "no": "3",
+      "name": "Jaylen Sneed",
+      "cl": "5th"
+     },
+     {
+      "pos": "MIKE",
+      "depth": 1,
+      "or": false,
+      "no": "34",
+      "name": "Drayk Bowen",
+      "cl": "Sr."
+     },
+     {
+      "pos": "MIKE",
+      "depth": 2,
+      "or": false,
+      "no": "27",
+      "name": "Kyngstonn Viliamu-Asa",
+      "cl": "Jr."
+     },
+     {
+      "pos": "MIKE",
+      "depth": 2,
+      "or": true,
+      "no": "19",
+      "name": "Madden Faraimo",
+      "cl": "So."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 1,
+      "or": false,
+      "no": "29",
+      "name": "Christian Gray",
+      "cl": "Sr."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 2,
+      "or": false,
+      "no": "1",
+      "name": "Dallas Golden",
+      "cl": "So."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 2,
+      "or": true,
+      "no": "12",
+      "name": "Jayden Sanders",
+      "cl": "So."
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": false,
+      "no": "15",
+      "name": "Leonard Moore",
+      "cl": "Jr."
+     },
+     {
+      "pos": "CB",
+      "depth": 2,
+      "or": false,
+      "no": "24",
+      "name": "Mark Zackery IV",
+      "cl": "So."
+     },
+     {
+      "pos": "BOUND",
+      "depth": 1,
+      "or": false,
+      "no": "8",
+      "name": "Adon Shuler",
+      "cl": "Sr."
+     },
+     {
+      "pos": "BOUND",
+      "depth": 2,
+      "or": false,
+      "no": "22",
+      "name": "Ethan Long",
+      "cl": "So."
+     },
+     {
+      "pos": "FIELD",
+      "depth": 1,
+      "or": false,
+      "no": "28",
+      "name": "Luke Talich",
+      "cl": "Sr."
+     },
+     {
+      "pos": "FIELD",
+      "depth": 2,
+      "or": false,
+      "no": "20",
+      "name": "Joey O\u2019Brien",
+      "cl": "Fr."
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": false,
+      "no": "2",
+      "name": "DJ McKinney",
+      "cl": "5th"
+     },
+     {
+      "pos": "CB",
+      "depth": 2,
+      "or": false,
+      "no": "12",
+      "name": "Jayden Sanders",
+      "cl": "So."
+     }
+    ],
     "Offense": [
      {
       "pos": "WR",
@@ -1016,225 +1192,23 @@
       "cl": "Fr."
      }
     ],
-    "Defense": [
-     {
-      "pos": "DE",
-      "depth": 1,
-      "or": false,
-      "no": "5",
-      "name": "Boubacar Traore",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DE",
-      "depth": 2,
-      "or": false,
-      "no": "10",
-      "name": "Loghan Thomas",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 3,
-      "or": false,
-      "no": "44",
-      "name": "Rodney Dunham",
-      "cl": "Fr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": false,
-      "no": "88",
-      "name": "Armel Mukam",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DT",
-      "depth": 2,
-      "or": false,
-      "no": "7",
-      "name": "Francis Brewu",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 3,
-      "or": false,
-      "no": "56",
-      "name": "Elijah Hughes",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": false,
-      "no": "0",
-      "name": "Tionne Gray",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": true,
-      "no": "7",
-      "name": "Francis Brewu",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 2,
-      "or": false,
-      "no": "59",
-      "name": "Sean Sevillano Jr.",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 1,
-      "or": false,
-      "no": "95",
-      "name": "Bryce Young",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 2,
-      "or": false,
-      "no": "11",
-      "name": "Keon Keeley",
-      "cl": "Sr."
-     },
-     {
-      "pos": "WILL",
-      "depth": 1,
-      "or": false,
-      "no": "4",
-      "name": "Jaiden Ausberry",
-      "cl": "Sr."
-     },
-     {
-      "pos": "WILL",
-      "depth": 2,
-      "or": false,
-      "no": "3",
-      "name": "Jaylen Sneed",
-      "cl": "5th"
-     },
-     {
-      "pos": "MIKE",
-      "depth": 1,
-      "or": false,
-      "no": "34",
-      "name": "Drayk Bowen",
-      "cl": "Sr."
-     },
-     {
-      "pos": "MIKE",
-      "depth": 2,
-      "or": false,
-      "no": "27",
-      "name": "Kyngstonn Viliamu-Asa",
-      "cl": "Jr."
-     },
-     {
-      "pos": "MIKE",
-      "depth": 2,
-      "or": true,
-      "no": "19",
-      "name": "Madden Faraimo",
-      "cl": "So."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 1,
-      "or": false,
-      "no": "29",
-      "name": "Christian Gray",
-      "cl": "Sr."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 2,
-      "or": false,
-      "no": "1",
-      "name": "Dallas Golden",
-      "cl": "So."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 2,
-      "or": true,
-      "no": "12",
-      "name": "Jayden Sanders",
-      "cl": "So."
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": false,
-      "no": "15",
-      "name": "Leonard Moore",
-      "cl": "Jr."
-     },
-     {
-      "pos": "CB",
-      "depth": 2,
-      "or": false,
-      "no": "24",
-      "name": "Mark Zackery IV",
-      "cl": "So."
-     },
-     {
-      "pos": "BOUND",
-      "depth": 1,
-      "or": false,
-      "no": "8",
-      "name": "Adon Shuler",
-      "cl": "Sr."
-     },
-     {
-      "pos": "BOUND",
-      "depth": 2,
-      "or": false,
-      "no": "22",
-      "name": "Ethan Long",
-      "cl": "So."
-     },
-     {
-      "pos": "FIELD",
-      "depth": 1,
-      "or": false,
-      "no": "28",
-      "name": "Luke Talich",
-      "cl": "Sr."
-     },
-     {
-      "pos": "FIELD",
-      "depth": 2,
-      "or": false,
-      "no": "20",
-      "name": "Joey O\u2019Brien",
-      "cl": "Fr."
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": false,
-      "no": "2",
-      "name": "DJ McKinney",
-      "cl": "5th"
-     },
-     {
-      "pos": "CB",
-      "depth": 2,
-      "or": false,
-      "no": "12",
-      "name": "Jayden Sanders",
-      "cl": "So."
-     }
-    ],
     "Special Teams": [
+     {
+      "pos": "HLD",
+      "depth": 1,
+      "or": false,
+      "no": "39",
+      "name": "Jasper Scaife",
+      "cl": "Fr."
+     },
+     {
+      "pos": "HLD",
+      "depth": 2,
+      "or": false,
+      "no": "33",
+      "name": "Matt Jeffery",
+      "cl": "Jr."
+     },
      {
       "pos": "PR",
       "depth": 1,
@@ -1354,18 +1328,19 @@
       "no": "49",
       "name": "Andrew Kros",
       "cl": "Sr."
-     },
-     {
-      "pos": "HLD",
-      "depth": 1,
-      "or": false,
-      "no": "39",
-      "name": "Jasper Scaife",
-      "cl": "Fr."
      }
     ]
    },
    "battles": [
+    {
+     "group": "Defense",
+     "pos": "DT",
+     "names": [
+      "Armel Mukam",
+      "Tionne Gray",
+      "Francis Brewu"
+     ]
+    },
     {
      "group": "Offense",
      "pos": "WR",
@@ -1393,15 +1368,6 @@
      ]
     },
     {
-     "group": "Defense",
-     "pos": "DT",
-     "names": [
-      "Armel Mukam",
-      "Tionne Gray",
-      "Francis Brewu"
-     ]
-    },
-    {
      "group": "Special Teams",
      "pos": "KR",
      "names": [
@@ -1419,119 +1385,13 @@
     }
    ],
    "availability": {
-    "questionable": [
-     {
-      "no": "27",
-      "pos": "LB",
-      "name": "Kyngstonn Viliamu-Asa",
-      "detail": "Left Knee",
-      "weeks": 0,
-      "newer": [
-       {
-        "source": "UHND",
-        "title": "Notre Dame Star LB Kyngstonn Viliamu-Asa Returns, Makes an Immediate Impact",
-        "link": "https://www.uhnd.com/football/2026/09/12/notre-dame-star-lb-kyngstonn-viliamu-asa-returns-makes-an-immediate-impact/",
-        "published": "2026-09-13T03:27:30+00:00"
-       },
-       {
-        "source": "UHND",
-        "title": "Notre Dame vs. Rice Postgame: Faison, Carr, Traore, and Viliamu-Asa on Irish Shutout, Fast Start",
-        "link": "https://www.uhnd.com/video/2026/09/12/notre-dame-vs-rice-postgame-faison-carr-traore-and-viliamu-asa-on-irish-shutout-fast-start/",
-        "published": "2026-09-13T01:50:14+00:00"
-       }
-      ]
-     }
-    ],
-    "out": [
-     {
-      "no": "58",
-      "pos": "OL",
-      "name": "Matty Augustine",
-      "detail": "Right Foot",
-      "weeks": 2
-     },
-     {
-      "no": "6",
-      "pos": "DL",
-      "name": "Christopher Burgess Jr.",
-      "detail": "Left Tibia",
-      "weeks": 2
-     },
-     {
-      "no": "55",
-      "pos": "DL",
-      "name": "Tiki Hola",
-      "detail": "Right Knee",
-      "weeks": 2
-     },
-     {
-      "no": "56",
-      "pos": "OL",
-      "name": "Charles Jagusah",
-      "detail": "Left Humerus",
-      "weeks": 2
-     },
-     {
-      "no": "9",
-      "pos": "S",
-      "name": "Brauntae Johnson",
-      "detail": "Left Foot",
-      "weeks": 1,
-      "newer": [
-       {
-        "source": "One Foot Down",
-        "title": "UPDATED Notre Dame injury report for home opener VS Rice Owls",
-        "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/84559/updated-notre-dame-injury-report-for-home-opener-vs-rice-owls",
-        "published": "2026-09-10T23:46:32+00:00"
-       }
-      ]
-     },
-     {
-      "no": "16",
-      "pos": "LB",
-      "name": "Ko\u2019o Kia",
-      "detail": "Left Shoulder",
-      "weeks": 2
-     },
-     {
-      "no": "47",
-      "pos": "DL",
-      "name": "Jason Onye",
-      "detail": "Left Ankle",
-      "weeks": 1,
-      "newer": [
-       {
-        "source": "One Foot Down",
-        "title": "UPDATED Notre Dame injury report for home opener VS Rice Owls",
-        "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/84559/updated-notre-dame-injury-report-for-home-opener-vs-rice-owls",
-        "published": "2026-09-10T23:46:32+00:00"
-       }
-      ]
-     },
-     {
-      "no": "0",
-      "pos": "WR",
-      "name": "Quincy Porter",
-      "detail": "Left Knee",
-      "weeks": 2
-     },
-     {
-      "no": "26",
-      "pos": "DB",
-      "name": "Chaz Smith",
-      "detail": "Right Wrist",
-      "weeks": 2
-     },
-     {
-      "no": "55",
-      "pos": "OL",
-      "name": "Chris Terek",
-      "detail": "Right Knee",
-      "weeks": 2
-     }
-    ]
+    "questionable": [],
+    "out": [],
+    "reported": false,
+    "source": "https://fightingirish.com/documents/9fb6798f-0c21-40d2-991d-883283bb7173.pdf",
+    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/11/O7XRHX699n9zzBw0F2L2POnPGmlpQ4goiwcgb5BX.pdf",
+    "label": "FightingIrish.com"
    },
-   "date": "2026-09-08",
    "changes": [
     "Francis Brewu moves up to 1 at DT",
     "Tionne Gray moves up to 1 at DT",
@@ -1540,17 +1400,237 @@
     "Ethan Long enters the two-deep at BOUND",
     "Luke Talich moves up to 1 at FIELD",
     "Joey O\u2019Brien moves from BOUND to FIELD",
-    "Jason Onye off the two-deep",
-    "Brauntae Johnson off the two-deep",
-    "Brauntae Johnson now listed out",
-    "Jason Onye now listed out"
+    "Brauntae Johnson off the two-deep"
    ]
   },
   {
-   "source": "https://www.uhnd.com/football/2026/09/14/notre-dame-football-depth-chart-2026-week-3-vs-michigan-state",
-   "title": "Notre Dame Football Depth Chart 2026: Week 3 vs. Michigan State",
-   "fetched": "2026-09-14T19:12:39.033121+00:00",
+   "team": "notre-dame",
+   "source": "https://fightingirish.com/documents/89373914-9046-4220-b1c1-7a36e45d792f.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/14/LBAMeg8TbPw5QdzmbWnq7mwNXdpBw9rja9gudVU6.pdf",
+   "title": "DEPTH CHART - GAME 3 VS MICHIGAN STATE",
+   "fetched": "2026-09-22T16:30:28.075825+00:00",
+   "game": "Michigan State",
+   "date": null,
    "groups": {
+    "Defense": [
+     {
+      "pos": "DE",
+      "depth": 1,
+      "or": false,
+      "no": "5",
+      "name": "Boubacar Traore",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DE",
+      "depth": 2,
+      "or": false,
+      "no": "10",
+      "name": "Loghan Thomas",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 3,
+      "or": false,
+      "no": "44",
+      "name": "Rodney Dunham",
+      "cl": "Fr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": false,
+      "no": "88",
+      "name": "Armel Mukam",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DT",
+      "depth": 2,
+      "or": false,
+      "no": "7",
+      "name": "Francis Brewu",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 3,
+      "or": false,
+      "no": "56",
+      "name": "Elijah Hughes",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": false,
+      "no": "0",
+      "name": "Tionne Gray",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": true,
+      "no": "7",
+      "name": "Francis Brewu",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 2,
+      "or": false,
+      "no": "59",
+      "name": "Sean Sevillano Jr.",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 1,
+      "or": false,
+      "no": "95",
+      "name": "Bryce Young",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 2,
+      "or": false,
+      "no": "11",
+      "name": "Keon Keeley",
+      "cl": "Sr."
+     },
+     {
+      "pos": "WILL",
+      "depth": 1,
+      "or": false,
+      "no": "4",
+      "name": "Jaiden Ausberry",
+      "cl": "Sr."
+     },
+     {
+      "pos": "WILL",
+      "depth": 2,
+      "or": false,
+      "no": "3",
+      "name": "Jaylen Sneed",
+      "cl": "5th"
+     },
+     {
+      "pos": "MIKE",
+      "depth": 1,
+      "or": false,
+      "no": "34",
+      "name": "Drayk Bowen",
+      "cl": "Sr."
+     },
+     {
+      "pos": "MIKE",
+      "depth": 2,
+      "or": false,
+      "no": "27",
+      "name": "Kyngstonn Viliamu-Asa",
+      "cl": "Jr."
+     },
+     {
+      "pos": "MIKE",
+      "depth": 2,
+      "or": true,
+      "no": "19",
+      "name": "Madden Faraimo",
+      "cl": "So."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 1,
+      "or": false,
+      "no": "29",
+      "name": "Christian Gray",
+      "cl": "Sr."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 2,
+      "or": false,
+      "no": "1",
+      "name": "Dallas Golden",
+      "cl": "So."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 2,
+      "or": true,
+      "no": "12",
+      "name": "Jayden Sanders",
+      "cl": "So."
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": false,
+      "no": "15",
+      "name": "Leonard Moore",
+      "cl": "Jr."
+     },
+     {
+      "pos": "CB",
+      "depth": 2,
+      "or": false,
+      "no": "24",
+      "name": "Mark Zackery IV",
+      "cl": "So."
+     },
+     {
+      "pos": "BOUND",
+      "depth": 1,
+      "or": false,
+      "no": "8",
+      "name": "Adon Shuler",
+      "cl": "Sr."
+     },
+     {
+      "pos": "BOUND",
+      "depth": 2,
+      "or": false,
+      "no": "22",
+      "name": "Ethan Long",
+      "cl": "So."
+     },
+     {
+      "pos": "FIELD",
+      "depth": 1,
+      "or": false,
+      "no": "28",
+      "name": "Luke Talich",
+      "cl": "Sr."
+     },
+     {
+      "pos": "FIELD",
+      "depth": 2,
+      "or": false,
+      "no": "20",
+      "name": "Joey O\u2019Brien",
+      "cl": "Fr."
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": false,
+      "no": "2",
+      "name": "DJ McKinney",
+      "cl": "5th"
+     },
+     {
+      "pos": "CB",
+      "depth": 2,
+      "or": false,
+      "no": "12",
+      "name": "Jayden Sanders",
+      "cl": "So."
+     }
+    ],
     "Offense": [
      {
       "pos": "WR",
@@ -1825,225 +1905,23 @@
       "cl": "Fr."
      }
     ],
-    "Defense": [
-     {
-      "pos": "DE",
-      "depth": 1,
-      "or": false,
-      "no": "5",
-      "name": "Boubacar Traore",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DE",
-      "depth": 2,
-      "or": false,
-      "no": "10",
-      "name": "Loghan Thomas",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 3,
-      "or": false,
-      "no": "44",
-      "name": "Rodney Dunham",
-      "cl": "Fr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": false,
-      "no": "88",
-      "name": "Armel Mukam",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DT",
-      "depth": 2,
-      "or": false,
-      "no": "7",
-      "name": "Francis Brewu",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 3,
-      "or": false,
-      "no": "56",
-      "name": "Elijah Hughes",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": false,
-      "no": "0",
-      "name": "Tionne Gray",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": true,
-      "no": "7",
-      "name": "Francis Brewu",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 2,
-      "or": false,
-      "no": "59",
-      "name": "Sean Sevillano Jr.",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 1,
-      "or": false,
-      "no": "95",
-      "name": "Bryce Young",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 2,
-      "or": false,
-      "no": "11",
-      "name": "Keon Keeley",
-      "cl": "Sr."
-     },
-     {
-      "pos": "WILL",
-      "depth": 1,
-      "or": false,
-      "no": "4",
-      "name": "Jaiden Ausberry",
-      "cl": "Sr."
-     },
-     {
-      "pos": "WILL",
-      "depth": 2,
-      "or": false,
-      "no": "3",
-      "name": "Jaylen Sneed",
-      "cl": "5th"
-     },
-     {
-      "pos": "MIKE",
-      "depth": 1,
-      "or": false,
-      "no": "34",
-      "name": "Drayk Bowen",
-      "cl": "Sr."
-     },
-     {
-      "pos": "MIKE",
-      "depth": 2,
-      "or": false,
-      "no": "27",
-      "name": "Kyngstonn Viliamu-Asa",
-      "cl": "Jr."
-     },
-     {
-      "pos": "MIKE",
-      "depth": 2,
-      "or": true,
-      "no": "19",
-      "name": "Madden Faraimo",
-      "cl": "So."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 1,
-      "or": false,
-      "no": "29",
-      "name": "Christian Gray",
-      "cl": "Sr."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 2,
-      "or": false,
-      "no": "1",
-      "name": "Dallas Golden",
-      "cl": "So."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 2,
-      "or": true,
-      "no": "12",
-      "name": "Jayden Sanders",
-      "cl": "So."
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": false,
-      "no": "15",
-      "name": "Leonard Moore",
-      "cl": "Jr."
-     },
-     {
-      "pos": "CB",
-      "depth": 2,
-      "or": false,
-      "no": "24",
-      "name": "Mark Zackery IV",
-      "cl": "So."
-     },
-     {
-      "pos": "BOUND",
-      "depth": 1,
-      "or": false,
-      "no": "8",
-      "name": "Adon Shuler",
-      "cl": "Sr."
-     },
-     {
-      "pos": "BOUND",
-      "depth": 2,
-      "or": false,
-      "no": "22",
-      "name": "Ethan Long",
-      "cl": "So."
-     },
-     {
-      "pos": "FIELD",
-      "depth": 1,
-      "or": false,
-      "no": "28",
-      "name": "Luke Talich",
-      "cl": "Sr."
-     },
-     {
-      "pos": "FIELD",
-      "depth": 2,
-      "or": false,
-      "no": "20",
-      "name": "Joey O\u2019Brien",
-      "cl": "Fr."
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": false,
-      "no": "2",
-      "name": "DJ McKinney",
-      "cl": "5th"
-     },
-     {
-      "pos": "CB",
-      "depth": 2,
-      "or": false,
-      "no": "12",
-      "name": "Jayden Sanders",
-      "cl": "So."
-     }
-    ],
     "Special Teams": [
+     {
+      "pos": "HLD",
+      "depth": 1,
+      "or": false,
+      "no": "39",
+      "name": "Jasper Scaife",
+      "cl": "Fr."
+     },
+     {
+      "pos": "HLD",
+      "depth": 2,
+      "or": false,
+      "no": "33",
+      "name": "Matt Jeffery",
+      "cl": "Jr."
+     },
      {
       "pos": "PR",
       "depth": 1,
@@ -2163,26 +2041,19 @@
       "no": "49",
       "name": "Andrew Kros",
       "cl": "Sr."
-     },
-     {
-      "pos": "HLD",
-      "depth": 1,
-      "or": false,
-      "no": "39",
-      "name": "Jasper Scaife",
-      "cl": "Fr."
-     },
-     {
-      "pos": "HLD",
-      "depth": 2,
-      "or": false,
-      "no": "33",
-      "name": "Matt Jeffery",
-      "cl": "Jr."
      }
     ]
    },
    "battles": [
+    {
+     "group": "Defense",
+     "pos": "DT",
+     "names": [
+      "Armel Mukam",
+      "Tionne Gray",
+      "Francis Brewu"
+     ]
+    },
     {
      "group": "Offense",
      "pos": "WR",
@@ -2210,15 +2081,6 @@
      ]
     },
     {
-     "group": "Defense",
-     "pos": "DT",
-     "names": [
-      "Armel Mukam",
-      "Tionne Gray",
-      "Francis Brewu"
-     ]
-    },
-    {
      "group": "Special Teams",
      "pos": "KR",
      "names": [
@@ -2236,131 +2098,243 @@
     }
    ],
    "availability": {
-    "questionable": [
-     {
-      "no": "27",
-      "pos": "LB",
-      "name": "Kyngstonn Viliamu-Asa",
-      "detail": "Left Knee",
-      "weeks": 0,
-      "newer": [
-       {
-        "source": "UHND",
-        "title": "Notre Dame Star LB Kyngstonn Viliamu-Asa Returns, Makes an Immediate Impact",
-        "link": "https://www.uhnd.com/football/2026/09/12/notre-dame-star-lb-kyngstonn-viliamu-asa-returns-makes-an-immediate-impact/",
-        "published": "2026-09-13T03:27:30+00:00"
-       },
-       {
-        "source": "UHND",
-        "title": "Notre Dame vs. Rice Postgame: Faison, Carr, Traore, and Viliamu-Asa on Irish Shutout, Fast Start",
-        "link": "https://www.uhnd.com/video/2026/09/12/notre-dame-vs-rice-postgame-faison-carr-traore-and-viliamu-asa-on-irish-shutout-fast-start/",
-        "published": "2026-09-13T01:50:14+00:00"
-       }
-      ]
-     }
-    ],
-    "out": [
-     {
-      "no": "58",
-      "pos": "OL",
-      "name": "Matty Augustine",
-      "detail": "Right Foot",
-      "weeks": 2
-     },
-     {
-      "no": "6",
-      "pos": "DL",
-      "name": "Christopher Burgess Jr.",
-      "detail": "Left Tibia",
-      "weeks": 2
-     },
-     {
-      "no": "55",
-      "pos": "DL",
-      "name": "Tiki Hola",
-      "detail": "Right Knee",
-      "weeks": 2
-     },
-     {
-      "no": "56",
-      "pos": "OL",
-      "name": "Charles Jagusah",
-      "detail": "Left Humerus",
-      "weeks": 2
-     },
-     {
-      "no": "9",
-      "pos": "S",
-      "name": "Brauntae Johnson",
-      "detail": "Left Foot",
-      "weeks": 1,
-      "newer": [
-       {
-        "source": "One Foot Down",
-        "title": "UPDATED Notre Dame injury report for home opener VS Rice Owls",
-        "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/84559/updated-notre-dame-injury-report-for-home-opener-vs-rice-owls",
-        "published": "2026-09-10T23:46:32+00:00"
-       }
-      ]
-     },
-     {
-      "no": "16",
-      "pos": "LB",
-      "name": "Ko\u2019o Kia",
-      "detail": "Left Shoulder",
-      "weeks": 2
-     },
-     {
-      "no": "47",
-      "pos": "DL",
-      "name": "Jason Onye",
-      "detail": "Left Ankle",
-      "weeks": 1,
-      "newer": [
-       {
-        "source": "One Foot Down",
-        "title": "UPDATED Notre Dame injury report for home opener VS Rice Owls",
-        "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/84559/updated-notre-dame-injury-report-for-home-opener-vs-rice-owls",
-        "published": "2026-09-10T23:46:32+00:00"
-       }
-      ]
-     },
-     {
-      "no": "0",
-      "pos": "WR",
-      "name": "Quincy Porter",
-      "detail": "Left Knee",
-      "weeks": 2
-     },
-     {
-      "no": "26",
-      "pos": "DB",
-      "name": "Chaz Smith",
-      "detail": "Right Wrist",
-      "weeks": 2
-     },
-     {
-      "no": "55",
-      "pos": "OL",
-      "name": "Chris Terek",
-      "detail": "Right Knee",
-      "weeks": 2
-     }
-    ],
+    "questionable": [],
+    "out": [],
     "reported": false,
-    "carried_from": "2026-09-08",
-    "carried_source": "https://www.uhnd.com/football/2026/09/08/notre-dame-football-week-2-depth-chart-2026-rice"
+    "source": "https://fightingirish.com/documents/0b15d41e-8f8e-4fe6-a7d1-36691fe572db.pdf",
+    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/15/E5oQ09nVRL3tMvxmnCvyLR1ndB7qA0zrXtuogGLI.pdf",
+    "label": "FightingIrish.com"
    },
-   "date": "2026-09-14",
-   "changes": [
-    "Matt Jeffery moves from WR to HLD"
-   ]
+   "changes": []
   },
   {
-   "source": "https://www.uhnd.com/football/2026/09/21/notre-dame-football-depth-chart-changes-ahead-of-purdue-game",
-   "title": "Notre Dame Football Depth Chart: Changes Ahead of Purdue Game",
-   "fetched": "2026-09-22T06:43:39.640314+00:00",
+   "team": "notre-dame",
+   "source": "https://fightingirish.com/documents/70b346c6-0b51-4389-b1e4-00cbf773efbe.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/21/8I2scYdjeLSEysalUv1sfPIZWSBCET2i9rX0CYz9.pdf",
+   "title": "DEPTH CHART - GAME 4 AT PURDUE",
+   "fetched": "2026-09-22T16:30:33.134350+00:00",
+   "game": "at Purdue",
+   "date": null,
    "groups": {
+    "Defense": [
+     {
+      "pos": "DE",
+      "depth": 1,
+      "or": false,
+      "no": "5",
+      "name": "Boubacar Traore",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DE",
+      "depth": 2,
+      "or": false,
+      "no": "10",
+      "name": "Loghan Thomas",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 3,
+      "or": false,
+      "no": "44",
+      "name": "Rodney Dunham",
+      "cl": "Fr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": false,
+      "no": "88",
+      "name": "Armel Mukam",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DT",
+      "depth": 2,
+      "or": false,
+      "no": "7",
+      "name": "Francis Brewu",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 3,
+      "or": false,
+      "no": "56",
+      "name": "Elijah Hughes",
+      "cl": "Sr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": false,
+      "no": "0",
+      "name": "Tionne Gray",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 1,
+      "or": true,
+      "no": "7",
+      "name": "Francis Brewu",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DT",
+      "depth": 2,
+      "or": false,
+      "no": "59",
+      "name": "Sean Sevillano Jr.",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 1,
+      "or": false,
+      "no": "95",
+      "name": "Bryce Young",
+      "cl": "Jr."
+     },
+     {
+      "pos": "DE",
+      "depth": 2,
+      "or": false,
+      "no": "11",
+      "name": "Keon Keeley",
+      "cl": "Sr."
+     },
+     {
+      "pos": "WILL",
+      "depth": 1,
+      "or": false,
+      "no": "4",
+      "name": "Jaiden Ausberry",
+      "cl": "Sr."
+     },
+     {
+      "pos": "WILL",
+      "depth": 2,
+      "or": false,
+      "no": "3",
+      "name": "Jaylen Sneed",
+      "cl": "5th"
+     },
+     {
+      "pos": "MIKE",
+      "depth": 1,
+      "or": false,
+      "no": "34",
+      "name": "Drayk Bowen",
+      "cl": "Sr."
+     },
+     {
+      "pos": "MIKE",
+      "depth": 2,
+      "or": false,
+      "no": "27",
+      "name": "Kyngstonn Viliamu-Asa",
+      "cl": "Jr."
+     },
+     {
+      "pos": "MIKE",
+      "depth": 2,
+      "or": true,
+      "no": "19",
+      "name": "Madden Faraimo",
+      "cl": "So."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 1,
+      "or": false,
+      "no": "29",
+      "name": "Christian Gray",
+      "cl": "Sr."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 2,
+      "or": false,
+      "no": "1",
+      "name": "Dallas Golden",
+      "cl": "So."
+     },
+     {
+      "pos": "NICKEL",
+      "depth": 2,
+      "or": true,
+      "no": "12",
+      "name": "Jayden Sanders",
+      "cl": "So."
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": false,
+      "no": "15",
+      "name": "Leonard Moore",
+      "cl": "Jr."
+     },
+     {
+      "pos": "CB",
+      "depth": 2,
+      "or": false,
+      "no": "24",
+      "name": "Mark Zackery IV",
+      "cl": "So."
+     },
+     {
+      "pos": "BOUND",
+      "depth": 1,
+      "or": false,
+      "no": "8",
+      "name": "Adon Shuler",
+      "cl": "Sr."
+     },
+     {
+      "pos": "BOUND",
+      "depth": 2,
+      "or": false,
+      "no": "22",
+      "name": "Ethan Long",
+      "cl": "So."
+     },
+     {
+      "pos": "FIELD",
+      "depth": 1,
+      "or": false,
+      "no": "28",
+      "name": "Luke Talich",
+      "cl": "Sr."
+     },
+     {
+      "pos": "FIELD",
+      "depth": 2,
+      "or": false,
+      "no": "20",
+      "name": "Joey O\u2019Brien",
+      "cl": "Fr."
+     },
+     {
+      "pos": "CB",
+      "depth": 1,
+      "or": false,
+      "no": "2",
+      "name": "DJ McKinney",
+      "cl": "5th"
+     },
+     {
+      "pos": "CB",
+      "depth": 2,
+      "or": false,
+      "no": "12",
+      "name": "Jayden Sanders",
+      "cl": "So."
+     }
+    ],
     "Offense": [
      {
       "pos": "WR",
@@ -2635,225 +2609,23 @@
       "cl": "Fr."
      }
     ],
-    "Defense": [
-     {
-      "pos": "DE",
-      "depth": 1,
-      "or": false,
-      "no": "5",
-      "name": "Boubacar Traore",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DE",
-      "depth": 2,
-      "or": false,
-      "no": "10",
-      "name": "Loghan Thomas",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 3,
-      "or": false,
-      "no": "44",
-      "name": "Rodney Dunham",
-      "cl": "Fr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": false,
-      "no": "88",
-      "name": "Armel Mukam",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DT",
-      "depth": 2,
-      "or": false,
-      "no": "7",
-      "name": "Francis Brewu",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 3,
-      "or": false,
-      "no": "56",
-      "name": "Elijah Hughes",
-      "cl": "Sr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": false,
-      "no": "0",
-      "name": "Tionne Gray",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 1,
-      "or": true,
-      "no": "7",
-      "name": "Francis Brewu",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DT",
-      "depth": 2,
-      "or": false,
-      "no": "59",
-      "name": "Sean Sevillano Jr.",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 1,
-      "or": false,
-      "no": "95",
-      "name": "Bryce Young",
-      "cl": "Jr."
-     },
-     {
-      "pos": "DE",
-      "depth": 2,
-      "or": false,
-      "no": "11",
-      "name": "Keon Keeley",
-      "cl": "Sr."
-     },
-     {
-      "pos": "WILL",
-      "depth": 1,
-      "or": false,
-      "no": "4",
-      "name": "Jaiden Ausberry",
-      "cl": "Sr."
-     },
-     {
-      "pos": "WILL",
-      "depth": 2,
-      "or": false,
-      "no": "3",
-      "name": "Jaylen Sneed",
-      "cl": "5th"
-     },
-     {
-      "pos": "MIKE",
-      "depth": 1,
-      "or": false,
-      "no": "34",
-      "name": "Drayk Bowen",
-      "cl": "Sr."
-     },
-     {
-      "pos": "MIKE",
-      "depth": 2,
-      "or": false,
-      "no": "27",
-      "name": "Kyngstonn Viliamu-Asa",
-      "cl": "Jr."
-     },
-     {
-      "pos": "MIKE",
-      "depth": 2,
-      "or": true,
-      "no": "19",
-      "name": "Madden Faraimo",
-      "cl": "So."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 1,
-      "or": false,
-      "no": "29",
-      "name": "Christian Gray",
-      "cl": "Sr."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 2,
-      "or": false,
-      "no": "1",
-      "name": "Dallas Golden",
-      "cl": "So."
-     },
-     {
-      "pos": "NICKEL",
-      "depth": 2,
-      "or": true,
-      "no": "12",
-      "name": "Jayden Sanders",
-      "cl": "So."
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": false,
-      "no": "15",
-      "name": "Leonard Moore",
-      "cl": "Jr."
-     },
-     {
-      "pos": "CB",
-      "depth": 2,
-      "or": false,
-      "no": "24",
-      "name": "Mark Zackery IV",
-      "cl": "So."
-     },
-     {
-      "pos": "BOUND",
-      "depth": 1,
-      "or": false,
-      "no": "8",
-      "name": "Adon Shuler",
-      "cl": "Sr."
-     },
-     {
-      "pos": "BOUND",
-      "depth": 2,
-      "or": false,
-      "no": "22",
-      "name": "Ethan Long",
-      "cl": "So."
-     },
-     {
-      "pos": "FIELD",
-      "depth": 1,
-      "or": false,
-      "no": "28",
-      "name": "Luke Talich",
-      "cl": "Sr."
-     },
-     {
-      "pos": "FIELD",
-      "depth": 2,
-      "or": false,
-      "no": "20",
-      "name": "Joey O\u2019Brien",
-      "cl": "Fr."
-     },
-     {
-      "pos": "CB",
-      "depth": 1,
-      "or": false,
-      "no": "2",
-      "name": "DJ McKinney",
-      "cl": "5th"
-     },
-     {
-      "pos": "CB",
-      "depth": 2,
-      "or": false,
-      "no": "12",
-      "name": "Jayden Sanders",
-      "cl": "So."
-     }
-    ],
     "Special Teams": [
+     {
+      "pos": "HLD",
+      "depth": 1,
+      "or": false,
+      "no": "39",
+      "name": "Jasper Scaife",
+      "cl": "Fr."
+     },
+     {
+      "pos": "HLD",
+      "depth": 2,
+      "or": false,
+      "no": "33",
+      "name": "Matt Jeffery",
+      "cl": "Jr."
+     },
      {
       "pos": "PR",
       "depth": 1,
@@ -2973,18 +2745,19 @@
       "no": "49",
       "name": "Andrew Kros",
       "cl": "Sr."
-     },
-     {
-      "pos": "HLD",
-      "depth": 1,
-      "or": false,
-      "no": "39",
-      "name": "Jasper Scaife",
-      "cl": "Fr."
      }
     ]
    },
    "battles": [
+    {
+     "group": "Defense",
+     "pos": "DT",
+     "names": [
+      "Armel Mukam",
+      "Tionne Gray",
+      "Francis Brewu"
+     ]
+    },
     {
      "group": "Offense",
      "pos": "WR",
@@ -3020,15 +2793,6 @@
      ]
     },
     {
-     "group": "Defense",
-     "pos": "DT",
-     "names": [
-      "Armel Mukam",
-      "Tionne Gray",
-      "Francis Brewu"
-     ]
-    },
-    {
      "group": "Special Teams",
      "pos": "KR",
      "names": [
@@ -3046,109 +2810,15 @@
     }
    ],
    "availability": {
-    "questionable": [
-     {
-      "no": "28",
-      "pos": "S",
-      "name": "Luke Talich",
-      "detail": "Left Wrist",
-      "weeks": 0,
-      "newer": [
-       {
-        "source": "One Foot Down",
-        "title": "NOTRE DAME FOOTBALL: Injury report and depth charts for Purdue Boilermakers",
-        "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/85034/notre-dame-football-injury-report-and-depth-charts-for-purdue-boilermakers",
-        "published": "2026-09-22T10:37:00+00:00"
-       },
-       {
-        "source": "UHND",
-        "title": "Luke Talich\u2019s Hand Injury Adds to Notre Dame Football\u2019s Safety Questions Ahead of Purdue",
-        "link": "https://www.uhnd.com/football/2026/09/22/luke-talichs-hand-injury-adds-to-notre-dame-footballs-safety-questions-ahead-of-purdue/",
-        "published": "2026-09-22T10:33:59+00:00"
-       }
-      ]
-     }
-    ],
-    "out": [
-     {
-      "no": "58",
-      "pos": "OL",
-      "name": "Matty Augustine",
-      "detail": "Right Foot",
-      "weeks": 4
-     },
-     {
-      "no": "6",
-      "pos": "DL",
-      "name": "Christopher Burgess Jr.",
-      "detail": "Left Tibia",
-      "weeks": 4
-     },
-     {
-      "no": "55",
-      "pos": "DL",
-      "name": "Tiki Hola",
-      "detail": "Right Knee",
-      "weeks": 4
-     },
-     {
-      "no": "56",
-      "pos": "OL",
-      "name": "Charles Jagusah",
-      "detail": "Left Humerus",
-      "weeks": 4
-     },
-     {
-      "no": "9",
-      "pos": "S",
-      "name": "Brauntae Johnson",
-      "detail": "Left Foot",
-      "weeks": 3,
-      "newer": [
-       {
-        "source": "UHND",
-        "title": "Luke Talich\u2019s Hand Injury Adds to Notre Dame Football\u2019s Safety Questions Ahead of Purdue",
-        "link": "https://www.uhnd.com/football/2026/09/22/luke-talichs-hand-injury-adds-to-notre-dame-footballs-safety-questions-ahead-of-purdue/",
-        "published": "2026-09-22T10:33:59+00:00"
-       }
-      ]
-     },
-     {
-      "no": "47",
-      "pos": "DL",
-      "name": "Jason Onye",
-      "detail": "Left Ankle",
-      "weeks": 3
-     },
-     {
-      "no": "0",
-      "pos": "WR",
-      "name": "Quincy Porter",
-      "detail": "Left Knee",
-      "weeks": 4
-     },
-     {
-      "no": "26",
-      "pos": "DB",
-      "name": "Chaz Smith",
-      "detail": "Right Wrist",
-      "weeks": 4
-     },
-     {
-      "no": "55",
-      "pos": "OL",
-      "name": "Chris Terek",
-      "detail": "Right Knee",
-      "weeks": 4
-     }
-    ],
-    "reported": true
+    "questionable": [],
+    "out": [],
+    "reported": false,
+    "source": "https://fightingirish.com/documents/a2264cba-eca9-4031-bac3-07e8a80c99a0.pdf",
+    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/21/TM63of2JoyNu92VIidauJf4PAkZRFy0JbMD1lBYf.pdf",
+    "label": "FightingIrish.com"
    },
-   "date": "2026-09-21",
    "changes": [
-    "Matt Jeffery moves from HLD to WR",
-    "Javian Osborne moves up to 2 at RB",
-    "Ko\u2019o Kia no longer listed out"
+    "Javian Osborne moves up to 2 at RB"
    ]
   }
  ]
