@@ -1047,10 +1047,13 @@ function loadDepth(){
   // The roster fold with a message under it, for every state that has no
   // two-deep to show.
   function unavailable(msg){
-    el.innerHTML='<details class="fold" id="rosterFold"><summary>Full roster'+
+    el.innerHTML='<div class="depth-shell"><div class="depth-head"><div>'+
+      '<span class="depth-eyebrow">Personnel</span><h2>Roster</h2></div>'+
+      '<span class="depth-meta">Team roster</span></div>'+
+      '<details class="fold" id="rosterFold"><summary>Full roster'+
       '<span class="count">every player</span></summary>'+
       '<div class="foldbody" id="rosterBody"></div></details>'+
-      '<p class="msg">'+msg+'</p>';
+      '<p class="msg">'+msg+'</p></div>';
     wireRosterFold(el);      // the roster is independent of the depth chart
   }
 
@@ -1061,7 +1064,11 @@ function loadDepth(){
 
   function build(res){
     var d=res[0]; if(!TeamOS.snapshots.owned(TEAM,d)) return "";   // not ours: nothing to show
-    var html="", av=d.availability||{out:[],questionable:[]};
+    var av=d.availability||{out:[],questionable:[]};
+    var unavailableCount=(av.out||[]).length+(av.questionable||[]).length;
+    var html='<div class="depth-shell"><div class="depth-head"><div>'+
+      '<span class="depth-eyebrow">Personnel</span><h2>Depth + availability</h2></div>'+
+      '<span class="depth-meta">'+(unavailableCount ? unavailableCount+' listed' : 'No players listed')+'</span></div>';
     outCount=av.out.length;
     var mmdd=function(iso){ return esc((iso||"").replace(/^\d{4}-/,"").replace("-","/")); };
     var srcLink=function(url, label){
@@ -1155,14 +1162,14 @@ function loadDepth(){
     // week-by-week history lands here once the history snapshot arrives
     html+='<div id="depthHistory"></div>';
 
-    if(!groupNames.length && !av.out.length) return '<p class="msg">The depth chart file is empty.</p>';
+    if(!groupNames.length && !av.out.length) return html+'<p class="msg">The depth chart file is empty.</p></div>';
 
     // ---- 4. the full roster ----
     html+='<h2 class="sec">Roster</h2>';
     html+='<details class="fold" id="rosterFold"><summary>Full roster'+
       '<span class="count">every player</span></summary>'+
       '<div class="foldbody" id="rosterBody"></div></details>';
-    return html;
+    return html+"</div>";
   }
 }
 
