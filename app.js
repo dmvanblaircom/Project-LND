@@ -1914,7 +1914,10 @@ function loadNews(){
     sources=Object.keys(srcs).length;
 
     var FIRST=15;
-    var html='<h2 class="sr-only">Latest '+esc(TEAM.name)+' stories</h2><ul class="plain">';
+    var html='<div class="news-shell"><div class="news-head"><div>'+
+      '<span class="news-eyebrow">News</span><h2>Latest stories</h2></div>'+
+      '<span class="news-meta">'+sources+' source'+(sources===1?"":"s")+'</span></div>'+
+      '<h2 class="sr-only">Latest '+esc(TEAM.name)+' stories</h2><ul class="plain">';
     list.forEach(function(a,idx){
       var when=a.publishedAt ? new Date(a.publishedAt).toLocaleDateString([],{month:"long",day:"numeric"}) : "";
       html+='<li'+(idx>=FIRST?' class="extra" hidden':"")+'><a class="art'+(a.source==="ESPN"?"":" beat")+'" href="'+esc(a.link)+
@@ -1930,7 +1933,7 @@ function loadNews(){
       html+='<button type="button" class="more" id="moreNews">Show '+
         (list.length-FIRST)+" more stories</button>";
     }
-    return html;
+    return html+"</div>";
   }
 }
 
