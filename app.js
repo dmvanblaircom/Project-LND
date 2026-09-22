@@ -129,6 +129,7 @@ function paintIdentity(){
   // ---- the page ----
   text(".brand-kicker", ID.programLabel);
   text(".bar h1", ID.productName);
+  text(".hero-brand-name", TEAM.name);
   text("#heroHead", "Next "+TEAM.name+" game");
   text("#dataHead", TEAM.name+" and national football data");
   var m = $("motto");
@@ -319,9 +320,20 @@ function paintHeroMini(g){
     '<span class="sr-only">. Open the Game tab</span>';
 }
 
+function paintHomeSnapshot(g){
+  var games=S.games||[];
+  var done=games.filter(function(x){ return x.state==="post"; });
+  var wins=done.filter(function(x){ return x.won; }).length;
+  var losses=done.length-wins;
+  var record=$("snapshotRecord"), rank=$("snapshotRank"), next=$("snapshotNext");
+  if(record) record.textContent=done.length ? wins+"–"+losses : "0–0";
+  if(rank) rank.textContent=TEAM.rank ? "#"+TEAM.rank : "NR";
+  if(next) next.textContent=g ? (g.home?"vs ":"at ")+g.oppName : "Season complete";
+}
 function paintHero(g){
   var hero=$("hero");
   hero.classList.toggle("live", g.state==="in");
+  paintHomeSnapshot(g);
   paintHeroMini(g);
   layoutForTab();
   var prefix=g.neutral?"vs":(g.home?"vs":"at");
@@ -2135,7 +2147,7 @@ function refreshSchedule(first){
     var live=games.filter(function(g){return g.state==="in";})[0];
     var up=games.filter(function(g){return g.state==="pre";})[0];
     S.next=live||up||null;
-    if(S.next) paintHero(S.next); else layoutForTab();   // no next game: nothing above the tabs
+    if(S.next) paintHero(S.next); else { paintHomeSnapshot(null); layoutForTab(); }   // no next game: nothing above the tabs
     paintSchedule(games);
     return games;
   }
