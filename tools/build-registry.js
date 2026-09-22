@@ -81,10 +81,20 @@ function embedded(doc) {
   catch (e) { die("__espnfitt__ is not JSON: " + e.message); }
 }
 
+// An id becomes a file path (teams/<id>.js) and a ?team= value, so it has to
+// be plain ASCII and it has to be the obvious spelling - a person building a
+// team config will type it from the program's name.
+//
+// Accents are FOLDED, not dropped: "San Jose State" is what NFD leaves after
+// the combining acute comes off, where dropping the whole character leaves
+// "san-jos-state", which is nobody's idea of San Jose State. An ampersand is
+// dropped rather than spelled: "Texas A&M" is "texas-am", the way it is said
+// and the way every provider slugs it, not "texas-aandm".
 function slug(s) {
-  return String(s).toLowerCase()
-    .replace(/[‘’'`.]/g, "")
-    .replace(/&/g, "and")
+  var t = String(s).toLowerCase();
+  if (t.normalize) t = t.normalize("NFD").replace(/[̀-ͯ]/g, "");
+  return t
+    .replace(/[‘’'`.&]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
@@ -210,6 +220,21 @@ var lost = existing().filter(function (t) {
 });
 if (lost.length) die("refusing to drop " + lost.map(function (t) { return t.id; }).join(", "));
 if (selectable.length < 2) die("refusing: only " + selectable.length + " selectable team(s), expected at least 2");
+
+// A stale id is the one way this generator can silently DOUBLE the roster.
+// Change how slug() spells a name and the union keeps the old row and adds a
+// new one, so the same program appears twice under two ids - and because
+// nothing shrank and nothing was dropped, every refusal above passes. Two
+// rows with one name is the symptom, and a person has to pick the id and
+// rename the config, so this stops rather than guessing.
+var byName = {};
+built.list.forEach(function (t) { (byName[t.name] = byName[t.name] || []).push(t.id); });
+var doubled = Object.keys(byName).filter(function (n) { return byName[n].length > 1; });
+if (doubled.length) {
+  die("the same program appears under two ids - slug() has changed and " +
+      "teams/index.js needs the old id renamed:\n  " +
+      doubled.map(function (n) { return n + ": " + byName[n].join(", "); }).join("\n  "));
+}
 
 var out = render(built.list);
 if (!WRITE) { process.stdout.write(out); process.exit(0); }

@@ -43,6 +43,10 @@ TeamOS.registry = (function () {
     return out;
   }
 
+  function byName(a, b) {
+    return String(a).localeCompare(String(b), "en", { sensitivity: "base" });
+  }
+
   function create(list) {
     var all = clean(list);
     var byId = {};
@@ -57,19 +61,16 @@ TeamOS.registry = (function () {
         return all.filter(function (t) { return t.available; });
       },
 
-      // Grouped for a chooser, conferences in first-seen order, each group's
-      // teams alphabetical by name.
-      byConference: function () {
-        var order = [], groups = {};
-        all.forEach(function (t) {
-          if (!groups[t.conference]) { groups[t.conference] = []; order.push(t.conference); }
-          groups[t.conference].push(t);
-        });
-        return order.map(function (c) {
-          return { conference: c, teams: groups[c].slice().sort(function (a, b) {
-            return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
-          }) };
-        });
+      // Every program, A-Z by name. This is the order a list of programs is
+      // presented in unless something has a reason to differ, so it is
+      // decided here rather than by each caller.
+      //
+      // localeCompare, not `<`: the roster carries accents and punctuation
+      // (San José State, Hawai'i, Miami (OH), Texas A&M) and byte order puts
+      // those in places no reader would look for them. The locale is named
+      // so the order does not depend on the machine.
+      sorted: function () {
+        return all.slice().sort(function (a, b) { return byName(a.name, b.name); });
       },
 
       get: function (id) { return byId[id] || null; },

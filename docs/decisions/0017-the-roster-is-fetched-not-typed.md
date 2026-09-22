@@ -150,6 +150,24 @@ availability be read off the filesystem instead of asserted.
 - `tools/import-teams.js` is deleted. It existed to turn a `/teams` payload
   into rows, and that payload is no longer a source.
 
+### The id a program gets, and the one refusal that was missing
+
+An id becomes `teams/<id>.js` and a `?team=` value, so it has to be the
+spelling a person would type. The first generated roster got two wrong:
+`slug()` dropped an accented character whole rather than folding it, giving
+`san-jos-state`, and spelled the ampersand out, giving `texas-aandm`. Both are
+fixed — accents fold through NFD, `&` is dropped — and both rows are renamed
+in place to `san-jose-state` and `texas-am`. Caught before either program had
+a config, which is the only cheap moment to catch it.
+
+That fix exposed the one way this generator could quietly **double** the
+roster. Change how `slug()` spells a name and the union keeps the old row and
+adds a new one, so a program appears twice under two ids — and because nothing
+shrank and nothing was dropped, **every refusal above passes**. The generator
+now refuses when two rows share a name, naming the program and both ids,
+because picking the id and renaming the config is a person's call. Observed
+firing by reverting `slug()` and regenerating: exit 1, both programs named.
+
 ## Owner
 
 David (that the roster should be solved, and the conference question) /

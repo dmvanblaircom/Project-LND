@@ -119,12 +119,22 @@ between opened teams works offline.
 **7C complete 2026-09-22.** A fan who arrives having asked for nobody in
 particular has not chosen a team, and the Suite no longer chooses for them:
 `chooser.js` renders from the registry, `app.js` is not loaded at all, and
-picking a team navigates to `?team=<id>`. Selectable means a config exists;
-everything else is listed greyed as *Not yet*. The page paints in the neutral
-`:root`. `docs/decisions/0016-no-team-yet-is-a-state.md`.
+picking a team navigates to `?team=<id>`. Selectable means a config exists.
+The page paints in the neutral `:root`.
+`docs/decisions/0016-no-team-yet-is-a-state.md`.
 
 **Phase 7 is complete.** The team is chosen at runtime (7A), cached per team
 offline (7B), and picked by the fan (7C).
+
+**The chooser rebuilt for the real roster, 2026-09-22.** Written for four
+programs, it met 138 and was wrong at that size: eleven conference sections in
+the provider's own order, and 136 of 138 rows greyed out. It is now one A-Z
+list with a search box over name and conference; what you can open sits at the
+top as a full-width control, and what is not built yet is a card under *Coming
+soon* — not a button, which took the page from 139 tab stops to three. Two
+bugs fell out of the rebuild: the Suite's tab bar had been surviving on the
+chooser since 7C, and filtering by the `hidden` attribute would not have
+worked in WebKit. Decision 0016.
 
 Carried forward, none of it blocking:
 - There is no way to change teams from inside a Suite — a switcher is the
@@ -132,7 +142,8 @@ Carried forward, none of it blocking:
 - The registry is generated weekly by the Action from ESPN's standings page
   (decision 0017): 138 FBS programs, each with its conference, none of it
   hand-maintained.
-- No conference data beyond the four hand-authored rows.
+- `roster.yml` only fires once it is on the default branch — GitHub reads
+  `schedule` and `workflow_dispatch` from there.
 - A first visit to a team while offline still cannot work.
 
 ## Phase 8: My Teams

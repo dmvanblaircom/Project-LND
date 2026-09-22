@@ -93,25 +93,36 @@ REG.all().forEach(function (t) {
   ok(ctx.TeamOS.registry.ID.test(t.id), t.id + " is an id the boot script would accept");
 });
 
-console.log(" grouped for a chooser");
+console.log(" sorted for a chooser")
 // Structural, not a fixed list: teams/index.js is generated (decision 0017)
 // and its contents change every time FBS does. Asserting the 2026 alignment
-// here would be the hand-maintained copy this whole change removes.
-var groups = REG.byConference();
-ok(groups.length >= 2, "conferences are grouped");
-eq(groups.map(function (g) { return g.conference; }).sort(),
-   groups.map(function (g) { return g.conference; }).sort().filter(function (c, i, a) { return a.indexOf(c) === i; }),
-   "every conference appears exactly once");
-eq(groups.reduce(function (n, g) { return n + g.teams.length; }, 0), REG.all().length,
-   "every program lands in exactly one conference");
-groups.forEach(function (g) {
-  var names = g.teams.map(function (t) { return t.name; });
-  eq(names, names.slice().sort(), g.conference + " is alphabetical");
-});
+// here would be the hand-maintained copy that change removes.
+var sorted = REG.sorted();
+eq(sorted.length, REG.all().length, "sorted() returns every program");
+ok(sorted.map(function (t) { return t.id; }).sort().join(",") ===
+   REG.all().map(function (t) { return t.id; }).sort().join(","), "and the same ones");
+var names = sorted.map(function (t) { return t.name; });
+ok(JSON.stringify(names) === JSON.stringify(names.slice().sort(function (a, b) {
+     return a.localeCompare(b, "en", { sensitivity: "base" });
+   })), "in one A-Z run, " + names[0] + " to " + names[names.length - 1]);
+// The reason it is localeCompare and not `<`: byte order puts an accented or
+// lower-cased name where nobody would look for it, and this roster has both.
+var odd = ctx.TeamOS.registry.create([
+  { id: "zulu", name: "Zulu" }, { id: "alpha", name: "alpha" },
+  { id: "san-jose", name: "San José State" }, { id: "san-diego", name: "San Diego State" }
+]).sorted().map(function (t) { return t.name; });
+eq(odd, ["alpha", "San Diego State", "San José State", "Zulu"],
+   "case and accents sort where a reader expects them, not where their bytes fall");
+
+console.log(" the conference every program carries");
+// The chooser prints conference on each program and searches it, so a blank
+// one is a program a fan cannot find by conference.
 ok(REG.all().every(function (t) { return t.conference; }),
    "every program has a conference - the generator reads it from the standings");
-ok(!REG.all().some(function (t) { return t.conference === "Independent" && t.id !== "independent"; }) ||
-   REG.all().filter(function (t) { return t.conference === "Independent"; }).length < REG.all().length,
+var confs = {};
+REG.all().forEach(function (t) { confs[t.conference] = (confs[t.conference] || 0) + 1; });
+ok(Object.keys(confs).length >= 8, "the roster spans the conferences FBS has");
+ok(confs["Independent"] !== REG.all().length,
    "not everything fell back to Independent, which is what a failed parse looks like");
 
 console.log("the generator");
@@ -169,6 +180,52 @@ eq(G.get("somewhere").available, false, "a program with no config is not selecta
 ok(G.all().every(function (t) { return t.conference; }), "every generated row carries a conference");
 eq(G.get("prog-00") && G.get("prog-00").conference, "Conference 0",
    "and it is the conference the page put it under");
+
+console.log(" the id a program gets");
+// An id becomes teams/<id>.js and a ?team= value, so it has to be the
+// spelling a person would type. Both of these were wrong once: the accent
+// took the whole letter with it, and the ampersand was spelled out.
+var spell = cp.spawnSync(process.execPath,
+  [path.join(root, "tools", "build-registry.js"),
+   page(conf.concat([{ name: "Spelling", standings: [
+     team("1", "San Jos\u00e9 State"), team("2", "Texas A&M"),
+     team("3", "Hawai'i"), team("4", "Miami (OH)") ] }]))], { encoding: "utf8" });
+var sctx = vm.createContext({});
+vm.runInContext(spell.stdout || "var TEAM_REGISTRY=[]", sctx, { filename: "spelled" });
+var ids = {};
+(sctx.TEAM_REGISTRY || []).forEach(function (t) { ids[t.name] = t.id; });
+eq(ids["San Jos\u00e9 State"], "san-jose-state", "an accent folds to its letter rather than vanishing");
+eq(ids["Texas A&M"], "texas-am", "an ampersand is dropped, not spelled out");
+eq(ids["Hawai'i"], "hawaii", "an apostrophe closes up");
+eq(ids["Miami (OH)"], "miami-oh", "and brackets become a separator");
+
+console.log(" a program cannot end up in the registry twice");
+// The one failure the other refusals cannot see: change how slug() spells a
+// name and the union keeps the old row AND adds a new one. Nothing shrinks
+// and nothing is dropped, so every other guard passes while the roster
+// quietly doubles. Forced here by handing the generator a registry whose id
+// for a program is not the one slug() now produces.
+// build-registry resolves the repository from its own location, so the
+// throwaway copy has to sit where a real one would: <root>/tools/.
+var dup = fs.mkdtempSync(path.join(os.tmpdir(), "dup-"));
+fs.mkdirSync(path.join(dup, "tools"));
+fs.mkdirSync(path.join(dup, "teams"));
+fs.copyFileSync(path.join(root, "tools", "build-registry.js"), path.join(dup, "tools", "build-registry.js"));
+fs.copyFileSync(path.join(root, "tools", "registry-header.txt"), path.join(dup, "tools", "registry-header.txt"));
+// Two configs on disk, so the "at least 2 selectable" refusal does not fire
+// first and mask the one being tested.
+["prog-01", "prog-02"].forEach(function (id) {
+  fs.writeFileSync(path.join(dup, "teams", id + ".js"), "var TEAM_CONFIG = {};\n");
+});
+// The stale row: the same program slug() now spells "prog-00".
+fs.writeFileSync(path.join(dup, "teams", "index.js"),
+  'var TEAM_REGISTRY = [\n  { id: "stale-id", name: "Prog 00", conference: "Conference 0" }\n];\n');
+var dupRun = cp.spawnSync(process.execPath,
+  [path.join(dup, "tools", "build-registry.js"), page(conf)], { encoding: "utf8" });
+eq(dupRun.status, 1, "it refuses rather than publishing the same program twice");
+ok(/same program appears under two ids/.test(dupRun.stderr), "and says what went wrong, and what to do");
+ok(/Prog 00: (stale-id, prog-00|prog-00, stale-id)/.test(dupRun.stderr), "naming the program and both ids");
+fs.rmSync(dup, { recursive: true, force: true });
 
 fs.rmSync(tmp, { recursive: true, force: true });
 

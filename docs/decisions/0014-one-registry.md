@@ -87,8 +87,9 @@ what to do when one does not.
 
 - `teams/index.js` (new) and `teamos/registry.js` (new): data and rule, the same
   split as `teams/notre-dame.js` and `teamos/team.js`.
-- `TeamOS.registry.create(list)` gives `all`, `available`, `byConference`, `get`,
-  `isAvailable`, `configFor`, `isId`. A malformed row is dropped, not thrown on
+- `TeamOS.registry.create(list)` gives `all`, `sorted`, `available`, `get`,
+  `isAvailable`, `configFor`, `isId`. (`byConference` was here until the
+  chooser stopped organising by conference; see decision 0016.) A malformed row is dropped, not thrown on
   — a typo in one program must not take the chooser down.
 - The boot script's `TEAMS` array is gone. It shape-checks and falls back.
 - **A race this exposed:** a 404 is reported asynchronously, so the fallback
