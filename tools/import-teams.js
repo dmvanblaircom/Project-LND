@@ -6,13 +6,26 @@
    which is the first thing a new fan sees. So it is generated from the
    provider's own roster rather than typed.
 
-   Feed it what ESPN serves at
+   Feed it an FBS roster. Getting one is the hard part:
 
-     /apis/site/v2/sports/football/college-football/teams?groups=80&limit=500
+     /teams?limit=500              every division, and TRUNCATED. The limit is
+                                   applied to ESPN's own id ordering and the
+                                   result is then sorted by name, so it looks
+                                   like a complete alphabetical list ending at
+                                   Yale while Wyoming (id 2751), Sam Houston
+                                   (2534) and Missouri State (2623) are absent.
+     /teams?groups=80&limit=500    IGNORED. Verified 2026-09-22: byte-for-byte
+                                   the same 500 teams, Division II and III
+                                   included. The site API does not filter this
+                                   endpoint by group.
 
-   *** groups=80 is FBS. WITHOUT it the endpoint returns every division - 500
-   teams including FCS, Division II and Division III - and nothing in the
-   payload distinguishes them, so an unfiltered dump CANNOT be filtered here. ***
+   Nothing in the payload marks division, so an unfiltered dump cannot be
+   filtered here either. A source that actually distinguishes FBS is needed -
+   the core API's group 80 children, or the standings endpoint, which would
+   also supply the conference this payload lacks.
+
+   Whatever the source, check it before trusting it: about 134 programs, and
+   Wyoming present.
 
    A Safari .webarchive or a page Safari wrapped in <pre> is unwrapped
    automatically, so a file saved from the browser works as-is.
@@ -103,9 +116,15 @@ console.error("read " + rows.length + " programs from " + path.basename(file) +
               " (season " + ((league.season || {}).year || "?") + ")");
 if (rows.length > 200) {
   console.error("");
-  console.error("  !! " + rows.length + " is every division, not FBS. Re-fetch with &groups=80.");
-  console.error("     Nothing in the payload marks division, so this cannot be filtered here.");
+  console.error("  !! " + rows.length + " programs is every division, not FBS.");
+  console.error("     groups=80 does NOT filter this endpoint - verified 2026-09-22, the");
+  console.error("     response is byte-for-byte identical without it. Nothing in the payload");
+  console.error("     marks division, so this cannot be filtered here either. A different");
+  console.error("     source is needed. Sanity-check any candidate before trusting it:");
+  console.error("     about 134 programs, and Wyoming present.");
   console.error("");
+} else if (rows.length && !byId.wyoming) {
+  console.error("  !! no Wyoming in a list of " + rows.length + " - this roster may be truncated too");
 }
 clashes.forEach(function (c) { console.error("  !! two programs share an id -> " + c); });
 
