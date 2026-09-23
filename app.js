@@ -1026,7 +1026,14 @@ function loadDepth(){
   if(!LAST_HTML[el.id]) el.innerHTML='<p class="loading">Loading the two-deep…</p>';
   var outCount=0;
 
-  cachedThenFresh(el, [snap.file], get(snap.file+"?t="+Date.now()).then(function(d){ return [d]; }),
+  // Availability is its own snapshot now (decision 0019): a different
+  // official document with its own date. It loads beside the chart; if it
+  // fails, the chart still shows and the report says it is unknown.
+  var avSnap=TeamOS.snapshots.get(TEAM_CONFIG,"availability");
+  cachedThenFresh(el, [snap.file, avSnap ? avSnap.file : null], Promise.all([
+      get(snap.file+"?t="+Date.now()),
+      avSnap ? get(avSnap.file+"?t="+Date.now()).catch(function(){ return null; }) : Promise.resolve(null)
+    ]),
     build, wire
   ).catch(function(){
     if(LAST_HTML[el.id]) return;         // the cached paint stands
@@ -1051,103 +1058,109 @@ function loadDepth(){
   }
 
   function build(res){
-    var d=res[0]; if(!TeamOS.snapshots.owned(TEAM,d)) return "";   // not ours: nothing to show
-    var html="", av=d.availability||{out:[],questionable:[]};
-    outCount=av.out.length;
-    var mmdd=function(iso){ return esc((iso||"").replace(/^\d{4}-/,"").replace("-","/")); };
-    var chartLabel=function(x){ return esc((x&&x.game)||mmdd(x&&x.date)||"Current"); };
+    var d=res[0]; if(!d || !TeamOS.snapshots.owned(TEAM,d)) return "";   // not ours: nothing to show
+    var a=res[1] && TeamOS.snapshots.owned(TEAM,res[1]) ? res[1] : null;
+    if(d.schema!==2){
+      return '<p class="msg">This depth chart is in a format this page does not read yet. '+
+        'It will return on the next data refresh.</p>';
+    }
+    var html="";
+    var players=(a && a.players) || [];
+    outCount=players.filter(function(p){ return /^out/.test(p.status); }).length;
     var srcLink=function(url, label){
       return '<a href="'+esc(url||"#")+'" target="_blank" rel="noopener">'+esc(label)+
         '<span class="sr-only"> (opens in a new tab)</span></a>';
     };
+    var LEVEL=["","First team","Second team","Third team"];
+    var levelName=function(n){ return LEVEL[n] || ("Level "+n); };
+    // Two spots under one label (two DTs, two CBs, three WRs) are two spots.
+    // The number only appears where the label repeats.
+    var slotName=function(unit, s){
+      var many=unit.slots.filter(function(x){ return x.label===s.label; }).length>1;
+      return s.label+(many?" "+s.ordinal:"");
+    };
 
-    // ---- 1. the two-deep, offense open, the rest folded ----
-    var groupNames=Object.keys(d.groups||{});
-    if(groupNames.length){
+    // ---- 1. the depth chart, one block per spot, first unit open ----
+    var units=d.units||[];
+    if(units.length){
       html+='<h2 class="sec">Depth chart</h2>'+
-        '<p class="asof">'+chartLabel(d)+', from '+srcLink(d.source, d.title||snap.label||"the source")+
-        '. '+esc(TEAM.name)+' publishes a new two-deep most Tuesdays.</p>';
+        '<p class="asof">'+esc(d.game||"Current")+', from '+srcLink(d.sourceUrl, d.title||snap.label||"the source")+
+        '. '+esc(TEAM.name)+' publishes a new depth chart most Mondays.</p>';
     }
-    groupNames.forEach(function(label, gi){
-      var body="", posCount=0;
-      var rows=d.groups[label], i=0;
-      while(i<rows.length){
-        var pos=rows[i].pos, block=[];
-        while(i<rows.length&&rows[i].pos===pos){ block.push(rows[i]); i++; }
-        var contested=block.filter(function(r){return r.depth===1;}).length>1;
-        posCount++;
-        body+='<div class="depth-pos"><b>'+esc(pos)+"</b>"+
-          (contested?'<span class="battle">BATTLE</span>':"")+"</div>";
-        body+='<ul class="ladder">';
-        block.forEach(function(r){
-          body+='<li class="d'+Math.min(r.depth,4)+'">'+
-            '<span class="jersey">'+esc(r.no)+"</span>"+
-            (r["or"]?'<span class="ortag">OR</span>':"")+
-            '<span class="nm">'+esc(r.name)+"</span>"+
-            '<span class="cl">'+esc(r.cl||"")+"</span></li>";
+    units.forEach(function(unit, ui){
+      var body="";
+      unit.slots.forEach(function(s){
+        var open=s.levels.length && s.levels[0].players.length>1;
+        body+='<div class="depth-pos"><b>'+esc(slotName(unit,s))+"</b>"+
+          (open?'<span class="battle">BATTLE</span>':"")+"</div>";
+        body+='<ul class="ladder" aria-label="'+esc(slotName(unit,s))+'">';
+        s.levels.forEach(function(lv){
+          lv.players.forEach(function(p, i){
+            body+='<li class="d'+Math.min(lv.level,4)+'">'+
+              '<span class="sr-only">'+levelName(lv.level)+(i?", or":"")+': </span>'+
+              '<span class="jersey">'+esc(p.no)+"</span>"+
+              (i?'<span class="ortag" aria-hidden="true">OR</span>':"")+
+              '<span class="nm">'+esc(p.name)+"</span>"+
+              '<span class="cl">'+esc(p.cl||"")+"</span></li>";
+          });
         });
         body+="</ul>";
-      }
+      });
       // Ninety depth rows in one scroll is unusable on a phone.
-      html+='<details class="fold"'+(gi===0?" open":"")+'><summary>'+esc(label)+
-        ' <span class="count">'+posCount+" positions</span></summary>"+
+      html+='<details class="fold"'+(ui===0?" open":"")+'><summary>'+esc(unit.unit)+
+        ' <span class="count">'+unit.slots.length+" positions</span></summary>"+
         '<div class="foldbody">'+body+"</div></details>";
     });
 
-    // ---- 2. job battles, folded ----
-    if((d.battles||[]).length){
+    // ---- 2. starting jobs still open: first team, one spot at a time ----
+    var open=(d.battles||[]).filter(function(b){ return b.level===1; });
+    if(open.length){
       html+='<details class="fold"><summary>Jobs still open'+
-        '<span class="count">'+d.battles.length+'</span></summary><div class="foldbody"><ul class="plain avail">';
-      d.battles.forEach(function(b){
-        html+="<li><span class=\"who\"><span class=\"pos\">"+esc(b.pos)+"</span>"+
-          esc(b.names.join("  /  "))+"</span></li>";
+        '<span class="count">'+open.length+'</span></summary><div class="foldbody"><ul class="plain avail">';
+      open.forEach(function(b){
+        var unit=units.filter(function(u){ return u.unit===b.unit; })[0];
+        var s=unit && unit.slots.filter(function(x){ return x.label===b.label && x.ordinal===b.ordinal; })[0];
+        html+='<li><span class="who"><span class="pos">'+esc(s?slotName(unit,s):b.label)+"</span>"+
+          esc(b.names.join(" or "))+"</span></li>";
       });
       html+="</ul></div></details>";
     }
 
-    // ---- 3. the injury report: this week's list, then week by week ----
-    html+='<h2 class="sec">Injury report</h2>';
-    if(av.reported===false){
-      html+='<p class="asof">No official availability report is attached to the current '+chartLabel(d)+
+    // ---- 3. the availability report ----
+    // Never infer health from silence: no report, or no file, says so.
+    html+='<h2 class="sec">Availability</h2>';
+    var when=function(iso){
+      if(!iso) return "";
+      var dt=new Date(iso+"T12:00:00");
+      return isNaN(dt) ? "" : dt.toLocaleDateString([],{month:"long",day:"numeric"});
+    };
+    if(!a){
+      html+='<p class="msg">No availability report has loaded. No injury status is inferred from that.</p>';
+    } else if(!a.reported){
+      html+='<p class="asof">No official availability report is attached to the '+esc(a.game||"current")+
         ' materials yet. No injury status is inferred from that absence.</p>';
-    } else if(av.carried_from){
-      html+='<p class="asof">No official availability report was published with the current chart, so this is '+
-        esc(TEAM.name)+'\u2019s '+mmdd(av.carried_from)+' report from '+
-        srcLink(av.carried_source,snap.label||"the source")+'.</p>';
     } else {
-      html+='<p class="asof">'+esc(TEAM.name)+'\u2019s official availability report from '+
-        srcLink(av.source||d.source,av.label||snap.label||"the official athletics site")+'.</p>';
-    }
-    if(av.out.length||av.questionable.length){
-      [["Out",av.out],["Questionable",av.questionable]].forEach(function(pair){
-        if(!pair[1].length) return;
-        html+='<h3 class="depth-pos"><b>'+pair[0]+" ("+pair[1].length+')</b></h3><ul class="plain avail">';
-        pair[1].forEach(function(p){
-          html+="<li><span class=\"who\">"+
-            (p.pos?'<span class="pos">'+esc(p.pos)+"</span>":"")+esc(p.name)+"</span>"+
-            (p.detail?'<span class="part">'+esc(p.detail)+"</span>":"")+
-            (p.weeks>1?'<span class="weeks">wk '+p.weeks+"</span>":"")+
-            ((p.newer||[]).length
-              ? '<span class="newer"><b>Newer reporting</b> \u00B7 '+
-                p.newer.map(function(n){
-                  return '<a href="'+esc(n.link)+'" target="_blank" rel="noopener">'+
-                    esc(n.source)+", "+esc((n.published||"").slice(5,10).replace("-","/"))+
-                    '<span class="sr-only"> — '+esc(n.title)+' (opens in a new tab)</span></a>';
-                }).join(" · ")+
-                ". This page doesn\u2019t pick a winner \u2014 read it and decide.</span>"
-              : "")+"</li>";
+      html+='<p class="asof">'+esc(TEAM.name)+'’s official availability report'+
+        (a.effectiveAt?" of "+esc(when(a.effectiveAt)):"")+', from '+
+        srcLink(a.sourceUrl||a.pdf, a.sourceLabel||"the official athletics site")+'.</p>';
+      var GROUPS=[["out-season","Out for the season"],["out-game","Out for the game"],
+                  ["doubtful","Doubtful"],["questionable","Questionable"],["probable","Probable"]];
+      var any=false;
+      GROUPS.forEach(function(g){
+        var list=players.filter(function(p){ return p.status===g[0]; });
+        if(!list.length) return;
+        any=true;
+        html+='<h3 class="depth-pos"><b>'+g[1]+" ("+list.length+')</b></h3><ul class="plain avail">';
+        list.forEach(function(p){
+          html+='<li><span class="who">'+(p.pos?'<span class="pos">'+esc(p.pos)+"</span>":"")+esc(p.name)+"</span>"+
+            (p.detail?'<span class="part">'+esc(p.detail)+"</span>":"")+"</li>";
         });
         html+="</ul>";
       });
-    } else if(av.reported===false) {
-      html+='<p class="msg">No official availability report was published with this depth chart.</p>';
-    } else {
-      html+='<p class="msg">Nobody is listed out or questionable.</p>';
+      if(!any) html+='<p class="msg">The report lists nobody: everyone is available.</p>';
     }
-    // week-by-week history lands here once the history snapshot arrives
+    // week-by-week history lands here once the history snapshots arrive
     html+='<div id="depthHistory"></div>';
-
-    if(!groupNames.length && !av.out.length) return html+'<p class="msg">The depth chart file is empty.</p>';
 
     // ---- 4. the full roster ----
     html+='<h2 class="sec">Roster</h2>';
@@ -1158,42 +1171,52 @@ function loadDepth(){
   }
 }
 
-// Every depth chart the team's source has posted this season, newest first,
-// each collapsed to its diff against the week before. Only for a team whose
-// depth snapshot declares a history file.
+// Every depth chart this season, newest first, each with what moved since
+// the week before and that week's availability. Only for a team whose depth
+// snapshot declares a history file.
 function loadHistory(){
   var snap=TeamOS.snapshots.get(TEAM_CONFIG,"depth");
   if(!snap || !snap.history) return;
-  get(snap.history+"?t="+Date.now()).then(function(d){
-    if(!TeamOS.snapshots.owned(TEAM,d)) return;
+  var avSnap=TeamOS.snapshots.get(TEAM_CONFIG,"availability");
+  Promise.all([
+    get(snap.history+"?t="+Date.now()),
+    avSnap && avSnap.history ? get(avSnap.history+"?t="+Date.now()).catch(function(){ return null; }) : null
+  ]).then(function(res){
+    var d=res[0], ah=res[1];
+    if(!TeamOS.snapshots.owned(TEAM,d) || d.schema!==2) return;
+    var reports=(ah && TeamOS.snapshots.owned(TEAM,ah) && ah.reports) || [];
     var snaps=(d.snapshots||[]).slice().reverse();
     var slot=$("panel-depth").querySelector("#depthHistory");
     if(!slot || snaps.length<2) return;
     var html='<details class="fold" open><summary>Week by week '+
       '<span class="count">'+snaps.length+" charts</span></summary><div class=\"foldbody\">";
     snaps.forEach(function(s,i){
-      var av=s.availability||{}, ch=s.changes||[];
-      var when=s.game || ((s.date||"").slice(5).replace("-","/")) || "Current";
-      var outN=(av.out||[]).length, qN=(av.questionable||[]).length;
-      var status = av.reported===false ? "official two-deep"
-        : av.carried_from
-          ? "no report published; "+esc(av.carried_from.slice(5).replace("-","/"))+" carried forward"
-          : outN+" out"+(qN?", "+qN+" questionable":"");
+      var ch=s.changes||[];
+      var r=reports.filter(function(x){ return x.game===s.game; })[0];
+      var outN=r ? r.players.filter(function(p){ return /^out/.test(p.status); }).length : 0;
+      var qN=r ? r.players.filter(function(p){ return p.status==="questionable"; }).length : 0;
+      var status = !r ? "availability unknown"
+        : !r.reported ? "no official availability report"
+        : outN+" out"+(qN?", "+qN+" questionable":"");
       var moves = i===snaps.length-1 ? "first chart of the season"
         : (ch.length ? ch.length+(ch.length===1?" change":" changes") : "no changes");
-      html+='<details class="week"'+(i===0?" open":"")+'><summary><span class="wd">'+esc(mmdd)+"</span>"+
-        '<span class="ws">'+status+" · "+esc(moves)+"</span></summary>";
+      html+='<details class="week"'+(i===0?" open":"")+'><summary><span class="wd">'+esc(s.game||"")+"</span>"+
+        '<span class="ws">'+esc(status)+" · "+esc(moves)+"</span></summary>";
       html+= ch.length ? '<ul class="chg">'+ch.map(function(c){
-               return "<li>"+esc(c)+"</li>"; }).join("")+"</ul>"
-             : '<p class="chg" style="color:var(--dim)">Nothing moved on the two-deep.</p>';
-      html+='<p class="weeksrc">Source: <a href="'+esc(s.source||"#")+
+               return "<li>"+esc(c.text)+"</li>"; }).join("")+"</ul>"
+             : '<p class="chg" style="color:var(--dim)">Nothing moved on the depth chart.</p>';
+      html+='<p class="weeksrc">Source: <a href="'+esc(s.sourceUrl||"#")+
         '" target="_blank" rel="noopener">'+esc(s.title||snap.label||"the source")+
         '<span class="sr-only"> (opens in a new tab)</span></a></p>';
       html+="</details>";
     });
     html+="</div></details>";
     slot.innerHTML=html;                 // one slot, so never two copies
-  }).catch(function(){ /* history is a bonus; silence is fine */ });
+  }).catch(function(e){
+    // History is a bonus, but a failure is not silence: the previous
+    // version threw on every render here and nobody could tell.
+    if(window.console) console.warn("depth history:", e);
+  });
 }
 
 /* ---------- game view: live line, box score, leaders ---------- */

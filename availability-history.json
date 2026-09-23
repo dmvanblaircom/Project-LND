@@ -1,0 +1,344 @@
+{
+ "schema": 1,
+ "team": "notre-dame",
+ "updated": "2026-09-23T17:56:54.400831+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "notre-dame",
+   "capability": "availability",
+   "tier": "official",
+   "game": "vs. Wisconsin",
+   "sourceUrl": "https://fightingirish.com/documents/7eb88fcd-ad56-4b31-8972-35f9c371fef5.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/04/3i4LwKW4b6HpjocmfhKpj1TM2oC6YbX3qu8mXEw6.pdf",
+   "fetchedAt": "2026-09-23T17:56:32.985815+00:00",
+   "reported": true,
+   "effectiveAt": null,
+   "heading": null,
+   "players": [
+    {
+     "no": "58",
+     "pos": "OL",
+     "name": "Matty Augustine",
+     "status": "out-game",
+     "detail": "Right Foot"
+    },
+    {
+     "no": "6",
+     "pos": "DL",
+     "name": "Christopher Burgess Jr.",
+     "status": "out-game",
+     "detail": "Left Tibia"
+    },
+    {
+     "no": "55",
+     "pos": "DL",
+     "name": "Tiki Hola",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "56",
+     "pos": "OL",
+     "name": "Charles Jagusah",
+     "status": "out-game",
+     "detail": "Left Humerus"
+    },
+    {
+     "no": "16",
+     "pos": "LB",
+     "name": "Ko’ o Kia",
+     "status": "out-game",
+     "detail": "Left Shoulder"
+    },
+    {
+     "no": "0",
+     "pos": "WR",
+     "name": "Quincy Porter",
+     "status": "out-game",
+     "detail": "Left Knee"
+    },
+    {
+     "no": "26",
+     "pos": "DB",
+     "name": "Chaz Smith",
+     "status": "out-game",
+     "detail": "Right Wrist"
+    },
+    {
+     "no": "55",
+     "pos": "OL",
+     "name": "Chris Terek",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "27",
+     "pos": "LB",
+     "name": "Kyngstonn Viliamu-Asa",
+     "status": "questionable",
+     "detail": "Left Knee"
+    }
+   ]
+  },
+  {
+   "schema": 1,
+   "team": "notre-dame",
+   "capability": "availability",
+   "tier": "official",
+   "game": "Rice",
+   "sourceUrl": "https://fightingirish.com/documents/9fb6798f-0c21-40d2-991d-883283bb7173.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/11/O7XRHX699n9zzBw0F2L2POnPGmlpQ4goiwcgb5BX.pdf",
+   "fetchedAt": "2026-09-23T17:56:39.043452+00:00",
+   "reported": true,
+   "effectiveAt": null,
+   "heading": null,
+   "players": [
+    {
+     "no": "58",
+     "pos": "OL",
+     "name": "Matty Augustine",
+     "status": "out-game",
+     "detail": "Right Foot"
+    },
+    {
+     "no": "6",
+     "pos": "DL",
+     "name": "Christopher Burgess Jr.",
+     "status": "out-game",
+     "detail": "Left Tibia"
+    },
+    {
+     "no": "55",
+     "pos": "DL",
+     "name": "Tiki Hola",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "56",
+     "pos": "OL",
+     "name": "Charles Jagusah",
+     "status": "out-game",
+     "detail": "Left Humerus"
+    },
+    {
+     "no": "9",
+     "pos": "S",
+     "name": "Brauntae Johnson",
+     "status": "out-game",
+     "detail": "Left Foot"
+    },
+    {
+     "no": "16",
+     "pos": "LB",
+     "name": "Ko’ o Kia",
+     "status": "out-game",
+     "detail": "Left Shoulder"
+    },
+    {
+     "no": "47",
+     "pos": "DL",
+     "name": "Jason Onye",
+     "status": "out-game",
+     "detail": "Left Ankle"
+    },
+    {
+     "no": "0",
+     "pos": "WR",
+     "name": "Quincy Porter",
+     "status": "out-game",
+     "detail": "Left Knee"
+    },
+    {
+     "no": "26",
+     "pos": "DB",
+     "name": "Chaz Smith",
+     "status": "out-game",
+     "detail": "Right Wrist"
+    },
+    {
+     "no": "55",
+     "pos": "OL",
+     "name": "Chris Terek",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "27",
+     "pos": "LB",
+     "name": "Kyngstonn Viliamu-Asa",
+     "status": "questionable",
+     "detail": "Left Knee"
+    }
+   ]
+  },
+  {
+   "schema": 1,
+   "team": "notre-dame",
+   "capability": "availability",
+   "tier": "official",
+   "game": "Michigan State",
+   "sourceUrl": "https://fightingirish.com/documents/0b15d41e-8f8e-4fe6-a7d1-36691fe572db.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/15/E5oQ09nVRL3tMvxmnCvyLR1ndB7qA0zrXtuogGLI.pdf",
+   "fetchedAt": "2026-09-23T17:56:44.370114+00:00",
+   "reported": true,
+   "effectiveAt": null,
+   "heading": null,
+   "players": [
+    {
+     "no": "58",
+     "pos": "OL",
+     "name": "Matty Augustine",
+     "status": "out-game",
+     "detail": "Right Foot"
+    },
+    {
+     "no": "6",
+     "pos": "DL",
+     "name": "Christopher Burgess Jr.",
+     "status": "out-game",
+     "detail": "Left Tibia"
+    },
+    {
+     "no": "55",
+     "pos": "DL",
+     "name": "Tiki Hola",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "56",
+     "pos": "OL",
+     "name": "Charles Jagusah",
+     "status": "out-game",
+     "detail": "Left Humerus"
+    },
+    {
+     "no": "9",
+     "pos": "S",
+     "name": "Brauntae Johnson",
+     "status": "out-game",
+     "detail": "Left Foot"
+    },
+    {
+     "no": "47",
+     "pos": "DL",
+     "name": "Jason Onye",
+     "status": "out-game",
+     "detail": "Left Ankle"
+    },
+    {
+     "no": "0",
+     "pos": "WR",
+     "name": "Quincy Porter",
+     "status": "out-game",
+     "detail": "Left Knee"
+    },
+    {
+     "no": "26",
+     "pos": "DB",
+     "name": "Chaz Smith",
+     "status": "out-game",
+     "detail": "Right Wrist"
+    },
+    {
+     "no": "55",
+     "pos": "OL",
+     "name": "Chris Terek",
+     "status": "out-game",
+     "detail": "Right Knee"
+    }
+   ]
+  },
+  {
+   "schema": 1,
+   "team": "notre-dame",
+   "capability": "availability",
+   "tier": "official",
+   "game": "at Purdue",
+   "sourceUrl": "https://fightingirish.com/documents/a2264cba-eca9-4031-bac3-07e8a80c99a0.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/21/TM63of2JoyNu92VIidauJf4PAkZRFy0JbMD1lBYf.pdf",
+   "fetchedAt": "2026-09-23T17:56:49.649059+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-21",
+   "heading": "AVAILABILITY UPDATE (SEPT. 21)",
+   "players": [
+    {
+     "no": "",
+     "pos": "S",
+     "name": "Luke Talich",
+     "status": "questionable",
+     "detail": "left wrist"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Matty Augustine",
+     "status": "out-game",
+     "detail": "Right Foot"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Christopher Burgess Jr.",
+     "status": "out-game",
+     "detail": "Left Tibia"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Tiki Hola",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "",
+     "pos": "S",
+     "name": "Brauntae Johnson",
+     "status": "out-game",
+     "detail": "Left Foot"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Charles Jagusah",
+     "status": "out-game",
+     "detail": "Left Humerus"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Jason Onye",
+     "status": "out-game",
+     "detail": "Left Ankle"
+    },
+    {
+     "no": "",
+     "pos": "WR",
+     "name": "Quincy Porter",
+     "status": "out-game",
+     "detail": "Left Knee"
+    },
+    {
+     "no": "",
+     "pos": "DB",
+     "name": "Chaz Smith",
+     "status": "out-game",
+     "detail": "Right Wrist"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Chris Terek",
+     "status": "out-game",
+     "detail": "Right Knee"
+    }
+   ]
+  }
+ ]
+}
