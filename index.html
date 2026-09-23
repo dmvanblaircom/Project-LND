@@ -176,7 +176,7 @@
     <span class="rank" id="rank" hidden></span>
     <span class="rec" id="rec"></span>
     <span class="spacer"></span>
-    <button type="button" class="refresh" id="refresh" aria-label="Refresh data" title="Refresh"><span class="refresh-icon" aria-hidden="true">↻</span><span class="refresh-label">Refresh</span></button>
+    <button type="button" class="refresh" id="refresh"><span class="refresh-icon" aria-hidden="true">↻</span> Refresh</button>
     <div class="more-wrap">
       <button type="button" class="more-trigger" id="moreTrigger" aria-label="More options" aria-haspopup="menu" aria-expanded="false" aria-controls="moreMenu"><span aria-hidden="true">•••</span></button>
       <div class="more-menu" id="moreMenu" role="menu" hidden>
@@ -193,7 +193,6 @@
 
   <main>
     <section class="hero" id="hero" aria-labelledby="heroHead" hidden>
-      <div class="hero-brand" aria-hidden="true"><span class="hero-brand-mark"></span><span class="hero-brand-name"></span></div>
       <h2 class="sr-only" id="heroHead">Next team game</h2>
       <p class="when" id="heroWhen">Next up</p>
       <p class="opp" id="heroOpp"></p>
@@ -210,22 +209,16 @@
 
     <div class="strip" id="strip" hidden>
       <button type="button" class="cell" id="btnTitle" aria-expanded="false" aria-controls="oddsboard">
-        <span class="k">Title outlook</span>
+        <span class="k">National title</span>
         <span class="v pending" id="mTitle">Loading…</span>
       </button>
       <button type="button" class="cell" id="btnPlayoff" aria-expanded="false" aria-controls="oddsboard">
-        <span class="k">Playoff outlook</span>
+        <span class="k">Playoff</span>
         <span class="v pending" id="mPlayoff">Loading…</span>
       </button>
     </div>
-    <p class="hint" id="oddsHint" hidden>Market-implied outlook · Kalshi · Tap for the full field</p>
+    <p class="hint" id="oddsHint" hidden>Tap either card for the full board</p>
     <div id="oddsboard" hidden></div>
-
-    <section class="home-snapshot" id="homeSnapshot" aria-label="Season snapshot">
-      <div class="snapshot-stat"><span class="snapshot-k">Record</span><strong id="snapshotRecord">—</strong></div>
-      <div class="snapshot-stat"><span class="snapshot-k">Ranking</span><strong id="snapshotRank">—</strong></div>
-      <div class="snapshot-stat"><span class="snapshot-k">Next</span><strong id="snapshotNext">—</strong></div>
-    </section>
 
     <h2 class="sr-only" id="dataHead">Team and national football data</h2>
 
@@ -247,7 +240,7 @@
   <button type="button" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4.5l8 7"/><path d="M6 10v9.5h12V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></button>
   <button type="button" role="tab" id="tab-around" aria-controls="panel-around" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19.5h14"/><path d="M7 17V12h3v5M11 17V8h3v9M15 17V5h3v12"/></svg><span>Top 25</span></button>
   <button type="button" role="tab" id="tab-game" aria-controls="panel-game" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9.5h18M12 9.5v10"/><path d="M6 7h4M14 7h4"/><path d="M5.5 12h4v2.75h-4v2.75h4"/><path d="M14.5 12h4l-2.6 5.5"/></svg><span>Game</span></button>
-  <button type="button" role="tab" id="tab-depth" aria-controls="panel-depth" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="2.5"/><path d="M4 19c0-3 1.8-5 4.5-5s4.5 2 4.5 5M15.5 11.5a2.5 2.5 0 1 0 0-5M15 14c2.7 0 4.5 1.8 4.5 5"/></svg><span>Players</span></button>
+  <button type="button" role="tab" id="tab-depth" aria-controls="panel-depth" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="2.5"/><path d="M4 19c0-3 1.8-5 4.5-5s4.5 2 4.5 5M15.5 11.5a2.5 2.5 0 1 0 0-5M15 14c2.7 0 4.5 1.8 4.5 5"/></svg><span>Roster</span></button>
   <button type="button" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h13v15H6.5A1.5 1.5 0 0 1 5 18Z"/><path d="M8 8h7M8 11.5h7M8 15h4"/></svg><span>News</span></button>
 </nav>
 
