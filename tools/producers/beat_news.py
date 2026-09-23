@@ -127,11 +127,16 @@ def merge(items, keep=KEEP):
 
 # ---- network ------------------------------------------------------------
 
-def get(url):
+def fetch(url):
+    """-> (bytes, the URL it ended at after redirects)."""
     req = urllib.request.Request(url, headers={"user-agent": UA,
                                                "accept": "application/rss+xml, application/atom+xml, text/xml, */*"})
     with urllib.request.urlopen(req, timeout=20) as r:
-        return r.read()
+        return r.read(), r.geturl()
+
+
+def get(url):
+    return fetch(url)[0]
 
 
 def read_source(src):
@@ -144,9 +149,15 @@ def read_source(src):
     if not site:
         raise RuntimeError(failed)
     try:
-        candidates = discover(get(site).decode("utf-8", "replace"), site)
+        page, landed = fetch(site)
     except Exception as e:                              # noqa: BLE001
         raise RuntimeError("%s; site unreachable too (%s)" % (failed, str(e)[:60]))
+    # A site that moved redirects its home page: look for the feed where it
+    # landed, and say where that is.
+    candidates = discover(page.decode("utf-8", "replace"), landed)
+    if landed.rstrip("/") != site.rstrip("/"):
+        failed += "; %s now redirects to %s" % (site, landed)
+        site = landed
     for url in candidates:
         if url == src["feed"]:
             continue

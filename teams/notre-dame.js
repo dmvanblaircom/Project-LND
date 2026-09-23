@@ -97,7 +97,7 @@ var TEAM_CONFIG = {
       { name: "Slap the Sign",       feed: "https://slapthesign.com/feed/",                 site: "https://slapthesign.com/" },
       { name: "Fighting Irish Wire", feed: "https://fightingirishwire.usatoday.com/feed/",   site: "https://fightingirishwire.usatoday.com/" },
       { name: "UHND",                feed: "https://www.uhnd.com/feed/",                    site: "https://www.uhnd.com/" },
-      { name: "Irish Sports Daily",  feed: "https://www.irishsportsdaily.com/rss",          site: "https://irishsportsdaily.com/" },
+      { name: "Irish Sports Daily",  feed: "https://irishsportsdaily.com/premium/feed",     site: "https://irishsportsdaily.com/" },
       { name: "NDNation",            feed: "https://ndnation.com/feed",                     site: "https://ndnation.com/" }
     ]
   },
