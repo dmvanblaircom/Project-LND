@@ -44,6 +44,14 @@ for bad, what in ((b"<html><body>404 Not Found</body></html>", "an HTML error pa
     except ValueError:
         ok(True, "%s is refused as a feed, never read as zero stories" % what)
 
+sloppy = RSS.replace(b"Depth chart notes", b"Q&A: depth chart &amp; notes")
+try:
+    amp = [i["title"] for i in bn.parse_feed(sloppy, "Site A")]
+except ValueError:
+    amp = None
+ok(amp == ["Q&A: depth chart & notes"],
+   "a bare & in a headline is tolerated, as every feed reader does; a real entity is left alone")
+
 print("finding a feed that moved")
 found = bn.discover(PAGE, "https://site.example/")
 ok(found[0] == "https://site.example/news/feed.rss", "the page's own <link rel=alternate> is tried first")

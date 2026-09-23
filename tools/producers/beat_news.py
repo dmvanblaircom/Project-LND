@@ -56,12 +56,21 @@ def _text(node):
     return (node.text or "").strip() if node is not None else ""
 
 
+# An ampersand that does not start an entity. Real feeds ship headlines like
+# "Q&A" unescaped; every feed reader tolerates it, and a strict parser would
+# drop the whole source over one character.
+BARE_AMP = re.compile(rb"&(?!#\d+;|#x[0-9a-fA-F]+;|[A-Za-z][A-Za-z0-9]*;)")
+
+
 def parse_feed(raw, source):
     """RSS 2.0 or Atom bytes -> stories. Raises ValueError if it is not a feed."""
     try:
         root = ET.fromstring(raw)
-    except ET.ParseError as e:
-        raise ValueError("not XML: %s" % e)
+    except ET.ParseError:
+        try:
+            root = ET.fromstring(BARE_AMP.sub(b"&amp;", raw))
+        except ET.ParseError as e:
+            raise ValueError("not XML: %s" % e)
     if root.tag not in ("rss", ATOM + "feed", "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}RDF"):
         raise ValueError("XML, but not a feed (<%s>)" % root.tag)
     items = []
