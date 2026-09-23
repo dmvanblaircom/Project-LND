@@ -102,8 +102,15 @@ The first consumer MVP should prioritize:
 4. News / Updates
 5. Team / Roster
 6. Basic personalization
-7. Notifications
-8. One or more lightweight participation features
+7. One or more lightweight participation features
+
+## Future Product Roadmap
+
+### Notifications
+
+Notifications are an intentional future Suite capability, but are **deferred from the current implementation and current canonical UI work**. Do not introduce notification controls, bells, settings, permission prompts, or implied notification behavior until this capability is explicitly brought forward for product design and implementation.
+
+When revisited, notification use cases, preference controls, delivery mechanics, platform constraints, and TeamOS responsibilities should be defined before UI implementation begins.
 
 ## Explicitly Not MVP
 
