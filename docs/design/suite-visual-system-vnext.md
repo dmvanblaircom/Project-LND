@@ -1,5 +1,7 @@
 # Suite Visual System vNext
 
+> **Historical (2026-09-23).** This describes the vNext release, which was withdrawn. The Suite runs its baseline look until the canonical screens are built (`docs/decisions/0021-interim-suite-presentation.md`). Kept as a record, not a spec.
+
 Status: IMPLEMENTED ON `design/suite-vnext-build` / BROWSER QA PENDING  
 Scope: shared Suite visual language, responsive behavior, and team-theme contract  
 Reference implementations: Irish Watch and Buckeye Watch
