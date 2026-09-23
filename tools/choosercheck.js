@@ -264,32 +264,83 @@ ok(!/texasam|hawaii|sanjosestate/.test(
 
 console.log("search");
 var total = REGLIVE.all().length;
-eq(r.search("").names.length, total, "an empty box shows every program");
-eq(r.search("notre").names, ["Notre Dame"], "a team is found by name");
-ok(r.search("ohio").names.indexOf("Ohio State") !== -1, "and a partial name matches");
+function hits(q) { return r.search(q).names; }
+eq(hits("").length, total, "an empty box shows every program");
+eq(hits("notre"), ["Notre Dame"], "a team is found by the start of its name");
+ok(hits("ohio").indexOf("Ohio State") !== -1, "and by a partial first word");
+eq(hits("ohio state"), ["Ohio State"],
+   "every word has to land, so the second one narrows rather than widens");
 
-console.log(" by conference, which is a search term and not a section");
-var bigTen = r.search("big ten").names;
-ok(bigTen.length > 10, "typing a conference finds its programs (" + bigTen.length + ")");
-ok(bigTen.indexOf("Ohio State") !== -1, "including the one you can open");
+console.log(" not a substring match, which is what pulled in the wrong teams");
+// The reason this is word-based. As a substring of the squashed roster, "nd"
+// matched Indiana, Maryland, Vanderbilt, San Diego State, UConn and Texas A&M
+// as well as Notre Dame - every one of them a fragment from the middle of a
+// word, which is not a thing a fan types.
+eq(hits("nd"), ["Notre Dame"], "a short query lands on the program it abbreviates");
+["Indiana", "Maryland", "Vanderbilt", "UConn"].forEach(function (n) {
+  ok(hits("nd").indexOf(n) === -1, "and not on " + n + ", which merely contains those letters");
+});
+// The property underneath those four: when anything matches strictly, the
+// programs that only contain the letters somewhere in the middle are left
+// out. They come back only when nothing matched at all - see the fallback
+// further down.
+ok(hits("nd").length === 1, "exactly one program, not seven");
+
+console.log(" the short forms a fan actually types");
+// None of these is a hand-written alias. The abbreviation and the nickname
+// come from the provider with the roster; the initials are computed.
+eq(hits("buckeyes").length && hits("buckeyes")[0], "Ohio State", "a nickname finds its program");
+eq(hits("fighting irish"), ["Notre Dame"], "including a nickname of two words");
+ok(hits("osu").indexOf("Ohio State") !== -1, "an abbreviation finds its program");
+ok(hits("osu").length > 1, "and honestly returns the others that share it (" +
+   hits("osu").join(", ") + ")");
+ok(hits("msu").indexOf("Michigan State") !== -1 && hits("msu").length > 1,
+   "the same for the other crowded one (" + hits("msu").join(", ") + ")");
+// An abbreviation carrying punctuation is torn in two by word-splitting, so
+// the whole query is tried against the short forms before its words are.
+eq(hits("TA&M"), ["Texas A&M"], "an abbreviation with punctuation in it still lands");
+ok(hits("M-OH").indexOf("Miami (OH)") !== -1, "and so does the other one");
+
+console.log(" a conference, however it is said");
+var bigTen = hits("big ten");
+ok(bigTen.length > 10, "a conference finds its programs (" + bigTen.length + ")");
+eq(hits("big 10"), bigTen, "said with a numeral it finds exactly the same ones");
+eq(hits("b1g"), bigTen, "and so does the spelling nobody can derive");
 ok(bigTen.every(function (n) {
   var t = REGLIVE.all().filter(function (x) { return x.name === n; })[0];
   return t && /Big Ten/.test(t.conference);
-}), "and nothing that is not in it");
-ok(r.search("big ten conference").names.length === bigTen.length,
-   "the full conference name matches too, though the row shows it trimmed");
+}), "and nothing outside it");
+// ACC, MAC and MWC fall out of the initials; SEC, C-USA and AAC cannot and
+// are the short list the code carries.
+["sec", "acc", "cusa", "aac", "mac", "mwc"].forEach(function (a) {
+  ok(hits(a).length > 5, '"' + a + '" finds a conference (' + hits(a).length + " programs)");
+});
+eq(hits("pac12"), hits("pac 12"), "a conference written solid matches the same as spaced");
 
 console.log(" the way a fan types, not the way the provider spells");
-// Each of these is a real program on the 2026 roster whose punctuation or
-// accent a fan will not reproduce.
-[["san jose", "San José State"], ["miami oh", "Miami (OH)"],
- ["texas am", "Texas A&M"], ["hawaii", "Hawai'i"]].forEach(function (pair) {
+[["san jose", "San Jos\u00e9 State"], ["san jos\u00e9", "San Jos\u00e9 State"],
+ ["miami oh", "Miami (OH)"], ["texas am", "Texas A&M"],
+ ["texas a&m", "Texas A&M"], ["hawaii", "Hawai'i"], ["hawai'i", "Hawai'i"]].forEach(function (pair) {
   var known = REGLIVE.all().some(function (t) { return t.name === pair[1]; });
   if (!known) { console.log("  --   " + pair[1] + " is not on this roster, skipped"); return; }
-  ok(r.search(pair[0]).names.indexOf(pair[1]) !== -1,
-     '"' + pair[0] + '" finds ' + pair[1]);
+  ok(hits(pair[0]).indexOf(pair[1]) !== -1, '"' + pair[0] + '" finds ' + pair[1]);
 });
-eq(r.search("NOTRE DAME").names, ["Notre Dame"], "case does not matter");
+eq(hits("NOTRE DAME"), ["Notre Dame"], "case does not matter");
+eq(hits("  notre   dame  "), ["Notre Dame"], "nor does spacing");
+
+console.log(" open, but not so open it stops meaning anything");
+// Two ways to be too restrictive, both fixed, and neither allowed to loosen a
+// query that already worked.
+eq(hits("notre dame football"), ["Notre Dame"],
+   "a word no program has ever heard of is ignored rather than vetoing the rest");
+eq(hits("ohio zzzzz"), hits("ohio"), "the words that do mean something still narrow");
+ok(hits("bama").indexOf("Alabama") !== -1,
+   "a fragment nothing starts with falls back to looking inside words");
+eq(hits("zzzzz"), [], "but a query nothing knows at all still reports nothing");
+eq(hits("q"), [], "and a single stray letter does not open the floodgates");
+// The fallback must not fire when the strict pass already answered.
+eq(hits("ohio state"), ["Ohio State"],
+   "a query that works strictly is never widened by the fallback");
 
 console.log(" what the page says while filtering");
 var hit = r.search("notre");
@@ -306,9 +357,6 @@ eq(back.count, total + " programs.", "and the count returns to the resting total
 eq(back.headings, ["soon"], "as does the heading");
 ok(r.search("akron").headings.indexOf("soon") !== -1,
    "a search that only hits unbuilt programs keeps their heading");
-// The heading counts what is under it NOW. Left at the resting total it
-// reads "136 programs" over seventeen of them, which the fan can see is
-// wrong.
 var bigTenSoon = REGLIVE.all().filter(function (t) {
   return /Big Ten/.test(t.conference) && !t.available;
 }).length;
@@ -317,6 +365,21 @@ eq(r.search("big ten").note, bigTenSoon + " programs",
 eq(r.search("").note,
    (REGLIVE.all().length - REGLIVE.available().length) + " programs",
    "clearing the box puts the resting total back");
+
+console.log(" every program can be found by what it is called");
+// The sweep. Not a fixed list - the roster is generated, so this asks the
+// registry itself. A program nobody can search for is a program nobody can
+// pick.
+var unfindable = [];
+REGLIVE.all().forEach(function (t) {
+  [t.name, t.abbr, t.nick].forEach(function (q) {
+    if (q && hits(q).indexOf(t.name) === -1) unfindable.push(JSON.stringify(q) + " -> " + t.name);
+  });
+});
+eq(unfindable, [], "all " + REGLIVE.all().length +
+   " programs are found by their name, abbreviation and nickname");
+ok(REGLIVE.all().every(function (t) { return t.abbr && t.nick; }),
+   "and every one carries both, because the provider sends them with the roster");
 
 console.log(" picking one");
 var res = r.click("ohio-state");

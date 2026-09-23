@@ -33,7 +33,7 @@
 
    Filtering hides items rather than re-rendering them. Rebuilding on every
    keystroke would throw away the focused input, and there are 138 items to
-   rebuild; each carries its own haystack in data-find.
+   rebuild; each carries its own search text in data-find and data-forms.
 
    Choosing navigates to ?team=<id>. That is one line of work and it buys a
    lot: the boot script's existing path runs from the top with a team, the
@@ -55,32 +55,167 @@
     });
   }
 
-  /* What a search term and a program are both reduced to before they are
-     compared: letters and digits only, accents stripped, everything else
-     gone. A fan types what they say, not what the provider spells, and the
-     provider spells Hawai'i, Miami (OH), Texas A&M, and San Jose State with
-     an accent on the e.
+  /* ---- search --------------------------------------------------------
 
-     Punctuation is REMOVED, not turned into a space. Turning it into one
-     looks tidier and is wrong: it leaves "hawai i", which "hawaii" never
-     matches - and "hawaii" is what a fan types. Dropping the spaces as well
-     costs nothing real, because the haystack is squashed the same way.
-     U+0300-U+036F is the combining-marks block that NFD leaves behind. */
-  function squash(s, ampersandIsAnd) {
+     Three things a fan types, and one thing they do not.
+
+     They type PART of a name: "notre", "penn". They type a SHORT FORM: "ND",
+     "OSU", "Buckeyes", "Big 10". They type it in whatever case and
+     punctuation they like: "hawaii" for Hawai'i, "texas am" for Texas A&M.
+     What they do not type is a fragment from the middle of a word - so
+     matching on one is how "nd" came back with Indiana, Maryland, Vanderbilt
+     and four others, which is the whole reason this is not a substring test
+     any more.
+
+     A program is matched when EVERY word of the query matches it, and a word
+     of the query matches when it either begins a word of the program, or is
+     one of the program's short forms exactly. Requiring every word is what
+     keeps "ohio state" off Ohio; matching at the start of a word rather than
+     anywhere inside one is what keeps "nd" off Indiana; taking short forms
+     only in full is what stops two-letter codes matching everything.
+
+     Nothing here is typed by hand. The short forms are the provider's own
+     abbreviation and nickname, which arrive with the roster (decision 0017),
+     plus the initials of the name. The one table below is numerals, because
+     a conference spelled "Big Ten" is said "Big 10". */
+
+  function fold(s) {
     var t = String(s == null ? "" : s).toLowerCase();
+    // U+0300-U+036F is the combining-marks block NFD leaves behind, so
+    // "San Jose" matches San Jose State however the fan spells it.
     if (t.normalize) t = t.normalize("NFD").replace(/[̀-ͯ]/g, "");
-    if (ampersandIsAnd) t = t.replace(/&/g, " and ");
-    return t.replace(/[^a-z0-9]+/g, "");
+    return t;
   }
 
-  /* An ampersand is the one character a fan might reasonably type either way,
-     so a program carries both readings: "texasam" and "texasandm". They are
-     joined by a space, and a squashed query contains no space, so it cannot
-     match across the join - two haystacks in one attribute. */
-  function haystack(t) {
-    var s = t.name + " " + t.conference;
-    var plain = squash(s, false), spelled = squash(s, true);
-    return plain === spelled ? plain : plain + " " + spelled;
+  /* "Big Ten" is said "Big 10", and "Big 12" is said "Big twelve". Both
+     spellings go in, so whichever the fan types is already there. This is the
+     only hand-written table in the search, it is two entries long, and it is
+     about numerals rather than about any team. */
+  var SAID = { ten: "10", 10: "ten", twelve: "12", 12: "twelve" };
+
+  /* The words of a program: every run of letters and digits, plus each
+     space-separated chunk with its punctuation closed up, plus the whole
+     string closed up.
+
+     The closed-up forms are what let a fan type it the way they say it:
+     "Hawai'i" gives "hawaii", "A&M" gives "am", "Miami (OH)" gives "oh", and
+     "Pac-12 Conference" gives "pac12". Without them the apostrophe splits
+     Hawai'i into "hawai" and "i", and "hawaii" matches neither. */
+  function wordsOf(text) {
+    var out = [], t = fold(text);
+    var whole = t.replace(/[^a-z0-9]+/g, "");
+    if (whole) out.push(whole);
+    t.split(/\s+/).forEach(function (chunk) {
+      var closed = chunk.replace(/[^a-z0-9]+/g, "");
+      if (closed) out.push(closed);
+      chunk.split(/[^a-z0-9]+/).forEach(function (w) {
+        if (!w) return;
+        out.push(w);
+        if (SAID[w]) out.push(SAID[w]);
+      });
+    });
+    return out;
+  }
+
+  /* The short forms a program answers to IN FULL: the provider's own
+     abbreviation ("OSU", "TA&M" -> "tam"), the initials of its name
+     ("Notre Dame" -> "nd"), and those initials with the U a fan adds when
+     they say a school's name out loud ("Ohio State" -> "osu").
+
+     Exact-match only. As prefixes these would be noise - "nd" begins
+     nothing, but two letters matched loosely begin half the roster. */
+  function initialsOf(text) {
+    return fold(text).split(/[^a-z0-9]+/)
+      .filter(function (w) { return w; })
+      .map(function (w) { return w.charAt(0); }).join("");
+  }
+
+  /* The four conference abbreviations initials cannot produce, because the
+     letters are not the first letters of anything: the SEC is the
+     SouthEastern Conference, C-USA closes up a word that initials would drop,
+     B1G is a spelling of Big Ten, and the American is still said AAC from
+     when it was the American Athletic.
+
+     ACC, MAC, MWC and SBC are NOT here - they fall out of the initials for
+     free. This list is only what cannot be derived, it names no team, and if
+     ESPN renames a conference an entry simply stops applying while the
+     derived initials keep working. */
+  var CONF_SAID = [
+    [/southeastern/, "sec"],
+    [/conference usa/, "cusa"],
+    [/big ten/, "b1g"],
+    [/^american/, "aac"]
+  ];
+
+  function formsOf(t) {
+    var out = [];
+    if (t.abbr) out.push(fold(t.abbr).replace(/[^a-z0-9]+/g, ""));
+
+    // The initials of the name, and those initials with the U a fan adds
+    // when they say a school out loud: Ohio State -> "os", "osu".
+    var initials = initialsOf(t.name);
+    if (initials.length > 1) { out.push(initials); out.push(initials + "u"); }
+
+    // The conference, with and without the word "Conference" - "Atlantic
+    // Coast Conference" answers to both "acc" and "ac".
+    var conf = fold(t.conference || "");
+    var ci = initialsOf(conf);
+    if (ci.length > 1) out.push(ci);
+    var noWord = initialsOf(conf.replace(/conference/g, ""));
+    if (noWord.length > 1) out.push(noWord);
+    CONF_SAID.forEach(function (pair) {
+      if (pair[0].test(conf)) out.push(pair[1]);
+    });
+    return out;
+  }
+
+  // Everything a program can be found by, as two attributes on its row: the
+  // words, and the forms. Parsed once when the list is wired, not per
+  // keystroke.
+  function searchAttrs(t) {
+    var words = wordsOf(t.name).concat(wordsOf(t.conference));
+    if (t.nick) words = words.concat(wordsOf(t.nick));
+    var seen = {};
+    words = words.filter(function (w) { return seen[w] ? false : (seen[w] = true); });
+    var forms = formsOf(t).filter(function (f) { return f; });
+    return ' data-find="' + esc(words.join(" ")) + '"' +
+           ' data-forms="' + esc(forms.join(" ")) + '"';
+  }
+
+  function queryWords(q) {
+    return fold(q).split(/[^a-z0-9]+/).filter(function (w) { return w; });
+  }
+
+  function queryWhole(q) {
+    return fold(q).replace(/[^a-z0-9]+/g, "");
+  }
+
+  /* Every word of the query has to land, or the program is not a match.
+
+     The whole query is tried against the short forms first, because a short
+     form can contain punctuation and would otherwise be torn in half before
+     it is ever compared: ESPN writes Texas A&M's abbreviation "TA&M" and
+     Miami (OH)'s "M-OH", which split into ["ta","m"] and ["m","oh"] and
+     match neither the form nor any word. */
+  function wordHits(row, q) {
+    if (row.forms.indexOf(q) !== -1) return true;
+    return row.words.some(function (w) { return w.lastIndexOf(q, 0) === 0; });
+  }
+
+  function matches(row, words, whole) {
+    if (whole && row.forms.indexOf(whole) !== -1) return true;
+    return words.every(function (q) { return wordHits(row, q); });
+  }
+
+  /* The safety net. If nothing matches at all, look inside words rather than
+     only at their start, so a fan who types "bama" is shown Alabama instead
+     of an empty page. It runs ONLY when the strict pass found nothing, so it
+     cannot loosen a query that already worked - which is what made plain
+     substring matching bad in the first place. */
+  function looseMatches(row, words) {
+    return words.every(function (q) {
+      return row.blob.indexOf(q) !== -1;
+    });
   }
 
   /* "Mountain West Conference" reads as "Mountain West"; the word adds width
@@ -99,13 +234,11 @@
     location.replace("?team=" + encodeURIComponent(id));
   }
 
-  function find(t) {
-    return ' data-find="' + esc(haystack(t)) + '"';
-  }
+
 
   // A program you can open: a control, full width, with somewhere to go.
   function openable(t) {
-    return '<li data-group="open"' + find(t) + '>' +
+    return '<li data-group="open"' + searchAttrs(t) + '>' +
            '<button type="button" class="pick" data-team="' + esc(t.id) + '">' +
              '<span class="pick-main">' +
                '<span class="pick-name">' + esc(t.name) + "</span>" +
@@ -118,7 +251,7 @@
   // A program that is not built yet: not a control at all. No button, no tab
   // stop, nothing that invites a press that would do nothing.
   function unbuilt(t) {
-    return '<li class="soon" data-group="soon"' + find(t) + '>' +
+    return '<li class="soon" data-group="soon"' + searchAttrs(t) + '>' +
            '<span class="soon-name">' + esc(t.name) + "</span>" +
            '<span class="soon-conf">' + esc(confLabel(t.conference)) + "</span></li>";
   }
@@ -136,12 +269,42 @@
     var items = nodes.filter(function (n) { return n.getAttribute("data-find"); });
     var blocks = nodes.filter(function (n) { return !n.getAttribute("data-find"); });
 
+    // Parse each row's search text ONCE. Splitting 138 attributes on every
+    // keystroke is work nobody asked for.
+    var index = items.map(function (n) {
+      var words = n.getAttribute("data-find").split(" ");
+      return { node: n, words: words,
+               forms: (n.getAttribute("data-forms") || "").split(" "),
+               blob: words.join("") };
+    });
+
     function apply() {
-      var q = squash(input.value, false);
+      var words = queryWords(input.value), whole = queryWhole(input.value);
       var shown = 0;
-      items.forEach(function (it) {
-        var hit = !q || it.getAttribute("data-find").indexOf(q) !== -1;
-        it.hidden = !hit;
+
+      // Strict first. Only if it finds nothing does the loose pass run, so a
+      // query that already works is never widened.
+      var hits = null;
+      if (words.length) {
+        /* A word no program has ever heard of is dropped rather than allowed
+           to veto the rest: "notre dame football" is a fan looking for Notre
+           Dame, not a fan looking for nothing. If NO word survives, the
+           original query stands so that a genuine miss still reports a miss
+           rather than quietly showing the whole roster. */
+        var useful = words.filter(function (q) {
+          return index.some(function (row) { return wordHits(row, q); });
+        });
+        var use = useful.length ? useful : words;
+
+        hits = index.filter(function (row) { return matches(row, use, whole); });
+        if (!hits.length) {
+          hits = index.filter(function (row) { return looseMatches(row, use); });
+        }
+      }
+
+      index.forEach(function (row) {
+        var hit = !hits || hits.indexOf(row) !== -1;
+        row.node.hidden = !hit;
         if (hit) shown++;
       });
       // A section with nothing left in it takes its heading with it, and a
@@ -160,7 +323,7 @@
       });
       if (none) none.hidden = shown !== 0;
       if (count) {
-        count.textContent = !q ? resting
+        count.textContent = !words.length ? resting
           : shown === 0 ? "No program matches that."
           : shown + (shown === 1 ? " program matches." : " programs match.");
       }

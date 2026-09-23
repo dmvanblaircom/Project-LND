@@ -114,6 +114,23 @@ var odd = ctx.TeamOS.registry.create([
 eq(odd, ["alpha", "San Diego State", "San José State", "Zulu"],
    "case and accents sort where a reader expects them, not where their bytes fall");
 
+console.log(" the short forms a fan searches by");
+// The chooser finds a program by its abbreviation and its nickname as well
+// as its name (decision 0016). Both come from the provider with the roster,
+// so neither is typed - but a row missing them is a program a fan can only
+// find by spelling it out.
+ok(REG.all().every(function (t) { return t.abbr; }),
+   "every program carries the provider's abbreviation");
+ok(REG.all().every(function (t) { return t.nick; }),
+   "and its nickname");
+ok(REG.all().some(function (t) { return /[^A-Za-z0-9]/.test(t.abbr); }),
+   "an abbreviation may carry punctuation, and it is kept (" +
+   REG.all().filter(function (t) { return /[^A-Za-z0-9]/.test(t.abbr); })
+     .map(function (t) { return t.abbr; }).join(", ") + ")");
+var passthrough = ctx.TeamOS.registry.create([{ id: "x", name: "X" }]).get("x");
+eq(passthrough.abbr, null, "a row without one gets null rather than a guess");
+eq(passthrough.nick, null, "and the same for the nickname");
+
 console.log(" the conference every program carries");
 // The chooser prints conference on each program and searches it, so a blank
 // one is a program a fan cannot find by conference.
@@ -217,6 +234,8 @@ console.log(" but the NAME is the provider's, character for character");
 novel.forEach(function (n) {
   ok(!!byName[n[1]], JSON.stringify(n[1]) + " survives the generator character for character");
 });
+ok(!!(byName["O'Fallon"] || {}).abbr && !!(byName["O'Fallon"] || {}).nick,
+   "and the generator carries the provider's abbreviation and nickname through");
 novel.forEach(function (n) {
   var t = byName[n[1]];
   if (t) eq(t.short, n[1], "and short is the same string, not a tidied one");
