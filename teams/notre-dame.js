@@ -75,8 +75,31 @@ var TEAM_CONFIG = {
       depthChartIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
       depthChartLabel: "FightingIrish.com",
       availabilityReportIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
-      availabilityReportLabel: "FightingIrish.com"
-    }
+      availabilityReportLabel: "FightingIrish.com",
+
+      // Notre Dame's own policy (game notes, "AVAILABILITY UPDATES"): a
+      // report Monday, an update Thursday, a final update about 60 minutes
+      // before kickoff. tools/producers/freshness.py checks each game that
+      // the update we hold is as new as this says one should be.
+      availabilityUpdates: {
+        timeZone:           "America/New_York",
+        daysBeforeKickoff:  [5, 2], // Monday's report and Thursday's update, for a Saturday game
+        minutesBeforeKickoff: 60
+      }
+    },
+
+    // Beat writers' RSS. Read server-side by the Action
+    // (tools/producers/beat_news.py), because RSS sites send no CORS header.
+    // `site` is where the producer looks for the feed when `feed` stops
+    // answering, so a moved feed is found and named in the run's log.
+    beatFeeds: [
+      { name: "One Foot Down",       feed: "https://www.onefootdown.com/rss/current.xml",   site: "https://www.onefootdown.com/" },
+      { name: "Slap the Sign",       feed: "https://slapthesign.com/feed/",                 site: "https://slapthesign.com/" },
+      { name: "Fighting Irish Wire", feed: "https://fightingirishwire.usatoday.com/feed/",   site: "https://fightingirishwire.usatoday.com/" },
+      { name: "UHND",                feed: "https://www.uhnd.com/feed/",                    site: "https://www.uhnd.com/" },
+      { name: "Irish Sports Daily",  feed: "https://www.irishsportsdaily.com/rss",          site: "https://irishsportsdaily.com/" },
+      { name: "NDNation",            feed: "https://ndnation.com/feed",                     site: "https://ndnation.com/" }
+    ]
   },
 
   // Trophy and series names for the season's opponents, matched on the
@@ -165,7 +188,7 @@ var TEAM_CONFIG = {
   // is a capability the team has because a source exists for it: the
   // two-deep comes from Notre Dame's official FightingIrish.com media page,
   // the price history from the Kalshi
-  // markets above, the beat stories from six Notre Dame RSS feeds. The
+  // markets above, the beat stories from the RSS feeds in sources.beatFeeds. The
   // files do not yet carry a team field, so declaring one here is what
   // says it is ours (docs/decisions/0008-snapshots-are-owned-by-declaration.md).
   snapshots: {

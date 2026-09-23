@@ -116,7 +116,29 @@ Neither is an engineering problem. **Do not implement until both clear.**
    `admin@collegefootballdata.com`: whether an Action-written derived snapshot
    in a public repo is acceptable, and what attribution they want. The mail also
    discloses that Project LND intends to become a business eventually, so a
-   permission granted here is not later mischaracterised. **Awaiting reply.**
+   permission granted here is not later mischaracterised.
+   - **2026-09-21, Bill (CFBD) replied.** Before deciding he asked for:
+     - an example of the JSON;
+     - the teams and seasons covered;
+     - how the values are calculated;
+     - whether "derived" means new metrics or existing values reformatted,
+       noting that a smaller file can still redistribute the underlying
+       data;
+     - the future commercial scope.
+   - **2026-09-23, answered.**
+     - The file: one JSON per team, with season, games played, and rushing
+       and passing yards allowed per game.
+     - Scope: the current season only, no backfill; Notre Dame, then Ohio
+       State, possibly every FBS program over time.
+     - The values: opponent season totals divided by games played. That is
+       existing values reformatted, which we acknowledged is still their
+       data.
+     - Where it lives: a public repository, served by GitHub Pages.
+     - Commercial use: free today; the future ideas are licensing the
+       platform, sponsorships and commerce partnerships, and we will come
+       back to them first.
+     - Offered: attribution with a link, and a paid tier if appropriate.
+   - **Awaiting his decision.**
 2. **Verification.** No egress to CFBD from the environment this was researched
    in; every claim about its fields comes from web-search summaries of
    third-party documentation, not from a response body. One real
