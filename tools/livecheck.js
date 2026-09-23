@@ -70,7 +70,7 @@ function makeContext(teamFile) {
   ].join("\n"), ctx);
 
   // the real thing, straight out of app.js
-  vm.runInContext(lift("paintHomeSnapshot") + lift("paintHeroMini") + lift("paintHero") + lift("rankedParts"),
+  vm.runInContext(lift("paintHeroMini") + lift("paintHero") + lift("rankedParts"),
                   ctx, { filename: "app.js#paint" });
   return ctx;
 }

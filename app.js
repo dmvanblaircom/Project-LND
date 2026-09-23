@@ -129,7 +129,6 @@ function paintIdentity(){
   // ---- the page ----
   text(".brand-kicker", ID.programLabel);
   text(".bar h1", ID.productName);
-  text(".hero-brand-name", TEAM.name);
   text("#heroHead", "Next "+TEAM.name+" game");
   text("#dataHead", TEAM.name+" and national football data");
   var m = $("motto");
@@ -292,10 +291,9 @@ function layoutForTab(){
   var home = UI.tab==="schedule";
   var g=S.next, pre=!!g && g.state!=="in";
   var full = !!g && (home || (UI.tab==="game" && pre));
-  ["motto","strip","oddsHint","oddsboard","homeSnapshot"].forEach(function(id){
+  ["motto","strip","oddsHint","oddsboard"].forEach(function(id){
     var el=$(id); if(!el) return;
     if(id==="oddsboard"){ el.hidden = !home || !BOARD.open; return; }
-    if(id==="homeSnapshot"){ el.hidden = !home; return; }
     el.hidden = !home || (id==="oddsHint" && !!BOARD.open);
   });
   $("hero").hidden = !full;
@@ -321,20 +319,9 @@ function paintHeroMini(g){
     '<span class="sr-only">. Open the Game tab</span>';
 }
 
-function paintHomeSnapshot(g){
-  var games=S.games||[];
-  var done=games.filter(function(x){ return x.state==="post"; });
-  var wins=done.filter(function(x){ return x.won; }).length;
-  var losses=done.length-wins;
-  var record=$("snapshotRecord"), rank=$("snapshotRank"), next=$("snapshotNext");
-  if(record) record.textContent=done.length ? wins+"–"+losses : "0–0";
-  if(rank) rank.textContent=TEAM.rank ? "#"+TEAM.rank : "NR";
-  if(next) next.textContent=g ? (g.home?"vs ":"at ")+g.oppName : "Season complete";
-}
 function paintHero(g){
   var hero=$("hero");
   hero.classList.toggle("live", g.state==="in");
-  paintHomeSnapshot(g);
   paintHeroMini(g);
   layoutForTab();
   var prefix=g.neutral?"vs":(g.home?"vs":"at");
@@ -509,8 +496,7 @@ function paintSchedule(games){
   var wasOpen=!!(prev&&prev.open);
   var detail=el.querySelector("li.gamedetail");
 
-  var html='<div class="season-head"><div><span class="season-eyebrow">Season</span><h2>Schedule</h2></div>'+
-    '<span class="season-meta">'+done.length+' played · '+rest.length+' remaining</span></div>';
+  var html='<h2 class="sr-only">2026 '+esc(TEAM.name)+' schedule</h2>';
   if(fold){
     html+='<details class="fold"'+(wasOpen?" open":"")+'><summary>Earlier results '+
       '<span class="count">'+older.length+" games</span></summary>"+
@@ -590,7 +576,7 @@ function pollBody(p){
     var move = mv>0 ? '<span class="up"><span class="sr-only">up '+mv+'</span><span aria-hidden="true">\u25B2'+mv+"</span></span>"
              : mv<0 ? '<span class="down"><span class="sr-only">down '+Math.abs(mv)+'</span><span aria-hidden="true">\u25BC'+Math.abs(mv)+"</span></span>"
              : (x.isNew ? '<span class="up"><span class="sr-only">new</span><span aria-hidden="true">NEW</span></span>' : "");
-    html+='<li class="row poll-row '+(x.mine?"mine":"")+'">'+
+    html+='<li class="row '+(x.mine?"mine":"")+'" style="padding:.45rem .15rem">'+
       '<span class="date" style="width:2rem"><span class="sr-only">Rank </span>'+
       '<span class="d">'+x.rank+"</span></span>"+
       '<span class="mid"><span class="team">'+esc(x.team)+"</span></span>"+
@@ -779,17 +765,14 @@ function loadAround(){
       var view=AROUND.view;
       if(view==="rankings" && !pollHtml) view="games";
       if(view==="games" && !gameHtml)    view="rankings";
-      html='<div class="around-shell">'+
-        '<div class="around-head"><div><span class="around-eyebrow">Top 25</span><h2>National picture</h2></div>'+
-        '<span class="around-meta">Games + polls</span></div>'+
-        '<div class="seg pills around-view" role="group" aria-label="Show">'+
+      html='<div class="seg pills" role="group" aria-label="Show">'+
         '<button type="button" data-view="games" aria-pressed="'+(view==="games")+'">'+
           'Games<span class="n">'+gameCount+"</span></button>"+
         '<button type="button" data-view="rankings" aria-pressed="'+(view==="rankings")+'">'+
           "Rankings</button>"+
         "</div>"+
         '<div id="ar-games"'+(view==="games"?"":" hidden")+">"+gameHtml+"</div>"+
-        '<div id="ar-rankings"'+(view==="rankings"?"":" hidden")+">"+pollHtml+"</div></div>";
+        '<div id="ar-rankings"'+(view==="rankings"?"":" hidden")+">"+pollHtml+"</div>";
       AROUND.view=view;
     }
     return html;
@@ -1055,13 +1038,10 @@ function loadDepth(){
   // The roster fold with a message under it, for every state that has no
   // two-deep to show.
   function unavailable(msg){
-    el.innerHTML='<div class="depth-shell"><div class="depth-head"><div>'+
-      '<span class="depth-eyebrow">Personnel</span><h2>Roster</h2></div>'+
-      '<span class="depth-meta">Team roster</span></div>'+
-      '<details class="fold" id="rosterFold"><summary>Full roster'+
+    el.innerHTML='<details class="fold" id="rosterFold"><summary>Full roster'+
       '<span class="count">every player</span></summary>'+
       '<div class="foldbody" id="rosterBody"></div></details>'+
-      '<p class="msg">'+msg+'</p></div>';
+      '<p class="msg">'+msg+'</p>';
     wireRosterFold(el);      // the roster is independent of the depth chart
   }
 
@@ -1072,11 +1052,7 @@ function loadDepth(){
 
   function build(res){
     var d=res[0]; if(!TeamOS.snapshots.owned(TEAM,d)) return "";   // not ours: nothing to show
-    var av=d.availability||{out:[],questionable:[]};
-    var unavailableCount=(av.out||[]).length+(av.questionable||[]).length;
-    var html='<div class="depth-shell"><div class="depth-head"><div>'+
-      '<span class="depth-eyebrow">Personnel</span><h2>Depth + availability</h2></div>'+
-      '<span class="depth-meta">'+(unavailableCount ? unavailableCount+' listed' : 'No players listed')+'</span></div>';
+    var html="", av=d.availability||{out:[],questionable:[]};
     outCount=av.out.length;
     var mmdd=function(iso){ return esc((iso||"").replace(/^\d{4}-/,"").replace("-","/")); };
     var chartLabel=function(x){ return esc((x&&x.game)||mmdd(x&&x.date)||"Current"); };
@@ -1171,14 +1147,14 @@ function loadDepth(){
     // week-by-week history lands here once the history snapshot arrives
     html+='<div id="depthHistory"></div>';
 
-    if(!groupNames.length && !av.out.length) return html+'<p class="msg">The depth chart file is empty.</p></div>';
+    if(!groupNames.length && !av.out.length) return html+'<p class="msg">The depth chart file is empty.</p>';
 
     // ---- 4. the full roster ----
     html+='<h2 class="sec">Roster</h2>';
     html+='<details class="fold" id="rosterFold"><summary>Full roster'+
       '<span class="count">every player</span></summary>'+
       '<div class="foldbody" id="rosterBody"></div></details>';
-    return html+"</div>";
+    return html;
   }
 }
 
@@ -1424,8 +1400,7 @@ function patchGame(gd){
 function renderGame(gd, inline){
   var home=gd.home, away=gd.away;
   var live=gd.state==="in", done=gd.state==="post";
-  var html='<div class="game-shell '+(live?"is-live":(done?"is-final":"is-pregame"))+'">';
-
+  var html="";
 
   // ---- score line ----
   function side(c){
@@ -1609,10 +1584,10 @@ function renderGame(gd, inline){
     // Score, then straight to the box score. Everything else follows, and a
     // Close at the foot so a long expansion can be dismissed without
     // scrolling back up to the row.
-    return '<div class="game-inline">'+sec.head+sec.people+sec.quarters+sec.stats+sec.play+sec.scoring+
-      '<button type="button" class="more" data-close-detail>Close</button>'+stamp+'</div>';
+    return sec.head+sec.people+sec.quarters+sec.stats+sec.play+sec.scoring+
+      '<button type="button" class="more" data-close-detail>Close</button>'+stamp;
   }
-  return html+sec.head+sec.play+sec.winprob+sec.quarters+sec.stats+sec.people+sec.scoring+stamp+"</div>";
+  return sec.head+sec.play+sec.winprob+sec.quarters+sec.stats+sec.people+sec.scoring+stamp;
 }
 
 /* ---------- full roster ---------- */
@@ -1923,15 +1898,9 @@ function loadNews(){
     count=list.length;
     var srcs={}; list.forEach(function(a){ srcs[a.source]=1; });
     sources=Object.keys(srcs).length;
-    var latest=list[0].publishedAt
-      ? new Date(list[0].publishedAt).toLocaleDateString([],{month:"short",day:"numeric"}) : "";
 
     var FIRST=15;
-    var html='<div class="news-shell"><div class="news-head"><div>'+
-      '<span class="news-eyebrow">News</span><h2>Latest stories</h2></div>'+
-      '<span class="news-meta">'+sources+' source'+(sources===1?"":"s")+
-      (latest?' · Latest '+esc(latest):"")+'</span></div>'+
-      '<h2 class="sr-only">Latest '+esc(TEAM.name)+' stories</h2><ul class="plain">';
+    var html='<h2 class="sr-only">Latest '+esc(TEAM.name)+' stories</h2><ul class="plain">';
     list.forEach(function(a,idx){
       var when=a.publishedAt ? new Date(a.publishedAt).toLocaleDateString([],{month:"long",day:"numeric"}) : "";
       html+='<li'+(idx>=FIRST?' class="extra" hidden':"")+'><a class="art'+(a.source==="ESPN"?"":" beat")+'" href="'+esc(a.link)+
@@ -1947,7 +1916,7 @@ function loadNews(){
       html+='<button type="button" class="more" id="moreNews">Show '+
         (list.length-FIRST)+" more stories</button>";
     }
-    return html+"</div>";
+    return html;
   }
 }
 
@@ -2176,7 +2145,7 @@ function refreshSchedule(first){
     var live=games.filter(function(g){return g.state==="in";})[0];
     var up=games.filter(function(g){return g.state==="pre";})[0];
     S.next=live||up||null;
-    if(S.next) paintHero(S.next); else { paintHomeSnapshot(null); layoutForTab(); }   // no next game: nothing above the tabs
+    if(S.next) paintHero(S.next); else layoutForTab();   // no next game: nothing above the tabs
     paintSchedule(games);
     return games;
   }

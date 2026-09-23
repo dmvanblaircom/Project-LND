@@ -235,5 +235,33 @@ var names = (BOOT.match(/"[a-z][a-z0-9-]{2,}"/g) || [])
 ok(names.every(function (n) { return !fs.existsSync(path.join(root, "teams", n + ".js")); }),
    "and names no team config but the default's, which it needs to fall back to");
 
+console.log("the static page belongs to no team");
+// Before any script runs, the page a fan sees must not be somebody's: an Ohio
+// State fan's first paint reading "Notre Dame" is the bug decision 0013 exists
+// to prevent. Every program name in the registry and every product name in a
+// team config is checked, so this grows with the roster instead of being a
+// hand-kept list of three strings. The boot script is excluded: it names the
+// default team on purpose, because it has to fall back to one.
+var shell = html.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<!--[\s\S]*?-->/g, " ");
+var regCtx = vm.createContext({});
+vm.runInContext(read("teams/index.js"), regCtx, { filename: "teams/index.js" });
+var claimed = [];
+(regCtx.TEAM_REGISTRY || []).forEach(function (t) {
+  var re = new RegExp("\\b" + t.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b");
+  if (re.test(shell)) claimed.push(t.name);
+});
+fs.readdirSync(path.join(root, "teams")).filter(function (f) {
+  return /\.js$/.test(f) && f !== "index.js";
+}).forEach(function (f) {
+  var c = vm.createContext({});
+  vm.runInContext(read("teams/" + f), c, { filename: f });
+  var id = (c.TEAM_CONFIG && c.TEAM_CONFIG.identity) || {};
+  [id.productName, id.programLabel, id.motto].forEach(function (w) {
+    if (w && shell.indexOf(w) !== -1) claimed.push(w + " (" + f + ")");
+  });
+});
+eq(claimed, [], "names no program and no team's product, label or motto");
+ok((regCtx.TEAM_REGISTRY || []).length > 100, "checked against the full roster, not a sample");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the page knows which team it is"));
 process.exit(failures ? 1 : 0);

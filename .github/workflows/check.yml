@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0     # versioncheck compares against the previous push
       - name: Dead and shadowed CSS
         run: python3 tools/csscheck.py app.css
       - name: JavaScript parses
@@ -31,8 +33,8 @@ jobs:
         run: node tools/livecheck.js
       - name: The matchup card agrees with the data
         run: node tools/matchupcheck.js
-      - name: Suite interaction contract
-        run: node tools/uicheck.js
+      - name: A shell change bumps the worker version
+        run: node tools/versioncheck.js "${{ github.event.before }}"
   visual:
     runs-on: ubuntu-latest
     steps:
