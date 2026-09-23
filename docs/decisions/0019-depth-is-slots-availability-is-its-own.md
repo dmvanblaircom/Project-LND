@@ -111,9 +111,11 @@ real data rendered as wrong data.
   Thursday, and a final update about 60 minutes before kickoff. The producer
   reads the Monday report linked from the media table. Whether the Thursday
   and pregame updates appear there, or somewhere else, cannot be checked from
-  the development environment, which cannot reach fightingirish.com. The
-  Action can, and its log will show it. Until that is confirmed, the Suite
-  must not imply that it shows the latest game-day status.
+  the development environment, which cannot reach fightingirish.com. Until
+  that is confirmed, the Suite must not imply that it shows the latest
+  game-day status. **Now monitored (decision 0020):** if a Thursday or
+  pregame update is due and the refresh does not hold it, an issue is
+  opened for that game.
 
 ## Related
 

@@ -53,10 +53,29 @@ On game day, 2026-09-19, runs started at 00:05, 04:29, 08:56, 13:01, 16:20,
 18:46, 21:23 and 23:25 UTC.
 
 The rules above are correct for any spacing of runs. But they cannot make
-runs happen more often. Until something outside GitHub's scheduler triggers
-the workflow (a `workflow_dispatch` on a reliable clock), the real game-day
-cadence is whatever GitHub delivers. The Suite must not claim fresher data
-than that. Whether to add such a trigger is open for the product owner.
+runs happen more often.
+
+**Resolved (David, 2026-09-23): an external clock.** A cron-job.org job starts
+the workflow every 30 minutes through `workflow_dispatch`. It sends
+`source=clock`, so its runs follow the cadence rules like scheduled ones.
+It uses a fine-grained token that can only start workflows on this
+repository. Setup: `docs/engineering/data-refresh-clock.md`.
+
+## Monitoring
+
+`tools/producers/freshness.py` runs at the end of every refresh. It is tested
+by `tools/freshnesscheck.py` in CI. It reports two broken promises, each
+once, as a GitHub issue labelled `data-freshness`:
+
+- **A missed availability update.** The team declares its program's policy
+  (`sources.official.availabilityUpdates`; for Notre Dame: Monday, Thursday,
+  ~60 minutes before kickoff). Once each update is due, the report the
+  refresh holds must be at least that new.
+- **A stalled clock.** Inside a game window, two runs more than 45 minutes
+  apart.
+
+The run stays green either way: the monitor is not a gate, and the data it
+checks is already saved.
 
 ## Related
 

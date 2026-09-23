@@ -18,10 +18,22 @@ name: Refresh team data
 on:
   schedule:
     - cron: "7,37 * * * *"   # twice an hour, off the hour to dodge the crowd
-  workflow_dispatch:          # and a Run workflow button in the Actions tab
+  # A Run workflow button in the Actions tab, and the door the external clock
+  # uses (docs/engineering/data-refresh-clock.md): GitHub's own scheduler
+  # runs this every 2-5 hours, not every 30 minutes. The clock sends
+  # source=clock so its runs follow the depth-chart cadence like scheduled
+  # ones; a run by hand always checks everything.
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Who started this run"
+        default: "hand"
+        type: string
 
 permissions:
   contents: write
+  issues: write        # the freshness monitor reports a missed update as an issue
+  actions: read        # and reads the previous run's start to spot a stalled clock
 
 concurrency:
   group: team-data
@@ -133,103 +145,13 @@ jobs:
               print(f"  unchanged ({point['title']}% / {point['playoff']}%); history not touched")
           PY
 
-      - name: Pull Notre Dame beat writers
+      # The feeds are Notre Dame's declaration (TEAM_CONFIG.sources.beatFeeds).
+      # A feed that has moved is found on its site and named in a warning.
+      - name: Pull beat writers
         id: news
         continue-on-error: true      # a dead feed must never block the odds
-        run: |
-          python3 - <<'PY'
-          import json, re, urllib.request, xml.etree.ElementTree as ET
-          from datetime import datetime, timezone
-          from email.utils import parsedate_to_datetime
+        run: python3 tools/producers/beat_news.py --team notre-dame
 
-          FEEDS = [
-              ("One Foot Down",      "https://www.onefootdown.com/rss/current.xml"),
-              ("Slap the Sign",      "https://slapthesign.com/feed/"),
-              ("Fighting Irish Wire","https://fightingirishwire.usatoday.com/feed/"),
-              ("UHND",               "https://www.uhnd.com/feed/"),
-              ("Irish Sports Daily", "https://www.irishsportsdaily.com/rss"),
-              ("NDNation",           "https://ndnation.com/feed"),
-          ]
-          UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-                "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
-
-          def when(s):
-              if not s: return None
-              try: return parsedate_to_datetime(s).astimezone(timezone.utc)
-              except Exception: pass
-              try: return datetime.fromisoformat(s.replace("Z","+00:00")).astimezone(timezone.utc)
-              except Exception: return None
-
-          def text(node):
-              return (node.text or "").strip() if node is not None else ""
-
-          items = []
-          for name, url in FEEDS:
-              try:
-                  req = urllib.request.Request(url, headers={"user-agent": UA})
-                  raw = urllib.request.urlopen(req, timeout=20).read()
-                  root = ET.fromstring(raw)
-              except Exception as e:
-                  print(f"  SKIP {name}: {str(e)[:90]}")
-                  continue
-
-              found = 0
-              # RSS 2.0
-              for it in root.iter("item"):
-                  t, l = text(it.find("title")), text(it.find("link"))
-                  d = when(text(it.find("pubDate")))
-                  summ = (text(it.find("description")) or "")[:600]
-                  if t and l:
-                      items.append({"title": t, "link": l, "source": name, "summary": summ,
-                                    "published": d.isoformat() if d else None})
-                      found += 1
-              # Atom
-              ns = "{http://www.w3.org/2005/Atom}"
-              for en in root.iter(ns + "entry"):
-                  t = text(en.find(ns + "title"))
-                  link = en.find(ns + "link")
-                  l = link.get("href") if link is not None else ""
-                  d = when(text(en.find(ns + "updated")) or text(en.find(ns + "published")))
-                  summ = (text(en.find(ns + "summary")) or
-                          text(en.find(ns + "content")) or "")[:600]
-                  if t and l:
-                      items.append({"title": t, "link": l, "source": name, "summary": summ,
-                                    "published": d.isoformat() if d else None})
-                      found += 1
-              print(f"  {name}: {found} items")
-
-          # newest first, drop duplicate headlines, cap the file size
-          items.sort(key=lambda x: x["published"] or "", reverse=True)
-          seen, keep = set(), []
-          for it in items:
-              k = re.sub(r"\W+", "", it["title"].lower())[:70]
-              if k in seen: continue
-              seen.add(k)
-              keep.append(it)
-              if len(keep) == 60: break
-
-          if not keep:
-              raise SystemExit("no feed returned anything — leaving the old news.json alone")
-
-          # Write only when the stories changed. A fresh "updated" stamp on an
-          # identical list made every run look like news and commit it.
-          try:
-              old = json.load(open("news.json")).get("items")
-          except Exception:
-              old = None
-          if old == keep:
-              print(f"news unchanged ({len(keep)} items); news.json not touched")
-              raise SystemExit
-          json.dump({"updated": datetime.now(timezone.utc).isoformat(), "items": keep},
-                    open("news.json", "w"), indent=1)
-          print(f"wrote news.json with {len(keep)} items from "
-                f"{len({i['source'] for i in keep})} sources")
-          PY
-
-      # The official two-deep and availability report. The parser lives in
-      # tools/producers/twodeep.py, tested against the real PDF text by
-      # tools/depthcheck.py; it used to be 300 lines inside this step, where
-      # nothing could test it.
       # The last successful check lives in the Actions cache, not the repo, so
       # recording it never makes a commit.
       - name: Recall the last depth chart check
@@ -243,7 +165,7 @@ jobs:
         id: cadence
         continue-on-error: true
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.source }}" != "clock" ]; then
             echo "  depth chart due: run by hand"; echo "due=true" >> "$GITHUB_OUTPUT"
           else
             python3 tools/producers/cadence.py --team notre-dame --last .cadence/depth-checked
@@ -291,6 +213,14 @@ jobs:
           git commit -q -m "Refresh team data: $moved"
           echo "committed: $moved"
           git push || { git pull --rebase -q origin main && git push; }
+
+      # A monitor, not a gate: the data is already saved. A missed availability
+      # update or a stalled clock is reported once, as an issue.
+      - name: Check the data is as fresh as promised
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 tools/producers/freshness.py --team notre-dame --open-issues
 
       # The run still goes red when a source failed, so a broken source is
       # visible in the Actions tab - after everything that did work is saved.
