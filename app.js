@@ -1963,7 +1963,7 @@ function selectTab(tab, focusIt){
   if(name==="game")   loadGame(true);
   if(name==="around") loadAround();
   if(name==="depth")  loadDepth();
-  if(name==="news")   loadNews();
+  if(name==="more")   loadNews();
 }
 tabs.forEach(function(tab,i){
   tab.addEventListener("click",function(){ selectTab(tab,false); });
@@ -2354,36 +2354,19 @@ function refreshAll(silent){
   if(name==="game")   loadGame(true);
   if(name==="around") loadAround();
   if(name==="depth")  loadDepth();
-  if(name==="news")   loadNews();
+  if(name==="more")   loadNews();
   FRESH.at=Date.now();
 }
 $("refresh").addEventListener("click", function(){ refreshAll(false); });
 $("heroMini").addEventListener("click", function(){ selectTab($("tab-game"), false); });
 
-/* More is the quiet home for destination-level actions. Changing teams is
-   important but not a primary game-day action, and this menu can accept future
-   account/preferences work without consuming another navigation destination. */
-var moreTrigger=$("moreTrigger"), moreMenu=$("moreMenu");
-function closeMore(focusTrigger){
-  moreMenu.hidden=true;
-  moreTrigger.setAttribute("aria-expanded","false");
-  if(focusTrigger) moreTrigger.focus();
-}
-moreTrigger.addEventListener("click", function(){
-  var opening=moreMenu.hidden;
-  moreMenu.hidden=!opening;
-  moreTrigger.setAttribute("aria-expanded",String(opening));
-  if(opening) $("changeTeam").focus();
-});
+/* More is the fifth destination: News, changing team, and Refresh. Both
+   controls are important but rare, so they sit here rather than in the
+   header, where a long product name pushed them onto a second line. */
+$("moreTeam").textContent=TEAM.name;
 $("changeTeam").addEventListener("click", function(){
   try{ localStorage.removeItem("iw-team"); }catch(e){}
   location.replace(location.pathname);
-});
-document.addEventListener("click", function(e){
-  if(!moreMenu.hidden && !e.target.closest(".more-wrap")) closeMore(false);
-});
-document.addEventListener("keydown", function(e){
-  if(e.key==="Escape" && !moreMenu.hidden){ e.preventDefault(); closeMore(true); }
 });
 
 // How long data may sit before a silent refresh: on return to a tab that was
