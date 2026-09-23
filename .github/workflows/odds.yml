@@ -1,9 +1,18 @@
-# Fetches Kalshi market data on a schedule and commits it into this repo.
-# GitHub Pages then serves it from your own domain, so the browser makes a
-# same-origin request and CORS never enters into it.
+# Fetches team data the browser cannot fetch itself - Kalshi markets, beat-writer
+# RSS, the official depth chart and availability report - and commits it into
+# this repo. GitHub Pages then serves it same-origin, so CORS never enters.
 #
 # This runs from a GitHub-hosted runner, which is a different IP range than
 # Cloudflare's shared edge — the one that Kalshi rate-limits into the ground.
+#
+# Each source is independent: every producer step has continue-on-error, and
+# the commit step adds only what a step that SUCCEEDED produced. A failing
+# school website can never again cost the odds (it did on 2026-09-23, run 100).
+#
+# Cadence (decision 0020): odds and news every run; the official depth chart
+# every run in a game window, otherwise every 2 hours (tools/producers/cadence.py).
+# GitHub's scheduler is best-effort: "twice an hour" has in practice meant a
+# run every 2-5 hours.
 name: Refresh team data
 
 on:
@@ -25,6 +34,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Fetch from Kalshi
+        id: kalshi
+        continue-on-error: true
         run: |
           set -uo pipefail
           BASE="https://api.elections.kalshi.com/trade-api/v2"
@@ -50,6 +61,9 @@ jobs:
           grab "$BASE/markets?event_ticker=KXNCAAFPLAYOFF-26&limit=200&status=open" odds-playoff.json
 
       - name: Refuse to commit anything that is not market data
+        id: odds
+        if: steps.kalshi.outcome == 'success'
+        continue-on-error: true
         run: |
           python3 - <<'PY'
           import json, sys
@@ -64,6 +78,9 @@ jobs:
           PY
 
       - name: Append Notre Dame's price to the season history
+        id: oddshistory
+        if: steps.odds.outcome == 'success'
+        continue-on-error: true
         run: |
           python3 - <<'PY'
           import json, os, re
@@ -117,6 +134,7 @@ jobs:
           PY
 
       - name: Pull Notre Dame beat writers
+        id: news
         continue-on-error: true      # a dead feed must never block the odds
         run: |
           python3 - <<'PY'
@@ -193,6 +211,15 @@ jobs:
           if not keep:
               raise SystemExit("no feed returned anything — leaving the old news.json alone")
 
+          # Write only when the stories changed. A fresh "updated" stamp on an
+          # identical list made every run look like news and commit it.
+          try:
+              old = json.load(open("news.json")).get("items")
+          except Exception:
+              old = None
+          if old == keep:
+              print(f"news unchanged ({len(keep)} items); news.json not touched")
+              raise SystemExit
           json.dump({"updated": datetime.now(timezone.utc).isoformat(), "items": keep},
                     open("news.json", "w"), indent=1)
           print(f"wrote news.json with {len(keep)} items from "
@@ -203,15 +230,78 @@ jobs:
       # tools/producers/twodeep.py, tested against the real PDF text by
       # tools/depthcheck.py; it used to be 300 lines inside this step, where
       # nothing could test it.
+      # The last successful check lives in the Actions cache, not the repo, so
+      # recording it never makes a commit.
+      - name: Recall the last depth chart check
+        uses: actions/cache/restore@v4
+        with:
+          path: .cadence
+          key: depth-checked-${{ github.run_id }}
+          restore-keys: depth-checked-
+
+      - name: Is the depth chart due?
+        id: cadence
+        continue-on-error: true
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "  depth chart due: run by hand"; echo "due=true" >> "$GITHUB_OUTPUT"
+          else
+            python3 tools/producers/cadence.py --team notre-dame --last .cadence/depth-checked
+          fi
+
       - name: Official depth chart and availability
+        id: depth
+        if: steps.cadence.outputs.due != 'false'
+        continue-on-error: true
         run: |
           pip install --quiet beautifulsoup4 pypdf
           python3 tools/producers/official_depth.py --team notre-dame --season 2026
+          mkdir -p .cadence && date -u +%Y-%m-%dT%H:%M:%SZ > .cadence/depth-checked
 
-      - name: Commit if the numbers moved
+      - name: Remember this depth chart check
+        if: steps.depth.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: .cadence
+          key: depth-checked-${{ github.run_id }}
+
+      # Add only what a step that succeeded produced, and say in the message
+      # which data moved.
+      - name: Commit what moved
+        env:
+          ODDS: ${{ steps.odds.outcome }}
+          HISTORY: ${{ steps.oddshistory.outcome }}
+          NEWS: ${{ steps.news.outcome }}
+          DEPTH: ${{ steps.depth.outcome }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add odds-title.json odds-playoff.json odds-history.json news.json depth.json depth-history.json availability.json availability-history.json
-          git diff --staged --quiet || git commit -m "Refresh team data"
-          git push
+          moved=""
+          add () {   # add <label> <files...>
+            label=$1; shift
+            git add -- "$@"
+            if ! git diff --staged --quiet -- "$@"; then moved="${moved:+$moved, }$label"; fi
+          }
+          [ "$ODDS" = success ]    && add "odds" odds-title.json odds-playoff.json
+          [ "$HISTORY" = success ] && add "odds history" odds-history.json
+          [ "$NEWS" = success ]    && add "news" news.json
+          [ "$DEPTH" = success ]   && add "depth chart" depth.json depth-history.json
+          [ "$DEPTH" = success ]   && add "availability" availability.json availability-history.json
+          if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
+          git commit -q -m "Refresh team data: $moved"
+          echo "committed: $moved"
+          git push || { git pull --rebase -q origin main && git push; }
+
+      # The run still goes red when a source failed, so a broken source is
+      # visible in the Actions tab - after everything that did work is saved.
+      - name: Report any source that failed
+        if: always()
+        run: |
+          failed=""
+          for s in "kalshi:${{ steps.kalshi.outcome }}" "odds:${{ steps.odds.outcome }}" \
+                   "odds history:${{ steps.oddshistory.outcome }}" "news:${{ steps.news.outcome }}" \
+                   "cadence:${{ steps.cadence.outcome }}" "depth chart:${{ steps.depth.outcome }}"; do
+            [ "${s##*:}" = failure ] && failed="${failed:+$failed, }${s%:*}"
+          done
+          if [ -n "$failed" ]; then echo "::error::failed: $failed"; exit 1; fi
+          echo "every source that ran succeeded"

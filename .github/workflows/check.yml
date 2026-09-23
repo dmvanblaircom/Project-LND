@@ -35,6 +35,8 @@ jobs:
         run: node tools/matchupcheck.js
       - name: The depth chart parser reads the official chart as written
         run: python3 tools/depthcheck.py
+      - name: The data refresh checks the depth chart when it should
+        run: python3 tools/cadencecheck.py
       - name: A shell change bumps the worker version
         run: node tools/versioncheck.js "${{ github.event.before }}"
   visual:
