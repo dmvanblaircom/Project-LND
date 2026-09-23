@@ -28,8 +28,8 @@ The existing Irish Watch tabs already resemble the beginnings of Suite:
 - Home
 - Top 25
 - Game
-- Depth
-- News
+- Roster
+- More (News, Change team, Refresh)
 
 The goal is to evolve this shell rather than throw it away.
 

@@ -20,7 +20,8 @@
    A team declares the snapshots it has in its config's `snapshots` section:
 
      snapshots: {
-       depth:       { file: "depth.json", history: "depth-history.json", label: "UHND" },
+       depth:        { file: "depth.json", history: "depth-history.json", label: "..." },
+       availability: { file: "availability.json", history: "availability-history.json" },
        oddsHistory: { file: "odds-history.json" },
        beatNews:    { file: "news.json" }
      }
@@ -40,7 +41,7 @@ var TeamOS = TeamOS || {};
 TeamOS.snapshots = (function () {
   "use strict";
 
-  var KINDS = { depth: 1, oddsHistory: 1, beatNews: 1 };
+  var KINDS = { depth: 1, availability: 1, oddsHistory: 1, beatNews: 1 };
 
   function fail(what) { throw new Error("TeamOS.snapshots: " + what); }
 

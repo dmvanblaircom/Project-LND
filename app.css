@@ -173,7 +173,7 @@ details.fold > summary::after,
 /* ====================================================================
    HEADER
    ==================================================================== */
-/* Sticky so Refresh is always a thumb away. Promoted to its own layer up front
+/* Sticky, so the team and its record stay in view. Promoted to its own layer up front
    so Safari does not re-composite it at the moment it becomes stuck, and opaque
    enough that nothing ghosts through as content scrolls underneath. */
 .bar{
@@ -200,7 +200,6 @@ details.fold > summary::after,
 .bar h1{font-weight:700;margin:0;font-family:var(--t-font-display);text-transform:uppercase;text-shadow:0 1px 18px rgba(var(--t-accent-rgb),.16);font-size:1.55rem;letter-spacing:.075em;color:var(--paper);line-height:1.05}
 .bar .rank{font-family:var(--t-font-display);font-weight:600;font-size:.72rem;letter-spacing:.06em;background:var(--t-accent);color:var(--t-accent-ink);border-radius:999px;padding:.16rem .5rem}
 .bar .rec{font-variant-numeric:tabular-nums;color:#BAC6D5;font-family:var(--t-font-display);font-size:.86rem;letter-spacing:.04em}
-.bar .spacer{flex:1}
 /* 2026 team motto. One line to change next season. Grenze Gotisch keeps the
    gothic character but with open counters, so it reads at a glance - mixed case
    on purpose, uppercase gothic is much harder to parse. */
@@ -212,13 +211,16 @@ details.fold > summary::after,
    one group of controls. The menu sits on the raised team surface, and its
    focus ring is the team's validated --t-focus on that dark surface, which is
    the pairing TeamOS actually checks (decision 0009). */
-.more-wrap{position:relative;display:inline-flex}
-.more-trigger{min-width:2.65rem;min-height:2.65rem;padding:0 .8rem;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--line);border-radius:999px;background:rgba(var(--t-surface-rgb),.7);color:var(--paper);font-size:1rem;letter-spacing:.12em;line-height:1;transition:all .18s ease}
-.more-trigger:hover{border-color:var(--t-accent-text);color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.08);transform:translateY(-1px)}
-.more-menu{position:absolute;right:0;top:calc(100% + .45rem);z-index:40;min-width:11rem;padding:.35rem;border:1px solid var(--line);border-radius:12px;background:var(--t-raise);box-shadow:0 12px 32px rgba(0,0,0,.45)}
-.more-menu button{display:block;width:100%;min-height:2.75rem;padding:.6rem .85rem;border:0;border-radius:8px;background:none;color:var(--paper);font-family:var(--t-font-ui);font-size:.95rem;text-align:left;cursor:pointer}
-.more-menu button:hover{background:rgba(var(--t-accent-rgb),.12)}
-.more-menu button:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
+/* More tab: who you are following and the way to change it, and Refresh.
+   Refresh left the header because a long product name ("Buckeye Watch")
+   plus rank and record already fill a phone's width; the app refreshes on its
+   own, so it is a backup, not a primary action. */
+.team-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin:.9rem 0 0;padding:.65rem .9rem;border:1px solid var(--line);border-radius:9px;background:rgba(var(--t-surface-rgb),.5)}
+.team-row+.team-row{margin-top:.5rem}
+.team-row p{margin:0;color:var(--dim);min-width:0}
+.team-row strong{color:var(--paper);white-space:nowrap}
+.change-team{flex:none;min-height:2.65rem;padding:0 1rem;cursor:pointer;border:1px solid var(--line);border-radius:999px;background:rgba(var(--t-surface-rgb),.7);color:var(--paper);font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:all .18s ease}
+.change-team:hover{border-color:var(--t-accent-text);color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.08)}
 
 /* ====================================================================
    NEXT GAME / LIVE HERO
@@ -689,7 +691,7 @@ details.fold>summary{padding:.75rem .9rem;background:rgba(var(--t-surface-rgb),.
   details.fold > summary::after{transition:none}
   .gstatus .dot{animation:none}
   .row .live .lbl::before{animation:none}
-  .refresh,.more-trigger,.row,[role="tab"],a.art,.heromini{transition:none}
+  .refresh,.change-team,.row,[role="tab"],a.art,.heromini{transition:none}
   #refresh.polling::before{animation:none}
   .strip .cell::after{transition:none}
   a.art{transition:none}

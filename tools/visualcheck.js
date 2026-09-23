@@ -13,7 +13,8 @@
        pixels actually behind it (tools/a11yaudit.js);
      - every keyboard focus stop shows a ring that is really painted and
        reaches 3:1 against what surrounds it;
-     - on team pages, the More menu opens.
+     - on team pages, the header stays on one line, and the More tab shows
+       the team being followed, Refresh, and a working Change team.
 
    The auditor proves itself first on a page whose answers are known. If it
    cannot, nothing else runs, because a gate that cannot see is worse than
@@ -71,7 +72,7 @@ function responseFor(url) {
 
 var TEAMS = ["notre-dame", "ohio-state"];
 var TABS = [["tab-schedule", "home"], ["tab-around", "top25"], ["tab-game", "game"],
-            ["tab-depth", "roster"], ["tab-news", "news"]];
+            ["tab-depth", "roster"], ["tab-more", "more"]];
 var WIDTHS = [375, 1280];
 
 (async function () {
@@ -157,21 +158,17 @@ var WIDTHS = [375, 1280];
         }, null, { timeout: 10000 });
         await page.waitForTimeout(300);
 
-        // The More menu, driven the way a person drives it.
+        // The header is one line. A long product name ("Buckeye Watch") once
+        // pushed the last control onto a row of its own.
         var who = team + " " + width + "px";
-        if (!(await page.$("#moreTrigger"))) {
-          fail(who, "behaviour", "#moreTrigger", "More menu is missing: it is the only way to change team in the app");
-        } else {
-          await page.click("#moreTrigger");
-          if (await page.locator("#moreMenu").isHidden()) fail(who, "behaviour", "#moreTrigger", "More menu did not open");
-          await page.keyboard.press("Escape");
-          await page.waitForTimeout(100);
-          var esc = await page.evaluate(function () {
-            return { hidden: document.getElementById("moreMenu").hidden, focus: document.activeElement.id };
-          });
-          if (!esc.hidden) fail(who, "behaviour", "#moreMenu", "Escape did not close the More menu");
-          if (esc.focus !== "moreTrigger") fail(who, "behaviour", "#moreMenu", "closing More did not return focus to its trigger (focus is on '" + esc.focus + "')");
-        }
+        var wrapped = await page.evaluate(function () {
+          var bar = document.querySelector("header.bar"), brand = bar.firstElementChild.getBoundingClientRect();
+          return [].slice.call(bar.children).filter(function (el) {
+            var r = el.getBoundingClientRect();
+            return r.width > 0 && r.height > 0 && (r.top >= brand.bottom || r.bottom <= brand.top);
+          }).map(function (el) { return el.id || el.className; });
+        });
+        if (wrapped.length) fail(who, "layout", "header.bar", "header wraps: " + wrapped.join(", ") + " on a second line");
 
         for (var k = 0; k < TABS.length; k++) {
           var tab = TABS[k];
@@ -180,12 +177,25 @@ var WIDTHS = [375, 1280];
           var label = team + " " + tab[1] + " " + width + "px";
           await fullShot(page, path.join(shots, team + "-" + width + "-" + tab[1] + ".png"));
           await checkState(page, label);
+          if (tab[1] === "more") {
+            var more = await page.evaluate(function () {
+              var b = document.getElementById("changeTeam"), t = document.getElementById("moreTeam");
+              var r = document.getElementById("refresh");
+              return { team: t ? t.textContent.trim() : "", button: !!b && b.checkVisibility(),
+                       refresh: !!r && r.checkVisibility(),
+                       news: document.getElementById("panel-news").textContent.trim().length };
+            });
+            if (!more.team) fail(who, "behaviour", "#moreTeam", "More does not say which team is being followed");
+            if (!more.button) fail(who, "behaviour", "#changeTeam", "Change team is missing from More: it is the only way to change team in the app");
+            if (!more.refresh) fail(who, "behaviour", "#refresh", "Refresh is missing from More");
+            if (!more.news) fail(who, "behaviour", "#panel-news", "News did not load under More");
+          }
         }
 
         // Change team: the stored choice is forgotten and the fan lands on the
         // chooser - not back on the same team, and not on a blank page.
-        if (await page.$("#moreTrigger")) {
-          await page.click("#moreTrigger");
+        if (await page.$("#changeTeam")) {
+          await page.click("#tab-more");
           await page.click("#changeTeam");
           try {
             await page.waitForSelector(".chooser", { timeout: 10000 });

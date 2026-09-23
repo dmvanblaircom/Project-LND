@@ -48,6 +48,7 @@ var TEAM_CONFIG = {
   // Read through TeamOS.snapshots (Phase 5B, decision 0008).
   snapshots: {
     depth:       { file: "depth.json", history: "depth-history.json", label: "FightingIrish.com" },
+    availability: { file: "availability.json", history: "availability-history.json", label: "FightingIrish.com" },
     oddsHistory: { file: "odds-history.json" },
     beatNews:    { file: "news.json" }
   },

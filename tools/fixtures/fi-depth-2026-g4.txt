@@ -1,0 +1,91 @@
+# Notre Dame official depth chart, Game 4 at Purdue, as extracted by pypdf.
+# Source: https://storage.googleapis.com/fightingirish-com/2026/09/21/8I2scYdjeLSEysalUv1sfPIZWSBCET2i9rX0CYz9.pdf
+ @NDFootball            /NDFootball           @NDFootball 
+NOTRE DAME DEFENSE
+Pos. No. Name Ht. Wt. Class
+DE 5 Boubacar Traore 6-5 253 Sr.
+10 Loghan Thomas 6-3 221 Jr.
+44 Rodney Dunham 6-4 242 Fr.
+DT 88 Armel Mukam 6-3 300 Sr.
+7 Francis Brewu 6-1 285 Jr.
+56 Elijah Hughes 6-3 295 Sr.
+DT 0 Tionne Gray 6-5 320 Jr.
+or 7 Francis Brewu 6-1 285 Jr.
+59 Sean Sevillano Jr. 6-2 313 Jr.
+DE 95 Bryce Young 6-6 260 Jr.
+11 Keon Keeley 6-5 275 Sr.
+WILL 4 Jaiden Ausberry 6-1 226 Sr.
+3 Jaylen Sneed 6-1 227 5th
+MIKE 34 Drayk Bowen 6-2 234 Sr.
+27 Kyngstonn Viliamu-Asa 6-3 234 Jr.
+or 19 Madden Faraimo 6-2 235 So.
+NICKEL 29 Christian Gray 6-0 196 Sr.
+1 Dallas Golden 6-0 195 So.
+or 12 Jayden Sanders 6-0 195 So.
+CB 15 Leonard Moore 6-2 197 Jr.
+24 Mark Zackery IV 5-10 190 So.
+BOUND 8 Adon Shuler 6-0 205 Sr.
+22 Ethan Long 6-2 205 So.
+FIELD 28 Luke Talich 6-4 222 Sr.
+20 Joey O’Brien 6-5 200 Fr.
+CB 2 DJ McKinney 6-1 190 5th
+12 Jayden Sanders 6-0 195 So.
+DEPTH CHART - GAME 4 AT PURDUE
+NOTRE DAME OFFENSE
+Pos. No. Name Ht. Wt. Class
+WR 6 Jordan Faison 5-11 185 Sr.
+33 Matt Jeffery 5-11 195 Jr.
+5 Cam Williams 6-2 201 Jr.
+or 19 Logan Saldate 5-11 185 Jr.
+WR 1 Jaden Greathouse 6-1 212 Sr.
+or 3 Mylan Graham 6-1 195 Jr.
+4 Bubba Frazier 5-10 185 Fr.
+LT 74 Will Black 6-7 316 So.
+68 Charlie Thom 6-7 295 Fr.
+or 65 Grayson McKeogh 6-7 303 Fr.
+LG 54 Anthonie Knapp 6-5 305 Jr.
+57 Cam Herron 6-2 297 So.
+C 70 Ashton Craig 6-5 315 5th
+64 Joe Otting 6-4 309 Sr.
+RG 75 Sullivan Absher 6-7 316 Sr.
+or 71 Styles Prescod 6-6 304 Jr.
+RT 76 Guerby Lambert 6-7 325 Jr.
+78 Owen Strebig 6-8 318 So.
+or 68 Charlie Thom 6-7 295 Fr.
+TE 87 Cooper Flanagan 6-6 255 Sr.
+or 88 James Flanigan 6-6 253 So.
+7 Ty Washington 6-4 253 5th
+or 85 Jack Larsen 6-3 250 Jr.
+WR 14 Micah Gilbert 6-2 205 Jr.
+17 Elijah Burress 6-1 190 So.
+or 8 Jerome Bettis Jr. 6-2 207 So.
+QB 13 CJ Carr 6-2 215 Jr.
+10 Noah Grubbs 6-4 210 Fr.
+or 9 Teddy Jarrard 6-4 210 Fr.
+RB 22 Aneyas Williams 5-10 210 Jr.
+or 2 Nolan James Jr. 5-10 215 So.
+21 Kedren Young 5-11 234 Jr.
+or 20 Jonaz Walton 5-9 214 Fr.
+or 26 Javian Osborne 5-9 200 Fr.
+NOTRE DAME SPECIAL TEAMS
+Pos. No. Name Ht. Wt. Class
+HLD 39 Jasper Scaife 6-6 222 Fr.
+33 Matt Jeffery 5-11 195 Jr.
+PR 6 Jordan Faison 5-11 185 Sr.
+1 Jaden Greathouse 6-1 212 Sr.
+or 22 Aneyas Williams 5-10 210 Jr.
+KR 22 Aneyas Williams 5-10 210 Jr.
+or 2 Nolan James Jr. 5-10 215 So.
+20 Jonaz Walton 5-9 214 Fr.
+or 21 Kedren Young 5-11 234 Jr.
+NOTRE DAME SPECIAL TEAMS
+Pos. No. Name Ht. Wt. Class
+KO 36 Micah Drescher 6-5 196 Fr.
+or 18 Erik Schmidt 6-2 211 So.
+PK 35 Spencer Porath 6-0 200 Jr.
+36 Micah Drescher 6-5 196 Fr.
+P 39 Jasper Scaife 6-6 222 Fr.
+18 Erik Schmidt 6-2 211 So.
+LS 96 Joseph Vinci 6-4 233 Jr.
+49 Andrew Kros 6-4 227 Sr.
+FightingIrish.com

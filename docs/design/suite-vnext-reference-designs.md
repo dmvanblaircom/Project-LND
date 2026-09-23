@@ -1,5 +1,7 @@
 # Suite vNext Reference Screens
 
+> **Historical (2026-09-23).** This describes the vNext release, which was withdrawn. The Suite runs its baseline look until the canonical screens are built (`docs/decisions/0021-interim-suite-presentation.md`). Kept as a record, not a spec.
+
 Status: IMPLEMENTED REFERENCE / BROWSER QA PENDING  
 Depends on: `docs/design/suite-visual-system-vnext.md`
 

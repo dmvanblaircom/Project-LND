@@ -170,6 +170,10 @@ var TEAM_CONFIG = {
   // says it is ours (docs/decisions/0008-snapshots-are-owned-by-declaration.md).
   snapshots: {
     depth:       { file: "depth.json", history: "depth-history.json", label: "FightingIrish.com" },
+    // Its own snapshot, not a field of the depth chart: a different official
+    // document, published on its own schedule, with its own date
+    // (docs/decisions/0019).
+    availability: { file: "availability.json", history: "availability-history.json", label: "FightingIrish.com" },
     oddsHistory: { file: "odds-history.json" },
     beatNews:    { file: "news.json" }
   }

@@ -40,6 +40,8 @@ Responsibilities:
 
 ChatGPT should not silently change engineering scope or dictate implementation details when multiple valid approaches exist.
 
+ChatGPT owns UX, UI and visual QA, and does not modify production code (David, 2026-09-23, after the vNext release was withdrawn).
+
 ### Claude Code — Engineering Partner
 
 Claude Code owns implementation inside the repository.
@@ -170,6 +172,10 @@ Does the implementation move Project LND toward the intended architecture withou
 A technically correct implementation can still fail product review.
 
 A useful product feature can still fail architecture review.
+
+### Visual review
+
+A passing automated UI test is not visual approval. `tools/visualcheck.js` measures contrast, focus and layout in what the browser actually paints, and writes screenshots of every state. Those screenshots are evidence for a person (visual QA, then David) to judge. They are not the verdict (decision 0021).
 
 ## Decision Rules
 

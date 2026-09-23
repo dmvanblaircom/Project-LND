@@ -1,0 +1,706 @@
+{
+ "note": "depth.json as the previous (flat-row) producer wrote it for Game 4, kept to prove the migration to slots is lossless",
+ "title": "DEPTH CHART - GAME 4 AT PURDUE",
+ "groups": {
+  "Defense": [
+   {
+    "pos": "DE",
+    "depth": 1,
+    "or": false,
+    "no": "5",
+    "name": "Boubacar Traore",
+    "cl": "Sr."
+   },
+   {
+    "pos": "DE",
+    "depth": 2,
+    "or": false,
+    "no": "10",
+    "name": "Loghan Thomas",
+    "cl": "Jr."
+   },
+   {
+    "pos": "DE",
+    "depth": 3,
+    "or": false,
+    "no": "44",
+    "name": "Rodney Dunham",
+    "cl": "Fr."
+   },
+   {
+    "pos": "DT",
+    "depth": 1,
+    "or": false,
+    "no": "88",
+    "name": "Armel Mukam",
+    "cl": "Sr."
+   },
+   {
+    "pos": "DT",
+    "depth": 2,
+    "or": false,
+    "no": "7",
+    "name": "Francis Brewu",
+    "cl": "Jr."
+   },
+   {
+    "pos": "DT",
+    "depth": 3,
+    "or": false,
+    "no": "56",
+    "name": "Elijah Hughes",
+    "cl": "Sr."
+   },
+   {
+    "pos": "DT",
+    "depth": 1,
+    "or": false,
+    "no": "0",
+    "name": "Tionne Gray",
+    "cl": "Jr."
+   },
+   {
+    "pos": "DT",
+    "depth": 1,
+    "or": true,
+    "no": "7",
+    "name": "Francis Brewu",
+    "cl": "Jr."
+   },
+   {
+    "pos": "DT",
+    "depth": 2,
+    "or": false,
+    "no": "59",
+    "name": "Sean Sevillano Jr.",
+    "cl": "Jr."
+   },
+   {
+    "pos": "DE",
+    "depth": 1,
+    "or": false,
+    "no": "95",
+    "name": "Bryce Young",
+    "cl": "Jr."
+   },
+   {
+    "pos": "DE",
+    "depth": 2,
+    "or": false,
+    "no": "11",
+    "name": "Keon Keeley",
+    "cl": "Sr."
+   },
+   {
+    "pos": "WILL",
+    "depth": 1,
+    "or": false,
+    "no": "4",
+    "name": "Jaiden Ausberry",
+    "cl": "Sr."
+   },
+   {
+    "pos": "WILL",
+    "depth": 2,
+    "or": false,
+    "no": "3",
+    "name": "Jaylen Sneed",
+    "cl": "5th"
+   },
+   {
+    "pos": "MIKE",
+    "depth": 1,
+    "or": false,
+    "no": "34",
+    "name": "Drayk Bowen",
+    "cl": "Sr."
+   },
+   {
+    "pos": "MIKE",
+    "depth": 2,
+    "or": false,
+    "no": "27",
+    "name": "Kyngstonn Viliamu-Asa",
+    "cl": "Jr."
+   },
+   {
+    "pos": "MIKE",
+    "depth": 2,
+    "or": true,
+    "no": "19",
+    "name": "Madden Faraimo",
+    "cl": "So."
+   },
+   {
+    "pos": "NICKEL",
+    "depth": 1,
+    "or": false,
+    "no": "29",
+    "name": "Christian Gray",
+    "cl": "Sr."
+   },
+   {
+    "pos": "NICKEL",
+    "depth": 2,
+    "or": false,
+    "no": "1",
+    "name": "Dallas Golden",
+    "cl": "So."
+   },
+   {
+    "pos": "NICKEL",
+    "depth": 2,
+    "or": true,
+    "no": "12",
+    "name": "Jayden Sanders",
+    "cl": "So."
+   },
+   {
+    "pos": "CB",
+    "depth": 1,
+    "or": false,
+    "no": "15",
+    "name": "Leonard Moore",
+    "cl": "Jr."
+   },
+   {
+    "pos": "CB",
+    "depth": 2,
+    "or": false,
+    "no": "24",
+    "name": "Mark Zackery IV",
+    "cl": "So."
+   },
+   {
+    "pos": "BOUND",
+    "depth": 1,
+    "or": false,
+    "no": "8",
+    "name": "Adon Shuler",
+    "cl": "Sr."
+   },
+   {
+    "pos": "BOUND",
+    "depth": 2,
+    "or": false,
+    "no": "22",
+    "name": "Ethan Long",
+    "cl": "So."
+   },
+   {
+    "pos": "FIELD",
+    "depth": 1,
+    "or": false,
+    "no": "28",
+    "name": "Luke Talich",
+    "cl": "Sr."
+   },
+   {
+    "pos": "FIELD",
+    "depth": 2,
+    "or": false,
+    "no": "20",
+    "name": "Joey O’Brien",
+    "cl": "Fr."
+   },
+   {
+    "pos": "CB",
+    "depth": 1,
+    "or": false,
+    "no": "2",
+    "name": "DJ McKinney",
+    "cl": "5th"
+   },
+   {
+    "pos": "CB",
+    "depth": 2,
+    "or": false,
+    "no": "12",
+    "name": "Jayden Sanders",
+    "cl": "So."
+   }
+  ],
+  "Offense": [
+   {
+    "pos": "WR",
+    "depth": 1,
+    "or": false,
+    "no": "6",
+    "name": "Jordan Faison",
+    "cl": "Sr."
+   },
+   {
+    "pos": "WR",
+    "depth": 2,
+    "or": false,
+    "no": "33",
+    "name": "Matt Jeffery",
+    "cl": "Jr."
+   },
+   {
+    "pos": "WR",
+    "depth": 3,
+    "or": false,
+    "no": "5",
+    "name": "Cam Williams",
+    "cl": "Jr."
+   },
+   {
+    "pos": "WR",
+    "depth": 3,
+    "or": true,
+    "no": "19",
+    "name": "Logan Saldate",
+    "cl": "Jr."
+   },
+   {
+    "pos": "WR",
+    "depth": 1,
+    "or": false,
+    "no": "1",
+    "name": "Jaden Greathouse",
+    "cl": "Sr."
+   },
+   {
+    "pos": "WR",
+    "depth": 1,
+    "or": true,
+    "no": "3",
+    "name": "Mylan Graham",
+    "cl": "Jr."
+   },
+   {
+    "pos": "WR",
+    "depth": 2,
+    "or": false,
+    "no": "4",
+    "name": "Bubba Frazier",
+    "cl": "Fr."
+   },
+   {
+    "pos": "LT",
+    "depth": 1,
+    "or": false,
+    "no": "74",
+    "name": "Will Black",
+    "cl": "So."
+   },
+   {
+    "pos": "LT",
+    "depth": 2,
+    "or": false,
+    "no": "68",
+    "name": "Charlie Thom",
+    "cl": "Fr."
+   },
+   {
+    "pos": "LT",
+    "depth": 2,
+    "or": true,
+    "no": "65",
+    "name": "Grayson McKeogh",
+    "cl": "Fr."
+   },
+   {
+    "pos": "LG",
+    "depth": 1,
+    "or": false,
+    "no": "54",
+    "name": "Anthonie Knapp",
+    "cl": "Jr."
+   },
+   {
+    "pos": "LG",
+    "depth": 2,
+    "or": false,
+    "no": "57",
+    "name": "Cam Herron",
+    "cl": "So."
+   },
+   {
+    "pos": "C",
+    "depth": 1,
+    "or": false,
+    "no": "70",
+    "name": "Ashton Craig",
+    "cl": "5th"
+   },
+   {
+    "pos": "C",
+    "depth": 2,
+    "or": false,
+    "no": "64",
+    "name": "Joe Otting",
+    "cl": "Sr."
+   },
+   {
+    "pos": "RG",
+    "depth": 1,
+    "or": false,
+    "no": "75",
+    "name": "Sullivan Absher",
+    "cl": "Sr."
+   },
+   {
+    "pos": "RG",
+    "depth": 1,
+    "or": true,
+    "no": "71",
+    "name": "Styles Prescod",
+    "cl": "Jr."
+   },
+   {
+    "pos": "RT",
+    "depth": 1,
+    "or": false,
+    "no": "76",
+    "name": "Guerby Lambert",
+    "cl": "Jr."
+   },
+   {
+    "pos": "RT",
+    "depth": 2,
+    "or": false,
+    "no": "78",
+    "name": "Owen Strebig",
+    "cl": "So."
+   },
+   {
+    "pos": "RT",
+    "depth": 2,
+    "or": true,
+    "no": "68",
+    "name": "Charlie Thom",
+    "cl": "Fr."
+   },
+   {
+    "pos": "TE",
+    "depth": 1,
+    "or": false,
+    "no": "87",
+    "name": "Cooper Flanagan",
+    "cl": "Sr."
+   },
+   {
+    "pos": "TE",
+    "depth": 1,
+    "or": true,
+    "no": "88",
+    "name": "James Flanigan",
+    "cl": "So."
+   },
+   {
+    "pos": "TE",
+    "depth": 2,
+    "or": false,
+    "no": "7",
+    "name": "Ty Washington",
+    "cl": "5th"
+   },
+   {
+    "pos": "TE",
+    "depth": 2,
+    "or": true,
+    "no": "85",
+    "name": "Jack Larsen",
+    "cl": "Jr."
+   },
+   {
+    "pos": "WR",
+    "depth": 1,
+    "or": false,
+    "no": "14",
+    "name": "Micah Gilbert",
+    "cl": "Jr."
+   },
+   {
+    "pos": "WR",
+    "depth": 2,
+    "or": false,
+    "no": "17",
+    "name": "Elijah Burress",
+    "cl": "So."
+   },
+   {
+    "pos": "WR",
+    "depth": 2,
+    "or": true,
+    "no": "8",
+    "name": "Jerome Bettis Jr.",
+    "cl": "So."
+   },
+   {
+    "pos": "QB",
+    "depth": 1,
+    "or": false,
+    "no": "13",
+    "name": "CJ Carr",
+    "cl": "Jr."
+   },
+   {
+    "pos": "QB",
+    "depth": 2,
+    "or": false,
+    "no": "10",
+    "name": "Noah Grubbs",
+    "cl": "Fr."
+   },
+   {
+    "pos": "QB",
+    "depth": 2,
+    "or": true,
+    "no": "9",
+    "name": "Teddy Jarrard",
+    "cl": "Fr."
+   },
+   {
+    "pos": "RB",
+    "depth": 1,
+    "or": false,
+    "no": "22",
+    "name": "Aneyas Williams",
+    "cl": "Jr."
+   },
+   {
+    "pos": "RB",
+    "depth": 1,
+    "or": true,
+    "no": "2",
+    "name": "Nolan James Jr.",
+    "cl": "So."
+   },
+   {
+    "pos": "RB",
+    "depth": 2,
+    "or": false,
+    "no": "21",
+    "name": "Kedren Young",
+    "cl": "Jr."
+   },
+   {
+    "pos": "RB",
+    "depth": 2,
+    "or": true,
+    "no": "20",
+    "name": "Jonaz Walton",
+    "cl": "Fr."
+   },
+   {
+    "pos": "RB",
+    "depth": 2,
+    "or": true,
+    "no": "26",
+    "name": "Javian Osborne",
+    "cl": "Fr."
+   }
+  ],
+  "Special Teams": [
+   {
+    "pos": "HLD",
+    "depth": 1,
+    "or": false,
+    "no": "39",
+    "name": "Jasper Scaife",
+    "cl": "Fr."
+   },
+   {
+    "pos": "HLD",
+    "depth": 2,
+    "or": false,
+    "no": "33",
+    "name": "Matt Jeffery",
+    "cl": "Jr."
+   },
+   {
+    "pos": "PR",
+    "depth": 1,
+    "or": false,
+    "no": "6",
+    "name": "Jordan Faison",
+    "cl": "Sr."
+   },
+   {
+    "pos": "PR",
+    "depth": 2,
+    "or": false,
+    "no": "1",
+    "name": "Jaden Greathouse",
+    "cl": "Sr."
+   },
+   {
+    "pos": "PR",
+    "depth": 2,
+    "or": true,
+    "no": "22",
+    "name": "Aneyas Williams",
+    "cl": "Jr."
+   },
+   {
+    "pos": "KR",
+    "depth": 1,
+    "or": false,
+    "no": "22",
+    "name": "Aneyas Williams",
+    "cl": "Jr."
+   },
+   {
+    "pos": "KR",
+    "depth": 1,
+    "or": true,
+    "no": "2",
+    "name": "Nolan James Jr.",
+    "cl": "So."
+   },
+   {
+    "pos": "KR",
+    "depth": 2,
+    "or": false,
+    "no": "20",
+    "name": "Jonaz Walton",
+    "cl": "Fr."
+   },
+   {
+    "pos": "KR",
+    "depth": 2,
+    "or": true,
+    "no": "21",
+    "name": "Kedren Young",
+    "cl": "Jr."
+   },
+   {
+    "pos": "KO",
+    "depth": 1,
+    "or": false,
+    "no": "36",
+    "name": "Micah Drescher",
+    "cl": "Fr."
+   },
+   {
+    "pos": "KO",
+    "depth": 1,
+    "or": true,
+    "no": "18",
+    "name": "Erik Schmidt",
+    "cl": "So."
+   },
+   {
+    "pos": "PK",
+    "depth": 1,
+    "or": false,
+    "no": "35",
+    "name": "Spencer Porath",
+    "cl": "Jr."
+   },
+   {
+    "pos": "PK",
+    "depth": 2,
+    "or": false,
+    "no": "36",
+    "name": "Micah Drescher",
+    "cl": "Fr."
+   },
+   {
+    "pos": "P",
+    "depth": 1,
+    "or": false,
+    "no": "39",
+    "name": "Jasper Scaife",
+    "cl": "Fr."
+   },
+   {
+    "pos": "P",
+    "depth": 2,
+    "or": false,
+    "no": "18",
+    "name": "Erik Schmidt",
+    "cl": "So."
+   },
+   {
+    "pos": "LS",
+    "depth": 1,
+    "or": false,
+    "no": "96",
+    "name": "Joseph Vinci",
+    "cl": "Jr."
+   },
+   {
+    "pos": "LS",
+    "depth": 2,
+    "or": false,
+    "no": "49",
+    "name": "Andrew Kros",
+    "cl": "Sr."
+   }
+  ]
+ },
+ "availability": {
+  "questionable": [
+   {
+    "no": "",
+    "pos": "S",
+    "name": "Luke Talich",
+    "detail": "Questionable · left wrist"
+   }
+  ],
+  "out": [
+   {
+    "no": "",
+    "pos": "OL",
+    "name": "Matty Augustine",
+    "detail": "Out for game · Right Foot"
+   },
+   {
+    "no": "",
+    "pos": "DL",
+    "name": "Christopher Burgess Jr.",
+    "detail": "Out for game · Left Tibia"
+   },
+   {
+    "no": "",
+    "pos": "DL",
+    "name": "Tiki Hola",
+    "detail": "Out for game · Right Knee"
+   },
+   {
+    "no": "",
+    "pos": "S",
+    "name": "Brauntae Johnson",
+    "detail": "Out for game · Left Foot"
+   },
+   {
+    "no": "",
+    "pos": "OL",
+    "name": "Charles Jagusah",
+    "detail": "Out for game · Left Humerus"
+   },
+   {
+    "no": "",
+    "pos": "DL",
+    "name": "Jason Onye",
+    "detail": "Out for game · Left Ankle"
+   },
+   {
+    "no": "",
+    "pos": "WR",
+    "name": "Quincy Porter",
+    "detail": "Out for game · Left Knee"
+   },
+   {
+    "no": "",
+    "pos": "DB",
+    "name": "Chaz Smith",
+    "detail": "Out for game · Right Wrist"
+   },
+   {
+    "no": "",
+    "pos": "OL",
+    "name": "Chris Terek",
+    "detail": "Out for game · Right Knee"
+   }
+  ],
+  "reported": true,
+  "source": "https://fightingirish.com/documents/a2264cba-eca9-4031-bac3-07e8a80c99a0.pdf",
+  "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/21/TM63of2JoyNu92VIidauJf4PAkZRFy0JbMD1lBYf.pdf",
+  "label": "FightingIrish.com"
+ }
+}

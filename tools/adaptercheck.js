@@ -444,8 +444,9 @@ eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the d
 
 console.log(" every file a team declares, for the worker to cache");
 eq(TeamOS.snapshots.files(TEAM_CONFIG),
-   ["depth.json", "depth-history.json", "odds-history.json", "news.json"],
-   "Notre Dame's snapshots, files and histories together");
+   ["depth.json", "depth-history.json", "availability.json", "availability-history.json",
+    "odds-history.json", "news.json"],
+   "Notre Dame's snapshots, files and histories together - availability is its own now");
 eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), [],
    "Ohio State declares none, so there is nothing to cache for it");
 eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
@@ -455,14 +456,24 @@ eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.jso
 var osu = load("teams/ohio-state.js");
 var ND = TeamOS.createTeam(TEAM_CONFIG.team), OSU = osu.TeamOS.createTeam(osu.TEAM_CONFIG.team);
 var ndFiles = { depth: JSON.parse(read("depth.json")), history: JSON.parse(read("depth-history.json")),
+                availability: JSON.parse(read("availability.json")),
+                availabilityHistory: JSON.parse(read("availability-history.json")),
                 odds: JSON.parse(read("odds-history.json")), news: JSON.parse(read("news.json")) };
 
 console.log(" notre-dame");
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "depth"),       { file:"depth.json", history:"depth-history.json", label:"FightingIrish.com" }, "declares a depth chart");
+eq(TeamOS.snapshots.get(TEAM_CONFIG, "availability"),
+   { file:"availability.json", history:"availability-history.json", label:"FightingIrish.com" },
+   "declares an availability report, separately from the depth chart");
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "oddsHistory"), { file:"odds-history.json" }, "declares an odds history");
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "beatNews"),    { file:"news.json" },         "declares beat news");
 ok(TeamOS.snapshots.owned(ND, ndFiles.depth),   "owns the committed depth.json");
 ok(TeamOS.snapshots.owned(ND, ndFiles.history), "owns the committed depth-history.json");
+ok(TeamOS.snapshots.owned(ND, ndFiles.availability),        "owns the committed availability.json");
+ok(TeamOS.snapshots.owned(ND, ndFiles.availabilityHistory), "owns the committed availability-history.json");
+eq([ndFiles.depth.schema, ndFiles.history.schema], [2, 2], "the depth snapshots are in the slot model");
+ok(typeof ndFiles.availability.reported === "boolean" && "effectiveAt" in ndFiles.availability,
+   "the availability report says whether it exists, and when it is from");
 ok(TeamOS.snapshots.owned(ND, ndFiles.odds),    "owns the committed odds-history.json");
 ok(TeamOS.snapshots.owned(ND, ndFiles.news),    "owns the committed news.json");
 eq([ndFiles.depth.team, ndFiles.history.team], ["notre-dame", "notre-dame"],
