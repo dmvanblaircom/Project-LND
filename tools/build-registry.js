@@ -90,6 +90,8 @@ function embedded(doc) {
 // "san-jos-state", which is nobody's idea of San Jose State. An ampersand is
 // dropped rather than spelled: "Texas A&M" is "texas-am", the way it is said
 // and the way every provider slugs it, not "texas-aandm".
+function str(v) { return typeof v === "string" && v ? v : null; }
+
 function slug(s) {
   var t = String(s).toLowerCase();
   if (t.normalize) t = t.normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -130,12 +132,18 @@ function programs(fitt) {
     seenConf.push(conf);
     teamsUnder(g).forEach(function (t) {
       if (!t || !t.location) return;
-      // `location` is the program. On this page `shortDisplayName` is the
-      // NICKNAME ("Falcons") rather than a short program name, and `abbrev`
-      // is a code ("AFA"); neither is what `short` means here, so `short` is
-      // the program name until something actually needs an abbreviation.
-      out.push({ name: t.location, short: t.location,
-                 conference: conf, espnId: String(t.id || "") });
+      // `location` is the program, and it is the NAME - taken character for
+      // character, accents and punctuation and all (decision 0017).
+      //
+      // The other two are what a fan might type instead of the name, and
+      // they are why they are here: `abbrev` is the official short code
+      // ("OSU", "ND", "TA&M") and `shortDisplayName` is the nickname
+      // ("Buckeyes", "Fighting Irish"). Neither is a name - `short` stays the
+      // program - but both are how people search for a school, and both come
+      // from the provider, so no alias list has to be typed or maintained.
+      out.push({ name: t.location, short: t.location, conference: conf,
+                 abbr: str(t.abbrev), nick: str(t.shortDisplayName),
+                 espnId: String(t.id || "") });
     });
   });
   return { list: out, conferences: seenConf };
@@ -160,18 +168,26 @@ function build(fitt) {
 
   // Union: a program already known is never lost to a bad parse.
   existing().forEach(function (t) {
-    if (t && t.id) rows[t.id] = { id: t.id, name: t.name, short: t.short, conference: t.conference || null };
+    if (t && t.id) rows[t.id] = { id: t.id, name: t.name, short: t.short,
+                                  conference: t.conference || null,
+                                  abbr: t.abbr || null, nick: t.nick || null };
   });
 
   found.list.forEach(function (p) {
     var id = slug(p.name);
     if (!id) return;
-    if (rows[id]) {                       // refresh the conference, keep the name
+    if (rows[id]) {
+      // The NAME is preserved - it is the one thing the product may spell
+      // differently from the provider. Everything else is the provider's and
+      // is refreshed, because a conference changes and a nickname can too.
       rows[id].conference = p.conference;
+      rows[id].abbr = p.abbr;
+      rows[id].nick = p.nick;
       if (!rows[id].short) rows[id].short = p.short;
       return;
     }
-    rows[id] = { id: id, name: p.name, short: p.short, conference: p.conference };
+    rows[id] = { id: id, name: p.name, short: p.short, conference: p.conference,
+                 abbr: p.abbr, nick: p.nick };
   });
 
   var list = Object.keys(rows).sort().map(function (k) {
@@ -188,6 +204,8 @@ function render(list) {
     var parts = ['id: ' + JSON.stringify(t.id), 'name: ' + JSON.stringify(t.name),
                  'short: ' + JSON.stringify(t.short)];
     if (t.conference) parts.push('conference: ' + JSON.stringify(t.conference));
+    if (t.abbr)       parts.push('abbr: ' + JSON.stringify(t.abbr));
+    if (t.nick)       parts.push('nick: ' + JSON.stringify(t.nick));
     if (t.config)     parts.push('config: ' + JSON.stringify(t.config));
     return "  { " + parts.join(", ") + " }";
   }).join(",\n");

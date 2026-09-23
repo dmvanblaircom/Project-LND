@@ -149,13 +149,28 @@ stays as a per-program label and a search term. `byConference()` is replaced by
 
 - Sorting is `localeCompare(…, "en", {sensitivity:"base"})`, not `<`. Byte
   order puts San José State and lower-cased names where nobody looks for them.
-- Search folds both sides to letters and digits: accents stripped,
-  **punctuation removed rather than turned into a space**. Turning it into a
-  space looks tidier and is wrong — it leaves `hawai i`, which `hawaii` never
-  matches, and `hawaii` is what a fan types. Observed failing before the fix,
-  on Hawai'i and Texas A&M.
-- An ampersand reads both ways, so a program carries `texasam` and
-  `texasandm`, joined by a space a squashed query cannot span.
+- Search is by **word, not substring** (David, 2026-09-22: find variants,
+  stay case-insensitive, pull nothing irrelevant, restrict nothing needlessly).
+  Every word of the query must either begin a word of the program or equal
+  one of its short forms. Substring matching is what made `nd` return Indiana,
+  Maryland, Vanderbilt and four others; word-start matching returns Notre Dame.
+- **Short forms come from the provider, not a list.** The generator now
+  carries ESPN's `abbrev` (`OSU`, `ND`, `TA&M`) and `shortDisplayName`
+  (`Buckeyes`, `Fighting Irish`) into the registry as `abbr` and `nick`, so a
+  fan finds a school by its code or its mascot with nothing typed by hand.
+  Name initials are added (`nd`, `os`) plus the spoken U (`osu`).
+- **Conferences answer to what people call them.** Initials fall out for
+  free (`acc`, `mac`, `mwc`, `sbc`); numerals are said both ways (`big 10`,
+  `big ten`); and four abbreviations initials cannot produce are the one
+  short table in the code: `sec`, `cusa`, `b1g`, `aac`. It names no team.
+- Accents fold and punctuation closes up, so `hawaii` finds Hawai'i and
+  `texas am` finds Texas A&M. A short form with punctuation in it (`TA&M`,
+  `M-OH`) is tried whole before the query is split into words.
+- **Open, not loose.** A query word no program has ever heard of is ignored
+  rather than vetoing the rest (`notre dame football` finds Notre Dame). If
+  nothing matches strictly, a fallback looks inside words (`bama` finds
+  Alabama) — but only then, so it can never widen a query that already worked.
+  A query nothing knows at all still reports nothing.
 - Filtering hides items rather than re-rendering: 138 items rebuilt on every
   keystroke, and the focused input thrown away with them.
 - A section heading counts what is under it *now*. Left at the resting total

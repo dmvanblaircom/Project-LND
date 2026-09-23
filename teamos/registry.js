@@ -36,6 +36,11 @@ TeamOS.registry = (function () {
         name:       t.name,
         short:      typeof t.short === "string" && t.short ? t.short : t.name,
         conference: typeof t.conference === "string" && t.conference ? t.conference : "Independent",
+        // What a fan might type instead of the name: the provider's official
+        // short code ("OSU") and the nickname ("Buckeyes"). Both optional -
+        // a registry row without them is still a program.
+        abbr:       typeof t.abbr === "string" && t.abbr ? t.abbr : null,
+        nick:       typeof t.nick === "string" && t.nick ? t.nick : null,
         config:     typeof t.config === "string" && t.config ? t.config : null,
         available:  !!(typeof t.config === "string" && t.config)
       }));
