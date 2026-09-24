@@ -205,6 +205,13 @@ TeamOS.espn = (function () {
       series: seriesFor(config.series, oppLong),
       state: st.state||"pre", detail: st.shortDetail||"",
       status: gs.status, hasStarted: gs.hasStarted, period: gs.period, clock: gs.clock,
+      // A postponed game's replacement date, { date, timeSet }, only when a
+      // source states one trustworthily (decision 0022 #5). ESPN does not:
+      // a postponed event keeps a date that may be the original or the new
+      // one, with nothing saying which. So this adapter never guesses - it
+      // is null, the Suite says "New date to be announced", and when ESPN
+      // reschedules the game it returns as scheduled on its new date.
+      newDate: null,
       // A score of 0 is a score. The old truthiness test turned a real 0
       // into null, which the view then printed as 0 by coincidence and
       // which left the model unable to tell "0-0 in progress" from "no

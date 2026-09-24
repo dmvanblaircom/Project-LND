@@ -58,7 +58,7 @@ var games = TeamOS.espn.schedule(fixture, team, TEAM_CONFIG);
 var byId = {}; games.forEach(function (g) { byId[g.id] = g; });
 var SHAPE = ["id","date","timeSet","home","neutral","oppName","oppRank",
              "oppProviderId","oppAbbr","usRank","usRecord","oppRecord","venue","city","venueState","zip",
-             "net","odds","series","state","detail","status","hasStarted","period","clock","us","them","won"];
+             "net","odds","series","state","detail","status","hasStarted","period","clock","newDate","us","them","won"];
 var LEAK = /competitions|competitors|curatedRank|pickcenter|neutralSite|geoBroadcasts|timeValid|shortDetail|displayValue|zipCode|homeAway|espn/i;
 
 console.log("schedule()");

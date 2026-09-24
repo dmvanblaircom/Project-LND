@@ -105,7 +105,10 @@ TeamOS.game = (function () {
   //   upcoming      the next scheduled, delayed-before-kickoff or postponed
   //                 game by date
   //   canceled      a canceled game, only when no other game is still to come
-  //   season-over   nothing to come: the last game played
+  //   season-over   nothing to come and no recent final. What owns the hero
+  //                 then is an OPEN product decision, so no game is chosen:
+  //                 `game` is null and `last` is the last game played, for
+  //                 whatever Product decides (review of 2026-09-24).
   //   none          no games at all
   function hero(games, now, zone) {
     var list = (games || []).filter(function (g) { return g && g.date; }).slice()
@@ -133,8 +136,7 @@ TeamOS.game = (function () {
     if (canceled.length) return { game: canceled[0], reason: "canceled" };
 
     var played = list.filter(function (g) { return g.status === "final"; });
-    if (played.length) return { game: played[played.length - 1], reason: "season-over" };
-    return { game: list[list.length - 1], reason: "season-over" };
+    return { game: null, reason: "season-over", last: played.length ? played[played.length - 1] : list[list.length - 1] };
   }
 
   // ---- atmosphere ----

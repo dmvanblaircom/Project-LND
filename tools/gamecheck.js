@@ -139,7 +139,10 @@ var cx = season.slice(); cx[2] = g("canceled", false, "2026-10-03T19:30:00Z");
 eq(heroAt(cx, "2026-09-29T14:00:00Z"), ["upcoming", "2026-10-10T19:30:00Z"], "a canceled game gives way to the next valid game (0022 #5)");
 var cxLast = season.slice(0, 3); cxLast[2] = g("canceled", false, "2026-10-03T19:30:00Z");
 eq(heroAt(cxLast, "2026-09-29T14:00:00Z"), ["canceled", "2026-10-03T19:30:00Z"], "with nothing else to come, the canceled game holds the hero");
-eq(heroAt(season.slice(0, 2), "2026-12-15T14:00:00Z"), ["season-over", "2026-09-26T19:30:00Z"], "season over: the last game played");
+eq(heroAt(season.slice(0, 2), "2026-12-15T14:00:00Z"), ["season-over", null],
+   "season over, past the recent-final window: no game is chosen - that behaviour is an open product decision");
+eq(G.hero(season.slice(0, 2), new Date("2026-12-15T14:00:00Z"), ZONE).last.date, "2026-09-26T19:30:00Z",
+   "the last game played is still reported, for whatever Product decides");
 eq(heroAt([], "2026-10-01T00:00:00Z"), ["none", null], "no games: none");
 var unsorted = [season[3], season[1], season[2], season[0]];
 eq(heroAt(unsorted, "2026-09-28T14:00:00Z"), ["upcoming", "2026-10-03T19:30:00Z"], "order of the input does not matter");

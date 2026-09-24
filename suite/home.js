@@ -102,10 +102,9 @@ Suite.home = (function () {
              (g.clock ? '<span class="gc-clock">' + esc(g.clock) + "</span>" : "") + "</div>";
     }
     if (st === "final") {
-      var r = result(g);
-      return '<div class="gc-mid"><span class="gc-rule" aria-hidden="true"></span>' +
-             (r ? '<span class="gc-result ' + r + '">' + (r === "win" ? "Win" : r === "loss" ? "Loss" : "Tie") + "</span>" : "") +
-             "</div>";
+      // Team-neutral (review of 2026-09-24): the state is FINAL, said once
+      // above the scores; no per-team victory phrase, no Win/Loss word.
+      return '<div class="gc-mid"><span class="gc-rule" aria-hidden="true"></span></div>';
     }
     return '<div class="gc-mid"><span class="gc-vs">' + whereWord(g) + "</span></div>";
   }
@@ -116,13 +115,27 @@ Suite.home = (function () {
     var ko = ui.kickoff(g.date, g.timeSet);
     if (st === "live" || st === "paused" || st === "final") {
       var line = team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0) + ".";
-      if (st === "final") { var r = result(g); return "Final. " + line + (r ? " " + r.charAt(0).toUpperCase() + r.slice(1) + "." : ""); }
+      if (st === "final") return "Final. " + line;
       if (st === "paused") return (g.status === "suspended" ? "Suspended" : "Delayed") + ", " + ordinal(g.period) + " quarter. " + line;
       return "Live, " + (ordinal(g.period) ? ordinal(g.period) + " quarter" : "") + (g.clock ? ", " + g.clock : "") + ". " + line +
         (g.situation && g.situation.short ? " " + g.situation.short + (g.situation.spot ? " at " + g.situation.spot : "") + "." : "");
     }
-    var head = st === "postponed" ? "Postponed. " : st === "canceled" ? "Canceled. " : st === "delayed" ? "Delayed. " : "Next game: ";
+    if (st === "postponed") return "Postponed. " + team.name + " " + w + opp + ". " + newDate(g) + ".";
+    var head = st === "canceled" ? "Canceled. " : st === "delayed" ? "Delayed. " : "Next game: ";
     return head + team.name + " " + w + opp + ", " + ko.day + (st === "upcoming" ? ", " + ko.time : "") + (g.net ? ", on " + g.net : "") + ".";
+  }
+
+  // A postponed game's replacement date (decision 0022 #5), only when the
+  // normalized game carries a trustworthy one: date and time, or the date
+  // with the time to be determined. Never a countdown.
+  function newDate(g) {
+    var n = g.newDate;
+    if (!n || !n.date) return "New date to be announced";
+    var d = new Date(n.date);
+    if (isNaN(d)) return "New date to be announced";
+    var day = d.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
+    return "New date: " + day + " \u00B7 " + (n.timeSet === false ? "Time TBD"
+      : d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", timeZoneName: "short" }));
   }
 
   function tertiary(g, st, weather) {
@@ -160,10 +173,10 @@ Suite.home = (function () {
       if (st === "live") top += '<span class="live-pill">Live</span>';
       else if (st === "paused" || st === "delayed" || st === "postponed" || st === "canceled")
         top += '<span class="state-pill ' + st + '">' + esc(st === "paused" ? (g.status === "suspended" ? "Suspended" : "Delayed") : PILL[st]) + "</span>";
-      else top += '<span class="gc-label">' + esc(LABEL[st]) + "</span>";
+      else top += '<span class="gc-label' + (st === "final" ? " gc-final" : "") + '">' + esc(LABEL[st]) + "</span>";
       if (st === "upcoming") top += '<span class="gc-when">' + esc(ko.full) + "</span>";
       else if (st === "delayed") top += '<span class="gc-when">' + esc(ko.day) + "</span>";
-      else if (st === "postponed") top += '<span class="gc-when">New date to be announced</span>';
+      else if (st === "postponed") top += '<span class="gc-when">' + esc(newDate(g)) + "</span>";
       if (g.net && st !== "final" && st !== "canceled") top += '<span class="gc-net">' + esc(g.net) + "</span>";
       top += "</div>";
 
@@ -182,9 +195,12 @@ Suite.home = (function () {
                tertiary(g, st, h.weather) +
                cta(st) +
              "</article>";
-    } else {
+    } else if (h.reason === "none") {
       card = '<article class="gamecard gc-none"><h2 class="gc-label">No games on the schedule yet</h2></article>';
     }
+    // season-over: what owns the hero after the recent-final window with no
+    // game to come is an open product decision, so the hero shows the team
+    // alone and invents nothing.
     return '<section class="home-hero on-dark' + (m.art.atmosphere ? " art-" + esc(m.art.atmosphere) : "") +
              '" aria-label="' + esc(team.name) + '">' +
              ui.art(m.art) + '<div class="hh-inner">' + id + card + "</div></section>";
@@ -311,5 +327,5 @@ Suite.home = (function () {
     });
   }
 
-  return { paint: paint, cardState: cardState };
+  return { paint: paint, cardState: cardState, newDate: newDate };
 })();
