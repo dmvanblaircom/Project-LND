@@ -155,6 +155,7 @@
     started = true;
     inject("suite/nav.js");
     inject("suite/home.js");
+    inject("suite/game.js");
     inject("app.js");
   }
 
@@ -234,8 +235,9 @@
   <!-- The screen's name for assistive technology where no masthead shows it. -->
   <h1 class="sr-only" id="screenHead" tabindex="-1"></h1>
 
-  <!-- Home, rebuilt in the canonical system (suite/home.js). -->
+  <!-- Home and Game, rebuilt in the canonical system (suite/home.js, suite/game.js). -->
   <div class="home" id="screenHome" hidden></div>
+  <div class="game" id="screenGame" hidden></div>
 
   <!-- Screens not yet rebuilt in the canonical system (legacy.css). -->
   <div class="legacy on-dark" id="legacy">

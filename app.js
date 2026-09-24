@@ -2032,11 +2032,76 @@ function loadHomeWeather(g){
   venuePoint(g).then(function(pt){ return get(TeamOS.weather.url(pt.lat, pt.lon)); })
     .then(function(d){
       HOME.weather = live ? TeamOS.weather.current(d) : TeamOS.weather.at(d, g.date);
-      paintHome();
+      paintHome(); paintGame();
     }).catch(function(){ HOME.weather=null; });
 }
 window.addEventListener("online",  function(){ paintHome(); });
 window.addEventListener("offline", function(){ paintHome(); });
+
+/* ---------- Game (canonical) ---------- */
+// The Game screen is the hero game - the one TeamOS rule Home and the nav
+// use - drawn by suite/game.js from its GameDetail. Its views follow the
+// game's lifecycle (TeamOS.game.lifecycle); the route says which one shows.
+var GV={ id:null, gd:null, preview:undefined, side:"us", at:0, loading:false };
+function heroGame(){
+  var h=TeamOS.game.hero(S.games||[], new Date(), TEAM.timeZone), g=h.game;
+  if(g && HOME.status){
+    g=Object.assign({}, g);
+    if(g.usRank==null && HOME.status.rank) g.usRank=HOME.status.rank;
+    if(!g.usRecord && HOME.status.record) g.usRecord=HOME.status.record;
+  }
+  return g;
+}
+function paintGame(){
+  var host=$("screenGame");
+  if(!host || host.hidden) return;
+  if(!S.games){ host.innerHTML='<p class="sec-quiet home-loading">Loading the game\u2026</p>'; return; }
+  var g=heroGame();
+  if(g && GV.id!==g.id) GV={ id:g.id, gd:null, preview:undefined, side:"us", at:0, loading:false };
+  var lc=TeamOS.game.lifecycle(g), route=Suite.nav.current();
+  var espnId=TEAM_CONFIG.sources.espn.teamId;
+  Suite.game.paint(host, {
+    team:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true) },
+    oppMark:function(id){ return TeamOS.espn.mark(id, true); },
+    photo:ID.art, game:g, detail:GV.gd, lifecycle:lc,
+    view: route.view || lc.defaultView, preview:GV.preview, side:GV.side,
+    weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date()
+  });
+  if(g){ loadGameDetail(g, lc); loadHomeWeather(g); }
+}
+// The summary for the hero game: every 25 seconds while it is under way,
+// every five minutes otherwise, never two requests at once.
+function loadGameDetail(g, lc){
+  var live=TeamOS.game.underWay(g);
+  if(GV.loading || (GV.at && Date.now()-GV.at < (live ? 25e3 : 5*60e3))) return;
+  GV.loading=true;
+  summaryFor(g.id, live).then(function(raw){
+    GV.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
+    if(lc.phase==="pregame" && GV.preview===undefined) loadGamePreview();
+  }).catch(function(){}).then(function(){
+    GV.at=Date.now(); GV.loading=false; paintGame();
+  });
+}
+// Pregame Matchup: both teams' season figures, with national ranks.
+function loadGamePreview(){
+  var s=Suite.game.sides(GV.gd, heroGame());
+  if(!s){ GV.preview=null; return; }
+  GV.preview=undefined;
+  Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
+               pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null)])
+    .then(function(r){ GV.preview={ us:withPointsAllowed(r[0], r[2]), them:withPointsAllowed(r[1], r[3]) }; })
+    .catch(function(){ GV.preview=null; })
+    .then(paintGame);
+}
+// The Leaders and Box Score team toggle.
+document.addEventListener("click", function(e){
+  var b=e.target.closest ? e.target.closest("#screenGame [data-side]") : null;
+  if(!b) return;
+  GV.side=b.getAttribute("data-side")==="them" ? "them" : "us";
+  paintGame();
+  var again=document.querySelector('#screenGame [data-side="'+GV.side+'"]');
+  if(again) again.focus();
+});
 
 /* ---------- screens: which content each route shows ---------- */
 // The route itself is suite/nav.js's (one state: location.hash). This is the
@@ -2047,11 +2112,13 @@ var PANEL_FOR={ home:"schedule", top25:"around", game:"game", roster:"depth", mo
 var PANELS=["schedule","around","game","depth","more"];
 function showScreen(route){
   var name=PANEL_FOR[route.screen]||"schedule";
-  // Home is canonical; the rest are still their pre-canonical panels.
-  var home=route.screen==="home";
+  // Home and Game are canonical; the rest are still their pre-canonical panels.
+  var home=route.screen==="home", game=route.screen==="game";
   $("screenHome").hidden=!home;
-  $("legacy").hidden=home;
+  $("screenGame").hidden=!game;
+  $("legacy").hidden=home || game;
   if(home){ paintHome(); if(HOME.news==null) loadHomeNews(); }
+  if(game) paintGame();
   // A schedule row on Home opens that game on the full Schedule.
   if(route.screen==="schedule" && route.path[0] && S.games && DETAIL.open!==route.path[0]){
     setTimeout(function(){ openGame(route.path[0]); }, 0);
@@ -2060,8 +2127,9 @@ function showScreen(route){
   PANELS.forEach(function(p){ $("panel-"+p).hidden = p!==name; });
   UI.tab=name; layoutForTab();
   // Force a refresh on entry: the dataset guard would otherwise leave the
-  // screen showing whatever it held the last time it was open.
-  if(name==="game")   loadGame(true);
+  // screen showing whatever it held the last time it was open. Game is
+  // canonical now (paintGame above), so its old panel loads nothing.
+  if(name==="game" && !game) loadGame(true);
   if(name==="around") loadAround();
   if(name==="depth")  loadDepth();
   if(name==="more")   loadNews();
@@ -2163,7 +2231,8 @@ function autoTick(){
   getScoreboard(0).catch(function(){ return null; }).then(function(){
     return refreshSchedule(false);
   }).then(function(){
-    if(!$("panel-game").hidden && G.live) loadGame(true);
+    if(!$("panel-game").hidden && G.live && $("screenGame").hidden) loadGame(true);
+    paintGame();                         // the canonical Game screen refreshes itself on its own clock
   }).catch(function(){});
 
   if(!$("panel-around").hidden){
@@ -2278,6 +2347,7 @@ function refreshSchedule(first){
     if(S.next) paintHero(S.next); else layoutForTab();   // no next game: nothing above the tabs
     paintSchedule(games);
     paintHome();
+    paintGame();
     return games;
   }
   var painted=false;

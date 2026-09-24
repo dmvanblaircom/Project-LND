@@ -467,6 +467,50 @@ TeamOS.espn = (function () {
     return (c.linescores||[]).map(function(v){ return str(v.displayValue!=null?v.displayValue:v.value); });
   }
 
+  // ---- drives and plays ----
+  // A spot on the field from the OFFENSE's side: fromOwn is yards from its
+  // own goal line (100 - ESPN's yardsToEndzone), so a drive always runs
+  // 0 -> 100 whichever end it is at. down/distance are the snap's.
+  function spotOf(s){
+    if(!s || typeof s!=="object") return null;
+    var yte = typeof s.yardsToEndzone==="number" ? s.yardsToEndzone : null;
+    return { fromOwn: yte==null ? null : 100-yte,
+             down: typeof s.down==="number" ? s.down : null,
+             distance: typeof s.distance==="number" ? s.distance : null,
+             short: str(s.shortDownDistanceText), spot: str(s.possessionText),
+             teamId: str(pick(s,["team","id"],"")) };
+  }
+  function playOf(p){
+    return { text: str(p.text), period: pick(p,["period","number"],null),
+             clock: str(pick(p,["clock","displayValue"],"")), type: str(pick(p,["type","text"],"")),
+             yards: typeof p.statYardage==="number" ? p.statYardage : null,
+             scoring: !!p.scoringPlay, start: spotOf(p.start), end: spotOf(p.end) };
+  }
+  // A drive from the team's side: whose it is as home/away and mine, the
+  // provider's own one-line summary ("11 plays, 48 yards, 4:56"), how it
+  // ended, and its plays. A play the OTHER team ran inside it - the kickoff
+  // that opens it - keeps its spot but says whose it was (offense: false),
+  // so a field drawn from the offense's side can leave it out.
+  function driveOf(d, teamId, home, away){
+    var tid=str(pick(d,["team","id"],""));
+    return { id: str(d.id), side: tid===home.key ? "home" : tid===away.key ? "away" : null,
+             mine: tid===teamId, summary: str(d.description), result: str(d.displayResult||d.result),
+             plays: (d.plays||[]).map(function(p){
+               var pl=playOf(p);
+               pl.offense = !pl.start || !pl.start.teamId || pl.start.teamId===tid;
+               return pl;
+             }) };
+  }
+
+  function drivesOf(d, teamId, home, away){
+    var dr=d.drives;
+    if(!dr || (!dr.previous && !dr.current)) return null;
+    var list=(dr.previous||[]).map(function(x){ return driveOf(x, teamId, home, away); });
+    var current=dr.current ? driveOf(dr.current, teamId, home, away) : null;
+    if(current && !list.some(function(x){ return x.id && x.id===current.id; })) list.push(current);
+    return list.length || current ? { current: current, list: list } : null;
+  }
+
   // ESPN's game summary -> GameDetail: the sections the Game Center renders,
   // each null when the payload has nothing for it. Field names vary by game
   // state, so every read is defensive; a missing section drops out rather
@@ -563,7 +607,10 @@ TeamOS.espn = (function () {
       teamStats: teamStats,
       leaders:   leaders,
       box:       box,
-      scoring:   scoring
+      scoring:   scoring,
+      // { current: Drive | null, list: Drive[] } - every drive in order, the
+      // one in progress last and also as `current`; null with no drives.
+      drives:    drivesOf(d, teamId, home, away)
     };
   }
 

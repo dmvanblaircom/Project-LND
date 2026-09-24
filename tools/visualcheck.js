@@ -292,6 +292,28 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             if (!hm.card || !hm.summary) fail(label, "behaviour", ".gamecard", "the hero has no game card or no spoken summary");
             if (hm.cta && hm.cta !== "#game") fail(label, "behaviour", ".gc-cta", "the hero's action goes to " + hm.cta + ", not Game");
           }
+          if (screen === "game") {
+            // Game (0022 #6, 0024 §7): the canonical screen, the hero game's
+            // header, and a view strip only when the lifecycle has more than
+            // one view - never a one-item strip for pregame.
+            var gm = await page.evaluate(function () {
+              var host = document.getElementById("screenGame");
+              var tabs = [].slice.call(host.querySelectorAll(".game-tabs a"));
+              var views = (Suite.nav.SCREENS.game.views || []).map(function (v) { return v.id; });
+              var cur = host.querySelector('.game-tabs a[aria-current="page"]');
+              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden,
+                       head: !!host.querySelector(".game-head"), tabs: tabs.map(function (a) { return a.getAttribute("href"); }),
+                       views: views, cur: cur ? cur.getAttribute("href") : null, tickets: /tickets/i.test(host.textContent),
+                       view: Suite.nav.current().view };
+            });
+            if (!gm.shown || gm.legacy) fail(label, "behaviour", "#screenGame", "Game is not the canonical screen");
+            if (!gm.head) fail(label, "behaviour", ".game-head", "Game has no header for the hero game");
+            if (gm.views.length < 2 && gm.tabs.length) fail(label, "behaviour", ".game-tabs", "a one-view lifecycle shows a tab strip");
+            if (gm.views.length > 1 && gm.tabs.join() !== gm.views.map(function (v) { return "#game/" + v; }).join())
+              fail(label, "behaviour", ".game-tabs", "the view strip " + gm.tabs.join() + " does not match the lifecycle " + gm.views.join());
+            if (gm.views.length > 1 && gm.cur !== "#game/" + gm.view) fail(label, "behaviour", ".game-tabs", "the current view is not marked");
+            if (gm.tickets) fail(label, "behaviour", "#screenGame", "Tickets is offered, which v1 hides (0024 §7)");
+          }
           if (screen === "more") {
             var more = await page.evaluate(function () {
               var b = document.getElementById("changeTeam"), t = document.getElementById("moreTeam");

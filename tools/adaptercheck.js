@@ -221,9 +221,10 @@ eq(polls.some(function (p) { return p.label === "CFP"; }), false, "no CFP poll y
 eq(TeamOS.espn.rankings({}, TEAM_CONFIG), [], "no payload -> empty list");
 
 // ---- game center ----
-var GD = ["state","detail","home","away","lastPlay","winProb","linescore","teamStats","leaders","box","scoring"];
+var GD = ["state","detail","home","away","lastPlay","winProb","linescore","teamStats","leaders","box","scoring","drives"];
 var SIDE = ["key","name","abbreviation","record","score","mine"];
-var GDLEAK = /competitions|competitors|homeAway|shortDetail|situation|drives|winprobability|homeWinPercentage|linescores|boxscore|scoringPlays|athlete|displayValue|shortDisplayName|pickcenter|espn/i;
+// "drives" is the domain's own word now; ESPN's drive keys are what must not leak.
+var GDLEAK = /competitions|competitors|homeAway|shortDetail|situation|yardsToEndzone|possessionText|statYardage|scoringPlay\b|displayResult|winprobability|homeWinPercentage|linescores|boxscore|scoringPlays|athlete|displayValue|shortDisplayName|pickcenter|espn/i;
 var sumPre = JSON.parse(read("tools/fixtures/espn-summary-pre.json"));
 var sumLive = JSON.parse(read("tools/fixtures/espn-summary-live.json"));
 var sumPost = JSON.parse(read("tools/fixtures/espn-summary-post.json"));
@@ -246,6 +247,25 @@ var gdPre = TeamOS.espn.gameDetail(sumPre, team, TEAM_CONFIG), gdLive = TeamOS.e
   ok(!GDLEAK.test(JSON.stringify(g)), n + " carries no ESPN keys or names");
   ok(["pre","in","post"].indexOf(g.state) > -1, n + " state is a game status (" + g.state + ")");
 });
+
+console.log("gameDetail() - drives, from a real captured game (Wisconsin, final)");
+var sumWis = JSON.parse(read("tools/fixtures/espn-summary-wis-final.json"));
+var gdWis = TeamOS.espn.gameDetail(sumWis, team, TEAM_CONFIG);
+ok(!GDLEAK.test(JSON.stringify(gdWis)), "a real summary carries no ESPN keys through");
+ok(gdWis.drives && gdWis.drives.list.length === sumWis.drives.previous.length, "every drive, in order (" + (gdWis.drives && gdWis.drives.list.length) + ")");
+eq(gdWis.drives.current, null, "a final game has no drive in progress");
+var d4 = gdWis.drives.list[3];
+eq([d4.mine, d4.side === "home" || d4.side === "away", d4.summary, d4.result], [true, true, "11 plays, 48 yards, 4:56", "Field Goal"],
+   "a drive: whose, which side, the provider's summary, how it ended");
+var p1 = d4.plays[1];
+eq([p1.start.fromOwn, p1.end.fromOwn, p1.start.short, p1.start.spot, p1.yards, p1.offense],
+   [18, 33, "1st & 10", "ND 18", 15, true], "a play: spots from the offense's own goal line, down and distance, yards");
+ok(gdWis.drives.list.every(function (d) {
+  return d.plays.every(function (p) { return !p.offense || !p.start || p.start.fromOwn == null || (p.start.fromOwn >= 0 && p.start.fromOwn <= 100); });
+}), "every offensive spot is on the field (0-100 from the offense's goal)");
+ok(gdWis.drives.list.some(function (d) { return d.plays.some(function (p) { return p.offense === false; }); }),
+   "a play the other team ran inside a drive (the kickoff) is marked, so the field can leave it out");
+eq(gdPre.drives, null, "no drives before kickoff");
 
 console.log("gameDetail() - pregame");
 eq([gdPre.state, gdPre.detail], ["pre", "Sat, September 19th at 7:30 PM EDT"], "scheduled, long status text");
@@ -881,8 +901,8 @@ ok(/TeamOS\.live\.reconcileAll\(games, SB\.games\)/.test(appLive),
    "the schedule is reconciled with the scoreboard where S.games is set");
 ok(/getScoreboard\(0\)[\s\S]{0,200}refreshSchedule\(false\)/.test(appLive),
    "and the tick refreshes the scoreboard before the schedule, in that order");
-ok(/if\(!\$\("panel-game"\)\.hidden && G\.live\) loadGame\(true\)/.test(appLive),
-   "the same tick drives the Game tab");
+ok(/refreshSchedule\(false\);[\s\S]{0,300}paintGame\(\)/.test(appLive),
+   "the same tick drives the Game screen, after the schedule it reads");
 ok(/if\(S\.tick\)\{ clearInterval\(S\.tick\); S\.tick=null; \}[\s\S]{0,120}Playing now/.test(appLive),
    "the countdown is cancelled when a game goes live");
 ok(/S\.next\.state==="pre"[\s\S]{0,140}refreshSchedule\(false\)/.test(appLive),

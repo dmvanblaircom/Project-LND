@@ -218,7 +218,7 @@ eq(order[order.length - 1], "app.js", "and app.js last");
 eq(order, ["teams/ohio-state.js", "teams/index.js", "teamos/registry.js", "teamos/team.js",
            "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js",
            "teamos/espn.js", "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js",
-           "suite/ui.js", "suite/nav.js", "suite/home.js", "app.js"],
+           "suite/ui.js", "suite/nav.js", "suite/home.js", "suite/game.js", "app.js"],
    "every file the page needs, in dependency order");
 ok(/async\s*=\s*false/.test(BOOT), "injected with async=false, which is what keeps them in order");
 ok(/DOMContentLoaded/.test(BOOT),
