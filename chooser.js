@@ -264,10 +264,15 @@
            "</button></li>";
   }
 
+  // Coming Soon opens on the first PREVIEW programs, alphabetical by name -
+  // neutral, implying no popularity, priority or release order - and expands
+  // to all of them. Search always covers every program (decision 0024 §4).
+  var PREVIEW = 12;
+
   // A program that is not built yet: not a control at all. No button, no tab
   // stop, nothing that invites a press that would do nothing.
-  function unbuilt(t) {
-    return '<li class="soon" data-group="soon"' + searchAttrs(t) + '>' +
+  function unbuilt(t, i) {
+    return '<li class="soon" data-group="soon"' + (i >= PREVIEW ? ' data-beyond="1"' : "") + searchAttrs(t) + '>' +
            '<span class="soon-name">' + esc(t.name) + "</span>" +
            '<span class="soon-nick">' + esc(subline(t)) + "</span></li>";
   }
@@ -277,6 +282,8 @@
     var input = host.querySelector("#teamSearch");
     var count = host.querySelector(".chooser-count");
     var none = host.querySelector(".chooser-empty");
+    var more = host.querySelector("#soonMore");
+    var expanded = false;
     if (!input) return;
 
     // One query. An item carries data-find; the heading and list that frame
@@ -289,7 +296,7 @@
     // keystroke is work nobody asked for.
     var index = items.map(function (n) {
       var words = n.getAttribute("data-find").split(" ");
-      return { node: n, words: words,
+      return { node: n, words: words, beyond: n.getAttribute("data-beyond") === "1",
                forms: (n.getAttribute("data-forms") || "").split(" "),
                blob: words.join("") };
     });
@@ -319,7 +326,9 @@
       }
 
       index.forEach(function (row) {
-        var hit = !hits || hits.indexOf(row) !== -1;
+        // At rest, Coming Soon shows its preview until the fan expands it; a
+        // search looks through every program, shown or not.
+        var hit = hits ? hits.indexOf(row) !== -1 : !(row.beyond && !expanded);
         row.node.hidden = !hit;
         if (hit) shown++;
       });
@@ -335,6 +344,8 @@
         b.hidden = left === 0;
       });
       if (none) none.hidden = shown !== 0;
+      // The expander belongs to the resting list; a search has no preview.
+      if (more) more.hidden = !!hits;
       if (count) {
         count.textContent = !words.length ? ""
           : shown === 0 ? "No program matches that."
@@ -343,6 +354,12 @@
     }
 
     input.addEventListener("input", apply);
+    if (more) more.addEventListener("click", function () {
+      expanded = !expanded;
+      more.setAttribute("aria-expanded", String(expanded));
+      more.textContent = expanded ? "Show fewer coming soon teams" : "View all coming soon teams";
+      apply();
+    });
     apply();
   }
 
@@ -383,8 +400,12 @@
     if (soon.length) {
       html += '<hr class="chooser-divider" data-group="soon">' +
               '<h2 class="eyebrow" id="soonHead" data-group="soon">Coming Soon</h2>' +
-              '<ul class="chooser-soon" data-group="soon" aria-labelledby="soonHead">' +
-              soon.map(unbuilt).join("") + "</ul>";
+              '<ul class="chooser-soon" id="soonList" data-group="soon" aria-labelledby="soonHead">' +
+              soon.map(unbuilt).join("") + "</ul>" +
+              (soon.length > PREVIEW
+                ? '<button type="button" class="chooser-more" id="soonMore" aria-expanded="false" ' +
+                  'aria-controls="soonList">View all coming soon teams</button>'
+                : "");
     }
 
     html +=

@@ -60,6 +60,7 @@ function render(registry) {
       if (sel === "#teamSearch") return this.input;
       if (sel === ".chooser-count") return this.count;
       if (sel === ".chooser-empty") return this.empty;
+      if (sel === "#soonMore") return this.more;
       throw new Error("stub does not implement " + sel);
     } };
 
@@ -77,6 +78,16 @@ function render(registry) {
         : null;
       this.count = /class="chooser-count"/.test(html) ? node("", "") : null;
       this.empty = /class="chooser-empty"/.test(html) ? node("", "") : null;
+      var mt = (html.match(/<button[^>]*id="soonMore"[^>]*>/) || [])[0];
+      this.more = mt ? (function () {
+        var n = node(mt), attrs = {}, listeners = {};
+        n.textContent = (html.match(/id="soonMore"[^>]*>([^<]*)</) || [, ""])[1];
+        n.getAttribute = function (k) { return k in attrs ? attrs[k] : attr(mt, k); };
+        n.setAttribute = function (k, v) { attrs[k] = v; };
+        n.addEventListener = function (ev, fn) { listeners[ev] = fn; };
+        n.press = function () { listeners.click(); };
+        return n;
+      })() : null;
     }
   });
 
@@ -150,6 +161,8 @@ function render(registry) {
     html: html, picks: picks, title: doc.title, removed: removed, stored: stored,
     outside: outside,
     nodes: wrap.nodes,
+    more: function () { return wrap.more; },
+    shown: function () { return visible().map(function (p) { return p.name; }); },
     search: function (q) {
       if (!wrap.input) throw new Error("no search box was rendered");
       wrap.input.value = q;
@@ -195,6 +208,35 @@ ok(REGLIVE.all().length > 100, "the roster is a full FBS one, not a stub");
 eq(r.title, "Suite", "no team is chosen yet, so the tab says Suite alone (decision 0024)");
 ok(/<h1 id="chooseHead">Find Your Team<\/h1>/.test(r.html), "the page asks the canonical question");
 ok(/Choose your team to get started\./.test(r.html), "and explains it in a line");
+
+console.log(" Coming Soon opens on twelve, and search still sees all 138 (decision 0024 §4)");
+var rc = render(live.TEAM_REGISTRY);
+var soonAll = rc.picks.filter(function (p) { return !p.openable; }).map(function (p) { return p.name; });
+var openAll = rc.picks.filter(function (p) { return p.openable; }).map(function (p) { return p.name; });
+var rest = rc.shown();
+var restSoon = rest.filter(function (n) { return soonAll.indexOf(n) > -1; });
+eq(restSoon, soonAll.slice(0, 12), "at rest, the first 12 Coming Soon programs, in the list's alphabetical order");
+ok(soonAll.slice(0, 12).every(function (n, i, a) { return i === 0 || a[i - 1].localeCompare(n) <= 0; }),
+   "and that order is alphabetical by display name - neutral, not a ranking");
+eq(rest.filter(function (n) { return openAll.indexOf(n) > -1; }), openAll, "Available Teams are all shown, always");
+var mb = rc.more();
+ok(!!mb && !mb.hidden, "a control offers the rest");
+ok(mb && mb.textContent === "View all coming soon teams", "and says what it does: " + (mb && mb.textContent));
+ok(mb && mb.getAttribute("aria-expanded") === "false" && mb.getAttribute("aria-controls") === "soonList",
+   "it is a disclosure: collapsed, and names the list it controls");
+var last = soonAll[soonAll.length - 1];
+var found = rc.search(last.toLowerCase());
+ok(found.names.indexOf(last) > -1, "searching for a program beyond the preview finds it (" + last + ")");
+ok(mb.hidden, "and the expander steps aside during a search");
+rc.search("");
+eq(rc.shown().filter(function (n) { return soonAll.indexOf(n) > -1; }).length, 12, "clearing the search returns to the preview");
+mb.press();
+eq(rc.shown().filter(function (n) { return soonAll.indexOf(n) > -1; }), soonAll, "expanding shows every Coming Soon program");
+ok(mb.getAttribute("aria-expanded") === "true" && /Show fewer/.test(mb.textContent), "and says it is expanded");
+mb.press();
+eq(rc.shown().filter(function (n) { return soonAll.indexOf(n) > -1; }).length, 12, "collapsing returns to twelve");
+ok(!/data-group="conference"|class="soon"[^>]*>\s*<span class="soon-name">[^<]*Conference/.test(rc.html),
+   "conferences are search terms, never cards");
 
 console.log(" one alphabetical run, not conference sections");
 var names = r.picks.map(function (p) { return p.name; });
@@ -280,7 +322,8 @@ ok(!/texasam|hawaii|sanjosestate/.test(
 console.log("search");
 var total = REGLIVE.all().length;
 function hits(q) { return r.search(q).names; }
-eq(hits("").length, total, "an empty box shows every program");
+var resting = REGLIVE.available().length + Math.min(12, total - REGLIVE.available().length);
+eq(hits("").length, resting, "an empty box shows every Available team and the Coming Soon preview");
 eq(hits("notre"), ["Notre Dame"], "a team is found by the start of its name");
 ok(hits("ohio").indexOf("Ohio State") !== -1, "and by a partial first word");
 eq(hits("ohio state"), ["Ohio State"],
@@ -367,7 +410,7 @@ eq(miss.names, [], "a term matching nothing shows nothing");
 eq(miss.count, "No program matches that.", "the count says so");
 eq(miss.empty, true, "and the page says what to try instead");
 var back = r.search("");
-eq(back.names.length, total, "clearing the box brings everything back");
+eq(back.names.length, resting, "clearing the box brings back the resting list");
 eq(back.count, "", "and the status line goes quiet again - there is no count at rest");
 eq(back.headings, ["open", "soon"], "as do both headings");
 eq(r.search("akron").headings, ["soon"],

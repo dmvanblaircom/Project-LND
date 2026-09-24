@@ -91,6 +91,11 @@ function paintIdentity(){
   // into the team config; its mark is TeamOS's to name.
   var reg = TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []).get(TEAM.id);
   text("#mastName", TEAM.name);
+  // The same team as quiet context in the SUITE bar, on national screens.
+  text("#barTeam", TEAM.name);
+  var bm = $("barMark");
+  if(bm) bm.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
+                                       TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="barMark"');
   text("#mastNick", reg && reg.nick ? reg.nick : "");
   // A team without a tagline gets no empty line where one would be.
   var tl = $("mastTagline");
@@ -549,16 +554,27 @@ function pollBody(p){
 // only move once or twice. The choice survives a refresh.
 var AROUND={ view:"games", poll:null };
 
+// Games | Rankings is a route, not a toggle: #top25 opens Games, and
+// #top25/rankings opens Rankings, from a link or Back (decision 0024 §5). The
+// pills navigate; the route decides what shows.
+function showAroundView(view){
+  AROUND.view = view==="rankings" ? "rankings" : "games";
+  var el=$("panel-around"); if(!el) return;
+  el.querySelectorAll('.seg.pills:not(.polls) button').forEach(function(x){
+    x.setAttribute("aria-pressed", String(x.dataset.view===AROUND.view));
+  });
+  var g=el.querySelector("#ar-games"), r=el.querySelector("#ar-rankings");
+  if(g) g.hidden = AROUND.view!=="games";
+  if(r) r.hidden = AROUND.view!=="rankings";
+}
+
 function wireAroundPills(el){
   var view=el.querySelectorAll('.seg.pills:not(.polls) button');
   view.forEach(function(b){
     b.addEventListener("click", function(){
-      AROUND.view=b.dataset.view;
-      view.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); });
-      var g=el.querySelector("#ar-games"), r=el.querySelector("#ar-rankings");
-      if(g) g.hidden = AROUND.view!=="games";
-      if(r) r.hidden = AROUND.view!=="rankings";
-      say(AROUND.view==="games" ? "Showing ranked games." : "Showing rankings.");
+      if(b.dataset.view===AROUND.view) return;
+      Suite.nav.go("top25", [b.dataset.view]);
+      say(b.dataset.view==="games" ? "Showing ranked games." : "Showing rankings.");
     });
   });
 
@@ -1912,6 +1928,7 @@ var PANEL_FOR={ home:"schedule", top25:"around", game:"game", roster:"depth", mo
 var PANELS=["schedule","around","game","depth","more"];
 function showScreen(route){
   var name=PANEL_FOR[route.screen]||"schedule";
+  if(route.screen==="top25") showAroundView(route.view);
   PANELS.forEach(function(p){ $("panel-"+p).hidden = p!==name; });
   UI.tab=name; layoutForTab();
   // Force a refresh on entry: the dataset guard would otherwise leave the
@@ -1981,8 +1998,10 @@ function startAuto(){
   var on=somethingLive();
   var btn=$("refresh");
   if(btn) btn.classList.toggle("polling", on);
-  // While anything the fan follows is live, Game is the raised circle.
-  Suite.nav.setLive(on);
+  // While anything the fan follows is live, Game is the raised circle. The
+  // delayed and suspended states (decision 0024 §14) arrive with TeamOS's
+  // normalized game status; until then only live raises it.
+  Suite.nav.setGameState(on ? "live" : null);
   if(!on){
     if(AUTO.timer){ clearInterval(AUTO.timer); AUTO.timer=null; }
     return;

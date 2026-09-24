@@ -199,6 +199,12 @@
      The wordmark is type, not an image, until a bespoke mark exists. -->
 <header class="app-bar on-dark" id="appBar">
   <span class="wordmark">Suite</span>
+  <!-- The selected team, as context on national screens (Top 25). Not a
+       control: Change Team lives in Settings (decision 0024 §6). -->
+  <span class="bar-context" id="barContext" hidden>
+    <span class="mark bare" id="barMark" aria-hidden="true"></span>
+    <span class="bar-team" id="barTeam"></span>
+  </span>
   <span class="spacer"></span>
 </header>
 

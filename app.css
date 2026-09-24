@@ -124,6 +124,11 @@ h1,h2,h3{margin:0}
 html[data-choosing] .app-bar{background:var(--s-chrome)}
 .wordmark{font-family:var(--t-font-ui);font-weight:800;font-size:1.7rem;line-height:1;letter-spacing:.07em;text-transform:uppercase;color:var(--s-on-dark)}
 .app-bar .spacer{flex:1}
+/* The selected team as quiet context beside the wordmark - a lockup, not a
+   button: no fill, no border, no chevron (decision 0024 §6). */
+.bar-context{display:flex;align-items:center;gap:.5rem;min-width:0;padding-left:.75rem;border-left:1px solid rgba(255,255,255,.28);color:var(--s-on-dark-2)}
+.bar-context .mark{--mark:1.6rem}
+.bar-team{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:var(--t-font-display);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
 .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;margin-right:-.5rem;padding:0;border:0;border-radius:50%;background:none;color:inherit;cursor:pointer}
 .icon-btn svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .bar-text-btn{min-height:2.75rem;margin-left:.25rem;padding:0 .4rem;border:0;border-radius:var(--s-radius-ctl);background:none;color:var(--s-on-dark);font-family:var(--t-font-ui);font-weight:600;font-size:1.05rem;cursor:pointer}
@@ -147,6 +152,10 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .page-main{display:block;width:100%;max-width:var(--s-content-max);margin:0 auto;
   padding:0 calc(var(--gutter) + env(safe-area-inset-right,0px)) calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 3rem) calc(var(--gutter) + env(safe-area-inset-left,0px))}
 .page-main:focus{outline:none}
+/* The visible page heading of a context screen: neutral Suite ink, so
+   national content does not read as the team's own. */
+.page-title{margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:1.1rem calc(var(--gutter) + env(safe-area-inset-left,0px)) .8rem;background:var(--s-page);font-family:var(--t-font-display);font-weight:800;font-size:2.35rem;line-height:1;letter-spacing:.01em;text-transform:uppercase;color:var(--s-chrome)}
+.page-title:focus{outline:none}
 
 /* Bottom navigation. Five destinations. It never touches the physical
    edge: the safe-area inset is padding, plus a floor for devices with none. */
@@ -161,16 +170,22 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .nav-item:focus-visible{outline-offset:-3px}
 .nav-live{display:none}
 
-/* While the team's game is live, Game becomes the raised circle - even when
-   another destination is selected - with the live light inside it. */
-.navbar.is-live .nav-game{align-self:end;justify-self:center;width:4.9rem;height:4.9rem;min-height:0;margin-top:-1.9rem;padding:0;border-radius:50%;background:var(--t-deep);color:var(--s-on-dark);box-shadow:0 8px 22px rgba(15,27,45,.28),0 0 0 6px var(--s-surface);text-transform:uppercase;letter-spacing:.06em;font-family:var(--t-font-display);font-size:.85rem}
-.navbar.is-live .nav-game svg{width:30px;height:30px}
-.navbar.is-live .nav-game[aria-current="page"]{color:var(--s-on-dark)}
-.navbar.is-live .nav-game[aria-current="page"]::after{display:none}
-.navbar.is-live .nav-game .nav-live{display:block;position:absolute;top:.5rem;left:50%;width:.7rem;height:.7rem;margin-left:-.35rem;border-radius:50%;background:var(--s-live);box-shadow:0 0 0 2px var(--t-deep);animation:live-pulse 1.6s ease-in-out infinite}
+/* While the team's game is under way, Game becomes the raised circle - even
+   when another destination is selected. Raised is not selected (decision 0024
+   §1): the selected cue is the same accent bar every item uses, drawn under
+   the circle in its halo. Only an active game has the pulsing light; a game
+   paused by a delay or suspension shows a still pause mark. */
+.navbar.game-raised .nav-game{align-self:end;justify-self:center;width:4.9rem;height:4.9rem;min-height:0;margin-top:-1.9rem;padding:0;border-radius:50%;background:var(--t-deep);color:var(--s-on-dark);box-shadow:0 8px 22px rgba(15,27,45,.28),0 0 0 6px var(--s-surface);text-transform:uppercase;letter-spacing:.06em;font-family:var(--t-font-display);font-size:.85rem}
+.navbar.game-raised .nav-game svg{width:30px;height:30px}
+.navbar.game-raised .nav-game[aria-current="page"]{color:var(--s-on-dark)}
+.navbar.game-raised .nav-game[aria-current="page"]::after{left:26%;right:26%;bottom:-.34rem;height:4px}
+.navbar.game-raised .nav-game .nav-live{display:block;position:absolute;top:.5rem;left:50%;width:.7rem;height:.7rem;margin-left:-.35rem}
+.navbar.game-live .nav-game .nav-live{border-radius:50%;background:var(--s-live);box-shadow:0 0 0 2px var(--t-deep);animation:live-pulse 1.6s ease-in-out infinite}
+.navbar.game-raised:not(.game-live) .nav-game .nav-live{top:.4rem;width:.95rem;height:.95rem;margin-left:-.475rem;border-radius:50%;
+  background:linear-gradient(90deg,transparent 31%,var(--t-deep) 31% 44%,transparent 44% 56%,var(--t-deep) 56% 69%,transparent 69%) center/100% 48% no-repeat,var(--s-on-dark-2)}
 /* The circle rises above the bar over whatever the screen shows, so its ring
    is drawn inside its own white halo - always on white, in the team's ink. */
-.navbar.is-live .nav-game:focus-visible{outline-color:var(--t-surface);outline-offset:0}
+.navbar.game-raised .nav-game:focus-visible{outline-color:var(--t-surface);outline-offset:0}
 @keyframes live-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.25);opacity:.7}}
 
 /* ====================================================================
@@ -291,6 +306,10 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .soon{display:flex;flex-direction:column;gap:.1rem;min-width:0;padding:.55rem .85rem;border:1px dashed var(--s-line-strong);border-radius:var(--s-radius-ctl)}
 .soon-name{font-size:1rem;color:var(--s-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .soon-nick{font-size:.85rem;color:var(--s-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Coming Soon's expander: a plain, full-width text control in Suite ink -
+   nothing team-coloured, because there is no team here yet. */
+.chooser-more{display:flex;align-items:center;justify-content:center;width:100%;min-height:2.9rem;margin-top:.75rem;padding:.5rem 1rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);background:var(--s-surface);color:var(--s-chrome);font-family:var(--t-font-ui);font-weight:600;font-size:1rem;cursor:pointer}
+.chooser-more:focus-visible{outline:3px solid var(--s-chrome);outline-offset:2px}
 .chooser-empty{margin:1.5rem 0 0;color:var(--s-muted);font-size:1rem;line-height:1.55}
 
 /* ====================================================================
@@ -311,5 +330,5 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
    8. PREFERENCES - last, so they override everything above
    ==================================================================== */
 @media (prefers-reduced-motion:reduce){
-  .navbar.is-live .nav-game .nav-live,.live-pill::before{animation:none}
+  .navbar.game-live .nav-game .nav-live,.live-pill::before{animation:none}
 }
