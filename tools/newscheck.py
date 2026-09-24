@@ -64,7 +64,15 @@ dup = dict(rss[0], source="Site C", published="2026-09-21T00:00:00+00:00")
 merged = bn.merge(rss + atom + [dup])
 ok([i["title"] for i in merged] == ["Purdue preview", "Depth chart notes"], "newest first, one story per headline")
 ok(merged[1]["source"] == "Site A", "the newer copy of a duplicate headline is kept")
-ok(len(bn.merge([dict(rss[0], title="t%d" % n) for n in range(90)])) == bn.KEEP, "capped at %d" % bn.KEEP)
+busy = [dict(rss[0], title="busy %d" % n, source="Busy", published="2026-09-23T%02d:00:00+00:00" % (n % 24))
+        for n in range(40)]
+quiet = [dict(rss[0], title="quiet %d" % n, source="Quiet", published="2026-09-20T00:00:00+00:00") for n in range(5)]
+mixed = bn.merge(busy + quiet)
+ok(sum(1 for i in mixed if i["source"] == "Busy") == bn.PER_SOURCE,
+   "one outlet contributes at most %d stories, however much it posts" % bn.PER_SOURCE)
+ok(sum(1 for i in mixed if i["source"] == "Quiet") == 5, "so a quieter outlet's older stories still make the list")
+many = [dict(rss[0], title="s%d-%d" % (s, n), source="S%d" % s) for s in range(6) for n in range(20)]
+ok(len(bn.merge(many)) == bn.KEEP, "capped at %d overall" % bn.KEEP)
 
 print("\n" + ("%d check(s) FAILED" % failures if failures else "the producer reads feeds and finds moved ones"))
 sys.exit(1 if failures else 0)

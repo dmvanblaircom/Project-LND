@@ -32,6 +32,7 @@ import teamconfig  # noqa: E402
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
 KEEP = 60
+PER_SOURCE = 15     # no one outlet fills the list (David, 2026-09-24)
 COMMON_PATHS = ("feed/", "feed", "rss", "rss/", "rss.xml", "feed.xml", "index.xml", "rss/current.xml", "atom.xml")
 ATOM = "{http://www.w3.org/2005/Atom}"
 FEED_TYPES = ("application/rss+xml", "application/atom+xml", "application/xml", "text/xml")
@@ -119,15 +120,18 @@ def discover(html, base):
     return out
 
 
-def merge(items, keep=KEEP):
-    """Newest first, one story per headline, capped."""
+def merge(items, keep=KEEP, per_source=PER_SOURCE):
+    """Newest first, one story per headline, at most `per_source` from any
+    one outlet, capped at `keep`. Without the per-source cap the busiest
+    outlet filled half the list and a smaller one vanished entirely."""
     items = sorted(items, key=lambda x: x["published"] or "", reverse=True)
-    seen, out = set(), []
+    seen, out, count = set(), [], {}
     for it in items:
         k = re.sub(r"\W+", "", it["title"].lower())[:70]
-        if k in seen:
+        if k in seen or count.get(it["source"], 0) >= per_source:
             continue
         seen.add(k)
+        count[it["source"]] = count.get(it["source"], 0) + 1
         out.append(it)
         if len(out) == keep:
             break
