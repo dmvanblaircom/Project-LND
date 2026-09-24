@@ -44,15 +44,29 @@ jobs:
           set -euo pipefail
           if [ -n "${EVENT:-}" ]; then echo "$EVENT $NAME" > requests.tmp
           else grep -Ev '^\s*(#|$)' tools/fixtures/capture-requests.txt > requests.tmp || true; fi
+          API="https://site.api.espn.com/apis/site/v2/sports/football/college-football"
           while read -r ev name; do
-            [[ "$ev" =~ ^[0-9]+$ ]] || { echo "::warning::skipping bad event id '$ev'"; continue; }
             [[ "$name" =~ ^[a-z0-9-]+$ ]] || { echo "::warning::skipping bad name '$name'"; continue; }
-            out="tools/fixtures/espn-summary-$name.json"
+            # "<event id> <name>"            a game summary
+            # "rankings <name>"              this week's polls
+            # "scoreboard-YYYYMMDD <name>"   the FBS scoreboard for that date's week
+            if [[ "$ev" =~ ^[0-9]+$ ]]; then
+              out="tools/fixtures/espn-summary-$name.json"; url="$API/summary?event=$ev"; kind=summary
+            elif [ "$ev" = "rankings" ]; then
+              out="tools/fixtures/espn-rankings-$name.json"; url="$API/rankings"; kind=payload
+            elif [[ "$ev" =~ ^scoreboard-([0-9]{8})$ ]]; then
+              out="tools/fixtures/espn-scoreboard-$name.json"; kind=payload
+              url="$API/scoreboard?groups=80&limit=400&dates=${BASH_REMATCH[1]}"
+            else echo "::warning::skipping bad request '$ev'"; continue; fi
             if [ -z "${EVENT:-}" ] && [ -f "$out" ]; then echo "  $out exists"; continue; fi
-            curl -sSf --retry 3 -o raw.json \
-              "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=$ev"
-            python3 tools/trim_summary.py raw.json "$out" \
-              "Real ESPN game summary for event $ev, captured $(date -u +%Y-%m-%d) by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged."
+            curl -sSf --retry 3 -o raw.json "$url"
+            if [ "$kind" = summary ]; then
+              python3 tools/trim_summary.py raw.json "$out" \
+                "Real ESPN game summary for event $ev, captured $(date -u +%Y-%m-%d) by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged."
+            else
+              python3 tools/trim_payload.py raw.json "$out" \
+                "Real ESPN $ev payload, captured $(date -u +%Y-%m-%dT%H:%MZ) by capture-fixture.yml from $url and cut of logos, links and other bulk no screen reads (tools/trim_payload.py). ESPN's structure and positions are unchanged."
+            fi
             rm -f raw.json
           done < requests.tmp
           rm -f requests.tmp
@@ -60,7 +74,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
-          git commit -m "Capture ESPN game-summary fixtures"
-          git push
+          git commit -m "Capture ESPN fixtures"
+          git pull --rebase -q && git push
