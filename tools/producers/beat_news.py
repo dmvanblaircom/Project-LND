@@ -179,11 +179,37 @@ def read_source(src):
     raise RuntimeError("%s; no working feed found on %s" % (failed, site))
 
 
+def probe(sites):
+    """Try candidate sources without writing anything: for each site (or feed
+    URL), whether a feed works, where, how many stories, how recent, and a few
+    headlines to judge whether it is really about the team. Run by
+    .github/workflows/probe-feeds.yml, which has the open network this
+    development environment lacks."""
+    for site in sites:
+        src = {"name": site, "feed": site, "site": site}
+        try:
+            got, url, _ = read_source(src)
+        except Exception as e:                          # noqa: BLE001
+            print("NO FEED  %s\n         %s\n" % (site, str(e)[:200]))
+            continue
+        dated = sorted((i["published"] for i in got if i["published"]), reverse=True)
+        print("FEED     %s\n         %s | %d stories | newest %s" % (site, url, len(got), dated[0] if dated else "undated"))
+        for i in got[:5]:
+            print("           - " + i["title"][:110])
+        print("")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--team", required=True)
+    ap.add_argument("--team")
     ap.add_argument("--out", default="news.json")
+    ap.add_argument("--probe", nargs="+", metavar="SITE", help="try candidate sites or feed URLs; writes nothing")
     args = ap.parse_args()
+    if args.probe:
+        probe(args.probe)
+        return
+    if not args.team:
+        ap.error("--team is required unless probing")
 
     feeds = (teamconfig.load(args.team).get("sources") or {}).get("beatFeeds") or []
     if not feeds:
