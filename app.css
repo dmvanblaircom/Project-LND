@@ -704,6 +704,71 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .rk-new{font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--s-win)}
 .rk-note{margin:.7rem 0 0;padding:.7rem .9rem;border:1px solid var(--s-line);border-radius:var(--s-radius-ctl);background:var(--s-inset);font-size:.9rem;color:var(--s-ink-2)}
 
+/* ---- Roster (reference 09; 0019, 0024 §8, §9) ---------------------- */
+.ro-body{padding-bottom:.5rem}
+.ro-head{margin-top:.9rem;padding:.9rem 1rem}
+.ro-title{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.25rem;line-height:1.15;color:var(--t-surface)}
+.ro-meta{margin:.3rem 0 0;font-size:.88rem;color:var(--s-muted)}
+.ro-src{display:inline-flex;align-items:center;gap:.25rem;color:var(--t-surface);font-weight:600}
+.ro-src:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:4px}
+.ro-moved{margin-top:.55rem}
+.ro-moved > summary{min-height:2.75rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none;font-weight:600;color:var(--t-surface)}
+.ro-moved > summary::-webkit-details-marker{display:none}
+.ro-chev{flex:none;width:.5rem;height:.5rem;margin:0 .2rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}
+.ro-fold > summary .ro-chev{color:var(--s-muted)}
+.ro-moved > summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:6px}
+.ro-changes{margin:.2rem 0 0;padding-left:1.1rem;font-size:.9rem;color:var(--s-ink-2)}
+.ro-changes li + li{margin-top:.25rem}
+/* Offense | Defense | Special Teams stays in reach on a long chart (0024 §8). */
+.unit-seg{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-top:.9rem;box-shadow:0 0 0 .5rem var(--s-page)}
+.unit-seg a{display:flex;flex:1;align-items:center;justify-content:center;min-height:2.75rem;padding:.35rem .4rem;border-radius:8px;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:1.02rem;text-align:center;text-decoration:none}
+.unit-seg a[aria-current="page"]{background:var(--s-surface);color:var(--t-surface);box-shadow:0 1px 3px rgba(15,27,45,.12)}
+.unit-seg a:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
+.ro-card{margin-top:.8rem;padding:.8rem .9rem .3rem}
+.ro-card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .6rem;margin-bottom:.35rem}
+.ro-spot{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.2rem;color:var(--t-surface)}
+.ro-spot-label{font-family:var(--t-font-display);font-weight:600;font-size:.9rem;letter-spacing:.04em;color:var(--s-muted)}
+.ro-battle{padding:.1rem .5rem;border-radius:var(--s-radius-pill);background:var(--t-accent);color:var(--t-accent-ink);font-family:var(--t-font-display);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.ro-fold-count{margin-left:auto;font-size:.85rem;color:var(--s-muted)}
+.ro-cols,.ro-row{display:grid;grid-template-columns:2.2rem 1.8rem 2.6rem minmax(0,1fr) 2.9rem 2.4rem 2.5rem;align-items:center;column-gap:.55rem}
+.ro-cols{padding:.3rem 0;border-bottom:1px solid var(--s-line);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.ro-cols span:first-child{grid-column:2}
+.ro-cols span:nth-child(2){grid-column:3 / 5}
+.ro-cols.roster,.ro-row.roster{grid-template-columns:1.8rem 2.6rem minmax(0,1fr) 2.9rem 2.4rem 2.5rem}
+.ro-cols.roster span:first-child{grid-column:1}
+.ro-cols.roster span:nth-child(2){grid-column:2 / 4}
+.ro-row.avail{grid-template-columns:2.6rem minmax(0,1fr)}
+.ro-list{list-style:none;margin:0;padding:0}
+.ro-row{min-height:3.6rem;padding:.45rem 0}
+.ro-list .ro-row + .ro-row{border-top:1px solid var(--s-line)}
+.ro-lvl{font-family:var(--t-font-display);font-weight:700;font-size:.92rem;color:var(--s-muted)}
+.ro-row.first .ro-lvl{color:var(--t-surface)}
+.ro-or{display:inline-block;padding:.05rem .35rem;border-radius:var(--s-radius-pill);border:1px solid var(--s-line-strong);font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--s-ink-2)}
+.ro-no{font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;text-align:right;color:var(--s-ink)}
+.ro-ph{position:relative;display:inline-flex;align-items:center;justify-content:center;width:2.6rem;height:2.6rem;overflow:hidden;border-radius:50%;background:var(--t-surface)}
+.ro-ph-no{font-family:var(--t-font-display);font-weight:700;font-size:1rem;color:var(--s-on-dark)}
+.ro-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;background:var(--s-inset)}
+.ro-who{display:flex;flex-direction:column;min-width:0}
+.ro-name{font-weight:700;font-size:1rem;line-height:1.2;overflow-wrap:break-word;color:var(--s-ink)}
+.ro-town{font-size:.84rem;color:var(--s-muted)}
+.ro-bio{display:none;font-size:.82rem;color:var(--s-ink-2)}
+.ro-ht,.ro-wt,.ro-cl{font-size:.92rem;text-align:center;white-space:nowrap;color:var(--s-ink-2)}
+.ro-all{margin:.3rem 0 .6rem;color:var(--s-ink-2)}
+.ro-search{display:block;margin-top:.8rem}
+.ro-search input{width:100%;min-height:2.9rem;padding:.55rem .85rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);background:var(--s-surface);color:var(--s-ink);font:inherit}
+.ro-search input:focus-visible{outline:3px solid var(--t-surface);outline-offset:1px}
+.ro-fold{margin-top:.8rem;padding:.2rem .9rem}
+.ro-fold > summary{display:flex;align-items:center;gap:.6rem;min-height:3rem;cursor:pointer;list-style:none}
+.ro-fold > summary::-webkit-details-marker{display:none}
+.ro-fold > summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:6px}
+.ro-fold-title{font-family:var(--t-font-display);font-weight:700;font-size:1.15rem;color:var(--t-surface)}
+.ro-weeks{list-style:none;margin:0 0 .6rem;padding:0}
+.ro-weeks > li{padding:.6rem 0;border-top:1px solid var(--s-line)}
+.ro-week{margin:0;font-size:.92rem;color:var(--s-ink-2)}
+.ro-week strong{color:var(--s-ink)}
+.ro-week-src{margin:.3rem 0 0;font-size:.85rem}
+
 /* ====================================================================
    7. RESPONSIVE - widest first, so a narrower block always wins
    ==================================================================== */
@@ -723,6 +788,13 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 }
 /* Phones: the rankings table keeps every column, set tighter to fit. */
 @media (max-width:30rem){
+  /* Roster rows: height, weight and class become one line under the name */
+  .ro-cols{display:none}
+  .ro-row{grid-template-columns:2rem 1.6rem 2.6rem minmax(0,1fr);column-gap:.5rem}
+  .ro-row.roster{grid-template-columns:1.6rem 2.6rem minmax(0,1fr)}
+  .ro-ht,.ro-wt,.ro-cl{display:none}
+  .ro-bio{display:block}
+  .ro-card{padding-left:.75rem;padding-right:.75rem}
   /* the full schedule row: the site tag rides above the opponent, so the
      name keeps its room beside the kickoff, network and line */
   .sched-row.full{padding-left:.6rem;padding-right:.55rem}

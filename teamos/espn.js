@@ -240,8 +240,8 @@ TeamOS.espn = (function () {
   /* ---------- roster ---------- */
   // ESPN labels its groups with raw camelCase keys like "specialTeam". Map the
   // ones college football actually uses; title-case anything unexpected.
-  var GROUP_LABEL={ offense:"Offense", defense:"Defense", specialteam:"Special",
-                    specialteams:"Special", injuredreserve:"Injured",
+  var GROUP_LABEL={ offense:"Offense", defense:"Defense", specialteam:"Special Teams",
+                    specialteams:"Special Teams", injuredreserve:"Injured",
                     practicesquad:"Practice", suspended:"Suspended" };
   function groupLabel(key, fallback){
     var k=String(key||"").toLowerCase();
@@ -264,7 +264,10 @@ TeamOS.espn = (function () {
       height:       str(p.displayHeight),
       weight:       str(p.displayWeight),
       classYear:    str(xp.abbreviation||xp.displayValue),
-      hometown:     { city: str(bp.city), state: str(bp.state) }
+      hometown:     { city: str(bp.city), state: str(bp.state) },
+      // the provider's headshot, loaded from where it is hosted (never
+      // copied); null when the feed has none - Suite draws its fallback
+      photo:        p.headshot && p.headshot.href ? str(p.headshot.href) : null
     };
   }
 

@@ -158,6 +158,7 @@
     inject("suite/home.js");
     inject("suite/game.js");
     inject("suite/top25.js");
+    inject("suite/roster.js");
     inject("app.js");
   }
 
@@ -181,7 +182,7 @@
   // The registry and TeamOS load either way - the chooser needs them too.
   ["teams/index.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
    "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js",
-   "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js",
+   "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js",
    "suite/ui.js"]
     .forEach(function(src){ inject(src); });
 
@@ -237,10 +238,11 @@
   <!-- The screen's name for assistive technology where no masthead shows it. -->
   <h1 class="sr-only" id="screenHead" tabindex="-1"></h1>
 
-  <!-- Screens rebuilt in the canonical system (suite/home.js, suite/game.js, suite/top25.js, suite/schedule.js). -->
+  <!-- Screens rebuilt in the canonical system (suite/home.js, suite/game.js, suite/top25.js, suite/schedule.js, suite/roster.js). -->
   <div class="home" id="screenHome" hidden></div>
   <div class="game" id="screenGame" hidden></div>
   <div class="top25" id="screenTop25" hidden></div>
+  <div class="roster" id="screenRoster" hidden></div>
   <div class="schedule" id="screenSchedule" hidden>
     <div id="scheduleList"></div>
     <div id="scheduleGame" hidden>
@@ -283,7 +285,6 @@
 
     <div id="tabpanel">
       <section id="panel-game" aria-label="Game" hidden></section>
-      <section id="panel-depth" aria-label="Roster" hidden></section>
       <section id="panel-more" aria-label="More" hidden>
         <div class="team-row">
           <p>Following <strong id="moreTeam"></strong></p>

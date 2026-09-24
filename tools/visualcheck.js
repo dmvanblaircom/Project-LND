@@ -275,6 +275,18 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             await page.evaluate(function () { location.hash = "#top25"; });
             await page.waitForTimeout(200);
           }
+          if (screen === "roster") {
+            // Roster's other views, where the team has them.
+            var rviews = await page.evaluate(function () { return (Suite.nav.SCREENS.roster.views || []).map(function (v) { return v.id; }); });
+            for (var rv = 1; rv < rviews.length; rv++) {
+              await page.evaluate(function (h) { location.hash = h; }, "#roster/" + rviews[rv]);
+              await page.waitForTimeout(350);
+              await fullShot(page, path.join(shots, team + "-" + width + "-roster-" + rviews[rv] + ".png"));
+              await checkState(page, team + " roster " + rviews[rv] + " " + width + "px");
+            }
+            await page.evaluate(function () { location.hash = "#roster"; });
+            await page.waitForTimeout(200);
+          }
           if (screen === "schedule") {
             // Results, and a game opened from the list, are views of their own.
             await page.evaluate(function () { location.hash = "#schedule/results"; });
@@ -364,6 +376,27 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               fail(label, "behaviour", ".view-tabs", "the view strip marks " + tp.cur + " for the " + tp.view + " view");
             if (tp.cut) fail(label, "layout", ".tg-name", tp.cut + " team name(s) cut off");
           }
+          if (screen === "roster") {
+            // Roster (0019, 0024 §8, §9): the canonical screen; views that
+            // follow what the team has - no empty tabs; every spot of the
+            // unit on screen with its levels; no name cut off.
+            var ro = await page.evaluate(function () {
+              var host = document.getElementById("screenRoster");
+              var tabs = [].map.call(host.querySelectorAll(".view-tabs a"), function (a) { return a.getAttribute("href"); });
+              var views = (Suite.nav.SCREENS.roster.views || []).map(function (v) { return v.id; });
+              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden, tabs: tabs, views: views,
+                       cards: host.querySelectorAll(".ro-card").length, rows: host.querySelectorAll(".ro-row").length,
+                       seg: [].map.call(host.querySelectorAll(".unit-seg a"), function (a) { return a.textContent.trim(); }),
+                       cut: [].filter.call(host.querySelectorAll(".ro-name"), function (n) { return n.scrollWidth > n.clientWidth + 1; }).length };
+            });
+            if (!ro.shown || ro.legacy) fail(label, "behaviour", "#screenRoster", "Roster is not the canonical screen");
+            if (ro.views.length > 1 && ro.tabs.length !== ro.views.length) fail(label, "behaviour", ".view-tabs", "the view strip does not match the team's views " + ro.views.join());
+            if (ro.views.length < 2 && ro.tabs.length) fail(label, "behaviour", ".view-tabs", "a one-view Roster shows a view strip");
+            if (!ro.rows) fail(label, "behaviour", ".ro-row", "Roster shows no people");
+            if (ro.views[0] === "depth" && ro.seg.join("|") !== "Offense|Defense|Special Teams")
+              fail(label, "behaviour", ".unit-seg", "the unit control reads " + ro.seg.join(" | ") + ", not Offense | Defense | Special Teams");
+            if (ro.cut) fail(label, "layout", ".ro-name", ro.cut + " player name(s) cut off");
+          }
           if (screen === "schedule") {
             // Schedule (0022 #8; Product 2026-09-24): the canonical screen,
             // Schedule | Results, every entry of the season, and rows that
@@ -449,7 +482,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         await page.goto(base + "/?team=" + team + "#roster", { waitUntil: "domcontentloaded" });
         await page.waitForTimeout(600);
         var deep = await page.evaluate(function () {
-          return { panel: !document.getElementById("panel-depth").hidden,
+          return { panel: !document.getElementById("screenRoster").hidden,
                    title: document.getElementById("mastTitle").textContent };
         });
         if (!deep.panel || deep.title !== "Roster") fail(who, "behaviour", "route", "a deep link to #roster did not open Roster");

@@ -757,219 +757,6 @@ function loadSparklines(){
   }).catch(function(){ /* no history yet; the number alone is fine */ });
 }
 
-/* ---------- depth chart and availability ---------- */
-// The depth chart is a team capability: the team's config declares its
-// snapshot (written by the GitHub Action from the team's own source) or it
-// has none, and then the tab is the roster plus a plain statement of that.
-// The snapshot is same-origin, so no CORS involved.
-function loadDepth(){
-  var el=$("panel-depth");
-  if(el.dataset.loaded) return;
-  var snap=TeamOS.snapshots.get(TEAM_CONFIG,"depth");
-  if(!snap){
-    // No depth-chart source for this team: the roster still stands on
-    // its own. Nothing to fetch, so the state is final for this load.
-    unavailable('<strong>No depth chart.</strong>'+esc(TEAM.name)+
-      ' has no depth chart source in this Suite yet. The full roster is above.');
-    el.dataset.loaded="1";
-    return;
-  }
-  if(!LAST_HTML[el.id]) el.innerHTML='<p class="loading">Loading the two-deep…</p>';
-  var outCount=0;
-
-  // Availability is its own snapshot now (decision 0019): a different
-  // official document with its own date. It loads beside the chart; if it
-  // fails, the chart still shows and the report says it is unknown.
-  var avSnap=TeamOS.snapshots.get(TEAM_CONFIG,"availability");
-  cachedThenFresh(el, [snap.file, avSnap ? avSnap.file : null], Promise.all([
-      get(snap.file+"?t="+Date.now()),
-      avSnap ? get(avSnap.file+"?t="+Date.now()).catch(function(){ return null; }) : Promise.resolve(null)
-    ]),
-    build, wire
-  ).catch(function(){
-    if(LAST_HTML[el.id]) return;         // the cached paint stands
-    unavailable('<strong>No depth chart yet.</strong>'+
-      'The scheduled job writes '+esc(snap.file)+' from '+esc(snap.label||"the source")+'’s weekly post. '+
-      'If this stays empty, check the Actions log.');
-  });
-
-  // The roster fold with a message under it, for every state that has no
-  // two-deep to show.
-  function unavailable(msg){
-    el.innerHTML='<details class="fold" id="rosterFold"><summary>Full roster'+
-      '<span class="count">every player</span></summary>'+
-      '<div class="foldbody" id="rosterBody"></div></details>'+
-      '<p class="msg">'+msg+'</p>';
-    wireRosterFold(el);      // the roster is independent of the depth chart
-  }
-
-  function wire(el, res, fromCache, unchanged){
-    if(!unchanged){ wireRosterFold(el); loadHistory(); }
-    if(!fromCache) say("Depth chart loaded. "+outCount+" players out.");
-  }
-
-  function build(res){
-    var d=res[0]; if(!d || !TeamOS.snapshots.owned(TEAM,d)) return "";   // not ours: nothing to show
-    var a=res[1] && TeamOS.snapshots.owned(TEAM,res[1]) ? res[1] : null;
-    if(d.schema!==2){
-      return '<p class="msg">This depth chart is in a format this page does not read yet. '+
-        'It will return on the next data refresh.</p>';
-    }
-    var html="";
-    var players=(a && a.players) || [];
-    outCount=players.filter(function(p){ return /^out/.test(p.status); }).length;
-    var srcLink=function(url, label){
-      return '<a href="'+esc(url||"#")+'" target="_blank" rel="noopener">'+esc(label)+
-        '<span class="sr-only"> (opens in a new tab)</span></a>';
-    };
-    var LEVEL=["","First team","Second team","Third team"];
-    var levelName=function(n){ return LEVEL[n] || ("Level "+n); };
-    // Two spots under one label (two DTs, two CBs, three WRs) are two spots.
-    // The number only appears where the label repeats.
-    var slotName=function(unit, s){
-      var many=unit.slots.filter(function(x){ return x.label===s.label; }).length>1;
-      return s.label+(many?" "+s.ordinal:"");
-    };
-
-    // ---- 1. the depth chart, one block per spot, first unit open ----
-    var units=d.units||[];
-    if(units.length){
-      html+='<h2 class="sec">Depth chart</h2>'+
-        '<p class="asof">'+esc(d.game||"Current")+', from '+srcLink(d.sourceUrl, d.title||snap.label||"the source")+
-        '. '+esc(TEAM.name)+' publishes a new depth chart most Mondays.</p>';
-    }
-    units.forEach(function(unit, ui){
-      var body="";
-      unit.slots.forEach(function(s){
-        var open=s.levels.length && s.levels[0].players.length>1;
-        body+='<div class="depth-pos"><b>'+esc(slotName(unit,s))+"</b>"+
-          (open?'<span class="battle">BATTLE</span>':"")+"</div>";
-        body+='<ul class="ladder" aria-label="'+esc(slotName(unit,s))+'">';
-        s.levels.forEach(function(lv){
-          lv.players.forEach(function(p, i){
-            body+='<li class="d'+Math.min(lv.level,4)+'">'+
-              '<span class="sr-only">'+levelName(lv.level)+(i?", or":"")+': </span>'+
-              '<span class="jersey">'+esc(p.no)+"</span>"+
-              (i?'<span class="ortag" aria-hidden="true">OR</span>':"")+
-              '<span class="nm">'+esc(p.name)+"</span>"+
-              '<span class="cl">'+esc(p.cl||"")+"</span></li>";
-          });
-        });
-        body+="</ul>";
-      });
-      // Ninety depth rows in one scroll is unusable on a phone.
-      html+='<details class="fold"'+(ui===0?" open":"")+'><summary>'+esc(unit.unit)+
-        ' <span class="count">'+unit.slots.length+" positions</span></summary>"+
-        '<div class="foldbody">'+body+"</div></details>";
-    });
-
-    // ---- 2. starting jobs still open: first team, one spot at a time ----
-    var open=(d.battles||[]).filter(function(b){ return b.level===1; });
-    if(open.length){
-      html+='<details class="fold"><summary>Jobs still open'+
-        '<span class="count">'+open.length+'</span></summary><div class="foldbody"><ul class="plain avail">';
-      open.forEach(function(b){
-        var unit=units.filter(function(u){ return u.unit===b.unit; })[0];
-        var s=unit && unit.slots.filter(function(x){ return x.label===b.label && x.ordinal===b.ordinal; })[0];
-        html+='<li><span class="who"><span class="pos">'+esc(s?slotName(unit,s):b.label)+"</span>"+
-          esc(b.names.join(" or "))+"</span></li>";
-      });
-      html+="</ul></div></details>";
-    }
-
-    // ---- 3. the availability report ----
-    // Never infer health from silence: no report, or no file, says so.
-    html+='<h2 class="sec">Availability</h2>';
-    var when=function(iso){
-      if(!iso) return "";
-      var dt=new Date(iso+"T12:00:00");
-      return isNaN(dt) ? "" : dt.toLocaleDateString([],{month:"long",day:"numeric"});
-    };
-    if(!a){
-      html+='<p class="msg">No availability report has loaded. No injury status is inferred from that.</p>';
-    } else if(!a.reported){
-      html+='<p class="asof">No official availability report is attached to the '+esc(a.game||"current")+
-        ' materials yet. No injury status is inferred from that absence.</p>';
-    } else {
-      html+='<p class="asof">'+esc(TEAM.name)+'’s official availability report'+
-        (a.effectiveAt?" of "+esc(when(a.effectiveAt)):"")+', from '+
-        srcLink(a.sourceUrl||a.pdf, a.sourceLabel||"the official athletics site")+'.</p>';
-      var GROUPS=[["out-season","Out for the season"],["out-game","Out for the game"],
-                  ["doubtful","Doubtful"],["questionable","Questionable"],["probable","Probable"]];
-      var any=false;
-      GROUPS.forEach(function(g){
-        var list=players.filter(function(p){ return p.status===g[0]; });
-        if(!list.length) return;
-        any=true;
-        html+='<h3 class="depth-pos"><b>'+g[1]+" ("+list.length+')</b></h3><ul class="plain avail">';
-        list.forEach(function(p){
-          html+='<li><span class="who">'+(p.pos?'<span class="pos">'+esc(p.pos)+"</span>":"")+esc(p.name)+"</span>"+
-            (p.detail?'<span class="part">'+esc(p.detail)+"</span>":"")+"</li>";
-        });
-        html+="</ul>";
-      });
-      if(!any) html+='<p class="msg">The report lists nobody: everyone is available.</p>';
-    }
-    // week-by-week history lands here once the history snapshots arrive
-    html+='<div id="depthHistory"></div>';
-
-    // ---- 4. the full roster ----
-    html+='<h2 class="sec">Roster</h2>';
-    html+='<details class="fold" id="rosterFold"><summary>Full roster'+
-      '<span class="count">every player</span></summary>'+
-      '<div class="foldbody" id="rosterBody"></div></details>';
-    return html;
-  }
-}
-
-// Every depth chart this season, newest first, each with what moved since
-// the week before and that week's availability. Only for a team whose depth
-// snapshot declares a history file.
-function loadHistory(){
-  var snap=TeamOS.snapshots.get(TEAM_CONFIG,"depth");
-  if(!snap || !snap.history) return;
-  var avSnap=TeamOS.snapshots.get(TEAM_CONFIG,"availability");
-  Promise.all([
-    get(snap.history+"?t="+Date.now()),
-    avSnap && avSnap.history ? get(avSnap.history+"?t="+Date.now()).catch(function(){ return null; }) : null
-  ]).then(function(res){
-    var d=res[0], ah=res[1];
-    if(!TeamOS.snapshots.owned(TEAM,d) || d.schema!==2) return;
-    var reports=(ah && TeamOS.snapshots.owned(TEAM,ah) && ah.reports) || [];
-    var snaps=(d.snapshots||[]).slice().reverse();
-    var slot=$("panel-depth").querySelector("#depthHistory");
-    if(!slot || snaps.length<2) return;
-    var html='<details class="fold" open><summary>Week by week '+
-      '<span class="count">'+snaps.length+" charts</span></summary><div class=\"foldbody\">";
-    snaps.forEach(function(s,i){
-      var ch=s.changes||[];
-      var r=reports.filter(function(x){ return x.game===s.game; })[0];
-      var outN=r ? r.players.filter(function(p){ return /^out/.test(p.status); }).length : 0;
-      var qN=r ? r.players.filter(function(p){ return p.status==="questionable"; }).length : 0;
-      var status = !r ? "availability unknown"
-        : !r.reported ? "no official availability report"
-        : outN+" out"+(qN?", "+qN+" questionable":"");
-      var moves = i===snaps.length-1 ? "first chart of the season"
-        : (ch.length ? ch.length+(ch.length===1?" change":" changes") : "no changes");
-      html+='<details class="week"'+(i===0?" open":"")+'><summary><span class="wd">'+esc(s.game||"")+"</span>"+
-        '<span class="ws">'+esc(status)+" · "+esc(moves)+"</span></summary>";
-      html+= ch.length ? '<ul class="chg">'+ch.map(function(c){
-               return "<li>"+esc(c.text)+"</li>"; }).join("")+"</ul>"
-             : '<p class="chg" style="color:var(--dim)">Nothing moved on the depth chart.</p>';
-      html+='<p class="weeksrc">Source: <a href="'+esc(s.sourceUrl||"#")+
-        '" target="_blank" rel="noopener">'+esc(s.title||snap.label||"the source")+
-        '<span class="sr-only"> (opens in a new tab)</span></a></p>';
-      html+="</details>";
-    });
-    html+="</div></details>";
-    slot.innerHTML=html;                 // one slot, so never two copies
-  }).catch(function(e){
-    // History is a bonus, but a failure is not silence: the previous
-    // version threw on every render here and nobody could tell.
-    if(window.console) console.warn("depth history:", e);
-  });
-}
-
 /* ---------- game view: live line, box score, leaders ---------- */
 // Everything here renders a GameDetail (docs/03_DOMAIN_MODEL.md), which
 // TeamOS.espn builds from ESPN's summary endpoint. Sections the feed did not
@@ -1364,129 +1151,71 @@ function renderGame(gd, inline){
   return sec.head+sec.play+sec.winprob+sec.quarters+sec.stats+sec.people+sec.scoring+stamp;
 }
 
-/* ---------- full roster ---------- */
-// ESPN's roster endpoint is CORS-open, so this stays client side like the
-// schedule. Fetched only when the fold is opened, then kept for the session.
-var ROSTER={ data:null, group:"all", q:"", loading:false };
-
-// One row of the roster, from a Player (docs/03_DOMAIN_MODEL.md).
-function playerRow(p){
-  var home=[p.hometown.city,p.hometown.state].filter(Boolean).join(", ");
-  var meta=[ [p.height,p.weight].filter(Boolean).join(" \u00B7 "), home ].filter(Boolean).join("  \u2014  ");
-  return '<li class="plr"><span class="no">'+esc(p.jersey)+"</span>"+
-    '<span class="pos">'+esc(p.position)+"</span>"+
-    '<span class="who">'+esc(p.name)+
-      (meta?'<span class="meta">'+esc(meta)+"</span>":"")+"</span>"+
-    '<span class="cl">'+esc(p.classYear.slice(0,3))+"</span></li>";
+/* ---------- roster ---------- */
+// Roster is canonical (suite/roster.js; decisions 0019, 0024 §8, §9). Its
+// views follow what the team has (TeamOS.roster.views). The official depth
+// chart and availability report are the team's snapshots, checked as the
+// team's own (0008); the roster is ESPN's, through the adapter. TeamOS joins
+// them. The worker's last copies draw first, so the screen opens offline;
+// then the network. A section that fails with no copy says so.
+var RO={ chart:null, avail:null, hist:null, roster:null, q:"", failed:{}, at:0, loading:false };
+function rosterSnap(kind){ return TeamOS.snapshots.get(TEAM_CONFIG, kind); }
+function paintRoster(){
+  var host=$("screenRoster");
+  if(!host || host.hidden) return;
+  var route=Suite.nav.current(), views=TeamOS.roster.views(TEAM_CONFIG);
+  Suite.roster.paint(host, rosterModel(route, views));
 }
-
-function renderRoster(){
-  var groups=ROSTER.data||[];
-  var all=[]; groups.forEach(function(g){ all=all.concat(g.players); });
-  if(!all.length) return '<p class="msg">ESPN returned no roster for this team.</p>';
-
-  var html="";
-  if(groups.length>1){
-    if(["all"].concat(groups.map(function(g){return g.key;})).indexOf(ROSTER.group)===-1)
-      ROSTER.group="all";
-    html+='<div class="seg pills roster" role="group" aria-label="Roster group">'+
-      '<button type="button" data-grp="all" aria-pressed="'+(ROSTER.group==="all")+'">'+
-        'All<span class="n">'+all.length+"</span></button>"+
-      groups.map(function(g){
-        return '<button type="button" data-grp="'+esc(g.key)+'" aria-pressed="'+
-          (ROSTER.group===g.key)+'">'+esc(g.label)+
-          '<span class="n">'+g.players.length+"</span></button>";
-      }).join("")+"</div>";
-  }
-
-  // A hundred-odd players is too many to scan. One box filters by anything
-  // you might know about a player: name, number, position or hometown.
-  html+='<label class="filter"><span class="sr-only">Filter the roster</span>'+
-    '<input type="search" id="rosterQ" autocomplete="off" spellcheck="false" '+
-    'placeholder="Name, number, position or hometown" value="'+esc(ROSTER.q||"")+'"></label>';
-  html+='<div id="rosterList">'+rosterList()+"</div>";
-  return html;
+function rosterModel(route, views){
+  var view=views.some(function(v){ return v.id===route.view; }) ? route.view : views[0].id;
+  return {
+    views: views, view: view, unit: route.path[1] || null,
+    hasDepth: !!rosterSnap("depth"),
+    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster) : null,
+    history: RO.hist, roster: RO.roster, query: RO.q,
+    avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
+    failed: RO.failed,
+    fresh: TeamOS.freshness.summary([], { now:new Date(), online: navigator.onLine!==false })
+  };
 }
-
-// Text of the roster list for the current group and filter. Re-rendered on
-// its own as you type, so the search box keeps focus.
-function rosterHaystack(p){
-  return [p.name, p.jersey, p.position, p.positionName, p.hometown.city, p.hometown.state]
-    .join(" ").toLowerCase();
-}
-function rosterList(){
-  var groups=ROSTER.data||[], all=[];
-  groups.forEach(function(g){ all=all.concat(g.players); });
-  var show = ROSTER.group==="all" ? all
-    : (groups.filter(function(g){return g.key===ROSTER.group;})[0]||{players:[]}).players;
-  var q=(ROSTER.q||"").trim().toLowerCase();
-  if(q) show=show.filter(function(p){ return rosterHaystack(p).indexOf(q)>-1; });
-  show=show.slice().sort(function(x,y){
-    var a=parseInt(x.jersey,10), b=parseInt(y.jersey,10);
-    if(isNaN(a)&&isNaN(b)) return 0;
-    if(isNaN(a)) return 1;
-    if(isNaN(b)) return -1;
-    return a-b;
-  });
-  var html = show.length
-    ? '<ul class="plain">'+show.map(playerRow).join("")+"</ul>"
-    : '<p class="msg">No player matches \u201C'+esc(ROSTER.q)+'\u201D.</p>';
-  html+='<p class="stamp">'+show.length+' player'+(show.length===1?"":"s")+
-    (q?" matching":"")+' \u00B7 numbers as listed by ESPN. '+
-    'Official roster at <a href="'+esc(TEAM_CONFIG.links.roster.url)+'" '+
-    'target="_blank" rel="noopener">'+esc(TEAM_CONFIG.links.roster.label)+
-    '<span class="sr-only"> (opens in a new tab)</span></a>.</p>';
-  return html;
-}
-
-// Only hit the network when the fold is actually opened.
-function wireRosterFold(el){
-  var fold=el.querySelector("#rosterFold");
-  if(!fold) return;
-  fold.addEventListener("toggle", function(){
-    if(fold.open) loadRoster(el.querySelector("#rosterBody"));
+function loadRosterScreen(force){
+  if(RO.loading || (!force && RO.at && Date.now()-RO.at < 30*60e3)) return;
+  RO.loading=true;
+  var depth=rosterSnap("depth"), av=rosterSnap("availability");
+  function ours(d){ return d && TeamOS.snapshots.owned(TEAM, d) ? d : null; }
+  function chart(d){ d=ours(d); return d && d.schema===2 ? d : null; }
+  // the last good copies first
+  if(!RO.roster) cachedJSON(TeamOS.espn.rosterUrl(TEAM_CONFIG)).then(function(d){
+    if(!RO.roster && d){ RO.roster=TeamOS.espn.roster(d); paintRoster(); } }).catch(function(){});
+  if(depth && !RO.chart) cachedJSON(depth.file).then(function(d){ if(!RO.chart && chart(d)){ RO.chart=chart(d); paintRoster(); } }).catch(function(){});
+  if(av && !RO.avail) cachedJSON(av.file).then(function(d){ if(!RO.avail && ours(d)){ RO.avail=ours(d); paintRoster(); } }).catch(function(){});
+  var jobs=[
+    get(TeamOS.espn.rosterUrl(TEAM_CONFIG)).then(function(d){ RO.roster=TeamOS.espn.roster(d); RO.failed.roster=false; })
+      .catch(function(){ RO.failed.roster=true; }),
+    depth ? get(depth.file+"?t="+Date.now()).then(function(d){ RO.chart=chart(d); RO.failed.depth=!RO.chart; })
+      .catch(function(){ RO.failed.depth=true; }) : null,
+    av ? get(av.file+"?t="+Date.now()).then(function(d){ RO.avail=ours(d); RO.failed.avail=!RO.avail; })
+      .catch(function(){ RO.failed.avail=true; }) : null,
+    // every chart this season, for Week by week - a bonus: a failure only
+    // leaves the section out
+    depth && depth.history ? Promise.all([get(depth.history+"?t="+Date.now()),
+        av && av.history ? get(av.history+"?t="+Date.now()).catch(function(){ return null; }) : null])
+      .then(function(r){
+        var h=ours(r[0]); if(!h || h.schema!==2) return;
+        RO.hist=TeamOS.roster.history(h, ours(r[1]));
+      }).catch(function(e){ if(window.console) console.warn("depth history:", e); }) : null
+  ];
+  Promise.all(jobs).then(function(){
+    RO.at=Date.now(); RO.loading=false; paintRoster();
   });
 }
+// The roster search: only the list redraws, so the box keeps focus.
+document.addEventListener("input", function(e){
+  if(!e.target || e.target.id!=="rosterQ") return;
+  RO.q=e.target.value;
+  Suite.roster.list($("screenRoster"), rosterModel(Suite.nav.current(), TeamOS.roster.views(TEAM_CONFIG)));
+});
 
-function wireRosterPills(box){
-  var btns=box.querySelectorAll(".seg.pills.roster button");
-  btns.forEach(function(b){
-    b.addEventListener("click", function(){
-      ROSTER.group=b.dataset.grp;
-      box.innerHTML=renderRoster();
-      wireRosterPills(box);
-    });
-  });
-  var q=box.querySelector("#rosterQ");
-  if(q) q.addEventListener("input", function(){
-    ROSTER.q=q.value;
-    box.querySelector("#rosterList").innerHTML=rosterList();
-  });
-}
-
-function loadRoster(box){
-  if(ROSTER.data){ box.innerHTML=renderRoster(); wireRosterPills(box); return; }
-  if(ROSTER.loading) return;
-  ROSTER.loading=true;
-  box.innerHTML='<p class="loading">Loading the roster\u2026</p>';
-  get(TeamOS.espn.rosterUrl(TEAM_CONFIG)).then(function(d){
-    ROSTER.loading=false;
-    ROSTER.data=TeamOS.espn.roster(d);
-    box.innerHTML=renderRoster();
-    wireRosterPills(box);
-    var n=0; ROSTER.data.forEach(function(g){ n+=g.players.length; });
-    say("Roster loaded, "+n+" players.");
-  }).catch(function(){
-    ROSTER.loading=false;
-    box.innerHTML='<p class="msg"><strong>Couldn\u2019t load the roster.</strong>'+
-      'ESPN didn\u2019t return one. The official list is at '+
-      '<a href="'+esc(TEAM_CONFIG.links.roster.url)+'" target="_blank" '+
-      'rel="noopener">'+esc(TEAM_CONFIG.links.roster.label)+'</a>.</p>';
-  });
-}
-
-// The full per-player lines for one side of a GameDetail, one table per
-// category. Each category carries its own column labels.
 function boxTables(tables){
   var html="";
   tables.forEach(function(cat){
@@ -1775,8 +1504,8 @@ function loadHomeWeather(g){
       paintHome(); paintGame();
     }).catch(function(){ HOME.weather=null; });
 }
-window.addEventListener("online",  function(){ paintHome(); paintTop25(); });
-window.addEventListener("offline", function(){ paintHome(); paintTop25(); });
+window.addEventListener("online",  function(){ paintHome(); paintTop25(); paintRoster(); });
+window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); });
 
 /* ---------- Game (canonical) ---------- */
 // The Game screen is the hero game - the one TeamOS rule Home and the nav
@@ -1936,30 +1665,31 @@ $("scheduleList").addEventListener("pointerdown", function(e){
 // other half: which panel a screen shows, and what it loads on entry. Until
 // each screen is rebuilt in the canonical system it shows its pre-canonical
 // panel (legacy.css); the map below shrinks, phase by phase, to nothing.
-var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"depth", more:"more", schedule:"schedule" };
-var PANELS=["game","depth","more"];
+var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"roster", more:"more", schedule:"schedule" };
+var PANELS=["game","more"];
 function showScreen(route){
   var name=PANEL_FOR[route.screen]||"schedule";
-  // Home, Game, Top 25 and Schedule are canonical; the rest are still
-  // their pre-canonical panels.
+  // Home, Game, Top 25, Schedule and Roster are canonical; More is still
+  // its pre-canonical panel.
   var home=route.screen==="home", game=route.screen==="game", top25=route.screen==="top25",
-      sched=route.screen==="schedule";
+      sched=route.screen==="schedule", roster=route.screen==="roster";
   $("screenHome").hidden=!home;
   $("screenGame").hidden=!game;
   $("screenTop25").hidden=!top25;
   $("screenSchedule").hidden=!sched;
-  $("legacy").hidden=home || game || top25 || sched;
+  $("screenRoster").hidden=!roster;
+  $("legacy").hidden=home || game || top25 || sched || roster;
   if(home){ paintHome(); if(HOME.news==null) loadHomeNews(); }
   if(game) paintGame();
   if(top25){ paintTop25(); loadTop25(); }
   if(sched) paintScheduleScreen();
+  if(roster){ paintRoster(); loadRosterScreen(); }
   PANELS.forEach(function(p){ $("panel-"+p).hidden = p!==name; });
   UI.tab=name; layoutForTab();
   // Force a refresh on entry: the dataset guard would otherwise leave the
   // screen showing whatever it held the last time it was open. Game is
   // canonical now (paintGame above), so its old panel loads nothing.
   if(name==="game" && !game) loadGame(true);
-  if(name==="depth")  loadDepth();
   if(name==="more")   loadNews();
 }
 Suite.nav.on(function(route){ showScreen(route); });
@@ -1979,7 +1709,7 @@ function warmTabs(){
   // the live poller should run. It is 95KB on the wire, which is why it is
   // here and not in load() competing with the schedule for first paint.
   var jobs=[function(){ getScoreboard().catch(function(){}); },
-            loadDepth, loadNews, function(){ loadGame(); }, prefetchSummaries];
+            function(){ loadRosterScreen(); }, loadNews, function(){ loadGame(); }, prefetchSummaries];
   jobs.forEach(function(fn,i){
     setTimeout(function(){
       if(document.hidden) return;
@@ -2283,7 +2013,7 @@ $("btnPlayoff").addEventListener("click", function(){ toggleBoard("playoff"); })
 // the moment it is looked at again. Tabs skip identical repaints, so a
 // silent refresh that finds nothing new changes nothing on screen.
 function refreshAll(silent){
-  ["depth","news"].forEach(function(n){ $("panel-"+n).dataset.loaded=""; });
+  ["news"].forEach(function(n){ $("panel-"+n).dataset.loaded=""; });
   T25.at=0;
   if(BOARD.open) loadBoard(BOARD.open);
   $("panel-game").dataset.loaded="";
@@ -2292,7 +2022,7 @@ function refreshAll(silent){
   var name=UI.tab;
   if(name==="game")   loadGame(true);
   if(name==="top25")  loadTop25();
-  if(name==="depth")  loadDepth();
+  if(name==="roster") loadRosterScreen(true);
   if(name==="more")   loadNews();
   FRESH.at=Date.now();
 }
@@ -2340,6 +2070,9 @@ setInterval(function(){
   if(Date.now()-FRESH.at>FRESH.whileVisible) refreshAll(true);
 }, 60e3);
 
+// Roster's views follow what this team has (TeamOS.roster.views): a team
+// without a depth chart or an availability report has no empty tabs.
+Suite.nav.setViews("roster", TeamOS.roster.views(TEAM_CONFIG));
 Suite.nav.start();
 load();
 })();
