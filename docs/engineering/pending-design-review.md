@@ -17,7 +17,7 @@ own (the things a reviewer most needs to look at), and where the evidence is.
 |---|---|---|---|---|
 | 1 | More rebuild: menu, News, Settings (App Style), Feedback, About Suite | `2fdc6f2`, with `9952362`, `835c2c3`, `1a97dee` (news capture) | David, 2026-09-24 | **No ChatGPT review** |
 | 2 | More corrections: provisional Suite Style palette, Independent App statement, copy confirmed | `b566122` | David, 2026-09-24 | **No ChatGPT review** |
-| 3 | Legacy code removal (engineering only; no screen changes) | `87e6af5` | David ("move forward"), 2026-09-24 | **No ChatGPT review** |
+| 3 | Legacy code removal (engineering only; no screen changes) | `57e0358` + `e800299` | David ("move forward"), 2026-09-24 | **No ChatGPT review** |
 
 For context, not part of David's no-review approval: ChatGPT asked for the
 Roster service-worker recovery fix (`0f6008a`) and David accepted it once CI
