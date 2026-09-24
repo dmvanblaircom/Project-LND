@@ -45,6 +45,8 @@ jobs:
         run: node tools/gamecheck.js
       - name: Season Outlook and screen freshness
         run: node tools/rulescheck.js
+      - name: Suite draws what TeamOS decided (box score, postponed dates)
+        run: node tools/suitecheck.js
       - name: The matchup card agrees with the data
         run: node tools/matchupcheck.js
       - name: The depth chart parser reads the official chart as written

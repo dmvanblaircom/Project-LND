@@ -59,17 +59,6 @@ eq([F.summary(home, { now: NOW }).state, F.summary(roster, { now: NOW }).state],
    "a stale source warns only on the screen that shows it - not 'the stalest source anywhere'");
 eq(F.summary([], { now: NOW }).state, "fresh", "a screen with no data sources is fresh");
 
-console.log("postponed dates on Home (decision 0022 #5)");
-var hctx = vm.createContext({ Date: Date, document: { addEventListener: function () {} } });
-["suite/ui.js", "suite/home.js"].forEach(function (f) { vm.runInContext(read(f), hctx, { filename: f }); });
-var H = hctx.Suite.home;
-eq(H.newDate({ status: "postponed", newDate: null }), "New date to be announced", "no replacement date: to be announced");
-ok(/^New date: .+ \u00B7 .*\d:\d\d/.test(H.newDate({ newDate: { date: "2026-10-10T19:30:00Z", timeSet: true } })),
-   "date and time known: both");
-ok(/^New date: .+ \u00B7 Time TBD$/.test(H.newDate({ newDate: { date: "2026-10-10T16:00:00Z", timeSet: false } })),
-   "date known, time not: the date, then Time TBD");
-eq(H.newDate({ newDate: { date: "not a date" } }), "New date to be announced", "an unreadable date is not shown");
-
 console.log("weather (teamos/weather.js)");
 ok(/api\.open-meteo\.com/.test(W.url(41.7, -86.2)) && /timezone=auto/.test(W.url(41.7, -86.2)), "one request, asking for the venue's own zone");
 var wx = { timezone: "America/Indiana/Indianapolis", utc_offset_seconds: -4 * 3600,
