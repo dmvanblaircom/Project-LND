@@ -46,6 +46,7 @@ var fixtures = {
   news: "espn-news.json", team: "espn-team.json", summary: "espn-summary-pre.json",
   statistics: "espn-season-stats.json"
 };
+var ROSTERS = { "87": "espn-roster-nd-sep24.json", "194": "espn-roster-osu-sep24.json" };
 function fixture(name) { return fs.readFileSync(path.join(root, "tools", "fixtures", fixtures[name])); }
 function mime(file) {
   return file.endsWith(".html") ? "text/html" : file.endsWith(".css") ? "text/css" :
@@ -66,6 +67,11 @@ function responseFor(url) {
   if (/\/schedule(?:\?|$)/.test(url)) return fixture("schedule");
   if (/\/scoreboard\?/.test(url)) return fixture("scoreboard");
   if (/\/rankings(?:\?|$)/.test(url)) return fixture("rankings");
+  // Each team's own real roster (captured on the runner), so a render of a
+  // team's Roster shows that team's players; any other team, the trimmed one.
+  var ro = /\/teams\/(\d+)\/roster(?:\?|$)/.exec(url);
+  if (ro) return fs.readFileSync(path.join(root, "tools", "fixtures",
+    ROSTERS[ro[1]] || fixtures.roster));
   if (/\/roster(?:\?|$)/.test(url)) return fixture("roster");
   if (/\/news\?/.test(url)) return fixture("news");
   if (/\/summary\?/.test(url)) return fixture("summary");
@@ -126,7 +132,8 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
       // reach them; a development sandbox may not, and then the fallback
       // initials are what is measured - also a real state).
       if (/^https:\/\/fonts\.(googleapis|gstatic)\.com\//.test(url)) return route.continue();
-      if (process.env.ALLOW_PROVIDER_IMAGES && /^https:\/\/a\.espncdn\.com\/i\/teamlogos\//.test(url)) return route.continue();
+      // Team marks and player headshots (decision 0029) are provider-hosted.
+      if (process.env.ALLOW_PROVIDER_IMAGES && /^https:\/\/a\.espncdn\.com\/i\/(teamlogos|headshots)\//.test(url)) return route.continue();
       return route.abort();
     });
     return { context: context, page: page };
@@ -276,6 +283,51 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             await page.waitForTimeout(200);
           }
           if (screen === "roster") {
+            // Headshots (0029). With provider images allowed, real headshots
+            // load; and a headshot that fails always leaves the designed
+            // fallback - the player's initials - never a broken image.
+            await page.evaluate(function () { location.hash = "#roster/roster"; });
+            await page.waitForTimeout(400);
+            if (process.env.ALLOW_PROVIDER_IMAGES) {
+              await page.evaluate(function () { window.scrollTo(0, 0); });
+              await page.waitForFunction(function () {
+                return [].some.call(document.querySelectorAll("#screenRoster .ro-ph img"), function (i) { return i.complete && i.naturalWidth > 0; });
+              }, null, { timeout: 15000 }).catch(function () {});
+              var hs = await page.evaluate(function () {
+                var imgs = [].slice.call(document.querySelectorAll("#screenRoster .ro-ph img"));
+                return { loaded: imgs.filter(function (i) { return i.complete && i.naturalWidth > 0; }).length,
+                         broken: imgs.filter(function (i) { return i.complete && !i.naturalWidth; }).length };
+              });
+              if (!hs.loaded) fail(team + " roster headshots " + width + "px", "behaviour", ".ro-ph img", "no provider headshot loaded");
+              if (hs.broken) fail(team + " roster headshots " + width + "px", "behaviour", ".ro-ph img", hs.broken + " broken headshot(s) left on screen");
+              await fullShot(page, path.join(shots, team + "-" + width + "-roster-headshots.png"));
+            }
+            // Every headshot fails, on purpose: the fallback is what shows.
+            await page.route(/^https:\/\/a\.espncdn\.com\/i\/headshots\//, function (r) { return r.fulfill({ status: 404, body: "" }); });
+            await page.evaluate(function () { location.hash = "#home"; });
+            await page.waitForTimeout(150);
+            await page.reload({ waitUntil: "domcontentloaded" });
+            await page.waitForFunction(function () { return document.querySelectorAll("#screenHome .sched-row").length > 0; }, null, { timeout: 10000 });
+            await page.evaluate(function () { location.hash = "#roster/roster"; });
+            await page.waitForTimeout(1200);
+            await page.evaluate(function () { window.scrollTo(0, 0); });
+            await page.waitForTimeout(300);
+            var fb = await page.evaluate(function () {
+              // the pictures on screen: the rest are lazy and never asked for
+              var ph = [].slice.call(document.querySelectorAll("#screenRoster .ro-ph")).filter(function (p) {
+                var r = p.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0;
+              });
+              return { shown: ph.length,
+                       imgs: ph.filter(function (p) { return p.querySelector("img"); }).length,
+                       initials: ph.filter(function (p) { var t = p.querySelector(".ro-ph-no"); return t && /^[A-Z]{1,3}$/.test(t.textContent.trim()) && t.checkVisibility(); }).length };
+            });
+            var fw = team + " roster headshot fallback " + width + "px";
+            if (!fb.shown) fail(fw, "behaviour", ".ro-ph", "no player pictures to check");
+            if (fb.imgs) fail(fw, "behaviour", ".ro-ph img", fb.imgs + " failed headshot(s) not removed");
+            if (fb.initials !== fb.shown) fail(fw, "behaviour", ".ro-ph-no", "only " + fb.initials + " of " + fb.shown + " show the player's initials");
+            await fullShot(page, path.join(shots, team + "-" + width + "-roster-headshot-fallback.png"));
+            await checkState(page, fw);
+            await page.unroute(/^https:\/\/a\.espncdn\.com\/i\/headshots\//);
             // Roster's other views, where the team has them.
             var rviews = await page.evaluate(function () { return (Suite.nav.SCREENS.roster.views || []).map(function (v) { return v.id; }); });
             for (var rv = 1; rv < rviews.length; rv++) {

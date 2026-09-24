@@ -172,6 +172,10 @@ function sourceKey(url){
   if(url===TeamOS.espn.scheduleUrl(TEAM_CONFIG)) return "schedule";
   if(/scoreboard/.test(url)) return "scoreboard";
   if(url===TeamOS.espn.rankingsUrl()) return "rankings";
+  if(url===TeamOS.espn.rosterUrl(TEAM_CONFIG)) return "roster";
+  var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability");
+  if(dep && url.split("?")[0]===dep.file) return "depth";
+  if(av && url.split("?")[0]===av.file) return "availability";
   if(/odds-(title|playoff)\.json|kalshi/i.test(url)) return "odds";
   if(/open-meteo/.test(url)) return "weather";
   var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
@@ -1156,10 +1160,53 @@ function renderGame(gd, inline){
 // views follow what the team has (TeamOS.roster.views). The official depth
 // chart and availability report are the team's snapshots, checked as the
 // team's own (0008); the roster is ESPN's, through the adapter. TeamOS joins
-// them. The worker's last copies draw first, so the screen opens offline;
-// then the network. A section that fails with no copy says so.
-var RO={ chart:null, avail:null, hist:null, roster:null, q:"", failed:{}, at:0, loading:false };
+// them.
+//
+// Each source is loaded, and remembered, on its own (RO.s[key]):
+//   ok        when the network last answered with usable data
+//   fetchedAt when the copy on screen was fetched; cached: it is the last
+//             good copy, not the network's answer (0022 #4)
+//   failed    the last attempt failed - the copy on screen, if any, stays
+//   inflight  a request is out; nothing asks twice
+// The last good copy draws first so the screen opens offline. A source that
+// has succeeded is not asked again for 30 minutes; one that failed is asked
+// again the next time Roster opens, and as soon as the connection returns.
+// The one freshness state (0024 §13) is computed from the sources the
+// current view actually displays.
+var RO={ chart:null, avail:null, hist:null, roster:null, q:"", s:{}, histAt:0, histLoading:false };
+var RO_AGAIN=30*60e3;
 function rosterSnap(kind){ return TeamOS.snapshots.get(TEAM_CONFIG, kind); }
+function roOurs(d){ return d && TeamOS.snapshots.owned(TEAM, d) ? d : null; }
+// What Roster loads, by key: where from, and how a payload becomes state.
+function rosterSources(){
+  var list=[{ key:"roster", url:TeamOS.espn.rosterUrl(TEAM_CONFIG), fresh:function(u){ return u; }, maxAgeMs:7*24*HOUR,
+              take:function(d){ var g=d && TeamOS.espn.roster(d); if(!g) return false; RO.roster=g; return true; } }];
+  var depth=rosterSnap("depth"), av=rosterSnap("availability");
+  if(depth) list.push({ key:"depth", url:depth.file, fresh:function(u){ return u+"?t="+Date.now(); }, maxAgeMs:8*24*HOUR,
+              take:function(d){ d=roOurs(d); if(!d || d.schema!==2) return false; RO.chart=d; return true; } });
+  if(av) list.push({ key:"availability", url:av.file, fresh:function(u){ return u+"?t="+Date.now(); }, maxAgeMs:8*24*HOUR,
+              take:function(d){ d=roOurs(d); if(!d) return false; RO.avail=d; return true; } });
+  return list;
+}
+function roHas(key){ return key==="roster" ? !!RO.roster : key==="depth" ? !!RO.chart : !!RO.avail; }
+function roState(key){ return RO.s[key] || (RO.s[key]={ ok:0, fetchedAt:null, cached:false, failed:false, inflight:false, copyAt:null }); }
+// One freshness source, as the view shows it. While the first request is
+// still out, the copy on screen is not yet called old.
+function roSource(src, optional){
+  var st=roState(src.key);
+  if(!roHas(src.key)) return { key:src.key, missing:true, optional:optional };
+  if(st.failed) return { key:src.key, fetchedAt: st.fetchedAt || st.copyAt, cached:true, optional:optional };
+  return { key:src.key, fetchedAt: st.fetchedAt, cached: st.cached, maxAgeMs: src.maxAgeMs, optional:optional };
+}
+function rosterFreshSources(view){
+  var by={}; rosterSources().forEach(function(x){ by[x.key]=x; });
+  // what each view displays: its own document, and the roster that adds
+  // heights, hometowns and photos to it
+  var want = view==="depth" ? [["depth",false],["roster",true]]
+           : view==="availability" ? [["availability",false],["roster",true]]
+           : [["roster",false]];
+  return want.filter(function(w){ return by[w[0]]; }).map(function(w){ return roSource(by[w[0]], w[1]); });
+}
 function paintRoster(){
   var host=$("screenRoster");
   if(!host || host.hidden) return;
@@ -1168,47 +1215,62 @@ function paintRoster(){
 }
 function rosterModel(route, views){
   var view=views.some(function(v){ return v.id===route.view; }) ? route.view : views[0].id;
+  function failed(k){ return !roHas(k) && !!roState(k).failed; }
   return {
     views: views, view: view, unit: route.path[1] || null,
     hasDepth: !!rosterSnap("depth"),
     depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster) : null,
     history: RO.hist, roster: RO.roster, query: RO.q,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
-    failed: RO.failed,
-    fresh: TeamOS.freshness.summary([], { now:new Date(), online: navigator.onLine!==false })
+    failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
+    fresh: TeamOS.freshness.summary(rosterFreshSources(view), { now:new Date(), online: navigator.onLine!==false })
   };
 }
-function loadRosterScreen(force){
-  if(RO.loading || (!force && RO.at && Date.now()-RO.at < 30*60e3)) return;
-  RO.loading=true;
-  var depth=rosterSnap("depth"), av=rosterSnap("availability");
-  function ours(d){ return d && TeamOS.snapshots.owned(TEAM, d) ? d : null; }
-  function chart(d){ d=ours(d); return d && d.schema===2 ? d : null; }
-  // the last good copies first
-  if(!RO.roster) cachedJSON(TeamOS.espn.rosterUrl(TEAM_CONFIG)).then(function(d){
-    if(!RO.roster && d){ RO.roster=TeamOS.espn.roster(d); paintRoster(); } }).catch(function(){});
-  if(depth && !RO.chart) cachedJSON(depth.file).then(function(d){ if(!RO.chart && chart(d)){ RO.chart=chart(d); paintRoster(); } }).catch(function(){});
-  if(av && !RO.avail) cachedJSON(av.file).then(function(d){ if(!RO.avail && ours(d)){ RO.avail=ours(d); paintRoster(); } }).catch(function(){});
-  var jobs=[
-    get(TeamOS.espn.rosterUrl(TEAM_CONFIG)).then(function(d){ RO.roster=TeamOS.espn.roster(d); RO.failed.roster=false; })
-      .catch(function(){ RO.failed.roster=true; }),
-    depth ? get(depth.file+"?t="+Date.now()).then(function(d){ RO.chart=chart(d); RO.failed.depth=!RO.chart; })
-      .catch(function(){ RO.failed.depth=true; }) : null,
-    av ? get(av.file+"?t="+Date.now()).then(function(d){ RO.avail=ours(d); RO.failed.avail=!RO.avail; })
-      .catch(function(){ RO.failed.avail=true; }) : null,
-    // every chart this season, for Week by week - a bonus: a failure only
-    // leaves the section out
-    depth && depth.history ? Promise.all([get(depth.history+"?t="+Date.now()),
-        av && av.history ? get(av.history+"?t="+Date.now()).catch(function(){ return null; }) : null])
-      .then(function(r){
-        var h=ours(r[0]); if(!h || h.schema!==2) return;
-        RO.hist=TeamOS.roster.history(h, ours(r[1]));
-      }).catch(function(e){ if(window.console) console.warn("depth history:", e); }) : null
-  ];
-  Promise.all(jobs).then(function(){
-    RO.at=Date.now(); RO.loading=false; paintRoster();
+// The last good copy the worker kept, with when it was fetched.
+function cachedCopy(url){
+  if(typeof caches==="undefined") return Promise.reject(0);
+  return caches.match(url).then(function(r){
+    if(!r) throw 0;
+    var at=Date.parse(r.headers.get("date")||"");
+    return r.json().then(function(d){ return { data:d, at: isNaN(at) ? null : at }; });
   });
 }
+function loadRosterScreen(force){
+  rosterSources().forEach(function(src){
+    var st=roState(src.key);
+    if(st.inflight) return;                                   // never asked twice at once
+    if(!force && st.ok && !st.failed && Date.now()-st.ok < RO_AGAIN) return;
+    if(!roHas(src.key)) cachedCopy(src.url).then(function(c){
+      if(!roHas(src.key) && src.take(c.data)){ st.copyAt=c.at; paintRoster(); }
+    }).catch(function(){});
+    st.inflight=true;
+    get(src.fresh(src.url)).then(function(d){
+      if(!src.take(d)){ st.failed=true; return; }
+      var n=SRC[src.key];                                     // noteSource(): the worker's cached copy says so
+      st.ok=Date.now(); st.failed=false;
+      st.cached=!!(n && n.cached); st.fetchedAt=n ? n.fetchedAt : Date.now();
+    }).catch(function(){ st.failed=true; })
+      .then(function(){ st.inflight=false; paintRoster(); });
+  });
+  loadRosterHistory(force);
+}
+// Every chart this season, for Week by week - a bonus: a failure only
+// leaves the section out, and it is tried again next time.
+function loadRosterHistory(force){
+  var depth=rosterSnap("depth"), av=rosterSnap("availability");
+  if(!depth || !depth.history || RO.histLoading) return;
+  if(!force && RO.histAt && Date.now()-RO.histAt < RO_AGAIN) return;
+  RO.histLoading=true;
+  Promise.all([get(depth.history+"?t="+Date.now()),
+               av && av.history ? get(av.history+"?t="+Date.now()).catch(function(){ return null; }) : null])
+    .then(function(r){
+      var h=roOurs(r[0]); if(!h || h.schema!==2) return;
+      RO.hist=TeamOS.roster.history(h, roOurs(r[1])); RO.histAt=Date.now();
+    }).catch(function(e){ if(window.console) console.warn("depth history:", e); })
+    .then(function(){ RO.histLoading=false; paintRoster(); });
+}
+// Back online: what failed is asked again now, not in half an hour.
+window.addEventListener("online", function(){ if(!$("screenRoster").hidden) loadRosterScreen(); });
 // The roster search: only the list redraws, so the box keeps focus.
 document.addEventListener("input", function(e){
   if(!e.target || e.target.id!=="rosterQ") return;

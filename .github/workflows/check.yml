@@ -71,12 +71,16 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npx playwright install --with-deps chromium
-      # The runner can reach the provider's logo CDN, so CI's screenshots show
-      # real team marks. A logo that fails still falls back to initials.
+      # The runner can reach the provider's image CDN, so CI's screenshots show
+      # real team marks and player headshots; the gate also fails every
+      # headshot on purpose and checks the initials fallback shows instead.
       - run: npm run test:visual
         env:
           ALLOW_PROVIDER_IMAGES: "1"
           VISUAL_WIDTHS: "320,375,390,1280"
+      # Roster's retry and freshness behaviour: a failed load never locks
+      # itself out, and old data is never passed off as fresh.
+      - run: node tools/rosterflowcheck.js
       - uses: actions/upload-artifact@v4
         if: always()
         with:
