@@ -52,6 +52,7 @@ jobs:
             # "scoreboard-YYYYMMDD <name>"   the FBS scoreboard for that date's week
             # "schedule-<team id> <name>"    a team's season schedule
             # "roster-<team id> <name>"      a team's roster
+            # "news-<team id> <name>"        a team's news feed, links and images kept
             if [[ "$ev" =~ ^[0-9]+$ ]]; then
               out="tools/fixtures/espn-summary-$name.json"; url="$API/summary?event=$ev"; kind=summary
             elif [ "$ev" = "rankings" ]; then
@@ -59,6 +60,9 @@ jobs:
             elif [[ "$ev" =~ ^roster-([0-9]+)$ ]]; then
               out="tools/fixtures/espn-roster-$name.json"; kind=payload
               url="$API/teams/${BASH_REMATCH[1]}/roster"
+            elif [[ "$ev" =~ ^news-([0-9]+)$ ]]; then
+              out="tools/fixtures/espn-news-$name.json"; kind=news
+              url="$API/news?team=${BASH_REMATCH[1]}&limit=30"
             elif [[ "$ev" =~ ^schedule-([0-9]+)$ ]]; then
               out="tools/fixtures/espn-schedule-$name.json"; kind=payload
               url="$API/teams/${BASH_REMATCH[1]}/schedule"
@@ -67,10 +71,14 @@ jobs:
               url="$API/scoreboard?groups=80&limit=400&dates=${BASH_REMATCH[1]}"
             else echo "::warning::skipping bad request '$ev'"; continue; fi
             if [ -z "${EVENT:-}" ] && [ -f "$out" ]; then echo "  $out exists"; continue; fi
+            echo "  fetching $out"
             curl -sSf --retry 3 -o raw.json "$url"
             if [ "$kind" = summary ]; then
               python3 tools/trim_summary.py raw.json "$out" \
                 "Real ESPN game summary for event $ev, captured $(date -u +%Y-%m-%d) by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged."
+            elif [ "$kind" = news ]; then
+              python3 tools/trim_payload.py --news raw.json "$out" \
+                "Real ESPN news feed, captured $(date -u +%Y-%m-%dT%H:%MZ) by capture-fixture.yml from $url; only other systems' ids removed (tools/trim_payload.py --news)."
             else
               python3 tools/trim_payload.py raw.json "$out" \
                 "Real ESPN $ev payload, captured $(date -u +%Y-%m-%dT%H:%MZ) by capture-fixture.yml from $url and cut of logos, links and other bulk no screen reads (tools/trim_payload.py). ESPN's structure and positions are unchanged."
@@ -82,7 +90,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
           git commit -m "Capture ESPN fixtures"
           git pull --rebase -q && git push

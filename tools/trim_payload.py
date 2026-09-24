@@ -8,7 +8,10 @@ headline copy, per-player leaders and competitor statistics, and the league
 calendar. ESPN's own positions and every other key stay, so a later screen
 can read a field without a recapture.
 
-Usage:  python3 tools/trim_payload.py raw.json out.json "<comment>"
+A news feed is the exception: a story IS its headline, link and image, so
+`--news` keeps those and drops only other systems' ids.
+
+Usage:  python3 tools/trim_payload.py [--news] raw.json out.json "<comment>"
 """
 import json
 import sys
@@ -18,17 +21,22 @@ DROP = {"links", "logos", "logo", "uid", "guid", "$ref", "color", "alternateColo
         "leagues", "images", "slug", "isActive", "conferenceId"}
 
 
-def trim(o):
+NEWS_DROP = {"uid", "guid", "$ref"}
+
+
+def trim(o, drop=DROP):
     if isinstance(o, dict):
-        return {k: trim(v) for k, v in o.items() if k not in DROP}
+        return {k: trim(v, drop) for k, v in o.items() if k not in drop}
     if isinstance(o, list):
-        return [trim(v) for v in o]
+        return [trim(v, drop) for v in o]
     return o
 
 
 if __name__ == "__main__":
-    raw, out, comment = sys.argv[1], sys.argv[2], sys.argv[3]
-    d = trim(json.load(open(raw)))
+    args = sys.argv[1:]
+    news = args[:1] == ["--news"]
+    raw, out, comment = args[1:] if news else args
+    d = trim(json.load(open(raw)), NEWS_DROP if news else DROP)
     d = {"_comment": comment, **d}
     with open(out, "w") as f:
         json.dump(d, f, separators=(",", ":"))
