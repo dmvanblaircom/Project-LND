@@ -138,6 +138,9 @@ Neither is an engineering problem. **Do not implement until both clear.**
        platform, sponsorships and commerce partnerships, and we will come
        back to them first.
      - Offered: attribution with a link, and a paid tier if appropriate.
+   - **2026-09-24, clarified:** a paid tier would be considered, but the
+     project is not in a position to pay for data now; if a free
+     arrangement does not work, other free routes will be pursued first.
    - **Awaiting his decision.**
 2. **Verification.** No egress to CFBD from the environment this was researched
    in; every claim about its fields comes from web-search summaries of
