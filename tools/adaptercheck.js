@@ -56,12 +56,17 @@ eq(TeamOS.espn.scheduleUrl(TEAM_CONFIG),
 var team = TeamOS.createTeam(TEAM_CONFIG.team);
 var games = TeamOS.espn.schedule(fixture, team, TEAM_CONFIG);
 var byId = {}; games.forEach(function (g) { byId[g.id] = g; });
-var SHAPE = ["id","date","timeSet","home","neutral","oppName","oppRank","venue","city","venueState","zip",
-             "net","odds","series","state","detail","us","them","won"];
+var SHAPE = ["id","date","timeSet","home","neutral","oppName","oppRank",
+             "oppProviderId","oppAbbr","usRank","usRecord","oppRecord","venue","city","venueState","zip",
+             "net","odds","series","state","detail","status","hasStarted","period","clock","newDate","us","them","won"];
 var LEAK = /competitions|competitors|curatedRank|pickcenter|neutralSite|geoBroadcasts|timeValid|shortDetail|displayValue|zipCode|homeAway|espn/i;
 
 console.log("schedule()");
 eq(games.length, 4, "one Game per event");
+ok(games.every(function (g) { return g.oppProviderId === null || /^[0-9]+$/.test(g.oppProviderId); }),
+   "the opponent's provider id is digits or null - it only ever feeds TeamOS.espn.mark");
+ok(games.some(function (g) { return g.oppProviderId; }), "and the fixture's opponents have one");
+ok(games.every(function (g) { return g.usRecord === null || /^\d+-\d+/.test(g.usRecord); }), "a record is 'W-L' or absent, never invented");
 eq(games.map(function (g) { return g.id; }), ["401858438","401858453","401858460","401858471"], "sorted oldest first");
 games.forEach(function (g) {
   eq(Object.keys(g), SHAPE, g.id + " has exactly the documented Game fields");
@@ -97,8 +102,11 @@ eq(pur.series, "Shillelagh Trophy", "series from config");
 
 // ---- gameOdds ----
 console.log("gameOdds()");
-eq(TeamOS.espn.gameOdds({ pickcenter: [{ details: "ND -29.5", overUnder: 52.5 }] }), { line: "ND -29.5", total: 52.5 }, "line and total from pickcenter");
-eq(TeamOS.espn.gameOdds({ pickcenter: [{ overUnder: 50 }] }), { line: null, total: 50 }, "missing line -> null, total kept");
+eq(TeamOS.espn.gameOdds({ pickcenter: [{ details: "ND -29.5", overUnder: 52.5 }] }), { line: "ND -29.5", total: 52.5, provider: null }, "line and total from pickcenter; no provider named, none assumed");
+eq(TeamOS.espn.gameOdds({ pickcenter: [{ overUnder: 50 }] }), { line: null, total: 50, provider: null }, "missing line -> null, total kept");
+eq(TeamOS.espn.gameOdds({ pickcenter: [{ details: "ND -7", overUnder: 51, provider: { name: "Any Book" } }] }).provider, "Any Book",
+   "the provider the feed names is kept as provenance, whoever it is (decision 0025)");
+eq(TeamOS.espn.gameOdds({ pickcenter: [{ provider: { name: "Any Book" } }] }), null, "a provider with no numbers is not odds");
 eq(TeamOS.espn.gameOdds({}), null, "no pickcenter -> null");
 eq(TeamOS.espn.gameOdds(null), null, "no summary -> null");
 
@@ -155,7 +163,8 @@ eq(Object.keys(TeamOS.espn.teamStatus(teamFixture)), ["rank","record"], "exactly
 
 // ---- scoreboard ----
 var sbFixture = JSON.parse(read("tools/fixtures/espn-scoreboard.json"));
-var LG = ["id","date","timeSet","state","detail","venue","net","odds","home","away","mine","live"];
+var LG = ["id","date","timeSet","state","status","hasStarted","period","clock","detail","venue","net","odds","home","away","mine","live"];
+var SIDE_LG = ["name","abbr","providerId","rank","record","score"];
 var LGLEAK = /competitions|competitors|curatedRank|homeAway|shortDetail|situation|downDistanceText|geoBroadcasts|displayName|espn/i;
 
 console.log("scoreboardUrl / rankingsUrl");
@@ -173,17 +182,19 @@ eq(lgs.length, 4, "one LeagueGame per event, including unranked ones");
 eq(lgs.map(function (g) { return g.id; }), ["401858100","401858225","401858226","401858460"], "sorted oldest first");
 lgs.forEach(function (g) {
   eq(Object.keys(g), LG, g.id + " has exactly the documented LeagueGame fields");
-  eq(Object.keys(g.home), ["name","rank","score"], g.id + " home side is {name, rank, score}");
-  eq(Object.keys(g.away), ["name","rank","score"], g.id + " away side is {name, rank, score}");
+  eq(Object.keys(g.home), SIDE_LG, g.id + " home side has exactly the documented fields");
+  eq(Object.keys(g.away), SIDE_LG, g.id + " away side has exactly the documented fields");
   // `net` is the broadcaster's own name and can legitimately be "ESPN"; test everything else
   ok(!LGLEAK.test(JSON.stringify(Object.assign({}, g, { net: "" }))), g.id + " carries no ESPN keys or names (outside the broadcaster's name)");
   ok(typeof g.id === "string", g.id + " id is a string (rows are keyed on it)");
 });
 var mia = lgById["401858226"], pitt = lgById["401858225"], uga = lgById["401858100"], pur = lgById["401858460"];
 eq([mia.state, mia.timeSet, mia.detail, mia.venue], ["pre", true, "9/18 - 7:30 PM EDT", "Allegacy Federal Credit Union Stadium"], "future game: state, time, detail, venue");
-eq([mia.away, mia.home], [{ name:"Miami", rank:5, score:"0" }, { name:"Wake Forest", rank:null, score:"0" }], "sides: ranked away, unranked home, scores as strings");
-eq([mia.net, mia.odds, mia.mine, mia.live], ["ESPN", { line:"MIA -20.5", total:56.5 }, false, null], "broadcast from names[], odds, not ours, not live");
-eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", lastPlay:"(03:28) #47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20" }], "live game carries down/distance and last play");
+eq([mia.away, mia.home], [{ name:"Miami", abbr:null, providerId:"2390", rank:5, record:null, score:"0" },
+                         { name:"Wake Forest", abbr:null, providerId:"154", rank:null, record:null, score:"0" }],
+   "sides: ranked away, unranked home, scores as strings; no abbreviation or record in the payload -> null");
+eq([mia.net, mia.odds, mia.mine, mia.live], ["ESPN", { line:"MIA -20.5", total:56.5, provider:null }, false, null], "broadcast from names[], odds, not ours, not live");
+eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"(03:28) #47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20" }], "live game carries down/distance and last play");
 eq([pitt.home.rank, pitt.away.rank], [null, null], "unranked on both sides (drives live-anywhere but not the ranked list)");
 eq([uga.state, uga.home.score, uga.away.score, uga.home.rank, uga.away.rank], ["post", "31", "24", 2, 9], "final: scores and both ranks");
 eq([pur.mine, pur.timeSet, pur.net, pur.away.rank], [true, false, "Peacock", 3], "the team's own game: mine, placeholder time, streaming-only broadcast");
@@ -192,9 +203,22 @@ eq(lgs.filter(function (g) { return g.home.rank || g.away.rank; }).map(function 
    ["401858100","401858226","401858460"], "ranked games are the ones with a side rank");
 eq(TeamOS.espn.scoreboard(null, TEAM_CONFIG), [], "no payload -> empty list");
 
+console.log("scoreboard(), a real week");
+var wk = TeamOS.espn.scoreboard(JSON.parse(read("tools/fixtures/espn-scoreboard-sep26.json")), TEAM_CONFIG);
+var rankedWk = wk.filter(function (g) { return g.home.rank || g.away.rank; });
+eq(rankedWk.length, 17, "17 games with a ranked side on the real Sep 26 slate");
+var ours = wk.filter(function (g) { return g.mine; });
+eq(ours.map(function (g) { return [g.away.name, g.away.abbr, g.away.providerId, g.away.rank, g.away.record, g.home.name, g.home.rank, g.net]; }),
+   [["Notre Dame", "ND", "87", 3, "3-0", "Purdue", null, "Peacock"]], "the team's game: names, abbreviations, marks, rank, record, network");
+eq(ours[0].odds, { line: "ND -27.5", total: 58.5, provider: "Draft Kings" }, "odds as values, the provider kept as data (0025)");
+var wkId = {}; wk.forEach(function (g) { wkId[g.id] = g; });
+eq([wkId["401858243"].net, wkId["401858466"].net, wkId["401856702"].net], ["ESPN, Disney+", "Peacock", "ABC"],
+   "where to watch: no radio call signs, and ESPN's \"ESPN/Disney+\" summary does not repeat what is listed");
+wk.forEach(function (g) { ok(!LGLEAK.test(JSON.stringify(Object.assign({}, g, { net: "", odds: null }))), "real " + g.id + " carries no ESPN keys"); });
+
 // ---- rankings ----
 var rkFixture = JSON.parse(read("tools/fixtures/espn-rankings.json"));
-var POLL = ["key","label","name","asOf","ranks"], RANK = ["rank","team","record","previous","isNew","mine"];
+var POLL = ["key","label","name","asOf","updated","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
 var POLLLEAK = /rankings|occurrence|recordSummary|shortName|headline|nickname|location|current|espn/i;
 
 console.log("rankings()");
@@ -208,17 +232,33 @@ polls.forEach(function (p) {
 });
 var ap = polls[0];
 eq([ap.name, ap.asOf], ["AP Top 25", "Week 3"], "poll name and as-of");
-eq(ap.ranks[0], { rank:1, team:"Texas", record:"2-0", previous:4, isNew:false, mine:false }, "moved up: previous kept");
-eq(ap.ranks[2], { rank:3, team:"Notre Dame", record:"2-0", previous:1, isNew:false, mine:true }, "the team's own entry: mine");
-eq([ap.ranks[3].previous, ap.ranks[3].isNew], [null, true], "previous 0 -> new to the poll");
+eq(ap.ranks[0], { rank:1, team:"Texas", abbr:null, providerId:"251", record:"2-0", previous:4, isNew:false, change:3, mine:false }, "moved up: previous kept, change +3");
+eq(ap.ranks[2], { rank:3, team:"Notre Dame", abbr:null, providerId:"87", record:"2-0", previous:1, isNew:false, change:-2, mine:true }, "the team's own entry: mine; moved down: change -2");
+eq([ap.ranks[3].previous, ap.ranks[3].isNew, ap.ranks[3].change], [null, true, null], "previous 0 -> new to the poll, no change to measure");
 eq([ap.ranks[4].previous, ap.ranks[4].isNew, ap.ranks[4].team], [null, false, "Volunteers"], "no previous -> null and not new; team name falls back through nickname/name/location");
 eq(polls.some(function (p) { return p.label === "CFP"; }), false, "no CFP poll yet (the tab shows its note)");
 eq(TeamOS.espn.rankings({}, TEAM_CONFIG), [], "no payload -> empty list");
 
+// The real polls, captured on the runner (capture-fixture.yml): what Top 25 draws.
+console.log("rankings(), a real payload");
+var real = TeamOS.espn.rankings(JSON.parse(read("tools/fixtures/espn-rankings-sep20.json")), TEAM_CONFIG);
+eq(real.map(function (p) { return p.label + ":" + p.ranks.length; }), ["AP:25", "Coaches:25"],
+   "AP and Coaches, all 25 each; the FCS and Division II/III polls dropped; no CFP before the committee publishes");
+var rap = real[0];
+eq([rap.name, rap.asOf, rap.updated], ["AP Top 25", "Week 4", "2026-09-20T21:19Z"], "name, week and when it was published");
+eq(rap.ranks.map(function (r) { return r.rank; }), Array.from({ length: 25 }, function (_, i) { return i + 1; }), "ranks 1 to 25 in order");
+eq(rap.ranks.filter(function (r) { return r.mine; }).map(function (r) { return [r.rank, r.team, r.abbr, r.providerId, r.change]; }),
+   [[3, "Notre Dame", "ND", "87", 0]], "the team, once: #3, unchanged");
+var fla = rap.ranks.filter(function (r) { return r.team === "Florida"; })[0];
+eq([fla.previous, fla.isNew, fla.change], [null, true, null], "new this week: no change is invented from ESPN's own trend text");
+eq(rap.ranks.filter(function (r) { return r.abbr === "MSST"; })[0].team, "Mississippi St", "the feed's short name, not the long one");
+real.forEach(function (p) { ok(!POLLLEAK.test(JSON.stringify(p)), "real " + p.key + " carries no ESPN keys"); });
+
 // ---- game center ----
-var GD = ["state","detail","home","away","lastPlay","winProb","linescore","teamStats","leaders","box","scoring"];
+var GD = ["state","detail","home","away","lastPlay","winProb","linescore","teamStats","leaders","box","scoring","drives"];
 var SIDE = ["key","name","abbreviation","record","score","mine"];
-var GDLEAK = /competitions|competitors|homeAway|shortDetail|situation|drives|winprobability|homeWinPercentage|linescores|boxscore|scoringPlays|athlete|displayValue|shortDisplayName|pickcenter|espn/i;
+// "drives" is the domain's own word now; ESPN's drive keys are what must not leak.
+var GDLEAK = /competitions|competitors|homeAway|shortDetail|situation|yardsToEndzone|possessionText|statYardage|scoringPlay\b|displayResult|winprobability|homeWinPercentage|linescores|boxscore|scoringPlays|athlete|displayValue|shortDisplayName|pickcenter|espn/i;
 var sumPre = JSON.parse(read("tools/fixtures/espn-summary-pre.json"));
 var sumLive = JSON.parse(read("tools/fixtures/espn-summary-live.json"));
 var sumPost = JSON.parse(read("tools/fixtures/espn-summary-post.json"));
@@ -242,6 +282,25 @@ var gdPre = TeamOS.espn.gameDetail(sumPre, team, TEAM_CONFIG), gdLive = TeamOS.e
   ok(["pre","in","post"].indexOf(g.state) > -1, n + " state is a game status (" + g.state + ")");
 });
 
+console.log("gameDetail() - drives, from a real captured game (Wisconsin, final)");
+var sumWis = JSON.parse(read("tools/fixtures/espn-summary-wis-final.json"));
+var gdWis = TeamOS.espn.gameDetail(sumWis, team, TEAM_CONFIG);
+ok(!GDLEAK.test(JSON.stringify(gdWis)), "a real summary carries no ESPN keys through");
+ok(gdWis.drives && gdWis.drives.list.length === sumWis.drives.previous.length, "every drive, in order (" + (gdWis.drives && gdWis.drives.list.length) + ")");
+eq(gdWis.drives.current, null, "a final game has no drive in progress");
+var d4 = gdWis.drives.list[3];
+eq([d4.mine, d4.side === "home" || d4.side === "away", d4.summary, d4.result], [true, true, "11 plays, 48 yards, 4:56", "Field Goal"],
+   "a drive: whose, which side, the provider's summary, how it ended");
+var p1 = d4.plays[1];
+eq([p1.start.fromOwn, p1.end.fromOwn, p1.start.short, p1.start.spot, p1.yards, p1.offense],
+   [18, 33, "1st & 10", "ND 18", 15, true], "a play: spots from the offense's own goal line, down and distance, yards");
+ok(gdWis.drives.list.every(function (d) {
+  return d.plays.every(function (p) { return !p.offense || !p.start || p.start.fromOwn == null || (p.start.fromOwn >= 0 && p.start.fromOwn <= 100); });
+}), "every offensive spot is on the field (0-100 from the offense's goal)");
+ok(gdWis.drives.list.some(function (d) { return d.plays.some(function (p) { return p.offense === false; }); }),
+   "a play the other team ran inside a drive (the kickoff) is marked, so the field can leave it out");
+eq(gdPre.drives, null, "no drives before kickoff");
+
 console.log("gameDetail() - pregame");
 eq([gdPre.state, gdPre.detail], ["pre", "Sat, September 19th at 7:30 PM EDT"], "scheduled, long status text");
 eq(gdPre.home, { key:"87", name:"Notre Dame Fighting Irish", abbreviation:"ND", record:"", score:null, mine:true }, "home side: name falls back to displayName, no record or score yet, mine");
@@ -257,8 +316,8 @@ eq(gdLive.lastPlay, { text:"Timeout Notre Dame, clock 08:53", possession:"ND", d
 eq(gdLive.winProb, { homePct:0.78 }, "win probability is the latest point");
 eq(gdLive.linescore, { away:["3","7"], home:["10","3"] }, "two periods of linescores");
 eq(gdLive.teamStats.map(function (r) { return r.label; }), ["Total yards","Passing","Rushing","First downs","3rd down","Turnovers","Penalties","Possession"], "the eight Team-stats rows in order");
-eq(gdLive.teamStats[0], { label:"Total yards", away:"148", home:"211", better:"home" }, "more yards is better");
-eq(gdLive.teamStats[5], { label:"Turnovers", away:"0", home:"1", better:"away" }, "fewer turnovers is better");
+eq(gdLive.teamStats[0], { label:"Total yards", away:"148", home:"211", better:"home", lowerWins:false }, "more yards is better");
+eq(gdLive.teamStats[5], { label:"Turnovers", away:"0", home:"1", better:"away", lowerWins:true }, "fewer turnovers is better, and the row says so");
 eq(gdLive.teamStats[4].better, "away", "3rd down compares the rate: 5-13 beats 3-9");
 eq(gdLive.teamStats[6].better, "home", "penalties compare the count: 4 beats 6");
 eq(gdLive.teamStats[7].better, "home", "possession compares seconds: 31:36 beats 28:24");
@@ -273,6 +332,12 @@ eq(gdPost.winProb, { homePct:1 }, "final win probability point kept (the view on
 eq(gdPost.linescore, { away:["3","7","3","0"], home:["10","3","14","14"] }, "four periods");
 eq(gdPost.box.home.map(function (t) { return t.title + ":" + t.labels.length + ":" + t.rows.length; }), ["Notre Dame Passing:6:1","Notre Dame Rushing:5:3","Notre Dame Receiving:5:3"], "box tables per side: title, column labels, rows");
 eq(gdPost.box.home[0].rows[0], { name:"CJ Carr", jersey:"13", stats:["19/29","239","8.2","2","0","70.2"] }, "a box row");
+eq(gdPost.box.home.map(function (t) { return t.key + "=" + t.label; }), ["passing=Passing","rushing=Rushing","receiving=Receiving"],
+   "each box table has a stable category key and a label without the team name");
+var wisBox = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-wis-final.json")), team, TEAM_CONFIG).box;
+ok(wisBox.home.concat(wisBox.away).some(function (t) { return t.key === "kickReturns" && t.label === "Kick Returns"; }) &&
+   wisBox.home.concat(wisBox.away).some(function (t) { return t.key === "defensive" && t.label === "Defense"; }),
+   "a real game's categories read as words: Kick Returns, Defense");
 eq(gdPost.leaders.away[4], { category:"Tackles", name:"M. Posa", line:"15" }, "leader category names are mapped, not ESPN's");
 eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).state, "post", "an empty payload is treated as final (no polling)");
 eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", abbreviation:"", record:"", score:null, mine:false }, "an empty side");
@@ -430,8 +495,14 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamScheduleUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","mark","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamScheduleUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
+
+console.log("mark");
+eq(TeamOS.espn.mark("87"), "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png", "a program's mark, as the provider hosts it");
+eq(TeamOS.espn.mark(87, true), "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png", "the variant drawn for dark backgrounds");
+eq(TeamOS.espn.mark(null), null, "no id, no mark - the view draws its own fallback");
+eq(TeamOS.espn.mark("87/../x"), null, "an id is digits or nothing: it becomes part of a URL");
 
 // ---- snapshot ownership: the same questions, two teams, two answers ----
 console.log("teamos/snapshots.js");

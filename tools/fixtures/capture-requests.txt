@@ -1,0 +1,10 @@
+# Real ESPN payloads to capture as fixtures (capture-fixture.yml). Pushing
+# this file runs the capture on GitHub's network and commits the results.
+#   <ESPN event id> <name>        -> espn-summary-<name>.json
+#   rankings <name>               -> espn-rankings-<name>.json (the polls now)
+#   scoreboard-YYYYMMDD <name>    -> espn-scoreboard-<name>.json (FBS, that week)
+401858438 wis-final
+401858453 msu-final
+rankings sep20
+scoreboard-20260919 sep19
+scoreboard-20260926 sep26

@@ -31,6 +31,12 @@ TeamOS.createTeam = (function () {
     if (typeof v !== "string" || !v.trim()) fail(label || field, "must be a non-empty string");
     return v;
   }
+  function zone(obj, field) {
+    var v = str(obj, field);
+    try { new Intl.DateTimeFormat("en-US", { timeZone: v }); }
+    catch (e) { fail(field, "must be an IANA time zone, got " + v); }
+    return v;
+  }
   function num(obj, field, label) {
     var v = obj[field];
     if (typeof v !== "number" || isNaN(v)) fail(label || field, "must be a number");
@@ -44,7 +50,12 @@ TeamOS.createTeam = (function () {
       name:         str(t, "name"),
       abbreviation: str(t, "abbreviation"),
       sport:        str(t, "sport"),
-      league:       str(t, "league")
+      league:       str(t, "league"),
+      // The team's home time zone, IANA ("America/New_York"). Policies that
+      // depend on the team's local calendar read it - a recent final holds
+      // the Home hero through the end of the following local day (decision
+      // 0022 #10). Display times are the device's own, never this.
+      timeZone:     zone(t, "timeZone")
     };
     if (!t.venue || typeof t.venue !== "object") fail("venue", "must be an object");
     team.venue = Object.freeze({

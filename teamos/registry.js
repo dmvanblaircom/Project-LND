@@ -41,6 +41,9 @@ TeamOS.registry = (function () {
         // a registry row without them is still a program.
         abbr:       typeof t.abbr === "string" && t.abbr ? t.abbr : null,
         nick:       typeof t.nick === "string" && t.nick ? t.nick : null,
+        // The data provider's id for the program, so its mark can be asked
+        // for. Optional: a row without one still lists, with a fallback mark.
+        providerId: typeof t.providerId === "string" && /^[0-9]+$/.test(t.providerId) ? t.providerId : null,
         config:     typeof t.config === "string" && t.config ? t.config : null,
         available:  !!(typeof t.config === "string" && t.config)
       }));
