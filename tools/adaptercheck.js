@@ -112,7 +112,7 @@ eq(TeamOS.espn.gameOdds(null), null, "no summary -> null");
 
 // ---- roster ----
 var rosterFixture = JSON.parse(read("tools/fixtures/espn-roster.json"));
-var PLAYER = ["name","jersey","position","positionName","height","weight","classYear","hometown"];
+var PLAYER = ["name","jersey","position","positionName","height","weight","classYear","hometown","photo"];
 var PLEAK = /displayName|fullName|displayHeight|displayWeight|experience|birthPlace|abbreviation|athletes|espn/i;
 
 console.log("rosterUrl / teamUrl");
@@ -139,15 +139,19 @@ groups.forEach(function (g) {
 });
 var absher = groups[0].players[0], scaife = groups[2].players[0], walkon = groups[2].players[1];
 eq(absher, { name:"Sullivan Absher", jersey:"75", position:"OL", positionName:"Offensive Lineman",
-             height:"6' 7\"", weight:"320 lbs", classYear:"SR", hometown:{ city:"Belmont", state:"NC" } },
+             height:"6' 7\"", weight:"320 lbs", classYear:"SR", hometown:{ city:"Belmont", state:"NC" }, photo:null },
    "full player: abbreviation shown, full position name kept for search, class abbreviation");
 eq([scaife.hometown.city, scaife.hometown.state], ["West Perth", ""], "missing state -> empty string, not undefined");
 eq(walkon, { name:"Walk On", jersey:"", position:"Long Snapper", positionName:"Long Snapper",
-             height:"", weight:"", classYear:"", hometown:{ city:"", state:"" } },
+             height:"", weight:"", classYear:"", hometown:{ city:"", state:"" }, photo:null },
    "sparse athlete: no jersey/height/weight/class/hometown -> empty strings; position falls back to name");
 eq(TeamOS.espn.roster({ athletes: [absherRaw(), absherRaw()] }).map(function (g) { return g.key + ":" + g.label + ":" + g.players.length; }),
    ["all:Roster:2"], "a flat athletes array becomes one group called Roster");
 eq(TeamOS.espn.roster({}).map(function (g) { return g.key + ":" + g.players.length; }), ["all:0"], "no athletes -> one empty group");
+var realRoster = TeamOS.espn.roster(JSON.parse(read("tools/fixtures/espn-roster-nd-sep24.json")));
+var carr = realRoster.reduce(function (a, g) { return a.concat(g.players); }, []).filter(function (p) { return p.name === "CJ Carr"; })[0];
+ok(carr && /^https:\/\/a\.espncdn\.com\/i\/headshots\/college-football\/players\/full\/\d+\.png$/.test(carr.photo),
+   "a real roster player carries the provider's headshot URL as photo");
 // the key is lowercased before the camelCase split, so an unknown unit gets a plain capital - as it always has
 eq(TeamOS.espn.roster({ athletes: [{ position: "someNewUnit", items: [absherRaw()] }] })[0].label, "Somenewunit", "unknown unit key is capitalised, not in the label map");
 function absherRaw() { return rosterFixture.athletes[0].items[0]; }

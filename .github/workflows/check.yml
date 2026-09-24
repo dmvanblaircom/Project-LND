@@ -35,6 +35,8 @@ jobs:
         run: node tools/gamecheck.js
       - name: Season Outlook, screen freshness and weather
         run: node tools/rulescheck.js
+      - name: The depth chart joined to the roster, views that follow the team
+        run: node tools/rostercheck.js
       - name: The matchup card agrees with the data
         run: node tools/matchupcheck.js
       - name: The depth chart parser reads the official chart as written

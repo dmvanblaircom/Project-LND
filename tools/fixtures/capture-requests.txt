@@ -4,6 +4,7 @@
 #   rankings <name>               -> espn-rankings-<name>.json (the polls now)
 #   scoreboard-YYYYMMDD <name>    -> espn-scoreboard-<name>.json (FBS, that week)
 #   schedule-<team id> <name>     -> espn-schedule-<name>.json (a team's season)
+#   roster-<team id> <name>       -> espn-roster-<name>.json (a team's roster)
 401858438 wis-final
 401858453 msu-final
 rankings sep20
@@ -11,3 +12,5 @@ scoreboard-20260919 sep19
 scoreboard-20260926 sep26
 schedule-87 nd-sep24
 401858467 pur-pre
+roster-87 nd-sep24
+roster-194 osu-sep24
