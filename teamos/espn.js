@@ -54,24 +54,40 @@ TeamOS.espn = (function () {
     }
     function scan(x){
       if(!x) return;
+      // where to watch: a radio call sign ("ERADM") is not a place to watch
+      if(/radio/i.test((x.type&&x.type.shortName)||"")) return;
       if(x.media){ add(x.media.shortName); add(x.media.callLetters); add(x.media.name); }
       if(Array.isArray(x.names)) x.names.forEach(add);
       add(x.shortName); add(x.callLetters); add(x.station); add(x.name);
     }
     (comp.broadcasts||[]).forEach(scan);
     (comp.geoBroadcasts||[]).forEach(scan);
-    if(typeof comp.broadcast==="string") add(comp.broadcast);
+    // ESPN's one-line summary ("ESPN/Disney+") repeats networks listed above;
+    // it adds only a network nothing else named
+    if(typeof comp.broadcast==="string"){
+      var parts=comp.broadcast.split("/").map(function(p){ return p.trim(); }).filter(Boolean);
+      if(!parts.every(function(p){ return out.indexOf(p)>-1; })) add(comp.broadcast);
+    }
     // a couple of feeds hang it off the event's status block instead
     if(comp.status && typeof comp.status.broadcast==="string") add(comp.status.broadcast);
     return out.join(", ");
   }
 
   // The line and total, from whichever block ESPN put them in.
-  function odds(comp){
-    var o=(comp.odds&&comp.odds[0])||(comp.pickcenter&&comp.pickcenter[0]);
+  // Odds are compact game metadata - the spread and the total - never a
+  // betting product (decision 0025). Whoever set them is kept as provenance,
+  // `provider`, exactly as the feed names it: ESPN's odds source has
+  // changed before (ESPN BET, then DraftKings from December 2025), so no
+  // sportsbook name is ever assumed in code. Null when the feed names none.
+  function oddsOf(o){
     if(!o) return null;
-    return { line:o.details||(o.spread!=null?String(o.spread):null),
-             total:o.overUnder!=null?o.overUnder:null };
+    var line=o.details||(o.spread!=null?String(o.spread):null), total=o.overUnder!=null?o.overUnder:null;
+    if(line==null && total==null) return null;
+    var p=o.provider && (o.provider.displayName||o.provider.name);
+    return { line:line, total:total, provider: p ? str(p) : null };
+  }
+  function odds(comp){
+    return oddsOf((comp.odds&&comp.odds[0])||(comp.pickcenter&&comp.pickcenter[0]));
   }
 
   // ESPN does not always set neutralSite. A game where the team is the listed
@@ -128,6 +144,55 @@ TeamOS.espn = (function () {
     return str(s);
   }
 
+  /* ---------- game status ----------
+     ESPN's status -> the Suite's normalized one (decisions 0022 #5, 0024
+     §14). ESPN's `state` alone cannot carry it: a postponed game and a final
+     one are both "post", and a delay before kickoff and a lightning delay in
+     the third quarter are both named DELAYED. So the type's NAME decides the
+     status, and `hasStarted` records whether play has begun - which is what
+     tells those two delays apart.
+
+       status      scheduled | live | delayed | suspended | final |
+                   postponed | canceled
+       hasStarted  true once there has been play; never true for a game that
+                   has only been scheduled, postponed or canceled before it
+                   began
+       period      the quarter, 0 before kickoff
+       clock       the game clock as ESPN displays it, or ""
+
+     The names are ESPN's documented STATUS_* values; anything unknown falls
+     back to what `state` says, so a new ESPN name degrades to the old
+     pre/in/post behaviour rather than to nonsense. */
+  function gameStatus(stat){
+    stat = stat || {};
+    var t = stat.type || {};
+    var name = String(t.name || "").toUpperCase(), state = t.state || "pre";
+    var period = Number(stat.period) || 0;
+    var status =
+      /CANCEL/.test(name)   ? "canceled"  :
+      /POSTPONE/.test(name) ? "postponed" :
+      /SUSPEND/.test(name)  ? "suspended" :
+      /DELAY/.test(name)    ? "delayed"   :
+      (state === "post" || t.completed === true) ? "final" :
+      state === "in"        ? "live"      : "scheduled";
+    var started = status === "live" || status === "final" ||
+                  ((status === "delayed" || status === "suspended") && (state === "in" || period > 0)) ||
+                  ((status === "postponed" || status === "canceled") && period > 0);
+    return { status: status, hasStarted: started, period: period, clock: str(stat.displayClock) };
+  }
+
+  // A competitor's overall record, "3-0", from whichever shape the endpoint
+  // uses: the schedule's record[] or the scoreboard's records[]. Absent is
+  // null - an optional field the Suite leaves out (0022 #3).
+  function recordOf(c){
+    var list = c && (c.records || c.record);
+    if (!Array.isArray(list) || !list.length) return null;
+    var r = list.filter(function(x){ return /^(total|overall)$/i.test(x.type||x.name||""); })[0] || list[0];
+    var v = r && (r.summary || r.displayValue);
+    return v ? str(v) : null;
+  }
+  function idOf(t){ var id = t && t.id != null ? String(t.id) : ""; return /^[0-9]+$/.test(id) ? id : null; }
+
   function game(ev, team, config){
     var teamId = config.sources.espn.teamId;
     var comp=(ev.competitions&&ev.competitions[0])||{}, cs=comp.competitors||[];
@@ -135,6 +200,7 @@ TeamOS.espn = (function () {
     cs.forEach(function(c){ var id=c.id||(c.team&&c.team.id);
       if(String(id)===teamId) us=c; else them=c; });
     var st=(comp.status&&comp.status.type)||(ev.status&&ev.status.type)||{};
+    var gs=gameStatus(comp.status||ev.status);
     var oppLong = them&&them.team ? (them.team.displayName||them.team.shortDisplayName) : "";
     return {
       id:ev.id, date:ev.date, timeSet:timeIsSet(ev.date, comp),
@@ -142,6 +208,10 @@ TeamOS.espn = (function () {
       neutral: isNeutral(team, comp, us),
       oppName: them&&them.team?(them.team.shortDisplayName||them.team.displayName):"opponent to be announced",
       oppRank: them&&them.curatedRank&&them.curatedRank.current<26?them.curatedRank.current:null,
+      // For the opponent's mark (TeamOS.espn.mark) and its initials fallback.
+      oppProviderId: them ? idOf(them.team) : null,
+      oppAbbr: them&&them.team ? str(them.team.abbreviation) : "",
+      usRank: rankOf(us), usRecord: recordOf(us), oppRecord: recordOf(them),
       venue: comp.venue?(comp.venue.fullName||""):"",
       city: comp.venue&&comp.venue.address?comp.venue.address.city:"",
       venueState: comp.venue&&comp.venue.address?(comp.venue.address.state||""):"",
@@ -150,6 +220,14 @@ TeamOS.espn = (function () {
       odds: odds(comp),
       series: seriesFor(config.series, oppLong),
       state: st.state||"pre", detail: st.shortDetail||"",
+      status: gs.status, hasStarted: gs.hasStarted, period: gs.period, clock: gs.clock,
+      // A postponed game's replacement date, { date, timeSet }, only when a
+      // source states one trustworthily (decision 0022 #5). ESPN does not:
+      // a postponed event keeps a date that may be the original or the new
+      // one, with nothing saying which. So this adapter never guesses - it
+      // is null, the Suite says "New date to be announced", and when ESPN
+      // reschedules the game it returns as scheduled on its new date.
+      newDate: null,
       // A score of 0 is a score. The old truthiness test turned a real 0
       // into null, which the view then printed as 0 by coincidence and
       // which left the model unable to tell "0-0 in progress" from "no
@@ -198,10 +276,17 @@ TeamOS.espn = (function () {
     return c && c.curatedRank && c.curatedRank.current<TOP25 ? c.curatedRank.current : null;
   }
   function leagueSide(c){
+    var t=(c&&c.team)||{};
+    var recs=(c&&c.records)||[];
+    var rec=recs.filter(function(r){ return r && r.type==="total"; })[0];
     return {
-      name:  c && c.team ? str(c.team.shortDisplayName||c.team.displayName) : "opponent to be announced",
-      rank:  rankOf(c),
-      score: c && c.score!=null ? str(c.score) : null
+      name:       c && c.team ? str(t.shortDisplayName||t.displayName) : "opponent to be announced",
+      abbr:       t.abbreviation ? str(t.abbreviation) : null,
+      // opaque: Suite hands it back to ask for the program's mark
+      providerId: t.id!=null ? str(t.id) : null,
+      rank:       rankOf(c),
+      record:     rec && rec.summary ? str(rec.summary) : null,
+      score:      c && c.score!=null ? str(c.score) : null
     };
   }
 
@@ -214,6 +299,7 @@ TeamOS.espn = (function () {
     var home=cs.filter(function(c){return c.homeAway==="home";})[0]||cs[0];
     var away=cs.filter(function(c){return c.homeAway==="away";})[0]||cs[1];
     var st=(comp.status&&comp.status.type)||{};
+    var gs=gameStatus(comp.status);
     var sit=comp.situation||{};
     var state=st.state||"pre";
     return {
@@ -221,6 +307,7 @@ TeamOS.espn = (function () {
       date:    ev.date,
       timeSet: timeIsSet(ev.date, comp),
       state:   state,
+      status:  gs.status, hasStarted: gs.hasStarted, period: gs.period, clock: gs.clock,
       detail:  str(st.shortDetail),
       venue:   comp.venue ? str(comp.venue.fullName) : "",
       net:     broadcast(comp),
@@ -230,6 +317,12 @@ TeamOS.espn = (function () {
       mine:    cs.some(function(c){ return String(c.id)===teamId; }),
       live:    state==="in"
                  ? { downDistance: str(sit.downDistanceText||sit.shortDownDistanceText),
+                     short:        str(sit.shortDownDistanceText),
+                     spot:         str(sit.possessionText),
+                     // which side has the ball, as "home" / "away" - never a provider id
+                     possession:   sit.possession==null ? null
+                                   : String(sit.possession)===String(home&&home.id||home&&home.team&&home.team.id) ? "home"
+                                   : String(sit.possession)===String(away&&away.id||away&&away.team&&away.team.id) ? "away" : null,
                      lastPlay:     str(sit.lastPlay&&sit.lastPlay.text) }
                  : null
     };
@@ -267,16 +360,23 @@ TeamOS.espn = (function () {
       label: label,
       name:  str(r.name||"Poll"),
       asOf:  r.occurrence ? str(r.occurrence.displayValue) : "",
+      // when the poll was last published, ISO; null when the feed has no date
+      updated: r.lastUpdated||r.date ? str(r.lastUpdated||r.date) : null,
       ranks: (r.ranks||[]).map(function(x){
         var t=x.team||{};
         return {
-          rank:     x.current,
-          team:     str(t.nickname||t.name||t.location||t.shortDisplayName),
-          record:   str(x.recordSummary),
+          rank:       x.current,
+          team:       str(t.nickname||t.name||t.location||t.shortDisplayName),
+          abbr:       t.abbreviation ? str(t.abbreviation) : null,
+          providerId: t.id!=null ? str(t.id) : null,
+          record:     str(x.recordSummary),
           // ESPN's `previous` is a rank, 0 for a team new to the poll, or absent
-          previous: x.previous>0 ? x.previous : null,
-          isNew:    x.previous===0,
-          mine:     String(t.id)===teamId
+          previous:   x.previous>0 ? x.previous : null,
+          isNew:      x.previous===0,
+          // places moved since the last poll, up positive; null when there
+          // is no earlier rank to measure from (new, or no history)
+          change:     x.previous>0 && typeof x.current==="number" ? x.previous-x.current : null,
+          mine:       String(t.id)===teamId
         };
       })
     };
@@ -329,11 +429,14 @@ TeamOS.espn = (function () {
     ["Penalties",["totalPenaltiesYards"]],
     ["Possession",["possessionTime"]]
   ];
+  // Stats where fewer is better. A share-of-total bar would read backwards
+  // for these, so each row says which way it runs.
+  function LOWER_WINS(label){ return label==="Turnovers"||label==="Penalties"; }
   function betterSide(label, av, hv){
     var an=cmpVal(av), hn=cmpVal(hv);
     if(label==="Penalties"){ an=numOf(av); hn=numOf(hv); }
     if(an==null||hn==null||an===hn) return null;
-    var lowerWins = label==="Turnovers"||label==="Penalties";
+    var lowerWins = LOWER_WINS(label);
     return (lowerWins ? an<hn : an>hn) ? "away" : "home";
   }
   // ESPN names leader categories "passingYards", "totalTackles" and so on.
@@ -370,7 +473,13 @@ TeamOS.espn = (function () {
       var rows=cat.athletes||[];
       if(!labels.length||!rows.length) return;
       var title=str(cat.text||cat.name);
+      // key: the category as a stable id ("passing", "kickReturns");
+      // label: it in words, without the team name ESPN puts in `text`.
+      var key=str(cat.name||title).replace(/[^A-Za-z0-9]/g,"");
+      var label=key.replace(/([a-z])([A-Z])/g,"$1 $2").replace(/^./,function(c){ return c.toUpperCase(); })
+                   .replace(/^Defensive$/,"Defense");
       out.push({
+        key: key, label: label,
         title: title.charAt(0).toUpperCase()+title.slice(1),
         labels: labels.map(str),
         rows: rows.map(function(a){
@@ -395,6 +504,50 @@ TeamOS.espn = (function () {
   }
   function linescoreOf(c){
     return (c.linescores||[]).map(function(v){ return str(v.displayValue!=null?v.displayValue:v.value); });
+  }
+
+  // ---- drives and plays ----
+  // A spot on the field from the OFFENSE's side: fromOwn is yards from its
+  // own goal line (100 - ESPN's yardsToEndzone), so a drive always runs
+  // 0 -> 100 whichever end it is at. down/distance are the snap's.
+  function spotOf(s){
+    if(!s || typeof s!=="object") return null;
+    var yte = typeof s.yardsToEndzone==="number" ? s.yardsToEndzone : null;
+    return { fromOwn: yte==null ? null : 100-yte,
+             down: typeof s.down==="number" ? s.down : null,
+             distance: typeof s.distance==="number" ? s.distance : null,
+             short: str(s.shortDownDistanceText), spot: str(s.possessionText),
+             teamId: str(pick(s,["team","id"],"")) };
+  }
+  function playOf(p){
+    return { text: str(p.text), period: pick(p,["period","number"],null),
+             clock: str(pick(p,["clock","displayValue"],"")), type: str(pick(p,["type","text"],"")),
+             yards: typeof p.statYardage==="number" ? p.statYardage : null,
+             scoring: !!p.scoringPlay, start: spotOf(p.start), end: spotOf(p.end) };
+  }
+  // A drive from the team's side: whose it is as home/away and mine, the
+  // provider's own one-line summary ("11 plays, 48 yards, 4:56"), how it
+  // ended, and its plays. A play the OTHER team ran inside it - the kickoff
+  // that opens it - keeps its spot but says whose it was (offense: false),
+  // so a field drawn from the offense's side can leave it out.
+  function driveOf(d, teamId, home, away){
+    var tid=str(pick(d,["team","id"],""));
+    return { id: str(d.id), side: tid===home.key ? "home" : tid===away.key ? "away" : null,
+             mine: tid===teamId, summary: str(d.description), result: str(d.displayResult||d.result),
+             plays: (d.plays||[]).map(function(p){
+               var pl=playOf(p);
+               pl.offense = !pl.start || !pl.start.teamId || pl.start.teamId===tid;
+               return pl;
+             }) };
+  }
+
+  function drivesOf(d, teamId, home, away){
+    var dr=d.drives;
+    if(!dr || (!dr.previous && !dr.current)) return null;
+    var list=(dr.previous||[]).map(function(x){ return driveOf(x, teamId, home, away); });
+    var current=dr.current ? driveOf(dr.current, teamId, home, away) : null;
+    if(current && !list.some(function(x){ return x.id && x.id===current.id; })) list.push(current);
+    return list.length || current ? { current: current, list: list } : null;
   }
 
   // ESPN's game summary -> GameDetail: the sections the Game Center renders,
@@ -448,7 +601,8 @@ TeamOS.espn = (function () {
       TEAM_STAT_ROWS.forEach(function(r){
         var av=statVal(ba,r[1]), hv=statVal(bh,r[1]);
         if(av==null&&hv==null) return;
-        rows.push({ label:r[0], away:av==null?null:str(av), home:hv==null?null:str(hv), better:betterSide(r[0],av,hv) });
+        rows.push({ label:r[0], away:av==null?null:str(av), home:hv==null?null:str(hv), better:betterSide(r[0],av,hv),
+                    lowerWins:LOWER_WINS(r[0]) });
       });
       if(rows.length) teamStats=rows;
     }
@@ -493,7 +647,10 @@ TeamOS.espn = (function () {
       teamStats: teamStats,
       leaders:   leaders,
       box:       box,
-      scoring:   scoring
+      scoring:   scoring,
+      // { current: Drive | null, list: Drive[] } - every drive in order, the
+      // one in progress last and also as `current`; null with no drives.
+      drives:    drivesOf(d, teamId, home, away)
     };
   }
 
@@ -583,6 +740,17 @@ TeamOS.espn = (function () {
       return SITE+"/rankings";
     },
 
+    // A program's mark (logo), hosted by the provider. The Suite asks for a
+    // team's mark and never learns how the provider builds the address - the
+    // same URL ESPN's own payloads carry as team.logo. `dark` is the variant
+    // drawn for dark backgrounds. No id, no mark: the view shows its own
+    // fallback (the program's initials), never a broken image.
+    mark: function(providerId, dark){
+      var id=String(providerId==null?"":providerId);
+      if(!/^[0-9]+$/.test(id)) return null;
+      return "https://a.espncdn.com/i/teamlogos/ncaa/"+(dark?"500-dark":"500")+"/"+id+".png";
+    },
+
     // ESPN's roster payload -> RosterGroup[]: { key, label, players }. Either a
     // flat athletes array or one grouped by unit; empty units (IR, practice
     // squad) are dropped, and a flat list becomes one group called "Roster".
@@ -627,9 +795,7 @@ TeamOS.espn = (function () {
     // The pregame line and total from ESPN's game summary, for a Game the
     // schedule payload gave no odds for. null when ESPN has none either.
     gameOdds: function(summary){
-      var pc=summary&&summary.pickcenter&&summary.pickcenter[0];
-      if(!pc) return null;
-      return { line:pc.details||null, total:pc.overUnder!=null?pc.overUnder:null };
+      return oddsOf(summary&&summary.pickcenter&&summary.pickcenter[0]);
     },
 
     // ESPN's scoreboard payload (every game the league is showing this week) ->

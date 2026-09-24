@@ -170,7 +170,8 @@ function build(fitt) {
   existing().forEach(function (t) {
     if (t && t.id) rows[t.id] = { id: t.id, name: t.name, short: t.short,
                                   conference: t.conference || null,
-                                  abbr: t.abbr || null, nick: t.nick || null };
+                                  abbr: t.abbr || null, nick: t.nick || null,
+                                  providerId: t.providerId || null };
   });
 
   found.list.forEach(function (p) {
@@ -183,11 +184,12 @@ function build(fitt) {
       rows[id].conference = p.conference;
       rows[id].abbr = p.abbr;
       rows[id].nick = p.nick;
+      if (p.espnId) rows[id].providerId = p.espnId;
       if (!rows[id].short) rows[id].short = p.short;
       return;
     }
     rows[id] = { id: id, name: p.name, short: p.short, conference: p.conference,
-                 abbr: p.abbr, nick: p.nick };
+                 abbr: p.abbr, nick: p.nick, providerId: p.espnId || null };
   });
 
   var list = Object.keys(rows).sort().map(function (k) {
@@ -206,6 +208,7 @@ function render(list) {
     if (t.conference) parts.push('conference: ' + JSON.stringify(t.conference));
     if (t.abbr)       parts.push('abbr: ' + JSON.stringify(t.abbr));
     if (t.nick)       parts.push('nick: ' + JSON.stringify(t.nick));
+    if (t.providerId) parts.push('providerId: ' + JSON.stringify(t.providerId));
     if (t.config)     parts.push('config: ' + JSON.stringify(t.config));
     return "  { " + parts.join(", ") + " }";
   }).join(",\n");

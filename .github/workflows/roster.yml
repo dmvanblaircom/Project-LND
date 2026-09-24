@@ -36,7 +36,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # The roster comes from the standings page. When ESPN challenges the
+      # runner (HTTP 202), membership cannot refresh this week - but provider
+      # ids still can, from the scoreboard below, so this step does not stop
+      # the job. The last step fails it afterwards, so a stale roster is seen.
       - name: Fetch the standings page
+        id: standings
+        continue-on-error: true
         run: |
           set -uo pipefail
           UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
@@ -55,6 +61,7 @@ jobs:
           test -f standings.html || { echo "::error::could not fetch the standings page"; exit 1; }
 
       - name: Refuse to use anything that is not the standings
+        if: steps.standings.outcome == 'success'
         run: |
           python3 - <<'PY'
           import json, re, sys
@@ -101,7 +108,27 @@ jobs:
           PY
 
       - name: Rebuild the registry
+        if: steps.standings.outcome == 'success'
         run: node tools/build-registry.js standings.html --write
+
+      # Every FBS program plays in the weekly FBS scoreboard, which is JSON and
+      # carries each team's id and location. tools/registry-ids.js only ADDS
+      # ids to rows by name; it never changes the roster.
+      - name: Fetch this season's FBS scoreboards
+        run: |
+          set -uo pipefail
+          Y=$(date -u +%Y); M=$(date -u +%-m)
+          [ "$M" -lt 8 ] && Y=$((Y - 1))           # January to July is last season
+          mkdir -p sb
+          for w in $(seq 1 16); do
+            curl -sSf --retry 2 -o "sb/w$w.json" \
+              "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=$Y&seasontype=2&week=$w&limit=300" \
+              || { echo "  week $w: no scoreboard"; rm -f "sb/w$w.json"; }
+          done
+          ls sb | wc -l | xargs echo "  scoreboards:"
+
+      - name: Fill in provider ids
+        run: node tools/registry-ids.js sb/*.json --write
 
       - name: The registry must still be valid
         run: |
@@ -111,7 +138,7 @@ jobs:
 
       - name: Commit if anything changed
         run: |
-          rm -f standings.html standings.html.tmp
+          rm -rf standings.html standings.html.tmp sb
           if git diff --quiet -- teams/index.js; then
             echo "registry unchanged"
             exit 0
@@ -123,3 +150,9 @@ jobs:
           git add teams/index.js
           git commit -m "Refresh the team registry: ${before} -> ${after} programs"
           git push
+
+      - name: The roster itself was not refreshed
+        if: steps.standings.outcome != 'success'
+        run: |
+          echo "::error::ESPN refused the standings page, so FBS membership was not refreshed this run (provider ids were)."
+          exit 1

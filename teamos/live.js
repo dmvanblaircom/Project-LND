@@ -62,6 +62,18 @@ TeamOS.live = (function () {
 
     out.state = lg.state;
     if (lg.detail) out.detail = lg.detail;
+    // The normalized status travels with the state: a delay, a suspension
+    // or a final is the scoreboard's news too (decision 0024 §14).
+    if (lg.status) { out.status = lg.status; out.hasStarted = !!lg.hasStarted || !!game.hasStarted; }
+    if (lg.period != null) out.period = lg.period;
+    if (lg.clock != null) out.clock = lg.clock;
+    // Where the ball is, from the team's side: "us", "them" or null. Only
+    // while the scoreboard has a live situation; gone when it does not.
+    var side = game.home ? "home" : "away";
+    out.situation = lg.live ? {
+      short: lg.live.short || "", spot: lg.live.spot || "",
+      possession: lg.live.possession == null ? null : (lg.live.possession === side ? "us" : "them")
+    } : null;
     // A score of "0" is a score. Only an absent one leaves what was there.
     if (mine && mine.score != null) out.us = mine.score;
     if (theirs && theirs.score != null) out.them = theirs.score;

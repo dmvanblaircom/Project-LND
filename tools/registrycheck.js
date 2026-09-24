@@ -282,5 +282,41 @@ fs.rmSync(dup, { recursive: true, force: true });
 
 fs.rmSync(tmp, { recursive: true, force: true });
 
+// ---- provider ids from the scoreboard (tools/registry-ids.js) ----------
+console.log("provider ids");
+var RI = require("./registry-ids.js");
+function sb(teams) {
+  return { events: [{ competitions: [{ competitors: teams.map(function (t) { return { team: t }; }) }] }] };
+}
+var payload = RI.teamsIn(sb([
+  { id: "87",  location: "Notre Dame", abbreviation: "ND" },
+  { id: "2390", location: "Miami",      abbreviation: "MIA" },
+  { id: "193", location: "Miami (OH)", abbreviation: "M-OH" },
+  { id: "349", location: "Army",       abbreviation: "ARMY" },
+  { id: "999", location: "Army",       abbreviation: "ARM2" },
+  { id: "57",  location: "Florida",    abbreviation: "FLA" },
+  { id: "x1",  location: "Bad Id",     abbreviation: "BAD" }
+]));
+var rowsIn = [
+  { id: "notre-dame", name: "Notre Dame", short: "Notre Dame", abbr: "ND" },
+  { id: "miami", name: "Miami", short: "Miami", abbr: "MIA" },
+  { id: "miami-oh", name: "Miami (OH)", short: "Miami (OH)", abbr: "M-OH" },
+  { id: "army", name: "Army", short: "Army", abbr: "ARMY" },
+  { id: "florida", name: "Florida", short: "Florida", abbr: "FLA", providerId: "58" },
+  { id: "app-state", name: "App State", short: "App State", abbr: "APP" },
+  { id: "bad", name: "Bad Id", short: "Bad Id", abbr: "BAD" }
+];
+var got = RI.assign(rowsIn, payload);
+var ids = {}; got.rows.forEach(function (r) { ids[r.id] = r.providerId || null; });
+ok(ids["notre-dame"] === "87", "a program gets the id its scoreboard entry carries, matched by name");
+ok(ids.miami === "2390" && ids["miami-oh"] === "193", "Miami and Miami (OH) are told apart by their full names");
+ok(ids.army === null && got.ambiguous.indexOf("army") > -1, "a name with two ids is ambiguous and left alone");
+ok(ids.florida === "58" && got.conflicts.length === 1, "an id a row already has is never replaced; the disagreement is reported");
+ok(ids["app-state"] === null && got.missing.indexOf("app-state") > -1, "a program not in the payload keeps no id, and is reported");
+ok(ids.bad === null, "an id that is not digits is never taken");
+ok(got.rows.length === rowsIn.length && got.rows.every(function (r, i) { return r.id === rowsIn[i].id && r.name === rowsIn[i].name; }),
+   "no program is added, dropped, reordered or renamed");
+ok(rowsIn[0].providerId === undefined, "and the input is not mutated");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "one registry, and it matches the repository"));
 process.exit(failures ? 1 : 0);
