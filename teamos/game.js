@@ -213,7 +213,24 @@ TeamOS.game = (function () {
     return list.slice(start, end + 1);
   }
 
+  // ---- results ----
+
+  // Schedule and Results (0022 #8): the season chronology keeps every entry,
+  // postponed and canceled included; Results holds only games genuinely
+  // completed. A canceled game is not a result, and neither is a final the
+  // source reports without a score. Chronological, like the season.
+  function results(games) {
+    return byDate(games || []).filter(function (g) {
+      return g.status === "final" && g.us != null && g.them != null && g.us !== "" && g.them !== "";
+    });
+  }
+  function season(games) { return byDate(games || []); }
+  function byDate(list) {
+    return list.slice().sort(function (a, b) { return new Date(a.date) - new Date(b.date); });
+  }
+
   return { navState: navState, underWay: underWay, lifecycle: lifecycle, hero: hero,
            recentFinal: recentFinal, atmosphere: atmosphere, venueZone: venueZone,
-           localDay: localDay, schedulePreview: schedulePreview, NIGHT_FROM: NIGHT_FROM };
+           localDay: localDay, schedulePreview: schedulePreview, results: results, season: season,
+           NIGHT_FROM: NIGHT_FROM };
 })();
