@@ -750,6 +750,7 @@ details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}
 .ro-ph{position:relative;display:inline-flex;align-items:center;justify-content:center;width:2.6rem;height:2.6rem;overflow:hidden;border-radius:50%;background:var(--t-surface)}
 .ro-ph-no{font-family:var(--t-font-display);font-weight:700;font-size:1rem;color:var(--s-on-dark)}
 .ro-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;background:var(--s-inset)}
+.ro-ph:has(img) .ro-ph-no{visibility:hidden}
 .ro-who{display:flex;flex-direction:column;min-width:0}
 .ro-name{font-weight:700;font-size:1rem;line-height:1.2;overflow-wrap:break-word;color:var(--s-ink)}
 .ro-town{font-size:.84rem;color:var(--s-muted)}
