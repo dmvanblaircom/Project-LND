@@ -91,7 +91,15 @@ Suite.top25 = (function () {
              (g.odds && g.odds.line ? " " + g.odds.line + (g.odds.total != null ? ", over/under " + g.odds.total : "") + "." : "");
     }
     return (g.state === "post" ? "Final. " : g.state === "in" ? "Live, " + g.detail + ". " : "") +
-           spoken(a) + " " + (a.score || 0) + ", at " + spoken(h) + " " + (h.score || 0) + ".";
+           spoken(a) + " " + (a.score || 0) + ", at " + spoken(h) + " " + (h.score || 0) + "." +
+           (lastPlay(g) ? " Last play: " + lastPlay(g) : "");
+  }
+
+  // The latest play of a game under way, as TeamOS normalized it - the text
+  // is the source's own (play-text presentation is parked on the completion
+  // list). Never before kickoff or after the final.
+  function lastPlay(g) {
+    return g.state === "in" && g.live && g.live.lastPlay ? g.live.lastPlay : "";
   }
 
   function gameRow(m, g) {
@@ -105,6 +113,7 @@ Suite.top25 = (function () {
     var body = '<span class="tg-body" aria-hidden="true">' +
                  '<span class="tg-sides">' + side(m, g.away, g, awayWon) + side(m, g.home, g, homeWon) + "</span>" +
                  '<span class="tg-status">' + status(g) + "</span>" + odds +
+                 (lastPlay(g) ? '<span class="tg-last">' + esc(lastPlay(g)) + "</span>" : "") +
                "</span>" +
                '<span class="sr-only">' + esc(summary(g)) + "</span>";
     // Only the game #game would open is a way in; the rest are information.
@@ -187,16 +196,13 @@ Suite.top25 = (function () {
     if (m.polls == null) return pollSeg(chosen(m).key) + quiet(m.pollsFailed ? "The rankings didn’t load. They appear when the connection returns."
                                                                              : "Loading the rankings…");
     var c = chosen(m), hasCfp = (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; });
-    var body;
-    if (c.poll) body = pollTable(m, c.poll);
-    else if (c.key === "cfp")
-      body = '<section class="card rk-card rk-empty"><h2 class="rk-title">CFP Rankings</h2>' +
-             "<p>The College Football Playoff committee has not released its rankings yet. They appear here as soon as it does.</p></section>";
-    else body = quiet("This poll is not available right now.");
-    // Until the committee publishes, say where its rankings will be - no date
-    // is promised that the feed does not give.
-    var note = c.poll && !hasCfp ? '<p class="rk-note">CFP rankings appear here once the committee releases them.</p>' : "";
-    return pollSeg(c.key) + body + note;
+    // Until the committee publishes: one compact notice, directly under the
+    // poll selector, on every poll - and it is all the CFP view has. No date
+    // is promised that the feed does not give. Once CFP rankings exist the
+    // notice is gone and CFP leads.
+    var note = hasCfp ? "" : '<p class="rk-note" role="note">CFP rankings will appear once the committee releases them.</p>';
+    var body = c.poll ? pollTable(m, c.poll) : c.key === "cfp" ? "" : quiet("This poll is not available right now.");
+    return pollSeg(c.key) + note + body;
   }
 
   // ---- mount -------------------------------------------------------------------

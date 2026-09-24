@@ -37,8 +37,11 @@ var root = path.join(__dirname, "..");
 var shots = path.join(root, "artifacts", "visual");
 fs.mkdirSync(shots, { recursive: true });
 
+// The polls and the scoreboard are one real football week (captured on the
+// runner): the Sep 26 slate, ranked by the Sep 20 polls it was played under.
+// Review renders tell one story, so the national screens do too.
 var fixtures = {
-  schedule: "espn-schedule.json", scoreboard: "espn-scoreboard.json",
+  schedule: "espn-schedule.json", scoreboard: "espn-scoreboard-sep26.json",
   rankings: "espn-rankings-sep20.json", roster: "espn-roster.json",
   news: "espn-news.json", team: "espn-team.json", summary: "espn-summary-pre.json",
   statistics: "espn-season-stats.json"
@@ -107,7 +110,10 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
   }
 
   async function openContext(width) {
-    var context = await browser.newContext({ viewport: { width: width, height: 900 }, serviceWorkers: "block" });
+    // A fan's clock, not the runner's: kickoffs read in Eastern time and a
+    // 9 PM game stays on Saturday, as the review renders show them.
+    var context = await browser.newContext({ viewport: { width: width, height: 900 }, serviceWorkers: "block",
+                                             timezoneId: "America/New_York", locale: "en-US" });
     var page = await context.newPage();
     await page.route("**/*", async function (route) {
       var url = route.request().url();
@@ -400,10 +406,14 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         var t25r = await page.evaluate(function () {
           var cur = document.querySelector('#screenTop25 .view-tabs a[aria-current="page"]');
           var poll = document.querySelector('#screenTop25 .poll-seg a[aria-current="page"]');
+          var seg = document.querySelector("#screenTop25 .poll-seg"), note = document.querySelector("#screenTop25 .rk-note");
+          var tbl = document.querySelector("#screenTop25 .rk-table");
           var rows = document.querySelectorAll("#screenTop25 .rk-table tbody tr");
           return { view: Suite.nav.current().view, hash: location.hash, pressed: cur ? cur.textContent.trim().toLowerCase() : null,
                    shown: !!document.querySelector("#screenTop25 .rk-table"), poll: poll ? poll.textContent.trim() : null,
                    rows: rows.length, mine: document.querySelectorAll("#screenTop25 .rk-table tr.mine").length,
+                   // the pre-CFP notice sits right under the selector, above the table
+                   note: note ? (seg.nextElementSibling === note && !!(note.compareDocumentPosition(tbl) & 4)) : null,
                    over: (function () {
                      var t = document.querySelector("#screenTop25 .rk-table"), c = t && t.closest(".rk-card");
                      if (!t) return 0;
@@ -419,6 +429,8 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         // rows, scrolled - never cut to what fits.
         if (t25r.poll !== "AP") fail(who, "behaviour", ".poll-seg", "before the CFP is published Rankings opens on " + t25r.poll + ", not AP");
         if (t25r.rows !== 25) fail(who, "behaviour", ".rk-table", "the poll shows " + t25r.rows + " rows, not all 25");
+        if (t25r.note !== true) fail(who, "behaviour", ".rk-note", "before the CFP is published its notice is " +
+          (t25r.note === null ? "missing" : "not directly under the poll selector, above the table"));
         if (t25r.over > 1) fail(who, "layout", ".rk-table", "the rankings table is " + t25r.over + "px wider than its card");
         var bogus = await page.evaluate(function () {
           var before = history.length;

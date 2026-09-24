@@ -629,7 +629,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .tg + .tg{border-top:1px solid var(--s-line)}
 .tg-row{display:flex;align-items:center;gap:.4rem;padding:.7rem .9rem;color:inherit;text-decoration:none}
 a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
-.tg-body{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"sides status" "sides odds";align-items:center;column-gap:.75rem;row-gap:.15rem;flex:1;min-width:0}
+.tg-body{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"sides status" "sides odds" "last last";align-items:center;column-gap:.75rem;row-gap:.15rem;flex:1;min-width:0}
 .tg-sides{grid-area:sides;display:grid;gap:.4rem;min-width:0}
 .tg-side{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.55rem}
 .tg-side .mark{--mark:1.9rem}
@@ -645,6 +645,8 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .tg-final{font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-ink)}
 .tg-live{font-size:.8rem;padding:.2rem .55rem}
 .tg.mine{background:var(--t-accent-tint-soft);box-shadow:inset 4px 0 0 var(--t-accent)}
+/* the latest play of a live game: secondary, under the matchup and status */
+.tg-last{grid-area:last;margin-top:.35rem;padding-top:.45rem;border-top:1px dashed var(--s-line);font-size:.85rem;line-height:1.35;color:var(--s-ink-2)}
 .tg-row .chev{width:1.1rem;height:1.1rem;margin-right:-.3rem}
 /* Rankings: all 25, a real table. */
 .poll-seg{margin-top:.9rem}
@@ -675,9 +677,7 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .rk-move.down{color:var(--s-loss)}
 .rk-same{color:var(--s-muted)}
 .rk-new{font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--s-win)}
-.rk-empty{padding:1rem 1.1rem}
-.rk-empty p{margin:.5rem 0 0;color:var(--s-ink-2)}
-.rk-note{margin:.8rem 0 0;padding:.7rem .9rem;border:1px solid var(--s-line);border-radius:var(--s-radius-ctl);background:var(--s-inset);font-size:.9rem;color:var(--s-ink-2)}
+.rk-note{margin:.7rem 0 0;padding:.7rem .9rem;border:1px solid var(--s-line);border-radius:var(--s-radius-ctl);background:var(--s-inset);font-size:.9rem;color:var(--s-ink-2)}
 
 /* ====================================================================
    7. RESPONSIVE - widest first, so a narrower block always wins
@@ -726,7 +726,7 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
   .tg-row{padding:.65rem .7rem}
   .tg-status{min-width:4.8rem;padding-left:.55rem}
   /* the line gives its column back to the names and runs under the game */
-  .tg-body{grid-template-areas:"sides status" "odds odds";row-gap:.4rem}
+  .tg-body{grid-template-areas:"sides status" "odds odds" "last last";row-gap:.4rem}
   .tg-odds{padding-left:0;border-left:0}
   .gh-team .mark{--mark:2.6rem}
   .gh-score{font-size:2.4rem}

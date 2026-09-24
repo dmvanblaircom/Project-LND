@@ -204,6 +204,11 @@ function run(teamFile, teamLabel, ourName, oppName) {
   ok(shows(row, "21", "17"), "an unrelated ranked game renders its own live score");
   ok(/3:12 - 3rd/.test(row), "and its own clock");
   ok(/class="live-pill[^"]*">Live</.test(row), "and is marked live");
+  ok(/class="tg-last">Pass complete to the 40</.test(row), "and shows its latest play, as TeamOS normalized it");
+  ctx.__lg = Object.assign({}, other, { state: "post", detail: "Final" });
+  ok(!/tg-last|Pass complete/.test(vm.runInContext("top25Row(__lg)", ctx)), "a final shows no last play, even if one was left behind");
+  ctx.__lg = Object.assign({}, other, { state: "pre", detail: "" });
+  ok(!/tg-last|Pass complete/.test(vm.runInContext("top25Row(__lg)", ctx)), "nor does a game before kickoff");
   ok(!/Kent State|Ohio State|Notre Dame/.test(row), "without borrowing the configured team's game");
 
   console.log(" the countdown does not survive kickoff");
