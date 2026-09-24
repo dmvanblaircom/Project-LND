@@ -282,8 +282,8 @@ eq(gdLive.lastPlay, { text:"Timeout Notre Dame, clock 08:53", possession:"ND", d
 eq(gdLive.winProb, { homePct:0.78 }, "win probability is the latest point");
 eq(gdLive.linescore, { away:["3","7"], home:["10","3"] }, "two periods of linescores");
 eq(gdLive.teamStats.map(function (r) { return r.label; }), ["Total yards","Passing","Rushing","First downs","3rd down","Turnovers","Penalties","Possession"], "the eight Team-stats rows in order");
-eq(gdLive.teamStats[0], { label:"Total yards", away:"148", home:"211", better:"home" }, "more yards is better");
-eq(gdLive.teamStats[5], { label:"Turnovers", away:"0", home:"1", better:"away" }, "fewer turnovers is better");
+eq(gdLive.teamStats[0], { label:"Total yards", away:"148", home:"211", better:"home", lowerWins:false }, "more yards is better");
+eq(gdLive.teamStats[5], { label:"Turnovers", away:"0", home:"1", better:"away", lowerWins:true }, "fewer turnovers is better, and the row says so");
 eq(gdLive.teamStats[4].better, "away", "3rd down compares the rate: 5-13 beats 3-9");
 eq(gdLive.teamStats[6].better, "home", "penalties compare the count: 4 beats 6");
 eq(gdLive.teamStats[7].better, "home", "possession compares seconds: 31:36 beats 28:24");

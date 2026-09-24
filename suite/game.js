@@ -238,7 +238,8 @@ Suite.game = (function () {
     return '<ul class="ts-list">' + rows.map(function (r) {
       var a = r[s.usKey], b = r[s.themKey];
       var na = parseFloat(a), nb = parseFloat(b), both = isFinite(na) && isFinite(nb) && /^-?[\d.]+$/.test(String(a)) && /^-?[\d.]+$/.test(String(b));
-      var pa = both && na + nb > 0 ? Math.round(na / (na + nb) * 100) : null;
+      // A share bar only where more is better; for turnovers it would read backwards.
+      var pa = both && !r.lowerWins && na + nb > 0 ? Math.round(na / (na + nb) * 100) : null;
       var better = r.better === s.usKey ? "us" : r.better === s.themKey ? "them" : null;
       return '<li class="ts-row"><span class="ts-v us' + (better === "us" ? " better" : "") + '">' + esc(a == null ? "–" : a) + "</span>" +
              '<span class="ts-l">' + esc(r.label) + "</span>" +

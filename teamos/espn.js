@@ -399,11 +399,14 @@ TeamOS.espn = (function () {
     ["Penalties",["totalPenaltiesYards"]],
     ["Possession",["possessionTime"]]
   ];
+  // Stats where fewer is better. A share-of-total bar would read backwards
+  // for these, so each row says which way it runs.
+  function LOWER_WINS(label){ return label==="Turnovers"||label==="Penalties"; }
   function betterSide(label, av, hv){
     var an=cmpVal(av), hn=cmpVal(hv);
     if(label==="Penalties"){ an=numOf(av); hn=numOf(hv); }
     if(an==null||hn==null||an===hn) return null;
-    var lowerWins = label==="Turnovers"||label==="Penalties";
+    var lowerWins = LOWER_WINS(label);
     return (lowerWins ? an<hn : an>hn) ? "away" : "home";
   }
   // ESPN names leader categories "passingYards", "totalTackles" and so on.
@@ -562,7 +565,8 @@ TeamOS.espn = (function () {
       TEAM_STAT_ROWS.forEach(function(r){
         var av=statVal(ba,r[1]), hv=statVal(bh,r[1]);
         if(av==null&&hv==null) return;
-        rows.push({ label:r[0], away:av==null?null:str(av), home:hv==null?null:str(hv), better:betterSide(r[0],av,hv) });
+        rows.push({ label:r[0], away:av==null?null:str(av), home:hv==null?null:str(hv), better:betterSide(r[0],av,hv),
+                    lowerWins:LOWER_WINS(r[0]) });
       });
       if(rows.length) teamStats=rows;
     }
