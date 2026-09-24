@@ -5,6 +5,7 @@
 #   scoreboard-YYYYMMDD <name>    -> espn-scoreboard-<name>.json (FBS, that week)
 #   schedule-<team id> <name>     -> espn-schedule-<name>.json (a team's season)
 #   roster-<team id> <name>       -> espn-roster-<name>.json (a team's roster)
+#   news-<team id> <name>         -> espn-news-<name>.json (a team's news feed)
 401858438 wis-final
 401858453 msu-final
 rankings sep20

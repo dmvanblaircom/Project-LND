@@ -71,6 +71,7 @@ jobs:
               url="$API/scoreboard?groups=80&limit=400&dates=${BASH_REMATCH[1]}"
             else echo "::warning::skipping bad request '$ev'"; continue; fi
             if [ -z "${EVENT:-}" ] && [ -f "$out" ]; then echo "  $out exists"; continue; fi
+            echo "  fetching $out"
             curl -sSf --retry 3 -o raw.json "$url"
             if [ "$kind" = summary ]; then
               python3 tools/trim_summary.py raw.json "$out" \
@@ -89,7 +90,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
           git commit -m "Capture ESPN fixtures"
           git pull --rebase -q && git push
