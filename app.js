@@ -185,7 +185,8 @@ function sourceKey(url){
 function noteSource(url, cached){
   var k=sourceKey(url); if(!k) return;
   var at=cached ? Date.parse(cached) : Date.now();
-  SRC[k]={ fetchedAt: isNaN(at) ? Date.now() : at, cached: !!cached };
+  // a kept copy of unknown age is old, not "fetched just now"
+  SRC[k]={ fetchedAt: isNaN(at) ? (cached ? null : Date.now()) : at, cached: !!cached };
 }
 
 // Offline shell. sw.js keeps the page itself and the last good copy of every
@@ -1189,7 +1190,7 @@ function rosterSources(){
   return list;
 }
 function roHas(key){ return key==="roster" ? !!RO.roster : key==="depth" ? !!RO.chart : !!RO.avail; }
-function roState(key){ return RO.s[key] || (RO.s[key]={ ok:0, fetchedAt:null, cached:false, failed:false, inflight:false, copyAt:null }); }
+function roState(key){ return RO.s[key] || (RO.s[key]={ ok:0, fetchedAt:null, cached:false, failed:false, inflight:false, tried:false, copyAt:null }); }
 // One freshness source, as the view shows it. While the first request is
 // still out, the copy on screen is not yet called old.
 function roSource(src, optional){
@@ -1231,24 +1232,29 @@ function cachedCopy(url){
   if(typeof caches==="undefined") return Promise.reject(0);
   return caches.match(url).then(function(r){
     if(!r) throw 0;
-    var at=Date.parse(r.headers.get("date")||"");
+    var at=Date.parse(r.headers.get("X-IW-Stored")||r.headers.get("date")||"");
     return r.json().then(function(d){ return { data:d, at: isNaN(at) ? null : at }; });
   });
 }
-function loadRosterScreen(force){
+// `warm`: the background warm-up at boot, which only fills what has not been
+// asked for yet - retries are for re-entry, reconnection and refresh.
+function loadRosterScreen(force, warm){
   rosterSources().forEach(function(src){
     var st=roState(src.key);
     if(st.inflight) return;                                   // never asked twice at once
+    if(warm && st.tried) return;
     if(!force && st.ok && !st.failed && Date.now()-st.ok < RO_AGAIN) return;
     if(!roHas(src.key)) cachedCopy(src.url).then(function(c){
       if(!roHas(src.key) && src.take(c.data)){ st.copyAt=c.at; paintRoster(); }
     }).catch(function(){});
-    st.inflight=true;
+    st.inflight=true; st.tried=true;
     get(src.fresh(src.url)).then(function(d){
       if(!src.take(d)){ st.failed=true; return; }
-      var n=SRC[src.key];                                     // noteSource(): the worker's cached copy says so
-      st.ok=Date.now(); st.failed=false;
-      st.cached=!!(n && n.cached); st.fetchedAt=n ? n.fetchedAt : Date.now();
+      var n=SRC[src.key], copy=!!(n && n.cached);             // noteSource(): the worker's cached copy says so
+      st.failed=false; st.cached=copy; st.fetchedAt=n ? n.fetchedAt : Date.now();
+      // Only a network answer starts the refresh clock. The worker's last good
+      // copy is shown (and called old) but stays due for another try.
+      st.ok=copy ? 0 : Date.now();
     }).catch(function(){ st.failed=true; })
       .then(function(){ st.inflight=false; paintRoster(); });
   });
@@ -1771,7 +1777,7 @@ function warmTabs(){
   // the live poller should run. It is 95KB on the wire, which is why it is
   // here and not in load() competing with the schedule for first paint.
   var jobs=[function(){ getScoreboard().catch(function(){}); },
-            function(){ loadRosterScreen(); }, loadNews, function(){ loadGame(); }, prefetchSummaries];
+            function(){ loadRosterScreen(false, true); }, loadNews, function(){ loadGame(); }, prefetchSummaries];
   jobs.forEach(function(fn,i){
     setTimeout(function(){
       if(document.hidden) return;

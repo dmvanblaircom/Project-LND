@@ -11,7 +11,13 @@
      4. with the network failing, the last good copy is shown AND the one
         page-level warning says the data may be outdated (0024 §13); with
         the network answering, no warning;
-     5. what the view does not display does not warn on it.
+     5. what the view does not display does not warn on it;
+     6. with the real service worker: when the network fails, the worker
+        answers HTTP 200 with X-IW-Cached. That copy is shown and called old
+        (with the time it was kept, never a made-up one) but is NOT a
+        successful refresh: re-entry and reconnection both ask the network
+        again, keep the copy on screen while asking, never ask twice at
+        once, and replace it with the network's answer, clearing the warning.
 
    Provider requests are answered from the committed real fixtures; the
    roster request's answer is switched per step. No network is used.
@@ -19,6 +25,9 @@
    Usage:  node tools/rosterflowcheck.js
    Locally: NODE_PATH=$(npm root -g) PW_CHROMIUM=/path/to/chromium node tools/rosterflowcheck.js */
 "use strict";
+
+// Let routes see the service worker's own requests (scenario 6).
+process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = "1";
 
 var fs = require("fs"), http = require("http"), path = require("path");
 var chromium = require("playwright").chromium;
@@ -155,6 +164,77 @@ function ok(cond, what) {
   var se = await screen(e.page);
   ok(se.rows > 20 && !se.banner, "a missing roster leaves the Depth Chart un-warned: its detail is simply omitted");
   await e.ctx.close();
+
+  console.log("6. the worker's last good copy (HTTP 200 + X-IW-Cached) stays due for a retry");
+  var ctx6 = await browser.newContext({ viewport: { width: 390, height: 844 } });   // worker allowed
+  var w = { mode: "ok", requests: 0 };
+  var ROSTER = fixture("espn-roster-nd-sep24.json").toString();
+  var FRESH = ROSTER.split("Quincy Porter").join("Quincy Porterfresh");   // tells the network's answer from the copy
+  await ctx6.route("**/*", async function (route) {
+    var u = route.request().url();
+    if (u.startsWith(base)) return route.continue();
+    if (/\/teams\/87\/roster(\?|$)/.test(u)) {
+      w.requests++;
+      if (w.mode === "down") return route.abort();                        // the network, not the server, fails
+      if (w.mode === "slow") await new Promise(function (r) { setTimeout(r, 1500); });
+      return route.fulfill({ status: 200, contentType: "application/json",
+        headers: { "access-control-allow-origin": "*" }, body: w.mode === "ok" ? ROSTER : FRESH });
+    }
+    if (/\/teams\/87\/schedule(\?|$)/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: fixture("espn-schedule-nd-sep24.json") });
+    if (/\/scoreboard\?/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: fixture("espn-scoreboard-sep26.json") });
+    return route.abort();
+  });
+  var p6 = await ctx6.newPage();
+  async function go6(h) { await p6.evaluate(function (x) { location.hash = x; }, h); await p6.waitForTimeout(500); }
+  await p6.goto(base + "/?team=notre-dame#home");
+  await p6.waitForFunction(function () { return navigator.serviceWorker.controller; }, null, { timeout: 15000 });
+  await go6("#roster/roster");
+  // the worker has kept a stamped copy
+  await p6.waitForFunction(function () {
+    return caches.keys().then(function (ks) { return Promise.all(ks.map(function (k) { return caches.open(k).then(function (c) { return c.match(TeamOS.espn.rosterUrl(TEAM_CONFIG)); }); })); })
+      .then(function (rs) { return rs.some(function (r) { return r && r.headers.get("X-IW-Stored"); }); });
+  }, null, { timeout: 10000, polling: 200 });
+  var r0 = w.requests;
+
+  // the network goes down; the app starts fresh; the worker answers from its copy
+  w.mode = "down";
+  await p6.reload(); await p6.waitForTimeout(1500);
+  var c1 = await screen(p6);
+  ok(w.requests === r0 + 1 && c1.rows > 50, "the worker's copy is on screen (" + c1.rows + " rows)");
+  ok(/outdated/i.test(c1.banner) && /Last refreshed/.test(c1.banner) && !/Jan 1\b/.test(c1.banner),
+     "and called old, with when it was kept: '" + c1.banner.trim() + "'");
+
+  // re-entry asks the network again, even though the copy came back as HTTP 200
+  await go6("#home"); await go6("#roster/roster");
+  ok(w.requests === r0 + 2, "re-entering Roster asks the network again (" + (w.requests - r0) + " requests)");
+
+  // the network is back but slow: the copy stays on screen while it is asked
+  w.mode = "slow";
+  await go6("#home"); await go6("#roster/roster");
+  var during = await screen(p6);
+  ok(during.rows > 50 && /outdated/i.test(during.banner) && !/Porterfresh/.test(during.text),
+     "while asking, the copy stays on screen, still called old");
+  await go6("#home"); await go6("#roster/roster");
+  ok(w.requests === r0 + 3, "a request already out is not duplicated (" + (w.requests - r0) + ")");
+  await p6.waitForTimeout(1500);
+  var after = await screen(p6);
+  ok(/Porterfresh/.test(after.text) && after.rows > 50 && !after.banner, "the network's answer replaces the copy and the warning is gone");
+  await go6("#home"); await go6("#roster/roster");
+  ok(w.requests === r0 + 3, "a real refresh is not asked for again straight away");
+
+  // reconnection: the same, from the online event
+  w.mode = "down";
+  await p6.reload(); await p6.waitForTimeout(1500);
+  var c2 = await screen(p6);
+  var r1 = w.requests;
+  ok(/outdated/i.test(c2.banner) && c2.rows > 50, "down again: the kept copy, called old");
+  w.mode = "fresh";
+  await ctx6.setOffline(true); await p6.waitForTimeout(200);
+  await ctx6.setOffline(false); await p6.waitForTimeout(1500);
+  var c3 = await screen(p6);
+  ok(w.requests === r1 + 1, "coming back online asks the network once more (" + (w.requests - r1) + ")");
+  ok(/Porterfresh/.test(c3.text) && !c3.banner, "and the fresh roster replaces the copy, warning cleared");
+  await ctx6.close();
 
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "Roster says when its data is old, and never locks itself out"));

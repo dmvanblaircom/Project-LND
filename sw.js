@@ -9,14 +9,17 @@
       precached at install, and the part that belongs to THIS team, which the
       worker cannot know at install time and is told by the page instead.
    2. Data - the JSON files the Action commits, ESPN, Kalshi, Open-Meteo - is
-      fetched live, and the last good copy is kept. Offline, that copy comes
-      back with an X-IW-Cached header so the page can say the data is old.
+      fetched live, and the last good copy is kept, stamped X-IW-Stored with
+      when it was kept. Offline, that copy comes back with an X-IW-Cached
+      header carrying that time, so the page can say the data is old and how
+      old. (The stamp is ours because a cross-origin response's Date header
+      is hidden from the worker unless the provider chooses to expose it.)
    3. Anything else passes straight through.
 
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "suite-2026-09-24u";
+var VERSION = "suite-2026-09-24v";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -157,9 +160,9 @@ self.addEventListener("activate", function (e) {
   e.waitUntil(
     caches.keys().then(function (keys) {
       return Promise.all(keys.map(function (k) {
-        // only this worker's own versioned caches; the page keeps its own
-        // store of final box scores under a different name
-        if (k.indexOf("iw-20") === 0 && k !== SHELL && k !== DATA) return caches.delete(k);
+        // only this worker's own versioned caches, under either naming; the
+        // page keeps its own store of final box scores under a different name
+        if (/^(iw|suite)-20/.test(k) && k !== SHELL && k !== DATA) return caches.delete(k);
       }));
     }).then(function () { return self.clients.claim(); })
   );
@@ -224,14 +227,17 @@ self.addEventListener("fetch", function (e) {
     e.respondWith(
       fetch(e.request).then(function (res) {
         if (res && res.ok) {
-          var copy = res.clone();
-          caches.open(DATA).then(function (c) { c.put(key, copy); });
+          e.waitUntil(withHeader(res.clone(), "X-IW-Stored", new Date().toUTCString()).then(function (copy) {
+            return caches.open(DATA).then(function (c) { return c.put(key, copy); });
+          }).catch(function () {}));
         }
         return res;
       }).catch(function () {
         return caches.open(DATA).then(function (c) { return c.match(key); }).then(function (hit) {
           if (!hit) throw new Error("offline and nothing cached for " + key);
-          return withHeader(hit, "X-IW-Cached", hit.headers.get("date") || "1");
+          // when it was kept; "unknown" rather than a made-up time
+          return withHeader(hit, "X-IW-Cached",
+            hit.headers.get("X-IW-Stored") || hit.headers.get("date") || "unknown");
         });
       })
     );
