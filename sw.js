@@ -19,7 +19,7 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "suite-2026-09-24x";
+var VERSION = "suite-2026-09-24y";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -28,7 +28,7 @@ var DATA    = VERSION + "-data";
 // it can do is precache everything that is the same whichever team is showing
 // - and nothing that is not.
 var SHELL_FILES = [
-  "./", "./index.html", "./app.css", "./legacy.css", "./app.js", "./chooser.js",
+  "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
   "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js",
   "./teams/index.js",
   "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",

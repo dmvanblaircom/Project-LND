@@ -5,7 +5,7 @@ name: Check the stylesheet
 
 on:
   push:
-    paths: ["app.css", "legacy.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", ".github/workflows/**"]
+    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", ".github/workflows/**"]
   # A pull request into main runs the release gate below before it can merge.
   pull_request:
     branches: [main]
@@ -19,7 +19,7 @@ jobs:
         with:
           fetch-depth: 0     # versioncheck compares against the previous push
       - name: Dead and shadowed CSS
-        run: python3 tools/csscheck.py app.css && python3 tools/csscheck.py legacy.css
+        run: python3 tools/csscheck.py app.css
       - name: JavaScript parses
         run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js suite/*.js tools/*.js; do node --check "$f"; done
       - name: The installed product is Suite, the same for every team

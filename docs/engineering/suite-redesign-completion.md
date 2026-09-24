@@ -19,7 +19,7 @@ Product decides it differently.
 
 | Item | Source | Notes |
 |---|---|---|
-| Remove the legacy panel code | Schedule rebuild, 2026-09-24; More rebuild | Every screen is canonical since the More rebuild, and `#legacy` is always hidden. What remains is dead: `loadGame`, `renderGame`, `#panel-game`, the old hero/strip/odds board (`#hero`, `#strip`, `#oddsboard`, `layoutForTab`, `loadStrip`, `toggleBoard`) and `legacy.css`. Remove them in one pass, checking the Home Season Outlook "View full field" item first, since it will replace the old odds board. |
+| Identity fields no canonical rule draws | Legacy removal, 2026-09-24 | `identity.newsLabel` and the optional `colors.text` / `textDim` were read only by `legacy.css`. They stay in TeamOS identity (and applied) while `main`'s pre-canonical screens use them; drop them from the schema, the team configs and `applyStyle()` when the redesign merges. |
 | Safe presentation of play text | Game review, 2026-09-24 | Not a Top 25 blocker. ESPN's raw play text ("(02:51) No Huddle-Shotgun #2 N.James Jr. rush left...") reads awkwardly. Where normalized structured play fields can produce cleaner text safely, they may drive the display; otherwise the source text stays as it is. No free-text parser that could change what a play says. |
 
 ## Planned verification

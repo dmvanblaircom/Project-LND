@@ -396,7 +396,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               var links = [].slice.call(host.querySelectorAll(".news-card"));
               var rows = [].slice.call(host.querySelectorAll(".sched-row"));
               var cta = host.querySelector(".gc-cta");
-              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden, order: order,
+              return { shown: !host.hidden, legacy: !!document.getElementById("legacy"), order: order,
                        news: links.length, rows: rows.length,
                        safe: links.every(function (a) { return a.target === "_blank" && /noopener/.test(a.rel) && /noreferrer/.test(a.rel)
                                                             && /new tab/.test(a.textContent); }),
@@ -426,7 +426,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               var cur = host.querySelector('.view-tabs a[aria-current="page"]');
               var cut = [].filter.call(host.querySelectorAll(".tg-name,.rk-name"), function (n) {
                 return getComputedStyle(n).textOverflow === "ellipsis" && n.scrollWidth > n.clientWidth + 1; }).length;
-              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden,
+              return { shown: !host.hidden, legacy: !!document.getElementById("legacy"),
                        cur: cur ? cur.getAttribute("href") : null, view: Suite.nav.current().view, cut: cut };
             });
             if (!tp.shown || tp.legacy) fail(label, "behaviour", "#screenTop25", "Top 25 is not the canonical screen");
@@ -442,7 +442,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               var host = document.getElementById("screenRoster");
               var tabs = [].map.call(host.querySelectorAll(".view-tabs a"), function (a) { return a.getAttribute("href"); });
               var views = (Suite.nav.SCREENS.roster.views || []).map(function (v) { return v.id; });
-              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden, tabs: tabs, views: views,
+              return { shown: !host.hidden, legacy: !!document.getElementById("legacy"), tabs: tabs, views: views,
                        cards: host.querySelectorAll(".ro-card").length, rows: host.querySelectorAll(".ro-row").length,
                        seg: [].map.call(host.querySelectorAll(".unit-seg a"), function (a) { return a.textContent.trim(); }),
                        cut: [].filter.call(host.querySelectorAll(".ro-name"), function (n) { return n.scrollWidth > n.clientWidth + 1; }).length };
@@ -463,7 +463,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               var host = document.getElementById("screenSchedule");
               var cur = host.querySelector('.view-tabs a[aria-current="page"]');
               var rows = [].slice.call(host.querySelectorAll("#scheduleList .sched-row"));
-              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden,
+              return { shown: !host.hidden, legacy: !!document.getElementById("legacy"),
                        cur: cur ? cur.getAttribute("href") : null, rows: rows.length,
                        hrefs: rows.map(function (a) { return a.getAttribute("href"); }),
                        hero: rows.filter(function (a) { return a.classList.contains("is-hero"); }).map(function (a) { return a.getAttribute("href"); }),
@@ -486,7 +486,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               var tabs = [].slice.call(host.querySelectorAll(".game-tabs a"));
               var views = (Suite.nav.SCREENS.game.views || []).map(function (v) { return v.id; });
               var cur = host.querySelector('.game-tabs a[aria-current="page"]');
-              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden,
+              return { shown: !host.hidden, legacy: !!document.getElementById("legacy"),
                        head: !!host.querySelector(".game-head"), tabs: tabs.map(function (a) { return a.getAttribute("href"); }),
                        views: views, cur: cur ? cur.getAttribute("href") : null, tickets: /tickets/i.test(host.textContent),
                        view: Suite.nav.current().view,

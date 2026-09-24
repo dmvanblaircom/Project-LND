@@ -689,10 +689,9 @@ idThrows(function (c) { c.identity.art = { src: "a.jpg", position: "0;background
 idThrows(function (c) { c.identity.art = "a.jpg"; }, "art must be an object");
 
 // ---- the stylesheet names no team ----
-console.log("app.css and the legacy quarantine");
-// The screens not yet rebuilt live in legacy.css; the rules below hold for
-// the Suite's stylesheets as a whole, wherever a rule currently lives.
-var css = read("app.css") + "\n" + read("legacy.css");
+console.log("app.css");
+// Every screen is canonical; app.css is the Suite's one stylesheet.
+var css = read("app.css");
 var cssClean = uncomment(css);
 var tokenBlock = cssClean.match(/--t-accent:[\s\S]*?--t-accent-line:[^;}]*}/);
 ok(!!tokenBlock, "the team token block is where it says it is");
@@ -700,13 +699,11 @@ var cssRules = cssClean.replace(tokenBlock ? tokenBlock[0] : "\u0000", "");
 ok(!/#C99700|#0C2340|#07192F|#061525|#D8B84F|201,151,0|12,35,64/.test(cssRules),
    "no Notre Dame colour survives outside that block");
 ok(!/\.nd\b/.test(css), "the team's own rows are .mine, not .nd");
-ok(/\.row\.mine\b/.test(css) && /\.obar\.mine\b/.test(css), "and .mine carries those rules");
+ok(/\.tg\.mine\b/.test(css) && /tr\.mine\b/.test(css), "and .mine carries those rules (Top 25's games and rankings)");
 ok(!/notre|irish|ohio|buckeye|south bend|columbus/i.test(cssRules),
    "no team and no home town named in any selector or value");
 ok(!/--gold|--navy/.test(css), "no team-flavoured variable name survives (--gold holding scarlet reads as a lie)");
-ok(/#panel-news:before{content:var\(--t-news-label\)}/.test(css), "the News tab rule comes from the team");
-ok(!/:before{content:"[^"]*[A-Z]{2,}[^"]*"}/.test(cssRules.replace(/#panel-(schedule|around|game|depth):before{content:"[^"]*"}/g, "")),
-   "every other section label is team-neutral copy");
+ok(!/:before{content:"[^"]*[A-Z]{2,}[^"]*"}/.test(cssRules), "no section label is written into the stylesheet");
 ok(!/'Barlow|'Grenze/.test(cssRules), "type comes from the team's stacks, not from the rules");
 
 // ---- a team without a provider's data does not see that surface ----
@@ -765,35 +762,37 @@ eq(market(JSON.stringify({}), "KXNCAAF-27-ND", "Notre Dame"), false, "and does n
 eq(market(ndCfg, "KXNCAAF-27-ND", "Somebody"), true, "a matching ticker suffix is ours");
 eq(market(ndCfg, "KXNCAAF-27-OSU", "Ohio St."), false, "another team's ticker is not");
 
-console.log(" and the surface actually goes");
+console.log(" and the Season Outlook actually goes");
 // Behavioural, not a grep: run the real loadStrip against a stubbed page and
-// see whether it removed anything.
+// see what Home is given (decision 0024 §12: each market independent, and a
+// team Kalshi does not price has no Season Outlook).
 function stripRun(config) {
   var c = vm.createContext({ console: console });
   vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
   vm.runInContext([
-    "var dropped = 0, asked = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
-    "var cells = {};",
-    "function $(id){ return cells[id] || (cells[id] = { textContent:'', innerHTML:'', className:'' }); }",
-    "function dropOddsSurface(){ dropped++; }",
-    "function loadSparklines(){}",
+    "var asked = 0, painted = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
+    "var HOME = { markets: {} }, SRC = {};",
+    "function paintHome(){ painted++; }",
     "function price(){ return null; }",
     "function prevPrice(){ return null; }",
-    "function kalshi(){ asked++; return Promise.resolve({ markets: [] }); }"
+    // answers synchronously, so the result is here when the check reads it
+    "function kalshi(){ asked++; return { then: function(f){ f({ markets: [] }); return { catch: function(){} }; } }; }"
   ].join("\n"), c);
   vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + liftFn("loadStrip") + ONELINERS, c);
   vm.runInContext("loadStrip();", c);
   return c;
 }
 var noKalshi = stripRun(JSON.stringify({ sources: {} }));
-eq(noKalshi.dropped, 1, "a team with no Kalshi markets loses the odds surface");
-eq(noKalshi.asked, 0, "and Kalshi is never even asked");
+eq(noKalshi.asked, 0, "a team with no Kalshi markets never asks Kalshi");
+eq(Object.keys(noKalshi.HOME.markets), [], "and Home is given no markets, so no Season Outlook");
 
 var withKalshi = stripRun(ndCfg);
-eq(withKalshi.dropped, 0, "a team that has them keeps it at first");
-eq(withKalshi.asked, 2, "and both event queries go out");
+eq(withKalshi.asked, 2, "a team that has them asks both event queries");
+eq([withKalshi.HOME.markets.title, withKalshi.HOME.markets.playoff], [null, null],
+   "a feed that does not price this team leaves each market empty - not a made-up number");
 
-ok(/function dropOddsSurface/.test(appSrc), "there is one place that takes the surface away");
+ok(!/\$\("(strip|mTitle|mPlayoff|oddsboard|hero|heroMini|foot|panel-game|legacy)"\)/.test(appSrc),
+   "app.js reaches no pre-canonical element");
 
 // ---- app.js names no team, no colour, no team branch ----
 console.log("app.js");
@@ -947,8 +946,8 @@ ok(/getScoreboard\(0\)[\s\S]{0,200}refreshSchedule\(false\)/.test(appLive),
    "and the tick refreshes the scoreboard before the schedule, in that order");
 ok(/refreshSchedule\(false\);[\s\S]{0,300}paintGame\(\)/.test(appLive),
    "the same tick drives the Game screen, after the schedule it reads");
-ok(/if\(S\.tick\)\{ clearInterval\(S\.tick\); S\.tick=null; \}[\s\S]{0,120}Playing now/.test(appLive),
-   "the countdown is cancelled when a game goes live");
+ok(!/S\.tick|tickOnce/.test(appLive),
+   "no countdown timer of its own: Home shows the kickoff, never a ticking countdown (suite/home.js)");
 ok(/S\.next\.state==="pre"[\s\S]{0,140}refreshSchedule\(false\)/.test(appLive),
    "and a session opened before kickoff goes looking once kickoff passes");
 

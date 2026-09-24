@@ -14,9 +14,7 @@
      6. Screens              chooser, then each screen as it is rebuilt
      7. Responsive           widest first, so a narrower block always wins
      8. Preferences          reduced motion, last
-
-   Screens not yet rebuilt live in legacy.css, scoped under .legacy - a
-   quarantine that shrinks each phase, not a layer on top of this one. */
+ */
 
 /* ====================================================================
    1. SUITE TOKENS

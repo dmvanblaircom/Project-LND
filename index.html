@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
-<link rel="stylesheet" href="legacy.css">
 
 <meta name="description" content="Suite — your college football team, every day.">
 
@@ -261,45 +260,6 @@
     </div>
   </div>
 
-  <!-- The pre-canonical panels, no longer shown; their code is removed with the
-       legacy Game panel (docs/engineering/suite-redesign-completion.md). -->
-  <div class="legacy on-dark" id="legacy">
-    <section class="hero" id="hero" aria-labelledby="heroHead" hidden>
-      <h2 class="sr-only" id="heroHead">Next team game</h2>
-      <p class="when" id="heroWhen">Next up</p>
-      <p class="opp" id="heroOpp"></p>
-      <p class="line" id="heroLine"></p>
-      <p class="venue" id="heroVenue"></p>
-      <p class="series" id="heroSeries" hidden></p>
-      <p class="wx" id="heroWx" hidden></p>
-      <p class="spread" id="heroSpread"></p>
-      <!-- aria-live off: a countdown that announced itself every 30s would be unusable -->
-      <p class="clock" id="heroClock" aria-live="off"></p>
-    </section>
-    <!-- the hero, folded to one line, on screens where the full card is in the way -->
-    <button type="button" class="heromini" id="heroMini" hidden></button>
-
-    <div class="strip" id="strip" hidden>
-      <button type="button" class="cell" id="btnTitle" aria-expanded="false" aria-controls="oddsboard">
-        <span class="k">National title</span>
-        <span class="v pending" id="mTitle">Loading…</span>
-      </button>
-      <button type="button" class="cell" id="btnPlayoff" aria-expanded="false" aria-controls="oddsboard">
-        <span class="k">Playoff</span>
-        <span class="v pending" id="mPlayoff">Loading…</span>
-      </button>
-    </div>
-    <p class="hint" id="oddsHint" hidden>Tap either card for the full board</p>
-    <div id="oddsboard" hidden></div>
-
-    <h2 class="sr-only" id="dataHead">Team and national football data</h2>
-
-    <div id="tabpanel">
-      <section id="panel-game" aria-label="Game" hidden></section>
-    </div>
-
-    <footer><p class="foot" id="foot">Loading…</p></footer>
-  </div>
 </main>
 
 <!-- Primary navigation: five destinations, as links to in-page routes, so
