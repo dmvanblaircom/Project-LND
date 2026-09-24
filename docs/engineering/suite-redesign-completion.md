@@ -12,7 +12,7 @@ Product decides it differently.
 |---|---|---|
 | Final Suite icon set and neutral share image | Decision 0024 §11 | `assets/suite/TEMPORARY-*` are stand-ins. `tools/identitycheck.js --release` refuses them and CI runs it for `main` and PRs into it. Sizes in `assets/suite/README.md`. |
 | Season Outlook "View full field" | Home review, 2026-09-24 | The locked Home references have it and the full-market data exists (the Kalshi board). Build it as a Suite light-theme experience; do not route the new Home into the pre-canonical board. |
-| Suite Style's final palette | More rebuild, 2026-09-24 (decision 0026) | Suite Style works end to end, but the only Suite colour Design has set is the chrome navy `#0B1F3A`. The surfaces are that navy's scale and the accent a provisional steel blue (`#8FB3E8`, text `#2F5A9E` on light), marked TEMPORARY in `suite/ui.js` (`Suite.ui.STYLE`). They pass the same contrast checks as a team (`tools/suitecheck.js`). Design supplies Suite's own; replacing the values is the whole change. |
+| Suite Style's final palette | More rebuild, 2026-09-24 (decision 0026) | Suite Style works end to end on a provisional palette from Product's direction ("blue-led: ink for the foundation, cobalt for actions, and champagne or bronze used sparingly"): ink surfaces `#0F1C33` scale, cobalt `#2F5BEA` fills and `#2A52D6` on light, champagne `#E4CF9E` only as accent text on the ink header. In `suite/ui.js` (`Suite.ui.STYLE`), checked by the same contrast rules as a team (`tools/suitecheck.js`). Design sets the final tokens; replacing the values is the whole change. |
 
 ## Follow-ups recorded on this list
 
@@ -31,8 +31,6 @@ Product decides it differently.
 
 | Question | State today |
 |---|---|
-| About Suite: an independence / non-affiliation statement | Not shown. No approved wording exists in the repository, and it is a product and legal statement, not engineering copy. About Suite shows a one-line product description, the version and every data source the team's configuration declares (`TeamOS.sources.list`). |
-| More copy for Product to confirm | Written by engineering, factual, easy to change in `suite/more.js`: App Style's two helper lines ("Your team's colors and type lead." / "Suite's standard look, the same for every team."), Feedback's explanation, About's one-line description ("Your team's games, rankings, roster and news, in one place."). The menu subtitles are the reference's. |
 | The end-of-season / offseason Home: what owns the hero after the recent-final window when no game is left to play? | `TeamOS.game.hero` chooses no game (`reason: "season-over"`, `game: null`, `last` reported). Home draws no game card - an interim safe rendering only, not the approved design. Product/Design will define the real state; nothing is built on the interim one. |
 | A trustworthy, scalable source for rivalry names, trophies and concise rivalry context | Parked by Product/Design (Game review, 2026-09-24) as meaningful fan content. Today only the trophy name from team configuration is shown; no description is shown rather than generic copy, and no one-team rivalry database is built in Suite. Required before the redesign is complete. |
 

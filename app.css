@@ -838,6 +838,9 @@ details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}
 a.ab-name{color:var(--t-accent-on-light)}
 a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:4px}
 .ab-what{font-size:.92rem;color:var(--s-muted)}
+.ab-legal{margin-top:1.4rem}
+.ab-legal .sec-title{margin:0 0 .5rem}
+.ab-legal p{margin:.5rem 0 0;font-size:.92rem;line-height:1.5;color:var(--s-ink-2)}
 
 /* ====================================================================
    7. RESPONSIVE - widest first, so a narrower block always wins

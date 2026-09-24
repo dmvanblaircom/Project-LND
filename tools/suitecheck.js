@@ -93,7 +93,7 @@ function mhost() { return { innerHTML: "", querySelector: function () { return n
 var suiteLook = null;
 try { suiteLook = MT.identity.create({ identity: MS.ui.STYLE }, MT.createTeam(ND.team)); } catch (e) { console.log("    " + e.message); }
 ok(!!suiteLook, "Suite Style passes TeamOS.identity's contrast checks (dark and light surfaces)");
-ok(MS.ui.STYLE.colors.surface.toUpperCase() === "#0B1F3A", "Suite Style's surface is Suite's chrome navy");
+ok(MS.ui.STYLE.colors.accentText !== MS.ui.STYLE.colors.accent, "Suite Style's warm accent is text-only; actions are the cobalt fill");
 
 var m = mhost(); MS.more.menu(m);
 eq((m.innerHTML.match(/class="mo-title">([^<]+)/g) || []).map(function (x) { return x.replace(/.*>/, ""); }),
@@ -124,6 +124,11 @@ eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["E
    "Ohio State, with no official snapshots or beat feeds, is credited none");
 var abh = mhost(); MS.more.about(abh, { version: "2026-09-24v", sources: MT.sources.list(ND) });
 ok(!/project\s*lnd/i.test(abh.innerHTML + m.innerHTML + st.innerHTML + fbh.innerHTML), "no screen says Project LND (0022 #9)");
+ok(/not affiliated with, endorsed by or sponsored by/.test(abh.innerHTML) && /used only to\s+identify/.test(abh.innerHTML.replace(/" \+ "/g, "")),
+   "About Suite says Suite is independent, and whose marks are whose");
+ok(/not betting advice/.test(abh.innerHTML), "with Kalshi markets shown, prices are not betting advice");
+var abx = mhost(); MS.more.about(abx, { sources: [{ name: "ESPN", supplies: ["scores"] }] });
+ok(!/betting/.test(abx.innerHTML), "a team with no markets gets no betting line");
 ok(/rel="noopener noreferrer"/.test(abh.innerHTML) && /opens in a new tab/.test(abh.innerHTML), "source links open safely, and say so");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Suite draws what TeamOS decided, the way Product set"));

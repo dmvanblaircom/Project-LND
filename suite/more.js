@@ -203,7 +203,18 @@ Suite.more = (function () {
         return "<li>" + name + '<span class="ab-what">' +
                esc(s.supplies.map(function (k) { return SUPPLIES[k] || k; }).join(" · ")) + "</span></li>";
       }).join("") + "</ul></section>";
-    put(host, "about", product + sources);
+    // Independence (Product, 2026-09-24): the standard statement independent
+    // sports apps carry - no affiliation or endorsement, marks used only to
+    // identify, third-party data that can lag. Not legal review.
+    var markets = (m.sources || []).some(function (s) { return s.supplies.indexOf("outlook") > -1; });
+    var legal = '<section class="ab-legal" aria-labelledby="abLegal"><h2 class="sec-title" id="abLegal">Independent App</h2>' +
+      "<p>Suite is an independent app. It is not affiliated with, endorsed by or sponsored by the NCAA, any athletic " +
+      "conference, college or university, or any team shown, or by the data sources listed above.</p>" +
+      "<p>Team names, logos and other marks are the property of their respective owners and are used only to " +
+      "identify the teams.</p>" +
+      "<p>Scores, schedules, rankings and news come from the sources above and may be delayed or incomplete. " +
+      "Suite is for information and entertainment" + (markets ? "; market prices are not betting advice." : ".") + "</p></section>";
+    put(host, "about", product + sources + legal);
   }
 
   return { menu: menu, news: news, settings: settings, feedback: feedback, about: about };
