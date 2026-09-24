@@ -48,7 +48,11 @@ Suite.nav = (function () {
                 views: [{ id: "depth", label: "Depth Chart" }, { id: "roster", label: "Roster" },
                         { id: "availability", label: "Availability" }] },
     more:     { header: "mast",    title: "More"     },
-    schedule: { header: "mast",    title: "Schedule" }
+    // Schedule | Results; #schedule/<game id> opens one game in the Game
+    // layout, under the compact header, with a way back to the list.
+    schedule: { header: "mast",    title: "Schedule",
+                views: [{ id: "schedule", label: "Schedule" }, { id: "results", label: "Results" }],
+                item: /^[0-9]+$/, itemHeader: "bar", itemTitle: "Game" }
   };
   var DEFAULT = "home";
 
@@ -76,6 +80,9 @@ Suite.nav = (function () {
   }
 
   // "#top25/rankings/ap" -> { screen: "top25", path: ["rankings", "ap"], view: "rankings" }.
+  // A screen that opens items takes one by id: "#schedule/401858453/box" ->
+  // { screen: "schedule", item: "401858453", path: [...], view: null }; the
+  // item's own views are its opener's to judge.
   // Anything unknown is Home: an old bookmark or a typo still opens the app.
   // A screen with views always has one: the path's, or the default. `invalid`
   // says the path named a view this screen does not have.
@@ -85,6 +92,10 @@ Suite.nav = (function () {
     var screen = SCREENS[parts[0]] ? parts[0] : DEFAULT;
     var path = SCREENS[parts[0]] ? parts.slice(1) : [];
     var ids = viewIds(screen), view = null, invalid = false;
+    var def = SCREENS[screen];
+    if (def.item && path.length && def.item.test(path[0])) {
+      return { screen: screen, path: path, view: null, item: path[0], invalid: false };
+    }
     if (ids) {
       if (path.length && ids.indexOf(path[0]) > -1) view = path[0];
       else { view = ids[0]; invalid = path.length > 0; }
@@ -137,6 +148,8 @@ Suite.nav = (function () {
 
   function paint(route) {
     var def = SCREENS[route.screen];
+    var kind = route.item && def.itemHeader ? def.itemHeader : def.header;
+    var title = route.item && def.itemTitle ? def.itemTitle : def.title;
 
     // The nav: one current item, or none (Schedule has no item of its own).
     [].slice.call(document.querySelectorAll(".nav-item[data-screen]")).forEach(function (a) {
@@ -147,13 +160,12 @@ Suite.nav = (function () {
     // The header this screen wears, and the one heading that names it.
     var bar = $("appBar"), ctx = $("barContext"), mast = $("masthead"),
         mastTitle = $("mastTitle"), sr = $("screenHead");
-    var kind = def.header;
     if (bar)  bar.hidden = kind === "mast";
     if (ctx)  ctx.hidden = kind !== "context";
     if (mast) mast.hidden = kind !== "mast";
-    if (mastTitle) mastTitle.textContent = kind === "mast" ? def.title : "";
+    if (mastTitle) mastTitle.textContent = kind === "mast" ? title : "";
     if (sr) {
-      sr.textContent = kind === "mast" ? "" : def.title;
+      sr.textContent = kind === "mast" ? "" : title;
       sr.hidden = kind === "mast";
       // On a context screen the heading is visible: national content under
       // a neutral title, not under the team's name.
@@ -165,11 +177,12 @@ Suite.nav = (function () {
   // fan did not ask for - focus moves to the new screen's heading, so
   // keyboard and screen-reader users start there rather than on a nav link
   // that no longer describes what is on screen.
-  function focusHeading(route) {
+  function focusHeading(route, keepScroll) {
     var def = SCREENS[route.screen];
-    var h = $(def.header === "mast" ? "mastTitle" : "screenHead");
+    var kind = route.item && def.itemHeader ? def.itemHeader : def.header;
+    var h = $(kind === "mast" ? "mastTitle" : "screenHead");
     if (h && h.focus) { h.focus({ preventScroll: true }); }
-    window.scrollTo(0, 0);
+    if (!keepScroll) window.scrollTo(0, 0);
   }
 
   function apply(first, quiet) {
@@ -181,11 +194,15 @@ Suite.nav = (function () {
       return;
     }
     var changed = !last || last.screen !== route.screen || last.path.join("/") !== route.path.join("/");
-    var screenChanged = !last || last.screen !== route.screen;
+    // Opening or leaving an item is a new place, like a new screen.
+    var screenChanged = !last || last.screen !== route.screen || (last.item || null) !== (route.item || null);
+    // Back from an item to its list: the list's own place is the app's to
+    // restore, so the scroll is left alone.
+    var backToList = !!(last && last.item && !route.item && last.screen === route.screen);
     last = route;
     paint(route);
     listeners.forEach(function (fn) { fn(route, first); });
-    if (!first && !quiet && changed && screenChanged) focusHeading(route);
+    if (!first && !quiet && changed && screenChanged) focusHeading(route, backToList);
   }
 
   // The Game control's state: null for a normal Game item, or one of

@@ -372,7 +372,8 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 
 .sched-list{list-style:none;margin:0;padding:0;overflow:hidden}
 .sched-list li + li{border-top:1px solid var(--s-line)}
-.sched-row{display:grid;grid-template-columns:2.9rem minmax(0,1fr) auto auto;align-items:center;gap:.65rem;min-height:4rem;padding:.7rem .75rem .7rem .8rem;color:inherit;text-decoration:none}
+.sched-row{display:block;padding:.7rem .75rem .7rem .8rem;color:inherit;text-decoration:none}
+.sched-vis{display:grid;grid-template-columns:2.9rem minmax(0,1fr) auto auto;align-items:center;gap:.65rem;min-height:2.6rem}
 .sched-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .sched-row.is-hero{box-shadow:inset 4px 0 0 var(--t-accent)}
 .sched-date{display:flex;flex-direction:column;align-items:center;line-height:1}
@@ -380,7 +381,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .sched-date .d{font-family:var(--t-font-display);font-weight:700;font-size:1.65rem;color:var(--s-ink)}
 .sched-main{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:.5rem;row-gap:.15rem;min-width:0}
 .sched-main .site{min-width:0;padding:.22rem .45rem;font-size:.74rem}
-.sched-opp{overflow:hidden;font-weight:700;font-size:1.08rem;white-space:nowrap;text-overflow:ellipsis;color:var(--s-ink)}
+.sched-opp{min-width:0;overflow-wrap:break-word;font-weight:700;font-size:1.08rem;line-height:1.2;color:var(--s-ink)}
 .sched-meta,.sched-series{grid-column:1 / -1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:.88rem}
 .sched-meta{color:var(--s-muted)}
 .sched-series{color:var(--t-accent-on-light)}
@@ -392,6 +393,30 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .sched-result.loss .wl{color:var(--s-loss)}
 .sched-live{font-family:var(--t-font-display);font-weight:700;white-space:nowrap;color:var(--s-live)}
 .sched-row .state-pill{font-size:.78rem}
+/* The full row (Schedule, reference 08): date, site, the opponent's mark,
+   the opponent over the venue, and kickoff / where to watch / the line. */
+.sched-row.full .sched-vis{grid-template-columns:2.6rem 4.4rem 2.4rem minmax(0,1fr) auto auto;
+  grid-template-areas:"date site mark opp side chev" "date site mark meta side chev" "date site mark series side chev";row-gap:.1rem;column-gap:.55rem}
+.sched-row.full .sched-main{display:contents}
+.sched-row.full .sched-date{grid-area:date}
+.sched-row.full .site{grid-area:site;justify-self:center;padding:.22rem .45rem;font-size:.74rem}
+.sched-row.full .mark{grid-area:mark;--mark:2.4rem}
+.sched-row.full .sched-opp{grid-area:opp;align-self:end}
+.sched-row.full .sched-meta{grid-area:meta;align-self:start;white-space:normal;text-overflow:clip}
+.sched-row.full .sched-series{grid-area:series;align-self:start;white-space:normal;text-overflow:clip}
+.sched-row.full .sched-side{grid-area:side;display:flex;flex-direction:column;align-items:flex-end;gap:.1rem;text-align:right}
+.sched-row.full .chev{grid-area:chev}
+.sched-when{font-weight:600;font-size:.85rem;white-space:nowrap;color:var(--s-ink)}
+.sw-day::after{content:", "}
+.sched-net,.sched-odds{font-size:.82rem;white-space:nowrap;color:var(--s-muted)}
+.sc-card{margin-top:.9rem;padding:.9rem .2rem .2rem;overflow:hidden}
+.sc-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:0 .8rem .5rem}
+.sc-title{margin:0;font-family:var(--s-font-editorial);font-weight:700;font-size:1.6rem;line-height:1.1;color:var(--t-surface)}
+.sc-record{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.15rem;color:var(--s-ink)}
+.sc-body{padding-bottom:.5rem}
+.sc-back{display:inline-flex;align-items:center;gap:.3rem;min-height:2.75rem;margin:.4rem 0 0;color:var(--t-surface);font-weight:600;text-decoration:none}
+.sc-back .chev{transform:rotate(180deg);width:1.1rem;height:1.1rem}
+.sc-back:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:6px}
 
 .outlook{padding:1rem 1rem .85rem}
 .out-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1rem 1.4rem}
@@ -698,6 +723,17 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 }
 /* Phones: the rankings table keeps every column, set tighter to fit. */
 @media (max-width:30rem){
+  /* the full schedule row: the site tag rides above the opponent, so the
+     name keeps its room beside the kickoff, network and line */
+  .sched-row.full{padding-left:.6rem;padding-right:.55rem}
+  .sched-row.full .sched-vis{grid-template-columns:2.3rem 2rem minmax(0,1fr) auto auto;column-gap:.5rem;
+    grid-template-areas:"date mark site side chev" "date mark opp side chev" "date mark meta side chev" "date mark series side chev"}
+  .sched-row.full .site{justify-self:start;margin-bottom:.15rem;padding:.12rem .4rem;font-size:.68rem}
+  .sched-row.full .mark{--mark:2rem}
+  .sched-row.full .sched-opp{font-size:1rem}
+  .sched-row.full .sched-meta,.sched-row.full .sched-series{font-size:.82rem}
+  .sched-row.full .sw-day{display:block}
+  .sched-row.full .sw-day::after{content:none}
   .rk-card{padding-left:.4rem;padding-right:.4rem}
   .rk-table thead th{padding:.45rem .15rem;font-size:.66rem;letter-spacing:.02em}
   .rk-table td,.rk-table tbody th{padding:.45rem .15rem;font-size:.9rem}
@@ -709,6 +745,9 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 }
 @media (max-width:24rem){
   :root{--gutter:.85rem}
+  /* the venue and trophy run under the kickoff column instead of beside it */
+  .sched-row.full .sched-vis{grid-template-areas:"date mark site side chev" "date mark opp side chev" "date mark meta meta chev" "date mark series series chev"}
+
   .rk-n{width:1.7rem}
   .rk-rec,.rk-prev{width:2.3rem}
   .rk-trend{width:2.5rem}

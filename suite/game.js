@@ -24,6 +24,8 @@
        model.open        { disclosure key: open? } - the fan's own choices
        model.weather     Weather | null
        model.now         Date
+       model.base        the route its views hang off: "#game" (default) or
+                         "#schedule/<id>"
 
    The screen is written from the team's side: the team is always on the
    left, whoever is home. */
@@ -34,7 +36,6 @@ Suite.game = (function () {
   "use strict";
 
   var ui = Suite.ui, esc = ui.esc;
-  var last = {};
 
   var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg>';
   var TROPHY = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 4h8v5a4 4 0 0 1-8 0V4ZM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7M10 17h4v3h-4z"/></svg>';
@@ -151,7 +152,7 @@ Suite.game = (function () {
     if (m.lifecycle.views.length < 2) return "";           // pregame: one destination, no strip (0024 §7)
     return '<nav class="game-tabs" aria-label="Game views">' + m.lifecycle.views.map(function (v) {
       var on = v.id === m.view;
-      return '<a href="#game/' + esc(v.id) + '"' + (on ? ' aria-current="page"' : "") + ">" + esc(v.label) + "</a>";
+      return '<a href="' + esc(base(m)) + "/" + esc(v.id) + '"' + (on ? ' aria-current="page"' : "") + ">" + esc(v.label) + "</a>";
     }).join("") + "</nav>";
   }
 
@@ -319,7 +320,7 @@ Suite.game = (function () {
     if (!lp) return "";
     return card("Last play", (lp.downDistance ? '<p class="lp-dd">' + esc(lp.downDistance) + "</p>" : "") +
       '<p class="lp-text">' + esc(lp.text) + "</p>" +
-      '<a class="sec-link" href="#game/plays">View play-by-play' + CHEVRON + "</a>");
+      '<a class="sec-link" href="' + esc(base(m)) + '/plays">View play-by-play' + CHEVRON + "</a>");
   }
 
   // ---- plays -----------------------------------------------------------------------
@@ -408,7 +409,7 @@ Suite.game = (function () {
     if (v === "drive") {
       var html = driveCard(m) + lastPlay(m) + linescore(m);
       var sr = statRows(m, 6);
-      if (sr) html += card("Game stats", sr + '<a class="sec-link" href="#game/stats">View all stats' + CHEVRON + "</a>");
+      if (sr) html += card("Game stats", sr + '<a class="sec-link" href="' + esc(base(m)) + '/stats">View all stats' + CHEVRON + "</a>");
       return html || quiet(m.detail ? "The drive tracker fills in once the first drive starts." : "Loading the game…");
     }
     if (v === "plays") return plays(m);
@@ -424,7 +425,7 @@ Suite.game = (function () {
   // sides alike, so the header never pairs a name with an abbreviation.
   // Measured, because whether a name fits depends on the name, the font
   // and the width, not on any one team.
-  var fitHost = null;
+  var fitHosts = [];
   function fit(host) {
     var row = host && host.querySelector(".gh-row");
     if (!row) return;
@@ -435,21 +436,28 @@ Suite.game = (function () {
     if (over()) row.classList.add("fit-abbr");
   }
   if (typeof window !== "undefined") {
-    window.addEventListener("resize", function () { fit(fitHost); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fit(fitHost); });
+    var refit = function () { fitHosts.forEach(fit); };
+    window.addEventListener("resize", refit);
+    // A name measured in the fallback face can look too long; measure again
+    // whenever a web font finishes loading, not only the first time.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", refit);
   }
 
+  // One module draws the hero game on Game and any game opened from
+  // Schedule, so what each host last received is remembered per host.
   function paint(host, m) {
     if (!host) return;
+    var last = host.__gameLast || (host.__gameLast = {});
     if (!m.game) {
       host.innerHTML = '<section class="game-empty">' + quiet("No game to show right now.") +
         '<a class="btn btn-secondary" href="#schedule">See the schedule' + CHEVRON + "</a></section>";
-      last = {};
+      host.__gameLast = {};
       return;
     }
     if (!host.querySelector("[data-game]")) {
       host.innerHTML = '<div data-game="head"></div><div data-game="strip"></div><div data-game="body" class="game-body"></div>';
-      last = {};
+      last = host.__gameLast = {};
     }
     var html = { head: header(m), strip: strip(m), body: body(m) };
     ["head", "strip", "body"].forEach(function (k) {
@@ -459,8 +467,11 @@ Suite.game = (function () {
       last[k] = html[k];
       if (k === "head") fit(host);
     });
-    fitHost = host;
+    if (fitHosts.indexOf(host) === -1) fitHosts.push(host);
   }
+  // Where this game's views live: #game for the hero, #schedule/<id> for a
+  // game opened from Schedule (model.base).
+  function base(m) { return m.base || "#game"; }
 
   return { paint: paint, sides: sides };
 })();

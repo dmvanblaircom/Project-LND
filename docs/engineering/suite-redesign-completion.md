@@ -18,6 +18,7 @@ Product decides it differently.
 
 | Item | Source | Notes |
 |---|---|---|
+| Remove the legacy Game panel code | Schedule rebuild, 2026-09-24 | `loadGame`, `renderGame` and `#panel-game` in app.js/index.html drew the pre-canonical Game Center. Game and Schedule's opened games are canonical now, so nothing reaches them; remove them with the last legacy screens (Roster, More) rather than piecemeal. |
 | Safe presentation of play text | Game review, 2026-09-24 | Not a Top 25 blocker. ESPN's raw play text ("(02:51) No Huddle-Shotgun #2 N.James Jr. rush left...") reads awkwardly. Where normalized structured play fields can produce cleaner text safely, they may drive the display; otherwise the source text stays as it is. No free-text parser that could change what a play says. |
 
 ## Planned verification

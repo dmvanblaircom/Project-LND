@@ -154,6 +154,7 @@
     if (!domReady || !teamReady || started) return;
     started = true;
     inject("suite/nav.js");
+    inject("suite/schedule.js");
     inject("suite/home.js");
     inject("suite/game.js");
     inject("suite/top25.js");
@@ -236,10 +237,17 @@
   <!-- The screen's name for assistive technology where no masthead shows it. -->
   <h1 class="sr-only" id="screenHead" tabindex="-1"></h1>
 
-  <!-- Screens rebuilt in the canonical system (suite/home.js, suite/game.js, suite/top25.js). -->
+  <!-- Screens rebuilt in the canonical system (suite/home.js, suite/game.js, suite/top25.js, suite/schedule.js). -->
   <div class="home" id="screenHome" hidden></div>
   <div class="game" id="screenGame" hidden></div>
   <div class="top25" id="screenTop25" hidden></div>
+  <div class="schedule" id="screenSchedule" hidden>
+    <div id="scheduleList"></div>
+    <div id="scheduleGame" hidden>
+      <a class="sc-back" id="scheduleBack" href="#schedule"><svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg><span>Schedule</span></a>
+      <div class="game" id="scheduleGameHost"></div>
+    </div>
+  </div>
 
   <!-- Screens not yet rebuilt in the canonical system (legacy.css). -->
   <div class="legacy on-dark" id="legacy">
@@ -274,9 +282,6 @@
     <h2 class="sr-only" id="dataHead">Team and national football data</h2>
 
     <div id="tabpanel">
-      <section id="panel-schedule" aria-label="Season">
-        <p class="loading">Loading the schedule…</p>
-      </section>
       <section id="panel-game" aria-label="Game" hidden></section>
       <section id="panel-depth" aria-label="Roster" hidden></section>
       <section id="panel-more" aria-label="More" hidden>

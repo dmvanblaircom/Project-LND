@@ -470,87 +470,6 @@ function paintWeather(g){
   });
 }
 
-/* ---------- schedule ---------- */
-function paintSchedule(games){
-  var el=$("panel-schedule");
-  if(!games.length){ el.innerHTML='<p class="msg">No games on the schedule yet.</p>'; return; }
-  var nextId=S.next?S.next.id:null;
-
-  // Completed games pile up and push the next one off screen by November, so
-  // the older results fold away. The most recent result stays out: that is
-  // the box score people come back for during the week.
-  var done=games.filter(function(g){return g.state==="post";});
-  var rest=games.filter(function(g){return g.state!=="post";});
-  var fold = done.length>=3;
-  var older = fold ? done.slice(0,-1) : [];
-  var shown = fold ? done.slice(-1).concat(rest) : games;
-
-  // This repaints on every live poll and again when the betting line arrives.
-  // Carry the open fold and any expanded box score across, or the repaint
-  // snaps them shut under the reader's thumb.
-  var prev=el.querySelector("details.fold");
-  var wasOpen=!!(prev&&prev.open);
-  var detail=el.querySelector("li.gamedetail");
-
-  var html='<h2 class="sr-only">2026 '+esc(TEAM.name)+' schedule</h2>';
-  if(fold){
-    html+='<details class="fold"'+(wasOpen?" open":"")+'><summary>Earlier results '+
-      '<span class="count">'+older.length+" games</span></summary>"+
-      '<div class="foldbody"><ul class="plain">'+older.map(row).join("")+"</ul></div></details>";
-  }
-  html+='<ul class="plain">';
-  shown.forEach(function(g){ html+=row(g); });
-  el.innerHTML=html+"</ul>";
-
-  if(detail && DETAIL.open){
-    var anchor=el.querySelector('.row.tappable[data-ev="'+DETAIL.open+'"]');
-    if(anchor){
-      anchor.setAttribute("aria-expanded","true");
-      anchor.parentNode.insertBefore(detail, anchor.nextSibling);
-    } else {
-      DETAIL.open=null; DETAIL.seq++;
-    }
-  }
-  return;
-
-  function row(g){
-    var html="", isDone=g.state==="post", isLive=g.state==="in", right, label;
-    if(isDone){
-      right='<span class="sr-only">'+(g.won?"Won":"Lost")+" "+(g.us||0)+" to "+(g.them||0)+". </span>"+
-        '<span aria-hidden="true"><span class="score">'+(g.us||0)+"\u2013"+(g.them||0)+"</span>"+
-        '<span class="wl '+(g.won?"w":"l")+'">'+(g.won?"WIN":"LOSS")+"</span></span>";
-      label="Show the box score for the "+esc(g.oppName)+" game";
-    } else if(isLive){
-      right='<span class="sr-only">Score: '+esc(TEAM.name)+' '+(g.us||0)+", "+esc(g.oppName)+" "+(g.them||0)+
-          ". "+esc(g.detail)+"</span>"+
-        '<span aria-hidden="true"><span class="score">'+(g.us||0)+"\u2013"+(g.them||0)+"</span></span>";
-      label="Show the live box score for the "+esc(g.oppName)+" game";
-    } else {
-      right = g.net
-        ? '<span class="net"><span class="sr-only">Watch on </span>'+esc(g.net)+"</span>"
-        : '<span class="net tbd">Network <abbr title="to be determined">TBD</abbr></span>';
-      label="Show details for the "+esc(g.oppName)+" game";
-    }
-    var sub = (isDone||isLive) ? esc(g.venue||"")+(g.city&&g.neutral?", "+esc(g.city):"")
-      : (g.timeSet?fmtTime(g.date)+" "+tzAbbr():"Kickoff time not announced")
-        + (g.odds&&g.odds.line?" \u00B7 line "+esc(g.odds.line):"")
-        + (g.venue?" \u00B7 "+esc(g.venue):"");
-    html+='<li class="row tappable '+(isDone?"past":"")+" "+(g.id===nextId?"next":"")+
-      '" data-ev="'+esc(String(g.id))+'" role="button" tabindex="0" '+
-      'aria-expanded="false" aria-label="'+label+'">'+
-      dateChip(g.date)+
-      '<span class="mid"><span class="team">'+ venueTag(g) +
-        (g.oppRank?'<span class="rk"><span class="sr-only">number </span>'+
-          '<span aria-hidden="true">#</span>'+g.oppRank+"</span> ":"")+esc(g.oppName)+
-      '</span><span class="sub">'+sub+"</span>"+
-      (isLive?'<span class="live"><span class="lbl">LIVE</span>'+esc(g.detail)+"</span>":"")+
-      (g.series?'<span class="trophy">'+
-        (isDone?(g.won?"Retained ":"Lost "):"Playing for ")+esc(g.series)+"</span>":"")+
-      "</span>"+
-      '<span class="right">'+right+"</span></li>";
-    return html;
-  }
-}
 
 /* ---------- top 25 ---------- */
 // Top 25 is canonical (suite/top25.js; decisions 0024 §5, §6). Its games are
@@ -1863,7 +1782,11 @@ window.addEventListener("offline", function(){ paintHome(); paintTop25(); });
 // The Game screen is the hero game - the one TeamOS rule Home and the nav
 // use - drawn by suite/game.js from its GameDetail. Its views follow the
 // game's lifecycle (TeamOS.game.lifecycle); the route says which one shows.
-var GV={ id:null, gd:null, preview:undefined, side:"us", at:0, loading:false, open:{} };
+// One game on screen, wherever it is drawn: its summary, its pregame
+// matchup, the fan's team toggle and open disclosures. GV is the hero game
+// on Game; SV a game opened from Schedule (#schedule/<id>).
+function gameState(id){ return { id:id, gd:null, preview:undefined, side:"us", at:0, loading:false, open:{} }; }
+var GV=gameState(null);
 function heroGame(){
   var h=TeamOS.game.hero(S.games||[], new Date(), TEAM.timeZone), g=h.game;
   if(g && HOME.status){
@@ -1873,86 +1796,163 @@ function heroGame(){
   }
   return g;
 }
+function gameModel(V, g, lc, view, base){
+  var espnId=TEAM_CONFIG.sources.espn.teamId;
+  return {
+    team:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true) },
+    oppMark:function(id){ return TeamOS.espn.mark(id, true); },
+    photo:ID.art, game:g, detail:V.gd, lifecycle:lc, base:base,
+    view: view || lc.defaultView, preview:V.preview, side:V.side, open:V.open,
+    weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date()
+  };
+}
 function paintGame(){
   var host=$("screenGame");
   if(!host || host.hidden) return;
   if(!S.games){ host.innerHTML='<p class="sec-quiet home-loading">Loading the game\u2026</p>'; return; }
   var g=heroGame();
-  if(g && GV.id!==g.id) GV={ id:g.id, gd:null, preview:undefined, side:"us", at:0, loading:false, open:{} };
+  if(g && GV.id!==g.id) GV=gameState(g.id);
   var lc=TeamOS.game.lifecycle(g), route=Suite.nav.current();
-  var espnId=TEAM_CONFIG.sources.espn.teamId;
-  Suite.game.paint(host, {
-    team:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true) },
-    oppMark:function(id){ return TeamOS.espn.mark(id, true); },
-    photo:ID.art, game:g, detail:GV.gd, lifecycle:lc,
-    view: route.view || lc.defaultView, preview:GV.preview, side:GV.side, open:GV.open,
-    weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date()
-  });
-  if(g){ loadGameDetail(g, lc); loadHomeWeather(g); }
+  Suite.game.paint(host, gameModel(GV, g, lc, route.view, "#game"));
+  if(g){ loadGameDetail(GV, g, lc, paintGame); loadHomeWeather(g); }
 }
-// The summary for the hero game: every 25 seconds while it is under way,
-// every five minutes otherwise, never two requests at once.
-function loadGameDetail(g, lc){
+// A game's summary: every 25 seconds while it is under way, every five
+// minutes otherwise, never two requests at once.
+function loadGameDetail(V, g, lc, repaint){
   var live=TeamOS.game.underWay(g);
-  if(GV.loading || (GV.at && Date.now()-GV.at < (live ? 25e3 : 5*60e3))) return;
-  GV.loading=true;
+  if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))) return;
+  V.loading=true;
   summaryFor(g.id, live).then(function(raw){
-    GV.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
-    if(lc.phase==="pregame" && GV.preview===undefined) loadGamePreview();
+    V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
+    if(lc.phase==="pregame" && V.preview===undefined) loadGamePreview(V, g, repaint);
   }).catch(function(){}).then(function(){
-    GV.at=Date.now(); GV.loading=false; paintGame();
+    V.at=Date.now(); V.loading=false; repaint();
   });
 }
 // Pregame Matchup: both teams' season figures, with national ranks.
-function loadGamePreview(){
-  var s=Suite.game.sides(GV.gd, heroGame());
-  if(!s){ GV.preview=null; return; }
-  GV.preview=undefined;
+function loadGamePreview(V, g, repaint){
+  var s=Suite.game.sides(V.gd, g);
+  if(!s){ V.preview=null; return; }
+  V.preview=undefined;
   Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
                pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null)])
-    .then(function(r){ GV.preview={ us:withPointsAllowed(r[0], r[2]), them:withPointsAllowed(r[1], r[3]) }; })
-    .catch(function(){ GV.preview=null; })
-    .then(paintGame);
+    .then(function(r){ V.preview={ us:withPointsAllowed(r[0], r[2]), them:withPointsAllowed(r[1], r[3]) }; })
+    .catch(function(){ V.preview=null; })
+    .then(repaint);
+}
+// Which game state a control belongs to, by the host it sits in.
+function gameAt(el){
+  if(el.closest("#screenGame")) return { V:GV, repaint:paintGame, host:"#screenGame" };
+  if(el.closest("#scheduleGameHost")) return { V:SV, repaint:paintScheduleScreen, host:"#scheduleGameHost" };
+  return null;
 }
 // A Box Score category or a drive the fan opened or closed stays that way
 // through the live refresh. toggle does not bubble, so listen in capture.
 document.addEventListener("toggle", function(e){
-  var d=e.target;
-  if(d && d.matches && d.matches("#screenGame details[data-key]")) GV.open[d.getAttribute("data-key")]=d.open;
+  var d=e.target, at=d && d.matches && d.matches("details[data-key]") ? gameAt(d) : null;
+  if(at) at.V.open[d.getAttribute("data-key")]=d.open;
 }, true);
 // The Leaders and Box Score team toggle.
 document.addEventListener("click", function(e){
-  var b=e.target.closest ? e.target.closest("#screenGame [data-side]") : null;
-  if(!b) return;
-  GV.side=b.getAttribute("data-side")==="them" ? "them" : "us";
-  paintGame();
-  var again=document.querySelector('#screenGame [data-side="'+GV.side+'"]');
+  var b=e.target.closest ? e.target.closest("[data-side]") : null;
+  var at=b ? gameAt(b) : null;
+  if(!at) return;
+  at.V.side=b.getAttribute("data-side")==="them" ? "them" : "us";
+  at.repaint();
+  var again=document.querySelector(at.host+' [data-side="'+at.V.side+'"]');
   if(again) again.focus();
 });
+
+/* ---------- schedule ---------- */
+// Schedule is canonical (suite/schedule.js; decision 0022 #8): the season in
+// date order and its results, from the same S.games every other surface
+// reads. A row opens its game - the hero on Game, any other here, drawn by
+// suite/game.js at #schedule/<id> (Product, 2026-09-24). Coming back to the
+// list returns the fan to where they were in it.
+var SC={ failed:false, listY:0, wasItem:false, from:"schedule" };
+var SV=gameState(null);
+function scheduleSources(){
+  var x=SRC.schedule, list=[x ? { key:"schedule", fetchedAt:x.fetchedAt, cached:x.cached, maxAgeMs:12*HOUR }
+                                : { key:"schedule", missing:true }];
+  if(S.games && S.games.some(TeamOS.game.underWay)){
+    var sb=SRC.scoreboard;
+    list.push(sb ? { key:"scoreboard", fetchedAt:sb.fetchedAt, cached:sb.cached, maxAgeMs:10*60e3 } : { key:"scoreboard", missing:true });
+  }
+  return list;
+}
+function paintScheduleScreen(){
+  var host=$("screenSchedule");
+  if(!host || host.hidden) return;
+  var route=Suite.nav.current();
+  $("scheduleList").hidden=!!route.item;
+  $("scheduleGame").hidden=!route.item;
+  if(route.item){ paintScheduleGame(route); return; }
+  SC.from = route.view==="results" ? "results" : "schedule";
+  var season=S.games ? TeamOS.game.season(S.games) : null, hero=S.games ? heroGame() : null;
+  Suite.schedule.paint($("scheduleList"), {
+    view: SC.from, season: season, failed: SC.failed && !season,
+    results: season ? TeamOS.game.results(season) : [],
+    heroId: hero ? hero.id : null,
+    record: HOME.status && HOME.status.record || null,
+    oppMark: function(id){ return TeamOS.espn.mark(id, false); },
+    fresh: TeamOS.freshness.summary(scheduleSources(), { now:new Date(), online: navigator.onLine!==false })
+  });
+}
+function paintScheduleGame(route){
+  var host=$("scheduleGameHost"), back=$("scheduleBack");
+  back.setAttribute("href", SC.from==="results" ? "#schedule/results" : "#schedule");
+  back.querySelector("span").textContent = SC.from==="results" ? "Results" : "Schedule";
+  if(!S.games){ host.innerHTML='<p class="sec-quiet home-loading">Loading the game\u2026</p>'; return; }
+  var g=S.games.filter(function(x){ return x.id===route.item; })[0] || null;
+  if(!g){ Suite.game.paint(host, { game:null }); return; }
+  if(SV.id!==g.id) SV=gameState(g.id);
+  var lc=TeamOS.game.lifecycle(g), want=route.path[1];
+  // A view this game does not have is corrected in place (0024 §15).
+  if(want && !lc.views.some(function(v){ return v.id===want; })){
+    var def=lc.views.filter(function(v){ return v.id===lc.defaultView; })[0];
+    Suite.nav.replace("schedule", [g.id, lc.defaultView], "Showing "+(def ? def.label : lc.defaultView)+".");
+    return;
+  }
+  Suite.game.paint(host, gameModel(SV, g, lc, want, "#schedule/"+g.id));
+  loadGameDetail(SV, g, lc, paintScheduleScreen);
+}
+// Where the fan was in the list, kept while a game is open.
+Suite.nav.on(function(route){
+  var item=route.screen==="schedule" && !!route.item;
+  if(item && !SC.wasItem) SC.listY=window.scrollY;
+  var backToList=!item && SC.wasItem && route.screen==="schedule";
+  SC.wasItem=item;
+  if(backToList) setTimeout(function(){ window.scrollTo(0, SC.listY); }, 0);
+});
+// The finger is down before the tap completes: start fetching the summary.
+$("scheduleList").addEventListener("pointerdown", function(e){
+  var a=e.target.closest ? e.target.closest('a[href^="#schedule/"]') : null;
+  var id=a && (a.getAttribute("href").match(/^#schedule\/([0-9]+)$/)||[])[1];
+  if(id) summaryFor(id).catch(function(){});
+}, {passive:true});
 
 /* ---------- screens: which content each route shows ---------- */
 // The route itself is suite/nav.js's (one state: location.hash). This is the
 // other half: which panel a screen shows, and what it loads on entry. Until
 // each screen is rebuilt in the canonical system it shows its pre-canonical
 // panel (legacy.css); the map below shrinks, phase by phase, to nothing.
-var PANEL_FOR={ home:"schedule", top25:"top25", game:"game", roster:"depth", more:"more", schedule:"schedule" };
-var PANELS=["schedule","game","depth","more"];
+var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"depth", more:"more", schedule:"schedule" };
+var PANELS=["game","depth","more"];
 function showScreen(route){
   var name=PANEL_FOR[route.screen]||"schedule";
-  // Home, Game and Top 25 are canonical; the rest are still their
-  // pre-canonical panels.
-  var home=route.screen==="home", game=route.screen==="game", top25=route.screen==="top25";
+  // Home, Game, Top 25 and Schedule are canonical; the rest are still
+  // their pre-canonical panels.
+  var home=route.screen==="home", game=route.screen==="game", top25=route.screen==="top25",
+      sched=route.screen==="schedule";
   $("screenHome").hidden=!home;
   $("screenGame").hidden=!game;
   $("screenTop25").hidden=!top25;
-  $("legacy").hidden=home || game || top25;
+  $("screenSchedule").hidden=!sched;
+  $("legacy").hidden=home || game || top25 || sched;
   if(home){ paintHome(); if(HOME.news==null) loadHomeNews(); }
   if(game) paintGame();
   if(top25){ paintTop25(); loadTop25(); }
-  // A schedule row on Home opens that game on the full Schedule.
-  if(route.screen==="schedule" && route.path[0] && S.games && DETAIL.open!==route.path[0]){
-    setTimeout(function(){ openGame(route.path[0]); }, 0);
-  }
+  if(sched) paintScheduleScreen();
   PANELS.forEach(function(p){ $("panel-"+p).hidden = p!==name; });
   UI.tab=name; layoutForTab();
   // Force a refresh on entry: the dataset guard would otherwise leave the
@@ -2083,7 +2083,6 @@ document.addEventListener("visibilitychange", function(){
 
 function load(){
   // only an empty page shows the placeholder; a refresh keeps what is there
-  if(!S.games) $("panel-schedule").innerHTML='<p class="loading">Loading the schedule…</p>';
   S.stale=null;                        // a fresh load starts optimistic
 
   get(TeamOS.espn.teamUrl(TEAM_CONFIG)).then(function(d){
@@ -2150,7 +2149,7 @@ function refreshSchedule(first){
 
   // Everything that turns a schedule payload into pixels. Runs twice on a
   // repeat visit: once from the worker's cache the instant the page opens,
-  // then again when ESPN answers. paintSchedule keeps any open box score.
+  // then again when ESPN answers.
   function apply(d){
     var games=TeamOS.espn.schedule(d, TEAM, TEAM_CONFIG);
     // The scoreboard is the league's live feed and the schedule is a season
@@ -2164,7 +2163,8 @@ function refreshSchedule(first){
     var up=games.filter(function(g){return g.state==="pre";})[0];
     S.next=live||up||null;
     if(S.next) paintHero(S.next); else layoutForTab();   // no next game: nothing above the tabs
-    paintSchedule(games);
+    SC.failed=false;
+    paintScheduleScreen();
     paintHome();
     paintGame();
     paintTop25();                        // which game #game opens rides on the schedule
@@ -2202,7 +2202,7 @@ function refreshSchedule(first){
       summaryFor(S.next.id).then(function(sm){
         var o=TeamOS.espn.gameOdds(sm); if(!o) return;
         S.next.odds=o;
-        paintHero(S.next); paintSchedule(S.games);
+        paintHero(S.next); paintScheduleScreen();
       }).catch(function(){});
     }
 
@@ -2212,10 +2212,7 @@ function refreshSchedule(first){
     paintStale();                      // overrides the line above when offline
   }).catch(function(){
     if(!first || painted) return;      // a failed poll, or a cached paint, keeps what is there
-    $("panel-schedule").innerHTML='<p class="msg"><strong>The schedule didn\u2019t load.</strong>'+
-      'If you are viewing this inside another app\u2019s file preview, that preview is most likely '+
-      'blocking outside requests. Open the file in Safari or Chrome directly and it should fill in. '+
-      'Otherwise, check your connection and choose Refresh.</p>';
+    SC.failed=true; paintScheduleScreen();
     say("Schedule failed to load.");
   });
 }
@@ -2277,70 +2274,6 @@ function prefetchSummaries(){
     setTimeout(function(){ if(!document.hidden) summaryFor(id).catch(function(){}); }, 350*i);
   });
 }
-
-// Tapping a game on the Schedule expands it in place. It does not navigate —
-// the Game tab is for the upcoming game, past results belong here.
-var DETAIL={ open:null, seq:0 };
-
-// Opening and closing never move the page: the detail simply appears under
-// the row you tapped, where your eye already is.
-function closeDetail(){
-  var d=$("panel-schedule").querySelector("li.gamedetail");
-  if(d) d.remove();
-  var open=$("panel-schedule").querySelector('.row.tappable[aria-expanded="true"]');
-  if(open) open.setAttribute("aria-expanded","false");
-  DETAIL.open=null;
-  DETAIL.seq++;                       // invalidate anything still in flight
-  return open;
-}
-
-function openGame(id){
-  if(!id) return;
-  var panel=$("panel-schedule");
-  var li=panel.querySelector('.row.tappable[data-ev="'+id+'"]');
-  if(!li) return;
-  if(DETAIL.open===id){ closeDetail(); return; }   // second tap closes
-  closeDetail();
-  DETAIL.open=id;
-  li.setAttribute("aria-expanded","true");
-
-  var slot=document.createElement("li");
-  slot.className="gamedetail";
-  slot.innerHTML='<p class="loading">Loading the game\u2026</p>';
-  li.parentNode.insertBefore(slot, li.nextSibling);
-
-  var token=++DETAIL.seq;
-  G.side=null;                        // default the team toggle to our side
-  summaryFor(id).then(function(raw){
-    if(token!==DETAIL.seq || DETAIL.open!==id) return;
-    var gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
-    slot.innerHTML=renderGame(gd, true);
-    wireLeaderSwitch(slot);
-    previewIfPre(gd, slot);
-  }).catch(function(){
-    if(token!==DETAIL.seq || DETAIL.open!==id) return;
-    slot.innerHTML='<p class="msg"><strong>Couldn\u2019t load that game.</strong>'+
-      "ESPN didn\u2019t return a summary for it.</p>";
-  });
-}
-$("panel-schedule").addEventListener("click", function(e){
-  if(e.target.closest("[data-close-detail]")){ closeDetail(); return; }
-  var li=e.target.closest(".row.tappable[data-ev]");
-  if(li) openGame(li.getAttribute("data-ev"));
-});
-// The finger is down before the tap completes; start the fetch then. On a
-// prefetched or final game this is a no-op.
-$("panel-schedule").addEventListener("pointerdown", function(e){
-  var li=e.target.closest(".row.tappable[data-ev]");
-  if(li) summaryFor(li.getAttribute("data-ev")).catch(function(){});
-}, {passive:true});
-$("panel-schedule").addEventListener("keydown", function(e){
-  if(e.key!=="Enter" && e.key!==" ") return;
-  var li=e.target.closest(".row.tappable[data-ev]");
-  if(!li) return;
-  e.preventDefault();
-  openGame(li.getAttribute("data-ev"));
-});
 
 $("btnTitle").addEventListener("click", function(){ toggleBoard("title"); });
 $("btnPlayoff").addEventListener("click", function(){ toggleBoard("playoff"); });

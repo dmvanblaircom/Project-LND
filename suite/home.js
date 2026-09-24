@@ -44,12 +44,6 @@ Suite.home = (function () {
   }
   function whereWord(g) { return g.home || g.neutral ? "vs" : "at"; }
   function oppLabel(g) { return (g.oppRank ? "#" + g.oppRank + " " : "") + g.oppName; }
-  function num(s) { var v = parseInt(s, 10); return isNaN(v) ? null : v; }
-  function result(g) {
-    var a = num(g.us), b = num(g.them);
-    if (a == null || b == null) return null;
-    return a > b ? "win" : a < b ? "loss" : "tie";
-  }
 
   // ---- the hero ------------------------------------------------------------
 
@@ -232,37 +226,13 @@ Suite.home = (function () {
 
   // ---- schedule ------------------------------------------------------------
 
-  function siteTag(g) {
-    var k = g.neutral ? "neutral" : g.home ? "home" : "away";
-    return '<span class="site site-' + k + '">' + k + "</span>";
-  }
-  function rowSide(g) {
-    if (g.status === "final") {
-      var r = result(g);
-      return '<span class="sched-result ' + (r || "") + '"><span class="wl">' + (r === "win" ? "W" : r === "loss" ? "L" : "T") +
-             '</span> ' + esc((g.us || "") + "–" + (g.them || "")) + "</span>";
-    }
-    if (g.status === "live") return '<span class="sched-live">Live · ' + esc(g.us || 0) + "–" + esc(g.them || 0) + "</span>";
-    if (g.status === "delayed" || g.status === "suspended" || g.status === "postponed" || g.status === "canceled")
-      return '<span class="state-pill ' + g.status + '">' + esc(g.status) + "</span>";
-    return g.net ? '<span class="net-pill">' + esc(g.net) + "</span>" : '<span class="net-pill tbd">Network TBD</span>';
-  }
   function scheduleHtml(rows, heroId) {
     var head = '<div class="sec-head"><h2 class="sec-title" id="schedHead">Schedule</h2>' +
                '<a class="sec-link" href="#schedule">View All' + CHEVRON + "</a></div>";
     if (!rows || !rows.length) return head + '<p class="sec-quiet">No games on the schedule yet.</p>';
+    // The same row the Schedule screen draws (suite/schedule.js), compact.
     return head + '<ul class="sched-list card" aria-labelledby="schedHead">' + rows.map(function (g) {
-      var d = new Date(g.date), ko = ui.kickoff(g.date, g.timeSet);
-      var meta = g.status === "final" ? g.venue : [g.timeSet === false ? "Time TBA" : ko.time, g.venue].filter(Boolean).join(" · ");
-      return '<li><a class="sched-row' + (g.id === heroId ? " is-hero" : "") + '" href="#schedule/' + esc(g.id) + '">' +
-             '<span class="sched-date"><span class="m">' + esc(d.toLocaleDateString([], { month: "short" })) + '</span><span class="d">' +
-               esc(String(d.getDate())) + "</span></span>" +
-             '<span class="sched-main">' + siteTag(g) +
-               '<span class="sched-opp">' + esc(oppLabel(g)) + "</span>" +
-               '<span class="sched-meta">' + esc(meta) + "</span>" +
-               (g.series ? '<span class="sched-series">' + esc(g.series) + "</span>" : "") +
-             "</span>" +
-             '<span class="sched-side">' + rowSide(g) + "</span>" + CHEVRON + "</a></li>";
+      return Suite.schedule.row(g, { heroId: heroId });
     }).join("") + "</ul>";
   }
 

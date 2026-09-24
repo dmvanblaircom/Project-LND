@@ -202,9 +202,9 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         var s = await openContext(width);
         var page = s.page;
         await page.goto(base + "/?team=" + team, { waitUntil: "domcontentloaded" });
+        // The team's schedule has arrived when Home draws its schedule rows.
         await page.waitForFunction(function () {
-          var p = document.getElementById("panel-schedule");
-          return p && p.textContent.trim().length > 0 && !/^Loading/.test(p.textContent.trim());
+          return document.querySelectorAll("#screenHome .sched-row").length > 0;
         }, null, { timeout: 10000 });
         await page.waitForTimeout(300);
 
@@ -272,6 +272,38 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             await page.evaluate(function () { location.hash = "#top25"; });
             await page.waitForTimeout(200);
           }
+          if (screen === "schedule") {
+            // Results, and a game opened from the list, are views of their own.
+            await page.evaluate(function () { location.hash = "#schedule/results"; });
+            await page.waitForTimeout(350);
+            await fullShot(page, path.join(shots, team + "-" + width + "-schedule-results.png"));
+            await checkState(page, team + " schedule results " + width + "px");
+            var opened = await page.evaluate(function () {
+              var a = [].filter.call(document.querySelectorAll("#scheduleList .sched-row"), function (x) {
+                return /^#schedule\/[0-9]+$/.test(x.getAttribute("href")); })[0];
+              if (!a) { location.hash = "#schedule"; return null; }
+              var h = a.getAttribute("href"); location.hash = h; return h;
+            });
+            if (opened) {
+              await page.waitForTimeout(600);
+              var og = await page.evaluate(function () {
+                var back = document.getElementById("scheduleBack");
+                return { head: !!document.querySelector("#scheduleGameHost .game-head"),
+                         list: !document.getElementById("scheduleList").hidden,
+                         back: back && back.checkVisibility() ? back.getAttribute("href") : null,
+                         tabs: [].map.call(document.querySelectorAll("#scheduleGameHost .game-tabs a"), function (a) { return a.getAttribute("href"); }) };
+              });
+              var ow = team + " schedule game " + width + "px";
+              if (!og.head || og.list) fail(ow, "behaviour", "#scheduleGameHost", "a Schedule row did not open its game in the Game layout");
+              if (!og.back) fail(ow, "behaviour", "#scheduleBack", "an opened game has no way back to the list");
+              if (og.tabs.some(function (h) { return h.indexOf(opened + "/") !== 0; }))
+                fail(ow, "behaviour", ".game-tabs", "the opened game's views point outside it: " + og.tabs.join(" "));
+              await fullShot(page, path.join(shots, team + "-" + width + "-schedule-game.png"));
+              await checkState(page, ow);
+            }
+            await page.evaluate(function () { location.hash = "#schedule"; });
+            await page.waitForTimeout(200);
+          }
           if (screen === "home") {
             // Home (decisions 0023, 0024 §2, §3, §17, §19): hero, news, schedule,
             // outlook in that order; three stories and three rows at most; no
@@ -322,6 +354,28 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             if (tp.cur !== (tp.view === "rankings" ? "#top25/rankings" : "#top25"))
               fail(label, "behaviour", ".view-tabs", "the view strip marks " + tp.cur + " for the " + tp.view + " view");
             if (tp.cut) fail(label, "layout", ".tg-name", tp.cut + " team name(s) cut off");
+          }
+          if (screen === "schedule") {
+            // Schedule (0022 #8; Product 2026-09-24): the canonical screen,
+            // Schedule | Results, every entry of the season, and rows that
+            // open their game - the hero on Game, any other at #schedule/<id>.
+            var sc = await page.evaluate(function () {
+              var host = document.getElementById("screenSchedule");
+              var cur = host.querySelector('.view-tabs a[aria-current="page"]');
+              var rows = [].slice.call(host.querySelectorAll("#scheduleList .sched-row"));
+              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden,
+                       cur: cur ? cur.getAttribute("href") : null, rows: rows.length,
+                       hrefs: rows.map(function (a) { return a.getAttribute("href"); }),
+                       hero: rows.filter(function (a) { return a.classList.contains("is-hero"); }).map(function (a) { return a.getAttribute("href"); }),
+                       cut: [].filter.call(host.querySelectorAll(".sched-opp"), function (n) { return n.scrollWidth > n.clientWidth + 1; }).length };
+            });
+            if (!sc.shown || sc.legacy) fail(label, "behaviour", "#screenSchedule", "Schedule is not the canonical screen");
+            if (sc.cur !== "#schedule") fail(label, "behaviour", ".view-tabs", "#schedule marks " + sc.cur + ", not Schedule");
+            if (!sc.rows) fail(label, "behaviour", ".sched-row", "the season has no rows");
+            if (sc.hrefs.some(function (h) { return h !== "#game" && !/^#schedule\/[0-9]+$/.test(h); }))
+              fail(label, "behaviour", ".sched-row", "a row goes somewhere other than Game or its own game");
+            if (sc.hero.some(function (h) { return h !== "#game"; })) fail(label, "behaviour", ".sched-row.is-hero", "the hero game's row does not open Game");
+            if (sc.cut) fail(label, "layout", ".sched-opp", sc.cut + " opponent name(s) cut off");
           }
           if (screen === "game") {
             // Game (0022 #6, 0024 §7): the canonical screen, the hero game's

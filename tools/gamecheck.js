@@ -202,5 +202,17 @@ eq(prev(season12(4).slice(0, 2), "2026-09-30T12:00:00Z").length, 2, "and a two-g
 var shuffled = season12(4); shuffled.reverse();
 eq(preview(shuffled, "2026-09-30T12:00:00Z"), wkDates([4, 5, 6]), "the input's order does not matter; the output is chronological");
 
+// ---- Schedule and Results (0022 #8) -----------------------------------------
+console.log("Schedule and Results");
+var season = season12(4, { 5: ["postponed", false], 6: ["canceled", false], 7: ["live", true] })
+  .map(function (x) { return x.status === "final" ? Object.assign({}, x, { us: "31", them: "0" }) : x; });
+var chrono = G.season(season.slice().reverse());
+eq(weeks(chrono), weeks(season12(12)), "the season keeps every entry, postponed and canceled included, in date order");
+var res = G.results(season);
+eq(res.length, 4, "Results: the four genuinely completed games only");
+ok(res.every(function (g) { return g.status === "final"; }), "no canceled, postponed, live or upcoming game is a result");
+var unscored = season12(1); unscored[0] = Object.assign({}, unscored[0], { us: null, them: null });
+eq(G.results(unscored).length, 0, "a final with no score is not a result");
+eq(G.results(null), [], "no schedule, no results");
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "one set of game rules, and every state has an answer"));
 process.exit(failures ? 1 : 0);
