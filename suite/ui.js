@@ -81,6 +81,16 @@ Suite.ui = (function () {
     return { day: day, time: time, full: day + " \u00B7 " + time };
   }
 
+  // The one page-level freshness state a screen shows (0024 §13), from
+  // TeamOS.freshness.summary(): nothing while fresh.
+  function freshBanner(f) {
+    if (!f || f.state === "fresh") return "";
+    var since = f.since ? ago(f.since) : "";
+    var text = f.state === "offline" ? "Offline · Showing last available data"
+      : "Data may be outdated" + (since ? " · Last refreshed " + since : "");
+    return '<p class="fresh-banner ' + f.state + '">' + esc(text) + "</p>";
+  }
+
   // Image load and error events do not bubble, but they do capture: one
   // listener on the document handles every mark, however it was inserted.
   function settle(e) {
@@ -105,5 +115,5 @@ Suite.ui = (function () {
   document.addEventListener("load", settle, true);
   document.addEventListener("error", settle, true);
 
-  return { esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff };
+  return { esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner };
 })();

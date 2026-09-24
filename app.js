@@ -171,6 +171,7 @@ var SRC={};
 function sourceKey(url){
   if(url===TeamOS.espn.scheduleUrl(TEAM_CONFIG)) return "schedule";
   if(/scoreboard/.test(url)) return "scoreboard";
+  if(url===TeamOS.espn.rankingsUrl()) return "rankings";
   if(/odds-(title|playoff)\.json|kalshi/i.test(url)) return "odds";
   if(/open-meteo/.test(url)) return "weather";
   var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
@@ -552,237 +553,57 @@ function paintSchedule(games){
 }
 
 /* ---------- top 25 ---------- */
-// The pill carries the poll name and this team's place in it, so the options
-// and the one number you care about are both visible without tapping.
-function pollPill(p, active){
-  var mine=p.ranks.filter(function(x){ return x.mine; })[0];
-  return '<button type="button" data-poll="'+p.key+'" aria-pressed="'+active+'">'+
-    esc(p.label)+
-    (mine ? '<span class="n">#'+mine.rank+"</span>"
-        : '<span class="n">NR</span>')+
-    "</button>";
+// Top 25 is canonical (suite/top25.js; decisions 0024 §5, §6). Its games are
+// the shared scoreboard, SB.games - the same LeagueGame[] every live state is
+// reconciled against - so a score here cannot disagree with Home or Game.
+// The polls move once or twice a week: fetched on entry when an hour old.
+// Until the network answers, the last good copies (the worker's) are drawn,
+// so the screen opens offline; those are never fed back into the live state.
+var T25={ polls:null, cachedGames:null, at:0, loading:false, pollsFailed:false, gamesFailed:false };
+
+function top25Sources(){
+  function s(key, maxAge){
+    var x=SRC[key];
+    return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, maxAgeMs:maxAge } : { key:key, missing:true };
+  }
+  var view=Suite.nav.current().view;
+  return view==="rankings" ? [s("rankings", 8*24*HOUR)]
+                           : [s("scoreboard", AUTO.liveElsewhere ? 10*60e3 : 12*HOUR)];
 }
 
-function pollBody(p){
-  var html = p.asOf ? '<p class="pollnote">'+esc(p.name)+" \u00B7 "+esc(p.asOf)+"</p>" : "";
-  html+='<ol class="plain" aria-label="'+esc(p.name)+'">';
-  p.ranks.forEach(function(x){
-    var mv=x.previous ? x.previous-x.rank : 0;
-    var move = mv>0 ? '<span class="up"><span class="sr-only">up '+mv+'</span><span aria-hidden="true">\u25B2'+mv+"</span></span>"
-             : mv<0 ? '<span class="down"><span class="sr-only">down '+Math.abs(mv)+'</span><span aria-hidden="true">\u25BC'+Math.abs(mv)+"</span></span>"
-             : (x.isNew ? '<span class="up"><span class="sr-only">new</span><span aria-hidden="true">NEW</span></span>' : "");
-    html+='<li class="row '+(x.mine?"mine":"")+'" style="padding:.45rem .15rem">'+
-      '<span class="date" style="width:2rem"><span class="sr-only">Rank </span>'+
-      '<span class="d">'+x.rank+"</span></span>"+
-      '<span class="mid"><span class="team">'+esc(x.team)+"</span></span>"+
-      '<span class="right"><span class="status">'+esc(x.record)+" "+move+"</span></span></li>";
-  });
-  return html+"</ol>";
-}
-
-// Games is the default because that is the several-times-a-week view; the polls
-// only move once or twice. The choice survives a refresh.
-var AROUND={ view:"games", poll:null };
-
-// Games | Rankings is a route, not a toggle: #top25 opens Games, and
-// #top25/rankings opens Rankings, from a link or Back (decision 0024 §5). The
-// pills navigate; the route decides what shows.
-function showAroundView(view){
-  AROUND.view = view==="rankings" ? "rankings" : "games";
-  var el=$("panel-around"); if(!el) return;
-  el.querySelectorAll('.seg.pills:not(.polls) button').forEach(function(x){
-    x.setAttribute("aria-pressed", String(x.dataset.view===AROUND.view));
-  });
-  var g=el.querySelector("#ar-games"), r=el.querySelector("#ar-rankings");
-  if(g) g.hidden = AROUND.view!=="games";
-  if(r) r.hidden = AROUND.view!=="rankings";
-}
-
-function wireAroundPills(el){
-  var view=el.querySelectorAll('.seg.pills:not(.polls) button');
-  view.forEach(function(b){
-    b.addEventListener("click", function(){
-      if(b.dataset.view===AROUND.view) return;
-      Suite.nav.go("top25", [b.dataset.view]);
-      say(b.dataset.view==="games" ? "Showing ranked games." : "Showing rankings.");
-    });
-  });
-
-  var pollBtns=el.querySelectorAll(".seg.pills.polls button");
-  pollBtns.forEach(function(b){
-    b.addEventListener("click", function(){
-      AROUND.poll=b.dataset.poll;
-      pollBtns.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); });
-      pollBtns.forEach(function(x){
-        var body=el.querySelector("#poll-"+x.dataset.poll);
-        if(body) body.hidden = x.dataset.poll!==AROUND.poll;
-      });
-      say("Showing the "+b.textContent.replace(/#\d+|NR/,"").trim()+" poll.");
-    });
+function paintTop25(){
+  var host=$("screenTop25");
+  if(!host || host.hidden) return;
+  var route=Suite.nav.current(), now=new Date();
+  var hero=S.games ? TeamOS.game.hero(S.games, now, TEAM.timeZone).game : null;
+  Suite.top25.paint(host, {
+    view:   route.view==="rankings" ? "rankings" : "games",
+    poll:   route.view==="rankings" ? (route.path[1]||null) : null,
+    polls:  T25.polls,
+    games:  SB.games || T25.cachedGames,
+    pollsFailed: T25.pollsFailed, gamesFailed: T25.gamesFailed,
+    heroId: hero ? hero.id : null,
+    mark:   function(id){ return TeamOS.espn.mark(id, false); },
+    fresh:  TeamOS.freshness.summary(top25Sources(), { now:now, online: navigator.onLine!==false }),
+    now:    now
   });
 }
 
-// Everything about a ranked row that can change while the game is on. Shared by
-// the initial render and the in-place refresh so the two can never drift.
-function rankedParts(lg){
-  var o=lg.odds, net=lg.net;
-  function nm(side){
-    var r=side.rank
-      ? '<span class="rk"><span class="sr-only">number </span><span aria-hidden="true">#</span>'+side.rank+"</span> " : "";
-    return r+esc(side.name);
+function loadTop25(){
+  if(T25.polls==null) cachedJSON(TeamOS.espn.rankingsUrl()).then(function(d){
+    if(T25.polls==null && d){ T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); paintTop25(); }
+  }).catch(function(){});
+  if(!SB.games && !T25.cachedGames) cachedJSON(TeamOS.espn.scoreboardUrl()).then(function(d){
+    if(!SB.games && d){ T25.cachedGames=TeamOS.espn.scoreboard(d, TEAM_CONFIG); paintTop25(); }
+  }).catch(function(){});
+  if(!T25.loading && Date.now()-T25.at > HOUR){
+    T25.loading=true;
+    get(TeamOS.espn.rankingsUrl()).then(function(d){
+      T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); T25.at=Date.now(); T25.pollsFailed=false;
+    }).catch(function(){ T25.pollsFailed=true; }).then(function(){ T25.loading=false; paintTop25(); });
   }
-  var right;
-  if(lg.state==="post"||lg.state==="in"){
-    right='<span class="sr-only">Score: '+(lg.away.score||0)+" to "+(lg.home.score||0)+". "+esc(lg.detail)+"</span>"+
-      '<span aria-hidden="true"><span class="score">'+(lg.away.score||0)+"\u2013"+(lg.home.score||0)+"</span>"+
-      '<span class="status">'+esc(lg.detail)+"</span></span>";
-  } else {
-    right = net ? '<span class="net"><span class="sr-only">Watch on </span>'+esc(net)+"</span>"
-                : '<span class="net tbd">Network <abbr title="to be determined">TBD</abbr></span>';
-  }
-  // A live LeagueGame already carries down/distance and the last play.
-  var liveLine="";
-  if(lg.live){
-    var bits=[lg.live.downDistance, lg.live.lastPlay].filter(Boolean).join(" \u00B7 ");
-    if(bits) liveLine='<span class="live"><span class="lbl">LIVE</span>'+esc(bits.slice(0,150))+"</span>";
-  }
-  var sub=(lg.state==="pre"
-      ? (lg.timeSet?fmtTime(lg.date)+" "+tzAbbr():"Kickoff time not announced")
-      : esc(lg.venue))
-    +(lg.state!=="pre"&&net?" \u00B7 "+esc(net):"")
-    +(o&&o.line?" \u00B7 line "+esc(o.line):"")
-    +(o&&o.total!=null?" \u00B7 over-under "+o.total:"");
-  return { mine:lg.mine, teams:nm(lg.away)+' <span class="pre">at</span> '+nm(lg.home),
-           sub:sub, liveLine:liveLine, right:right };
-}
-
-// Patch the rows that changed instead of rebuilding the tab. Returns false if
-// the set of games itself changed, in which case the caller does a full render.
-function patchRanked(games){
-  var list=$("panel-around").querySelector("#ar-games ul.plain");
-  if(!list) return false;
-  var rows=list.querySelectorAll("li.row[data-ev]");
-  if(!rows.length) return false;
-
-  var byId={};
-  (games||[]).forEach(function(lg){ byId[lg.id]=lg; });
-
-  var seen=0;
-  for(var i=0;i<rows.length;i++){
-    var li=rows[i], lg=byId[li.dataset.ev];
-    if(!lg) return false;                       // window shifted, rebuild
-    seen++;
-    var pr=rankedParts(lg);
-
-    var right=li.querySelector(".right");
-    if(right && right.innerHTML!==pr.right) right.innerHTML=pr.right;
-
-    var sub=li.querySelector(".sub");
-    if(sub && sub.innerHTML!==pr.sub) sub.innerHTML=pr.sub;
-
-    var live=li.querySelector(".live");
-    if(pr.liveLine){
-      if(!live){
-        li.querySelector(".mid").insertAdjacentHTML("beforeend", pr.liveLine);
-      } else if(live.outerHTML!==pr.liveLine){
-        live.outerHTML=pr.liveLine;
-      }
-    } else if(live){
-      live.remove();
-    }
-  }
-  return seen===rows.length;
-}
-
-function loadAround(){
-  var el=$("panel-around");
-  if(el.dataset.loaded) return;
-  if(!LAST_HTML[el.id]) el.innerHTML='<p class="loading">Loading this week\u2019s Top 25 games\u2026</p>';
-  var gameCount=0;
-
-  cachedThenFresh(el,
-    [TeamOS.espn.rankingsUrl(), TeamOS.espn.scoreboardUrl()],
-    Promise.all([
-      get(TeamOS.espn.rankingsUrl()).catch(function(){return null;}),
-      getScoreboard().catch(function(){return null;})
-    ]),
-    build, wire
-  ).catch(function(){
-    if(LAST_HTML[el.id]) return;         // the cached paint stands
-    el.innerHTML='<p class="msg"><strong>The national picture didn\u2019t load.</strong>'+
-      'ESPN returned no rankings or scoreboard data. Choose Refresh to try again.</p>';
-    say("Top 25 failed to load.");
-  });
-
-  function wire(el, res, fromCache, unchanged){
-    if(!unchanged) wireAroundPills(el);
-    if(!fromCache) say(AROUND.view==="games"
-        ? gameCount+" ranked games this week."
-        : "Rankings loaded.");
-  }
-
-  // Both payloads arrive raw - from the worker's cache or the network - and
-  // cross into TeamOS here. Everything below reads Poll and LeagueGame.
-  function build(res){
-    var polls=TeamOS.espn.rankings(res[0], TEAM_CONFIG);
-    var games=TeamOS.espn.scoreboard(res[1], TEAM_CONFIG);
-    var pollHtml="", gameHtml="";
-    gameCount=0;
-
-    // ---- rankings ----
-    if(polls.length){
-      var keys=polls.map(function(p){ return p.key; });
-      if(keys.indexOf(AROUND.poll)===-1) AROUND.poll=keys[0];
-      pollHtml+='<div class="seg pills polls" role="group" aria-label="Which poll">'+
-        polls.map(function(p){ return pollPill(p, p.key===AROUND.poll); }).join("")+
-        "</div>";
-      polls.forEach(function(p){
-        pollHtml+='<div id="poll-'+p.key+'"'+
-          (p.key===AROUND.poll?"":" hidden")+">"+pollBody(p)+"</div>";
-      });
-      if(!polls.some(function(p){ return p.label==="CFP"; })){
-        pollHtml+='<p class="pollnote">CFP rankings appear here automatically once the '+
-              'committee starts releasing them, and will sort to the front.</p>';
-      }
-    }
-
-    // ---- ranked games ----
-    if(res[1]){
-      var ranked=games.filter(function(lg){ return lg.home.rank||lg.away.rank; });
-
-      gameCount=ranked.length;
-      if(!ranked.length) gameHtml+='<p class="msg">No ranked teams are playing in this window.</p>';
-      else gameHtml+='<ul class="plain">';
-
-      ranked.forEach(function(lg){
-        var pr=rankedParts(lg);
-        gameHtml+='<li class="row '+(pr.mine?"mine":"")+'" data-ev="'+esc(lg.id)+'">'+
-          dateChip(lg.date)+
-          '<span class="mid"><span class="team">'+pr.teams+"</span>"+
-          '<span class="sub">'+pr.sub+"</span>"+pr.liveLine+"</span>"+
-          '<span class="right">'+pr.right+"</span></li>";
-      });
-      if(ranked.length) gameHtml+="</ul>";
-    }
-
-    // ---- pills: games by default, rankings on demand ----
-    var html="";
-    if(gameHtml||pollHtml){
-      var view=AROUND.view;
-      if(view==="rankings" && !pollHtml) view="games";
-      if(view==="games" && !gameHtml)    view="rankings";
-      html='<div class="seg pills" role="group" aria-label="Show">'+
-        '<button type="button" data-view="games" aria-pressed="'+(view==="games")+'">'+
-          'Games<span class="n">'+gameCount+"</span></button>"+
-        '<button type="button" data-view="rankings" aria-pressed="'+(view==="rankings")+'">'+
-          "Rankings</button>"+
-        "</div>"+
-        '<div id="ar-games"'+(view==="games"?"":" hidden")+">"+gameHtml+"</div>"+
-        '<div id="ar-rankings"'+(view==="rankings"?"":" hidden")+">"+pollHtml+"</div>";
-      AROUND.view=view;
-    }
-    return html;
-  }
+  getScoreboard(30000).then(function(){ T25.gamesFailed=false; paintTop25(); })
+    .catch(function(){ T25.gamesFailed=true; paintTop25(); });
 }
 
 /* ---------- kalshi ---------- */
@@ -2035,8 +1856,8 @@ function loadHomeWeather(g){
       paintHome(); paintGame();
     }).catch(function(){ HOME.weather=null; });
 }
-window.addEventListener("online",  function(){ paintHome(); });
-window.addEventListener("offline", function(){ paintHome(); });
+window.addEventListener("online",  function(){ paintHome(); paintTop25(); });
+window.addEventListener("offline", function(){ paintHome(); paintTop25(); });
 
 /* ---------- Game (canonical) ---------- */
 // The Game screen is the hero game - the one TeamOS rule Home and the nav
@@ -2114,29 +1935,30 @@ document.addEventListener("click", function(e){
 // other half: which panel a screen shows, and what it loads on entry. Until
 // each screen is rebuilt in the canonical system it shows its pre-canonical
 // panel (legacy.css); the map below shrinks, phase by phase, to nothing.
-var PANEL_FOR={ home:"schedule", top25:"around", game:"game", roster:"depth", more:"more", schedule:"schedule" };
-var PANELS=["schedule","around","game","depth","more"];
+var PANEL_FOR={ home:"schedule", top25:"top25", game:"game", roster:"depth", more:"more", schedule:"schedule" };
+var PANELS=["schedule","game","depth","more"];
 function showScreen(route){
   var name=PANEL_FOR[route.screen]||"schedule";
-  // Home and Game are canonical; the rest are still their pre-canonical panels.
-  var home=route.screen==="home", game=route.screen==="game";
+  // Home, Game and Top 25 are canonical; the rest are still their
+  // pre-canonical panels.
+  var home=route.screen==="home", game=route.screen==="game", top25=route.screen==="top25";
   $("screenHome").hidden=!home;
   $("screenGame").hidden=!game;
-  $("legacy").hidden=home || game;
+  $("screenTop25").hidden=!top25;
+  $("legacy").hidden=home || game || top25;
   if(home){ paintHome(); if(HOME.news==null) loadHomeNews(); }
   if(game) paintGame();
+  if(top25){ paintTop25(); loadTop25(); }
   // A schedule row on Home opens that game on the full Schedule.
   if(route.screen==="schedule" && route.path[0] && S.games && DETAIL.open!==route.path[0]){
     setTimeout(function(){ openGame(route.path[0]); }, 0);
   }
-  if(route.screen==="top25") showAroundView(route.view);
   PANELS.forEach(function(p){ $("panel-"+p).hidden = p!==name; });
   UI.tab=name; layoutForTab();
   // Force a refresh on entry: the dataset guard would otherwise leave the
   // screen showing whatever it held the last time it was open. Game is
   // canonical now (paintGame above), so its old panel loads nothing.
   if(name==="game" && !game) loadGame(true);
-  if(name==="around") loadAround();
   if(name==="depth")  loadDepth();
   if(name==="more")   loadNews();
 }
@@ -2153,11 +1975,11 @@ function warmTabs(){
   var c=navigator.connection;
   if(c && (c.saveData || /(^|-)2g$/.test(c.effectiveType||""))) return;  // respect data saver
 
-  // The scoreboard goes first: loadAround reuses it, and it decides whether
+  // The scoreboard goes first: Top 25 draws from it, and it decides whether
   // the live poller should run. It is 95KB on the wire, which is why it is
   // here and not in load() competing with the schedule for first paint.
   var jobs=[function(){ getScoreboard().catch(function(){}); },
-            loadAround, loadDepth, loadNews, function(){ loadGame(); }, prefetchSummaries];
+            loadDepth, loadNews, function(){ loadGame(); }, prefetchSummaries];
   jobs.forEach(function(fn,i){
     setTimeout(function(){
       if(document.hidden) return;
@@ -2239,22 +2061,13 @@ function autoTick(){
   }).then(function(){
     if(!$("panel-game").hidden && G.live && $("screenGame").hidden) loadGame(true);
     paintGame();                         // the canonical Game screen refreshes itself on its own clock
+    paintTop25();
   }).catch(function(){});
 
-  if(!$("panel-around").hidden){
-    // Looking at the list. Patch the rows that moved rather than rebuilding the
-    // tab, so scroll position, open folds and the pill selection all survive.
-    getScoreboard(30000).then(function(){
-      if($("panel-around").hidden) return;
-      if(!patchRanked(SB.games)){
-        var y=window.scrollY;
-        $("panel-around").dataset.loaded="";
-        loadAround();
-        setTimeout(function(){
-          if(!$("panel-around").hidden) window.scrollTo(0,y);
-        }, 60);
-      }
-    }).catch(function(){});
+  if(!$("screenTop25").hidden){
+    // Looking at Top 25: the tick's scoreboard is its data. Only the parts
+    // that changed are redrawn (suite/top25.js), so scroll and focus stay.
+    getScoreboard(30000).then(paintTop25).catch(function(){});
   } else if(Date.now()-SB.at > 300000){
     // not looking, but re-check every five minutes so polling stands down
     // once the last game ends
@@ -2354,6 +2167,7 @@ function refreshSchedule(first){
     paintSchedule(games);
     paintHome();
     paintGame();
+    paintTop25();                        // which game #game opens rides on the schedule
     return games;
   }
   var painted=false;
@@ -2536,14 +2350,15 @@ $("btnPlayoff").addEventListener("click", function(){ toggleBoard("playoff"); })
 // the moment it is looked at again. Tabs skip identical repaints, so a
 // silent refresh that finds nothing new changes nothing on screen.
 function refreshAll(silent){
-  ["around","depth","news"].forEach(function(n){ $("panel-"+n).dataset.loaded=""; });
+  ["depth","news"].forEach(function(n){ $("panel-"+n).dataset.loaded=""; });
+  T25.at=0;
   if(BOARD.open) loadBoard(BOARD.open);
   $("panel-game").dataset.loaded="";
   if(!silent) say("Refreshing…");
   load();
   var name=UI.tab;
   if(name==="game")   loadGame(true);
-  if(name==="around") loadAround();
+  if(name==="top25")  loadTop25();
   if(name==="depth")  loadDepth();
   if(name==="more")   loadNews();
   FRESH.at=Date.now();
@@ -2585,12 +2400,8 @@ setInterval(function(){
   }
   // Reading the Top 25 while the league starts playing: the same blind spot,
   // one endpoint over.
-  if(!$("panel-around").hidden && Date.now()-SB.at > 60000){
-    getScoreboard(0).then(function(){
-      if(!$("panel-around").hidden && SB.games && !patchRanked(SB.games)){
-        $("panel-around").dataset.loaded=""; loadAround();
-      }
-    }).catch(function(){});
+  if(!$("screenTop25").hidden && Date.now()-SB.at > 60000){
+    getScoreboard(0).then(paintTop25).catch(function(){});
     return;
   }
   if(Date.now()-FRESH.at>FRESH.whileVisible) refreshAll(true);

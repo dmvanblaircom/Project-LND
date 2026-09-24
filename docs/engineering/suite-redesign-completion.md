@@ -33,6 +33,7 @@ Product decides it differently.
 |---|---|
 | ESPN gives no trustworthy rescheduled date for a postponed game | `Game.newDate` is null from the ESPN adapter, so a postponed hero says "New date to be announced". The presentation supports date + time and date + "Time TBD" for a source that states one. When ESPN reschedules, the game returns as scheduled on its new date. |
 | ESPN's standings page answers GitHub's runners with HTTP 202 | The weekly registry refresh still fills provider ids from the scoreboard but cannot refresh FBS membership, and ends red so that is visible. |
+| ESPN gives no CFP release date | Before the committee publishes, Top 25's CFP view says the rankings appear once it does, and names no date (the reference's "published on Tuesday, Nov 4" has no source). |
 | Exceptional statuses are mapped from ESPN's documented `STATUS_*` names | No real delayed, suspended, postponed or canceled payload has been captured yet. Capture one on the runner when it happens and add it as a fixture. |
 
 ## Review renders

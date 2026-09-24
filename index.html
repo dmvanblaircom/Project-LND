@@ -156,6 +156,7 @@
     inject("suite/nav.js");
     inject("suite/home.js");
     inject("suite/game.js");
+    inject("suite/top25.js");
     inject("app.js");
   }
 
@@ -235,9 +236,10 @@
   <!-- The screen's name for assistive technology where no masthead shows it. -->
   <h1 class="sr-only" id="screenHead" tabindex="-1"></h1>
 
-  <!-- Home and Game, rebuilt in the canonical system (suite/home.js, suite/game.js). -->
+  <!-- Screens rebuilt in the canonical system (suite/home.js, suite/game.js, suite/top25.js). -->
   <div class="home" id="screenHome" hidden></div>
   <div class="game" id="screenGame" hidden></div>
+  <div class="top25" id="screenTop25" hidden></div>
 
   <!-- Screens not yet rebuilt in the canonical system (legacy.css). -->
   <div class="legacy on-dark" id="legacy">
@@ -275,7 +277,6 @@
       <section id="panel-schedule" aria-label="Season">
         <p class="loading">Loading the schedule…</p>
       </section>
-      <section id="panel-around" aria-label="Top 25" hidden></section>
       <section id="panel-game" aria-label="Game" hidden></section>
       <section id="panel-depth" aria-label="Roster" hidden></section>
       <section id="panel-more" aria-label="More" hidden>

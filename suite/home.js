@@ -288,16 +288,6 @@ Suite.home = (function () {
       '<p class="out-credit">Market-implied odds. Powered by Kalshi</p></div>';
   }
 
-  // ---- freshness -------------------------------------------------------------
-
-  function freshHtml(f) {
-    if (!f || f.state === "fresh") return "";
-    var since = f.since ? ui.ago(f.since) : "";
-    var text = f.state === "offline" ? "Offline · Showing last available data"
-      : "Data may be outdated" + (since ? " · Last refreshed " + since.replace(/ ago$/, " ago") : "");
-    return '<p class="fresh-banner ' + f.state + '">' + esc(text) + "</p>";
-  }
-
   // ---- mount -----------------------------------------------------------------
 
   var SECTIONS = ["fresh", "hero", "news", "schedule", "outlook"];
@@ -313,7 +303,7 @@ Suite.home = (function () {
       last = {};
     }
     var html = {
-      fresh: freshHtml(m.fresh),
+      fresh: ui.freshBanner(m.fresh),
       hero: heroHtml(m),
       news: newsHtml(m.news, m.team),
       schedule: scheduleHtml(m.schedule, m.heroId),

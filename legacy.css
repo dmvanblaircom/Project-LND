@@ -170,7 +170,6 @@
 .legacy details.fold .foldbody{padding-bottom:.5rem}
 .legacy .more{display:block;width:100%;min-height:2.75rem;margin:.6rem 0 0;background:none;border:1px solid var(--ink-3);border-radius:3px;color:var(--parch);font-family:var(--t-font-display);font-weight:600;font-size:.95rem;letter-spacing:.04em;cursor:pointer}
 .legacy .more:hover{border-color:var(--t-accent-text);color:var(--t-accent-text)}
-.legacy .pollnote{font-size:.82rem;color:var(--dim);padding:.55rem .15rem}
 .legacy .gscore{display:flex;align-items:center;gap:.6rem;border-radius:7px 7px 0 0;background:linear-gradient(135deg,rgba(var(--t-raise-rgb),.45),rgba(var(--t-abyss-rgb),.3));min-height:5rem;padding:1rem 1.1rem;border:1px solid var(--t-accent-line)}
 .legacy .gscore .side{flex:1;min-width:0}
 .legacy .gscore .side .nm{font-weight:600;font-size:1.15rem}
@@ -232,12 +231,9 @@
 .legacy .seg.pills{margin:.7rem 0 .3rem}
 .legacy .seg.pills button{min-height:2.5rem;font-size:.92rem;letter-spacing:.05em}
 .legacy .seg.pills .n{font-weight:600;opacity:.7;margin-left:.35rem;font-size:.85em}
-.legacy .seg.pills.polls{margin:.15rem 0 .2rem}
 .legacy .seg.pills.roster{margin:.2rem 0 .35rem}
 .legacy .seg.pills.roster button{font-size:.85rem;min-width:0;padding:.4rem .25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .legacy .seg.pills.roster .n{margin-left:.25rem}
-.legacy .seg.pills.polls button{font-size:.88rem;letter-spacing:.04em}
-.legacy .seg.pills.polls .n{margin-left:.3rem;opacity:.85}
 .legacy .scorply{display:flex;gap:.55rem;padding:.5rem .15rem .5rem .55rem;border-bottom:1px solid var(--ink-3);font-size:.88rem;border-left:3px solid transparent}
 .legacy .scorply.byus{border-left-color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.07)}
 .legacy .scorply.bythem{border-left-color:var(--ink-3)}
@@ -310,9 +306,8 @@
 .legacy .hero:after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,transparent,var(--t-accent),transparent)}
 .legacy .hero .spread b{color:var(--t-accent-text)}
 .legacy .strip .cell:first-child{border-top:2px solid var(--t-accent)}
-.legacy #panel-schedule:before,.legacy #panel-around:before,.legacy #panel-game:before,.legacy #panel-depth:before,.legacy #panel-news:before{display:block;margin:.9rem 0 .35rem;font-family:var(--t-font-display);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8093A8}
+.legacy #panel-schedule:before,.legacy #panel-game:before,.legacy #panel-depth:before,.legacy #panel-news:before{display:block;margin:.9rem 0 .35rem;font-family:var(--t-font-display);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8093A8}
 .legacy #panel-schedule:before{content:"THE SEASON"}
-.legacy #panel-around:before{content:"TOP 25 THIS WEEK"}
 .legacy #panel-game:before{content:"GAME CENTER"}
 .legacy #panel-depth:before{content:"PERSONNEL"}
 .legacy #panel-news:before{content:var(--t-news-label)}

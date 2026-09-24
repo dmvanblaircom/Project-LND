@@ -39,7 +39,7 @@ fs.mkdirSync(shots, { recursive: true });
 
 var fixtures = {
   schedule: "espn-schedule.json", scoreboard: "espn-scoreboard.json",
-  rankings: "espn-rankings.json", roster: "espn-roster.json",
+  rankings: "espn-rankings-sep20.json", roster: "espn-roster.json",
   news: "espn-news.json", team: "espn-team.json", summary: "espn-summary-pre.json",
   statistics: "espn-season-stats.json"
 };
@@ -257,6 +257,15 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             fail(label, "behaviour", "focus", "after navigating, focus is on '" + st.focus + "', not the screen's heading");
           await fullShot(page, path.join(shots, team + "-" + width + "-" + screen + ".png"));
           await checkState(page, label);
+          if (screen === "top25") {
+            // Rankings is a view of its own: contrast, focus and layout too.
+            await page.evaluate(function () { location.hash = "#top25/rankings"; });
+            await page.waitForTimeout(350);
+            await fullShot(page, path.join(shots, team + "-" + width + "-top25-rankings.png"));
+            await checkState(page, team + " top25 rankings " + width + "px");
+            await page.evaluate(function () { location.hash = "#top25"; });
+            await page.waitForTimeout(200);
+          }
           if (screen === "home") {
             // Home (decisions 0023, 0024 §2, §3, §17, §19): hero, news, schedule,
             // outlook in that order; three stories and three rows at most; no
@@ -291,6 +300,22 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             if (hm.current) fail(label, "behaviour", "#screenHome", "Home shows a Current Game card, which decision 0023 removed");
             if (!hm.card || !hm.summary) fail(label, "behaviour", ".gamecard", "the hero has no game card or no spoken summary");
             if (hm.cta && hm.cta !== "#game") fail(label, "behaviour", ".gc-cta", "the hero's action goes to " + hm.cta + ", not Game");
+          }
+          if (screen === "top25") {
+            // Top 25 (0024 §5, §6): the canonical screen, a Games | Rankings
+            // strip matching the route, and team names never cut off.
+            var tp = await page.evaluate(function () {
+              var host = document.getElementById("screenTop25");
+              var cur = host.querySelector('.view-tabs a[aria-current="page"]');
+              var cut = [].filter.call(host.querySelectorAll(".tg-name,.rk-name"), function (n) {
+                return getComputedStyle(n).textOverflow === "ellipsis" && n.scrollWidth > n.clientWidth + 1; }).length;
+              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden,
+                       cur: cur ? cur.getAttribute("href") : null, view: Suite.nav.current().view, cut: cut };
+            });
+            if (!tp.shown || tp.legacy) fail(label, "behaviour", "#screenTop25", "Top 25 is not the canonical screen");
+            if (tp.cur !== (tp.view === "rankings" ? "#top25/rankings" : "#top25"))
+              fail(label, "behaviour", ".view-tabs", "the view strip marks " + tp.cur + " for the " + tp.view + " view");
+            if (tp.cut) fail(label, "layout", ".tg-name", tp.cut + " team name(s) cut off");
           }
           if (screen === "game") {
             // Game (0022 #6, 0024 §7): the canonical screen, the hero game's
@@ -346,7 +371,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         await page.waitForTimeout(250);
         var back = await page.evaluate(function () {
           var cur = document.querySelector('.nav-item[aria-current="page"]');
-          return { hash: location.hash, cur: cur && cur.getAttribute("data-screen"), panel: !document.getElementById("panel-around").hidden };
+          return { hash: location.hash, cur: cur && cur.getAttribute("data-screen"), panel: !document.getElementById("screenTop25").hidden };
         });
         if (back.hash !== "#top25" || back.cur !== "top25" || !back.panel)
           fail(who, "behaviour", "history", "Back from More did not return to Top 25 (" + JSON.stringify(back) + ")");
@@ -365,23 +390,36 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         await page.evaluate(function () { location.hash = "#top25"; });
         await page.waitForTimeout(300);
         var t25 = await page.evaluate(function () {
-          var pressed = document.querySelector('#panel-around .seg.pills:not(.polls) button[aria-pressed="true"]');
-          return { view: Suite.nav.current().view, hash: location.hash, pressed: pressed ? pressed.dataset.view : null };
+          var cur = document.querySelector('#screenTop25 .view-tabs a[aria-current="page"]');
+          return { view: Suite.nav.current().view, hash: location.hash, pressed: cur ? cur.textContent.trim().toLowerCase() : null };
         });
         if (t25.view !== "games" || t25.hash !== "#top25") fail(who, "behaviour", "route", "#top25 did not open Games (" + JSON.stringify(t25) + ")");
-        if (t25.pressed && t25.pressed !== "games") fail(who, "behaviour", "#panel-around", "#top25 shows " + t25.pressed);
+        if (t25.pressed !== "games") fail(who, "behaviour", "#screenTop25", "#top25 marks " + t25.pressed + ", not Games");
         await page.evaluate(function () { location.hash = "#top25/rankings"; });
         await page.waitForTimeout(300);
         var t25r = await page.evaluate(function () {
-          var pressed = document.querySelector('#panel-around .seg.pills:not(.polls) button[aria-pressed="true"]');
-          var r = document.getElementById("ar-rankings");
-          return { view: Suite.nav.current().view, hash: location.hash, pressed: pressed ? pressed.dataset.view : null,
-                   shown: r ? !r.hidden : null };
+          var cur = document.querySelector('#screenTop25 .view-tabs a[aria-current="page"]');
+          var poll = document.querySelector('#screenTop25 .poll-seg a[aria-current="page"]');
+          var rows = document.querySelectorAll("#screenTop25 .rk-table tbody tr");
+          return { view: Suite.nav.current().view, hash: location.hash, pressed: cur ? cur.textContent.trim().toLowerCase() : null,
+                   shown: !!document.querySelector("#screenTop25 .rk-table"), poll: poll ? poll.textContent.trim() : null,
+                   rows: rows.length, mine: document.querySelectorAll("#screenTop25 .rk-table tr.mine").length,
+                   over: (function () {
+                     var t = document.querySelector("#screenTop25 .rk-table"), c = t && t.closest(".rk-card");
+                     if (!t) return 0;
+                     var cs = getComputedStyle(c);
+                     return Math.round(t.scrollWidth - (c.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)));
+                   })() };
         });
         if (t25r.view !== "rankings" || t25r.hash !== "#top25/rankings")
           fail(who, "behaviour", "route", "a deep link to Rankings was not respected (" + JSON.stringify(t25r) + ")");
-        if (t25r.pressed && (t25r.pressed !== "rankings" || !t25r.shown))
-          fail(who, "behaviour", "#panel-around", "#top25/rankings does not show Rankings (" + JSON.stringify(t25r) + ")");
+        if (t25r.pressed !== "rankings" || !t25r.shown)
+          fail(who, "behaviour", "#screenTop25", "#top25/rankings does not show Rankings (" + JSON.stringify(t25r) + ")");
+        // README: AP leads until the CFP is published, and a poll is all 25
+        // rows, scrolled - never cut to what fits.
+        if (t25r.poll !== "AP") fail(who, "behaviour", ".poll-seg", "before the CFP is published Rankings opens on " + t25r.poll + ", not AP");
+        if (t25r.rows !== 25) fail(who, "behaviour", ".rk-table", "the poll shows " + t25r.rows + " rows, not all 25");
+        if (t25r.over > 1) fail(who, "layout", ".rk-table", "the rankings table is " + t25r.over + "px wider than its card");
         var bogus = await page.evaluate(function () {
           var before = history.length;
           location.hash = "#top25/bogus";

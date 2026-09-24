@@ -54,13 +54,20 @@ TeamOS.espn = (function () {
     }
     function scan(x){
       if(!x) return;
+      // where to watch: a radio call sign ("ERADM") is not a place to watch
+      if(/radio/i.test((x.type&&x.type.shortName)||"")) return;
       if(x.media){ add(x.media.shortName); add(x.media.callLetters); add(x.media.name); }
       if(Array.isArray(x.names)) x.names.forEach(add);
       add(x.shortName); add(x.callLetters); add(x.station); add(x.name);
     }
     (comp.broadcasts||[]).forEach(scan);
     (comp.geoBroadcasts||[]).forEach(scan);
-    if(typeof comp.broadcast==="string") add(comp.broadcast);
+    // ESPN's one-line summary ("ESPN/Disney+") repeats networks listed above;
+    // it adds only a network nothing else named
+    if(typeof comp.broadcast==="string"){
+      var parts=comp.broadcast.split("/").map(function(p){ return p.trim(); }).filter(Boolean);
+      if(!parts.every(function(p){ return out.indexOf(p)>-1; })) add(comp.broadcast);
+    }
     // a couple of feeds hang it off the event's status block instead
     if(comp.status && typeof comp.status.broadcast==="string") add(comp.status.broadcast);
     return out.join(", ");
@@ -269,10 +276,17 @@ TeamOS.espn = (function () {
     return c && c.curatedRank && c.curatedRank.current<TOP25 ? c.curatedRank.current : null;
   }
   function leagueSide(c){
+    var t=(c&&c.team)||{};
+    var recs=(c&&c.records)||[];
+    var rec=recs.filter(function(r){ return r && r.type==="total"; })[0];
     return {
-      name:  c && c.team ? str(c.team.shortDisplayName||c.team.displayName) : "opponent to be announced",
-      rank:  rankOf(c),
-      score: c && c.score!=null ? str(c.score) : null
+      name:       c && c.team ? str(t.shortDisplayName||t.displayName) : "opponent to be announced",
+      abbr:       t.abbreviation ? str(t.abbreviation) : null,
+      // opaque: Suite hands it back to ask for the program's mark
+      providerId: t.id!=null ? str(t.id) : null,
+      rank:       rankOf(c),
+      record:     rec && rec.summary ? str(rec.summary) : null,
+      score:      c && c.score!=null ? str(c.score) : null
     };
   }
 
@@ -346,16 +360,23 @@ TeamOS.espn = (function () {
       label: label,
       name:  str(r.name||"Poll"),
       asOf:  r.occurrence ? str(r.occurrence.displayValue) : "",
+      // when the poll was last published, ISO; null when the feed has no date
+      updated: r.lastUpdated||r.date ? str(r.lastUpdated||r.date) : null,
       ranks: (r.ranks||[]).map(function(x){
         var t=x.team||{};
         return {
-          rank:     x.current,
-          team:     str(t.nickname||t.name||t.location||t.shortDisplayName),
-          record:   str(x.recordSummary),
+          rank:       x.current,
+          team:       str(t.nickname||t.name||t.location||t.shortDisplayName),
+          abbr:       t.abbreviation ? str(t.abbreviation) : null,
+          providerId: t.id!=null ? str(t.id) : null,
+          record:     str(x.recordSummary),
           // ESPN's `previous` is a rank, 0 for a team new to the poll, or absent
-          previous: x.previous>0 ? x.previous : null,
-          isNew:    x.previous===0,
-          mine:     String(t.id)===teamId
+          previous:   x.previous>0 ? x.previous : null,
+          isNew:      x.previous===0,
+          // places moved since the last poll, up positive; null when there
+          // is no earlier rank to measure from (new, or no history)
+          change:     x.previous>0 && typeof x.current==="number" ? x.previous-x.current : null,
+          mine:       String(t.id)===teamId
         };
       })
     };

@@ -102,8 +102,8 @@ A game in the league, seen from nowhere in particular. **Implemented in Phase 4A
 | `state`, `detail` | `"pre"` / `"in"` / `"post"` and the status text |
 | `venue` | venue name |
 | `net` | broadcast network(s), or `""` |
-| `odds` | `{ line, total }` or `null` |
-| `home`, `away` | `{ name, rank, score }` — `rank` is `null` outside the top 25; `score` is the displayed string or `null` |
+| `odds` | `{ line, total, provider }` or `null` (decision 0025) |
+| `home`, `away` | `{ name, abbr, providerId, rank, record, score }` — `abbr` the short code or `null`; `providerId` opaque, handed back only to ask for the program's mark; `rank` is `null` outside the top 25; `record` the overall record or `null`; `score` the displayed string or `null` |
 | `mine` | the team is one of the two sides |
 | `live` | `{ downDistance, lastPlay }` while `state === "in"`, else `null` |
 
@@ -114,10 +114,10 @@ The adapter returns every game the feed lists, oldest first; "ranked games" are 
 One ranking. **Implemented in Phase 4A**, produced by `TeamOS.espn.rankings()`, which also decides which polls matter (CFP, AP, Coaches — FCS and lower divisions dropped), orders them (CFP first) and keeps one per label when the feed publishes a poll twice.
 
 ```
-{ key, label, name, asOf, ranks: [ { rank, team, record, previous, isNew, mine } ] }
+{ key, label, name, asOf, updated, ranks: [ { rank, team, abbr, providerId, record, previous, isNew, change, mine } ] }
 ```
 
-`key` is the label with non-alphanumerics stripped (used for element ids and remembered selection); `label` ∈ `"CFP" | "AP" | "Coaches"` or a short name; `asOf` e.g. `"Week 3"`. In a rank, `previous` is the prior rank or `null`, and `isNew` is true for a team new to the poll — kept separate because the feed distinguishes "was unranked" from "no history".
+`key` is the label with non-alphanumerics stripped (used for routes and remembered selection); `label` ∈ `"CFP" | "AP" | "Coaches"` or a short name; `asOf` e.g. `"Week 3"`; `updated` when the poll was published (ISO) or `null`. In a rank, `previous` is the prior rank or `null`, and `isNew` is true for a team new to the poll — kept separate because the feed distinguishes "was unranked" from "no history". `change` is places moved since the last poll, up positive, and `null` when there is no earlier rank to measure from; it is never taken from the feed's own trend text, which for a new entry counts from outside the 25.
 
 ### GameDetail
 

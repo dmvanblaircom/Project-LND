@@ -70,8 +70,21 @@ function makeContext(teamFile) {
   ].join("\n"), ctx);
 
   // the real thing, straight out of app.js
-  vm.runInContext(lift("paintHeroMini") + lift("paintHero") + lift("rankedParts"),
-                  ctx, { filename: "app.js#paint" });
+  vm.runInContext(lift("paintHeroMini") + lift("paintHero"), ctx, { filename: "app.js#paint" });
+
+  // Top 25 is canonical (suite/top25.js): its Games view, drawn for one game.
+  ctx.document = { addEventListener: function () {} };
+  ["suite/ui.js", "suite/top25.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
+  vm.runInContext([
+    'function top25Row(lg){',
+    '  var parts={}, host={ innerHTML:"", querySelector:function(q){',
+    '    var k=(/data-t25="(\\w+)"/.exec(q)||[])[1];',
+    '    if(!k) return null;',
+    '    return parts[k]||(parts[k]={ innerHTML:"" }); } };',
+    '  Suite.top25.paint(host, { view:"games", games:[lg], polls:[], mark:function(){ return null; }, now:new Date() });',
+    '  return parts.body.innerHTML;',
+    '}'
+  ].join("\n"), ctx, { filename: "livecheck#top25" });
   return ctx;
 }
 
@@ -107,7 +120,7 @@ function surfaces(ctx, game, league) {
     heroMini:  (el.heroMini  || {}).innerHTML  || ""
   };
   ctx.__lg = league;
-  out.top25 = vm.runInContext("JSON.stringify(rankedParts(__lg))", ctx);
+  out.top25 = vm.runInContext("top25Row(__lg)", ctx);
   return out;
 }
 
@@ -187,10 +200,10 @@ function run(teamFile, teamLabel, ourName, oppName) {
                 away: { name: "Team B", rank: 12, score: "21" },
                 mine: false, live: { downDistance: "3rd & 2", lastPlay: "Pass complete to the 40" } };
   ctx.__lg = other;
-  var row = vm.runInContext("JSON.stringify(rankedParts(__lg))", ctx);
+  var row = vm.runInContext("top25Row(__lg)", ctx);
   ok(shows(row, "21", "17"), "an unrelated ranked game renders its own live score");
   ok(/3:12 - 3rd/.test(row), "and its own clock");
-  ok(/LIVE/.test(row), "and is marked live");
+  ok(/class="live-pill[^"]*">Live</.test(row), "and is marked live");
   ok(!/Kent State|Ohio State|Notre Dame/.test(row), "without borrowing the configured team's game");
 
   console.log(" the countdown does not survive kickoff");
