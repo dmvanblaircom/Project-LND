@@ -36,11 +36,65 @@ Suite.ui = (function () {
            "</span>";
   }
 
+  /* The team art slot (decision 0024 §10). Approved team photography when a
+     team declares it; otherwise the fallback, which is a production design
+     rather than a placeholder: the team's deep colours, a restrained glow in
+     its accent, and its mark as a large, cropped watermark - the logo when
+     the provider has it, the program's initials drawn as an outline when it
+     does not. Decorative throughout: the team is named in text beside it. */
+  function art(opts) {
+    opts = opts || {};
+    var photo = opts.photo && opts.photo.src
+      ? '<img class="art-photo" src="' + esc(opts.photo.src) + '" alt="" decoding="async"' +
+        (opts.photo.position ? ' style="object-position:' + esc(opts.photo.position) + '"' : "") + ">"
+      : "";
+    return '<div class="art-slot' + (photo ? " has-photo" : "") + '" aria-hidden="true" data-decorative>' + photo +
+             '<span class="art-watermark">' +
+               '<span class="art-initials">' + esc(initials(opts.name, opts.abbr)) + "</span>" +
+               (opts.markUrl ? '<img src="' + esc(opts.markUrl) + '" alt="" loading="lazy" decoding="async" data-mark>' : "") +
+             "</span>" +
+           "</div>";
+  }
+
+  // "2h ago", "Yesterday", "Sep 21" - for news, in the fan's own time.
+  function ago(t, now) {
+    if (t == null) return "";
+    var ms = (now || Date.now()) - t;
+    if (ms < 0) ms = 0;
+    var min = Math.round(ms / 60000);
+    if (min < 1) return "Just now";
+    if (min < 60) return min + " min ago";
+    var h = Math.round(min / 60);
+    if (h < 24) return h + (h === 1 ? " hour ago" : " hours ago");
+    if (h < 48) return "Yesterday";
+    return new Date(t).toLocaleDateString([], { month: "short", day: "numeric" });
+  }
+
+  // A kickoff in the fan's device time (decision 0022 #1), with its zone so
+  // "3:30 PM" is never ambiguous. A time not yet announced says so.
+  function kickoff(iso, timeSet) {
+    var d = new Date(iso);
+    if (isNaN(d)) return { day: "", time: "", full: "" };
+    var day = d.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
+    var time = timeSet === false ? "Time TBA"
+      : d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", timeZoneName: "short" });
+    return { day: day, time: time, full: day + " \u00B7 " + time };
+  }
+
   // Image load and error events do not bubble, but they do capture: one
   // listener on the document handles every mark, however it was inserted.
   function settle(e) {
     var img = e.target;
-    if (!img || img.tagName !== "IMG" || !img.hasAttribute("data-mark")) return;
+    if (!img || img.tagName !== "IMG") return;
+    // A photo with a designed fallback behind it: a failure reveals the
+    // fallback instead of showing a broken image.
+    if (img.hasAttribute("data-fallback")) {
+      if (e.type === "error" || !img.naturalWidth) {
+        if (img.parentNode) { img.parentNode.classList.add("none"); img.parentNode.removeChild(img); }
+      }
+      return;
+    }
+    if (!img.hasAttribute("data-mark")) return;
     var box = img.parentNode;
     if (e.type === "load" && img.naturalWidth > 0) {
       if (box) box.classList.add("loaded");
@@ -51,5 +105,5 @@ Suite.ui = (function () {
   document.addEventListener("load", settle, true);
   document.addEventListener("error", settle, true);
 
-  return { esc: esc, initials: initials, mark: mark };
+  return { esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff };
 })();

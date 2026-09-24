@@ -615,6 +615,15 @@ idThrows(function (c) { delete c.identity.fonts; }, "missing type throws");
 ok((function () { try { TeamOS.identity.create({}, ND); return false; } catch (e) { return true; } })(),
    "a config with no identity section throws");
 
+console.log(" hero art is optional, and checked when present (decision 0024 §10)");
+eq(ndId.art, null, "no team ships photography yet: the fallback composition is the production state");
+var withArt = baseIdentity(); withArt.identity.art = { src: "art/stadium.jpg", position: "70% 30%" };
+eq(JSON.parse(JSON.stringify(TeamOS.identity.create(withArt, ND).art)), { src: "art/stadium.jpg", position: "70% 30%" },
+   "declared art is carried through, with its focal position");
+idThrows(function (c) { c.identity.art = { src: "javascript:alert(1)" }; }, "a script URL is not art");
+idThrows(function (c) { c.identity.art = { src: "a.jpg", position: "0;background:red" }; }, "a position that is not a CSS position is refused");
+idThrows(function (c) { c.identity.art = "a.jpg"; }, "art must be an object");
+
 // ---- the stylesheet names no team ----
 console.log("app.css and the legacy quarantine");
 // The screens not yet rebuilt live in legacy.css; the rules below hold for

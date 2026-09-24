@@ -58,6 +58,8 @@ var PLAYOFF_EVENT = "KXNCAAFPLAYOFF-26";   // playoff qualifiers
 // stale: set when the service worker had to answer from its cache because
 // the network was down, so the footer can say so instead of "last updated now".
 var S = { games:null, next:null, tick:null, oddsTried:null, stale:null };
+// What Home shows beyond the schedule: normalized data only (suite/home.js).
+var HOME = { news:null, markets:{}, weather:null, weatherFor:null, weatherAt:0, status:null };
 function $(id){ return document.getElementById(id); }
 function say(msg){ $("live").textContent = msg; }
 
@@ -70,6 +72,7 @@ function say(msg){ $("live").textContent = msg; }
 // the tab title, "<Program> · Suite", and the browser chrome colour.
 var ID = TeamOS.identity.create(TEAM_CONFIG, TEAM);
 var DOC_TITLE = TEAM.name + " \u00B7 Suite";
+var TEAM_NICK = "";
 
 function paintIdentity(){
   function text(sel, value){
@@ -96,10 +99,17 @@ function paintIdentity(){
   var bm = $("barMark");
   if(bm) bm.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
                                        TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="barMark"');
-  text("#mastNick", reg && reg.nick ? reg.nick : "");
+  TEAM_NICK = reg && reg.nick ? reg.nick : "";
+  text("#mastNick", TEAM_NICK);
   // A team without a tagline gets no empty line where one would be.
   var tl = $("mastTagline");
   if(tl){ if(ID.tagline) tl.textContent = ID.tagline; else tl.parentNode.removeChild(tl); }
+  // The masthead's art is the same composition as Home's hero: the team's
+  // approved photography, or the finished fallback in its colours and mark.
+  var ma = $("mastArt");
+  if(ma) ma.outerHTML = Suite.ui.art({ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation,
+                                       markUrl:TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true) })
+                          .replace('class="art-slot', 'id="mastArt" class="art-slot');
   var mk = $("mastMark");
   if(mk) mk.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
                                        TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="mastMark"');
@@ -149,8 +159,28 @@ function get(url){
     if(!r.ok) throw new Error("HTTP "+r.status);
     var cached=r.headers.get("X-IW-Cached");
     if(cached){ S.stale = S.stale || cached; paintStale(); }
+    noteSource(url, cached);
     return r.json();
   });
+}
+
+// Per-source freshness, for the one page-level state each screen shows
+// (decision 0024 §13). A copy the worker served because the network failed
+// carries X-IW-Cached - the time it was stored - and counts as cached.
+var SRC={};
+function sourceKey(url){
+  if(url===TeamOS.espn.scheduleUrl(TEAM_CONFIG)) return "schedule";
+  if(/scoreboard/.test(url)) return "scoreboard";
+  if(/odds-(title|playoff)\.json|kalshi/i.test(url)) return "odds";
+  if(/open-meteo/.test(url)) return "weather";
+  var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
+  if(url===TeamOS.espn.newsUrl(TEAM_CONFIG) || (beat && url.indexOf(beat.file)===0)) return "news";
+  return null;
+}
+function noteSource(url, cached){
+  var k=sourceKey(url); if(!k) return;
+  var at=cached ? Date.parse(cached) : Date.now();
+  SRC[k]={ fetchedAt: isNaN(at) ? Date.now() : at, cached: !!cached };
 }
 
 // Offline shell. sw.js keeps the page itself and the last good copy of every
@@ -922,12 +952,17 @@ function loadStrip(){
       // The feed answered and this team is not in it: they are not a program
       // Kalshi prices. Once BOTH queries have said so, the surface goes -
       // a team that is simply not a contender should not carry an empty card.
+      var key = q.ev===TITLE_EVENT ? "title" : "playoff";
       if(p==null){
+        HOME.markets[key]=null; paintHome();
         if(++asked === 2 && found === 0) dropOddsSurface();
         else $(q.cell).textContent = "No market";
         return;
       }
       found++; asked++;
+      var o=SRC.odds||{};
+      HOME.markets[key]={ value:p, previous:prevPrice(m), asOf:o.fetchedAt||null, cached:!!o.cached };
+      paintHome();
       showOddsSurface();
       var pp = prevPrice(m);
       var mv = (pp!==null) ? p-pp : null;
@@ -1847,6 +1882,22 @@ function beatItem(i){
   var t=i.published ? Date.parse(i.published) : NaN;
   return { title:i.title, link:i.link, image:"", source:i.source, publishedAt: isNaN(t) ? null : t };
 }
+// Both news payloads, raw, -> one NewsItem[], newest first, one story per
+// headline. Home and the full News list read the same list.
+function newsList(res){
+  var espn=TeamOS.espn.news(res[0]);
+  var beat=(res[1] && TeamOS.snapshots.owned(TEAM,res[1]) ? (res[1].items||[]) : []).map(beatItem);
+  var all=espn.concat(beat).filter(function(a){ return a.link&&a.title; });
+  var seen={}, list=[];
+  all.forEach(function(a){
+    var k=a.title.toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,60);
+    if(seen[k]) return;
+    seen[k]=1; list.push(a);
+  });
+  list.sort(function(a,b){ return (b.publishedAt||0)-(a.publishedAt||0); });
+  return list;
+}
+
 function loadNews(){
   var el=$("panel-news");
   if(el.dataset.loaded) return;
@@ -1878,21 +1929,8 @@ function loadNews(){
     if(!fromCache) say("News loaded, "+count+" stories from "+sources+" sources.");
   }
 
-  // Both payloads arrive raw and become NewsItem[] here; everything below
-  // reads NewsItem.
   function build(res){
-    var espn=TeamOS.espn.news(res[0]);
-    var beat=(TeamOS.snapshots.owned(TEAM,res[1]) ? (res[1].items||[]) : []).map(beatItem);
-    var all=espn.concat(beat).filter(function(a){ return a.link&&a.title; });
-
-    // same story from two outlets: keep the first
-    var seen={}, list=[];
-    all.forEach(function(a){
-      var k=a.title.toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,60);
-      if(seen[k]) return;
-      seen[k]=1; list.push(a);
-    });
-    list.sort(function(a,b){ return (b.publishedAt||0)-(a.publishedAt||0); });
+    var list=newsList(res);
     if(!list.length) return "";
     count=list.length;
     var srcs={}; list.forEach(function(a){ srcs[a.source]=1; });
@@ -1919,6 +1957,87 @@ function loadNews(){
   }
 }
 
+/* ---------- Home (canonical) ---------- */
+// Home is drawn by suite/home.js from TeamOS's answers: the hero game and
+// why, its three schedule rows, the Season Outlook metrics, and whether what
+// this screen shows is fresh. This function only gathers them.
+var HOUR=3600e3;
+function homeSources(heroLive){
+  function s(key, optional, maxAge){
+    var x=SRC[key];
+    return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, optional:optional, maxAgeMs:maxAge }
+             : { key:key, missing:true, optional:optional };
+  }
+  var list=[s("schedule",false,12*HOUR), s("news",false,24*HOUR), s("odds",true,36*HOUR), s("weather",true,6*HOUR)];
+  if(heroLive) list.push(s("scoreboard",false,10*60e3));
+  return list;
+}
+function paintHome(){
+  var host=$("screenHome");
+  if(!host || host.hidden || !S.games) { if(host && !host.hidden && !S.games) paintHomeLoading(host); return; }
+  var now=new Date();
+  var h=TeamOS.game.hero(S.games, now, TEAM.timeZone), g=h.game;
+  // Our rank and record now, from the team feed, when the game's own
+  // competitor entry does not carry them.
+  if(g && HOME.status){
+    g=Object.assign({}, g);
+    if(g.usRank==null && HOME.status.rank) g.usRank=HOME.status.rank;
+    if(!g.usRecord && HOME.status.record) g.usRecord=HOME.status.record;
+  }
+  var wx = g && HOME.weatherFor===g.id ? HOME.weather : null;
+  var zone = (wx && wx.zone) || TeamOS.game.venueZone(g||{}, TEAM.timeZone);
+  var espnId=TEAM_CONFIG.sources.espn.teamId;
+  Suite.home.paint(host, {
+    team:{ name:TEAM.name, nick:TEAM_NICK, tagline:ID.tagline, abbr:TEAM.abbreviation,
+           markUrl:TeamOS.espn.mark(espnId, true) },
+    oppMark:function(id){ return TeamOS.espn.mark(id, true); },
+    art:{ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true),
+          atmosphere: g ? TeamOS.game.atmosphere(g, zone) : null },
+    hero:{ game:g, reason:h.reason, weather:wx },
+    heroId: g ? g.id : null,
+    news: HOME.news,
+    schedule: TeamOS.game.schedulePreview(S.games, now, TEAM.timeZone),
+    outlook: TeamOS.outlook.metrics(HOME.markets),
+    fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),
+                                    { now:now, online: navigator.onLine!==false })
+  });
+  if(g) loadHomeWeather(g);
+}
+function paintHomeLoading(host){
+  if(host.dataset.loading) return;
+  host.dataset.loading="1";
+  host.innerHTML='<p class="sec-quiet home-loading">Loading '+esc(TEAM.name)+'\u2026</p>';
+}
+function loadHomeNews(){
+  var espnUrl=TeamOS.espn.newsUrl(TEAM_CONFIG);
+  var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
+  return Promise.all([get(espnUrl).catch(function(){ return null; }),
+                      beat ? get(beat.file+"?t="+Date.now()).catch(function(){ return null; }) : null])
+    .then(function(res){
+      if(!res[0] && !res[1]){ if(HOME.news==null) HOME.news=[]; paintHome(); return; }  // keep what is shown
+      HOME.news=newsList(res).slice(0,3);
+      paintHome();
+    });
+}
+// Weather is tertiary (0024 §2): a kickoff forecast before a game, current
+// conditions during one, nothing when there is no answer. One request per
+// game per half hour.
+function loadHomeWeather(g){
+  var ms=new Date(g.date)-Date.now(), live=TeamOS.game.underWay(g);
+  if(!g.timeSet && !live) return;
+  if(!live && (ms<-3*HOUR || ms>16*24*HOUR)) return;
+  if(g.status==="final" || g.status==="canceled" || g.status==="postponed") return;
+  if(HOME.weatherFor===g.id && Date.now()-HOME.weatherAt<30*60e3) return;
+  HOME.weatherFor=g.id; HOME.weatherAt=Date.now();
+  venuePoint(g).then(function(pt){ return get(TeamOS.weather.url(pt.lat, pt.lon)); })
+    .then(function(d){
+      HOME.weather = live ? TeamOS.weather.current(d) : TeamOS.weather.at(d, g.date);
+      paintHome();
+    }).catch(function(){ HOME.weather=null; });
+}
+window.addEventListener("online",  function(){ paintHome(); });
+window.addEventListener("offline", function(){ paintHome(); });
+
 /* ---------- screens: which content each route shows ---------- */
 // The route itself is suite/nav.js's (one state: location.hash). This is the
 // other half: which panel a screen shows, and what it loads on entry. Until
@@ -1928,6 +2047,15 @@ var PANEL_FOR={ home:"schedule", top25:"around", game:"game", roster:"depth", mo
 var PANELS=["schedule","around","game","depth","more"];
 function showScreen(route){
   var name=PANEL_FOR[route.screen]||"schedule";
+  // Home is canonical; the rest are still their pre-canonical panels.
+  var home=route.screen==="home";
+  $("screenHome").hidden=!home;
+  $("legacy").hidden=home;
+  if(home){ paintHome(); if(HOME.news==null) loadHomeNews(); }
+  // A schedule row on Home opens that game on the full Schedule.
+  if(route.screen==="schedule" && route.path[0] && S.games && DETAIL.open!==route.path[0]){
+    setTimeout(function(){ openGame(route.path[0]); }, 0);
+  }
   if(route.screen==="top25") showAroundView(route.view);
   PANELS.forEach(function(p){ $("panel-"+p).hidden = p!==name; });
   UI.tab=name; layoutForTab();
@@ -2072,6 +2200,7 @@ function load(){
 
   get(TeamOS.espn.teamUrl(TEAM_CONFIG)).then(function(d){
     var st=TeamOS.espn.teamStatus(d);
+    HOME.status=st; paintHome();
     if(st.rank){
       $("rank").innerHTML='<span class="sr-only">Ranked number </span>'+
         '<span aria-hidden="true">#</span>'+st.rank;
@@ -2148,6 +2277,7 @@ function refreshSchedule(first){
     S.next=live||up||null;
     if(S.next) paintHero(S.next); else layoutForTab();   // no next game: nothing above the tabs
     paintSchedule(games);
+    paintHome();
     return games;
   }
   var painted=false;
@@ -2161,6 +2291,14 @@ function refreshSchedule(first){
   return get(url).then(function(d){
     var games=apply(d);
     if(G.pending) loadGame(true);        // the Game tab was waiting on this
+    // A game under way before the first scoreboard tick: fetch it now, so
+    // Home's hero has the clock, the ball and the down from the start.
+    if(!SB.games && games.some(TeamOS.game.underWay)){
+      getScoreboard(0).then(function(){
+        S.games=TeamOS.live.reconcileAll(S.games, SB.games);
+        paintHome();
+      }).catch(function(){});
+    }
     if(announce) say("Schedule loaded, "+games.length+" games."+
       (S.next?" Next game is "+(S.next.home?"versus ":"at ")+S.next.oppName+".":""));
     startAuto();

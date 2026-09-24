@@ -80,7 +80,8 @@ var MASTHEAD = { roster: "Roster", more: "More", schedule: "Schedule" };
 // National screens: the SUITE bar with the team as context, and a visible
 // neutral heading (decision 0024 §6).
 var CONTEXT = { top25: "Top 25" };
-var WIDTHS = [375, 1280];
+// VISUAL_WIDTHS="375,390,1280" adds the canonical 390px review width.
+var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).filter(Boolean);
 
 (async function () {
   await new Promise(function (resolve) { server.listen(0, "127.0.0.1", resolve); });
@@ -256,6 +257,41 @@ var WIDTHS = [375, 1280];
             fail(label, "behaviour", "focus", "after navigating, focus is on '" + st.focus + "', not the screen's heading");
           await fullShot(page, path.join(shots, team + "-" + width + "-" + screen + ".png"));
           await checkState(page, label);
+          if (screen === "home") {
+            // Home (decisions 0023, 0024 §2, §3, §17, §19): hero, news, schedule,
+            // outlook in that order; three stories and three rows at most; no
+            // Current Game card; stories open their source safely; the
+            // location label is text; the old dark screen is not showing.
+            var hm = await page.evaluate(function () {
+              var host = document.getElementById("screenHome");
+              var order = [].slice.call(host.querySelectorAll("[data-home]"))
+                .filter(function (s) { return !s.hidden && s.innerHTML.trim(); })
+                .map(function (s) { return s.getAttribute("data-home"); });
+              var links = [].slice.call(host.querySelectorAll(".news-card"));
+              var rows = [].slice.call(host.querySelectorAll(".sched-row"));
+              var cta = host.querySelector(".gc-cta");
+              return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden, order: order,
+                       news: links.length, rows: rows.length,
+                       safe: links.every(function (a) { return a.target === "_blank" && /noopener/.test(a.rel) && /noreferrer/.test(a.rel)
+                                                            && /new tab/.test(a.textContent); }),
+                       labels: rows.every(function (r) { var s = r.querySelector(".site"); return s && /^(home|away|neutral)$/i.test(s.textContent.trim()); }),
+                       current: /current game/i.test(host.textContent),
+                       cta: cta ? cta.getAttribute("href") : null,
+                       card: !!host.querySelector(".gamecard"), summary: (host.querySelector("#gcSummary") || {}).textContent || "" };
+            });
+            if (!hm.shown || hm.legacy) fail(label, "behaviour", "#screenHome", "Home is not the canonical screen (legacy showing: " + hm.legacy + ")");
+            var want = ["hero", "news", "schedule", "outlook"];
+            var got = hm.order.filter(function (k) { return want.indexOf(k) > -1; });
+            if (got.join() !== want.filter(function (k) { return got.indexOf(k) > -1; }).join() || got[0] !== "hero")
+              fail(label, "behaviour", "[data-home]", "Home sections out of order: " + got.join(", "));
+            if (hm.news > 3) fail(label, "behaviour", ".news-card", hm.news + " stories on Home; at most 3");
+            if (hm.rows > 3 || hm.rows < 1) fail(label, "behaviour", ".sched-row", hm.rows + " schedule rows on Home; 1 to 3");
+            if (!hm.safe) fail(label, "behaviour", ".news-card", "a story does not open its source in a new tab with rel protections and a disclosure");
+            if (!hm.labels) fail(label, "behaviour", ".site", "a schedule row relies on colour: its HOME/AWAY/NEUTRAL text is missing");
+            if (hm.current) fail(label, "behaviour", "#screenHome", "Home shows a Current Game card, which decision 0023 removed");
+            if (!hm.card || !hm.summary) fail(label, "behaviour", ".gamecard", "the hero has no game card or no spoken summary");
+            if (hm.cta && hm.cta !== "#game") fail(label, "behaviour", ".gc-cta", "the hero's action goes to " + hm.cta + ", not Game");
+          }
           if (screen === "more") {
             var more = await page.evaluate(function () {
               var b = document.getElementById("changeTeam"), t = document.getElementById("moreTeam");

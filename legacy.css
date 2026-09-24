@@ -95,7 +95,7 @@
 .legacy .row .status{font-size:.78rem;font-weight:600;color:var(--dim)}
 .legacy .row .net{display:inline-block;font-size:.78rem;font-weight:600;border:1px solid var(--t-accent);padding:.15rem .4rem;white-space:nowrap;background:rgba(var(--t-accent-rgb),.06);border-radius:999px;color:var(--t-accent-text);border-color:rgba(var(--t-accent-rgb),.5)}
 .legacy .row .net.tbd{color:var(--dim);border-color:var(--dim)}
-.legacy .row.past{opacity:.85}
+.legacy .row.past{opacity:.92}
 .legacy .row.tappable{cursor:pointer}
 .legacy .row.tappable:hover{background:rgba(var(--t-accent-rgb),.07)}
 .legacy .row.tappable:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
@@ -358,4 +358,4 @@
 
 /* Until each screen is rebuilt, its old content is dark: so is the page
    behind it, or a short screen ends in a band of ivory above the nav. */
-body:has(> main > .legacy){background:var(--t-abyss)}
+body:has(> main > .legacy:not([hidden])){background:var(--t-abyss)}

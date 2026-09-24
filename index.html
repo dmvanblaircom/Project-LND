@@ -154,6 +154,7 @@
     if (!domReady || !teamReady || started) return;
     started = true;
     inject("suite/nav.js");
+    inject("suite/home.js");
     inject("app.js");
   }
 
@@ -177,7 +178,7 @@
   // The registry and TeamOS load either way - the chooser needs them too.
   ["teams/index.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
    "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js",
-   "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js",
+   "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js",
    "suite/ui.js"]
     .forEach(function(src){ inject(src); });
 
@@ -232,6 +233,9 @@
 <main class="page-main" id="main" tabindex="-1">
   <!-- The screen's name for assistive technology where no masthead shows it. -->
   <h1 class="sr-only" id="screenHead" tabindex="-1"></h1>
+
+  <!-- Home, rebuilt in the canonical system (suite/home.js). -->
+  <div class="home" id="screenHome" hidden></div>
 
   <!-- Screens not yet rebuilt in the canonical system (legacy.css). -->
   <div class="legacy on-dark" id="legacy">

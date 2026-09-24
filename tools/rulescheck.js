@@ -20,8 +20,8 @@ function eq(a, b, what) {
 function uncomment(t) { return t.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, ""); }
 
 var ctx = vm.createContext({ Date: Date });
-["teamos/outlook.js", "teamos/freshness.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
-var O = ctx.TeamOS.outlook, F = ctx.TeamOS.freshness;
+["teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
+var O = ctx.TeamOS.outlook, F = ctx.TeamOS.freshness, W = ctx.TeamOS.weather;
 
 ["teamos/outlook.js", "teamos/freshness.js"].forEach(function (f) {
   var s = uncomment(read(f));
@@ -59,5 +59,19 @@ eq([F.summary(home, { now: NOW }).state, F.summary(roster, { now: NOW }).state],
    "a stale source warns only on the screen that shows it - not 'the stalest source anywhere'");
 eq(F.summary([], { now: NOW }).state, "fresh", "a screen with no data sources is fresh");
 
-console.log("\n" + (failures ? failures + " check(s) FAILED" : "Season Outlook and freshness say one thing"));
+console.log("weather (teamos/weather.js)");
+ok(/api\.open-meteo\.com/.test(W.url(41.7, -86.2)) && /timezone=auto/.test(W.url(41.7, -86.2)), "one request, asking for the venue's own zone");
+var wx = { timezone: "America/Indiana/Indianapolis", utc_offset_seconds: -4 * 3600,
+  hourly: { time: ["2026-10-03T15:00", "2026-10-03T16:00"], temperature_2m: [61.4, 63.6],
+            precipitation_probability: [10, 20], wind_speed_10m: [7.4, 9.1], weather_code: [2, 61] },
+  current: { time: "2026-10-03T15:15", temperature_2m: 62.2, wind_speed_10m: 8.2, weather_code: 3 } };
+eq(JSON.parse(JSON.stringify(W.at(wx, "2026-10-03T19:30:00Z"))),
+   { tempF: 64, sky: "rain", rainPct: 20, windMph: 9, zone: "America/Indiana/Indianapolis", at: "2026-10-03T19:30:00Z" },
+   "the kickoff hour at the venue (3:30 PM EDT rounds to 4 PM), in plain words");
+eq(W.at(wx, "2026-10-09T19:30:00Z"), null, "a kickoff outside the forecast: nothing, never a guess");
+eq(W.current(wx).tempF, 62, "current conditions, during a game");
+eq(W.current({}), null, "no payload: nothing");
+ok(!/espn|kalshi|notre|irish|ohio|buckeye/i.test(uncomment(read("teamos/weather.js"))), "names no other provider and no team");
+
+console.log("\n" + (failures ? failures + " check(s) FAILED" : "Season Outlook, freshness and weather say one thing"));
 process.exit(failures ? 1 : 0);

@@ -177,6 +177,12 @@ function collectTextInPage() {
     }
     if (!isFinite(L) || R - L < 2 || B - T < 2) continue;
 
+    // Pure decoration is exempt from text contrast (WCAG 1.4.3): the team
+    // art's outlined watermark initials are artwork, hidden from assistive
+    // technology, with the team named in real text beside them. Only an
+    // element that says so - [data-decorative] - is skipped.
+    if (el.closest && el.closest("[data-decorative]")) continue;
+
     // Something clipped to a pixel (the sr-only pattern) is not on screen.
     var box = el.getBoundingClientRect();
     if (box.width < 2 || box.height < 2) continue;

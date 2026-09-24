@@ -126,6 +126,16 @@ TeamOS.identity = (function () {
     return round(r);
   }
 
+  function artOf(a) {
+    if (a == null) return null;
+    if (typeof a !== "object") fail("identity.art must be { src, position? }");
+    var src = str(a, "src", "identity.art.");
+    if (/^\s*javascript:/i.test(src) || /["<>]/.test(src)) fail("identity.art.src is not a usable image path");
+    var position = a.position == null ? null : str(a, "position", "identity.art.");
+    if (position && !/^[a-z0-9%.\s-]+$/i.test(position)) fail("identity.art.position must be a CSS position like '70% 30%'");
+    return Object.freeze({ src: src, position: position });
+  }
+
   function create(config, team) {
     var i = config && config.identity;
     if (!i || typeof i !== "object") fail("the team config has no identity section");
@@ -143,7 +153,13 @@ TeamOS.identity = (function () {
       // The News tab's section rule. It named a city in CSS until the
       // Ohio State proof found it (phase-6 report), which is exactly the
       // kind of copy that has to be the team's, not the stylesheet's.
-      newsLabel: str(i, "newsLabel", "identity.")
+      newsLabel: str(i, "newsLabel", "identity."),
+      // Approved hero photography, when a team has it (decision 0024 §10).
+      // Optional and individually fallible: with none, the Suite draws the
+      // fallback composition from the team's colours and mark, which is a
+      // production state. { src, position? } - position is a CSS
+      // object-position, for keeping the subject in frame.
+      art: artOf(i.art)
     };
 
     // ---- colours ----

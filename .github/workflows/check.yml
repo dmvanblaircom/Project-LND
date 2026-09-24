@@ -72,6 +72,7 @@ jobs:
       - run: npm run test:visual
         env:
           ALLOW_PROVIDER_IMAGES: "1"
+          VISUAL_WIDTHS: "375,390,1280"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
