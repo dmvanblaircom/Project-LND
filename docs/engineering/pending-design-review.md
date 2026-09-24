@@ -17,6 +17,7 @@ own (the things a reviewer most needs to look at), and where the evidence is.
 |---|---|---|---|---|
 | 1 | More rebuild: menu, News, Settings (App Style), Feedback, About Suite | `2fdc6f2`, with `9952362`, `835c2c3`, `1a97dee` (news capture) | David, 2026-09-24 | **No ChatGPT review** |
 | 2 | More corrections: provisional Suite Style palette, Independent App statement, copy confirmed | `b566122` | David, 2026-09-24 | **No ChatGPT review** |
+| 3 | Legacy code removal (engineering only; no screen changes) | `87e6af5` | David ("move forward"), 2026-09-24 | **No ChatGPT review** |
 
 For context, not part of David's no-review approval: ChatGPT asked for the
 Roster service-worker recovery fix (`0f6008a`) and David accepted it once CI
@@ -105,3 +106,31 @@ sent in chat as `more-review.zip`; CI's `suite-visual-smoke` artifact for
 **Evidence.** `tools/suitecheck.js` (palette passes `TeamOS.identity`; the
 statement and its conditional betting line), the visual gate's contrast
 pass under Suite Style. Captures sent in chat as `more-review-2.zip`.
+
+## 3. Legacy code removal
+
+**What it is.** The completion list's "remove the legacy panel code", done
+once More made every screen canonical. Engineering only: 38 of the 41 visual
+gate screenshots at 390px are pixel-identical before and after, and the other
+three differ only in clock text ("8 hours ago" / "9 hours ago", Last Updated).
+
+**Removed.** The pre-canonical Game panel (`loadGame`, `renderGame`,
+`patchGame` and their helpers), the old hero and header mini-hero with their
+countdown and weather painter, the odds strip's and odds board's drawing, the
+offline footer, the dead `#rank` / `#rec` writes, the legacy markup and
+`legacy.css` (776 lines of app.js, 355 of CSS).
+
+**Kept, because live screens use it.** The Kalshi fetch and price helpers
+(`loadStrip` now only fills `HOME.markets` for Home's Season Outlook), the
+season statistics behind the pregame Matchup card, the live loop.
+
+**Tests moved, not dropped.** `tools/livecheck.js` (every score surface
+agrees on one live state, with its negative control) now drives Home's hero,
+the Schedule row and the Top 25 row; `tools/matchupcheck.js` drives the
+canonical Matchup card with the same real season statistics;
+`tools/adaptercheck.js` checks the Season Outlook's data path and that
+app.js reaches no pre-canonical element. eslint reports no undefined name.
+
+**For the reviewer.** Mostly a sanity check that nothing a fan sees was
+lost: the Season Outlook "View full field" board is gone with the old odds
+board and is still on the completion list to be built in the Suite design.
