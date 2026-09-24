@@ -146,9 +146,45 @@ Carried forward, none of it blocking:
   `schedule` and `workflow_dispatch` from there.
 - A first visit to a team while offline still cannot work.
 
-## Phase 8: My Teams
+## Phase 8: My Teams / My Box
 
-Support multiple followed teams and personalized cross-team experiences.
+Support multiple followed teams without turning the current team-centered Suite into a mixed feed by default.
+
+**Product hypothesis to validate:** many fans have one primary team but regularly follow several teams across a season. The current single-team experience should remain the focused team view, while the fan's broader personalized sports space can eventually remember and surface all of the teams they care about.
+
+Working product model:
+
+```text
+My Box
+  primaryTeam
+  followedTeams[]
+  activeTeam
+  preferences
+```
+
+- **Primary Team** is the fan's home base.
+- **Followed Teams** are additional teams the fan wants Suite to remember.
+- **Active Team** is the team whose full Home / Game / Roster / Schedule / News experience is currently being viewed.
+- The single-team Suite remains the detailed team view; adding multiple teams must not dilute its hero, information hierarchy, or game experience.
+
+`Box` is a working product concept with intentional sports meaning: a private, personalized viewing space, analogous to a stadium box or suite. It is expected to become part of the customer-facing UI/brand language if validation supports it, but the exact placement and naming should not be forced before the experience is proven.
+
+Key hypotheses for Phase 8:
+
+1. Fans want Suite to remember more than one team.
+2. Fans frequently switch between those teams' full experiences.
+3. Fans may not want every team's news/content merged into one feed.
+4. Cross-team aggregation may be most valuable around live games and game-day moments.
+
+Likely experience direction to validate:
+
+- Home, Roster, Schedule and News remain scoped to the **active team**.
+- A future **My Box** surface can contain the primary team plus followed teams and provide fast switching without treating a switch as replacing the fan's team.
+- If one followed team is live, Game may continue to open directly into that game.
+- If multiple followed teams are live, Game may first open a compact **My Games / Live in Your Box** layer, then enter the existing full Game experience for the selected matchup.
+- The raised/live Game control can evolve to mean that there is live activity among the teams in the fan's Box, without changing the deep Game design.
+
+Do not build this speculatively during the current canonical single-team redesign. The immediate architecture should simply avoid assumptions that make `primaryTeam`, `followedTeams[]` and `activeTeam` impossible later. Product validation should determine how much of My Box is built and where it appears in the UI.
 
 ## Phase 9: Expand Sports
 
