@@ -19,7 +19,7 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "suite-2026-09-24v";
+var VERSION = "suite-2026-09-24w";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -29,11 +29,11 @@ var DATA    = VERSION + "-data";
 // - and nothing that is not.
 var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./legacy.css", "./app.js", "./chooser.js",
-  "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js",
+  "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js",
   "./teams/index.js",
   "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
   "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",
-  "./teamos/game.js", "./teamos/outlook.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js",
+  "./teamos/game.js", "./teamos/outlook.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js",
   // Suite's install identity, the same for every team (decision 0024 §11).
   // The manifest's own icons are read from it at install; these are the ones
   // only index.html names. tools/identitycheck.js keeps the two lists equal.
@@ -145,6 +145,11 @@ function adoptTeam(msg) {
 
 self.addEventListener("message", function (e) {
   var msg = e.data;
+  // The app's version, for About Suite and Feedback: the worker's own.
+  if (msg && msg.type === "version") {
+    if (e.ports && e.ports[0]) e.ports[0].postMessage({ version: VERSION });
+    return;
+  }
   if (!msg || msg.type !== "team") return;
   var done = adoptTeam(msg);
   if (e.waitUntil) e.waitUntil(done);

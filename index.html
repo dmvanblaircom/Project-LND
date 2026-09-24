@@ -104,7 +104,10 @@
   // page's own storage, but they are still read as data: a token name has to
   // look like one, and a value carrying CSS punctuation is dropped.
   var saved = null;
-  try { saved = choosing ? null : JSON.parse(get(BOOT_KEY + id) || "null"); } catch(e){}
+  // Under Suite Style (decision 0026, the fan's choice for every team) the
+  // set to replay is Suite's own, kept under a key no team id can take.
+  var suiteStyle = get("suite-style") === "suite";
+  try { saved = choosing ? null : JSON.parse(get(suiteStyle ? "iw-boot:suite" : BOOT_KEY + id) || "null"); } catch(e){}
   // The browser chrome, decided once at the end. iOS takes theme-color at
   // first paint and keeps it, so it must never be left pointing at the
   // DEFAULT team's colour when this page is some other team
@@ -159,6 +162,7 @@
     inject("suite/game.js");
     inject("suite/top25.js");
     inject("suite/roster.js");
+    inject("suite/more.js");
     inject("app.js");
   }
 
@@ -182,7 +186,7 @@
   // The registry and TeamOS load either way - the chooser needs them too.
   ["teams/index.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
    "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js",
-   "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js",
+   "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js", "teamos/sources.js",
    "suite/ui.js"]
     .forEach(function(src){ inject(src); });
 
@@ -238,11 +242,17 @@
   <!-- The screen's name for assistive technology where no masthead shows it. -->
   <h1 class="sr-only" id="screenHead" tabindex="-1"></h1>
 
-  <!-- Screens rebuilt in the canonical system (suite/home.js, suite/game.js, suite/top25.js, suite/schedule.js, suite/roster.js). -->
+  <!-- Every screen, in the canonical system (suite/*.js). -->
   <div class="home" id="screenHome" hidden></div>
   <div class="game" id="screenGame" hidden></div>
   <div class="top25" id="screenTop25" hidden></div>
   <div class="roster" id="screenRoster" hidden></div>
+  <!-- More and the destinations it owns (suite/more.js). -->
+  <div class="more" id="screenMore" hidden></div>
+  <div class="more news" id="screenNews" hidden></div>
+  <div class="more settings" id="screenSettings" hidden></div>
+  <div class="more feedback" id="screenFeedback" hidden></div>
+  <div class="more about" id="screenAbout" hidden></div>
   <div class="schedule" id="screenSchedule" hidden>
     <div id="scheduleList"></div>
     <div id="scheduleGame" hidden>
@@ -251,7 +261,8 @@
     </div>
   </div>
 
-  <!-- Screens not yet rebuilt in the canonical system (legacy.css). -->
+  <!-- The pre-canonical panels, no longer shown; their code is removed with the
+       legacy Game panel (docs/engineering/suite-redesign-completion.md). -->
   <div class="legacy on-dark" id="legacy">
     <section class="hero" id="hero" aria-labelledby="heroHead" hidden>
       <h2 class="sr-only" id="heroHead">Next team game</h2>
@@ -285,17 +296,6 @@
 
     <div id="tabpanel">
       <section id="panel-game" aria-label="Game" hidden></section>
-      <section id="panel-more" aria-label="More" hidden>
-        <div class="team-row">
-          <p>Following <strong id="moreTeam"></strong></p>
-          <button type="button" class="change-team" id="changeTeam">Change team</button>
-        </div>
-        <div class="team-row">
-          <p>Updates on its own, and live during games</p>
-          <button type="button" class="refresh" id="refresh"><span class="refresh-icon" aria-hidden="true">↻</span> Refresh</button>
-        </div>
-        <section id="panel-news" aria-label="News"></section>
-      </section>
     </div>
 
     <footer><p class="foot" id="foot">Loading…</p></footer>

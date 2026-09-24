@@ -2,8 +2,8 @@
 
 ## Status
 
-Accepted. Amends decision 0024 §18. Not built yet: it is the contract the
-More/Settings phase implements.
+Accepted. Amends decision 0024 §18. Built in the More/Settings phase
+(2026-09-24); see Implementation below.
 
 ## Date
 
@@ -43,6 +43,21 @@ is the one appearance setting Product wants, so Appearance joins them.
 - Team style stays data: TeamOS identity (decision 0009, `teamos/identity.js`)
   supplies what a team has; Suite applies it under Team Style and ignores it
   under Suite Style. No team conditionals in Suite.
+
+## Implementation
+
+- Stored as `suite-style` ("team" | "suite") in the browser, outside every
+  team's keys, so it holds across team changes. Absent means Team Style.
+- Today a style is the stylesheet's colour and type tokens. Suite Style
+  applies Suite's own set (`Suite.ui.STYLE`) through the same path as a
+  team's (`applyStyle()` in app.js), so it is checked by the same
+  `TeamOS.identity` rules. The team's name, mark, tagline and approved
+  photography are who the team is, not style, and stay under either.
+- First paint follows the choice: the boot script replays Suite's saved set
+  (`iw-boot:suite`, a key no team id can take) under Suite Style, and the
+  team's own under Team Style.
+- Suite Style's palette is provisional until Design sets Suite's own
+  (docs/engineering/suite-redesign-completion.md).
 
 ## Related
 

@@ -81,5 +81,50 @@ ok(/data-key="box-us-defensive" open>/.test(flipped) && !/data-key="box-us-passi
 var them = boxHtml({}, "them");
 ok(/data-key="box-them-passing" open>/.test(them), "the team toggle keeps its own keys");
 
+// ---- More (reference 10; 0022 #9 #12, 0024 §18, 0026) ----------------------
+console.log("More");
+var mctx = vm.createContext({ console: console, Intl: Intl, Date: Date, document: { addEventListener: function () {}, activeElement: null } });
+["teams/notre-dame.js", "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/sources.js",
+ "suite/ui.js", "suite/more.js"].forEach(function (f) { vm.runInContext(read(f), mctx, { filename: f }); });
+var MT = mctx.TeamOS, MS = mctx.Suite, ND = mctx.TEAM_CONFIG;
+function mhost() { return { innerHTML: "", querySelector: function () { return null; }, querySelectorAll: function () { return []; }, contains: function () { return false; } }; }
+
+// Suite Style is held to exactly what a team is held to.
+var suiteLook = null;
+try { suiteLook = MT.identity.create({ identity: MS.ui.STYLE }, MT.createTeam(ND.team)); } catch (e) { console.log("    " + e.message); }
+ok(!!suiteLook, "Suite Style passes TeamOS.identity's contrast checks (dark and light surfaces)");
+ok(MS.ui.STYLE.colors.surface.toUpperCase() === "#0B1F3A", "Suite Style's surface is Suite's chrome navy");
+
+var m = mhost(); MS.more.menu(m);
+eq((m.innerHTML.match(/class="mo-title">([^<]+)/g) || []).map(function (x) { return x.replace(/.*>/, ""); }),
+   ["News", "Schedule", "Settings", "Feedback", "About Suite"], "More lists its five destinations in the reference's order");
+
+var st = mhost();
+MS.more.settings(st, { team: { name: "Notre Dame", mark: "" }, changeHref: "/?change", style: "team", updatedAt: null, refreshing: false, online: true });
+ok(/<legend class="st-k">App Style<\/legend>/.test(st.innerHTML), "Appearance holds one choice, App Style");
+eq((st.innerHTML.match(/name="appStyle" value="(\w+)"/g) || []).map(function (x) { return x.replace(/.*value="/, "").replace('"', ""); }),
+   ["team", "suite"], "Team Style, then Suite Style");
+ok(/value="team" checked/.test(st.innerHTML) && /Team Style <span class="st-rec">· Recommended/.test(st.innerHTML), "Team Style is the default, marked Recommended");
+ok(!/(typography|font|colou?r|accent|dark mode|light mode|notification)/i.test(st.innerHTML.replace(/Your team’s colors and type lead\./, "")),
+   "no other appearance or notification controls");
+var off = mhost();
+MS.more.settings(off, { team: { name: "Notre Dame", mark: "" }, changeHref: "/?change", style: "suite", updatedAt: Date.now() - 60000, refreshing: false, online: false });
+ok(/Offline · /.test(off.innerHTML), "offline, Last Updated still says when");
+
+var fbh = mhost(); MS.more.feedback(fbh, { href: "mailto:suiteappfeedback@gmail.com?subject=x", address: "suiteappfeedback@gmail.com" });
+ok(!/(thank|sent|submitted)/i.test(fbh.innerHTML), "Feedback shows no sent state: the mail app sends (0022 #12)");
+
+eq(MT.sources.list(ND).map(function (x) { return x.name; }),
+   ["ESPN", "FightingIrish.com", "One Foot Down", "Slap the Sign", "UHND", "NDNation", "Blue & Gold", "Notre Dame On SI", "Kalshi", "Open-Meteo"],
+   "Notre Dame is credited every source its config declares");
+eq(MT.sources.list(ND)[1].supplies, ["depth", "availability"], "the official site: depth chart and availability, once");
+var osuCtx = vm.createContext({});
+["teams/ohio-state.js"].forEach(function (f) { vm.runInContext(read(f), osuCtx, { filename: f }); });
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "Kalshi", "Open-Meteo"],
+   "Ohio State, with no official snapshots or beat feeds, is credited none");
+var abh = mhost(); MS.more.about(abh, { version: "2026-09-24v", sources: MT.sources.list(ND) });
+ok(!/project\s*lnd/i.test(abh.innerHTML + m.innerHTML + st.innerHTML + fbh.innerHTML), "no screen says Project LND (0022 #9)");
+ok(/rel="noopener noreferrer"/.test(abh.innerHTML) && /opens in a new tab/.test(abh.innerHTML), "source links open safely, and say so");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Suite draws what TeamOS decided, the way Product set"));
 process.exit(failures ? 1 : 0);

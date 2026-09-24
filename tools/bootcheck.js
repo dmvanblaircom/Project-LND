@@ -217,8 +217,8 @@ eq(order[0], "teams/ohio-state.js", "the team's config first - app.js reads it a
 eq(order[order.length - 1], "app.js", "and app.js last");
 eq(order, ["teams/ohio-state.js", "teams/index.js", "teamos/registry.js", "teamos/team.js",
            "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js",
-           "teamos/espn.js", "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js",
-           "suite/ui.js", "suite/nav.js", "suite/schedule.js", "suite/home.js", "suite/game.js", "suite/top25.js", "suite/roster.js", "app.js"],
+           "teamos/espn.js", "teamos/game.js", "teamos/outlook.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js", "teamos/sources.js",
+           "suite/ui.js", "suite/nav.js", "suite/schedule.js", "suite/home.js", "suite/game.js", "suite/top25.js", "suite/roster.js", "suite/more.js", "app.js"],
    "every file the page needs, in dependency order");
 ok(/async\s*=\s*false/.test(BOOT), "injected with async=false, which is what keeps them in order");
 ok(/DOMContentLoaded/.test(BOOT),

@@ -55,7 +55,13 @@ Suite.nav = (function () {
     // layout, under the compact header, with a way back to the list.
     schedule: { header: "mast",    title: "Schedule", owner: "more",
                 views: [{ id: "schedule", label: "Schedule" }, { id: "results", label: "Results" }],
-                item: /^[0-9]+$/, itemHeader: "bar", itemTitle: "Game" }
+                item: /^[0-9]+$/, itemHeader: "bar", itemTitle: "Game" },
+    // More's other destinations (reference 10), each a secondary destination
+    // that keeps More selected (decision 0028).
+    news:     { header: "mast",    title: "News",        owner: "more" },
+    settings: { header: "mast",    title: "Settings",    owner: "more" },
+    feedback: { header: "mast",    title: "Feedback",    owner: "more" },
+    about:    { header: "mast",    title: "About Suite", owner: "more" }
   };
   var DEFAULT = "home";
 
@@ -92,6 +98,11 @@ Suite.nav = (function () {
   function parse(hash) {
     var parts = String(hash || "").replace(/^#\/?/, "").split("/").filter(Boolean)
       .map(function (p) { return p.toLowerCase(); });
+    // "#more/news" is the older spelling of "#news": the same screen, and
+    // the address is corrected in place.
+    if (parts[0] === "more" && SCREENS[parts[1]] && SCREENS[parts[1]].owner === "more") {
+      return { screen: parts[1], path: parts.slice(2), view: null, invalid: false, alias: true };
+    }
     var screen = SCREENS[parts[0]] ? parts[0] : DEFAULT;
     var path = SCREENS[parts[0]] ? parts.slice(1) : [];
     var ids = viewIds(screen), view = null, invalid = false;
@@ -192,6 +203,7 @@ Suite.nav = (function () {
 
   function apply(first, quiet) {
     var route = current();
+    if (route.alias) { replace(route.screen, route.path); return; }
     if (route.invalid) {
       // A dead view in the address: replace it rather than show it. On first
       // load this is a stale bookmark; later, a lifecycle or a typo.
@@ -231,7 +243,10 @@ Suite.nav = (function () {
     apply(true);
   }
 
+  // A screen's name, for copy that mentions one ("Screen: Roster").
+  function title(screen) { return SCREENS[screen] ? SCREENS[screen].title : String(screen || ""); }
+
   return { SCREENS: SCREENS, parse: parse, current: current, href: href, go: go,
            replace: replace, setViews: setViews, on: on, start: start,
-           setGameState: setGameState };
+           setGameState: setGameState, title: title };
 })();

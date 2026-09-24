@@ -81,9 +81,6 @@ function paintIdentity(){
 
   // ---- the document ----
   document.title = DOC_TITLE;
-  // The browser chrome matches what sits under it: the team's header.
-  var tc = document.querySelector('meta[name="theme-color"]');
-  if(tc) tc.setAttribute("content", ID.colors.surfaceDeep);
 
   // ---- the page ----
   text("#heroHead", "Next "+TEAM.name+" game");
@@ -114,11 +111,27 @@ function paintIdentity(){
   if(mk) mk.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
                                        TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="mastMark"');
 
-  // ---- the stylesheet ----
-  // app.css declares these with this team's values already, so for Notre
-  // Dame every line below is a no-op; for any other config it is what makes
-  // the whole sheet that team's.
-  var r = document.documentElement.style, c = ID.colors;
+  applyStyle();
+}
+
+/* ---------- App Style (decision 0026) ---------- */
+// The fan's choice, not the team's: stored on its own, outside every team's
+// keys, so it holds across team changes. Team Style (the default) lets this
+// team's colours and type lead; Suite Style uses Suite's own for every team.
+// Only the stylesheet's tokens change - the team's name, mark, tagline and
+// photography are who the team is, not a style, and stay.
+var STYLE_KEY="suite-style";
+var SUITE_ID=TeamOS.identity.create({ identity: Suite.ui.STYLE }, TEAM);
+function appStyle(){
+  var v=null; try{ v=localStorage.getItem(STYLE_KEY); }catch(e){}
+  return v==="suite" ? "suite" : "team";
+}
+function applyStyle(){
+  var look = appStyle()==="suite" ? SUITE_ID : ID;
+  var r = document.documentElement.style, c = look.colors;
+  // Start from the stylesheet's own values: what the other style set is
+  // taken off first, so nothing of it lingers (a team's optional text tones).
+  for(var i=r.length-1;i>=0;i--){ if(r[i].indexOf("--t-")===0) r.removeProperty(r[i]); }
   [["--t-accent",c.accent], ["--t-accent-rgb",c.accentRgb], ["--t-accent-text",c.accentText],
    ["--t-accent-on-light",c.accentOnLight],
    ["--t-accent-ink",c.accentInk], ["--t-accent-soft",c.accentSoft], ["--t-accent-tint",c.accentTint],
@@ -128,28 +141,38 @@ function paintIdentity(){
    ["--t-abyss",c.surfaceAbyss], ["--t-abyss-rgb",c.surfaceAbyssRgb],
    ["--t-raise",c.surfaceRaise], ["--t-raise-rgb",c.surfaceRaiseRgb],
    // a CSS content string carries its own quotes
-   ["--t-news-label", JSON.stringify(ID.newsLabel)],
-   ["--t-font-ui",ID.fonts.ui], ["--t-font-display",ID.fonts.display]].forEach(function(p){ r.setProperty(p[0], p[1]); });
+   ["--t-news-label", JSON.stringify(look.newsLabel)],
+   ["--t-font-ui",look.fonts.ui], ["--t-font-display",look.fonts.display]].forEach(function(p){ r.setProperty(p[0], p[1]); });
   // Optional: a team whose dark surface needs a different text neutral than
   // the Suite's own, for the screens still on it (legacy.css reads these).
   if(c.text)    r.setProperty("--t-text", c.text);
   if(c.textDim) r.setProperty("--t-text-dim", c.textDim);
+  // The browser chrome matches what sits under it: the header.
+  var tc = document.querySelector('meta[name="theme-color"]');
+  if(tc) tc.setAttribute("content", c.surfaceDeep);
+  document.documentElement.setAttribute("data-style", appStyle());
 
-  // Leave this team's boot set behind for the next visit. app.css's :root is
-  // team-neutral, so without this every visit would paint neutral for the
-  // moment before this function runs; with it, only the first ever visit to a
-  // team does. Stored under the team's own id, so one team's colours can never
-  // be replayed onto another (docs/engineering/first-paint-team-tokens.md).
+  // Leave this set behind for the next visit's first paint. app.css's :root
+  // is team-neutral, so without this every visit would paint neutral for the
+  // moment before this function runs. Team Style is stored under the team's
+  // own id, so one team's colours can never be replayed onto another
+  // (docs/engineering/first-paint-team-tokens.md); Suite Style under a key
+  // no team id can take, because it is every team's.
   try{
     var boot={};
-    for(var i=0;i<r.length;i++){
-      var name=r[i];
+    for(var j=0;j<r.length;j++){
+      var name=r[j];
       if(name.indexOf("--")===0) boot[name]=r.getPropertyValue(name);
     }
-    boot.title      = DOC_TITLE;
-    boot.themeColor = ID.colors.surfaceDeep;
-    localStorage.setItem("iw-boot-"+TEAM.id, JSON.stringify(boot));
+    // the tab title names the team, so only the team's own set carries it
+    if(appStyle()!=="suite") boot.title = DOC_TITLE;
+    boot.themeColor = c.surfaceDeep;
+    localStorage.setItem(appStyle()==="suite" ? "iw-boot:suite" : "iw-boot-"+TEAM.id, JSON.stringify(boot));
   }catch(e){}   // private mode, blocked storage, a full quota: the page is fine without it
+}
+function setAppStyle(v){
+  try{ localStorage.setItem(STYLE_KEY, v==="suite" ? "suite" : "team"); }catch(e){}
+  applyStyle();
 }
 paintIdentity();
 
@@ -179,7 +202,8 @@ function sourceKey(url){
   if(/odds-(title|playoff)\.json|kalshi/i.test(url)) return "odds";
   if(/open-meteo/.test(url)) return "weather";
   var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
-  if(url===TeamOS.espn.newsUrl(TEAM_CONFIG) || (beat && url.indexOf(beat.file)===0)) return "news";
+  if(url===TeamOS.espn.newsUrl(TEAM_CONFIG)) return "news";
+  if(beat && url.indexOf(beat.file)===0) return "beatNews";
   return null;
 }
 function noteSource(url, cached){
@@ -1435,63 +1459,30 @@ function newsList(res){
   return list;
 }
 
-function loadNews(){
-  var el=$("panel-news");
-  if(el.dataset.loaded) return;
-  if(!LAST_HTML[el.id]) el.innerHTML='<p class="loading">Loading '+esc(TEAM.name)+' news…</p>';
-  var count=0, sources=0;
-
+// One store, two readers: Home shows the first three, News all of them.
+// A failure keeps what is shown and stays due for another try; so does the
+// worker's kept copy - only a network answer starts the refresh clock.
+var NEWS={ items:null, at:0, inflight:false, failed:false };
+function loadNews(force){
+  if(NEWS.inflight) return Promise.resolve();
+  if(!force && NEWS.at && Date.now()-NEWS.at < 30*60e3) return Promise.resolve();
+  NEWS.inflight=true;
   var espnUrl=TeamOS.espn.newsUrl(TEAM_CONFIG);
-  var beatSnap=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
-  cachedThenFresh(el, [espnUrl, beatSnap ? beatSnap.file : null],
-    Promise.all([get(espnUrl).catch(function(){ return null; }),
-                 beatSnap ? get(beatSnap.file+"?t="+Date.now()).catch(function(){ return null; }) : Promise.resolve(null)]),
-    build, wire
-  ).catch(function(){
-    if(LAST_HTML[el.id]) return;         // the cached paint stands
-    el.innerHTML='<p class="msg"><strong>No stories right now.</strong>'+
-      (beatSnap ? 'Neither ESPN nor the beat feeds returned anything.' : 'ESPN returned nothing.')+
-      ' Choose Refresh to try again.</p>';
-  });
-
-  function wire(el, res, fromCache, unchanged){
-    if(!unchanged){
-      var btn=el.querySelector("#moreNews");
-      if(btn) btn.addEventListener("click",function(){
-        el.querySelectorAll("li.extra").forEach(function(li){ li.hidden=false; });
-        btn.remove();
-        say("Showing all "+count+" stories.");
-      });
-    }
-    if(!fromCache) say("News loaded, "+count+" stories from "+sources+" sources.");
-  }
-
-  function build(res){
-    var list=newsList(res);
-    if(!list.length) return "";
-    count=list.length;
-    var srcs={}; list.forEach(function(a){ srcs[a.source]=1; });
-    sources=Object.keys(srcs).length;
-
-    var FIRST=15;
-    var html='<h2 class="sr-only">Latest '+esc(TEAM.name)+' stories</h2><ul class="plain">';
-    list.forEach(function(a,idx){
-      var when=a.publishedAt ? new Date(a.publishedAt).toLocaleDateString([],{month:"long",day:"numeric"}) : "";
-      html+='<li'+(idx>=FIRST?' class="extra" hidden':"")+'><a class="art'+(a.source==="ESPN"?"":" beat")+'" href="'+esc(a.link)+
-        '" target="_blank" rel="noopener">'+
-        (a.image?'<img src="'+esc(a.image)+'" alt="" loading="lazy">':"")+
-        '<span><span class="hl">'+esc(a.title)+"</span>"+
-        '<span class="meta"><span class="src">'+esc(a.source)+"</span>"+
-        (when?" · "+when:"")+
-        '<span class="sr-only"> (opens in a new tab)</span></span></span></a></li>';
+  var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
+  return Promise.all([get(espnUrl).catch(function(){ return null; }),
+                      beat ? get(beat.file+"?t="+Date.now()).catch(function(){ return null; }) : null])
+    .then(function(res){
+      if(!res[0] && !res[1]){ NEWS.failed=true; return; }
+      NEWS.items=newsList(res); NEWS.failed=false;
+      var e=SRC.news, b=SRC.beatNews;
+      NEWS.at = (res[0] && !(e && e.cached)) || (res[1] && !(b && b.cached)) ? Date.now() : 0;
+    })
+    .then(function(){
+      NEWS.inflight=false;
+      // Home's preview: the stories, or once nothing came at all, none
+      HOME.news = NEWS.items ? NEWS.items.slice(0,3) : NEWS.failed ? [] : null;
+      paintHome(); paintNews();
     });
-    html+="</ul>";
-    if(list.length>FIRST){
-      html+='<button type="button" class="more" id="moreNews">Show '+
-        (list.length-FIRST)+" more stories</button>";
-    }
-    return html;
-  }
 }
 
 /* ---------- Home (canonical) ---------- */
@@ -1505,7 +1496,8 @@ function homeSources(heroLive){
     return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, optional:optional, maxAgeMs:maxAge }
              : { key:key, missing:true, optional:optional };
   }
-  var list=[s("schedule",false,12*HOUR), s("news",false,24*HOUR), s("odds",true,36*HOUR), s("weather",true,6*HOUR)];
+  var list=[s("schedule",false,12*HOUR), s("news",false,24*HOUR), s("beatNews",true,24*HOUR),
+            s("odds",true,36*HOUR), s("weather",true,6*HOUR)];
   if(heroLive) list.push(s("scoreboard",false,10*60e3));
   return list;
 }
@@ -1545,17 +1537,6 @@ function paintHomeLoading(host){
   host.dataset.loading="1";
   host.innerHTML='<p class="sec-quiet home-loading">Loading '+esc(TEAM.name)+'\u2026</p>';
 }
-function loadHomeNews(){
-  var espnUrl=TeamOS.espn.newsUrl(TEAM_CONFIG);
-  var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
-  return Promise.all([get(espnUrl).catch(function(){ return null; }),
-                      beat ? get(beat.file+"?t="+Date.now()).catch(function(){ return null; }) : null])
-    .then(function(res){
-      if(!res[0] && !res[1]){ if(HOME.news==null) HOME.news=[]; paintHome(); return; }  // keep what is shown
-      HOME.news=newsList(res).slice(0,3);
-      paintHome();
-    });
-}
 // Weather is tertiary (0024 §2): a kickoff forecast before a game, current
 // conditions during one, nothing when there is no answer. One request per
 // game per half hour.
@@ -1572,7 +1553,10 @@ function loadHomeWeather(g){
       paintHome(); paintGame();
     }).catch(function(){ HOME.weather=null; });
 }
-window.addEventListener("online",  function(){ paintHome(); paintTop25(); paintRoster(); });
+window.addEventListener("online",  function(){
+  paintHome(); paintTop25(); paintRoster(); paintMore();
+  if(!NEWS.at) loadNews();                 // what failed, or came from the worker's copy, is asked again
+});
 window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); });
 
 /* ---------- Game (canonical) ---------- */
@@ -1733,21 +1717,28 @@ $("scheduleList").addEventListener("pointerdown", function(e){
 // other half: which panel a screen shows, and what it loads on entry. Until
 // each screen is rebuilt in the canonical system it shows its pre-canonical
 // panel (legacy.css); the map below shrinks, phase by phase, to nothing.
-var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"roster", more:"more", schedule:"schedule" };
-var PANELS=["game","more"];
+var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"roster", more:"more", schedule:"schedule",
+                news:"more", settings:"more", feedback:"more", about:"more" };
+var PANELS=["game"];
+// More and the destinations it owns, each its own host (suite/more.js).
+var MORE_HOSTS={ more:"screenMore", news:"screenNews", settings:"screenSettings", feedback:"screenFeedback", about:"screenAbout" };
 function showScreen(route){
   var name=PANEL_FOR[route.screen]||"schedule";
   // Home, Game, Top 25, Schedule and Roster are canonical; More is still
   // its pre-canonical panel.
   var home=route.screen==="home", game=route.screen==="game", top25=route.screen==="top25",
       sched=route.screen==="schedule", roster=route.screen==="roster";
+  Object.keys(MORE_HOSTS).forEach(function(k){ $(MORE_HOSTS[k]).hidden = k!==route.screen; });
+  // Where Feedback says the fan came from: the last screen that was not More's.
+  if(!MORE_HOSTS[route.screen]) MORE.from=route.screen;
   $("screenHome").hidden=!home;
   $("screenGame").hidden=!game;
   $("screenTop25").hidden=!top25;
   $("screenSchedule").hidden=!sched;
   $("screenRoster").hidden=!roster;
-  $("legacy").hidden=home || game || top25 || sched || roster;
-  if(home){ paintHome(); if(HOME.news==null) loadHomeNews(); }
+  $("legacy").hidden=true;                 // every screen is canonical now
+  if(home){ paintHome(); loadNews(); }
+  if(MORE_HOSTS[route.screen]){ paintMore(); if(route.screen==="news") loadNews(); if(route.screen==="about") askVersion(); }
   if(game) paintGame();
   if(top25){ paintTop25(); loadTop25(); }
   if(sched) paintScheduleScreen();
@@ -1758,7 +1749,6 @@ function showScreen(route){
   // screen showing whatever it held the last time it was open. Game is
   // canonical now (paintGame above), so its old panel loads nothing.
   if(name==="game" && !game) loadGame(true);
-  if(name==="more")   loadNews();
 }
 Suite.nav.on(function(route){ showScreen(route); });
 
@@ -1894,8 +1884,8 @@ function load(){
     if(st.record!=null) $("rec").innerHTML='<span class="sr-only">Record </span>'+esc(st.record);
   }).catch(function(){});
 
-  refreshSchedule(true);
   loadStrip();
+  return refreshSchedule(true);
 }
 
 // What the service worker last stored for a URL, if anything. Lets the page
@@ -2081,31 +2071,86 @@ $("btnPlayoff").addEventListener("click", function(){ toggleBoard("playoff"); })
 // the moment it is looked at again. Tabs skip identical repaints, so a
 // silent refresh that finds nothing new changes nothing on screen.
 function refreshAll(silent){
-  ["news"].forEach(function(n){ $("panel-"+n).dataset.loaded=""; });
   T25.at=0;
   if(BOARD.open) loadBoard(BOARD.open);
   $("panel-game").dataset.loaded="";
   if(!silent) say("Refreshing…");
-  load();
+  var done=Promise.all([load().catch(function(){}), loadNews(true)]);
   var name=UI.tab;
   if(name==="game")   loadGame(true);
   if(name==="top25")  loadTop25();
   if(name==="roster") loadRosterScreen(true);
-  if(name==="more")   loadNews();
   FRESH.at=Date.now();
+  return done;
 }
-$("refresh").addEventListener("click", function(){ refreshAll(false); });
 $("heroMini").addEventListener("click", function(){ Suite.nav.go("game"); });
 
-/* More is the fifth destination: News, changing team, and Refresh. Both
-   controls are important but rare, so they sit here rather than in the
-   header, where a long product name pushed them onto a second line. */
-$("moreTeam").textContent=TEAM.name;
-// Change team opens the chooser in its CHANGE mode (decision 0022 #7): the
-// current team stays stored until another is picked, and the chooser offers
-// Cancel back to it. A new history entry, so Back works too.
-$("changeTeam").addEventListener("click", function(){
-  location.assign(location.pathname + "?change");
+/* ---------- More (canonical) ---------- */
+// More and what it owns are drawn by suite/more.js; this gathers what they
+// show. Settings' Refresh Data is the manual refresh (decision 0022 #13);
+// Change Team opens the chooser in its CHANGE mode (0022 #7), which keeps the
+// current team until another is picked and offers Cancel back to it.
+var MORE={ from:"home", refreshing:false, version:null };
+var FEEDBACK_TO="suiteappfeedback@gmail.com";
+function paintMore(){
+  var r=Suite.nav.current(), host=$(MORE_HOSTS[r.screen]);
+  if(!host) return;
+  if(r.screen==="more") Suite.more.menu(host);
+  if(r.screen==="news") paintNews();
+  if(r.screen==="settings") Suite.more.settings(host, {
+    team:{ name:TEAM.name, abbr:TEAM.abbreviation,
+           mark:Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId), TEAM.name, TEAM.abbreviation) },
+    changeHref: location.pathname+"?change", style: appStyle(),
+    updatedAt: lastUpdated(), refreshing: MORE.refreshing, online: navigator.onLine!==false });
+  if(r.screen==="feedback") Suite.more.feedback(host, { href: feedbackHref(), address: FEEDBACK_TO });
+  if(r.screen==="about") Suite.more.about(host, { version: MORE.version, sources: TeamOS.sources.list(TEAM_CONFIG) });
+}
+function paintNews(){
+  var host=$("screenNews");
+  if(!host || host.hidden) return;
+  var s=function(key, optional){
+    var x=SRC[key];
+    return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, optional:optional, maxAgeMs:24*HOUR }
+             : { key:key, missing:true, optional:optional };
+  };
+  Suite.more.news(host, { items: NEWS.items, failed: NEWS.failed && !NEWS.items, team:{ name:TEAM.name },
+    fresh: TeamOS.freshness.summary([s("news",false), s("beatNews",true)], { now:new Date(), online:navigator.onLine!==false }) });
+}
+// The newest time the network - not the worker's copy - answered.
+function lastUpdated(){
+  return Object.keys(SRC).reduce(function(max, k){
+    var x=SRC[k]; return x && !x.cached && x.fetchedAt > max ? x.fetchedAt : max;
+  }, 0) || null;
+}
+function feedbackHref(){
+  var body=["", "", "—", "Team: "+TEAM.name, "Screen: "+Suite.nav.title(MORE.from),
+            "Version: "+(MORE.version||"unknown")].join("\n");
+  return "mailto:"+FEEDBACK_TO+"?subject="+encodeURIComponent("Suite feedback · "+TEAM.name)+"&body="+encodeURIComponent(body);
+}
+// The app's version is the worker's: one number, where the shell is cached.
+function askVersion(){
+  if(MORE.version || !navigator.serviceWorker || !navigator.serviceWorker.controller || typeof MessageChannel==="undefined") return;
+  var ch=new MessageChannel();
+  ch.port1.onmessage=function(e){
+    if(e.data && typeof e.data.version==="string"){ MORE.version=e.data.version.replace(/^[a-z]+-/,""); paintMore(); }
+  };
+  try{ navigator.serviceWorker.controller.postMessage({ type:"version" }, [ch.port2]); }catch(e){}
+}
+document.addEventListener("change", function(e){
+  if(e.target && e.target.name==="appStyle"){
+    setAppStyle(e.target.value);
+    say(e.target.value==="suite" ? "Suite Style on." : "Team Style on.");
+    paintMore();
+  }
+});
+document.addEventListener("click", function(e){
+  var b=e.target.closest && e.target.closest("[data-refresh]");
+  if(!b || MORE.refreshing) return;
+  MORE.refreshing=true; paintMore();
+  refreshAll(false).then(function(){
+    MORE.refreshing=false; paintMore();
+    say(navigator.onLine===false ? "Offline. Showing the last data this device saw." : "Data refreshed.");
+  });
 });
 
 // How long data may sit before a silent refresh: on return to a tab that was

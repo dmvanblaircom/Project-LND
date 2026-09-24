@@ -47,6 +47,7 @@ var fixtures = {
   statistics: "espn-season-stats.json"
 };
 var ROSTERS = { "87": "espn-roster-nd-sep24.json", "194": "espn-roster-osu-sep24.json" };
+var NEWS = { "87": "espn-news-nd-sep24.json", "194": "espn-news-osu-sep24.json" };
 function fixture(name) { return fs.readFileSync(path.join(root, "tools", "fixtures", fixtures[name])); }
 function mime(file) {
   return file.endsWith(".html") ? "text/html" : file.endsWith(".css") ? "text/css" :
@@ -73,6 +74,10 @@ function responseFor(url) {
   if (ro) return fs.readFileSync(path.join(root, "tools", "fixtures",
     ROSTERS[ro[1]] || fixtures.roster));
   if (/\/roster(?:\?|$)/.test(url)) return fixture("roster");
+  // Each team's own real news feed, where one has been captured.
+  var nw = /\/news\?team=(\d+)/.exec(url);
+  if (nw && NEWS[nw[1]] && fs.existsSync(path.join(root, "tools", "fixtures", NEWS[nw[1]])))
+    return fs.readFileSync(path.join(root, "tools", "fixtures", NEWS[nw[1]]));
   if (/\/news\?/.test(url)) return fixture("news");
   if (/\/summary\?/.test(url)) return fixture("summary");
   if (/\/statistics(?:\?|$)/.test(url)) return fixture("statistics");
@@ -83,10 +88,11 @@ function responseFor(url) {
 var TEAMS = ["notre-dame", "ohio-state"];
 // Every screen a fan can reach, by route. The first five are the primary nav;
 // Schedule is reached from Home and More (decision 0023).
-var SCREENS = ["home", "top25", "game", "roster", "more", "schedule"];
+var SCREENS = ["home", "top25", "game", "roster", "more", "schedule", "news", "settings", "feedback", "about"];
 var NAV = ["home", "top25", "game", "roster", "more"];
-var OWNER = { schedule: "more" };
-var MASTHEAD = { roster: "Roster", more: "More", schedule: "Schedule" };
+var OWNER = { schedule: "more", news: "more", settings: "more", feedback: "more", about: "more" };
+var MASTHEAD = { roster: "Roster", more: "More", schedule: "Schedule", news: "News", settings: "Settings",
+                 feedback: "Feedback", about: "About Suite" };
 // National screens: the SUITE bar with the team as context, and a visible
 // neutral heading (decision 0024 §6).
 var CONTEXT = { top25: "Top 25" };
@@ -501,20 +507,91 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             if (gm.names.length === 2 && gm.names[0].abbr !== gm.names[1].abbr)
               fail(label, "behaviour", ".gh-name", "one side shows a name and the other an abbreviation");
           }
+          // "Project LND" is never customer-facing (decision 0022 #9).
+          if (await page.evaluate(function () { return /project\s*lnd/i.test(document.body.innerText + document.title); }))
+            fail(label, "behaviour", "body", "the page shows the internal name Project LND");
           if (screen === "more") {
-            var more = await page.evaluate(function () {
-              var b = document.getElementById("changeTeam"), t = document.getElementById("moreTeam");
-              var r = document.getElementById("refresh");
-              return { team: t ? t.textContent.trim() : "", button: !!b && b.checkVisibility(),
-                       refresh: !!r && r.checkVisibility(),
-                       news: document.getElementById("panel-news").textContent.trim().length };
+            var mo = await page.evaluate(function () {
+              return [].map.call(document.querySelectorAll("#screenMore .mo-row"), function (a) {
+                return a.querySelector(".mo-title").textContent + "=" + a.getAttribute("href");
+              }).join("|");
             });
-            if (!more.team) fail(who, "behaviour", "#moreTeam", "More does not say which team is being followed");
-            if (!more.button) fail(who, "behaviour", "#changeTeam", "Change team is missing from More: it is the only way to change team in the app");
-            if (!more.refresh) fail(who, "behaviour", "#refresh", "Refresh is missing from More");
-            if (!more.news) fail(who, "behaviour", "#panel-news", "News did not load under More");
+            if (mo !== "News=#news|Schedule=#schedule|Settings=#settings|Feedback=#feedback|About Suite=#about")
+              fail(label, "behaviour", ".mo-list", "More lists " + mo);
+          }
+          if (screen === "news") {
+            await page.waitForFunction(function () { return document.querySelectorAll("#screenNews .nw-row").length > 0; }, null, { timeout: 8000 }).catch(function () {});
+            var nw = await page.evaluate(function () {
+              var rows = [].slice.call(document.querySelectorAll("#screenNews .nw-row"));
+              return { n: rows.length, safe: rows.every(function (a) { return a.target === "_blank" && /noopener/.test(a.rel) && /new tab/.test(a.textContent); }) };
+            });
+            if (!nw.n) fail(label, "behaviour", ".nw-list", "News shows no stories");
+            if (!nw.safe) fail(label, "behaviour", ".nw-row", "a story does not open its publisher in a new tab with rel protections and a spoken cue (0024 §17)");
+          }
+          if (screen === "settings") {
+            var stt = await page.evaluate(function () {
+              var h = document.getElementById("screenSettings");
+              return { groups: [].map.call(h.querySelectorAll(".st-group .sec-title"), function (x) { return x.textContent; }).join("|"),
+                       team: (h.querySelector(".st-team") || {}).textContent || "",
+                       change: !!h.querySelector('a.st-link[href*="?change"]'),
+                       opts: [].map.call(h.querySelectorAll('input[name="appStyle"]'), function (i) { return i.value + (i.checked ? "*" : ""); }).join("|"),
+                       refresh: !!h.querySelector("[data-refresh]"),
+                       updated: (h.querySelector('[data-st="updated"]') || {}).textContent || "" };
+            });
+            if (stt.groups !== "Team|Appearance|Data") fail(label, "behaviour", ".st-group", "Settings groups read " + stt.groups + " (0024 §18, 0026)");
+            if (stt.team.indexOf(await page.evaluate(function () { return TEAM_CONFIG.team.name; })) === -1) fail(label, "behaviour", ".st-team", "Settings does not name the current team");
+            if (!stt.change) fail(label, "behaviour", ".st-link", "Change Team is missing: it is the only way to change team in the app");
+            if (stt.opts !== "team*|suite" && stt.opts !== "team|suite*") fail(label, "behaviour", "appStyle", "App Style offers " + stt.opts);
+            if (!stt.refresh) fail(label, "behaviour", "[data-refresh]", "Refresh Data is missing (0022 #13)");
+            if (!stt.updated) fail(label, "behaviour", "[data-st=updated]", "Last Updated is empty");
+          }
+          if (screen === "feedback") {
+            var fb = await page.evaluate(function () {
+              var a = document.querySelector("#screenFeedback .fb-cta");
+              return { href: a ? decodeURIComponent(a.getAttribute("href")) : "", team: TEAM_CONFIG.team.name };
+            });
+            if (fb.href.indexOf("mailto:suiteappfeedback@gmail.com?") !== 0) fail(label, "behaviour", ".fb-cta", "Feedback does not email suiteappfeedback@gmail.com (0022 #12)");
+            if (fb.href.indexOf("Team: " + fb.team) === -1) fail(label, "behaviour", ".fb-cta", "the feedback email does not carry the team");
+          }
+          if (screen === "about") {
+            var ab = await page.evaluate(function () {
+              return [].map.call(document.querySelectorAll("#screenAbout .ab-name"), function (x) { return x.textContent.replace(/\(opens in a new tab\)/, "").trim(); });
+            });
+            if (ab.indexOf("ESPN") === -1) fail(label, "behaviour", ".ab-list", "About Suite does not credit ESPN");
+            var off = await page.evaluate(function () { return TEAM_CONFIG.sources.official ? TEAM_CONFIG.sources.official.depthChartLabel : null; });
+            if (off && ab.indexOf(off) === -1) fail(label, "behaviour", ".ab-list", "About Suite does not credit " + off);
+            if (!off && ab.some(function (n) { return /\.com$/i.test(n) && n !== "ESPN"; }) && team === "ohio-state")
+              fail(label, "behaviour", ".ab-list", "About Suite credits an official source this team does not have");
           }
         }
+
+        // App Style (decision 0026): Suite Style replaces the team's colour
+        // tokens with Suite's, holds across a reload, and is the fan's -
+        // stored on its own, not under the team.
+        await page.evaluate(function () { location.hash = "#settings"; });
+        await page.waitForTimeout(300);
+        await page.click('#screenSettings input[value="suite"]');
+        await page.waitForTimeout(200);
+        await page.reload({ waitUntil: "domcontentloaded" });
+        await page.waitForTimeout(900);
+        var sty = await page.evaluate(function () {
+          var v = getComputedStyle(document.documentElement).getPropertyValue("--t-surface").trim().toUpperCase();
+          return { surface: v, want: Suite.ui.STYLE.colors.surface.toUpperCase(), key: localStorage.getItem("suite-style"),
+                   checked: (document.querySelector('#screenSettings input[name="appStyle"]:checked') || {}).value,
+                   name: document.getElementById("mastName").textContent };
+        });
+        if (sty.surface !== sty.want) fail(who, "behaviour", "appStyle", "Suite Style after a reload paints --t-surface " + sty.surface + ", not Suite's " + sty.want);
+        if (sty.key !== "suite" || sty.checked !== "suite") fail(who, "behaviour", "appStyle", "Suite Style did not hold across a reload");
+        if (!sty.name) fail(who, "behaviour", "#mastName", "Suite Style dropped the team's name: only style changes");
+        await fullShot(page, path.join(shots, team + "-" + width + "-settings-suite-style.png"));
+        await page.evaluate(function () { location.hash = "#home"; });
+        await page.waitForTimeout(500);
+        await fullShot(page, path.join(shots, team + "-" + width + "-home-suite-style.png"));
+        await checkState(page, team + " home suite style " + width + "px");
+        await page.evaluate(function () { location.hash = "#settings"; });
+        await page.waitForTimeout(300);
+        await page.click('#screenSettings input[value="team"]');
+        await page.waitForTimeout(200);
 
         // Back walks the routes, and a route is restorable from the URL alone.
         await page.evaluate(function () { location.hash = "#top25"; });
@@ -704,9 +781,10 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         // Change team (decision 0022 #7): the chooser opens in its change
         // mode, the current team stays stored, Cancel goes back to it, and
         // picking another team switches immediately.
-        if (await page.$("#changeTeam")) {
+        {
           await page.click('.nav-item[data-screen="more"]');
-          await page.click("#changeTeam");
+          await page.click('#screenMore a[href="#settings"]');
+          await page.click('#screenSettings a.st-link');
           try {
             await page.waitForSelector(".chooser", { timeout: 10000 });
             var ct = await page.evaluate(function () {

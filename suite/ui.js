@@ -115,5 +115,37 @@ Suite.ui = (function () {
   document.addEventListener("load", settle, true);
   document.addEventListener("error", settle, true);
 
-  return { esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner };
+  /* Suite Style (decision 0026): Suite's standard visual system, the same
+     for every team, when the fan chooses it over Team Style. The same colour
+     roles a team supplies, so TeamOS.identity checks it exactly as it checks
+     a team (tools/suitecheck.js), and app.js applies it the same way.
+     TEMPORARY: the only Suite colour Design has set is the chrome navy
+     (--s-chrome, the manifest's theme colour). The surfaces are that navy's
+     scale; the accent is a provisional steel blue until Design supplies
+     Suite's own (docs/engineering/suite-redesign-completion.md). */
+  var STYLE = {
+    programLabel: "SUITE",
+    newsLabel: "LATEST NEWS",
+    colors: {
+      accent:         "#8FB3E8",
+      accentText:     "#8FB3E8",
+      accentOnLight:  "#2F5A9E",
+      accentInk:      "#0B1F3A",
+      accentSoft:     "#7FA2D6",
+      accentTint:     "#C9DBF5",
+      accentTintSoft: "#EAF1FB",
+      focus:          "#B8D0F5",
+      surface:        "#0B1F3A",
+      surfaceDeep:    "#081830",
+      surfaceAbyss:   "#05101F",
+      surfaceRaise:   "#16345C"
+    },
+    fonts: {
+      ui:      "'Barlow',system-ui,-apple-system,sans-serif",
+      display: "'Barlow Condensed',sans-serif"
+    }
+  };
+
+  return { esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner,
+           STYLE: STYLE };
 })();

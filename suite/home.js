@@ -205,7 +205,7 @@ Suite.home = (function () {
 
   function newsHtml(items, team) {
     var head = '<div class="sec-head"><h2 class="sec-title" id="newsHead">Latest News</h2>' +
-               '<a class="sec-link" href="#more/news">View All' + CHEVRON + "</a></div>";
+               '<a class="sec-link" href="#news">View All' + CHEVRON + "</a></div>";
     if (items == null) return head + '<p class="sec-quiet">Loading the latest stories…</p>';
     if (!items.length) return head + '<p class="sec-quiet">No stories right now.</p>';
     var now = Date.now();
