@@ -355,3 +355,7 @@
   .legacy a.art{transition:none}
   .legacy .row.tappable::after{transition:none}
 }
+
+/* Until each screen is rebuilt, its old content is dark: so is the page
+   behind it, or a short screen ends in a band of ivory above the nav. */
+body:has(> main > .legacy){background:var(--t-abyss)}

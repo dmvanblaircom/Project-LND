@@ -257,39 +257,40 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 /* ---- Team chooser ----------------------------------------------------
    A fan who has not picked a team. Suite's own chrome, no team masthead and
    no bottom nav (decision 0016). */
-.chooser{padding:1.9rem 0 3rem}
-.chooser h1{font-family:var(--t-font-ui);font-weight:700;font-size:2.3rem;line-height:1.1;letter-spacing:-.01em;color:var(--s-chrome)}
-.chooser-sub{margin:.45rem 0 1.5rem;font-size:1.3rem;line-height:1.35;color:var(--s-muted)}
+.chooser{padding:1.25rem 0 3rem}
+.chooser h1{font-family:var(--t-font-ui);font-weight:700;font-size:1.85rem;line-height:1.15;letter-spacing:-.005em;color:var(--s-chrome)}
+.chooser-sub{margin:.3rem 0 1.1rem;font-size:1.1rem;line-height:1.35;color:var(--s-muted)}
 
 /* Filtering sets the hidden attribute; say it in the author sheet so
    WebKit, whose UA [hidden] is not important, cannot lose it to display. */
 .chooser [hidden]{display:none}
 
-.chooser-search{position:relative;margin:0 0 .5rem}
-.chooser-search svg{position:absolute;left:1rem;top:50%;width:1.35rem;height:1.35rem;margin-top:-.675rem;fill:none;stroke:var(--s-ink);stroke-width:2.2;stroke-linecap:round;pointer-events:none}
-.chooser-search input{width:100%;min-height:3.3rem;padding:.7rem 1rem .7rem 3rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);background:var(--s-surface);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1.15rem;box-shadow:0 2px 6px rgba(15,27,45,.05);-webkit-appearance:none;appearance:none}
+.chooser-search{position:relative;margin:0 0 .35rem}
+.chooser-search svg{position:absolute;left:.85rem;top:50%;width:1.2rem;height:1.2rem;margin-top:-.6rem;fill:none;stroke:var(--s-ink);stroke-width:2.2;stroke-linecap:round;pointer-events:none}
+.chooser-search input{width:100%;min-height:2.75rem;padding:.5rem .9rem .5rem 2.6rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);background:var(--s-surface);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1.05rem;box-shadow:0 2px 6px rgba(15,27,45,.05);-webkit-appearance:none;appearance:none}
 .chooser-search input::placeholder{color:var(--s-muted)}
 .chooser-search input:focus-visible{outline:3px solid var(--s-chrome);outline-offset:2px;border-color:var(--s-chrome)}
-.chooser-count{margin:0;min-height:1.2em;font-size:.9rem;color:var(--s-muted)}
+.chooser-count{margin:0;font-size:.9rem;color:var(--s-muted)}
 
-.chooser .eyebrow{margin:1.6rem 0 .8rem;color:var(--s-chrome)}
-.chooser-list{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
-.pick{display:flex;align-items:center;gap:1.1rem;width:100%;min-height:5.6rem;padding:.9rem 1.1rem .9rem 1.2rem;border:1px solid var(--s-line);border-radius:var(--s-radius-card);background:var(--s-surface);color:var(--s-ink);box-shadow:var(--s-shadow-card);font-family:var(--t-font-ui);text-align:left;cursor:pointer}
+.chooser .eyebrow{margin:1.4rem 0 .7rem;font-size:.9rem;letter-spacing:.14em;color:var(--s-chrome)}
+.chooser #soonHead{margin-top:1.2rem;color:var(--s-muted)}
+.chooser-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.pick{display:flex;align-items:center;gap:1rem;width:100%;min-height:4.5rem;padding:.55rem .9rem .55rem 1rem;border:1px solid var(--s-line);border-radius:var(--s-radius-card);background:var(--s-surface);color:var(--s-ink);box-shadow:var(--s-shadow-card);font-family:var(--t-font-ui);text-align:left;cursor:pointer}
 .pick:hover{border-color:var(--s-line-strong);box-shadow:var(--s-shadow-raise)}
 .pick:focus-visible{outline:3px solid var(--s-chrome);outline-offset:2px}
-.pick .mark{--mark:4.4rem}
+.pick .mark{--mark:3.25rem}
 .pick-main{display:flex;flex-direction:column;gap:.2rem;flex:1;min-width:0}
-.pick-name{font-weight:700;font-size:1.45rem;line-height:1.15;color:var(--s-chrome)}
-.pick-nick{font-size:1.1rem;color:var(--s-muted)}
-.pick .chev{width:1.6rem;height:1.6rem;stroke:var(--s-chrome)}
+.pick-name{font-weight:700;font-size:1.25rem;line-height:1.15;color:var(--s-chrome)}
+.pick-nick{font-size:1rem;color:var(--s-muted)}
+.pick .chev{width:1.4rem;height:1.4rem;stroke:var(--s-chrome)}
 
-.chooser-divider{height:1px;margin:1.8rem 0 0;background:var(--s-line-strong);border:0}
+.chooser-divider{height:1px;margin:1.1rem 0 0;background:var(--s-line-strong);border:0}
 /* What is not built yet: visible, but deliberately not a control - no
    button, no tab stop, a dashed outline instead of a card. */
-.chooser-soon{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
-.soon{display:flex;flex-direction:column;gap:.15rem;min-width:0;padding:.8rem 1rem;border:1px dashed var(--s-line-strong);border-radius:var(--s-radius-ctl)}
-.soon-name{font-size:1.1rem;color:var(--s-ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.soon-nick{font-size:.92rem;color:var(--s-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chooser-soon{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+.soon{display:flex;flex-direction:column;gap:.1rem;min-width:0;padding:.55rem .85rem;border:1px dashed var(--s-line-strong);border-radius:var(--s-radius-ctl)}
+.soon-name{font-size:1rem;color:var(--s-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.soon-nick{font-size:.85rem;color:var(--s-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .chooser-empty{margin:1.5rem 0 0;color:var(--s-muted);font-size:1rem;line-height:1.55}
 
 /* ====================================================================
@@ -302,9 +303,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 }
 @media (max-width:24rem){
   :root{--gutter:.85rem}
-  .chooser h1{font-size:2rem}
-  .chooser-sub{font-size:1.15rem}
-  .pick-name{font-size:1.3rem}
+  .chooser h1{font-size:1.7rem}
   .nav-item{font-size:.74rem}
 }
 
