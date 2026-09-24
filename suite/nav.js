@@ -18,7 +18,10 @@
      context  the SUITE header with the selected team as quiet context, and
               a neutral page heading - Top 25, which is national content
      mast     the team masthead - the team-centric sections
-   Schedule has no primary nav item; it is reached from Home and More.
+   Schedule has no primary nav item of its own: it is a secondary destination
+   owned by More, so More stays selected on every Schedule route - the list,
+   Results and a game opened from it (decision 0028). News, Settings,
+   Feedback and About Suite follow the same rule as they are rebuilt.
 
    A screen with peer views (Top 25's Games | Rankings) lists them; the first
    is the default, so #top25 opens Games and #top25/rankings opens Rankings.
@@ -50,7 +53,7 @@ Suite.nav = (function () {
     more:     { header: "mast",    title: "More"     },
     // Schedule | Results; #schedule/<game id> opens one game in the Game
     // layout, under the compact header, with a way back to the list.
-    schedule: { header: "mast",    title: "Schedule",
+    schedule: { header: "mast",    title: "Schedule", owner: "more",
                 views: [{ id: "schedule", label: "Schedule" }, { id: "results", label: "Results" }],
                 item: /^[0-9]+$/, itemHeader: "bar", itemTitle: "Game" }
   };
@@ -151,9 +154,11 @@ Suite.nav = (function () {
     var kind = route.item && def.itemHeader ? def.itemHeader : def.header;
     var title = route.item && def.itemTitle ? def.itemTitle : def.title;
 
-    // The nav: one current item, or none (Schedule has no item of its own).
+    // The nav: one current item - the screen's own, or for a secondary
+    // destination the primary item that owns it (decision 0028).
+    var selected = def.owner || route.screen;
     [].slice.call(document.querySelectorAll(".nav-item[data-screen]")).forEach(function (a) {
-      if (a.getAttribute("data-screen") === route.screen) a.setAttribute("aria-current", "page");
+      if (a.getAttribute("data-screen") === selected) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
 

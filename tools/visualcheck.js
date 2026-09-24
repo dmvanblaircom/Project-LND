@@ -79,6 +79,7 @@ var TEAMS = ["notre-dame", "ohio-state"];
 // Schedule is reached from Home and More (decision 0023).
 var SCREENS = ["home", "top25", "game", "roster", "more", "schedule"];
 var NAV = ["home", "top25", "game", "roster", "more"];
+var OWNER = { schedule: "more" };
 var MASTHEAD = { roster: "Roster", more: "More", schedule: "Schedule" };
 // National screens: the SUITE bar with the team as context, and a visible
 // neutral heading (decision 0024 §6).
@@ -242,7 +243,9 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                      focus: document.activeElement ? document.activeElement.id : null };
           });
           if (st.hash !== "#" + screen) fail(label, "behaviour", "route", "route is " + st.hash);
-          var wantCur = NAV.indexOf(screen) !== -1 ? screen : null;
+          // A secondary destination keeps the primary item that owns it
+          // selected: Schedule is More's (decision 0028).
+          var wantCur = NAV.indexOf(screen) !== -1 ? screen : OWNER[screen] || null;
           if (st.current !== wantCur) fail(label, "behaviour", ".navbar", "current nav item is " + st.current + ", expected " + wantCur);
           if (MASTHEAD[screen]) {
             if (!st.mast || st.bar) fail(label, "behaviour", "#masthead", "this screen should wear the team masthead, not the SUITE header");
@@ -278,6 +281,9 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             await page.waitForTimeout(350);
             await fullShot(page, path.join(shots, team + "-" + width + "-schedule-results.png"));
             await checkState(page, team + " schedule results " + width + "px");
+            var rcur = await page.evaluate(function () {
+              var c = document.querySelector('.nav-item[aria-current="page"]'); return c && c.getAttribute("data-screen"); });
+            if (rcur !== "more") fail(team + " schedule results " + width + "px", "behaviour", ".navbar", "Results selects " + rcur + ", not More");
             var opened = await page.evaluate(function () {
               var a = [].filter.call(document.querySelectorAll("#scheduleList .sched-row"), function (x) {
                 return /^#schedule\/[0-9]+$/.test(x.getAttribute("href")); })[0];
@@ -288,7 +294,9 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               await page.waitForTimeout(600);
               var og = await page.evaluate(function () {
                 var back = document.getElementById("scheduleBack");
+                var cur = document.querySelector('.nav-item[aria-current="page"]');
                 return { head: !!document.querySelector("#scheduleGameHost .game-head"),
+                         cur: cur && cur.getAttribute("data-screen"),
                          list: !document.getElementById("scheduleList").hidden,
                          back: back && back.checkVisibility() ? back.getAttribute("href") : null,
                          tabs: [].map.call(document.querySelectorAll("#scheduleGameHost .game-tabs a"), function (a) { return a.getAttribute("href"); }) };
@@ -296,6 +304,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               var ow = team + " schedule game " + width + "px";
               if (!og.head || og.list) fail(ow, "behaviour", "#scheduleGameHost", "a Schedule row did not open its game in the Game layout");
               if (!og.back) fail(ow, "behaviour", "#scheduleBack", "an opened game has no way back to the list");
+              if (og.cur !== "more") fail(ow, "behaviour", ".navbar", "a game opened from Schedule selects " + og.cur + ", not More");
               if (og.tabs.some(function (h) { return h.indexOf(opened + "/") !== 0; }))
                 fail(ow, "behaviour", ".game-tabs", "the opened game's views point outside it: " + og.tabs.join(" "));
               await fullShot(page, path.join(shots, team + "-" + width + "-schedule-game.png"));
