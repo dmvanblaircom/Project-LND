@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-09-23T17:56:54.400831+00:00",
+ "updated": "2026-09-24T18:37:13.853767+00:00",
  "reports": [
   {
    "schema": 1,
@@ -260,21 +260,14 @@
    "capability": "availability",
    "tier": "official",
    "game": "at Purdue",
-   "sourceUrl": "https://fightingirish.com/documents/a2264cba-eca9-4031-bac3-07e8a80c99a0.pdf",
+   "sourceUrl": "https://fightingirish.com/documents/20023b01-f9bc-42a8-822a-335e23c2721f.pdf",
    "sourceLabel": "FightingIrish.com",
-   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/21/TM63of2JoyNu92VIidauJf4PAkZRFy0JbMD1lBYf.pdf",
-   "fetchedAt": "2026-09-23T17:56:49.649059+00:00",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/24/nXXGEi4lT58VE7wB2tPLV2Wpxh0vQwuGVOH46U7X.pdf",
+   "fetchedAt": "2026-09-24T18:37:13.853767+00:00",
    "reported": true,
-   "effectiveAt": "2026-09-21",
-   "heading": "AVAILABILITY UPDATE (SEPT. 21)",
+   "effectiveAt": "2026-09-24",
+   "heading": "AVAILABILITY UPDATE (SEPT. 24)",
    "players": [
-    {
-     "no": "",
-     "pos": "S",
-     "name": "Luke Talich",
-     "status": "questionable",
-     "detail": "left wrist"
-    },
     {
      "no": "",
      "pos": "OL",
@@ -330,6 +323,13 @@
      "name": "Chaz Smith",
      "status": "out-game",
      "detail": "Right Wrist"
+    },
+    {
+     "no": "",
+     "pos": "S",
+     "name": "Luke Talich",
+     "status": "out-game",
+     "detail": "left wrist"
     },
     {
      "no": "",
