@@ -96,7 +96,9 @@ var TEAM_CONFIG = {
       { name: "One Foot Down",       feed: "https://www.onefootdown.com/rss/current.xml",   site: "https://www.onefootdown.com/" },
       { name: "Slap the Sign",       feed: "https://slapthesign.com/feed/",                 site: "https://slapthesign.com/" },
       { name: "UHND",                feed: "https://www.uhnd.com/feed/",                    site: "https://www.uhnd.com/" },
-      { name: "NDNation",            feed: "https://ndnation.com/feed",                     site: "https://ndnation.com/" }
+      { name: "NDNation",            feed: "https://ndnation.com/feed",                     site: "https://ndnation.com/" },
+      { name: "Blue & Gold",         feed: "https://www.on3.com/teams/notre-dame-fighting-irish/feed/", site: "https://www.on3.com/teams/notre-dame-fighting-irish/" },
+      { name: "Notre Dame On SI",    feed: "https://www.si.com/college/notredame/feed",     site: "https://www.si.com/college/notredame" }
     ]
   },
 
