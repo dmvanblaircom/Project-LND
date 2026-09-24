@@ -706,6 +706,7 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 
 /* ---- Roster (reference 09; 0019, 0024 §8, §9) ---------------------- */
 .ro-body{padding-bottom:.5rem}
+.ro-body>.sec-quiet{margin-top:1rem}
 .ro-head{margin-top:.9rem;padding:.9rem 1rem}
 .ro-title{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.25rem;line-height:1.15;color:var(--t-surface)}
 .ro-meta{margin:.3rem 0 0;font-size:.88rem;color:var(--s-muted)}

@@ -127,7 +127,9 @@ function ok(cond, what) {
     });
   }, fixture("espn-roster-nd-sep24.json").toString());
   d.st.mode = "fail";
-  await d.page.goto(base + "/?team=notre-dame#roster/roster");
+  // a fresh start of the app, not just a tab change: nothing in memory
+  await d.page.evaluate(function () { location.hash = "#roster/roster"; });
+  await d.page.reload();
   await d.page.waitForTimeout(1500);
   var sd = await screen(d.page);
   ok(sd.rows > 50, "the last good copy is on screen (" + sd.rows + " rows)");
