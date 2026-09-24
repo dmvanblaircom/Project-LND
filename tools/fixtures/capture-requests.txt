@@ -1,0 +1,5 @@
+# Real ESPN game summaries to capture as fixtures (capture-fixture.yml).
+# One "<ESPN event id> <fixture name>" per line; pushing this file runs the
+# capture on GitHub's network and commits tools/fixtures/espn-summary-<name>.json.
+401858438 wis-final
+401858453 msu-final

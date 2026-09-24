@@ -1,11 +1,18 @@
-# Capture a real ESPN game summary as a test fixture, from GitHub's network
-# (the development environment cannot reach ESPN). Trims it to the keys
-# TeamOS reads (tools/trim_summary.py) and commits it to the branch it runs
+# Capture real ESPN game summaries as test fixtures, from GitHub's network
+# (the development environment cannot reach ESPN). Trims each to the keys
+# TeamOS reads (tools/trim_summary.py) and commits it to the branch it ran
 # on. Decision 0023: drive and play normalization is built from real
-# payloads, not invented ones. Run it from the Actions tab.
-name: Capture a game-summary fixture
+# payloads, not invented ones.
+#
+# Two ways in: edit tools/fixtures/capture-requests.txt on any branch and
+# push (one "<event id> <name>" per line; a fixture already on disk is not
+# fetched again), or, once this file is on the default branch, run it from
+# the Actions tab with an event id and a name.
+name: Capture game-summary fixtures
 
 on:
+  push:
+    paths: ["tools/fixtures/capture-requests.txt"]
   workflow_dispatch:
     inputs:
       event:
@@ -20,6 +27,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: capture-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   capture:
     runs-on: ubuntu-latest
@@ -31,21 +42,25 @@ jobs:
           NAME: ${{ inputs.name }}
         run: |
           set -euo pipefail
-          [[ "$EVENT" =~ ^[0-9]+$ ]] || { echo "::error::event must be digits"; exit 1; }
-          [[ "$NAME" =~ ^[a-z0-9-]+$ ]] || { echo "::error::name must be lowercase letters, digits and hyphens"; exit 1; }
-          curl -sSf --retry 3 -o raw.json \
-            "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=$EVENT"
-          python3 tools/trim_summary.py raw.json "tools/fixtures/espn-summary-$NAME.json" \
-            "Real ESPN game summary for event $EVENT, captured $(date -u +%Y-%m-%d) by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged."
-          rm raw.json
+          if [ -n "${EVENT:-}" ]; then echo "$EVENT $NAME" > requests.tmp
+          else grep -Ev '^\s*(#|$)' tools/fixtures/capture-requests.txt > requests.tmp || true; fi
+          while read -r ev name; do
+            [[ "$ev" =~ ^[0-9]+$ ]] || { echo "::warning::skipping bad event id '$ev'"; continue; }
+            [[ "$name" =~ ^[a-z0-9-]+$ ]] || { echo "::warning::skipping bad name '$name'"; continue; }
+            out="tools/fixtures/espn-summary-$name.json"
+            if [ -z "${EVENT:-}" ] && [ -f "$out" ]; then echo "  $out exists"; continue; fi
+            curl -sSf --retry 3 -o raw.json \
+              "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=$ev"
+            python3 tools/trim_summary.py raw.json "$out" \
+              "Real ESPN game summary for event $ev, captured $(date -u +%Y-%m-%d) by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged."
+            rm -f raw.json
+          done < requests.tmp
+          rm -f requests.tmp
       - name: Commit
-        env:
-          NAME: ${{ inputs.name }}
-          EVENT: ${{ inputs.event }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "tools/fixtures/espn-summary-$NAME.json"
-          git diff --cached --quiet && { echo "fixture unchanged"; exit 0; }
-          git commit -m "Capture ESPN game summary $EVENT as fixture espn-summary-$NAME"
+          git add tools/fixtures/espn-summary-*.json
+          git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
+          git commit -m "Capture ESPN game-summary fixtures"
           git push
