@@ -2,7 +2,8 @@
 
 ## Status
 
-Accepted
+Accepted. §18 is amended by decision 0026 (Settings gains Appearance: one
+App Style choice). The text below is left as it was decided.
 
 ## Date
 

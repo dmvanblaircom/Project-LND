@@ -14,6 +14,12 @@ Product decides it differently.
 | Season Outlook "View full field" | Home review, 2026-09-24 | The locked Home references have it and the full-market data exists (the Kalshi board). Build it as a Suite light-theme experience; do not route the new Home into the pre-canonical board. |
 | Home News "View All" deep-links to the full News experience | Home review, 2026-09-24 | Today it goes to `#more/news`, which shows the More screen. When More/News is rebuilt, `#more/news` must open News itself. |
 
+## Follow-ups recorded on this list
+
+| Item | Source | Notes |
+|---|---|---|
+| Safe presentation of play text | Game review, 2026-09-24 | Not a Top 25 blocker. ESPN's raw play text ("(02:51) No Huddle-Shotgun #2 N.James Jr. rush left...") reads awkwardly. Where normalized structured play fields can produce cleaner text safely, they may drive the display; otherwise the source text stays as it is. No free-text parser that could change what a play says. |
+
 ## Open product decisions
 
 | Question | State today |

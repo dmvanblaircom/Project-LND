@@ -424,7 +424,10 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gh-team{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
 .gh-team .mark{--mark:3.4rem}
 .gh-score{margin-top:.35rem;font-family:var(--t-font-display);font-weight:800;font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
-.gh-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.02em;text-transform:uppercase}
+.gh-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.02em;text-transform:uppercase}
+.gh-abbr,.fit-abbr .gh-full{display:none}
+.fit-abbr .gh-abbr{display:inline}
+.fit-tight .gh-name{font-size:.9rem;letter-spacing:0}
 .gh-record{font-size:.9rem;color:var(--s-on-dark-2)}
 .gh-center{display:flex;flex-direction:column;align-items:center;gap:.25rem;min-width:0;text-align:center}
 .gh-where{font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--t-accent-text)}
@@ -536,11 +539,15 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .sp-text{grid-column:1 / -1;font-size:.92rem;color:var(--s-ink-2)}
 .sp-score{grid-column:3;grid-row:1;font-family:var(--t-font-display);font-weight:700;color:var(--s-ink)}
 .dr-list > li + li{border-top:1px solid var(--s-line)}
-.dr-list summary{display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:.5rem;min-height:2.9rem;cursor:pointer}
+.dr-list summary{display:grid;grid-template-columns:3rem 1fr auto auto;list-style:none;align-items:center;gap:.5rem;min-height:2.9rem;cursor:pointer}
 .dr-list summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:-2px}
 .dr-team{font-family:var(--t-font-display);font-weight:700;color:var(--s-ink)}
 .dr-sum{font-size:.9rem;color:var(--s-ink-2)}
 .dr-res{font-size:.85rem;font-weight:600;color:var(--s-muted)}
+.dr-list summary::-webkit-details-marker{display:none}
+/* The drive rows open: a compact chevron says so, no words on every row. */
+.dr-chev{width:.5rem;height:.5rem;margin:0 .15rem 0 .1rem;border-right:2px solid var(--s-muted);border-bottom:2px solid var(--s-muted);transform:rotate(45deg) translateY(-2px)}
+.dr-list details[open] > summary .dr-chev{transform:rotate(-135deg) translateY(-1px)}
 .pl-list{margin:0 0 .6rem;padding-left:.2rem}
 .pl-list li{display:grid;row-gap:.1rem;padding:.35rem 0 .35rem .6rem;border-left:2px solid var(--s-line)}
 .pl-dd{font-size:.8rem;font-weight:600;color:var(--s-muted)}

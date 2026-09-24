@@ -211,7 +211,7 @@ var sctx = vm.createContext({ console: console, Intl: Intl, Date: Date, TeamOS: 
 function host() {
   var parts = {};
   return { innerHTML: "", parts: parts,
-           querySelector: function (q) { var k = (/data-game="(\w+)"/.exec(q) || [])[1]; if (!k) return this.innerHTML ? {} : null;
+           querySelector: function (q) { var k = (/data-game="(\w+)"/.exec(q) || [])[1]; if (!k) return q === "[data-game]" && this.innerHTML ? {} : null;
                                           return parts[k] || (parts[k] = { innerHTML: "" }); } };
 }
 var wis = JSON.parse(read("tools/fixtures/espn-summary-wis-final.json"));

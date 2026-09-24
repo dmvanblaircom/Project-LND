@@ -304,7 +304,10 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               return { shown: !host.hidden, legacy: !document.getElementById("legacy").hidden,
                        head: !!host.querySelector(".game-head"), tabs: tabs.map(function (a) { return a.getAttribute("href"); }),
                        views: views, cur: cur ? cur.getAttribute("href") : null, tickets: /tickets/i.test(host.textContent),
-                       view: Suite.nav.current().view };
+                       view: Suite.nav.current().view,
+                       names: [].map.call(host.querySelectorAll(".gh-name"), function (n) {
+                         return { text: n.textContent, cut: n.scrollWidth > n.clientWidth + 1,
+                                  abbr: getComputedStyle(n.querySelector(".gh-abbr")).display !== "none" }; }) };
             });
             if (!gm.shown || gm.legacy) fail(label, "behaviour", "#screenGame", "Game is not the canonical screen");
             if (!gm.head) fail(label, "behaviour", ".game-head", "Game has no header for the hero game");
@@ -313,6 +316,11 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
               fail(label, "behaviour", ".game-tabs", "the view strip " + gm.tabs.join() + " does not match the lifecycle " + gm.views.join());
             if (gm.views.length > 1 && gm.cur !== "#game/" + gm.view) fail(label, "behaviour", ".game-tabs", "the current view is not marked");
             if (gm.tickets) fail(label, "behaviour", "#screenGame", "Tickets is offered, which v1 hides (0024 §7)");
+            // Team identity is primary: never cut, and both sides in one form
+            // - short names, or both abbreviations (Game review, 2026-09-24).
+            gm.names.forEach(function (n) { if (n.cut) fail(label, "layout", ".gh-name", "the team name '" + n.text + "' is cut off"); });
+            if (gm.names.length === 2 && gm.names[0].abbr !== gm.names[1].abbr)
+              fail(label, "behaviour", ".gh-name", "one side shows a name and the other an abbreviation");
           }
           if (screen === "more") {
             var more = await page.evaluate(function () {

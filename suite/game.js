@@ -71,10 +71,14 @@ Suite.game = (function () {
                   : ui.mark(m.oppMark(g.oppProviderId), g.oppName, g.oppAbbr, "bare");
     var rank = us ? g.usRank : g.oppRank, rec = us ? g.usRecord : g.oppRecord;
     var score = us ? g.us : g.them;
+    var name = us ? m.team.name : g.oppName, abbr = us ? m.team.abbr : g.oppAbbr;
     var scored = st === "live" || st === "paused" || st === "final";
     return '<div class="gh-team ' + (us ? "us" : "them") + '">' + mark +
              (scored ? '<span class="gh-score">' + esc(score == null ? "0" : score) + "</span>" : "") +
-             '<p class="gh-name">' + (rank ? '<span class="gc-rank">#' + rank + "</span> " : "") + esc(us ? m.team.name : g.oppName) + "</p>" +
+             // The short name, and the abbreviation fit() swaps in for BOTH
+             // sides when either name will not fit whole (never an ellipsis).
+             '<p class="gh-name">' + (rank ? '<span class="gc-rank">#' + rank + "</span> " : "") +
+               '<span class="gh-full">' + esc(name) + '</span><span class="gh-abbr">' + esc(abbr || name) + "</span></p>" +
              (rec ? '<p class="gh-record">' + esc(rec) + "</p>" : "") +
            "</div>";
   }
@@ -338,7 +342,8 @@ Suite.game = (function () {
         var dk = "drive-" + (d.id || ""), dopen = m.open && m.open[dk];
         return '<li><details data-key="' + esc(dk) + '"' + (dopen ? " open" : "") + '><summary><span class="dr-team">' + esc(d.mine ? m.team.abbr : (m.game.oppAbbr || m.game.oppName)) + "</span>" +
                '<span class="dr-sum">' + esc(d.summary || "") + "</span>" +
-               '<span class="dr-res">' + esc(d.result || "") + "</span></summary>" +
+               '<span class="dr-res">' + esc(d.result || "") + "</span>" +
+               '<span class="dr-chev" aria-hidden="true"></span></summary>' +
                '<ol class="pl-list">' + (d.plays || []).map(function (p) {
                  return '<li><span class="pl-dd">' + esc(p.start && p.start.short ? p.start.short + (p.start.spot ? " at " + p.start.spot : "") : "") + "</span>" +
                         '<span class="pl-text">' + esc(p.text) + "</span></li>";
@@ -414,6 +419,26 @@ Suite.game = (function () {
     return box(m) + linescore(m);                               // box, the final default
   }
 
+  // Team identity is primary: it never ends in an ellipsis. Try the short
+  // names, then a tighter setting of them, then both abbreviations - both
+  // sides alike, so the header never pairs a name with an abbreviation.
+  // Measured, because whether a name fits depends on the name, the font
+  // and the width, not on any one team.
+  var fitHost = null;
+  function fit(host) {
+    var row = host && host.querySelector(".gh-row");
+    if (!row) return;
+    var names = row.querySelectorAll(".gh-name");
+    function over() { return [].some.call(names, function (n) { return n.scrollWidth > n.clientWidth + 1; }); }
+    row.classList.remove("fit-tight", "fit-abbr");
+    if (over()) row.classList.add("fit-tight");
+    if (over()) row.classList.add("fit-abbr");
+  }
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", function () { fit(fitHost); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fit(fitHost); });
+  }
+
   function paint(host, m) {
     if (!host) return;
     if (!m.game) {
@@ -432,7 +457,9 @@ Suite.game = (function () {
       var el = host.querySelector('[data-game="' + k + '"]');
       el.innerHTML = html[k];
       last[k] = html[k];
+      if (k === "head") fit(host);
     });
+    fitHost = host;
   }
 
   return { paint: paint, sides: sides };
