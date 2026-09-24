@@ -1,0 +1,51 @@
+# Capture a real ESPN game summary as a test fixture, from GitHub's network
+# (the development environment cannot reach ESPN). Trims it to the keys
+# TeamOS reads (tools/trim_summary.py) and commits it to the branch it runs
+# on. Decision 0023: drive and play normalization is built from real
+# payloads, not invented ones. Run it from the Actions tab.
+name: Capture a game-summary fixture
+
+on:
+  workflow_dispatch:
+    inputs:
+      event:
+        description: "ESPN event id, e.g. 401858438"
+        required: true
+        type: string
+      name:
+        description: "Fixture name: tools/fixtures/espn-summary-<name>.json"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch and trim
+        env:
+          EVENT: ${{ inputs.event }}
+          NAME: ${{ inputs.name }}
+        run: |
+          set -euo pipefail
+          [[ "$EVENT" =~ ^[0-9]+$ ]] || { echo "::error::event must be digits"; exit 1; }
+          [[ "$NAME" =~ ^[a-z0-9-]+$ ]] || { echo "::error::name must be lowercase letters, digits and hyphens"; exit 1; }
+          curl -sSf --retry 3 -o raw.json \
+            "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=$EVENT"
+          python3 tools/trim_summary.py raw.json "tools/fixtures/espn-summary-$NAME.json" \
+            "Real ESPN game summary for event $EVENT, captured $(date -u +%Y-%m-%d) by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged."
+          rm raw.json
+      - name: Commit
+        env:
+          NAME: ${{ inputs.name }}
+          EVENT: ${{ inputs.event }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "tools/fixtures/espn-summary-$NAME.json"
+          git diff --cached --quiet && { echo "fixture unchanged"; exit 0; }
+          git commit -m "Capture ESPN game summary $EVENT as fixture espn-summary-$NAME"
+          git push
