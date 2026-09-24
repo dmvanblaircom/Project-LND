@@ -363,6 +363,19 @@
     apply();
   }
 
+  // The full placeholder clips on a narrow phone, so there it says less. The
+  // label, which is what assistive technology reads, always says it all:
+  // team, conference and mascot are all searchable.
+  var PLACEHOLDER = { full: "Search by team, conference, mascot\u2026", short: "Search teams\u2026" };
+  var NARROW = "(max-width: 24rem)";
+  function fitPlaceholder(input) {
+    if (!input || typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    var mq = window.matchMedia(NARROW);
+    function fit() { input.setAttribute("placeholder", mq.matches ? PLACEHOLDER.short : PLACEHOLDER.full); }
+    fit();
+    if (mq.addEventListener) mq.addEventListener("change", fit);
+  }
+
   var SEARCH_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
 
   function render() {
@@ -385,7 +398,7 @@
         '<div class="chooser-search">' + SEARCH_ICON +
           '<label class="sr-only" for="teamSearch">Search by team, conference or mascot</label>' +
           '<input id="teamSearch" type="search" autocomplete="off" autocorrect="off" ' +
-                 'spellcheck="false" placeholder="Search by team, conference, mascot\u2026">' +
+                 'spellcheck="false" placeholder="' + PLACEHOLDER.full + '">' +
         "</div>" +
         // Silent at rest; it speaks only to report what a search found.
         '<p class="chooser-count" role="status" aria-live="polite"></p>';
@@ -467,6 +480,7 @@
       if (btn) choose(btn.getAttribute("data-team"));
     });
 
+    fitPlaceholder(document.getElementById("teamSearch"));
     wire(host);
     document.title = "Suite";                    // no team chosen yet (decision 0024 §11)
   }

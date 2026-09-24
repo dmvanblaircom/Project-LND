@@ -175,6 +175,18 @@ var WIDTHS = [375, 1280];
       await c.page.click("#barSearch");
       if (await c.page.evaluate(function () { return document.activeElement && document.activeElement.id; }) !== "teamSearch")
         fail(cw, "behaviour", "#barSearch", "the header's search control does not take the fan to the search box");
+      // The placeholder is fitted to the width; the label always says it all.
+      var ph = await c.page.evaluate(function () {
+        var i = document.getElementById("teamSearch"), l = document.querySelector('label[for="teamSearch"]');
+        return { ph: i.getAttribute("placeholder"), label: l ? l.textContent : "",
+                 clipped: i.scrollWidth > i.clientWidth + 1 };
+      });
+      if (!/conference/.test(ph.label) || !/mascot/.test(ph.label))
+        fail(cw, "behaviour", "label[for=teamSearch]", "the search label no longer says team, conference and mascot are searchable");
+      if (width <= 384 && ph.ph !== "Search teams\u2026")
+        fail(cw, "layout", "#teamSearch", "a narrow phone shows the long placeholder, which clips: '" + ph.ph + "'");
+      if (width > 384 && !/conference/.test(ph.ph))
+        fail(cw, "behaviour", "#teamSearch", "a wide screen lost the full placeholder: '" + ph.ph + "'");
       await c.context.close();
 
       // 3. Each team, each tab.
