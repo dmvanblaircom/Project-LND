@@ -14,3 +14,5 @@ schedule-87 nd-sep24
 401858467 pur-pre
 roster-87 nd-sep24
 roster-194 osu-sep24
+news-87 nd-sep24
+news-194 osu-sep24
