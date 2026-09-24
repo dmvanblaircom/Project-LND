@@ -1,0 +1,27 @@
+# Try candidate beat-news sources from GitHub's network, which can reach
+# sites the development environment cannot. Writes nothing and commits
+# nothing: it prints, for each site or feed URL, whether a feed works, where,
+# how many stories, how recent, and sample headlines - enough to decide what
+# goes in a team's sources.beatFeeds. Run it from the Actions tab.
+name: Probe beat feeds
+
+on:
+  workflow_dispatch:
+    inputs:
+      sites:
+        description: "Sites or feed URLs, separated by spaces"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe
+        env:
+          SITES: ${{ inputs.sites }}
+        run: python3 tools/producers/beat_news.py --probe $SITES
