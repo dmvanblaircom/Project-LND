@@ -2,7 +2,9 @@
 
 ## Status
 
-Accepted
+Accepted. #2 is amended by decision 0025 (odds are compact media metadata:
+values without "Pregame / Live / Closing Line" labels; still never implied
+live). The text below is left as it was decided.
 
 ## Date
 

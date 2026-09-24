@@ -202,5 +202,46 @@ eq(prev(season12(4).slice(0, 2), "2026-09-30T12:00:00Z").length, 2, "and a two-g
 var shuffled = season12(4); shuffled.reverse();
 eq(preview(shuffled, "2026-09-30T12:00:00Z"), wkDates([4, 5, 6]), "the input's order does not matter; the output is chronological");
 
+// ---- Box Score: collapse a category, never truncate it ----------------------
+// Game review 2026-09-24: every category is its own disclosure, expanded it
+// shows every player, and the fan's own choice outlives the live refresh.
+console.log("Box Score");
+var sctx = vm.createContext({ console: console, Intl: Intl, Date: Date, TeamOS: TeamOS, document: { addEventListener: function () {} } });
+["suite/ui.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), sctx, { filename: f }); });
+function host() {
+  var parts = {};
+  return { innerHTML: "", parts: parts,
+           querySelector: function (q) { var k = (/data-game="(\w+)"/.exec(q) || [])[1]; if (!k) return this.innerHTML ? {} : null;
+                                          return parts[k] || (parts[k] = { innerHTML: "" }); } };
+}
+var wis = JSON.parse(read("tools/fixtures/espn-summary-wis-final.json"));
+var WD = TeamOS.espn.gameDetail(wis, TEAM, CFG);
+var WG = TeamOS.espn.schedule(JSON.parse(read("tools/fixtures/espn-schedule.json")), TEAM, CFG)
+  .filter(function (x) { return x.id === "401858438"; })[0];
+function boxHtml(open, side) {
+  var h = host();
+  sctx.Suite.game.paint(h, { team: { name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, oppMark: function () { return ""; },
+    game: WG, detail: WD, lifecycle: G.lifecycle(WG), view: "box", preview: null, side: side || "us", open: open || {},
+    weather: null, now: new Date("2026-09-07T14:00:00Z") });
+  return h.parts.body.innerHTML;
+}
+var html = boxHtml(), usKey = WD.home.mine ? "home" : "away";
+var cats = html.match(/<details class="bx-cat"[^>]*>/g) || [];
+eq(cats.length, WD.box[usKey].length, "every category is its own disclosure");
+var fullRows = WD.box[usKey].reduce(function (n, t) { return n + t.rows.length; }, 0);
+eq((html.match(/<table class="bx"[\s\S]*?<\/table>/g) || []).join("").split('<th scope="row">').length - 1, fullRows, "every player row is in the page, open or closed - nothing truncated");
+function isOpen(key) { return new RegExp('data-key="box-us-' + key + '" open>').test(html); }
+ok(isOpen("passing") && isOpen("rushing") && isOpen("receiving"), "Passing, Rushing and Receiving start expanded");
+ok(!isOpen("defensive"), "the long Defense table starts collapsed");
+ok(!isOpen("kicking") && !isOpen("punting"), "Kicking and Punting start collapsed");
+ok(!/<caption/.test(html) && (html.match(/<summary>/g) || []).length === cats.length,
+   "the category name is the summary - it stays visible collapsed");
+ok(/<span class="bx-count">\d+ players?<\/span>/.test(html), "a collapsed category says how many players it holds");
+var flipped = boxHtml({ "box-us-defensive": true, "box-us-passing": false });
+ok(/data-key="box-us-defensive" open>/.test(flipped) && !/data-key="box-us-passing" open>/.test(flipped),
+   "the fan's own open/closed choice wins over the default");
+var them = boxHtml({}, "them");
+ok(/data-key="box-them-passing" open>/.test(them), "the team toggle keeps its own keys");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "one set of game rules, and every state has an answer"));
 process.exit(failures ? 1 : 0);

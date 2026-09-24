@@ -67,11 +67,20 @@ TeamOS.espn = (function () {
   }
 
   // The line and total, from whichever block ESPN put them in.
-  function odds(comp){
-    var o=(comp.odds&&comp.odds[0])||(comp.pickcenter&&comp.pickcenter[0]);
+  // Odds are compact game metadata - the spread and the total - never a
+  // betting product (decision 0025). Whoever set them is kept as provenance,
+  // `provider`, exactly as the feed names it: ESPN's odds source has
+  // changed before (ESPN BET, then DraftKings from December 2025), so no
+  // sportsbook name is ever assumed in code. Null when the feed names none.
+  function oddsOf(o){
     if(!o) return null;
-    return { line:o.details||(o.spread!=null?String(o.spread):null),
-             total:o.overUnder!=null?o.overUnder:null };
+    var line=o.details||(o.spread!=null?String(o.spread):null), total=o.overUnder!=null?o.overUnder:null;
+    if(line==null && total==null) return null;
+    var p=o.provider && (o.provider.displayName||o.provider.name);
+    return { line:line, total:total, provider: p ? str(p) : null };
+  }
+  function odds(comp){
+    return oddsOf((comp.odds&&comp.odds[0])||(comp.pickcenter&&comp.pickcenter[0]));
   }
 
   // ESPN does not always set neutralSite. A game where the team is the listed
@@ -443,7 +452,13 @@ TeamOS.espn = (function () {
       var rows=cat.athletes||[];
       if(!labels.length||!rows.length) return;
       var title=str(cat.text||cat.name);
+      // key: the category as a stable id ("passing", "kickReturns");
+      // label: it in words, without the team name ESPN puts in `text`.
+      var key=str(cat.name||title).replace(/[^A-Za-z0-9]/g,"");
+      var label=key.replace(/([a-z])([A-Z])/g,"$1 $2").replace(/^./,function(c){ return c.toUpperCase(); })
+                   .replace(/^Defensive$/,"Defense");
       out.push({
+        key: key, label: label,
         title: title.charAt(0).toUpperCase()+title.slice(1),
         labels: labels.map(str),
         rows: rows.map(function(a){
@@ -759,9 +774,7 @@ TeamOS.espn = (function () {
     // The pregame line and total from ESPN's game summary, for a Game the
     // schedule payload gave no odds for. null when ESPN has none either.
     gameOdds: function(summary){
-      var pc=summary&&summary.pickcenter&&summary.pickcenter[0];
-      if(!pc) return null;
-      return { line:pc.details||null, total:pc.overUnder!=null?pc.overUnder:null };
+      return oddsOf(summary&&summary.pickcenter&&summary.pickcenter[0]);
     },
 
     // ESPN's scoreboard payload (every game the league is showing this week) ->

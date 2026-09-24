@@ -2042,7 +2042,7 @@ window.addEventListener("offline", function(){ paintHome(); });
 // The Game screen is the hero game - the one TeamOS rule Home and the nav
 // use - drawn by suite/game.js from its GameDetail. Its views follow the
 // game's lifecycle (TeamOS.game.lifecycle); the route says which one shows.
-var GV={ id:null, gd:null, preview:undefined, side:"us", at:0, loading:false };
+var GV={ id:null, gd:null, preview:undefined, side:"us", at:0, loading:false, open:{} };
 function heroGame(){
   var h=TeamOS.game.hero(S.games||[], new Date(), TEAM.timeZone), g=h.game;
   if(g && HOME.status){
@@ -2057,14 +2057,14 @@ function paintGame(){
   if(!host || host.hidden) return;
   if(!S.games){ host.innerHTML='<p class="sec-quiet home-loading">Loading the game\u2026</p>'; return; }
   var g=heroGame();
-  if(g && GV.id!==g.id) GV={ id:g.id, gd:null, preview:undefined, side:"us", at:0, loading:false };
+  if(g && GV.id!==g.id) GV={ id:g.id, gd:null, preview:undefined, side:"us", at:0, loading:false, open:{} };
   var lc=TeamOS.game.lifecycle(g), route=Suite.nav.current();
   var espnId=TEAM_CONFIG.sources.espn.teamId;
   Suite.game.paint(host, {
     team:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true) },
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
     photo:ID.art, game:g, detail:GV.gd, lifecycle:lc,
-    view: route.view || lc.defaultView, preview:GV.preview, side:GV.side,
+    view: route.view || lc.defaultView, preview:GV.preview, side:GV.side, open:GV.open,
     weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date()
   });
   if(g){ loadGameDetail(g, lc); loadHomeWeather(g); }
@@ -2093,6 +2093,12 @@ function loadGamePreview(){
     .catch(function(){ GV.preview=null; })
     .then(paintGame);
 }
+// A Box Score category or a drive the fan opened or closed stays that way
+// through the live refresh. toggle does not bubble, so listen in capture.
+document.addEventListener("toggle", function(e){
+  var d=e.target;
+  if(d && d.matches && d.matches("#screenGame details[data-key]")) GV.open[d.getAttribute("data-key")]=d.open;
+}, true);
 // The Leaders and Box Score team toggle.
 document.addEventListener("click", function(e){
   var b=e.target.closest ? e.target.closest("#screenGame [data-side]") : null;

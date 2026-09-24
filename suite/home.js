@@ -143,11 +143,12 @@ Suite.home = (function () {
     if (weather && (st === "upcoming" || st === "delayed" || st === "live" || st === "paused")) {
       bits.push('<span class="gc-wx">' + esc(weather.tempF + "°F") + (weather.sky ? " " + esc(weather.sky) : "") + "</span>");
     }
-    // A betting line says what it is (0022 #2): ESPN's line is set before
-    // kickoff, so once play starts it is the pregame line, never "live".
+    // Odds are compact secondary metadata, the values alone - "ND -29.5 ·
+    // O/U 52.5" - the way a sports-media product shows them (decision 0025).
+    // No "line" labels and never "live": nothing here says what the source
+    // does not.
     if (g.odds && (g.odds.line || g.odds.total != null) && st !== "final" && st !== "canceled") {
-      var label = st === "live" || st === "paused" ? "Pregame line" : "Line";
-      bits.push('<span class="gc-odds"><span class="k">' + label + "</span> " +
+      bits.push('<span class="gc-odds">' +
         esc([g.odds.line, g.odds.total != null ? "O/U " + g.odds.total : ""].filter(Boolean).join(" · ")) + "</span>");
     }
     return bits.length ? '<p class="gc-extra">' + bits.join('<span class="dot" aria-hidden="true"> · </span>') + "</p>" : "";
@@ -198,9 +199,9 @@ Suite.home = (function () {
     } else if (h.reason === "none") {
       card = '<article class="gamecard gc-none"><h2 class="gc-label">No games on the schedule yet</h2></article>';
     }
-    // season-over: what owns the hero after the recent-final window with no
-    // game to come is an open product decision, so the hero shows the team
-    // alone and invents nothing.
+    // season-over: TeamOS chooses no hero game. Drawing no card is an INTERIM
+    // safe rendering only - not the end-of-season design, which Product will
+    // define. Do not build on it.
     return '<section class="home-hero on-dark' + (m.art.atmosphere ? " art-" + esc(m.art.atmosphere) : "") +
              '" aria-label="' + esc(team.name) + '">' +
              ui.art(m.art) + '<div class="hh-inner">' + id + card + "</div></section>";

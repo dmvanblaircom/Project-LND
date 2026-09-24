@@ -21,6 +21,7 @@
        model.view        the current view id
        model.preview     { us: SeasonStat[], them: SeasonStat[] } | null
        model.side        "us" | "them" - Leaders and Box Score team toggle
+       model.open        { disclosure key: open? } - the fan's own choices
        model.weather     Weather | null
        model.now         Date
 
@@ -84,8 +85,10 @@ Suite.game = (function () {
       bits.push('<span class="gh-wx"><strong>' + esc(wx.tempF + "°F") + "</strong>" + (wx.sky ? " " + esc(wx.sky) : "") +
                 (wx.windMph != null ? '<span class="gh-sub">Wind ' + esc(wx.windMph) + " mph</span>" : "") + "</span>");
     if (g.odds && (g.odds.line || g.odds.total != null) && st !== "final" && st !== "canceled")
-      bits.push('<span class="gh-odds"><span class="k">' + (st === "live" || st === "paused" ? "Pregame line" : "Line") + "</span>" +
-                esc([g.odds.line, g.odds.total != null ? "O/U " + g.odds.total : ""].filter(Boolean).join(" · ")) + "</span>");
+      // The spread and the total as plain values, stacked as the canonical
+      // header has them (decision 0025): no labels, no betting UI.
+      bits.push('<span class="gh-odds">' + (g.odds.line ? "<strong>" + esc(g.odds.line) + "</strong>" : "") +
+                (g.odds.total != null ? '<span class="gh-odds-ou">O/U ' + esc(g.odds.total) + "</span>" : "") + "</span>");
     return bits.length ? '<div class="gh-extra">' + bits.join("") + "</div>" : "";
   }
 
@@ -208,8 +211,11 @@ Suite.game = (function () {
 
   function seriesCard(g) {
     if (!g.series) return "";
+    // The trophy's name, which the team's configuration verifies. No
+    // description: until a trustworthy rivalry source exists, nothing
+    // generic stands in for one (Game review, 2026-09-24).
     return '<section class="card gcard series"><span class="series-ic">' + TROPHY + '</span><p class="series-name">' +
-           esc(g.series.replace(/^Playing for (the )?/i, "")) + '</p><p class="series-sub">At stake in this game</p></section>';
+           esc(g.series.replace(/^Playing for (the )?/i, "")) + "</p></section>";
   }
 
   function linescore(m) {
@@ -329,7 +335,8 @@ Suite.game = (function () {
     var drives = gd.drives && gd.drives.list || [];
     if (drives.length) {
       out += card("Drives", '<ol class="dr-list">' + drives.slice().reverse().map(function (d) {
-        return '<li><details><summary><span class="dr-team">' + esc(d.mine ? m.team.abbr : (m.game.oppAbbr || m.game.oppName)) + "</span>" +
+        var dk = "drive-" + (d.id || ""), dopen = m.open && m.open[dk];
+        return '<li><details data-key="' + esc(dk) + '"' + (dopen ? " open" : "") + '><summary><span class="dr-team">' + esc(d.mine ? m.team.abbr : (m.game.oppAbbr || m.game.oppName)) + "</span>" +
                '<span class="dr-sum">' + esc(d.summary || "") + "</span>" +
                '<span class="dr-res">' + esc(d.result || "") + "</span></summary>" +
                '<ol class="pl-list">' + (d.plays || []).map(function (p) {
@@ -348,18 +355,40 @@ Suite.game = (function () {
 
   // ---- box score ---------------------------------------------------------------------
 
+  // Which categories start open: the core offense, and any short table that
+  // is not defense or special teams. Everything else starts closed.
+  var CORE = /^(passing|rushing|receiving)$/i;
+  var LONG_OR_SPECIAL = /defen|kick|punt|return/i;
+  function openByDefault(t) {
+    var k = String(t.key || t.label || "");
+    if (CORE.test(k)) return true;
+    return !LONG_OR_SPECIAL.test(k) && t.rows.length <= 3;
+  }
+
   function box(m) {
     var gd = m.detail, s = sides(gd, m.game);
     if (!gd) return quiet("Loading the box score…");
     if (!gd.box || !s) return quiet("No box score yet.");
-    var tables = gd.box[m.side === "them" ? s.themKey : s.usKey] || [];
-    var who = m.side === "them" ? m.game.oppName : m.team.name;
+    var which = m.side === "them" ? "them" : "us";
+    var tables = gd.box[which === "them" ? s.themKey : s.usKey] || [];
+    var who = which === "them" ? m.game.oppName : m.team.name;
+    // Every category is its own disclosure: collapse the category, never
+    // truncate it. Expanded, it shows every player. The fan's choice is kept
+    // across refreshes (model.open); until they choose, the core offense
+    // opens and the long defensive and special-teams tables start closed.
     var body = tables.length ? tables.map(function (t) {
-      return '<div class="bx-wrap"><table class="bx"><caption>' + esc(who + " " + t.title.replace(new RegExp("^" + who + "\\s+", "i"), "")) + "</caption>" +
+      var key = "box-" + which + "-" + (t.key || t.label);
+      var open = m.open && key in m.open ? m.open[key] : openByDefault(t);
+      var n = t.rows.length;
+      return '<details class="bx-cat" data-key="' + esc(key) + '"' + (open ? " open" : "") + ">" +
+             '<summary><span class="bx-name">' + esc(t.label || t.title) + "</span>" +
+               '<span class="bx-count">' + n + (n === 1 ? " player" : " players") + "</span>" +
+               '<span class="bx-state" aria-hidden="true"></span></summary>' +
+             '<div class="bx-wrap"><table class="bx" aria-label="' + esc(who + " " + (t.label || t.title)) + '">' +
              '<thead><tr><th scope="col">Player</th>' + t.labels.map(function (l) { return '<th scope="col">' + esc(l) + "</th>"; }).join("") + "</tr></thead>" +
              "<tbody>" + t.rows.map(function (r) {
                return '<tr><th scope="row">' + esc(r.name) + "</th>" + r.stats.map(function (v) { return "<td>" + esc(v) + "</td>"; }).join("") + "</tr>";
-             }).join("") + "</tbody></table></div>";
+             }).join("") + "</tbody></table></div></details>";
     }).join("") : quiet("No box score for this team yet.");
     return card("Box score", body, sideToggle(m, m.side), "gcard-box");
   }

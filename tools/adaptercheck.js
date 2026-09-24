@@ -102,8 +102,11 @@ eq(pur.series, "Shillelagh Trophy", "series from config");
 
 // ---- gameOdds ----
 console.log("gameOdds()");
-eq(TeamOS.espn.gameOdds({ pickcenter: [{ details: "ND -29.5", overUnder: 52.5 }] }), { line: "ND -29.5", total: 52.5 }, "line and total from pickcenter");
-eq(TeamOS.espn.gameOdds({ pickcenter: [{ overUnder: 50 }] }), { line: null, total: 50 }, "missing line -> null, total kept");
+eq(TeamOS.espn.gameOdds({ pickcenter: [{ details: "ND -29.5", overUnder: 52.5 }] }), { line: "ND -29.5", total: 52.5, provider: null }, "line and total from pickcenter; no provider named, none assumed");
+eq(TeamOS.espn.gameOdds({ pickcenter: [{ overUnder: 50 }] }), { line: null, total: 50, provider: null }, "missing line -> null, total kept");
+eq(TeamOS.espn.gameOdds({ pickcenter: [{ details: "ND -7", overUnder: 51, provider: { name: "Any Book" } }] }).provider, "Any Book",
+   "the provider the feed names is kept as provenance, whoever it is (decision 0025)");
+eq(TeamOS.espn.gameOdds({ pickcenter: [{ provider: { name: "Any Book" } }] }), null, "a provider with no numbers is not odds");
 eq(TeamOS.espn.gameOdds({}), null, "no pickcenter -> null");
 eq(TeamOS.espn.gameOdds(null), null, "no summary -> null");
 
@@ -187,7 +190,7 @@ lgs.forEach(function (g) {
 var mia = lgById["401858226"], pitt = lgById["401858225"], uga = lgById["401858100"], pur = lgById["401858460"];
 eq([mia.state, mia.timeSet, mia.detail, mia.venue], ["pre", true, "9/18 - 7:30 PM EDT", "Allegacy Federal Credit Union Stadium"], "future game: state, time, detail, venue");
 eq([mia.away, mia.home], [{ name:"Miami", rank:5, score:"0" }, { name:"Wake Forest", rank:null, score:"0" }], "sides: ranked away, unranked home, scores as strings");
-eq([mia.net, mia.odds, mia.mine, mia.live], ["ESPN", { line:"MIA -20.5", total:56.5 }, false, null], "broadcast from names[], odds, not ours, not live");
+eq([mia.net, mia.odds, mia.mine, mia.live], ["ESPN", { line:"MIA -20.5", total:56.5, provider:null }, false, null], "broadcast from names[], odds, not ours, not live");
 eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"(03:28) #47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20" }], "live game carries down/distance and last play");
 eq([pitt.home.rank, pitt.away.rank], [null, null], "unranked on both sides (drives live-anywhere but not the ranked list)");
 eq([uga.state, uga.home.score, uga.away.score, uga.home.rank, uga.away.rank], ["post", "31", "24", 2, 9], "final: scores and both ranks");
@@ -298,6 +301,12 @@ eq(gdPost.winProb, { homePct:1 }, "final win probability point kept (the view on
 eq(gdPost.linescore, { away:["3","7","3","0"], home:["10","3","14","14"] }, "four periods");
 eq(gdPost.box.home.map(function (t) { return t.title + ":" + t.labels.length + ":" + t.rows.length; }), ["Notre Dame Passing:6:1","Notre Dame Rushing:5:3","Notre Dame Receiving:5:3"], "box tables per side: title, column labels, rows");
 eq(gdPost.box.home[0].rows[0], { name:"CJ Carr", jersey:"13", stats:["19/29","239","8.2","2","0","70.2"] }, "a box row");
+eq(gdPost.box.home.map(function (t) { return t.key + "=" + t.label; }), ["passing=Passing","rushing=Rushing","receiving=Receiving"],
+   "each box table has a stable category key and a label without the team name");
+var wisBox = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-wis-final.json")), team, TEAM_CONFIG).box;
+ok(wisBox.home.concat(wisBox.away).some(function (t) { return t.key === "kickReturns" && t.label === "Kick Returns"; }) &&
+   wisBox.home.concat(wisBox.away).some(function (t) { return t.key === "defensive" && t.label === "Defense"; }),
+   "a real game's categories read as words: Kick Returns, Defense");
 eq(gdPost.leaders.away[4], { category:"Tackles", name:"M. Posa", line:"15" }, "leader category names are mapped, not ESPN's");
 eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).state, "post", "an empty payload is treated as final (no polling)");
 eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", abbreviation:"", record:"", score:null, mine:false }, "an empty side");

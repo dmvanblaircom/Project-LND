@@ -341,7 +341,6 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gc-situation span + span{margin-left:.75rem;padding-left:.75rem;border-left:1px solid rgba(255,255,255,.35)}
 .gc-series{margin-top:.55rem !important;text-align:center;font-size:.95rem;color:var(--t-accent-text)}
 .gc-extra{display:flex;flex-wrap:wrap;justify-content:center;margin-top:.55rem !important;font-size:.92rem;color:var(--s-on-dark-2)}
-.gc-extra .k{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .gc-cta{width:100%;margin-top:.9rem}
 .gc-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
 .gc-cta:focus-visible{outline-color:var(--t-focus)}
@@ -419,7 +418,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gh-extra > span{display:flex;flex-direction:column;gap:.1rem}
 .gh-extra > span + span{padding-left:.9rem;border-left:1px solid rgba(255,255,255,.3)}
 .gh-extra strong{font-family:var(--t-font-display);font-size:1.05rem;color:var(--s-on-dark)}
-.gh-extra .k{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.gh-odds-ou{font-size:.85rem}
 .gh-sub{font-size:.8rem}
 .gh-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr);align-items:center;gap:.4rem;margin-top:.5rem}
 .gh-team{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
@@ -481,10 +480,9 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .ld-line{font-size:.9rem;color:var(--s-ink-2)}
 
 .series{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:.8rem}
-.series-ic{grid-row:span 2;display:flex;align-items:center;justify-content:center;width:2.8rem;height:2.8rem;border-radius:10px;background:rgba(var(--t-accent-rgb),.16)}
+.series-ic{display:flex;align-items:center;justify-content:center;width:2.8rem;height:2.8rem;border-radius:10px;background:rgba(var(--t-accent-rgb),.16)}
 .series-ic svg{width:1.6rem;height:1.6rem;fill:none;stroke:var(--t-accent-on-light);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .series-name{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.15rem;color:var(--t-surface)}
-.series-sub{margin:0;font-size:.88rem;color:var(--s-muted)}
 
 .ls{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .ls th,.ls td{padding:.45rem .3rem;text-align:center}
@@ -548,10 +546,23 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .pl-dd{font-size:.8rem;font-weight:600;color:var(--s-muted)}
 .pl-text{font-size:.9rem;color:var(--s-ink-2)}
 
+/* Box Score categories: each its own disclosure. The heading always shows,
+   with how many players it holds and, in words, what a press will do. */
+.bx-cat{border-top:1px solid var(--s-line)}
+.bx-cat:first-of-type{border-top:0}
+.bx-cat > summary{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:.6rem;min-height:3rem;padding:.2rem 0;cursor:pointer;list-style:none}
+.bx-cat > summary::-webkit-details-marker{display:none}
+.bx-cat > summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:6px}
+.bx-name{font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;color:var(--t-surface)}
+.bx-count{font-size:.85rem;color:var(--s-muted)}
+.bx-state{display:inline-flex;align-items:center;gap:.3rem;min-width:3.6rem;justify-content:flex-end;font-size:.85rem;font-weight:600;color:var(--t-surface)}
+.bx-state::before{content:"Show"}
+.bx-state::after{content:"";width:.5rem;height:.5rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.bx-cat[open] > summary .bx-state::before{content:"Hide"}
+.bx-cat[open] > summary .bx-state::after{transform:rotate(-135deg) translateY(-1px)}
+.bx-cat[open] > .bx-wrap{padding-bottom:.8rem}
 .bx-wrap{overflow-x:auto;margin:0 -1rem;padding:0 1rem}
-.bx-wrap + .bx-wrap{margin-top:1rem}
 .bx{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-.bx caption{padding:.2rem 0 .4rem;text-align:left;font-family:var(--t-font-display);font-weight:700;font-size:1rem;color:var(--t-surface)}
 .bx th,.bx td{padding:.4rem .35rem;white-space:nowrap;text-align:right;font-size:.9rem}
 .bx thead th{font-size:.78rem;font-weight:600;color:var(--s-muted)}
 .bx tbody th{text-align:left;font-weight:600;color:var(--s-ink)}
