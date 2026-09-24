@@ -51,10 +51,14 @@ jobs:
             # "rankings <name>"              this week's polls
             # "scoreboard-YYYYMMDD <name>"   the FBS scoreboard for that date's week
             # "schedule-<team id> <name>"    a team's season schedule
+            # "roster-<team id> <name>"      a team's roster
             if [[ "$ev" =~ ^[0-9]+$ ]]; then
               out="tools/fixtures/espn-summary-$name.json"; url="$API/summary?event=$ev"; kind=summary
             elif [ "$ev" = "rankings" ]; then
               out="tools/fixtures/espn-rankings-$name.json"; url="$API/rankings"; kind=payload
+            elif [[ "$ev" =~ ^roster-([0-9]+)$ ]]; then
+              out="tools/fixtures/espn-roster-$name.json"; kind=payload
+              url="$API/teams/${BASH_REMATCH[1]}/roster"
             elif [[ "$ev" =~ ^schedule-([0-9]+)$ ]]; then
               out="tools/fixtures/espn-schedule-$name.json"; kind=payload
               url="$API/teams/${BASH_REMATCH[1]}/schedule"
@@ -78,7 +82,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
           git commit -m "Capture ESPN fixtures"
           git pull --rebase -q && git push

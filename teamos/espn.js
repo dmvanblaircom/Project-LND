@@ -264,7 +264,10 @@ TeamOS.espn = (function () {
       height:       str(p.displayHeight),
       weight:       str(p.displayWeight),
       classYear:    str(xp.abbreviation||xp.displayValue),
-      hometown:     { city: str(bp.city), state: str(bp.state) }
+      hometown:     { city: str(bp.city), state: str(bp.state) },
+      // the provider's headshot, loaded from where it is hosted (never
+      // copied); null when the feed has none - Suite draws its fallback
+      photo:        p.headshot && p.headshot.href ? str(p.headshot.href) : null
     };
   }
 
