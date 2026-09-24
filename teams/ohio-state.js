@@ -47,25 +47,18 @@ var TEAM_CONFIG = {
     roster: { url: "https://ohiostatebuckeyes.com/sports/football/roster", label: "ohiostatebuckeyes.com" }
   },
 
-  // Buckeye Watch. Values from Ohio State's current BUX palette; the
+  // Ohio State inside Suite. Values from Ohio State's current BUX palette; the
   // accent is scarlet and it is a FILL, not a typeface - 2.88:1 on the
   // charcoal foundation - so accentText is BUX gray-light and scarlet is
   // kept for rules, indicators, active states and team markers. That is
   // the accessibility direction BUX itself gives for dark surfaces.
   identity: {
-    productName:  "Buckeye Watch",
     programLabel: "OHIO STATE FOOTBALL",
-
-    title:            "Buckeye Watch \u00B7 Ohio State Football",
-    description:      "Buckeye Watch \u2014 an Ohio State football game-day dashboard.",
-    shareDescription: "Everything Buckeye football, in one place.",
 
     // No tagline: "Leave No Doubt." is Notre Dame's, not the platform's.
     tagline: null,
 
     newsLabel: "LATEST BUCKEYE NEWS",
-
-    manifest: "assets/ohio-state/manifest.json",
 
     colors: {
       accent:         "#BA0C2F",   // BUX scarlet
@@ -95,13 +88,7 @@ var TEAM_CONFIG = {
     fonts: {
       ui:       "'BuckeyeSans','Barlow',system-ui,-apple-system,sans-serif",
       display:  "'BuckeyeSans','Barlow Condensed',sans-serif"
-    },
-
-    // No approved Ohio State artwork exists in this repository. Declaring
-    // none is deliberate: paintIdentity() omits the icon and share-image
-    // tags entirely rather than pointing at files that are not there.
-    // Adding real artwork later is a change to this block alone.
-    assets: {}
+    }
   },
 
   // No Action writes anything for Ohio State yet: no depth-chart source,

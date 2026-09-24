@@ -3,14 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Suite — College football</title>
+<title>Suite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
 <link rel="stylesheet" href="legacy.css">
 
-<meta name="description" content="Suite — your team, every day.">
+<meta name="description" content="Suite — your college football team, every day.">
+
+<!-- Install and share identity is Suite's, the same whatever team is chosen
+     (decision 0024 §11). The TEMPORARY files are development stand-ins;
+     tools/identitycheck.js --release refuses them on main. -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/suite/TEMPORARY-favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/suite/TEMPORARY-favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/suite/TEMPORARY-apple-touch-180.png">
 
 <meta name="theme-color" content="#0C0F13">
 <meta name="application-name" content="Suite">
@@ -20,10 +28,15 @@
 <meta name="apple-mobile-web-app-title" content="Suite">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Suite — College Football">
-<meta property="og:description" content="Your team, every day.">
-<meta name="twitter:title" content="Suite — College Football">
-<meta name="twitter:description" content="Your team, every day.">
+<meta property="og:title" content="Suite">
+<meta property="og:description" content="Your college football team, every day.">
+<meta property="og:image" content="assets/suite/TEMPORARY-og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Suite">
+<meta name="twitter:description" content="Your college football team, every day.">
+<meta name="twitter:image" content="assets/suite/TEMPORARY-og-1200x630.png">
 <!-- Which team this page is, decided before anything else runs.
 
      Order: ?team= (so a link can carry it), then the last choice this browser
@@ -113,7 +126,9 @@
       root.setProperty(k, v);
       if (k === "--t-deep" && hex.test(v)) chrome = v;
     }
-    if (typeof saved.title === "string") document.title = saved.title;
+    // Only a title in the Suite's own form: a set stored before decision 0024
+    // carried a team product name, which is no longer customer-facing.
+    if (typeof saved.title === "string" && / \u00B7 Suite$/.test(saved.title)) document.title = saved.title;
     if (typeof saved.themeColor === "string" && hex.test(saved.themeColor)) chrome = saved.themeColor;
   }
   var meta = document.querySelector('meta[name="theme-color"]');

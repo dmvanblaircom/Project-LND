@@ -44,7 +44,7 @@ function run(opts) {
     setProperty: function (k, v) { applied[k] = v; }
   };
   doc = {
-    title: opts.staticTitle || "Irish Watch — Notre Dame football",
+    title: opts.staticTitle || "Suite",
     readyState: opts.readyState || "loading",
     documentElement: { style: rootStyle, setAttribute: function (k, v) { attrs[k] = v; } },
     head: { appendChild: function (el) {
@@ -95,9 +95,9 @@ function run(opts) {
 
 // A stored set, the shape paintIdentity() writes.
 var OSU = { "--t-accent": "#BA0C2F", "--t-surface": "#212325", "--t-deep": "#0B1115",
-            title: "Buckeye Watch · Ohio State Football", themeColor: "#0B1115" };
+            title: "Ohio State · Suite", themeColor: "#0B1115" };
 var ND = { "--t-accent": "#C99700", "--t-surface": "#0C2340", "--t-deep": "#07192F",
-           title: "Irish Watch — Notre Dame football", themeColor: "#07192F" };
+           title: "Notre Dame · Suite", themeColor: "#07192F" };
 function saved(id, set) { var s = {}; s["iw-boot-" + id] = JSON.stringify(set); return s; }
 
 console.log("which team");
@@ -155,14 +155,18 @@ var warm = run({ search: "?team=ohio-state", storage: saved("ohio-state", OSU) }
 eq(warm.applied["--t-accent"], "#BA0C2F", "a stored set paints the team before a single file is fetched");
 eq(warm.applied["--t-deep"], "#0B1115", "including the canvas the iOS bars are taken from");
 eq(warm.meta["theme-color"], "#0B1115", "and the chrome matches the header under it");
-eq(warm.title, "Buckeye Watch · Ohio State Football", "and the tab says the right product");
+eq(warm.title, "Ohio State · Suite", "and the tab names the program inside Suite (decision 0024)");
+var legacyTitle = run({ search: "?team=ohio-state", storage: saved("ohio-state",
+  Object.assign({}, OSU, { title: "Buckeye Watch · Ohio State Football" })) });
+eq(legacyTitle.title, "Suite",
+   "a title stored before decision 0024, naming a team product, is not replayed");
 
 console.log(" one team is never painted in another's colours");
 // The whole reason the set is keyed by team. Ohio State's colours are on this
 // browser; the page being opened is Notre Dame's.
 var cross = run({ search: "?team=notre-dame", storage: saved("ohio-state", OSU) });
 eq(cross.applied, {}, "Ohio State's stored set is not replayed onto Notre Dame");
-eq(cross.title, "Irish Watch — Notre Dame football", "nor its title");
+eq(cross.title, "Suite", "nor its title");
 eq(cross.meta["theme-color"], "#0C0F13", "the chrome goes neutral instead of borrowing it");
 var both = run({ search: "?team=notre-dame", storage: Object.assign(saved("ohio-state", OSU), saved("notre-dame", ND)) });
 eq(both.applied["--t-accent"], "#C99700", "with both stored, each team gets its own");

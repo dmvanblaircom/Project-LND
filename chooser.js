@@ -447,7 +447,7 @@
     });
 
     wire(host);
-    document.title = "Find Your Team \u00b7 Suite";
+    document.title = "Suite";                    // no team chosen yet (decision 0024 §11)
   }
 
   if (document.readyState === "loading") {

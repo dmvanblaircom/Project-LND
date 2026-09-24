@@ -122,20 +122,12 @@ var TEAM_CONFIG = {
     roster: { url: "https://fightingirish.com/sports/football/roster", label: "fightingirish.com" }
   },
 
-  // How this team is presented: the product's name for it, the words in the
-  // document head, its colours and type, and its artwork. Read through
-  // TeamOS.identity, applied by paintIdentity() in app.js. Every value here
-  // was authored into index.html, manifest.json or app.css before Phase 6.
+  // How this team is presented inside Suite: its colours, type, tagline and
+  // labels. Read through TeamOS.identity, applied by paintIdentity() in
+  // app.js. The installed product - its name, icons, manifest and share
+  // card - is Suite's and is not declared here (decision 0024 §11).
   identity: {
-    productName:  "Irish Watch",
     programLabel: "NOTRE DAME FOOTBALL",
-
-    // The head and the share cards read slightly differently, as they
-    // always have; a team that makes no distinction gives one of each.
-    title:            "Irish Watch \u2014 Notre Dame football",
-    shareTitle:       "Irish Watch \u2014 Notre Dame Football",
-    description:      "Irish Watch \u2014 a Notre Dame football game-day dashboard.",
-    shareDescription: "Game day. Every day.",
 
     // The team's tagline. A team thing, not Suite copy: a team without one
     // says null and the Suite leaves the line out.
@@ -143,8 +135,6 @@ var TEAM_CONFIG = {
 
     // The rule above the News tab. Unchanged wording.
     newsLabel: "LATEST FROM SOUTH BEND",
-
-    manifest: "assets/notre-dame/manifest.json",
 
     // Notre Dame Athletics navy and gold - the values fightingirish.com
     // uses. accent is the fill; accentText is the same gold because it
@@ -174,14 +164,6 @@ var TEAM_CONFIG = {
       ui:       "'Barlow',system-ui,-apple-system,sans-serif",
       display:  "'Barlow Condensed',sans-serif"
     },
-
-    assets: {
-      favicon:    "assets/notre-dame/favicon.svg",
-      icon32:     "assets/notre-dame/favicon-32.png",
-      icon64:     "assets/notre-dame/favicon-64.png",
-      appleTouch: "assets/notre-dame/icon-180.png",
-      og:         "assets/notre-dame/og-1200x630.png"
-    }
   },
 
   // The snapshots .github/workflows/odds.yml commits for this team. Each

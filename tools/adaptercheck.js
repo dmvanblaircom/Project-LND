@@ -528,41 +528,30 @@ var ndId = TeamOS.identity.create(TEAM_CONFIG, ND);
 var osuId = osu.TeamOS.identity.create(osu.TEAM_CONFIG, OSU);
 
 console.log(" notre-dame identity");
-eq(ndId.productName, "Irish Watch", "product name");
 eq(ndId.programLabel, "NOTRE DAME FOOTBALL", "program label");
-eq(ndId.title, "Irish Watch — Notre Dame football", "document title");
-eq(ndId.shareTitle, "Irish Watch — Notre Dame Football", "the share card keeps its own capitalisation");
-eq(ndId.shareDescription, "Game day. Every day.", "share description");
+["productName", "title", "description", "shareTitle", "shareDescription", "manifest", "assets"].forEach(function (k) {
+  ok(ndId[k] === undefined, "no identity." + k + ": the installed product is Suite's (decision 0024)");
+});
 eq(ndId.tagline, "Leave No Doubt.", "the team tagline (decision 0023)");
 eq(ndId.newsLabel, "LATEST FROM SOUTH BEND", "the News tab rule, unchanged wording");
-eq(ndId.manifest, "assets/notre-dame/manifest.json", "its own manifest");
 eq(ndId.colors.accent, "#C99700", "accent");
 eq(ndId.colors.accentText, "#C99700", "accent text is the same gold, because it passes");
 eq(ndId.colors.accentOnLight, "#876500", "on the Suite's light surfaces the gold darkens to a passing text tone");
 eq(ndId.colors.accentRgb, "201,151,0", "accent channels, for the stylesheet's 43 tints");
 eq(ndId.colors.surfaceRgb, "12,35,64", "surface channels");
-eq(Object.keys(ndId.assets).filter(function (k) { return ndId.assets[k]; }).sort(),
-   ["appleTouch", "favicon", "icon32", "icon64", "og"], "declares all five pieces of artwork");
-ok(Object.keys(ndId.assets).every(function (k) {
-  return !ndId.assets[k] || ndId.assets[k].indexOf("assets/notre-dame/") === 0;
-}), "all of it under its own team folder");
 
 console.log(" ohio-state identity");
-eq(osuId.productName, "Buckeye Watch", "product name");
 eq(osuId.programLabel, "OHIO STATE FOOTBALL", "program label");
-eq(osuId.title, "Buckeye Watch · Ohio State Football", "document title");
-eq(osuId.shareTitle, osuId.title, "no separate share title, so it falls back to the title");
 eq(osuId.tagline, null, "no tagline: Leave No Doubt. belongs to Notre Dame");
 eq(osuId.newsLabel, "LATEST BUCKEYE NEWS", "its own News tab rule");
 eq(osuId.colors.accent, "#BA0C2F", "BUX scarlet");
 eq(osuId.colors.accentText, "#EFF1F2", "accent TEXT is BUX gray-light, not a lightened scarlet");
 ok(osuId.colors.accentText !== osuId.colors.accent, "a team whose accent cannot carry text says so explicitly");
-eq(Object.keys(osuId.assets).filter(function (k) { return osuId.assets[k]; }), [], "declares no artwork, so none is referenced");
 eq(osuId.fonts.ui.indexOf("BuckeyeSans"), 1, "BuckeyeSans leads the UI stack");
 ok(/Barlow/.test(osuId.fonts.ui), "with a fallback, because the font files are not distributed");
 
 console.log(" the two teams differ where identity lives");
-["productName", "programLabel", "title", "description", "manifest", "newsLabel"].forEach(function (k) {
+["programLabel", "newsLabel"].forEach(function (k) {
   ok(ndId[k] !== osuId[k], "identity." + k + " differs");
 });
 ["accent", "accentText", "accentInk", "surface", "surfaceDeep"].forEach(function (k) {
@@ -590,12 +579,11 @@ console.log(" every configured team is legible (WCAG AA)");
 console.log(" a config that would ship an unreadable page is refused");
 function baseIdentity() {
   return { identity: {
-    productName: "P", programLabel: "L", title: "T", description: "D", manifest: "m.json",
-    newsLabel: "N",
+    programLabel: "L", newsLabel: "N",
     colors: { accent: "#BA0C2F", accentText: "#EFF1F2", accentOnLight: "#BA0C2F", accentInk: "#FFFFFF", accentSoft: "#A7B1B7",
               accentTint: "#EFF1F2", accentTintSoft: "#F6F7F8", focus: "#EFF1F2",
               surface: "#212325", surfaceDeep: "#0B1115", surfaceAbyss: "#070A0C", surfaceRaise: "#3F4443" },
-    fonts: { ui: "a", display: "b" }, assets: {} } };
+    fonts: { ui: "a", display: "b" } } };
 }
 ok((function () { try { TeamOS.identity.create(baseIdentity(), ND); return true; } catch (e) { return false; } })(),
    "the baseline config these cases mutate is itself valid");
@@ -613,9 +601,12 @@ idThrows(function (c) { c.identity.colors.surface = "#8A94A6"; }, "a surface too
 idThrows(function (c) { c.identity.colors.text = "#3F4443"; }, "a declared text colour that fails throws");
 idThrows(function (c) { c.identity.colors.accent = "BA0C2F"; }, "a colour that is not #rrggbb throws");
 idThrows(function (c) { delete c.identity.colors.surfaceDeep; }, "a missing colour throws");
-idThrows(function (c) { delete c.identity.productName; }, "a missing product name throws");
+idThrows(function (c) { delete c.identity.programLabel; }, "a missing program label throws");
 idThrows(function (c) { delete c.identity.fonts; }, "missing type throws");
-idThrows(function (c) { delete c.identity.manifest; }, "a missing manifest throws");
+["productName", "title", "description", "shareTitle", "shareDescription", "manifest", "assets"].forEach(function (k) {
+  idThrows(function (c) { c.identity[k] = k === "assets" ? {} : "x"; },
+           "a team that declares install identity (" + k + ") is refused: that is Suite's");
+});
 ok((function () { try { TeamOS.identity.create({}, ND); return false; } catch (e) { return true; } })(),
    "a config with no identity section throws");
 
@@ -752,16 +743,15 @@ ok(!/<style id="team-boot">/.test(idx), "the static token blocks are gone, repla
 ok(!fs.existsSync(path.join(root, "buckeye.html")), "and buckeye.html is retired");
 
 console.log(" its manifest");
-var osuMan = JSON.parse(read("assets/ohio-state/manifest.json"));
-var ndMan = JSON.parse(read("assets/notre-dame/manifest.json"));
-eq(osuMan.short_name, "Buckeye Watch", "short name");
-eq(osuMan.start_url, "../../?team=ohio-state", "installing it opens Buckeye Watch - the page plus its team, now that there is one page");
-eq(osuMan.icons, [], "no icons, because there is no approved artwork");
-eq(ndMan.start_url, "../../?team=notre-dame", "Notre Dame's carries its team too");
-ok(/\?team=/.test(ndMan.start_url) && /\?team=/.test(osuMan.start_url),
-   "every manifest names its team in start_url - one installed app per team, each opening its own");
-ok(ndMan.start_url !== osuMan.start_url, "and no two teams install to the same start URL");
-ok(osuMan.theme_color !== ndMan.theme_color, "the two manifests carry different theme colours");
+// Decision 0024 §11 reversed the per-team manifests: one installed Suite, the
+// same whichever team is chosen. identitycheck.js checks the rest of it.
+var suiteMan = JSON.parse(read("manifest.json"));
+eq(suiteMan.short_name, "Suite", "the installed app is Suite");
+eq(suiteMan.start_url, "./", "and opens at the neutral root; the stored team is restored after launch");
+ok(!/\?team=/.test(suiteMan.start_url), "no team in start_url: installing never picks a team for the fan");
+ok(!fs.existsSync(path.join(root, "assets/notre-dame/manifest.json")) &&
+   !fs.existsSync(path.join(root, "assets/ohio-state/manifest.json")), "the per-team manifests are gone");
+ok(/<link rel="manifest" href="manifest.json">/.test(idx), "the page links the one Suite manifest");
 
 
 

@@ -1,4 +1,4 @@
-/* Irish Watch service worker.
+/* Suite service worker.
 
    The point is the stadium: bad signal, a page that still opens. Three rules:
 
@@ -16,7 +16,7 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "suite-2026-09-24a";
+var VERSION = "suite-2026-09-24b";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -29,7 +29,13 @@ var SHELL_FILES = [
   "./suite/ui.js", "./suite/nav.js",
   "./teams/index.js",
   "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
-  "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js"
+  "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",
+  // Suite's install identity, the same for every team (decision 0024 §11).
+  // The manifest's own icons are read from it at install; these are the ones
+  // only index.html names. tools/identitycheck.js keeps the two lists equal.
+  "./manifest.json",
+  "./assets/suite/TEMPORARY-favicon-32.png", "./assets/suite/TEMPORARY-favicon-64.png",
+  "./assets/suite/TEMPORARY-apple-touch-180.png"
 ];
 
 // Where the worker records which team it has cached, inside the shell cache.
@@ -54,14 +60,17 @@ function addAll(cacheName, files) {
 }
 
 self.addEventListener("install", function (e) {
-  e.waitUntil(addAll(SHELL, SHELL_FILES).then(function () { return self.skipWaiting(); }));
+  e.waitUntil(addAll(SHELL, SHELL_FILES)
+    .then(function () { return cacheManifestIcons("./manifest.json"); })
+    .then(function () { return self.skipWaiting(); }));
 });
 
 /* ---- the team, told to the worker by the page ----------------------------
 
    The page knows which team it is; the worker does not. So after identity is
-   applied, the page posts this team's own files: its config, its artwork and
-   manifest, and the snapshot files the Action commits for it. The worker
+   applied, the page posts this team's own files: its config and the snapshot
+   files the Action commits for it. (Its manifest and artwork used to be in
+   that list; since decision 0024 they are Suite's and precached above.) The worker
    caches those and records whose they are.
 
    Switching teams has to undo the last one. Without that, the data cache
@@ -85,9 +94,9 @@ function writeMark(mark) {
   });
 }
 
-// A manifest names icons the identity block does not - the install icons and
-// the maskable one. Cache what it actually lists, so adding an icon to a
-// manifest is enough and there is no second list of artwork.
+// The manifest names the install icons and the maskable one. Cache what it
+// actually lists, so changing an icon in the manifest is enough and there is
+// no second list of install artwork.
 function cacheManifestIcons(manifestPath) {
   return caches.open(SHELL).then(function (c) {
     return c.match(manifestPath).then(function (r) {
@@ -109,7 +118,6 @@ function adoptTeam(msg) {
   if (typeof id !== "string" || !/^[a-z0-9-]+$/.test(id)) return Promise.resolve(false);
   var shell = (msg.shell || []).filter(function (f) { return typeof f === "string" && f; });
   var data  = (msg.data  || []).filter(function (f) { return typeof f === "string" && f; });
-  var manifest = msg.manifest;
 
   return readMark().then(function (was) {
     // A different team than the one cached. Drop exactly what the PREVIOUS
@@ -126,7 +134,6 @@ function adoptTeam(msg) {
     }
     return clear
       .then(function () { return Promise.all([addAll(SHELL, shell), addAll(DATA, data)]); })
-      .then(function () { return manifest ? cacheManifestIcons(manifest) : null; })
       .then(function () { return writeMark({ team: id, data: data }); })
       .then(function () { return true; });
   });

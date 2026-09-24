@@ -107,11 +107,11 @@ function boot(opts) {
            data:  function () { return Object.keys(store[sandbox.DATA]  || {}).sort(); } };
 }
 
-var ND = { type: "team", team: "notre-dame", manifest: "assets/notre-dame/manifest.json",
-  shell: ["teams/notre-dame.js", "assets/notre-dame/manifest.json", "assets/notre-dame/favicon.svg"],
+// What the page sends since decision 0024: a team's own shell is its config.
+// The manifest and install icons are Suite's, precached at install.
+var ND = { type: "team", team: "notre-dame", shell: ["teams/notre-dame.js"],
   data: ["depth.json", "depth-history.json", "odds-history.json", "news.json"] };
-var OSU = { type: "team", team: "ohio-state", manifest: "assets/ohio-state/manifest.json",
-  shell: ["teams/ohio-state.js", "assets/ohio-state/manifest.json"], data: [] };
+var OSU = { type: "team", team: "ohio-state", shell: ["teams/ohio-state.js"], data: [] };
 
 console.log("install");
 var w = boot();
@@ -123,8 +123,10 @@ function return_install() {
   ok(files.length > 0, "the worker precaches a shell");
   ok(!files.some(function (f) { return /teams\/(?!index)[a-z-]+\.js/.test(f); }),
      "and no team's config is in it - a worker cannot know which team this is");
-  ok(!files.some(function (f) { return /assets\/[a-z-]+\//.test(f); }),
+  ok(!files.some(function (f) { return /assets\/(?!suite\/)[a-z-]+\//.test(f); }),
      "nor any team's artwork");
+  ok(files.indexOf("./manifest.json") !== -1,
+     "the one Suite manifest is, because the installed product is the same for every team (decision 0024)");
   ok(files.indexOf("./teams/index.js") !== -1, "the registry is, because it belongs to no team");
   ok(files.indexOf("./app.js") !== -1 && files.indexOf("./app.css") !== -1, "and the application itself");
   var data = (src.match(/var DATA_FILES/) || [])[0];
@@ -135,8 +137,8 @@ console.log("the page names its team");
 w = boot();
 w.fire("message", ND).then(function () {
   eq(w.shell().filter(function (f) { return /teams\/|assets\//.test(f); }),
-     ["assets/notre-dame/favicon.svg", "assets/notre-dame/manifest.json", "teams/notre-dame.js"],
-     "the team's own shell is cached");
+     ["teams/notre-dame.js"],
+     "the team's own shell is cached: its config, and no install identity of its own");
   eq(w.data(), ["depth-history.json", "depth.json", "news.json", "odds-history.json"],
      "and the snapshot files it declared");
 
@@ -177,13 +179,13 @@ w.fire("message", ND).then(function () {
     eq(w3.data(), ["odds-title.json"], "the league-wide file is still there after switching team");
   });
 }).then(function () {
-  console.log(" a manifest's own icons are cached");
-  var w4 = boot({ bodies: { "assets/notre-dame/manifest.json": JSON.stringify({
-    icons: [{ src: "icon-192.png" }, { src: "icon-512.png" }, { src: "https://cdn.example/x.png" }] }) } });
-  return w4.fire("message", ND).then(function () {
-    var icons = w4.shell().filter(function (f) { return /icon-\d+\.png$/.test(f); }).sort();
-    eq(icons, ["assets/notre-dame/icon-192.png", "assets/notre-dame/icon-512.png"],
-       "resolved relative to the manifest, so adding one to a manifest is enough");
+  console.log(" the Suite manifest's own icons are cached at install");
+  var w4 = boot({ bodies: { "./manifest.json": JSON.stringify({
+    icons: [{ src: "assets/suite/icon-192.png" }, { src: "assets/suite/icon-512.png" }, { src: "https://cdn.example/x.png" }] }) } });
+  return w4.fire("install").then(function () {
+    var icons = w4.shell().filter(function (f) { return /\/suite\/icon-\d+\.png$/.test(f); }).sort();
+    eq(icons, ["./assets/suite/icon-192.png", "./assets/suite/icon-512.png"],
+       "resolved relative to the manifest, so changing one in the manifest is enough");
     ok(w4.fetched.every(function (u) { return !/^https:\/\/cdn\.example/.test(u); }),
        "an icon on another origin is left alone");
   });

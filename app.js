@@ -62,70 +62,25 @@ function $(id){ return document.getElementById(id); }
 function say(msg){ $("live").textContent = msg; }
 
 /* ---------- identity ---------- */
-// Everything that says whose product this is: the document head, the header
-// lockup, the motto, and the team tokens the stylesheet reads. Before Phase 6
-// all of it was authored into index.html, manifest.json and app.css, so a
-// second team's page still called itself by the first team's name, in
-// the first team's colours (phase-5a-ohio-state-proof.md, finding 4). It is
-// object from the team config, applied once, here.
-//
-// Artwork is optional and independent: a team that declares no icon gets no
-// icon tag rather than a link to a file that is not there.
+// The selected team's identity INSIDE Suite: the masthead, the tagline and
+// the team tokens the stylesheet reads, from the team config, applied once,
+// here. The product itself - its installed name, manifest, icons and share
+// card - is Suite's, the same for every team, and lives in index.html and
+// manifest.json (decision 0024 §11). The one head value a team changes is
+// the tab title, "<Program> · Suite", and the browser chrome colour.
 var ID = TeamOS.identity.create(TEAM_CONFIG, TEAM);
+var DOC_TITLE = TEAM.name + " \u00B7 Suite";
 
 function paintIdentity(){
-  var head = document.head;
-
-  // A head tag is set when the team has a value for it and removed when it
-  // does not, so the document never points at missing artwork.
-  function tag(sel, make, attr, value){
-    var el = head.querySelector(sel);
-    if(value == null){ if(el) el.parentNode.removeChild(el); return; }
-    if(!el){ el = make(); head.appendChild(el); }
-    el.setAttribute(attr, value);
-  }
-  function meta(key, value, prop){
-    var a = prop ? "property" : "name";
-    tag("meta["+a+'="'+key+'"]', function(){
-      var m = document.createElement("meta"); m.setAttribute(a, key); return m;
-    }, "content", value);
-  }
-  function icon(sel, rel, sizes, type, value){
-    tag(sel, function(){
-      var l = document.createElement("link");
-      l.setAttribute("rel", rel);
-      if(sizes) l.setAttribute("sizes", sizes);
-      if(type)  l.setAttribute("type", type);
-      return l;
-    }, "href", value);
-  }
   function text(sel, value){
     var el = document.querySelector(sel); if(el) el.textContent = value;
   }
 
   // ---- the document ----
-  document.title = ID.title;
-  meta("description", ID.description);
+  document.title = DOC_TITLE;
   // The browser chrome matches what sits under it: the team's header.
-  meta("theme-color", ID.colors.surfaceDeep);
-  meta("application-name", ID.productName);
-  meta("apple-mobile-web-app-title", ID.productName);
-  meta("og:title", ID.shareTitle, true);
-  meta("og:description", ID.shareDescription, true);
-  meta("twitter:title", ID.shareTitle);
-  meta("twitter:description", ID.shareDescription);
-  // The share image and its dimensions stand or fall together.
-  meta("og:image", ID.assets.og, true);
-  meta("og:image:width",  ID.assets.og ? "1200" : null, true);
-  meta("og:image:height", ID.assets.og ? "630"  : null, true);
-  meta("twitter:image", ID.assets.og);
-  meta("twitter:card", ID.assets.og ? "summary_large_image" : null);
-
-  icon('link[rel="icon"][type="image/svg+xml"]', "icon", null,    "image/svg+xml", ID.assets.favicon);
-  icon('link[rel="icon"][sizes="32x32"]',        "icon", "32x32", "image/png",     ID.assets.icon32);
-  icon('link[rel="icon"][sizes="64x64"]',        "icon", "64x64", "image/png",     ID.assets.icon64);
-  icon('link[rel="apple-touch-icon"]', "apple-touch-icon", "180x180", null,        ID.assets.appleTouch);
-  icon('link[rel="manifest"]', "manifest", null, null, ID.manifest);
+  var tc = document.querySelector('meta[name="theme-color"]');
+  if(tc) tc.setAttribute("content", ID.colors.surfaceDeep);
 
   // ---- the page ----
   text("#heroHead", "Next "+TEAM.name+" game");
@@ -176,7 +131,7 @@ function paintIdentity(){
       var name=r[i];
       if(name.indexOf("--")===0) boot[name]=r.getPropertyValue(name);
     }
-    boot.title      = ID.title;
+    boot.title      = DOC_TITLE;
     boot.themeColor = ID.colors.surfaceDeep;
     localStorage.setItem("iw-boot-"+TEAM.id, JSON.stringify(boot));
   }catch(e){}   // private mode, blocked storage, a full quota: the page is fine without it
@@ -207,15 +162,11 @@ if("serviceWorker" in navigator){
 // What this team's offline copy consists of. The worker has no TEAM_CONFIG
 // and no localStorage, so it cannot work this out for itself - it precaches
 // only the half of the shell that belongs to no team, and the page tells it
-// the rest (decision 0015). Every path is derived from the team's own
-// configuration, so a team that adds artwork or a snapshot gets it cached
-// without a second list to remember.
+// the rest (decision 0015). The manifest and install icons are Suite's and
+// precached with the shared shell (decision 0024), so a team's own shell is
+// its config; its data is what it declares.
 function teamCacheManifest(){
-  var shell = ["teams/"+TEAM.id+".js", ID.manifest];
-  ["favicon","icon32","icon64","appleTouch","og"].forEach(function(k){
-    if(ID.assets[k]) shell.push(ID.assets[k]);
-  });
-  return { type:"team", team:TEAM.id, shell:shell, manifest:ID.manifest,
+  return { type:"team", team:TEAM.id, shell:["teams/"+TEAM.id+".js"],
            data:TeamOS.snapshots.files(TEAM_CONFIG) };
 }
 

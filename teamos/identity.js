@@ -1,8 +1,7 @@
 /* TeamOS - team identity.
 
-   What the Suite needs in order to *present* a team: the product's name for
-   this team, the words in the document head, the team's colours and type,
-   and the paths to its artwork. Phase 5A showed that every ESPN-fed surface
+   What the Suite needs in order to *present* a team inside it: the team's
+   colours and type, its tagline and its labels. Phase 5A showed that every ESPN-fed surface
    rendered a second team from configuration alone while the page still
    called itself Irish Watch in Notre Dame navy and gold - because identity
    was authored into index.html, manifest.json and app.css rather than
@@ -11,7 +10,7 @@
      TEAM_CONFIG.identity + Team  ->  TeamOS.identity.create()  ->  Identity
                                                                       |
                                               app.js paintIdentity()  v
-                                       document head, header, :root colour tokens
+                                       masthead, :root colour tokens
 
    The rules this file enforces, so that a team config cannot ship a page
    nobody can read (docs/decisions/0009-identity-is-team-data.md):
@@ -31,9 +30,11 @@
    accentText that can. Nothing here lightens or darkens a team's colour -
    the configuration decides, this file only refuses what fails.
 
-   Assets are optional, one by one. A team with no artwork declares none and
-   the Suite omits those tags entirely rather than pointing at a file that
-   is not there. */
+   What a team does NOT own is the product itself (decision 0024 §11). The
+   installed app, its name, icons, favicon, manifest and default share card
+   are Suite's, one set for every team, in index.html and manifest.json. A
+   team config that still declares any of those is refused, so no team can
+   put its own brand back on the install. */
 
 var TeamOS = TeamOS || {};
 
@@ -41,6 +42,12 @@ TeamOS.identity = (function () {
   "use strict";
 
   var MIN = 4.5;                    // WCAG AA, normal text
+
+  // Fields a team identity used to carry and no longer may: they made the
+  // installed product a team's (decision 0009, superseded here in part by
+  // decision 0024 §11).
+  var SHELL_OWNED = ["productName", "title", "description", "shareTitle", "shareDescription",
+                     "manifest", "assets"];
 
   // The Suite's own light surfaces, which every team's light-UI colours are
   // checked against. They are the Suite's, not a team's: they mirror
@@ -123,23 +130,20 @@ TeamOS.identity = (function () {
     var i = config && config.identity;
     if (!i || typeof i !== "object") fail("the team config has no identity section");
 
+    SHELL_OWNED.forEach(function (k) {
+      if (i[k] !== undefined) fail("identity." + k + " is Suite's, not a team's: the installed product, its " +
+                                   "head, icons and share card are the same for every team (decision 0024)");
+    });
+
     var id = {
-      productName:  str(i, "productName",  "identity."),
       programLabel: str(i, "programLabel", "identity."),
-      title:        str(i, "title",        "identity."),
-      description:  str(i, "description",  "identity."),
-      // The document head and the share cards are allowed to read
-      // differently; a team that does not distinguish them says it once.
-      shareTitle:       i.shareTitle       == null ? str(i, "title", "identity.")       : str(i, "shareTitle", "identity."),
-      shareDescription: i.shareDescription == null ? str(i, "description", "identity.") : str(i, "shareDescription", "identity."),
       // A tagline is a team thing, not a product thing. Most teams have none,
       // and the Suite renders correctly without one.
       tagline:  i.tagline == null ? null : str(i, "tagline", "identity."),
       // The News tab's section rule. It named a city in CSS until the
       // Ohio State proof found it (phase-6 report), which is exactly the
       // kind of copy that has to be the team's, not the stylesheet's.
-      newsLabel: str(i, "newsLabel", "identity."),
-      manifest: str(i, "manifest", "identity.")
+      newsLabel: str(i, "newsLabel", "identity.")
     };
 
     // ---- colours ----
@@ -178,15 +182,6 @@ TeamOS.identity = (function () {
     var f = {};
     FONTS.forEach(function (k) { f[k] = str(i.fonts, k, "identity.fonts."); });
     id.fonts = Object.freeze(f);
-
-    // ---- artwork ----
-    // Every one optional and independent: what is declared is used, what is
-    // not is left out of the document rather than pointed at and missing.
-    var a = {}, have = i.assets || {};
-    ["favicon", "icon32", "icon64", "appleTouch", "og"].forEach(function (k) {
-      a[k] = have[k] == null ? null : str(have, k, "identity.assets.");
-    });
-    id.assets = Object.freeze(a);
 
     id.team = team ? team.id : null;
     return Object.freeze(id);

@@ -192,7 +192,7 @@ eq(r.picks.filter(function (p) { return p.openable; }).map(function (p) { return
 ok(r.picks.filter(function (p) { return !p.openable; }).length > 0,
    "programs without a config are shown, not hidden");
 ok(REGLIVE.all().length > 100, "the roster is a full FBS one, not a stub");
-eq(r.title, "Find Your Team \u00b7 Suite", "the tab says what the page is");
+eq(r.title, "Suite", "no team is chosen yet, so the tab says Suite alone (decision 0024)");
 ok(/<h1 id="chooseHead">Find Your Team<\/h1>/.test(r.html), "the page asks the canonical question");
 ok(/Choose your team to get started\./.test(r.html), "and explains it in a line");
 
