@@ -583,6 +583,17 @@ TeamOS.espn = (function () {
       return SITE+"/rankings";
     },
 
+    // A program's mark (logo), hosted by the provider. The Suite asks for a
+    // team's mark and never learns how the provider builds the address - the
+    // same URL ESPN's own payloads carry as team.logo. `dark` is the variant
+    // drawn for dark backgrounds. No id, no mark: the view shows its own
+    // fallback (the program's initials), never a broken image.
+    mark: function(providerId, dark){
+      var id=String(providerId==null?"":providerId);
+      if(!/^[0-9]+$/.test(id)) return null;
+      return "https://a.espncdn.com/i/teamlogos/ncaa/"+(dark?"500-dark":"500")+"/"+id+".png";
+    },
+
     // ESPN's roster payload -> RosterGroup[]: { key, label, players }. Either a
     // flat athletes array or one grouped by unit; empty units (IR, practice
     // squad) are dropped, and a flat list becomes one group called "Roster".

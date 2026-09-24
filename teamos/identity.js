@@ -20,6 +20,9 @@
      - accentText on the team's deepest surface is at least 4.5:1
      - accentInk on the team's accent is at least 4.5:1
      - a declared text colour on that surface is at least 4.5:1
+     - on the Suite's LIGHT surfaces (the canonical Suite is ivory pages and
+       white cards): accentOnLight, and the team's surface colour used as
+       heading ink, are at least 4.5:1 on both
 
    A team that fails any of those throws at startup with the measured ratio,
    the same way createTeam() throws on a malformed team section. The accent
@@ -39,11 +42,18 @@ TeamOS.identity = (function () {
 
   var MIN = 4.5;                    // WCAG AA, normal text
 
+  // The Suite's own light surfaces, which every team's light-UI colours are
+  // checked against. They are the Suite's, not a team's: they mirror
+  // --s-surface and --s-page in app.css, and adaptercheck asserts the two
+  // stay equal.
+  var LIGHT = { surface: "#FFFFFF", page: "#F6F4EF" };
+
   // Colour tokens every team supplies. Each is a role the stylesheet asks
   // for by name; none of them is a Notre Dame or an Ohio State value.
   var COLORS = [
     "accent",          // fills, rules, indicators, active states
     "accentText",      // accent-coloured TEXT - must pass on surfaceDeep
+    "accentOnLight",   // accent-coloured TEXT on the Suite's light surfaces
     "accentInk",       // text and icons drawn ON an accent fill
     "accentSoft",      // a muted tone of the accent, for small labels
     "accentTint",      // a light tone of the accent, for emphasis on dark
@@ -58,7 +68,10 @@ TeamOS.identity = (function () {
   // the stylesheet's own values stand.
   var OPTIONAL_COLORS = ["text", "textDim"];
 
-  var FONTS = ["ui", "display", "headline"];
+  // A team may bring its own ui and display faces. Editorial type (news
+  // headlines) is the Suite's, not a team's: a Notre Dame-coded face must
+  // not become the platform's voice for every other team.
+  var FONTS = ["ui", "display"];
 
   function fail(what) { throw new Error("TeamOS.identity: " + what); }
 
@@ -119,8 +132,9 @@ TeamOS.identity = (function () {
       // differently; a team that does not distinguish them says it once.
       shareTitle:       i.shareTitle       == null ? str(i, "title", "identity.")       : str(i, "shareTitle", "identity."),
       shareDescription: i.shareDescription == null ? str(i, "description", "identity.") : str(i, "shareDescription", "identity."),
-      // A motto is a team thing, not a product thing. Most teams have none.
-      motto:    i.motto == null ? null : str(i, "motto", "identity."),
+      // A tagline is a team thing, not a product thing. Most teams have none,
+      // and the Suite renders correctly without one.
+      tagline:  i.tagline == null ? null : str(i, "tagline", "identity."),
       // The News tab's section rule. It named a city in CSS until the
       // Ohio State proof found it (phase-6 report), which is exactly the
       // kind of copy that has to be the team's, not the stylesheet's.
@@ -148,6 +162,13 @@ TeamOS.identity = (function () {
       accentSoft: require([c.accentSoft, c.surfaceDeep], MIN, "identity.colors.accentSoft on surfaceDeep"),
       accentInk:  require([c.accentInk,  c.accent],      MIN, "identity.colors.accentInk on accent"),
       text: c.text == null ? null : require([c.text, c.surfaceDeep], MIN, "identity.colors.text on surfaceDeep"),
+      accentOnLight: Math.min(
+        require([c.accentOnLight, LIGHT.surface], MIN, "identity.colors.accentOnLight on the Suite's white surface"),
+        require([c.accentOnLight, LIGHT.page],    MIN, "identity.colors.accentOnLight on the Suite's page")),
+      // The team's surface is also its heading ink on light pages.
+      surfaceOnLight: Math.min(
+        require([c.surface, LIGHT.surface], MIN, "identity.colors.surface as ink on the Suite's white surface"),
+        require([c.surface, LIGHT.page],    MIN, "identity.colors.surface as ink on the Suite's page")),
       // Reported, never enforced: an accent is a fill, not a typeface.
       accentOnSurface: round(contrast(c.accent, c.surfaceDeep))
     });
@@ -171,5 +192,5 @@ TeamOS.identity = (function () {
     return Object.freeze(id);
   }
 
-  return { create: create, contrast: contrast, luminance: luminance, MIN: MIN };
+  return { create: create, contrast: contrast, luminance: luminance, MIN: MIN, LIGHT: LIGHT };
 })();

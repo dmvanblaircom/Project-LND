@@ -137,9 +137,9 @@ var TEAM_CONFIG = {
     description:      "Irish Watch \u2014 a Notre Dame football game-day dashboard.",
     shareDescription: "Game day. Every day.",
 
-    // The 2026 team motto. A team thing, not a platform tagline: a team
-    // without one says null and the Suite leaves the line out.
-    motto: "Leave No Doubt",
+    // The team's tagline. A team thing, not Suite copy: a team without one
+    // says null and the Suite leaves the line out.
+    tagline: "Leave No Doubt.",
 
     // The rule above the News tab. Unchanged wording.
     newsLabel: "LATEST FROM SOUTH BEND",
@@ -155,6 +155,7 @@ var TEAM_CONFIG = {
     colors: {
       accent:         "#C99700",
       accentText:     "#C99700",
+      accentOnLight:  "#876500",   // the gold as text on ivory/white: 4.91:1 / 5.40:1
       accentInk:      "#07192F",
       accentSoft:     "#D8B84F",
       accentTint:     "#FFE38A",
@@ -167,12 +168,11 @@ var TEAM_CONFIG = {
       surfaceRaise:   "#143865"
     },
 
-    // ui carries body copy, display the condensed athletic voice, headline
-    // the motto. Unchanged from the stylesheet that shipped.
+    // ui carries body copy, display the condensed athletic voice - the
+    // Suite's own Barlow family. Editorial type is the Suite's, not a team's.
     fonts: {
       ui:       "'Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'Barlow Condensed',sans-serif",
-      headline: "'Grenze Gotisch','Barlow Condensed',serif"
+      display:  "'Barlow Condensed',sans-serif"
     },
 
     assets: {

@@ -60,8 +60,8 @@ var TEAM_CONFIG = {
     description:      "Buckeye Watch \u2014 an Ohio State football game-day dashboard.",
     shareDescription: "Everything Buckeye football, in one place.",
 
-    // No motto: "Leave No Doubt" is Notre Dame's, not the platform's.
-    motto: null,
+    // No tagline: "Leave No Doubt." is Notre Dame's, not the platform's.
+    tagline: null,
 
     newsLabel: "LATEST BUCKEYE NEWS",
 
@@ -70,6 +70,7 @@ var TEAM_CONFIG = {
     colors: {
       accent:         "#BA0C2F",   // BUX scarlet
       accentText:     "#EFF1F2",   // BUX gray-light-80, 16.77:1 on the page
+      accentOnLight:  "#BA0C2F",   // scarlet as text on ivory/white: 6.01:1 / 6.60:1
       accentInk:      "#FFFFFF",   // on a scarlet fill, 6.60:1
       accentSoft:     "#A7B1B7",   // BUX gray, 8.70:1 - small labels
       accentTint:     "#EFF1F2",
@@ -93,8 +94,7 @@ var TEAM_CONFIG = {
     // change, not an architectural one.
     fonts: {
       ui:       "'BuckeyeSans','Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'BuckeyeSans','Barlow Condensed',sans-serif",
-      headline: "'BuckeyeSerif','Barlow Condensed',serif"
+      display:  "'BuckeyeSans','Barlow Condensed',sans-serif"
     },
 
     // No approved Ohio State artwork exists in this repository. Declaring

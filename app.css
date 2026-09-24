@@ -1,58 +1,81 @@
-/* The Suite - one stylesheet, one pass.
+/* The Suite - canonical system (docs/decisions/0023).
 
-   Order matters and is deliberate: base rules first, then the @media blocks at
-   the foot of the file from widest to narrowest, then the preference queries.
-   A narrower breakpoint therefore always wins over a wider one, and a media
-   rule always wins over the base rule it refines. Add new rules to the section
-   they belong to - do not append a fresh override layer at the bottom. */
+   One stylesheet, in this order, and new rules go in the section they belong
+   to - never a fresh override layer at the bottom:
 
-@keyframes reveal{from{opacity:0;transform:translateY(.4rem)}to{opacity:1;transform:none}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+     1. Suite tokens         the product's own: surfaces, ink, semantics, type,
+                             radii, shadows, spacing. Never change with a team.
+     2. Team identity tokens --t-*, replaced wholesale at startup from the
+                             team's config (TeamOS.identity). Nobody's here.
+     3. Reset and base
+     4. Layout               header, masthead, main column, bottom nav
+     5. Components           art slot, marks, card, section head, buttons,
+                             segmented controls, site badges, live pill
+     6. Screens              chooser, then each screen as it is rebuilt
+     7. Responsive           widest first, so a narrower block always wins
+     8. Preferences          reduced motion, last
+
+   Screens not yet rebuilt live in legacy.css, scoped under .legacy - a
+   quarantine that shrinks each phase, not a layer on top of this one. */
 
 /* ====================================================================
-   PALETTE
+   1. SUITE TOKENS
    ==================================================================== */
-/* Two groups, and the difference between them is the point of Phase 6: the
-   --t-* tokens belong to whichever team this Suite is configured for and are
-   replaced wholesale at startup, while the neutrals and the semantic tones
-   below them are the Suite's own and never change with the team.
-
-   The team values checked in here are the deployed product's, so the page
-   paints correctly before any script runs. Two of the neutrals are
-   deliberate contrast lifts: --inplay reaches 5.8:1 on a dark surface where
-   a team's own green would sit at 3.3:1, and --dim is tuned to 7.3:1 so
-   secondary text still passes. */
 :root{
-  /* Page side padding. .wrap consumes it and the sticky header mirrors it with
-     negative margins, so they must agree or the header leaves transparent
-     strips at the screen edges. Steps up on desktop and down on phones in the
-     @media blocks at the foot of the file. */
+  /* Surfaces. The canonical Suite is ivory pages and white cards. --s-page
+     and --s-surface are mirrored in TeamOS.identity.LIGHT, which checks
+     every team's light-UI colours against them; adaptercheck keeps the two
+     equal. */
+  --s-page:#F6F4EF;
+  --s-surface:#FFFFFF;
+  --s-inset:#F0F2F5;           /* segmented tracks, away badges, insets */
+  --s-chrome:#0B1F3A;          /* the Suite's own header, before a team is chosen */
+
+  /* Ink, measured on white and on the ivory page. */
+  --s-ink:#0F1B2D;             /* 17.3:1 / 15.7:1 */
+  --s-ink-2:#3B4658;           /*  9.5:1 /  8.7:1 */
+  --s-muted:#5D6A7E;           /*  5.5:1 /  5.0:1 */
+  --s-on-dark:#FFFFFF;
+  --s-on-dark-2:#D5DCE6;       /* secondary text on dark team art */
+
+  --s-line:#E3E6EC;
+  --s-line-strong:#CDD3DC;
+
+  /* Semantics. Text-safe on white and ivory (>= 5.3:1); the live fill
+     carries white text at 5.9:1. Not team colours. */
+  --s-live:#C8102E;
+  --s-win:#177245;
+  --s-loss:#B42318;
+  --s-football:#7A4A21;        /* the possession football, one place */
+
+  /* Type. The Barlow family is the Suite's foundation; a team may bring its
+     own ui/display faces through --t-font-*. Editorial type (news headlines)
+     is the Suite's alone. */
+  --s-font-editorial:Georgia,Charter,"Times New Roman",serif;
+
+  /* Shape and depth. */
+  --s-radius-card:14px;
+  --s-radius-ctl:10px;
+  --s-radius-pill:999px;
+  --s-shadow-card:0 1px 2px rgba(15,27,45,.05),0 4px 14px rgba(15,27,45,.06);
+  --s-shadow-raise:0 6px 22px rgba(15,27,45,.14);
+
+  /* Layout. */
   --gutter:1rem;
+  --s-content-max:40rem;
+  --s-bar-h:3.5rem;            /* the compact SUITE header, without the safe area */
+  --s-nav-h:4.1rem;            /* the bottom nav, without the safe area */
 
-  /* ---- team tokens ----------------------------------------------------
-     The colours, rgb channel triples and type stacks belonging to whichever
-     team this Suite is showing. The values below are NOBODY'S - a neutral
-     slate, so a page that has not yet learned its team paints something
-     legible instead of some other team's colours.
-
-     They used to be Notre Dame's, which meant every other team's FIRST paint
-     was Notre Dame's, and on iOS Safari the browser chrome kept it for the
-     life of the page (docs/engineering/first-paint-team-tokens.md). A default
-     that is nobody's cannot be the wrong team.
-
-     paintIdentity() in app.js sets every one of them from TEAM_CONFIG.identity
-     at startup and stores the set; the boot script in the page head replays it
-     on the next visit, before this file is even parsed. So these are what a
-     first-ever visit to a team sees, and nothing else.
-
-     accent is a FILL - rules, indicators, active states, marks.
-     accent-text is text that must stay legible on the page, which is not
-     always the same colour: a team's crest colour often is not, and TeamOS
-     refuses a config whose accent-text does not reach 4.5:1
-     (docs/decisions/0009-identity-is-team-data.md). The neutral below clears
-     it: accent-text 11.7:1 on deep, accent-soft 7.7:1, accent-ink 4.7:1 on
-     the accent fill. */
+/* ====================================================================
+   2. TEAM IDENTITY TOKENS
+   Nobody's: a neutral slate, so a page that has not learned its team yet
+   paints something legible and never another team's colours
+   (docs/engineering/first-paint-team-tokens.md). paintIdentity() replaces
+   every one from TEAM_CONFIG.identity; the boot script replays that set on
+   the next visit before this file is parsed.
+   ==================================================================== */
   --t-accent:#737E8D;--t-accent-rgb:115,126,141;--t-accent-text:#C2CBD6;--t-accent-ink:#0B0E12;
+  --t-accent-on-light:#4F5A68;
   --t-accent-soft:#9AA5B3;--t-accent-tint:#D6DDE6;--t-accent-tint-soft:#EDF1F5;--t-focus:#C2CBD6;
   --t-surface:#161A20;--t-surface-rgb:22,26,32;
   --t-deep:#0C0F13;--t-deep-rgb:12,15,19;
@@ -61,641 +84,233 @@
   --t-news-label:"LATEST NEWS";
   --t-font-ui:'Barlow',system-ui,-apple-system,sans-serif;
   --t-font-display:'Barlow Condensed',sans-serif;
-  --t-font-headline:'Grenze Gotisch','Barlow Condensed',serif;
-
-  /* ---- Suite neutrals and semantics -----------------------------------
-     Not team data: the dark-UI text hierarchy, the borders, and the tones
-     the data views need for won/lost/live/neutral. --paper and --dim may be
-     overridden by a team that needs a different text neutral on its own
-     surface; everything else here is the Suite's. Two tones are deliberate
-     lifts for contrast: --inplay reaches 5.8:1 and --dim 7.3:1. */
-  --ink-2:#102844;--ink-3:#294A6E;--parch:#F2EFE6;--dim:#9DAABC;--win:#6FD69B;--loss:#F5A79C;--live-fg:#FFFFFF;--live-fg-2:#FFD9D3;--neutral:#7FC8E8;--live:#FF5A4E;--inplay:#4FAE78;color-scheme:dark;--paper:#F8F4EC;--muted:#9AA9BA;--line:rgba(154,169,186,.18);
-
-  /* Derived from the accent, so a team supplies one colour and not three. */
   --t-accent-line:rgba(var(--t-accent-rgb),.30)}
 
 /* ====================================================================
-   THE CHOOSER
-   A fan who has not picked a team yet. Painted entirely in the neutral
-   :root - nobody's colours - because we have not been told whose to use
-   (docs/decisions/0016-no-team-yet-is-a-state.md).
-   ==================================================================== */
-.chooser{max-width:34rem;margin:0 auto;padding:2.5rem 0 4rem}
-.chooser h1{font-family:var(--t-font-display);font-weight:700;font-size:2.1rem;line-height:1.1;letter-spacing:.01em;margin:0 0 .5rem;color:var(--paper)}
-.chooser-sub{margin:0 0 1.5rem;color:var(--dim);font-size:1rem;line-height:1.5}
-
-/* Filtering sets the hidden attribute, and these elements carry a display
-   that would otherwise beat it: .chooser-group is flex, the two lists are
-   grid, a .soon card is flex. Chromium's UA sheet marks [hidden] important
-   and would win anyway; WebKit's does not, so on the browser this product
-   actually ships to, a filtered-out program would still be on screen. Say it
-   in the author sheet and it holds everywhere. */
-.chooser [hidden]{display:none}
-
-/* Search. type=search for the platform's own clear affordance; the field is
-   full width because on a phone it is the primary control on the page. */
-.chooser-search{margin:0 0 .6rem}
-.chooser-search input{width:100%;box-sizing:border-box;min-height:3rem;padding:.7rem 1rem;border:1px solid var(--line);border-radius:10px;background:rgba(var(--t-surface-rgb),.55);color:var(--paper);font-family:var(--t-font-ui);font-size:1.05rem;-webkit-appearance:none;appearance:none}
-.chooser-search input::placeholder{color:var(--dim)}
-.chooser-search input:focus-visible{outline:2px solid var(--t-focus);outline-offset:2px;border-color:var(--t-accent-text)}
-.chooser-count{margin:0 0 1.5rem;color:var(--dim);font-size:.85rem;min-height:1.2em}
-
-/* What you can open. A real control: full width, its own surface, an arrow. */
-.chooser-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
-.pick{display:flex;align-items:center;justify-content:space-between;gap:.75rem;width:100%;min-height:3.5rem;padding:.7rem 1rem;border:1px solid var(--line);border-radius:10px;background:rgba(var(--t-surface-rgb),.55);color:var(--paper);font-family:var(--t-font-ui);font-size:1.05rem;text-align:left;cursor:pointer;transition:border-color .16s,background .16s,transform .16s}
-.pick:hover{border-color:var(--t-accent-text);background:rgba(var(--t-raise-rgb),.55);transform:translateY(-1px)}
-.pick:focus-visible{outline:2px solid var(--t-focus);outline-offset:2px}
-.pick-main{display:flex;flex-direction:column;gap:.15rem;min-width:0}
-.pick-name{font-weight:500}
-.pick-conf{font-size:.78rem;color:var(--dim);letter-spacing:.01em}
-.pick-go{color:var(--t-accent-text);font-size:1.15rem;flex:none}
-
-/* What is not built yet. Deliberately NOT a dimmed copy of the row above:
-   a different kind of thing, drawn as one. Small, dense, no button, no tab
-   stop, nothing to press that would do nothing. 136 of these stacked full
-   width would be a quarter-mile of scroll and would read as a broken page. */
-.chooser-group{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;font-family:var(--t-font-display);font-weight:600;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t-accent-text);margin:2.25rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
-.chooser-groupnote{font-weight:500;letter-spacing:.06em;color:var(--dim);flex:none}
-.chooser-soon{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.4rem}
-.soon{display:flex;flex-direction:column;gap:.1rem;min-width:0;padding:.5rem .7rem;border:1px dashed var(--line);border-radius:8px;color:var(--dim)}
-.soon-name{font-family:var(--t-font-ui);font-size:.9rem;font-weight:500;color:var(--paper);opacity:.72}
-.soon-conf{font-size:.7rem;letter-spacing:.01em}
-
-.chooser-empty{margin:1.5rem 0 0;color:var(--dim);font-size:.9rem;line-height:1.55}
-
-/* ====================================================================
-   BASE
+   3. RESET AND BASE
    ==================================================================== */
 *{box-sizing:border-box}
-/* The browser scrolls a focused element only until it touches the edge of the
-   viewport - which is under the fixed tab bar at the bottom and the sticky
-   header at the top. Without this, tabbing to the last schedule row hid it
-   entirely (WCAG 2.4.11). Also keeps the skip link's target clear. */
-html{scroll-padding-top:5.5rem;scroll-padding-bottom:calc(7.5rem + env(safe-area-inset-bottom,0px))}
-/* Some embedded webviews force a light canvas. Declare the scheme, then paint
-   the background on html, body AND .page so at least one of them wins. */
-html,body{margin:0;padding:0;background:radial-gradient(circle at 50% -10%, rgba(var(--t-raise-rgb),.55), transparent 38rem),
-      var(--t-deep) !important}
-body{font-family:var(--t-font-ui);font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased;color:var(--paper);background:linear-gradient(180deg,var(--t-abyss) 0%,var(--t-surface) 45%,var(--t-abyss) 100%) !important}
-/* .page once used overflow:hidden to clip its decorative circle, but that makes
-   it a scroll container and position:sticky then has nothing to stick to.
-   overflow:clip clips without creating one. */
-.page{position:relative;isolation:isolate;min-height:100dvh;padding-top:0;padding-bottom:calc(8rem + env(safe-area-inset-bottom, 0px));overflow:visible;overflow-x:clip;background:transparent !important}
-/* Gutters carry the responsive step AND the iOS notch inset together, in one
-   calc(), so no later rule can drop one without the other. */
-.wrap{
-  margin:0 auto;
-  max-width:54rem;
-  padding:0 0 3rem;
-  padding-left:calc(var(--gutter) + env(safe-area-inset-left, 0px));
-  padding-right:calc(var(--gutter) + env(safe-area-inset-right, 0px));
-}
-
-/* ====================================================================
-   ACCESSIBILITY PRIMITIVES
-   ==================================================================== */
-/* 2.4.7 - one visible focus style everywhere, never removed. */
-:focus-visible{outline:3px solid var(--t-focus);outline-offset:2px;border-radius:2px}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.skip{position:absolute;left:1rem;top:-4rem;z-index:10;background:var(--t-accent);color:var(--t-accent-ink);font-weight:600;padding:.75rem 1rem;border-radius:3px;text-decoration:none}
-.skip:focus{top:.75rem}
-/* One disclosure indicator everywhere something expands: schedule rows,
-   folds, and the two market cards. Same glyph family, size and colour, so
-   "this opens" reads the same on every tab. */
-.row.tappable::after,
-details.fold > summary::after,
-.strip .cell::after{
-  font-family:var(--t-font-display);
-  font-size:1.35rem;line-height:1;font-weight:700;
-  color:var(--t-accent-text);
-}
-
-/* ====================================================================
-   HEADER
-   ==================================================================== */
-/* Sticky, so the team and its record stay in view. Promoted to its own layer up front
-   so Safari does not re-composite it at the moment it becomes stuck, and opaque
-   enough that nothing ghosts through as content scrolls underneath. */
-.bar{
-  display:flex;align-items:center;flex-wrap:wrap;gap:.7rem;
-  min-height:4.6rem;
-  position:sticky;top:0;z-index:60;
-  background:rgba(var(--t-abyss-rgb),.97);
-  -webkit-backdrop-filter:blur(14px);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-  box-shadow:0 8px 28px rgba(0,0,0,.16);
-  transform:translateZ(0);
-  -webkit-transform:translateZ(0);
-  will-change:transform;
-  /* the status-bar inset lives here, not on .page, so the header paints
-     behind the clock instead of leaving a transparent strip */
-  padding-top:calc(.75rem + env(safe-area-inset-top, 0px));
-  padding-bottom:.7rem;
-  margin-left:calc(-1 * (var(--gutter) + env(safe-area-inset-left, 0px)));
-  margin-right:calc(-1 * (var(--gutter) + env(safe-area-inset-right, 0px)));
-  padding-left:calc(var(--gutter) + env(safe-area-inset-left, 0px));
-  padding-right:calc(var(--gutter) + env(safe-area-inset-right, 0px));
-}
-.bar h1{font-weight:700;margin:0;font-family:var(--t-font-display);text-transform:uppercase;text-shadow:0 1px 18px rgba(var(--t-accent-rgb),.16);font-size:1.55rem;letter-spacing:.075em;color:var(--paper);line-height:1.05}
-.bar .rank{font-family:var(--t-font-display);font-weight:600;font-size:.72rem;letter-spacing:.06em;background:var(--t-accent);color:var(--t-accent-ink);border-radius:999px;padding:.16rem .5rem}
-.bar .rec{font-variant-numeric:tabular-nums;color:#BAC6D5;font-family:var(--t-font-display);font-size:.86rem;letter-spacing:.04em}
-/* 2026 team motto. One line to change next season. Grenze Gotisch keeps the
-   gothic character but with open counters, so it reads at a glance - mixed case
-   on purpose, uppercase gothic is much harder to parse. */
-.motto{text-align:center;font-weight:700;text-wrap:balance;position:relative;font-family:var(--t-font-headline);line-height:.92;text-shadow:0 2px 28px rgba(0,0,0,.28);max-width:17ch;margin:.95rem 0 1rem;padding:.2rem 0 .9rem;border-bottom:1px solid var(--line);color:var(--t-accent-text);font-size:clamp(2.1rem,8vw,4rem);letter-spacing:.015em}
-.refresh{min-width:5.5rem;font-size:.9rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border:1px solid rgba(var(--t-accent-rgb),.45);background:rgba(var(--t-surface-rgb),.7);color:var(--paper);min-height:2.65rem;padding:0 1rem;font-family:var(--t-font-display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:all .18s ease;border-color:var(--line);border-radius:999px}
-.refresh:hover{border-color:var(--t-accent-text);color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.08);transform:translateY(-1px)}
-/* More: the quiet home for destination-level actions - today, Change team.
-   A sibling of Refresh, drawn from the same tokens, so the header reads as
-   one group of controls. The menu sits on the raised team surface, and its
-   focus ring is the team's validated --t-focus on that dark surface, which is
-   the pairing TeamOS actually checks (decision 0009). */
-/* More tab: who you are following and the way to change it, and Refresh.
-   Refresh left the header because a long product name ("Buckeye Watch")
-   plus rank and record already fill a phone's width; the app refreshes on its
-   own, so it is a backup, not a primary action. */
-.team-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin:.9rem 0 0;padding:.65rem .9rem;border:1px solid var(--line);border-radius:9px;background:rgba(var(--t-surface-rgb),.5)}
-.team-row+.team-row{margin-top:.5rem}
-.team-row p{margin:0;color:var(--dim);min-width:0}
-.team-row strong{color:var(--paper);white-space:nowrap}
-.change-team{flex:none;min-height:2.65rem;padding:0 1rem;cursor:pointer;border:1px solid var(--line);border-radius:999px;background:rgba(var(--t-surface-rgb),.7);color:var(--paper);font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:all .18s ease}
-.change-team:hover{border-color:var(--t-accent-text);color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.08)}
-
-/* ====================================================================
-   NEXT GAME / LIVE HERO
-   ==================================================================== */
-/* The broadcast card. Two columns on a desktop; the phone block at the foot of
-   this file collapses it to a single flow. */
-.hero{position:relative;overflow:hidden;opacity:0;animation:reveal .7s cubic-bezier(.2,.7,.3,1) forwards;margin:0;color:var(--paper);display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto 1fr auto;column-gap:1.25rem;border:1px solid var(--t-accent-line);border-radius:12px;min-height:13rem;margin-top:.85rem;padding:1.35rem 1.4rem 1.25rem;background:radial-gradient(circle at 86% 18%,rgba(var(--t-accent-rgb),.13),transparent 14rem),
-      linear-gradient(135deg,var(--t-raise) 0%,var(--t-surface) 50%,var(--t-abyss) 100%);box-shadow:0 18px 45px rgba(0,0,0,.22)}
-.hero .when,.hero .opp{padding-right:5.5rem}
-.hero .when{font-weight:600;grid-column:1;grid-row:1;color:var(--t-accent-soft);text-transform:uppercase;letter-spacing:.13em;font-size:.68rem}
-.hero .opp{font-family:var(--t-font-display);font-weight:700;line-height:1.03;text-transform:uppercase;text-shadow:0 2px 16px rgba(0,0,0,.24);grid-column:1;grid-row:2;margin:.3rem 0 .45rem;font-size:clamp(2rem,7vw,3.15rem);letter-spacing:-.025em}
-.hero .opp .vs{font-weight:500;font-size:.62em;margin-right:.35rem;opacity:1;color:var(--t-accent-text)}
-.hero .line{font-weight:500;grid-column:1;grid-row:3;color:#E8EEF5;font-size:1rem}
-.hero .line b{font-weight:600}
-.hero .venue{font-size:.85rem;margin-top:.1rem;grid-column:1;grid-row:4;align-self:end;color:#9FB0C4}
-.hero .series{font-size:.9rem;font-weight:600;margin:.4rem 0 0;padding-right:5.5rem;color:var(--t-accent-text);letter-spacing:.02em;grid-column:1;grid-row:4;align-self:end;margin-left:0;margin-top:0}
-/* Kickoff forecast, full width under everything. Only painted for a game
-   inside Open-Meteo's 16-day window. */
-.hero .wx{grid-column:1 / -1;grid-row:5;margin:.8rem 0 0;padding-top:.6rem;
-  border-top:1px solid rgba(var(--t-accent-rgb),.24);font-size:.88rem;color:#DDE5EE}
-.hero .wx .k{font-family:var(--t-font-display);font-weight:700;font-size:.7rem;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--t-accent-soft);margin-right:.5rem}
-.hero .wx .glyph{font-size:1.15rem;line-height:1;vertical-align:-.1em;margin-right:.15rem}
-.hero .clock{font-family:var(--t-font-display);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em;grid-column:2;grid-row:3 / span 2;align-self:end;margin:0;padding:.7rem 0 0 .9rem;border-top:0;border-left:1px solid rgba(var(--t-accent-rgb),.24);font-size:1.9rem;color:var(--paper)}
-.hero .clock small{font-size:.5em;font-weight:600;margin-left:.1rem;margin-right:.55rem}
-.hero .spread{margin:0;font-weight:600;line-height:1.35;text-align:right;font-variant-numeric:tabular-nums;top:1.35rem;right:1.35rem;grid-column:2;grid-row:1 / span 2;position:static;min-width:6rem;padding:.35rem 0 0 .9rem;border-left:1px solid rgba(var(--t-accent-rgb),.24);font-family:var(--t-font-display);font-size:1rem;color:#E8EEF5}
-.hero.live{color:var(--live-fg);box-shadow:none;background:radial-gradient(circle at 86% 18%,rgba(255,110,100,.13),transparent 14rem),
-    linear-gradient(135deg,#7E2925 0%,#471817 62%,#241214 100%);border-color:rgba(255,122,112,.38)}
-.hero.live .when,.hero.live .venue{color:var(--live-fg-2)}
-.hero.live .clock{border-top-color:rgba(255,255,255,.4)}
-/* The hero folded to one line, for tabs where the full card is in the way.
-   A button: it opens the Game tab. */
-.heromini{
-  display:flex;align-items:center;gap:.7rem;width:100%;min-height:2.9rem;
-  margin:.85rem 0 .2rem;padding:.55rem .9rem;
-  font:inherit;color:var(--paper);text-align:left;cursor:pointer;
-  background:rgba(var(--t-surface-rgb),.6);border:1px solid var(--t-accent-line);border-radius:8px;
-  transition:border-color .16s ease,background .16s ease;
-}
-.heromini:hover{border-color:var(--t-accent-text);background:rgba(var(--t-raise-rgb),.5)}
-.heromini::after{content:"\25B8";flex:none;color:var(--t-accent-text);
-  font-family:var(--t-font-display);font-weight:700;font-size:1.25rem;line-height:1}
-.heromini .mopp{font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;
-  letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
-.heromini .mopp .vs{color:var(--t-accent-text);font-weight:600;font-size:.85em}
-.heromini .mwhen{flex:1;min-width:0;font-size:.86rem;color:#9FB0C4;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.heromini .mwhen .live-lbl{font-family:var(--t-font-display);font-weight:700;
-  font-size:.74rem;letter-spacing:.09em;color:var(--live)}
-.heromini .mclock{flex:none;font-family:var(--t-font-display);font-weight:700;
-  font-size:1.05rem;font-variant-numeric:tabular-nums;color:var(--t-accent-text)}
-
-/* ====================================================================
-   MARKET STRIP AND ODDS BOARD
-   ==================================================================== */
-.strip{display:flex;border-radius:0 0 8px 8px;box-shadow:0 12px 30px rgba(0,0,0,.16);align-items:stretch;gap:.55rem;background:transparent;border:0;margin:.7rem 0 0}
-.up{color:var(--win)}
-.down{color:var(--loss)}
-
-/* ====================================================================
-   TAB PANELS
-   ==================================================================== */
-/* The tablist itself is the fixed bottom bar; see the NAVIGATION section. */
-[role="tablist"]{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:.3rem;padding:.3rem;border:1px solid rgba(var(--t-accent-rgb),.16);border-radius:8px;background:rgba(5,19,36,.7);box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
-[role="tablist"]::-webkit-scrollbar{display:none}
-[role="tab"]{flex:1 0 auto;min-width:4.2rem;background:none;font-family:var(--t-font-display);font-weight:600;padding:.5rem .15rem;cursor:pointer;white-space:nowrap;min-height:2.6rem;border:0;border-radius:5px;color:#8295AA;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;transition:all .18s ease}
-[role="tab"][aria-selected="false"]{color:var(--dim)}
-[role="tab"][aria-selected="true"]{color:var(--t-accent-ink);background:var(--t-accent);border-bottom-color:transparent;box-shadow:0 4px 14px rgba(var(--t-accent-rgb),.16)}
-[role="tabpanel"]{padding-top:.15rem}
-[role="tabpanel"]:focus:not(:focus-visible){outline:none}
-
-/* ====================================================================
-   SHARED LIST PRIMITIVES
-   ==================================================================== */
-ul.plain,ol.plain{list-style:none;margin:0;padding:0}
-.row{display:flex;align-items:center;gap:.75rem;margin:.22rem 0;border:1px solid transparent;border-bottom-color:rgba(169,183,201,.10);border-radius:5px;transition:background .16s ease,border-color .16s ease,transform .16s ease;min-height:4.5rem;padding:.85rem .6rem;border-bottom:1px solid var(--line)}
-.row .date{flex:none;text-align:center;font-family:var(--t-font-display);line-height:1.05;width:3.8rem}
-.row .date .m,.row .date .d{display:block}
-.row .date .m{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
-.row .date .d{font-weight:700;color:var(--paper);font-size:1.5rem}
-.row .mid{flex:1;min-width:0}
-.row .team,.row .sub,.row .score,.row .wl,.row .status{display:block}
-.row .team{font-size:1.03rem;font-weight:600}
-.row .team .pre,.row .team .rk{display:inline}
-.row .team .pre{color:var(--dim);font-weight:400;margin-right:.3rem}
-.row .sub{font-size:.82rem;margin-top:.1rem;color:var(--dim)}
-.row .right{flex:none;text-align:right;font-family:var(--t-font-display)}
-.row .score{font-size:1.2rem;font-weight:700;font-variant-numeric:tabular-nums}
-.row .wl{font-size:.78rem;font-weight:600;letter-spacing:.04em}
-.row .wl.w{color:var(--win)}
-.row .wl.l{color:var(--loss)}
-.row .status{font-size:.78rem;font-weight:600;color:var(--dim)}
-.row .net{display:inline-block;font-size:.78rem;font-weight:600;border:1px solid var(--t-accent);padding:.15rem .4rem;white-space:nowrap;background:rgba(var(--t-accent-rgb),.06);border-radius:999px;color:var(--t-accent-text);border-color:rgba(var(--t-accent-rgb),.5)}
-.row .net.tbd{color:var(--dim);border-color:var(--dim)}
-.row.past{opacity:.85}
-/* Every schedule row expands in place to show that game. */
-.row.tappable{cursor:pointer}
-.row.tappable:hover{background:rgba(var(--t-accent-rgb),.07)}
-.row.tappable:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
-/* The chevron is a flex child of the row itself, so it sits in the same
-   column on every row regardless of what the score/network cell is showing.
-   Shares its look with the fold and market-card indicators (see .disclose). */
-.row.tappable::after{
-  content:"\25B8";flex:none;width:1.4rem;text-align:center;
-  transition:transform .15s ease;
-}
-.row.tappable[aria-expanded="true"]::after{transform:rotate(90deg)}
-li.gamedetail{
-  list-style:none;
-  margin:0 -.55rem .4rem;
-  padding:.6rem .7rem .8rem;
-  background:rgba(255,255,255,.025);
-  border-left:3px solid var(--t-accent);
-  border-bottom:1px solid var(--ink-3);
-  border-radius:0 4px 4px 0;
-}
-li.gamedetail .sec{margin-top:.7rem}
-li.gamedetail .gscore{padding:.5rem .1rem}
-li.gamedetail .gscore .pts{font-size:1.6rem}
-.row.mine{margin:.35rem 0;padding-left:.72rem;padding-right:.72rem;border:1px solid rgba(var(--t-accent-rgb),.28);border-left:3px solid var(--t-accent);background:linear-gradient(90deg,rgba(var(--t-accent-rgb),.14),rgba(var(--t-accent-rgb),.035));box-shadow:0 6px 18px rgba(0,0,0,.10)}
-.rk{color:var(--t-accent-text);font-weight:600;font-size:.88em;margin-right:.15rem}
-.tag{display:inline-block;font-family:var(--t-font-display);font-weight:700;font-size:.7rem;letter-spacing:.07em;line-height:1;padding:.22rem .34rem;border-radius:2px;border:1px solid;vertical-align:.08em;margin-right:.4rem}
-.tag.h{background:var(--t-accent);border-color:var(--t-accent-text);color:var(--t-accent-ink)}
-.tag.a{background:none;border-color:#657990;color:#A8B7C9}
-.tag.n{background:none;color:#5BC48A;border-color:#338B60}
-.trophy{display:block;font-size:.78rem;font-weight:600;margin-top:.12rem;color:var(--t-accent-soft)}
-.obar{display:flex;align-items:center;gap:.65rem;margin:.22rem 0;padding:.72rem .7rem;border:1px solid transparent;border-bottom-color:rgba(169,183,201,.10);border-radius:5px;min-height:3.2rem;border-bottom:1px solid var(--line)}
-.obar .orank{width:1.4rem;flex:none;text-align:right;font-family:var(--t-font-display);font-weight:700;color:var(--dim);font-variant-numeric:tabular-nums;font-size:.9rem}
-.obar .nm{flex:1;font-weight:500}
-.obar .track{width:6rem;flex:none;border:1px solid var(--ink-3);border-radius:3px;overflow:hidden;background:var(--t-deep);border-color:rgba(169,183,201,.12);height:.42rem}
-.obar .fill{display:block;height:100%;background:var(--t-accent)}
-.obar .pc{width:3rem;flex:none;text-align:right;font-family:var(--t-font-display);font-weight:700;font-size:1.2rem;font-variant-numeric:tabular-nums;color:var(--t-accent-text)}
-.obar.mine{margin:0 -.5rem;padding-left:.65rem;padding-right:.65rem;border:1px solid rgba(var(--t-accent-rgb),.28);border-left:4px solid var(--t-accent);border-radius:8px;background:rgba(var(--t-accent-rgb),.13)}
-.obar.mine .nm{font-weight:600;color:var(--t-accent-tint)}
-
-/* ====================================================================
-   DEPTH CHART
-   ==================================================================== */
-.depth-pos{display:flex;align-items:baseline;gap:.5rem;padding:.35rem .55rem;border-left:3px solid var(--t-accent);background:rgba(var(--t-accent-rgb),.055);margin:1rem 0 .25rem;padding-bottom:.3rem;border-bottom:1px solid var(--t-accent-line)}
-.depth-pos b{font-family:var(--t-font-display);font-weight:700;font-size:1rem;color:var(--t-accent-text);letter-spacing:.08em}
-.depth-pos .battle{font-family:var(--t-font-display);font-weight:700;font-size:.7rem;letter-spacing:.07em;padding:.12rem .35rem;border-radius:2px;background:var(--t-accent);color:var(--t-accent-ink)}
-ul.ladder{list-style:none;margin:0;padding:0}
-ul.ladder li{display:flex;align-items:baseline;gap:.5rem;border-bottom:1px solid var(--ink-3);padding:.42rem .25rem}
-ul.ladder li.d1{font-weight:600;color:var(--paper);background:rgba(var(--t-surface-rgb),.4);border-radius:5px}
-ul.ladder li.d2,ul.ladder li.d3,ul.ladder li.d4{color:var(--dim);padding-left:1rem}
-ul.ladder .jersey{width:2rem;flex:none;text-align:right;font-family:var(--t-font-display);font-weight:700;font-variant-numeric:tabular-nums;color:var(--dim)}
-ul.ladder .nm{flex:1}
-ul.ladder .cl{flex:none;font-size:.8rem;color:var(--dim)}
-ul.ladder .ortag{font-family:var(--t-font-display);font-weight:700;font-size:.68rem;letter-spacing:.06em;border:1px solid var(--t-accent);border-radius:2px;padding:.05rem .25rem;color:var(--t-accent-text);border-color:rgba(var(--t-accent-rgb),.55)}
-.avail li{display:flex;gap:.55rem;border-bottom:1px solid var(--ink-3);flex-wrap:wrap;padding:.55rem .25rem}
-.avail .who{flex:1}
-.avail .part{flex:none;color:var(--dim);font-size:.85rem}
-.avail .pos{color:var(--dim);font-size:.85rem;margin-right:.3rem}
-.chg{margin:0;padding:0 0 0 1.05rem}
-.chg li{padding:.22rem 0;font-size:.92rem}
-.avail .weeks{flex:none;font-size:.78rem;color:var(--t-accent-text);font-weight:600}
-.newer{flex-basis:100%;margin:.3rem 0 .1rem;padding:.4rem .5rem;border-left:2px solid var(--neutral);border-radius:0 2px 2px 0;font-size:.82rem;line-height:1.4;background:rgba(var(--t-raise-rgb),.34);border-left-color:#5AAFD1}
-.newer b{font-weight:600;color:#78C6E6}
-.newer a{color:var(--parch)}
-.asof{font-size:.82rem;color:var(--dim);padding:.1rem .15rem .5rem}
-details.week{border-bottom:1px solid var(--ink-3);border-bottom-color:rgba(169,183,201,.10)}
-/* inside the week-by-week fold the last week's rule and the fold's own bottom
-   padding read as an empty row, so neither is drawn */
-#depthHistory details.week:last-child{border-bottom:0}
-#depthHistory .foldbody{padding-bottom:0}
-details.week summary{padding:.6rem .15rem;cursor:pointer;display:flex;gap:.6rem;align-items:baseline}
-details.week summary::-webkit-details-marker{display:none}
-details.week summary .wd{font-family:var(--t-font-display);font-weight:700;width:4.2rem;flex:none;color:var(--t-accent-text)}
-details.week summary .ws{flex:1;color:var(--dim);font-size:.88rem}
-details.week[open] summary .ws{color:var(--parch)}
-details.week .chg{padding:0 0 .3rem 1.6rem}
-details.week .weeksrc{margin:0;padding:0 0 .7rem .6rem;font-size:.78rem;color:var(--dim)}
-details.week .weeksrc a{color:var(--t-accent-text)}
-details.fold{border:1px solid var(--line);border-radius:9px;overflow:hidden;margin:.5rem 0}
-details.fold > summary{display:flex;align-items:baseline;gap:.5rem;cursor:pointer;padding:.7rem .15rem;min-height:2.75rem;box-sizing:border-box;font-family:var(--t-font-display);font-weight:600;font-size:1rem;letter-spacing:.04em;color:var(--parch)}
-details.fold > summary::-webkit-details-marker{display:none}
-details.fold > summary::after{content:"\25BE";margin-left:auto;transition:transform .15s ease}
-details.fold[open] > summary::after{transform:rotate(180deg)}
-details.fold > summary .count{font-weight:500;color:var(--dim);font-size:.85rem;letter-spacing:0}
-details.fold > summary:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
-details.fold .foldbody{padding-bottom:.5rem}
-.more{display:block;width:100%;min-height:2.75rem;margin:.6rem 0 0;background:none;border:1px solid var(--ink-3);border-radius:3px;color:var(--parch);font-family:var(--t-font-display);font-weight:600;font-size:.95rem;letter-spacing:.04em;cursor:pointer}
-.more:hover{border-color:var(--t-accent-text);color:var(--t-accent-text)}
-.pollnote{font-size:.82rem;color:var(--dim);padding:.55rem .15rem}
-
-/* ====================================================================
-   GAME CENTER
-   ==================================================================== */
-.gscore{display:flex;align-items:center;gap:.6rem;border-radius:7px 7px 0 0;background:linear-gradient(135deg,rgba(var(--t-raise-rgb),.45),rgba(var(--t-abyss-rgb),.3));min-height:5rem;padding:1rem 1.1rem;border:1px solid var(--t-accent-line)}
-.gscore .side{flex:1;min-width:0}
-.gscore .side .nm{font-weight:600;font-size:1.15rem}
-.gscore .side .rec{font-size:.8rem;color:var(--dim)}
-.gscore .pts{font-family:var(--t-font-display);font-weight:700;font-variant-numeric:tabular-nums;font-size:2.8rem;line-height:1}
-.gscore.lead .pts{color:var(--t-accent-text)}
-.gstatus{display:flex;align-items:baseline;gap:.5rem;font-size:.9rem;padding:.65rem .9rem;min-height:2.7rem;background:rgba(var(--t-surface-rgb),.58);border:1px solid var(--line);border-top:0}
-.gstatus .dot{width:.5rem;height:.5rem;border-radius:50%;flex:none;animation:pulse 1.6s ease-in-out infinite;background:#55C98A;box-shadow:0 0 0 .28rem rgba(85,201,138,.12)}
-.lastplay{margin:.65rem 0;padding:.8rem .9rem;border:1px solid var(--line);border-left:4px solid #55C98A;border-radius:8px;background:rgba(var(--t-surface-rgb),.62)}
-.lastplay .k{font-family:var(--t-font-display);font-weight:700;font-size:.72rem;color:var(--t-accent-text);letter-spacing:.1em}
-.lastplay .t{font-size:.95rem;line-height:1.45;margin-top:.2rem}
-.lastplay .dd{font-size:.82rem;color:var(--dim);margin-top:.3rem}
-.statrow{display:flex;align-items:center;gap:.6rem;font-variant-numeric:tabular-nums;padding:.5rem .25rem;min-height:2.7rem;border-bottom:1px solid var(--line)}
-.statrow .lbl{flex:1;text-align:center;font-size:.82rem;color:var(--dim)}
-.statrow .v{width:4.2rem;font-family:var(--t-font-display);font-weight:700;font-size:1rem}
-.statrow .v.r{text-align:right}
-.statrow .v.win{color:var(--t-accent-text)}
-.statrow.head{margin-top:.1rem;padding:.5rem .25rem;border-top:1px solid var(--line);border-bottom:2px solid var(--t-accent)}
-.statrow.head .v{font-size:1rem;letter-spacing:.05em;color:var(--parch)}
-.statrow.head .v.mine{color:var(--t-accent-text)}
-.statrow.head .lbl{font-family:var(--t-font-display);font-size:.72rem;letter-spacing:.09em;color:var(--dim)}
-.linescore{width:100%;border-collapse:collapse;margin:.3rem 0 .2rem;font-variant-numeric:tabular-nums;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:rgba(var(--t-surface-rgb),.4)}
-.linescore th,.linescore td{text-align:center;font-size:.9rem;padding:.55rem .4rem;border-bottom:1px solid var(--line)}
-.linescore th{font-family:var(--t-font-display);font-weight:600;color:#899BAD;font-size:.7rem;letter-spacing:.08em}
-.linescore td:first-child,.linescore th:first-child{text-align:left;font-weight:600}
-.linescore td.tot{font-weight:700;color:var(--t-accent-text)}
-.ldr{display:flex;gap:.7rem;font-size:.95rem;border-bottom:1px solid var(--line);padding:.75rem .25rem}
-.ldr .cat{width:5.2rem;flex:none;font-family:var(--t-font-display);font-weight:600;color:var(--dim);font-size:.8rem;letter-spacing:.05em;padding-top:.12rem}
-.ldr .who{flex:1;min-width:0}
-.ldr .nm{display:block;font-weight:600}
-.ldr .line{display:block;color:var(--dim);font-size:.85rem;margin-top:.1rem}
-/* Full box score. Wide, so it scrolls inside its own box rather than pushing
-   the page sideways; the player column and header row stay pinned. */
-.boxcat{
-  font-family:var(--t-font-display);font-weight:700;font-size:.9rem;
-  letter-spacing:.06em;color:var(--t-accent-text);margin:.9rem 0 .3rem;
-}
-.boxwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;
-  border:1px solid var(--ink-3);border-radius:4px}
-.boxtable{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;
-  font-size:.84rem;white-space:nowrap}
-.boxtable th,.boxtable td{padding:.4rem .55rem;text-align:right;
-  border-bottom:1px solid var(--ink-3)}
-.boxtable thead th{
-  font-family:var(--t-font-display);font-weight:600;font-size:.74rem;
-  letter-spacing:.05em;color:var(--dim);text-align:right;
-  position:sticky;top:0;background:var(--ink-2);
-}
-.boxtable tbody th[scope="row"]{
-  text-align:left;font-weight:500;position:sticky;left:0;
-  background:var(--ink-2);min-width:8.5rem;
-}
-.boxtable thead th:first-child{left:0;z-index:2;text-align:left}
-.boxtable .jn{color:var(--dim);font-family:var(--t-font-display);font-weight:700}
-.boxtable tbody tr:last-child th,.boxtable tbody tr:last-child td{border-bottom:none}
-/* Matchup preview (pre-game only): the in-game team-stats grid, with the
-   national rank tucked under each value. */
-.statrow.prev{align-items:flex-start;padding:.5rem .15rem}
-.statrow.prev .v{line-height:1.15}
-.statrow .rk2{
-  display:block;font-family:var(--t-font-ui);
-  font-weight:600;font-size:.7rem;letter-spacing:.03em;color:var(--dim);
-  margin-top:.1rem;
-}
-.statrow.prev .v.win .rk2{color:var(--t-accent-text)}
-
-/* ====================================================================
-   SEGMENTED CONTROLS
-   ==================================================================== */
-.seg{display:flex;gap:0;margin:.1rem 0 .2rem;overflow:hidden;border-radius:999px;border:1px solid rgba(var(--t-accent-rgb),.16);background:rgba(var(--t-surface-rgb),.5)}
-.seg button{flex:1;background:none;border:none;cursor:pointer;font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.06em;padding:.4rem .5rem;min-height:2.55rem;color:#AAB8C7}
-.seg button+button{border-left:1px solid var(--ink-3)}
-.seg button:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
-.seg .sub{display:block;font-family:var(--t-font-ui);font-weight:500;font-size:.68rem;letter-spacing:.04em;opacity:.75}
-.seg.pills{margin:.7rem 0 .3rem}
-.seg.pills button{min-height:2.5rem;font-size:.92rem;letter-spacing:.05em}
-.seg.pills .n{font-weight:600;opacity:.7;margin-left:.35rem;font-size:.85em}
-.seg.pills.polls{margin:.15rem 0 .2rem}
-.seg.pills.roster{margin:.2rem 0 .35rem}
-.seg.pills.roster button{font-size:.85rem;min-width:0;padding:.4rem .25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.seg.pills.roster .n{margin-left:.25rem}
-.seg.pills.polls button{font-size:.88rem;letter-spacing:.04em}
-.seg.pills.polls .n{margin-left:.3rem;opacity:.85}
-.scorply{display:flex;gap:.55rem;padding:.5rem .15rem .5rem .55rem;border-bottom:1px solid var(--ink-3);font-size:.88rem;border-left:3px solid transparent}
-.scorply.byus{border-left-color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.07)}
-.scorply.bythem{border-left-color:var(--ink-3)}
-.scorply .qc{width:3.2rem;flex:none;color:var(--dim);font-size:.78rem;padding-top:.1rem}
-.scorply .tm{flex:none;width:2.6rem;font-family:var(--t-font-display);font-weight:700;font-size:.82rem;letter-spacing:.04em;color:var(--dim);padding-top:.1rem}
-.scorply.byus .tm{color:var(--t-accent-text)}
-.scorply .tx{flex:1;min-width:0;line-height:1.35}
-.scorply .sc{flex:none;font-family:var(--t-font-display);font-weight:700;font-variant-numeric:tabular-nums;color:var(--dim);white-space:nowrap;padding-top:.05rem}
-.scorply .sc .ahead{color:var(--t-accent-text)}
-.scorply .sc .tie{color:var(--parch)}
-.row .live{display:block;font-size:.82rem;color:var(--inplay);margin-top:.15rem}
-.row .live .lbl{font-family:var(--t-font-display);font-weight:700;font-size:.78rem;letter-spacing:.09em;color:var(--live);margin-right:.35rem}
-.row .live .lbl::before{content:"";display:inline-block;width:.42rem;height:.42rem;border-radius:50%;background:var(--live);margin-right:.3rem;vertical-align:.06em;animation:pulse 1.6s ease-in-out infinite}
-
-/* ====================================================================
-   ROSTER
-   ==================================================================== */
-.plr{display:flex;align-items:baseline;gap:.6rem;padding:.42rem .7rem .42rem .15rem;border-bottom:1px solid var(--ink-3);font-size:.92rem}
-.plr .no{width:2.1rem;flex:none;text-align:right;font-family:var(--t-font-display);font-weight:700;color:var(--dim);font-variant-numeric:tabular-nums}
-.plr .pos{width:2.6rem;flex:none;font-family:var(--t-font-display);font-weight:600;font-size:.8rem;letter-spacing:.04em;color:var(--t-accent-text)}
-.plr .who{flex:1;min-width:0}
-.plr .meta{display:block;font-size:.78rem;color:var(--dim);margin-top:.05rem}
-.plr .cl{flex:none;font-size:.78rem;color:var(--dim);width:2.2rem;text-align:right}
-/* Inset from the fold's edges: the fold clips overflow for its rounded
-   corners, which would cut the focus ring off both ends of the box. */
-.filter{display:block;margin:.5rem .5rem .6rem}
-.filter input{
-  width:100%;min-height:2.6rem;padding:.45rem .9rem;
-  font:inherit;font-size:.95rem;color:var(--paper);
-  background:rgba(var(--t-surface-rgb),.5);border:1px solid var(--line);border-radius:999px;
-}
-.filter input::placeholder{color:var(--dim)}
-.filter input:focus-visible{outline:3px solid var(--t-focus);outline-offset:1px;border-color:transparent}
-.stamp{font-size:.78rem;color:var(--dim);padding:.5rem .15rem 0}
-.stamp a{color:var(--t-accent-text)}
-
-/* ====================================================================
-   SECTION HEADINGS, NEWS, MESSAGES, FOOTER
-   ==================================================================== */
-h2.sec{font-family:var(--t-font-display);font-weight:600;margin:1.6rem 0 .35rem;padding:.7rem .7rem .55rem;border-bottom:1px solid rgba(var(--t-accent-rgb),.23);border-left:3px solid var(--t-accent);color:var(--paper);background:linear-gradient(90deg,rgba(var(--t-accent-rgb),.07),transparent 70%);font-size:.92rem;letter-spacing:.1em;text-transform:uppercase}
-a.art{text-decoration:none;color:inherit;margin:.2rem 0;display:flex;gap:.9rem;align-items:center;padding:.8rem .75rem;border:1px solid var(--line);border-radius:9px;background:rgba(var(--t-surface-rgb),.5);transition:background .16s,border-color .16s,transform .16s}
-a.art:hover .hl{text-decoration:underline;color:var(--t-accent-text)}
-a.art img{background:var(--ink-2);border:1px solid rgba(var(--t-accent-rgb),.12);width:5.4rem;height:3.7rem;object-fit:cover;border-radius:6px;flex:none}
-a.art .hl,a.art .meta{display:block}
-a.art .hl{font-weight:600;display:block;font-size:.98rem;line-height:1.3;color:#F2F5F8}
-a.art .meta{display:block;margin-top:.3rem;color:var(--dim);font-size:.67rem;letter-spacing:.07em;text-transform:uppercase}
-a.art .src{color:var(--t-accent-text);font-weight:600}
-a.art.beat{padding-left:.55rem;border-left:3px solid rgba(var(--t-accent-rgb),.65)}
-.msg{color:var(--parch);font-size:.95rem;line-height:1.6;margin-top:1rem;padding:1.25rem 1rem;border:1px solid rgba(var(--t-accent-rgb),.16);border-radius:6px;background:rgba(var(--t-raise-rgb),.18)}
-.msg strong{display:block;font-weight:600;margin-bottom:.3rem}
-.msg a{color:var(--t-accent-text)}
-.loading{font-size:.95rem;padding:1.35rem .7rem;color:#8FA2B8}
-.foot{padding:1.4rem .25rem 0;font-size:.8rem;line-height:1.6;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(var(--t-accent-rgb),.14);color:var(--dim)}
+/* A focused element scrolls only until it touches the viewport's edge -
+   which is under the sticky header and the fixed nav. Keep it clear of both
+   (WCAG 2.4.11). */
+html{background:var(--s-page);scroll-padding-top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px) + .75rem);scroll-padding-bottom:calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 2.5rem)}
+body{margin:0;background:var(--s-page);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1rem;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
 [hidden]{display:none !important}
+img{max-width:100%}
+button{font:inherit}
+h1,h2,h3{margin:0}
+
+/* One visible focus style everywhere, never removed (2.4.7). On light
+   surfaces it is the team's own ink; dark regions switch it to the team's
+   validated focus colour. */
+:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:4px}
+.on-dark :focus-visible,.on-dark:focus-visible{outline-color:var(--t-focus)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:1rem;top:-4rem;z-index:100;background:var(--s-surface);color:var(--s-ink);font-weight:600;padding:.75rem 1rem;border-radius:var(--s-radius-ctl);box-shadow:var(--s-shadow-raise);text-decoration:none}
+.skip:focus{top:calc(.75rem + env(safe-area-inset-top,0px))}
+/* The skip link lands over the dark header, so its ring is drawn inside the
+   white link, in ink, where it is measured against white. */
+.skip:focus-visible{outline:3px solid var(--s-ink);outline-offset:-5px}
 
 /* ====================================================================
-   PAGE CHROME
+   4. LAYOUT
    ==================================================================== */
-/* The 4px gold rule is pinned to the viewport rather than the page: the sticky
-   header sits over it, and letting it scroll away read as the header shifting. */
-.page::before{content:"";inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--t-surface),var(--t-accent),var(--t-accent),var(--t-accent),var(--t-surface));position:fixed;z-index:70}
-.page::after{content:"";position:absolute;width:34rem;height:34rem;right:-24rem;top:9rem;border:1px solid rgba(var(--t-accent-rgb),.08);border-radius:50%;box-shadow:0 0 0 4rem rgba(var(--t-accent-rgb),.025),0 0 0 8rem rgba(var(--t-accent-rgb),.018);pointer-events:none;z-index:-1}
-.brand-lockup{display:flex;flex-direction:column;gap:.05rem}
-.brand-kicker{font-family:var(--t-font-display);font-weight:700;font-size:.61rem;line-height:1;letter-spacing:.2em;color:#9AA9BA}
-.refresh-icon{font-size:1rem;line-height:1}
-.motto::after{content:"";position:absolute;left:0;bottom:0;background:var(--t-accent);box-shadow:12px 0 0 rgba(var(--t-accent-rgb),.28);width:4.25rem;height:2px}
-.hero::before{content:"GAME DAY";position:absolute;right:1.2rem;bottom:1rem;font-family:var(--t-font-display);font-size:.62rem;font-weight:700;letter-spacing:.22em;color:rgba(var(--t-accent-rgb),.42);transform:rotate(-90deg) translateX(100%);transform-origin:right bottom;pointer-events:none}
-.hero.live .when{color:#FFD9D3}
-[role="tab"]:hover:not([aria-selected="true"]){color:var(--paper);background:rgba(var(--t-accent-rgb),.08)}
-.row:hover{border-color:rgba(var(--t-accent-rgb),.12);background:rgba(255,255,255,.025)}
-.row .rk,.row .net,.row .trophy{color:var(--t-accent-text)}
-ul.ladder li,.avail li{border-bottom-color:rgba(169,183,201,.10)}
-.stamp a,a.art .src,.msg a,.foot a{color:var(--t-accent-text)}
-details.week summary:hover{background:rgba(var(--t-raise-rgb),.22)}
-a.art:hover{background:rgba(var(--t-raise-rgb),.72);border-color:var(--t-accent-line);transform:translateY(-1px)}
+/* The compact SUITE header: the chooser, Home and Game. The status-bar inset
+   is its own padding, so the header paints behind the clock. */
+.app-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:.75rem;
+  min-height:calc(var(--s-bar-h) + env(safe-area-inset-top,0px));
+  padding:env(safe-area-inset-top,0px) calc(var(--gutter) + env(safe-area-inset-right,0px)) 0 calc(var(--gutter) + env(safe-area-inset-left,0px));
+  background:var(--t-deep);color:var(--s-on-dark)}
+html[data-choosing] .app-bar{background:var(--s-chrome)}
+.wordmark{font-family:var(--t-font-ui);font-weight:800;font-size:1.7rem;line-height:1;letter-spacing:.07em;text-transform:uppercase;color:var(--s-on-dark)}
+.app-bar .spacer{flex:1}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;margin-right:-.5rem;padding:0;border:0;border-radius:50%;background:none;color:inherit;cursor:pointer}
+.icon-btn svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bar-text-btn{min-height:2.75rem;margin-left:.25rem;padding:0 .4rem;border:0;border-radius:var(--s-radius-ctl);background:none;color:var(--s-on-dark);font-family:var(--t-font-ui);font-weight:600;font-size:1.05rem;cursor:pointer}
+
+/* The team masthead: Top 25, Schedule, Roster and More. The selected team
+   frames its own sections; the art slot behind it carries the atmosphere. */
+.masthead{position:relative;isolation:isolate;overflow:hidden;color:var(--s-on-dark);
+  padding:calc(env(safe-area-inset-top,0px) + 1rem) calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.1rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
+.mast-id{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.75rem;min-height:4.25rem}
+.mast-id .mark{--mark:3.6rem}
+.mast-names{text-align:center;min-width:0}
+.mast-name{display:block;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.65rem,7vw,2.35rem);line-height:1;letter-spacing:.01em;text-transform:uppercase}
+.mast-nick{display:block;margin-top:.25rem;font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.3em;text-transform:uppercase;color:var(--t-accent-text)}
+.mast-tagline{display:block;margin-top:.55rem;font-family:var(--t-font-display);font-weight:500;font-style:italic;font-size:.95rem;letter-spacing:.24em;text-transform:uppercase;color:var(--s-on-dark-2)}
+.mast-balance{width:3.6rem}           /* keeps the names centred against the mark */
+.mast-title{margin:1.1rem 0 0;font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.6rem,12vw,3.6rem);line-height:.95;letter-spacing:.01em;text-transform:uppercase;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.mast-title:focus{outline:none}
+
+/* The main column. Phone-first; on wider screens it stays a column rather
+   than stretching cards into lines too long to scan. */
+.page-main{display:block;width:100%;max-width:var(--s-content-max);margin:0 auto;
+  padding:0 calc(var(--gutter) + env(safe-area-inset-right,0px)) calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 3rem) calc(var(--gutter) + env(safe-area-inset-left,0px))}
+.page-main:focus{outline:none}
+
+/* Bottom navigation. Five destinations. It never touches the physical
+   edge: the safe-area inset is padding, plus a floor for devices with none. */
+.navbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;
+  padding:.3rem max(.4rem,env(safe-area-inset-right,0px)) max(.55rem,env(safe-area-inset-bottom,0px)) max(.4rem,env(safe-area-inset-left,0px));
+  background:var(--s-surface);border-top:1px solid var(--s-line);box-shadow:0 -6px 20px rgba(15,27,45,.06)}
+.nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:var(--s-muted);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1;-webkit-tap-highlight-color:transparent}
+.nav-item svg{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav-item svg .solid{fill:currentColor;stroke:none}
+.nav-item[aria-current="page"]{color:var(--t-surface);font-weight:700}
+.nav-item[aria-current="page"]::after{content:"";position:absolute;left:22%;right:22%;bottom:-.1rem;height:3px;border-radius:3px;background:var(--t-accent)}
+.nav-item:focus-visible{outline-offset:-3px}
+.nav-live{display:none}
+
+/* While the team's game is live, Game becomes the raised circle - even when
+   another destination is selected - with the live light inside it. */
+.navbar.is-live .nav-game{align-self:end;justify-self:center;width:4.9rem;height:4.9rem;min-height:0;margin-top:-1.9rem;padding:0;border-radius:50%;background:var(--t-deep);color:var(--s-on-dark);box-shadow:0 8px 22px rgba(15,27,45,.28),0 0 0 6px var(--s-surface);text-transform:uppercase;letter-spacing:.06em;font-family:var(--t-font-display);font-size:.85rem}
+.navbar.is-live .nav-game svg{width:30px;height:30px}
+.navbar.is-live .nav-game[aria-current="page"]{color:var(--s-on-dark)}
+.navbar.is-live .nav-game[aria-current="page"]::after{display:none}
+.navbar.is-live .nav-game .nav-live{display:block;position:absolute;top:.5rem;left:50%;width:.7rem;height:.7rem;margin-left:-.35rem;border-radius:50%;background:var(--s-live);box-shadow:0 0 0 2px var(--t-deep);animation:live-pulse 1.6s ease-in-out infinite}
+/* The circle rises above the bar over whatever the screen shows, so its ring
+   is drawn inside its own white halo - always on white, in the team's ink. */
+.navbar.is-live .nav-game:focus-visible{outline-color:var(--t-surface);outline-offset:0}
+@keyframes live-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.25);opacity:.7}}
 
 /* ====================================================================
-   BOTTOM NAVIGATION
+   5. COMPONENTS
    ==================================================================== */
-/* Five destinations, GAME the raised centre action. The top edge is drawn by
-   ::before a few pixels down rather than by a border, so roughly the top third
-   of the Game circle clears the rule. */
-.tabbar{border-bottom:none;overflow:visible;position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(5,1fr);gap:0;padding:.35rem max(.45rem,env(safe-area-inset-left)) max(.35rem,env(safe-area-inset-bottom));background:rgba(var(--t-abyss-rgb),.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 -12px 32px rgba(0,0,0,.28);padding-top:.42rem;border-top:0}
-.tabbar:before{content:"";position:absolute;top:.42rem;left:0;right:0;height:1px;background:rgba(154,169,186,.18);pointer-events:none}
-#refresh.polling::before{content:"";display:inline-block;width:.42rem;height:.42rem;border-radius:50%;background:var(--live);margin-right:.4rem;vertical-align:.06em;animation:pulse 1.6s ease-in-out infinite}
-.tabbar button[role="tab"]{flex:1 1 0;background:none;cursor:pointer;position:relative;min-width:0;min-height:3.55rem;border:0;border-radius:10px;color:#72869A;padding:.4rem .2rem .25rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.13rem;font-family:var(--t-font-ui);font-size:.62rem;font-weight:600;letter-spacing:.02em}
-.tabbar button[role="tab"] svg{flex:none;width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;filter:none;transition:none}
-.tabbar button[role="tab"] span{font-family:var(--t-font-display);font-weight:600;font-size:.7rem;letter-spacing:.04em;line-height:1;white-space:nowrap}
-.tabbar button[role="tab"][aria-selected="true"]{color:var(--t-accent-text);background:rgba(var(--t-accent-rgb),.09)}
-.tabbar button[role="tab"][aria-selected="true"] svg{stroke-width:1.9}
-.tabbar button[role="tab"]:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
-/* The two market cards are buttons - each expands the shared odds board. */
-.strip .cell{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:.3rem;position:relative;cursor:pointer;font:inherit;min-height:5rem;padding:.8rem 1rem;text-align:left;color:var(--paper);background:rgba(var(--t-surface-rgb),.72);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
-.strip .cell:last-child{border-right:1px solid var(--line);border-top:2px solid rgba(154,169,186,.55)}
-.strip .cell:focus-visible{outline:3px solid var(--t-focus);outline-offset:-3px}
-.strip .cell .k{display:block;font-family:var(--t-font-ui);font-size:.64rem;font-weight:600;line-height:1.25;letter-spacing:.11em;text-transform:uppercase;color:#8FA2B8;padding-right:.9rem}
-.strip .cell .v{display:block;margin-top:.25rem;font-family:var(--t-font-display);font-weight:700;font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--t-accent-text)}
-.strip .cell .v em{font-style:normal;font-size:.6em;font-weight:600;margin-left:.3rem}
-.strip .cell .v.pending{font-size:.95rem;font-weight:500;color:var(--dim);font-family:var(--t-font-ui)}
-/* season sparkline under the number, drawn once odds-history.json has two points */
-.strip .cell .spark{display:block;width:100%;height:1.35rem;margin-top:.4rem;overflow:visible}
-.strip .cell .spark path{fill:rgba(var(--t-accent-rgb),.12)}
-.strip .cell .spark polyline{fill:none;stroke:var(--t-accent);stroke-width:1.6;
-  stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.strip .cell::after{content:"\25BE";position:absolute;top:.6rem;right:.7rem;transition:transform .15s ease}
-.strip .cell[aria-expanded="true"]::after{transform:rotate(180deg)}
-.hint{text-transform:uppercase;letter-spacing:.1em;font-size:.58rem;color:var(--dim);text-align:right;margin:.4rem .2rem .8rem}
-#oddsboard{margin-top:.4rem}
-main{position:relative}
-.hero.live .when::before{content:"";display:inline-block;width:.42rem;height:.42rem;margin-right:.42rem;vertical-align:.08em;border-radius:50%;background:#FF7A70;box-shadow:0 0 0 .22rem rgba(255,122,112,.12)}
-/* The Game circle is the focal point of the whole app: half again the size of
-   a normal tab, rising well clear of the bar. .page reserves room for it. */
-.tabbar button#tab-game{position:relative;z-index:2;justify-self:center;align-self:end;width:6.3rem;height:6.3rem;min-height:6.3rem;padding:0;border-radius:50%;background:rgba(var(--t-abyss-rgb),.96);border:1.5px solid rgba(var(--t-accent-rgb),.5);box-shadow:0 10px 26px rgba(0,0,0,.34),0 0 0 5px rgba(var(--t-surface-rgb),.92);transform:translateY(-1.5rem)}
-.tabbar button#tab-game svg{width:40px;height:40px;stroke-width:1.6}
-.seg button:hover:not([aria-selected="true"]){background:rgba(var(--t-accent-rgb),.08)}
-footer{opacity:.92}
-.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,transparent,var(--t-accent),transparent)}
-.hero .spread b{color:var(--t-accent-text)}
-.strip .cell:first-child{border-top:2px solid var(--t-accent)}
-#panel-schedule:before,#panel-around:before,#panel-game:before,#panel-depth:before,#panel-news:before{display:block;margin:.9rem 0 .35rem;font-family:var(--t-font-display);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8093A8}
-#panel-schedule:before{content:"THE SEASON"}
-#panel-around:before{content:"TOP 25 THIS WEEK"}
-#panel-game:before{content:"GAME CENTER"}
-#panel-depth:before{content:"PERSONNEL"}
-#panel-news:before{content:var(--t-news-label)}
-.row.next{margin:0;padding-left:.72rem;padding-right:.72rem;border:1px solid rgba(var(--t-accent-rgb),.28);border-left:4px solid var(--t-accent);border-radius:9px;background:linear-gradient(90deg,rgba(var(--t-accent-rgb),.14),rgba(var(--t-accent-rgb),.035));box-shadow:inset 0 0 0 1px rgba(var(--t-accent-rgb),.1)}
-.row.next .team{color:var(--t-accent-tint-soft)}
-details.fold>summary{padding:.75rem .9rem;background:rgba(var(--t-surface-rgb),.5);font-weight:600}
-/* !important is load-bearing here: .seg button:hover:not(...) is more specific,
-   and without it a hovered active pill would lose its gold fill. */
-.seg button[aria-pressed="true"],.seg button[aria-selected="true"]{background:var(--t-accent) !important;color:var(--t-accent-ink) !important}
-/* On a selected pill the fill IS the accent, so dimmed labels and an accent
-   focus ring both disappear into it. Use the validated accent-ink pairing. */
-.seg button[aria-pressed="true"] .n,.seg button[aria-selected="true"] .n,
-.seg button[aria-pressed="true"] .sub,.seg button[aria-selected="true"] .sub{opacity:1}
-.seg button[aria-pressed="true"]:focus-visible,.seg button[aria-selected="true"]:focus-visible{outline-color:var(--t-accent-ink)}
-#gWinProb{margin:.7rem 0;border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;background:rgba(var(--t-surface-rgb),.5)}
-#panel-news>ul.plain{display:grid;grid-template-columns:1fr;gap:.45rem}
-.tabbar button#tab-game span{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.1rem}
-/* Selected, the circle stays navy and only the glyph and label go gold, like
-   every other tab; a solid gold disc that size pulled the eye off the page. */
-.tabbar button#tab-game[aria-selected="true"]{color:var(--t-accent-text);border-color:var(--t-accent-text);background:rgba(var(--t-surface-rgb),.98)}
-.tabbar button#tab-game:after{content:"";position:absolute;left:50%;width:.45rem;height:.45rem;border-radius:50%;transform:translateX(-50%);background:#55C98A;box-shadow:0 0 0 .2rem rgba(85,201,138,.12);opacity:0;top:-.55rem}
-.tabbar button#tab-game.live:after{opacity:1}
-.brand-group{display:flex;align-items:center;gap:.65rem;min-width:0}
-.brand-group .brand-kicker,.brand-group h1{white-space:nowrap}
-.tabbar button[role="tab"]:not(#tab-game):hover svg{transform:none}
-.tabbar button#tab-game[aria-selected="true"] svg{stroke-width:1.75}
+/* Art slot. Approved team art when a team has it; otherwise the fallback,
+   which is a finished composition in its own right: the team's own colours,
+   an atmospheric glow in its accent, and a quiet vignette. Never a stock
+   photo, never a grey box. */
+.art-slot{position:absolute;inset:0;z-index:-1;overflow:hidden;
+  background:radial-gradient(120% 90% at 85% 10%,rgba(var(--t-accent-rgb),.28),transparent 55%),
+             radial-gradient(90% 70% at 10% 100%,rgba(var(--t-raise-rgb),.9),transparent 60%),
+             linear-gradient(160deg,var(--t-surface) 0%,var(--t-deep) 55%,var(--t-abyss) 100%)}
+.art-slot img{width:100%;height:100%;object-fit:cover}
+.art-slot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.15),rgba(var(--t-abyss-rgb),.55))}
+
+/* A program's mark: the provider's logo when it loads, the program's
+   initials in its own circle when it does not. */
+.mark{--mark:3rem;position:relative;display:inline-flex;align-items:center;justify-content:center;flex:none;width:var(--mark);height:var(--mark);border-radius:50%;overflow:hidden}
+.mark img{position:relative;z-index:1;width:78%;height:78%;object-fit:contain}
+.mark .initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--t-font-display);font-weight:800;font-size:calc(var(--mark) * .36);letter-spacing:.02em}
+.mark.plain{background:var(--s-surface);border:1px solid var(--s-line)}
+.mark.plain .initials{color:var(--s-ink-2);background:var(--s-inset)}
+.mark.loaded .initials{display:none}
+.mark.bare{border-radius:0;overflow:visible}
+.mark.bare img{width:100%;height:100%}
+.mark.bare .initials{border-radius:50%;background:rgba(255,255,255,.12);color:var(--s-on-dark)}
+
+/* Card: the unit of the canonical page. */
+.card{background:var(--s-surface);border:1px solid var(--s-line);border-radius:var(--s-radius-card);box-shadow:var(--s-shadow-card)}
+
+/* Section heading, with its optional "View All". */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:1.6rem 0 .7rem}
+.sec-title{font-family:var(--t-font-display);font-weight:700;font-size:1.65rem;line-height:1.1;color:var(--t-surface)}
+.sec-link{font-weight:600;font-size:.95rem;color:var(--t-surface);text-decoration:none;white-space:nowrap}
+.sec-link:hover{text-decoration:underline}
+
+/* Eyebrow: small, tracked, uppercase - "AVAILABLE TEAMS". */
+.eyebrow{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;color:var(--t-surface)}
+
+/* Buttons. Primary is the accent fill with its validated ink; secondary is
+   an outline in the team's own ink. Both at least 44px tall. */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:2.9rem;padding:.55rem 1.2rem;border-radius:var(--s-radius-ctl);border:1px solid transparent;font-family:var(--t-font-ui);font-weight:700;font-size:1.05rem;line-height:1;text-decoration:none;cursor:pointer}
+.btn-primary{background:var(--t-accent);color:var(--t-accent-ink)}
+.btn-secondary{background:var(--s-surface);color:var(--t-surface);border-color:var(--t-surface)}
+.btn svg{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* Chevron for rows that open something. */
+.chev{flex:none;width:1.4rem;height:1.4rem;fill:none;stroke:var(--t-accent-on-light);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Segmented control, light: a grey track with the selected option raised
+   on white. Sub-views such as CFP | AP | Coaches. */
+.seg-light{display:flex;gap:.25rem;padding:.25rem;border-radius:var(--s-radius-ctl);background:var(--s-inset);border:1px solid var(--s-line)}
+.seg-light [role="tab"]{flex:1;min-height:2.75rem;padding:.4rem .5rem;border:0;border-radius:8px;background:none;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;cursor:pointer}
+.seg-light [role="tab"][aria-selected="true"]{background:var(--s-surface);color:var(--t-surface);box-shadow:0 1px 3px rgba(15,27,45,.12)}
+
+/* Segmented control on team art: the peer toggle (Games | Rankings,
+   Schedule | Results). Selected is the accent fill with its ink. */
+.seg-dark{display:flex;gap:0;margin-top:1rem;padding:.2rem;border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.72);border:1px solid rgba(255,255,255,.18)}
+.seg-dark [role="tab"]{flex:1;min-height:2.9rem;padding:.4rem .5rem;border:0;border-radius:8px;background:none;color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:1.2rem;cursor:pointer}
+.seg-dark [role="tab"][aria-selected="true"]{background:var(--t-accent);color:var(--t-accent-ink)}
+.seg-dark [role="tab"]:focus-visible{outline-color:var(--t-focus)}
+
+/* Site badges: HOME is the team's own colour, AWAY neutral, NEUTRAL the
+   accent. Team-driven, never a hard-coded palette. */
+.site{display:inline-flex;align-items:center;justify-content:center;min-width:4.6rem;padding:.3rem .55rem;border-radius:6px;font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.site-home{background:var(--t-surface);color:var(--s-on-dark)}
+.site-away{background:var(--s-inset);color:var(--s-ink-2);border:1px solid var(--s-line)}
+.site-neutral{background:var(--t-accent);color:var(--t-accent-ink)}
+
+/* LIVE: a red pill with a light in it. The light pulses; reduced motion
+   keeps the light and stops the pulse. */
+.live-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .8rem;border-radius:var(--s-radius-pill);background:var(--s-live);color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.live-pill::before{content:"";width:.6rem;height:.6rem;border-radius:50%;background:var(--s-on-dark);animation:live-pulse 1.6s ease-in-out infinite}
+
+/* The possession football: one mark, every live screen. */
+.football{display:inline-block;width:2.1rem;height:1.25rem;flex:none}
+.football ellipse{fill:var(--s-football)}
+.football path{fill:none;stroke:var(--s-on-dark);stroke-width:1.1;stroke-linecap:round}
 
 /* ====================================================================
-   RESPONSIVE - widest first, so a narrower block always wins
+   6. SCREENS
+   ==================================================================== */
+/* ---- Team chooser ----------------------------------------------------
+   A fan who has not picked a team. Suite's own chrome, no team masthead and
+   no bottom nav (decision 0016). */
+.chooser{padding:1.9rem 0 3rem}
+.chooser h1{font-family:var(--t-font-ui);font-weight:700;font-size:2.3rem;line-height:1.1;letter-spacing:-.01em;color:var(--s-chrome)}
+.chooser-sub{margin:.45rem 0 1.5rem;font-size:1.3rem;line-height:1.35;color:var(--s-muted)}
+
+/* Filtering sets the hidden attribute; say it in the author sheet so
+   WebKit, whose UA [hidden] is not important, cannot lose it to display. */
+.chooser [hidden]{display:none}
+
+.chooser-search{position:relative;margin:0 0 .5rem}
+.chooser-search svg{position:absolute;left:1rem;top:50%;width:1.35rem;height:1.35rem;margin-top:-.675rem;fill:none;stroke:var(--s-ink);stroke-width:2.2;stroke-linecap:round;pointer-events:none}
+.chooser-search input{width:100%;min-height:3.3rem;padding:.7rem 1rem .7rem 3rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);background:var(--s-surface);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1.15rem;box-shadow:0 2px 6px rgba(15,27,45,.05);-webkit-appearance:none;appearance:none}
+.chooser-search input::placeholder{color:var(--s-muted)}
+.chooser-search input:focus-visible{outline:3px solid var(--s-chrome);outline-offset:2px;border-color:var(--s-chrome)}
+.chooser-count{margin:0;min-height:1.2em;font-size:.9rem;color:var(--s-muted)}
+
+.chooser .eyebrow{margin:1.6rem 0 .8rem;color:var(--s-chrome)}
+.chooser-list{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+.pick{display:flex;align-items:center;gap:1.1rem;width:100%;min-height:5.6rem;padding:.9rem 1.1rem .9rem 1.2rem;border:1px solid var(--s-line);border-radius:var(--s-radius-card);background:var(--s-surface);color:var(--s-ink);box-shadow:var(--s-shadow-card);font-family:var(--t-font-ui);text-align:left;cursor:pointer}
+.pick:hover{border-color:var(--s-line-strong);box-shadow:var(--s-shadow-raise)}
+.pick:focus-visible{outline:3px solid var(--s-chrome);outline-offset:2px}
+.pick .mark{--mark:4.4rem}
+.pick-main{display:flex;flex-direction:column;gap:.2rem;flex:1;min-width:0}
+.pick-name{font-weight:700;font-size:1.45rem;line-height:1.15;color:var(--s-chrome)}
+.pick-nick{font-size:1.1rem;color:var(--s-muted)}
+.pick .chev{width:1.6rem;height:1.6rem;stroke:var(--s-chrome)}
+
+.chooser-divider{height:1px;margin:1.8rem 0 0;background:var(--s-line-strong);border:0}
+/* What is not built yet: visible, but deliberately not a control - no
+   button, no tab stop, a dashed outline instead of a card. */
+.chooser-soon{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.soon{display:flex;flex-direction:column;gap:.15rem;min-width:0;padding:.8rem 1rem;border:1px dashed var(--s-line-strong);border-radius:var(--s-radius-ctl)}
+.soon-name{font-size:1.1rem;color:var(--s-ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.soon-nick{font-size:.92rem;color:var(--s-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chooser-empty{margin:1.5rem 0 0;color:var(--s-muted);font-size:1rem;line-height:1.55}
+
+/* ====================================================================
+   7. RESPONSIVE - widest first, so a narrower block always wins
    ==================================================================== */
 @media (min-width:48rem){
-  :root{--gutter:1.25rem}
-  .wrap{max-width:58rem}
-  .bar{min-height:4.9rem}
-  .motto{margin-top:1rem}
-  [role="tabpanel"]{padding-top:.35rem}
-  .row,.obar,a.art{padding-left:.9rem;padding-right:.9rem}
-  h2.sec{margin-top:1.9rem}
-  .tabbar{left:50%;right:auto;width:min(42rem,calc(100% - 2rem));transform:translateX(-50%);border:0;border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:16px 16px 0 0}
-  .hero{padding:1.55rem 1.6rem 1.35rem}
-  #panel-news>ul.plain{grid-template-columns:repeat(2,minmax(0,1fr))}
+  :root{--gutter:1.5rem}
+  .navbar{left:50%;right:auto;width:min(40rem,calc(100% - 2rem));transform:translateX(-50%);border:1px solid var(--s-line);border-bottom:0;border-radius:18px 18px 0 0}
+  .chooser-soon{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
-@media (max-width:760px){
-  .tabbar button#tab-game{width:5.9rem;height:5.9rem;min-height:5.9rem;border-radius:50%;transform:translateY(-1.3rem)}
-  .tabbar button#tab-game svg{width:37px;height:37px}
-}
-@media (max-width:32rem){
-  :root{--gutter:.8rem}
-  .bar{min-height:4.15rem}
-  .brand-kicker{font-size:.57rem;letter-spacing:.14em}
-  .bar h1{font-size:1.5rem}
-  .refresh{padding:0 .75rem;font-size:.78rem}
-  .refresh-icon{font-size:.9rem}
-  .hero{min-height:0;display:block;border-radius:10px;padding:1.2rem 1rem 1.05rem}
-  .hero .spread{position:absolute;top:1.1rem;right:1rem;min-width:0;padding:0;border-left:0;font-family:var(--t-font-ui);font-size:.82rem}
-  .motto{max-width:14ch;font-size:clamp(2rem,10vw,2.8rem)}
-  .hero .clock{margin-top:.8rem;padding:.7rem 0 0;border-top:1px solid rgba(var(--t-accent-rgb),.28);border-left:0}
-  .strip .cell{padding:.7rem .65rem;min-height:4.6rem}
-  .strip .cell .k{font-size:.58rem}
-  .strip .cell .v{font-size:1.45rem}
-  .hero .opp{font-size:2rem}
-  .strip{gap:.4rem}
-  a.art img{width:4.6rem;height:3.25rem}
-  .brand-group{gap:.55rem}
-  .tabbar button#tab-game{width:5.9rem;height:5.9rem;min-height:5.9rem;border-radius:50%;transform:translateY(-1.2rem)}
-  .tabbar button#tab-game svg{width:37px;height:37px}
-}
-@media (max-width:22rem){
-  .motto{font-size:2.6rem;line-height:1.05}
+@media (max-width:24rem){
+  :root{--gutter:.85rem}
+  .chooser h1{font-size:2rem}
+  .chooser-sub{font-size:1.15rem}
+  .pick-name{font-size:1.3rem}
+  .nav-item{font-size:.74rem}
 }
 
-/* Motion and preference queries last, so they override everything above. */
+/* ====================================================================
+   8. PREFERENCES - last, so they override everything above
+   ==================================================================== */
 @media (prefers-reduced-motion:reduce){
-  .hero{animation:none;opacity:1}
-  details.fold > summary::after{transition:none}
-  .gstatus .dot{animation:none}
-  .row .live .lbl::before{animation:none}
-  .refresh,.change-team,.row,[role="tab"],a.art,.heromini{transition:none}
-  #refresh.polling::before{animation:none}
-  .strip .cell::after{transition:none}
-  a.art{transition:none}
-  .tabbar button#tab-game{transform:translateY(-.9rem)}
-  .tabbar button[role="tab"] svg{transition:none}
-  .row.tappable::after{transition:none}
+  .navbar.is-live .nav-game .nav-live,.live-pill::before{animation:none}
 }

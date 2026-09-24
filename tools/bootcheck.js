@@ -95,9 +95,9 @@ function run(opts) {
 
 // A stored set, the shape paintIdentity() writes.
 var OSU = { "--t-accent": "#BA0C2F", "--t-surface": "#212325", "--t-deep": "#0B1115",
-            title: "Buckeye Watch · Ohio State Football", themeColor: "#212325" };
+            title: "Buckeye Watch · Ohio State Football", themeColor: "#0B1115" };
 var ND = { "--t-accent": "#C99700", "--t-surface": "#0C2340", "--t-deep": "#07192F",
-           title: "Irish Watch — Notre Dame football", themeColor: "#0C2340" };
+           title: "Irish Watch — Notre Dame football", themeColor: "#07192F" };
 function saved(id, set) { var s = {}; s["iw-boot-" + id] = JSON.stringify(set); return s; }
 
 console.log("which team");
@@ -148,13 +148,13 @@ eq(run({ storage: { "iw-boot-notre-dame": "{}" } }).team, "",
 console.log("what it paints before anything loads");
 var cold = run({ search: "?team=ohio-state" });
 eq(cold.applied, {}, "nothing stored for this team -> no tokens, so app.css's neutral :root stands");
-eq(cold.meta["theme-color"], "#161A20",
+eq(cold.meta["theme-color"], "#0C0F13",
    "and the browser chrome is pointed at that same neutral, not the default team's colour");
 
 var warm = run({ search: "?team=ohio-state", storage: saved("ohio-state", OSU) });
 eq(warm.applied["--t-accent"], "#BA0C2F", "a stored set paints the team before a single file is fetched");
 eq(warm.applied["--t-deep"], "#0B1115", "including the canvas the iOS bars are taken from");
-eq(warm.meta["theme-color"], "#212325", "and the chrome matches it");
+eq(warm.meta["theme-color"], "#0B1115", "and the chrome matches the header under it");
 eq(warm.title, "Buckeye Watch · Ohio State Football", "and the tab says the right product");
 
 console.log(" one team is never painted in another's colours");
@@ -163,7 +163,7 @@ console.log(" one team is never painted in another's colours");
 var cross = run({ search: "?team=notre-dame", storage: saved("ohio-state", OSU) });
 eq(cross.applied, {}, "Ohio State's stored set is not replayed onto Notre Dame");
 eq(cross.title, "Irish Watch — Notre Dame football", "nor its title");
-eq(cross.meta["theme-color"], "#161A20", "the chrome goes neutral instead of borrowing it");
+eq(cross.meta["theme-color"], "#0C0F13", "the chrome goes neutral instead of borrowing it");
 var both = run({ search: "?team=notre-dame", storage: Object.assign(saved("ohio-state", OSU), saved("notre-dame", ND)) });
 eq(both.applied["--t-accent"], "#C99700", "with both stored, each team gets its own");
 
@@ -177,11 +177,12 @@ var nasty = run({ search: "?team=notre-dame", storage: saved("notre-dame", {
   title: "Irish Watch", themeColor: "javascript:alert(1)"
 }) });
 eq(Object.keys(nasty.applied).sort(), ["--t-accent"], "only a well-formed token with a clean value is applied");
-eq(nasty.meta["theme-color"], "#161A20",
+eq(nasty.meta["theme-color"], "#0C0F13",
    "a theme colour that is not a hex colour is refused, and does not leave the default team's behind");
 var surfOnly = run({ search: "?team=ohio-state", storage: saved("ohio-state",
-  { "--t-surface": "#212325", themeColor: "not-a-colour" }) });
-eq(surfOnly.meta["theme-color"], "#212325", "it falls back to the surface actually applied");
+  { "--t-deep": "#0B1115", themeColor: "not-a-colour" }) });
+eq(surfOnly.meta["theme-color"], "#0B1115", "it falls back to the header colour actually applied");
+eq(run({}).meta["theme-color"], "#0B1F3A", "the chooser's chrome is the Suite's own header, not a team's");
 eq(run({ storage: { "iw-boot-notre-dame": "{not json" } }).applied, {}, "unparseable storage is ignored, not thrown on");
 eq(run({ storage: { "iw-boot-notre-dame": "\"a string\"" } }).applied, {}, "and so is storage of the wrong type");
 
@@ -193,13 +194,26 @@ var blockedUrl = run({ storageThrows: true, search: "?team=ohio-state" });
 eq(blockedUrl.team, "ohio-state", "but a URL still works without storage - it needs nothing remembered");
 eq(blockedUrl.applied, {}, "with no stored colours to replay, so the neutral again");
 
+console.log(" changing team keeps the current one (decision 0022 #7)");
+var change = run({ search: "?change", storage: { "iw-team": "notre-dame" } });
+eq(change.team, "", "?change shows the chooser even though a team is stored");
+eq(change.attrs["data-current-team"], "notre-dame", "and names the current team, so the chooser can offer Cancel back to it");
+eq(change.store["iw-team"], "notre-dame", "the stored team is untouched until another is actually picked");
+ok(change.injected.indexOf("chooser.js") !== -1 && change.injected.indexOf("app.js") === -1,
+   "the chooser loads, the Suite does not");
+ok(change.injected.every(function (src) { return !/^teams\/(?!index)/.test(src); }), "and no team's config is fetched");
+var first = run({ search: "?change" });
+eq(first.attrs["data-current-team"], undefined, "with nothing stored there is no current team, so no Cancel - that is onboarding");
+var both = run({ search: "?team=ohio-state&change", storage: { "iw-team": "notre-dame" } });
+eq(both.team, "ohio-state", "a URL that names a team opens it; ?change does not override an explicit choice");
+
 console.log("what it loads");
 var order = run({ search: "?team=ohio-state" }).injected;
 eq(order[0], "teams/ohio-state.js", "the team's config first - app.js reads it at parse time");
 eq(order[order.length - 1], "app.js", "and app.js last");
 eq(order, ["teams/ohio-state.js", "teams/index.js", "teamos/registry.js", "teamos/team.js",
            "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js",
-           "teamos/espn.js", "app.js"],
+           "teamos/espn.js", "suite/ui.js", "suite/nav.js", "app.js"],
    "every file the page needs, in dependency order");
 ok(/async\s*=\s*false/.test(BOOT), "injected with async=false, which is what keeps them in order");
 ok(/DOMContentLoaded/.test(BOOT),
@@ -256,11 +270,11 @@ fs.readdirSync(path.join(root, "teams")).filter(function (f) {
   var c = vm.createContext({});
   vm.runInContext(read("teams/" + f), c, { filename: f });
   var id = (c.TEAM_CONFIG && c.TEAM_CONFIG.identity) || {};
-  [id.productName, id.programLabel, id.motto].forEach(function (w) {
+  [id.productName, id.programLabel, id.tagline].forEach(function (w) {
     if (w && shell.indexOf(w) !== -1) claimed.push(w + " (" + f + ")");
   });
 });
-eq(claimed, [], "names no program and no team's product, label or motto");
+eq(claimed, [], "names no program and no team's product, label or tagline");
 ok((regCtx.TEAM_REGISTRY || []).length > 100, "checked against the full roster, not a sample");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the page knows which team it is"));

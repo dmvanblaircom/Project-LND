@@ -430,8 +430,14 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamScheduleUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","mark","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamScheduleUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
+
+console.log("mark");
+eq(TeamOS.espn.mark("87"), "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png", "a program's mark, as the provider hosts it");
+eq(TeamOS.espn.mark(87, true), "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png", "the variant drawn for dark backgrounds");
+eq(TeamOS.espn.mark(null), null, "no id, no mark - the view draws its own fallback");
+eq(TeamOS.espn.mark("87/../x"), null, "an id is digits or nothing: it becomes part of a URL");
 
 // ---- snapshot ownership: the same questions, two teams, two answers ----
 console.log("teamos/snapshots.js");
@@ -510,7 +516,7 @@ function uncomment(t) { return t.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\
 ok(!/\bfetch\s*\(/.test(idSrc), "does not call fetch()");
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(uncomment(idSrc)), "does not touch the DOM or browser storage");
 ok(!/notre|irish|ohio|buckeye|navy|scarlet/i.test(uncomment(idSrc)), "names no team and no team colour in code");
-eq(Object.keys(TeamOS.identity).sort(), ["MIN", "contrast", "create", "luminance"], "exactly the documented functions");
+eq(Object.keys(TeamOS.identity).sort(), ["LIGHT", "MIN", "contrast", "create", "luminance"], "exactly the documented functions");
 
 // The contrast maths, against ratios computed independently.
 ok(Math.abs(TeamOS.identity.contrast("#FFFFFF", "#000000") - 21) < 0.01, "white on black is 21:1");
@@ -527,11 +533,12 @@ eq(ndId.programLabel, "NOTRE DAME FOOTBALL", "program label");
 eq(ndId.title, "Irish Watch — Notre Dame football", "document title");
 eq(ndId.shareTitle, "Irish Watch — Notre Dame Football", "the share card keeps its own capitalisation");
 eq(ndId.shareDescription, "Game day. Every day.", "share description");
-eq(ndId.motto, "Leave No Doubt", "the 2026 team motto");
+eq(ndId.tagline, "Leave No Doubt.", "the team tagline (decision 0023)");
 eq(ndId.newsLabel, "LATEST FROM SOUTH BEND", "the News tab rule, unchanged wording");
 eq(ndId.manifest, "assets/notre-dame/manifest.json", "its own manifest");
 eq(ndId.colors.accent, "#C99700", "accent");
 eq(ndId.colors.accentText, "#C99700", "accent text is the same gold, because it passes");
+eq(ndId.colors.accentOnLight, "#876500", "on the Suite's light surfaces the gold darkens to a passing text tone");
 eq(ndId.colors.accentRgb, "201,151,0", "accent channels, for the stylesheet's 43 tints");
 eq(ndId.colors.surfaceRgb, "12,35,64", "surface channels");
 eq(Object.keys(ndId.assets).filter(function (k) { return ndId.assets[k]; }).sort(),
@@ -545,7 +552,7 @@ eq(osuId.productName, "Buckeye Watch", "product name");
 eq(osuId.programLabel, "OHIO STATE FOOTBALL", "program label");
 eq(osuId.title, "Buckeye Watch · Ohio State Football", "document title");
 eq(osuId.shareTitle, osuId.title, "no separate share title, so it falls back to the title");
-eq(osuId.motto, null, "no motto: Leave No Doubt belongs to Notre Dame");
+eq(osuId.tagline, null, "no tagline: Leave No Doubt. belongs to Notre Dame");
 eq(osuId.newsLabel, "LATEST BUCKEYE NEWS", "its own News tab rule");
 eq(osuId.colors.accent, "#BA0C2F", "BUX scarlet");
 eq(osuId.colors.accentText, "#EFF1F2", "accent TEXT is BUX gray-light, not a lightened scarlet");
@@ -561,7 +568,9 @@ console.log(" the two teams differ where identity lives");
 ["accent", "accentText", "accentInk", "surface", "surfaceDeep"].forEach(function (k) {
   ok(ndId.colors[k] !== osuId.colors[k], "identity.colors." + k + " differs");
 });
-["ui", "display", "headline"].forEach(function (k) {
+ok(ndId.fonts.headline === undefined && osuId.fonts.headline === undefined,
+   "no team supplies an editorial face: news type is the Suite's, not a team's");
+["ui", "display"].forEach(function (k) {
   ok(ndId.fonts[k] !== osuId.fonts[k], "identity.fonts." + k + " differs");
 });
 
@@ -571,6 +580,8 @@ console.log(" every configured team is legible (WCAG AA)");
   ok(c.accentText >= 4.5, n + ": accentText on the page is " + c.accentText + ":1");
   ok(c.accentSoft >= 4.5, n + ": accentSoft on the page is " + c.accentSoft + ":1");
   ok(c.accentInk >= 4.5, n + ": accentInk on the accent is " + c.accentInk + ":1");
+  ok(c.accentOnLight >= 4.5, n + ": accentOnLight on the Suite's light surfaces is " + c.accentOnLight + ":1");
+  ok(c.surfaceOnLight >= 4.5, n + ": the team's surface as heading ink on light is " + c.surfaceOnLight + ":1");
   ok(c.text === null || c.text >= 4.5,
      n + ": declared text colour is " + (c.text === null ? "not overridden" : c.text + ":1"));
   console.log("       (accent as text would be " + c.accentOnSurface + ":1 - reported, never enforced)");
@@ -581,10 +592,10 @@ function baseIdentity() {
   return { identity: {
     productName: "P", programLabel: "L", title: "T", description: "D", manifest: "m.json",
     newsLabel: "N",
-    colors: { accent: "#BA0C2F", accentText: "#EFF1F2", accentInk: "#FFFFFF", accentSoft: "#A7B1B7",
+    colors: { accent: "#BA0C2F", accentText: "#EFF1F2", accentOnLight: "#BA0C2F", accentInk: "#FFFFFF", accentSoft: "#A7B1B7",
               accentTint: "#EFF1F2", accentTintSoft: "#F6F7F8", focus: "#EFF1F2",
               surface: "#212325", surfaceDeep: "#0B1115", surfaceAbyss: "#070A0C", surfaceRaise: "#3F4443" },
-    fonts: { ui: "a", display: "b", headline: "c" }, assets: {} } };
+    fonts: { ui: "a", display: "b" }, assets: {} } };
 }
 ok((function () { try { TeamOS.identity.create(baseIdentity(), ND); return true; } catch (e) { return false; } })(),
    "the baseline config these cases mutate is itself valid");
@@ -597,6 +608,8 @@ function idThrows(mutate, what) {
 idThrows(function (c) { c.identity.colors.accentText = "#BA0C2F"; }, "accent text that fails on the surface throws");
 idThrows(function (c) { c.identity.colors.accentInk = "#4A0513"; }, "ink that fails on the accent throws");
 idThrows(function (c) { c.identity.colors.accentSoft = "#3F4443"; }, "a soft tone that fails throws");
+idThrows(function (c) { c.identity.colors.accentOnLight = "#C99700"; }, "accent text that fails on the light Suite surfaces throws");
+idThrows(function (c) { c.identity.colors.surface = "#8A94A6"; }, "a surface too light to be heading ink on light pages throws");
 idThrows(function (c) { c.identity.colors.text = "#3F4443"; }, "a declared text colour that fails throws");
 idThrows(function (c) { c.identity.colors.accent = "BA0C2F"; }, "a colour that is not #rrggbb throws");
 idThrows(function (c) { delete c.identity.colors.surfaceDeep; }, "a missing colour throws");
@@ -607,8 +620,10 @@ ok((function () { try { TeamOS.identity.create({}, ND); return false; } catch (e
    "a config with no identity section throws");
 
 // ---- the stylesheet names no team ----
-console.log("app.css");
-var css = read("app.css");
+console.log("app.css and the legacy quarantine");
+// The screens not yet rebuilt live in legacy.css; the rules below hold for
+// the Suite's stylesheets as a whole, wherever a rule currently lives.
+var css = read("app.css") + "\n" + read("legacy.css");
 var cssClean = uncomment(css);
 var tokenBlock = cssClean.match(/--t-accent:[\s\S]*?--t-accent-line:[^;}]*}/);
 ok(!!tokenBlock, "the team token block is where it says it is");

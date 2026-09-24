@@ -13,8 +13,9 @@
        pixels actually behind it (tools/a11yaudit.js);
      - every keyboard focus stop shows a ring that is really painted and
        reaches 3:1 against what surrounds it;
-     - on team pages, the header stays on one line, and the More tab shows
-       the team being followed, Refresh, and a working Change team.
+     - on team pages: the five nav destinations, which header each screen
+       wears, focus after navigating, Back, the live Game circle (and its
+       reduced-motion form), and More's team, Refresh and Change team.
 
    The auditor proves itself first on a page whose answers are known. If it
    cannot, nothing else runs, because a gate that cannot see is worse than
@@ -71,8 +72,11 @@ function responseFor(url) {
 }
 
 var TEAMS = ["notre-dame", "ohio-state"];
-var TABS = [["tab-schedule", "home"], ["tab-around", "top25"], ["tab-game", "game"],
-            ["tab-depth", "roster"], ["tab-more", "more"]];
+// Every screen a fan can reach, by route. The first five are the primary nav;
+// Schedule is reached from Home and More (decision 0023).
+var SCREENS = ["home", "top25", "game", "roster", "more", "schedule"];
+var NAV = ["home", "top25", "game", "roster", "more"];
+var MASTHEAD = { top25: "Top 25", roster: "Roster", more: "More", schedule: "Schedule" };
 var WIDTHS = [375, 1280];
 
 (async function () {
@@ -102,9 +106,16 @@ var WIDTHS = [375, 1280];
     var context = await browser.newContext({ viewport: { width: width, height: 900 }, serviceWorkers: "block" });
     var page = await context.newPage();
     await page.route("**/*", async function (route) {
-      var body = responseFor(route.request().url());
+      var url = route.request().url();
+      var body = responseFor(url);
       if (body) return route.fulfill({ status: 200, contentType: "application/json", body: body });
-      if (route.request().url().startsWith(base)) return route.continue();
+      if (url.startsWith(base)) return route.continue();
+      // The Suite's typefaces, so screenshots are the design and not a system
+      // fallback. Provider-hosted team marks only where asked for (CI can
+      // reach them; a development sandbox may not, and then the fallback
+      // initials are what is measured - also a real state).
+      if (/^https:\/\/fonts\.(googleapis|gstatic)\.com\//.test(url)) return route.continue();
+      if (process.env.ALLOW_PROVIDER_IMAGES && /^https:\/\/a\.espncdn\.com\/i\/teamlogos\//.test(url)) return route.continue();
       return route.abort();
     });
     return { context: context, page: page };
@@ -144,6 +155,23 @@ var WIDTHS = [375, 1280];
       await c.page.waitForTimeout(300);
       await fullShot(c.page, path.join(shots, "chooser-" + width + ".png"));
       await checkState(c.page, "chooser " + width + "px");
+      var ch = await c.page.evaluate(function () {
+        return { nav: !!document.querySelector(".navbar"), mast: !!document.getElementById("masthead"),
+                 bar: !!document.getElementById("appBar") && !document.getElementById("appBar").hidden,
+                 picks: document.querySelectorAll(".pick").length,
+                 soonFocusable: document.querySelectorAll(".soon a, .soon button, .soon [tabindex]").length,
+                 marks: document.querySelectorAll(".pick .mark").length };
+      });
+      var cw = "chooser " + width + "px";
+      if (ch.nav) fail(cw, "behaviour", ".navbar", "the chooser shows a bottom nav with no team behind it");
+      if (ch.mast) fail(cw, "behaviour", "#masthead", "the chooser shows a team masthead before a team is chosen");
+      if (!ch.bar) fail(cw, "behaviour", "#appBar", "the chooser lost the Suite header");
+      if (ch.picks < 2) fail(cw, "behaviour", ".pick", "fewer than two openable teams are offered");
+      if (ch.marks !== ch.picks) fail(cw, "behaviour", ".pick .mark", "an openable team is drawn without its mark");
+      if (ch.soonFocusable) fail(cw, "behaviour", ".soon", "a Coming Soon card is focusable");
+      await c.page.click("#barSearch");
+      if (await c.page.evaluate(function () { return document.activeElement && document.activeElement.id; }) !== "teamSearch")
+        fail(cw, "behaviour", "#barSearch", "the header's search control does not take the fan to the search box");
       await c.context.close();
 
       // 3. Each team, each tab.
@@ -158,26 +186,50 @@ var WIDTHS = [375, 1280];
         }, null, { timeout: 10000 });
         await page.waitForTimeout(300);
 
-        // The header is one line. A long product name ("Buckeye Watch") once
-        // pushed the last control onto a row of its own.
         var who = team + " " + width + "px";
-        var wrapped = await page.evaluate(function () {
-          var bar = document.querySelector("header.bar"), brand = bar.firstElementChild.getBoundingClientRect();
-          return [].slice.call(bar.children).filter(function (el) {
-            var r = el.getBoundingClientRect();
-            return r.width > 0 && r.height > 0 && (r.top >= brand.bottom || r.bottom <= brand.top);
-          }).map(function (el) { return el.id || el.className; });
-        });
-        if (wrapped.length) fail(who, "layout", "header.bar", "header wraps: " + wrapped.join(", ") + " on a second line");
 
-        for (var k = 0; k < TABS.length; k++) {
-          var tab = TABS[k];
-          await page.click("#" + tab[0]);
+        // The primary nav: five destinations, in the approved order, with the
+        // approved labels, never touching the device's bottom edge.
+        var nav = await page.evaluate(function () {
+          var n = document.querySelector(".navbar");
+          var cs = getComputedStyle(n);
+          return { labels: [].slice.call(n.querySelectorAll(".nav-item")).map(function (a) { return a.textContent.trim(); }),
+                   pad: parseFloat(cs.paddingBottom) };
+        });
+        if (nav.labels.join("|") !== "Home|Top 25|Game|Roster|More")
+          fail(who, "behaviour", ".navbar", "nav reads " + nav.labels.join(" / ") + ", not Home / Top 25 / Game / Roster / More");
+        if (nav.pad < 8) fail(who, "layout", ".navbar", "nav sits on the bottom edge (" + nav.pad + "px padding)");
+
+        for (var k = 0; k < SCREENS.length; k++) {
+          var screen = SCREENS[k];
+          if (NAV.indexOf(screen) !== -1) await page.click('.nav-item[data-screen="' + screen + '"]');
+          else await page.evaluate(function (h) { location.hash = h; }, "#" + screen);
           await page.waitForTimeout(350);
-          var label = team + " " + tab[1] + " " + width + "px";
-          await fullShot(page, path.join(shots, team + "-" + width + "-" + tab[1] + ".png"));
+          var label = team + " " + screen + " " + width + "px";
+          var st = await page.evaluate(function () {
+            var cur = document.querySelector('.nav-item[aria-current="page"]');
+            var mast = document.getElementById("masthead"), bar = document.getElementById("appBar");
+            return { hash: location.hash, current: cur ? cur.getAttribute("data-screen") : null,
+                     mast: !mast.hidden, bar: !bar.hidden,
+                     title: document.getElementById("mastTitle").textContent,
+                     name: document.getElementById("mastName").textContent,
+                     focus: document.activeElement ? document.activeElement.id : null };
+          });
+          if (st.hash !== "#" + screen) fail(label, "behaviour", "route", "route is " + st.hash);
+          var wantCur = NAV.indexOf(screen) !== -1 ? screen : null;
+          if (st.current !== wantCur) fail(label, "behaviour", ".navbar", "current nav item is " + st.current + ", expected " + wantCur);
+          if (MASTHEAD[screen]) {
+            if (!st.mast || st.bar) fail(label, "behaviour", "#masthead", "this screen should wear the team masthead, not the SUITE header");
+            if (st.title !== MASTHEAD[screen]) fail(label, "behaviour", "#mastTitle", "masthead title reads '" + st.title + "'");
+            if (!st.name) fail(label, "behaviour", "#mastName", "the masthead does not name the team");
+          } else if (st.mast || !st.bar) {
+            fail(label, "behaviour", "#appBar", "this screen should wear the compact SUITE header");
+          }
+          if (k > 0 && st.focus !== (MASTHEAD[screen] ? "mastTitle" : "screenHead"))
+            fail(label, "behaviour", "focus", "after navigating, focus is on '" + st.focus + "', not the screen's heading");
+          await fullShot(page, path.join(shots, team + "-" + width + "-" + screen + ".png"));
           await checkState(page, label);
-          if (tab[1] === "more") {
+          if (screen === "more") {
             var more = await page.evaluate(function () {
               var b = document.getElementById("changeTeam"), t = document.getElementById("moreTeam");
               var r = document.getElementById("refresh");
@@ -192,20 +244,92 @@ var WIDTHS = [375, 1280];
           }
         }
 
-        // Change team: the stored choice is forgotten and the fan lands on the
-        // chooser - not back on the same team, and not on a blank page.
+        // Back walks the routes, and a route is restorable from the URL alone.
+        await page.evaluate(function () { location.hash = "#top25"; });
+        await page.waitForTimeout(150);
+        await page.evaluate(function () { location.hash = "#more"; });
+        await page.waitForTimeout(150);
+        await page.goBack();
+        await page.waitForTimeout(250);
+        var back = await page.evaluate(function () {
+          var cur = document.querySelector('.nav-item[aria-current="page"]');
+          return { hash: location.hash, cur: cur && cur.getAttribute("data-screen"), panel: !document.getElementById("panel-around").hidden };
+        });
+        if (back.hash !== "#top25" || back.cur !== "top25" || !back.panel)
+          fail(who, "behaviour", "history", "Back from More did not return to Top 25 (" + JSON.stringify(back) + ")");
+
+        // A deep link opens its screen directly.
+        await page.goto(base + "/?team=" + team + "#roster", { waitUntil: "domcontentloaded" });
+        await page.waitForTimeout(600);
+        var deep = await page.evaluate(function () {
+          return { panel: !document.getElementById("panel-depth").hidden,
+                   title: document.getElementById("mastTitle").textContent };
+        });
+        if (!deep.panel || deep.title !== "Roster") fail(who, "behaviour", "route", "a deep link to #roster did not open Roster");
+
+        // The live Game control: the raised circle, higher than its row, with
+        // the live light inside it - pulsing, unless reduced motion is asked.
+        await page.evaluate(function () { location.hash = "#home"; Suite.nav.setLive(true); });
+        await page.waitForTimeout(250);
+        var live = await page.evaluate(function () {
+          var g = document.querySelector(".nav-game").getBoundingClientRect();
+          var h = document.querySelector('.nav-item[data-screen="home"]').getBoundingClientRect();
+          var n = document.querySelector(".navbar").getBoundingClientRect();
+          var d = document.querySelector(".nav-game .nav-live"), dr = d.getBoundingClientRect();
+          return { round: Math.abs(g.width - g.height) < 1, raised: g.top < h.top - 8, aboveBar: g.top < n.top,
+                   inside: dr.left >= g.left && dr.right <= g.right && dr.top >= g.top && dr.bottom <= g.bottom,
+                   anim: getComputedStyle(d).animationName, edge: window.innerHeight - g.bottom,
+                   sr: document.getElementById("navLive").textContent };
+        });
+        if (!live.round || !live.raised || !live.aboveBar) fail(who, "behaviour", ".nav-game", "live Game is not the raised circle (" + JSON.stringify(live) + ")");
+        if (!live.inside) fail(who, "behaviour", ".nav-live", "the live light is not inside the Game circle");
+        if (live.anim === "none") fail(who, "behaviour", ".nav-live", "the live light does not pulse");
+        if (live.edge < 8) fail(who, "layout", ".nav-game", "the live Game circle touches the bottom edge");
+        if (!/live/.test(live.sr)) fail(who, "behaviour", "#navLive", "the live state is not announced to assistive technology");
+        await fullShot(page, path.join(shots, team + "-" + width + "-home-livenav.png"));
+        await checkState(page, team + " live-nav " + width + "px");
+        await page.emulateMedia({ reducedMotion: "reduce" });
+        var still = await page.evaluate(function () {
+          var d = document.querySelector(".nav-game .nav-live");
+          return { anim: getComputedStyle(d).animationName, shown: d.checkVisibility() };
+        });
+        if (still.anim !== "none" || !still.shown) fail(who, "behaviour", ".nav-live", "with reduced motion the live light should stay, without pulsing");
+        await page.emulateMedia({ reducedMotion: "no-preference" });
+        await page.evaluate(function () { Suite.nav.setLive(false); });
+
+        // Change team (decision 0022 #7): the chooser opens in its change
+        // mode, the current team stays stored, Cancel goes back to it, and
+        // picking another team switches immediately.
         if (await page.$("#changeTeam")) {
-          await page.click("#tab-more");
+          await page.click('.nav-item[data-screen="more"]');
           await page.click("#changeTeam");
           try {
             await page.waitForSelector(".chooser", { timeout: 10000 });
             var ct = await page.evaluate(function () {
-              return { search: location.search, stored: localStorage.getItem("iw-team") };
+              return { stored: localStorage.getItem("iw-team"), cancel: !!document.getElementById("cancelChange"),
+                       nav: !!document.querySelector(".navbar") };
             });
-            if (ct.search) fail(who, "behaviour", "#changeTeam", "Change team left '" + ct.search + "' in the URL");
-            if (ct.stored) fail(who, "behaviour", "#changeTeam", "Change team kept the stored team '" + ct.stored + "'");
+            if (ct.stored !== team) fail(who, "behaviour", "#changeTeam", "opening Change team forgot the current team (stored: " + ct.stored + ")");
+            if (!ct.cancel) fail(who, "behaviour", "#cancelChange", "Change team offers no way back to the current team");
+            if (ct.nav) fail(who, "behaviour", ".navbar", "the chooser shows the bottom nav");
+            await fullShot(page, path.join(shots, team + "-" + width + "-change-team.png"));
+            await checkState(page, team + " change-team " + width + "px");
+            await page.click("#cancelChange");
+            await page.waitForSelector("#navbar", { timeout: 10000 });
+            var back2 = await page.evaluate(function () {
+              return { team: document.documentElement.getAttribute("data-team"), stored: localStorage.getItem("iw-team") };
+            });
+            if (back2.team !== team || back2.stored !== team) fail(who, "behaviour", "#cancelChange", "Cancel did not return to " + team + " unchanged (" + JSON.stringify(back2) + ")");
+            // And picking another team switches straight to it.
+            var other = TEAMS.filter(function (t) { return t !== team; })[0];
+            await page.goto(base + "/?change", { waitUntil: "domcontentloaded" });
+            await page.waitForSelector(".chooser", { timeout: 10000 });
+            await page.click('.pick[data-team="' + other + '"]');
+            await page.waitForFunction(function (o) { return document.documentElement.getAttribute("data-team") === o; }, other, { timeout: 10000 });
+            if (await page.evaluate(function () { return localStorage.getItem("iw-team"); }) !== other)
+              fail(who, "behaviour", ".pick", "picking " + other + " did not switch to it");
           } catch (e) {
-            fail(who, "behaviour", "#changeTeam", "Change team did not reach the chooser");
+            fail(who, "behaviour", "#changeTeam", "Change team flow broke: " + String(e.message || e).split("\n")[0]);
           }
         }
         await s.context.close();

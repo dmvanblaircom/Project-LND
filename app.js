@@ -106,7 +106,8 @@ function paintIdentity(){
   // ---- the document ----
   document.title = ID.title;
   meta("description", ID.description);
-  meta("theme-color", ID.colors.surface);
+  // The browser chrome matches what sits under it: the team's header.
+  meta("theme-color", ID.colors.surfaceDeep);
   meta("application-name", ID.productName);
   meta("apple-mobile-web-app-title", ID.productName);
   meta("og:title", ID.shareTitle, true);
@@ -127,13 +128,21 @@ function paintIdentity(){
   icon('link[rel="manifest"]', "manifest", null, null, ID.manifest);
 
   // ---- the page ----
-  text(".brand-kicker", ID.programLabel);
-  text(".bar h1", ID.productName);
   text("#heroHead", "Next "+TEAM.name+" game");
   text("#dataHead", TEAM.name+" and national football data");
-  var m = $("motto");
-  // A team without a motto does not get an empty line where one would be.
-  if(m){ if(ID.motto) m.textContent = ID.motto; else m.parentNode.removeChild(m); }
+
+  // The masthead: the team frames its own sections. Its nickname is the
+  // registry's (the provider's shortDisplayName), not a second copy typed
+  // into the team config; its mark is TeamOS's to name.
+  var reg = TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []).get(TEAM.id);
+  text("#mastName", TEAM.name);
+  text("#mastNick", reg && reg.nick ? reg.nick : "");
+  // A team without a tagline gets no empty line where one would be.
+  var tl = $("mastTagline");
+  if(tl){ if(ID.tagline) tl.textContent = ID.tagline; else tl.parentNode.removeChild(tl); }
+  var mk = $("mastMark");
+  if(mk) mk.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
+                                       TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="mastMark"');
 
   // ---- the stylesheet ----
   // app.css declares these with this team's values already, so for Notre
@@ -141,6 +150,7 @@ function paintIdentity(){
   // the whole sheet that team's.
   var r = document.documentElement.style, c = ID.colors;
   [["--t-accent",c.accent], ["--t-accent-rgb",c.accentRgb], ["--t-accent-text",c.accentText],
+   ["--t-accent-on-light",c.accentOnLight],
    ["--t-accent-ink",c.accentInk], ["--t-accent-soft",c.accentSoft], ["--t-accent-tint",c.accentTint],
    ["--t-accent-tint-soft",c.accentTintSoft], ["--t-focus",c.focus],
    ["--t-surface",c.surface], ["--t-surface-rgb",c.surfaceRgb],
@@ -149,12 +159,11 @@ function paintIdentity(){
    ["--t-raise",c.surfaceRaise], ["--t-raise-rgb",c.surfaceRaiseRgb],
    // a CSS content string carries its own quotes
    ["--t-news-label", JSON.stringify(ID.newsLabel)],
-   ["--t-font-ui",ID.fonts.ui], ["--t-font-display",ID.fonts.display],
-   ["--t-font-headline",ID.fonts.headline]].forEach(function(p){ r.setProperty(p[0], p[1]); });
-  // Optional: a team whose surface needs a different text neutral than the
-  // Suite's own. Left undeclared, the stylesheet's values stand.
-  if(c.text)    r.setProperty("--paper", c.text);
-  if(c.textDim) r.setProperty("--dim",   c.textDim);
+   ["--t-font-ui",ID.fonts.ui], ["--t-font-display",ID.fonts.display]].forEach(function(p){ r.setProperty(p[0], p[1]); });
+  // Optional: a team whose dark surface needs a different text neutral than
+  // the Suite's own, for the screens still on it (legacy.css reads these).
+  if(c.text)    r.setProperty("--t-text", c.text);
+  if(c.textDim) r.setProperty("--t-text-dim", c.textDim);
 
   // Leave this team's boot set behind for the next visit. app.css's :root is
   // team-neutral, so without this every visit would paint neutral for the
@@ -168,7 +177,7 @@ function paintIdentity(){
       if(name.indexOf("--")===0) boot[name]=r.getPropertyValue(name);
     }
     boot.title      = ID.title;
-    boot.themeColor = ID.colors.surface;
+    boot.themeColor = ID.colors.surfaceDeep;
     localStorage.setItem("iw-boot-"+TEAM.id, JSON.stringify(boot));
   }catch(e){}   // private mode, blocked storage, a full quota: the page is fine without it
 }
@@ -1943,39 +1952,25 @@ function loadNews(){
   }
 }
 
-/* ---------- tabs: full keyboard support per ARIA practices ---------- */
-var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
-function selectTab(tab, focusIt){
-  tabs.forEach(function(t){
-    var on = t===tab;
-    t.setAttribute("aria-selected",String(on));
-    t.tabIndex = on ? 0 : -1;
-    $(t.getAttribute("aria-controls")).hidden = !on;
-  });
-  if(focusIt) tab.focus();
-  // Carrying the previous tab's scroll position into a different list is
-  // disorienting. Jump, do not animate — smooth scrolling here feels laggy.
-  window.scrollTo(0,0);
-  var name=tab.id.replace("tab-","");
+/* ---------- screens: which content each route shows ---------- */
+// The route itself is suite/nav.js's (one state: location.hash). This is the
+// other half: which panel a screen shows, and what it loads on entry. Until
+// each screen is rebuilt in the canonical system it shows its pre-canonical
+// panel (legacy.css); the map below shrinks, phase by phase, to nothing.
+var PANEL_FOR={ home:"schedule", top25:"around", game:"game", roster:"depth", more:"more", schedule:"schedule" };
+var PANELS=["schedule","around","game","depth","more"];
+function showScreen(route){
+  var name=PANEL_FOR[route.screen]||"schedule";
+  PANELS.forEach(function(p){ $("panel-"+p).hidden = p!==name; });
   UI.tab=name; layoutForTab();
   // Force a refresh on entry: the dataset guard would otherwise leave the
-  // tab showing whatever it held the last time it was open.
+  // screen showing whatever it held the last time it was open.
   if(name==="game")   loadGame(true);
   if(name==="around") loadAround();
   if(name==="depth")  loadDepth();
   if(name==="more")   loadNews();
 }
-tabs.forEach(function(tab,i){
-  tab.addEventListener("click",function(){ selectTab(tab,false); });
-  tab.addEventListener("keydown",function(e){
-    var n=null;
-    if(e.key==="ArrowRight") n=tabs[(i+1)%tabs.length];
-    else if(e.key==="ArrowLeft") n=tabs[(i-1+tabs.length)%tabs.length];
-    else if(e.key==="Home") n=tabs[0];
-    else if(e.key==="End") n=tabs[tabs.length-1];
-    if(n){ e.preventDefault(); selectTab(n,true); }
-  });
-});
+Suite.nav.on(function(route){ showScreen(route); });
 
 /* ---------- boot ---------- */
 /* ---------- background warm-up ---------- */
@@ -2035,9 +2030,8 @@ function startAuto(){
   var on=somethingLive();
   var btn=$("refresh");
   if(btn) btn.classList.toggle("polling", on);
-  // #tab-game.live:after is styled but nothing switches it on
-  var gt=$("tab-game");
-  if(gt) gt.classList.toggle("live", on);
+  // While anything the fan follows is live, Game is the raised circle.
+  Suite.nav.setLive(on);
   if(!on){
     if(AUTO.timer){ clearInterval(AUTO.timer); AUTO.timer=null; }
     return;
@@ -2349,8 +2343,7 @@ function refreshAll(silent){
   $("panel-game").dataset.loaded="";
   if(!silent) say("Refreshing…");
   load();
-  var cur=tabs.filter(function(t){return t.getAttribute("aria-selected")==="true";})[0];
-  var name=cur.id.replace("tab-","");
+  var name=UI.tab;
   if(name==="game")   loadGame(true);
   if(name==="around") loadAround();
   if(name==="depth")  loadDepth();
@@ -2358,15 +2351,17 @@ function refreshAll(silent){
   FRESH.at=Date.now();
 }
 $("refresh").addEventListener("click", function(){ refreshAll(false); });
-$("heroMini").addEventListener("click", function(){ selectTab($("tab-game"), false); });
+$("heroMini").addEventListener("click", function(){ Suite.nav.go("game"); });
 
 /* More is the fifth destination: News, changing team, and Refresh. Both
    controls are important but rare, so they sit here rather than in the
    header, where a long product name pushed them onto a second line. */
 $("moreTeam").textContent=TEAM.name;
+// Change team opens the chooser in its CHANGE mode (decision 0022 #7): the
+// current team stays stored until another is picked, and the chooser offers
+// Cancel back to it. A new history entry, so Back works too.
 $("changeTeam").addEventListener("click", function(){
-  try{ localStorage.removeItem("iw-team"); }catch(e){}
-  location.replace(location.pathname);
+  location.assign(location.pathname + "?change");
 });
 
 // How long data may sit before a silent refresh: on return to a tab that was
@@ -2403,5 +2398,6 @@ setInterval(function(){
   if(Date.now()-FRESH.at>FRESH.whileVisible) refreshAll(true);
 }, 60e3);
 
+Suite.nav.start();
 load();
 })();
