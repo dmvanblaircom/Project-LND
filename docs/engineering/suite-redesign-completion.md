@@ -10,6 +10,7 @@ Product decides it differently.
 
 | Item | Source | Notes |
 |---|---|---|
+| ChatGPT review of every step David approved without one | David, 2026-09-24 | `docs/engineering/pending-design-review.md` lists them (**No ChatGPT review**). When ChatGPT is back, Claude Code generates one review prompt from that file; the list must be empty before the redesign merges. |
 | Final Suite icon set and neutral share image | Decision 0024 §11 | `assets/suite/TEMPORARY-*` are stand-ins. `tools/identitycheck.js --release` refuses them and CI runs it for `main` and PRs into it. Sizes in `assets/suite/README.md`. |
 | Season Outlook "View full field" | Home review, 2026-09-24 | The locked Home references have it and the full-market data exists (the Kalshi board). Build it as a Suite light-theme experience; do not route the new Home into the pre-canonical board. |
 | Suite Style's final palette | More rebuild, 2026-09-24 (decision 0026) | Suite Style works end to end on a provisional palette from Product's direction ("blue-led: ink for the foundation, cobalt for actions, and champagne or bronze used sparingly"): ink surfaces `#0F1C33` scale, cobalt `#2F5BEA` fills and `#2A52D6` on light, champagne `#E4CF9E` only as accent text on the ink header. In `suite/ui.js` (`Suite.ui.STYLE`), checked by the same contrast rules as a team (`tools/suitecheck.js`). Design sets the final tokens; replacing the values is the whole change. |
