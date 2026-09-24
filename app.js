@@ -1994,14 +1994,28 @@ function somethingLive(){
   return AUTO.liveElsewhere;
 }
 
+// The team's game rules, from TeamOS, applied to the shell (decisions 0022,
+// 0024). The nav's Game control follows the ONE hero game: raised while it is
+// under way, pulsing only while it is actively live - a delay before kickoff
+// leaves it normal. And the Game screen's views follow that game's
+// lifecycle, so a Drive Tracker route that stops existing at the final moves
+// to Box Score in place.
+var GAME_PHASE=null;
+function applyGameRules(){
+  var h=TeamOS.game.hero(S.games||[], new Date(), TEAM.timeZone);
+  Suite.nav.setGameState(TeamOS.game.navState(h.game));
+  var lc=TeamOS.game.lifecycle(h.game);
+  if(lc.phase!==GAME_PHASE){
+    var was=GAME_PHASE; GAME_PHASE=lc.phase;
+    Suite.nav.setViews("game", lc.views, was==="live" && lc.phase==="final" ? "Final." : null);
+  }
+}
+
 function startAuto(){
   var on=somethingLive();
   var btn=$("refresh");
   if(btn) btn.classList.toggle("polling", on);
-  // While anything the fan follows is live, Game is the raised circle. The
-  // delayed and suspended states (decision 0024 §14) arrive with TeamOS's
-  // normalized game status; until then only live raises it.
-  Suite.nav.setGameState(on ? "live" : null);
+  applyGameRules();
   if(!on){
     if(AUTO.timer){ clearInterval(AUTO.timer); AUTO.timer=null; }
     return;

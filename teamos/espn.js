@@ -128,6 +128,55 @@ TeamOS.espn = (function () {
     return str(s);
   }
 
+  /* ---------- game status ----------
+     ESPN's status -> the Suite's normalized one (decisions 0022 #5, 0024
+     §14). ESPN's `state` alone cannot carry it: a postponed game and a final
+     one are both "post", and a delay before kickoff and a lightning delay in
+     the third quarter are both named DELAYED. So the type's NAME decides the
+     status, and `hasStarted` records whether play has begun - which is what
+     tells those two delays apart.
+
+       status      scheduled | live | delayed | suspended | final |
+                   postponed | canceled
+       hasStarted  true once there has been play; never true for a game that
+                   has only been scheduled, postponed or canceled before it
+                   began
+       period      the quarter, 0 before kickoff
+       clock       the game clock as ESPN displays it, or ""
+
+     The names are ESPN's documented STATUS_* values; anything unknown falls
+     back to what `state` says, so a new ESPN name degrades to the old
+     pre/in/post behaviour rather than to nonsense. */
+  function gameStatus(stat){
+    stat = stat || {};
+    var t = stat.type || {};
+    var name = String(t.name || "").toUpperCase(), state = t.state || "pre";
+    var period = Number(stat.period) || 0;
+    var status =
+      /CANCEL/.test(name)   ? "canceled"  :
+      /POSTPONE/.test(name) ? "postponed" :
+      /SUSPEND/.test(name)  ? "suspended" :
+      /DELAY/.test(name)    ? "delayed"   :
+      (state === "post" || t.completed === true) ? "final" :
+      state === "in"        ? "live"      : "scheduled";
+    var started = status === "live" || status === "final" ||
+                  ((status === "delayed" || status === "suspended") && (state === "in" || period > 0)) ||
+                  ((status === "postponed" || status === "canceled") && period > 0);
+    return { status: status, hasStarted: started, period: period, clock: str(stat.displayClock) };
+  }
+
+  // A competitor's overall record, "3-0", from whichever shape the endpoint
+  // uses: the schedule's record[] or the scoreboard's records[]. Absent is
+  // null - an optional field the Suite leaves out (0022 #3).
+  function recordOf(c){
+    var list = c && (c.records || c.record);
+    if (!Array.isArray(list) || !list.length) return null;
+    var r = list.filter(function(x){ return /^(total|overall)$/i.test(x.type||x.name||""); })[0] || list[0];
+    var v = r && (r.summary || r.displayValue);
+    return v ? str(v) : null;
+  }
+  function idOf(t){ var id = t && t.id != null ? String(t.id) : ""; return /^[0-9]+$/.test(id) ? id : null; }
+
   function game(ev, team, config){
     var teamId = config.sources.espn.teamId;
     var comp=(ev.competitions&&ev.competitions[0])||{}, cs=comp.competitors||[];
@@ -135,6 +184,7 @@ TeamOS.espn = (function () {
     cs.forEach(function(c){ var id=c.id||(c.team&&c.team.id);
       if(String(id)===teamId) us=c; else them=c; });
     var st=(comp.status&&comp.status.type)||(ev.status&&ev.status.type)||{};
+    var gs=gameStatus(comp.status||ev.status);
     var oppLong = them&&them.team ? (them.team.displayName||them.team.shortDisplayName) : "";
     return {
       id:ev.id, date:ev.date, timeSet:timeIsSet(ev.date, comp),
@@ -142,6 +192,10 @@ TeamOS.espn = (function () {
       neutral: isNeutral(team, comp, us),
       oppName: them&&them.team?(them.team.shortDisplayName||them.team.displayName):"opponent to be announced",
       oppRank: them&&them.curatedRank&&them.curatedRank.current<26?them.curatedRank.current:null,
+      // For the opponent's mark (TeamOS.espn.mark) and its initials fallback.
+      oppProviderId: them ? idOf(them.team) : null,
+      oppAbbr: them&&them.team ? str(them.team.abbreviation) : "",
+      usRank: rankOf(us), usRecord: recordOf(us), oppRecord: recordOf(them),
       venue: comp.venue?(comp.venue.fullName||""):"",
       city: comp.venue&&comp.venue.address?comp.venue.address.city:"",
       venueState: comp.venue&&comp.venue.address?(comp.venue.address.state||""):"",
@@ -150,6 +204,7 @@ TeamOS.espn = (function () {
       odds: odds(comp),
       series: seriesFor(config.series, oppLong),
       state: st.state||"pre", detail: st.shortDetail||"",
+      status: gs.status, hasStarted: gs.hasStarted, period: gs.period, clock: gs.clock,
       // A score of 0 is a score. The old truthiness test turned a real 0
       // into null, which the view then printed as 0 by coincidence and
       // which left the model unable to tell "0-0 in progress" from "no
@@ -214,6 +269,7 @@ TeamOS.espn = (function () {
     var home=cs.filter(function(c){return c.homeAway==="home";})[0]||cs[0];
     var away=cs.filter(function(c){return c.homeAway==="away";})[0]||cs[1];
     var st=(comp.status&&comp.status.type)||{};
+    var gs=gameStatus(comp.status);
     var sit=comp.situation||{};
     var state=st.state||"pre";
     return {
@@ -221,6 +277,7 @@ TeamOS.espn = (function () {
       date:    ev.date,
       timeSet: timeIsSet(ev.date, comp),
       state:   state,
+      status:  gs.status, hasStarted: gs.hasStarted, period: gs.period, clock: gs.clock,
       detail:  str(st.shortDetail),
       venue:   comp.venue ? str(comp.venue.fullName) : "",
       net:     broadcast(comp),
@@ -230,6 +287,12 @@ TeamOS.espn = (function () {
       mine:    cs.some(function(c){ return String(c.id)===teamId; }),
       live:    state==="in"
                  ? { downDistance: str(sit.downDistanceText||sit.shortDownDistanceText),
+                     short:        str(sit.shortDownDistanceText),
+                     spot:         str(sit.possessionText),
+                     // which side has the ball, as "home" / "away" - never a provider id
+                     possession:   sit.possession==null ? null
+                                   : String(sit.possession)===String(home&&home.id||home&&home.team&&home.team.id) ? "home"
+                                   : String(sit.possession)===String(away&&away.id||away&&away.team&&away.team.id) ? "away" : null,
                      lastPlay:     str(sit.lastPlay&&sit.lastPlay.text) }
                  : null
     };

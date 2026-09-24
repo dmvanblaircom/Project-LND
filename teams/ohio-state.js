@@ -17,6 +17,7 @@ var TEAM_CONFIG = {
     abbreviation: "OSU",
     sport:        "football",
     league:       "college-football",
+    timeZone:     "America/New_York",   // the local calendar for team policies
 
     venue: {
       name: "Ohio Stadium",

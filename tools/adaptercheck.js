@@ -56,12 +56,17 @@ eq(TeamOS.espn.scheduleUrl(TEAM_CONFIG),
 var team = TeamOS.createTeam(TEAM_CONFIG.team);
 var games = TeamOS.espn.schedule(fixture, team, TEAM_CONFIG);
 var byId = {}; games.forEach(function (g) { byId[g.id] = g; });
-var SHAPE = ["id","date","timeSet","home","neutral","oppName","oppRank","venue","city","venueState","zip",
-             "net","odds","series","state","detail","us","them","won"];
+var SHAPE = ["id","date","timeSet","home","neutral","oppName","oppRank",
+             "oppProviderId","oppAbbr","usRank","usRecord","oppRecord","venue","city","venueState","zip",
+             "net","odds","series","state","detail","status","hasStarted","period","clock","us","them","won"];
 var LEAK = /competitions|competitors|curatedRank|pickcenter|neutralSite|geoBroadcasts|timeValid|shortDetail|displayValue|zipCode|homeAway|espn/i;
 
 console.log("schedule()");
 eq(games.length, 4, "one Game per event");
+ok(games.every(function (g) { return g.oppProviderId === null || /^[0-9]+$/.test(g.oppProviderId); }),
+   "the opponent's provider id is digits or null - it only ever feeds TeamOS.espn.mark");
+ok(games.some(function (g) { return g.oppProviderId; }), "and the fixture's opponents have one");
+ok(games.every(function (g) { return g.usRecord === null || /^\d+-\d+/.test(g.usRecord); }), "a record is 'W-L' or absent, never invented");
 eq(games.map(function (g) { return g.id; }), ["401858438","401858453","401858460","401858471"], "sorted oldest first");
 games.forEach(function (g) {
   eq(Object.keys(g), SHAPE, g.id + " has exactly the documented Game fields");
@@ -155,7 +160,7 @@ eq(Object.keys(TeamOS.espn.teamStatus(teamFixture)), ["rank","record"], "exactly
 
 // ---- scoreboard ----
 var sbFixture = JSON.parse(read("tools/fixtures/espn-scoreboard.json"));
-var LG = ["id","date","timeSet","state","detail","venue","net","odds","home","away","mine","live"];
+var LG = ["id","date","timeSet","state","status","hasStarted","period","clock","detail","venue","net","odds","home","away","mine","live"];
 var LGLEAK = /competitions|competitors|curatedRank|homeAway|shortDetail|situation|downDistanceText|geoBroadcasts|displayName|espn/i;
 
 console.log("scoreboardUrl / rankingsUrl");
@@ -183,7 +188,7 @@ var mia = lgById["401858226"], pitt = lgById["401858225"], uga = lgById["4018581
 eq([mia.state, mia.timeSet, mia.detail, mia.venue], ["pre", true, "9/18 - 7:30 PM EDT", "Allegacy Federal Credit Union Stadium"], "future game: state, time, detail, venue");
 eq([mia.away, mia.home], [{ name:"Miami", rank:5, score:"0" }, { name:"Wake Forest", rank:null, score:"0" }], "sides: ranked away, unranked home, scores as strings");
 eq([mia.net, mia.odds, mia.mine, mia.live], ["ESPN", { line:"MIA -20.5", total:56.5 }, false, null], "broadcast from names[], odds, not ours, not live");
-eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", lastPlay:"(03:28) #47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20" }], "live game carries down/distance and last play");
+eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"(03:28) #47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20" }], "live game carries down/distance and last play");
 eq([pitt.home.rank, pitt.away.rank], [null, null], "unranked on both sides (drives live-anywhere but not the ranked list)");
 eq([uga.state, uga.home.score, uga.away.score, uga.home.rank, uga.away.rank], ["post", "31", "24", 2, 9], "final: scores and both ranks");
 eq([pur.mine, pur.timeSet, pur.net, pur.away.rank], [true, false, "Peacock", 3], "the team's own game: mine, placeholder time, streaming-only broadcast");

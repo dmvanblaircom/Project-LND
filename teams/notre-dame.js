@@ -35,6 +35,7 @@ var TEAM_CONFIG = {
     abbreviation: "ND",
     sport:        "football",
     league:       "college-football",
+    timeZone:     "America/New_York",   // the local calendar for team policies
 
     // The home field, as ESPN spells it, with its coordinates. app.js
     // matches the name case-insensitively to decide when a listed home game
