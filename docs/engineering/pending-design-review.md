@@ -15,6 +15,7 @@ own (the things a reviewer most needs to look at), and where the evidence is.
 
 | # | Step | Commits (design/suite-canonical-v1) | Approved | ChatGPT review |
 |---|---|---|---|---|
+| 4 | Release hardening: Home/Game "schedule didn't load" state and retry (`2feed1a`); Schedule row says "Final" for a final without scores (`2feed1a`); the new worker reloads the page it takes over after an update (`c7d8cb1`) | `2feed1a`, `c7d8cb1` | David, 2026-09-25 (regression pass; "optimize that first reload") | **No ChatGPT review.** Review after launch, packaged with the next review (David, 2026-09-25). Details: `suite-redesign-completion.md`, "Release regression pass" and "First open after the deploy". |
 | 1 | More rebuild: menu, News, Settings (App Style), Feedback, About Suite | `2fdc6f2`, with `9952362`, `835c2c3`, `1a97dee` (news capture) | David, 2026-09-24 | **Closed 2026-09-25.** Reviewed by ChatGPT at `70613f7`; corrections 1.1-1.6 in `2d85869` (CI green) accepted by David ("good to go") |
 
 ## Review of 2026-09-25 (ChatGPT, at `70613f7`)
@@ -38,7 +39,7 @@ own (the things a reviewer most needs to look at), and where the evidence is.
 | 1.6 | Settings icon read as a sun | A cog: eight square teeth round a hub | Done |
 
 All six accepted by David, 2026-09-25, on the re-review package for `2d85869`.
-Nothing is left on this list.
+Item 1 is closed. Item 4 (release hardening) was added after the review closed and waits for the next ChatGPT review.
 
 `tools/moreflowcheck.js` (in CI) covers 1.1-1.4: 22 failures on `70613f7`,
 none after the corrections.

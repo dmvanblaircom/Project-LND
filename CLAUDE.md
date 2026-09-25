@@ -89,11 +89,12 @@ The repository is the shared source of truth. Decisions that matter after the cu
 
 ## Branch Strategy
 
-- `main` = stable Irish Watch product
-- `project-lnd-platform` = active Project LND platform development
-- `project-lnd-foundation` = architecture checkpoint / historical foundation branch
+From the Suite release (2026-09-27), per David's decision of 2026-09-25:
 
-Feature work should normally branch from `project-lnd-platform`. Do not modify `main` for platform development unless explicitly approved.
+- `main` = the product. Every piece of work gets a short branch and a pull request into `main`; the PR's checks are the gate.
+- `project-lnd-platform` and `project-lnd-foundation` are retired to archive tags after the release. Stale branches are deleted once David approves the list (`docs/engineering/backlog.md`, C12).
+
+The open backlog, decisions and roadmap live in `docs/engineering/backlog.md`.
 
 ## Current Objective
 

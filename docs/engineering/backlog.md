@@ -66,6 +66,44 @@ In `suite-redesign-completion.md` under Known provider limits:
 - ESPN gives no CFP release date.
 - Chrome adds about 1 s before a new version activates.
 
-## Decisions
+## Decisions (David, 2026-09-25)
 
-Answers and the resulting roadmap are recorded here as David makes them.
+| Id | Decision |
+|---|---|
+| B1 | **Team first.** The team leads the header and identity; Suite becomes the quieter platform brand. This reverses decision 0024's Suite-led header, so it needs a design proposal and a new decision record before building. |
+| B2 | **Odds stay as they are.** Build "View full field" after launch. "Betting is not MVP" meant *placing bets in Suite*, not showing odds; the North Star is updated to say so. |
+| B3 | **Nav stays as is** (Top 25 keeps its tab). Home's schedule preview becomes the **last result plus the next 3 games** (four rows), with a **"View Full Schedule"** link that opens Schedule directly. The **Game screen gets a "Full Schedule" link**. |
+| B4 | **Offseason Home:** Claude proposes, ChatGPT reviews and critiques, ChatGPT designs, David approves, Claude implements. Due by mid-November. |
+| B7 | A final without a score says **"Final", with no score, on Home and Game too**. |
+| B8 | **Fonts:** render the free pairings *and* research Neue Haas Grotesk + Canela web licensing, then decide. |
+| B11 | **Notifications** are the first MVP pillar. |
+| B12 | **Finish Ohio State** as a complete destination before adding more teams. |
+| B14 | The release-hardening changes are logged as **No ChatGPT review** (`pending-design-review.md`, item 4) and reviewed after launch. |
+| A4 | Chooser header to Ink **in the brand pass**, not before Sunday. |
+| A5 | PR check-ins every **4 hours, silent** unless something needs action. |
+| C3, C5, C9, C11, C10 | Approved as small fixes in the hardening block. |
+| C12 | **`main` plus short branches**, a PR into `main` each. Retire `project-lnd-platform` and `project-lnd-foundation` to archive tags; delete stale branches after David approves the list. CLAUDE.md's branch section is updated to match. |
+
+Still open, decided when their block starts:
+- B5, rivalry source
+- B6, play-by-play text
+- B9, the action colour that replaces cobalt (brand pass)
+- B10, the icon (the flat default stands until then)
+- B13, Refresh scope and Feedback origin
+
+## Roadmap
+
+Sequence, not dates. The only fixed dates are this weekend and the offseason Home's mid-November deadline. A block starts when the one before it is done, except the offseason proposal, which runs alongside hardening so the deadline holds.
+
+| # | Block | Items | Notes |
+|---|---|---|---|
+| 0 | **Release** (this weekend) | A1 Saturday live check, A2 Sunday merge and production verification, A3 your real-phone check | Nothing else goes into PR #4. |
+| 1 | **Engineering hardening** (first after launch) | C1 `app.js` state and refresh clocks, C2 team-namespaced data pipeline, C4 replace the public Kalshi relays, C3 bad team link → chooser, C5 registry job warns instead of failing, C9 stress harness as a tool, C11 dead files, C10 stale docs, C12 branch cleanup, B7 "Final" with no score | C2 is a prerequisite for finishing Ohio State (block 6). C4 keeps odds working (B2) without the free relays; the approach is chosen at the start of the block. |
+| 1b | **Offseason Home proposal** (alongside block 1) | B4 | Claude's proposal → ChatGPT critique → ChatGPT design → David → implementation, landing before mid-November. |
+| 2 | **Schedule access and the team-first header** | B3 Home preview (last result + next 3, "View Full Schedule"), B3 Game "Full Schedule" link, B1 team-first header | B3 is small and can ship first. B1 goes through a design proposal and ChatGPT review. |
+| 3 | **Offseason Home build** | B4 implementation | Must ship before mid-November. |
+| 4 | **Brand pass** | B8 font renders + licence research → decision, B9 action colour, A4 chooser Ink, C6 tokens, B10 icon | Team Style stays untouched. |
+| 5 | **Notifications** | B11 | Web push for the installed PWA. Needs a small push-sending service, the first real backend; its shape is decided at the start of the block. |
+| 6 | **Finish Ohio State** | B12 | Depth chart, availability, beat news and odds on the namespaced pipeline. |
+| 7 | **Season Outlook "View full field"** | C7 | Odds as they are, expanded. |
+| - | **Parked** | B5, B6, B13, C8 (when it happens), C13 (David, optional), C14 (watch), C15, C16 | Picked up when relevant. |
