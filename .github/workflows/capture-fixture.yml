@@ -53,6 +53,7 @@ jobs:
             # "schedule-<team id> <name>"    a team's season schedule
             # "roster-<team id> <name>"      a team's roster
             # "news-<team id> <name>"        a team's news feed, links and images kept
+            # "news-images <name>"           the photos of espn-news-<name>.json, for review renders
             if [[ "$ev" =~ ^[0-9]+$ ]]; then
               out="tools/fixtures/espn-summary-$name.json"; url="$API/summary?event=$ev"; kind=summary
             elif [ "$ev" = "rankings" ]; then
@@ -60,6 +61,11 @@ jobs:
             elif [[ "$ev" =~ ^roster-([0-9]+)$ ]]; then
               out="tools/fixtures/espn-roster-$name.json"; kind=payload
               url="$API/teams/${BASH_REMATCH[1]}/roster"
+            elif [ "$ev" = "news-images" ]; then
+              dir="tools/fixtures/img/news-$name"
+              if [ -z "${EVENT:-}" ] && [ -f "$dir/manifest.json" ]; then echo "  $dir exists"; continue; fi
+              python3 tools/capture_images.py "tools/fixtures/espn-news-$name.json" "$dir" 20
+              continue
             elif [[ "$ev" =~ ^news-([0-9]+)$ ]]; then
               out="tools/fixtures/espn-news-$name.json"; kind=news
               url="$API/news?team=${BASH_REMATCH[1]}&limit=30"
@@ -90,7 +96,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/img
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
           git commit -m "Capture ESPN fixtures"
           git pull --rebase -q && git push
