@@ -49,11 +49,15 @@ Investigated 2026-09-25 on release PR #4; they are red on `main` too.
 - They are not required status checks: engineering-only pushes to `main`
   went through while they were red.
 
-Open, outside this repository: whether any old `irish-watch` /
-`irish-odds` Worker deployment (`*.workers.dev`) is still in use. This
-release does not update them. Recommended: disconnect the two Workers
-Builds integrations (or delete the Workers) in the Cloudflare dashboard, so
-the checks stop reporting and no stale copy of the app stays reachable.
+**Removed 2026-09-25.** David confirmed they were an abandoned approach and
+deleted both Workers (`irish-watch`, `irish-odds`) in the Cloudflare
+dashboard. That ends the builds, the failure emails and any stale
+`*.workers.dev` copy of the app. Nothing in this repository referred to
+them, so nothing here changed. The app's own service worker (`sw.js`) is
+unrelated and stays. The Cloudflare GitHub App may still be installed on
+the account (github.com/settings/installations); with no Workers left it
+has nothing to build, and removing its access to this repository is
+optional cleanup.
 
 ### Release regression pass (2026-09-25)
 
