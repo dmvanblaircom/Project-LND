@@ -30,6 +30,31 @@ retired identity fields (`identity.newsLabel`, `colors.text` / `textDim`),
 dropped from the schema, the team configs and `applyStyle()` - TeamOS now
 refuses them.
 
+### External checks: Cloudflare `Workers Builds: irish-watch` / `irish-odds`
+
+Investigated 2026-09-25 on release PR #4; they are red on `main` too.
+**Non-gating for the production path**, and not a redesign regression:
+
+- Production is **GitHub Pages** (`pages-build-deployment`, Jekyll build of
+  `main`, served at https://dmvanblaircom.github.io/Project-LND/). It has
+  deployed successfully on every `main` commit while these checks were red.
+- The repository contains **no Cloudflare Worker project** on any branch (no
+  `wrangler` config, no worker source). The two checks come from Cloudflare
+  Workers Builds integrations connected to this repository in the
+  Cloudflare dashboard; with nothing to build, `irish-odds` fails the second
+  it starts and `irish-watch` hangs "in progress". Their logs exist only in
+  the Cloudflare dashboard.
+- The app calls no Worker: `KALSHI_PROXY` in `app.js` is empty and odds
+  come from the snapshots `.github/workflows/odds.yml` commits.
+- They are not required status checks: engineering-only pushes to `main`
+  went through while they were red.
+
+Open, outside this repository: whether any old `irish-watch` /
+`irish-odds` Worker deployment (`*.workers.dev`) is still in use. This
+release does not update them. Recommended: disconnect the two Workers
+Builds integrations (or delete the Workers) in the Cloudflare dashboard, so
+the checks stop reporting and no stale copy of the app stays reachable.
+
 ## Post-launch follow-ups (explicit; not started in this release)
 
 | Item | Source | Notes |
