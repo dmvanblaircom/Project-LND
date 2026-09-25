@@ -65,8 +65,15 @@ headAssets.forEach(function (a) {
   ok(exists(a), a + " exists");
   ok(shellFiles.indexOf(a) > -1, a + " is precached with the shared shell (sw.js)");
 });
+// Link-preview crawlers need an absolute image URL. It points at this
+// repository's own file on the production site, which must exist here.
+["og:image", "twitter:image"].forEach(function (k) {
+  var url = k === "og:image" ? metaContent("property", k) : metaContent("name", k);
+  var local = (/^https:\/\/[^/]+\/(?:[^/]+\/)?(assets\/suite\/[^?#]+)$/.exec(url || "") || [])[1];
+  ok(!!local, k + " is an absolute https URL to assets/suite/: " + url);
+  ok(!!local && exists(local), k + ": the share image exists (" + local + ")");
+});
 var og = metaContent("property", "og:image");
-ok(og && exists(og), "a default share image exists: " + og);
 ok(shellFiles.indexOf("manifest.json") > -1, "the manifest is precached with the shared shell");
 
 function eq1(a, b, what) { ok(JSON.stringify(a) === JSON.stringify(b), what + " (" + JSON.stringify(a) + ")"); }
