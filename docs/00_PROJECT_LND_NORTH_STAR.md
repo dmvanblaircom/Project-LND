@@ -36,16 +36,66 @@ The product should reduce fragmentation while preserving the depth and personali
 
 - **Project LND** = overall product vision
 - **TeamOS** = domain intelligence/platform layer
-- **Suite** = fan-facing experience
+- **Suite** = stable fan-facing app, front door, and experience system
+- **A team Suite** = the distinct destination created around one team
 - **Irish Watch** = first team-specific implementation and product laboratory
 
 A useful mental model:
 
-> TeamOS is the brains. Suite is the experience.
+> TeamOS is the brains. Suite is the place.
+
+> **The team is the product. The Suite is the place you experience it.**
 
 TeamOS asks: **What does the platform need to make this possible?**
 
-Suite asks: **What does the fan need?**
+Suite asks: **What does the fan need, and how should this team feel as a destination?**
+
+## The Suite as a Place
+
+Suite has a stable application identity. It can own the installed app icon, launch/front-door moments, team chooser, platform settings, and other cross-team surfaces.
+
+Once a fan enters a team experience, the team owns the emotional and visual experience. The fan should feel like they entered that team's Suite, not like they applied a team filter to a generic Suite product.
+
+Use these product terms consistently:
+
+- **Primary Team** = the fan's home team and default destination
+- **Other Teams I Follow** = additional teams the fan chooses to keep connected to
+- **Active Suite** = the team Suite the fan is currently inside
+
+Switching teams means entering another Suite. It does not change the Primary Team unless the fan explicitly chooses to do that.
+
+A brief team-switch transition may use language such as:
+
+> **Entering your [Team Name] Suite**
+
+## Social Presence and Spatial Direction
+
+Suite should be designed as a place that can become more social over time without changing its core language.
+
+The canonical sharing and invitation language is:
+
+> **Join [Name] in their Suite.**
+
+For a named example, this can read naturally as:
+
+> **Join David in his Suite.**
+
+The invitation language should not name the team. Team context is carried by the destination, visual identity, and link state.
+
+In an initial share/referral experience, "join" can simply open the inviter's Active Suite. This should not silently change the recipient's Primary Team. The recipient can choose to follow that team after entering.
+
+Over time, the same language can grow into actual shared presence:
+
+- See when friends are in their Suite
+- Join a friend in the same team experience
+- Shared game-day reactions and participation
+- Watch-together experiences
+- Presence-aware community moments
+- Invitations into a fan's Suite
+
+Farther in the future, the Suite metaphor can extend into spatial computing, AR, and VR. A fan's Suite could become a persistent digital room for watching, following, and experiencing a team with other people, with live game context, stats, media, history, memorabilia, and interactive surfaces around the experience.
+
+This is a long-term vision direction, not an MVP commitment or current roadmap requirement. The product should preserve the conceptual model now without prematurely building the spatial technology.
 
 ## Suite Product Pillars
 
@@ -137,6 +187,7 @@ Explicitly not required for the initial MVP:
 - Complex gamification
 - Paid consumer subscriptions
 - Large advertising platform
+- AR / VR / spatial computing
 
 ## AI Direction
 
@@ -169,9 +220,9 @@ A sensible expansion path is:
 
 ## North Star Test
 
-The architecture is successful when the same application can produce:
+The architecture is successful when the same application can produce distinct team Suites, for example:
 
-- Notre Dame configuration -> Irish Watch
+- Notre Dame configuration -> Notre Dame Suite
 - Ohio State configuration -> Ohio State Suite
 - Bengals configuration -> Bengals Suite
 - Cavaliers configuration -> Cavaliers Suite
