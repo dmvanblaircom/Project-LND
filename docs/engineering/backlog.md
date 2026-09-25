@@ -51,13 +51,24 @@ file points to it rather than repeating it.
 | C7 | Season Outlook "View full field" | M | After B2. |
 | C8 | Capture exceptional game-status fixtures | S | When a real delay or postponement happens. |
 | C9 | Commit the release stress harness as a tool | S | The route crawl, outage, storage, offline and upgrade scenarios exist only in the session scratchpad; a manual or nightly workflow would keep them. |
-| C10 | Stale docs | S | CLAUDE.md "Current State", `01_CURRENT_IRISH_WATCH_ARCHITECTURE.md`, the superseded design docs; `docs/product/` is empty. |
+| C10 | Stale docs | S | CLAUDE.md "Current State", `01_CURRENT_IRISH_WATCH_ARCHITECTURE.md`, `04_TEAM_CONFIG.md`'s old per-team asset example, the superseded design docs. (`docs/product/` has six product docs; the earlier note that it was empty was wrong.) |
 | C11 | Dead files | S | `assets/notre-dame/*` (8 old Irish Watch icons, unused), the stale "7C" comment in `index.html`. |
 | C12 | Branch cleanup and branch model | S | 21 branches, most stale (`lnd/phase-*`, `noop-temp`, the duplicate `docs/*`, the abandoned `design/suite-vnext-build`). CLAUDE.md names `project-lnd-platform` for feature work; this release went `design/suite-canonical-v1` → `main`. Where work continues after Sunday. |
 | C13 | Uninstall the Cloudflare GitHub App | S (David) | Optional: the Workers are deleted, so the app now does nothing. |
 | C14 | Occasional data-refresh failure | S | One scheduled `odds.yml` failure on 9/23; watch for a pattern. |
 | C15 | Duplicate browser-test servers | S | Each browser check has its own server and router. |
+| C17 | **Fetch the postseason** | M | **Correctness, before early December.** ESPN returns bowl and CFP games only for `seasontype=3`, and the app asks for the regular season only, so Notre Dame's postseason would be invisible (verified on real payloads, 2026-09-25; see the offseason proposal). Fetch both season types and merge them into one season. No design needed. |
 | C16 | `iw-` storage and header names | S | Internal only; renaming needs a migration. Low. |
+
+## Staged for after the release (2026-09-25)
+
+Built off PR #4's head; each opens as a PR into `main` after Sunday's merge.
+
+| Branch | What | State |
+|---|---|---|
+| `stage/hardening-quick-fixes` | C3 bad team link → own team or chooser; C5 registry job warns instead of failing; C9 `tools/stresscheck.js` + `stress.yml`; C11 dead files removed; `VERSION` bumped | All 24 gates pass; stress pass 681 checks, 0 problems |
+| `stage/post-launch-docs` | Rollback runbook (rehearsed), branch cleanup list (**for David's approval**), font and team-first header decision inputs | Docs |
+| `stage/offseason-home` | Offseason Home proposal (**for David → ChatGPT**), postseason research captures, a season/type option in `capture-fixture.yml` | Docs, fixtures, workflow |
 
 ## Accepted limits (no action planned)
 
