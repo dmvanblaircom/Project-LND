@@ -15,7 +15,7 @@
      Suite.more.menu(host)
      Suite.more.news(host, { items: NewsItem[]|null, failed, fresh, team })
      Suite.more.settings(host, { team:{name,abbr,mark}, changeHref, style,
-                                 updatedAt, refreshing, online })
+                                 updatedAt, refreshing, online, result })
      Suite.more.feedback(host, { href, address })
      Suite.more.about(host, { version, sources: Source[] })              */
 
@@ -37,7 +37,8 @@ Suite.more = (function () {
   var ICONS = {
     news:     icon('<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M7 8.5h10M7 12h4M7 15.5h4"/><rect x="13" y="11.5" width="4" height="4.5" rx=".6"/>'),
     schedule: icon('<rect x="3.5" y="5.5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3.5v4M16 3.5v4"/><path d="M7.5 13.5h.01M12 13.5h.01M16.5 13.5h.01M7.5 17h.01M12 17h.01"/>'),
-    settings: icon('<circle cx="12" cy="12" r="3.1"/><path d="M12 3.2v2.4M12 18.4v2.4M3.2 12h2.4M18.4 12h2.4M5.8 5.8l1.7 1.7M16.5 16.5l1.7 1.7M5.8 18.2l1.7-1.7M16.5 7.5l1.7-1.7"/>'),
+    // a cog: eight square teeth round a hub (catch-up review 1.6)
+    settings: icon('<path d="M9.3 5.5 L10.2 5.2 L10.2 3.0 L13.8 3.0 L13.8 5.2 L14.7 5.5 L15.5 5.9 L17.1 4.4 L19.6 6.9 L18.1 8.5 L18.5 9.3 L18.8 10.2 L21.0 10.2 L21.0 13.8 L18.8 13.8 L18.5 14.7 L18.1 15.5 L19.6 17.1 L17.1 19.6 L15.5 18.1 L14.7 18.5 L13.8 18.8 L13.8 21.0 L10.2 21.0 L10.2 18.8 L9.3 18.5 L8.5 18.1 L6.9 19.6 L4.4 17.1 L5.9 15.5 L5.5 14.7 L5.2 13.8 L3.0 13.8 L3.0 10.2 L5.2 10.2 L5.5 9.3 L5.9 8.5 L4.4 6.9 L6.9 4.4 L8.5 5.9Z"/><circle cx="12" cy="12" r="3"/>'),
     feedback: icon('<path d="M4.5 5.5h15a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4.5 3.5v-3.5h-1a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"/>'),
     about:    icon('<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6h.01"/>')
   };
@@ -155,10 +156,15 @@ Suite.more = (function () {
     var status = m.refreshing ? "Refreshing…"
                : !m.online ? "Offline" + (m.updatedAt ? " · " + when(m.updatedAt) : "")
                : m.updatedAt ? when(m.updatedAt) : "Not yet";
+    // The last Refresh Data's outcome, as it actually came out (catch-up
+    // review 1.2); before one, what refreshing on its own means.
+    var note = m.result || "Scores, news and rankings refresh on their own.";
     var data = group("data", "Data",
       '<div class="st-row"><span class="st-k">Last Updated</span><span class="st-v" data-st="updated">' + esc(status) + "</span></div>" +
-      '<div class="st-row st-action"><span class="st-note">Scores, news and rankings refresh on their own.</span>' +
-        '<button type="button" class="btn btn-secondary" data-refresh' + (m.refreshing ? " disabled" : "") + ">Refresh Data</button></div>");
+      '<div class="st-row st-action"><span class="st-note" data-st="result">' + esc(note) + "</span>" +
+        // aria-disabled, not disabled, while busy: a disabled button drops the
+        // keyboard focus the fan left on it
+        '<button type="button" class="btn btn-secondary" data-refresh' + (m.refreshing ? ' aria-disabled="true"' : "") + ">Refresh Data</button></div>");
 
     // Keep focus on the control the fan used: a repaint replaces the markup.
     var active = document.activeElement, focusVal = active && host.contains(active)
@@ -166,8 +172,7 @@ Suite.more = (function () {
     if (!put(host, "settings", team + style + data)) return;
     var back = focusVal === "refresh" ? host.querySelector("[data-refresh]")
              : focusVal ? host.querySelector('input[name="appStyle"][value="' + focusVal.slice(2) + '"]') : null;
-    if (back && !back.disabled) back.focus();
-    else if (focusVal === "refresh") { var u = host.querySelector('[data-st="updated"]'); if (u) u.setAttribute("tabindex", "-1"), u.focus(); }
+    if (back) back.focus();
   }
 
   // ---- Feedback (0022 #12) -------------------------------------------------

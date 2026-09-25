@@ -178,14 +178,29 @@ function setAppStyle(v){
 paintIdentity();
 
 
-function get(url){
+// A provider answer: { data, cached } - cached is the worker's X-IW-Cached
+// stamp when the network failed and it answered from its last good copy.
+function fetchJSON(url){
   return fetch(url,{cache:"no-store"}).then(function(r){
     if(!r.ok) throw new Error("HTTP "+r.status);
     var cached=r.headers.get("X-IW-Cached");
-    noteSource(url, cached);
-    return r.json();
+    return r.json().then(function(d){ return { data:d, cached:cached }; });
   });
 }
+// The data itself. A source's freshness moves only once its answer is
+// usable: parsed, and - where a check is given - the right shape. An answer
+// that is not is a failure, not a refresh (catch-up review 1.2).
+function get(url, usable){
+  return fetchJSON(url).then(function(r){
+    if(usable && !usable(r.data)) throw new Error("unusable answer from "+url);
+    noteSource(url, r.cached);
+    return r.data;
+  });
+}
+function hasEvents(d){ return !!d && Array.isArray(d.events); }
+// What a refresh step came to: the network answered, the worker answered
+// with its last copy, or nothing usable came back.
+function outcomeOf(key){ var x=SRC[key]; return x && x.cached ? "cached" : "network"; }
 
 // Per-source freshness, for the one page-level state each screen shows
 // (decision 0024 §13). A copy the worker served because the network failed
@@ -211,6 +226,7 @@ function noteSource(url, cached){
   var at=cached ? Date.parse(cached) : Date.now();
   // a kept copy of unknown age is old, not "fetched just now"
   SRC[k]={ fetchedAt: isNaN(at) ? (cached ? null : Date.now()) : at, cached: !!cached };
+  if(typeof paintMore==="function") paintMore();   // Settings' Last Updated, while it is open
 }
 
 // Offline shell. sw.js keeps the page itself and the last good copy of every
@@ -366,14 +382,21 @@ function loadTop25(){
   if(!SB.games && !T25.cachedGames) cachedJSON(TeamOS.espn.scoreboardUrl()).then(function(d){
     if(!SB.games && d){ T25.cachedGames=TeamOS.espn.scoreboard(d, TEAM_CONFIG); paintTop25(); }
   }).catch(function(){});
-  if(!T25.loading && Date.now()-T25.at > HOUR){
-    T25.loading=true;
-    get(TeamOS.espn.rankingsUrl()).then(function(d){
-      T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); T25.at=Date.now(); T25.pollsFailed=false;
-    }).catch(function(){ T25.pollsFailed=true; }).then(function(){ T25.loading=false; paintTop25(); });
-  }
+  if(Date.now()-T25.at > HOUR) loadRankings();
   getScoreboard(30000).then(function(){ T25.gamesFailed=false; paintTop25(); })
     .catch(function(){ T25.gamesFailed=true; paintTop25(); });
+}
+
+// The polls: one request out at a time, and what it came to.
+function loadRankings(){
+  if(T25.p) return T25.p;
+  T25.loading=true;
+  T25.p=get(TeamOS.espn.rankingsUrl(), function(d){ return !!d && Array.isArray(d.rankings); }).then(function(d){
+    T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); T25.at=Date.now(); T25.pollsFailed=false;
+    return { key:"rankings", outcome:outcomeOf("rankings") };
+  }).catch(function(){ T25.pollsFailed=true; return { key:"rankings", outcome:"failed" }; })
+    .then(function(r){ T25.loading=false; T25.p=null; paintTop25(); return r; });
+  return T25.p;
 }
 
 /* ---------- kalshi ---------- */
@@ -435,19 +458,20 @@ function isTeamMarket(m){ return teamMarket(m.ticker, teamOf(m)); }
 
 function loadStrip(){
   // A team Kalshi takes no market on has no Season Outlook (decision 0024 §12).
-  if(!hasKalshi()) return;
+  if(!hasKalshi()) return Promise.resolve([]);
   // Two separate event queries, each picking the team out of its payload by
   // ticker or by name. Each market is independent: one can be missing.
-  [{ ev: TITLE_EVENT, key: "title" }, { ev: PLAYOFF_EVENT, key: "playoff" }].forEach(function(q){
-    kalshi("/markets?event_ticker="+q.ev+"&limit=200&status=open").then(function(d){
+  return Promise.all([{ ev: TITLE_EVENT, key: "title" }, { ev: PLAYOFF_EVENT, key: "playoff" }].map(function(q){
+    return kalshi("/markets?event_ticker="+q.ev+"&limit=200&status=open").then(function(d){
       var m = (d.markets||[]).filter(isTeamMarket)[0];
       var p = m ? price(m) : null;
       var o = SRC.odds||{};
       HOME.markets[q.key] = p==null ? null
         : { value:p, previous:prevPrice(m), asOf:o.fetchedAt||null, cached:!!o.cached };
       paintHome();
-    }).catch(function(){});
-  });
+      return { key:"odds-"+q.key, outcome: o.cached ? "cached" : "network" };
+    }, function(){ return { key:"odds-"+q.key, outcome:"failed" }; });
+  }));
 }
 
 
@@ -557,16 +581,16 @@ function cachedCopy(url){
 // `warm`: the background warm-up at boot, which only fills what has not been
 // asked for yet - retries are for re-entry, reconnection and refresh.
 function loadRosterScreen(force, warm){
-  rosterSources().forEach(function(src){
+  var work=rosterSources().map(function(src){
     var st=roState(src.key);
-    if(st.inflight) return;                                   // never asked twice at once
-    if(warm && st.tried) return;
-    if(!force && st.ok && !st.failed && Date.now()-st.ok < RO_AGAIN) return;
+    if(st.inflight) return st.p;                              // never asked twice at once: join it
+    if(warm && st.tried) return null;
+    if(!force && st.ok && !st.failed && Date.now()-st.ok < RO_AGAIN) return null;
     if(!roHas(src.key)) cachedCopy(src.url).then(function(c){
       if(!roHas(src.key) && src.take(c.data)){ st.copyAt=c.at; paintRoster(); }
     }).catch(function(){});
     st.inflight=true; st.tried=true;
-    get(src.fresh(src.url)).then(function(d){
+    st.p=get(src.fresh(src.url)).then(function(d){
       if(!src.take(d)){ st.failed=true; return; }
       var n=SRC[src.key], copy=!!(n && n.cached);             // noteSource(): the worker's cached copy says so
       st.failed=false; st.cached=copy; st.fetchedAt=n ? n.fetchedAt : Date.now();
@@ -574,9 +598,14 @@ function loadRosterScreen(force, warm){
       // copy is shown (and called old) but stays due for another try.
       st.ok=copy ? 0 : Date.now();
     }).catch(function(){ st.failed=true; })
-      .then(function(){ st.inflight=false; paintRoster(); });
+      .then(function(){
+        st.inflight=false; paintRoster();
+        return { key:src.key, outcome: st.failed ? "failed" : st.cached ? "cached" : "network" };
+      });
+    return st.p;
   });
   loadRosterHistory(force);
+  return Promise.all(work.filter(Boolean));
 }
 // Every chart this season, for Week by week - a bonus: a failure only
 // leaves the section out, and it is tried again next time.
@@ -671,12 +700,10 @@ function beatItem(i){
   var t=i.published ? Date.parse(i.published) : NaN;
   return { title:i.title, link:i.link, image:"", source:i.source, publishedAt: isNaN(t) ? null : t };
 }
-// Both news payloads, raw, -> one NewsItem[], newest first, one story per
+// Every source's stories -> one NewsItem[], newest first, one story per
 // headline. Home and the full News list read the same list.
-function newsList(res){
-  var espn=TeamOS.espn.news(res[0]);
-  var beat=(res[1] && TeamOS.snapshots.owned(TEAM,res[1]) ? (res[1].items||[]) : []).map(beatItem);
-  var all=espn.concat(beat).filter(function(a){ return a.link&&a.title; });
+function newsList(items){
+  var all=items.filter(function(a){ return a && a.link && a.title; });
   var seen={}, list=[];
   all.forEach(function(a){
     var k=a.title.toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,60);
@@ -688,29 +715,71 @@ function newsList(res){
 }
 
 // One store, two readers: Home shows the first three, News all of them.
-// A failure keeps what is shown and stays due for another try; so does the
-// worker's kept copy - only a network answer starts the refresh clock.
-var NEWS={ items:null, at:0, inflight:false, failed:false };
+// Each source is kept on its own (catch-up review 1.1): its last good
+// stories, when the network last answered it, whether what it holds came
+// from the worker's copy or failed to update, and the request it has out.
+// A source that failed, or answered from the worker's copy, stays due for
+// another try on re-entry and reconnection whatever the other one did; a
+// failed update keeps that source's previous stories, called old.
+var NEWS={ items:null, s:{} };
+var NEWS_AGAIN=30*60e3;
+function newsSources(){
+  var espnUrl=TeamOS.espn.newsUrl(TEAM_CONFIG), beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
+  var list=[{ key:"news", optional:false, url:espnUrl, fresh:function(){ return espnUrl; },
+              take:function(d){ return d && Array.isArray(d.articles) ? TeamOS.espn.news(d) : null; } }];
+  if(beat) list.push({ key:"beatNews", optional:true, url:beat.file, fresh:function(){ return beat.file+"?t="+Date.now(); },
+              take:function(d){ return TeamOS.snapshots.owned(TEAM,d) && Array.isArray(d.items) ? d.items.map(beatItem) : null; } });
+  return list;
+}
+function newsState(key){
+  return NEWS.s[key] || (NEWS.s[key]={ list:null, at:0, fetchedAt:null, cached:false, failed:false, tried:false, p:null });
+}
+function loadNewsSource(src, force){
+  var st=newsState(src.key);
+  if(st.p) return st.p;                                         // never asked twice at once: join it
+  if(!force && st.at && Date.now()-st.at < NEWS_AGAIN) return Promise.resolve({ key:src.key, outcome:"current" });
+  st.tried=true;
+  st.p=fetchJSON(src.fresh()).then(function(r){
+    var list=src.take(r.data);
+    if(list==null) throw new Error("unusable");
+    noteSource(src.url, r.cached);
+    var n=SRC[src.key];
+    st.list=list; st.failed=false; st.cached=!!r.cached;
+    st.fetchedAt=n ? n.fetchedAt : Date.now();
+    st.at=r.cached ? 0 : Date.now();                            // only the network starts the clock
+    return { key:src.key, outcome: r.cached ? "cached" : "network" };
+  }).catch(function(){
+    st.failed=true; st.at=0;
+    return { key:src.key, outcome:"failed" };
+  }).then(function(res){
+    st.p=null; mergeNews(); return res;
+  });
+  return st.p;
+}
+function mergeNews(){
+  var srcs=newsSources(), have=srcs.filter(function(x){ return newsState(x.key).list; });
+  var settled=srcs.every(function(x){ var st=newsState(x.key); return st.tried && !st.p; });
+  var all=[];
+  have.forEach(function(x){ all=all.concat(newsState(x.key).list); });
+  NEWS.items = have.length ? newsList(all) : null;
+  // Home's preview: the stories, or - once every source has answered and
+  // none had any - none; still asking, nothing yet.
+  HOME.news = NEWS.items ? NEWS.items.slice(0,3) : settled ? [] : null;
+  paintHome(); paintNews();
+}
 function loadNews(force){
-  if(NEWS.inflight) return Promise.resolve();
-  if(!force && NEWS.at && Date.now()-NEWS.at < 30*60e3) return Promise.resolve();
-  NEWS.inflight=true;
-  var espnUrl=TeamOS.espn.newsUrl(TEAM_CONFIG);
-  var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
-  return Promise.all([get(espnUrl).catch(function(){ return null; }),
-                      beat ? get(beat.file+"?t="+Date.now()).catch(function(){ return null; }) : null])
-    .then(function(res){
-      if(!res[0] && !res[1]){ NEWS.failed=true; return; }
-      NEWS.items=newsList(res); NEWS.failed=false;
-      var e=SRC.news, b=SRC.beatNews;
-      NEWS.at = (res[0] && !(e && e.cached)) || (res[1] && !(b && b.cached)) ? Date.now() : 0;
-    })
-    .then(function(){
-      NEWS.inflight=false;
-      // Home's preview: the stories, or once nothing came at all, none
-      HOME.news = NEWS.items ? NEWS.items.slice(0,3) : NEWS.failed ? [] : null;
-      paintHome(); paintNews();
-    });
+  return Promise.all(newsSources().map(function(src){ return loadNewsSource(src, force); }));
+}
+// What News displays, for its one page-level state (0024 §13): a source
+// that failed to update but still has stories is old; one that never had
+// any is absent, and no age is invented for it.
+function newsFreshSources(){
+  return newsSources().map(function(x){
+    var st=newsState(x.key);
+    if(!st.list) return { key:x.key, missing:true, optional:x.optional };
+    if(st.failed) return { key:x.key, fetchedAt:st.fetchedAt, cached:true, optional:x.optional };
+    return { key:x.key, fetchedAt:st.fetchedAt, cached:st.cached, optional:x.optional, maxAgeMs:24*HOUR };
+  });
 }
 
 /* ---------- Home (canonical) ---------- */
@@ -724,8 +793,8 @@ function homeSources(heroLive){
     return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, optional:optional, maxAgeMs:maxAge }
              : { key:key, missing:true, optional:optional };
   }
-  var list=[s("schedule",false,12*HOUR), s("news",false,24*HOUR), s("beatNews",true,24*HOUR),
-            s("odds",true,36*HOUR), s("weather",true,6*HOUR)];
+  var list=[s("schedule",false,12*HOUR)].concat(newsFreshSources(),
+            [s("odds",true,36*HOUR), s("weather",true,6*HOUR)]);
   if(heroLive) list.push(s("scoreboard",false,10*60e3));
   return list;
 }
@@ -781,11 +850,12 @@ function loadHomeWeather(g){
       paintHome(); paintGame();
     }).catch(function(){ HOME.weather=null; });
 }
+// The connection changes what an open screen says (catch-up review 1.3).
 window.addEventListener("online",  function(){
   paintHome(); paintTop25(); paintRoster(); paintMore();
-  if(!NEWS.at) loadNews();                 // what failed, or came from the worker's copy, is asked again
+  loadNews();                              // each source that failed, or came from the worker's copy, is asked again
 });
-window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); });
+window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); });
 
 /* ---------- Game (canonical) ---------- */
 // The Game screen is the hero game - the one TeamOS rule Home and the nav
@@ -955,15 +1025,17 @@ function showScreen(route){
   var home=route.screen==="home", game=route.screen==="game", top25=route.screen==="top25",
       sched=route.screen==="schedule", roster=route.screen==="roster";
   Object.keys(MORE_HOSTS).forEach(function(k){ $(MORE_HOSTS[k]).hidden = k!==route.screen; });
-  // Where Feedback says the fan came from: the last screen that was not More's.
-  if(!MORE_HOSTS[route.screen]) MORE.from=route.screen;
+  // Where Feedback says the fan came from: the last destination they were
+  // on - News, Settings and About included - never the More menu or
+  // Feedback itself (Product, 2026-09-25, on the catch-up review's advice).
+  if(route.screen!=="more" && route.screen!=="feedback") MORE.from=route.screen;
   $("screenHome").hidden=!home;
   $("screenGame").hidden=!game;
   $("screenTop25").hidden=!top25;
   $("screenSchedule").hidden=!sched;
   $("screenRoster").hidden=!roster;
   if(home){ paintHome(); loadNews(); }
-  if(MORE_HOSTS[route.screen]){ paintMore(); if(route.screen==="news") loadNews(); if(route.screen==="about") askVersion(); }
+  if(MORE_HOSTS[route.screen]){ askVersion(); paintMore(); if(route.screen==="news") loadNews(); }
   if(game) paintGame();
   if(top25){ paintTop25(); loadTop25(); }
   if(sched) paintScheduleScreen();
@@ -1012,13 +1084,16 @@ var SB={ data:null, games:null, at:0 };
 function getScoreboard(maxAgeMs){
   var age=Date.now()-SB.at;
   if(SB.data && age < (maxAgeMs==null?30000:maxAgeMs)) return Promise.resolve(SB.data);
-  return get(TeamOS.espn.scoreboardUrl()).then(function(d){
+  if(SB.p) return SB.p;                    // one request out at a time: join it
+  SB.p=get(TeamOS.espn.scoreboardUrl(), hasEvents).then(function(d){
     SB.data=d; SB.at=Date.now();
     SB.games=TeamOS.espn.scoreboard(d, TEAM_CONFIG);
     AUTO.liveElsewhere = SB.games.some(function(lg){ return lg.state==="in"; });
     startAuto();
     return d;
   });
+  SB.p.then(function(){ SB.p=null; }, function(){ SB.p=null; });
+  return SB.p;
 }
 
 function somethingLive(){
@@ -1088,11 +1163,16 @@ document.addEventListener("visibilitychange", function(){
   if(somethingLive()) autoTick();
 });
 
-function load(){
-  // The team's rank and record now, for Home's hero.
-  get(TeamOS.espn.teamUrl(TEAM_CONFIG)).then(function(d){
+// The team's rank and record now, for Home's hero.
+function loadTeamStatus(){
+  var url=TeamOS.espn.teamUrl(TEAM_CONFIG);
+  return get(url, function(d){ return !!d && !!d.team; }).then(function(d){
     HOME.status=TeamOS.espn.teamStatus(d); paintHome();
-  }).catch(function(){});
+    return { key:"team", outcome:"network" };
+  }).catch(function(){ return { key:"team", outcome:"failed" }; });
+}
+function load(){
+  loadTeamStatus();
 
   loadStrip();
   return refreshSchedule(true);
@@ -1142,7 +1222,7 @@ function refreshSchedule(first){
     }).catch(function(){});
   }
 
-  return get(url).then(function(d){
+  return get(url, hasEvents).then(function(d){
     var games=apply(d);
     // A game under way before the first scoreboard tick: fetch it now, so
     // Home's hero has the clock, the ball and the down from the start.
@@ -1168,10 +1248,13 @@ function refreshSchedule(first){
         paintHome(); paintGame(); paintScheduleScreen();
       }).catch(function(){});
     }
+    return { key:"schedule", outcome:outcomeOf("schedule") };
   }).catch(function(){
-    if(!first || painted) return;      // a failed poll, or a cached paint, keeps what is there
-    SC.failed=true; paintScheduleScreen();
-    say("Schedule failed to load.");
+    if(first && !painted){               // a failed poll, or a cached paint, keeps what is there
+      SC.failed=true; paintScheduleScreen();
+      say("Schedule failed to load.");
+    }
+    return { key:"schedule", outcome:"failed" };
   });
 }
 
@@ -1234,20 +1317,28 @@ function prefetchSummaries(){
 }
 
 
-// Everything the Refresh button does. Also run on its own when the page has
-// been out of sight for a while, so a tab left open all afternoon is current
-// the moment it is looked at again. Tabs skip identical repaints, so a
-// silent refresh that finds nothing new changes nothing on screen.
+// Everything Refresh Data does, and the silent refresh on return to a tab
+// left in the background. Its scope (Product, 2026-09-25, on the catch-up
+// review's recommendation): this team's shared data - its status, schedule,
+// news and Season Outlook markets - and the data of screens already loaded
+// this visit (the scoreboard, the polls, the roster); never unopened games or
+// another team's. Work already under way is joined, not repeated. It resolves
+// once every step has settled, to what each came to: "network", "cached"
+// (the worker's last copy) or "failed" (catch-up review 1.2).
 function refreshAll(silent){
   T25.at=0;
   if(!silent) say("Refreshing…");
-  var done=Promise.all([load().catch(function(){}), loadNews(true)]);
-  var name=UI.tab;
-  if(name==="game")   paintGame();
-  if(name==="top25")  loadTop25();
-  if(name==="roster") loadRosterScreen(true);
+  var steps=[loadTeamStatus(), refreshSchedule(false), loadStrip(), loadNews(true)];
+  if(SB.data || SB.p) steps.push(getScoreboard(0).then(function(){ return { key:"scoreboard", outcome:outcomeOf("scoreboard") }; },
+                                                       function(){ return { key:"scoreboard", outcome:"failed" }; }));
+  if(T25.polls || T25.p) steps.push(loadRankings());
+  if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
+  if(UI.tab==="game") paintGame();
   FRESH.at=Date.now();
-  return done;
+  return Promise.all(steps).then(function(r){
+    var flat=[]; (function add(x){ if(Array.isArray(x)) x.forEach(add); else if(x && x.outcome) flat.push(x); })(r);
+    return flat;
+  });
 }
 
 /* ---------- More (canonical) ---------- */
@@ -1255,7 +1346,9 @@ function refreshAll(silent){
 // show. Settings' Refresh Data is the manual refresh (decision 0022 #13);
 // Change Team opens the chooser in its CHANGE mode (0022 #7), which keeps the
 // current team until another is picked and offers Cancel back to it.
-var MORE={ from:"home", refreshing:false, version:null };
+// from: the last screen the fan was on, for Feedback - null until there is
+// one (a direct entry names none). result: what the last Refresh Data did.
+var MORE={ from:null, refreshing:false, version:null, result:null };
 var FEEDBACK_TO="suiteappfeedback@gmail.com";
 function paintMore(){
   var r=Suite.nav.current(), host=$(MORE_HOSTS[r.screen]);
@@ -1266,20 +1359,16 @@ function paintMore(){
     team:{ name:TEAM.name, abbr:TEAM.abbreviation,
            mark:Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId), TEAM.name, TEAM.abbreviation) },
     changeHref: location.pathname+"?change", style: appStyle(),
-    updatedAt: lastUpdated(), refreshing: MORE.refreshing, online: navigator.onLine!==false });
+    updatedAt: lastUpdated(), refreshing: MORE.refreshing, online: navigator.onLine!==false, result: MORE.result });
   if(r.screen==="feedback") Suite.more.feedback(host, { href: feedbackHref(), address: FEEDBACK_TO });
   if(r.screen==="about") Suite.more.about(host, { version: MORE.version, sources: TeamOS.sources.list(TEAM_CONFIG) });
 }
 function paintNews(){
   var host=$("screenNews");
   if(!host || host.hidden) return;
-  var s=function(key, optional){
-    var x=SRC[key];
-    return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, optional:optional, maxAgeMs:24*HOUR }
-             : { key:key, missing:true, optional:optional };
-  };
-  Suite.more.news(host, { items: NEWS.items, failed: NEWS.failed && !NEWS.items, team:{ name:TEAM.name },
-    fresh: TeamOS.freshness.summary([s("news",false), s("beatNews",true)], { now:new Date(), online:navigator.onLine!==false }) });
+  var failed=newsSources().every(function(x){ var st=newsState(x.key); return st.tried && !st.p && !st.list; });
+  Suite.more.news(host, { items: NEWS.items, failed: failed, team:{ name:TEAM.name },
+    fresh: TeamOS.freshness.summary(newsFreshSources(), { now:new Date(), online:navigator.onLine!==false }) });
 }
 // The newest time the network - not the worker's copy - answered.
 function lastUpdated(){
@@ -1288,11 +1377,14 @@ function lastUpdated(){
   }, 0) || null;
 }
 function feedbackHref(){
-  var body=["", "", "—", "Team: "+TEAM.name, "Screen: "+Suite.nav.title(MORE.from),
+  var body=["", "", "—", "Team: "+TEAM.name,
+            "Screen: "+(MORE.from ? Suite.nav.title(MORE.from) : "opened Feedback directly"),
             "Version: "+(MORE.version||"unknown")].join("\n");
   return "mailto:"+FEEDBACK_TO+"?subject="+encodeURIComponent("Suite feedback · "+TEAM.name)+"&body="+encodeURIComponent(body);
 }
 // The app's version is the worker's: one number, where the shell is cached.
+// Asked for as soon as a worker controls the page - and again if one takes
+// over later - so Feedback and About both have it (catch-up review 1.4).
 function askVersion(){
   if(MORE.version || !navigator.serviceWorker || !navigator.serviceWorker.controller || typeof MessageChannel==="undefined") return;
   var ch=new MessageChannel();
@@ -1308,13 +1400,34 @@ document.addEventListener("change", function(e){
     paintMore();
   }
 });
+if(navigator.serviceWorker){
+  askVersion();
+  navigator.serviceWorker.addEventListener("controllerchange", askVersion);
+  if(navigator.serviceWorker.ready) navigator.serviceWorker.ready.then(function(){ setTimeout(askVersion, 0); });
+}
+// What a refresh came to, in words: every step's outcome, not the browser's
+// idea of being online (catch-up review 1.2).
+function refreshResult(outcomes){
+  var fresh=outcomes.filter(function(o){ return o.outcome==="network" || o.outcome==="current"; }).length;
+  var stale=outcomes.length-fresh;
+  var t=new Date().toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});
+  if(!stale) return { say:"Data refreshed.", note:"Refreshed at "+t+"." };
+  if(fresh) return { say:"Some data refreshed. "+stale+(stale===1?" source":" sources")+" couldn\u2019t be reached; showing the last data for "+(stale===1?"it":"them")+".",
+                     note:"Partly refreshed at "+t+". Some data may be outdated." };
+  return { say:"Couldn\u2019t refresh. Showing the last data this device saw.",
+           note:"Couldn\u2019t refresh at "+t+". Showing the last data this device saw." };
+}
 document.addEventListener("click", function(e){
   var b=e.target.closest && e.target.closest("[data-refresh]");
   if(!b || MORE.refreshing) return;
   MORE.refreshing=true; paintMore();
-  refreshAll(false).then(function(){
-    MORE.refreshing=false; paintMore();
-    say(navigator.onLine===false ? "Offline. Showing the last data this device saw." : "Data refreshed.");
+  refreshAll(false).then(function(outcomes){
+    var r=refreshResult(outcomes);
+    MORE.refreshing=false; MORE.result=r.note; paintMore();
+    // Back to the button the fan pressed - unless they have moved on.
+    var btn=document.querySelector("#screenSettings [data-refresh]"), a=document.activeElement;
+    if(btn && !$("screenSettings").hidden && (!a || a===document.body || a===btn)) btn.focus();
+    say(r.say);
   });
 });
 

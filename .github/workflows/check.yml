@@ -81,6 +81,9 @@ jobs:
       # Roster's retry and freshness behaviour: a failed load never locks
       # itself out, and old data is never passed off as fresh.
       - run: node tools/rosterflowcheck.js
+      # More's news recovery, Refresh Data's outcome, the connection while a
+      # screen is open, and Feedback's version and origin (catch-up review).
+      - run: node tools/moreflowcheck.js
       - uses: actions/upload-artifact@v4
         if: always()
         with:

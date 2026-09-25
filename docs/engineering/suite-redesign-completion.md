@@ -13,7 +13,7 @@ Product decides it differently.
 | ChatGPT review of every step David approved without one | David, 2026-09-24 | `docs/engineering/pending-design-review.md` lists them (**No ChatGPT review**). When ChatGPT is back, Claude Code generates one review prompt from that file; the list must be empty before the redesign merges. |
 | Final Suite icon set and neutral share image | Decision 0024 §11 | `assets/suite/TEMPORARY-*` are stand-ins. `tools/identitycheck.js --release` refuses them and CI runs it for `main` and PRs into it. Sizes in `assets/suite/README.md`. |
 | Season Outlook "View full field" | Home review, 2026-09-24 | The locked Home references have it and the full-market data exists (the Kalshi board). Build it as a Suite light-theme experience; do not route the new Home into the pre-canonical board. |
-| Suite Style's final palette | More rebuild, 2026-09-24 (decision 0026) | Suite Style works end to end on a provisional palette from Product's direction ("blue-led: ink for the foundation, cobalt for actions, and champagne or bronze used sparingly"): ink surfaces `#0F1C33` scale, cobalt `#2F5BEA` fills and `#2A52D6` on light, champagne `#E4CF9E` only as accent text on the ink header. In `suite/ui.js` (`Suite.ui.STYLE`), checked by the same contrast rules as a team (`tools/suitecheck.js`). Design sets the final tokens; replacing the values is the whole change. |
+| Final Suite brand integration | More rebuild; catch-up review 2026-09-25 | David has selected **Ink `#111D35`**, **Pearl `#F1F2F0`** (over Porcelain) and the approved wide custom **Suite wordmark**. The full token mapping is not approved yet: the provisional ink/cobalt/champagne `Suite.ui.STYLE` stays until a deliberate final token pass. That pass is more than the ten colour roles: Pearl belongs to the light surfaces and on-dark text, which live in `app.css` as `--s-page`, `--s-surface` and `--s-on-dark`, and the wordmark is an asset. Map each approved colour to explicit roles, decide Pearl's placements, update first-paint handling, recheck contrast and keep Team Style untouched; produce the Pearl logo variants in the same pass. |
 
 ## Follow-ups recorded on this list
 
@@ -26,6 +26,7 @@ Product decides it differently.
 
 | Check | When | How |
 |---|---|---|
+| Canonical Game header agrees with every other score surface | Done 2026-09-25 (catch-up review) | `tools/livecheck.js` now draws Game's header at `#game` and from Schedule alongside Home, the schedule row and Top 25, with a negative control that makes only the Game header disagree and must name it. |
 | Top 25 Games and Game in a real live state | Sat Sep 26, 2026, 3:50 PM ET (the 3:30 PM games starting, Notre Dame at Purdue ending) | A one-shot reminder in the Claude session, not a repository schedule: `capture-fixture.yml` has only push and manual triggers. At that time the session pushes `scoreboard-20260926 sep26-live` and `401858467 pur-live` to `tools/fixtures/capture-requests.txt`, which runs the capture; the live renders then come from those payloads. If the reminder does not fire, the capture can be run the same way by hand while games are live. |
 
 ## Open product decisions

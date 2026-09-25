@@ -38,7 +38,8 @@ function makeContext(teamFile) {
   ["teams/" + teamFile, "teamos/team.js", "teamos/live.js", "teamos/espn.js", "teamos/game.js", "teamos/outlook.js"]
     .forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
   ctx.document = { addEventListener: function () {}, fonts: null };
-  ["suite/ui.js", "suite/schedule.js", "suite/home.js", "suite/top25.js"].forEach(function (f) {
+  ctx.window = { addEventListener: function () {} };
+  ["suite/ui.js", "suite/schedule.js", "suite/home.js", "suite/top25.js", "suite/game.js"].forEach(function (f) {
     vm.runInContext(read(f), ctx, { filename: f });
   });
   vm.runInContext([
@@ -59,6 +60,15 @@ function makeContext(teamFile) {
     '    hero:{ game:h.game, reason:h.reason, weather:null }, heroId:h.game ? h.game.id : null,',
     '    news:[], schedule:[], outlook:TeamOS.outlook.metrics({}), fresh:null });',
     '  return host.parts.hero ? host.parts.hero.innerHTML : "";',
+    '}',
+    // Game's header, as paintGame() / paintScheduleGame() hand it over: the
+    // hero game at #game, or a game opened from Schedule at #schedule/<id>.
+    'function gameHeadOf(g, now, base){',
+    '  var host=stubHost("data-game"), lc=TeamOS.game.lifecycle(g);',
+    '  host.querySelectorAll=function(){ return []; };',
+    '  Suite.game.paint(host, { team:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:null }, oppMark:function(){ return null; },',
+    '    game:g, detail:null, lifecycle:lc, base:base, view:lc.defaultView, preview:null, side:"us", open:{}, weather:null, now:now });',
+    '  return host.parts.head ? host.parts.head.innerHTML : "";',
     '}',
     'function rowOf(g){ return Suite.schedule.row(g, { heroId:null, full:true, oppMark:function(){ return null; } }); }',
     'function top25Row(lg){',
@@ -101,6 +111,8 @@ function surfaces(ctx, game, league, minutesAfterKickoff) {
   ctx.__g = game; ctx.__lg = league;
   ctx.__now = new Date(Date.parse(game.date) + (minutesAfterKickoff || 0) * 60e3);
   return { hero: vm.runInContext("heroOf(__g, __now)", ctx),
+           game: vm.runInContext("gameHeadOf(__g, __now, '#game')", ctx),
+           scheduleGame: vm.runInContext("gameHeadOf(__g, __now, '#schedule/' + __g.id)", ctx),
            row:  vm.runInContext("rowOf(__g)", ctx),
            top25: vm.runInContext("top25Row(__lg)", ctx) };
 }
@@ -130,6 +142,7 @@ function run(teamFile, teamLabel, ourName, oppName) {
   ok(/15:00/.test(text(s1.hero)), "Home's hero carries the game clock");
   ok(!/Kickoff|kicks off|\bin \d+ ?(h|hr|hours|m|min)\b/i.test(text(s1.hero)), "and no countdown to a kickoff that has happened");
   ok(shows(s1.row, "0", "0"), "the schedule row 0-0");
+  ok(shows(s1.game, "0", "0"), "Game's header 0-0");
 
   console.log(" the screenshot: 49-0 in the fourth");
   var board = boardGame("in", "49", "0", "14:27 - 4th");
@@ -142,16 +155,30 @@ function run(teamFile, teamLabel, ourName, oppName) {
 
   ok(shows(s2.hero, "49", "0"), "Home's hero shows 49-0");
   ok(shows(s2.row, "49", "0"), "the schedule row shows 49-0");
+  ok(shows(s2.game, "49", "0"), "Game's header shows 49-0");
+  ok(shows(s2.scheduleGame, "49", "0"), "and so does the game opened from Schedule");
+  ok(/14:27/.test(text(s2.game)), "Game's header shows 14:27 of the 4th");
   ok(shows(s2.top25, "49", "0"), "the Top 25 row shows 49-0");
   ok(/14:27/.test(text(s2.hero)), "Home's hero shows 14:27 of the 4th");
   ok(/14:27 - 4th/.test(s2.top25), "and so does the Top 25 row");
   ok(new RegExp(oppName, "i").test(text(s2.hero)), "Home's hero names " + oppName);
 
   // THE bug: no surface may still be at 0-0 while another is at 49-0
-  var all = [["Home hero", s2.hero], ["schedule row", s2.row], ["Top 25 row", s2.top25]];
-  var stale = all.filter(function (p) { return !shows(p[1], "49", "0"); });
+  function behind(x) {
+    return [["Home hero", x.hero], ["Game header", x.game], ["Game from Schedule", x.scheduleGame],
+            ["schedule row", x.row], ["Top 25 row", x.top25]]
+      .filter(function (p) { return !shows(p[1], "49", "0"); }).map(function (p) { return p[0]; });
+  }
+  var stale = behind(s2);
   ok(stale.length === 0,
-     "no surface is left behind" + (stale.length ? " (stale: " + stale.map(function (p) { return p[0]; }).join(", ") + ")" : ""));
+     "no surface is left behind" + (stale.length ? " (stale: " + stale.join(", ") + ")" : ""));
+
+  // A second negative control: only Game's header is fed the unreconciled
+  // game. The check has to name it, and only it.
+  var oneOff = Object.assign({}, s2);
+  var sOld = surfaces(ctx, scheduleGame(), board, 170);
+  oneOff.game = sOld.game;
+  eq(behind(oneOff), ["Game header"], "a Game header left behind alone is caught, and named");
 
   // The negative control. If this check could not tell the difference between
   // a reconciled game and an unreconciled one, it would pass on the broken
@@ -174,6 +201,7 @@ function run(teamFile, teamLabel, ourName, oppName) {
   eq([fin.state, fin.us, fin.them, fin.won], ["post", "59", "3", true], "final state, and the win");
   ok(shows(s3.hero, "59", "3"), "Home's hero shows the final");
   ok(shows(s3.row, "59", "3"), "the schedule row shows the final");
+  ok(shows(s3.game, "59", "3") && shows(s3.scheduleGame, "59", "3"), "Game's header shows the final, on #game and from Schedule");
   ok(shows(s3.top25, "59", "3"), "the Top 25 row shows the final");
 
   console.log(" a Top 25 game that is not this team's");

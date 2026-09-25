@@ -796,6 +796,7 @@ details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}
 .nw-hl{font-family:var(--s-font-editorial);font-weight:700;font-size:1.08rem;line-height:1.28;color:var(--s-ink);overflow-wrap:anywhere}
 .nw-meta{display:flex;align-items:center;gap:.35rem;font-size:.88rem;color:var(--s-muted)}
 .nw-more{width:100%;margin-top:.8rem}
+.btn[aria-disabled="true"]{cursor:progress;opacity:.7}
 /* Settings: headed groups of rows. */
 .st-group + .st-group{margin-top:1.4rem}
 .st-group .sec-title{margin:0 0 .6rem}
@@ -887,6 +888,9 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .rk-teamcell .mark{--mark:1.5rem}
 }
 @media (max-width:24rem){
+  /* News at 320: a smaller photo, so the headline has ~170px to wrap in (catch-up review 1.5) */
+  .nw-row{gap:.7rem;padding:.85rem .9rem}
+  .nw-img{width:4.5rem}
   :root{--gutter:.85rem}
   /* the venue and trophy run under the kickoff column instead of beside it */
   .sched-row.full .sched-vis{grid-template-areas:"date mark site side chev" "date mark opp side chev" "date mark meta meta chev" "date mark series series chev"}

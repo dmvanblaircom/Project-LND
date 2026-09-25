@@ -15,16 +15,42 @@ own (the things a reviewer most needs to look at), and where the evidence is.
 
 | # | Step | Commits (design/suite-canonical-v1) | Approved | ChatGPT review |
 |---|---|---|---|---|
-| 1 | More rebuild: menu, News, Settings (App Style), Feedback, About Suite | `2fdc6f2`, with `9952362`, `835c2c3`, `1a97dee` (news capture) | David, 2026-09-24 | **No ChatGPT review** |
-| 2 | More corrections: provisional Suite Style palette, Independent App statement, copy confirmed | `b566122` | David, 2026-09-24 | **No ChatGPT review** |
-| 3 | Legacy code removal (engineering only; no screen changes) | `57e0358` + `e800299` | David ("move forward"), 2026-09-24 | **No ChatGPT review** |
+| 1 | More rebuild: menu, News, Settings (App Style), Feedback, About Suite | `2fdc6f2`, with `9952362`, `835c2c3`, `1a97dee` (news capture) | David, 2026-09-24 | **Reviewed at `70613f7` (2026-09-25) - corrections 1.1-1.6 done, awaiting re-review** |
 
-For context, not part of David's no-review approval: ChatGPT asked for the
-Roster service-worker recovery fix (`0f6008a`) and David accepted it once CI
-passed; ChatGPT has not seen the fix itself. It also carried an
-engineering-only change to `main` (`69f53cf`, the worker stamps its kept
-copies, so offline times are real). The review prompt includes both as
-"verify the fix you asked for".
+## Review of 2026-09-25 (ChatGPT, at `70613f7`)
+
+| # | Decision | Recorded qualification |
+|---|---|---|
+| 1 | Corrections required | Screen structure and most design calls accepted (routes, menu, News list, Settings groups, native App Style radios, mailto Feedback, About's product card and source lists). Six corrections, below; the entry stays open until they are re-reviewed. |
+| 2 | Accepted as provisional - leaves this list | The ink/cobalt/champagne palette is the reviewed *interim* palette, not the brand specification. The independence statement is accepted as product copy, not a legal assessment or a determination of asset/data permissions. David's confirmed copy stands. |
+| 3 | Accepted - leaves this list | Accepted at the completed head (`57e0358` alone was broken; `e800299` completes it). The 38/41 pixel comparison was Claude's evidence, not independently regenerated. "View full field" is still required. |
+| R | Roster recovery fix `0f6008a` accepted | Rerun of `rosterflowcheck` passed all six scenarios, including the real service worker. The worker's stored-time stamp (`main` `69f53cf`) accepted. No further Roster correction. |
+
+### Corrections to item 1, and where they stand
+
+| # | Finding (reproduced) | Correction | Status |
+|---|---|---|---|
+| 1.1 | News: one source's success suppressed the other's retry; a half-failed refresh dropped 89 stories to 60; no warning after failures | Each source keeps its own last-good stories, network time, cache/failure state and in-flight request; one merged Home/News list; independent retry on re-entry and reconnect; retained stories called old | Done |
+| 1.2 | Refresh Data said "Data refreshed" when everything failed, finished before requests settled, lost focus, counted unparseable JSON | Awaits every step, including ones it joins; reports refreshed / partly refreshed / couldn't refresh; busy until settled; freshness only after a usable answer; focus back on the button | Done |
+| 1.3 | Settings stayed "Not yet" and missed going offline; News missed going offline, while open | The open More screen repaints on data and on both connection events, without starting new requests | Done |
+| 1.4 | Feedback said "Version: unknown" until About was visited; a direct entry claimed Home | Version asked for as soon as a worker controls the page; a direct entry says so | Done |
+| 1.5 | News headlines cramped at 320 (seven lines) | 72px thumbnail and tighter gap at <=24rem; headline ~170px | Done |
+| 1.6 | Settings icon read as a sun | A cog: eight square teeth round a hub | Done |
+
+`tools/moreflowcheck.js` (in CI) covers 1.1-1.4: 22 failures on `70613f7`,
+none after the corrections.
+
+### Product clarifications (not bugs)
+
+- **Refresh Data scope** - this team's shared data (status, schedule, news,
+  Season Outlook markets) and the data of screens already loaded this visit
+  (scoreboard, polls, roster), joining requests already out; never unopened
+  games or another team's. ChatGPT's recommendation, adopted 2026-09-25;
+  David may change it.
+- **Feedback's origin** - the last destination the fan was on, News,
+  Settings, About and Schedule included, never the More menu or Feedback
+  itself; a direct entry says "opened Feedback directly". ChatGPT's
+  recommendation, adopted 2026-09-25; David may change it.
 
 ## 1. More rebuild (`2fdc6f2`)
 
@@ -78,7 +104,7 @@ a reload; Change Team via Settings; no "Project LND"). Review captures were
 sent in chat as `more-review.zip`; CI's `suite-visual-smoke` artifact for
 `2fdc6f2` has the gate's own renders.
 
-## 2. More corrections (`b566122`)
+## 2. More corrections (`b566122`) - closed 2026-09-25, accepted as provisional
 
 **What it is.** David's answers to the three open items from step 1.
 
@@ -107,7 +133,7 @@ sent in chat as `more-review.zip`; CI's `suite-visual-smoke` artifact for
 statement and its conditional betting line), the visual gate's contrast
 pass under Suite Style. Captures sent in chat as `more-review-2.zip`.
 
-## 3. Legacy code removal
+## 3. Legacy code removal - closed 2026-09-25, accepted
 
 **What it is.** The completion list's "remove the legacy panel code", done
 once More made every screen canonical. Engineering only: 38 of the 41 visual
