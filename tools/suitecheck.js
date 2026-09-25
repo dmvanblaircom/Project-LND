@@ -131,5 +131,19 @@ var abx = mhost(); MS.more.about(abx, { sources: [{ name: "ESPN", supplies: ["sc
 ok(!/betting/.test(abx.innerHTML), "a team with no markets gets no betting line");
 ok(/rel="noopener noreferrer"/.test(abh.innerHTML) && /opens in a new tab/.test(abh.innerHTML), "source links open safely, and say so");
 
+// A final without both scores (a forfeit, or a gap in the feed) is not a
+// tie, and nothing a screen reader hears says "undefined".
+console.log("Schedule rows");
+vm.runInContext(read("suite/schedule.js"), sctx, { filename: "suite/schedule.js" });
+var SR = sctx.Suite.schedule;
+var noScore = Object.assign({}, WG, { us: null, them: null });
+[true, false].forEach(function (full) {
+  var r = SR.row(noScore, { heroId: null, full: full, oppMark: function () { return null; } });
+  ok(/>Final</.test(r) && !/class="wl"/.test(r), (full ? "full" : "preview") + " row: a scoreless final says Final, with no W, L or T");
+  ok(!/undefined|null|NaN/.test(r), (full ? "full" : "preview") + " row: nothing reads undefined");
+});
+var scored = SR.row(Object.assign({}, WG, { us: "0", them: "13" }), { heroId: null, full: true, oppMark: function () { return null; } });
+ok(/Lost 0 to 13\./.test(scored) && />L<\/span> 0–13/.test(scored), "a shutout keeps its zero: L 0–13, 'Lost 0 to 13.'");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Suite draws what TeamOS decided, the way Product set"));
 process.exit(failures ? 1 : 0);

@@ -55,6 +55,31 @@ release does not update them. Recommended: disconnect the two Workers
 Builds integrations (or delete the Workers) in the Cloudflare dashboard, so
 the checks stop reporting and no stale copy of the app stays reachable.
 
+### Release regression pass (2026-09-25)
+
+A pass beyond the CI gates, run on the release head:
+- a crawl of every reachable route for both teams, in both styles, at 320, 390, 768 and 1280 (464 renders)
+- hostile deep links and query strings
+- providers aborting, returning 500s, returning invalid JSON or `{}`, or answering slowly
+- 150 random route changes under slow data
+- a team switch, checked for leakage from the previous team
+- corrupt and legacy `localStorage`
+- offline reopen with the real worker
+- an upgrade from `main`'s worker to this release on the same origin
+
+Each render was checked for page errors, "undefined"/"NaN" text, overflow, broken images, duplicate ids, unnamed controls and the title. Two defects were found and fixed:
+
+| Defect | Fix | Regression test |
+|---|---|---|
+| A first visit that could not reach the schedule left Home and Game on "Loading…" indefinitely, and nothing retried the schedule on reconnection. `main` said "The schedule didn't load", so this was a regression. | Home, Game and a game opened from Schedule use the Schedule screen's own failure line. Reconnection, or entering one of those screens, retries once (no duplicate requests). | `tools/outagecheck.js`, in CI: 13 checks, 9 of which fail without the fix |
+| A final without both scores drew as a tie ("T –") and was read aloud as "undefined to". | Schedule rows say "Final". | `tools/suitecheck.js`, Schedule rows |
+
+Everything else held:
+- **Upgrade:** the first open after the deploy still shows the old page under the new worker. The next open is Suite, only this release's caches remain, and the wordmark loads.
+- **Offline reopen:** shows "Offline · Showing last available data" over the last copy.
+
+Known, left as is: Home's hero and Game's header show 0 for a missing score. That is right for a live game before anyone scores, and every score surface is checked to agree on it. A final with no scores at all would read 0–0 there. Changing that is a product call on approved screens.
+
 ## Post-launch follow-ups (explicit; not started in this release)
 
 | Item | Source | Notes |

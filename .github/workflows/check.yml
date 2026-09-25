@@ -84,6 +84,9 @@ jobs:
       # More's news recovery, Refresh Data's outcome, the connection while a
       # screen is open, and Feedback's version and origin (catch-up review).
       - run: node tools/moreflowcheck.js
+      # A first visit that can't reach the schedule says so on Home and Game,
+      # and fills in on reconnection or re-entry (release regression pass).
+      - run: node tools/outagecheck.js
       - uses: actions/upload-artifact@v4
         if: always()
         with:

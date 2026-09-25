@@ -823,9 +823,17 @@ function paintHome(){
   if(g) loadHomeWeather(g);
 }
 function paintHomeLoading(host){
-  if(host.dataset.loading) return;
-  host.dataset.loading="1";
-  host.innerHTML='<p class="sec-quiet home-loading">Loading '+esc(TEAM.name)+'\u2026</p>';
+  var want=SC.failed ? "failed" : "1";
+  if(host.dataset.loading===want) return;
+  host.dataset.loading=want;
+  host.innerHTML=SC.failed ? scheduleFailed() : '<p class="sec-quiet home-loading">Loading '+esc(TEAM.name)+'\u2026</p>';
+}
+// Home, Game and a game opened from Schedule all wait on the schedule. When
+// its first load failed and nothing is cached, they say so - the words the
+// Schedule screen uses - instead of "Loading" forever; retrySchedule() keeps
+// that promise.
+function scheduleFailed(){
+  return '<p class="sec-quiet home-loading">The schedule didn\u2019t load. Check your connection; it fills in when the connection returns.</p>';
 }
 // Weather is tertiary (0024 §2): a kickoff forecast before a game, current
 // conditions during one, nothing when there is no answer. One request per
@@ -845,6 +853,7 @@ function loadHomeWeather(g){
 }
 // The connection changes what an open screen says (catch-up review 1.3).
 window.addEventListener("online",  function(){
+  retrySchedule();
   paintHome(); paintTop25(); paintRoster(); paintMore();
   loadNews();                              // each source that failed, or came from the worker's copy, is asked again
 });
@@ -881,7 +890,7 @@ function gameModel(V, g, lc, view, base){
 function paintGame(){
   var host=$("screenGame");
   if(!host || host.hidden) return;
-  if(!S.games){ host.innerHTML='<p class="sec-quiet home-loading">Loading the game\u2026</p>'; return; }
+  if(!S.games){ host.innerHTML=SC.failed ? scheduleFailed() : '<p class="sec-quiet home-loading">Loading the game\u2026</p>'; return; }
   var g=heroGame();
   if(g && GV.id!==g.id) GV=gameState(g.id);
   var lc=TeamOS.game.lifecycle(g), route=Suite.nav.current();
@@ -974,7 +983,7 @@ function paintScheduleGame(route){
   var host=$("scheduleGameHost"), back=$("scheduleBack");
   back.setAttribute("href", SC.from==="results" ? "#schedule/results" : "#schedule");
   back.querySelector("span").textContent = SC.from==="results" ? "Results" : "Schedule";
-  if(!S.games){ host.innerHTML='<p class="sec-quiet home-loading">Loading the game\u2026</p>'; return; }
+  if(!S.games){ host.innerHTML=SC.failed ? scheduleFailed() : '<p class="sec-quiet home-loading">Loading the game\u2026</p>'; return; }
   var g=S.games.filter(function(x){ return x.id===route.item; })[0] || null;
   if(!g){ Suite.game.paint(host, { game:null }); return; }
   if(SV.id!==g.id) SV=gameState(g.id);
@@ -1036,6 +1045,11 @@ function showScreen(route){
   UI.tab=name;
 }
 Suite.nav.on(function(route){ showScreen(route); });
+// A first load that failed is asked again when the fan opens a screen that
+// needs it, so the failure message is never the last word while online.
+Suite.nav.on(function(route){
+  if(route.screen==="home" || route.screen==="game" || route.screen==="schedule") retrySchedule();
+});
 
 /* ---------- boot ---------- */
 /* ---------- background warm-up ---------- */
@@ -1181,6 +1195,12 @@ function cachedJSON(url){
 
 // Pulled out of load() so the auto-refresh can reuse it without re-fetching
 // team info, odds or anything else that does not change during a game.
+// Only after a first load failed with nothing to show; one request at a time.
+function retrySchedule(){
+  if(S.games || !SC.failed || SC.retrying) return;
+  SC.retrying=true;
+  refreshSchedule(true).then(function(){ SC.retrying=false; });
+}
 function refreshSchedule(first){
   var url=TeamOS.espn.scheduleUrl(TEAM_CONFIG);
   var announce=first && !S.games;      // only the very first paint is news
@@ -1244,7 +1264,7 @@ function refreshSchedule(first){
     return { key:"schedule", outcome:outcomeOf("schedule") };
   }).catch(function(){
     if(first && !painted){               // a failed poll, or a cached paint, keeps what is there
-      SC.failed=true; paintScheduleScreen();
+      SC.failed=true; paintScheduleScreen(); paintHome(); paintGame();
       say("Schedule failed to load.");
     }
     return { key:"schedule", outcome:"failed" };

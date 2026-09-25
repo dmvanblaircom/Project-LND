@@ -60,6 +60,8 @@ Suite.schedule = (function () {
   function side(g, full) {
     if (g.status === "final") {
       var r = result(g);
+      // a final without both scores is not a tie: say only that it ended
+      if (!r) return '<span class="sched-result">Final</span>';
       return '<span class="sched-result ' + (r || "") + '"><span class="wl">' + (r === "win" ? "W" : r === "loss" ? "L" : "T") +
              '</span> ' + esc((g.us || "") + "–" + (g.them || "")) + "</span>";
     }
@@ -80,7 +82,7 @@ Suite.schedule = (function () {
     var d = new Date(g.date).toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" });
     var where = g.neutral ? "Neutral site, " : g.home ? "Home, " : "Away, ";
     var st = g.status === "final"
-      ? { win: "Won ", loss: "Lost ", tie: "Tied " }[result(g)] + (g.us || "") + " to " + (g.them || "") + "."
+      ? (result(g) ? { win: "Won ", loss: "Lost ", tie: "Tied " }[result(g)] + g.us + " to " + g.them + "." : "Final.")
       : g.status === "live" ? "Live, " + (g.us || 0) + " to " + (g.them || 0) + "."
       : g.status === "postponed" ? "Postponed. " + Suite.home.newDate(g) + "."
       : exceptional(g) ? g.status.charAt(0).toUpperCase() + g.status.slice(1) + "."
