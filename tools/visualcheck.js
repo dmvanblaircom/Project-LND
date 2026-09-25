@@ -65,6 +65,8 @@ var server = http.createServer(function (req, res) {
 });
 
 function responseFor(url) {
+  // The postseason: a real empty answer, as ESPN gives in September.
+  if (/\/schedule\?seasontype=3/.test(url)) return fs.readFileSync(path.join(root, "tools", "fixtures", "espn-schedule-nd-2025-post.json"));
   if (/\/schedule(?:\?|$)/.test(url)) return fixture("schedule");
   if (/\/scoreboard\?/.test(url)) return fixture("scoreboard");
   if (/\/rankings(?:\?|$)/.test(url)) return fixture("rankings");
