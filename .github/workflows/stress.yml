@@ -1,0 +1,41 @@
+# The release stress pass (tools/stresscheck.js), on demand: run it before a
+# release, or after anything that touches routing, loading or the worker.
+# It is slower than the CI gates (about 10 minutes) and deliberately broad,
+# so it is not on every push.
+name: Stress the app
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenarios:
+        description: "Scenarios to run, space-separated (blank = all)"
+        required: false
+        type: string
+      previous_ref:
+        description: "The release fans are upgrading FROM, for the upgrade scenario (blank = skip it)"
+        required: false
+        default: "main"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  stress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npx playwright install --with-deps chromium
+      - name: The previous release, for the upgrade scenario
+        if: inputs.previous_ref != ''
+        run: |
+          mkdir -p "$RUNNER_TEMP/previous"
+          git archive "origin/${{ inputs.previous_ref }}" | tar -x -C "$RUNNER_TEMP/previous"
+          echo "PREVIOUS_ROOT=$RUNNER_TEMP/previous" >> "$GITHUB_ENV"
+      - run: node tools/stresscheck.js ${{ inputs.scenarios }}

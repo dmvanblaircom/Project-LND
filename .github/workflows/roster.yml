@@ -39,7 +39,7 @@ jobs:
       # The roster comes from the standings page. When ESPN challenges the
       # runner (HTTP 202), membership cannot refresh this week - but provider
       # ids still can, from the scoreboard below, so this step does not stop
-      # the job. The last step fails it afterwards, so a stale roster is seen.
+      # the job. The last step records it as a warning, so it is seen.
       - name: Fetch the standings page
         id: standings
         continue-on-error: true
@@ -151,8 +151,17 @@ jobs:
           git commit -m "Refresh the team registry: ${before} -> ${after} programs"
           git push
 
+      # ESPN challenges GitHub's runners on the standings page most weeks
+      # (HTTP 202). FBS membership changes about once a year, so a blocked
+      # week is a warning on the run and in its summary, not a failure: a
+      # weekly red run (and its email) for an expected condition hides real
+      # ones. Real breakage still fails: a standings page that is not the
+      # standings, an invalid registry, or a failed commit.
       - name: The roster itself was not refreshed
         if: steps.standings.outcome != 'success'
         run: |
-          echo "::error::ESPN refused the standings page, so FBS membership was not refreshed this run (provider ids were)."
-          exit 1
+          echo "::warning::ESPN refused the standings page, so FBS membership was not refreshed this run (provider ids were)."
+          {
+            echo "### FBS membership not refreshed this week"
+            echo "ESPN refused the standings page (it challenges GitHub's runners). Provider ids were refreshed from the scoreboards; the program list is last week's. Membership changes about once a year."
+          } >> "$GITHUB_STEP_SUMMARY"
