@@ -4,6 +4,23 @@
 
 Suite is the fan-facing experience layer. It should feel like the digital home of the fan's relationship with a team, not like athletic-department software and not like a generic sports database.
 
+> **The team is the product. The Suite is the place you experience it.**
+
+## Product Model
+
+- **Suite** = the stable app/front door and experience system
+- **Primary Team** = the fan's home team and default Suite
+- **Other Teams I Follow** = additional team relationships the fan has chosen to keep
+- **Active Suite** = the team Suite the fan is currently inside
+
+Switching teams means entering another Suite. It does not change the Primary Team unless the fan explicitly makes that change.
+
+A brief transition between teams can reinforce the spatial model:
+
+> **Entering your [Team Name] Suite**
+
+The installed app icon and neutral front-door identity can remain Suite because one fan can move between multiple team Suites.
+
 ## Core Product Pillars
 
 ### Connect
@@ -42,7 +59,8 @@ Create lightweight opportunities to be involved.
 
 Make the relationship persistent and personal.
 
-- Favorite team
+- Primary Team
+- Other Teams I Follow
 - Favorite players
 - Personalized content
 - Notifications
@@ -76,7 +94,7 @@ Priority: upcoming game, relevant news, roster/player updates, media, discussion
 
 ### Offseason / Major News Cycle
 
-Priority: recruiting, transactions, roster changes, schedule changes, analysis, history.
+Priority: recruiting, transactions, roster changes, spring and fall camp, signing-day moments, analysis, history, and the next season only when it becomes timely.
 
 ## Product Quality Bar
 
@@ -112,6 +130,41 @@ Notifications are an intentional future Suite capability, but are **deferred fro
 
 When revisited, notification use cases, preference controls, delivery mechanics, platform constraints, and TeamOS responsibilities should be defined before UI implementation begins.
 
+### Social Sharing and Presence
+
+The canonical invitation language is:
+
+> **Join [Name] in their Suite.**
+
+For a named example:
+
+> **Join David in his Suite.**
+
+The phrase should not name the team. The shared destination and visual identity provide that context.
+
+The same language should work from the first referral/share capability through later real-time social experiences:
+
+1. **Share / referral** - the link opens the inviter's Active Suite.
+2. **Presence** - friends can see when someone is in their Suite and choose to join.
+3. **Shared experience** - game-day reactions, watch-together moments, participation, and community can become synchronous.
+4. **Spatial experience** - far-future AR/VR can make a fan's Suite a persistent digital place people can enter together.
+
+Opening another fan's shared Suite must not silently change the recipient's Primary Team. Following that team is a separate explicit action.
+
+### Spatial / AR / VR Direction
+
+The Suite metaphor should leave room for a much more immersive future without forcing that technology into the near-term roadmap.
+
+A future Suite could become a persistent spatial room for a fan's team, where friends can join them for games or major moments and interact with live data, stats, media, history, memorabilia, and other team-specific surfaces.
+
+The product language should be able to evolve naturally from:
+
+> **Join David in his Suite.**
+
+to actual shared presence without renaming the concept later.
+
+This is a long-term vision direction, not an MVP commitment.
+
 ## Explicitly Not MVP
 
 - Full social network
@@ -124,6 +177,7 @@ When revisited, notification use cases, preference controls, delivery mechanics,
 - Large AI assistant
 - Paid consumer subscription
 - Ad platform
+- AR / VR / spatial computing
 
 These may become valid later if user evidence and business requirements justify them.
 
