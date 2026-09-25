@@ -140,14 +140,7 @@ function applyStyle(){
    ["--t-deep",c.surfaceDeep], ["--t-deep-rgb",c.surfaceDeepRgb],
    ["--t-abyss",c.surfaceAbyss], ["--t-abyss-rgb",c.surfaceAbyssRgb],
    ["--t-raise",c.surfaceRaise], ["--t-raise-rgb",c.surfaceRaiseRgb],
-   // a CSS content string carries its own quotes
-   ["--t-news-label", JSON.stringify(look.newsLabel)],
    ["--t-font-ui",look.fonts.ui], ["--t-font-display",look.fonts.display]].forEach(function(p){ r.setProperty(p[0], p[1]); });
-  // Optional: a team's own text neutrals and news label. No canonical rule
-  // reads them; they stay applied while main's pre-canonical screens, which
-  // share TeamOS identity, still do (docs/engineering/suite-redesign-completion.md).
-  if(c.text)    r.setProperty("--t-text", c.text);
-  if(c.textDim) r.setProperty("--t-text-dim", c.textDim);
   // The browser chrome matches what sits under it: the header.
   var tc = document.querySelector('meta[name="theme-color"]');
   if(tc) tc.setAttribute("content", c.surfaceDeep);

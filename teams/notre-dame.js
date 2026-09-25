@@ -134,9 +134,6 @@ var TEAM_CONFIG = {
     // says null and the Suite leaves the line out.
     tagline: "Leave No Doubt.",
 
-    // The rule above the News tab. Unchanged wording.
-    newsLabel: "LATEST FROM SOUTH BEND",
-
     // Notre Dame Athletics navy and gold - the values fightingirish.com
     // uses. accent is the fill; accentText is the same gold because it
     // clears 6.65:1 on surfaceDeep, which a darker team colour would not.

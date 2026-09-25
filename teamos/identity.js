@@ -71,9 +71,10 @@ TeamOS.identity = (function () {
     "surfaceAbyss",    // the darkest step, gradient ends and scrims
     "surfaceRaise"     // a lifted surface, hovers and insets
   ];
-  // Optional: a team may override the Suite's neutral text tones. Left out,
-  // the stylesheet's own values stand.
-  var OPTIONAL_COLORS = ["text", "textDim"];
+  // Fields the pre-canonical screens read and nothing reads now (retired
+  // when the Suite redesign merged). Refused rather than ignored, so a config
+  // copied from an old one is told, not silently carrying dead data.
+  var RETIRED = ["newsLabel"], RETIRED_COLORS = ["text", "textDim"];
 
   // A team may bring its own ui and display faces. Editorial type (news
   // headlines) is the Suite's, not a team's: a Notre Dame-coded face must
@@ -140,6 +141,9 @@ TeamOS.identity = (function () {
     var i = config && config.identity;
     if (!i || typeof i !== "object") fail("the team config has no identity section");
 
+    RETIRED.forEach(function (k) {
+      if (i[k] !== undefined) fail("identity." + k + " is retired: no canonical Suite rule reads it");
+    });
     SHELL_OWNED.forEach(function (k) {
       if (i[k] !== undefined) fail("identity." + k + " is Suite's, not a team's: the installed product, its " +
                                    "head, icons and share card are the same for every team (decision 0024)");
@@ -153,7 +157,6 @@ TeamOS.identity = (function () {
       // The News tab's section rule. It named a city in CSS until the
       // Ohio State proof found it (phase-6 report), which is exactly the
       // kind of copy that has to be the team's, not the stylesheet's.
-      newsLabel: str(i, "newsLabel", "identity."),
       // Approved hero photography, when a team has it (decision 0024 §10).
       // Optional and individually fallible: with none, the Suite draws the
       // fallback composition from the team's colours and mark, which is a
@@ -166,8 +169,8 @@ TeamOS.identity = (function () {
     if (!i.colors || typeof i.colors !== "object") fail("identity.colors must be an object");
     var c = {};
     COLORS.forEach(function (k) { c[k] = hex(i.colors, k, "identity.colors."); });
-    OPTIONAL_COLORS.forEach(function (k) {
-      if (i.colors[k] != null) c[k] = hex(i.colors, k, "identity.colors.");
+    RETIRED_COLORS.forEach(function (k) {
+      if (i.colors[k] !== undefined) fail("identity.colors." + k + " is retired: no canonical Suite rule reads it");
     });
     c.accentRgb       = rgb(c.accent);
     c.surfaceRgb      = rgb(c.surface);
@@ -181,7 +184,6 @@ TeamOS.identity = (function () {
       accentText: require([c.accentText, c.surfaceDeep], MIN, "identity.colors.accentText on surfaceDeep"),
       accentSoft: require([c.accentSoft, c.surfaceDeep], MIN, "identity.colors.accentSoft on surfaceDeep"),
       accentInk:  require([c.accentInk,  c.accent],      MIN, "identity.colors.accentInk on accent"),
-      text: c.text == null ? null : require([c.text, c.surfaceDeep], MIN, "identity.colors.text on surfaceDeep"),
       accentOnLight: Math.min(
         require([c.accentOnLight, LIGHT.surface], MIN, "identity.colors.accentOnLight on the Suite's white surface"),
         require([c.accentOnLight, LIGHT.page],    MIN, "identity.colors.accentOnLight on the Suite's page")),

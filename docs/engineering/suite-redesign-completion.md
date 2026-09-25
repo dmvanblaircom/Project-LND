@@ -1,40 +1,56 @@
-# Suite redesign: what must be true before it is complete
+# Suite redesign: release scope and what remains
 
 The canonical Suite redesign merges to `main` once, after visual review
 (decision 0023). Screens are approved one phase at a time; this file keeps
 the items that were deferred or left open along the way, so none of them
 is forgotten at merge. An item leaves this list when it is done or when
-Product decides it differently.
+Product decides it differently - and says so here when it does.
 
-## Required before the redesign is complete
+## Launch scope (David, 2026-09-25)
+
+David locked the release scope with ChatGPT on 2026-09-25, against this
+branch, this list, CI and the final identity pack. This **changes the
+earlier completion contract**: Season Outlook "View full field", the final
+brand integration and rivalry context were listed here as required before
+the redesign is complete. They no longer block this release. They are kept
+below as explicit post-launch follow-ups, not dropped.
+
+### Launch-critical
+
+| Item | State |
+|---|---|
+| Final Suite PWA identity set (`icon-192`, `icon-512`, `maskable-512`, `apple-touch-180`, `favicon-32`, `favicon-64`, `favicon.svg`, `og-1200x630`), used exactly as supplied | **Installed 2026-09-25** from the Suite Release Identity Pack v1, byte-identical; every `TEMPORARY-*` file and reference removed; the manifest's theme and background colours are Ink `#111D35` to match the icons. `tools/identitycheck.js --release` passes. |
+| Approved Suite wordmark (`suite-wordmark-pearl.svg`) in the dark Suite header instead of typed `SUITE`, at its intrinsic aspect ratio; `suite-wordmark-ink.svg` supplied with it | **Installed 2026-09-25.** 662:132, drawn 1.6rem tall so its glyphs match the typed wordmark's cap height; the team context still fits at 320. The release identity uses Ink `#111D35` and Pearl `#F1F2F0`; Team Style is untouched and the provisional Suite Style tokens stay. `--s-chrome` (the chooser's header, also the Top 25 heading ink inside Team Style) is left at `#0B1F3A` for that reason - part of the post-launch brand pass. |
+| Real-live Top 25 + Game verification | Sat Sep 26, 2026, 3:50 PM ET - see Planned verification. The merge waits on it. |
+| Final merge, release gate and production verification | One merge to `main` on Sunday Sep 27 if the live verification passes, through a PR to `main` so the release gate that protects `main` is the one tested. After merge: the production site, the installed-PWA identity, favicon and share metadata, the service-worker version pickup, and no `TEMPORARY-*` reference left. |
+
+Closed for this release: the ChatGPT catch-up review (`pending-design-review.md`
+is empty; corrections 1.1-1.6 accepted, no re-review required), and the
+retired identity fields (`identity.newsLabel`, `colors.text` / `textDim`),
+dropped from the schema, the team configs and `applyStyle()` - TeamOS now
+refuses them.
+
+## Post-launch follow-ups (explicit; not started in this release)
 
 | Item | Source | Notes |
 |---|---|---|
-| ChatGPT review of every step David approved without one | David, 2026-09-24 | `docs/engineering/pending-design-review.md` lists them (**No ChatGPT review**). When ChatGPT is back, Claude Code generates one review prompt from that file; the list must be empty before the redesign merges. |
-| Final Suite icon set and neutral share image | Decision 0024 §11 | `assets/suite/TEMPORARY-*` are stand-ins. `tools/identitycheck.js --release` refuses them and CI runs it for `main` and PRs into it. Sizes in `assets/suite/README.md`. |
-| Season Outlook "View full field" | Home review, 2026-09-24 | The locked Home references have it and the full-market data exists (the Kalshi board). Build it as a Suite light-theme experience; do not route the new Home into the pre-canonical board. |
-| Final Suite brand integration | More rebuild; catch-up review 2026-09-25 | David has selected **Ink `#111D35`**, **Pearl `#F1F2F0`** (over Porcelain) and the approved wide custom **Suite wordmark**. The full token mapping is not approved yet: the provisional ink/cobalt/champagne `Suite.ui.STYLE` stays until a deliberate final token pass. That pass is more than the ten colour roles: Pearl belongs to the light surfaces and on-dark text, which live in `app.css` as `--s-page`, `--s-surface` and `--s-on-dark`, and the wordmark is an asset. Map each approved colour to explicit roles, decide Pearl's placements, update first-paint handling, recheck contrast and keep Team Style untouched; produce the Pearl logo variants in the same pass. |
-
-## Follow-ups recorded on this list
-
-| Item | Source | Notes |
-|---|---|---|
-| Identity fields no canonical rule draws | Legacy removal, 2026-09-24 | `identity.newsLabel` and the optional `colors.text` / `textDim` were read only by `legacy.css`. They stay in TeamOS identity (and applied) while `main`'s pre-canonical screens use them; drop them from the schema, the team configs and `applyStyle()` when the redesign merges. |
-| Safe presentation of play text | Game review, 2026-09-24 | Not a Top 25 blocker. ESPN's raw play text ("(02:51) No Huddle-Shotgun #2 N.James Jr. rush left...") reads awkwardly. Where normalized structured play fields can produce cleaner text safely, they may drive the display; otherwise the source text stays as it is. No free-text parser that could change what a play says. |
+| Full Suite Style / Pearl token mapping and broader final brand integration | More rebuild; catch-up review 2026-09-25 | David has selected **Ink `#111D35`**, **Pearl `#F1F2F0`** (over Porcelain) and the approved wide custom **Suite wordmark** (in the header from this release). The full token mapping is not approved: the provisional ink/cobalt/champagne `Suite.ui.STYLE` stays until a deliberate brand-system pass. That pass is more than the ten colour roles: Pearl belongs to the light surfaces and on-dark text (`--s-page`, `--s-surface`, `--s-on-dark` in `app.css`). Map each approved colour to explicit roles, decide Pearl's placements, update first-paint handling, recheck contrast and keep Team Style untouched; produce the Pearl logo variants in the same pass. *Was release-blocking; moved post-launch 2026-09-25.* |
+| Season Outlook "View full field" | Home review, 2026-09-24 | The locked Home references have it and the full-market data exists (the Kalshi markets). Build it as a Suite light-theme experience; do not route the new Home into the removed pre-canonical board. *Was release-blocking; moved post-launch 2026-09-25.* |
+| Rivalry names, trophies and concise rivalry context | Game review, 2026-09-24 | Needs a trustworthy, scalable source (parked by Product/Design). Today only the trophy name from team configuration is shown; no generic copy, and no one-team rivalry database in Suite. *Was release-blocking; moved post-launch 2026-09-25.* |
+| End-of-season / offseason Home | Open since the Home review | **Resolve by mid-November.** `TeamOS.game.hero` chooses no game (`reason: "season-over"`, `game: null`, `last` reported) and Home draws no game card - an interim safe rendering only. Product/Design define the real state. |
+| Safe presentation of play text | Game review, 2026-09-24 | ESPN's raw play text ("(02:51) No Huddle-Shotgun #2 N.James Jr. rush left...") reads awkwardly. Where normalized structured play fields can produce cleaner text safely, they may drive the display; otherwise the source text stays as it is. No free-text parser that could change what a play says. |
 
 ## Planned verification
 
 | Check | When | How |
 |---|---|---|
 | Canonical Game header agrees with every other score surface | Done 2026-09-25 (catch-up review) | `tools/livecheck.js` now draws Game's header at `#game` and from Schedule alongside Home, the schedule row and Top 25, with a negative control that makes only the Game header disagree and must name it. |
-| Top 25 Games and Game in a real live state | Sat Sep 26, 2026, 3:50 PM ET (the 3:30 PM games starting, Notre Dame at Purdue ending) | A one-shot reminder in the Claude session, not a repository schedule: `capture-fixture.yml` has only push and manual triggers. At that time the session pushes `scoreboard-20260926 sep26-live` and `401858467 pur-live` to `tools/fixtures/capture-requests.txt`, which runs the capture; the live renders then come from those payloads. If the reminder does not fire, the capture can be run the same way by hand while games are live. |
+| Top 25 Games and Game in a real live state - **launch-critical; the merge waits on it** | Sat Sep 26, 2026, 3:50 PM ET (the 3:30 PM games starting, Notre Dame at Purdue ending) | A one-shot reminder in the Claude session, not a repository schedule: `capture-fixture.yml` has only push and manual triggers. At that time the session pushes `scoreboard-20260926 sep26-live` and `401858467 pur-live` to `tools/fixtures/capture-requests.txt`, which runs the capture; the live renders then come from those payloads. If the reminder does not fire, the capture can be run the same way by hand while games are live. |
 
 ## Open product decisions
 
-| Question | State today |
-|---|---|
-| The end-of-season / offseason Home: what owns the hero after the recent-final window when no game is left to play? | `TeamOS.game.hero` chooses no game (`reason: "season-over"`, `game: null`, `last` reported). Home draws no game card - an interim safe rendering only, not the approved design. Product/Design will define the real state; nothing is built on the interim one. |
-| A trustworthy, scalable source for rivalry names, trophies and concise rivalry context | Parked by Product/Design (Game review, 2026-09-24) as meaningful fan content. Today only the trophy name from team configuration is shown; no description is shown rather than generic copy, and no one-team rivalry database is built in Suite. Required before the redesign is complete. |
+Both previously listed here (the end-of-season Home and the rivalry source)
+are now post-launch follow-ups, above.
 
 ## Known provider limits
 

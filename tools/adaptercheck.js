@@ -602,7 +602,6 @@ eq(ndId.programLabel, "NOTRE DAME FOOTBALL", "program label");
   ok(ndId[k] === undefined, "no identity." + k + ": the installed product is Suite's (decision 0024)");
 });
 eq(ndId.tagline, "Leave No Doubt.", "the team tagline (decision 0023)");
-eq(ndId.newsLabel, "LATEST FROM SOUTH BEND", "the News tab rule, unchanged wording");
 eq(ndId.colors.accent, "#C99700", "accent");
 eq(ndId.colors.accentText, "#C99700", "accent text is the same gold, because it passes");
 eq(ndId.colors.accentOnLight, "#876500", "on the Suite's light surfaces the gold darkens to a passing text tone");
@@ -612,7 +611,6 @@ eq(ndId.colors.surfaceRgb, "12,35,64", "surface channels");
 console.log(" ohio-state identity");
 eq(osuId.programLabel, "OHIO STATE FOOTBALL", "program label");
 eq(osuId.tagline, null, "no tagline: Leave No Doubt. belongs to Notre Dame");
-eq(osuId.newsLabel, "LATEST BUCKEYE NEWS", "its own News tab rule");
 eq(osuId.colors.accent, "#BA0C2F", "BUX scarlet");
 eq(osuId.colors.accentText, "#EFF1F2", "accent TEXT is BUX gray-light, not a lightened scarlet");
 ok(osuId.colors.accentText !== osuId.colors.accent, "a team whose accent cannot carry text says so explicitly");
@@ -620,7 +618,7 @@ eq(osuId.fonts.ui.indexOf("BuckeyeSans"), 1, "BuckeyeSans leads the UI stack");
 ok(/Barlow/.test(osuId.fonts.ui), "with a fallback, because the font files are not distributed");
 
 console.log(" the two teams differ where identity lives");
-["programLabel", "newsLabel"].forEach(function (k) {
+["programLabel"].forEach(function (k) {
   ok(ndId[k] !== osuId[k], "identity." + k + " differs");
 });
 ["accent", "accentText", "accentInk", "surface", "surfaceDeep"].forEach(function (k) {
@@ -640,15 +638,13 @@ console.log(" every configured team is legible (WCAG AA)");
   ok(c.accentInk >= 4.5, n + ": accentInk on the accent is " + c.accentInk + ":1");
   ok(c.accentOnLight >= 4.5, n + ": accentOnLight on the Suite's light surfaces is " + c.accentOnLight + ":1");
   ok(c.surfaceOnLight >= 4.5, n + ": the team's surface as heading ink on light is " + c.surfaceOnLight + ":1");
-  ok(c.text === null || c.text >= 4.5,
-     n + ": declared text colour is " + (c.text === null ? "not overridden" : c.text + ":1"));
   console.log("       (accent as text would be " + c.accentOnSurface + ":1 - reported, never enforced)");
 });
 
 console.log(" a config that would ship an unreadable page is refused");
 function baseIdentity() {
   return { identity: {
-    programLabel: "L", newsLabel: "N",
+    programLabel: "L",
     colors: { accent: "#BA0C2F", accentText: "#EFF1F2", accentOnLight: "#BA0C2F", accentInk: "#FFFFFF", accentSoft: "#A7B1B7",
               accentTint: "#EFF1F2", accentTintSoft: "#F6F7F8", focus: "#EFF1F2",
               surface: "#212325", surfaceDeep: "#0B1115", surfaceAbyss: "#070A0C", surfaceRaise: "#3F4443" },
@@ -667,7 +663,8 @@ idThrows(function (c) { c.identity.colors.accentInk = "#4A0513"; }, "ink that fa
 idThrows(function (c) { c.identity.colors.accentSoft = "#3F4443"; }, "a soft tone that fails throws");
 idThrows(function (c) { c.identity.colors.accentOnLight = "#C99700"; }, "accent text that fails on the light Suite surfaces throws");
 idThrows(function (c) { c.identity.colors.surface = "#8A94A6"; }, "a surface too light to be heading ink on light pages throws");
-idThrows(function (c) { c.identity.colors.text = "#3F4443"; }, "a declared text colour that fails throws");
+idThrows(function (c) { c.identity.newsLabel = "N"; }, "a retired field (newsLabel) is refused, not ignored");
+idThrows(function (c) { c.identity.colors.text = "#FFFFFF"; }, "and so are the retired text neutrals");
 idThrows(function (c) { c.identity.colors.accent = "BA0C2F"; }, "a colour that is not #rrggbb throws");
 idThrows(function (c) { delete c.identity.colors.surfaceDeep; }, "a missing colour throws");
 idThrows(function (c) { delete c.identity.programLabel; }, "a missing program label throws");

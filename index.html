@@ -12,12 +12,13 @@
 <meta name="description" content="Suite — your college football team, every day.">
 
 <!-- Install and share identity is Suite's, the same whatever team is chosen
-     (decision 0024 §11). The TEMPORARY files are development stand-ins;
-     tools/identitycheck.js --release refuses them on main. -->
+     (decision 0024 §11): the Suite Release Identity Pack v1 (Ink #111D35,
+     Pearl #F1F2F0; the app mark is the custom S of the approved wordmark). -->
 <link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/suite/TEMPORARY-favicon-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="assets/suite/TEMPORARY-favicon-64.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/suite/TEMPORARY-apple-touch-180.png">
+<link rel="icon" type="image/svg+xml" href="assets/suite/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/suite/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/suite/favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/suite/apple-touch-180.png">
 
 <meta name="theme-color" content="#0C0F13">
 <meta name="application-name" content="Suite">
@@ -29,13 +30,13 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Suite">
 <meta property="og:description" content="Your college football team, every day.">
-<meta property="og:image" content="assets/suite/TEMPORARY-og-1200x630.png">
+<meta property="og:image" content="assets/suite/og-1200x630.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Suite">
 <meta name="twitter:description" content="Your college football team, every day.">
-<meta name="twitter:image" content="assets/suite/TEMPORARY-og-1200x630.png">
+<meta name="twitter:image" content="assets/suite/og-1200x630.png">
 <!-- Which team this page is, decided before anything else runs.
 
      Order: ?team= (so a link can carry it), then the last choice this browser
@@ -205,9 +206,10 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- The compact SUITE header: the chooser, Home and Game (decision 0023).
-     The wordmark is type, not an image, until a bespoke mark exists. -->
+     The wordmark is the approved Suite wordmark, Pearl for the dark header,
+     drawn at its own aspect ratio (662:132, glyphs inset 16 units). -->
 <header class="app-bar on-dark" id="appBar">
-  <span class="wordmark">Suite</span>
+  <img class="wordmark" src="assets/suite/suite-wordmark-pearl.svg" alt="Suite" width="662" height="132">
   <!-- The selected team, as context on national screens (Top 25). Not a
        control: Change Team lives in Settings (decision 0024 §6). -->
   <span class="bar-context" id="barContext" hidden>

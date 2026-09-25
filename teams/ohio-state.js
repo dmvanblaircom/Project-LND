@@ -59,8 +59,6 @@ var TEAM_CONFIG = {
     // No tagline: "Leave No Doubt." is Notre Dame's, not the platform's.
     tagline: null,
 
-    newsLabel: "LATEST BUCKEYE NEWS",
-
     colors: {
       accent:         "#BA0C2F",   // BUX scarlet
       accentText:     "#EFF1F2",   // BUX gray-light-80, 16.77:1 on the page
@@ -74,11 +72,7 @@ var TEAM_CONFIG = {
       surface:        "#212325",   // BUX gray-dark-80
       surfaceDeep:    "#0B1115",
       surfaceAbyss:   "#070A0C",
-      surfaceRaise:   "#3F4443",   // BUX gray-dark-60
-
-      // Charcoal wants a clean white, not Notre Dame's warm cream.
-      text:           "#FFFFFF",
-      textDim:        "#A7B1B7"    // BUX gray
+      surfaceRaise:   "#3F4443"    // BUX gray-dark-60
     },
 
     // Ohio State's official webfonts, named as BUX names them. The font

@@ -79,7 +79,6 @@
   --t-deep:#0C0F13;--t-deep-rgb:12,15,19;
   --t-abyss:#07090C;--t-abyss-rgb:7,9,12;
   --t-raise:#232932;--t-raise-rgb:35,41,50;
-  --t-news-label:"LATEST NEWS";
   --t-font-ui:'Barlow',system-ui,-apple-system,sans-serif;
   --t-font-display:'Barlow Condensed',sans-serif;
   --t-accent-line:rgba(var(--t-accent-rgb),.30)}
@@ -120,7 +119,11 @@ h1,h2,h3{margin:0}
   padding:env(safe-area-inset-top,0px) calc(var(--gutter) + env(safe-area-inset-right,0px)) 0 calc(var(--gutter) + env(safe-area-inset-left,0px));
   background:var(--t-deep);color:var(--s-on-dark)}
 html[data-choosing] .app-bar{background:var(--s-chrome)}
-.wordmark{font-family:var(--t-font-ui);font-weight:800;font-size:1.7rem;line-height:1;letter-spacing:.07em;text-transform:uppercase;color:var(--s-on-dark)}
+/* The approved wordmark, at its own aspect ratio: 132 units tall with the
+   glyphs 100 units tall inset 16 - so a 1.6rem box draws 1.2rem glyphs,
+   the cap height the typed wordmark had, and the inset is pulled back into
+   the gutter. */
+.wordmark{display:block;flex:none;height:1.6rem;width:auto;margin:0 -.19rem}
 .app-bar .spacer{flex:1}
 /* The selected team as quiet context beside the wordmark - a lockup, not a
    button: no fill, no border, no chevron (decision 0024 §6). */

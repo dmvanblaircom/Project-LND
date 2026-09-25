@@ -19,7 +19,7 @@
    Bump VERSION whenever the shell changes shape enough that an old cached
    copy must not linger; the activate step throws away every other cache. */
 
-var VERSION = "suite-2026-09-25a";
+var VERSION = "suite-2026-09-25b";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -38,8 +38,10 @@ var SHELL_FILES = [
   // The manifest's own icons are read from it at install; these are the ones
   // only index.html names. tools/identitycheck.js keeps the two lists equal.
   "./manifest.json",
-  "./assets/suite/TEMPORARY-favicon-32.png", "./assets/suite/TEMPORARY-favicon-64.png",
-  "./assets/suite/TEMPORARY-apple-touch-180.png"
+  "./assets/suite/favicon.svg", "./assets/suite/favicon-32.png", "./assets/suite/favicon-64.png",
+  "./assets/suite/apple-touch-180.png",
+  // the header's wordmark: part of the shell, so the header draws offline
+  "./assets/suite/suite-wordmark-pearl.svg"
 ];
 
 // Where the worker records which team it has cached, inside the shell cache.

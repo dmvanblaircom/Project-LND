@@ -125,7 +125,6 @@ Suite.ui = (function () {
      champagne used sparingly, only as accent text on the ink header. */
   var STYLE = {
     programLabel: "SUITE",
-    newsLabel: "LATEST NEWS",
     colors: {
       accent:         "#2F5BEA",   // cobalt: buttons, selected tabs, the nav rule; white on it 5.5:1
       accentText:     "#E4CF9E",   // champagne, the one warm note: small labels on ink
