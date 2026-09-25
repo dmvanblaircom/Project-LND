@@ -519,8 +519,8 @@ eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the d
 
 console.log(" every file a team declares, for the worker to cache");
 eq(TeamOS.snapshots.files(TEAM_CONFIG),
-   ["depth.json", "depth-history.json", "availability.json", "availability-history.json",
-    "odds-history.json", "news.json"],
+   ["data/notre-dame/depth.json", "data/notre-dame/depth-history.json", "data/notre-dame/availability.json",
+    "data/notre-dame/availability-history.json", "data/notre-dame/odds-history.json", "data/notre-dame/news.json"],
    "Notre Dame's snapshots, files and histories together - availability is its own now");
 eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), [],
    "Ohio State declares none, so there is nothing to cache for it");
@@ -530,18 +530,19 @@ eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.jso
 
 var osu = load("teams/ohio-state.js");
 var ND = TeamOS.createTeam(TEAM_CONFIG.team), OSU = osu.TeamOS.createTeam(osu.TEAM_CONFIG.team);
-var ndFiles = { depth: JSON.parse(read("depth.json")), history: JSON.parse(read("depth-history.json")),
-                availability: JSON.parse(read("availability.json")),
-                availabilityHistory: JSON.parse(read("availability-history.json")),
-                odds: JSON.parse(read("odds-history.json")), news: JSON.parse(read("news.json")) };
+var ndFiles = { depth: JSON.parse(read("data/notre-dame/depth.json")), history: JSON.parse(read("data/notre-dame/depth-history.json")),
+                availability: JSON.parse(read("data/notre-dame/availability.json")),
+                availabilityHistory: JSON.parse(read("data/notre-dame/availability-history.json")),
+                odds: JSON.parse(read("data/notre-dame/odds-history.json")), news: JSON.parse(read("data/notre-dame/news.json")) };
 
 console.log(" notre-dame");
-eq(TeamOS.snapshots.get(TEAM_CONFIG, "depth"),       { file:"depth.json", history:"depth-history.json", label:"FightingIrish.com" }, "declares a depth chart");
+eq(TeamOS.snapshots.get(TEAM_CONFIG, "depth"),
+   { file:"data/notre-dame/depth.json", history:"data/notre-dame/depth-history.json", label:"FightingIrish.com" }, "declares a depth chart");
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "availability"),
-   { file:"availability.json", history:"availability-history.json", label:"FightingIrish.com" },
+   { file:"data/notre-dame/availability.json", history:"data/notre-dame/availability-history.json", label:"FightingIrish.com" },
    "declares an availability report, separately from the depth chart");
-eq(TeamOS.snapshots.get(TEAM_CONFIG, "oddsHistory"), { file:"odds-history.json" }, "declares an odds history");
-eq(TeamOS.snapshots.get(TEAM_CONFIG, "beatNews"),    { file:"news.json" },         "declares beat news");
+eq(TeamOS.snapshots.get(TEAM_CONFIG, "oddsHistory"), { file:"data/notre-dame/odds-history.json" }, "declares an odds history");
+eq(TeamOS.snapshots.get(TEAM_CONFIG, "beatNews"),    { file:"data/notre-dame/news.json" },         "declares beat news");
 ok(TeamOS.snapshots.owned(ND, ndFiles.depth),   "owns the committed depth.json");
 ok(TeamOS.snapshots.owned(ND, ndFiles.history), "owns the committed depth-history.json");
 ok(TeamOS.snapshots.owned(ND, ndFiles.availability),        "owns the committed availability.json");
@@ -553,8 +554,30 @@ ok(TeamOS.snapshots.owned(ND, ndFiles.odds),    "owns the committed odds-history
 ok(TeamOS.snapshots.owned(ND, ndFiles.news),    "owns the committed news.json");
 eq([ndFiles.depth.team, ndFiles.history.team], ["notre-dame", "notre-dame"],
    "official personnel snapshots are stamped with their owning team");
-ok(ndFiles.odds.team == null && ndFiles.news.team == null,
-   "legacy market/news snapshots still rely on their team declaration");
+ok([ndFiles.odds.team, ndFiles.news.team].every(function (t) { return t == null || t === "notre-dame"; }),
+   "the price history and beat news are stamped Notre Dame's, or - written before stamping - rely on the declaration");
+
+// Backlog C2: a team's files live in its own folder, so two teams' can never
+// collide, and a folder never holds another team's file.
+console.log(" every team's snapshots in data/<team id>/");
+fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; }).forEach(function (f) {
+  var t = load("teams/" + f), id = t.TEAM_CONFIG.team.id;
+  var files = t.TeamOS.snapshots.files(t.TEAM_CONFIG);
+  ok(files.every(function (x) { return x.indexOf("data/" + id + "/") === 0; }),
+     id + ": " + (files.length ? files.length + " files, all under data/" + id + "/" : "declares none"));
+  ok(files.every(function (x) { return fs.existsSync(path.join(root, x)); }), id + ": every declared file is in the repository");
+});
+fs.readdirSync(path.join(root, "data")).forEach(function (d) {
+  ok(d === "league" || fs.existsSync(path.join(root, "teams", d + ".js")),
+     "data/" + d + "/ is a configured team's, or the league's");
+  if (d === "league") return;
+  fs.readdirSync(path.join(root, "data", d)).forEach(function (f) {
+    var j = JSON.parse(read("data/" + d + "/" + f));
+    ok(j.team == null || j.team === d, "data/" + d + "/" + f + " names no other team");
+  });
+});
+ok(["depth", "depth-history", "availability", "availability-history", "odds-history", "news", "odds-title", "odds-playoff"]
+   .every(function (n) { return !fs.existsSync(path.join(root, n + ".json")); }), "no team or market data is left at the root");
 
 console.log(" ohio-state");
 eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "depth"),       null, "declares no depth chart");

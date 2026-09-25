@@ -47,7 +47,7 @@ var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); 
 
 var ESPN_NEWS = fixture("espn-news-nd-sep24.json").toString();
 var ESPN_TITLES = JSON.parse(ESPN_NEWS).articles.map(function (a) { return a.headline; });
-var BEAT = fs.readFileSync(path.join(root, "news.json")).toString();
+var BEAT = fs.readFileSync(path.join(root, "data", "notre-dame", "news.json")).toString();
 var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
 
 (async function () {
@@ -79,10 +79,10 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
       if (/\/news\.json(\?|$)/.test(u)) return answer(route, "beat", BEAT);
       // the official depth chart and availability report, the team's snapshots
       var snap = /\/((depth|availability)(-history)?\.json)(\?|$)/.exec(u);
-      if (snap) return answer(route, "snap", fs.readFileSync(path.join(root, snap[1])));
-      // the Season Outlook markets: the team's committed Kalshi snapshots
+      if (snap) return answer(route, "snap", fs.readFileSync(path.join(root, "data", "notre-dame", snap[1])));
+      // the Season Outlook markets: the league-wide Kalshi snapshots
       var odds = /\/(odds-(title|playoff)\.json)(\?|$)/.exec(u);
-      if (odds) return answer(route, "odds", fs.readFileSync(path.join(root, odds[1])));
+      if (odds) return answer(route, "odds", fs.readFileSync(path.join(root, "data", "league", odds[1])));
       if (/kalshi|corsproxy|allorigins|codetabs/.test(u)) { st.n.odds = (st.n.odds || 0) + 1; return route.abort(); }
       if (u.startsWith(base)) return route.continue();
       if (/\/news\?team=/.test(u)) return answer(route, "espn", ESPN_NEWS);

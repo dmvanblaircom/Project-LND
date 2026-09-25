@@ -45,7 +45,7 @@ eq(osu.TeamOS.roster.views(osu.TEAM_CONFIG).map(function (v) { return v.id; }), 
    "a team with neither: the roster alone - no empty views");
 
 console.log("the depth chart, joined to the real roster");
-var chart = JSON.parse(read("depth.json"));
+var chart = JSON.parse(read("data/notre-dame/depth.json"));
 var groups = nd.TeamOS.espn.roster(JSON.parse(read("tools/fixtures/espn-roster-nd-sep24.json")));
 var dc = R.depth(chart, groups);
 eq(dc.units.map(function (u) { return u.unit; }), chart.units.map(function (u) { return u.unit; }), "units in the chart's own order");
@@ -72,7 +72,7 @@ eq([dt2.name, dt2.open, dt2.levels[0].players.length], ["Defensive Tackle 2", tr
 eq(R.depth(null, groups), null, "no chart, nothing");
 
 console.log("availability, from the official report");
-var rep = JSON.parse(read("availability.json"));
+var rep = JSON.parse(read("data/notre-dame/availability.json"));
 var av = R.availability(rep, groups);
 eq([av.reported, av.effectiveAt, av.game], [true, rep.effectiveAt, rep.game], "the report's own date and game");
 eq(av.groups.map(function (g) { return g.status; }),
@@ -84,9 +84,9 @@ eq(R.availability({ reported: true, players: [] }, groups).groups, [], "a report
 eq(R.availability(null, groups), null, "no file, nothing");
 
 console.log("week by week");
-var hist = R.history(JSON.parse(read("depth-history.json")), JSON.parse(read("availability-history.json")));
+var hist = R.history(JSON.parse(read("data/notre-dame/depth-history.json")), JSON.parse(read("data/notre-dame/availability-history.json")));
 ok(hist.length >= 2, hist.length + " charts, newest first");
-eq(hist[0].game, JSON.parse(read("depth-history.json")).snapshots.slice(-1)[0].game, "the newest chart leads");
+eq(hist[0].game, JSON.parse(read("data/notre-dame/depth-history.json")).snapshots.slice(-1)[0].game, "the newest chart leads");
 ok(hist.every(function (w) { return Array.isArray(w.changes); }), "each week carries its changes");
 
 console.log("spot names");

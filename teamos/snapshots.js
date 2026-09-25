@@ -1,11 +1,13 @@
 /* TeamOS - snapshot ownership.
 
-   Three files in this repository are team data, not application data: the
-   depth chart (depth.json, depth-history.json), the odds price history
-   (odds-history.json) and the beat-writer stories (news.json). The Action
-   writes them for one team, and app.js used to read them by name for
-   whichever team was configured - so a second team's page showed the first
-   team's two-deep, sparklines and beat stories under its own name
+   Some files in this repository are team data, not application data: the
+   depth chart, the availability report, the odds price history and the
+   beat-writer stories. They live in data/<team id>/ (league-wide files, such
+   as the Kalshi markets every team's price is read from, in data/league/).
+   The Action once wrote them at the root for one team, and app.js read them
+   by name for whichever team was configured - so a second team's page
+   showed the first team's two-deep, sparklines and beat stories under its
+   own name
    (docs/engineering/phase-5a-ohio-state-proof.md, findings 1-3).
 
    This module makes ownership explicit and gives the Suite one question to
@@ -20,21 +22,20 @@
    A team declares the snapshots it has in its config's `snapshots` section:
 
      snapshots: {
-       depth:        { file: "depth.json", history: "depth-history.json", label: "..." },
-       availability: { file: "availability.json", history: "availability-history.json" },
-       oddsHistory: { file: "odds-history.json" },
-       beatNews:    { file: "news.json" }
+       depth:        { file: "data/<id>/depth.json", history: "data/<id>/depth-history.json", label: "..." },
+       availability: { file: "data/<id>/availability.json", history: "data/<id>/availability-history.json" },
+       oddsHistory: { file: "data/<id>/odds-history.json" },
+       beatNews:    { file: "data/<id>/news.json" }
      }
 
    A team with no depth-chart source simply leaves `depth` out, and the
    Suite renders its unavailable state; it never borrows another team's
    file. Ownership is by declaration plus, where the file carries one, a
-   `team` field matching the Team's id. The Action does not write that
-   field today (Phase 5B left the Action alone), so a file without one is
-   trusted on the strength of the declaration - the limitation is recorded
-   in docs/decisions/0008-snapshots-are-owned-by-declaration.md. When the
-   Action starts stamping files, a stamped file for another team is refused
-   here without any change in app.js. */
+   `team` field matching the Team's id. Every producer stamps that field
+   now (backlog C2); a file without one - written before the stamping - is
+   still trusted on the strength of the declaration, as recorded in
+   docs/decisions/0008-snapshots-are-owned-by-declaration.md. A stamped file
+   for another team is refused. */
 
 var TeamOS = TeamOS || {};
 

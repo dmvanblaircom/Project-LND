@@ -110,3 +110,16 @@ brace in column 1. A one-liner has none, so the match ran on and swallowed the
 functions that followed — including a redefinition of the very stub the check
 was watching. The check passed on a broken build. `liftFn` now refuses an
 over-capture, and one-liners are stubbed instead of lifted.
+
+## Update: per-team folders and stamped files (backlog C2, 2026-09-25)
+
+The limitation above is closed. Every team's snapshots live in
+`data/<team id>/`, declared in its config as before, so two teams' files can
+no longer collide; the Kalshi markets every team's price is read from are
+league-wide, in `data/league/`. Every producer now reads where to write from
+the declaration (`tools/producers/teamconfig.py`), the workflow loops over the
+teams that declare each kind, and the odds history and beat news are stamped
+with their team like the depth chart and availability report already were. A
+file written before the stamping is still trusted on its declaration.
+Checked by `tools/adaptercheck.js` (every declared file under the team's
+folder, no folder holding another team's file) and `tools/pipelinecheck.py`.
