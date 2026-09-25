@@ -87,6 +87,10 @@ jobs:
       # A first visit that can't reach the schedule says so on Home and Game,
       # and fills in on reconnection or re-entry (release regression pass).
       - run: node tools/outagecheck.js
+      # An update: the new worker reloads the page it takes over, once, with
+      # the team precached and the old data carried over; a first install
+      # reloads nothing.
+      - run: node tools/upgradecheck.js
       - uses: actions/upload-artifact@v4
         if: always()
         with:

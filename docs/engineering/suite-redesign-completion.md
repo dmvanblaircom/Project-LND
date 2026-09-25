@@ -80,6 +80,35 @@ Everything else held:
 
 Known, left as is: Home's hero and Game's header show 0 for a missing score. That is right for a live game before anyone scores, and every score surface is checked to agree on it. A final with no scores at all would read 0–0 there. Changing that is a product call on approved screens.
 
+### First open after the deploy (2026-09-25, David: "optimize that first reload")
+
+**Before:** the shell is served cache-first, so the first open after a deploy showed the old version, and Suite appeared only on the next open.
+
+**Now:** a new worker that replaces an older version reloads the windows it takes over, once, as soon as it is fully active. It never reloads on a first install. The reload itself is made as fast as possible:
+- The fan's team config (read from the old version's team mark) and the render-blocking Google Fonts stylesheet named in `index.html` are precached at install.
+- The old version's data and font files are carried over instead of deleted. Home paints from the last copy, and an upgrade no longer wipes a fan's offline data.
+- A second install of the same version fetches nothing.
+- `skipWaiting()` is called at the start of install.
+
+Measured in a local harness: HTTP/1.1 with 6 connections, so install times are pessimistic next to GitHub Pages' HTTP/2. Times are the old page to Suite's header, then Suite's Home.
+
+| Network | Irish Watch → this release (Sunday) | This release → a later one |
+|---|---|---|
+| Wifi (30 ms, 5 MB/s) | 3.4 s, then Home at +0.07 s | 2.9 s |
+| LTE (80 ms, 1.25 MB/s) | 5.5 s, then Home at +0.07 s | 2.8 s |
+| Poor signal (250 ms, 150 KB/s) | 10.1 s, then Home at +0.06 s | not measured |
+
+Once the reload starts, Suite's header draws in about 10 ms and Home in about 60 ms.
+
+What remains before the reload, and why:
+- **About 2 s: Irish Watch's page does not ask for the update until then.** Its code is already on fans' phones, and the browser's own update check comes at about the same time. This release's page asks at once (`registration.update()`), which is why later releases are faster.
+- **About 1 s: Chrome waits after install before activating.**
+- **Sometimes a second install of the same version.** It is triggered by the reload and now costs no downloads.
+
+Under 1 s is out of reach for Sunday's upgrade, because those costs belong to the old code and the browser. The part this release controls (the reload to a drawn Suite) is under 0.1 s.
+
+Regression test: `tools/upgradecheck.js`, in CI. It covers one reload on an update, none on a first install, the team precached, data and fonts carried over with their stored time, and only this version's caches left. Three of its checks fail on the previous worker.
+
 ## Post-launch follow-ups (explicit; not started in this release)
 
 | Item | Source | Notes |

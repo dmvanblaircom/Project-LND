@@ -225,12 +225,20 @@ function noteSource(url, cached){
 // Offline shell. sw.js keeps the page itself and the last good copy of every
 // data call, so it opens in the stadium with no signal. Registered relative to
 // the page, so it works at / on localhost and under /<repo>/ on Pages.
+// A returning fan (a worker already controls this page) is checked for an
+// update at once - explicitly, because the browser's own check comes about
+// two seconds after the page opens - so a new version is found, and swapped
+// in by its worker, as early as possible. A first visit waits for load, so
+// installing never competes with the first paint.
 if("serviceWorker" in navigator){
-  window.addEventListener("load", function(){
-    navigator.serviceWorker.register("sw.js").then(function(){
+  var registerWorker=function(){
+    navigator.serviceWorker.register("sw.js").then(function(reg){
+      if(navigator.serviceWorker.controller && reg && reg.update) reg.update().catch(function(){});
       return navigator.serviceWorker.ready;
     }).then(tellWorkerOurTeam).catch(function(){});
-  });
+  };
+  if(navigator.serviceWorker.controller) registerWorker();
+  else window.addEventListener("load", registerWorker);
 }
 
 // What this team's offline copy consists of. The worker has no TEAM_CONFIG
