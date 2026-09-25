@@ -81,18 +81,20 @@ In `suite-redesign-completion.md` under Known provider limits:
 
 | Id | Decision |
 |---|---|
-| B1 | **Team first.** The team leads the header and identity; Suite becomes the quieter platform brand. This reverses decision 0024's Suite-led header, so it needs a design proposal and a new decision record before building. |
+| B1 | **Team first.** Claude recommends **H1 (team mark and name in the header, no SUITE there)**, with Home's duplicate team name resolved in design; Suite stays the install name, the chooser's header, About and the icon. This goes through the ChatGPT design loop. |
+| B1 (original answer) | **Team first.** The team leads the header and identity; Suite becomes the quieter platform brand. This reverses decision 0024's Suite-led header, so it needs a design proposal and a new decision record before building. |
 | B2 | **Odds stay as they are.** Build "View full field" after launch. "Betting is not MVP" meant *placing bets in Suite*, not showing odds; the North Star is updated to say so. |
 | B3 | **Nav stays as is** (Top 25 keeps its tab). Home's schedule preview becomes the **last result plus the next 3 games** (four rows), with a **"View Full Schedule"** link that opens Schedule directly. The **Game screen gets a "Full Schedule" link**. |
 | B4 | **Offseason Home:** Claude proposes, ChatGPT reviews and critiques, ChatGPT designs, David approves, Claude implements. Due by mid-November. |
 | B7 | A final without a score says **"Final", with no score, on Home and Game too**. |
-| B8 | **Fonts:** render the free pairings *and* research Neue Haas Grotesk + Canela web licensing, then decide. |
+| B8 | **Fonts decided 2026-09-25: Instrument Sans (with its width axis condensed for the display role) + Instrument Serif**, free under the SIL Open Font License and self-hosted. They become the Suite's own fonts **everywhere**: Suite Style, and the fallback in Team Style for any team without its own licensed font (Notre Dame and Ohio State today). Team colours and identity are untouched, and a team's real brand font (e.g. Ohio State's BuckeyeSans once licensed) still overrides. Neue Haas Grotesk / Canela are not bought. Inputs and renders: `docs/design/fonts-and-team-first-header.md` (on `stage/post-launch-docs`). Built in the brand pass. |
 | B11 | **Notifications** are the first MVP pillar. |
 | B12 | **Finish Ohio State** as a complete destination before adding more teams. |
 | B14 | The release-hardening changes are logged as **No ChatGPT review** (`pending-design-review.md`, item 4) and reviewed after launch. |
 | A4 | Chooser header to Ink **in the brand pass**, not before Sunday. |
 | A5 | PR check-ins every **4 hours, silent** unless something needs action. |
 | C3, C5, C9, C11, C10 | Approved as small fixes in the hardening block. |
+| C12 (list) | **Branch cleanup list approved by David, 2026-09-25** (`docs/engineering/branch-cleanup.md`). Runs right after Sunday's merge: 3 archive tags, the rest deleted. |
 | C12 | **`main` plus short branches**, a PR into `main` each. Retire `project-lnd-platform` and `project-lnd-foundation` to archive tags; delete stale branches after David approves the list. CLAUDE.md's branch section is updated to match. |
 
 Still open, decided when their block starts:
