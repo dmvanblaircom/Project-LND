@@ -60,6 +60,12 @@ Suite release added lives in the Suite worker, and the restored Irish Watch
 worker does not have it. Fans who never opened Suite see no change at all.
 Saved team choices (`iw-team`) and App Style carry across both ways.
 
+## If other PRs have merged since the release
+
+Revert them first, newest first, and then revert the release merge. The
+staged quick-fix PR, for example, deletes the old Irish Watch icons
+(`assets/notre-dame/`) that a restored Irish Watch page asks for.
+
 ## Re-releasing after a rollback
 
 Merge the fixed release as a new PR with a `VERSION` newer than the
