@@ -502,9 +502,13 @@ TeamOS.espn = (function () {
       abbreviation: str(t.abbreviation||t.shortDisplayName),
       record:       str(c.records&&c.records[0]&&c.records[0].summary),
       score:        c.score!=null ? c.score : null,
-      mine:         String(t.id)===teamId
+      mine:         String(t.id)===teamId,
+      // The program's colours as the provider publishes them, "#rrggbb" or
+      // null - so a view can tell the two teams apart (whose drive it is).
+      colors:       { primary: hexColor(t.color), alt: hexColor(t.alternateColor) }
     };
   }
+  function hexColor(v){ var h=String(v||"").replace(/^#/,""); return /^[0-9a-f]{6}$/i.test(h) ? "#"+h.toUpperCase() : null; }
   function linescoreOf(c){
     return (c.linescores||[]).map(function(v){ return str(v.displayValue!=null?v.displayValue:v.value); });
   }

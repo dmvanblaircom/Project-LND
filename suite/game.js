@@ -299,6 +299,27 @@ Suite.game = (function () {
     });
     return s + "</svg>";
   }
+  // Whose drive it is, in their colour: ours for our drive, the opponent's
+  // for theirs (David, 2026-09-26: an opponent's drive in our colour reads
+  // as ours). Of the opponent's two published colours, the one that stands
+  // apart from the turf most - by colour, not brightness alone: Illinois
+  // orange reads on green although it is barely brighter. Neither far enough
+  // (a green team), or none published: neutral white. Ours is the team's
+  // accent, as everywhere else.
+  var TURF = [0x2E, 0x6A, 0x35];
+  function fromTurf(hex) {
+    var rgb = [1, 3, 5].map(function (i) { return parseInt(hex.substr(i, 2), 16); });
+    return Math.sqrt(rgb.reduce(function (a, v, i) { return a + (v - TURF[i]) * (v - TURF[i]); }, 0));
+  }
+  function driveColor(d, m) {
+    if (d.mine) return null;
+    var gd = m.detail || {}, them = gd.home && gd.home.mine ? gd.away : gd.away && gd.away.mine ? gd.home : null;
+    var c = them && them.colors || {};
+    var options = [c.primary, c.alt].filter(function (x) { return /^#[0-9A-F]{6}$/.test(x || ""); });
+    options.sort(function (x, y) { return fromTurf(y) - fromTurf(x); });
+    return options.length && fromTurf(options[0]) >= 100 ? options[0] : "#FFFFFF";
+  }
+
   function driveLabel(d, m, los) {
     var who = d.mine ? m.team.name : m.game.oppName;
     return "Current drive: " + who + ", " + (d.summary || "") + ". Ball at the " + (los <= 50 ? "own " + los : "opponent's " + (100 - los)) + ".";
@@ -309,9 +330,10 @@ Suite.game = (function () {
     if (!d) return "";
     var svg = field(d, m);
     if (!svg) return "";
-    return card("Current drive", svg +
+    var color = driveColor(d, m), who = d.mine ? m.team.name : (m.game.oppName || "Opponent");
+    return card(who + " drive", '<div class="f-wrap"' + (color ? ' style="--drive:' + color + '"' : "") + ">" + svg +
       '<ul class="f-legend" aria-hidden="true"><li><span class="k start"></span>Drive start</li><li><span class="k play"></span>Play</li>' +
-      '<li><span class="k los"></span>Line of scrimmage</li><li><span class="k first"></span>First down</li></ul>',
+      '<li><span class="k los"></span>Line of scrimmage</li><li><span class="k first"></span>First down</li></ul></div>',
       d.summary ? '<span class="gcard-note">' + esc(d.summary) + "</span>" : "", "gcard-drive");
   }
 
