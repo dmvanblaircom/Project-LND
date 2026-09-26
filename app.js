@@ -563,7 +563,7 @@ function rosterModel(route, views){
   return {
     views: views, view: view, unit: route.path[1] || null,
     hasDepth: !!rosterSnap("depth"),
-    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster) : null,
+    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail) : null,
     history: RO.hist, roster: RO.roster, query: RO.q,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
@@ -1077,7 +1077,7 @@ function warmTabs(){
   // The scoreboard goes first: Top 25 draws from it, and it decides whether
   // the live poller should run. It is 95KB on the wire, which is why it is
   // here and not in load() competing with the schedule for first paint.
-  var jobs=[function(){ getScoreboard().catch(function(){}); },
+  var jobs=[function(){ getScoreboard().then(scoreboardArrived).catch(function(){}); },
             function(){ loadRosterScreen(false, true); }, loadNews, prefetchSummaries];
   jobs.forEach(function(fn,i){
     setTimeout(function(){
@@ -1113,6 +1113,17 @@ function getScoreboard(maxAgeMs){
   });
   SB.p.then(function(){ SB.p=null; }, function(){ SB.p=null; });
   return SB.p;
+}
+
+// The first scoreboard of a visit lands after the schedule has painted. It
+// is the only source of this week's opponent's record and rank (a team's
+// schedule has them only for games already played), so reconcile and
+// repaint the surfaces that show them.
+function scoreboardArrived(){
+  if(!S.games || !SB.games) return;
+  S.games=TeamOS.live.reconcileAll(S.games, SB.games);
+  if(S.next) S.next=S.games.filter(function(g){ return g.id===S.next.id; })[0] || S.next;
+  paintHome(); paintGame(); paintScheduleScreen();
 }
 
 function somethingLive(){
