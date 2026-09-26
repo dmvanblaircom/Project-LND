@@ -24,12 +24,14 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 | 3 | 19:09Z | Idea | Game - Drive Tracker | After a score the card still reads "Notre Dame drive" with the drive's summary but not how it ended. Showing the result ("Touchdown", "Punt") on a finished drive would make the moment between possessions read right. | **Approved by David - fix after the ND game** |
 | 4 | 19:09Z | Idea | Game - Scoring plays | ESPN's scoring text keeps its shouting: "(S. Porath KICK)". Same family as #2. | **Approved by David - fix after the ND game** |
 | 5 | 19:30Z | Warn | Game - Stats tab and the Game stats card on the main Game view | Reported by David live (OSU vs Illinois, then ND at Purdue): once the header scrolls away, the stats cards are two columns of numbers with no team names - you can't tell whose is whose. Both cards come from the same renderer (suite/game.js statRows), so one fix covers both. Screen readers get no names either. Proposed: a header row in the card with each team's abbreviation (in its colour), kept in view while the card scrolls. | **Approved by David - fix after the ND game** |
+| 6 | 19:47Z | Warn | Game header at halftime | The Game header reads "2ND · 0:00" while Home reads "HALF" for the same payload (ESPN status "Halftime"). The Game header should say Halftime too. | Open |
+| 7 | 19:47Z | Warn | Home and Game - down & distance pill at halftime | "2nd & 10 · PUR 28" still shows at halftime - ESPN keeps the last situation, but no one has the ball. Hide the down & distance pill while the game is paused between periods, as the football already is. | Open |
 
 ## Approved fix list (after the ND game)
 
 David, 2026-09-26 ~3:15 PM ET: items #1-#4 approved, to be fixed once Notre Dame at Purdue is final - one PR, the full suite, merged and verified in production like today's fixes. #2 and #4 (play text) keep the standing rule: normalize only what structured fields support safely; no free-text rewrite that could change what a play says.
 
-David, ~3:35 PM ET: #5 added to the same list - a team header row (each team's abbreviation, in its colour) on the Stats tab's Team stats card and the Game view's Game stats card, kept in view while the card scrolls.
+David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he asked for #5 now rather than after the game - PR #16 - a team header row (each team's abbreviation, in its colour) on the Stats tab's Team stats card and the Game view's Game stats card, kept in view while the card scrolls.
 
 ## Scans
 
@@ -46,3 +48,10 @@ David, ~3:35 PM ET: #5 added to the same list - a team header row (each team's a
 - Score and clock agree with the scoreboard (28-0, 2nd 0:45). ND has the ball, 1st & Goal at the PUR 3: Drive Tracker titled "Notre Dame drive" (46 yards, 5 plays), football on Notre Dame's side of the header. Correct.
 - Top 25: Texas-Tennessee, Illinois-Ohio State, Wake Forest-Louisville live with scores and clocks matching the scoreboard.
 - New item: #5 (David, live).
+
+### 19:47Z (3:47 PM ET) - Halftime, ND 35, Purdue 0
+
+- **Automated checks: clean** on every screen at 390 and Game at 320. Score agrees with the scoreboard; no football shows (no side has the ball) - correct.
+- Drive Tracker shows Purdue's last drive (the kneel to end the half); Last play "End of 2nd quarter." Fine; the finished-drive result (#3) would help here too.
+- New items: #6 (Game header says "2ND · 0:00" where Home says "HALF"), #7 (down & distance pill stays up at halftime).
+- #5 fix in flight at David's request (PR #16).
