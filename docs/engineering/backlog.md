@@ -71,7 +71,7 @@ Built off PR #4's head; each opens as a PR into `main` after Sunday's merge.
 | `stage/hardening-quick-fixes` | C3 bad team link → own team or chooser; C5 registry job warns instead of failing; C9 `tools/stresscheck.js` + `stress.yml`; C11 dead files removed; `VERSION` bumped | All 24 gates pass; stress pass 681 checks, 0 problems |
 | `stage/post-launch-docs` | Rollback runbook (rehearsed), branch cleanup list (**for David's approval**), font and team-first header decision inputs | Docs |
 | `stage/offseason-home` | Offseason Home proposal (**for David → ChatGPT**), postseason research captures, a season/type option in `capture-fixture.yml` | Docs, fixtures, workflow |
-| `stage/postseason` | C17: the schedule asks for the regular season and the postseason by type and joins them; a failed postseason keeps what was shown and never costs the regular season; the first open after the change still paints from the old URL's offline copy. New `tools/postseasoncheck.js` in CI. `VERSION` `suite-2026-09-27b` (bump again if it merges after the quick fixes) | All 25 gates pass; the new check fails 6 ways without the fix |
+| `stage/postseason` | C17: the schedule asks for the regular season and the postseason by type and joins them; a failed postseason keeps what was shown and never costs the regular season; the first open after the change still paints from the old URL's offline copy. New `tools/postseasoncheck.js` in CI. `VERSION` `suite-2026-09-26c` | All 25 gates pass; the new check fails 6 ways without the fix |
 
 ## Accepted limits (no action planned)
 
