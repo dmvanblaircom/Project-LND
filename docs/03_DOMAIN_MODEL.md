@@ -153,7 +153,7 @@ There is no `id`: the Game Center keys on the `Game` it was opened from. There i
 
 ### Side
 
-One team in a `GameDetail`: `{ key, name, abbreviation, record, score, mine }`. `key` is an opaque correlation key (today the provider's team id, the same precedent as `Game.id`) whose only consumer is the matchup preview asking for that side's season stats; `score` is the displayed value or `null`; `mine` marks the selected team.
+One team in a `GameDetail`: `{ key, name, abbreviation, record, score, mine, colors }`. `colors` is `{ primary, alt }`, the program's published colours as `#RRGGBB` or `null`, so a view can tell the two teams apart (the Drive Tracker draws a drive in the colour of the team with the ball). `key` is an opaque correlation key (today the provider's team id, the same precedent as `Game.id`) whose only consumer is the matchup preview asking for that side's season stats; `score` is the displayed value or `null`; `mine` marks the selected team.
 
 ### SeasonStat
 
