@@ -255,20 +255,26 @@ Suite.game = (function () {
   }
 
   // Team stats, the team on the left. Bars show the share of the two values
-  // when both are plain numbers; the numbers are always text.
+  // when both are plain numbers; the numbers are always text. A header row
+  // names the two columns and stays in view under the app bar while the list
+  // scrolls, so the numbers are never unlabelled once the game header is gone;
+  // each value also carries its team's name for screen readers.
   function statRows(m, limit) {
     var gd = m.detail, s = sides(gd, m.game);
     if (!gd || !gd.teamStats || !s) return "";
     var rows = limit ? gd.teamStats.slice(0, limit) : gd.teamStats;
-    return '<ul class="ts-list">' + rows.map(function (r) {
+    var usAb = s.us.abbreviation || s.us.name, themAb = s.them.abbreviation || s.them.name;
+    var usSr = '<span class="sr-only">' + esc(s.us.name) + " </span>", themSr = '<span class="sr-only">' + esc(s.them.name) + " </span>";
+    return '<ul class="ts-list"><li class="ts-head" aria-hidden="true"><span class="ts-t us">' + esc(usAb) + '</span><span></span>' +
+           '<span class="ts-t them">' + esc(themAb) + "</span></li>" + rows.map(function (r) {
       var a = r[s.usKey], b = r[s.themKey];
       var na = parseFloat(a), nb = parseFloat(b), both = isFinite(na) && isFinite(nb) && /^-?[\d.]+$/.test(String(a)) && /^-?[\d.]+$/.test(String(b));
       // A share bar only where more is better; for turnovers it would read backwards.
       var pa = both && !r.lowerWins && na + nb > 0 ? Math.round(na / (na + nb) * 100) : null;
       var better = r.better === s.usKey ? "us" : r.better === s.themKey ? "them" : null;
-      return '<li class="ts-row"><span class="ts-v us' + (better === "us" ? " better" : "") + '">' + esc(a == null ? "–" : a) + "</span>" +
+      return '<li class="ts-row"><span class="ts-v us' + (better === "us" ? " better" : "") + '">' + usSr + esc(a == null ? "–" : a) + "</span>" +
              '<span class="ts-l">' + esc(r.label) + "</span>" +
-             '<span class="ts-v them' + (better === "them" ? " better" : "") + '">' + esc(b == null ? "–" : b) + "</span>" +
+             '<span class="ts-v them' + (better === "them" ? " better" : "") + '">' + themSr + esc(b == null ? "–" : b) + "</span>" +
              (pa != null ? '<span class="ts-bar" aria-hidden="true"><span class="us" style="width:' + pa + '%"></span><span class="them" style="width:' + (100 - pa) + '%"></span></span>' : "") +
              "</li>";
     }).join("") + "</ul>";
