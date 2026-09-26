@@ -102,3 +102,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 
 - PR #18 (#1-#4) merged to main 037bcee; production verified (verify-production.yml, success). Tested on today's real captures, now committed as espn-summary-pur-downs.json and espn-summary-pur-final.json.
 - Left as ESPN wrote it, by the no-free-text-rewrite rule: formation words ("No Huddle-Shotgun"), the embedded "clock 05:47", holder and long-snapper credits "(H: ..., LS: ...)".
+
+### 21:52Z (5:52 PM ET) - evening games; scans now on main 037bcee (fixes #1-#4)
+
+- **Automated checks: clean** on every screen at 390 and Game at 320, on production's code with the post-game fixes. Home final card reads "#3 NOTRE DAME 4-0" / "PURDUE 1-3" in full.
+- Top 25: Oklahoma-Georgia, Ole Miss-Florida (half), Utah-Iowa State, Iowa-Michigan, Houston-Georgia Southern, Wisconsin-Penn State live; scores match the scoreboard.
+- New items: none.
