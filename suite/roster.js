@@ -96,6 +96,21 @@ Suite.roster = (function () {
 
   // ---- Depth Chart ---------------------------------------------------------
 
+  // Listed out on the availability report: an "O" after the name.
+  function outMark(out) {
+    if (!out) return "";
+    var said = out === "out-season" ? "out for the season" : "out for the game";
+    return ' <abbr class="ro-out" title="' + said.charAt(0).toUpperCase() + said.slice(1) + '">O</abbr>' +
+           '<span class="sr-only"> (' + said + ")</span>";
+  }
+  // Moved since the last chart: an arrow, for one chart.
+  function moveMark(moved) {
+    if (moved !== "up" && moved !== "down") return "";
+    return ' <span class="ro-move ' + moved + '" aria-hidden="true" title="Moved ' + moved + ' since the last chart">' +
+           (moved === "up" ? "\u25B2" : "\u25BC") + "</span>" +
+           '<span class="sr-only"> (moved ' + moved + " since the last chart)</span>";
+  }
+
   function spotCard(s) {
     var rows = [];
     s.levels.forEach(function (lv) {
@@ -105,8 +120,7 @@ Suite.roster = (function () {
           '<span class="ro-lvl">' + (i ? '<span class="ro-or">or</span>' : esc(LEVEL[lv.level] || lv.level)) + "</span>" +
           '<span class="ro-no">' + esc(p.no) + "</span>" + photo(p) +
           '<span class="ro-who"><span class="sr-only">' + esc(said) + '</span><span class="ro-name">' + esc(p.name) +
-            (p.out ? ' <abbr class="ro-out" title="' + (p.out === "out-season" ? "Out for the season" : "Out for the game") + '">O</abbr>' +
-                     '<span class="sr-only"> (' + (p.out === "out-season" ? "out for the season" : "out for the game") + ")</span>" : "") + "</span>" +
+            moveMark(p.moved) + outMark(p.out) + "</span>" +
             (town(p.hometown) ? '<span class="ro-town">' + esc(town(p.hometown)) + "</span>" : "") + bio(p) + "</span>" +
           '<span class="ro-ht">' + esc(p.height) + '</span><span class="ro-wt">' + esc(weight(p.weight)) + '</span><span class="ro-cl">' + esc(p.classYear) + "</span>" +
           "</li>");
@@ -146,8 +160,6 @@ Suite.roster = (function () {
     var head = '<section class="card ro-head"><h2 class="ro-title">' + esc(d.title || "Depth Chart") + "</h2>" +
                '<p class="ro-meta">Official depth chart · ' + external(d.source.url, d.source.label) + "</p>" +
                (open ? '<p class="ro-meta">' + open + (open === 1 ? " starting job" : " starting jobs") + " still open</p>" : "") +
-               (d.changes.length ? '<details class="ro-moved"><summary>' + d.changes.length + (d.changes.length === 1 ? " change" : " changes") +
-                 ' since last week<span class="ro-chev" aria-hidden="true"></span></summary><ul class="ro-changes">' + d.changes.map(function (c) { return "<li>" + esc(c.text) + "</li>"; }).join("") + "</ul></details>" : "") +
                "</section>";
     return head + unitSeg("depth", units, key) +
            '<div class="ro-unit" role="region" aria-label="' + esc(unit.unit + " depth chart") + '">' + unit.slots.map(spotCard).join("") + "</div>" +
@@ -190,7 +202,7 @@ Suite.roster = (function () {
            (players.length ? '<div class="ro-cols roster" aria-hidden="true"><span>#</span><span>Player</span><span>Ht</span><span>Wt</span><span>Class</span></div>' +
              '<ul class="ro-list">' + players.map(function (p) {
                return '<li class="ro-row roster"><span class="ro-no">' + esc(p.jersey) + "</span>" + photo({ name: p.name, photo: p.photo }) +
-                 '<span class="ro-who"><span class="ro-name">' + esc(p.name) + "</span>" +
+                 '<span class="ro-who"><span class="ro-name">' + esc(p.name) + outMark(p.out) + "</span>" +
                    '<span class="ro-town">' + esc([p.position, town(p.hometown)].filter(Boolean).join(" · ")) + "</span>" + bio(p) + "</span>" +
                  '<span class="ro-ht">' + esc(p.height) + '</span><span class="ro-wt">' + esc(weight(p.weight)) + '</span><span class="ro-cl">' + esc(p.classYear) + "</span></li>";
              }).join("") + "</ul>"

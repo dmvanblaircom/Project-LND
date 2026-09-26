@@ -517,7 +517,7 @@ function loadStrip(){
 // again the next time Roster opens, and as soon as the connection returns.
 // The one freshness state (0024 §13) is computed from the sources the
 // current view actually displays.
-var RO={ chart:null, avail:null, hist:null, roster:null, q:"", s:{}, histAt:0, histLoading:false };
+var RO={ chart:null, avail:null, hist:null, histRaw:null, roster:null, q:"", s:{}, histAt:0, histLoading:false };
 var RO_AGAIN=30*60e3;
 function rosterSnap(kind){ return TeamOS.snapshots.get(TEAM_CONFIG, kind); }
 function roOurs(d){ return d && TeamOS.snapshots.owned(TEAM, d) ? d : null; }
@@ -563,8 +563,8 @@ function rosterModel(route, views){
   return {
     views: views, view: view, unit: route.path[1] || null,
     hasDepth: !!rosterSnap("depth"),
-    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail) : null,
-    history: RO.hist, roster: RO.roster, query: RO.q,
+    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail, RO.histRaw) : null,
+    history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart) : null, query: RO.q,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
     fresh: TeamOS.freshness.summary(rosterFreshSources(view), { now:new Date(), online: navigator.onLine!==false })
@@ -619,7 +619,7 @@ function loadRosterHistory(force){
                av && av.history ? get(av.history+"?t="+Date.now()).catch(function(){ return null; }) : null])
     .then(function(r){
       var h=roOurs(r[0]); if(!h || h.schema!==2) return;
-      RO.hist=TeamOS.roster.history(h, roOurs(r[1])); RO.histAt=Date.now();
+      RO.hist=TeamOS.roster.history(h, roOurs(r[1])); RO.histRaw=h; RO.histAt=Date.now();
     }).catch(function(e){ if(window.console) console.warn("depth history:", e); })
     .then(function(){ RO.histLoading=false; paintRoster(); });
 }

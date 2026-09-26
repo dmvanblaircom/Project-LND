@@ -83,6 +83,40 @@ ok(entries.every(function (p) { return !p.out; }), "without the report, nobody i
 var other = JSON.parse(JSON.stringify(report)); other.game = "vs Navy";
 ok(R.depth(chart, groups, other).units.every(function (u) { return u.slots.every(function (s) { return s.levels.every(function (l) {
   return l.players.every(function (p) { return !p.out; }); }); }); }), "a report for another game marks nobody");
+console.log("who moved since the last chart (arrows, one chart only)");
+var histRaw = JSON.parse(read("data/notre-dame/depth-history.json"));
+var dcMv = R.depth(chart, groups, report, histRaw), ups = [], downs = [];
+dcMv.units.forEach(function (u) { u.slots.forEach(function (s) { s.levels.forEach(function (l) { l.players.forEach(function (p) {
+  if (p.moved === "up") ups.push(p.name + "@" + s.label); if (p.moved === "down") downs.push(p.name + "@" + s.label); }); }); }); });
+chart.changes.filter(function (c) { return c.kind === "up"; }).forEach(function (c) {
+  ok(ups.some(function (u) { return u.indexOf(c.name + "@") === 0; }), "the chart says " + c.name + " moved up: he has an up arrow");
+});
+ok(ups.indexOf("Nolan James Jr.@RB") > -1, "Nolan James Jr. moved up to first team at RB: up arrow (" + ups.join(", ") + ")");
+console.log("  down arrows this week: " + (downs.join(", ") || "none"));
+// the arrow lasts one chart: the same chart compared with itself shows none
+var same = JSON.parse(JSON.stringify(histRaw)); same.snapshots.push(JSON.parse(JSON.stringify(same.snapshots[same.snapshots.length - 1])));
+same.snapshots[same.snapshots.length - 1].game = "vs Next Opponent";
+var nextWeek = JSON.parse(JSON.stringify(chart)); nextWeek.game = "vs Next Opponent";
+ok(R.depth(nextWeek, groups, null, same).units.every(function (u) { return u.slots.every(function (s) { return s.levels.every(function (l) {
+  return l.players.every(function (p) { return !p.moved; }); }); }); }), "next week, still where he is, the arrow drops off");
+ok(R.depth(chart, groups, report, null).units.every(function (u) { return u.slots.every(function (s) { return s.levels.every(function (l) {
+  return l.players.every(function (p) { return !p.moved; }); }); }); }), "no history, no arrows");
+var firstOnly = { snapshots: [histRaw.snapshots[0]] }, first = JSON.parse(JSON.stringify(histRaw.snapshots[0]));
+ok(R.depth(first, groups, null, firstOnly).units.every(function (u) { return u.slots.every(function (s) { return s.levels.every(function (l) {
+  return l.players.every(function (p) { return !p.moved; }); }); }); }), "the season's first chart has nothing to compare with: no arrows");
+
+console.log("who is out, on the roster");
+var marked = [].concat.apply([], R.withStatus(groups, report, chart).map(function (g) { return g.players; })).filter(function (p) { return p.out; });
+ok(marked.some(function (p) { return p.name === "Luke Talich" && p.out === "out-game"; }), "Luke Talich is marked out on the roster");
+ok(marked.length >= report.players.length - 2 && marked.every(function (p) {
+  return report.players.some(function (r) { return r.name.replace(/[^a-z]/gi, "").toLowerCase() === p.name.replace(/[^a-z]/gi, "").toLowerCase(); }); }),
+   marked.length + " of " + report.players.length + " listed players found on the roster and marked, nobody else");
+ok(groups.every(function (g) { return g.players.every(function (p) { return !p.out; }); }), "the shared roster groups are not changed");
+ok([].concat.apply([], R.withStatus(groups, other, chart).map(function (g) { return g.players; })).every(function (p) { return !p.out; }),
+   "a report for another game marks nobody on the roster either");
+ok([].concat.apply([], R.withStatus(groups, report, null).map(function (g) { return g.players; })).some(function (p) { return p.out; }),
+   "a team with a report but no depth chart: the report alone decides");
+
 var none = JSON.parse(JSON.stringify(report)); none.reported = false;
 ok(R.depth(chart, groups, none).units[0].slots.every(function (s) { return s.levels.every(function (l) {
   return l.players.every(function (p) { return !p.out; }); }); }), "no report out yet marks nobody");
