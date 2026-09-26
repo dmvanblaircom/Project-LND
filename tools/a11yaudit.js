@@ -140,6 +140,16 @@ function collectTextInPage() {
     if (el.checkVisibility && !el.checkVisibility({ contentVisibilityAuto: true, visibilityProperty: true })) continue;
     var shut = el.closest("details:not([open])");
     if (shut && !el.closest("summary")) continue;
+    // A program's fallback initials sit under its logo (suite/ui.js mark()).
+    // Once the logo has loaded it covers them - the page hides them on the
+    // load event, but a capture can land after the logo is painted and before
+    // that handler runs, and then measures the initials against the logo's
+    // own colours (CI, 2026-09-25: "ILL" on Illinois orange). Covered text
+    // is not text anyone reads.
+    if (el.classList.contains("initials")) {
+      var logo = el.parentNode && el.parentNode.querySelector("img[data-mark]");
+      if (logo && logo.complete && logo.naturalWidth > 0) continue;
+    }
 
     // Placeholder text is text a user must read, and it has no text node.
     if ((el.tagName === "INPUT" || el.tagName === "TEXTAREA") && el.placeholder && !el.value) {
