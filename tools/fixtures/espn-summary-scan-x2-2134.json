@@ -1,0 +1,2005 @@
+{
+ "_comment": "Real ESPN game summary for event 401858466, captured 2026-09-26 by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged.",
+ "header": {
+  "id": "401858466",
+  "uid": "s:20~l:23~e:401858466",
+  "season": {
+   "year": 2026,
+   "current": true,
+   "type": 2
+  },
+  "timeValid": true,
+  "competitions": [
+   {
+    "id": "401858466",
+    "uid": "s:20~l:23~e:401858466~c:401858466",
+    "date": "2026-09-26T21:00Z",
+    "dateValid": true,
+    "neutralSite": false,
+    "conferenceCompetition": true,
+    "boxscoreAvailable": false,
+    "commentaryAvailable": false,
+    "liveAvailable": true,
+    "onWatchESPN": false,
+    "recent": true,
+    "wallclockAvailable": false,
+    "boxscoreSource": "none",
+    "playByPlaySource": "none",
+    "competitors": [
+     {
+      "id": "213",
+      "uid": "s:20~l:23~t:213",
+      "order": 0,
+      "homeAway": "home",
+      "team": {
+       "id": "213",
+       "guid": "899b6845-67a4-16b2-c4a6-2406312be7fc",
+       "uid": "s:20~l:23~t:213",
+       "location": "Penn State",
+       "name": "Nittany Lions",
+       "nickname": "Penn State",
+       "abbreviation": "PSU",
+       "displayName": "Penn State Nittany Lions",
+       "color": "061440",
+       "alternateColor": "ffffff",
+       "logos": [
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "default"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/213.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "dark"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/primary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/primary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/primary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/primary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/primary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/primary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/secondary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/secondary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/secondary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/secondary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/secondary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/899b6845-67a4-16b2-c4a6-2406312be7fc/logos/secondary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:38Z"
+        }
+       ],
+       "groups": {
+        "id": "5"
+       },
+       "links": [
+        {
+         "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+         ],
+         "href": "https://www.espn.com/college-football/team/_/id/213/penn-state-nittany-lions",
+         "text": "Clubhouse"
+        }
+       ]
+      },
+      "score": "3",
+      "linescores": [
+       {
+        "displayValue": "3"
+       }
+      ],
+      "record": [
+       {
+        "type": "total",
+        "summary": "3-0",
+        "displayValue": "3-0"
+       },
+       {
+        "type": "vsconf",
+        "summary": "0-0",
+        "displayValue": "0-0"
+       }
+      ],
+      "possession": false,
+      "rank": 13
+     },
+     {
+      "id": "275",
+      "uid": "s:20~l:23~t:275",
+      "order": 1,
+      "homeAway": "away",
+      "team": {
+       "id": "275",
+       "guid": "79b14620-600c-7c79-3fb4-b62ed2a45ca0",
+       "uid": "s:20~l:23~t:275",
+       "location": "Wisconsin",
+       "name": "Badgers",
+       "nickname": "Wisconsin",
+       "abbreviation": "WIS",
+       "displayName": "Wisconsin Badgers",
+       "color": "a00000",
+       "alternateColor": "ffffff",
+       "logos": [
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "default"
+         ],
+         "lastUpdated": "2026-07-01T04:35Z"
+        },
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/275.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "dark"
+         ],
+         "lastUpdated": "2026-07-01T04:34Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/primary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/primary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/primary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/primary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/primary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/primary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/secondary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/secondary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/secondary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/secondary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/secondary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/79b14620-600c-7c79-3fb4-b62ed2a45ca0/logos/secondary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:50Z"
+        }
+       ],
+       "groups": {
+        "id": "5"
+       },
+       "links": [
+        {
+         "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+         ],
+         "href": "https://www.espn.com/college-football/team/_/id/275/wisconsin-badgers",
+         "text": "Clubhouse"
+        }
+       ]
+      },
+      "score": "0",
+      "linescores": [
+       {
+        "displayValue": "0"
+       }
+      ],
+      "record": [
+       {
+        "type": "total",
+        "summary": "2-1",
+        "displayValue": "2-1"
+       },
+       {
+        "type": "vsconf",
+        "summary": "0-0",
+        "displayValue": "0-0"
+       }
+      ],
+      "possession": false
+     }
+    ],
+    "status": {
+     "displayClock": "4:07",
+     "period": 1,
+     "type": {
+      "id": "2",
+      "name": "STATUS_IN_PROGRESS",
+      "state": "in",
+      "completed": false,
+      "description": "In Progress",
+      "detail": "4:07 - 1st Quarter",
+      "shortDetail": "4:07 - 1st",
+      "statusPrimary": "4:07",
+      "statusSecondary": "1st"
+     },
+     "displayPeriod": "1st"
+    },
+    "broadcasts": [
+     {
+      "type": {
+       "id": "4",
+       "shortName": "Streaming"
+      },
+      "market": {
+       "id": "1",
+       "type": "National"
+      },
+      "media": {
+       "shortName": "Peacock"
+      },
+      "lang": "en",
+      "region": "us",
+      "isNational": true
+     },
+     {
+      "type": {
+       "id": "5",
+       "shortName": "Radio"
+      },
+      "url": "https://cerebro.espn.com/cerebro/search/airing/a1303812066",
+      "market": {
+       "id": "1",
+       "type": "National"
+      },
+      "media": {
+       "shortName": "ERADM"
+      },
+      "lang": "en",
+      "region": "us",
+      "isNational": true
+     }
+    ],
+    "groups": {
+     "id": "5",
+     "name": "Big Ten Conference",
+     "abbreviation": "big10",
+     "shortName": "Big Ten",
+     "midsizeName": "Big Ten"
+    },
+    "boxscoreMinutes": false
+   }
+  ],
+  "links": [
+   {
+    "rel": [
+     "live",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/game?gameId=401858466",
+    "text": "Gamecast",
+    "shortText": "Gamecast",
+    "isExternal": false,
+    "isPremium": false
+   }
+  ],
+  "week": 4,
+  "league": {
+   "id": "23",
+   "uid": "s:20~l:23",
+   "name": "NCAA - Football",
+   "abbreviation": "NCAAF",
+   "shortName": "NCAA Football",
+   "midsizeName": "NCAA Football",
+   "slug": "college-football",
+   "isTournament": false,
+   "links": [
+    {
+     "rel": [
+      "index",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/",
+     "text": "Index"
+    },
+    {
+     "rel": [
+      "index",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23",
+     "text": "Index"
+    },
+    {
+     "rel": [
+      "schedule",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/schedule",
+     "text": "Schedule"
+    },
+    {
+     "rel": [
+      "schedule",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=scores",
+     "text": "Schedule"
+    },
+    {
+     "rel": [
+      "standings",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/standings",
+     "text": "Standings"
+    },
+    {
+     "rel": [
+      "standings",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=standings",
+     "text": "Standings"
+    },
+    {
+     "rel": [
+      "rankings",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/rankings",
+     "text": "Rankings"
+    },
+    {
+     "rel": [
+      "rankings",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=rankings",
+     "text": "Rankings"
+    },
+    {
+     "rel": [
+      "scores",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/scoreboard",
+     "text": "Scores"
+    },
+    {
+     "rel": [
+      "scores",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=scores",
+     "text": "Scores"
+    },
+    {
+     "rel": [
+      "stats",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/stats",
+     "text": "Stats"
+    },
+    {
+     "rel": [
+      "stats",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=stats",
+     "text": "Stats"
+    },
+    {
+     "rel": [
+      "teams",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/teams",
+     "text": "Teams"
+    },
+    {
+     "rel": [
+      "odds",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/odds",
+     "text": "Odds"
+    },
+    {
+     "rel": [
+      "odds",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=odds",
+     "text": "Odds"
+    }
+   ],
+   "logos": [
+    {
+     "href": "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png",
+     "rel": [
+      "full",
+      "default"
+     ]
+    },
+    {
+     "href": "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png",
+     "rel": [
+      "full",
+      "dark"
+     ]
+    }
+   ]
+  }
+ },
+ "boxscore": {
+  "teams": [
+   {
+    "team": {
+     "id": "275",
+     "uid": "s:20~l:23~t:275",
+     "slug": "wisconsin-badgers",
+     "location": "Wisconsin",
+     "name": "Badgers",
+     "abbreviation": "WIS",
+     "displayName": "Wisconsin Badgers",
+     "shortDisplayName": "Wisconsin",
+     "color": "a00000",
+     "alternateColor": "ffffff",
+     "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/275.png"
+    },
+    "statistics": [],
+    "displayOrder": 1,
+    "homeAway": "away"
+   },
+   {
+    "team": {
+     "id": "213",
+     "uid": "s:20~l:23~t:213",
+     "slug": "penn-state-nittany-lions",
+     "location": "Penn State",
+     "name": "Nittany Lions",
+     "abbreviation": "PSU",
+     "displayName": "Penn State Nittany Lions",
+     "shortDisplayName": "Penn State",
+     "color": "061440",
+     "alternateColor": "ffffff",
+     "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png"
+    },
+    "statistics": [],
+    "displayOrder": 2,
+    "homeAway": "home"
+   }
+  ],
+  "players": [
+   {
+    "team": {
+     "id": "275",
+     "uid": "s:20~l:23~t:275",
+     "slug": "wisconsin-badgers",
+     "location": "Wisconsin",
+     "name": "Badgers",
+     "abbreviation": "WIS",
+     "displayName": "Wisconsin Badgers",
+     "shortDisplayName": "Wisconsin",
+     "color": "a00000",
+     "alternateColor": "ffffff",
+     "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/275.png"
+    },
+    "statistics": [
+     {
+      "name": "passing",
+      "keys": [
+       "completions/passingAttempts",
+       "passingYards",
+       "yardsPerPassAttempt",
+       "passingTouchdowns",
+       "interceptions",
+       "adjQBR"
+      ],
+      "text": "Wisconsin Passing",
+      "labels": [
+       "C/ATT",
+       "YDS",
+       "AVG",
+       "TD",
+       "INT"
+      ],
+      "descriptions": [
+       "Completions/Attempts",
+       "Yards",
+       "Yards Per Pass Attempt",
+       "Touchdowns",
+       "Interceptions"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "rushing",
+      "keys": [
+       "rushingAttempts",
+       "rushingYards",
+       "yardsPerRushAttempt",
+       "rushingTouchdowns",
+       "longRushing"
+      ],
+      "text": "Wisconsin Rushing",
+      "labels": [
+       "CAR",
+       "YDS",
+       "AVG",
+       "TD",
+       "LONG"
+      ],
+      "descriptions": [
+       "Rushing Attempts",
+       "Yards",
+       "Yards Per Rushing Attempt",
+       "Touchdowns",
+       "Longest Run"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "receiving",
+      "keys": [
+       "receptions",
+       "receivingYards",
+       "yardsPerReception",
+       "receivingTouchdowns",
+       "longReception"
+      ],
+      "text": "Wisconsin Receiving",
+      "labels": [
+       "REC",
+       "YDS",
+       "AVG",
+       "TD",
+       "LONG"
+      ],
+      "descriptions": [
+       "Receptions",
+       "Yards",
+       "Yards Per Reception",
+       "Touchdowns",
+       "Longest Reception"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "fumbles",
+      "keys": [
+       "fumbles",
+       "fumblesLost",
+       "fumblesRecovered"
+      ],
+      "text": "Wisconsin Fumbles",
+      "labels": [
+       "FUM",
+       "LOST",
+       "REC"
+      ],
+      "descriptions": [
+       "Fumbles",
+       "Fumbles Lost",
+       "Fumbles Recovered"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "interceptions",
+      "keys": [
+       "interceptions",
+       "interceptionYards",
+       "interceptionTouchdowns"
+      ],
+      "text": "Wisconsin Interceptions",
+      "labels": [
+       "INT",
+       "YDS",
+       "TD"
+      ],
+      "descriptions": [
+       "Interceptions",
+       "Yards",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "kickReturns",
+      "keys": [
+       "kickReturns",
+       "kickReturnYards",
+       "yardsPerKickReturn",
+       "longKickReturn",
+       "kickReturnTouchdowns"
+      ],
+      "text": "Wisconsin Kick Returns",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "LONG",
+       "TD"
+      ],
+      "descriptions": [
+       "Kick Returns",
+       "Yards",
+       "Yards Per Kick Return",
+       "Longest Kick Return",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "puntReturns",
+      "keys": [
+       "puntReturns",
+       "puntReturnYards",
+       "yardsPerPuntReturn",
+       "longPuntReturn",
+       "puntReturnTouchdowns"
+      ],
+      "text": "Wisconsin Punt Returns",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "LONG",
+       "TD"
+      ],
+      "descriptions": [
+       "Punt Returns",
+       "Yards",
+       "Yards Per Punt Return",
+       "Longest Punt Return",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "kicking",
+      "keys": [
+       "fieldGoalsMade/fieldGoalAttempts",
+       "fieldGoalPct",
+       "longFieldGoalMade",
+       "extraPointsMade/extraPointAttempts",
+       "totalKickingPoints"
+      ],
+      "text": "Wisconsin Kicking",
+      "labels": [
+       "FG",
+       "PCT",
+       "LONG",
+       "XP",
+       "PTS"
+      ],
+      "descriptions": [
+       "Field Goals Made/Attempts",
+       "Field Goal Percentage",
+       "Longest Field Goal Made",
+       "Extra Points Made/Attempts",
+       "Kicking Points"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "punting",
+      "keys": [
+       "punts",
+       "puntYards",
+       "grossAvgPuntYards",
+       "touchbacks",
+       "puntsInside20",
+       "longPunt"
+      ],
+      "text": "Wisconsin Punting",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "TB",
+       "In 20",
+       "LONG"
+      ],
+      "descriptions": [
+       "Punts",
+       "Yards",
+       "Average Punt Yards",
+       "Touchbacks",
+       "Punts Inside 20",
+       "Longest Punt"
+      ],
+      "athletes": [],
+      "totals": []
+     }
+    ],
+    "displayOrder": 1
+   },
+   {
+    "team": {
+     "id": "213",
+     "uid": "s:20~l:23~t:213",
+     "slug": "penn-state-nittany-lions",
+     "location": "Penn State",
+     "name": "Nittany Lions",
+     "abbreviation": "PSU",
+     "displayName": "Penn State Nittany Lions",
+     "shortDisplayName": "Penn State",
+     "color": "061440",
+     "alternateColor": "ffffff",
+     "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png"
+    },
+    "statistics": [
+     {
+      "name": "passing",
+      "keys": [
+       "completions/passingAttempts",
+       "passingYards",
+       "yardsPerPassAttempt",
+       "passingTouchdowns",
+       "interceptions",
+       "adjQBR"
+      ],
+      "text": "Penn State Passing",
+      "labels": [
+       "C/ATT",
+       "YDS",
+       "AVG",
+       "TD",
+       "INT"
+      ],
+      "descriptions": [
+       "Completions/Attempts",
+       "Yards",
+       "Yards Per Pass Attempt",
+       "Touchdowns",
+       "Interceptions"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "rushing",
+      "keys": [
+       "rushingAttempts",
+       "rushingYards",
+       "yardsPerRushAttempt",
+       "rushingTouchdowns",
+       "longRushing"
+      ],
+      "text": "Penn State Rushing",
+      "labels": [
+       "CAR",
+       "YDS",
+       "AVG",
+       "TD",
+       "LONG"
+      ],
+      "descriptions": [
+       "Rushing Attempts",
+       "Yards",
+       "Yards Per Rushing Attempt",
+       "Touchdowns",
+       "Longest Run"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "receiving",
+      "keys": [
+       "receptions",
+       "receivingYards",
+       "yardsPerReception",
+       "receivingTouchdowns",
+       "longReception"
+      ],
+      "text": "Penn State Receiving",
+      "labels": [
+       "REC",
+       "YDS",
+       "AVG",
+       "TD",
+       "LONG"
+      ],
+      "descriptions": [
+       "Receptions",
+       "Yards",
+       "Yards Per Reception",
+       "Touchdowns",
+       "Longest Reception"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "fumbles",
+      "keys": [
+       "fumbles",
+       "fumblesLost",
+       "fumblesRecovered"
+      ],
+      "text": "Penn State Fumbles",
+      "labels": [
+       "FUM",
+       "LOST",
+       "REC"
+      ],
+      "descriptions": [
+       "Fumbles",
+       "Fumbles Lost",
+       "Fumbles Recovered"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "interceptions",
+      "keys": [
+       "interceptions",
+       "interceptionYards",
+       "interceptionTouchdowns"
+      ],
+      "text": "Penn State Interceptions",
+      "labels": [
+       "INT",
+       "YDS",
+       "TD"
+      ],
+      "descriptions": [
+       "Interceptions",
+       "Yards",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "kickReturns",
+      "keys": [
+       "kickReturns",
+       "kickReturnYards",
+       "yardsPerKickReturn",
+       "longKickReturn",
+       "kickReturnTouchdowns"
+      ],
+      "text": "Penn State Kick Returns",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "LONG",
+       "TD"
+      ],
+      "descriptions": [
+       "Kick Returns",
+       "Yards",
+       "Yards Per Kick Return",
+       "Longest Kick Return",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "puntReturns",
+      "keys": [
+       "puntReturns",
+       "puntReturnYards",
+       "yardsPerPuntReturn",
+       "longPuntReturn",
+       "puntReturnTouchdowns"
+      ],
+      "text": "Penn State Punt Returns",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "LONG",
+       "TD"
+      ],
+      "descriptions": [
+       "Punt Returns",
+       "Yards",
+       "Yards Per Punt Return",
+       "Longest Punt Return",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "kicking",
+      "keys": [
+       "fieldGoalsMade/fieldGoalAttempts",
+       "fieldGoalPct",
+       "longFieldGoalMade",
+       "extraPointsMade/extraPointAttempts",
+       "totalKickingPoints"
+      ],
+      "text": "Penn State Kicking",
+      "labels": [
+       "FG",
+       "PCT",
+       "LONG",
+       "XP",
+       "PTS"
+      ],
+      "descriptions": [
+       "Field Goals Made/Attempts",
+       "Field Goal Percentage",
+       "Longest Field Goal Made",
+       "Extra Points Made/Attempts",
+       "Kicking Points"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "punting",
+      "keys": [
+       "punts",
+       "puntYards",
+       "grossAvgPuntYards",
+       "touchbacks",
+       "puntsInside20",
+       "longPunt"
+      ],
+      "text": "Penn State Punting",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "TB",
+       "In 20",
+       "LONG"
+      ],
+      "descriptions": [
+       "Punts",
+       "Yards",
+       "Average Punt Yards",
+       "Touchbacks",
+       "Punts Inside 20",
+       "Longest Punt"
+      ],
+      "athletes": [],
+      "totals": []
+     }
+    ],
+    "displayOrder": 2
+   }
+  ]
+ },
+ "leaders": [
+  {
+   "team": {
+    "id": "213",
+    "uid": "s:20~l:23~t:213",
+    "displayName": "Penn State Nittany Lions",
+    "abbreviation": "PSU",
+    "links": [
+     {
+      "href": "https://www.espn.com/college-football/team/_/id/213/penn-state-nittany-lions",
+      "text": "Clubhouse"
+     },
+     {
+      "href": "https://www.espn.com/college-football/team/schedule/_/id/213",
+      "text": "Schedule"
+     }
+    ],
+    "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "default"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     },
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/213.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "dark"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     }
+    ]
+   },
+   "leaders": [
+    {
+     "name": "passingYards",
+     "displayName": "Passing Yards"
+    },
+    {
+     "name": "rushingYards",
+     "displayName": "Rushing Yards"
+    },
+    {
+     "name": "receivingYards",
+     "displayName": "Receiving Yards"
+    },
+    {
+     "name": "sacks",
+     "displayName": "Sacks"
+    },
+    {
+     "name": "totalTackles",
+     "displayName": "Tackles"
+    }
+   ]
+  },
+  {
+   "team": {
+    "id": "275",
+    "uid": "s:20~l:23~t:275",
+    "displayName": "Wisconsin Badgers",
+    "abbreviation": "WIS",
+    "links": [
+     {
+      "href": "https://www.espn.com/college-football/team/_/id/275/wisconsin-badgers",
+      "text": "Clubhouse"
+     },
+     {
+      "href": "https://www.espn.com/college-football/team/schedule/_/id/275",
+      "text": "Schedule"
+     }
+    ],
+    "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "default"
+      ],
+      "lastUpdated": "2026-07-01T04:35Z"
+     },
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/275.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "dark"
+      ],
+      "lastUpdated": "2026-07-01T04:34Z"
+     }
+    ]
+   },
+   "leaders": [
+    {
+     "name": "passingYards",
+     "displayName": "Passing Yards"
+    },
+    {
+     "name": "rushingYards",
+     "displayName": "Rushing Yards"
+    },
+    {
+     "name": "receivingYards",
+     "displayName": "Receiving Yards"
+    },
+    {
+     "name": "sacks",
+     "displayName": "Sacks"
+    },
+    {
+     "name": "totalTackles",
+     "displayName": "Tackles"
+    }
+   ]
+  }
+ ],
+ "pickcenter": [
+  {
+   "provider": {
+    "id": "100",
+    "name": "Draft Kings",
+    "priority": 1,
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/betting/Draftkings_Light.svg",
+      "rel": [
+       "light"
+      ]
+     },
+     {
+      "href": "https://a.espncdn.com/i/betting/Draftkings_Dark.svg",
+      "rel": [
+       "dark"
+      ]
+     }
+    ]
+   },
+   "details": "PSU -9.5",
+   "overUnder": 43.5,
+   "spread": -9.5,
+   "overOdds": -115.0,
+   "underOdds": -105.0,
+   "awayTeamOdds": {
+    "favorite": false,
+    "underdog": true,
+    "moneyLine": 300,
+    "spreadOdds": -108.0,
+    "team": {
+     "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/seasons/2026/teams/275?lang=en&region=us"
+    },
+    "teamId": "275",
+    "favoriteAtOpen": false
+   },
+   "homeTeamOdds": {
+    "favorite": true,
+    "underdog": false,
+    "moneyLine": -380,
+    "spreadOdds": -112.0,
+    "team": {
+     "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/seasons/2026/teams/213?lang=en&region=us"
+    },
+    "teamId": "213",
+    "favoriteAtOpen": true
+   },
+   "links": [
+    {
+     "language": "en-US",
+     "rel": [
+      "home",
+      "desktop",
+      "bets",
+      "draft-kings"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0ML86319019_1",
+     "text": "Home Bet",
+     "shortText": "Home Bet",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858466,
+       "betSide": "home",
+       "betType": "straight"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "away",
+      "desktop",
+      "bets",
+      "draft-kings"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0ML86319019_3",
+     "text": "Away Bet",
+     "shortText": "Away Bet",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858466,
+       "betSide": "away",
+       "betType": "straight"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "homeSpread",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0HC86319019N950_1",
+     "text": "Home Point Spread",
+     "shortText": "Home Point Spread",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858466,
+       "betSide": "none",
+       "betType": "straight",
+       "betDetails": "Spread:PSU-9.5"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "awaySpread",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0HC86319019P950_3",
+     "text": "Away Point Spread",
+     "shortText": "Away Point Spread",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858466,
+       "betSide": "none",
+       "betType": "straight",
+       "betDetails": "Spread:WIS+9.5"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "over",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0OU86319019O4350_1",
+     "text": "Over Odds",
+     "shortText": "Over Odds",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858466,
+       "betSide": "over",
+       "betType": "straight",
+       "betDetails": "Over:43.5"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "under",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0OU86319019U4350_3",
+     "text": "Under Odds",
+     "shortText": "Under Odds",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858466,
+       "betSide": "under",
+       "betType": "straight",
+       "betDetails": "Under:43.5"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "game",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735",
+     "text": "See More Live Odds",
+     "shortText": "Game",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858466,
+       "betSide": "none",
+       "betType": "straight"
+      }
+     }
+    }
+   ],
+   "moneyline": {
+    "displayName": "Moneyline",
+    "shortDisplayName": "ML",
+    "home": {
+     "close": {
+      "odds": "-380",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "home",
+        "desktop",
+        "bets",
+        "draft-kings"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0ML86319019_1",
+       "text": "Home Bet",
+       "shortText": "Home Bet",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "home",
+         "betType": "straight"
+        }
+       }
+      }
+     },
+     "open": {
+      "odds": "-455"
+     },
+     "live": {
+      "odds": "-750",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "home",
+        "desktop",
+        "bets",
+        "draft-kings---live-odds"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0ML86479210_1",
+       "text": "Home Bet",
+       "shortText": "Home Bet",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "home",
+         "betType": "straight"
+        }
+       }
+      }
+     }
+    },
+    "away": {
+     "close": {
+      "odds": "+300",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "away",
+        "desktop",
+        "bets",
+        "draft-kings"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0ML86319019_3",
+       "text": "Away Bet",
+       "shortText": "Away Bet",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "away",
+         "betType": "straight"
+        }
+       }
+      }
+     },
+     "open": {
+      "odds": "+350"
+     },
+     "live": {
+      "odds": "+492",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "away",
+        "desktop",
+        "bets",
+        "draft-kings---live-odds"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0ML86479210_3",
+       "text": "Away Bet",
+       "shortText": "Away Bet",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "away",
+         "betType": "straight"
+        }
+       }
+      }
+     }
+    }
+   },
+   "pointSpread": {
+    "displayName": "Spread",
+    "shortDisplayName": "Spread",
+    "home": {
+     "close": {
+      "line": "-9.5",
+      "odds": "-112",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "homeSpread",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0HC86319019N950_1",
+       "text": "Home Point Spread",
+       "shortText": "Home Point Spread",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "none",
+         "betType": "straight",
+         "betDetails": "Spread:PSU-9.5"
+        }
+       }
+      }
+     },
+     "open": {
+      "line": "-11.5",
+      "odds": "-105"
+     },
+     "live": {
+      "line": "-13.5",
+      "odds": "-115",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "homeSpread",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0HC86479210N1350_1",
+       "text": "Home Point Spread",
+       "shortText": "Home Point Spread",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "none",
+         "betType": "straight",
+         "betDetails": "Spread:PSU-13.5"
+        }
+       }
+      }
+     }
+    },
+    "away": {
+     "close": {
+      "line": "+9.5",
+      "odds": "-108",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "awaySpread",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0HC86319019P950_3",
+       "text": "Away Point Spread",
+       "shortText": "Away Point Spread",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "none",
+         "betType": "straight",
+         "betDetails": "Spread:WIS+9.5"
+        }
+       }
+      }
+     },
+     "open": {
+      "line": "+11.5",
+      "odds": "-115"
+     },
+     "live": {
+      "line": "+13.5",
+      "odds": "-116",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "awaySpread",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0HC86479210P1350_3",
+       "text": "Away Point Spread",
+       "shortText": "Away Point Spread",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "none",
+         "betType": "straight",
+         "betDetails": "Spread:WIS+13.5"
+        }
+       }
+      }
+     }
+    }
+   },
+   "total": {
+    "displayName": "Total",
+    "shortDisplayName": "Total",
+    "over": {
+     "close": {
+      "line": "o43.5",
+      "odds": "-115",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "over",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0OU86319019O4350_1",
+       "text": "Over Odds",
+       "shortText": "Over Odds",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "over",
+         "betType": "straight",
+         "betDetails": "Over:43.5"
+        }
+       }
+      }
+     },
+     "open": {
+      "line": "o42.5",
+      "odds": "-112"
+     },
+     "live": {
+      "line": "o43.5",
+      "odds": "-111",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "over",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0OU86479210O4350_1",
+       "text": "Over Odds",
+       "shortText": "Over Odds",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "over",
+         "betType": "straight",
+         "betDetails": "Over:43.5"
+        }
+       }
+      }
+     }
+    },
+    "under": {
+     "close": {
+      "line": "u43.5",
+      "odds": "-105",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "under",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0OU86319019U4350_3",
+       "text": "Under Odds",
+       "shortText": "Under Odds",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "under",
+         "betType": "straight",
+         "betDetails": "Under:43.5"
+        }
+       }
+      }
+     },
+     "open": {
+      "line": "u42.5",
+      "odds": "-108"
+     },
+     "live": {
+      "line": "u43.5",
+      "odds": "-120",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "under",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735%3Foutcomes%3D0OU86479210U4350_3",
+       "text": "Under Odds",
+       "shortText": "Under Odds",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858466,
+         "betSide": "under",
+         "betType": "straight",
+         "betDetails": "Under:43.5"
+        }
+       }
+      }
+     }
+    }
+   },
+   "link": {
+    "language": "en-US",
+    "rel": [
+     "game",
+     "desktop",
+     "bets"
+    ],
+    "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34674735",
+    "text": "See More Live Odds",
+    "shortText": "Game",
+    "isExternal": true,
+    "isPremium": false,
+    "tracking": {
+     "campaign": "betting-integrations",
+     "tags": {
+      "league": "college-football",
+      "sport": "football",
+      "gameId": 401858466,
+      "betSide": "none",
+      "betType": "straight"
+     }
+    }
+   },
+   "header": {
+    "logo": {
+     "dark": "https://a.espncdn.com/i/espnbet/dark/espn-bet-square-off.svg",
+     "light": "https://a.espncdn.com/i/espnbet/espn-bet-square-off.svg",
+     "exclusivesLogoDark": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg",
+     "exclusivesLogoLight": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg"
+    },
+    "text": "Game Odds"
+   },
+   "footer": {
+    "disclaimer": "GAMBLING PROBLEM? CALL 1-800-GAMBLER or 1-800-MY-RESET, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY). Call 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD), 1-800-981-0023 (PR). 21+ and present in most states. (18+ DC/KY/NH/PR/WY). Void in ONT. Eligibility restrictions apply. Terms: draftkings.com/sportsbook. On behalf of Boot Hill Casino (KS). Pass-thru of per wager tax may apply in IL."
+   }
+  }
+ ],
+ "winprobability": []
+}
