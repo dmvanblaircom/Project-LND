@@ -74,6 +74,10 @@ function run(opts) {
       setItem: function (k, v) {
         if (opts.storageThrows) throw new Error("blocked");
         store[k] = String(v);
+      },
+      removeItem: function (k) {
+        if (opts.storageThrows) throw new Error("blocked");
+        delete store[k];
       }
     },
     URLSearchParams: URLSearchParams,
@@ -128,15 +132,28 @@ console.log(" but a chosen team goes straight through");
   ok(r.injected.indexOf("app.js") !== -1, " and app.js is");
 });
 
-console.log(" a team with no config falls back when its config 404s");
+console.log(" a team with no config is never replaced by some other team");
+// A bad link, or a team removed after someone bookmarked it. Nobody is
+// handed Notre Dame (or any team) they did not choose (decision 0016).
 var gone = run({ search: "?team=alabama", missing: ["teams/alabama.js"] });
-eq(gone.team, "notre-dame", "the page ends up on the default rather than an app with no team");
-eq(gone.store["iw-team"], "notre-dame", "and the bad choice is not left stored to fail again tomorrow");
+eq(gone.team, "", "with no team of their own, the fan gets the chooser, not a default team");
+ok(gone.attrs["data-choosing"] === "", "the page is in the chooser's state");
+ok(gone.injected.indexOf("chooser.js") !== -1 && gone.injected.indexOf("app.js") === -1,
+   "the chooser loads, and no team app does");
+ok(!("iw-team" in gone.store), "and the bad id is not left stored to fail again tomorrow");
+eq(gone.meta["theme-color"], "#0B1F3A", "the browser chrome is the chooser's header, not a team's");
 eq(gone.injected.filter(function (s) { return /^teams\/[a-z-]+\.js$/.test(s); }),
-   ["teams/alabama.js", "teams/index.js", "teams/notre-dame.js"],
-   "the default's config is loaded after the failure");
-var stillND = run({ storage: { "iw-team": "notre-dame" }, missing: ["teams/notre-dame.js"] });
-eq(stillND.team, "notre-dame", "the default failing has nowhere to fall back to, and does not loop");
+   ["teams/alabama.js", "teams/index.js"], "no other team's config is fetched");
+var mine = run({ search: "?team=alabama", storage: { "iw-team": "ohio-state" }, missing: ["teams/alabama.js"] });
+eq(mine.team, "ohio-state", "a fan with a team who follows a bad link lands on their own team");
+eq(mine.store["iw-team"], "ohio-state", "and keeps it stored");
+ok(mine.injected.indexOf("chooser.js") === -1 && mine.injected.indexOf("app.js") !== -1, "their app loads, not the chooser");
+var both = run({ search: "?team=alabama", storage: { "iw-team": "texas" }, missing: ["teams/alabama.js", "teams/texas.js"] });
+eq(both.team, "", "if their own team has no config either, the chooser - and no loop");
+ok(both.injected.filter(function (s) { return s === "chooser.js"; }).length === 1, "the chooser loads once");
+var storedGone = run({ storage: { "iw-team": "texas" }, missing: ["teams/texas.js"] });
+eq(storedGone.team, "", "a stored team whose config is gone: the chooser");
+ok(!("iw-team" in storedGone.store), "and it is forgotten");
 
 console.log(" and it is remembered");
 eq(run({ search: "?team=ohio-state" }).store["iw-team"], "ohio-state", "the choice is stored");
@@ -233,12 +250,12 @@ console.log(" app.js waits for the team config, not just the DOM");
 // asynchronously, so the fallback config is injected LATER than everything
 // else. If app.js went in at DOMContentLoaded it could parse before
 // TEAM_CONFIG existed and throw. It waits for both, in either order.
-var raced = run({ search: "?team=alabama", missing: ["teams/alabama.js"] });
+var raced = run({ search: "?team=alabama", storage: { "iw-team": "notre-dame" }, missing: ["teams/alabama.js"] });
 var iFallback = raced.injected.indexOf("teams/notre-dame.js");
 var iApp      = raced.injected.indexOf("app.js");
 ok(iFallback !== -1 && iApp !== -1, "both the fallback config and app.js are loaded");
 ok(iFallback < iApp, "and app.js goes in after the config it needs, not before");
-var domLast = run({ search: "?team=alabama", missing: ["teams/alabama.js"], domFirst: false });
+var domLast = run({ search: "?team=alabama", storage: { "iw-team": "notre-dame" }, missing: ["teams/alabama.js"], domFirst: false });
 ok(domLast.injected.indexOf("teams/notre-dame.js") < domLast.injected.indexOf("app.js"),
    "the same when the DOM is the thing that arrives last");
 eq(run({ readyState: "complete", search: "?team=ohio-state" }).injected.slice(-1), ["app.js"],
@@ -250,9 +267,9 @@ console.log("it keeps no team list of its own");
 ok(!/var TEAMS\s*=/.test(BOOT), "no TEAMS array");
 var names = (BOOT.match(/"[a-z][a-z0-9-]{2,}"/g) || [])
   .map(function (q) { return q.replace(/"/g, ""); })
-  .filter(function (n) { return n !== "notre-dame" && !/^(iw-|--|team$|script$)/.test(n); });
+  .filter(function (n) { return !/^(iw-|--|team$|script$)/.test(n); });
 ok(names.every(function (n) { return !fs.existsSync(path.join(root, "teams", n + ".js")); }),
-   "and names no team config but the default's, which it needs to fall back to");
+   "and names no team at all - there is no default team to fall back to");
 
 console.log("the static page belongs to no team");
 // Before any script runs, the page a fan sees must not be somebody's: an Ohio

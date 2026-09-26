@@ -60,17 +60,17 @@
 <script id="team-boot">
 (function(){
   "use strict";
-  var DEFAULT  = "notre-dame";                  // until a fan has chosen; 7C replaces this with the chooser
   var ID       = /^[a-z0-9-]+$/;                // an id becomes a file path, so it is shape-checked here
   var TEAM_KEY = "iw-team", BOOT_KEY = "iw-boot-";
 
   function get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
   function set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+  function forget(k){ try { localStorage.removeItem(k); } catch(e){} }
 
-  // The URL wins, then the last choice this browser made, then the default.
-  // There is deliberately NO list of known teams here: teams/index.js is the
-  // one registry (decision 0014), and it has not loaded yet. An id that names
-  // no config simply fails to load, and onerror below falls back - which also
+  // The URL wins, then the last choice this browser made. There is
+  // deliberately NO list of known teams here: teams/index.js is the one
+  // registry (decision 0014), and it has not loaded yet. An id that names no
+  // config simply fails to load, and onerror below recovers - which also
   // covers a team removed from the registry after someone bookmarked it.
   var asked = null;
   try { asked = new URLSearchParams(location.search).get("team"); } catch(e){}
@@ -96,7 +96,10 @@
   var current = null;
   if (changing && id && !asked) { current = id; choosing = true; }
 
-  if (!choosing && id !== get(TEAM_KEY)) set(TEAM_KEY, id);
+  // The team this browser had before a link asked for another: where a bad
+  // link falls back to, so following one never costs a fan their team.
+  var previous = get(TEAM_KEY);
+  if (!choosing && id !== previous) set(TEAM_KEY, id);
   document.documentElement.setAttribute("data-team", choosing ? "" : id);
   if (current) document.documentElement.setAttribute("data-current-team", current);
 
@@ -109,8 +112,8 @@
   var suiteStyle = get("suite-style") === "suite";
   try { saved = choosing ? null : JSON.parse(get(suiteStyle ? "iw-boot:suite" : BOOT_KEY + id) || "null"); } catch(e){}
   // The browser chrome, decided once at the end. iOS takes theme-color at
-  // first paint and keeps it, so it must never be left pointing at the
-  // DEFAULT team's colour when this page is some other team
+  // first paint and keeps it, so it must never be left pointing at one
+  // team's colour when this page is some other team
   // (docs/engineering/first-paint-team-tokens.md). Preference: what the team
   // stored, then the header colour we actually applied, then the neutral; on
   // the chooser, the Suite's own header. A value that is not a plain hex
@@ -166,22 +169,36 @@
     inject("app.js");
   }
 
-  function loadTeam(tid, mayFallBack){
+  // No team to show after all: the chooser, as for a first visit (decision
+  // 0016). The id that failed is not kept, so it does not fail again.
+  function choose(){
+    forget(TEAM_KEY);
+    document.documentElement.setAttribute("data-team", "");
+    document.documentElement.setAttribute("data-choosing", "");
+    if (meta) meta.setAttribute("content", "#0B1F3A");   // --s-chrome, the chooser's header
+    inject("chooser.js");
+  }
+
+  function loadTeam(tid, fallback){
     inject("teams/" + tid + ".js",
       function(){                               // no config under that id
-        if (!mayFallBack) return;               // the default itself is missing; stop rather than loop
-        set(TEAM_KEY, DEFAULT);
-        document.documentElement.setAttribute("data-team", DEFAULT);
-        loadTeam(DEFAULT, false);
+        if (fallback && fallback !== tid && ID.test(fallback)) {
+          set(TEAM_KEY, fallback);              // the fan's own team, not a bad link's
+          document.documentElement.setAttribute("data-team", fallback);
+          loadTeam(fallback, null);
+        } else {
+          choose();                             // never another team's page instead
+        }
       },
       function(){ teamReady = true; start(); });
   }
 
   // The team's config first, because app.js reads TEAM_CONFIG as it parses.
-  // A missing one falls back to the default rather than loading an
-  // application with no team. This is what replaces a hard-coded list of
-  // known teams: the file system is the list (decision 0014).
-  if (!choosing) loadTeam(id, id !== DEFAULT);
+  // A missing one is never replaced by some default team: the fan's own
+  // stored team if a link asked for another, otherwise the chooser. This is
+  // what replaces a hard-coded list of known teams: the file system is the
+  // list (decision 0014).
+  if (!choosing) loadTeam(id, previous);
 
   // The registry and TeamOS load either way - the chooser needs them too.
   ["teams/index.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
