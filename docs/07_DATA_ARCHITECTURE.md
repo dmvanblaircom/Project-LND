@@ -19,7 +19,7 @@ Game[]                     docs/03_DOMAIN_MODEL.md — provider-neutral, team-pe
 app.js / Suite             S.games, S.next, hero, schedule rows, Game tab selection, prefetch
 ```
 
-Transport and caching stay in the application layer for now. `app.js` asks the adapter for the URL (`TeamOS.espn.scheduleUrl()`), fetches it with its own `get()`, paints first from the service worker's cached copy (`cachedJSON()`), records staleness from the `X-IW-Cached` header, and polls during live games. The adapter only ever sees the JSON. Because the URL is produced by the adapter but unchanged in shape, the service worker's data cache and the cache-first paint keep matching.
+Transport and caching stay in the application layer for now. `app.js` asks the adapter for the URL (`TeamOS.espn.scheduleUrl()`), fetches it with its own `get()`, paints first from the service worker's cached copy (`cachedJSON()`), records staleness from the `X-IW-Cached` header, and polls during live games. The adapter only ever sees the JSON. The service worker's data cache and the cache-first paint are keyed on the URL the adapter produces. A season is two requests since backlog C17 (2026-09): ESPN sends bowl and CFP games only when the postseason is asked for (`seasontype=3`), so `app.js` fetches `scheduleUrl()` (`seasontype=2`) and `postseasonUrl()` and hands both to `TeamOS.espn.joinSeason()`. The postseason is optional: when it fails, the last postseason answer stands. The first paint after that change falls back once to the old, typeless URL's cached copy.
 
 ### The roster and team-status paths (Phase 3B)
 

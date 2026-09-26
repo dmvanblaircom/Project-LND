@@ -563,7 +563,7 @@ function rosterModel(route, views){
   return {
     views: views, view: view, unit: route.path[1] || null,
     hasDepth: !!rosterSnap("depth"),
-    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster) : null,
+    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail) : null,
     history: RO.hist, roster: RO.roster, query: RO.q,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
@@ -646,8 +646,9 @@ function seasonYear(){
 
 // Points allowed per game, for one side of the matchup. For the configured
 // team the answer is already on the page - S.games is the whole season - so
-// nothing is fetched. For the opponent it costs one request for their
-// schedule, cached for the session like the stats themselves. A failure
+// nothing is fetched. For the opponent it costs two requests for their
+// schedule - regular season and postseason - cached for the session like the
+// stats themselves; a missing postseason just counts the regular season. A failure
 // resolves to null rather than rejecting: a missing row is better than a
 // missing card.
 var PTS_ALLOWED={};               // side key -> number|null
@@ -657,8 +658,11 @@ function pointsAllowedFor(key, ourGames){
   if(PTS_ALLOWED.hasOwnProperty(key)) return Promise.resolve(PTS_ALLOWED[key]);
   var p = ourGames
     ? Promise.resolve(TeamOS.season.pointsAllowedPerGame(ourGames))
-    : get(TeamOS.espn.teamScheduleUrl(key)).then(function(d){
-        return TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(d, key));
+    : Promise.all([
+        get(TeamOS.espn.teamScheduleUrl(key)),
+        get(TeamOS.espn.teamPostseasonUrl(key)).catch(function(){ return null; })
+      ]).then(function(r){
+        return TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(TeamOS.espn.joinSeason(r[0], r[1]), key));
       }).catch(function(){ return null; });
   return p.then(function(v){ PTS_ALLOWED[key]=v; return v; });
 }
@@ -1073,7 +1077,7 @@ function warmTabs(){
   // The scoreboard goes first: Top 25 draws from it, and it decides whether
   // the live poller should run. It is 95KB on the wire, which is why it is
   // here and not in load() competing with the schedule for first paint.
-  var jobs=[function(){ getScoreboard().catch(function(){}); },
+  var jobs=[function(){ getScoreboard().then(scoreboardArrived).catch(function(){}); },
             function(){ loadRosterScreen(false, true); }, loadNews, prefetchSummaries];
   jobs.forEach(function(fn,i){
     setTimeout(function(){
@@ -1109,6 +1113,17 @@ function getScoreboard(maxAgeMs){
   });
   SB.p.then(function(){ SB.p=null; }, function(){ SB.p=null; });
   return SB.p;
+}
+
+// The first scoreboard of a visit lands after the schedule has painted. It
+// is the only source of this week's opponent's record and rank (a team's
+// schedule has them only for games already played), so reconcile and
+// repaint the surfaces that show them.
+function scoreboardArrived(){
+  if(!S.games || !SB.games) return;
+  S.games=TeamOS.live.reconcileAll(S.games, SB.games);
+  if(S.next) S.next=S.games.filter(function(g){ return g.id===S.next.id; })[0] || S.next;
+  paintHome(); paintGame(); paintScheduleScreen();
 }
 
 function somethingLive(){
@@ -1209,15 +1224,19 @@ function retrySchedule(){
   SC.retrying=true;
   refreshSchedule(true).then(function(){ SC.retrying=false; });
 }
+// The last postseason answer. The postseason is a second request that is
+// usually empty; when it fails, the games it last returned stay on screen
+// rather than a bowl game vanishing until the next poll.
+var POST=null;
 function refreshSchedule(first){
-  var url=TeamOS.espn.scheduleUrl(TEAM_CONFIG);
+  var url=TeamOS.espn.scheduleUrl(TEAM_CONFIG), postUrl=TeamOS.espn.postseasonUrl(TEAM_CONFIG);
   var announce=first && !S.games;      // only the very first paint is news
 
   // Everything that turns a schedule payload into pixels. Runs twice on a
   // repeat visit: once from the worker's cache the instant the page opens,
   // then again when ESPN answers.
   function apply(d){
-    var games=TeamOS.espn.schedule(d, TEAM, TEAM_CONFIG);
+    var games=TeamOS.espn.schedule(TeamOS.espn.joinSeason(d, POST), TEAM, TEAM_CONFIG);
     // The scoreboard is the league's live feed and the schedule is a season
     // list; where they describe the same game, the scoreboard is what is
     // happening now. Reconciling here means every surface fed by S.games -
@@ -1237,14 +1256,19 @@ function refreshSchedule(first){
   }
   var painted=false;
   if(first){
-    cachedJSON(url).then(function(d){
+    // Until 2026-09 the regular season was fetched without a season type;
+    // a fan's offline copy from then is under that URL. Bridges one update.
+    var kept=cachedJSON(url).catch(function(){ return cachedJSON(url.split("?")[0]); });
+    Promise.all([kept, cachedJSON(postUrl).catch(function(){ return null; })]).then(function(r){
       if(S.games) return;              // the network beat the cache; nothing to do
-      apply(d); painted=true;
+      if(!POST) POST=r[1];
+      apply(r[0]); painted=true;
     }).catch(function(){});
   }
 
-  return get(url, hasEvents).then(function(d){
-    var games=apply(d);
+  var post=get(postUrl, hasEvents).then(function(d){ POST=d; }).catch(function(){});
+  return Promise.all([get(url, hasEvents), post]).then(function(r){
+    var games=apply(r[0]);
     // A game under way before the first scoreboard tick: fetch it now, so
     // Home's hero has the clock, the ball and the down from the start.
     if(!SB.games && games.some(TeamOS.game.underWay)){

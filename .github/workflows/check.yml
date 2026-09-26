@@ -93,6 +93,9 @@ jobs:
       # the team precached and the old data carried over; a first install
       # reloads nothing.
       - run: node tools/upgradecheck.js
+      # Bowl and CFP games reach the schedule: two season types, joined; a
+      # failed postseason never costs the regular season (backlog C17).
+      - run: node tools/postseasoncheck.js
       - uses: actions/upload-artifact@v4
         if: always()
         with:

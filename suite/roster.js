@@ -104,7 +104,9 @@ Suite.roster = (function () {
         rows.push('<li class="ro-row' + (lv.level === 1 ? " first" : "") + '">' +
           '<span class="ro-lvl">' + (i ? '<span class="ro-or">or</span>' : esc(LEVEL[lv.level] || lv.level)) + "</span>" +
           '<span class="ro-no">' + esc(p.no) + "</span>" + photo(p) +
-          '<span class="ro-who"><span class="sr-only">' + esc(said) + '</span><span class="ro-name">' + esc(p.name) + "</span>" +
+          '<span class="ro-who"><span class="sr-only">' + esc(said) + '</span><span class="ro-name">' + esc(p.name) +
+            (p.out ? ' <abbr class="ro-out" title="' + (p.out === "out-season" ? "Out for the season" : "Out for the game") + '">O</abbr>' +
+                     '<span class="sr-only"> (' + (p.out === "out-season" ? "out for the season" : "out for the game") + ")</span>" : "") + "</span>" +
             (town(p.hometown) ? '<span class="ro-town">' + esc(town(p.hometown)) + "</span>" : "") + bio(p) + "</span>" +
           '<span class="ro-ht">' + esc(p.height) + '</span><span class="ro-wt">' + esc(weight(p.weight)) + '</span><span class="ro-cl">' + esc(p.classYear) + "</span>" +
           "</li>");

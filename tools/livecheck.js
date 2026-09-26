@@ -227,5 +227,30 @@ function run(teamFile, teamLabel, ourName, oppName) {
 run("notre-dame.js", "Notre Dame", "Notre Dame", "Kent State");
 run("ohio-state.js", "Ohio State", "Ohio State", "Kent State");
 
+// This week's opponent has no record in the team's schedule (ESPN gives
+// records there only for games played); the week's scoreboard has it. Real
+// payloads: ND's schedule on Sep 24, the Sep 26 scoreboard (2026-09-26,
+// Purdue's record missing on Home and Game).
+(function () {
+  console.log("\n=== this week's records, from the scoreboard (real payloads) ===");
+  var ctx = makeContext("notre-dame.js");
+  var games = vm.runInContext("TeamOS.espn.schedule(" + read("tools/fixtures/espn-schedule-nd-sep24.json") + ", TEAM, TEAM_CONFIG)", ctx);
+  var board = vm.runInContext("TeamOS.espn.scoreboard(" + read("tools/fixtures/espn-scoreboard-sep26.json") + ", TEAM_CONFIG)", ctx);
+  var pur = games.filter(function (g) { return g.id === "401858467"; })[0];
+  ok(pur && !pur.oppRecord, "the schedule has no record for Purdue this week");
+  var after = ctx.TeamOS.live.reconcileAll(games, board).filter(function (g) { return g.id === "401858467"; })[0];
+  ok(after.oppRecord === "1-2", "the scoreboard gives it: Purdue " + after.oppRecord);
+  ok(after.usRecord === "3-0", "and ours: " + after.usRecord);
+  var msu = games.filter(function (g) { return g.oppName === "Michigan St"; })[0];
+  var msuAfter = ctx.TeamOS.live.reconcileAll(games, board).filter(function (g) { return g.id === msu.id; })[0];
+  ok(msuAfter.oppRecord === msu.oppRecord, "a game the scoreboard does not carry keeps its own record (" + msu.oppRecord + ")");
+  var withRec = Object.assign({}, pur, { oppRecord: "9-9" });
+  ok(ctx.TeamOS.live.reconcile(withRec, board.filter(function (l) { return l.id === "401858467"; })[0]).oppRecord === "9-9",
+     "a record the game already has is never overwritten");
+  ctx.__g = after;
+  var hero = vm.runInContext("heroOf(__g, new Date('2026-09-26T16:00:00Z'))", ctx);
+  ok(/1-2/.test(hero), "Home's hero shows Purdue's 1-2");
+})();
+
 console.log("\n" + (failures ? failures + " surface check(s) FAILED" : "every surface agrees"));
 process.exit(failures ? 1 : 0);

@@ -71,6 +71,22 @@ var dt2 = dc.units.filter(function (u) { return u.unit === "Defense"; })[0].slot
 eq([dt2.name, dt2.open, dt2.levels[0].players.length], ["Defensive Tackle 2", true, 2], "two DTs are two spots; a first-team OR is an open job");
 eq(R.depth(null, groups), null, "no chart, nothing");
 
+console.log("who is out, on the depth chart (the report for the chart's game)");
+var report = JSON.parse(read("data/notre-dame/availability.json"));
+var dcOut = R.depth(chart, groups, report), outs = [];
+dcOut.units.forEach(function (u) { u.slots.forEach(function (s) { s.levels.forEach(function (l) { l.players.forEach(function (p) {
+  if (p.out) outs.push(p.name + "=" + p.out); }); }); }); });
+ok(outs.indexOf("Luke Talich=out-game") > -1, "Luke Talich, the listed starter at FIELD, is marked out for the game (" + outs.join(", ") + ")");
+ok(outs.every(function (o) { var n = o.split("=")[0];
+  return report.players.some(function (p) { return p.name === n && /^out-/.test(p.status); }); }), "only players the report lists as out are marked");
+ok(entries.every(function (p) { return !p.out; }), "without the report, nobody is marked");
+var other = JSON.parse(JSON.stringify(report)); other.game = "vs Navy";
+ok(R.depth(chart, groups, other).units.every(function (u) { return u.slots.every(function (s) { return s.levels.every(function (l) {
+  return l.players.every(function (p) { return !p.out; }); }); }); }), "a report for another game marks nobody");
+var none = JSON.parse(JSON.stringify(report)); none.reported = false;
+ok(R.depth(chart, groups, none).units[0].slots.every(function (s) { return s.levels.every(function (l) {
+  return l.players.every(function (p) { return !p.out; }); }); }), "no report out yet marks nobody");
+
 console.log("availability, from the official report");
 var rep = JSON.parse(read("data/notre-dame/availability.json"));
 var av = R.availability(rep, groups);

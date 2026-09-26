@@ -49,8 +49,11 @@ ok(typeof ctx.window === "undefined" && typeof ctx.fetch === "undefined", "ran w
 // ---- URL ----
 console.log("scheduleUrl");
 eq(TeamOS.espn.scheduleUrl(TEAM_CONFIG),
-   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/87/schedule",
-   "matches the URL the page has always fetched (SW cache key)");
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/87/schedule?seasontype=2",
+   "the regular season, asked for by type (the SW cache key; app.js bridges the old, typeless one)");
+eq(TeamOS.espn.postseasonUrl(TEAM_CONFIG),
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/87/schedule?seasontype=3",
+   "the postseason is its own request: ESPN never sends bowls with the regular season");
 
 // ---- schedule ----
 var team = TeamOS.createTeam(TEAM_CONFIG.team);
@@ -419,10 +422,34 @@ ok(!/competitions|competitors|displayValue|homeAway/.test(JSON.stringify(lines))
 
 console.log("teamScheduleUrl");
 eq(TeamOS.espn.teamScheduleUrl("194"),
-   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194/schedule",
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194/schedule?seasontype=2",
    "the same URL shape as the configured team's, for a team with no config");
 eq(TeamOS.espn.teamScheduleUrl(TEAM_CONFIG.sources.espn.teamId), TeamOS.espn.scheduleUrl(TEAM_CONFIG),
    "and it agrees with scheduleUrl for the configured team (SW cache key)");
+eq(TeamOS.espn.teamPostseasonUrl(TEAM_CONFIG.sources.espn.teamId), TeamOS.espn.postseasonUrl(TEAM_CONFIG),
+   "so does the postseason");
+
+// ---- joinSeason: one season from two requests (real 2024 payloads) ----
+console.log("joinSeason");
+var reg24 = JSON.parse(read("tools/fixtures/espn-schedule-nd-2024-default.json"));
+var post24 = JSON.parse(read("tools/fixtures/espn-schedule-nd-2024-post.json"));
+var post25 = JSON.parse(read("tools/fixtures/espn-schedule-nd-2025-post.json"));
+ok(reg24.events.every(function (e) { return e.seasonType.type === 2; }) &&
+   post24.events.every(function (e) { return e.seasonType.type === 3; }),
+   "the captures agree: the regular season carries no bowls, the postseason nothing else");
+var season24 = TeamOS.espn.schedule(TeamOS.espn.joinSeason(reg24, post24), team, TEAM_CONFIG);
+eq(season24.length, 16, "2024: 12 regular-season games and 4 in the CFP");
+eq(season24.slice(-4).map(function (g) { return g.oppName; }), ["Indiana", "Georgia", "Penn State", "Ohio State"],
+   "the CFP games close the season, in date order");
+ok(season24.every(function (g, i) { return !i || Date.parse(season24[i - 1].date) <= Date.parse(g.date); }), "the whole season is in date order");
+eq(season24[15].state, "post", "the title game is a final like any other");
+eq(TeamOS.espn.joinSeason(reg24, post25).events.length, 12, "a season with no postseason (2025: ND played no bowl) is the regular season");
+eq(TeamOS.espn.joinSeason(reg24, null).events.length, 12, "a postseason that did not load is the regular season");
+eq(TeamOS.espn.joinSeason(null, post24).events.length, 4, "and the other way round");
+eq(TeamOS.espn.joinSeason(reg24, reg24).events.length, 12, "an event both payloads carry is kept once");
+eq(TeamOS.espn.joinSeason(null, null), { events: [] }, "nothing -> an empty season, not an error");
+eq(TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(TeamOS.espn.joinSeason(reg24, post24), "87")),
+   TeamOS.season.pointsAllowedPerGame(season24), "points allowed counts the postseason, for us and for an opponent alike");
 
 // ---- teamos/season.js: what a team's own results already answer ----
 console.log("teamos/season.js");
@@ -499,7 +526,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","mark","news","newsUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamScheduleUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
 
 console.log("mark");

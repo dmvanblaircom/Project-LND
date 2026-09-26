@@ -77,6 +77,14 @@ TeamOS.live = (function () {
     // A score of "0" is a score. Only an absent one leaves what was there.
     if (mine && mine.score != null) out.us = mine.score;
     if (theirs && theirs.score != null) out.them = theirs.score;
+    // Records and ranks: a team's schedule carries them only for games
+    // already played, so this week's opponent has none there. The week's
+    // scoreboard does. It fills a gap; it never overwrites what the game
+    // already says.
+    if (!out.usRecord && mine && mine.record) out.usRecord = mine.record;
+    if (!out.oppRecord && theirs && theirs.record) out.oppRecord = theirs.record;
+    if (out.usRank == null && mine && mine.rank != null) out.usRank = mine.rank;
+    if (out.oppRank == null && theirs && theirs.rank != null) out.oppRank = theirs.rank;
 
     // won is only knowable once it is over, and only from two real scores.
     if (lg.state === "post" && out.us != null && out.them != null) {
