@@ -120,3 +120,8 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Home's news has turned over to post-game coverage ("Notre Dame puts it on EASY MODE with a 49-10 win over Purdue", One Foot Down, 1 hour ago).
 - Top 25: Oklahoma 38-6 (4th), Ole Miss-Florida, Utah-Iowa State, Iowa-Michigan (4th), Houston-Georgia Southern, Wisconsin-Penn State (2nd) live; scores match.
 - New items: none.
+
+### 22:46Z (6:46 PM ET) - evening games
+
+- **Automated checks: clean.** Seven ranked games live (Central Michigan-Miami kicked off; Wisconsin-Penn State at the half); five final; scores match the scoreboard.
+- New items: none.
