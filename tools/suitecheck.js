@@ -97,7 +97,9 @@ ok(MS.ui.STYLE.colors.accentText !== MS.ui.STYLE.colors.accent, "Suite Style's w
 
 var m = mhost(); MS.more.menu(m);
 eq((m.innerHTML.match(/class="mo-title">([^<]+)/g) || []).map(function (x) { return x.replace(/.*>/, ""); }),
-   ["News", "Schedule", "Settings", "Feedback", "About Suite"], "More lists its five destinations in the reference's order");
+   ["News", "Schedule", "Settings", "Feedback", "Share Suite", "About Suite"], "More lists its five destinations and Share Suite, in order");
+ok(/<button type="button" class="mo-row" data-share>/.test(m.innerHTML) && /role="status" data-share-note/.test(m.innerHTML),
+   "Share Suite is a button (an action, not a destination), with a status line for what it did");
 
 var st = mhost();
 MS.more.settings(st, { team: { name: "Notre Dame", mark: "" }, changeHref: "/?change", style: "team", updatedAt: null, refreshing: false, online: true });

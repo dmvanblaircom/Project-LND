@@ -40,7 +40,9 @@ Suite.more = (function () {
     // a cog: eight square teeth round a hub (catch-up review 1.6)
     settings: icon('<path d="M9.3 5.5 L10.2 5.2 L10.2 3.0 L13.8 3.0 L13.8 5.2 L14.7 5.5 L15.5 5.9 L17.1 4.4 L19.6 6.9 L18.1 8.5 L18.5 9.3 L18.8 10.2 L21.0 10.2 L21.0 13.8 L18.8 13.8 L18.5 14.7 L18.1 15.5 L19.6 17.1 L17.1 19.6 L15.5 18.1 L14.7 18.5 L13.8 18.8 L13.8 21.0 L10.2 21.0 L10.2 18.8 L9.3 18.5 L8.5 18.1 L6.9 19.6 L4.4 17.1 L5.9 15.5 L5.5 14.7 L5.2 13.8 L3.0 13.8 L3.0 10.2 L5.2 10.2 L5.5 9.3 L5.9 8.5 L4.4 6.9 L6.9 4.4 L8.5 5.9Z"/><circle cx="12" cy="12" r="3"/>'),
     feedback: icon('<path d="M4.5 5.5h15a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4.5 3.5v-3.5h-1a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"/>'),
-    about:    icon('<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6h.01"/>')
+    about:    icon('<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6h.01"/>'),
+    // the share sheet's own glyph: an arrow up out of an open box
+    share:    icon('<path d="M12 14.5V3.5M8 7.5l4-4 4 4"/><path d="M8.5 10.5H6.5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-2"/>')
   };
 
   // Paint only when something changed, so a background refresh never
@@ -58,15 +60,21 @@ Suite.more = (function () {
     { id: "schedule", href: "#schedule", title: "Schedule",    sub: "Season schedule, results, and game details" },
     { id: "settings", href: "#settings", title: "Settings",    sub: "Manage your app preferences" },
     { id: "feedback", href: "#feedback", title: "Feedback",    sub: "Share your thoughts and help us improve" },
+    { id: "share",    action: "share",   title: "Share Suite", sub: "Text a friend a link to join you" },
     { id: "about",    href: "#about",    title: "About Suite", sub: "Product info and data sources" }
   ];
 
+  // A destination is a link; Share Suite is an action (the phone's share
+  // sheet, or the link copied), so it is a button, and says what it did in
+  // the status line under the list.
   function menu(host) {
     put(host, "menu", '<ul class="mo-list card" aria-label="More">' + MENU.map(function (x) {
-      return '<li><a class="mo-row" href="' + x.href + '"><span class="mo-badge">' + ICONS[x.id] + "</span>" +
-             '<span class="mo-text"><span class="mo-title">' + esc(x.title) + "</span>" +
-             '<span class="mo-sub">' + esc(x.sub) + "</span></span>" + CHEVRON + "</a></li>";
-    }).join("") + "</ul>");
+      var inner = '<span class="mo-badge">' + ICONS[x.id] + "</span>" +
+                  '<span class="mo-text"><span class="mo-title">' + esc(x.title) + "</span>" +
+                  '<span class="mo-sub">' + esc(x.sub) + "</span></span>";
+      return x.action ? '<li><button type="button" class="mo-row" data-' + x.action + ">" + inner + "</button></li>"
+                      : '<li><a class="mo-row" href="' + x.href + '">' + inner + CHEVRON + "</a></li>";
+    }).join("") + '</ul><p class="mo-note" role="status" data-share-note></p>');
   }
 
   // ---- News ----------------------------------------------------------------

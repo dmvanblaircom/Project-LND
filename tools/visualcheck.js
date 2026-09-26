@@ -515,10 +515,10 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           if (screen === "more") {
             var mo = await page.evaluate(function () {
               return [].map.call(document.querySelectorAll("#screenMore .mo-row"), function (a) {
-                return a.querySelector(".mo-title").textContent + "=" + a.getAttribute("href");
+                return a.querySelector(".mo-title").textContent + "=" + (a.getAttribute("href") || (a.hasAttribute("data-share") ? "share" : "?"));
               }).join("|");
             });
-            if (mo !== "News=#news|Schedule=#schedule|Settings=#settings|Feedback=#feedback|About Suite=#about")
+            if (mo !== "News=#news|Schedule=#schedule|Settings=#settings|Feedback=#feedback|Share Suite=share|About Suite=#about")
               fail(label, "behaviour", ".mo-list", "More lists " + mo);
           }
           if (screen === "news") {

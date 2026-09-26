@@ -1424,6 +1424,33 @@ function lastUpdated(){
     var x=SRC[k]; return x && !x.cached && x.fetchedAt > max ? x.fetchedAt : max;
   }, 0) || null;
 }
+// Share Suite: a line of text and the link to this team's Suite, handed to
+// the phone's share sheet (Messages is one tap from there). Where there is no
+// share sheet, the text is copied to paste into a message; where that is
+// refused too, it opens as a new text message. The link carries the team, so
+// a friend lands on the same Suite, not the chooser.
+function shareSuite(){
+  var url=location.origin+location.pathname+"?team="+encodeURIComponent(TEAM.id);
+  var text="Join me in my "+TEAM.name+" Suite";
+  var note=document.querySelector("[data-share-note]");
+  // Said twice: in the status line (announced) and on the row itself, which
+  // is where the eye is when the status line sits below the fold.
+  var sub=document.querySelector("[data-share] .mo-sub"), was=sub && sub.textContent;
+  function say(t){ if(note) note.textContent=t; if(sub && t){ sub.textContent=t; setTimeout(function(){ sub.textContent=was; }, 4000); } }
+  say("");
+  if(navigator.share){
+    navigator.share({ title:"Suite", text:text, url:url }).catch(function(){});
+    return;
+  }
+  var both=text+": "+url;
+  function sms(){ location.href="sms:?&body="+encodeURIComponent(both); }
+  if(navigator.clipboard && navigator.clipboard.writeText)
+    navigator.clipboard.writeText(both).then(function(){ say("Link copied. Paste it into a text."); }, sms);
+  else sms();
+}
+document.addEventListener("click", function(e){
+  if(e.target.closest && e.target.closest("[data-share]")) shareSuite();
+});
 function feedbackHref(){
   var body=["", "", "—", "Team: "+TEAM.name,
             "Screen: "+(MORE.from ? Suite.nav.title(MORE.from) : "opened Feedback directly"),
