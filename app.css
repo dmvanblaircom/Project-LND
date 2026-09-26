@@ -338,6 +338,13 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gc-clock{font-weight:800;font-size:1.7rem;line-height:1;font-variant-numeric:tabular-nums}
 .gc-mid.is-held .gc-clock{color:var(--s-on-dark-2)}     /* stopped where play stopped */
 .gc-rule{width:1px;height:2.6rem;background:rgba(255,255,255,.32)}
+/* The Game header's football: beside the score of the side with the ball,
+   toward the middle, so the score itself stays centred. */
+.gh-ball{position:absolute;top:50%;width:1.5rem;height:1.5rem;transform:translateY(-50%)}
+.gh-team.us .gh-ball{left:100%;margin-left:.3rem}
+.gh-team.them .gh-ball{right:100%;margin-right:.3rem}
+.gh-ball ellipse{fill:var(--s-football)}
+.gh-ball path{fill:none;stroke:var(--s-on-dark);stroke-width:1.2;stroke-linecap:round}
 .gc-ball{width:1.3rem;height:1.3rem;flex:none;align-self:flex-end;margin-bottom:.35rem}
 .gc-ball ellipse{fill:var(--s-football)}
 .gc-ball path{fill:none;stroke:var(--s-on-dark);stroke-width:1.2;stroke-linecap:round}
@@ -452,7 +459,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gh-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr);align-items:center;gap:.4rem;margin-top:.5rem}
 .gh-team{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
 .gh-team .mark{--mark:3.4rem}
-.gh-score{margin-top:.35rem;font-family:var(--t-font-display);font-weight:800;font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
+.gh-score{position:relative;margin-top:.35rem;font-family:var(--t-font-display);font-weight:800;font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
 .gh-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.02em;text-transform:uppercase}
 .gh-abbr,.fit-abbr .gh-full{display:none}
 .fit-abbr .gh-abbr{display:inline}

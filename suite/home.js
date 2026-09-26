@@ -37,7 +37,7 @@ Suite.home = (function () {
 
   var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg>';
   var EXTERNAL = '<svg class="ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4"/></svg>';
-  var BALL = '<svg class="gc-ball" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="9.5" ry="5.6" transform="rotate(-35 12 12)"/><path d="m9.2 14.8 5.6-5.6M10.6 11.4l2 2M12 10l2 2"/></svg>';
+  var BALL = ui.ball("gc-ball");
 
   function ordinal(p) {
     return p === 1 ? "1st" : p === 2 ? "2nd" : p === 3 ? "3rd" : p === 4 ? "4th" : p > 4 ? (p === 5 ? "OT" : (p - 4) + "OT") : "";

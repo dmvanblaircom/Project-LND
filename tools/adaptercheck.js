@@ -263,7 +263,7 @@ real.forEach(function (p) { ok(!POLLLEAK.test(JSON.stringify(p)), "real " + p.ke
 
 // ---- game center ----
 var GD = ["state","detail","home","away","lastPlay","winProb","linescore","teamStats","leaders","box","scoring","drives"];
-var SIDE = ["key","name","abbreviation","record","score","mine","colors"];
+var SIDE = ["key","name","abbreviation","record","score","mine","possession","colors"];
 // "drives" is the domain's own word now; ESPN's drive keys are what must not leak.
 var GDLEAK = /competitions|competitors|homeAway|shortDetail|situation|yardsToEndzone|possessionText|statYardage|scoringPlay\b|displayResult|winprobability|homeWinPercentage|linescores|boxscore|scoringPlays|athlete|displayValue|shortDisplayName|pickcenter|espn/i;
 var sumPre = JSON.parse(read("tools/fixtures/espn-summary-pre.json"));
@@ -310,7 +310,7 @@ eq(gdPre.drives, null, "no drives before kickoff");
 
 console.log("gameDetail() - pregame");
 eq([gdPre.state, gdPre.detail], ["pre", "Sat, September 19th at 7:30 PM EDT"], "scheduled, long status text");
-eq(gdPre.home, { key:"87", name:"Notre Dame Fighting Irish", abbreviation:"ND", record:"", score:null, mine:true, colors:{ primary:null, alt:null } },
+eq(gdPre.home, { key:"87", name:"Notre Dame Fighting Irish", abbreviation:"ND", record:"", score:null, mine:true, possession:false, colors:{ primary:null, alt:null } },
    "home side: name falls back to displayName, no record or score yet, mine; no colours in the trimmed capture");
 eq(gdPre.away.mine, false, "away side is not ours");
 eq([gdPre.lastPlay, gdPre.winProb, gdPre.linescore, gdPre.box, gdPre.scoring], [null, null, null, null, null], "no play, win prob, linescore, box or scoring before kickoff");
@@ -348,7 +348,7 @@ ok(wisBox.home.concat(wisBox.away).some(function (t) { return t.key === "kickRet
    "a real game's categories read as words: Kick Returns, Defense");
 eq(gdPost.leaders.away[4], { category:"Tackles", name:"M. Posa", line:"15" }, "leader category names are mapped, not ESPN's");
 eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).state, "post", "an empty payload is treated as final (no polling)");
-eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", abbreviation:"", record:"", score:null, mine:false, colors:{ primary:null, alt:null } }, "an empty side");
+eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", abbreviation:"", record:"", score:null, mine:false, possession:false, colors:{ primary:null, alt:null } }, "an empty side");
 
 console.log("seasonStats()");
 var stats = JSON.parse(read("tools/fixtures/espn-season-stats.json"));
