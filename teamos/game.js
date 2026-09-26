@@ -16,6 +16,10 @@
      localDay(date, zone)      a date's calendar day in a zone, "YYYY-MM-DD"
      schedulePreview(games, now, tz)
                                Home's three schedule rows around the hero
+     halftime(game)            live, and between the halves: no clock, and
+                               no one has the ball
+     boardOrder(a, b)          the order of a day's games on a board: live,
+                               then still to come, then final; by kickoff
 
    Display times are the fan's device's (0022 #1); these policies use the
    team's or venue's local calendar where the policy itself is local.
@@ -225,6 +229,23 @@ TeamOS.game = (function () {
     });
   }
   function season(games) { return byDate(games || []); }
+
+  // Halftime: the game is live but between the halves, as the source's
+  // status says ("Halftime"). The clock reads 0:00 and the last down and
+  // distance still stand in the feed, but no one has the ball - every
+  // surface says Halftime and shows no situation (live scan #6, #7).
+  function halftime(g) {
+    return !!g && g.status === "live" && /\bhalf/i.test(g.detail || "");
+  }
+
+  // A board of games (Top 25) reads what is happening now first: within a
+  // day, live games, then those still to come, then finals, each by kickoff
+  // (live scan #10). A league game's state is "in", "pre" or "post".
+  var BOARD = { "in": 0, pre: 1, post: 2 };
+  function boardOrder(a, b) {
+    var ra = BOARD[a.state] != null ? BOARD[a.state] : 1, rb = BOARD[b.state] != null ? BOARD[b.state] : 1;
+    return ra - rb || new Date(a.date) - new Date(b.date);
+  }
   function byDate(list) {
     return list.slice().sort(function (a, b) { return new Date(a.date) - new Date(b.date); });
   }
@@ -232,5 +253,6 @@ TeamOS.game = (function () {
   return { navState: navState, underWay: underWay, lifecycle: lifecycle, hero: hero,
            recentFinal: recentFinal, atmosphere: atmosphere, venueZone: venueZone,
            localDay: localDay, schedulePreview: schedulePreview, results: results, season: season,
+           halftime: halftime, boardOrder: boardOrder,
            NIGHT_FROM: NIGHT_FROM };
 })();
