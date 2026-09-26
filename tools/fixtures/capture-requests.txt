@@ -51,3 +51,9 @@ rankings scan-1947
 401858467 scan-nd-1947
 401856704 scan-x1-1947
 401858465 scan-x2-1947
+scoreboard-20260926 scan-2005
+schedule-87 scan-nd-2005
+rankings scan-2005
+401858467 scan-nd-2005
+401856700 scan-x1-2005
+401858463 scan-x2-2005
