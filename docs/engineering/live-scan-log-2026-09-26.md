@@ -19,10 +19,14 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 
 | # | First seen | Severity | Where | What | Status |
 |---|---|---|---|---|---|
-| 1 | 19:09Z | Warn | Home hero | A ranked team's name is cut with an ellipsis: "#3 NOTRE D…" at 390 (Purdue fits). The Game header's rule is never an ellipsis - it swaps both sides to the abbreviation when either won't fit. Home should follow the same rule. | Open |
-| 2 | 19:09Z | Idea | Game - Last play | The most-read live card shows ESPN's raw play text: "(05:49) Shotgun #13 C.Carr rush left for 1 yard gain to the PUR00 TOUCHDOWN, clock 05:47 #35 S.Porath kick attempt good (H: #39 J.Scaife, LS: #96 J.Vinci)". Already a post-launch item (safe play text); live use says raise its priority. | Open (post-launch item) |
-| 3 | 19:09Z | Idea | Game - Drive Tracker | After a score the card still reads "Notre Dame drive" with the drive's summary but not how it ended. Showing the result ("Touchdown", "Punt") on a finished drive would make the moment between possessions read right. | Open |
-| 4 | 19:09Z | Idea | Game - Scoring plays | ESPN's scoring text keeps its shouting: "(S. Porath KICK)". Same family as #2. | Open (post-launch item) |
+| 1 | 19:09Z | Warn | Home hero | A ranked team's name is cut with an ellipsis: "#3 NOTRE D…" at 390 (Purdue fits). The Game header's rule is never an ellipsis - it swaps both sides to the abbreviation when either won't fit. Home should follow the same rule. | **Approved by David - fix after the ND game** |
+| 2 | 19:09Z | Idea | Game - Last play | The most-read live card shows ESPN's raw play text: "(05:49) Shotgun #13 C.Carr rush left for 1 yard gain to the PUR00 TOUCHDOWN, clock 05:47 #35 S.Porath kick attempt good (H: #39 J.Scaife, LS: #96 J.Vinci)". Already a post-launch item (safe play text); live use says raise its priority. | **Approved by David - fix after the ND game** |
+| 3 | 19:09Z | Idea | Game - Drive Tracker | After a score the card still reads "Notre Dame drive" with the drive's summary but not how it ended. Showing the result ("Touchdown", "Punt") on a finished drive would make the moment between possessions read right. | **Approved by David - fix after the ND game** |
+| 4 | 19:09Z | Idea | Game - Scoring plays | ESPN's scoring text keeps its shouting: "(S. Porath KICK)". Same family as #2. | **Approved by David - fix after the ND game** |
+
+## Approved fix list (after the ND game)
+
+David, 2026-09-26 ~3:15 PM ET: items #1-#4 approved, to be fixed once Notre Dame at Purdue is final - one PR, the full suite, merged and verified in production like today's fixes. #2 and #4 (play text) keep the standing rule: normalize only what structured fields support safely; no free-text rewrite that could change what a play says.
 
 ## Scans
 
