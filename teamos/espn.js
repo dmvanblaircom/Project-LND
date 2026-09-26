@@ -240,8 +240,8 @@ TeamOS.espn = (function () {
   /* ---------- roster ---------- */
   // ESPN labels its groups with raw camelCase keys like "specialTeam". Map the
   // ones college football actually uses; title-case anything unexpected.
-  var GROUP_LABEL={ offense:"Offense", defense:"Defense", specialteam:"Special",
-                    specialteams:"Special", injuredreserve:"Injured",
+  var GROUP_LABEL={ offense:"Offense", defense:"Defense", specialteam:"Special Teams",
+                    specialteams:"Special Teams", injuredreserve:"Injured",
                     practicesquad:"Practice", suspended:"Suspended" };
   function groupLabel(key, fallback){
     var k=String(key||"").toLowerCase();

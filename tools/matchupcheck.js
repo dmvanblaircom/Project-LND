@@ -9,8 +9,10 @@
    the rows in order, the derived row filled, the national rank shown only
    where one exists, and the better-rank marker landing on the better rank.
 
-   It lifts the real render functions out of app.js into a bare Node scope -
-   no browser, no network - and reads back the HTML they produced.
+   It loads the real Game screen (suite/game.js) into a bare Node scope - no
+   browser, no network - paints a pregame game with the preview app.js
+   builds, and reads back the Matchup card it produced. withPointsAllowed,
+   which joins the derived row on, is lifted out of app.js.
 
    Usage:  node tools/matchupcheck.js
    Exit status is 1 if anything fails, so it can gate a push. */
@@ -27,7 +29,7 @@ function ok(cond, what) {
 }
 function eq(a, b, what) { ok(JSON.stringify(a) === JSON.stringify(b), what + " = " + JSON.stringify(b)); }
 
-// ---- the render functions, lifted out of app.js -----------------------
+// ---- the Game screen, and the one app.js helper it is fed through -----
 var app = read("app.js").replace(/\r\n/g, "\n");
 function lift(name) {
   var m = app.match(new RegExp("^function " + name + "\\([^)]*\\)\\{[\\s\\S]*?^\\}", "m"));
@@ -35,36 +37,42 @@ function lift(name) {
   return m[0] + "\n";
 }
 
-var ctx = vm.createContext({ console: console });
-["teams/notre-dame.js", "teamos/team.js", "teamos/season.js", "teamos/espn.js"]
+var ctx = vm.createContext({ console: console, Intl: Intl, Date: Date });
+["teams/notre-dame.js", "teamos/team.js", "teamos/season.js", "teamos/espn.js", "teamos/game.js"]
   .forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
-vm.runInContext(
-  'function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){' +
-  '  return {"&":"&amp;","<":"&lt;",">":"&gt;","\\"":"&quot;"}[c]; }); }', ctx);
-vm.runInContext(lift("renderPreview"), ctx, { filename: "renderPreview" });
+ctx.document = { addEventListener: function () {}, fonts: null };
+ctx.window = { addEventListener: function () {} };
+["suite/ui.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 vm.runInContext(lift("withPointsAllowed"), ctx, { filename: "withPointsAllowed" });
 
-function card(a, b, pa, pb, awayAb, homeAb) {
+// A pregame game, painted the way app.js paints Game before kickoff.
+function card(a, b, pa, pb) {
   ctx.__a = a; ctx.__b = b; ctx.__pa = pa; ctx.__pb = pb;
-  return vm.runInContext(
-    'renderPreview(withPointsAllowed(__a,__pa), withPointsAllowed(__b,__pb), ' +
-    JSON.stringify(awayAb || "ND") + ', ' + JSON.stringify(homeAb || "MSU") + ')', ctx);
+  return vm.runInContext([
+    '(function(){',
+    '  var parts={}, host={ innerHTML:"", querySelector:function(q){',
+    '    if(q==="[data-game]") return host.innerHTML ? {} : null;',
+    '    var k=(/data-game="(\\w+)"/.exec(q)||[])[1]; if(!k) return null;',
+    '    return parts[k]||(parts[k]={ innerHTML:"" }); }, querySelectorAll:function(){ return []; } };',
+    '  var g={ id:"401858453", date:"2026-10-03T19:30:00Z", timeSet:true, home:true, neutral:false,',
+    '          oppName:"Michigan State", oppAbbr:"MSU", status:"scheduled", state:"pre", hasStarted:false };',
+    '  Suite.game.paint(host, { team:{ name:"Notre Dame", abbr:"ND", markUrl:null }, oppMark:function(){ return null; },',
+    '    game:g, detail:null, lifecycle:TeamOS.game.lifecycle(g), view:"details",',
+    '    preview:{ us:withPointsAllowed(__a,__pa), them:withPointsAllowed(__b,__pb) },',
+    '    side:"us", open:{}, weather:null, now:new Date("2026-10-01T12:00:00Z") });',
+    '  return parts.body.innerHTML;',
+    '})()'].join("\n"), ctx);
 }
 
-// Read a rendered card back into rows: label, each side's printed value, the
-// rank text if one was printed, and which side carries the better-rank mark.
+// Read the Matchup card back into rows: label, each side's printed value,
+// the rank text if one was printed, and which side carries the better mark.
 function rowsOf(html) {
-  var out = [], re = /<div class="statrow prev">([\s\S]*?)<\/div>\s*(?=<div class="statrow|<p class="stamp)/g, m;
-  var body = html.replace(/<div class="statrow head">[\s\S]*?<\/div>/, "");
-  re = /<div class="statrow prev">(.*?)<\/div>/g;
-  while ((m = re.exec(body))) {
-    var inner = m[1];
-    var lbl = (inner.match(/<span class="lbl">([^<]*)</) || [])[1];
-    var cells = [];
-    var cre = /<span class="v([^"]*)">([^<]*)(?:<span class="rk2">([^<]*)<\/span>)?/g, c;
-    while ((c = cre.exec(inner))) {
-      cells.push({ value: c[2], rank: c[3] || null, win: / win\b/.test(c[1]) });
-    }
+  var out = [], re = /<li class="mu-row">([\s\S]*?)<\/li>/g, m;
+  while ((m = re.exec(html))) {
+    var inner = m[1], cells = [], c;
+    var cre = /<span class="mu-v (us|them)( better)?"><span class="mu-n">([^<]*)<\/span>(?:<span class="mu-rk">([^<]*)<\/span>)?/g;
+    while ((c = cre.exec(inner))) cells.push({ value: c[3], rank: c[4] || null, win: !!c[2] });
+    var lbl = inner.replace(/<span class="mu-v[\s\S]*?<\/span><\/span>/g, "").replace(/<[^>]*>/g, "").trim();
     out.push({ label: lbl, away: cells[0], home: cells[1] });
   }
   return out;
@@ -125,9 +133,10 @@ eq(zero.length, 8, "week zero: nothing to average, so no row");
 eq(rowsOf(card(ND, OP, 0, 17.5))[1].away.value, "0.0",
    "but a real shutout season prints 0.0 rather than vanishing");
 
-console.log(" the stamp");
-ok(/national rank where one is published/.test(card(ND, OP, ndPA, 24.7)),
-   "says the rank is not on every row");
+console.log(" the card itself");
+var whole = card(ND, OP, ndPA, 24.7);
+ok(/Matchup/.test(whole) && /Season averages/.test(whole), "is the Matchup card, titled and labelled as season averages");
+ok(/<span class="sr-only"> \(better\)<\/span>/.test(whole), "and the better side is said, not only coloured");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the matchup card agrees with the data"));
 process.exit(failures ? 1 : 0);

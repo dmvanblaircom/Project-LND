@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 662 132" width="662" height="132" role="img" aria-labelledby="suite-title suite-desc">
+  <title id="suite-title">Suite</title>
+  <desc id="suite-desc">Custom vector reconstruction of the wide, squared Suite wordmark in the approved reference. Transparent background.</desc>
+  <g fill="#111D35" transform="translate(16 16)">
+    <path d="M134 0H34C11 0 0 11 0 31C0 52 13 62 35 62H95C101 62 104 64 104 69C104 74 101 77 95 77H0V100H99C123 100 134 88 134 68C134 48 122 38 99 38H38C32 38 29 36 29 31C29 26 32 23 38 23H134Z"/>
+    <path d="M150 0H181V63Q181 76 195 76H239Q253 76 253 63V0H284V68Q284 100 252 100H182Q150 100 150 68Z"/>
+    <path d="M300 0H330V100H300Z"/>
+    <path d="M346 0H480V24H429V100H397V24H346Z"/>
+    <path d="M630 0H532Q496 0 496 33V67Q496 100 532 100H630V77H535Q527 77 525 73Q522 70 522 62H630V38H522Q522 30 525 27Q528 23 535 23H630Z"/>
+  </g>
+</svg>

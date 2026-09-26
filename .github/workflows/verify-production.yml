@@ -1,0 +1,45 @@
+# After GitHub Pages deploys main - or on demand - check the live site is
+# serving this release with Suite's identity (tools/prodcheck.js): the
+# worker's VERSION, install icons and sizes, favicons, share image, header
+# wordmark, no TEMPORARY-* asset, and a browser controlled by the new worker.
+# The development environment cannot reach github.io; GitHub's runner can.
+name: Verify production
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Production URL (default: this repository's Pages URL)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  verify:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npx playwright install --with-deps chromium
+      - name: Production URL
+        id: url
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GIVEN: ${{ inputs.url }}
+        run: |
+          url="${GIVEN:-$(gh api "repos/${{ github.repository }}/pages" --jq .html_url 2>/dev/null || true)}"
+          echo "url=${url:-https://dmvanblaircom.github.io/Project-LND/}" >> "$GITHUB_OUTPUT"
+      - run: node tools/prodcheck.js "${{ steps.url.outputs.url }}"

@@ -67,7 +67,8 @@ With 4C every ESPN payload the Suite consumes crosses `teamos/espn.js`, and `app
 TEAM_CONFIG.snapshots  ->  TeamOS.snapshots.get(config, kind)   ->  { file, history?, label? } | null
 loaded snapshot JSON   ->  TeamOS.snapshots.owned(team, json)   ->  true | false
 
-depth.json / depth-history.json  ->  Depth tab (two-deep, injury report, week by week)   or the roster + "No depth chart."
+depth.json / depth-history.json  ->  Depth Chart (slots by level, week by week)        or the roster + "No depth chart."
+availability.json (+ history)    ->  Availability (the official report, dated)         or "not yet available" (decision 0019)
 odds-history.json                ->  sparklines under the odds numbers                    or the numbers alone
 news.json                        ->  beatItem() -> NewsItem[] merged into the News tab    or ESPN alone
 ```

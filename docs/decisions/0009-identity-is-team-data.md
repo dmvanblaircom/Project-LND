@@ -2,7 +2,15 @@
 
 ## Status
 
-Accepted
+Accepted. **Superseded in part** by decision 0024 §11
+(`0024-suite-v1-design-edge-policies.md`): install-level and product-shell
+identity is now Suite's, not the team's. Superseded: one manifest per team, a
+team-specific installed name, installed icons, favicon and default share
+image, runtime swapping of install identity, and Irish Watch / Buckeye Watch
+as separate installed products. Still in force: team identity is data;
+colours, marks, tagline and accents are configuration; contrast is enforced;
+in-app identity is normalized through TeamOS; artwork is optional and
+individually fallible. The record below is left as it was decided.
 
 ## Date
 

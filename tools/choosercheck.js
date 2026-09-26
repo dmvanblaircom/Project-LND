@@ -60,6 +60,7 @@ function render(registry) {
       if (sel === "#teamSearch") return this.input;
       if (sel === ".chooser-count") return this.count;
       if (sel === ".chooser-empty") return this.empty;
+      if (sel === "#soonMore") return this.more;
       throw new Error("stub does not implement " + sel);
     } };
 
@@ -69,7 +70,7 @@ function render(registry) {
     get: function () { return this._html || ""; },
     set: function (html) {
       this._html = html;
-      this.nodes = (html.match(/<(?:ul|h2|li|span)\b[^>]*data-group="[^"]*"[^>]*>/g) || [])
+      this.nodes = (html.match(/<(?:ul|h2|hr|li|span)\b[^>]*data-group="[^"]*"[^>]*>/g) || [])
         .map(function (t) { return node(t); });
       this.input = /id="teamSearch"/.test(html)
         ? { value: "", listeners: {},
@@ -77,17 +78,27 @@ function render(registry) {
         : null;
       this.count = /class="chooser-count"/.test(html) ? node("", "") : null;
       this.empty = /class="chooser-empty"/.test(html) ? node("", "") : null;
+      var mt = (html.match(/<button[^>]*id="soonMore"[^>]*>/) || [])[0];
+      this.more = mt ? (function () {
+        var n = node(mt), attrs = {}, listeners = {};
+        n.textContent = (html.match(/id="soonMore"[^>]*>([^<]*)</) || [, ""])[1];
+        n.getAttribute = function (k) { return k in attrs ? attrs[k] : attr(mt, k); };
+        n.setAttribute = function (k, v) { attrs[k] = v; };
+        n.addEventListener = function (ev, fn) { listeners[ev] = fn; };
+        n.press = function () { listeners.click(); };
+        return n;
+      })() : null;
     }
   });
 
   var removed = [], stored = {}, replaced = null;
 
-  // The Suite furniture that is NOT inside .wrap, which is the only kind the
-  // chooser has to remove by hand - and the kind that survived for a release
-  // because the old code only ever looked inside .page.
+  // The Suite furniture that is NOT inside #main, which is the only kind the
+  // chooser has to remove by hand - the kind that once survived for a release
+  // because the old code only ever looked inside the page.
   var outside = [
-    { sel: ".tabbar", what: "the tab bar" },
-    { sel: '[role="tablist"]', what: "the tab bar" },
+    { sel: ".navbar", what: "the bottom nav" },
+    { sel: "#masthead", what: "the team masthead" },
     { sel: "a.skip", what: "the skip link" }
   ].map(function (f) {
     var node = { what: f.what, sel: f.sel, gone: false, contains: function () { return false; } };
@@ -97,21 +108,19 @@ function render(registry) {
 
   var doc = {
     title: "", readyState: "complete",
-    querySelector: function (sel) {
-      if (sel === ".wrap") return wrap;
-      if (sel === ".page") return { querySelectorAll: function () { return []; } };
-      return null;
-    },
+    querySelector: function (sel) { return null; },
     querySelectorAll: function (sel) {
       return outside.filter(function (n) { return n.sel === sel && !n.gone; });
     },
     getElementById: function (id) {
-      return { parentNode: { removeChild: function () { removed.push(id); } } };
+      if (id === "main") return wrap;
+      return null;
     },
     addEventListener: function () {}
   };
 
-  vm.runInNewContext(read("teamos/registry.js") + "\n" + read("chooser.js"), {
+  vm.runInNewContext(read("teamos/registry.js") + "\n" + read("teamos/espn.js") + "\n" +
+                    read("suite/ui.js") + "\n" + read("chooser.js"), {
     document: doc,
     location: { replace: function (u) { replaced = u; } },
     localStorage: { setItem: function (k, v) { stored[k] = v; },
@@ -127,7 +136,9 @@ function render(registry) {
   var picks = (html.match(/<li[\s\S]*?<\/li>/g) || []).map(function (li) {
     return {
       name: unesc((li.match(/<span class="(?:pick-name|soon-name)">([^<]*)</) || [, ""])[1]),
-      conf: unesc((li.match(/<span class="(?:pick-conf|soon-conf)">([^<]*)</) || [, ""])[1]),
+      nick: unesc((li.match(/<span class="(?:pick-nick|soon-nick)">([^<]*)</) || [, ""])[1]),
+      marked: /<span class="mark /.test(li),
+      markUrl: (li.match(/<img src="([^"]*)"/) || [, null])[1],
       id: attr(li, "data-team"),
       group: attr(li, "data-group"),
       openable: /<button[^>]*class="pick"/.test(li)
@@ -148,7 +159,10 @@ function render(registry) {
 
   return {
     html: html, picks: picks, title: doc.title, removed: removed, stored: stored,
+    outside: outside,
     nodes: wrap.nodes,
+    more: function () { return wrap.more; },
+    shown: function () { return visible().map(function (p) { return p.name; }); },
     search: function (q) {
       if (!wrap.input) throw new Error("no search box was rendered");
       wrap.input.value = q;
@@ -160,7 +174,6 @@ function render(registry) {
         headings: wrap.nodes.filter(function (n) {
           return /^<h2/.test(n.tag) && !n.hidden;
         }).map(function (n) { return n.getAttribute("data-group"); }),
-        note: (wrap.nodes.filter(function (n) { return n.getAttribute("data-note"); })[0] || {}).textContent
       };
     },
     click: function (id) {
@@ -192,7 +205,38 @@ eq(r.picks.filter(function (p) { return p.openable; }).map(function (p) { return
 ok(r.picks.filter(function (p) { return !p.openable; }).length > 0,
    "programs without a config are shown, not hidden");
 ok(REGLIVE.all().length > 100, "the roster is a full FBS one, not a stub");
-eq(r.title, "Pick your team", "the tab says what the page is");
+eq(r.title, "Suite", "no team is chosen yet, so the tab says Suite alone (decision 0024)");
+ok(/<h1 id="chooseHead">Find Your Team<\/h1>/.test(r.html), "the page asks the canonical question");
+ok(/Choose your team to get started\./.test(r.html), "and explains it in a line");
+
+console.log(" Coming Soon opens on twelve, and search still sees all 138 (decision 0024 §4)");
+var rc = render(live.TEAM_REGISTRY);
+var soonAll = rc.picks.filter(function (p) { return !p.openable; }).map(function (p) { return p.name; });
+var openAll = rc.picks.filter(function (p) { return p.openable; }).map(function (p) { return p.name; });
+var rest = rc.shown();
+var restSoon = rest.filter(function (n) { return soonAll.indexOf(n) > -1; });
+eq(restSoon, soonAll.slice(0, 12), "at rest, the first 12 Coming Soon programs, in the list's alphabetical order");
+ok(soonAll.slice(0, 12).every(function (n, i, a) { return i === 0 || a[i - 1].localeCompare(n) <= 0; }),
+   "and that order is alphabetical by display name - neutral, not a ranking");
+eq(rest.filter(function (n) { return openAll.indexOf(n) > -1; }), openAll, "Available Teams are all shown, always");
+var mb = rc.more();
+ok(!!mb && !mb.hidden, "a control offers the rest");
+ok(mb && mb.textContent === "View all coming soon teams", "and says what it does: " + (mb && mb.textContent));
+ok(mb && mb.getAttribute("aria-expanded") === "false" && mb.getAttribute("aria-controls") === "soonList",
+   "it is a disclosure: collapsed, and names the list it controls");
+var last = soonAll[soonAll.length - 1];
+var found = rc.search(last.toLowerCase());
+ok(found.names.indexOf(last) > -1, "searching for a program beyond the preview finds it (" + last + ")");
+ok(mb.hidden, "and the expander steps aside during a search");
+rc.search("");
+eq(rc.shown().filter(function (n) { return soonAll.indexOf(n) > -1; }).length, 12, "clearing the search returns to the preview");
+mb.press();
+eq(rc.shown().filter(function (n) { return soonAll.indexOf(n) > -1; }), soonAll, "expanding shows every Coming Soon program");
+ok(mb.getAttribute("aria-expanded") === "true" && /Show fewer/.test(mb.textContent), "and says it is expanded");
+mb.press();
+eq(rc.shown().filter(function (n) { return soonAll.indexOf(n) > -1; }).length, 12, "collapsing returns to twelve");
+ok(!/data-group="conference"|class="soon"[^>]*>\s*<span class="soon-name">[^<]*Conference/.test(rc.html),
+   "conferences are search terms, never cards");
 
 console.log(" one alphabetical run, not conference sections");
 var names = r.picks.map(function (p) { return p.name; });
@@ -212,15 +256,27 @@ eq(r.picks.filter(function (p) { return p.group === "open"; }).length, REGLIVE.a
 var confs = {};
 REGLIVE.all().forEach(function (t) { confs[t.conference] = true; });
 ok(Object.keys(confs).length > 5, "the roster does span many conferences");
-ok((r.html.match(/<h2/g) || []).length <= 1,
-   "but the page carries at most one heading, not one per conference");
+eq((r.html.match(/<h2/g) || []).length, 2,
+   "two headings - Available Teams and Coming Soon - never one per conference");
 
-console.log(" conference is shown on every program");
-ok(r.picks.every(function (p) { return p.conf; }), "every program prints a conference");
+console.log(" each program shows its nickname; conference stays searchable");
+ok(r.picks.every(function (p) { return p.nick; }), "every program prints a line under its name");
 var nd = r.picks.filter(function (p) { return p.id === "notre-dame"; })[0];
-ok(!!nd && !!nd.conf, "including the ones you can open");
-ok(!/ Conference<\/span>/.test(r.html),
-   "the redundant word is trimmed off the display - 'Big Ten', not 'Big Ten Conference'");
+eq(nd && nd.nick, "Fighting Irish", "an openable program shows its nickname, as the canonical chooser does");
+ok(r.picks.every(function (p) {
+  var t = REGLIVE.all().filter(function (x) { return x.name === p.name; })[0];
+  return !t || !t.nick || p.nick === t.nick;
+}), "and that line is the registry's nickname wherever it has one");
+ok(!/ Conference<\/span>/.test(r.html), "a conference never decorates a row as 'Big Ten Conference'");
+
+console.log(" marks: the programs you can open show theirs");
+r.picks.filter(function (p) { return p.openable; }).forEach(function (p) {
+  ok(p.marked, p.name + " is drawn with its mark");
+  ok(!p.markUrl || /^https:\/\//.test(p.markUrl), p.name + "'s logo, when there is one, is TeamOS's provider URL");
+});
+ok(r.picks.filter(function (p) { return !p.openable; }).every(function (p) { return !p.marked; }),
+   "Coming Soon cards carry no mark - they are a list, not a showcase");
+ok(/class="initials"/.test(r.html), "every mark carries its initials underneath, so a logo that fails is never a broken image");
 
 console.log(" unbuilt programs are not controls");
 // The point of the change. A dimmed button is still a button: it takes a tab
@@ -233,10 +289,11 @@ eq(soonMarkup.length, REGLIVE.all().length - REGLIVE.available().length,
    "every unbuilt program is drawn as a card");
 ok(!soonMarkup.some(function (li) { return /<button|tabindex|role="button"/.test(li); }),
    "and not one of them is a button or takes a tab stop");
-ok(/Coming soon/.test(r.html), "they sit under a heading that says what they are");
-ok(!/Ready now/.test(r.html), "and what you CAN open carries no label - it is the top of the page");
-ok(/aria-label="Programs you can open now"/.test(r.html),
-   "though the list names itself for a screen reader, so it is not anonymous");
+ok(/>Coming Soon</.test(r.html), "they sit under a heading that says what they are");
+ok(/>Available Teams</.test(r.html), "and what you can open sits under its own");
+ok(/aria-labelledby="availHead"/.test(r.html) && /aria-labelledby="soonHead"/.test(r.html),
+   "each list is named by its heading for a screen reader");
+ok(!/\d+ programs?</.test(r.html), "no program count anywhere - a fan wants their team, not a tally");
 
 console.log(" a punctuated name reaches the page as the provider spells it");
 // The id is folded and the search haystack is folded; the NAME is not. What
@@ -265,7 +322,8 @@ ok(!/texasam|hawaii|sanjosestate/.test(
 console.log("search");
 var total = REGLIVE.all().length;
 function hits(q) { return r.search(q).names; }
-eq(hits("").length, total, "an empty box shows every program");
+var resting = REGLIVE.available().length + Math.min(12, total - REGLIVE.available().length);
+eq(hits("").length, resting, "an empty box shows every Available team and the Coming Soon preview");
 eq(hits("notre"), ["Notre Dame"], "a team is found by the start of its name");
 ok(hits("ohio").indexOf("Ohio State") !== -1, "and by a partial first word");
 eq(hits("ohio state"), ["Ohio State"],
@@ -346,25 +404,17 @@ console.log(" what the page says while filtering");
 var hit = r.search("notre");
 eq(hit.count, "1 program matches.", "one match is counted in the singular");
 eq(hit.empty, false, "and nothing says the search failed");
-eq(hit.headings, [], "the Coming soon heading goes when nothing under it matches");
+eq(hit.headings, ["open"], "the Coming Soon heading goes when nothing under it matches");
 var miss = r.search("zzzzz");
 eq(miss.names, [], "a term matching nothing shows nothing");
 eq(miss.count, "No program matches that.", "the count says so");
 eq(miss.empty, true, "and the page says what to try instead");
 var back = r.search("");
-eq(back.names.length, total, "clearing the box brings everything back");
-eq(back.count, total + " programs.", "and the count returns to the resting total");
-eq(back.headings, ["soon"], "as does the heading");
-ok(r.search("akron").headings.indexOf("soon") !== -1,
-   "a search that only hits unbuilt programs keeps their heading");
-var bigTenSoon = REGLIVE.all().filter(function (t) {
-  return /Big Ten/.test(t.conference) && !t.available;
-}).length;
-eq(r.search("big ten").note, bigTenSoon + " programs",
-   "and the heading counts what is left under it, not the resting total");
-eq(r.search("").note,
-   (REGLIVE.all().length - REGLIVE.available().length) + " programs",
-   "clearing the box puts the resting total back");
+eq(back.names.length, resting, "clearing the box brings back the resting list");
+eq(back.count, "", "and the status line goes quiet again - there is no count at rest");
+eq(back.headings, ["open", "soon"], "as do both headings");
+eq(r.search("akron").headings, ["soon"],
+   "a search that only hits unbuilt programs keeps their heading, and drops the other");
 
 console.log(" every program can be found by what it is called");
 // The sweep. Not a fixed list - the roster is generated, so this asks the
@@ -396,18 +446,14 @@ r.picks.filter(function (p) { return p.openable; }).forEach(function (p) {
      p.id + " has a config, so picking it loads a Suite");
 });
 
-console.log(" the Suite's own furniture is not shown");
-// There is no team, so a header, hero, odds strip or tab bar would be
-// somebody's or nobody's. Both are wrong.
-//
-// The tab bar and the skip link are the ones that matter here. Everything
-// else the chooser "removes" lives inside .wrap and would go anyway when the
-// chooser writes its own markup over it; these two are siblings of the page,
-// so nothing removes them unless the chooser does. It did not, for a
-// release, and a fan on the chooser got Home / Top 25 / Game / Depth / News
-// with no team behind any of them.
-ok(r.removed.indexOf("the tab bar") !== -1, "the tab bar is removed, though it is not inside .wrap");
-ok(r.removed.indexOf("the skip link") !== -1, "and so is the skip link, which pointed at a panel that is gone");
+console.log(" the Suite's team furniture is not shown");
+// There is no team, so a masthead or a bottom nav would be somebody's or
+// nobody's. Both are wrong. They are siblings of #main, so nothing removes
+// them unless the chooser does - it once did not, and a fan on the chooser
+// got Home / Top 25 / Game with no team behind any of them.
+ok(r.removed.indexOf("the bottom nav") !== -1, "the bottom nav is removed, though it is not inside #main");
+ok(r.removed.indexOf("the team masthead") !== -1, "and so is the team masthead");
+ok(r.removed.indexOf("the skip link") === -1, "the skip link stays: its target, #main, is still there");
 
 console.log(" it never names a team in its own code");
 var body = read("chooser.js").replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, "");

@@ -1,4 +1,4 @@
-/* Irish Watch service worker.
+/* Suite service worker.
 
    The point is the stadium: bad signal, a page that still opens. Three rules:
 
@@ -17,9 +17,18 @@
    3. Anything else passes straight through.
 
    Bump VERSION whenever the shell changes shape enough that an old cached
-   copy must not linger; the activate step throws away every other cache. */
+   copy must not linger; the activate step throws away every other cache.
 
-var VERSION = "iw-2026-09-24c";
+   AN UPDATE. Rule 1 means the open that finds a new version has already
+   drawn the old one. So a worker that replaces an older one reloads the
+   windows it takes over, once, as soon as it is active - and makes that
+   reload as fast as it can: the fan's team config and the render-blocking
+   font stylesheet are precached with the shell, and the previous version's
+   data and font files are carried over rather than thrown away, so the
+   reloaded page draws from cache with no network wait. A first install
+   reloads nothing: that page is already this version. */
+
+var VERSION = "suite-2026-09-26a";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -29,9 +38,19 @@ var DATA    = VERSION + "-data";
 // - and nothing that is not.
 var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
+  "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js",
   "./teams/index.js",
   "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
-  "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js"
+  "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",
+  "./teamos/game.js", "./teamos/outlook.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js",
+  // Suite's install identity, the same for every team (decision 0024 §11).
+  // The manifest's own icons are read from it at install; these are the ones
+  // only index.html names. tools/identitycheck.js keeps the two lists equal.
+  "./manifest.json",
+  "./assets/suite/favicon.svg", "./assets/suite/favicon-32.png", "./assets/suite/favicon-64.png",
+  "./assets/suite/apple-touch-180.png",
+  // the header's wordmark: part of the shell, so the header draws offline
+  "./assets/suite/suite-wordmark-pearl.svg"
 ];
 
 // Where the worker records which team it has cached, inside the shell cache.
@@ -56,14 +75,118 @@ function addAll(cacheName, files) {
 }
 
 self.addEventListener("install", function (e) {
-  e.waitUntil(addAll(SHELL, SHELL_FILES).then(function () { return self.skipWaiting(); }));
+  // Take over as soon as installed; asked for up front so activation does
+  // not wait on anything after the precache.
+  self.skipWaiting();
+  e.waitUntil(Promise.all([
+    missing(SHELL, SHELL_FILES).then(function (files) { return addAll(SHELL, files); }).then(function () {
+      return Promise.all([cacheManifestIcons("./manifest.json"), cacheFontSheets("./index.html")]);
+    }),
+    adoptPreviousTeam()
+  ]));
 });
+
+// The shell files this version's cache does not hold yet. A second install
+// of the same VERSION (the browser can start one) finds them all and fetches
+// nothing; tools/versioncheck.js makes the same VERSION mean the same shell.
+function missing(cacheName, files) {
+  return caches.open(cacheName).then(function (c) {
+    return Promise.all(files.map(function (f) {
+      return c.match(f).then(function (hit) { return hit ? null : f; });
+    }));
+  }).then(function (list) { return list.filter(Boolean); });
+}
+
+// Older versions' caches, under either naming: what an update replaces.
+function previousCaches() {
+  return caches.keys().then(function (keys) {
+    return keys.filter(function (k) { return /^(iw|suite)-20/.test(k) && k !== SHELL && k !== DATA; });
+  });
+}
+
+// The team an older version was told about is still this browser's team:
+// cache its config now, so the reload after the update needs no network to
+// draw it. The page confirms the team (and its data files) once it runs.
+function adoptPreviousTeam() {
+  return previousCaches().then(function (old) {
+    var shells = old.filter(function (k) { return /-shell$/.test(k); });
+    return shells.reduce(function (found, k) {
+      return found.then(function (mark) {
+        if (mark) return mark;
+        return caches.open(k).then(function (c) { return c.match(TEAM_MARK); })
+          .then(function (r) { return r ? r.json() : null; }).catch(function () { return null; });
+      });
+    }, Promise.resolve(null));
+  }).then(function (mark) {
+    if (!mark || typeof mark.team !== "string" || !/^[a-z0-9-]+$/.test(mark.team)) return null;
+    return addAll(SHELL, ["./teams/" + mark.team + ".js"]).then(function () {
+      return writeMark({ team: mark.team, data: Array.isArray(mark.data) ? mark.data : [] });
+    });
+  }).catch(function () {});
+}
+
+// The stylesheets index.html loads from Google Fonts block the first paint.
+// Cache the ones it names, read from the page itself so there is no second list.
+function cacheFontSheets(pagePath) {
+  return caches.open(SHELL).then(function (c) {
+    return c.match(pagePath).then(function (r) { return r ? r.text() : ""; }).then(function (html) {
+      var urls = [], re = /<link[^>]+href="(https:\/\/fonts\.googleapis\.com\/[^"]+)"[^>]*rel="stylesheet"|<link[^>]+rel="stylesheet"[^>]+href="(https:\/\/fonts\.googleapis\.com\/[^"]+)"/g, m;
+      while ((m = re.exec(html))) urls.push((m[1] || m[2]).replace(/&amp;/g, "&"));
+      return missing(SHELL, urls).then(function (files) { return addAll(SHELL, files); });
+    });
+  }).catch(function () {});
+}
+
+// An update keeps what the fan already had offline: the last good data, and
+// font files (their URLs name their contents, so they are the same bytes).
+function carryOver(old) {
+  return Promise.all(old.map(function (k) {
+    var into = /-data$/.test(k) ? DATA : /-shell$/.test(k) ? SHELL : null;
+    if (!into) return null;
+    return Promise.all([caches.open(k), caches.open(into)]).then(function (cs) {
+      return cs[0].keys().then(function (reqs) {
+        return Promise.all(reqs.map(function (req) {
+          if (into === SHELL && !/^https:\/\/fonts\.gstatic\.com\//.test(req.url)) return null;
+          return cs[1].match(req).then(function (have) {
+            if (have) return null;                     // this version's copy wins
+            return cs[0].match(req).then(function (r) { return r && cs[1].put(req, r); });
+          });
+        }));
+      });
+    });
+  })).catch(function () {});
+}
+
+// Reload the windows this worker has just taken over from an older version,
+// once it is fully active. Not sooner: the reload's requests wait for the
+// activation to finish, and a navigation during it makes the browser compare
+// sw.js with the OLD worker and install this version a second time.
+function reloadWhenActive() {
+  var me = self.registration && self.registration.active;
+  if (me && me.state === "activating" && me.addEventListener) {
+    me.addEventListener("statechange", function once() {
+      if (me.state !== "activated") return;
+      me.removeEventListener("statechange", once);
+      reloadWindows();
+    });
+  } else {
+    setTimeout(reloadWindows, 0);
+  }
+}
+function reloadWindows() {
+  return self.clients.matchAll({ type: "window" }).then(function (list) {
+    return Promise.all(list.map(function (c) {
+      return c.navigate ? c.navigate(c.url).catch(function () {}) : null;
+    }));
+  }).catch(function () {});
+}
 
 /* ---- the team, told to the worker by the page ----------------------------
 
    The page knows which team it is; the worker does not. So after identity is
-   applied, the page posts this team's own files: its config, its artwork and
-   manifest, and the snapshot files the Action commits for it. The worker
+   applied, the page posts this team's own files: its config and the snapshot
+   files the Action commits for it. (Its manifest and artwork used to be in
+   that list; since decision 0024 they are Suite's and precached above.) The worker
    caches those and records whose they are.
 
    Switching teams has to undo the last one. Without that, the data cache
@@ -87,9 +210,9 @@ function writeMark(mark) {
   });
 }
 
-// A manifest names icons the identity block does not - the install icons and
-// the maskable one. Cache what it actually lists, so adding an icon to a
-// manifest is enough and there is no second list of artwork.
+// The manifest names the install icons and the maskable one. Cache what it
+// actually lists, so changing an icon in the manifest is enough and there is
+// no second list of install artwork.
 function cacheManifestIcons(manifestPath) {
   return caches.open(SHELL).then(function (c) {
     return c.match(manifestPath).then(function (r) {
@@ -98,10 +221,10 @@ function cacheManifestIcons(manifestPath) {
     }).then(function (m) {
       if (!m || !m.icons || !m.icons.length) return null;
       var base = manifestPath.replace(/[^/]*$/, "");      // icons are relative to the manifest
-      return addAll(SHELL, m.icons
+      return missing(SHELL, m.icons
         .map(function (i) { return i && i.src; })
         .filter(function (src) { return typeof src === "string" && src && !/^https?:/i.test(src); })
-        .map(function (src) { return base + src; }));
+        .map(function (src) { return base + src; })).then(function (files) { return addAll(SHELL, files); });
     });
   });
 }
@@ -111,7 +234,6 @@ function adoptTeam(msg) {
   if (typeof id !== "string" || !/^[a-z0-9-]+$/.test(id)) return Promise.resolve(false);
   var shell = (msg.shell || []).filter(function (f) { return typeof f === "string" && f; });
   var data  = (msg.data  || []).filter(function (f) { return typeof f === "string" && f; });
-  var manifest = msg.manifest;
 
   return readMark().then(function (was) {
     // A different team than the one cached. Drop exactly what the PREVIOUS
@@ -128,7 +250,6 @@ function adoptTeam(msg) {
     }
     return clear
       .then(function () { return Promise.all([addAll(SHELL, shell), addAll(DATA, data)]); })
-      .then(function () { return manifest ? cacheManifestIcons(manifest) : null; })
       .then(function () { return writeMark({ team: id, data: data }); })
       .then(function () { return true; });
   });
@@ -136,6 +257,11 @@ function adoptTeam(msg) {
 
 self.addEventListener("message", function (e) {
   var msg = e.data;
+  // The app's version, for About Suite and Feedback: the worker's own.
+  if (msg && msg.type === "version") {
+    if (e.ports && e.ports[0]) e.ports[0].postMessage({ version: VERSION });
+    return;
+  }
   if (!msg || msg.type !== "team") return;
   var done = adoptTeam(msg);
   if (e.waitUntil) e.waitUntil(done);
@@ -149,13 +275,14 @@ self.addEventListener("message", function (e) {
 
 self.addEventListener("activate", function (e) {
   e.waitUntil(
-    caches.keys().then(function (keys) {
-      return Promise.all(keys.map(function (k) {
-        // only this worker's own versioned caches; the page keeps its own
-        // store of final box scores under a different name
-        if (k.indexOf("iw-20") === 0 && k !== SHELL && k !== DATA) return caches.delete(k);
-      }));
-    }).then(function () { return self.clients.claim(); })
+    // only this worker's own versioned caches, under either naming; the page
+    // keeps its own store of final box scores under a different name
+    previousCaches().then(function (old) {
+      if (old.length) reloadWhenActive();
+      return carryOver(old)
+        .then(function () { return self.clients.claim(); })
+        .then(function () { return Promise.all(old.map(function (k) { return caches.delete(k); })); });
+    })
   );
 });
 
@@ -200,7 +327,9 @@ self.addEventListener("fetch", function (e) {
     // stale-while-revalidate
     e.respondWith(
       caches.open(SHELL).then(function (c) {
-        return c.match(e.request, { ignoreSearch: true }).then(function (hit) {
+        // Google's font stylesheet varies on request headers the worker's
+        // own precache fetch does not share with the page's <link>.
+        return c.match(e.request, { ignoreSearch: true, ignoreVary: url.origin !== self.location.origin }).then(function (hit) {
           var refresh = fetch(fresh(e.request)).then(function (res) {
             if (res && res.ok) c.put(e.request, res.clone());
             return res;

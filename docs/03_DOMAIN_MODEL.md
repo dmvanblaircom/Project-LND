@@ -102,7 +102,7 @@ A game in the league, seen from nowhere in particular. **Implemented in Phase 4A
 | `state`, `detail` | `"pre"` / `"in"` / `"post"` and the status text |
 | `venue` | venue name |
 | `net` | broadcast network(s), or `""` |
-| `odds` | `{ line, total, provider }` or `null`; `provider` is who set them, as the feed names it, or `null` |
+| `odds` | `{ line, total, provider }` or `null` (decision 0025) |
 | `home`, `away` | `{ name, abbr, providerId, rank, record, score }` — `abbr` the short code or `null`; `providerId` opaque, handed back only to ask for the program's mark; `rank` is `null` outside the top 25; `record` the overall record or `null`; `score` the displayed string or `null` |
 | `mine` | the team is one of the two sides |
 | `live` | `{ downDistance, lastPlay }` while `state === "in"`, else `null` |

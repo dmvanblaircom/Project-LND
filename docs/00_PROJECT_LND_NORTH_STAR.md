@@ -130,7 +130,7 @@ Explicitly not required for the initial MVP:
 - Full social network
 - Direct messaging
 - Fantasy
-- Betting
+- Betting - meaning **placing bets from within Suite** (e.g. betting on your team from its destination). Showing odds, spreads, totals and market-implied outlooks as fan context *is* in scope (David, 2026-09-25; decision 0025 treats odds as media metadata).
 - Ticket marketplace
 - Merchandise marketplace
 - Large AI assistant

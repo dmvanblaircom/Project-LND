@@ -2,7 +2,9 @@
 
 ## Status
 
-Accepted
+Accepted. Amended by decision 0024 §11: the manifest and install icons
+are Suite's, not a team's, so they are precached with the shared shell and no
+longer appear in the page's team message. Everything else here stands.
 
 ## Date
 

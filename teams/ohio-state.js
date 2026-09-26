@@ -48,29 +48,21 @@ var TEAM_CONFIG = {
     roster: { url: "https://ohiostatebuckeyes.com/sports/football/roster", label: "ohiostatebuckeyes.com" }
   },
 
-  // Buckeye Watch. Values from Ohio State's current BUX palette; the
+  // Ohio State inside Suite. Values from Ohio State's current BUX palette; the
   // accent is scarlet and it is a FILL, not a typeface - 2.88:1 on the
   // charcoal foundation - so accentText is BUX gray-light and scarlet is
   // kept for rules, indicators, active states and team markers. That is
   // the accessibility direction BUX itself gives for dark surfaces.
   identity: {
-    productName:  "Buckeye Watch",
     programLabel: "OHIO STATE FOOTBALL",
 
-    title:            "Buckeye Watch \u00B7 Ohio State Football",
-    description:      "Buckeye Watch \u2014 an Ohio State football game-day dashboard.",
-    shareDescription: "Everything Buckeye football, in one place.",
-
-    // No motto: "Leave No Doubt" is Notre Dame's, not the platform's.
-    motto: null,
-
-    newsLabel: "LATEST BUCKEYE NEWS",
-
-    manifest: "assets/ohio-state/manifest.json",
+    // No tagline: "Leave No Doubt." is Notre Dame's, not the platform's.
+    tagline: null,
 
     colors: {
       accent:         "#BA0C2F",   // BUX scarlet
       accentText:     "#EFF1F2",   // BUX gray-light-80, 16.77:1 on the page
+      accentOnLight:  "#BA0C2F",   // scarlet as text on ivory/white: 6.01:1 / 6.60:1
       accentInk:      "#FFFFFF",   // on a scarlet fill, 6.60:1
       accentSoft:     "#A7B1B7",   // BUX gray, 8.70:1 - small labels
       accentTint:     "#EFF1F2",
@@ -80,11 +72,7 @@ var TEAM_CONFIG = {
       surface:        "#212325",   // BUX gray-dark-80
       surfaceDeep:    "#0B1115",
       surfaceAbyss:   "#070A0C",
-      surfaceRaise:   "#3F4443",   // BUX gray-dark-60
-
-      // Charcoal wants a clean white, not Notre Dame's warm cream.
-      text:           "#FFFFFF",
-      textDim:        "#A7B1B7"    // BUX gray
+      surfaceRaise:   "#3F4443"    // BUX gray-dark-60
     },
 
     // Ohio State's official webfonts, named as BUX names them. The font
@@ -94,15 +82,8 @@ var TEAM_CONFIG = {
     // change, not an architectural one.
     fonts: {
       ui:       "'BuckeyeSans','Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'BuckeyeSans','Barlow Condensed',sans-serif",
-      headline: "'BuckeyeSerif','Barlow Condensed',serif"
-    },
-
-    // No approved Ohio State artwork exists in this repository. Declaring
-    // none is deliberate: paintIdentity() omits the icon and share-image
-    // tags entirely rather than pointing at files that are not there.
-    // Adding real artwork later is a change to this block alone.
-    assets: {}
+      display:  "'BuckeyeSans','Barlow Condensed',sans-serif"
+    }
   },
 
   // No Action writes anything for Ohio State yet: no depth-chart source,

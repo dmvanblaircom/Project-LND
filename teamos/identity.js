@@ -1,8 +1,7 @@
 /* TeamOS - team identity.
 
-   What the Suite needs in order to *present* a team: the product's name for
-   this team, the words in the document head, the team's colours and type,
-   and the paths to its artwork. Phase 5A showed that every ESPN-fed surface
+   What the Suite needs in order to *present* a team inside it: the team's
+   colours and type, its tagline and its labels. Phase 5A showed that every ESPN-fed surface
    rendered a second team from configuration alone while the page still
    called itself Irish Watch in Notre Dame navy and gold - because identity
    was authored into index.html, manifest.json and app.css rather than
@@ -11,7 +10,7 @@
      TEAM_CONFIG.identity + Team  ->  TeamOS.identity.create()  ->  Identity
                                                                       |
                                               app.js paintIdentity()  v
-                                       document head, header, :root colour tokens
+                                       masthead, :root colour tokens
 
    The rules this file enforces, so that a team config cannot ship a page
    nobody can read (docs/decisions/0009-identity-is-team-data.md):
@@ -20,6 +19,9 @@
      - accentText on the team's deepest surface is at least 4.5:1
      - accentInk on the team's accent is at least 4.5:1
      - a declared text colour on that surface is at least 4.5:1
+     - on the Suite's LIGHT surfaces (the canonical Suite is ivory pages and
+       white cards): accentOnLight, and the team's surface colour used as
+       heading ink, are at least 4.5:1 on both
 
    A team that fails any of those throws at startup with the measured ratio,
    the same way createTeam() throws on a malformed team section. The accent
@@ -28,9 +30,11 @@
    accentText that can. Nothing here lightens or darkens a team's colour -
    the configuration decides, this file only refuses what fails.
 
-   Assets are optional, one by one. A team with no artwork declares none and
-   the Suite omits those tags entirely rather than pointing at a file that
-   is not there. */
+   What a team does NOT own is the product itself (decision 0024 §11). The
+   installed app, its name, icons, favicon, manifest and default share card
+   are Suite's, one set for every team, in index.html and manifest.json. A
+   team config that still declares any of those is refused, so no team can
+   put its own brand back on the install. */
 
 var TeamOS = TeamOS || {};
 
@@ -39,11 +43,24 @@ TeamOS.identity = (function () {
 
   var MIN = 4.5;                    // WCAG AA, normal text
 
+  // Fields a team identity used to carry and no longer may: they made the
+  // installed product a team's (decision 0009, superseded here in part by
+  // decision 0024 §11).
+  var SHELL_OWNED = ["productName", "title", "description", "shareTitle", "shareDescription",
+                     "manifest", "assets"];
+
+  // The Suite's own light surfaces, which every team's light-UI colours are
+  // checked against. They are the Suite's, not a team's: they mirror
+  // --s-surface and --s-page in app.css, and adaptercheck asserts the two
+  // stay equal.
+  var LIGHT = { surface: "#FFFFFF", page: "#F6F4EF" };
+
   // Colour tokens every team supplies. Each is a role the stylesheet asks
   // for by name; none of them is a Notre Dame or an Ohio State value.
   var COLORS = [
     "accent",          // fills, rules, indicators, active states
     "accentText",      // accent-coloured TEXT - must pass on surfaceDeep
+    "accentOnLight",   // accent-coloured TEXT on the Suite's light surfaces
     "accentInk",       // text and icons drawn ON an accent fill
     "accentSoft",      // a muted tone of the accent, for small labels
     "accentTint",      // a light tone of the accent, for emphasis on dark
@@ -54,11 +71,15 @@ TeamOS.identity = (function () {
     "surfaceAbyss",    // the darkest step, gradient ends and scrims
     "surfaceRaise"     // a lifted surface, hovers and insets
   ];
-  // Optional: a team may override the Suite's neutral text tones. Left out,
-  // the stylesheet's own values stand.
-  var OPTIONAL_COLORS = ["text", "textDim"];
+  // Fields the pre-canonical screens read and nothing reads now (retired
+  // when the Suite redesign merged). Refused rather than ignored, so a config
+  // copied from an old one is told, not silently carrying dead data.
+  var RETIRED = ["newsLabel"], RETIRED_COLORS = ["text", "textDim"];
 
-  var FONTS = ["ui", "display", "headline"];
+  // A team may bring its own ui and display faces. Editorial type (news
+  // headlines) is the Suite's, not a team's: a Notre Dame-coded face must
+  // not become the platform's voice for every other team.
+  var FONTS = ["ui", "display"];
 
   function fail(what) { throw new Error("TeamOS.identity: " + what); }
 
@@ -106,34 +127,50 @@ TeamOS.identity = (function () {
     return round(r);
   }
 
+  function artOf(a) {
+    if (a == null) return null;
+    if (typeof a !== "object") fail("identity.art must be { src, position? }");
+    var src = str(a, "src", "identity.art.");
+    if (/^\s*javascript:/i.test(src) || /["<>]/.test(src)) fail("identity.art.src is not a usable image path");
+    var position = a.position == null ? null : str(a, "position", "identity.art.");
+    if (position && !/^[a-z0-9%.\s-]+$/i.test(position)) fail("identity.art.position must be a CSS position like '70% 30%'");
+    return Object.freeze({ src: src, position: position });
+  }
+
   function create(config, team) {
     var i = config && config.identity;
     if (!i || typeof i !== "object") fail("the team config has no identity section");
 
+    RETIRED.forEach(function (k) {
+      if (i[k] !== undefined) fail("identity." + k + " is retired: no canonical Suite rule reads it");
+    });
+    SHELL_OWNED.forEach(function (k) {
+      if (i[k] !== undefined) fail("identity." + k + " is Suite's, not a team's: the installed product, its " +
+                                   "head, icons and share card are the same for every team (decision 0024)");
+    });
+
     var id = {
-      productName:  str(i, "productName",  "identity."),
       programLabel: str(i, "programLabel", "identity."),
-      title:        str(i, "title",        "identity."),
-      description:  str(i, "description",  "identity."),
-      // The document head and the share cards are allowed to read
-      // differently; a team that does not distinguish them says it once.
-      shareTitle:       i.shareTitle       == null ? str(i, "title", "identity.")       : str(i, "shareTitle", "identity."),
-      shareDescription: i.shareDescription == null ? str(i, "description", "identity.") : str(i, "shareDescription", "identity."),
-      // A motto is a team thing, not a product thing. Most teams have none.
-      motto:    i.motto == null ? null : str(i, "motto", "identity."),
+      // A tagline is a team thing, not a product thing. Most teams have none,
+      // and the Suite renders correctly without one.
+      tagline:  i.tagline == null ? null : str(i, "tagline", "identity."),
       // The News tab's section rule. It named a city in CSS until the
       // Ohio State proof found it (phase-6 report), which is exactly the
       // kind of copy that has to be the team's, not the stylesheet's.
-      newsLabel: str(i, "newsLabel", "identity."),
-      manifest: str(i, "manifest", "identity.")
+      // Approved hero photography, when a team has it (decision 0024 §10).
+      // Optional and individually fallible: with none, the Suite draws the
+      // fallback composition from the team's colours and mark, which is a
+      // production state. { src, position? } - position is a CSS
+      // object-position, for keeping the subject in frame.
+      art: artOf(i.art)
     };
 
     // ---- colours ----
     if (!i.colors || typeof i.colors !== "object") fail("identity.colors must be an object");
     var c = {};
     COLORS.forEach(function (k) { c[k] = hex(i.colors, k, "identity.colors."); });
-    OPTIONAL_COLORS.forEach(function (k) {
-      if (i.colors[k] != null) c[k] = hex(i.colors, k, "identity.colors.");
+    RETIRED_COLORS.forEach(function (k) {
+      if (i.colors[k] !== undefined) fail("identity.colors." + k + " is retired: no canonical Suite rule reads it");
     });
     c.accentRgb       = rgb(c.accent);
     c.surfaceRgb      = rgb(c.surface);
@@ -147,7 +184,13 @@ TeamOS.identity = (function () {
       accentText: require([c.accentText, c.surfaceDeep], MIN, "identity.colors.accentText on surfaceDeep"),
       accentSoft: require([c.accentSoft, c.surfaceDeep], MIN, "identity.colors.accentSoft on surfaceDeep"),
       accentInk:  require([c.accentInk,  c.accent],      MIN, "identity.colors.accentInk on accent"),
-      text: c.text == null ? null : require([c.text, c.surfaceDeep], MIN, "identity.colors.text on surfaceDeep"),
+      accentOnLight: Math.min(
+        require([c.accentOnLight, LIGHT.surface], MIN, "identity.colors.accentOnLight on the Suite's white surface"),
+        require([c.accentOnLight, LIGHT.page],    MIN, "identity.colors.accentOnLight on the Suite's page")),
+      // The team's surface is also its heading ink on light pages.
+      surfaceOnLight: Math.min(
+        require([c.surface, LIGHT.surface], MIN, "identity.colors.surface as ink on the Suite's white surface"),
+        require([c.surface, LIGHT.page],    MIN, "identity.colors.surface as ink on the Suite's page")),
       // Reported, never enforced: an accent is a fill, not a typeface.
       accentOnSurface: round(contrast(c.accent, c.surfaceDeep))
     });
@@ -158,18 +201,9 @@ TeamOS.identity = (function () {
     FONTS.forEach(function (k) { f[k] = str(i.fonts, k, "identity.fonts."); });
     id.fonts = Object.freeze(f);
 
-    // ---- artwork ----
-    // Every one optional and independent: what is declared is used, what is
-    // not is left out of the document rather than pointed at and missing.
-    var a = {}, have = i.assets || {};
-    ["favicon", "icon32", "icon64", "appleTouch", "og"].forEach(function (k) {
-      a[k] = have[k] == null ? null : str(have, k, "identity.assets.");
-    });
-    id.assets = Object.freeze(a);
-
     id.team = team ? team.id : null;
     return Object.freeze(id);
   }
 
-  return { create: create, contrast: contrast, luminance: luminance, MIN: MIN };
+  return { create: create, contrast: contrast, luminance: luminance, MIN: MIN, LIGHT: LIGHT };
 })();

@@ -26,10 +26,11 @@
    and get nothing. Dimming 136 of 138 rows made the page read as mostly
    broken, and stacking them full width made it a quarter-mile of scroll.
 
-   Nothing labels the openable group. It is the top of the page, it is what
-   the heading is asking about, and a fan does not need to be told that the
-   thing they can press is the thing they can press. The list carries an
-   aria-label so it is not anonymous to a screen reader.
+   The canonical chooser (decision 0023) labels both groups - AVAILABLE TEAMS
+   and COMING SOON - and shows each program's nickname under its name rather
+   than its conference. Conference is still searchable; it just does not
+   decorate 138 rows. There is no program count: a fan wants their team, not
+   a tally.
 
    Filtering hides items rather than re-rendering them. Rebuilding on every
    keystroke would throw away the focused input, and there are 138 items to
@@ -41,8 +42,9 @@
    installable, and the back button behaves. Rendering the Suite in place
    would mean a second way to start the application.
 
-   The page is painted in the neutral :root - nobody's colours - because the
-   fan has not told us whose to use yet. */
+   The page wears the Suite's own chrome - nobody's colours - because the
+   fan has not told us whose to use yet. A program's mark is the provider's
+   logo, named by TeamOS; it falls back to the program's initials. */
 
 (function () {
   "use strict";
@@ -236,31 +238,52 @@
 
 
 
+  // What shows under a program's name: its nickname, which is how fans
+  // know it, or - for the rare row without one - its conference.
+  function subline(t) {
+    return t.nick || confLabel(t.conference);
+  }
+
+  function markFor(t) {
+    var ui = typeof Suite !== "undefined" && Suite.ui;
+    var url = (TeamOS.espn && TeamOS.espn.mark) ? TeamOS.espn.mark(t.providerId) : null;
+    return ui ? ui.mark(url, t.name, t.abbr, "plain") : "";
+  }
+
+  var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7"/></svg>';
+
   // A program you can open: a control, full width, with somewhere to go.
   function openable(t) {
     return '<li data-group="open"' + searchAttrs(t) + '>' +
            '<button type="button" class="pick" data-team="' + esc(t.id) + '">' +
+             markFor(t) +
              '<span class="pick-main">' +
                '<span class="pick-name">' + esc(t.name) + "</span>" +
-               '<span class="pick-conf">' + esc(confLabel(t.conference)) + "</span>" +
-             "</span>" +
-             '<span class="pick-go" aria-hidden="true">→</span>' +
+               '<span class="pick-nick">' + esc(subline(t)) + "</span>" +
+             "</span>" + CHEVRON +
            "</button></li>";
   }
 
+  // Coming Soon opens on the first PREVIEW programs, alphabetical by name -
+  // neutral, implying no popularity, priority or release order - and expands
+  // to all of them. Search always covers every program (decision 0024 §4).
+  var PREVIEW = 12;
+
   // A program that is not built yet: not a control at all. No button, no tab
   // stop, nothing that invites a press that would do nothing.
-  function unbuilt(t) {
-    return '<li class="soon" data-group="soon"' + searchAttrs(t) + '>' +
+  function unbuilt(t, i) {
+    return '<li class="soon" data-group="soon"' + (i >= PREVIEW ? ' data-beyond="1"' : "") + searchAttrs(t) + '>' +
            '<span class="soon-name">' + esc(t.name) + "</span>" +
-           '<span class="soon-conf">' + esc(confLabel(t.conference)) + "</span></li>";
+           '<span class="soon-nick">' + esc(subline(t)) + "</span></li>";
   }
 
   // ---- filtering ---------------------------------------------------------
-  function wire(host, resting) {
+  function wire(host) {
     var input = host.querySelector("#teamSearch");
     var count = host.querySelector(".chooser-count");
     var none = host.querySelector(".chooser-empty");
+    var more = host.querySelector("#soonMore");
+    var expanded = false;
     if (!input) return;
 
     // One query. An item carries data-find; the heading and list that frame
@@ -273,7 +296,7 @@
     // keystroke is work nobody asked for.
     var index = items.map(function (n) {
       var words = n.getAttribute("data-find").split(" ");
-      return { node: n, words: words,
+      return { node: n, words: words, beyond: n.getAttribute("data-beyond") === "1",
                forms: (n.getAttribute("data-forms") || "").split(" "),
                blob: words.join("") };
     });
@@ -303,7 +326,9 @@
       }
 
       index.forEach(function (row) {
-        var hit = !hits || hits.indexOf(row) !== -1;
+        // At rest, Coming Soon shows its preview until the fan expands it; a
+        // search looks through every program, shown or not.
+        var hit = hits ? hits.indexOf(row) !== -1 : !(row.beyond && !expanded);
         row.node.hidden = !hit;
         if (hit) shown++;
       });
@@ -317,81 +342,100 @@
           return it.getAttribute("data-group") === g && !it.hidden;
         }).length;
         b.hidden = left === 0;
-        if (b.getAttribute("data-note")) {
-          b.textContent = left + (left === 1 ? " program" : " programs");
-        }
       });
       if (none) none.hidden = shown !== 0;
+      // The expander belongs to the resting list; a search has no preview.
+      if (more) more.hidden = !!hits;
       if (count) {
-        count.textContent = !words.length ? resting
+        count.textContent = !words.length ? ""
           : shown === 0 ? "No program matches that."
           : shown + (shown === 1 ? " program matches." : " programs match.");
       }
     }
 
     input.addEventListener("input", apply);
+    if (more) more.addEventListener("click", function () {
+      expanded = !expanded;
+      more.setAttribute("aria-expanded", String(expanded));
+      more.textContent = expanded ? "Show fewer coming soon teams" : "View all coming soon teams";
+      apply();
+    });
     apply();
   }
 
+  // The full placeholder clips on a narrow phone, so there it says less. The
+  // label, which is what assistive technology reads, always says it all:
+  // team, conference and mascot are all searchable.
+  var PLACEHOLDER = { full: "Search by team, conference, mascot\u2026", short: "Search teams\u2026" };
+  var NARROW = "(max-width: 24rem)";
+  function fitPlaceholder(input) {
+    if (!input || typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    var mq = window.matchMedia(NARROW);
+    function fit() { input.setAttribute("placeholder", mq.matches ? PLACEHOLDER.short : PLACEHOLDER.full); }
+    fit();
+    if (mq.addEventListener) mq.addEventListener("change", fit);
+  }
+
+  var SEARCH_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
+
   function render() {
-    var host = document.querySelector(".wrap");
+    var host = document.getElementById("main");
     if (!host) return;
 
     var all = REG.sorted();
     var open = all.filter(function (t) { return t.available; });
     var soon = all.filter(function (t) { return !t.available; });
-    var resting = all.length + (all.length === 1 ? " program." : " programs.");
 
     var html =
       '<section class="chooser" aria-labelledby="chooseHead">' +
-        '<h1 id="chooseHead">Pick your team</h1>' +
+        '<h1 id="chooseHead">Find Your Team</h1>' +
         '<p class="chooser-sub">' +
-          (open.length
-            ? "Your team, every day. Choose one to get started — you can change it later."
-            : "No team is ready to open yet.") +
+          (open.length ? "Choose your team to get started." : "No team is ready to open yet.") +
         "</p>";
 
     if (all.length) {
       html +=
-        '<div class="chooser-search">' +
-          '<label class="sr-only" for="teamSearch">Search programs by name or conference</label>' +
+        '<div class="chooser-search">' + SEARCH_ICON +
+          '<label class="sr-only" for="teamSearch">Search by team, conference or mascot</label>' +
           '<input id="teamSearch" type="search" autocomplete="off" autocorrect="off" ' +
-                 'spellcheck="false" placeholder="Search a team or conference">' +
+                 'spellcheck="false" placeholder="' + PLACEHOLDER.full + '">' +
         "</div>" +
-        '<p class="chooser-count" role="status" aria-live="polite">' + esc(resting) + "</p>";
+        // Silent at rest; it speaks only to report what a search found.
+        '<p class="chooser-count" role="status" aria-live="polite"></p>';
     }
 
-    // No heading over this one on purpose: it is what the page is asking.
     if (open.length) {
-      html += '<ul class="chooser-list" data-group="open" ' +
-              'aria-label="Programs you can open now">' +
+      html += '<h2 class="eyebrow" id="availHead" data-group="open">Available Teams</h2>' +
+              '<ul class="chooser-list" data-group="open" aria-labelledby="availHead">' +
               open.map(openable).join("") + "</ul>";
     }
 
     if (soon.length) {
-      html += '<h2 class="chooser-group" data-group="soon">Coming soon ' +
-              '<span class="chooser-groupnote" data-group="soon" data-note="1">' +
-              soon.length + " programs</span></h2>" +
-              '<ul class="chooser-soon" data-group="soon" ' +
-              'aria-label="Programs not built yet">' + soon.map(unbuilt).join("") + "</ul>";
+      html += '<hr class="chooser-divider" data-group="soon">' +
+              '<h2 class="eyebrow" id="soonHead" data-group="soon">Coming Soon</h2>' +
+              '<ul class="chooser-soon" id="soonList" data-group="soon" aria-labelledby="soonHead">' +
+              soon.map(unbuilt).join("") + "</ul>" +
+              (soon.length > PREVIEW
+                ? '<button type="button" class="chooser-more" id="soonMore" aria-expanded="false" ' +
+                  'aria-controls="soonList">View all coming soon teams</button>'
+                : "");
     }
 
     html +=
-      '<p class="chooser-empty" hidden>Nothing matches that. Try a team name, or a ' +
+      '<p class="chooser-empty" hidden>Nothing matches that. Try a team name, a mascot, or a ' +
         "conference like “Big Ten”.</p>" +
       "</section>";
 
-    /* The Suite's own furniture is not ours: there is no team to put in it,
-       so a header, hero, odds strip or tab bar would be either somebody's or
-       nobody's, and both are wrong.
-
-       Everything inside .wrap goes on its own, because the chooser writes
-       over .wrap wholesale two lines down. The tab bar and the skip link do
-       NOT - they are siblings of the page, not children of it, so they
-       survive unless they are removed by name. That is how a fan ended up
-       looking at Home / Top 25 / Game / Depth / News on a page with no team
-       behind any of them. */
-    [".tabbar", '[role="tablist"]', "a.skip"].forEach(function (sel) {
+    /* The Suite's own team furniture is not ours: there is no team to put in
+       it, so a masthead or a bottom nav would be either somebody's or
+       nobody's, and both are wrong (decision 0016). Everything inside #main
+       goes on its own, because the chooser writes over #main wholesale two
+       lines down. The nav and the masthead are siblings of #main, so they
+       survive unless they are removed by name - which is how a fan once saw
+       Home / Top 25 / Game with no team behind any of them. The SUITE header
+       and the skip link stay: both are the Suite's, and #main is still there
+       for the skip link to reach. */
+    [".navbar", "#masthead"].forEach(function (sel) {
       [].slice.call(document.querySelectorAll(sel)).forEach(function (el) {
         // Never remove the chooser's own host, or anything containing it.
         if (el === host || (el.contains && el.contains(host))) return;
@@ -401,13 +445,44 @@
 
     host.innerHTML = html;
 
+    // Changing team, rather than choosing a first one: the fan already has a
+    // team, and gets a way back to it that changes nothing (decision 0022 #7).
+    // First-time onboarding has no current team and so no Cancel.
+    var current = document.documentElement && document.documentElement.getAttribute
+      ? document.documentElement.getAttribute("data-current-team") : null;
+    if (current && !REG.isAvailable(current)) current = null;
+
+    // The header's search control has one job on this page: take the fan to
+    // the search box. It exists only here, where search exists.
+    var bar = document.getElementById("appBar");
+    if (bar && bar.insertAdjacentHTML && !document.getElementById("barSearch")) {
+      bar.insertAdjacentHTML("beforeend",
+        '<button type="button" class="icon-btn" id="barSearch" aria-label="Search teams">' + SEARCH_ICON + "</button>");
+      document.getElementById("barSearch").addEventListener("click", function () {
+        var box = document.getElementById("teamSearch");
+        if (box) box.focus();
+      });
+      if (current) {
+        bar.insertAdjacentHTML("beforeend",
+          '<button type="button" class="bar-text-btn" id="cancelChange">Cancel</button>');
+        document.getElementById("cancelChange").addEventListener("click", function () {
+          // Back to exactly where the fan came from when that was this Suite;
+          // otherwise to the current team. Either way nothing was changed.
+          var ref = document.referrer || "";
+          if (history.length > 1 && ref.indexOf(location.origin) === 0) history.back();
+          else location.replace("?team=" + encodeURIComponent(current));
+        });
+      }
+    }
+
     host.addEventListener("click", function (e) {
       var btn = e.target.closest ? e.target.closest(".pick[data-team]") : null;
       if (btn) choose(btn.getAttribute("data-team"));
     });
 
-    wire(host, resting);
-    document.title = "Pick your team";
+    fitPlaceholder(document.getElementById("teamSearch"));
+    wire(host);
+    document.title = "Suite";                    // no team chosen yet (decision 0024 §11)
   }
 
   if (document.readyState === "loading") {

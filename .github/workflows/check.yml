@@ -5,7 +5,10 @@ name: Check the stylesheet
 
 on:
   push:
-    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "tools/**", "teams/**", "teamos/**", "assets/**", ".github/workflows/**"]
+    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", ".github/workflows/**"]
+  # A pull request into main runs the release gate below before it can merge.
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -18,7 +21,14 @@ jobs:
       - name: Dead and shadowed CSS
         run: python3 tools/csscheck.py app.css
       - name: JavaScript parses
-        run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js tools/*.js; do node --check "$f"; done
+        run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js suite/*.js tools/*.js; do node --check "$f"; done
+      - name: The installed product is Suite, the same for every team
+        run: node tools/identitycheck.js
+      # Decision 0024 §11: TEMPORARY Suite identity assets are for the design
+      # branch only. Anything headed for, or on, main must carry the final set.
+      - name: No temporary Suite identity on main
+        if: github.ref == 'refs/heads/main' || github.base_ref == 'main'
+        run: node tools/identitycheck.js --release
       - name: The page knows which team it is
         run: node tools/bootcheck.js
       - name: One registry, matching the repository
@@ -31,12 +41,14 @@ jobs:
         run: node tools/adaptercheck.js
       - name: Every surface agrees on one live game state
         run: node tools/livecheck.js
-      - name: One set of game rules - status, lifecycle, hero, preview, day/night
+      - name: One set of game rules - status, nav, lifecycle, hero, preview, day/night
         run: node tools/gamecheck.js
-      - name: Season Outlook, screen freshness and weather
+      - name: Season Outlook and screen freshness
         run: node tools/rulescheck.js
       - name: The depth chart joined to the roster, views that follow the team
         run: node tools/rostercheck.js
+      - name: Suite draws what TeamOS decided (box score, postponed dates)
+        run: node tools/suitecheck.js
       - name: The matchup card agrees with the data
         run: node tools/matchupcheck.js
       - name: The depth chart parser reads the official chart as written
@@ -48,6 +60,7 @@ jobs:
       - name: The freshness monitor notices a missed update or a stalled clock
         run: python3 tools/freshnesscheck.py
       - name: A shell change bumps the worker version
+        if: github.event_name == 'push'
         run: node tools/versioncheck.js "${{ github.event.before }}"
   visual:
     runs-on: ubuntu-latest
@@ -58,7 +71,26 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npx playwright install --with-deps chromium
+      # The runner can reach the provider's image CDN, so CI's screenshots show
+      # real team marks and player headshots; the gate also fails every
+      # headshot on purpose and checks the initials fallback shows instead.
       - run: npm run test:visual
+        env:
+          ALLOW_PROVIDER_IMAGES: "1"
+          VISUAL_WIDTHS: "320,375,390,1280"
+      # Roster's retry and freshness behaviour: a failed load never locks
+      # itself out, and old data is never passed off as fresh.
+      - run: node tools/rosterflowcheck.js
+      # More's news recovery, Refresh Data's outcome, the connection while a
+      # screen is open, and Feedback's version and origin (catch-up review).
+      - run: node tools/moreflowcheck.js
+      # A first visit that can't reach the schedule says so on Home and Game,
+      # and fills in on reconnection or re-entry (release regression pass).
+      - run: node tools/outagecheck.js
+      # An update: the new worker reloads the page it takes over, once, with
+      # the team precached and the old data carried over; a first install
+      # reloads nothing.
+      - run: node tools/upgradecheck.js
       - uses: actions/upload-artifact@v4
         if: always()
         with:
