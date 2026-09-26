@@ -27,3 +27,8 @@ schedule-87-2024 nd-2024-default
 schedule-87-2025-3 nd-2025-post
 schedule-87-2027 nd-2027
 scoreboard-20250120 cfp-final-jan2025
+# Live verification (2026-09-26, 2:30 PM ET): ND at Purdue and Illinois at
+# Ohio State in progress, and the whole FBS scoreboard at that moment.
+scoreboard-20260926 sep26-live
+401858467 pur-live
+401858465 osu-ill-live

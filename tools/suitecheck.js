@@ -177,5 +177,29 @@ ok(/--drive:#E84A27/.test(theirs), "and drawn in their colour that shows on the 
 ok(/--drive:#FFFFFF/.test(driveHtml(false, null)), "no published colours: neutral white, never our colour");
 ok(/--drive:#FFFFFF/.test(driveHtml(false, ["0B3D11", "123F18"])), "colours that vanish on the turf: neutral white");
 
+// ---- the possession football in the Game header (David, 2026-09-26) ----
+console.log("Game header: the football is with the team that has the ball (real live ND at Purdue)");
+var purRaw = JSON.parse(read("tools/fixtures/espn-summary-pur-live.json"));
+var PD = TeamOS.espn.gameDetail(purRaw, TEAM, CFG);
+var ndSide = PD.home.mine ? PD.home : PD.away, purSide = PD.home.mine ? PD.away : PD.home;
+ok(ndSide.possession === true && purSide.possession === false, "the live summary says Notre Dame has the ball");
+function headHtml(game) {
+  var h = host();
+  sctx.Suite.game.paint(h, { team: { name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, oppMark: function () { return ""; },
+    game: game, detail: PD, lifecycle: G.lifecycle(game), view: "drive", preview: null, side: "us", open: {},
+    weather: null, now: new Date("2026-09-26T18:32:00Z") });
+  return h.parts.head.innerHTML;
+}
+var liveG = Object.assign({}, WG, { id: "401858467", state: "in", status: "live", period: 1, clock: "4:37", us: "0", them: "0",
+                                    oppName: "Purdue", oppAbbr: "PUR", situation: null });
+var hd = headHtml(liveG);
+ok(/gh-team us[\s\S]*gh-ball[\s\S]*gh-team them/.test(hd) && (hd.match(/gh-ball/g) || []).length === 1,
+   "one football, on Notre Dame's side, from the summary");
+ok(/has the ball/.test(hd), "and said: 'has the ball'");
+var hd2 = headHtml(Object.assign({}, liveG, { situation: { possession: "them" } }));
+ok(/gh-team them[\s\S]*gh-ball/.test(hd2) && !/gh-team us">[^]*?gh-ball[^]*?gh-team them/.test(hd2),
+   "the league's live state wins when it has one: Purdue's side");
+ok(!/gh-ball/.test(headHtml(Object.assign({}, liveG, { state: "post", status: "final" })) ), "no football once it is over");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Suite draws what TeamOS decided, the way Product set"));
 process.exit(failures ? 1 : 0);

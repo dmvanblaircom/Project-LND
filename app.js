@@ -1123,6 +1123,9 @@ function scoreboardArrived(){
   if(!S.games || !SB.games) return;
   S.games=TeamOS.live.reconcileAll(S.games, SB.games);
   if(S.next) S.next=S.games.filter(function(g){ return g.id===S.next.id; })[0] || S.next;
+  // The scoreboard can be first to say a game is under way (the schedule
+  // lags): the Game screen's views follow, so Drive Tracker, not Details.
+  applyGameRules();
   paintHome(); paintGame(); paintScheduleScreen();
 }
 

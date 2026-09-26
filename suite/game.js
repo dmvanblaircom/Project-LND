@@ -66,6 +66,19 @@ Suite.game = (function () {
            cell(m, m === 1 ? "Minute" : "Minutes") + "</span></p>";
   }
 
+  // Which side has the ball while it is live: the league's live state on the
+  // game (the scoreboard, as on Home - decision 0010), else the game summary.
+  function hasBall(m, us, st) {
+    if (st !== "live" && st !== "paused") return false;
+    var g = m.game, side = us ? "us" : "them";
+    if (g.situation && g.situation.possession) return g.situation.possession === side;
+    var gd = m.detail || {};
+    var mine = gd.home && gd.home.mine ? gd.home : gd.away && gd.away.mine ? gd.away : null;
+    var theirs = mine === gd.home ? gd.away : gd.home;
+    var s = us ? mine : theirs;
+    return !!(s && s.possession);
+  }
+
   function teamBlock(m, us, st) {
     var g = m.game;
     var mark = us ? ui.mark(m.team.markUrl, m.team.name, m.team.abbr, "bare")
@@ -75,7 +88,8 @@ Suite.game = (function () {
     var name = us ? m.team.name : g.oppName, abbr = us ? m.team.abbr : g.oppAbbr;
     var scored = st === "live" || st === "paused" || st === "final";
     return '<div class="gh-team ' + (us ? "us" : "them") + '">' + mark +
-             (scored ? '<span class="gh-score">' + esc(score == null ? "0" : score) + "</span>" : "") +
+             (scored ? '<span class="gh-score">' + esc(score == null ? "0" : score) +
+               (hasBall(m, us, st) ? ui.ball("gh-ball") + '<span class="sr-only"> (has the ball)</span>' : "") + "</span>" : "") +
              // The short name, and the abbreviation fit() swaps in for BOTH
              // sides when either name will not fit whole (never an ellipsis).
              '<p class="gh-name">' + (rank ? '<span class="gc-rank">#' + rank + "</span> " : "") +

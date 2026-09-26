@@ -503,6 +503,9 @@ TeamOS.espn = (function () {
       record:       str(c.records&&c.records[0]&&c.records[0].summary),
       score:        c.score!=null ? c.score : null,
       mine:         String(t.id)===teamId,
+      // Whether this side has the ball, as the game summary says while it
+      // is live; false otherwise.
+      possession:   c.possession===true,
       // The program's colours as the provider publishes them, "#rrggbb" or
       // null - so a view can tell the two teams apart (whose drive it is).
       colors:       { primary: hexColor(t.color), alt: hexColor(t.alternateColor) }

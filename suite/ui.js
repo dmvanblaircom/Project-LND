@@ -145,6 +145,12 @@ Suite.ui = (function () {
     }
   };
 
-  return { esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner,
+  // The possession football: one mark, every live screen (--s-football).
+  function ball(cls) {
+    return '<svg class="' + esc(cls) + '" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+           '<ellipse cx="12" cy="12" rx="9.5" ry="5.6" transform="rotate(-35 12 12)"/><path d="m9.2 14.8 5.6-5.6M10.6 11.4l2 2M12 10l2 2"/></svg>';
+  }
+
+  return { ball: ball, esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner,
            STYLE: STYLE };
 })();
