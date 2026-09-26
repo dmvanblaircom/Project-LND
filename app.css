@@ -329,8 +329,13 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gc-side.them .gc-line{flex-direction:row-reverse}
 .gc-side .mark{--mark:3.5rem}
 .gc-score{font-family:var(--t-font-display);font-weight:800;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
-.gc-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
+.gc-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
 .gc-rank{color:var(--t-accent-text)}
+/* Never an ellipsis: ui.fitNames tightens both names, then swaps both to
+   the abbreviation, exactly as the Game header does. */
+.gc-abbr,.fit-abbr .gc-full{display:none}
+.fit-abbr .gc-abbr{display:inline}
+.fit-tight .gc-name{font-size:.92rem;letter-spacing:0}
 .gc-record{font-size:.95rem;color:var(--s-on-dark-2)}
 .gc-mid{display:flex;flex-direction:column;align-items:center;gap:.1rem;font-family:var(--t-font-display);text-transform:uppercase}
 .gc-vs{font-weight:700;font-size:1.3rem;letter-spacing:.1em;color:var(--s-on-dark-2)}
@@ -492,6 +497,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gcard-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.6rem}
 .gcard-title{margin:0;padding-left:.6rem;border-left:4px solid var(--t-accent);font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t-surface)}
 .gcard-note{font-size:.85rem;font-weight:600;color:var(--s-muted)}
+.f-result{color:var(--s-ink);text-transform:uppercase;letter-spacing:.04em}
 .gcard .sec-link{margin-top:.2rem}
 
 .seg-mini{padding:.2rem}
@@ -688,6 +694,8 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .tg.mine{background:var(--t-accent-tint-soft);box-shadow:inset 4px 0 0 var(--t-accent)}
 /* the latest play of a live game: secondary, under the matchup and status */
 .tg-last{grid-area:last;margin-top:.35rem;padding-top:.45rem;border-top:1px dashed var(--s-line);font-size:.85rem;line-height:1.35;color:var(--s-ink-2)}
+/* The snap's game clock, lifted out of the play text: a time, not words. */
+.tg-at,.lp-at{font-variant-numeric:tabular-nums;font-weight:700;color:var(--s-muted)}
 .tg-row .chev{width:1.1rem;height:1.1rem;margin-right:-.3rem}
 /* Rankings: all 25, a real table. */
 .poll-seg{margin-top:.9rem}

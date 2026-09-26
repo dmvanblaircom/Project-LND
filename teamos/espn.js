@@ -326,7 +326,8 @@ TeamOS.espn = (function () {
                      possession:   sit.possession==null ? null
                                    : String(sit.possession)===String(home&&home.id||home&&home.team&&home.team.id) ? "home"
                                    : String(sit.possession)===String(away&&away.id||away&&away.team&&away.team.id) ? "away" : null,
-                     lastPlay:     str(sit.lastPlay&&sit.lastPlay.text) }
+                     lastPlay:     splitAt(sit.lastPlay&&sit.lastPlay.text).text,
+                     lastPlayAt:   splitAt(sit.lastPlay&&sit.lastPlay.text).at }
                  : null
     };
   }
@@ -516,6 +517,26 @@ TeamOS.espn = (function () {
     return (c.linescores||[]).map(function(v){ return str(v.displayValue!=null?v.displayValue:v.value); });
   }
 
+  // ---- play text ----
+  // ESPN's play text opens with the snap's game clock, "(04:07) ...". That
+  // is a time, not part of what happened: it is lifted out whole into `at`
+  // ("4:07") for the page to show as a time, and the words are left exactly
+  // as ESPN wrote them. No other rewording - a play says what ESPN says.
+  function splitAt(text){
+    var t=str(text), m=/^\((\d{1,2}):(\d{2})\)\s+/.exec(t);
+    return m ? { at: String(+m[1])+":"+m[2], text: t.slice(m[0].length) } : { at: "", text: t };
+  }
+  // Scoring text shouts its conversion: "... for a TD (S. Porath KICK)",
+  // "... 47 yd FG GOOD". Only the case changes, and only where the score
+  // itself confirms the word: a touchdown worth 7 (the kick was good), a
+  // field goal worth 3.
+  function quietScoring(text, points){
+    var t=str(text);
+    if(points===7) t=t.replace(/\(([^()]*) KICK\)$/, "($1 kick)");
+    if(points===3) t=t.replace(/ FG GOOD$/, " FG good");
+    return t;
+  }
+
   // ---- drives and plays ----
   // A spot on the field from the OFFENSE's side: fromOwn is yards from its
   // own goal line (100 - ESPN's yardsToEndzone), so a drive always runs
@@ -540,10 +561,19 @@ TeamOS.espn = (function () {
   // ended, and its plays. A play the OTHER team ran inside it - the kickoff
   // that opens it - keeps its spot but says whose it was (offense: false),
   // so a field drawn from the offense's side can leave it out.
+  // How a drive ended, in a fan's words: ESPN's own label, except where its
+  // code says more than its label ("DOWNS" is a turnover on downs) or the
+  // label is in title case ("End Of Quarter"). Empty while the drive goes on.
+  var DRIVE_RESULT={ "DOWNS":"Turnover on downs", "END OF QUARTER":"End of quarter",
+                     "END OF HALF":"End of half", "END OF GAME":"End of game" };
+  function driveResult(d){
+    var code=String(d.result||"").toUpperCase();
+    return DRIVE_RESULT[code] || str(d.displayResult||d.result);
+  }
   function driveOf(d, teamId, home, away){
     var tid=str(pick(d,["team","id"],""));
     return { id: str(d.id), side: tid===home.key ? "home" : tid===away.key ? "away" : null,
-             mine: tid===teamId, summary: str(d.description), result: str(d.displayResult||d.result),
+             mine: tid===teamId, summary: str(d.description), result: driveResult(d),
              plays: (d.plays||[]).map(function(p){
                var pl=playOf(p);
                pl.offense = !pl.start || !pl.start.teamId || pl.start.teamId===tid;
@@ -587,8 +617,10 @@ TeamOS.espn = (function () {
         if(pl&&pl.length) lastText=pl[pl.length-1].text;
       }
     }
+    var lastSplit = splitAt(lastText);
     var lastPlay = lastText ? {
-      text:         str(lastText),
+      text:         lastSplit.text,
+      at:           lastSplit.at,
       possession:   str(pick(sit,["lastPlay","team","abbreviation"],"")),
       downDistance: str(sit.downDistanceText||sit.shortDownDistanceText)
     } : null;
@@ -626,9 +658,12 @@ TeamOS.espn = (function () {
     var boxA=boxTables(d, away.key), boxH=boxTables(d, home.key);
     var box = (boxA.length||boxH.length) ? { away:boxA, home:boxH } : null;
 
-    var sp=d.scoringPlays||[], scoring=null;
+    var sp=d.scoringPlays||[], scoring=null, before=0;
     if(sp.length){
       scoring=sp.map(function(p){
+        // what this score was worth: the running total's step
+        var total=(+p.awayScore||0)+(+p.homeScore||0), points=total-before;
+        before=total;
         // who scored: match on team id, fall back to abbreviation
         var pid=String(pick(p,["team","id"],""));
         var pab=pick(p,["team","abbreviation"],null);
@@ -639,7 +674,7 @@ TeamOS.espn = (function () {
           clock:     str(pick(p,["clock","displayValue"],"")),
           teamAbbr:  str(ab),
           mine:      pid ? pid===teamId : ab===team.abbreviation,
-          text:      str(p.text),
+          text:      quietScoring(p.text, points),
           awayScore: p.awayScore==null ? null : p.awayScore,
           homeScore: p.homeScore==null ? null : p.homeScore
         };

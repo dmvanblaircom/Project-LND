@@ -145,6 +145,36 @@ Suite.ui = (function () {
     }
   };
 
+  // Team identity is primary: a name never ends in an ellipsis. Try the
+  // names, then a tighter setting of them, then both abbreviations - both
+  // sides alike, so a row never pairs a name with an abbreviation. Measured,
+  // because whether a name fits depends on the name, the font and the width,
+  // not on any one team. A row is measured when it is drawn and again
+  // whenever that could change the answer: a resize, a web font arriving,
+  // or its screen coming into view (a hidden row measures nothing).
+  var fitting = [];
+  function fitOne(f) {
+    var row = f.host && f.host.querySelector(f.row);
+    if (!row) return;
+    var names = row.querySelectorAll(f.name);
+    function over() { return [].some.call(names, function (n) { return n.scrollWidth > n.clientWidth + 1; }); }
+    row.classList.remove("fit-tight", "fit-abbr");
+    if (over()) row.classList.add("fit-tight");
+    if (over()) row.classList.add("fit-abbr");
+  }
+  function fitNames(host, row, name) {
+    var f = fitting.filter(function (x) { return x.host === host && x.row === row; })[0];
+    if (!f) fitting.push(f = { host: host, row: row, name: name });
+    fitOne(f);
+  }
+  if (typeof window !== "undefined") {
+    var refit = function () { fitting.forEach(fitOne); };
+    window.addEventListener("resize", refit);
+    window.addEventListener("hashchange", function () { (window.requestAnimationFrame || setTimeout)(refit); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", refit);
+  }
+
   // The possession football: one mark, every live screen (--s-football).
   function ball(cls) {
     return '<svg class="' + esc(cls) + '" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
@@ -152,5 +182,5 @@ Suite.ui = (function () {
   }
 
   return { ball: ball, esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner,
-           STYLE: STYLE };
+           fitNames: fitNames, STYLE: STYLE };
 })();
