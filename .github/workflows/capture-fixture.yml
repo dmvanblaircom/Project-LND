@@ -51,6 +51,7 @@ jobs:
             # "rankings <name>"              this week's polls
             # "scoreboard-YYYYMMDD <name>"   the FBS scoreboard for that date's week
             # "schedule-<team id> <name>"    a team's season schedule
+            # "schedule-<id>-<YYYY>[-<type>] <name>"  a given season (type 3 = postseason)
             # "roster-<team id> <name>"      a team's roster
             # "news-<team id> <name>"        a team's news feed, links and images kept
             # "news-images <name>"           the photos of espn-news-<name>.json, for review renders
@@ -72,6 +73,11 @@ jobs:
             elif [[ "$ev" =~ ^schedule-([0-9]+)$ ]]; then
               out="tools/fixtures/espn-schedule-$name.json"; kind=payload
               url="$API/teams/${BASH_REMATCH[1]}/schedule"
+            elif [[ "$ev" =~ ^schedule-([0-9]+)-([0-9]{4})(-([0-9]))?$ ]]; then
+              # a given season, and optionally a season type (2 regular, 3 postseason)
+              out="tools/fixtures/espn-schedule-$name.json"; kind=payload
+              url="$API/teams/${BASH_REMATCH[1]}/schedule?season=${BASH_REMATCH[2]}"
+              [ -n "${BASH_REMATCH[4]}" ] && url="$url&seasontype=${BASH_REMATCH[4]}"
             elif [[ "$ev" =~ ^scoreboard-([0-9]{8})$ ]]; then
               out="tools/fixtures/espn-scoreboard-$name.json"; kind=payload
               url="$API/scoreboard?groups=80&limit=400&dates=${BASH_REMATCH[1]}"

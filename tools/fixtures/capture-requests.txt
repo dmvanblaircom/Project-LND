@@ -20,3 +20,10 @@ news-87 nd-sep24
 news-194 osu-sep24
 news-images nd-sep24
 news-images osu-sep24
+# Offseason Home research (2026-09-25): how ESPN delivers the postseason and
+# the next season. Regular-season-only is what the app asks for today.
+schedule-87-2024-3 nd-2024-post
+schedule-87-2024 nd-2024-default
+schedule-87-2025-3 nd-2025-post
+schedule-87-2027 nd-2027
+scoreboard-20250120 cfp-final-jan2025
