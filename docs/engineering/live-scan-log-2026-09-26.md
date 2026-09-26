@@ -27,6 +27,7 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 | 6 | 19:47Z | Warn | Game header at halftime | The Game header reads "2ND · 0:00" while Home reads "HALF" for the same payload (ESPN status "Halftime"). The Game header should say Halftime too. | Open |
 | 7 | 19:47Z | Warn | Home and Game - down & distance pill at halftime | "2nd & 10 · PUR 28" still shows at halftime - ESPN keeps the last situation, but no one has the ball. Hide the down & distance pill while the game is paused between periods, as the football already is. | Open |
 | 8 | 20:23Z | Idea | Game header at 320 | The down & distance pill wraps "2nd / & / 10" over three lines at 320 (one line at 390). Readable, but cramped; "2nd & 10" could be kept on one line (non-breaking) with the yard line under it. | Open |
+| 9 | 21:17Z | Idea | Game header records | The Game header writes records "4 - 0" / "1 - 3" (spaced) while Home, Top 25 and the schedule write "4-0". One format everywhere. | Open |
 
 ## Approved fix list (after the ND game)
 
@@ -81,3 +82,10 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Score and clock agree on Home, Game, Top 25 and the schedule row ("Live · 49-3"). After ND's touchdown no side has the ball: no football and no down & distance pill - correct.
 - The touchdown's last-play text is the longest raw ESPN string yet (five lines at 390, ending "(H: #39 J.Scaife, LS: #96 J.Vinci)") - more weight for #2.
 - New items: none.
+
+### 21:17Z (5:17 PM ET) - FINAL: Notre Dame 49, Purdue 10
+
+- **Automated checks: clean.** Home shows FINAL 49-10 with the Game Recap button and updated records (ND 4-0, Purdue 1-3); Game opens on the Box Score with Plays and Stats; no football, no drive card, no live dot.
+- The Home hero at final has room for "#3 NOTRE DAME" in full (#1 is a live-layout issue).
+- New item: #9 (record format differs in the Game header).
+- **The approved post-game fixes (#1-#4) start now.**
