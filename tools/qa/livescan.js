@@ -119,7 +119,9 @@ var truth = ndEv ? {
     var sc = function (t) { return new RegExp("\\b" + truth.us + "\\b[\\s\\S]*\\b" + truth.them + "\\b|\\b" + truth.them + "\\b[\\s\\S]*\\b" + truth.us + "\\b").test(t); };
     if (!sc(home.text)) find("error", "home", "Home does not show the scoreboard's score " + truth.us + "-" + truth.them);
     if (!sc(game.text)) find("error", "game", "Game does not show the scoreboard's score " + truth.us + "-" + truth.them);
-    if (truth.clock && game.text.indexOf(truth.clock) < 0) find("error", "game", "Game header does not show the clock " + truth.clock);
+    // At halftime the header says Halftime rather than 2ND · 0:00 (#6).
+    if (/half/i.test(truth.detail || "")) { if (!/halftime/i.test(game.text)) find("error", "game", "Game header does not say Halftime"); }
+    else if (truth.clock && game.text.indexOf(truth.clock) < 0) find("error", "game", "Game header does not show the clock " + truth.clock);
     var wantBall = truth.possession ? (truth.possession === ND ? "us" : "them") : null;
     var gotBall = game.ball.filter(function (b) { return b !== "?"; });
     if (wantBall && gotBall.join() !== wantBall) find("error", "game", "possession football on " + (gotBall.join() || "no side") + ", scoreboard says " + wantBall);
