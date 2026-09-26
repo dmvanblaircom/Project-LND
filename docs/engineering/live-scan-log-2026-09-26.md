@@ -108,3 +108,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean** on every screen at 390 and Game at 320, on production's code with the post-game fixes. Home final card reads "#3 NOTRE DAME 4-0" / "PURDUE 1-3" in full.
 - Top 25: Oklahoma-Georgia, Ole Miss-Florida (half), Utah-Iowa State, Iowa-Michigan, Houston-Georgia Southern, Wisconsin-Penn State live; scores match the scoreboard.
 - New items: none.
+
+### 22:11Z (6:11 PM ET) - evening games
+
+- **Automated checks: clean.** Schedule row for Purdue reads "W 49-10"; Home keeps the final card with Game Recap.
+- Top 25: six live (Oklahoma 31-6 Georgia 3rd, Ole Miss-Florida, Utah-Iowa State, Iowa-Michigan 4th, Houston-Georgia Southern, Wisconsin-Penn State 2nd); five final; six still to kick off (Miami 6:30 through SMU 9:00). Scores match the scoreboard.
+- New items: none.
