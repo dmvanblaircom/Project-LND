@@ -43,7 +43,7 @@ file points to it rather than repeating it.
 | Id | Item | Size | Notes |
 |---|---|---|---|
 | C1 | Break up `app.js`'s state and refresh clocks | L | 1,482 lines, about 40 pieces of mutable state, several timers. Where this week's bugs came from. |
-| C2 | Team-namespaced data pipeline | M | Snapshot files sit at the repo root and `odds.yml` is Notre Dame only; a second team's snapshots would collide. |
+| C2 | Team-namespaced data pipeline | M | Snapshot files sit at the repo root and `odds.yml` is Notre Dame only; a second team's snapshots would collide. **Staged 2026-09-25 on `stage/team-data`.** |
 | C3 | An unknown team id falls back to Notre Dame | S | `?team=bogus` opens Notre Dame; it should open the chooser (`index.html` `DEFAULT`). |
 | C4 | Kalshi through three free public CORS relays | M | Reliability and privacy risk. Options: our own proxy, or the committed snapshots only. Depends on B2. |
 | C5 | The weekly registry job fails every Tuesday by design | S | ESPN answers the standings page with 202 on GitHub's runners, so `roster.yml` ends red weekly: a failure email every week. Make it warn instead, or find another membership source. |
@@ -71,6 +71,7 @@ Built off PR #4's head; each opens as a PR into `main` after Sunday's merge.
 | `stage/hardening-quick-fixes` | C3 bad team link → own team or chooser; C5 registry job warns instead of failing; C9 `tools/stresscheck.js` + `stress.yml`; C11 dead files removed; `VERSION` bumped | All 24 gates pass; stress pass 681 checks, 0 problems |
 | `stage/post-launch-docs` | Rollback runbook (rehearsed), branch cleanup list (**for David's approval**), font and team-first header decision inputs | Docs |
 | `stage/offseason-home` | Offseason Home proposal (**for David → ChatGPT**), postseason research captures, a season/type option in `capture-fixture.yml` | Docs, fixtures, workflow |
+| `stage/team-data` | C2: team files in `data/<team id>/`, Kalshi markets in `data/league/`; producers write where the team's config says; `odds.yml` loops over the teams that declare each kind; odds history and news stamped with their team; new `tools/pipelinecheck.py` in CI. `VERSION` `suite-2026-09-26g` | All 26 gates pass. Merging: main's data commits carry into the new folders by rename (tested against main at 6317055). If git ever reports modify/delete on a root data file, take main's version into `data/<team>/` and delete the root file. Merge between data runs: a run already under way when this lands fails its push once, harmlessly. |
 | `stage/postseason` | C17: the schedule asks for the regular season and the postseason by type and joins them; a failed postseason keeps what was shown and never costs the regular season; the first open after the change still paints from the old URL's offline copy. New `tools/postseasoncheck.js` in CI. `VERSION` `suite-2026-09-26e` | All 25 gates pass; the new check fails 6 ways without the fix |
 
 ## Accepted limits (no action planned)

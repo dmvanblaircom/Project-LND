@@ -10,10 +10,12 @@ data-refresh workflow:
 It reads the team's declaration in teams/<team>.js (sources.official) - the
 producer owns no URL of its own - and writes four files:
 
-    depth.json                 the latest chart
-    depth-history.json         every chart this season, with week-over-week changes
-    availability.json          the latest availability report
-    availability-history.json  every report this season
+    snapshots.depth.file           the latest chart
+    snapshots.depth.history        every chart this season, with week-over-week changes
+    snapshots.availability.file    the latest availability report
+    snapshots.availability.history every report this season
+
+(the team's declared files, in data/<team id>/)
 
 Two behaviours the previous inline version lacked, both about not hammering
 a school's site or the repository:
@@ -41,6 +43,7 @@ from urllib.parse import urljoin
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE)
+import teamconfig  # noqa: E402
 import twodeep  # noqa: E402
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -153,6 +156,7 @@ def same(a, b):
 def write_if_changed(path, data, previous):
     if previous and same(data, previous):
         return False
+    os.makedirs(os.path.dirname(os.path.join(ROOT, path)), exist_ok=True)
     with open(os.path.join(ROOT, path), "w", encoding="utf-8") as f:
         json.dump(data, f, indent=1, ensure_ascii=False)
         f.write("\n")
@@ -171,10 +175,16 @@ def main():
     av_label = declared(config, "availabilityReportLabel")
     now = datetime.now(timezone.utc).isoformat()
 
-    old_depth = load("depth.json", None)
-    old_dhist = load("depth-history.json", {"snapshots": []})
-    old_av = load("availability.json", None)
-    old_ahist = load("availability-history.json", {"reports": []})
+    snaps = teamconfig.load(args.team)
+    dsnap, asnap = teamconfig.snapshot(snaps, "depth"), teamconfig.snapshot(snaps, "availability")
+    if not dsnap or not dsnap.get("history"):
+        sys.exit("teams/%s.js declares no depth-chart snapshot with a history" % args.team)
+    DEPTH, DHIST = dsnap["file"], dsnap["history"]
+    AV, AHIST = (asnap["file"], asnap.get("history")) if asnap else (None, None)
+    old_depth = load(DEPTH, None)
+    old_dhist = load(DHIST, {"snapshots": []})
+    old_av = load(AV, None) if AV else None
+    old_ahist = load(AHIST, {"reports": []}) if AHIST else {"reports": []}
     known_charts = {s.get("sourceUrl"): s for s in old_dhist.get("snapshots", []) if s.get("schema") == 2}
     known_reports = {r.get("pdf"): r for r in old_ahist.get("reports", []) if r.get("schema") == 1}
 
@@ -232,17 +242,17 @@ def main():
 
     latest_chart, latest_report = charts[-1], (reports[-1] if reports else None)
     wrote = []
-    if write_if_changed("depth.json", latest_chart, old_depth):
-        wrote.append("depth.json")
-    if write_if_changed("depth-history.json",
+    if write_if_changed(DEPTH, latest_chart, old_depth):
+        wrote.append(DEPTH)
+    if write_if_changed(DHIST,
                         {"schema": 2, "team": args.team, "updated": now, "snapshots": charts}, old_dhist):
-        wrote.append("depth-history.json")
-    if latest_report is not None:
-        if write_if_changed("availability.json", latest_report, old_av):
-            wrote.append("availability.json")
-        if write_if_changed("availability-history.json",
-                            {"schema": 1, "team": args.team, "updated": now, "reports": reports}, old_ahist):
-            wrote.append("availability-history.json")
+        wrote.append(DHIST)
+    if latest_report is not None and AV:
+        if write_if_changed(AV, latest_report, old_av):
+            wrote.append(AV)
+        if AHIST and write_if_changed(AHIST,
+                                      {"schema": 1, "team": args.team, "updated": now, "reports": reports}, old_ahist):
+            wrote.append(AHIST)
 
     log("charts:", len(charts), "| latest:", latest_chart["title"],
         "|", twodeep.count_players(latest_chart["units"]), "players,",

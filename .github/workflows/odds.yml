@@ -69,8 +69,9 @@ jobs:
             return 1
           }
 
-          grab "$BASE/markets?event_ticker=KXNCAAF-27&limit=200&status=open"        odds-title.json
-          grab "$BASE/markets?event_ticker=KXNCAAFPLAYOFF-26&limit=200&status=open" odds-playoff.json
+          mkdir -p data/league
+          grab "$BASE/markets?event_ticker=KXNCAAF-27&limit=200&status=open"        data/league/odds-title.json
+          grab "$BASE/markets?event_ticker=KXNCAAFPLAYOFF-26&limit=200&status=open" data/league/odds-playoff.json
 
       - name: Refuse to commit anything that is not market data
         id: odds
@@ -79,7 +80,7 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, sys
-          for f in ("odds-title.json", "odds-playoff.json"):
+          for f in ("data/league/odds-title.json", "data/league/odds-playoff.json"):
               try:
                   d = json.load(open(f))
               except Exception as e:
@@ -89,106 +90,76 @@ jobs:
               print(f, "->", len(d["markets"]), "markets")
           PY
 
-      - name: Append Notre Dame's price to the season history
+      # Every team that declares an odds history (backlog C2): its price, read
+      # from the league-wide markets by its own Kalshi declaration.
+      - name: Append each team's price to its season history
         id: oddshistory
         if: steps.odds.outcome == 'success'
         continue-on-error: true
         run: |
-          python3 - <<'PY'
-          import json, os, re
-          from datetime import datetime, timezone
+          fail=0
+          for t in $(python3 tools/producers/teamconfig.py --with oddsHistory); do
+            echo "== $t"; python3 tools/producers/odds_history.py --team "$t" || fail=1
+          done
+          exit $fail
 
-          # Same arithmetic as the page: midpoint of bid and ask, as a percentage.
-          def num(v):
-              try: return float(v)
-              except (TypeError, ValueError): return None
-          def price(m):
-              bd, ad = num(m.get("yes_bid_dollars")), num(m.get("yes_ask_dollars"))
-              if bd is not None and ad is not None and (bd or ad): return (bd + ad) / 2 * 100
-              ld = num(m.get("last_price_dollars"))
-              if ld: return ld * 100
-              b, a = num(m.get("yes_bid")), num(m.get("yes_ask"))
-              if b is not None and a is not None and (b or a): return (b + a) / 2
-              return num(m.get("last_price"))
-          def nd(f):
-              for m in json.load(open(f)).get("markets", []):
-                  name = " ".join(str(m.get(k, "")) for k in ("yes_sub_title", "subtitle", "title"))
-                  if re.search(r"-ND$", m.get("ticker", "")) or re.search(r"notre dame|fighting irish", name, re.I):
-                      p = price(m)
-                      return round(p, 1) if p is not None else None
-              return None
-
-          point = {"t": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
-                   "title": nd("odds-title.json"), "playoff": nd("odds-playoff.json")}
-          if point["title"] is None and point["playoff"] is None:
-              print("  no Notre Dame market found; history unchanged"); raise SystemExit
-
-          hist = {"points": []}
-          if os.path.exists("odds-history.json"):
-              try: hist = json.load(open("odds-history.json"))
-              except Exception: pass
-          pts = [p for p in hist.get("points", []) if isinstance(p, dict) and p.get("t")]
-
-          # Twice an hour is 48 points a day of mostly the same number. Keep a
-          # point only when either market moved half a point, or six hours
-          # passed - enough to draw the season without bloating the file.
-          last = pts[-1] if pts else None
-          def moved(k):
-              return last is None or last.get(k) is None or point[k] is None or abs(last[k] - point[k]) >= 0.5
-          stale = last is None or (datetime.now(timezone.utc) -
-                  datetime.strptime(last["t"], "%Y-%m-%dT%H:%MZ").replace(tzinfo=timezone.utc)).total_seconds() > 6*3600
-          if moved("title") or moved("playoff") or stale:
-              pts.append(point); pts = pts[-600:]
-              json.dump({"updated": point["t"], "points": pts}, open("odds-history.json", "w"), indent=0)
-              print(f"  appended {point}; {len(pts)} points on file")
-          else:
-              print(f"  unchanged ({point['title']}% / {point['playoff']}%); history not touched")
-          PY
-
-      # The feeds are Notre Dame's declaration (TEAM_CONFIG.sources.beatFeeds).
+      # Each team's feeds are its declaration (TEAM_CONFIG.sources.beatFeeds).
       # A feed that has moved is found on its site and named in a warning.
       - name: Pull beat writers
         id: news
         continue-on-error: true      # a dead feed must never block the odds
-        run: python3 tools/producers/beat_news.py --team notre-dame
+        run: |
+          fail=0
+          for t in $(python3 tools/producers/teamconfig.py --with beatNews); do
+            echo "== $t"; python3 tools/producers/beat_news.py --team "$t" || fail=1
+          done
+          exit $fail
 
       # The last successful check lives in the Actions cache, not the repo, so
-      # recording it never makes a commit.
-      - name: Recall the last depth chart check
+      # recording it never makes a commit. One file per team.
+      - name: Recall the last depth chart checks
         uses: actions/cache/restore@v4
         with:
           path: .cadence
           key: depth-checked-${{ github.run_id }}
           restore-keys: depth-checked-
 
-      - name: Is the depth chart due?
-        id: cadence
-        continue-on-error: true
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.source }}" != "clock" ]; then
-            echo "  depth chart due: run by hand"; echo "due=true" >> "$GITHUB_OUTPUT"
-          else
-            python3 tools/producers/cadence.py --team notre-dame --last .cadence/depth-checked
-          fi
-
+      # Per team: due by hand, or by the depth-chart cadence (decision 0020).
       - name: Official depth chart and availability
         id: depth
-        if: steps.cadence.outputs.due != 'false'
         continue-on-error: true
+        env:
+          BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
         run: |
           pip install --quiet beautifulsoup4 pypdf
-          python3 tools/producers/official_depth.py --team notre-dame --season 2026
-          mkdir -p .cadence && date -u +%Y-%m-%dT%H:%M:%SZ > .cadence/depth-checked
+          fail=0
+          for t in $(python3 tools/producers/teamconfig.py --with depth); do
+            echo "== $t"
+            mkdir -p .cadence
+            # the check from before per-team files counts as this team's, once
+            if [ -f .cadence/depth-checked ] && [ ! -f ".cadence/$t" ]; then cp .cadence/depth-checked ".cadence/$t"; fi
+            if [ "$BY_HAND" = true ]; then echo "  depth chart due: run by hand"
+            else
+              rc=0; python3 tools/producers/cadence.py --team "$t" --last ".cadence/$t" --exit-code || rc=$?
+              if [ $rc -eq 3 ]; then continue; fi          # not due
+              if [ $rc -ne 0 ]; then fail=1; continue; fi
+            fi
+            if python3 tools/producers/official_depth.py --team "$t" --season 2026; then
+              date -u +%Y-%m-%dT%H:%M:%SZ > ".cadence/$t"
+            else fail=1; fi
+          done
+          exit $fail
 
-      - name: Remember this depth chart check
-        if: steps.depth.outcome == 'success'
+      - name: Remember the depth chart checks
+        if: always() && hashFiles('.cadence/*') != ''
         uses: actions/cache/save@v4
         with:
           path: .cadence
           key: depth-checked-${{ github.run_id }}
 
       # Add only what a step that succeeded produced, and say in the message
-      # which data moved.
+      # which data moved. Team files are in data/<team id>/, league-wide ones
+      # in data/league/.
       - name: Commit what moved
         env:
           ODDS: ${{ steps.odds.outcome }}
@@ -199,16 +170,16 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           moved=""
-          add () {   # add <label> <files...>
+          add () {   # add <label> <pathspec...>
             label=$1; shift
-            git add -- "$@"
+            git add -A -- "$@" 2>/dev/null || true
             if ! git diff --staged --quiet -- "$@"; then moved="${moved:+$moved, }$label"; fi
           }
-          [ "$ODDS" = success ]    && add "odds" odds-title.json odds-playoff.json
-          [ "$HISTORY" = success ] && add "odds history" odds-history.json
-          [ "$NEWS" = success ]    && add "news" news.json
-          [ "$DEPTH" = success ]   && add "depth chart" depth.json depth-history.json
-          [ "$DEPTH" = success ]   && add "availability" availability.json availability-history.json
+          [ "$ODDS" = success ]    && add "odds" 'data/league/odds-*.json'
+          [ "$HISTORY" = success ] && add "odds history" 'data/*/odds-history.json'
+          [ "$NEWS" = success ]    && add "news" 'data/*/news.json'
+          [ "$DEPTH" = success ]   && add "depth chart" 'data/*/depth.json' 'data/*/depth-history.json'
+          [ "$DEPTH" = success ]   && add "availability" 'data/*/availability.json' 'data/*/availability-history.json'
           if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
           git commit -q -m "Refresh team data: $moved"
           echo "committed: $moved"
@@ -220,7 +191,10 @@ jobs:
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python3 tools/producers/freshness.py --team notre-dame --open-issues
+        run: |
+          for t in $(python3 tools/producers/teamconfig.py --with availability); do
+            python3 tools/producers/freshness.py --team "$t" --open-issues
+          done
 
       # The run still goes red when a source failed, so a broken source is
       # visible in the Actions tab - after everything that did work is saved.
@@ -230,7 +204,7 @@ jobs:
           failed=""
           for s in "kalshi:${{ steps.kalshi.outcome }}" "odds:${{ steps.odds.outcome }}" \
                    "odds history:${{ steps.oddshistory.outcome }}" "news:${{ steps.news.outcome }}" \
-                   "cadence:${{ steps.cadence.outcome }}" "depth chart:${{ steps.depth.outcome }}"; do
+                   "depth chart:${{ steps.depth.outcome }}"; do
             [ "${s##*:}" = failure ] && failed="${failed:+$failed, }${s%:*}"
           done
           if [ -n "$failed" ]; then echo "::error::failed: $failed"; exit 1; fi

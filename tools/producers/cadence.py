@@ -86,6 +86,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--team", required=True)
     ap.add_argument("--last", required=True, help="file holding the last successful check time")
+    ap.add_argument("--exit-code", action="store_true", help="exit 0 when due, 3 when not (for a loop over teams)")
     args = ap.parse_args()
 
     now = datetime.now(timezone.utc)
@@ -107,6 +108,8 @@ def main():
     if out:
         with open(out, "a", encoding="utf-8") as f:
             f.write("due=%s\n" % ("true" if verdict else "false"))
+    if args.exit_code and not verdict:
+        sys.exit(3)
 
 
 if __name__ == "__main__":

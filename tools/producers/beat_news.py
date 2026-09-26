@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pull a team's beat-writer RSS into news.json.
+"""Pull a team's beat-writer RSS into its beat-news snapshot.
 
     python3 tools/producers/beat_news.py --team notre-dame
 
@@ -10,8 +10,10 @@ list in the workflow. When a declared feed stops answering - sites move them
 and says so as a workflow warning naming the URL to put in the config. A
 source that cannot be found is skipped and named; the others still publish.
 
-news.json is written only when the stories changed: a fresh timestamp on an
-identical list made every run look like news and commit it.
+The file is the team's declaration too (snapshots.beatNews.file, in
+data/<team id>/), stamped with the team it belongs to. It is written only when
+the stories changed: a fresh timestamp on an identical list made every run
+look like news and commit it.
 """
 import argparse
 import json
@@ -206,7 +208,7 @@ def probe(sites):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--team")
-    ap.add_argument("--out", default="news.json")
+    ap.add_argument("--out", help="write here instead of the team's declared file (tests)")
     ap.add_argument("--probe", nargs="+", metavar="SITE", help="try candidate sites or feed URLs; writes nothing")
     args = ap.parse_args()
     if args.probe:
@@ -215,10 +217,13 @@ def main():
     if not args.team:
         ap.error("--team is required unless probing")
 
-    feeds = (teamconfig.load(args.team).get("sources") or {}).get("beatFeeds") or []
-    if not feeds:
-        print("  %s declares no beat feeds" % args.team)
+    config = teamconfig.load(args.team)
+    feeds = (config.get("sources") or {}).get("beatFeeds") or []
+    snap = teamconfig.snapshot(config, "beatNews")
+    if not feeds or not (snap or args.out):
+        print("  %s declares no beat feeds or no beat-news snapshot" % args.team)
         return
+    out = args.out or teamconfig.path(snap["file"])
     items, moved, dead = [], [], []
     for src in feeds:
         try:
@@ -238,17 +243,18 @@ def main():
 
     keep = merge(items)
     if not keep:
-        sys.exit("no feed returned anything - leaving the old %s alone" % args.out)
+        sys.exit("no feed returned anything - leaving the old %s alone" % out)
     try:
-        old = json.load(open(args.out, encoding="utf-8")).get("items")
+        old = json.load(open(out, encoding="utf-8"))
     except (OSError, ValueError):
-        old = None
-    if old == keep:
-        print("  news unchanged (%d items); %s not touched" % (len(keep), args.out))
+        old = {}
+    if old.get("items") == keep and old.get("team") == args.team:
+        print("  news unchanged (%d items); %s not touched" % (len(keep), out))
         return
-    with open(args.out, "w", encoding="utf-8") as f:
-        json.dump({"updated": datetime.now(timezone.utc).isoformat(), "items": keep}, f, indent=1)
-    print("  wrote %s with %d items from %d sources" % (args.out, len(keep), len({i["source"] for i in keep})))
+    os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump({"team": args.team, "updated": datetime.now(timezone.utc).isoformat(), "items": keep}, f, indent=1)
+    print("  wrote %s with %d items from %d sources" % (out, len(keep), len({i["source"] for i in keep})))
 
 
 if __name__ == "__main__":

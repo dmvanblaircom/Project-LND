@@ -47,10 +47,10 @@ var TEAM_CONFIG = {
   // surface as unavailable instead of reading another team's file.
   // Read through TeamOS.snapshots (Phase 5B, decision 0008).
   snapshots: {
-    depth:       { file: "depth.json", history: "depth-history.json", label: "FightingIrish.com" },
-    availability: { file: "availability.json", history: "availability-history.json", label: "FightingIrish.com" },
-    oddsHistory: { file: "odds-history.json" },
-    beatNews:    { file: "news.json" }
+    depth:       { file: "data/notre-dame/depth.json", history: "data/notre-dame/depth-history.json", label: "FightingIrish.com" },
+    availability: { file: "data/notre-dame/availability.json", history: "data/notre-dame/availability-history.json", label: "FightingIrish.com" },
+    oddsHistory: { file: "data/notre-dame/odds-history.json" },
+    beatNews:    { file: "data/notre-dame/news.json" }
   },
 
   // How the team is presented: the product's name for it, the head copy, its
@@ -67,6 +67,8 @@ var TEAM_CONFIG = {
   }
 };
 ```
+
+A team's files live in `data/<team id>/` (league-wide files, such as the Kalshi markets, in `data/league/`), and every producer reads where to write from this declaration: a new team with a source gets its own files by declaring them here, with no change to the workflow (backlog C2, checked by `tools/adaptercheck.js` and `tools/pipelinecheck.py`).
 
 The real files are `teams/notre-dame.js` and `teams/ohio-state.js` (which declares `snapshots: {}`). Values shown here are abbreviated.
 

@@ -168,16 +168,17 @@ var TEAM_CONFIG = {
   // is a capability the team has because a source exists for it: the
   // two-deep comes from Notre Dame's official FightingIrish.com media page,
   // the price history from the Kalshi
-  // markets above, the beat stories from the RSS feeds in sources.beatFeeds. The
-  // files do not yet carry a team field, so declaring one here is what
-  // says it is ours (docs/decisions/0008-snapshots-are-owned-by-declaration.md).
+  // markets above, the beat stories from the RSS feeds in sources.beatFeeds.
+  // Every file lives in data/<team id>/, so a second team's can never collide
+  // with these, and each is stamped with the team it belongs to
+  // (docs/decisions/0008-snapshots-are-owned-by-declaration.md).
   snapshots: {
-    depth:       { file: "depth.json", history: "depth-history.json", label: "FightingIrish.com" },
+    depth:       { file: "data/notre-dame/depth.json", history: "data/notre-dame/depth-history.json", label: "FightingIrish.com" },
     // Its own snapshot, not a field of the depth chart: a different official
     // document, published on its own schedule, with its own date
     // (docs/decisions/0019).
-    availability: { file: "availability.json", history: "availability-history.json", label: "FightingIrish.com" },
-    oddsHistory: { file: "odds-history.json" },
-    beatNews:    { file: "news.json" }
+    availability: { file: "data/notre-dame/availability.json", history: "data/notre-dame/availability-history.json", label: "FightingIrish.com" },
+    oddsHistory: { file: "data/notre-dame/odds-history.json" },
+    beatNews:    { file: "data/notre-dame/news.json" }
   }
 };

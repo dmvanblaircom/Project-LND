@@ -54,14 +54,16 @@ ESPN core stats JSON   ->  TeamOS.espn.seasonStats(json)               ->  Seaso
 
 ```text
 ESPN news JSON  ->  TeamOS.espn.news(json)   ->  NewsItem[]                                                                 ->  merge, dedupe, sort newest-first, "show more"  ->  News tab
-news.json       ->  beatItem() in app.js     ->  NewsItem[]  /
+data/<team>/news.json ->  beatItem() in app.js ->  NewsItem[]  /
 ```
 
-`news.json` is this project's own snapshot, written by `.github/workflows/odds.yml` from the beat-writer RSS feeds; it is already NewsItem-shaped and is converted in the application rather than treated as a provider. Both fetches, the cache-first paint and the cache keys are unchanged.
+`data/<team>/news.json` is this project's own snapshot, written by `.github/workflows/odds.yml` from each team's beat-writer RSS feeds; it is already NewsItem-shaped and is converted in the application rather than treated as a provider. Both fetches, the cache-first paint and the cache keys are unchanged.
 
 With 4C every ESPN payload the Suite consumes crosses `teamos/espn.js`, and `app.js` no longer carries the ESPN base URL or the ESPN team id. What remains provider-shaped in `app.js` — Kalshi odds and the Open-Meteo forecast — is the deferred Phase 4D; the depth chart is the project's own snapshot.
 
 ### The team-data snapshots (Phase 5B)
+
+Each team's snapshots are in `data/<team id>/`, named by the team's config (`snapshots`); the Kalshi markets every team's price comes from are league-wide, in `data/league/`. The workflow loops over the teams that declare each kind (backlog C2).
 
 ```text
 TEAM_CONFIG.snapshots  ->  TeamOS.snapshots.get(config, kind)   ->  { file, history?, label? } | null

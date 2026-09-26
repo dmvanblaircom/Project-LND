@@ -28,8 +28,8 @@ var KALSHI_ROUTES = [];
 // No cross-origin request at all, so CORS can never break it.
 function localSnapshot(path){
   // Test PLAYOFF first: KXNCAAF is a prefix of KXNCAAFPLAYOFF.
-  if(/KXNCAAFPLAYOFF/.test(path)) return "odds-playoff.json";
-  if(/KXNCAAF-/.test(path))       return "odds-title.json";
+  if(/KXNCAAFPLAYOFF/.test(path)) return "data/league/odds-playoff.json";
+  if(/KXNCAAF-/.test(path))       return "data/league/odds-title.json";
   return null;
 }
 KALSHI_ROUTES.push(
