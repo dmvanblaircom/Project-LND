@@ -69,3 +69,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - Scans now run on main 4563d59 (Share Suite live).
 - **Automated checks: clean.** Score, clock and possession (ND, football on our side) agree; Drive Tracker "Notre Dame drive", 5 plays, 41 yards. Top 25 shows ND-Purdue live with the right score; Texas, Ohio State, Texas Tech and Wake Forest finals correct.
 - New item: #8 (down & distance pill wraps to three lines at 320).
+
+### 20:40Z (4:40 PM ET) - ND 42, Purdue 3, 4th 12:04
+
+- **Automated checks: clean.** Score, clock and possession (Purdue; football on their side, Drive Tracker "Purdue drive" in Purdue's colour) agree with the scoreboard.
+- Scoring plays: ND's defensive touchdown (fumble return, 28-0) is credited to ND - correct. The shouting "(S. Porath KICK)" persists on every TD (#4).
+- New items: none.
