@@ -145,5 +145,37 @@ var noScore = Object.assign({}, WG, { us: null, them: null });
 var scored = SR.row(Object.assign({}, WG, { us: "0", them: "13" }), { heroId: null, full: true, oppMark: function () { return null; } });
 ok(/Lost 0 to 13\./.test(scored) && />L<\/span> 0–13/.test(scored), "a shutout keeps its zero: L 0–13, 'Lost 0 to 13.'");
 
+// ---- Drive Tracker: whose drive, in whose colour (David, 2026-09-26) ----
+console.log("Drive Tracker colour follows the ball");
+var msu = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-msu-final.json")), TEAM, CFG);
+var msuSide = msu.home.mine ? msu.away : msu.home;
+eq(msuSide.colors, { primary: "#173F35", alt: "#FFFFFF" }, "the adapter keeps the opponent's published colours (real MSU payload)");
+// A real drive with field positions, from the Wisconsin final, played as the
+// current one; the opponent's colours are set on the raw payload as ESPN
+// publishes them (team.color / team.alternateColor).
+function driveHtml(mine, oppColors) {
+  var raw = JSON.parse(JSON.stringify(wis));
+  var cs = raw.header.competitions[0].competitors;
+  cs.forEach(function (c) { if (String(c.team.id || c.id) !== CFG.sources.espn.teamId && oppColors) { c.team.color = oppColors[0]; c.team.alternateColor = oppColors[1]; } });
+  var gd = TeamOS.espn.gameDetail(raw, TEAM, CFG);
+  var d = (gd.drives && gd.drives.list || []).filter(function (x) {
+    return (x.plays || []).filter(function (p) { return p.offense && p.start && p.start.fromOwn != null; }).length > 2; })[0];
+  if (!d) return null;
+  gd.drives.current = Object.assign({}, d, { mine: mine });
+  var g = Object.assign({}, WG, { state: "in", status: "live", oppName: "Illinois", oppAbbr: "ILL" });
+  var h = host();
+  sctx.Suite.game.paint(h, { team: { name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, oppMark: function () { return ""; },
+    game: g, detail: gd, lifecycle: G.lifecycle(g), view: "drive", preview: null, side: "us", open: {},
+    weather: null, now: new Date("2026-09-26T18:00:00Z") });
+  return h.parts.body.innerHTML;
+}
+var ours = driveHtml(true, ["13294B", "E84A27"]);
+ok(ours && /Notre Dame drive/.test(ours) && !/--drive:/.test(ours), "our drive: titled ours, in our accent (no override)");
+var theirs = driveHtml(false, ["13294B", "E84A27"]);
+ok(/Illinois drive/.test(theirs), "their drive is titled theirs");
+ok(/--drive:#E84A27/.test(theirs), "and drawn in their colour that shows on the turf - Illinois orange, not the navy");
+ok(/--drive:#FFFFFF/.test(driveHtml(false, null)), "no published colours: neutral white, never our colour");
+ok(/--drive:#FFFFFF/.test(driveHtml(false, ["0B3D11", "123F18"])), "colours that vanish on the turf: neutral white");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Suite draws what TeamOS decided, the way Product set"));
 process.exit(failures ? 1 : 0);
