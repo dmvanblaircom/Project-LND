@@ -63,3 +63,9 @@ rankings scan-2023
 401858467 scan-nd-2023
 401856700 scan-x1-2023
 401856699 scan-x2-2023
+scoreboard-20260926 scan-2040
+schedule-87 scan-nd-2040
+rankings scan-2040
+401858467 scan-nd-2040
+401856816 scan-x1-2040
+401858463 scan-x2-2040
