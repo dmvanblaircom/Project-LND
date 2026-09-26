@@ -105,7 +105,7 @@ A game in the league, seen from nowhere in particular. **Implemented in Phase 4A
 | `odds` | `{ line, total, provider }` or `null` (decision 0025) |
 | `home`, `away` | `{ name, abbr, providerId, rank, record, score }` — `abbr` the short code or `null`; `providerId` opaque, handed back only to ask for the program's mark; `rank` is `null` outside the top 25; `record` the overall record or `null`; `score` the displayed string or `null` |
 | `mine` | the team is one of the two sides |
-| `live` | `{ downDistance, lastPlay }` while `state === "in"`, else `null` |
+| `live` | `{ downDistance, lastPlay, lastPlayAt }` while `state === "in"`, else `null`. `lastPlay` is the source's words with the snap's clock lifted out into `lastPlayAt` (`"(03:28) ..."` -> `"3:28"`) |
 
 The adapter returns every game the feed lists, oldest first; "ranked games" are the ones where either side has a rank, and "is anything live" is `some(state === "in")` — both derived by the application from the list.
 
@@ -128,7 +128,7 @@ Everything the Game Center renders for one game. **Implemented in Phase 4B**, pr
 ```
 { state, detail,
   home: Side, away: Side,
-  lastPlay:  { text, possession, downDistance } | null,
+  lastPlay:  { text, at, possession, downDistance } | null,
   winProb:   { homePct } | null,
   linescore: { away: string[], home: string[] } | null,
   teamStats: [ { label, away, home, better } ] | null,
@@ -141,15 +141,16 @@ Everything the Game Center renders for one game. **Implemented in Phase 4B**, pr
 |---|---|
 | `state`, `detail` | `"pre"` / `"in"` / `"post"` and the status text (`"Final"`, `"3:23 - 2nd"`, the kickoff line) |
 | `home`, `away` | a `Side` each (below) |
-| `lastPlay` | the live situation's last play, else the last play of the current drive, else of the last drive; `possession` is the abbreviation of the side with the ball, `downDistance` e.g. `"2nd & 7 at WIS 34"` |
+| `lastPlay` | the live situation's last play, else the last play of the current drive, else of the last drive; `possession` is the abbreviation of the side with the ball, `downDistance` e.g. `"2nd & 7 at WIS 34"`; `at` is the snap's clock lifted out of the text (`"9:56"`, or `""`), and `text` is otherwise the source's own words |
 | `winProb` | the latest home win probability, 0–1; the view shows it only while live |
 | `linescore` | per-period display values for each side; the view labels periods 1–4 and OT |
 | `teamStats` | the eight fixed rows (Total yards … Possession), values as displayed or `null`, and which side is `better` — `"away"`, `"home"` or `null`. Fewer turnovers and penalties win; penalties compare by count; `5-13` compares as a rate and `28:24` as seconds |
 | `leaders` | per side, one line per category (`Passing`, `Rushing`, `Receiving`, `Sacks`, `Tackles`, `Int`) |
 | `box` | per side, one table per category with its own column `labels` |
-| `scoring` | each scoring play in order, with the score after it and whether it was ours |
+| `scoring` | each scoring play in order, with the score after it and whether it was ours. `text` is the source's words; only its shouted conversion is set in lower case, and only where the score confirms it (a touchdown worth 7: `"(S. Porath KICK)"` -> `"(S. Porath kick)"`; a field goal worth 3: `"FG GOOD"` -> `"FG good"`) |
+| `drives` | `{ current, list }` or `null`: each drive's side, `mine`, the source's `summary` (`"10 plays, 27 yards, 4:24"`), its `result` - how it ended in a fan's words (`"Touchdown"`, `"Punt"`, `"Turnover on downs"`), `""` while it goes on - and its plays |
 
-There is no `id`: the Game Center keys on the `Game` it was opened from. There is no drive list, play-by-play, win-probability history or pregame line here: the line is `TeamOS.espn.gameOdds()` on the same payload, and the rest has no consumer.
+There is no `id`: the Game Center keys on the `Game` it was opened from. There is no win-probability history or pregame line here: the line is `TeamOS.espn.gameOdds()` on the same payload, and the rest has no consumer.
 
 ### Side
 

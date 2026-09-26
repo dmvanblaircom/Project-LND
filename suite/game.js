@@ -342,6 +342,7 @@ Suite.game = (function () {
 
   function driveLabel(d, m, los) {
     var who = d.mine ? m.team.name : m.game.oppName;
+    if (d.result) return "Last drive: " + who + ", " + (d.summary || "") + ". Result: " + d.result + ".";
     return "Current drive: " + who + ", " + (d.summary || "") + ". Ball at the " + (los <= 50 ? "own " + los : "opponent's " + (100 - los)) + ".";
   }
 
@@ -354,14 +355,17 @@ Suite.game = (function () {
     return card(who + " drive", '<div class="f-wrap"' + (color ? ' style="--drive:' + color + '"' : "") + ">" + svg +
       '<ul class="f-legend" aria-hidden="true"><li><span class="k start"></span>Drive start</li><li><span class="k play"></span>Play</li>' +
       '<li><span class="k los"></span>Line of scrimmage</li><li><span class="k first"></span>First down</li></ul></div>',
-      d.summary ? '<span class="gcard-note">' + esc(d.summary) + "</span>" : "", "gcard-drive");
+      // A finished drive says how it ended ("Touchdown", "Turnover on downs")
+      // - the card stays up between possessions until the next snap.
+      (d.result || d.summary ? '<span class="gcard-note">' + (d.result ? '<span class="f-result">' + esc(d.result) + "</span>" + (d.summary ? " · " : "") : "") +
+        esc(d.summary || "") + "</span>" : ""), "gcard-drive");
   }
 
   function lastPlay(m) {
     var lp = m.detail && m.detail.lastPlay;
     if (!lp) return "";
     return card("Last play", (lp.downDistance ? '<p class="lp-dd">' + esc(lp.downDistance) + "</p>" : "") +
-      '<p class="lp-text">' + esc(lp.text) + "</p>" +
+      '<p class="lp-text">' + (lp.at ? '<span class="lp-at">' + esc(lp.at) + "</span> " : "") + esc(lp.text) + "</p>" +
       '<a class="sec-link" href="' + esc(base(m)) + '/plays">View play-by-play' + CHEVRON + "</a>");
   }
 
@@ -462,29 +466,8 @@ Suite.game = (function () {
     return box(m) + linescore(m);                               // box, the final default
   }
 
-  // Team identity is primary: it never ends in an ellipsis. Try the short
-  // names, then a tighter setting of them, then both abbreviations - both
-  // sides alike, so the header never pairs a name with an abbreviation.
-  // Measured, because whether a name fits depends on the name, the font
-  // and the width, not on any one team.
-  var fitHosts = [];
-  function fit(host) {
-    var row = host && host.querySelector(".gh-row");
-    if (!row) return;
-    var names = row.querySelectorAll(".gh-name");
-    function over() { return [].some.call(names, function (n) { return n.scrollWidth > n.clientWidth + 1; }); }
-    row.classList.remove("fit-tight", "fit-abbr");
-    if (over()) row.classList.add("fit-tight");
-    if (over()) row.classList.add("fit-abbr");
-  }
-  if (typeof window !== "undefined") {
-    var refit = function () { fitHosts.forEach(fit); };
-    window.addEventListener("resize", refit);
-    // A name measured in the fallback face can look too long; measure again
-    // whenever a web font finishes loading, not only the first time.
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
-    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", refit);
-  }
+  // The names row follows ui.fitNames: never an ellipsis, both sides alike.
+  function fit(host) { ui.fitNames(host, ".gh-row", ".gh-name"); }
 
   // One module draws the hero game on Game and any game opened from
   // Schedule, so what each host last received is remembered per host.
@@ -509,7 +492,6 @@ Suite.game = (function () {
       last[k] = html[k];
       if (k === "head") fit(host);
     });
-    if (fitHosts.indexOf(host) === -1) fitHosts.push(host);
   }
   // Where this game's views live: #game for the hero, #schedule/<id> for a
   // game opened from Schedule (model.base).

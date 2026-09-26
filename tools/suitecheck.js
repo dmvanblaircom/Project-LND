@@ -203,5 +203,18 @@ ok(/gh-team them[\s\S]*gh-ball/.test(hd2) && !/gh-team us">[^]*?gh-ball[^]*?gh-t
    "the league's live state wins when it has one: Purdue's side");
 ok(!/gh-ball/.test(headHtml(Object.assign({}, liveG, { state: "post", status: "final" })) ), "no football once it is over");
 
+// ---- a finished drive, and the last play's time (live scan #2, #3) ----
+console.log("Drive Tracker between possessions, and the last play (real ND at Purdue, after Purdue's turnover on downs)");
+var DD = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-downs.json")), TEAM, CFG);
+var hb = host();
+sctx.Suite.game.paint(hb, { team: { name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, oppMark: function () { return ""; },
+  game: Object.assign({}, liveG, { period: 3, clock: "9:48" }), detail: DD, lifecycle: G.lifecycle(liveG), view: "drive",
+  preview: null, side: "us", open: {}, weather: null, now: new Date("2026-09-26T20:06:00Z") });
+var bd = hb.parts.body.innerHTML;
+ok(/Purdue drive[\s\S]*class="f-result">Turnover on downs<\/span> · 10 plays, 27 yards, 4:24/.test(bd),
+   "the finished drive says how it ended, before its summary");
+ok(/aria-label="Last drive: Purdue, [^"]*Result: Turnover on downs\."/.test(bd), "and says so to a screen reader");
+ok(/class="lp-text"><span class="lp-at">9:56<\/span> No Huddle-Shotgun/.test(bd), "the last play leads with its time, then ESPN's words");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Suite draws what TeamOS decided, the way Product set"));
 process.exit(failures ? 1 : 0);
