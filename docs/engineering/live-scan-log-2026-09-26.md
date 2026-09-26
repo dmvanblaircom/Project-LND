@@ -26,6 +26,7 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 | 5 | 19:30Z | Warn | Game - Stats tab and the Game stats card on the main Game view | Reported by David live (OSU vs Illinois, then ND at Purdue): once the header scrolls away, the stats cards are two columns of numbers with no team names - you can't tell whose is whose. Both cards come from the same renderer (suite/game.js statRows), so one fix covers both. Screen readers get no names either. Proposed: a header row in the card with each team's abbreviation (in its colour), kept in view while the card scrolls. | **Fixed** - PR #16, merged at halftime; production verified 19:56Z (suite-2026-09-26k) |
 | 6 | 19:47Z | Warn | Game header at halftime | The Game header reads "2ND · 0:00" while Home reads "HALF" for the same payload (ESPN status "Halftime"). The Game header should say Halftime too. | Open |
 | 7 | 19:47Z | Warn | Home and Game - down & distance pill at halftime | "2nd & 10 · PUR 28" still shows at halftime - ESPN keeps the last situation, but no one has the ball. Hide the down & distance pill while the game is paused between periods, as the football already is. | Open |
+| 8 | 20:23Z | Idea | Game header at 320 | The down & distance pill wraps "2nd / & / 10" over three lines at 320 (one line at 390). Readable, but cramped; "2nd & 10" could be kept on one line (non-breaking) with the yard line under it. | Open |
 
 ## Approved fix list (after the ND game)
 
@@ -62,3 +63,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Score, clock and possession (ND, football on our side) agree with the scoreboard.
 - Live case for #3: Purdue turned it over on downs at the ND 4. The header already says ND 1st & 10 at the ND 4, but the Drive Tracker still reads "Purdue drive" (10 plays, 27 yards) with no result, until ND's first snap starts a new drive. The finished-drive result (#3) covers it: "Purdue drive - Turnover on downs".
 - New items: none.
+
+### 20:23Z (4:23 PM ET) - ND 35, Purdue 3, 3rd 1:45
+
+- Scans now run on main 4563d59 (Share Suite live).
+- **Automated checks: clean.** Score, clock and possession (ND, football on our side) agree; Drive Tracker "Notre Dame drive", 5 plays, 41 yards. Top 25 shows ND-Purdue live with the right score; Texas, Ohio State, Texas Tech and Wake Forest finals correct.
+- New item: #8 (down & distance pill wraps to three lines at 320).
