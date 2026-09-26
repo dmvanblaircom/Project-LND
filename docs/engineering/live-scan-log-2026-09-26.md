@@ -130,3 +130,8 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 
 - **Automated checks: clean.** Oklahoma-Georgia and Iowa-Michigan went final since the last scan; five ranked games live (Ole Miss-Florida, Utah-Iowa State, Houston-Georgia Southern in the 4th; Wisconsin-Penn State 3rd; Central Michigan-Miami 1st). Scores match the scoreboard.
 - New items: none.
+
+### 23:21Z (7:21 PM ET) - evening games
+
+- **Automated checks: clean.** Utah-Iowa State final; live: Ole Miss-Florida (4th), Houston-Georgia Southern (end of 4th), Wisconsin-Penn State (3rd), Central Michigan-Miami (2nd), South Carolina-Alabama (1st). Scores match.
+- New items: none.
