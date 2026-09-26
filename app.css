@@ -217,10 +217,13 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
    scrim, top and bottom, whatever is bright in the picture. */
 .art-slot.has-photo::after{background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.72) 0%,rgba(var(--t-abyss-rgb),.45) 38%,rgba(var(--t-abyss-rgb),.82) 100%)}
 /* Kickoff atmosphere (decision 0022 #11): a warm, open sky for a day game;
-   stadium lights over a darker bowl at night. */
-.art-day .art-slot{background:radial-gradient(60% 45% at 12% 0%,rgba(255,236,196,.22),transparent 70%),
+   stadium lights over a darker bowl at night. The day's sun and its lighter
+   band stay off the top-left, where the school name sits in the team's
+   accent: that corner starts on the surface, as the text floor requires
+   (a sun there took Notre Dame's gold to 2.6:1 - visual gate, 2026-09-26). */
+.art-day .art-slot{background:radial-gradient(45% 40% at 90% 0%,rgba(255,236,196,.22),transparent 70%),
              radial-gradient(70% 55% at 88% 8%,rgba(var(--t-accent-rgb),.26),transparent 70%),
-             linear-gradient(165deg,var(--t-raise) 0%,var(--t-surface) 45%,var(--t-deep) 100%)}
+             linear-gradient(165deg,var(--t-surface) 0%,var(--t-raise) 40%,var(--t-deep) 100%)}
 .art-night .art-slot{background:radial-gradient(22% 16% at 18% 0%,rgba(226,238,255,.26),transparent 80%),
              radial-gradient(22% 16% at 82% 0%,rgba(226,238,255,.22),transparent 80%),
              radial-gradient(70% 55% at 88% 12%,rgba(var(--t-accent-rgb),.24),transparent 70%),
