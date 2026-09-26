@@ -201,7 +201,7 @@ eq([mia.away, mia.home], [{ name:"Miami", abbr:null, providerId:"2390", rank:5, 
                          { name:"Wake Forest", abbr:null, providerId:"154", rank:null, record:null, score:"0" }],
    "sides: ranked away, unranked home, scores as strings; no abbreviation or record in the payload -> null");
 eq([mia.net, mia.odds, mia.mine, mia.live], ["ESPN", { line:"MIA -20.5", total:56.5, provider:null }, false, null], "broadcast from names[], odds, not ours, not live");
-eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"(03:28) #47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20" }], "live game carries down/distance and last play");
+eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"#47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20", lastPlayAt:"3:28" }], "live game carries down/distance and last play, the snap's clock lifted out of the words");
 eq([pitt.home.rank, pitt.away.rank], [null, null], "unranked on both sides (drives live-anywhere but not the ranked list)");
 eq([uga.state, uga.home.score, uga.away.score, uga.home.rank, uga.away.rank], ["post", "31", "24", 2, 9], "final: scores and both ranks");
 eq([pur.mine, pur.timeSet, pur.net, pur.away.rank], [true, false, "Peacock", 3], "the team's own game: mine, placeholder time, streaming-only broadcast");
@@ -308,6 +308,22 @@ ok(gdWis.drives.list.some(function (d) { return d.plays.some(function (p) { retu
    "a play the other team ran inside a drive (the kickoff) is marked, so the field can leave it out");
 eq(gdPre.drives, null, "no drives before kickoff");
 
+console.log("gameDetail() - play text and drive results, from today's real Notre Dame at Purdue (live scan items #2-#4)");
+var gdDowns = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-downs.json")), team, TEAM_CONFIG);
+eq([gdDowns.drives.current.mine, gdDowns.drives.current.result], [false, "Turnover on downs"],
+   "a finished drive says how it ended, in a fan's words (ESPN's code DOWNS)");
+eq([gdDowns.lastPlay.at, /^No Huddle-Shotgun #15 R\.Browne pass incomplete/.test(gdDowns.lastPlay.text), /^\(/.test(gdDowns.lastPlay.text)], ["9:56", true, false],
+   "the last play's snap clock is lifted out as a time; the words are ESPN's, unchanged");
+var gdFinal = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-final.json")), team, TEAM_CONFIG);
+var tds = gdFinal.scoring.filter(function (p) { return /for a TD/.test(p.text); });
+ok(tds.length === 8 && tds.every(function (p) { return /\([^()]+ kick\)$/.test(p.text); }),
+   "a touchdown worth 7 says its kick quietly: \"(S. Porath kick)\" - both teams' (" + tds.length + " TDs)");
+ok(gdFinal.scoring.some(function (p) { return / FG good$/.test(p.text); }) && !gdFinal.scoring.some(function (p) { return /KICK\)|FG GOOD/.test(p.text); }),
+   "a field goal worth 3 says GOOD quietly, and nothing still shouts");
+eq(gdFinal.scoring.map(function (p) { return p.text.replace(/ kick\)$/, " KICK)").replace(/ FG good$/, " FG GOOD"); }),
+   JSON.parse(read("tools/fixtures/espn-summary-pur-final.json")).scoringPlays.map(function (p) { return p.text; }),
+   "and case is the only change: every scoring play's words are ESPN's");
+
 console.log("gameDetail() - pregame");
 eq([gdPre.state, gdPre.detail], ["pre", "Sat, September 19th at 7:30 PM EDT"], "scheduled, long status text");
 eq(gdPre.home, { key:"87", name:"Notre Dame Fighting Irish", abbreviation:"ND", record:"", score:null, mine:true, possession:false, colors:{ primary:null, alt:null } },
@@ -320,7 +336,7 @@ eq(gdPre.leaders.away.length, 5, "five leader categories per side");
 
 console.log("gameDetail() - live");
 eq([gdLive.state, gdLive.detail, gdLive.home.score, gdLive.away.score], ["in", "3:23 - 2nd", "13", "10"], "in progress, clock, scores");
-eq(gdLive.lastPlay, { text:"Timeout Notre Dame, clock 08:53", possession:"ND", downDistance:"2nd & 7 at WIS 34" }, "last play from the live situation, with possession and down/distance");
+eq(gdLive.lastPlay, { text:"Timeout Notre Dame, clock 08:53", at:"", possession:"ND", downDistance:"2nd & 7 at WIS 34" }, "last play from the live situation, with possession and down/distance");
 eq(gdLive.winProb, { homePct:0.78 }, "win probability is the latest point");
 eq(gdLive.linescore, { away:["3","7"], home:["10","3"] }, "two periods of linescores");
 eq(gdLive.teamStats.map(function (r) { return r.label; }), ["Total yards","Passing","Rushing","First downs","3rd down","Turnovers","Penalties","Possession"], "the eight Team-stats rows in order");
@@ -335,7 +351,7 @@ eq(gdLive.scoring[0].mine, false, "a scoring play, theirs");
 
 console.log("gameDetail() - final");
 eq([gdPost.state, gdPost.detail, gdPost.home.score, gdPost.away.score], ["post", "Final", "41", "13"], "final score");
-eq(gdPost.lastPlay, { text:"End of 4th quarter.", possession:"", downDistance:"" }, "last play falls back to the last drive when there is no live situation");
+eq(gdPost.lastPlay, { text:"End of 4th quarter.", at:"", possession:"", downDistance:"" }, "last play falls back to the last drive when there is no live situation");
 eq(gdPost.winProb, { homePct:1 }, "final win probability point kept (the view only shows it live)");
 eq(gdPost.linescore, { away:["3","7","3","0"], home:["10","3","14","14"] }, "four periods");
 eq(gdPost.box.home.map(function (t) { return t.title + ":" + t.labels.length + ":" + t.rows.length; }), ["Notre Dame Passing:6:1","Notre Dame Rushing:5:3","Notre Dame Receiving:5:3"], "box tables per side: title, column labels, rows");

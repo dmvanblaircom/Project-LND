@@ -78,7 +78,10 @@ Suite.home = (function () {
                (showScore ? '<span class="gc-score">' + esc(score == null ? "0" : score) + "</span>" : "") +
                (ball ? BALL : "") +
              "</div>" +
-             '<p class="gc-name">' + (rank ? '<span class="gc-rank">#' + rank + "</span> " : "") + esc(name) + "</p>" +
+             // The name, and the abbreviation ui.fitNames swaps in for BOTH
+             // sides when either will not fit - never an ellipsis.
+             '<p class="gc-name">' + (rank ? '<span class="gc-rank">#' + rank + "</span> " : "") +
+               '<span class="gc-full">' + esc(name) + '</span><span class="gc-abbr">' + esc((us ? team.abbr : g.oppAbbr) || name) + "</span></p>" +
              (record ? '<p class="gc-record">' + esc(record) + "</p>" : "") +
            "</div>";
   }
@@ -285,6 +288,7 @@ Suite.home = (function () {
       el.innerHTML = html[k];
       el.hidden = !html[k];
       last[k] = html[k];
+      if (k === "hero") ui.fitNames(host, ".gc-matchup", ".gc-name");
     });
   }
 

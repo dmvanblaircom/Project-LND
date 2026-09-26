@@ -92,15 +92,16 @@ Suite.top25 = (function () {
     }
     return (g.state === "post" ? "Final. " : g.state === "in" ? "Live, " + g.detail + ". " : "") +
            spoken(a) + " " + (a.score || 0) + ", at " + spoken(h) + " " + (h.score || 0) + "." +
-           (lastPlay(g) ? " Last play: " + lastPlay(g) : "");
+           (lastPlay(g) ? " Last play" + (lastAt(g) ? " at " + lastAt(g) : "") + ": " + lastPlay(g) : "");
   }
 
-  // The latest play of a game under way, as TeamOS normalized it - the text
-  // is the source's own (play-text presentation is parked on the completion
-  // list). Never before kickoff or after the final.
+  // The latest play of a game under way, as TeamOS normalized it: the
+  // source's own words, with the snap's clock lifted out as a time
+  // (lastPlayAt). Never before kickoff or after the final.
   function lastPlay(g) {
     return g.state === "in" && g.live && g.live.lastPlay ? g.live.lastPlay : "";
   }
+  function lastAt(g) { return lastPlay(g) && g.live.lastPlayAt ? g.live.lastPlayAt : ""; }
 
   function gameRow(m, g) {
     var as = Number(g.away.score), hs = Number(g.home.score);
@@ -113,7 +114,7 @@ Suite.top25 = (function () {
     var body = '<span class="tg-body" aria-hidden="true">' +
                  '<span class="tg-sides">' + side(m, g.away, g, awayWon) + side(m, g.home, g, homeWon) + "</span>" +
                  '<span class="tg-status">' + status(g) + "</span>" + odds +
-                 (lastPlay(g) ? '<span class="tg-last">' + esc(lastPlay(g)) + "</span>" : "") +
+                 (lastPlay(g) ? '<span class="tg-last">' + (lastAt(g) ? '<span class="tg-at">' + esc(lastAt(g)) + "</span> " : "") + esc(lastPlay(g)) + "</span>" : "") +
                "</span>" +
                '<span class="sr-only">' + esc(summary(g)) + "</span>";
     // Only the game #game would open is a way in; the rest are information.
