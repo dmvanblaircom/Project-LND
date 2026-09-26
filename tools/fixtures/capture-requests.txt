@@ -32,3 +32,9 @@ scoreboard-20250120 cfp-final-jan2025
 scoreboard-20260926 sep26-live
 401858467 pur-live
 401858465 osu-ill-live
+# Live scan (1909 UTC): the scoreboard, ND schedule, polls, and the live game summaries.
+scoreboard-20260926 scan-1909
+schedule-87 scan-nd-1909
+rankings scan-1909
+401858467 scan-nd-1909
+401858465 scan-osu-1909
