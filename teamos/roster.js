@@ -3,7 +3,9 @@
 
      TEAM_CONFIG + snapshots  ->  TeamOS.roster.views()     the Roster views
      depth snapshot + roster  ->  TeamOS.roster.depth()     spots with people
-       (+ availability report)                                and who is out
+       (+ availability report,                                who is out, and
+          + season's charts)                                  who moved
+     roster + report (+ chart)->  TeamOS.roster.withStatus() the roster, out marked
      a spot's label           ->  TeamOS.roster.spotName()  "Defensive Tackle"
 
    Pure: no fetch, no DOM, no provider named. The depth chart and the
@@ -66,17 +68,50 @@ TeamOS.roster = (function () {
   // is the coaches' order, the report says who will not play, and a fan
   // should see both (David, 2026-09-26). By exact name - the report carries
   // no numbers. A report for another game marks nobody.
+  // With no chart to compare against (a team with a report but no depth
+  // chart), the report alone decides.
   function outNames(report, chart) {
     var out = {};
-    if (!report || !report.reported || !chart || !report.game || report.game !== chart.game) return out;
+    if (!report || !report.reported) return out;
+    if (chart && (!report.game || report.game !== chart.game)) return out;
     (report.players || []).forEach(function (p) {
       if (/^out-/.test(p.status || "") && fold(p.name)) out[fold(p.name)] = p.status;
     });
     return out;
   }
-  function depth(chart, groups, report) {
+  // Who moved since the previous chart (David and a tester, 2026-09-26): an
+  // arrow on the player, not a list of changes. Up when he is higher at the
+  // same spot than on the last chart, or new to the chart; down when he is
+  // lower. Moving to another spot is not up or down. The arrow lasts one
+  // chart: next week, still where he is, it drops off.
+  function spotKey(u, s) { return fold(u.unit) + "|" + String(s.label) + "|" + String(s.ordinal); }
+  function previousChart(chart, hist) {
+    var snaps = (hist && hist.snapshots) || [], i;
+    for (i = snaps.length - 1; i >= 0; i--) if (snaps[i].game === chart.game) break;
+    if (i < 0) i = snaps.length;                 // the chart is newer than the history
+    for (var j = i - 1; j >= 0; j--) if (snaps[j].game !== chart.game) return snaps[j];
+    return null;
+  }
+  function placesOf(chart) {
+    var at = {}, anywhere = {};
+    ((chart && chart.units) || []).forEach(function (u) { (u.slots || []).forEach(function (s) {
+      (s.levels || []).forEach(function (lv) { (lv.players || []).forEach(function (p) {
+        var n = fold(p.name); if (!n) return;
+        anywhere[n] = true; at[spotKey(u, s) + "|" + n] = lv.level;
+      }); });
+    }); });
+    return { at: at, anywhere: anywhere };
+  }
+  function depth(chart, groups, report, hist) {
     if (!chart || !chart.units) return null;
     var all = everyone(groups), outs = outNames(report, chart);
+    var prev = previousChart(chart, hist), was = prev ? placesOf(prev) : null;
+    function moved(u, s, lv, p) {
+      if (!was) return null;
+      var n = fold(p.name), before = was.at[spotKey(u, s) + "|" + n];
+      if (before == null) return was.anywhere[n] ? null : "up";
+      return lv.level < before ? "up" : lv.level > before ? "down" : null;
+    }
     return {
       title: chart.title || "", game: chart.game || "",
       source: { url: chart.sourceUrl || null, label: chart.sourceLabel || null },
@@ -89,11 +124,12 @@ TeamOS.roster = (function () {
                    open: !!(s.levels[0] && s.levels[0].players.length > 1),
                    levels: s.levels.map(function (lv) {
                      return { level: lv.level, players: lv.players.map(function (p) {
+                       var mv = moved(u, s, lv, p);
                        var r = match(p, all);
                        return { no: String(p.no || ""), name: p.name, classYear: p.cl || (r && r.classYear) || "",
                                 height: r ? r.height : "", weight: r ? r.weight : "",
                                 hometown: r ? r.hometown : null, photo: r ? r.photo : null, matched: !!r,
-                                out: outs[fold(p.name)] || null };
+                                out: outs[fold(p.name)] || null, moved: mv };
                      }) };
                    }) };
         }) };
@@ -153,5 +189,24 @@ TeamOS.roster = (function () {
     });
   }
 
-  return { views: views, depth: depth, availability: availability, history: history, spotName: spotName };
+  // The roster with each player the report lists as out marked `out`, by the
+  // same rule as the depth chart: the report for the chart's game, or the
+  // report alone when the team has no chart. Copies; the groups are shared.
+  function withStatus(groups, report, chart) {
+    var outs = outNames(report, chart);
+    var all = everyone(groups), byPlayer = [];
+    (report && report.players || []).forEach(function (p) {
+      if (!outs[fold(p.name)]) return;
+      var r = match({ no: p.no, name: p.name }, all);
+      if (r) byPlayer.push([r, outs[fold(p.name)]]);
+    });
+    return (groups || []).map(function (g) {
+      return Object.assign({}, g, { players: (g.players || []).map(function (p) {
+        var hit = byPlayer.filter(function (x) { return x[0] === p; })[0] || (outs[fold(p.name)] ? [p, outs[fold(p.name)]] : null);
+        return hit ? Object.assign({}, p, { out: hit[1] }) : p;
+      }) });
+    });
+  }
+
+  return { views: views, depth: depth, availability: availability, history: history, spotName: spotName, withStatus: withStatus };
 })();
