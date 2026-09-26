@@ -38,3 +38,10 @@ schedule-87 scan-nd-1909
 rankings scan-1909
 401858467 scan-nd-1909
 401858465 scan-osu-1909
+# Live scan (1928 UTC)
+scoreboard-20260926 scan-1928
+schedule-87 scan-nd-1928
+rankings scan-1928
+401858467 scan-nd-1928
+401856704 scan-x1-1928
+401858243 scan-x2-1928
