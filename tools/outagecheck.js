@@ -46,6 +46,12 @@ function ok(cond, what) {
   await page.route("**/*", async function (route) {
     var u = route.request().url();
     if (u.startsWith(base)) return route.continue();
+    // The postseason is its own request, empty in September; counted apart
+    // so "asks once" still means one regular-season request.
+    if (/\/teams\/87\/schedule\?seasontype=3/.test(u)) {
+      if (st.down) return route.abort();
+      return route.fulfill({ status: 200, contentType: "application/json", body: fixture("espn-schedule-nd-2025-post.json") });
+    }
     if (/\/teams\/87\/schedule(\?|$)/.test(u)) {
       st.schedule++;
       if (st.down) return route.abort();

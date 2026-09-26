@@ -706,18 +706,45 @@ TeamOS.espn = (function () {
 
   /* ---------- team ---------- */
 
-  function teamSchedule(teamId){ return SITE+"/teams/"+teamId+"/schedule"; }
+  // One season type per request. Asked for without one, ESPN returns the
+  // season type it considers current: the regular season through November,
+  // and - by the same rule - presumably only the postseason once bowls
+  // begin. Bowl and CFP games never arrive with the regular season
+  // (real payloads, 2026-09-25), so a season is two requests, joined below.
+  var REGULAR=2, POSTSEASON=3;
+  function teamSchedule(teamId, type){ return SITE+"/teams/"+teamId+"/schedule?seasontype="+type; }
 
   return {
-    // The URLs app.js fetches. Must not change shape: the service worker's
-    // data cache and the page's cache-first paint are keyed on them.
+    // The URLs app.js fetches. The service worker's data cache and the
+    // page's cache-first paint are keyed on them, so a change of shape costs
+    // every fan their offline copy once (app.js bridges the last change).
     scheduleUrl: function(config){
-      return teamSchedule(config.sources.espn.teamId);
+      return teamSchedule(config.sources.espn.teamId, REGULAR);
     },
-    // The same URL for a team we have no config for - the preview needs the
+    postseasonUrl: function(config){
+      return teamSchedule(config.sources.espn.teamId, POSTSEASON);
+    },
+    // The same URLs for a team we have no config for - the preview needs the
     // opponent's results to work out what they have allowed.
     teamScheduleUrl: function(teamId){
-      return teamSchedule(teamId);
+      return teamSchedule(teamId, REGULAR);
+    },
+    teamPostseasonUrl: function(teamId){
+      return teamSchedule(teamId, POSTSEASON);
+    },
+    // A regular-season payload and a postseason one -> one season, in the
+    // same shape, for schedule() and scoreLines(). Either may be missing: no
+    // postseason is the normal case until bowls are set. An event both
+    // carry is kept once.
+    joinSeason: function(regular, postseason){
+      var seen={}, events=[];
+      [regular, postseason].forEach(function(d){
+        ((d&&d.events)||[]).forEach(function(ev){
+          if(!ev || seen[ev.id]) return;
+          seen[ev.id]=1; events.push(ev);
+        });
+      });
+      return { events: events };
     },
     rosterUrl: function(config){
       return SITE+"/teams/"+config.sources.espn.teamId+"/roster";

@@ -63,7 +63,7 @@ TeamOS is a logical/domain layer inside the existing repository: four plain-scri
 | File | Provides | Since |
 |---|---|---|
 | `teamos/team.js` | `TeamOS.createTeam(config.team)` — validates and freezes the provider-neutral Team | Phase 2 |
-| `teamos/espn.js` | `TeamOS.espn.scheduleUrl(config)`, `TeamOS.espn.schedule(json, team, config)` → `Game[]`, `TeamOS.espn.gameOdds(summary)` | Phase 3A |
+| `teamos/espn.js` | `TeamOS.espn.scheduleUrl(config)` and `postseasonUrl(config)`, `TeamOS.espn.joinSeason(regular, postseason)`, `TeamOS.espn.schedule(json, team, config)` → `Game[]`, `TeamOS.espn.gameOdds(summary)` | Phase 3A |
 | `teamos/espn.js` | `TeamOS.espn.rosterUrl(config)`, `TeamOS.espn.roster(json)` → `RosterGroup[]` of `Player`; `TeamOS.espn.teamUrl(config)`, `TeamOS.espn.teamStatus(json)` → `{ rank, record }` | Phase 3B |
 | `teamos/espn.js` | `TeamOS.espn.scoreboardUrl()`, `TeamOS.espn.scoreboard(json, config)` → `LeagueGame[]`; `TeamOS.espn.rankingsUrl()`, `TeamOS.espn.rankings(json, config)` → `Poll[]` | Phase 4A |
 | `teamos/espn.js` | `TeamOS.espn.summaryUrl(gameId)`, `TeamOS.espn.gameDetail(json, team, config)` → `GameDetail`; `TeamOS.espn.seasonStatsUrl(key, season)`, `TeamOS.espn.seasonStats(json)` → `SeasonStat[]` | Phase 4B |
