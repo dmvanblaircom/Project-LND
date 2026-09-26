@@ -142,3 +142,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 
 - **Automated checks: clean.** Ole Miss-Florida and Houston-Georgia Southern final (ten ranked finals today). Live: Wisconsin-Penn State (4th), Central Michigan-Miami (2nd), South Carolina-Alabama (1st), Oregon-USC (1st). Texas A&M-LSU still "Scheduled" in ESPN's feed nine minutes past its 7:30 kickoff - the app shows ESPN's state, which is right.
 - New items: none.
+
+### 23:57Z (7:57 PM ET) - evening games
+
+- **Automated checks: clean.** Six ranked games live (Wisconsin-Penn State 4th; Central Michigan-Miami, South Carolina-Alabama 2nd; Texas A&M-LSU, Oregon-USC, Missouri-Mississippi State 1st); ten final; SMU at 9:00. Scores match.
+- #6-#10 approved by David; fix branch built, full suite running.
+- New items: none.
