@@ -125,3 +125,8 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 
 - **Automated checks: clean.** Seven ranked games live (Central Michigan-Miami kicked off; Wisconsin-Penn State at the half); five final; scores match the scoreboard.
 - New items: none.
+
+### 23:03Z (7:03 PM ET) - evening games
+
+- **Automated checks: clean.** Oklahoma-Georgia and Iowa-Michigan went final since the last scan; five ranked games live (Ole Miss-Florida, Utah-Iowa State, Houston-Georgia Southern in the 4th; Wisconsin-Penn State 3rd; Central Michigan-Miami 1st). Scores match the scoreboard.
+- New items: none.
