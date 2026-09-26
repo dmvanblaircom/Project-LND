@@ -75,3 +75,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Score, clock and possession (Purdue; football on their side, Drive Tracker "Purdue drive" in Purdue's colour) agree with the scoreboard.
 - Scoring plays: ND's defensive touchdown (fumble return, 28-0) is credited to ND - correct. The shouting "(S. Porath KICK)" persists on every TD (#4).
 - New items: none.
+
+### 20:58Z (4:58 PM ET) - ND 49, Purdue 3, 4th 4:05
+
+- **Automated checks: clean.** Score and clock agree on Home, Game, Top 25 and the schedule row ("Live · 49-3"). After ND's touchdown no side has the ball: no football and no down & distance pill - correct.
+- The touchdown's last-play text is the longest raw ESPN string yet (five lines at 390, ending "(H: #39 J.Scaife, LS: #96 J.Vinci)") - more weight for #2.
+- New items: none.
