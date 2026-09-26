@@ -734,6 +734,8 @@ details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}
 .ro-card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .6rem;margin-bottom:.35rem}
 .ro-spot{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.2rem;color:var(--t-surface)}
 .ro-spot-label{font-family:var(--t-font-display);font-weight:600;font-size:.9rem;letter-spacing:.04em;color:var(--s-muted)}
+/* Listed out on the availability report for the chart's game. */
+.ro-out{display:inline-block;margin-left:.3rem;padding:0 .3rem;border-radius:.25rem;background:var(--s-loss);color:#fff;font-family:var(--t-font-display);font-weight:700;font-size:.72rem;line-height:1.35;letter-spacing:.02em;text-decoration:none;vertical-align:.1em}
 .ro-battle{padding:.1rem .5rem;border-radius:var(--s-radius-pill);background:var(--t-accent);color:var(--t-accent-ink);font-family:var(--t-font-display);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
 .ro-fold-count{margin-left:auto;font-size:.85rem;color:var(--s-muted)}
 .ro-cols,.ro-row{display:grid;grid-template-columns:2.2rem 1.8rem 2.6rem minmax(0,1fr) 2.9rem 2.4rem 2.5rem;align-items:center;column-gap:.55rem}

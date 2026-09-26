@@ -3,6 +3,7 @@
 
      TEAM_CONFIG + snapshots  ->  TeamOS.roster.views()     the Roster views
      depth snapshot + roster  ->  TeamOS.roster.depth()     spots with people
+       (+ availability report)                                and who is out
      a spot's label           ->  TeamOS.roster.spotName()  "Defensive Tackle"
 
    Pure: no fetch, no DOM, no provider named. The depth chart and the
@@ -59,9 +60,23 @@ TeamOS.roster = (function () {
   // The depth chart with each entry joined to its roster player. Units keep
   // the chart's own order; spots, levels and OR groups are untouched
   // (decision 0019) - only people gain height, weight, hometown and photo.
-  function depth(chart, groups) {
+  //
+  // With the availability report for the SAME game, a player the report
+  // lists as out (for the game or the season) is marked `out`: the chart
+  // is the coaches' order, the report says who will not play, and a fan
+  // should see both (David, 2026-09-26). By exact name - the report carries
+  // no numbers. A report for another game marks nobody.
+  function outNames(report, chart) {
+    var out = {};
+    if (!report || !report.reported || !chart || !report.game || report.game !== chart.game) return out;
+    (report.players || []).forEach(function (p) {
+      if (/^out-/.test(p.status || "") && fold(p.name)) out[fold(p.name)] = p.status;
+    });
+    return out;
+  }
+  function depth(chart, groups, report) {
     if (!chart || !chart.units) return null;
-    var all = everyone(groups);
+    var all = everyone(groups), outs = outNames(report, chart);
     return {
       title: chart.title || "", game: chart.game || "",
       source: { url: chart.sourceUrl || null, label: chart.sourceLabel || null },
@@ -77,7 +92,8 @@ TeamOS.roster = (function () {
                        var r = match(p, all);
                        return { no: String(p.no || ""), name: p.name, classYear: p.cl || (r && r.classYear) || "",
                                 height: r ? r.height : "", weight: r ? r.weight : "",
-                                hometown: r ? r.hometown : null, photo: r ? r.photo : null, matched: !!r };
+                                hometown: r ? r.hometown : null, photo: r ? r.photo : null, matched: !!r,
+                                out: outs[fold(p.name)] || null };
                      }) };
                    }) };
         }) };
