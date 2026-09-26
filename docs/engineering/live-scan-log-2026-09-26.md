@@ -28,6 +28,7 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 | 7 | 19:47Z | Warn | Home and Game - down & distance pill at halftime | "2nd & 10 · PUR 28" still shows at halftime - ESPN keeps the last situation, but no one has the ball. Hide the down & distance pill while the game is paused between periods, as the football already is. | Open |
 | 8 | 20:23Z | Idea | Game header at 320 | The down & distance pill wraps "2nd / & / 10" over three lines at 320 (one line at 390). Readable, but cramped; "2nd & 10" could be kept on one line (non-breaking) with the yard line under it. | Open |
 | 9 | 21:17Z | Idea | Game header records | The Game header writes records "4 - 0" / "1 - 3" (spaced) while Home, Top 25 and the schedule write "4-0". One format everywhere. | Open |
+| 10 | 21:34Z | Idea | Top 25 - Games, evening | Games list in kickoff order, so by the evening five finals fill the first screen and every live game (Oklahoma-Georgia, Wisconsin-Penn State, ...) is below the fold. Live games first (then upcoming, then finals), or finals collapsed, would put what is happening now on top. The fan's own game keeps its highlight wherever it sits. | Open |
 
 ## Approved fix list (after the ND game)
 
@@ -89,3 +90,10 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - The Home hero at final has room for "#3 NOTRE DAME" in full (#1 is a live-layout issue).
 - New item: #9 (record format differs in the Game header).
 - **The approved post-game fixes (#1-#4) start now.**
+
+### 21:34Z (5:34 PM ET) - ND final 49-10; evening games live
+
+- **Automated checks: clean** on every screen. Home, Game (Box Score first), Top 25 and Schedule all show the 49-10 final and the new records (ND 4-0, Purdue 1-3).
+- Top 25: six live games (Oklahoma-Georgia, Ole Miss-Florida, Utah-Iowa State, Iowa-Michigan, Houston-Georgia Southern, Wisconsin-Penn State) with scores and clocks matching the scoreboard.
+- Fixes #1-#4: built and committed on fix/post-game-sep26; full suite running.
+- New item: #10 (live games below the fold on Top 25 in the evening).
