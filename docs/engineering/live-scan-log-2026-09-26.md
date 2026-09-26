@@ -114,3 +114,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Schedule row for Purdue reads "W 49-10"; Home keeps the final card with Game Recap.
 - Top 25: six live (Oklahoma 31-6 Georgia 3rd, Ole Miss-Florida, Utah-Iowa State, Iowa-Michigan 4th, Houston-Georgia Southern, Wisconsin-Penn State 2nd); five final; six still to kick off (Miami 6:30 through SMU 9:00). Scores match the scoreboard.
 - New items: none.
+
+### 22:28Z (6:28 PM ET) - evening games
+
+- **Automated checks: clean.** Home's news has turned over to post-game coverage ("Notre Dame puts it on EASY MODE with a 49-10 win over Purdue", One Foot Down, 1 hour ago).
+- Top 25: Oklahoma 38-6 (4th), Ole Miss-Florida, Utah-Iowa State, Iowa-Michigan (4th), Houston-Georgia Southern, Wisconsin-Penn State (2nd) live; scores match.
+- New items: none.
