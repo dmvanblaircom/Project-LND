@@ -927,7 +927,7 @@ ok(!/\bfetch\s*\(/.test(liveSrc), "does not fetch");
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(uncomment(liveSrc)), "does not touch the DOM");
 ok(!/espn|ESPN/.test(uncomment(liveSrc)), "names no provider: it reads domain objects");
 ok(!/notre|irish|ohio|buckeye/i.test(uncomment(liveSrc)), "names no team");
-eq(Object.keys(TeamOS.live).sort(), ["anyLive", "isLive", "reconcile", "reconcileAll", "withBall"], "exactly the documented functions");
+eq(Object.keys(TeamOS.live).sort(), ["anyLive", "carryBall", "isLive", "reconcile", "reconcileAll", "withBall"], "exactly the documented functions");
 
 console.log("TeamOS.live.withBall - who has the ball, between plays too (David, 2026-09-26)");
 var WB = TeamOS.live.withBall;
@@ -936,6 +936,33 @@ eq(WB({ live: { possession: null, lastPlayKind: "kickoff", lastPlaySide: "home" 
 eq(WB({ live: { possession: null, lastPlayKind: "score", lastPlaySide: "away" } }), "away", "after a score: the team that scored, which kicks off next");
 eq(WB({ live: { possession: null, lastPlayKind: null, lastPlaySide: "away" } }), null, "anything else (a timeout, the end of a period, a safety): no one, as the feed says");
 eq([WB({ live: null }), WB(null)], [null, null], "no live state: no one");
+
+console.log("TeamOS.live.carryBall - the ball stays where it was when the feed goes quiet (David, 2026-09-26)");
+// One game, poll by poll, the way the app sees it: each new scoreboard is
+// carried over from the one before.
+function poll(detail, live) { return { id: "g1", state: "in", status: "live", detail: detail, live: live }; }
+var seq = [
+  ["snap, feed names home",     poll("8:10 - 1st",  { possession: "home" }),                                  "home"],
+  ["timeout",                   poll("8:01 - 1st",  { possession: null, lastPlayKind: null }),                "home"],
+  ["end of the 1st quarter",    poll("End of 1st",  { possession: null, lastPlayKind: null }),                "home"],
+  ["safety: the tackled offense kicks", poll("3:12 - 2nd", { possession: null, lastPlayKind: null, lastPlaySide: "away" }), "home"],
+  ["the free kick, received by away", poll("3:12 - 2nd", { possession: null, lastPlayKind: "kickoff", lastPlaySide: "away" }), "away"],
+  ["halftime: no one",          poll("Halftime",    { possession: null, lastPlayKind: null }),                null],
+  ["second-half kickoff to home", poll("15:00 - 3rd", { possession: null, lastPlayKind: "kickoff", lastPlaySide: "home" }), "home"],
+  ["a timeout after it",        poll("14:40 - 3rd", { possession: null, lastPlayKind: null }),                "home"],
+  ["end of the 4th: overtime's coin toss decides", poll("End of 4th", { possession: null, lastPlayKind: null }), null]
+];
+var prevList = null, got = [];
+seq.forEach(function (step) { var list = TeamOS.live.carryBall([step[1]], prevList); got.push(WB(list[0])); prevList = list; });
+eq(got, seq.map(function (s) { return s[2]; }), "a timeout, the end of the 1st, a safety keep the ball; halftime and the end of the 4th clear it (" +
+   seq.map(function (s) { return s[0]; }).join(" / ") + ")");
+eq(WB(TeamOS.live.carryBall([poll("8:01 - 1st", { possession: null, lastPlayKind: null })], null)[0]), null,
+   "first poll of a visit, mid-timeout: nothing to carry, no one");
+var orig = poll("8:01 - 1st", { possession: null, lastPlayKind: null }), prevOne = [poll("8:10 - 1st", { possession: "away" })];
+var carried = TeamOS.live.carryBall([orig], prevOne)[0];
+ok(carried !== orig && orig.live.carried === undefined && carried.live.carried === "away", "new objects: neither scoreboard is changed");
+eq(WB(TeamOS.live.carryBall([poll("8:01 - 1st", { possession: null })], [Object.assign(poll("8:10 - 1st", { possession: "away" }), { id: "other" })])[0]), null,
+   "only the same game carries");
 
 // The Kent State game as the app saw it: a Game from the schedule endpoint
 // that never left the pre-game snapshot, and the scoreboard's live view.

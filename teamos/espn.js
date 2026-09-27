@@ -527,8 +527,9 @@ TeamOS.espn = (function () {
   // with the team that received it, a score with the team that scored.
   // Checked on every live scoreboard captured on 2026-09-26: 18 kickoffs,
   // 45 extra points, touchdowns, field goals and two-point tries.
-  // "kickoff" | "score" | null. A safety is left out: who kicks after one
-  // is the team scored on, and the feed's tag has not been seen for it.
+  // "kickoff" | "score" | null. A safety is not a "score" here: the team
+  // scored on kicks next, and TeamOS.live.withBall gets that from the side
+  // it last knew had the ball, not from the play's tag.
   function playKind(p){
     var t=String(pick(p,["type","text"],"")||"");
     if(/^kickoff$/i.test(t)) return "kickoff";
