@@ -1106,7 +1106,9 @@ function getScoreboard(maxAgeMs){
   if(SB.p) return SB.p;                    // one request out at a time: join it
   SB.p=get(TeamOS.espn.scoreboardUrl(), hasEvents).then(function(d){
     SB.data=d; SB.at=Date.now();
-    SB.games=TeamOS.espn.scoreboard(d, TEAM_CONFIG);
+    // Who has the ball carries over from the last scoreboard where the feed
+    // names no one (a timeout, the end of a quarter, a safety).
+    SB.games=TeamOS.live.carryBall(TeamOS.espn.scoreboard(d, TEAM_CONFIG), SB.games);
     AUTO.liveElsewhere = SB.games.some(function(lg){ return lg.state==="in"; });
     startAuto();
     return d;
