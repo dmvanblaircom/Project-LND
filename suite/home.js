@@ -72,7 +72,10 @@ Suite.home = (function () {
     var mark = us ? ui.mark(team.markUrl, team.name, team.abbr, "bare")
                   : ui.mark(m.oppMark(g.oppProviderId), g.oppName, g.oppAbbr, "bare");
     var showScore = st === "live" || st === "paused" || st === "final";
-    var ball = (st === "live" || st === "paused") && g.situation && g.situation.possession === (us ? "us" : "them");
+    // At halftime the football marks who gets the ball to start the second
+    // half (TeamOS.live.receives); otherwise who has it.
+    var ball = (st === "live" || st === "paused") && g.situation &&
+               (TeamOS.game.halftime(g) ? g.situation.receives : g.situation.possession) === (us ? "us" : "them");
     return '<div class="gc-side ' + (us ? "us" : "them") + '">' +
              '<div class="gc-line">' + mark +
                (showScore ? '<span class="gc-score">' + esc(score == null ? "0" : score) + "</span>" : "") +
@@ -107,6 +110,9 @@ Suite.home = (function () {
   }
 
   // One sentence a screen reader reads instead of the visual scoreboard.
+  // The team getting the ball after halftime, as the card names teams.
+  function receiver(team, g) { return g.situation.receives === "us" ? team.abbr : (g.oppAbbr || g.oppName); }
+
   function summary(team, g, st) {
     var opp = oppLabel(g), w = g.home || g.neutral ? "versus " : "at ";
     var ko = ui.kickoff(g.date, g.timeSet);
@@ -114,7 +120,8 @@ Suite.home = (function () {
       var line = team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0) + ".";
       if (st === "final") return "Final. " + line;
       if (st === "paused") return (g.status === "suspended" ? "Suspended" : "Delayed") + ", " + ordinal(g.period) + " quarter. " + line;
-      if (TeamOS.game.halftime(g)) return "Halftime. " + line;
+      if (TeamOS.game.halftime(g)) return "Halftime. " + line +
+        (g.situation && g.situation.receives ? " " + (g.situation.receives === "us" ? team.name : g.oppName) + " gets the ball to start the second half." : "");
       return "Live, " + (ordinal(g.period) ? ordinal(g.period) + " quarter" : "") + (g.clock ? ", " + g.clock : "") + ". " + line +
         (g.situation && g.situation.short ? " " + g.situation.short + (g.situation.spot ? " at " + g.situation.spot : "") + "." : "");
     }
@@ -182,6 +189,8 @@ Suite.home = (function () {
       var situation = (st === "live" || st === "paused") && !TeamOS.game.halftime(g) && g.situation && g.situation.short
         ? '<p class="gc-situation" aria-hidden="true"><span>' + esc(g.situation.short) + "</span>" +
           (g.situation.spot ? "<span>" + esc(g.situation.spot) + "</span>" : "") + "</p>"
+        : TeamOS.game.halftime(g) && g.situation && g.situation.receives
+        ? '<p class="gc-situation" aria-hidden="true"><span>' + esc(receiver(team, g)) + " gets the ball</span></p>"
         : "";
 
       card = '<article class="gamecard gc-' + st + '" aria-labelledby="gcSummary">' +

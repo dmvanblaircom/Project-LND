@@ -72,7 +72,9 @@ TeamOS.live = (function () {
     var side = game.home ? "home" : "away";
     out.situation = lg.live ? {
       short: lg.live.short || "", spot: lg.live.spot || "",
-      possession: withBall(lg) == null ? null : (withBall(lg) === side ? "us" : "them")
+      possession: withBall(lg) == null ? null : (withBall(lg) === side ? "us" : "them"),
+      // at halftime, who gets the ball to start the second half
+      receives: receives(lg) == null ? null : (receives(lg) === side ? "us" : "them")
     } : null;
     // A score of "0" is a score. Only an absent one leaves what was there.
     if (mine && mine.score != null) out.us = mine.score;
@@ -150,6 +152,39 @@ TeamOS.live = (function () {
     });
   }
 
+  // Who gets the ball to start the second half (David, 2026-09-26). The feed
+  // does not say; the coin toss does. The team that received the opening
+  // kickoff kicks off the second half, so at halftime the ball is coming
+  // to the other side. Checked on every full game captured on 2026-09-26
+  // and both of Notre Dame's earlier home games: 13 of 13. A team may elect
+  // otherwise, which is rare; so this is only said at halftime, and the
+  // second half's own feed takes over at its kickoff.
+  //   openingSide(gameDetail)  "home" / "away": whose the game's first drive was
+  //   withOpening(games, map)  each live game stamped live.opening from a
+  //                            { gameId: side } the app has learned
+  //   receives(leagueGame)     at halftime, the side getting the ball; else null
+  function openingSide(gd) {
+    var list = gd && gd.drives && gd.drives.list;
+    return list && list.length && (list[0].side === "home" || list[0].side === "away") ? list[0].side : null;
+  }
+  function withOpening(games, map) {
+    return (games || []).map(function (lg) {
+      var side = lg && lg.live && map && map[lg.id];
+      if (!side || lg.live.opening === side) return lg;
+      var out = {}, k;
+      for (k in lg) { if (Object.prototype.hasOwnProperty.call(lg, k)) out[k] = lg[k]; }
+      out.live = {};
+      for (k in lg.live) { if (Object.prototype.hasOwnProperty.call(lg.live, k)) out.live[k] = lg.live[k]; }
+      out.live.opening = side;
+      return out;
+    });
+  }
+  function atHalf(lg) { return !!lg && /\bhalf|end of (the )?2nd/i.test(lg.detail || ""); }
+  function receives(lg) {
+    var o = lg && lg.live && lg.live.opening;
+    return atHalf(lg) && o ? (o === "home" ? "away" : "home") : null;
+  }
+
   // Anything in this list still being played, from either kind of object.
   function anyLive(list) {
     return !!list && list.some(function (x) { return !!x && x.state === "in"; });
@@ -161,6 +196,10 @@ TeamOS.live = (function () {
     isLive: isLive,
     anyLive: anyLive,
     withBall: withBall,
-    carryBall: carryBall
+    carryBall: carryBall,
+    openingSide: openingSide,
+    withOpening: withOpening,
+    atHalf: atHalf,
+    receives: receives
   };
 })();

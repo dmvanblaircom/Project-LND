@@ -210,6 +210,11 @@ var halfHead = headHtml(Object.assign({}, liveG, { period: 2, clock: "0:00", det
 ok(/class="gh-clock">Halftime</.test(halfHead) && !/0:00/.test(halfHead), "halftime says Halftime, not 2ND · 0:00 - as Home says HALF");
 ok(!/gc-situation/.test(halfHead), "and no down & distance: no one has the ball");
 ok(/Halftime\. Notre Dame/.test(halfHead), "and a screen reader hears Halftime");
+var recvHead = headHtml(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
+  situation: { short: "2nd & 10", spot: "PUR 28", possession: null, receives: "us" } }));
+ok(/class="gc-situation"><span>ND gets the ball<\/span>/.test(recvHead), "at halftime the pill says who gets the ball to start the second half");
+ok(/gh-team us[\s\S]*gh-ball[\s\S]*gh-team them/.test(recvHead) && (recvHead.match(/gh-ball/g) || []).length === 1, "and the football is on that side");
+ok(/Notre Dame gets the ball to start the second half\./.test(recvHead), "and a screen reader hears it");
 var liveHead = headHtml(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }));
 ok(/gc-situation"><span>2nd &amp; 10<\/span><span>PUR 28<\/span>/.test(liveHead), "a running game keeps its down & distance");
 var finalHead = headHtml(Object.assign({}, liveG, { state: "post", status: "final", usRecord: "4-0", oppRecord: "1-3" }));
