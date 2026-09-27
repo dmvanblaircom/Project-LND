@@ -220,6 +220,25 @@ eq(["Passing Touchdown", "Field Goal Good", "Two Point Pass", "Interception Retu
 eq(["Safety", "Timeout", "End Period", "Rush", "Kickoff Return (Offense)"].map(function (t) { return withLast(t, "221").lastPlayKind; }),
    [null, null, null, null, null], "a safety, a timeout, the end of a period, a snap or a return are not");
 eq(withLast("Kickoff", null).lastPlaySide, null, "no team on the play: no side");
+
+// Live scan #11: right after an extra point ESPN's last play is only
+// "(C. Talty KICK)" (South Carolina-Alabama, 2026-09-26 8:15 PM ET).
+function lastText(type, text) {
+  var ev = JSON.parse(JSON.stringify(sbFixture.events.filter(function (e) { return e.id === "401858225"; })[0]));
+  var c = ev.competitions[0]; c.situation = c.situation || {};
+  c.situation.lastPlay = { type: { text: type }, team: { id: "221" }, text: text };
+  return TeamOS.espn.scoreboard({ events: [ev] }, TEAM_CONFIG)[0].live.lastPlay;
+}
+eq(lastText("Extra Point Good", "(C. Talty KICK)"), "Extra point good (C. Talty)",
+   "a bare good extra point reads as one: the words from the play's type, the kicker from its text");
+eq([lastText("Extra Point Missed", "(C. Talty KICK)"), lastText("Extra Point Good", "C. Talty extra point is good"),
+    lastText("Kickoff", "(C. Talty KICK)")],
+   ["(C. Talty KICK)", "C. Talty extra point is good", "(C. Talty KICK)"],
+   "any other type or shape stays exactly as ESPN wrote it");
+var patSum = JSON.parse(read("tools/fixtures/espn-summary-pur-downs.json"));
+patSum.drives.current.plays.push({ text: "(S. Porath KICK)", type: { text: "Extra Point Good" }, clock: { displayValue: "4:05" } });
+eq(TeamOS.espn.gameDetail(patSum, team, TEAM_CONFIG).lastPlay.text, "Extra point good (S. Porath)",
+   "and the Game screen's last play, from the drive, reads the same");
 eq([pitt.home.rank, pitt.away.rank], [null, null], "unranked on both sides (drives live-anywhere but not the ranked list)");
 eq([uga.state, uga.home.score, uga.away.score, uga.home.rank, uga.away.rank], ["post", "31", "24", 2, 9], "final: scores and both ranks");
 eq([pur.mine, pur.timeSet, pur.net, pur.away.rank], [true, false, "Peacock", 3], "the team's own game: mine, placeholder time, streaming-only broadcast");
