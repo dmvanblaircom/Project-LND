@@ -172,3 +172,8 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Top 25's possession football is working in production (Miami, with the ball at the Central Michigan 1). South Carolina-Alabama at the half: no football, as intended. Scores match.
 - Between-plays possession (David: "someone has to kick off") built on feat/ball-between-plays; full suite running.
 - New item: #12 (the football disappears during every timeout).
+
+### 01:09Z (9:09 PM ET) - evening games; between-plays possession live (PR #21)
+
+- **Automated checks: clean.** Between-plays possession working in production: LSU's touchdown at 1:54 of the 2nd leaves the football on LSU, which kicks off next; Miami keeps it at the end of the 3rd (ESPN names Miami). Five ranked games live; scores match.
+- New items: none.
