@@ -201,7 +201,25 @@ eq([mia.away, mia.home], [{ name:"Miami", abbr:null, providerId:"2390", rank:5, 
                          { name:"Wake Forest", abbr:null, providerId:"154", rank:null, record:null, score:"0" }],
    "sides: ranked away, unranked home, scores as strings; no abbreviation or record in the payload -> null");
 eq([mia.net, mia.odds, mia.mine, mia.live], ["ESPN", { line:"MIA -20.5", total:56.5, provider:null }, false, null], "broadcast from names[], odds, not ours, not live");
-eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"#47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20", lastPlayAt:"3:28" }], "live game carries down/distance and last play, the snap's clock lifted out of the words");
+eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"#47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20", lastPlayAt:"3:28", lastPlayKind:null, lastPlaySide:null }], "live game carries down/distance and last play, the snap's clock lifted out of the words");
+
+// Between plays: what the last play was, and whose (for TeamOS.live.withBall).
+// The shapes are today's real ones (2026-09-26 scoreboards): a kickoff tagged
+// with the team that received it, a score with the team that scored.
+function withLast(type, teamId, possession) {
+  var ev = JSON.parse(JSON.stringify(sbFixture.events.filter(function (e) { return e.id === "401858225"; })[0]));
+  var c = ev.competitions[0]; c.situation = c.situation || {};
+  c.situation.possession = possession || null;
+  c.situation.lastPlay = { type: { text: type }, team: teamId ? { id: teamId } : undefined, text: "x" };
+  return TeamOS.espn.scoreboard({ events: [ev] }, TEAM_CONFIG)[0].live;
+}
+eq([withLast("Kickoff", "221").lastPlayKind, withLast("Kickoff", "221").lastPlaySide], ["kickoff", "home"], "a kickoff, and the side that received it");
+eq([withLast("Extra Point Good", "183").lastPlayKind, withLast("Extra Point Good", "183").lastPlaySide], ["score", "away"], "an extra point, and the side that scored");
+eq(["Passing Touchdown", "Field Goal Good", "Two Point Pass", "Interception Return Touchdown"].map(function (t) { return withLast(t, "221").lastPlayKind; }),
+   ["score", "score", "score", "score"], "touchdowns, field goals and two-point tries are scores");
+eq(["Safety", "Timeout", "End Period", "Rush", "Kickoff Return (Offense)"].map(function (t) { return withLast(t, "221").lastPlayKind; }),
+   [null, null, null, null, null], "a safety, a timeout, the end of a period, a snap or a return are not");
+eq(withLast("Kickoff", null).lastPlaySide, null, "no team on the play: no side");
 eq([pitt.home.rank, pitt.away.rank], [null, null], "unranked on both sides (drives live-anywhere but not the ranked list)");
 eq([uga.state, uga.home.score, uga.away.score, uga.home.rank, uga.away.rank], ["post", "31", "24", 2, 9], "final: scores and both ranks");
 eq([pur.mine, pur.timeSet, pur.net, pur.away.rank], [true, false, "Peacock", 3], "the team's own game: mine, placeholder time, streaming-only broadcast");
@@ -909,7 +927,15 @@ ok(!/\bfetch\s*\(/.test(liveSrc), "does not fetch");
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(uncomment(liveSrc)), "does not touch the DOM");
 ok(!/espn|ESPN/.test(uncomment(liveSrc)), "names no provider: it reads domain objects");
 ok(!/notre|irish|ohio|buckeye/i.test(uncomment(liveSrc)), "names no team");
-eq(Object.keys(TeamOS.live).sort(), ["anyLive", "isLive", "reconcile", "reconcileAll"], "exactly the documented functions");
+eq(Object.keys(TeamOS.live).sort(), ["anyLive", "isLive", "reconcile", "reconcileAll", "withBall"], "exactly the documented functions");
+
+console.log("TeamOS.live.withBall - who has the ball, between plays too (David, 2026-09-26)");
+var WB = TeamOS.live.withBall;
+eq(WB({ live: { possession: "away", lastPlayKind: "score", lastPlaySide: "home" } }), "away", "the side the feed names comes first");
+eq(WB({ live: { possession: null, lastPlayKind: "kickoff", lastPlaySide: "home" } }), "home", "after a kickoff: the team that received it");
+eq(WB({ live: { possession: null, lastPlayKind: "score", lastPlaySide: "away" } }), "away", "after a score: the team that scored, which kicks off next");
+eq(WB({ live: { possession: null, lastPlayKind: null, lastPlaySide: "away" } }), null, "anything else (a timeout, the end of a period, a safety): no one, as the feed says");
+eq([WB({ live: null }), WB(null)], [null, null], "no live state: no one");
 
 // The Kent State game as the app saw it: a Game from the schedule endpoint
 // that never left the pre-game snapshot, and the scoreboard's live view.
@@ -946,6 +972,16 @@ eq(fourth.won, null, "nobody has won while it is being played");
 var away = kentGame(); away.home = false;
 var awayFourth = TeamOS.live.reconcile(away, kentLeague("in", "49", "0", "14:27 - 4th"));
 eq([awayFourth.us, awayFourth.them], ["0", "49"], "the visiting team reads the same scoreboard the other way round");
+
+console.log(" who has the ball reaches Home and Game through reconcile - between plays too");
+function kentBall(live) { var lg = kentLeague("in", "49", "0", "14:27 - 4th"); lg.live = Object.assign({}, lg.live, live); return lg; }
+eq(TeamOS.live.reconcile(pre, kentBall({ possession: "away" })).situation.possession, "them", "the named side, from our point of view");
+eq(TeamOS.live.reconcile(pre, kentBall({ possession: null, lastPlayKind: "score", lastPlaySide: "home" })).situation.possession, "us",
+   "we just scored and kick off next: the ball is with us");
+eq(TeamOS.live.reconcile(pre, kentBall({ possession: null, lastPlayKind: "kickoff", lastPlaySide: "away" })).situation.possession, "them",
+   "they received the kickoff: the ball is with them");
+eq(TeamOS.live.reconcile(pre, kentBall({ possession: null, lastPlayKind: null, lastPlaySide: "home" })).situation.possession, null,
+   "a timeout or the end of a period: no one");
 
 console.log(" a score of zero is a score");
 var shutout = TeamOS.live.reconcile(pre, kentLeague("post", "59", "0", "Final"));
