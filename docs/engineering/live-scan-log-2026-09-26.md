@@ -29,7 +29,7 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 | 8 | 20:23Z | Idea | Game header at 320 | The down & distance pill wraps "2nd / & / 10" over three lines at 320 (one line at 390). Readable, but cramped; "2nd & 10" could be kept on one line (non-breaking) with the yard line under it. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
 | 9 | 21:17Z | Idea | Game header records | The Game header writes records "4 - 0" / "1 - 3" (spaced) while Home, Top 25 and the schedule write "4-0". One format everywhere. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
 | 10 | 21:34Z | Idea | Top 25 - Games, evening | Games list in kickoff order, so by the evening five finals fill the first screen and every live game (Oklahoma-Georgia, Wisconsin-Penn State, ...) is below the fold. Live games first (then upcoming, then finals), or finals collapsed, would put what is happening now on top. The fan's own game keeps its highlight wherever it sits. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
-| 11 | 00:15Z | Idea | Top 25 / Game - last play after a PAT | Right after an extra point, ESPN's last play is only the conversion: "(C. Talty KICK)" (South Carolina-Alabama). A bare, shouted fragment. #4's case rule could cover it where the play's own type says Extra Point Good; or show the scoring play it belongs to. | Open |
+| 11 | 00:15Z | Idea | Top 25 / Game - last play after a PAT | Right after an extra point, ESPN's last play is only the conversion: "(C. Talty KICK)" (South Carolina-Alabama). A bare, shouted fragment. #4's case rule could cover it where the play's own type says Extra Point Good; or show the scoring play it belongs to. | **Fixed** - approved by David after the last scan; PR #26, production verified (suite-2026-09-27a) |
 | 12 | 00:51Z | Idea | Possession football during a timeout (Top 25, Home, Game) | ESPN names no side with the ball while a timeout is the last play (40 of 40 today), so the football disappears for the length of every timeout (Texas A&M-LSU, "Timeout LSU, clock 06:27"). The timeout play itself doesn't say who has the ball, but the app polls: it could keep the last side it knew across a timeout. | **Fixed** - PR #22 (with the end of a quarter and safeties); production verified (suite-2026-09-26q) |
 
 ## Approved fix list (after the ND game)
@@ -232,7 +232,7 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 
 - **Scans:** every 15 minutes from 19:09Z (3:09 PM ET) to 03:47Z (11:47 PM ET). No Error-severity finding all day; every automated check came back clean apart from the expected ones logged above.
 - **Items logged: 12** - 0 Error, 4 Warn (#1, #5, #6, #7), 8 Idea (#2-#4, #8-#12).
-- **Fixed and live: 11** - #5 (PR #16, at halftime), #1-#4 (PR #18, after the final), #6-#10 (PR #19), #12 plus the end of a quarter and safeties (PR #22).
-- **Open: 1** - #11 (a PAT's last play reads only "(C. Talty KICK)"); not approved.
+- **Fixed and live: all 12** - #5 (PR #16, at halftime), #1-#4 (PR #18, after the final), #6-#10 (PR #19), #12 plus the end of a quarter and safeties (PR #22), #11 (PR #26, after the last scan: "Extra point good (C. Talty)").
+- **Open: none.**
 - **Also shipped today at David's request:** Share Suite (PR #17); the Top 25 possession football (PR #20); who has the ball between plays - the kicking team after a score, the receiver after a kickoff (PR #21); who gets the ball to start the second half, at halftime (PR #23). Plus one test-tooling fix found on the way: the visual audit now lets team logos settle before measuring (PR #24).
 
