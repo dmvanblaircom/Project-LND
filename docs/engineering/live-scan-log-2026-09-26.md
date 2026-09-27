@@ -193,3 +193,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 
 - **Automated checks: clean.** Central Michigan-Miami final (twelve ranked finals). Live: South Carolina-Alabama (4th), Texas A&M-LSU, Oregon-USC, Missouri-Mississippi State (3rd), Missouri State-SMU (2nd). Scores match.
 - New items: none.
+
+### 02:19Z (10:19 PM ET) - evening games
+
+- **Automated checks: clean.** Five ranked games live (South Carolina-Alabama 4th; Texas A&M-LSU, Oregon-USC end of 3rd, Missouri-Mississippi State 3rd; Missouri State-SMU 2nd). Scores match.
+- PR #23 (halftime "gets the ball") held: one of its two visual CI runs failed on a timing race in the accessibility audit (a lazy logo loading mid-audit; "ND" measured against Notre Dame's gold logo). Fix for the audit on fix/audit-mark-race, suite running.
+- New items: none.
