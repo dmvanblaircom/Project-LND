@@ -30,7 +30,7 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 | 9 | 21:17Z | Idea | Game header records | The Game header writes records "4 - 0" / "1 - 3" (spaced) while Home, Top 25 and the schedule write "4-0". One format everywhere. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
 | 10 | 21:34Z | Idea | Top 25 - Games, evening | Games list in kickoff order, so by the evening five finals fill the first screen and every live game (Oklahoma-Georgia, Wisconsin-Penn State, ...) is below the fold. Live games first (then upcoming, then finals), or finals collapsed, would put what is happening now on top. The fan's own game keeps its highlight wherever it sits. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
 | 11 | 00:15Z | Idea | Top 25 / Game - last play after a PAT | Right after an extra point, ESPN's last play is only the conversion: "(C. Talty KICK)" (South Carolina-Alabama). A bare, shouted fragment. #4's case rule could cover it where the play's own type says Extra Point Good; or show the scoring play it belongs to. | Open |
-| 12 | 00:51Z | Idea | Possession football during a timeout (Top 25, Home, Game) | ESPN names no side with the ball while a timeout is the last play (40 of 40 today), so the football disappears for the length of every timeout (Texas A&M-LSU, "Timeout LSU, clock 06:27"). The timeout play itself doesn't say who has the ball, but the app polls: it could keep the last side it knew across a timeout. | Open |
+| 12 | 00:51Z | Idea | Possession football during a timeout (Top 25, Home, Game) | ESPN names no side with the ball while a timeout is the last play (40 of 40 today), so the football disappears for the length of every timeout (Texas A&M-LSU, "Timeout LSU, clock 06:27"). The timeout play itself doesn't say who has the ball, but the app polls: it could keep the last side it knew across a timeout. | **Approved by David** (with the end of a quarter and safeties) - PR #22 |
 
 ## Approved fix list (after the ND game)
 
@@ -181,4 +181,10 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 ### 01:27Z (9:27 PM ET) - evening games
 
 - **Automated checks: clean.** Six ranked games live (Missouri State-SMU kicked off; Texas A&M-LSU and Oregon-USC at the half); eleven final. Scores match.
+- New items: none.
+
+### 01:45Z (9:45 PM ET) - evening games
+
+- **Automated checks: clean.** Six ranked games live (Missouri-Mississippi State at the half); eleven final. Scores match.
+- David approved #12 and asked for the end of a quarter and safeties too (PR #22), and for halftime to say who gets the ball to start the second half (built; suite running).
 - New items: none.
