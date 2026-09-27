@@ -159,3 +159,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Top 25 now opens on the six live games (#10 working in production): Wisconsin-Penn State 4th, Central Michigan-Miami at the half ("Halftime"), South Carolina-Alabama, Oregon-USC 2nd, Texas A&M-LSU, Missouri-Mississippi State 1st. Scores match.
 - The scan script's newest-capture pick sorted "0015" before "2356" after midnight UTC; fixed to use the newest committed capture.
 - New item: #11 (a PAT's last play is a bare "(C. Talty KICK)").
+
+### 00:33Z (8:33 PM ET) - evening games
+
+- **Automated checks: clean.** Wisconsin-Penn State final (eleven ranked finals). Live: Central Michigan-Miami (half), South Carolina-Alabama, Texas A&M-LSU, Oregon-USC (2nd), Missouri-Mississippi State (1st). Scores match.
+- Top 25 possession football (David's request) built as PR #20; data check for the gaps: across today's captures ESPN names no side with the ball between a score and the next snap (after a PAT 42 of 42, after a kickoff 18 of 18). Whether to infer the kicking/receiving team there is David's call.
+- New items: none.
