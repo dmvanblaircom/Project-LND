@@ -166,3 +166,8 @@ schedule-87 scan-nd-0219
 rankings scan-0219
 401856696 scan-x1-0219
 401856702 scan-x2-0219
+scoreboard-20260926 scan-0236
+schedule-87 scan-nd-0236
+rankings scan-0236
+401856696 scan-x1-0236
+401856702 scan-x2-0236
