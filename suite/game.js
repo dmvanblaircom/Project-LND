@@ -129,9 +129,10 @@ Suite.game = (function () {
     } else {
       var top = st === "live" ? '<span class="live-pill">Live</span>'
         : st === "paused" ? '<span class="state-pill paused">' + (g.status === "suspended" ? "Suspended" : "Delayed") + "</span>"
-        : '<span class="gh-final">Final</span>';
-      var clock = st === "final" ? "" : '<p class="gh-clock">' + esc([ordinal(g.period), g.clock].filter(Boolean).join(" · ")) + "</p>";
-      var sit = (st === "live" || st === "paused") && g.situation && g.situation.short
+        : '<span class="gh-final-label">Final</span>';
+      var half = TeamOS.game.halftime(g);
+      var clock = st === "final" ? "" : '<p class="gh-clock">' + esc(half ? "Halftime" : [ordinal(g.period), g.clock].filter(Boolean).join(" · ")) + "</p>";
+      var sit = (st === "live" || st === "paused") && !half && g.situation && g.situation.short
         ? '<p class="gc-situation"><span>' + esc(g.situation.short) + "</span>" + (g.situation.spot ? "<span>" + esc(g.situation.spot) + "</span>" : "") + "</p>"
         : "";
       center = '<div class="gh-center">' + top + clock + sit + "</div>";
@@ -151,6 +152,7 @@ Suite.game = (function () {
       var line = m.team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0);
       if (st === "final") return "Final. " + line + ".";
       if (st === "paused") return (g.status === "suspended" ? "Suspended" : "Delayed") + ", " + ordinal(g.period) + " quarter. " + line + ".";
+      if (TeamOS.game.halftime(g)) return "Halftime. " + line + ".";
       return "Live, " + ordinal(g.period) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " + line + "." +
         (g.situation && g.situation.short ? " " + g.situation.short + (g.situation.spot ? " at " + g.situation.spot : "") + "." : "");
     }

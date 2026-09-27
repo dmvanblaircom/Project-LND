@@ -88,7 +88,7 @@ Suite.home = (function () {
 
   function middle(g, st) {
     if (st === "live") {
-      var per = /half/i.test(g.detail || "") ? "Half" : ordinal(g.period);
+      var per = TeamOS.game.halftime(g) ? "Half" : ordinal(g.period);
       return '<div class="gc-mid"><span class="gc-period">' + esc(per) + "</span>" +
              (g.clock && per !== "Half" ? '<span class="gc-clock">' + esc(g.clock) + "</span>" : "") + "</div>";
     }
@@ -114,6 +114,7 @@ Suite.home = (function () {
       var line = team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0) + ".";
       if (st === "final") return "Final. " + line;
       if (st === "paused") return (g.status === "suspended" ? "Suspended" : "Delayed") + ", " + ordinal(g.period) + " quarter. " + line;
+      if (TeamOS.game.halftime(g)) return "Halftime. " + line;
       return "Live, " + (ordinal(g.period) ? ordinal(g.period) + " quarter" : "") + (g.clock ? ", " + g.clock : "") + ". " + line +
         (g.situation && g.situation.short ? " " + g.situation.short + (g.situation.spot ? " at " + g.situation.spot : "") + "." : "");
     }
@@ -178,7 +179,7 @@ Suite.home = (function () {
       if (g.net && st !== "final" && st !== "canceled") top += '<span class="gc-net">' + esc(g.net) + "</span>";
       top += "</div>";
 
-      var situation = (st === "live" || st === "paused") && g.situation && g.situation.short
+      var situation = (st === "live" || st === "paused") && !TeamOS.game.halftime(g) && g.situation && g.situation.short
         ? '<p class="gc-situation" aria-hidden="true"><span>' + esc(g.situation.short) + "</span>" +
           (g.situation.spot ? "<span>" + esc(g.situation.spot) + "</span>" : "") + "</p>"
         : "";

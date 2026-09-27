@@ -214,5 +214,17 @@ ok(res.every(function (g) { return g.status === "final"; }), "no canceled, postp
 var unscored = season12(1); unscored[0] = Object.assign({}, unscored[0], { us: null, them: null });
 eq(G.results(unscored).length, 0, "a final with no score is not a result");
 eq(G.results(null), [], "no schedule, no results");
+console.log("halftime and board order (live scan #6, #7, #10)");
+ok(G.halftime({ status: "live", detail: "Halftime" }), "live with the source saying Halftime: halftime");
+ok(!G.halftime({ status: "live", detail: "0:45 - 2nd" }) && !G.halftime({ status: "live", detail: "End of 1st Quarter" }),
+   "a running clock or the end of a quarter is not halftime");
+ok(!G.halftime({ status: "final", detail: "Final" }) && !G.halftime(null), "a final, or no game, is not halftime");
+var board = [
+  { id: "fin", state: "post", date: "2026-09-26T16:00Z" }, { id: "late", state: "pre", date: "2026-09-26T23:30Z" },
+  { id: "live2", state: "in", date: "2026-09-26T19:30Z" }, { id: "live1", state: "in", date: "2026-09-26T19:00Z" },
+  { id: "fin2", state: "post", date: "2026-09-26T19:30Z" }, { id: "soon", state: "pre", date: "2026-09-26T23:00Z" }];
+eq(board.slice().sort(G.boardOrder).map(function (g) { return g.id; }), ["live1", "live2", "soon", "late", "fin", "fin2"],
+   "a day's board: live, then to come, then final - each by kickoff");
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "one set of game rules, and every state has an answer"));
 process.exit(failures ? 1 : 0);

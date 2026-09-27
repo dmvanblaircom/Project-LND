@@ -203,6 +203,19 @@ ok(/gh-team them[\s\S]*gh-ball/.test(hd2) && !/gh-team us">[^]*?gh-ball[^]*?gh-t
    "the league's live state wins when it has one: Purdue's side");
 ok(!/gh-ball/.test(headHtml(Object.assign({}, liveG, { state: "post", status: "final" })) ), "no football once it is over");
 
+// ---- halftime and the final header (live scan #6, #7, #9) ----
+console.log("Game header at halftime and at the final");
+var halfHead = headHtml(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
+  situation: { short: "2nd & 10", spot: "PUR 28", possession: null } }));
+ok(/class="gh-clock">Halftime</.test(halfHead) && !/0:00/.test(halfHead), "halftime says Halftime, not 2ND · 0:00 - as Home says HALF");
+ok(!/gc-situation/.test(halfHead), "and no down & distance: no one has the ball");
+ok(/Halftime\. Notre Dame/.test(halfHead), "and a screen reader hears Halftime");
+var liveHead = headHtml(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }));
+ok(/gc-situation"><span>2nd &amp; 10<\/span><span>PUR 28<\/span>/.test(liveHead), "a running game keeps its down & distance");
+var finalHead = headHtml(Object.assign({}, liveG, { state: "post", status: "final", usRecord: "4-0", oppRecord: "1-3" }));
+ok(/class="gh-final-label">Final</.test(finalHead) && !/class="gh-final"/.test(finalHead),
+   "the FINAL label has its own class, so its wide tracking stays on the label (records read 4-0, not 4 - 0)");
+
 // ---- a finished drive, and the last play's time (live scan #2, #3) ----
 console.log("Drive Tracker between possessions, and the last play (real ND at Purdue, after Purdue's turnover on downs)");
 var DD = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-downs.json")), TEAM, CFG);
