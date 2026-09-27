@@ -222,6 +222,23 @@ function run(teamFile, teamLabel, ourName, oppName) {
   ok(!/tg-last|Pass complete/.test(vm.runInContext("top25Row(__lg)", ctx)), "nor does a game before kickoff");
   ok(!/Kent State|Ohio State|Notre Dame/.test(row), "without borrowing the configured team's game");
 
+  console.log(" the possession football on Top 25 (David, 2026-09-26)");
+  function ballOn(lg) {
+    ctx.__lg = lg; var r = vm.runInContext("top25Row(__lg)", ctx);
+    var sides = r.split(/class="tg-side[" ]/).slice(1);
+    return { away: /tg-ball/.test(sides[0] || ""), home: /tg-ball/.test(sides[1] || ""), n: (r.match(/tg-ball/g) || []).length, html: r };
+  }
+  var live = Object.assign({}, other, { status: "live", live: Object.assign({}, other.live, { possession: "away" }) });
+  var b1 = ballOn(live);
+  ok(b1.away && !b1.home && b1.n === 1, "one football, on the side the league's live state says has the ball");
+  ok(/Team B has the ball\./.test(b1.html), "and a screen reader hears who has it");
+  var b2 = ballOn(Object.assign({}, live, { live: Object.assign({}, live.live, { possession: "home" }) }));
+  ok(b2.home && !b2.away, "the other side when it changes hands");
+  ok(ballOn(Object.assign({}, live, { live: Object.assign({}, live.live, { possession: null }) })).n === 0, "no one named: no football");
+  ok(ballOn(Object.assign({}, live, { detail: "Halftime" })).n === 0, "none at halftime");
+  ok(ballOn(Object.assign({}, live, { status: "delayed" })).n === 0, "none in a delay");
+  ok(ballOn(Object.assign({}, live, { state: "post", status: "final", detail: "Final" })).n === 0, "none once it is over");
+
 }
 
 run("notre-dame.js", "Notre Dame", "Notre Dame", "Kent State");
