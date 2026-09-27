@@ -71,6 +71,8 @@ Suite.game = (function () {
   function hasBall(m, us, st) {
     if (st !== "live" && st !== "paused") return false;
     var g = m.game, side = us ? "us" : "them";
+    // At halftime: who gets the ball to start the second half, or no one.
+    if (TeamOS.game.halftime(g)) return !!(g.situation && g.situation.receives === side);
     if (g.situation && g.situation.possession) return g.situation.possession === side;
     var gd = m.detail || {};
     var mine = gd.home && gd.home.mine ? gd.home : gd.away && gd.away.mine ? gd.away : null;
@@ -134,6 +136,8 @@ Suite.game = (function () {
       var clock = st === "final" ? "" : '<p class="gh-clock">' + esc(half ? "Halftime" : [ordinal(g.period), g.clock].filter(Boolean).join(" · ")) + "</p>";
       var sit = (st === "live" || st === "paused") && !half && g.situation && g.situation.short
         ? '<p class="gc-situation"><span>' + esc(g.situation.short) + "</span>" + (g.situation.spot ? "<span>" + esc(g.situation.spot) + "</span>" : "") + "</p>"
+        : half && g.situation && g.situation.receives
+        ? '<p class="gc-situation"><span>' + esc(g.situation.receives === "us" ? m.team.abbr : (g.oppAbbr || g.oppName)) + " gets the ball</span></p>"
         : "";
       center = '<div class="gh-center">' + top + clock + sit + "</div>";
     }
@@ -152,7 +156,8 @@ Suite.game = (function () {
       var line = m.team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0);
       if (st === "final") return "Final. " + line + ".";
       if (st === "paused") return (g.status === "suspended" ? "Suspended" : "Delayed") + ", " + ordinal(g.period) + " quarter. " + line + ".";
-      if (TeamOS.game.halftime(g)) return "Halftime. " + line + ".";
+      if (TeamOS.game.halftime(g)) return "Halftime. " + line + "." +
+        (g.situation && g.situation.receives ? " " + (g.situation.receives === "us" ? m.team.name : g.oppName) + " gets the ball to start the second half." : "");
       return "Live, " + ordinal(g.period) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " + line + "." +
         (g.situation && g.situation.short ? " " + g.situation.short + (g.situation.spot ? " at " + g.situation.spot : "") + "." : "");
     }

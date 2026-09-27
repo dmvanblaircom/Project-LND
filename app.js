@@ -917,6 +917,7 @@ function loadGameDetail(V, g, lc, repaint){
   V.loading=true;
   summaryFor(g.id, live).then(function(raw){
     V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
+    if(learnOpening(g.id, V.gd) && SB.games) SB.games=TeamOS.live.withOpening(SB.games, OPENING);
     if(lc.phase==="pregame" && V.preview===undefined) loadGamePreview(V, g, repaint);
   }).catch(function(){}).then(function(){
     V.at=Date.now(); V.loading=false; repaint();
@@ -1108,13 +1109,38 @@ function getScoreboard(maxAgeMs){
     SB.data=d; SB.at=Date.now();
     // Who has the ball carries over from the last scoreboard where the feed
     // names no one (a timeout, the end of a quarter, a safety).
-    SB.games=TeamOS.live.carryBall(TeamOS.espn.scoreboard(d, TEAM_CONFIG), SB.games);
+    SB.games=TeamOS.live.withOpening(TeamOS.live.carryBall(TeamOS.espn.scoreboard(d, TEAM_CONFIG), SB.games), OPENING);
+    askOpenings(SB.games);
     AUTO.liveElsewhere = SB.games.some(function(lg){ return lg.state==="in"; });
     startAuto();
     return d;
   });
   SB.p.then(function(){ SB.p=null; }, function(){ SB.p=null; });
   return SB.p;
+}
+
+// Who received each game's opening kickoff ({ gameId: "home" / "away" }), so
+// halftime can say who gets the ball to start the second half
+// (TeamOS.live.receives). Learned from any game summary the page already
+// has; for a live game at the half that it does not - a ranked game, or
+// this team's - the summary is asked for once.
+var OPENING={}, OPENING_ASKED={};
+function learnOpening(id, gd){
+  var side=TeamOS.live.openingSide(gd);
+  if(side && OPENING[id]!==side){ OPENING[id]=side; return true; }
+  return false;
+}
+function askOpenings(games){
+  (games||[]).forEach(function(lg){
+    if(!TeamOS.live.atHalf(lg) || OPENING[lg.id] || OPENING_ASKED[lg.id]) return;
+    if(!(lg.mine || lg.home.rank || lg.away.rank)) return;
+    OPENING_ASKED[lg.id]=true;
+    summaryFor(lg.id, true).then(function(raw){
+      if(!learnOpening(lg.id, TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG))) return;
+      SB.games=TeamOS.live.withOpening(SB.games, OPENING);
+      scoreboardArrived(); paintTop25();
+    }).catch(function(){});
+  });
 }
 
 // The first scoreboard of a visit lands after the schedule has painted. It

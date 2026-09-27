@@ -927,7 +927,20 @@ ok(!/\bfetch\s*\(/.test(liveSrc), "does not fetch");
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(uncomment(liveSrc)), "does not touch the DOM");
 ok(!/espn|ESPN/.test(uncomment(liveSrc)), "names no provider: it reads domain objects");
 ok(!/notre|irish|ohio|buckeye/i.test(uncomment(liveSrc)), "names no team");
-eq(Object.keys(TeamOS.live).sort(), ["anyLive", "carryBall", "isLive", "reconcile", "reconcileAll", "withBall"], "exactly the documented functions");
+eq(Object.keys(TeamOS.live).sort(), ["anyLive", "atHalf", "carryBall", "isLive", "openingSide", "receives", "reconcile", "reconcileAll", "withBall", "withOpening"], "exactly the documented functions");
+
+console.log("who gets the ball to start the second half (David, 2026-09-26)");
+var purFinal = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-final.json")), team, TEAM_CONFIG);
+eq(TeamOS.live.openingSide(purFinal), purFinal.home.mine ? "away" : "home", "real ND at Purdue: Purdue (home) received the opening kickoff - the first drive is theirs");
+eq([TeamOS.live.openingSide(null), TeamOS.live.openingSide({ drives: null })], [null, null], "no drives yet: not known");
+function half(detail, opening) { return { id: "h1", state: "in", status: "live", detail: detail, live: { possession: null, opening: opening } }; }
+eq(TeamOS.live.receives(half("Halftime", "home")), "away", "at halftime, the team that did not receive the opening kickoff gets the ball");
+eq(TeamOS.live.receives(half("End of 2nd Quarter", "away")), "home", "the end of the 2nd quarter is halftime too");
+eq([TeamOS.live.receives(half("8:10 - 3rd", "home")), TeamOS.live.receives(half("Halftime", undefined))], [null, null],
+   "only at halftime, and only when the opening kickoff is known");
+var stamped = TeamOS.live.withOpening([half("Halftime"), Object.assign(half("Halftime"), { id: "h2" })], { h1: "home" });
+eq([stamped[0].live.opening, stamped[1].live.opening], ["home", undefined], "withOpening stamps the games it knows, and only those");
+ok(stamped[1] === Object.assign(stamped[1]) && !half("Halftime").live.opening, "and changes neither list");
 
 console.log("TeamOS.live.withBall - who has the ball, between plays too (David, 2026-09-26)");
 var WB = TeamOS.live.withBall;
@@ -1009,6 +1022,9 @@ eq(TeamOS.live.reconcile(pre, kentBall({ possession: null, lastPlayKind: "kickof
    "they received the kickoff: the ball is with them");
 eq(TeamOS.live.reconcile(pre, kentBall({ possession: null, lastPlayKind: null, lastPlaySide: "home" })).situation.possession, null,
    "a timeout or the end of a period: no one");
+
+eq(TeamOS.live.reconcile(pre, (function () { var lg = kentBall({ possession: null, opening: "home" }); lg.detail = "Halftime"; return lg; })()).situation.receives,
+   "them", "at halftime Home and Game hear who gets the ball: we (home) received the opening kickoff, so them");
 
 console.log(" a score of zero is a score");
 var shutout = TeamOS.live.reconcile(pre, kentLeague("post", "59", "0", "Final"));
