@@ -30,6 +30,7 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 | 9 | 21:17Z | Idea | Game header records | The Game header writes records "4 - 0" / "1 - 3" (spaced) while Home, Top 25 and the schedule write "4-0". One format everywhere. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
 | 10 | 21:34Z | Idea | Top 25 - Games, evening | Games list in kickoff order, so by the evening five finals fill the first screen and every live game (Oklahoma-Georgia, Wisconsin-Penn State, ...) is below the fold. Live games first (then upcoming, then finals), or finals collapsed, would put what is happening now on top. The fan's own game keeps its highlight wherever it sits. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
 | 11 | 00:15Z | Idea | Top 25 / Game - last play after a PAT | Right after an extra point, ESPN's last play is only the conversion: "(C. Talty KICK)" (South Carolina-Alabama). A bare, shouted fragment. #4's case rule could cover it where the play's own type says Extra Point Good; or show the scoring play it belongs to. | Open |
+| 12 | 00:51Z | Idea | Possession football during a timeout (Top 25, Home, Game) | ESPN names no side with the ball while a timeout is the last play (40 of 40 today), so the football disappears for the length of every timeout (Texas A&M-LSU, "Timeout LSU, clock 06:27"). The timeout play itself doesn't say who has the ball, but the app polls: it could keep the last side it knew across a timeout. | Open |
 
 ## Approved fix list (after the ND game)
 
@@ -165,3 +166,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Wisconsin-Penn State final (eleven ranked finals). Live: Central Michigan-Miami (half), South Carolina-Alabama, Texas A&M-LSU, Oregon-USC (2nd), Missouri-Mississippi State (1st). Scores match.
 - Top 25 possession football (David's request) built as PR #20; data check for the gaps: across today's captures ESPN names no side with the ball between a score and the next snap (after a PAT 42 of 42, after a kickoff 18 of 18). Whether to infer the kicking/receiving team there is David's call.
 - New items: none.
+
+### 00:51Z (8:51 PM ET) - evening games; Top 25 football live (PR #20)
+
+- **Automated checks: clean.** Top 25's possession football is working in production (Miami, with the ball at the Central Michigan 1). South Carolina-Alabama at the half: no football, as intended. Scores match.
+- Between-plays possession (David: "someone has to kick off") built on feat/ball-between-plays; full suite running.
+- New item: #12 (the football disappears during every timeout).
