@@ -177,3 +177,8 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 
 - **Automated checks: clean.** Between-plays possession working in production: LSU's touchdown at 1:54 of the 2nd leaves the football on LSU, which kicks off next; Miami keeps it at the end of the 3rd (ESPN names Miami). Five ranked games live; scores match.
 - New items: none.
+
+### 01:27Z (9:27 PM ET) - evening games
+
+- **Automated checks: clean.** Six ranked games live (Missouri State-SMU kicked off; Texas A&M-LSU and Oregon-USC at the half); eleven final. Scores match.
+- New items: none.
