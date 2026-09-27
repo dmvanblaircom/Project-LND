@@ -108,17 +108,46 @@ TeamOS.live = (function () {
 
   function isLive(g) { return !!g && g.state === "in"; }
 
-  // Who has the ball in a live league game, "home" / "away" or null: the
-  // side the feed names; else, between plays, the side the last play leaves
-  // it with (David, 2026-09-26) - after a kickoff the team that received
-  // it, after a score the team that scored, since it kicks off next. Never
-  // a guess from anything else: a timeout, the end of a period or a safety
-  // leaves it unnamed, as the feed does.
+  // Who has the ball in a live league game, "home" / "away" or null
+  // (David, 2026-09-26). In order:
+  //   - the side the feed names;
+  //   - between plays, the side the last play leaves it with: after a
+  //     kickoff the team that received it, after a score the team that
+  //     scored, since it kicks off next;
+  //   - between the halves and before overtime, no one - a coin toss or
+  //     the second-half kickoff decides it;
+  //   - otherwise the side the app last knew (live.carried, stamped by
+  //     carryBall from the previous poll): a timeout, the end of the 1st or
+  //     3rd quarter, or a safety - where the offense that was tackled kicks
+  //     the free kick - leave the ball where it was. The feed names no one
+  //     in any of those.
   function withBall(lg) {
     var l = lg && lg.live;
     if (!l) return null;
     if (l.possession) return l.possession;
-    return (l.lastPlayKind === "kickoff" || l.lastPlayKind === "score") && l.lastPlaySide ? l.lastPlaySide : null;
+    if ((l.lastPlayKind === "kickoff" || l.lastPlayKind === "score") && l.lastPlaySide) return l.lastPlaySide;
+    if (betweenHalves(lg)) return null;
+    return l.carried || null;
+  }
+  // Halftime (as TeamOS.game.halftime reads it) or the end of the 2nd or 4th
+  // quarter.
+  function betweenHalves(lg) { return /\bhalf/i.test(lg.detail || "") || /end of (the )?(2nd|4th)/i.test(lg.detail || ""); }
+
+  // A new scoreboard, each live game stamped with the side the previous
+  // scoreboard's same game had the ball (live.carried), so withBall can keep
+  // it where the feed goes quiet. New objects; neither list is changed.
+  function carryBall(games, previous) {
+    var before = {};
+    (previous || []).forEach(function (p) { if (p && p.live) before[p.id] = withBall(p); });
+    return (games || []).map(function (lg) {
+      if (!lg || !lg.live || !before[lg.id]) return lg;
+      var out = {}, k;
+      for (k in lg) { if (Object.prototype.hasOwnProperty.call(lg, k)) out[k] = lg[k]; }
+      out.live = {};
+      for (k in lg.live) { if (Object.prototype.hasOwnProperty.call(lg.live, k)) out.live[k] = lg.live[k]; }
+      out.live.carried = before[lg.id];
+      return out;
+    });
   }
 
   // Anything in this list still being played, from either kind of object.
@@ -131,6 +160,7 @@ TeamOS.live = (function () {
     reconcileAll: reconcileAll,
     isLive: isLive,
     anyLive: anyLive,
-    withBall: withBall
+    withBall: withBall,
+    carryBall: carryBall
   };
 })();
