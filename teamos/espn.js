@@ -327,7 +327,11 @@ TeamOS.espn = (function () {
                                    : String(sit.possession)===String(home&&home.id||home&&home.team&&home.team.id) ? "home"
                                    : String(sit.possession)===String(away&&away.id||away&&away.team&&away.team.id) ? "away" : null,
                      lastPlay:     splitAt(sit.lastPlay&&sit.lastPlay.text).text,
-                     lastPlayAt:   splitAt(sit.lastPlay&&sit.lastPlay.text).at }
+                     lastPlayAt:   splitAt(sit.lastPlay&&sit.lastPlay.text).at,
+                     // what the last play was, as far as who has the ball next
+                     // depends on it, and whose it was ("home" / "away")
+                     lastPlayKind: playKind(sit.lastPlay),
+                     lastPlaySide: sideOfTeam(pick(sit,["lastPlay","team","id"],null), home, away) }
                  : null
     };
   }
@@ -515,6 +519,27 @@ TeamOS.espn = (function () {
   function hexColor(v){ var h=String(v||"").replace(/^#/,""); return /^[0-9a-f]{6}$/i.test(h) ? "#"+h.toUpperCase() : null; }
   function linescoreOf(c){
     return (c.linescores||[]).map(function(v){ return str(v.displayValue!=null?v.displayValue:v.value); });
+  }
+
+  // ---- between plays ----
+  // ESPN names no side with the ball between a score and the next snap, but
+  // its last play says what happened and whose it was: a kickoff is tagged
+  // with the team that received it, a score with the team that scored.
+  // Checked on every live scoreboard captured on 2026-09-26: 18 kickoffs,
+  // 45 extra points, touchdowns, field goals and two-point tries.
+  // "kickoff" | "score" | null. A safety is left out: who kicks after one
+  // is the team scored on, and the feed's tag has not been seen for it.
+  function playKind(p){
+    var t=String(pick(p,["type","text"],"")||"");
+    if(/^kickoff$/i.test(t)) return "kickoff";
+    if(/safety/i.test(t)) return null;
+    if(/touchdown|extra point|field goal good|two[- ]point/i.test(t)) return "score";
+    return null;
+  }
+  function sideOfTeam(id, home, away){
+    if(id==null) return null;
+    var h=home&&(home.id||home.team&&home.team.id), a=away&&(away.id||away.team&&away.team.id);
+    return String(id)===String(h) ? "home" : String(id)===String(a) ? "away" : null;
   }
 
   // ---- play text ----

@@ -235,6 +235,10 @@ function run(teamFile, teamLabel, ourName, oppName) {
   var b2 = ballOn(Object.assign({}, live, { live: Object.assign({}, live.live, { possession: "home" }) }));
   ok(b2.home && !b2.away, "the other side when it changes hands");
   ok(ballOn(Object.assign({}, live, { live: Object.assign({}, live.live, { possession: null }) })).n === 0, "no one named: no football");
+  var afterPat = ballOn(Object.assign({}, live, { live: Object.assign({}, live.live, { possession: null, lastPlayKind: "score", lastPlaySide: "home" }) }));
+  ok(afterPat.home && !afterPat.away, "after a score, the team that scored - it kicks off next");
+  var afterKick = ballOn(Object.assign({}, live, { live: Object.assign({}, live.live, { possession: null, lastPlayKind: "kickoff", lastPlaySide: "away" }) }));
+  ok(afterKick.away && !afterKick.home, "after a kickoff, the team that received it");
   ok(ballOn(Object.assign({}, live, { detail: "Halftime" })).n === 0, "none at halftime");
   ok(ballOn(Object.assign({}, live, { status: "delayed" })).n === 0, "none in a delay");
   ok(ballOn(Object.assign({}, live, { state: "post", status: "final", detail: "Final" })).n === 0, "none once it is over");

@@ -72,7 +72,7 @@ TeamOS.live = (function () {
     var side = game.home ? "home" : "away";
     out.situation = lg.live ? {
       short: lg.live.short || "", spot: lg.live.spot || "",
-      possession: lg.live.possession == null ? null : (lg.live.possession === side ? "us" : "them")
+      possession: withBall(lg) == null ? null : (withBall(lg) === side ? "us" : "them")
     } : null;
     // A score of "0" is a score. Only an absent one leaves what was there.
     if (mine && mine.score != null) out.us = mine.score;
@@ -108,6 +108,19 @@ TeamOS.live = (function () {
 
   function isLive(g) { return !!g && g.state === "in"; }
 
+  // Who has the ball in a live league game, "home" / "away" or null: the
+  // side the feed names; else, between plays, the side the last play leaves
+  // it with (David, 2026-09-26) - after a kickoff the team that received
+  // it, after a score the team that scored, since it kicks off next. Never
+  // a guess from anything else: a timeout, the end of a period or a safety
+  // leaves it unnamed, as the feed does.
+  function withBall(lg) {
+    var l = lg && lg.live;
+    if (!l) return null;
+    if (l.possession) return l.possession;
+    return (l.lastPlayKind === "kickoff" || l.lastPlayKind === "score") && l.lastPlaySide ? l.lastPlaySide : null;
+  }
+
   // Anything in this list still being played, from either kind of object.
   function anyLive(list) {
     return !!list && list.some(function (x) { return !!x && x.state === "in"; });
@@ -117,6 +130,7 @@ TeamOS.live = (function () {
     reconcile: reconcile,
     reconcileAll: reconcileAll,
     isLive: isLive,
-    anyLive: anyLive
+    anyLive: anyLive,
+    withBall: withBall
   };
 })();
