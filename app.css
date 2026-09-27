@@ -353,6 +353,10 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gc-ball{width:1.3rem;height:1.3rem;flex:none;align-self:flex-end;margin-bottom:.35rem}
 .gc-ball ellipse{fill:var(--s-football)}
 .gc-ball path{fill:none;stroke:var(--s-on-dark);stroke-width:1.2;stroke-linecap:round}
+/* Top 25: the football leads the score of the side with the ball. */
+.tg-ball{width:1.1rem;height:1.1rem;margin-right:.35rem;vertical-align:-.1em}
+.tg-ball ellipse{fill:var(--s-football)}
+.tg-ball path{fill:none;stroke:var(--s-on-dark);stroke-width:1.2;stroke-linecap:round}
 .gc-situation{display:flex !important;width:max-content;max-width:100%;margin:.75rem auto 0 !important;padding:.3rem .9rem;border:1px solid rgba(255,255,255,.26);border-radius:var(--s-radius-pill);font-family:var(--t-font-display);font-weight:700;font-size:1.1rem}
 .gc-situation span + span{margin-left:.75rem;padding-left:.75rem;border-left:1px solid rgba(255,255,255,.35)}
 /* "2nd & 10" and "PUR 28" each stay whole (live scan #8). */
