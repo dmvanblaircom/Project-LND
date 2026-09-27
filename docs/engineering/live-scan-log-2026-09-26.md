@@ -29,6 +29,7 @@ wrong or broken for a fan now; **Warn** - likely wrong or fragile;
 | 8 | 20:23Z | Idea | Game header at 320 | The down & distance pill wraps "2nd / & / 10" over three lines at 320 (one line at 390). Readable, but cramped; "2nd & 10" could be kept on one line (non-breaking) with the yard line under it. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
 | 9 | 21:17Z | Idea | Game header records | The Game header writes records "4 - 0" / "1 - 3" (spaced) while Home, Top 25 and the schedule write "4-0". One format everywhere. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
 | 10 | 21:34Z | Idea | Top 25 - Games, evening | Games list in kickoff order, so by the evening five finals fill the first screen and every live game (Oklahoma-Georgia, Wisconsin-Penn State, ...) is below the fold. Live games first (then upcoming, then finals), or finals collapsed, would put what is happening now on top. The fan's own game keeps its highlight wherever it sits. | **Fixed** - PR #19; production verified (suite-2026-09-26n) |
+| 11 | 00:15Z | Idea | Top 25 / Game - last play after a PAT | Right after an extra point, ESPN's last play is only the conversion: "(C. Talty KICK)" (South Carolina-Alabama). A bare, shouted fragment. #4's case rule could cover it where the play's own type says Extra Point Good; or show the scoring play it belongs to. | Open |
 
 ## Approved fix list (after the ND game)
 
@@ -152,3 +153,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 ### #6-#10 shipped
 
 - PR #19 merged to main 0136177; production verified (verify-production.yml, success). #9's root cause: the Game header's state class at final (gh-final) was also the FINAL label's class, so the label's letter-spacing covered the whole header.
+
+### 00:15Z (8:15 PM ET) - evening games; scans on main 0136177 (#6-#10 live)
+
+- **Automated checks: clean.** Top 25 now opens on the six live games (#10 working in production): Wisconsin-Penn State 4th, Central Michigan-Miami at the half ("Halftime"), South Carolina-Alabama, Oregon-USC 2nd, Texas A&M-LSU, Missouri-Mississippi State 1st. Scores match.
+- The scan script's newest-capture pick sorted "0015" before "2356" after midnight UTC; fixed to use the newest committed capture.
+- New item: #11 (a PAT's last play is a bare "(C. Talty KICK)").
