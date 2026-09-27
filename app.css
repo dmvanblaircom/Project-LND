@@ -355,6 +355,8 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gc-ball path{fill:none;stroke:var(--s-on-dark);stroke-width:1.2;stroke-linecap:round}
 .gc-situation{display:flex !important;width:max-content;max-width:100%;margin:.75rem auto 0 !important;padding:.3rem .9rem;border:1px solid rgba(255,255,255,.26);border-radius:var(--s-radius-pill);font-family:var(--t-font-display);font-weight:700;font-size:1.1rem}
 .gc-situation span + span{margin-left:.75rem;padding-left:.75rem;border-left:1px solid rgba(255,255,255,.35)}
+/* "2nd & 10" and "PUR 28" each stay whole (live scan #8). */
+.gc-situation span{white-space:nowrap}
 .gc-series{margin-top:.55rem !important;text-align:center;font-size:.95rem;color:var(--t-accent-text)}
 .gc-extra{display:flex;flex-wrap:wrap;justify-content:center;margin-top:.55rem !important;font-size:.92rem;color:var(--s-on-dark-2)}
 .gc-cta{width:100%;margin-top:.9rem}
@@ -483,7 +485,10 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .cd-n{font-family:var(--t-font-display);font-weight:800;font-size:1.7rem;line-height:1;color:var(--t-accent-text)}
 .cd-l{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s-on-dark-2)}
 .gh-clock{font-family:var(--t-font-display);font-weight:700;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase}
-.gh-final{font-family:var(--t-font-display);font-weight:700;font-size:1.3rem;letter-spacing:.24em;text-transform:uppercase}
+/* The FINAL label. Not .gh-final: that is the header's own state class at
+   final, and the label's wide tracking spread across the whole header -
+   records read "4 - 0" (live scan #9). */
+.gh-final-label{font-family:var(--t-font-display);font-weight:700;font-size:1.3rem;letter-spacing:.24em;text-transform:uppercase}
 .game-head .gc-situation{margin-top:.3rem !important}
 
 .game-tabs{display:flex;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));background:var(--s-surface);border-bottom:1px solid var(--s-line)}
@@ -949,6 +954,9 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .gh-score{font-size:2.4rem}
   .game-tabs a{font-size:.95rem}
   .gc-name{font-size:.92rem}
+  /* the header's centre column is narrow: down & distance over the spot */
+  .game-head .gc-situation{flex-direction:column;align-items:center;padding:.25rem .7rem;font-size:1rem}
+  .game-head .gc-situation span + span{margin:.15rem 0 0;padding:.15rem 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.35)}
   .gamecard{padding:.85rem .7rem .9rem}
   .gc-matchup{gap:.25rem}
   .gc-line{gap:.35rem}

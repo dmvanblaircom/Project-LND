@@ -136,6 +136,8 @@ Suite.top25 = (function () {
       if (!byDay[k]) { byDay[k] = []; days.push({ key: k, label: dayLabel(g.date), games: byDay[k] }); }
       byDay[k].push(g);
     });
+    // Within a day, what is happening now comes first (TeamOS.game.boardOrder).
+    days.forEach(function (d) { d.games.sort(TeamOS.game.boardOrder); });
     return '<p class="t25-intro">' + list.length + (list.length === 1 ? " game" : " games") +
              " with a ranked team · times in your time zone</p>" +
       days.map(function (d, i) {
