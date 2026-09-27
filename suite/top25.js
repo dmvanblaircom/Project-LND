@@ -65,9 +65,19 @@ Suite.top25 = (function () {
              ui.mark(s.providerId ? m.mark(s.providerId) : null, s.name, s.abbr, "plain") +
              '<span class="tg-name">' + (s.rank ? '<span class="tg-rank">' + s.rank + "</span>" : "") + esc(s.name) +
                (s.record ? '<span class="tg-rec">' + esc(s.record) + "</span>" : "") + "</span>" +
-             (scored ? '<span class="tg-score">' + esc(s.score == null ? "0" : s.score) + "</span>" : "") +
+             (scored ? '<span class="tg-score">' + (hasBall(g, s) ? ui.ball("tg-ball") : "") + esc(s.score == null ? "0" : s.score) + "</span>" : "") +
            "</span>";
   }
+
+  // The possession football, as on Home and Game (David, 2026-09-26): on
+  // the side the league's live state says has the ball - only while play is
+  // on, never at halftime, in a delay or once it is over.
+  function ballSide(g) {
+    if (g.state !== "in" || g.status === "delayed" || g.status === "suspended" || TeamOS.game.halftime(g)) return null;
+    var p = g.live && g.live.possession;
+    return p === "home" ? g.home : p === "away" ? g.away : null;
+  }
+  function hasBall(g, s) { return ballSide(g) === s; }
 
   function status(g) {
     if (g.state === "in") {
@@ -92,6 +102,7 @@ Suite.top25 = (function () {
     }
     return (g.state === "post" ? "Final. " : g.state === "in" ? "Live, " + g.detail + ". " : "") +
            spoken(a) + " " + (a.score || 0) + ", at " + spoken(h) + " " + (h.score || 0) + "." +
+           (ballSide(g) ? " " + ballSide(g).name + " has the ball." : "") +
            (lastPlay(g) ? " Last play" + (lastAt(g) ? " at " + lastAt(g) : "") + ": " + lastPlay(g) : "");
   }
 
