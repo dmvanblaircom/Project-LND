@@ -216,3 +216,9 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 
 - **Automated checks: clean.** Texas A&M-LSU final (fourteen ranked finals). Live: Oregon-USC, Missouri-Mississippi State (4th), Missouri State-SMU (3rd). Scores match.
 - New items: none.
+
+### 03:28Z (11:28 PM ET) - last game
+
+- **Automated checks: clean.** Sixteen ranked games final; Missouri State-SMU (end of 3rd) the only one live. Scores match.
+- PR #23 (halftime) CI: a second, different one-off failure in the audit (Settings focus ring at 375, a screen the PR does not touch; the same commit passed the other visual run). One re-run in progress.
+- New items: none.
