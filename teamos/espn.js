@@ -326,8 +326,8 @@ TeamOS.espn = (function () {
                      possession:   sit.possession==null ? null
                                    : String(sit.possession)===String(home&&home.id||home&&home.team&&home.team.id) ? "home"
                                    : String(sit.possession)===String(away&&away.id||away&&away.team&&away.team.id) ? "away" : null,
-                     lastPlay:     splitAt(sit.lastPlay&&sit.lastPlay.text).text,
-                     lastPlayAt:   splitAt(sit.lastPlay&&sit.lastPlay.text).at,
+                     lastPlay:     playText(sit.lastPlay).text,
+                     lastPlayAt:   playText(sit.lastPlay).at,
                      // what the last play was, as far as who has the ball next
                      // depends on it, and whose it was ("home" / "away")
                      lastPlayKind: playKind(sit.lastPlay),
@@ -552,6 +552,19 @@ TeamOS.espn = (function () {
     var t=str(text), m=/^\((\d{1,2}):(\d{2})\)\s+/.exec(t);
     return m ? { at: String(+m[1])+":"+m[2], text: t.slice(m[0].length) } : { at: "", text: t };
   }
+  // A play's words for a last-play line: splitAt, and one more reading.
+  // Right after an extra point ESPN's text is only the conversion's tail,
+  // "(C. Talty KICK)" - a bare, shouted fragment (live scan #11). Where the
+  // play's own type says the kick was good and the text is exactly that
+  // shape, it reads "Extra point good (C. Talty)": the words from the type,
+  // the kicker from the text. Any other shape stays as ESPN wrote it.
+  function playText(p){
+    var sp=splitAt(p&&p.text);
+    var type=String(pick(p,["type","text"],"")||"");
+    var m=/^\(([^()]+?) KICK\)$/.exec(sp.text);
+    if(m && /^extra point good$/i.test(type)) sp.text="Extra point good ("+m[1]+")";
+    return sp;
+  }
   // Scoring text shouts its conversion: "... for a TD (S. Porath KICK)",
   // "... 47 yd FG GOOD". Only the case changes, and only where the score
   // itself confirms the word: a touchdown worth 7 (the kick was good), a
@@ -631,19 +644,20 @@ TeamOS.espn = (function () {
 
     // last play: the live situation, else the current drive, else the last drive
     var sit=d.situation||comp.situation||{};
-    var lastText=pick(sit,["lastPlay","text"],null);
-    if(!lastText){
+    var lastObj=pick(sit,["lastPlay","text"],null) ? sit.lastPlay : null;
+    if(!lastObj){
       var cur=pick(d,["drives","current","plays"],null);
-      if(cur&&cur.length) lastText=cur[cur.length-1].text;
+      if(cur&&cur.length&&cur[cur.length-1].text) lastObj=cur[cur.length-1];
     }
-    if(!lastText){
+    if(!lastObj){
       var prev=pick(d,["drives","previous"],null);
       if(prev&&prev.length){
         var pl=prev[prev.length-1].plays;
-        if(pl&&pl.length) lastText=pl[pl.length-1].text;
+        if(pl&&pl.length&&pl[pl.length-1].text) lastObj=pl[pl.length-1];
       }
     }
-    var lastSplit = splitAt(lastText);
+    var lastText=lastObj&&lastObj.text;
+    var lastSplit = playText(lastObj);
     var lastPlay = lastText ? {
       text:         lastSplit.text,
       at:           lastSplit.at,
