@@ -227,6 +227,25 @@ async function unfreeze(handle) { await handle.evaluate(function (n) { n.remove(
 // the coordinates it was measured at (a full-page screenshot moves fixed
 // elements, which would put the tab bar's measurements over the wrong
 // pixels). Capped, so a very long list cannot produce a gigantic image.
+// Team logos are lazy: growing the viewport to the whole page (above) is what
+// starts many of them loading. A logo that loads between deciding what text
+// there is and taking the screenshot paints over its fallback initials before
+// the page's load handler hides them, and the initials get measured against
+// the logo's own colours - CI, 2026-09-27: "ND" white on Notre Dame gold,
+// 2.66:1, in one run of two on the same commit. So wait until every team mark
+// has loaded or failed (at most 4 s) and the handlers have run: the initials
+// are then measured only where a reader would actually see them.
+async function settleMarks(page) {
+  await page.evaluate(function () {
+    var pending = [].filter.call(document.querySelectorAll("img[data-mark]"), function (i) { return !i.complete; });
+    var all = Promise.all(pending.map(function (i) {
+      return new Promise(function (r) { i.addEventListener("load", r, { once: true }); i.addEventListener("error", r, { once: true }); });
+    }));
+    return Promise.race([all, new Promise(function (r) { setTimeout(r, 4000); })])
+      .then(function () { return new Promise(function (r) { requestAnimationFrame(function () { requestAnimationFrame(r); }); }); });
+  });
+}
+
 async function auditText(page, label, opts) {
   opts = opts || {};
   var vp = page.viewportSize();
@@ -242,6 +261,7 @@ async function auditText(page, label, opts) {
     await page.waitForTimeout(120);
   }
   await page.evaluate(function () { window.scrollTo(0, 0); });
+  await settleMarks(page);
 
   var items = await page.evaluate(collectTextInPage);
   var style = await page.addStyleTag({ content:
