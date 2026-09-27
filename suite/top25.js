@@ -70,11 +70,11 @@ Suite.top25 = (function () {
   }
 
   // The possession football, as on Home and Game (David, 2026-09-26): on
-  // the side the league's live state says has the ball - only while play is
-  // on, never at halftime, in a delay or once it is over.
+  // the side TeamOS.live says has the ball - between plays too - only while
+  // play is on, never at halftime, in a delay or once it is over.
   function ballSide(g) {
     if (g.state !== "in" || g.status === "delayed" || g.status === "suspended" || TeamOS.game.halftime(g)) return null;
-    var p = g.live && g.live.possession;
+    var p = TeamOS.live.withBall(g);
     return p === "home" ? g.home : p === "away" ? g.away : null;
   }
   function hasBall(g, s) { return ballSide(g) === s; }
