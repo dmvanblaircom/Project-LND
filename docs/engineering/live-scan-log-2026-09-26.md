@@ -222,3 +222,17 @@ David, ~3:35 PM ET: #5 added to the same list; at ~3:40 PM ET (halftime) he aske
 - **Automated checks: clean.** Sixteen ranked games final; Missouri State-SMU (end of 3rd) the only one live. Scores match.
 - PR #23 (halftime) CI: a second, different one-off failure in the audit (Settings focus ring at 375, a screen the PR does not touch; the same commit passed the other visual run). One re-run in progress.
 - New items: none.
+
+### 03:47Z (11:47 PM ET) - final scan
+
+- **Automated checks: clean.** Sixteen ranked games final; Missouri State-SMU (4th) the last one live. Scores match. Scans on main ce2e044 (PR #23, halftime "gets the ball", live and verified).
+- New items: none.
+
+## Day summary
+
+- **Scans:** every 15 minutes from 19:09Z (3:09 PM ET) to 03:47Z (11:47 PM ET). No Error-severity finding all day; every automated check came back clean apart from the expected ones logged above.
+- **Items logged: 12** - 0 Error, 4 Warn (#1, #5, #6, #7), 8 Idea (#2-#4, #8-#12).
+- **Fixed and live: 11** - #5 (PR #16, at halftime), #1-#4 (PR #18, after the final), #6-#10 (PR #19), #12 plus the end of a quarter and safeties (PR #22).
+- **Open: 1** - #11 (a PAT's last play reads only "(C. Talty KICK)"); not approved.
+- **Also shipped today at David's request:** Share Suite (PR #17); the Top 25 possession football (PR #20); who has the ball between plays - the kicking team after a score, the receiver after a kickoff (PR #21); who gets the ball to start the second half, at halftime (PR #23). Plus one test-tooling fix found on the way: the visual audit now lets team logos settle before measuring (PR #24).
+
