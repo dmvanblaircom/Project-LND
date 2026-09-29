@@ -210,7 +210,11 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .art-watermark{position:absolute;right:-14%;top:clamp(4rem,24%,9rem);display:flex;align-items:center;justify-content:center;width:min(25rem,86vw);aspect-ratio:1;transform:translateY(-50%) rotate(-9deg);opacity:.17}
 .art-watermark img{position:relative;width:100%;height:100%;object-fit:contain}
 .art-initials{font-family:var(--t-font-display);font-weight:800;font-size:min(15rem,52vw);line-height:1;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:3px var(--s-on-dark)}
-.art-watermark.loaded .art-initials{display:none}
+/* The outlined initials are the fallback for a team with no logo, or whose
+   logo failed (settle() removes the img). While a logo is on its way the
+   watermark stays empty: showing the initials first made the hero flash
+   "ND" on every load and repaint (David, 2026-09-28). */
+.art-watermark:has(img) .art-initials,.art-watermark.loaded .art-initials{display:none}
 .art-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .art-slot.has-photo .art-watermark,.art-slot.has-photo::before{display:none}
 /* A photograph is not the team's flat colours: text on it gets a real

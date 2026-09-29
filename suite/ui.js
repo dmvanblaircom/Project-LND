@@ -51,7 +51,8 @@ Suite.ui = (function () {
     return '<div class="art-slot' + (photo ? " has-photo" : "") + '" aria-hidden="true" data-decorative>' + photo +
              '<span class="art-watermark">' +
                '<span class="art-initials">' + esc(initials(opts.name, opts.abbr)) + "</span>" +
-               (opts.markUrl ? '<img src="' + esc(opts.markUrl) + '" alt="" loading="lazy" decoding="async" data-mark>' : "") +
+               // Eager: the watermark is at the top of the first screen.
+               (opts.markUrl ? '<img src="' + esc(opts.markUrl) + '" alt="" decoding="async" data-mark>' : "") +
              "</span>" +
            "</div>";
   }

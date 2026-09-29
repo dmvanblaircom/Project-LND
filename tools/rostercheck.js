@@ -7,11 +7,19 @@
    height, hometown or photo on someone else. Runs the real depth chart and
    the real ESPN rosters - no browser, no network.
 
+   The named facts (who is out, who moved up) are pinned to the Purdue-week
+   chart and report frozen in tools/fixtures/nd-*-g4.json: the pipeline
+   rewrites data/notre-dame/ every week, and last week's facts are not this
+   week's. The files on file now get the same rules without the names.
+
    Usage:  node tools/rostercheck.js      (exit 1 on any failure) */
 "use strict";
 var fs = require("fs"), path = require("path"), vm = require("vm");
 var root = path.join(__dirname, "..");
 function read(p) { return fs.readFileSync(path.join(root, p), "utf8"); }
+// the Purdue-week chart, report and histories, frozen (see above)
+var G4 = { depth: "tools/fixtures/nd-depth-g4.json", availability: "tools/fixtures/nd-availability-g4.json",
+           depthHistory: "tools/fixtures/nd-depth-history-g4.json", availabilityHistory: "tools/fixtures/nd-availability-history-g4.json" };
 var failures = 0;
 function ok(cond, what) {
   if (cond) { console.log("  ok   " + what); return; }
@@ -45,7 +53,7 @@ eq(osu.TeamOS.roster.views(osu.TEAM_CONFIG).map(function (v) { return v.id; }), 
    "a team with neither: the roster alone - no empty views");
 
 console.log("the depth chart, joined to the real roster");
-var chart = JSON.parse(read("data/notre-dame/depth.json"));
+var chart = JSON.parse(read(G4.depth));
 var groups = nd.TeamOS.espn.roster(JSON.parse(read("tools/fixtures/espn-roster-nd-sep24.json")));
 var dc = R.depth(chart, groups);
 eq(dc.units.map(function (u) { return u.unit; }), chart.units.map(function (u) { return u.unit; }), "units in the chart's own order");
@@ -72,7 +80,7 @@ eq([dt2.name, dt2.open, dt2.levels[0].players.length], ["Defensive Tackle 2", tr
 eq(R.depth(null, groups), null, "no chart, nothing");
 
 console.log("who is out, on the depth chart (the report for the chart's game)");
-var report = JSON.parse(read("data/notre-dame/availability.json"));
+var report = JSON.parse(read(G4.availability));
 var dcOut = R.depth(chart, groups, report), outs = [];
 dcOut.units.forEach(function (u) { u.slots.forEach(function (s) { s.levels.forEach(function (l) { l.players.forEach(function (p) {
   if (p.out) outs.push(p.name + "=" + p.out); }); }); }); });
@@ -84,7 +92,7 @@ var other = JSON.parse(JSON.stringify(report)); other.game = "vs Navy";
 ok(R.depth(chart, groups, other).units.every(function (u) { return u.slots.every(function (s) { return s.levels.every(function (l) {
   return l.players.every(function (p) { return !p.out; }); }); }); }), "a report for another game marks nobody");
 console.log("who moved since the last chart (arrows, one chart only)");
-var histRaw = JSON.parse(read("data/notre-dame/depth-history.json"));
+var histRaw = JSON.parse(read(G4.depthHistory));
 var dcMv = R.depth(chart, groups, report, histRaw), ups = [], downs = [];
 dcMv.units.forEach(function (u) { u.slots.forEach(function (s) { s.levels.forEach(function (l) { l.players.forEach(function (p) {
   if (p.moved === "up") ups.push(p.name + "@" + s.label); if (p.moved === "down") downs.push(p.name + "@" + s.label); }); }); }); });
@@ -122,7 +130,7 @@ ok(R.depth(chart, groups, none).units[0].slots.every(function (s) { return s.lev
   return l.players.every(function (p) { return !p.out; }); }); }), "no report out yet marks nobody");
 
 console.log("availability, from the official report");
-var rep = JSON.parse(read("data/notre-dame/availability.json"));
+var rep = JSON.parse(read(G4.availability));
 var av = R.availability(rep, groups);
 eq([av.reported, av.effectiveAt, av.game], [true, rep.effectiveAt, rep.game], "the report's own date and game");
 eq(av.groups.map(function (g) { return g.status; }),
@@ -134,10 +142,28 @@ eq(R.availability({ reported: true, players: [] }, groups).groups, [], "a report
 eq(R.availability(null, groups), null, "no file, nothing");
 
 console.log("week by week");
-var hist = R.history(JSON.parse(read("data/notre-dame/depth-history.json")), JSON.parse(read("data/notre-dame/availability-history.json")));
+var hist = R.history(JSON.parse(read(G4.depthHistory)), JSON.parse(read(G4.availabilityHistory)));
 ok(hist.length >= 2, hist.length + " charts, newest first");
-eq(hist[0].game, JSON.parse(read("data/notre-dame/depth-history.json")).snapshots.slice(-1)[0].game, "the newest chart leads");
+eq(hist[0].game, JSON.parse(read(G4.depthHistory)).snapshots.slice(-1)[0].game, "the newest chart leads");
 ok(hist.every(function (w) { return Array.isArray(w.changes); }), "each week carries its changes");
+
+console.log("the chart and report on file now (no names: they change every week)");
+var liveChart = JSON.parse(read("data/notre-dame/depth.json"));
+var liveReport = JSON.parse(read("data/notre-dame/availability.json"));
+var liveHist = JSON.parse(read("data/notre-dame/depth-history.json"));
+var liveDc = R.depth(liveChart, groups, liveReport, liveHist);
+eq(shape(liveDc.units), shape(liveChart.units), "every spot, level and OR group exactly as the official chart has them");
+var liveOut = [];
+liveDc.units.forEach(function (u) { u.slots.forEach(function (s) { s.levels.forEach(function (l) { l.players.forEach(function (p) {
+  if (p.out) liveOut.push(p.name); }); }); }); });
+ok(liveOut.every(function (n) { return liveReport.game === liveChart.game &&
+  liveReport.players.some(function (p) { return p.name === n && /^out-/.test(p.status); }); }),
+   "only players this week's report lists as out are marked (" + (liveOut.join(", ") || "none") + ")");
+var liveAv = R.availability(liveReport, groups);
+ok(!liveReport.reported || liveAv.groups.reduce(function (n, g) { return n + g.players.length; }, 0) === liveReport.players.length,
+   "every player on this week's report, once");
+var liveHistory = R.history(liveHist, JSON.parse(read("data/notre-dame/availability-history.json")));
+eq(liveHistory[0].game, liveHist.snapshots.slice(-1)[0].game, "the newest chart on file leads");
 
 console.log("spot names");
 eq([R.spotName("QB"), R.spotName("dt"), R.spotName("WILL"), R.spotName("NICKEL")],
