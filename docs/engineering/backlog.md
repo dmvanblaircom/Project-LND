@@ -1,126 +1,115 @@
-# Backlog: everything open, in one place
+# Project LND: active delivery queue
 
-Started 2026-09-25 so that questions and follow-ups raised in chat do not get
-buried. Every open item lives here with an id, whatever its size. An item
-leaves this list when it is done or David decides against it, and the entry
-says which. The roadmap order comes from David's answers (see "Decisions" at
-the end); until an item is scheduled it is only listed.
+Reconciled September 28, 2026 (America/New_York). **Start Wednesday, September 30, and continue through the queue.** This is an ordered work program, not a promise that everything finishes Wednesday.
 
-Detail for the redesign release lives in `suite-redesign-completion.md`; this
-file points to it rather than repeating it.
+David requested a complete reconciliation and prioritization, removing completed work from the active list. He then requested an explicit Claude/Codex split for implementation and visual parity. **Claude owns data/behavior/reliability; Codex owns design-file parity and production UI implementation.** David remains the product approver. This file replaces the previous weekend/staged roadmap. Completed work is recorded in [the reconciliation record](backlog-reconciliation-2026-09-28.md); the original document is retained in [the archive](backlog-archive-2026-09-28.md). Do not rebuild archived items.
 
-## A. This weekend (the release)
+## Execution contract for Claude and Codex
 
-| Id | Item | Owner | Notes |
-|---|---|---|---|
-| A1 | Saturday live verification, 3:50 PM ET | Claude (scheduled) | Top 25 and Game against real live payloads. The merge waits on it. The same capture also tests something the fixtures cannot: that live polling does not multiply requests. |
-| A2 | Sunday merge and production verification | Claude | Bring in the latest `main`, mark PR #4 ready, merge. `verify-production.yml` then checks the site, icons, share image, the service-worker version and that no `TEMPORARY-*` file remains. |
-| A3 | Real-phone check after the deploy | David | Open the installed app on your iPhone once after Sunday's deploy, and once more if it still shows Irish Watch. Safari's support for the upgrade reload is unverified: at worst Suite arrives on the second open. Also check the home-screen icon. |
-| A4 | Chooser header colour | David decides | Today `#0B1F3A`; the locked Ink is `#111D35`. The same token colours the Top 25 heading inside Team Style. |
-| A5 | Check-in cadence | David decides | The hourly PR check-ins add noise to the chat. |
+1. Start from current main; inspect the tree, open PRs and any changes since the audit baseline before editing. Use short branches and PRs. Do not recreate work already present.
+2. Work in the order below. Finish, validate and report each bounded slice. Keep going to the next unblocked item rather than waiting for a new task prompt after every slice.
+3. A source/account/permission blocker blocks that item, not the whole queue. Record the evidence, exact dependency and owner, then continue with the next unblocked item. Do not mark a blocked item done.
+4. Product/Design gates are concrete deliverables: prepare the source research, prototype, mockups or options first. Codex prepares and implements the visual/UX work against approved references; David decides unresolved product choices and approves new visual direction. Claude checks that UI integration preserves data/behavior. Continue independent engineering while those decisions are pending. Queuing work does not approve unseen UI or invent a push service, participation feature, or data source.
+5. Preserve the TeamOS/Suite boundary, truthful data/freshness, team isolation, offline behavior, accessibility and the existing app. No framework rewrite. No automatic deployment or merge is authorized by this planning document; use the established PR/release approval process.
+6. Reuse existing tests; add focused regression coverage for behavior changes. Verify negative controls where they prove the regression. For UI, supply before/after captures using the same route, team, state and data. CI success is necessary, not visual acceptance.
+7. Update this queue and related issues after each accepted merge: commit/PR, checks, production verification and remaining gates. Move completed rows to the completion record instead of leaving them active.
+8. Start FPI/SP+ feasibility, image/source research and offseason review early if they would otherwise stall later work. They do not require speculative production changes.
+9. Follow the ownership split below and [the delivery handoff](wednesday-delivery-handoff.md). Codex edits production UI code directly; Claude does not independently reinterpret the visual direction. One owner per change/PR; hand off shared files between slices. Do not both edit app.css, suite/*.js or app.js in competing branches without explicit scope coordination.
 
-## B. Product decisions (David)
+## Wave 1: reliability and the committed Wednesday requests
 
-| Id | Decision | Context |
+| Order / ID | Implementation owner | Remaining work | Current evidence and scope | Completion requirement |
+|---|---|---|---|---|
+| 1 / W01 | Claude | Finish hero-logo flicker fix, PR #28 | Built, **open/unmerged** at audit. Current main still uses the old image/loading behavior. Reuse the existing branch; do not rebuild. | Reconcile with current main and version, review the actual diff and checks, verify slow/failed logo states, then obtain normal merge approval and verify production. |
+| 2 / W02 | Claude | Repair or verify the external refresh clock, issue #5 | Open alert: 161-minute gap in the Sep 26 game window. No resolution comments. Diagnose cron-job.org dispatch/job history and token permissions/expiry; do not assume expiry is the cause. Old occasional-refresh item C14 folds here. | Demonstrate real dispatches reach Actions at the intended cadence, with producer outcomes and monitoring. A manual green run alone does not prove the clock. Record external access needs; retain game-window monitoring. |
+| 3 / W03 | Claude | Resolve the missing availability update, issue #15 | Open alert: latest report held Sep 24 when a Sep 26 pregame update was expected. The source may not have published one, or the producer may miss its location. | Check the authoritative source and current snapshot. Fix ingestion if a real update was missed; otherwise document no publication and correct alert assumptions if needed. Never manufacture a report. Close the historical issue only with evidence. |
+| 4 / W04 | Claude; Codex visual QA | Final with missing scores: truthful Home/Game display | Approved B7; Schedule already handles it. Home and Game still substitute 0 for null scores. | Final with incomplete scores reads Final without a fabricated score/winner; genuine 0–0, ties and live-score behavior remain valid. Cover both Home and Game, including Schedule-opened games. |
+| 5 / W05 | Claude | Retire in-season battle framing, issue #31 | Current roster still renders Battle badges and starting-jobs-open counts. | From publication of the Week 2 chart onward remove both. Keep all official OR designations, levels, movement arrows and history. Week 1/preseason remain eligible; handle season rollover and historical views. Use authoritative chart phase, not device date or Game 2 guessed as Week 2. |
+| 6 / W06 | Codex; Claude comparison data | Compact changes disclosure, issue #30 | **Correction:** PR #12 already removed the current-chart changes list. This adds only the newly approved compact disclosure; it is not shrinking an existing top changes list. | One quiet, collapsed “N changes since the last chart” under date/source; no separate colored card. Expand to supported previous → current changes across units. Same comparison baseline as arrows; omit without a valid nonempty comparison. Preserve Week by week. Use the linked Week 2+ mockup; no open-jobs line. |
+| 7 / W07 | Claude data; Codex UI | FPI and SP+ in Top 25 → Rankings, issue #29 | Not implemented. Two independent predictive ratings, not one ranking or a blended poll. Begin source feasibility early. | Implement the detailed issue contract: authoritative access, TeamOS normalization/snapshots, season/edition validation, attribution, truthful freshness/retry, five-source accessible control and ND/OSU tests. Source restriction blocks only the affected source; report it without bypassing access controls. |
+| 8 / W08 | Claude rules; Codex UI | Schedule access on Home and Game | Approved B3; current Home uses three rows and “View All”; normal Game does not have the requested Full Schedule link. | Home shows last result + next 3 games when available, with View Full Schedule. Game gets Full Schedule access. Preserve navigation ownership and define fewer-games/live/postponed cases without invented entries. Primary nav stays Home / Top 25 / Game / Roster / More. |
+| 9 / W09 | Claude evidence; Codex review; David device | Finish delivery records and release review | PR #25 (scan log + tool) is still open. All 12 fixes it documents have shipped. Pending-design-review item 4 remains unreviewed. | Review/land #25 through the normal gate; do not redo the 12 fixes. Package current code and outage/upgrade evidence for ChatGPT's item-4 review. Record physical iPhone/Safari/PWA checks with David; no claimed device pass without observation. |
+
+**Wednesday's first session:** Claude starts W01–W05 and W07 source feasibility, then W08's selection rules and the remaining engineering queue. Codex starts W12's reference/token/header work and W13 asset preparation immediately; builds W06 after the roster handoff, then Home/Game parity and W07/W08 presentation when their models are ready. The waves express product priority and dependencies, not a requirement for Codex to wait through every engineering task.
+
+## Wave 2: strengthen the application before adding more data flows
+
+| Order / ID | Implementation owner | Remaining work | Scope and dependencies | Completion requirement |
+|---|---|---|---|---|
+| 10 / W10 | Claude | Simplify app state and refresh coordination (C1) | Current app.js is 1,572 lines and still owns multiple stores/timers. Split bounded responsibilities incrementally, preserving working roster/news retry fixes and new W07 sources. | Clear ownership of source state, in-flight requests and clocks; no duplicated polling or cross-team leakage; existing outage, roster, news, live and upgrade checks remain meaningful. No cosmetic rewrite just to reduce line count. |
+| 11 / W11 | Claude | Remove public Kalshi relay dependency (C4) | app.js still lists corsproxy.io, allorigins and codetabs routes. Same-origin league snapshots already exist. Odds display remains approved. | Inspect actual fallback use; propose and implement a supported retrieval policy that retains last-good markets with honest freshness. Prefer existing snapshots if adequate; a new owned service is a separate concrete architecture decision. Exercise direct failure, stale/missing snapshots and both teams. |
+
+## Wave 3: deliver the premium visual direction
+
+**Codex owns design and UI implementation; David approves new visual choices.** Start with actual Home/Game prototypes, then propagate approved components. Claude supplies stable normalized models and reviews integration risks; it does not do a competing CSS redesign. The [September 28 visual audit](../design/suite-visual-audit-2026-09-28.md) contains the detailed findings; its reconciliation addendum overrides stale font and schedule assumptions.
+
+| Order / ID | Implementation owner | Remaining work | Scope and dependencies | Completion requirement |
+|---|---|---|---|---|
+| 12 / W12 | Codex | Lock and implement Suite brand + team-first header | B1/B8/B9/A4/C6 and audit V02/V03/V04. Font **decision is complete**: self-hosted Instrument Sans + Instrument Serif, not buying Neue Haas/Canela. Current code still loads Barlow/Georgia. Team-first principle is decided; exact header composition and action-token roles still need a reviewed prototype. | Explicit Ink/Pearl/Champagne/Bronze/Slate/Charcoal role map; no cobalt Suite actions; accents used sparingly. Instrument replaces Suite typography and unlicensed team fallbacks; licensed team fonts can override later. Team colors and default Team Style remain. Chooser uses approved Ink; avoid duplicate team identity in header/hero. First paint and live style switch agree, no synthetic serif bold, contrast/fallback checks pass. Record new header decision superseding 0024 where needed. Keep shipping flat icon/wordmark geometry. |
+| 13 / W13 | Codex; David asset approval | Approved photographic art for Home/Game and mastheads | V01. Neither current team declares hero imagery. This is new asset work; watermark fallback was an approved release state. | Approve deployable imagery, focal points and mobile/desktop crops; provide quiet areas for text. ND helmet stays plain gold without an ND overlay. Team-driven art, finished missing-image fallback, no broken images/layout jumps, no copying locked reference images into the public repo as production assets. |
+| 14 / W14 | Codex | Apply visual refinement across all screens | V04–V11, after core type/surface/header rules are approved. Includes final-winner emphasis, Home news proportions, rankings stack, roster row hierarchy/status clarity, schedule alignment, stat comparisons, More/utility density and nav optical polish. | Home/Game establish the reference implementation first. Then Roster/Top 25/Schedule/News/More. Winner follows actual valid final scores, including active-team losses; live/tie/incomplete states stay truthful. Avoid repeated elevated cards, align desktop masthead/body, retain hit areas and all data. Review 320/375/390/768/1280, both styles/teams, live/paused/final and failed/offline states. Do not redesign the chooser or add fake player links. |
+
+Brand constants: Ink #111D35; Pearl #F1F2F0; Champagne #D4B896; Bronze #B8845A; Slate #485563; Charcoal #1A1A1A. Champagne/bronze are accents “like jewelry,” not a new main-action system. TeamOS remains outside the fan UI. Its separate brand is not a new consumer-app implementation task.
+
+## Wave 4: complete game information and year-round behavior
+
+Start the existing offseason proposal review while Waves 1–3 run. **Ship the offseason experience by mid-November**, moving W16 ahead of cosmetic work if needed. The proposal already exists; do not commission it again.
+
+| Order / ID | Implementation owner | Remaining work | Scope and dependencies | Completion requirement |
+|---|---|---|---|---|
+| 15 / W15 | Claude data; Codex card fit | Matchup rushing/passing yards allowed (C18) | Points allowed already works; rushing/passing defense still lacks the proposed derived implementation. CFBD public-JSON route was declined; do not restart that plan from the old handoff. | Compute from completed ESPN game box scores via normalized data, for the team and opponent. Preserve real zeros; define missing/partial-game coverage and retrieval cost. No invented national ranks. Attribution and stale/error handling, useful values with missing inputs omitted or explicitly qualified. Revisit CFBD only if actual new permission changes the decision. |
+| 16 / W16 | Claude season model; Codex experience | Offseason Home and season rollover | B4, existing proposal in docs/product/offseason-home-proposal.md. **Postseason fetching is already shipped (PR #9)**. Remaining: review S2/S4/S5, next-season selection, Game/Schedule/Rankings/Roster behavior, market/poll season handling and trustworthy bowl labels. | ChatGPT critiques/designs from the existing proposal; David approves concrete states. Build truthful season-in-review/unknown-next-season/next-opener views. No inference that unknown postseason is confirmed or an empty feed means not published. Fixtures cover rollover, no bowl, postseason and next-season data. January live checks remain a dated verification dependency, not a reason to postpone the whole build. |
+| 17 / W17 | Claude normalization; Codex presentation | Broader safe play-text presentation | B6 and V09. **Name/clock/PAT fixes in PRs #18/#26 already shipped**; do not repeat them. | Inventory remaining awkward real examples. Use structured fields for any new transformation; preserve raw text when meaning cannot be safely retained. Group scoring events/drives and time/down-distance consistently. Test real edge cases without a broad free-text rewrite that changes a play. |
+| 18 / W18 | Claude market model; Codex board | Season Outlook “View full field” | Approved post-launch C7; removed legacy board is not the target. League market snapshots already available. | Approved light-theme board, source attribution, season/market identity, stale/missing states and correct Home navigation. Preserve information-only scope; no bet placement. Review labels and probabilities before release. |
+
+## Wave 5: retention and a complete second team
+
+| Order / ID | Implementation owner | Remaining work | Scope and dependencies | Completion requirement |
+|---|---|---|---|---|
+| 19 / W19 | Claude delivery; Codex controls | Notifications MVP | B11: notifications are the first new MVP pillar. No sending backend or notification controls exist. | Produce a bounded notification brief (events, opt-in, preferences, quiet behavior, deduplication, corrections and delivery limits) and service proposal first; then build approved scope. Verify real device delivery and permission-denied/unsubscribe behavior. Do not imply unsupported delivery in UI or add bells before capability exists. |
+| 20 / W20 | Claude sources; Codex team parity | Finish Ohio State | B12. ESPN-fed experience and **current Kalshi market configuration already exist**. Missing are official depth/availability sources, beat-news snapshots and odds-history snapshots; snapshots is currently empty. | Source feasibility first; add declared producers/snapshots without ND branches or copied application code. Preserve honest unavailable states where OSU publishes no source. Verify no ND data leaks. Add history going forward, not invented backfill. Complete supported OSU capabilities before more teams. |
+| 21 / W21 | Claude source/model; Codex placement | Rivalry names/trophies/context | B5. Trophy names in config exist; scalable relationship/context source does not. | Research and approve a reliable source/model. Distinguish a rivalry name from a trophy; avoid “Playing for the The Game.” Attribute concise context and retain no-context fallback. No one-team hard-coded database in Suite. |
+| 22 / W22 | Codex UX; Claude persistence | Basic personalization / My Teams discovery, then approved MVP | B11 and architecture Phase 8. A selected team, style preference and team switch already work; richer following/preferences do not. My Box is still a hypothesis. | Validate smallest useful scope and present prototype/data model before implementation. Preserve active-team focus; do not silently build mixed feeds, accounts or a large My Box feature. Once approved, build the bounded slice and verify persistence/team isolation. |
+| 23 / W23 | Codex UX; Claude service | Lightweight participation discovery, then approved MVP | Product blueprint/MVP: reactions, predictions, polls or threads are alternatives, not four approved features. | Select one demonstrated fan need, define data/storage/abuse and moderation implications, and show prototype. Build only the approved bounded choice. No social network, messaging or speculative engagement platform. |
+| 24 / W24 | David/Codex plan; Claude instrumentation | Fan validation plan and measurement decision | MVP validation framework describes outcomes, but does not supply a concrete measurement implementation. This is a planning deliverable, not a newly approved analytics vendor. | Define how to assess repeat use, game-to-game retention, sharing and notification usefulness. Document manual testing versus telemetry options, cost/data implications and decision. Implement instrumentation only after its scope is approved. |
+
+## Wave 6: finish maintainability and repository cleanup
+
+| Order / ID | Implementation owner | Remaining work | Scope and dependencies | Completion requirement |
+|---|---|---|---|---|
+| 25 / W25 | Claude; each owner updates own docs | Current architecture docs and branch cleanup | C10/C12. Backlog and completion pointers reconciled here; CLAUDE.md/current architecture/team-config/build-plan and old CFBD/superseded design docs still contain stale guidance. The approved old branches still exist. | Correct current-state docs without rewriting historical decisions. Recheck branch containment against current main; archive approved historical tips before deleting. Preserve open #25/#28 branches and unique live captures until landed/retained. Keep main + short work branches. Do not delete merely because a name looks old. |
+| 26 / W26 | Claude | Consolidate duplicate browser-test infrastructure (C15) | Existing checks have separate server/router setup. Lower priority than fan-visible work. | Extract shared harness mechanics only where duplication is real; preserve fixtures, failure injection, isolated workers and negative controls. No drop in behavioral coverage; do not expand testing merely to mirror refactoring. |
+
+W25's small documentation fixes can accompany each earlier PR. Its destructive branch cleanup happens only after containment/archive checks. No need to delay a valuable fix for a broad cleanup project.
+
+## External, conditional and intentionally deferred work
+
+These remain visible but do not halt the runnable queue or get falsely marked completed.
+
+| Item | Next action / owner | Why it is not a normal build task |
 |---|---|---|
-| B1 | Brand hierarchy: team first or Suite first | The North Star says the team is the product, but today the persistent header and installed name are Suite. Decision 0024 chose that; this is the call to confirm or reverse it. |
-| B2 | Odds and betting scope | The North Star lists betting as not required. We show the Kalshi Season Outlook, spreads and totals, and "View full field" is queued. |
-| B3 | Primary nav: Top 25 or Schedule | Top 25 (national) has a tab; Schedule (MVP #2) sits under More. |
-| B4 | End-of-season / offseason Home | **Due by mid-November.** Today only a safe interim renders. Who designs it: David, ChatGPT or Claude. |
-| B5 | Rivalry names and context: source | Needs a trustworthy, scalable source. Only the trophy name from team config shows today. |
-| B6 | Play-by-play text cleanup | Structured fields only, or leave ESPN's text as is. |
-| B7 | A final game with no score | Home and Game would read 0–0; Schedule now says "Final". |
-| B8 | Fonts | Free alternatives to Neue Haas Grotesk / Canela, or buy licences. Claude renders a comparison first. |
-| B9 | Suite Style action colour | The brand system bans cobalt; what replaces it (Ink, Bronze, contrast only). |
-| B10 | App icon: flat or Bronze halo | Default flat, which is what ships. |
-| B11 | Order of the missing MVP pillars | Notifications, basic personalization, lightweight participation. None started. |
-| B12 | Next teams / Ohio State completeness | Ohio State lacks the depth chart, availability report, beat news and odds. The chooser lists 138 programs, 2 real. |
-| B13 | Refresh Data scope and Feedback origin | Adopted from ChatGPT's recommendation; David may change them. |
-| B14 | ChatGPT review of the changes made since its review closed | The Home/Game failure state, the Schedule "Final" row and the update reload. All were engineering fixes David asked for. Log them as "No ChatGPT review" or have ChatGPT review them. |
+| Physical iPhone/Safari/installed-PWA checks (A3, V12) | David + ChatGPT/Claude guided checklist after relevant releases: upgrade once, icon, safe areas, text scaling, keyboard/scrolling. | Cannot establish a real-device pass from desktop CI. |
+| Official ND/OSU font permissions (C19) | David supplies actual replies/authorization if obtained; Claude integrates only then. Prior note about Monday emails is not proof they were sent. | Instrument fallback unblocks the brand pass. Do not send emails or bundle proprietary fonts on an assumed permission. |
+| Exceptional game-status payloads (C8) | Capture a real delayed/suspended/postponed/canceled response when one occurs; retain provenance, then add regression fixtures. | Event-dependent. Existing defensive behavior can be tested without claiming synthetic data is a real capture. |
+| Offseason live provider verification | Validate actual January polls/markets against the W16 implementation. | Real offseason timing cannot be accelerated; fixtures cover release readiness beforehand. |
+| Cloudflare GitHub App removal (C13) | Optional account cleanup by David if the installation still exists. | Workers were already deleted; no app build required. Account state not verified here. |
+| Internal iw- names (C16) | Keep until a concrete migration benefit exists; inventory if touched by W10. | Internal branding cleanup adds migration risk with no current fan benefit. Not a required “finish everything” gate. |
+| Phase 4D Market/Forecast provider boundaries | Revisit when W11/W18 or another concrete change warrants extraction. | Deliberately deferred architecture, not unfinished mandatory platform work. |
+| More teams/sports (Phase 9), recruiting/transfers | Discovery after complete OSU and validated user need; source decisions first. | Directional roadmap, not an unlimited build instruction. |
+| Bronze-halo app-icon option (B10) | Flat default stands; no action unless David requests the alternate. | Existing final icon set is delivered; do not reopen it as a blocker. |
 
-## C. Engineering
+## Settled decisions: do not ask again
 
-| Id | Item | Size | Notes |
-|---|---|---|---|
-| C1 | Break up `app.js`'s state and refresh clocks | L | 1,482 lines, about 40 pieces of mutable state, several timers. Where this week's bugs came from. |
-| C2 | Team-namespaced data pipeline | M | Snapshot files sit at the repo root and `odds.yml` is Notre Dame only; a second team's snapshots would collide. **Staged 2026-09-25 on `stage/team-data`.** |
-| C3 | An unknown team id falls back to Notre Dame | S | `?team=bogus` opens Notre Dame; it should open the chooser (`index.html` `DEFAULT`). |
-| C4 | Kalshi through three free public CORS relays | M | Reliability and privacy risk. Options: our own proxy, or the committed snapshots only. Depends on B2. |
-| C5 | The weekly registry job fails every Tuesday by design | S | ESPN answers the standings page with 202 on GitHub's runners, so `roster.yml` ends red weekly: a failure email every week. Make it warn instead, or find another membership source. |
-| C6 | Brand pass implementation | M | Tokens, fonts and chooser chrome, after B8/B9. The locked values are in `suite-redesign-completion.md`. |
-| C7 | Season Outlook "View full field" | M | After B2. |
-| C8 | Capture exceptional game-status fixtures | S | When a real delay or postponement happens. |
-| C9 | Commit the release stress harness as a tool | S | The route crawl, outage, storage, offline and upgrade scenarios exist only in the session scratchpad; a manual or nightly workflow would keep them. |
-| C10 | Stale docs | S | CLAUDE.md "Current State", `01_CURRENT_IRISH_WATCH_ARCHITECTURE.md`, `04_TEAM_CONFIG.md`'s old per-team asset example, the superseded design docs. (`docs/product/` has six product docs; the earlier note that it was empty was wrong.) |
-| C11 | Dead files | S | `assets/notre-dame/*` (8 old Irish Watch icons, unused), the stale "7C" comment in `index.html`. |
-| C12 | Branch cleanup and branch model | S | 21 branches, most stale (`lnd/phase-*`, `noop-temp`, the duplicate `docs/*`, the abandoned `design/suite-vnext-build`). CLAUDE.md names `project-lnd-platform` for feature work; this release went `design/suite-canonical-v1` → `main`. Where work continues after Sunday. |
-| C13 | Uninstall the Cloudflare GitHub App | S (David) | Optional: the Workers are deleted, so the app now does nothing. |
-| C14 | Occasional data-refresh failure | S | One scheduled `odds.yml` failure on 9/23; watch for a pattern. |
-| C15 | Duplicate browser-test servers | S | Each browser check has its own server and router. |
-| C17 | **Fetch the postseason** | M | **Correctness, before early December.** ESPN returns bowl and CFP games only for `seasontype=3`, and the app asks for the regular season only, so Notre Dame's postseason would be invisible (verified on real payloads, 2026-09-25; see the offseason proposal). Fetch both season types and merge them into one season. No design needed. **Staged 2026-09-25 on `stage/postseason`.** |
-| C18 | **Matchup card: yards allowed without CFBD** | M | CFBD declined on 2026-09-25 to allow its figures as public JSON (a follow-up asking what it *would* allow went to Bill on 2026-09-25; awaiting his answer). Free route: add up opponents' rushing and passing yards from ESPN's box score for each game already played, computed in the app. ESPN data only; nothing republished from CFBD. Revisit CFBD if Bill's answer opens a path. **Rank policy (decided 2026-09-25):** computed stats show the value only, no national rank. A real rank would mean computing every FBS team's figure, and ESPN's own rank for these fields is the bogus "Tied-1st". Ranks stay only where the provider publishes a real one. No asterisk on the card. One line in About's Data Sources says points and yards allowed are calculated from ESPN game results. The "better" arrow is rank-driven, so these rows show none; if we want it, compare the two values directly (lower is better). Today's points-allowed row already follows this: the adapter maps it with no rank, confirmed in `adaptercheck.js`. |
-| C19 | **Official team fonts, pending permission** | S | Notre Dame: Leahy (display) + Gotham (UI), with Factoria available for headlines. Ohio State: Buckeye Sans / Serif. Named in the team configs but **not loaded** until permission and licences exist; Instrument stays the fallback. Permission emails to brandcenter@osu.edu and licensing@nd.edu go out Monday 2026-09-28, after the Suite release. |
-| C16 | `iw-` storage and header names | S | Internal only; renaming needs a migration. Low. |
+- Team first; Suite remains install name, chooser/About identity and app icon. Exact revised header composition is W12.
+- Top 25 keeps its primary tab. Schedule access improves through W08.
+- Odds remain informational; full-field view is approved. No bet placement.
+- Instrument Sans + Instrument Serif is the approved free, self-hosted pair; do not purchase Neue Haas/Canela.
+- Flat Suite icon stays. Existing release wordmark/icon assets are completed.
+- Refresh Data scope and Feedback origin were adopted and implemented with More corrections; B13 is not an unresolved prerequisite.
+- Notifications first among new MVP pillars; finish OSU before adding more teams.
+- Main + short-lived branches, PR-based delivery. Four-hour silent check-ins unless action is needed remains the recorded preference; actual automation state was not inspected.
+- Consumer experience remains free; monetization, paid tiers and their features are outside this queue.
 
-## Staged for after the release (2026-09-25)
+## Completion rule
 
-Built off PR #4's head; each opens as a PR into `main` after Sunday's merge.
-
-| Branch | What | State |
-|---|---|---|
-| `stage/hardening-quick-fixes` | C3 bad team link → own team or chooser; C5 registry job warns instead of failing; C9 `tools/stresscheck.js` + `stress.yml`; C11 dead files removed; `VERSION` bumped | All 24 gates pass; stress pass 681 checks, 0 problems |
-| `stage/post-launch-docs` | Rollback runbook (rehearsed), branch cleanup list (**for David's approval**), font and team-first header decision inputs | Docs |
-| `stage/offseason-home` | Offseason Home proposal (**for David → ChatGPT**), postseason research captures, a season/type option in `capture-fixture.yml` | Docs, fixtures, workflow |
-| `stage/team-data` | C2: team files in `data/<team id>/`, Kalshi markets in `data/league/`; producers write where the team's config says; `odds.yml` loops over the teams that declare each kind; odds history and news stamped with their team; new `tools/pipelinecheck.py` in CI. `VERSION` `suite-2026-09-26g` | All 26 gates pass. Merging: main's data commits carry into the new folders by rename (tested against main at 6317055). If git ever reports modify/delete on a root data file, take main's version into `data/<team>/` and delete the root file. Merge between data runs: a run already under way when this lands fails its push once, harmlessly. |
-| `stage/postseason` | C17: the schedule asks for the regular season and the postseason by type and joins them; a failed postseason keeps what was shown and never costs the regular season; the first open after the change still paints from the old URL's offline copy. New `tools/postseasoncheck.js` in CI. `VERSION` `suite-2026-09-26e` | All 25 gates pass; the new check fails 6 ways without the fix |
-
-## Accepted limits (no action planned)
-
-In `suite-redesign-completion.md` under Known provider limits:
-- ESPN gives no rescheduled date for a postponed game.
-- ESPN gives no CFP release date.
-- Chrome adds about 1 s before a new version activates.
-
-## Decisions (David, 2026-09-25)
-
-| Id | Decision |
-|---|---|
-| B1 | **Team first.** Claude recommends **H1 (team mark and name in the header, no SUITE there)**, with Home's duplicate team name resolved in design; Suite stays the install name, the chooser's header, About and the icon. This goes through the ChatGPT design loop. |
-| B1 (original answer) | **Team first.** The team leads the header and identity; Suite becomes the quieter platform brand. This reverses decision 0024's Suite-led header, so it needs a design proposal and a new decision record before building. |
-| B2 | **Odds stay as they are.** Build "View full field" after launch. "Betting is not MVP" meant *placing bets in Suite*, not showing odds; the North Star is updated to say so. |
-| B3 | **Nav stays as is** (Top 25 keeps its tab). Home's schedule preview becomes the **last result plus the next 3 games** (four rows), with a **"View Full Schedule"** link that opens Schedule directly. The **Game screen gets a "Full Schedule" link**. |
-| B4 | **Offseason Home:** Claude proposes, ChatGPT reviews and critiques, ChatGPT designs, David approves, Claude implements. Due by mid-November. |
-| B7 | A final without a score says **"Final", with no score, on Home and Game too**. |
-| B8 | **Fonts decided 2026-09-25: Instrument Sans (with its width axis condensed for the display role) + Instrument Serif**, free under the SIL Open Font License and self-hosted. They become the Suite's own fonts **everywhere**: Suite Style, and the fallback in Team Style for any team without its own licensed font (Notre Dame and Ohio State today). Team colours and identity are untouched, and a team's real brand font (e.g. Ohio State's BuckeyeSans once licensed) still overrides. Neue Haas Grotesk / Canela are not bought. Inputs and renders: `docs/design/fonts-and-team-first-header.md` (on `stage/post-launch-docs`). Built in the brand pass. |
-| B11 | **Notifications** are the first MVP pillar. |
-| B12 | **Finish Ohio State** as a complete destination before adding more teams. |
-| B14 | The release-hardening changes are logged as **No ChatGPT review** (`pending-design-review.md`, item 4) and reviewed after launch. |
-| A4 | Chooser header to Ink **in the brand pass**, not before Sunday. |
-| A5 | PR check-ins every **4 hours, silent** unless something needs action. |
-| C3, C5, C9, C11, C10 | Approved as small fixes in the hardening block. |
-| C12 (list) | **Branch cleanup list approved by David, 2026-09-25** (`docs/engineering/branch-cleanup.md`). Runs right after Sunday's merge: 3 archive tags, the rest deleted. |
-| C12 | **`main` plus short branches**, a PR into `main` each. Retire `project-lnd-platform` and `project-lnd-foundation` to archive tags; delete stale branches after David approves the list. CLAUDE.md's branch section is updated to match. |
-
-Still open, decided when their block starts:
-- B5, rivalry source
-- B6, play-by-play text
-- B9, the action colour that replaces cobalt (brand pass)
-- B10, the icon (the flat default stands until then)
-- B13, Refresh scope and Feedback origin
-
-## Roadmap
-
-Sequence, not dates. The only fixed dates are this weekend and the offseason Home's mid-November deadline. A block starts when the one before it is done, except the offseason proposal, which runs alongside hardening so the deadline holds.
-
-| # | Block | Items | Notes |
-|---|---|---|---|
-| 0 | **Release** (this weekend) | A1 Saturday live check, A2 Sunday merge and production verification, A3 your real-phone check | Nothing else goes into PR #4. |
-| 1 | **Engineering hardening** (first after launch) | C1 `app.js` state and refresh clocks, C2 team-namespaced data pipeline, C4 replace the public Kalshi relays, C3 bad team link → chooser, C5 registry job warns instead of failing, C9 stress harness as a tool, C11 dead files, C10 stale docs, C12 branch cleanup, B7 "Final" with no score | C2 is a prerequisite for finishing Ohio State (block 6). C4 keeps odds working (B2) without the free relays; the approach is chosen at the start of the block. |
-| 1b | **Offseason Home proposal** (alongside block 1) | B4 | Claude's proposal → ChatGPT critique → ChatGPT design → David → implementation, landing before mid-November. |
-| 2 | **Schedule access and the team-first header** | B3 Home preview (last result + next 3, "View Full Schedule"), B3 Game "Full Schedule" link, B1 team-first header | B3 is small and can ship first. B1 goes through a design proposal and ChatGPT review. |
-| 3 | **Offseason Home build** | B4 implementation | Must ship before mid-November. |
-| 4 | **Brand pass** | B8 font renders + licence research → decision, B9 action colour, A4 chooser Ink, C6 tokens, B10 icon | Team Style stays untouched. |
-| 5 | **Notifications** | B11 | Web push for the installed PWA. Needs a small push-sending service, the first real backend; its shape is decided at the start of the block. |
-| 6 | **Finish Ohio State** | B12 | Depth chart, availability, beat news and odds on the namespaced pipeline. |
-| 7 | **Season Outlook "View full field"** | C7 | Odds as they are, expanded. |
-| - | **Parked** | B5, B6, B13, C8 (when it happens), C13 (David, optional), C14 (watch), C15, C16 | Picked up when relevant. |
+Done means the specific task is implemented (or a research-only task has its concrete decision deliverable), required checks pass, visual/product review is recorded where applicable, and the accepted change is merged and verified through the normal delivery process. “Built on a branch,” “CI green,” “proposal exists” and “no newer report found” are distinct states, not interchangeable with done.

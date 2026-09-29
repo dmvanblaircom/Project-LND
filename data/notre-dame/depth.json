@@ -3,11 +3,11 @@
  "team": "notre-dame",
  "capability": "depth",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/70b346c6-0b51-4389-b1e4-00cbf773efbe.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/892bcf50-8a65-4145-bba5-f3a458b0f7d3.pdf",
  "sourceLabel": "FightingIrish.com",
- "title": "DEPTH CHART - GAME 4 AT PURDUE",
- "game": "at Purdue",
- "fetchedAt": "2026-09-23T17:56:49.649059+00:00",
+ "title": "DEPTH CHART - GAME 5 AT NORTH CAROLINA",
+ "game": "at North Carolina",
+ "fetchedAt": "2026-09-29T02:13:36.864322+00:00",
  "units": [
   {
    "unit": "Defense",
@@ -1067,21 +1067,5 @@
    ]
   }
  ],
- "changes": [
-  {
-   "kind": "up",
-   "name": "Nolan James Jr.",
-   "text": "Nolan James Jr. moves up to first team at RB"
-  },
-  {
-   "kind": "up",
-   "name": "Jonaz Walton",
-   "text": "Jonaz Walton moves up to second team at RB"
-  },
-  {
-   "kind": "up",
-   "name": "Javian Osborne",
-   "text": "Javian Osborne moves up to second team at RB"
-  }
- ]
+ "changes": []
 }
