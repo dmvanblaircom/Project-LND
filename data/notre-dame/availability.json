@@ -3,15 +3,22 @@
  "team": "notre-dame",
  "capability": "availability",
  "tier": "official",
- "game": "at Purdue",
- "sourceUrl": "https://fightingirish.com/documents/20023b01-f9bc-42a8-822a-335e23c2721f.pdf",
+ "game": "at North Carolina",
+ "sourceUrl": "https://fightingirish.com/documents/dc6145e3-f280-4b5a-8d4d-8d3ff2a318d5.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/24/nXXGEi4lT58VE7wB2tPLV2Wpxh0vQwuGVOH46U7X.pdf",
- "fetchedAt": "2026-09-24T18:37:13.853767+00:00",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/29/kVcp4Wwr3ULAzDnknGEvkAGPzCEqMms5MYHg1jCp.pdf",
+ "fetchedAt": "2026-09-29T02:13:36.864322+00:00",
  "reported": true,
- "effectiveAt": "2026-09-24",
- "heading": "AVAILABILITY UPDATE (SEPT. 24)",
+ "effectiveAt": "2026-09-28",
+ "heading": "AVAILABILITY UPDATE (SEPT. 28)",
  "players": [
+  {
+   "no": "",
+   "pos": "OL",
+   "name": "Owen Strebig",
+   "status": "questionable",
+   "detail": "Concussion"
+  },
   {
    "no": "",
    "pos": "OL",
@@ -35,17 +42,17 @@
   },
   {
    "no": "",
-   "pos": "S",
-   "name": "Brauntae Johnson",
-   "status": "out-game",
-   "detail": "Left Foot"
-  },
-  {
-   "no": "",
    "pos": "OL",
    "name": "Charles Jagusah",
    "status": "out-game",
    "detail": "Left Humerus"
+  },
+  {
+   "no": "",
+   "pos": "S",
+   "name": "Brauntae Johnson",
+   "status": "out-game",
+   "detail": "Left Foot"
   },
   {
    "no": "",
@@ -56,13 +63,6 @@
   },
   {
    "no": "",
-   "pos": "WR",
-   "name": "Quincy Porter",
-   "status": "out-game",
-   "detail": "Left Knee"
-  },
-  {
-   "no": "",
    "pos": "DB",
    "name": "Chaz Smith",
    "status": "out-game",
@@ -70,17 +70,17 @@
   },
   {
    "no": "",
-   "pos": "S",
-   "name": "Luke Talich",
-   "status": "out-game",
-   "detail": "left wrist"
-  },
-  {
-   "no": "",
    "pos": "OL",
    "name": "Chris Terek",
    "status": "out-game",
    "detail": "Right Knee"
+  },
+  {
+   "no": "",
+   "pos": "WR",
+   "name": "Quincy Porter",
+   "status": "out-season",
+   "detail": "Left Knee"
   }
  ]
 }
