@@ -26,8 +26,7 @@ below as explicit post-launch follow-ups, not dropped.
 | Real-live Top 25 + Game verification | **PASS**, Sat Sep 26, 2026, 2:30 PM ET, against production (David moved the release up to the morning of Sep 26). See Planned verification. |
 | Final merge, release gate and production verification | **Shipped via merged PR #4, Sep 26.** Release build is complete. Physical iPhone/Safari/PWA verification remains separately tracked in W09; do not claim a device check from CI. |
 
-Closed for this release: the More catch-up review (corrections 1.1-1.6 accepted, no re-review required). The later release-hardening item 4 in `pending-design-review.md` still needs review. Also completed: the release's schema cleanup, and the
-retired identity fields (`identity.newsLabel`, `colors.text` / `textDim`),
+Closed for this release: the More catch-up review (corrections 1.1-1.6 accepted, no re-review required). The later release-hardening item 4 in `pending-design-review.md` still needs review. Also completed: schema cleanup. The retired identity fields (`identity.newsLabel`, `colors.text` / `textDim`),
 dropped from the schema, the team configs and `applyStyle()` - TeamOS now
 refuses them.
 
