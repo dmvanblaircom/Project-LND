@@ -60,6 +60,13 @@ The hero keeps an explicit hierarchy rather than shrinking type to fit.
 
 ### 3. Home previews
 
+> **Schedule rows superseded (David, 2026-09-25, B3; built as W08).** Home's
+> schedule is now the **last result plus the next three entries** (up to four
+> rows), with a "View Full Schedule" link; near the end of the season earlier
+> games fill the rows. Rule and cases: `TeamOS.game.schedulePreview` in
+> `teamos/game.js`, tested in `tools/gamecheck.js`. The news preview below is
+> unchanged.
+
 Home is a dashboard. Latest News shows at most **3 stories**; Schedule shows
 at most **3 rows**. Each routes to its full screen.
 

@@ -164,10 +164,10 @@ eq(G.venueZone({ venueState: "TX", city: "El Paso" }), "America/Denver", "El Pas
 eq(G.venueZone({ venueState: "", city: "" }, "America/New_York"), "America/New_York", "no state: the fallback");
 
 // ---- Home's schedule preview (0024 §3) -------------------------------------
-console.log("schedulePreview");
-function wk(n, status, started) {   // week n of a 12-game season, Saturdays 3:30 PM ET
+console.log("schedulePreview: the last result and the next three (B3)");
+function wk(n, status, started) {   // week n of a 12-game season, Saturdays 3:30 PM ET; finals scored
   var d = new Date(Date.UTC(2026, 8, 5 + 7 * (n - 1), 19, 30));
-  return g(status, started, d.toISOString());
+  return g(status, started, d.toISOString(), status === "final" ? { us: "24", them: "10" } : null);
 }
 function season12(played, rest) {   // `played` finals, then `rest` overrides by week
   var out = [];
@@ -176,31 +176,35 @@ function season12(played, rest) {   // `played` finals, then `rest` overrides by
   return out;
 }
 function weeks(list) { return list.map(function (x) { return (new Date(x.date).getUTCDate()); }); }
-function prev(games, iso) { return G.schedulePreview(games, new Date(iso), ZONE); }
+function prev(games, iso) { return G.schedulePreview(games, iso ? new Date(iso) : null, ZONE); }
 function wkDates(ns) { return ns.map(function (n) { return new Date(Date.UTC(2026, 8, 5 + 7 * (n - 1))).getUTCDate(); }); }
 function preview(games, iso) { return weeks(prev(games, iso)); }
 
-eq(preview(season12(0), "2026-08-20T12:00:00Z"), wkDates([1, 2, 3]), "preseason: the first three games");
-eq(preview(season12(4), "2026-09-30T12:00:00Z"), wkDates([4, 5, 6]),
-   "upcoming hero in season: the last result, the hero, the game after");
-eq(preview(season12(4, { 5: ["live", true] }), "2026-10-03T20:00:00Z"), wkDates([5, 6, 7]),
-   "live: the live game and the next two - never a previous result instead of it");
-eq(preview(season12(4, { 5: ["delayed", true] }), "2026-10-03T20:00:00Z"), wkDates([5, 6, 7]), "an in-game delay: the same as live");
-eq(preview(season12(4, { 5: ["suspended", true] }), "2026-10-03T20:00:00Z"), wkDates([5, 6, 7]), "suspended: the same as live");
-eq(preview(season12(5), "2026-10-04T14:00:00Z"), wkDates([5, 6, 7]), "recent-final hero: that game and the next two");
-eq(preview(season12(4, { 5: ["postponed", false] }), "2026-09-30T12:00:00Z"), wkDates([5, 6, 7]),
-   "postponed hero: the postponed game, then the next valid games");
-eq(preview(season12(4, { 5: ["canceled", false] }), "2026-09-30T12:00:00Z"), wkDates([5, 6, 7]),
-   "a canceled game stays in the chronology: the week before is it, then the new hero, then the next");
-eq(preview(season12(12), "2026-12-15T12:00:00Z"), wkDates([10, 11, 12]), "after the season: the last three");
-eq(preview(season12(11), "2026-11-25T12:00:00Z"), wkDates([10, 11, 12]),
-   "the last game upcoming: the hero stays in, filled from before when nothing follows");
-eq(preview(season12(11, { 12: ["live", true] }), "2026-11-28T20:00:00Z"), wkDates([10, 11, 12]),
-   "the last game live: two before fill the rows the missing future cannot");
-eq(prev(season12(4), "2026-09-30T12:00:00Z").length, 3, "never more than three");
-eq(prev(season12(4).slice(0, 2), "2026-09-30T12:00:00Z").length, 2, "and a two-game list is just those two");
+eq(preview(season12(4)), wkDates([4, 5, 6, 7]), "in season: the last result, then the next three");
+eq(preview(season12(0)), wkDates([1, 2, 3]), "preseason: no result yet, so the first three - nothing invented");
+eq(preview(season12(4, { 5: ["live", true] })), wkDates([4, 5, 6, 7]), "live: the last result, the live game, the next two");
+eq(preview(season12(4, { 5: ["delayed", true] })), wkDates([4, 5, 6, 7]), "an in-game delay: the same as live");
+eq(preview(season12(5)), wkDates([5, 6, 7, 8]), "the day after a game: that final is the last result");
+eq(preview(season12(4, { 5: ["postponed", false] })), wkDates([4, 5, 6, 7]),
+   "a postponed game stays in the chronology, among the next three");
+eq(preview(season12(4, { 5: ["canceled", false] })), wkDates([4, 5, 6, 7]), "so does a canceled one");
+eq(preview(season12(5, { 4: ["canceled", false] })), wkDates([5, 6, 7, 8]),
+   "a canceled game is not a result: the last result is the last game played");
+var unscoredLast = season12(5); unscoredLast[4] = wk(5, "final", true); unscoredLast[4].us = null; unscoredLast[4].them = null;
+eq(preview(unscoredLast), wkDates([4, 5, 6, 7]),
+   "a final without a score is not the last result; it is listed after it, as it is");
+eq(preview(season12(10)), wkDates([9, 10, 11, 12]), "two games left: the last result, the two, and one earlier game fills the row");
+eq(preview(season12(11)), wkDates([9, 10, 11, 12]), "one game left: earlier games fill the rows");
+eq(preview(season12(12)), wkDates([9, 10, 11, 12]), "after the season: the last four games");
+eq(prev(season12(4)).length, 4, "never more than four");
+eq(preview(season12(1).slice(0, 2)), wkDates([1, 2]), "a two-game schedule is just those two");
+eq(prev([]).length + prev(null).length, 0, "no schedule, no rows");
 var shuffled = season12(4); shuffled.reverse();
-eq(preview(shuffled, "2026-09-30T12:00:00Z"), wkDates([4, 5, 6]), "the input's order does not matter; the output is chronological");
+eq(preview(shuffled), wkDates([4, 5, 6, 7]), "the input's order does not matter; the output is chronological");
+var pile = season12(4, { 5: ["postponed", false], 6: ["canceled", false], 7: ["postponed", false], 8: ["canceled", false] });
+eq(preview(pile, "2026-10-26T12:00:00Z"), wkDates([4, 7, 8, 9]),
+   "four postponed or canceled entries before the next game: the hero still makes the list");
+eq(preview(season12(4), "2026-09-30T12:00:00Z"), wkDates([4, 5, 6, 7]), "with the clock given, an ordinary week is unchanged");
 
 // ---- Schedule and Results (0022 #8) -----------------------------------------
 console.log("Schedule and Results");

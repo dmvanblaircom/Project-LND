@@ -413,7 +413,8 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             if (got.join() !== want.filter(function (k) { return got.indexOf(k) > -1; }).join() || got[0] !== "hero")
               fail(label, "behaviour", "[data-home]", "Home sections out of order: " + got.join(", "));
             if (hm.news > 3) fail(label, "behaviour", ".news-card", hm.news + " stories on Home; at most 3");
-            if (hm.rows > 3 || hm.rows < 1) fail(label, "behaviour", ".sched-row", hm.rows + " schedule rows on Home; 1 to 3");
+            // B3 (David, 2026-09-25): the last result and the next three - up to four rows.
+            if (hm.rows > 4 || hm.rows < 1) fail(label, "behaviour", ".sched-row", hm.rows + " schedule rows on Home; 1 to 4");
             if (!hm.safe) fail(label, "behaviour", ".news-card", "a story does not open its source in a new tab with rel protections and a disclosure");
             if (!hm.labels) fail(label, "behaviour", ".site", "a schedule row relies on colour: its HOME/AWAY/NEUTRAL text is missing");
             if (hm.current) fail(label, "behaviour", "#screenHome", "Home shows a Current Game card, which decision 0023 removed");
