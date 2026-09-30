@@ -78,3 +78,14 @@ PR links use https://github.com/dmvanblaircom/Project-LND/pull/<number>.
 - [Branch cleanup](branch-cleanup.md)
 
 Future completion entries should cite the accepted PR, checks and verification. Never reopen a completed item merely because an old proposal still describes it as missing.
+
+## Completed September 30, 2026
+
+| Item | Evidence | Disposition |
+|---|---|---|
+| W01 hero-logo flicker | PR #28 merged; production verified `suite-2026-09-29a` | Done. The same PR fixed `rostercheck`, which asserted last week's live data, onto a frozen Purdue-week fixture. |
+| W04 final with missing scores | PR #34 merged; `TeamOS.game.scored`; production verified `suite-2026-09-30a` | Done. Home and Game read Final with no invented 0-0; a real 0-0 and live zeros unchanged. |
+| W02 clock visibility (partial) | PR #33 merged | Run titles and a diagnosing alert shipped. The clock itself stays open in the queue, blocked on David's cron-job.org account. |
+| W07 FPI data slice (partial) | PR #35 merged | Producer, checks and source record. Scheduling, TeamOS model and UI remain. |
+| W08 schedule rules (partial) | PR #36 merged; production verified `suite-2026-09-30b` | Rules done. The two link changes remain with Codex. |
+
