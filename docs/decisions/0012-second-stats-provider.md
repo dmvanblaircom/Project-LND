@@ -141,7 +141,15 @@ Neither is an engineering problem. **Do not implement until both clear.**
    - **2026-09-24, clarified:** a paid tier would be considered, but the
      project is not in a position to pay for data now; if a free
      arrangement does not work, other free routes will be pursued first.
-   - **Awaiting his decision.**
+   - **2026-09-29, Bill replied:** displaying the figures in the app is
+     fine; his concern is publishing the underlying data as publicly
+     reusable JSON. Commercial use is covered by the site Terms; the tier
+     sets quota and features; the redistribution restriction still
+     applies; attribution appreciated, not required.
+   - **Consequence (David, 2026-09-30):** the Action-committed snapshot
+     chosen above is withdrawn. CFBD data will be served through our own
+     small API, key server-side, returning only what a screen shows
+     (decision 0030). SP+ availability through CFBD is asked separately.
 2. **Verification.** No egress to CFBD from the environment this was researched
    in; every claim about its fields comes from web-search summaries of
    third-party documentation, not from a response body. One real
