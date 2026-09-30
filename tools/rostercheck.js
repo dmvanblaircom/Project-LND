@@ -76,7 +76,7 @@ var awChart = [].concat.apply([], chart.units.map(function (u) { return [].conca
   return [].concat.apply([], s.levels.map(function (l) { return l.players; })); })); })).filter(function (p) { return p.name === "Aneyas Williams"; })[0];
 eq([aw.no, aw.classYear], [awChart.no, awChart.cl], "an unmatched entry keeps what the official chart says");
 var dt2 = dc.units.filter(function (u) { return u.unit === "Defense"; })[0].slots.filter(function (s) { return s.label === "DT" && s.ordinal === 2; })[0];
-eq([dt2.name, dt2.open, dt2.levels[0].players.length], ["Defensive Tackle 2", true, 2], "two DTs are two spots; a first-team OR is an open job");
+eq([dt2.name, dt2.sharedFirst, dt2.levels[0].players.length], ["Defensive Tackle 2", true, 2], "two DTs are two spots; a first-team OR is kept as the chart has it");
 eq(R.depth(null, groups), null, "no chart, nothing");
 
 console.log("who is out, on the depth chart (the report for the chart's game)");
@@ -164,6 +164,34 @@ ok(!liveReport.reported || liveAv.groups.reduce(function (n, g) { return n + g.p
    "every player on this week's report, once");
 var liveHistory = R.history(liveHist, JSON.parse(read("data/notre-dame/availability-history.json")));
 eq(liveHistory[0].game, liveHist.snapshots.slice(-1)[0].game, "the newest chart on file leads");
+
+console.log("battle framing: the season's first chart only (issue #31, option A)");
+eq([R.phase({ title: "DEPTH CHART - GAME 1 VS WISCONSIN" }).battles, R.phase({ title: "DEPTH CHART - GAME 2 VS RICE" }).battles,
+    R.phase({ title: "DEPTH CHART - GAME 10 VS NAVY" }).battles, R.phase({ title: "2027 PRESEASON DEPTH CHART" }).battles],
+   [true, false, false, true], "Game 1 and preseason are eligible; Game 2 and later are not, Game 10 is not Game 1");
+var unknownPh = R.phase({ title: "DEPTH CHART" });
+eq([unknownPh.known, unknownPh.battles], [false, false], "a title naming no game and no preseason: unknown, so no battle framing");
+var g1 = JSON.parse(read(G4.depthHistory)).snapshots[0];
+var dc1 = R.depth(g1, groups), dc4 = R.depth(chart, groups);
+var opens = function (d) { return [].concat.apply([], d.units.map(function (u) { return u.slots.filter(function (s) { return s.open; }); })).length; };
+var shared = function (d) { return [].concat.apply([], d.units.map(function (u) { return u.slots.filter(function (s) { return s.sharedFirst; }); })).length; };
+ok(/GAME 1/.test(g1.title) && opens(dc1) > 0 && opens(dc1) === shared(dc1), "the real Game 1 chart: its " + opens(dc1) + " first-team ORs read as battles");
+ok(/GAME 4/.test(chart.title) && opens(dc4) === 0 && shared(dc4) > 0,
+   "the real Game 4 chart: " + shared(dc4) + " first-team ORs, none of them a battle");
+var rolled = JSON.parse(JSON.stringify(g1)); rolled.title = "DEPTH CHART - GAME 1 VS NAVY";
+ok(opens(R.depth(rolled, groups)) > 0, "next season's Game 1 chart is eligible again");
+var ui5 = vm.createContext({ document: { addEventListener: function () {} }, TeamOS: nd.TeamOS });
+["suite/ui.js", "suite/roster.js"].forEach(function (f) { vm.runInContext(read(f), ui5, { filename: f }); });
+function rosterBody(d) {
+  var parts = {}, h = { innerHTML: "", querySelector: function (q) { var k = (/data-ro="(\w+)"/.exec(q) || [])[1];
+    if (!k) return q === "[data-ro]" && this.innerHTML ? {} : null; return parts[k] || (parts[k] = { innerHTML: "" }); } };
+  ui5.Suite.roster.paint(h, { view: "depth", views: R.views(nd.TEAM_CONFIG), hasDepth: true, depth: d, unit: "offense", history: null, fresh: null });
+  return parts.body.innerHTML;
+}
+var b1 = rosterBody(dc1), b4 = rosterBody(dc4);
+ok(/class="ro-battle">Battle</.test(b1) && /starting jobs? still open/.test(b1), "drawn: Game 1 shows Battle badges and the open-jobs count");
+ok(!/ro-battle|still open/.test(b4), "drawn: Game 4 shows neither");
+ok(/class="ro-or">or</.test(b4), "drawn: Game 4 still shows every OR");
 
 console.log("spot names");
 eq([R.spotName("QB"), R.spotName("dt"), R.spotName("WILL"), R.spotName("NICKEL")],
