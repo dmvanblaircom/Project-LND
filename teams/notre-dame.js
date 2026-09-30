@@ -82,10 +82,12 @@ var TEAM_CONFIG = {
       // report Monday, an update Thursday, a final update about 60 minutes
       // before kickoff. tools/producers/freshness.py checks each game that
       // the update we hold is as new as this says one should be.
+      // The final pregame update is posted on X only (David, 2026-09-30),
+      // never in the game notes this source reads, so it is not expected
+      // here: declaring it only raised an alert every game (issue #15).
       availabilityUpdates: {
         timeZone:           "America/New_York",
-        daysBeforeKickoff:  [5, 2], // Monday's report and Thursday's update, for a Saturday game
-        minutesBeforeKickoff: 60
+        daysBeforeKickoff:  [5, 2]  // Monday's report and Thursday's update, for a Saturday game
       }
     },
 
