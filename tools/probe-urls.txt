@@ -1,0 +1,7 @@
+# W07 (issue #29): candidate FPI and SP+ sources, probed from GitHub's network
+# by .github/workflows/probe-sources.yml on push. One URL per line.
+https://www.espn.com/college-football/fpi
+https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=200
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/powerindex?limit=200
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/powerindex?limit=200
+https://www.espn.com/college-football/story/_/id/49868647/2026-college-football-sp%2B-rankings-all-138-fbs-teams
