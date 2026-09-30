@@ -15,7 +15,8 @@
      venueZone(game, fallback) the venue's time zone, as near as TeamOS knows
      localDay(date, zone)      a date's calendar day in a zone, "YYYY-MM-DD"
      schedulePreview(games, now, tz)
-                               Home's three schedule rows around the hero
+                               Home's schedule rows: the last result and
+                               the next three, never without the hero
      halftime(game)            live, and between the halves: no clock, and
                                no one has the ball
      boardOrder(a, b)          the order of a day's games on a board: live,
@@ -188,33 +189,31 @@ TeamOS.game = (function () {
     return fallback || null;
   }
 
-  // ---- Home's schedule preview (0024 §3) ----
+  // ---- Home's schedule preview (B3, David 2026-09-25; replaces 0024 §3) ----
   //
-  // At most three rows, chronological, and the hero game is always one of
-  // them. Around it:
-  //   live, paused, recent final, postponed hero   the hero, then the next 2
-  //   upcoming, in season (or a canceled hero)     the entry before it, the
-  //                                                hero, the one after
-  //   nothing completed yet                        the first 3
-  //   season over / no future games                the last 3
-  // A side that runs short is filled from the nearest entries on the other
-  // side. Postponed and canceled games are entries like any other (0022 #8).
-  var PREVIEW = 3;
+  // The last result, then the next three entries: up to four rows,
+  // chronological.
+  //   last result  the latest final with a score (results(), below); there
+  //                is none before the first game is played
+  //   next three   the entries after it, whatever they are - live or paused,
+  //                upcoming, postponed or canceled (0022 #8 keeps those in the
+  //                chronology), or a final the source reports without a score
+  // Near the end of the season, when fewer than three entries follow,
+  // earlier games fill the rows instead, so Home still shows up to four real
+  // games. Nothing is invented to fill a row: a short schedule is short.
+  // The hero game never drops out (0024 §3): if entries without a result
+  // (postponed, canceled, unscored) push it past the next three, the next
+  // three become the two entries before the hero and the hero itself.
+  var PREVIEW = 4, NEXT = 3;
   function schedulePreview(games, now, zone) {
-    var list = (games || []).filter(function (x) { return x && x.date; }).slice()
-      .sort(function (a, b) { return Date.parse(a.date) - Date.parse(b.date); });
-    var n = list.length;
-    if (n <= PREVIEW) return list;
-    var h = hero(list, now, zone), i = list.indexOf(h.game);
-    if (h.reason === "season-over" || h.reason === "none" || i < 0) return list.slice(n - PREVIEW);
-    var anyPlayed = list.some(function (x) { return x.status === "final"; });
-    if (!anyPlayed && h.reason === "upcoming" && h.game.status !== "postponed") return list.slice(0, PREVIEW);
-
-    var before = (h.reason === "upcoming" || h.reason === "canceled") && h.game.status !== "postponed" ? 1 : 0;
-    var start = i - before, end = start + PREVIEW - 1;
-    if (end > n - 1) { start -= end - (n - 1); end = n - 1; }
-    if (start < 0) { end -= start; start = 0; }
-    return list.slice(start, end + 1);
+    var list = byDate((games || []).filter(function (x) { return x && x.date; }));
+    var done = results(list), last = done[done.length - 1];
+    var i = last ? list.indexOf(last) : -1;
+    var h = now ? list.indexOf(hero(list, now, zone).game) : -1;
+    var from = h > i + NEXT ? h - NEXT + 1 : i + 1;
+    var rows = (last ? [last] : []).concat(list.slice(from, from + NEXT));
+    for (var k = (i < 0 ? 0 : i) - 1; rows.length < PREVIEW && k >= 0; k--) rows.unshift(list[k]);
+    return rows;
   }
 
   // ---- results ----
