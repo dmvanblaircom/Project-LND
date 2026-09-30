@@ -14,6 +14,10 @@
 # GitHub's scheduler is best-effort: "twice an hour" has in practice meant a
 # run every 2-5 hours.
 name: Refresh team data
+# Who started the run, in its title: "(clock)", "(hand)" or "(schedule)". The
+# Actions list then shows at a glance whether the external clock is firing,
+# and the freshness monitor finds the clock's last run by this title.
+run-name: "Refresh team data (${{ github.event_name == 'workflow_dispatch' && inputs.source || github.event_name }})"
 
 on:
   schedule:

@@ -11,7 +11,12 @@ a token that can do exactly that, on this repository only. The workflow
 decides what each run does (decision 0020): odds and news every run, the
 depth chart every run in a game window and every 2 hours otherwise.
 
-**Is it working?** You can check this without looking at anything:
+**Is it working?** At a glance: in the repository's Actions tab, the clock's
+runs are titled **Refresh team data (clock)**, one every 30 minutes. Runs
+titled "(schedule)" are GitHub's own scheduler; "(hand)" is the Run workflow
+button. No "(clock)" runs means the clock is not reaching GitHub.
+
+You can also check this without looking at anything:
 
 - The freshness monitor (`tools/producers/freshness.py`) runs at the end of
   every refresh.

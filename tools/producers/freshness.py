@@ -93,21 +93,35 @@ def availability_problems(kicks, report, now, policy):
     return out
 
 
-def cadence_problems(kicks, previous_run, now):
-    """A gap longer than MAX_GAP between runs, inside a game window."""
+def cadence_problems(kicks, previous_run, now, last_clock=None):
+    """A gap longer than MAX_GAP between runs, inside a game window.
+
+    last_clock is when the external clock last started a run, or None if
+    none of the recent runs was the clock's: which of the two it is says
+    where to look."""
     if previous_run is None or not cadence.in_game_window(kicks, now):
         return []
     gap = now - previous_run
     if gap <= MAX_GAP:
         return []
     kick = min((k for k in kicks if k - cadence.BEFORE <= now <= k + AFTER), default=now)
+    if last_clock is None:
+        seen = ("None of the recent runs was started by the clock, so it is not reaching GitHub at "
+                "all: the cron-job.org job is missing or disabled, or every request it sends is "
+                "refused. A refused request starts no run, so only the job's own history shows "
+                "it: 401 is a wrong token, 403 or 404 a token without Actions write access on "
+                "this repository.")
+    else:
+        seen = ("The clock last started a run at %s UTC, %d hours ago, so it worked and has "
+                "stopped: most likely its token expired, or the job was disabled. Check the "
+                "cron-job.org job's history." % (last_clock.strftime("%Y-%m-%d %H:%M"),
+                                                 (now - last_clock).total_seconds() // 3600))
     return [{
         "title": "Data refresh: runs too far apart in the %s game window" % kick.date().isoformat(),
         "body": ("This run started %d minutes after the previous one. Inside a game window the "
                  "refresh should run every 30 minutes (decision 0020). GitHub's own scheduler does "
-                 "not keep that pace, so the external clock that triggers the workflow is not "
-                 "working: check its job history and whether its token has expired "
-                 "(docs/engineering/data-refresh-clock.md)." % (gap.total_seconds() // 60))}]
+                 "not keep that pace; the external clock is what should. %s "
+                 "(docs/engineering/data-refresh-clock.md)" % (gap.total_seconds() // 60, seen))}]
 
 
 # ---- network ------------------------------------------------------------
@@ -127,6 +141,14 @@ def previous_run_start():
     this = os.environ.get("GITHUB_RUN_ID")
     earlier = [r for r in runs if str(r["id"]) != this]
     return cadence.parse_time(earlier[0]["run_started_at"]) if earlier else None
+
+
+def last_clock_start():
+    """When the external clock last started a run: the workflow titles its
+    runs by who started them. None if none of the last 100 was the clock's."""
+    runs = github("/actions/workflows/odds.yml/runs?per_page=100").get("workflow_runs", [])
+    clock = [r for r in runs if (r.get("display_title") or "").endswith("(clock)")]
+    return cadence.parse_time(clock[0]["run_started_at"]) if clock else None
 
 
 def open_once(problems):
@@ -155,7 +177,9 @@ def main():
 
     problems = availability_problems(kicks, report, now, policy)
     if args.open_issues:
-        problems += cadence_problems(kicks, previous_run_start(), now)
+        previous = previous_run_start()
+        if previous is not None and cadence.in_game_window(kicks, now) and now - previous > MAX_GAP:
+            problems += cadence_problems(kicks, previous, now, last_clock_start())
     for p in problems:
         print("::warning::" + p["title"])
     if not policy:
