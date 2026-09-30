@@ -224,9 +224,12 @@ TeamOS.game = (function () {
   // completed. A canceled game is not a result, and neither is a final the
   // source reports without a score. Chronological, like the season.
   function results(games) {
-    return byDate(games || []).filter(function (g) {
-      return g.status === "final" && g.us != null && g.them != null && g.us !== "" && g.them !== "";
-    });
+    return byDate(games || []).filter(function (g) { return g.status === "final" && scored(g); });
+  }
+  // Both scores are known. A final without them shows no score anywhere -
+  // never an invented 0-0 (B7) - while a real 0 is a score.
+  function scored(g) {
+    return !!g && g.us != null && g.them != null && g.us !== "" && g.them !== "";
   }
   function season(games) { return byDate(games || []); }
 
@@ -252,7 +255,7 @@ TeamOS.game = (function () {
 
   return { navState: navState, underWay: underWay, lifecycle: lifecycle, hero: hero,
            recentFinal: recentFinal, atmosphere: atmosphere, venueZone: venueZone,
-           localDay: localDay, schedulePreview: schedulePreview, results: results, season: season,
+           localDay: localDay, schedulePreview: schedulePreview, results: results, scored: scored, season: season,
            halftime: halftime, boardOrder: boardOrder,
            NIGHT_FROM: NIGHT_FROM };
 })();

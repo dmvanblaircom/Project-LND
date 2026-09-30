@@ -221,6 +221,32 @@ var finalHead = headHtml(Object.assign({}, liveG, { state: "post", status: "fina
 ok(/class="gh-final-label">Final</.test(finalHead) && !/class="gh-final"/.test(finalHead),
    "the FINAL label has its own class, so its wide tracking stays on the label (records read 4-0, not 4 - 0)");
 
+// ---- a final the source reports without a score (B7) ----
+console.log("A final with no score: Final, never an invented 0-0");
+function homeHero(game) {
+  var parts = {};
+  var h = { innerHTML: "", querySelectorAll: function () { return []; },
+            querySelector: function (q) { var k = (/data-home="(\w+)"/.exec(q) || [])[1];
+              if (!k) return q === "[data-home]" && this.innerHTML ? {} : null;
+              return parts[k] || (parts[k] = { innerHTML: "", hidden: false }); } };
+  sctx.Suite.home.paint(h, { team: { name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, oppMark: function () { return ""; },
+    hero: { game: game, reason: "recent-final" }, heroId: game.id, art: {}, fresh: null, news: null, schedule: null, outlook: null });
+  return parts.hero.innerHTML;
+}
+var noScoreFinal = Object.assign({}, liveG, { state: "post", status: "final", us: null, them: null });
+[["Home", homeHero(noScoreFinal), "gc-score"], ["Game", headHtml(noScoreFinal), "gh-score"]].forEach(function (c) {
+  ok(!new RegExp(c[2]).test(c[1]), c[0] + ": no score is drawn for either team");
+  ok(/Final\. Notre Dame (at|versus) [^.]*Purdue\./.test(c[1]) && !/Notre Dame 0,/.test(c[1]),
+     c[0] + ": a screen reader hears Final and the matchup, not 0 to 0");
+});
+var zeroZero = Object.assign({}, noScoreFinal, { us: "0", them: "0" });
+[["Home", homeHero(zeroZero), "gc-score"], ["Game", headHtml(zeroZero), "gh-score"]].forEach(function (c) {
+  ok((c[1].match(new RegExp('class="' + c[2] + '">0', "g")) || []).length === 2 && /Notre Dame 0, [^.]*Purdue 0/.test(c[1]),
+     c[0] + ": a real 0-0 is still a score, drawn and read");
+});
+ok((homeHero(Object.assign({}, liveG, { us: null, them: null })).match(/class="gc-score">0/g) || []).length === 2,
+   "a live game before anyone scores still reads 0-0, as before");
+
 // ---- a finished drive, and the last play's time (live scan #2, #3) ----
 console.log("Drive Tracker between possessions, and the last play (real ND at Purdue, after Purdue's turnover on downs)");
 var DD = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-downs.json")), TEAM, CFG);
