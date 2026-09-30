@@ -1,0 +1,20 @@
+# Feasibility probe for new data sources (W07, issue #29): from GitHub's
+# network, which is the production runner's, report what each candidate URL
+# in tools/probe-urls.txt returns. Prints only; stores and commits nothing.
+name: Probe data sources
+
+on:
+  push:
+    paths: ["tools/probe-urls.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe
+        run: python3 tools/probe_sources.py tools/probe-urls.txt

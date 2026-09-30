@@ -61,6 +61,8 @@ jobs:
         run: python3 tools/pipelinecheck.py
       - name: The freshness monitor notices a missed update or a stalled clock
         run: python3 tools/freshnesscheck.py
+      - name: FPI arrives whole and current, or the previous snapshot stays
+        run: python3 tools/fpicheck.py
       - name: A shell change bumps the worker version
         if: github.event_name == 'push'
         run: node tools/versioncheck.js "${{ github.event.before }}"
