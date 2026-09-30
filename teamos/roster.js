@@ -102,8 +102,25 @@ TeamOS.roster = (function () {
     }); });
     return { at: at, anywhere: anywhere };
   }
+  // Battle framing (issue #31, David 2026-09-30, option A): a first-team OR
+  // reads as a position battle only on the season's first chart - preseason
+  // or Game 1. From the team's Game 2 chart on, co-starters are just
+  // co-starters: the OR stays, the Battle badge and the open-jobs count go.
+  // The edition comes from the chart's own title ("DEPTH CHART - GAME 5 AT
+  // NORTH CAROLINA"), never the device date. A title that names no game and
+  // no preseason is unknown, and unknown gets no battle framing: an OR late
+  // in the season must never be called unresolved. A new season's first
+  // chart is Game 1 again, so it resets on its own.
+  function phase(chart) {
+    var t = String((chart && chart.title) || ""), m = /\bGAME\s+(\d+)\b/i.exec(t);
+    var game = m ? Number(m[1]) : null;
+    var pre = !m && /\b(PRE-?SEASON|SPRING|FALL CAMP|CAMP)\b/i.test(t);
+    return { game: game, preseason: pre, known: game != null || pre, battles: pre || game === 1 };
+  }
+
   function depth(chart, groups, report, hist) {
     if (!chart || !chart.units) return null;
+    var ph = phase(chart);
     var all = everyone(groups), outs = outNames(report, chart);
     var prev = previousChart(chart, hist), was = prev ? placesOf(prev) : null;
     function moved(u, s, lv, p) {
@@ -113,7 +130,7 @@ TeamOS.roster = (function () {
       return lv.level < before ? "up" : lv.level > before ? "down" : null;
     }
     return {
-      title: chart.title || "", game: chart.game || "",
+      title: chart.title || "", game: chart.game || "", phase: ph,
       source: { url: chart.sourceUrl || null, label: chart.sourceLabel || null },
       changes: (chart.changes || []).map(function (c) { return { kind: c.kind, text: c.text }; }),
       units: chart.units.map(function (u) {
@@ -121,7 +138,10 @@ TeamOS.roster = (function () {
           var repeated = u.slots.filter(function (x) { return x.label === s.label; }).length > 1;
           return { label: s.label, ordinal: s.ordinal, repeated: repeated,
                    name: spotName(s.label) + (repeated ? " " + s.ordinal : ""),
-                   open: !!(s.levels[0] && s.levels[0].players.length > 1),
+                   // co-starters at first team (a fact of the chart), and
+                   // whether that reads as a battle (the season's phase)
+                   sharedFirst: !!(s.levels[0] && s.levels[0].players.length > 1),
+                   open: ph.battles && !!(s.levels[0] && s.levels[0].players.length > 1),
                    levels: s.levels.map(function (lv) {
                      return { level: lv.level, players: lv.players.map(function (p) {
                        var mv = moved(u, s, lv, p);
@@ -208,5 +228,5 @@ TeamOS.roster = (function () {
     });
   }
 
-  return { views: views, depth: depth, availability: availability, history: history, spotName: spotName, withStatus: withStatus };
+  return { views: views, depth: depth, phase: phase, availability: availability, history: history, spotName: spotName, withStatus: withStatus };
 })();
