@@ -32,3 +32,4 @@ scoreboard-20250120 cfp-final-jan2025
 scoreboard-20260926 sep26-live
 401858467 pur-live
 401858465 osu-ill-live
+fpi-2026 sep30
