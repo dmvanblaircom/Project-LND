@@ -1,0 +1,6 @@
+{
+  "name": "suite-edge-api",
+  "private": true,
+  "type": "module",
+  "description": "Suite's edge API on Cloudflare Workers (decision 0030). No dependencies; deployed by .github/workflows/worker.yml."
+}
