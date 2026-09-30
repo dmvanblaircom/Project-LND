@@ -214,6 +214,9 @@ ok(res.every(function (g) { return g.status === "final"; }), "no canceled, postp
 var unscored = season12(1); unscored[0] = Object.assign({}, unscored[0], { us: null, them: null });
 eq(G.results(unscored).length, 0, "a final with no score is not a result");
 eq(G.results(null), [], "no schedule, no results");
+eq([G.scored({ us: "31", them: "0" }), G.scored({ us: "0", them: "0" }), G.scored({ us: null, them: "7" }),
+    G.scored({ us: "", them: "" }), G.scored(null)], [true, true, false, false, false],
+   "scored: both scores known; a real 0 counts, a missing one does not");
 console.log("halftime and board order (live scan #6, #7, #10)");
 ok(G.halftime({ status: "live", detail: "Halftime" }), "live with the source saying Halftime: halftime");
 ok(!G.halftime({ status: "live", detail: "0:45 - 2nd" }) && !G.halftime({ status: "live", detail: "End of 1st Quarter" }),

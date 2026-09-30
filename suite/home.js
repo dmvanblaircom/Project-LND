@@ -71,7 +71,9 @@ Suite.home = (function () {
     var score = us ? g.us : g.them;
     var mark = us ? ui.mark(team.markUrl, team.name, team.abbr, "bare")
                   : ui.mark(m.oppMark(g.oppProviderId), g.oppName, g.oppAbbr, "bare");
-    var showScore = st === "live" || st === "paused" || st === "final";
+    // A final the source reports without a score says Final and nothing
+    // else (B7): no 0-0, no winner.
+    var showScore = st === "live" || st === "paused" || (st === "final" && TeamOS.game.scored(g));
     // At halftime the football marks who gets the ball to start the second
     // half (TeamOS.live.receives); otherwise who has it.
     var ball = (st === "live" || st === "paused") && g.situation &&
@@ -116,6 +118,7 @@ Suite.home = (function () {
   function summary(team, g, st) {
     var opp = oppLabel(g), w = g.home || g.neutral ? "versus " : "at ";
     var ko = ui.kickoff(g.date, g.timeSet);
+    if (st === "final" && !TeamOS.game.scored(g)) return "Final. " + team.name + " " + w + opp + ".";
     if (st === "live" || st === "paused" || st === "final") {
       var line = team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0) + ".";
       if (st === "final") return "Final. " + line;

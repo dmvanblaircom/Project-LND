@@ -88,7 +88,8 @@ Suite.game = (function () {
     var rank = us ? g.usRank : g.oppRank, rec = us ? g.usRecord : g.oppRecord;
     var score = us ? g.us : g.them;
     var name = us ? m.team.name : g.oppName, abbr = us ? m.team.abbr : g.oppAbbr;
-    var scored = st === "live" || st === "paused" || st === "final";
+    // A final without a score shows none (B7), as on Home.
+    var scored = st === "live" || st === "paused" || (st === "final" && TeamOS.game.scored(g));
     return '<div class="gh-team ' + (us ? "us" : "them") + '">' + mark +
              (scored ? '<span class="gh-score">' + esc(score == null ? "0" : score) +
                (hasBall(m, us, st) ? ui.ball("gh-ball") + '<span class="sr-only"> (has the ball)</span>' : "") + "</span>" : "") +
@@ -152,6 +153,7 @@ Suite.game = (function () {
   function summary(m, st) {
     var g = m.game, opp = (g.oppRank ? "#" + g.oppRank + " " : "") + g.oppName;
     var vs = g.home || g.neutral ? " versus " : " at ";
+    if (st === "final" && !TeamOS.game.scored(g)) return "Final. " + m.team.name + vs + opp + ".";
     if (st === "live" || st === "paused" || st === "final") {
       var line = m.team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0);
       if (st === "final") return "Final. " + line + ".";
