@@ -1,0 +1,59 @@
+# Deploys Suite's edge API (worker/, decision 0030) to Cloudflare Workers
+# when worker/ changes on main, or from the Actions tab.
+#
+# Needs three repository secrets (docs/engineering/edge-api.md):
+#   CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID  - where it deploys
+#   CFBD_API_KEY                                  - set as a Worker secret
+# Until they exist, the job says so and stops green: nothing half-deploys.
+name: Deploy the edge API
+
+on:
+  push:
+    branches: [main]
+    paths: ["worker/**", ".github/workflows/worker.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: edge-api
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Is Cloudflare configured?
+        id: ready
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"
+          else echo "::notice::Cloudflare secrets are not set yet (docs/engineering/edge-api.md); nothing deployed."; fi
+      - name: The edge API passes its checks
+        if: steps.ready.outputs.ok == 'true'
+        run: node tools/workercheck.mjs
+      - name: Deploy
+        id: deploy
+        if: steps.ready.outputs.ok == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          secrets: |
+            CFBD_API_KEY
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+      - name: It answers
+        if: steps.ready.outputs.ok == 'true'
+        env:
+          URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          [ -n "$URL" ] || { echo "::warning::no deployment URL reported; check the Cloudflare dashboard"; exit 0; }
+          body=$(curl -sSf --retry 3 "$URL/v1/health")
+          echo "$URL/v1/health -> $body"
+          echo "$body" | grep -q '"ok":true'

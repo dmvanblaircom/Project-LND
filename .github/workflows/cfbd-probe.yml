@@ -1,0 +1,32 @@
+# Which stat names does CollegeFootballData actually return? (decision 0012:
+# never design against unverified field names.) Prints the names and how
+# many rows carry each - never a value, so no CFBD data is published in the
+# public log. Run it from the Actions tab once CFBD_API_KEY is set.
+name: Probe CFBD field names
+
+on:
+  workflow_dispatch:
+    inputs:
+      team:
+        description: "Team, as CFBD names it"
+        default: "Notre Dame"
+        type: string
+      year:
+        description: "Season"
+        default: "2026"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Field names only
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          TEAM: ${{ inputs.team }}
+          YEAR: ${{ inputs.year }}
+        run: python3 tools/cfbd_probe.py

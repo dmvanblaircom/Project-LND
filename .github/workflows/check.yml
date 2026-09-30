@@ -5,7 +5,7 @@ name: Check the stylesheet
 
 on:
   push:
-    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", ".github/workflows/**"]
+    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", "worker/**", ".github/workflows/**"]
   # A pull request into main runs the release gate below before it can merge.
   pull_request:
     branches: [main]
@@ -63,6 +63,8 @@ jobs:
         run: python3 tools/freshnesscheck.py
       - name: FPI arrives whole and current, or the previous snapshot stays
         run: python3 tools/fpicheck.py
+      - name: The edge API answers only what a screen shows
+        run: node tools/workercheck.mjs
       - name: A shell change bumps the worker version
         if: github.event_name == 'push'
         run: node tools/versioncheck.js "${{ github.event.before }}"

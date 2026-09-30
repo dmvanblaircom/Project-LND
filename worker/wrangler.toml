@@ -1,0 +1,7 @@
+# Suite's edge API (decision 0030). Deployed by .github/workflows/worker.yml.
+# Secrets (CFBD_API_KEY) are set by that workflow from GitHub secrets and
+# never live in this repository.
+name = "suite-api"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
