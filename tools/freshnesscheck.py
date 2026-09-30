@@ -80,6 +80,12 @@ ok(len(gap) == 1 and "50 minutes" in gap[0]["body"], "50 minutes apart in a game
 ok(freshness.cadence_problems(KICK, at("2026-09-29T09:00:00"), at("2026-09-29T14:00:00")) == [],
    "five hours apart on a Tuesday: not a game window, not a problem")
 ok(freshness.cadence_problems(KICK, None, prev) == [], "no previous run: nothing to compare")
+never = gap[0]["body"]
+ok("None of the recent runs was started by the clock" in never and "401" in never,
+   "the clock never ran: says it is not reaching GitHub, and what each refusal means")
+stopped = freshness.cadence_problems(KICK, prev, prev + timedelta(minutes=50), at("2026-09-24T18:07:00"))[0]["body"]
+ok("2026-09-24 18:07 UTC" in stopped and "stopped" in stopped and "None of the recent" not in stopped,
+   "the clock ran and stopped: says when, and to suspect the token or the job")
 
 print("\n" + ("%d check(s) FAILED" % failures if failures else "the monitor notices what it should, and only that"))
 sys.exit(1 if failures else 0)
