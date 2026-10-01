@@ -150,7 +150,8 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 
 /* The main column. Phone-first; on wider screens it stays a column rather
    than stretching cards into lines too long to scan. */
-.page-main{display:block;width:100%;max-width:var(--s-content-max);margin:0 auto;
+/* overflow-x:clip keeps a view sliding in (suite/nav.js swipe) from widening the page */
+.page-main{display:block;overflow-x:clip;width:100%;max-width:var(--s-content-max);margin:0 auto;
   padding:0 calc(var(--gutter) + env(safe-area-inset-right,0px)) calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 3rem) calc(var(--gutter) + env(safe-area-inset-left,0px))}
 .page-main:focus{outline:none}
 /* The visible page heading of a context screen: neutral Suite ink, so
@@ -987,3 +988,10 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
 html[data-choosing] .launch{display:none}
 @keyframes launch-out{to{opacity:0;visibility:hidden;pointer-events:none}}
 @media (prefers-reduced-motion:reduce){.launch{transition:none}}
+/* Swiping between a screen's peer views (suite/nav.js): the new view slides
+   in from the side the fan swiped toward. Motion for Codex to tune. */
+.view-in-next{animation:view-in-next .2s ease-out}
+.view-in-prev{animation:view-in-prev .2s ease-out}
+@keyframes view-in-next{from{transform:translateX(1.75rem);opacity:.4}to{transform:none;opacity:1}}
+@keyframes view-in-prev{from{transform:translateX(-1.75rem);opacity:.4}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.view-in-next,.view-in-prev{animation:none}}

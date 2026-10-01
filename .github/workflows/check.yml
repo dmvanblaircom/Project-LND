@@ -96,6 +96,8 @@ jobs:
       - run: node tools/flickercheck.js
       # The launch screen covers the first open and never outstays it.
       - run: node tools/launchcheck.js
+      # Swiping moves between a screen's peer views, and only on purpose.
+      - run: node tools/swipecheck.js
       # More's news recovery, Refresh Data's outcome, the connection while a
       # screen is open, and Feedback's version and origin (catch-up review).
       - run: node tools/moreflowcheck.js
