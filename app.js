@@ -1633,7 +1633,7 @@ function liftLaunchWhenReady(){
   // for an app.js that never runs, and must not cut an update's wait short.
   el.style.animation="none";
   var reduce=window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var start=Date.now(), at=window.SUITE_LAUNCH_AT||start, MIN=reduce?600:2600, MAX=6000, UPD_MAX=10000, OWN=3000, QUIET=300;
+  var start=Date.now(), at=Math.min(window.SUITE_LAUNCH_AT||start, start), MIN=reduce?600:2600, MAX=6000, UPD_MAX=10000, OWN=3000, QUIET=300;
   var cap=Math.max(at+MAX, start+OWN);
   function screen(){ return document.querySelector("#main > div:not([hidden])"); }
   function inView(img){

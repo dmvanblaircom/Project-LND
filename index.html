@@ -259,7 +259,7 @@ html[data-choosing] .launch,html[data-launched] .launch{display:none}
   var now = Date.now(), at = now;
   try {
     var prev = +sessionStorage.getItem("suite-launch-at");
-    if (prev && now - prev < 15000) at = prev; else sessionStorage.setItem("suite-launch-at", String(now));
+    if (prev && now >= prev && now - prev < 15000) at = prev;   // never a start in the future: a clock moved back else sessionStorage.setItem("suite-launch-at", String(now));
     // The launch already lifted on this open and an update's reload followed
     // (a slow install outlasted it): the fan has seen the page, so the reload
     // draws it again without a second launch.

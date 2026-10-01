@@ -219,6 +219,14 @@ function fixture(url) {
     return { docs: docs, of: of };
   }
 
+  console.log("a clock that moved back");
+  // A start time saved before the phone's clock moved back (a time zone, a
+  // manual change) is in the future: it must never hold the launch.
+  var fut = await open("/?team=notre-dame#home", { startedAgo: -60000, delay: 100 });
+  var tf = await liftedAt(fut, 9000);
+  ok(tf != null && tf < 4500, "a saved start in the future is ignored: it lifts on its own clock (" + tf + " ms)");
+  await fut.ctx.close();
+
   console.log("a new version found on this open");
   var u1 = await updateOpen(350);
   var first = u1.of(u1.docs[0]), last = u1.of(u1.docs[u1.docs.length - 1]);
