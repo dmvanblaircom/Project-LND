@@ -113,6 +113,48 @@ var firstOnly = { snapshots: [histRaw.snapshots[0]] }, first = JSON.parse(JSON.s
 ok(R.depth(first, groups, null, firstOnly).units.every(function (u) { return u.slots.every(function (s) { return s.levels.every(function (l) {
   return l.players.every(function (p) { return !p.moved; }); }); }); }), "the season's first chart has nothing to compare with: no arrows");
 
+console.log("changes since the last chart (the disclosure, issue #30)");
+function arrowsOf(d) { var a = []; d.units.forEach(function (u) { u.slots.forEach(function (s) { s.levels.forEach(function (l) { l.players.forEach(function (p) {
+  if (p.moved) a.push(p.moved + ":" + p.name + "@" + u.unit + "|" + s.label + "|" + s.ordinal); }); }); }); }); return a.sort(); }
+function arrowItems(since) { return since.changes.filter(function (c) { return c.kind === "up" || c.kind === "down" || c.kind === "enters"; })
+  .map(function (c) { var k = c.kind === "enters" ? "up" : c.kind;
+    var u = dcMv.units.filter(function (x) { return x.unit === c.to.unit; })[0];
+    var s = u.slots.filter(function (x) { return x.name === c.to.spot; })[0];
+    return k + ":" + c.name + "@" + c.to.unit + "|" + s.label + "|" + s.ordinal; }).sort(); }
+var since = dcMv.since;
+ok(since && since.count === since.changes.length && since.count > 0, "this week's chart has changes: " + (since && since.count));
+eq(since.game, histRaw.snapshots[histRaw.snapshots.length - 2].game, "compared with the previous chart, the one the arrows use");
+eq(arrowItems(since), arrowsOf(dcMv), "every arrow is in the list and every up/down/new in the list has its arrow");
+var nolan = since.changes.filter(function (c) { return c.name === "Nolan James Jr."; })[0];
+ok(nolan && nolan.kind === "up" && nolan.from.level === 2 && nolan.to.level === 1 && nolan.to.spot === "Running Back",
+   "Nolan James Jr.: Running Back, second team -> first team");
+ok(nolan && nolan.to.or.length > 0, "and the first-team OR he joined is carried with him (" + (nolan && nolan.to.or.join(", ")) + ")");
+eq(R.depth(chart, groups, report, null).since, null, "no history: no comparison - never \"no changes\"");
+eq(R.depth(first, groups, null, firstOnly).since, null, "the season's first chart: no comparison");
+var still = R.depth(nextWeek, groups, null, same).since;
+ok(still && still.count === 0 && still.changes.length === 0, "a real comparison that finds nothing: count 0, not null");
+// a hand-made pair covering what the Purdue week does not: a move between
+// spots, a new name, a departure, an OR forming, every unit counted
+function u(unit, slots) { return { unit: unit, slots: slots }; }
+function sl(label, ordinal, levels) { return { label: label, ordinal: ordinal, levels: levels.map(function (ps, i) {
+  return { level: i + 1, players: ps.map(function (n) { return { no: "", name: n }; }) }; }) }; }
+var oldC = { game: "G1", title: "DEPTH CHART - GAME 1", units: [
+  u("Offense", [sl("WR", 1, [["Ann"], ["Bea"]]), sl("WR", 2, [["Cal"], ["Dee"]])]),
+  u("Special Teams", [sl("K", 1, [["Eve"], ["Fay"]])]) ] };
+var newC = { game: "G2", title: "DEPTH CHART - GAME 2", units: [
+  u("Offense", [sl("WR", 1, [["Ann"], ["Gus"]]), sl("WR", 2, [["Cal", "Bea"], ["Dee"]])]),
+  u("Special Teams", [sl("K", 1, [["Fay"]])]) ] };
+var hc = R.depth(newC, [], null, { snapshots: [oldC, newC] }).since;
+var by = {}; hc.changes.forEach(function (c) { by[c.name] = c; });
+eq(hc.count, 4, "Bea moves, Gus enters, Eve leaves, Fay moves up - four changes");
+ok(by.Bea && by.Bea.kind === "moved" && by.Bea.from.spot === "Wide Receiver 1" && by.Bea.from.level === 2 &&
+   by.Bea.to.spot === "Wide Receiver 2" && by.Bea.to.level === 1 && by.Bea.to.or.join() === "Cal",
+   "a move between spots is one entry, previous -> current, with the OR it forms");
+ok(by.Gus && by.Gus.kind === "enters" && by.Gus.from === null, "a new name enters");
+ok(by.Eve && by.Eve.kind === "leaves" && by.Eve.to === null && by.Eve.from.unit === "Special Teams", "a departure leaves - from any unit");
+ok(by.Fay && by.Fay.kind === "up" && by.Fay.to.unit === "Special Teams", "special teams count too");
+ok(!by.Cal, "Cal is first team before and after: gaining a co-starter is shown on Bea's entry, not counted twice");
+
 console.log("who is out, on the roster");
 var marked = [].concat.apply([], R.withStatus(groups, report, chart).map(function (g) { return g.players; })).filter(function (p) { return p.out; });
 ok(marked.some(function (p) { return p.name === "Luke Talich" && p.out === "out-game"; }), "Luke Talich is marked out on the roster");

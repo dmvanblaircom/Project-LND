@@ -102,6 +102,59 @@ TeamOS.roster = (function () {
     }); });
     return { at: at, anywhere: anywhere };
   }
+  // What changed since the last chart, for the compact disclosure under the
+  // chart's source (issue #30, David 2026-09-28): one entry per player per
+  // place that changed, previous -> current, across every unit. It uses the
+  // SAME previous chart as the arrows, so the count and the arrows never
+  // disagree about what "the last chart" is. null when there is no previous
+  // chart to compare with - never "no changes" from missing history; a
+  // count of 0 means a real comparison found nothing.
+  //
+  // A place is { unit, spot, level, or }: `or` lists who shared that level
+  // (the chart's OR), so a move into or out of a co-listing reads as one.
+  // A player who left one spot and appeared at another is one "moved"
+  // entry, paired in chart order; new to the chart is "enters", gone from
+  // it is "leaves"; still on the chart but at fewer or more spots is
+  // "removed" / "added".
+  function placements(chart) {
+    var out = [];
+    ((chart && chart.units) || []).forEach(function (u) { (u.slots || []).forEach(function (s) {
+      var repeated = u.slots.filter(function (x) { return x.label === s.label; }).length > 1;
+      (s.levels || []).forEach(function (lv) { (lv.players || []).forEach(function (p) {
+        var n = fold(p.name); if (!n) return;
+        out.push({ who: n, name: p.name, no: String(p.no || ""), key: spotKey(u, s),
+                   place: { unit: u.unit, spot: spotName(s.label) + (repeated ? " " + s.ordinal : ""), label: s.label,
+                            level: lv.level, or: lv.players.filter(function (q) { return q !== p; }).map(function (q) { return q.name; }) } });
+      }); });
+    }); });
+    return out;
+  }
+  function sinceLast(chart, hist) {
+    var prev = previousChart(chart, hist);
+    if (!prev || !prev.units) return null;
+    var now = placements(chart), was = placements(prev), items = [];
+    function of(list, who) { return list.filter(function (x) { return x.who === who; }); }
+    var people = [];
+    now.concat(was).forEach(function (x) { if (people.indexOf(x.who) < 0) people.push(x.who); });
+    people.forEach(function (who) {
+      var a = of(was, who), b = of(now, who), gone = [], fresh = [];
+      b.forEach(function (x) {
+        var y = a.filter(function (z) { return z.key === x.key; })[0];
+        if (!y) fresh.push(x);
+        else if (x.place.level !== y.place.level)
+          items.push({ kind: x.place.level < y.place.level ? "up" : "down", name: x.name, no: x.no, from: y.place, to: x.place });
+      });
+      a.forEach(function (y) { if (!b.some(function (x) { return x.key === y.key; })) gone.push(y); });
+      while (fresh.length && gone.length) {
+        var t = fresh.shift(), f = gone.shift();
+        items.push({ kind: "moved", name: t.name, no: t.no, from: f.place, to: t.place });
+      }
+      fresh.forEach(function (x) { items.push({ kind: a.length ? "added" : "enters", name: x.name, no: x.no, from: null, to: x.place }); });
+      gone.forEach(function (y) { items.push({ kind: b.length ? "removed" : "leaves", name: y.name, no: y.no, from: y.place, to: null }); });
+    });
+    return { count: items.length, game: prev.game || "", title: prev.title || "", changes: items };
+  }
+
   // Battle framing (issue #31, David 2026-09-30, option A): a first-team OR
   // reads as a position battle only on the season's first chart - preseason
   // or Game 1. From the team's Game 2 chart on, co-starters are just
@@ -133,6 +186,7 @@ TeamOS.roster = (function () {
       title: chart.title || "", game: chart.game || "", phase: ph,
       source: { url: chart.sourceUrl || null, label: chart.sourceLabel || null },
       changes: (chart.changes || []).map(function (c) { return { kind: c.kind, text: c.text }; }),
+      since: sinceLast(chart, hist),
       units: chart.units.map(function (u) {
         return { unit: u.unit, key: fold(u.unit), slots: (u.slots || []).map(function (s) {
           var repeated = u.slots.filter(function (x) { return x.label === s.label; }).length > 1;
