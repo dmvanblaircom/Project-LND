@@ -58,42 +58,44 @@ The Suite should not care whether a game came from ESPN, another provider, or a 
 
 ## Current Implementation
 
-TeamOS is a logical/domain layer inside the existing repository: four plain-script files loaded by `index.html` before `app.js`, exposing one global, `TeamOS`. The GitHub Actions workflows and local snapshots remain in place unchanged.
+TeamOS is a domain layer inside the existing repository: plain-script files in `teamos/`, loaded by `index.html` before the Suite screens and `app.js`, exposing one global, `TeamOS`. Every file is pure - no `fetch`, no DOM, no browser storage, no team names - and is tested in Node by the `tools/*check` gates. The as-built map of the whole application is `docs/engineering/current-architecture.md`.
 
-| File | Provides | Since |
-|---|---|---|
-| `teamos/team.js` | `TeamOS.createTeam(config.team)` — validates and freezes the provider-neutral Team | Phase 2 |
-| `teamos/espn.js` | `TeamOS.espn.scheduleUrl(config)` and `postseasonUrl(config)`, `TeamOS.espn.joinSeason(regular, postseason)`, `TeamOS.espn.schedule(json, team, config)` → `Game[]`, `TeamOS.espn.gameOdds(summary)` | Phase 3A |
-| `teamos/espn.js` | `TeamOS.espn.rosterUrl(config)`, `TeamOS.espn.roster(json)` → `RosterGroup[]` of `Player`; `TeamOS.espn.teamUrl(config)`, `TeamOS.espn.teamStatus(json)` → `{ rank, record }` | Phase 3B |
-| `teamos/espn.js` | `TeamOS.espn.scoreboardUrl()`, `TeamOS.espn.scoreboard(json, config)` → `LeagueGame[]`; `TeamOS.espn.rankingsUrl()`, `TeamOS.espn.rankings(json, config)` → `Poll[]` | Phase 4A |
-| `teamos/espn.js` | `TeamOS.espn.summaryUrl(gameId)`, `TeamOS.espn.gameDetail(json, team, config)` → `GameDetail`; `TeamOS.espn.seasonStatsUrl(key, season)`, `TeamOS.espn.seasonStats(json)` → `SeasonStat[]` | Phase 4B |
-| `teamos/espn.js` | `TeamOS.espn.newsUrl(config)`, `TeamOS.espn.news(json)` → `NewsItem[]` | Phase 4C |
-| `teamos/snapshots.js` | `TeamOS.snapshots.get(config, kind)` → the team's declaration for `depth` / `oddsHistory` / `beatNews`, or `null`; `TeamOS.snapshots.owned(team, json)` → whether a loaded snapshot is this team's | Phase 5B |
-| `teamos/identity.js` | `TeamOS.identity.create(config, team)` → the frozen Identity the Suite presents the team with; `TeamOS.identity.contrast(a, b)` | Phase 6 |
+| File | Provides |
+|---|---|
+| `team.js` | `TeamOS.createTeam(config.team)`: validates and freezes the provider-neutral Team (decision 0003) |
+| `registry.js` | The program registry the chooser and the Top 25 read (decision 0014) |
+| `identity.js` | `TeamOS.identity.create()`: how a team is presented inside Suite; refuses unreadable colours (decision 0009) |
+| `snapshots.js` | Which Action-written files a team declares, and whether a loaded one is its own (decision 0008) |
+| `sources.js` | Where a team's data comes from, for About Suite |
+| `espn.js` | The ESPN adapter: schedule → `Game[]` (with neutral site, series and its kind), roster, team status, scoreboard → `LeagueGame[]`, rankings → `Poll[]`, summary → `GameDetail`, season statistics, news → `NewsItem[]`, logos |
+| `cfbd.js` | CollegeFootballData through Suite's edge API: season yards allowed (decisions 0012, 0030) |
+| `markets.js` | Kalshi events → this team's markets and the full field (W18) |
+| `weather.js` | Open-Meteo forecast and geocoding → the kickoff or current weather at the venue |
+| `game.js` | The game rules every surface shares: status, lifecycle and its views, the hero game, the recent final, day or night, the schedule preview |
+| `live.js` | One live state per game across ESPN's three endpoints (decision 0010) |
+| `season.js` | Season figures a team's own results answer (decision 0011) |
+| `roster.js` | Which roster views a team has, the depth chart joined to the roster, availability and its history (decision 0019) |
+| `outlook.js` | Which Season Outlook markets a team actually has |
+| `freshness.js` | One page-level freshness state from each source's age (decision 0024 section 13) |
+| `ratings.js` | FPI for Top 25 → Rankings (W07): tested, not loaded until its snapshot is scheduled |
 
 ### What TeamOS does now
 
-- Defines what a Team is and rejects a malformed team config at startup.
-- Turns ESPN's schedule payload into provider-neutral `Game` objects (`docs/03_DOMAIN_MODEL.md`), applying the team config's `series` table and `sources.espn.broadcastFallback` along the way.
-- Turns ESPN's roster payload into `RosterGroup[]` of `Player`, and its team payload into `TeamStatus` (rank and record).
-- Turns ESPN's league scoreboard into `LeagueGame[]` (neutral home/away, with the team's own game flagged) and its rankings into `Poll[]`, deciding which polls bear on an FBS team and in what order.
-- Turns ESPN's game summary into `GameDetail` — the Game Center's score line, last play, win probability, linescore, team stats (including which side is ahead on each), leaders, box score and scoring plays — and its core-API season statistics into the matchup preview's `SeasonStat[]`.
-- Turns ESPN's team news feed into `NewsItem[]`.
-- Extracts the pregame line/total from ESPN's game summary.
-- Answers which of the Action-written team-data snapshots a team has (the first explicit capability: a team either has a depth chart or it does not) and whether a loaded snapshot belongs to it (`docs/decisions/0008-snapshots-are-owned-by-declaration.md`).
-- Defines how a team is presented — product name, head copy, colours, type, artwork — and **refuses a team whose text would be unreadable on its own surface**, naming the measured contrast ratio. It never derives a colour on a team's behalf (`docs/decisions/0009-identity-is-team-data.md`).
+- Defines what a Team is and rejects a malformed team config at startup; answers questions about every program in the registry.
+- Turns every provider payload the Suite uses - ESPN, Kalshi, Open-Meteo, CollegeFootballData - into provider-neutral shapes (`docs/03_DOMAIN_MODEL.md`), applying the team config's `series` table and `sources` patches along the way. No Suite file reads a provider field.
+- Decides the game rules once for every surface: which game is the hero, what state a game is in and which Game views it has, when a final rolls over, and one live state per game.
+- Answers which of the Action-written team-data snapshots a team has and whether a loaded snapshot belongs to it.
+- Defines how a team is presented and refuses a team whose text would be unreadable on its own surface, naming the measured contrast ratio. It never derives a colour on a team's behalf.
+- Decides how fresh a screen's data is, from each source's own age.
 
 ### What TeamOS explicitly does not do yet
 
-- **Fetch.** The adapter is a pure transformation; `app.js` owns `fetch`, the cache-first paint, the offline/stale flag, polling and prefetching.
-- **Orchestrate.** Which game is "next", when a final rolls over, whether anything is live — all application logic.
-- **Cache or snapshot.** The service worker, the Cache API store of final summaries and `.github/workflows/odds.yml` are untouched.
-- **Normalize Kalshi odds, the kickoff forecast or the depth chart.** Odds and weather are the deferred Phase 4D; the depth chart is this project's own Action-written snapshot — TeamOS says whose it is, not what is in it.
-- **Produce a snapshot for a second team.** The Action still writes Notre Dame's files only; a team that declares none gets the unavailable states.
+- **Fetch, cache or time anything.** `app.js` owns requests, the cache-first paint, polling and refresh; the service worker owns the offline copies; the GitHub Actions and the edge API fetch what the browser cannot (W10 tracks moving more of `app.js`'s stores into TeamOS).
+- **Produce a snapshot for a second team.** The Action writes Notre Dame's team files only; a team that declares none gets the unavailable states (W20).
 - **Lay anything out.** TeamOS says what a team's colours and type *are*; where accent goes, how cards stack and what the spacing is remain the Suite's.
-- **Know about a second provider, or the fan.**
+- **Know about the fan.** There is no account, no followed-teams list and no personalization.
 
-TeamOS is not an application framework. It has no `load()`, no registry, no adapter interface; the next adapter, if one is justified, earns its own shape.
+TeamOS is not an application framework. It has no `load()` and no adapter interface; each adapter has the shape its provider needs.
 
 The goal is not to create a backend. The goal is to make ownership clear.
 

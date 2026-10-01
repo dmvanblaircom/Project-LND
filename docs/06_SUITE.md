@@ -21,17 +21,19 @@ Potential experiences include:
 - History
 - Community
 
-## Current Irish Watch as a Suite
+## Suite Today
 
-The existing Irish Watch tabs already resemble the beginnings of Suite:
+One Suite renders every configured team; Irish Watch is Notre Dame's. Its destinations (decisions 0022, 0023, 0028), each drawn by a file in `suite/`:
 
-- Home
-- Top 25
-- Game
-- Roster
-- More (News, Change team, Refresh)
+- Home - the hero game, Season Outlook, the schedule preview, news
+- Top 25 - Games and Rankings (national content, with the team as quiet context)
+- Game - the hero game through its lifecycle: preview, live, final
+- Roster - Depth Chart, Roster and Availability, as the team has them
+- More - News, Schedule and Results, Settings (App Style, Change Team, Refresh Data), Feedback, About Suite
 
-The goal is to evolve this shell rather than throw it away.
+`suite/nav.js` routes them on the page's hash, so Back walks every view. A screen's peer views also change with a sideways swipe, and a pull down from the top of any screen refreshes it - the same refresh as Settings' Refresh Data.
+
+The shell was evolved rather than thrown away: the same page, offline behavior and accessibility, rebuilt screen by screen to the canonical Suite design (`docs/engineering/suite-redesign-completion.md`).
 
 ## Contextual Experience
 
@@ -51,21 +53,16 @@ Prioritize news, recruiting, roster movement, schedule, history, and upcoming ev
 
 ## Team Identity
 
-Suite inherits team identity from TeamOS. **Implemented in Phase 6**: `app.js` reads one
-object, `TeamOS.identity.create(TEAM_CONFIG, TEAM)`, and applies it in one place,
-`paintIdentity()`, which sets the document head, the header lockup, the motto, the
-sr-only headings and the stylesheet's `--t-*` tokens. `app.css` keeps its own rules,
-spacing, layout and semantic colours; what it no longer keeps is a team's values.
+Suite inherits team identity from TeamOS: `app.js` reads one object, `TeamOS.identity.create(TEAM_CONFIG, TEAM)`, and applies it in one place, `paintIdentity()`, which sets the tab title ("Notre Dame · Suite"), the SUITE bar's team context on every screen (mark and name, decision 0031), the nickname Home's hero uses and the stylesheet's `--t-*` tokens. `app.css` keeps its own rules, spacing, layout and semantic colours; what it does not keep is a team's values.
 
-- Colours — as a **fill** (`accent`) and, separately, as legible **text** (`accentText`)
-- Typography — three stacks: body, display, headline
-- Terminology — product name, program label, motto, the News tab's rule
-- Artwork — favicon, app icons, share image; each optional, each omitted when absent
-- Team-specific capabilities — through `TeamOS.snapshots` (Phase 5B)
+- Colours - as a **fill** (`accent`) and, separately, as legible **text** (`accentText`, `accentOnLight`)
+- Typography - the team's UI and display stacks
+- Terminology - the program label and the team's tagline (none for a team without one)
+- Team-specific capabilities - through `TeamOS.snapshots`
 
-The team should feel like the product rather than a filter applied to a generic sports
-interface. The test is that the Suite contains no team name, no team colour and no
-`if (TEAM.id === ...)`; `tools/adaptercheck.js` asserts all three.
+The installed product - its name, icons, manifest and share card - is Suite's and the same for every team (decision 0024 section 11). A fan can choose Suite Style instead of Team Style in Settings (decision 0026): Suite's own colours and type for every team, with the team's name, mark and tagline unchanged.
+
+The team should feel like the product rather than a filter applied to a generic sports interface. The test is that the Suite contains no team name, no team colour and no `if (TEAM.id === ...)`; `tools/adaptercheck.js` asserts all three.
 
 ## Future My Teams
 

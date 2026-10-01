@@ -6,9 +6,9 @@
 
 Team configuration separates team identity and team-specific capabilities from generic Suite behavior.
 
-## Current Shape (Phase 6)
+## Current Shape
 
-A team is one file in `teams/` that defines `TEAM_CONFIG`, loaded by `index.html` before `teamos/team.js` and `app.js`. It has six sections, each owned by a different layer:
+A team is one file in `teams/` that defines `TEAM_CONFIG`. The page's boot script loads the one this browser chose (`?team=`, then the saved choice; decisions 0013, 0016) before TeamOS, the Suite screens and `app.js`. It has six sections, each owned by a different layer:
 
 ```js
 var TEAM_CONFIG = {
@@ -20,11 +20,13 @@ var TEAM_CONFIG = {
     abbreviation: "ND",
     sport: "football",
     league: "college-football",
+    timeZone: "America/New_York",            // the local calendar for team policies
     venue: { name: "Notre Dame Stadium", lat: 41.6984, lon: -86.2339 }
   },
 
-  // How each provider identifies this team, plus patches for feed gaps.
-  // Read by app.js for now; moves inside the Phase 3 adapters.
+  // How each provider identifies this team, patches for feed gaps, the
+  // team's official sources and its beat feeds. Read by the TeamOS adapters
+  // (teamos/espn.js, markets.js) and the Action's producers.
   sources: {
     espn:   { teamId: "87", broadcastFallback: [ /* [opponent regex, network] */ ] },
     kalshi: { tickerSuffix: "-ND", namePattern: /notre dame|fighting irish/i },
@@ -32,38 +34,40 @@ var TEAM_CONFIG = {
       depthChartIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
       depthChartLabel: "FightingIrish.com",
       availabilityReportIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
-      availabilityReportLabel: "FightingIrish.com"
-    }
+      availabilityReportLabel: "FightingIrish.com",
+      availabilityUpdates: { timeZone: "America/New_York", daysBeforeKickoff: [5, 2] }
+    },
+    beatFeeds: [ { name: "One Foot Down", feed: "https://...", site: "https://..." } /* ... */ ]
   },
 
-  // Trophy games by opponent. Schedule data, headed for Game in Phase 3.
-  series: [ /* [opponent regex, trophy name] */ ],
+  // Trophy, rivalry and event names by opponent (W21). kind is "trophy"
+  // (played for; Game shows the trophy mark), "rivalry" (a name, nothing to
+  // win: The Game) or "event" (a branded game: the Shamrock Series).
+  series: [ { match: /purdue/i, name: "Shillelagh Trophy", kind: "trophy" } /* ... */ ],
 
   // The team's own pages.
   links: { roster: { url: "...", label: "..." } },
 
+  // How the team is presented inside Suite: colours, type, tagline, labels.
+  // Read through TeamOS.identity (decision 0009). The installed product -
+  // its name, icons, manifest and share card - is Suite's, not the team's
+  // (decision 0024 section 11).
+  identity: {
+    programLabel: "NOTRE DAME FOOTBALL",
+    tagline: "Leave No Doubt.",               // null for a team without one
+    colors: { accent: "#C99700", accentText: "#C99700", accentOnLight: "#876500", /* ...nine more */ },
+    fonts:  { ui: "...", display: "..." }
+  },
+
   // The team-data files the Action writes for this team, by kind. A kind
   // the team has no source for is left out, and the Suite shows that
   // surface as unavailable instead of reading another team's file.
-  // Read through TeamOS.snapshots (Phase 5B, decision 0008).
+  // Read through TeamOS.snapshots (decision 0008).
   snapshots: {
-    depth:       { file: "data/notre-dame/depth.json", history: "data/notre-dame/depth-history.json", label: "FightingIrish.com" },
+    depth:        { file: "data/notre-dame/depth.json", history: "data/notre-dame/depth-history.json", label: "FightingIrish.com" },
     availability: { file: "data/notre-dame/availability.json", history: "data/notre-dame/availability-history.json", label: "FightingIrish.com" },
-    oddsHistory: { file: "data/notre-dame/odds-history.json" },
-    beatNews:    { file: "data/notre-dame/news.json" }
-  },
-
-  // How the team is presented: the product's name for it, the head copy, its
-  // colours, its type and its artwork. Read through TeamOS.identity, applied
-  // by paintIdentity() in app.js (Phase 6, decision 0009).
-  identity: {
-    productName: "Irish Watch", programLabel: "NOTRE DAME FOOTBALL",
-    title: "...", description: "...", motto: "Leave No Doubt",
-    newsLabel: "LATEST FROM SOUTH BEND",
-    manifest: "assets/notre-dame/manifest.json",
-    colors: { accent: "#C99700", accentText: "#C99700", /* ...nine more */ },
-    fonts:  { ui: "...", display: "...", headline: "..." },
-    assets: { favicon: "assets/notre-dame/favicon.svg", /* ...four more */ }
+    oddsHistory:  { file: "data/notre-dame/odds-history.json" },
+    beatNews:     { file: "data/notre-dame/news.json" }
   }
 };
 ```
@@ -75,11 +79,11 @@ The real files are `teams/notre-dame.js` and `teams/ohio-state.js` (which declar
 ## What Belongs in Configuration
 
 - `team` — stable identity: id, name, abbreviation, sport, league, home venue
-- `sources` — provider identifiers and source declarations. For official team data such as depth charts, the official athletics source takes precedence over media/beat sources.
-- `series` — team-specific schedule data no public feed carries
+- `sources` — provider identifiers and source declarations, including the team's beat feeds. For official team data such as depth charts, the official athletics source takes precedence over media/beat sources.
+- `series` — trophy, rivalry and event names no public feed carries, each with its kind
 - `links` — the team's official pages
 - `snapshots` — which of the Action-written team-data files this team has (the depth chart is a capability; the beat feed is a content source; the odds history is team-scoped) and where they are
-- `identity` — how the team is presented: product name, head copy, colours, type, artwork
+- `identity` — how the team is presented inside Suite: colours, type, tagline, program label
 
 `identity.colors` separates the **fill** (`accent`) from accent-coloured **text**
 (`accentText`), because a team's crest colour is not always legible on a dark page:
@@ -87,7 +91,7 @@ Notre Dame's gold reaches 6.65:1 and Ohio State's scarlet only 2.88:1. TeamOS re
 a config whose text colours fall below 4.5:1 rather than inventing a lighter tone
 (`docs/decisions/0009-identity-is-team-data.md`).
 
-Not yet in configuration, pending a real need: history. Beat-news feed lists still live in `.github/workflows/odds.yml`. Authoritative team data is different: the producer checks `sources.official` first. Notre Dame currently declares official sources for both its weekly two-deep and availability report. When a school does not publish a needed artifact, a reputable media source may be used as a clearly identified fallback; it must never be presented as official or borrowed from another team.
+Not yet in configuration, pending a real need: history. Authoritative team data is different: the producer checks `sources.official` first. Notre Dame currently declares official sources for both its weekly two-deep and availability report. When a school does not publish a needed artifact, a reputable media source may be used as a clearly identified fallback; it must never be presented as official or borrowed from another team.
 
 ## What Does Not Belong in Configuration
 
@@ -107,7 +111,7 @@ A second team should be addable by supplying a second configuration object and a
 
 The Suite should not need to be duplicated.
 
-Run three times (Phase 5A, 5B, 6 — `docs/engineering/`): every ESPN-fed surface rendered Ohio State from configuration alone; the three surfaces fed by the Action's Notre Dame files show an honest unavailable state because its config declares no snapshots; and in Phase 6 the same Suite rendered **Buckeye Watch** — its own name, head, palette, type and section copy — from a second `identity` block, with 846 text elements passing contrast and no Notre Dame anywhere in the page.
+Run three times (Phase 5A, 5B, 6 — `docs/engineering/`): every ESPN-fed surface rendered Ohio State from configuration alone; the three surfaces fed by the Action's Notre Dame files show an honest unavailable state because its config declares no snapshots; and in Phase 6 the same Suite rendered Ohio State's own palette, type and section copy from a second `identity` block, with 846 text elements passing contrast and no Notre Dame anywhere in the page. (Phase 6 also gave each team its own product name - "Buckeye Watch" - and install artwork; decision 0024 later made the installed product Suite for every team.) Today Ohio State is `/?team=ohio-state` on the same page, and `tools/adaptercheck.js`, `tools/suitecheck.js` and `tools/visualcheck.js` render both teams on every pull request.
 
 ## Exceptions
 

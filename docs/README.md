@@ -6,13 +6,17 @@ The root `README.md` is the front door to the repository. These documents go dee
 
 ## Structure
 
-| Directory | Purpose |
+| Where | Purpose |
 |---|---|
+| `00_PROJECT_LND_NORTH_STAR.md` - `09_AI_OPERATING_SYSTEM.md` | The core set: North Star, the pre-refactor baseline (01, historical), target architecture, domain model, team configuration, TeamOS, Suite, data architecture, build plan, collaboration model |
 | `strategy/` | Product thesis and strategic direction |
-| `product/` | Fan experience, product principles, MVP scope, roadmap |
-| `architecture/` | TeamOS, Suite, Irish Watch, system boundaries |
-| `research/` | Market evidence, competitive landscape, validation work |
-| `decisions/` | Durable decisions and their rationale |
+| `product/` | Fan experience, MVP and validation, product briefs and proposals |
+| `design/` | The Suite visual system and design reviews |
+| `engineering/` | How it is built today (`current-architecture.md`), the open backlog (`backlog.md`), Codex's review queue, runbooks, handoffs and dated logs |
+| `decisions/` | Durable decisions and their rationale, numbered; a later decision says which earlier one it supersedes |
+| `templates/` | Product brief, engineering handoff, decision and review record templates |
+
+Dated logs, handoffs and decision records are records of their time and are not rewritten; the numbered core documents, `current-architecture.md` and `backlog.md` describe the present.
 
 ## Documentation status labels
 

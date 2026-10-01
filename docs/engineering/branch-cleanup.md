@@ -1,5 +1,12 @@
 # Branch cleanup (backlog C12): for David's approval
 
+**Outcome, 2026-10-01.** David approved the list. Claude Code's session
+could not push the archive tags or delete branches (GitHub answered 403),
+and that was not worked around. David then turned on GitHub's automatic
+deletion of merged PR branches and chose to keep the old branches below as
+they are. Nothing further is pending here; the table is the record of what
+was proposed.
+
 Proposed 2026-09-25, to run **after** Sunday's merge. Nothing is deleted
 until David approves this list. An *archive tag* keeps a branch's history
 reachable forever (`archive/<name>`) while removing the branch.

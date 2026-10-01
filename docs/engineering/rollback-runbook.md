@@ -3,6 +3,23 @@
 For the single merge of PR #4 into `main` (Sunday 2026-09-27). Rehearsed on
 2026-09-25 against the real trees: Irish Watch → Suite → back to Irish Watch.
 
+## Rolling back a change today
+
+The release is long past; this is how any merged PR is undone now. Every PR
+merges with a merge commit, so one revert undoes it:
+
+1. Branch from `main`, `git revert -m 1 <the PR's merge sha>`.
+2. Give `sw.js` a `VERSION` newer than the one live (`tools/versioncheck.js`
+   requires it when the revert touches the shell). The worker then installs
+   the reverted shell as an update, reloads the open windows once, and
+   carries the fan's data over, as for any release.
+3. Open a PR, merge it when its checks pass, wait for Pages, then run
+   `verify-production.yml` by hand: unlike a rollback to Irish Watch, a
+   Suite version is what it checks for.
+
+Revert newer dependent PRs first, newest first. The rest of this file is
+the release-day plan, kept as it was rehearsed.
+
 ## When to roll back
 
 Roll back when fans cannot use the app and a fix is not minutes away:

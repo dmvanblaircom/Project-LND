@@ -8,7 +8,7 @@ The project has three layers:
 
 - **TeamOS** — the platform and operating layer that powers team-specific experiences.
 - **Suite** — the fan-facing experience layer.
-- **Irish Watch** — the first team-specific implementation and product laboratory.
+- **Irish Watch** — the first team-specific implementation and product laboratory: Notre Dame's configuration of Suite.
 
 ## Product thesis
 
@@ -22,7 +22,7 @@ Phase 1 is intentionally focused on earning the fan rather than monetizing the f
 
 ## What this repository is
 
-This repository is the working product repository for Project LND. It contains the current Irish Watch implementation plus the durable product, architecture, research, and decision documentation needed to evolve it into a reusable platform.
+This repository is the working product repository for Project LND. It contains Suite - one codebase that renders any configured team (Notre Dame and Ohio State today) - plus the durable product, architecture and decision documentation behind it.
 
 It is not intended to contain the entire LND business plan, financial model, legal work, or every research artifact. Those remain in the LND business workspace and are summarized here when they directly affect product decisions.
 
@@ -30,23 +30,34 @@ It is not intended to contain the entire LND business plan, financial model, leg
 
 **Stage:** Early product validation / platform formation
 
-Irish Watch is the first laboratory. The goal is not to rebuild it from scratch. The existing PWA architecture, caching/offline behavior, accessibility, and responsive foundation should be preserved while the product experience and underlying concepts are generalized for future teams.
+Suite is live at <https://dmvanblaircom.github.io/Project-LND/>: a vanilla HTML/CSS/JavaScript PWA on GitHub Pages. A fan picks a team and gets that team's Suite; Notre Dame (Irish Watch, the first laboratory) and Ohio State are team configurations, not copies of the app. The existing PWA, offline behavior, accessibility and responsive foundation are preserved as the product generalizes.
+
+For how it is built today, read `docs/engineering/current-architecture.md`. For what is open, `docs/engineering/backlog.md`.
 
 ## Repository map
 
 ```text
 Project-LND/
-├── README.md
-├── docs/
-│   ├── strategy/       # Product thesis and strategic direction
-│   ├── product/        # Fan experience, MVP scope, roadmap, principles
-│   ├── architecture/   # TeamOS, Suite, Irish Watch, system decisions
-│   ├── research/       # Market evidence, competition, validation
-│   └── decisions/      # Durable decisions and their rationale
-├── index.html
-├── app.js
-├── app.css
-└── assets / supporting files
+├── README.md, CLAUDE.md      # this file; how to work in the repository
+├── index.html                # the page shell and its boot script (picks the team)
+├── app.js, app.css           # the controller and the one stylesheet
+├── chooser.js                # the team chooser (no team chosen yet)
+├── sw.js, manifest.json      # offline service worker; the installed app
+├── teams/                    # one configuration per team, plus the program registry
+├── teamos/                   # TeamOS: pure domain rules and provider adapters
+├── suite/                    # Suite: the screens, navigation and shared UI pieces
+├── data/                     # snapshots the GitHub Actions write (per team, and league-wide)
+├── worker/                   # Suite's edge API (Cloudflare Worker)
+├── tools/                    # checks, producers, fixtures, probes
+├── assets/                   # Suite's icons and artwork
+├── .github/workflows/        # checks, data refresh, deploy verification
+└── docs/
+    ├── 00-09_*.md            # North Star, architecture, domain model, TeamOS, Suite, data, plan
+    ├── strategy/  product/   # product thesis, briefs and proposals
+    ├── design/               # visual system and design reviews
+    ├── engineering/          # as-built architecture, backlog, runbooks, logs
+    ├── decisions/            # decision records
+    └── templates/            # brief, handoff, decision and review templates
 ```
 
 ## Core architecture
@@ -99,10 +110,20 @@ The first validation dimensions are acquisition, activation, retention, engageme
 
 ## Next product work
 
-The immediate documentation and product work is the **Fan Experience Blueprint**. It maps the fan journey before, during, and after games, between games, through news and recruiting cycles, and into the offseason. Each journey stage should identify current behavior, friction, Suite opportunity, TeamOS requirements, MVP scope, and validation requirements.
+The Fan Experience Blueprint is written (`docs/product/suite-product-blueprint.md`, with `fan-journey.md` and `fan-experience-journey.md`). What is being built next, and what waits on a decision, is kept in `docs/engineering/backlog.md`.
 
 ## Getting started
 
-The current implementation is a lightweight web/PWA application. Open `index.html` or use the existing deployment workflow to run the current experience.
+Serve the repository root over HTTP (a service worker needs it) and open the page, for example `python3 -m http.server` then `http://localhost:8000/?team=notre-dame`. `?team=ohio-state` opens the other configured team; no `?team=` opens the chooser.
+
+Before pushing a change, run the checks a pull request runs (`.github/workflows/check.yml`); the minimum is:
+
+```sh
+node --check app.js
+node --check sw.js
+python3 tools/csscheck.py app.css
+```
+
+The browser checks (`tools/visualcheck.js` and the other Playwright checks) need `npm install` for Playwright. Every change goes to `main` through a short branch and a pull request; see CLAUDE.md for the branch strategy and `docs/09_AI_OPERATING_SYSTEM.md` for the collaboration model.
 
 See the `docs/` directory for product and architecture documentation before making changes that affect the broader LND platform.

@@ -20,10 +20,17 @@ runner) with `tools/probe_sources.py` via `.github/workflows/probe-sources.yml`.
   rank or rating, or renamed columns, and keeps the previous snapshot.
   Writes only when ESPN publishes a new edition. Tested by
   `tools/fpicheck.py`.
-- **Cadence:** ESPN says FPI updates daily. One observation so far:
-  `lastUpdated` 2026-09-30T08:00Z (4 AM ET). **Not yet scheduled in the
-  refresh:** per issue #29, record several days of observed `lastUpdated`
-  here first, then add the producer to `odds.yml`.
+- **Cadence:** ESPN says FPI updates daily. Observed `lastUpdated`
+  (`probe-sources.yml` from a runner):
+
+  | Read at (UTC) | `lastUpdated` |
+  |---|---|
+  | 2026-09-30 | 2026-09-30T08:00Z (4 AM ET) |
+  | 2026-10-01 14:34 | 2026-10-01T08:00Z (4 AM ET) |
+
+  Two days, the same 4 AM ET edition. **Not yet scheduled in the refresh:**
+  per issue #29, record several days of observed `lastUpdated` here first,
+  then add the producer to `odds.yml`.
 
 - **TeamOS model (Oct 1):** `teamos/ratings.js` → `TeamOS.ratings.fpi(snapshot,
   TEAM_CONFIG, season)`, Poll-shaped (`key: "fpi"`, `kind: "rating"`), top 25
