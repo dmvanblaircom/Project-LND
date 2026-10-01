@@ -5,8 +5,8 @@
 // teamos/*.js before this file; TeamOS turns the config's `team` section
 // into a validated, frozen, provider-neutral Team, and everything ESPN
 // knows about it arrives as domain objects (docs/03_DOMAIN_MODEL.md). The
-// only provider config this file still reads is TEAM_CONFIG.sources.kalshi,
-// in teamMarket().
+// only provider config this file still passes on is TEAM_CONFIG.sources.kalshi,
+// to TeamOS.markets.
 var TEAM = TeamOS.createTeam(TEAM_CONFIG.team);
 // Kalshi's markets reach the page one way only: the snapshot the refresh
 // workflow commits (odds.yml -> data/league/odds-*.json), same origin, so CORS
@@ -378,61 +378,12 @@ function loadRankings(){
 }
 
 /* ---------- kalshi ---------- */
-function num(v){
-  if(v===null||v===undefined) return null;
-  var n=parseFloat(v);
-  return isNaN(n)?null:n;
-}
-// Kalshi now returns prices in *_dollars fields as decimal strings from 0 to 1
-// ("0.8200"). The older shape used integer cents in yes_bid/yes_ask/last_price.
-// Read either and always return a percentage.
-function price(m){
-  var bd=num(m.yes_bid_dollars), ad=num(m.yes_ask_dollars);
-  if(bd!==null&&ad!==null&&(bd||ad)) return (bd+ad)/2*100;
-  var ld=num(m.last_price_dollars);
-  if(ld) return ld*100;
-  var b=num(m.yes_bid), a=num(m.yes_ask);
-  if(b!==null&&a!==null&&(b||a)) return (b+a)/2;
-  return num(m.last_price);
-}
-function prevPrice(m){
-  var d=num(m.previous_price_dollars);
-  if(d!==null) return d*100;
-  return num(m.previous_price);
-}
-function teamOf(m){ return m.yes_sub_title||m.subtitle||m.title||m.ticker; }
-
-// Kalshi lists the programs it takes a market on - the championship
-// contenders - not all of FBS. A team the market does not cover has no number
-// to show, and a card reading "No market" every week is worse than no card:
-// it takes up the same space to say nothing. So this is a CAPABILITY, declared
-// the same way snapshots are (decision 0008): a team either has Kalshi markets
-// or it does not, and a team that does not never sees the surface.
-//
-// A config declaring no kalshi source used to throw here, which is what a
-// second team without one would have hit the moment it became selectable.
-function hasKalshi(){
-  var k = TEAM_CONFIG.sources && TEAM_CONFIG.sources.kalshi;
-  return !!(k && (k.tickerSuffix || k.namePattern));
-}
-
-// Whether a Kalshi market is this team's: by ticker suffix, then by name.
-function teamMarket(ticker, name){
-  var k = TEAM_CONFIG.sources && TEAM_CONFIG.sources.kalshi;
-  if(!k) return false;
-  return (k.tickerSuffix && String(ticker||"").endsWith(k.tickerSuffix)) ||
-         (k.namePattern  && k.namePattern.test(String(name||""))) || false;
-}
-function isTeamMarket(m){ return teamMarket(m.ticker, teamOf(m)); }
-
-
-
-
-
-
-
-
-
+// Kalshi's market schema - prices, names, which market is this team's - is
+// TeamOS.markets'. A team Kalshi takes no market on has no Season Outlook
+// (decision 0024 §12): a capability the team's config declares.
+function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }
+// Every team each event prices, for Season Outlook's "View full field" (W18).
+var MARKET_FIELD = { title:null, playoff:null };
 
 function loadStrip(){
   // A team Kalshi takes no market on has no Season Outlook (decision 0024 §12).
@@ -441,11 +392,12 @@ function loadStrip(){
   // ticker or by name. Each market is independent: one can be missing.
   return Promise.all([{ ev: TITLE_EVENT, key: "title" }, { ev: PLAYOFF_EVENT, key: "playoff" }].map(function(q){
     return kalshi("/markets?event_ticker="+q.ev+"&limit=200&status=open").then(function(d){
-      var m = (d.markets||[]).filter(isTeamMarket)[0];
-      var p = m ? price(m) : null;
+      var m = TeamOS.markets.teamMarket(d, TEAM_CONFIG);
+      var p = m ? TeamOS.markets.price(m) : null;
+      MARKET_FIELD[q.key] = TeamOS.markets.field(d, TEAM_CONFIG, q.key);
       var o = SRC.odds||{};
       HOME.markets[q.key] = p==null ? null
-        : { value:p, previous:prevPrice(m), asOf:o.fetchedAt||null, cached:!!o.cached };
+        : { value:p, previous:TeamOS.markets.previous(m), asOf:o.fetchedAt||null, cached:!!o.cached };
       paintHome();
       return { key:"odds-"+q.key, outcome: o.cached ? "cached" : "network" };
     }, function(){ return { key:"odds-"+q.key, outcome:"failed" }; });
