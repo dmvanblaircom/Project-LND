@@ -29,11 +29,12 @@
      NODE_PATH=$(npm root -g) PW_CHROMIUM=/path/to/chromium node tools/visualcheck.js */
 "use strict";
 
-var fs = require("fs"), http = require("http"), path = require("path");
+var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
 var audit = require("./a11yaudit.js");
 
 var root = path.join(__dirname, "..");
+var serve = require("./lib/serve");
 var shots = path.join(root, "artifacts", "visual");
 fs.mkdirSync(shots, { recursive: true });
 
@@ -49,20 +50,7 @@ var fixtures = {
 var ROSTERS = { "87": "espn-roster-nd-sep24.json", "194": "espn-roster-osu-sep24.json" };
 var NEWS = { "87": "espn-news-nd-sep24.json", "194": "espn-news-osu-sep24.json" };
 function fixture(name) { return fs.readFileSync(path.join(root, "tools", "fixtures", fixtures[name])); }
-function mime(file) {
-  return file.endsWith(".html") ? "text/html" : file.endsWith(".css") ? "text/css" :
-    file.endsWith(".js") ? "text/javascript" : file.endsWith(".json") ? "application/json" :
-    file.endsWith(".svg") ? "image/svg+xml" : file.endsWith(".png") ? "image/png" : "application/octet-stream";
-}
-var server = http.createServer(function (req, res) {
-  var pathname = new URL(req.url, "http://localhost").pathname;
-  var file = path.join(root, pathname === "/" ? "index.html" : pathname.slice(1));
-  if (!file.startsWith(root) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
-    res.writeHead(404); res.end("not found"); return;
-  }
-  res.writeHead(200, { "content-type": mime(file), "cache-control": "no-store" });
-  fs.createReadStream(file).pipe(res);
-});
+var server = serve(root);
 
 function responseFor(url) {
   // The postseason: a real empty answer, as ESPN gives in September.

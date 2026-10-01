@@ -29,19 +29,13 @@
 // Let routes see the service worker's own requests (scenario 6).
 process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = "1";
 
-var fs = require("fs"), http = require("http"), path = require("path");
+var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
 
 var root = path.join(__dirname, "..");
+var serve = require("./lib/serve");
 function fixture(f) { return fs.readFileSync(path.join(root, "tools", "fixtures", f)); }
-var server = http.createServer(function (req, res) {
-  var p = new URL(req.url, "http://localhost").pathname;
-  var file = path.join(root, p === "/" ? "index.html" : p.slice(1));
-  if (!file.startsWith(root) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
-  var type = /\.js$/.test(file) ? "text/javascript" : /\.css$/.test(file) ? "text/css" : /\.json$/.test(file) ? "application/json" : "text/html";
-  res.writeHead(200, { "content-type": type, "cache-control": "no-store" });
-  fs.createReadStream(file).pipe(res);
-});
+var server = serve(root);
 
 var failures = 0;
 function ok(cond, what) {

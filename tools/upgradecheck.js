@@ -21,22 +21,14 @@
    Locally: NODE_PATH=$(npm root -g) PW_CHROMIUM=/path/to/chromium node tools/upgradecheck.js */
 "use strict";
 
-var fs = require("fs"), http = require("http"), path = require("path");
+var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
 
 var root = path.join(__dirname, "..");
+var serve = require("./lib/serve");
 var VERSION = /var VERSION = "([^"]+)"/.exec(fs.readFileSync(path.join(root, "sw.js"), "utf8"))[1];
 var requests = [];
-var server = http.createServer(function (req, res) {
-  var p = new URL(req.url, "http://localhost").pathname;
-  requests.push(p);
-  var file = path.join(root, p === "/" ? "index.html" : p.slice(1));
-  if (!file.startsWith(root) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
-  var type = /\.js$/.test(file) ? "text/javascript" : /\.css$/.test(file) ? "text/css" : /\.json$/.test(file) ? "application/json" :
-             /\.svg$/.test(file) ? "image/svg+xml" : /\.png$/.test(file) ? "image/png" : "text/html";
-  res.writeHead(200, { "content-type": type, "cache-control": "no-store" });
-  fs.createReadStream(file).pipe(res);
-});
+var server = serve(root, { onRequest: function (p) { requests.push(p); } });
 
 var failures = 0;
 function ok(cond, what) {
