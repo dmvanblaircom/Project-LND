@@ -39,7 +39,7 @@ Suite.schedule = (function () {
 
   var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg>';
 
-  function oppLabel(g) { return (g.oppRank ? "#" + g.oppRank + " " : "") + g.oppName; }
+  var oppLabel = ui.oppLabel;
   function num(s) { var v = parseInt(s, 10); return isNaN(v) ? null : v; }
   function result(g) {
     var a = num(g.us), b = num(g.them);

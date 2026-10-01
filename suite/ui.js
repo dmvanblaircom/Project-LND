@@ -200,6 +200,13 @@ Suite.ui = (function () {
     if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", refit);
   }
 
+  // A period as the scoreboard says it: 1st-4th, then OT, 2OT, 3OT...
+  function period(p) {
+    return p === 1 ? "1st" : p === 2 ? "2nd" : p === 3 ? "3rd" : p === 4 ? "4th" : p === 5 ? "OT" : p > 5 ? (p - 4) + "OT" : "";
+  }
+  // An opponent with its ranking: "#12 Purdue".
+  function oppLabel(g) { return (g.oppRank ? "#" + g.oppRank + " " : "") + g.oppName; }
+
   // The possession football: one mark, every live screen (--s-football).
   function ball(cls) {
     return '<svg class="' + esc(cls) + '" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
@@ -207,5 +214,5 @@ Suite.ui = (function () {
   }
 
   return { ball: ball, esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner,
-           fitNames: fitNames, STYLE: STYLE, fill: fill };
+           fitNames: fitNames, STYLE: STYLE, fill: fill, period: period, oppLabel: oppLabel };
 })();
