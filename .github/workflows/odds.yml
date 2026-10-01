@@ -200,6 +200,18 @@ jobs:
             python3 tools/producers/freshness.py --team "$t" --open-issues
           done
 
+      # Notifications, Phase 0 (W19, David approved 2026-10-01): on Saturdays
+      # ask the edge API whether ESPN's live scoreboard answers Cloudflare's
+      # network, and how fast. It prints a status, a time and a game count -
+      # no ESPN data - and never affects the refresh.
+      - name: Probe ESPN from the edge API (Saturdays)
+        continue-on-error: true
+        timeout-minutes: 2
+        run: |
+          [ "$(TZ=America/New_York date +%u)" = 6 ] || { echo "not a Saturday: no probe"; exit 0; }
+          curl -sS --max-time 30 https://suite-api.dmvanblaircom.workers.dev/v1/probe/espn || echo "probe: the edge API did not answer"
+          echo
+
       # The run still goes red when a source failed, so a broken source is
       # visible in the Actions tab - after everything that did work is saved.
       - name: Report any source that failed
