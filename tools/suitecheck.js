@@ -117,12 +117,12 @@ var fbh = mhost(); MS.more.feedback(fbh, { href: "mailto:suiteappfeedback@gmail.
 ok(!/(thank|sent|submitted)/i.test(fbh.innerHTML), "Feedback shows no sent state: the mail app sends (0022 #12)");
 
 eq(MT.sources.list(ND).map(function (x) { return x.name; }),
-   ["ESPN", "FightingIrish.com", "One Foot Down", "Slap the Sign", "UHND", "NDNation", "Blue & Gold", "Notre Dame On SI", "Kalshi", "Open-Meteo"],
+   ["ESPN", "FightingIrish.com", "One Foot Down", "Slap the Sign", "UHND", "NDNation", "Blue & Gold", "Notre Dame On SI", "Kalshi", "CollegeFootballData", "Open-Meteo"],
    "Notre Dame is credited every source its config declares");
 eq(MT.sources.list(ND)[1].supplies, ["depth", "availability"], "the official site: depth chart and availability, once");
 var osuCtx = vm.createContext({});
 ["teams/ohio-state.js"].forEach(function (f) { vm.runInContext(read(f), osuCtx, { filename: f }); });
-eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "Kalshi", "Open-Meteo"],
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "Kalshi", "CollegeFootballData", "Open-Meteo"],
    "Ohio State, with no official snapshots or beat feeds, is credited none");
 var abh = mhost(); MS.more.about(abh, { version: "2026-09-24v", sources: MT.sources.list(ND) });
 ok(!/project\s*lnd/i.test(abh.innerHTML + m.innerHTML + st.innerHTML + fbh.innerHTML), "no screen says Project LND (0022 #9)");

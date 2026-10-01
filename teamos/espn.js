@@ -504,6 +504,9 @@ TeamOS.espn = (function () {
     return {
       key:          str(t.id),
       name:         str(t.shortDisplayName||t.displayName||t.name||"TBA"),
+      // the school as ESPN lists it ("North Carolina"), which is how
+      // CollegeFootballData names a program too (TeamOS.cfbd)
+      school:       str(t.location||""),
       abbreviation: str(t.abbreviation||t.shortDisplayName),
       record:       str(c.records&&c.records[0]&&c.records[0].summary),
       score:        c.score!=null ? c.score : null,
@@ -757,9 +760,13 @@ TeamOS.espn = (function () {
     ["totalOffense",  "Total offense",    ["yardspergame","netyardspergame","totalyardspergame"]],
     ["rushOffense",   "Rushing offense",  ["rushing.rushingyardspergame","rushingyardspergame"]],
     ["passOffense",   "Passing offense",  ["passing.netpassingyardspergame","netpassingyardspergame","passingyardspergame"]],
-    ["yardsPerPlay",  "Yards per play",   ["avggain"]],
+    // Yards allowed per game: ESPN's yardsAllowed is an unpopulated stub
+    // (above), so these come from CollegeFootballData through Suite's edge
+    // API (TeamOS.cfbd, W15). They replace Yards per play and Tackles for
+    // loss (David, 2026-10-01): the card stays nine rows.
+    ["rushDefense",   "Rushing defense",  []],
+    ["passDefense",   "Passing defense",  []],
     ["sacks",         "Sacks",            ["defensive.sacks"]],
-    ["tacklesForLoss","Tackles for loss", ["defensive.tacklesforloss"]],
     ["turnoverMargin","Turnover margin",  ["turnoverdifferential","turnovermargin"]]
   ];
   // Flatten every category into one map so lookups do not care where ESPN
