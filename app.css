@@ -91,6 +91,18 @@
    which is under the sticky header and the fixed nav. Keep it clear of both
    (WCAG 2.4.11). */
 html{background:var(--s-page);scroll-padding-top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px) + .75rem);scroll-padding-bottom:calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 2.5rem)}
+/* Ohio State's type (C19). Ohio State's own fonts are not available for
+   independent use; it recommended Nunito Sans (not Nunito) as the closest
+   public face, and David approved it for Ohio State's Team Style
+   (2026-10-01). Self-hosted under the SIL Open Font License
+   (assets/fonts/nunito-sans/OFL.txt). A browser fetches a face only when
+   something on the page uses it, so these files are downloaded on Ohio
+   State's Suite and nowhere else. */
+@font-face{font-family:'Nunito Sans';font-style:italic;font-weight:200 1000;font-display:swap;src:url(assets/fonts/nunito-sans/nunito-sans-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Nunito Sans';font-style:italic;font-weight:200 1000;font-display:swap;src:url(assets/fonts/nunito-sans/nunito-sans-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:200 1000;font-display:swap;src:url(assets/fonts/nunito-sans/nunito-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:200 1000;font-display:swap;src:url(assets/fonts/nunito-sans/nunito-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
 body{margin:0;background:var(--s-page);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1rem;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
 [hidden]{display:none !important}
 img{max-width:100%}
@@ -998,3 +1010,22 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
 @keyframes view-in-next{from{transform:translateX(1.75rem);opacity:.4}to{transform:none;opacity:1}}
 @keyframes view-in-prev{from{transform:translateX(-1.75rem);opacity:.4}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.view-in-next,.view-in-prev{animation:none}}
+
+/* Pull to refresh (suite/nav.js pull(); David, 2026-10-01). The page's own
+   pull-to-reload is turned off so a pull refreshes the data instead of
+   reloading the app; the chooser keeps the browser's. The indicator slides
+   out from under the header as the finger pulls, completes its arc when a
+   release would refresh, and turns while the refresh runs. A placeholder
+   for Codex: see docs/engineering/codex-review-queue.md. */
+html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:contain}
+.pull{position:fixed;left:50%;z-index:50;width:2.25rem;height:2.25rem;margin-top:-2.25rem;border-radius:50%;
+  background:var(--s-surface);box-shadow:var(--s-shadow-raise);display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transform:translate(-50%,0);transition:opacity .15s ease-out,transform .2s ease-out}
+.pull.is-pulling{transition:none;opacity:var(--pull,0)}
+.pull.is-armed,.pull.is-refreshing{opacity:1}
+.pull-mark{width:1.1rem;height:1.1rem;border-radius:50%;border:2px solid var(--s-line-strong);border-top-color:var(--t-accent-on-light);
+  transform:rotate(calc(var(--pull,0) * 270deg))}
+.pull.is-armed .pull-mark{border-right-color:var(--t-accent-on-light)}
+.pull.is-refreshing .pull-mark{animation:pull-turn .8s linear infinite}
+@keyframes pull-turn{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.pull,.pull.is-pulling{transition:none}.pull.is-refreshing .pull-mark{animation:none}}

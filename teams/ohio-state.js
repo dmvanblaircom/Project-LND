@@ -1,9 +1,9 @@
 /* Ohio State - the second team, and the architecture's proof.
 
-   Same shape as teams/notre-dame.js, nothing else changed: index.html loads
-   this file instead and app.js renders the Buckeyes. What comes out right
-   and what comes out wrong is recorded in docs/engineering/ - that record,
-   not this file, is the point of Phase 5A.
+   Same shape as teams/notre-dame.js, nothing else changed: the page loads
+   this file instead (/?team=ohio-state) and the same app renders the
+   Buckeyes. What came out right and what came out wrong is recorded in
+   docs/engineering/phase-5a-ohio-state-proof.md.
 
    Values verified against the feeds on 2026-09-18: ESPN team 194 spells the
    home field "Ohio Stadium"; Kalshi's championship and playoff markets are
@@ -78,14 +78,15 @@ var TEAM_CONFIG = {
       surfaceRaise:   "#3F4443"    // BUX gray-dark-60
     },
 
-    // Ohio State's official webfonts, named as BUX names them. The font
-    // files are NOT distributed with this project and no @font-face is
-    // declared for them, so these stacks fall through to the Suite's own
-    // faces until we have permission; activating them is then a resource
-    // change, not an architectural one.
+    // Ohio State's own webfonts are not available for independent use
+    // (Ohio State's brand center, 2026-09-29). Nunito Sans is the public
+    // face it recommended to stay close to the brand (2026-10-01; "not
+    // Nunito"), self-hosted in assets/fonts/nunito-sans/ and declared in
+    // app.css. One face for text and headings, as Ohio State sets both in
+    // one family; David approved, 2026-10-01.
     fonts: {
-      ui:       "'BuckeyeSans','Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'BuckeyeSans','Barlow Condensed',sans-serif"
+      ui:       "'Nunito Sans','Barlow',system-ui,-apple-system,sans-serif",
+      display:  "'Nunito Sans','Barlow Condensed',sans-serif"
     }
   },
 

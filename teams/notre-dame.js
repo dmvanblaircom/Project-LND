@@ -3,21 +3,22 @@
    Everything the page knows about the team itself lives here, so that
    app.js contains no Notre Dame: it renders whatever team this file
    describes. A second team is a second file in this folder with the same
-   shape, and index.html loading that one instead.
+   shape; the page's boot script loads the one this browser chose
+   (?team=, then the saved choice: decision 0013).
 
-   Four sections, each owned by a different layer:
+   Six sections, each owned by a different layer (docs/04_TEAM_CONFIG.md):
 
      team     the Team domain object. Provider-neutral: nothing in it names
               ESPN, Kalshi or anyone else. app.js gets it through
               TeamOS.createTeam(), which validates and freezes it.
-     sources  how each outside feed identifies this team, and any patches
-              for gaps in a feed. Read by app.js for now; in Phase 3 this
-              moves inside the provider adapters.
-     series   trophy games, matched by opponent name. Schedule data, headed
-              for the normalized Game in Phase 3.
+     sources  how each outside feed identifies this team, any patches for
+              gaps in a feed, its official sources and its beat feeds. Read
+              by the TeamOS adapters and the Action's producers.
+     series   trophy, rivalry and event names, matched by opponent name;
+              TeamOS.espn puts them on the normalized Game.
      links    the team's own pages, for the official word.
-     identity how the team is presented: product name, head copy, colours,
-              type and artwork. Read through TeamOS.identity.
+     identity how the team is presented inside Suite: colours, type, tagline
+              and labels. Read through TeamOS.identity.
      snapshots
               the team-data files the Action writes for this team, by
               kind. A team that has no source for a kind leaves it out and

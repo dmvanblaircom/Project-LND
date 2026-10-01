@@ -104,6 +104,10 @@ jobs:
       - run: node tools/launchcheck.js
       # Swiping moves between a screen's peer views, and only on purpose.
       - run: node tools/swipecheck.js
+      # A pull down from the top is Refresh Data, and only on purpose.
+      - run: node tools/pullcheck.js
+      # A team's own type loads for that team alone (Ohio State: Nunito Sans).
+      - run: node tools/teamfontcheck.js
       # More's news recovery, Refresh Data's outcome, the connection while a
       # screen is open, and Feedback's version and origin (catch-up review).
       - run: node tools/moreflowcheck.js
