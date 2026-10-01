@@ -91,6 +91,9 @@ jobs:
       # Roster's retry and freshness behaviour: a failed load never locks
       # itself out, and old data is never passed off as fresh.
       - run: node tools/rosterflowcheck.js
+      # A redraw never reloads a logo already showing: the hero's flicker
+      # on first open and on every live tick (David, 2026-10-01).
+      - run: node tools/flickercheck.js
       # More's news recovery, Refresh Data's outcome, the connection while a
       # screen is open, and Feedback's version and origin (catch-up review).
       - run: node tools/moreflowcheck.js
