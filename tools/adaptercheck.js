@@ -61,7 +61,7 @@ var games = TeamOS.espn.schedule(fixture, team, TEAM_CONFIG);
 var byId = {}; games.forEach(function (g) { byId[g.id] = g; });
 var SHAPE = ["id","date","timeSet","home","neutral","oppName","oppRank",
              "oppProviderId","oppAbbr","usRank","usRecord","oppRecord","venue","city","venueState","zip",
-             "net","odds","series","state","detail","status","hasStarted","period","clock","newDate","us","them","won"];
+             "net","odds","series","seriesKind","state","detail","status","hasStarted","period","clock","newDate","us","them","won"];
 var LEAK = /competitions|competitors|curatedRank|pickcenter|neutralSite|geoBroadcasts|timeValid|shortDetail|displayValue|zipCode|homeAway|espn/i;
 
 console.log("schedule()");
@@ -102,6 +102,22 @@ console.log("away, placeholder kickoff, no broadcast (Purdue)");
 eq([pur.home, pur.neutral, pur.timeSet], [false, false, false], "away, real home field, time not set");
 eq(pur.net, "Peacock", "broadcast fallback from config.sources.espn.broadcastFallback");
 eq(pur.series, "Shillelagh Trophy", "series from config");
+
+// W21 (David, 2026-10-01): each series entry says what it is, and only a
+// trophy gets the trophy mark on Game.
+console.log("series kinds: trophy, rivalry, event");
+eq([msu.seriesKind, pur.seriesKind, navy.seriesKind], ["trophy", "trophy", "trophy"], "a trophy game is a trophy");
+eq(wis.seriesKind, "event", "the Shamrock Series is an event, not a trophy");
+["teams/notre-dame.js", "teams/ohio-state.js"].forEach(function (f) {
+  var sr = load(f).TEAM_CONFIG.series || [];
+  ok(sr.every(function (e) { return !Array.isArray(e) && e.match && typeof e.match.test === "function" && e.name && /^(trophy|rivalry|event)$/.test(e.kind); }),
+     f + ": every series entry has a pattern, a name and a kind (" + sr.length + ")");
+});
+var osuSeries = load("teams/ohio-state.js").TEAM_CONFIG.series;
+function osuMatch(name) { var e = osuSeries.filter(function (x) { return x.match.test(name); })[0]; return e ? e.name + "/" + e.kind : null; }
+eq(osuMatch("Michigan Wolverines"), "The Game/rivalry", "Ohio State-Michigan is The Game, a rivalry");
+eq(osuMatch("Michigan State Spartans"), null, "and Michigan State is not The Game");
+eq(osuMatch("Illinois Fighting Illini"), "Illibuck Trophy/trophy", "the Illibuck stays a trophy");
 
 // ---- gameOdds ----
 console.log("gameOdds()");

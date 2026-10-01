@@ -111,11 +111,26 @@ TeamOS.espn = (function () {
     return listedHome && !isHomeField(team, v);
   }
 
-  // Trophy and series names, matched on the opponent's name against the
-  // team config's `series` table. No public feed carries this.
-  function seriesFor(series, name){
-    for(var i=0;i<series.length;i++){ if(series[i][0].test(name||"")) return series[i][1]; }
+  // Trophy, rivalry and series names, matched on the opponent's name against
+  // the team config's `series` table. No public feed carries this. Each entry
+  // says what it is (W21, David 2026-10-01): "trophy" (played for: the
+  // Shillelagh), "rivalry" (a name, nothing to win: The Game) or "event" (a
+  // branded game: the Shamrock Series). An older [pattern, name] entry reads
+  // as a trophy.
+  var SERIES_KINDS={ trophy:1, rivalry:1, event:1 };
+  function seriesEntry(e){
+    if(Array.isArray(e)) return { match:e[0], name:e[1], kind:"trophy" };
+    return e && e.match ? { match:e.match, name:e.name, kind:SERIES_KINDS[e.kind] ? e.kind : null } : null;
+  }
+  function seriesOf(series, name){
+    for(var i=0;i<(series||[]).length;i++){
+      var e=seriesEntry(series[i]);
+      if(e && e.match.test(name||"")) return e;
+    }
     return null;
+  }
+  function seriesFor(series, name){
+    var e=seriesOf(series, name); return e ? e.name : null;
   }
 
   // ESPN publishes kickoff times and broadcasts separately, and is slow on
@@ -219,6 +234,7 @@ TeamOS.espn = (function () {
       net: broadcast(comp) || fallbackBroadcast(config.sources.espn.broadcastFallback, oppLong),
       odds: odds(comp),
       series: seriesFor(config.series, oppLong),
+      seriesKind: (seriesOf(config.series, oppLong)||{}).kind||null,
       state: st.state||"pre", detail: st.shortDetail||"",
       status: gs.status, hasStarted: gs.hasStarted, period: gs.period, clock: gs.clock,
       // A postponed game's replacement date, { date, timeSet }, only when a
