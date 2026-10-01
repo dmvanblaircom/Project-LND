@@ -81,11 +81,11 @@ var TEAMS = ["notre-dame", "ohio-state"];
 var SCREENS = ["home", "top25", "game", "roster", "more", "schedule", "news", "settings", "feedback", "about"];
 var NAV = ["home", "top25", "game", "roster", "more"];
 var OWNER = { schedule: "more", news: "more", settings: "more", feedback: "more", about: "more" };
-var MASTHEAD = { roster: "Roster", more: "More", schedule: "Schedule", news: "News", settings: "Settings",
-                 feedback: "Feedback", about: "About Suite" };
-// National screens: the SUITE bar with the team as context, and a visible
-// neutral heading (decision 0024 §6).
-var CONTEXT = { top25: "Top 25" };
+// Every screen wears one header: the SUITE bar with the team as context
+// (decision 0031). Under it, a visible page title names every screen that
+// has no hero; Home and Game lead with their hero instead.
+var TITLE = { top25: "Top 25", roster: "Roster", more: "More", schedule: "Schedule", news: "News",
+              settings: "Settings", feedback: "Feedback", about: "About Suite" };
 // VISUAL_WIDTHS="375,390,1280" adds the canonical 390px review width.
 var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).filter(Boolean);
 
@@ -180,7 +180,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
       await fullShot(c.page, path.join(shots, "chooser-" + width + ".png"));
       await checkState(c.page, "chooser " + width + "px");
       var ch = await c.page.evaluate(function () {
-        return { nav: !!document.querySelector(".navbar"), mast: !!document.getElementById("masthead"),
+        return { nav: !!document.querySelector(".navbar"), ctx: !!document.getElementById("barContext") && document.getElementById("barContext").checkVisibility(),
                  bar: !!document.getElementById("appBar") && !document.getElementById("appBar").hidden,
                  picks: document.querySelectorAll(".pick").length,
                  soonFocusable: document.querySelectorAll(".soon a, .soon button, .soon [tabindex]").length,
@@ -188,7 +188,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
       });
       var cw = "chooser " + width + "px";
       if (ch.nav) fail(cw, "behaviour", ".navbar", "the chooser shows a bottom nav with no team behind it");
-      if (ch.mast) fail(cw, "behaviour", "#masthead", "the chooser shows a team masthead before a team is chosen");
+      if (ch.ctx) fail(cw, "behaviour", "#barContext", "the chooser shows a team in the Suite header before a team is chosen");
       if (!ch.bar) fail(cw, "behaviour", "#appBar", "the chooser lost the Suite header");
       if (ch.picks < 2) fail(cw, "behaviour", ".pick", "fewer than two openable teams are offered");
       if (ch.marks !== ch.picks) fail(cw, "behaviour", ".pick .mark", "an openable team is drawn without its mark");
@@ -244,15 +244,13 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           var label = team + " " + screen + " " + width + "px";
           var st = await page.evaluate(function () {
             var cur = document.querySelector('.nav-item[aria-current="page"]');
-            var mast = document.getElementById("masthead"), bar = document.getElementById("appBar");
+            var bar = document.getElementById("appBar");
             var ctx = document.getElementById("barContext"), sh = document.getElementById("screenHead");
             return { hash: location.hash, current: cur ? cur.getAttribute("data-screen") : null,
-                     mast: !mast.hidden, bar: !bar.hidden,
+                     bar: bar.checkVisibility(),
                      ctx: ctx && ctx.checkVisibility() ? document.getElementById("barTeam").textContent : null,
                      ctxControl: !!(ctx && ctx.closest("a,button")) || !!(ctx && ctx.querySelector("a,button")),
                      heading: sh && sh.checkVisibility() && !sh.classList.contains("sr-only") ? sh.textContent : null,
-                     title: document.getElementById("mastTitle").textContent,
-                     name: document.getElementById("mastName").textContent,
                      focus: document.activeElement ? document.activeElement.id : null };
           });
           if (st.hash !== "#" + screen) fail(label, "behaviour", "route", "route is " + st.hash);
@@ -260,22 +258,15 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           // selected: Schedule is More's (decision 0028).
           var wantCur = NAV.indexOf(screen) !== -1 ? screen : OWNER[screen] || null;
           if (st.current !== wantCur) fail(label, "behaviour", ".navbar", "current nav item is " + st.current + ", expected " + wantCur);
-          if (MASTHEAD[screen]) {
-            if (!st.mast || st.bar) fail(label, "behaviour", "#masthead", "this screen should wear the team masthead, not the SUITE header");
-            if (st.title !== MASTHEAD[screen]) fail(label, "behaviour", "#mastTitle", "masthead title reads '" + st.title + "'");
-            if (!st.name) fail(label, "behaviour", "#mastName", "the masthead does not name the team");
-          } else if (st.mast || !st.bar) {
-            fail(label, "behaviour", "#appBar", "this screen should wear the compact SUITE header");
+          if (!st.bar) fail(label, "behaviour", "#appBar", "this screen lost the SUITE header");
+          if (!st.ctx) fail(label, "behaviour", "#barContext", "the SUITE bar does not carry the selected team as context");
+          if (st.ctxControl) fail(label, "behaviour", "#barContext", "the team context is a control; Change Team lives in Settings");
+          if (TITLE[screen]) {
+            if (st.heading !== TITLE[screen]) fail(label, "behaviour", "#screenHead", "the visible page title reads '" + st.heading + "', not '" + TITLE[screen] + "'");
+          } else if (st.heading) {
+            fail(label, "behaviour", "#screenHead", "a hero screen also shows a visible page title");
           }
-          if (CONTEXT[screen]) {
-            if (!st.ctx) fail(label, "behaviour", "#barContext", "a national screen should carry the selected team as context in the SUITE bar");
-            if (st.ctxControl) fail(label, "behaviour", "#barContext", "the team context is a control; Change Team lives in Settings");
-            if (st.heading !== CONTEXT[screen]) fail(label, "behaviour", "#screenHead", "the visible page heading reads '" + st.heading + "', not '" + CONTEXT[screen] + "'");
-          } else {
-            if (st.ctx) fail(label, "behaviour", "#barContext", "team context shows on a screen that is not national content");
-            if (!MASTHEAD[screen] && st.heading) fail(label, "behaviour", "#screenHead", "a compact-header screen shows a visible page heading");
-          }
-          if (k > 0 && st.focus !== (MASTHEAD[screen] ? "mastTitle" : "screenHead"))
+          if (k > 0 && st.focus !== "screenHead")
             fail(label, "behaviour", "focus", "after navigating, focus is on '" + st.focus + "', not the screen's heading");
           await fullShot(page, path.join(shots, team + "-" + width + "-" + screen + ".png"));
           await checkState(page, label);
@@ -579,11 +570,11 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           var v = getComputedStyle(document.documentElement).getPropertyValue("--t-surface").trim().toUpperCase();
           return { surface: v, want: Suite.ui.STYLE.colors.surface.toUpperCase(), key: localStorage.getItem("suite-style"),
                    checked: (document.querySelector('#screenSettings input[name="appStyle"]:checked') || {}).value,
-                   name: document.getElementById("mastName").textContent };
+                   name: document.getElementById("barTeam").textContent };
         });
         if (sty.surface !== sty.want) fail(who, "behaviour", "appStyle", "Suite Style after a reload paints --t-surface " + sty.surface + ", not Suite's " + sty.want);
         if (sty.key !== "suite" || sty.checked !== "suite") fail(who, "behaviour", "appStyle", "Suite Style did not hold across a reload");
-        if (!sty.name) fail(who, "behaviour", "#mastName", "Suite Style dropped the team's name: only style changes");
+        if (!sty.name) fail(who, "behaviour", "#barTeam", "Suite Style dropped the team's name: only style changes");
         await fullShot(page, path.join(shots, team + "-" + width + "-settings-suite-style.png"));
         await page.evaluate(function () { location.hash = "#home"; });
         await page.waitForTimeout(500);
@@ -613,7 +604,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         await page.waitForTimeout(600);
         var deep = await page.evaluate(function () {
           return { panel: !document.getElementById("screenRoster").hidden,
-                   title: document.getElementById("mastTitle").textContent };
+                   title: document.getElementById("screenHead").textContent };
         });
         if (!deep.panel || deep.title !== "Roster") fail(who, "behaviour", "route", "a deep link to #roster did not open Roster");
 

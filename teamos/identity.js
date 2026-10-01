@@ -10,7 +10,7 @@
      TEAM_CONFIG.identity + Team  ->  TeamOS.identity.create()  ->  Identity
                                                                       |
                                               app.js paintIdentity()  v
-                                       masthead, :root colour tokens
+                                       bar context, :root colour tokens
 
    The rules this file enforces, so that a team config cannot ship a page
    nobody can read (docs/decisions/0009-identity-is-team-data.md):

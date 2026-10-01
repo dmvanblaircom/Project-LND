@@ -8,7 +8,7 @@
      2. Team identity tokens --t-*, replaced wholesale at startup from the
                              team's config (TeamOS.identity). Nobody's here.
      3. Reset and base
-     4. Layout               header, masthead, main column, bottom nav
+     4. Layout               header, page title, main column, bottom nav
      5. Components           art slot, marks, card, section head, buttons,
                              segmented controls, site badges, live pill
      6. Screens              chooser, then each screen as it is rebuilt
@@ -112,7 +112,7 @@ h1,h2,h3{margin:0}
 /* ====================================================================
    4. LAYOUT
    ==================================================================== */
-/* The compact SUITE header: the chooser, Home and Game. The status-bar inset
+/* The one SUITE header, on every screen (decision 0031). The status-bar inset
    is its own padding, so the header paints behind the clock. */
 .app-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:.75rem;
   min-height:calc(var(--s-bar-h) + env(safe-area-inset-top,0px));
@@ -125,7 +125,8 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
    the gutter. */
 .wordmark{display:block;flex:none;height:1.6rem;width:auto;margin:0 -.19rem}
 .app-bar .spacer{flex:1}
-/* The selected team as quiet context beside the wordmark - a lockup, not a
+/* The selected team as quiet context beside the wordmark, on every team
+   screen - a lockup, not a
    button: no fill, no border, no chevron (decision 0024 §6). */
 .bar-context{display:flex;align-items:center;gap:.5rem;min-width:0;padding-left:.75rem;border-left:1px solid rgba(255,255,255,.28);color:var(--s-on-dark-2)}
 .bar-context .mark{--mark:1.6rem}
@@ -134,28 +135,15 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .icon-btn svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .bar-text-btn{min-height:2.75rem;margin-left:.25rem;padding:0 .4rem;border:0;border-radius:var(--s-radius-ctl);background:none;color:var(--s-on-dark);font-family:var(--t-font-ui);font-weight:600;font-size:1.05rem;cursor:pointer}
 
-/* The team masthead: Top 25, Schedule, Roster and More. The selected team
-   frames its own sections; the art slot behind it carries the atmosphere. */
-.masthead{position:relative;isolation:isolate;overflow:hidden;color:var(--s-on-dark);
-  padding:calc(env(safe-area-inset-top,0px) + 1rem) calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.1rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
-.mast-id{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.75rem;min-height:4.25rem}
-.mast-id .mark{--mark:3.6rem}
-.mast-names{text-align:center;min-width:0}
-.mast-name{display:block;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.65rem,7vw,2.35rem);line-height:1;letter-spacing:.01em;text-transform:uppercase}
-.mast-nick{display:block;margin-top:.25rem;font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.3em;text-transform:uppercase;color:var(--t-accent-text)}
-.mast-tagline{display:block;margin-top:.55rem;font-family:var(--t-font-display);font-weight:500;font-style:italic;font-size:.95rem;letter-spacing:.24em;text-transform:uppercase;color:var(--s-on-dark-2)}
-.mast-balance{width:3.6rem}           /* keeps the names centred against the mark */
-.mast-title{margin:1.1rem 0 0;font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.6rem,12vw,3.6rem);line-height:.95;letter-spacing:.01em;text-transform:uppercase;text-shadow:0 2px 18px rgba(0,0,0,.35)}
-.mast-title:focus{outline:none}
-
 /* The main column. Phone-first; on wider screens it stays a column rather
    than stretching cards into lines too long to scan. */
 /* overflow-x:clip keeps a view sliding in (suite/nav.js swipe) from widening the page */
 .page-main{display:block;overflow-x:clip;width:100%;max-width:var(--s-content-max);margin:0 auto;
   padding:0 calc(var(--gutter) + env(safe-area-inset-right,0px)) calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 3rem) calc(var(--gutter) + env(safe-area-inset-left,0px))}
 .page-main:focus{outline:none}
-/* The visible page heading of a context screen: neutral Suite ink, so
-   national content does not read as the team's own. */
+/* The visible page heading of every screen without a hero: neutral Suite
+   ink, so national content does not read as the team's own and team
+   content is framed by the bar's team context instead. */
 .page-title{margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:1.1rem calc(var(--gutter) + env(safe-area-inset-left,0px)) .8rem;background:var(--s-page);font-family:var(--t-font-display);font-weight:800;font-size:2.35rem;line-height:1;letter-spacing:.01em;text-transform:uppercase;color:var(--s-chrome)}
 .page-title:focus{outline:none}
 
@@ -641,7 +629,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .game-empty{display:flex;flex-direction:column;align-items:flex-start;gap:.8rem;padding:2rem 0}
 
 /* ---- Team chooser ----------------------------------------------------
-   A fan who has not picked a team. Suite's own chrome, no team masthead and
+   A fan who has not picked a team. Suite's own chrome, no team context and
    no bottom nav (decision 0016). */
 .chooser{padding:1.25rem 0 3rem}
 .chooser h1{font-family:var(--t-font-ui);font-weight:700;font-size:1.85rem;line-height:1.15;letter-spacing:-.005em;color:var(--s-chrome)}
@@ -758,7 +746,7 @@ details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}
 .ro-changes{margin:.2rem 0 0;padding-left:1.1rem;font-size:.9rem;color:var(--s-ink-2)}
 .ro-changes li + li{margin-top:.25rem}
 /* Offense | Defense | Special Teams stays in reach on a long chart (0024 §8). */
-.unit-seg{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-top:.9rem;box-shadow:0 0 0 .5rem var(--s-page)}
+.unit-seg{position:sticky;top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px));z-index:20;margin-top:.9rem;box-shadow:0 0 0 .5rem var(--s-page)}
 .unit-seg a{display:flex;flex:1;align-items:center;justify-content:center;min-height:2.75rem;padding:.35rem .4rem;border-radius:8px;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:1.02rem;text-align:center;text-decoration:none}
 .unit-seg a[aria-current="page"]{background:var(--s-surface);color:var(--t-surface);box-shadow:0 1px 3px rgba(15,27,45,.12)}
 .unit-seg a:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}

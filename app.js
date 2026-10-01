@@ -43,7 +43,7 @@ function $(id){ return document.getElementById(id); }
 function say(msg){ $("live").textContent = msg; }
 
 /* ---------- identity ---------- */
-// The selected team's identity INSIDE Suite: the masthead, the tagline and
+// The selected team's identity INSIDE Suite: the bar's team context and
 // the team tokens the stylesheet reads, from the team config, applied once,
 // here. The product itself - its installed name, manifest, icons and share
 // card - is Suite's, the same for every team, and lives in index.html and
@@ -63,30 +63,16 @@ function paintIdentity(){
 
   // ---- the page ----
 
-  // The masthead: the team frames its own sections. Its nickname is the
-  // registry's (the provider's shortDisplayName), not a second copy typed
-  // into the team config; its mark is TeamOS's to name.
+  // The team as quiet context in the SUITE bar, on every screen. Its
+  // nickname - for Home's hero - is the registry's (the provider's
+  // shortDisplayName), not a second copy typed into the team config; its
+  // mark is TeamOS's to name.
   var reg = TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []).get(TEAM.id);
-  text("#mastName", TEAM.name);
-  // The same team as quiet context in the SUITE bar, on national screens.
   text("#barTeam", TEAM.name);
   var bm = $("barMark");
   if(bm) bm.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
                                        TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="barMark"');
   TEAM_NICK = reg && reg.nick ? reg.nick : "";
-  text("#mastNick", TEAM_NICK);
-  // A team without a tagline gets no empty line where one would be.
-  var tl = $("mastTagline");
-  if(tl){ if(ID.tagline) tl.textContent = ID.tagline; else tl.parentNode.removeChild(tl); }
-  // The masthead's art is the same composition as Home's hero: the team's
-  // approved photography, or the finished fallback in its colours and mark.
-  var ma = $("mastArt");
-  if(ma) ma.outerHTML = Suite.ui.art({ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation,
-                                       markUrl:TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true) })
-                          .replace('class="art-slot', 'id="mastArt" class="art-slot');
-  var mk = $("mastMark");
-  if(mk) mk.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
-                                       TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="mastMark"');
 
   applyStyle();
 }
