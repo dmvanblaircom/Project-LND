@@ -21,7 +21,7 @@ jobs:
       - name: Dead and shadowed CSS
         run: python3 tools/csscheck.py app.css
       - name: JavaScript parses
-        run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js suite/*.js tools/*.js; do node --check "$f"; done
+        run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js suite/*.js tools/*.js tools/lib/*.js; do node --check "$f"; done
       - name: The installed product is Suite, the same for every team
         run: node tools/identitycheck.js
       # Decision 0024 §11: TEMPORARY Suite identity assets are for the design
