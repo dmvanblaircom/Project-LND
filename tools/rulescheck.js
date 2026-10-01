@@ -68,10 +68,32 @@ var wx = { timezone: "America/Indiana/Indianapolis", utc_offset_seconds: -4 * 36
 eq(JSON.parse(JSON.stringify(W.at(wx, "2026-10-03T19:30:00Z"))),
    { tempF: 64, sky: "rain", rainPct: 20, windMph: 9, zone: "America/Indiana/Indianapolis", at: "2026-10-03T19:30:00Z" },
    "the kickoff hour at the venue (3:30 PM EDT rounds to 4 PM), in plain words");
+// Code review, 2026-10-01: the forecast is fetched in October (EDT, -4h), the
+// game is after DST ends (EST, -5h). 2:30 PM EST rounds to 3 PM; today's
+// offset would have said 4 PM and shown the wrong hour.
+var dst = { timezone: "America/New_York", utc_offset_seconds: -4 * 3600,
+  hourly: { time: ["2026-11-07T14:00", "2026-11-07T15:00", "2026-11-07T16:00"], temperature_2m: [40, 45, 50],
+            precipitation_probability: [0, 0, 0], wind_speed_10m: [5, 5, 5], weather_code: [0, 0, 0] } };
+eq(W.at(dst, "2026-11-07T19:30:00Z").tempF, 45, "a kickoff after the clocks change reads the venue's own hour, not today's offset");
+eq(W.at(Object.assign({}, dst, { timezone: "Not/AZone" }), "2026-11-07T19:30:00Z").tempF, 50,
+   "(an unknown zone falls back to the offset - which is the old answer, an hour out)");
+eq((W.at({ timezone: "America/Chicago", hourly: { time: ["2026-11-01T00:00"], temperature_2m: [33] } }, "2026-11-01T05:10:00Z") || {}).tempF, 33,
+   "midnight at the venue is hour 00");
+console.log("geocoding (teamos/weather.js)");
+ok(/^https:\/\/geocoding-api\.open-meteo\.com\/v1\/search\?name=South%20Bend&/.test(W.placeUrl("South Bend")), "one search, the name encoded");
+var geo = { results: [ { latitude: 50.1, longitude: 8.6, country_code: "DE", admin1: "Hesse" },
+                       { latitude: 33.4, longitude: -91.0, country_code: "US", admin1: "Mississippi" },
+                       { latitude: 40.4, longitude: -86.9, country_code: "US", admin1: "Indiana" } ] };
+eq(W.place(geo, "IN"), { lat: 40.4, lon: -86.9 }, "the hit in the game's state, by its postal code");
+eq(W.place(geo, null), { lat: 33.4, lon: -91.0 }, "with no state, the first U.S. hit - never one abroad");
+eq(W.place(geo, "OH"), null, "no hit in that state: nothing, never another state's town");
+eq(W.place({}, "IN"), null, "no results: nothing");
 eq(W.at(wx, "2026-10-09T19:30:00Z"), null, "a kickoff outside the forecast: nothing, never a guess");
 eq(W.current(wx).tempF, 62, "current conditions, during a game");
 eq(W.current({}), null, "no payload: nothing");
-ok(!/espn|kalshi|notre|irish|ohio|buckeye/i.test(uncomment(read("teamos/weather.js"))), "names no other provider and no team");
+var wsrc = uncomment(read("teamos/weather.js"));
+ok(/var STATES = \{[^}]*Ohio[^}]*\};/.test(wsrc), "(the geocoder's state names are a table of U.S. states, Ohio among them)");
+ok(!/espn|kalshi|notre|irish|ohio|buckeye/i.test(wsrc.replace(/var STATES = \{[^}]*\};/, "")), "outside that table, names no other provider and no team");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Season Outlook, freshness and weather say one thing"));
 process.exit(failures ? 1 : 0);

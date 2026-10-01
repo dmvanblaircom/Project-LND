@@ -1002,3 +1002,22 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
 @keyframes view-in-next{from{transform:translateX(1.75rem);opacity:.4}to{transform:none;opacity:1}}
 @keyframes view-in-prev{from{transform:translateX(-1.75rem);opacity:.4}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.view-in-next,.view-in-prev{animation:none}}
+
+/* Pull to refresh (suite/nav.js pull(); David, 2026-10-01). The page's own
+   pull-to-reload is turned off so a pull refreshes the data instead of
+   reloading the app; the chooser keeps the browser's. The indicator slides
+   out from under the header as the finger pulls, completes its arc when a
+   release would refresh, and turns while the refresh runs. A placeholder
+   for Codex: see docs/engineering/codex-review-queue.md. */
+html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:contain}
+.pull{position:fixed;left:50%;z-index:50;width:2.25rem;height:2.25rem;margin-top:-2.25rem;border-radius:50%;
+  background:var(--s-surface);box-shadow:var(--s-shadow-raise);display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transform:translate(-50%,0);transition:opacity .15s ease-out,transform .2s ease-out}
+.pull.is-pulling{transition:none;opacity:var(--pull,0)}
+.pull.is-armed,.pull.is-refreshing{opacity:1}
+.pull-mark{width:1.1rem;height:1.1rem;border-radius:50%;border:2px solid var(--s-line-strong);border-top-color:var(--t-accent-on-light);
+  transform:rotate(calc(var(--pull,0) * 270deg))}
+.pull.is-armed .pull-mark{border-right-color:var(--t-accent-on-light)}
+.pull.is-refreshing .pull-mark{animation:pull-turn .8s linear infinite}
+@keyframes pull-turn{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.pull,.pull.is-pulling{transition:none}.pull.is-refreshing .pull-mark{animation:none}}

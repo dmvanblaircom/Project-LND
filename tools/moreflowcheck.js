@@ -259,6 +259,23 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
   ok(/Version: \d{4}-\d\d-\d\d/.test(w2), "and on a fresh load straight to Feedback: " + (w2.match(/Version: [^\n]*/) || [""])[0]);
   await w.ctx.close();
 
+  // Code review, 2026-10-01: a second tap while "Link copied" showed made
+  // that message the row's words for good.
+  console.log("5. Share Suite, tapped twice, goes back to its own words");
+  var sh = await open();
+  await sh.page.addInitScript(function () {
+    try { Object.defineProperty(navigator, "share", { value: undefined, configurable: true }); } catch (e) {}
+    Object.defineProperty(navigator, "clipboard", { value: { writeText: function () { return Promise.resolve(); } }, configurable: true });
+  });
+  await sh.page.goto(base + "/?team=notre-dame#more"); await sh.page.waitForTimeout(1200);
+  function row(page) { return page.evaluate(function () { return document.querySelector("[data-share] .mo-sub").textContent; }); }
+  var words = await row(sh.page);
+  await sh.page.click("[data-share]"); await sh.page.waitForTimeout(300);
+  ok(/Link copied/.test(await row(sh.page)), "the row says the link was copied");
+  await sh.page.click("[data-share]"); await sh.page.waitForTimeout(4400);
+  ok(await row(sh.page) === words, "and after a second tap, four seconds on, its own words again: " + JSON.stringify(words));
+  await sh.ctx.close();
+
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "More recovers per source, reports refreshes truthfully and follows the connection"));
   process.exit(failures ? 1 : 0);
