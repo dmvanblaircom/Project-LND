@@ -70,18 +70,27 @@ Fields, in order:
 | `date` | kickoff, ISO 8601 |
 | `timeSet` | whether the kickoff time is real or a placeholder |
 | `home` | the team is the listed home side |
-| `neutral` | neutral site, whether flagged by the feed or inferred from the venue |
+| `neutral` | neutral site, whether flagged by the feed or inferred from the venue (a pro or event venue, or the team listed at home away from its own field; never a stadium a college team plays its home games in) |
 | `oppName` | opponent's short name |
 | `oppRank` | opponent's rank if inside the top 25, else `null` |
+| `oppProviderId` | the opponent's provider id (digits) or `null`; it only ever feeds `TeamOS.espn.mark()` |
+| `oppAbbr` | opponent's abbreviation, for the initials fallback when there is no mark |
+| `usRank` | the team's rank if inside the top 25, else `null` |
+| `usRecord`, `oppRecord` | overall records, `"3-0"`, or `null` when the feed has none |
 | `venue` | venue name |
 | `city` | venue city |
 | `venueState` | venue's U.S. state code, e.g. `"IN"` |
 | `zip` | venue zip |
 | `net` | broadcast network(s), or `""`; includes the team config's broadcast fallback when the feed has none |
 | `odds` | `{ line, total }` or `null`; may be filled after the fact by `TeamOS.espn.gameOdds()` |
-| `series` | trophy/series name from the team config's `series` table, or `null` |
+| `series` | trophy, rivalry or event name from the team config's `series` table, or `null` |
+| `seriesKind` | `"trophy"`, `"rivalry"` or `"event"` (W21), or `null` |
 | `state` | **game status**: `"pre"`, `"in"` or `"post"` |
 | `detail` | human-readable status text, e.g. `"Final"` or `"9/19 - 7:30 PM EDT"` |
+| `status` | the game's finer status, from the provider's documented values: scheduled, live, final, delayed, suspended, postponed, canceled (decision 0022 #5) |
+| `hasStarted` | whether play has begun, which decides Game's views |
+| `period`, `clock` | the quarter (5 and up is overtime) and the game clock |
+| `newDate` | a postponed game's replacement date when a source states one trustworthily; `null` from ESPN, which does not |
 | `us`, `them` | scores as displayed, or `null` before kickoff |
 | `won` | `true` when the team won; `false` otherwise, including before kickoff |
 
@@ -89,7 +98,11 @@ Fields, in order:
 
 Games are plain objects and are not frozen; the application patches `odds` onto the next game once the pregame line arrives.
 
-Not yet modelled: season, weather (computed by the application from `venue`/`city`/`zip`).
+Not yet modelled: season. Weather is its own shape (below), found from the Game's venue.
+
+### Weather
+
+`{ tempF, sky, rainPct, windMph, zone, at }`, produced by `TeamOS.weather` from Open-Meteo: the forecast for the kickoff hour at the venue (in the venue's own time zone), or current conditions during a game; `null` when there is no answer (decision 0022 #3). `sky` is plain words; the Suite chooses any glyph.
 
 ### LeagueGame
 
@@ -200,7 +213,7 @@ A roster entry. **Implemented in Phase 3B**, produced only by `TeamOS.espn.roste
 
 ### Depth
 
-Depth chart, availability and sport-specific lineup concepts. Not yet modelled: the Depth tab consumes the Action-written `depth.json` snapshot directly.
+Depth chart, availability and sport-specific lineup concepts. `TeamOS.roster` joins the Action-written depth chart (slots by level, week by week) to the roster and the official availability report, and says which roster views a team has (decision 0019). The snapshots are this project's own shapes, written by `tools/producers/official_depth.py`.
 
 ### Ranking
 
@@ -208,7 +221,7 @@ See `Poll` above.
 
 ### NewsItem
 
-One story in the News tab. **Implemented in Phase 4C**, produced by `TeamOS.espn.news(json)` for ESPN's team feed; the beat-writer snapshot the Action commits as `news.json` carries the same fields (`title`, `link`, `source`, `published` as ISO text, never an image) and is converted by a three-line helper in the application, because it is this project's own format, not a provider's.
+One story in the News tab. **Implemented in Phase 4C**, produced by `TeamOS.espn.news(json)` for ESPN's team feed; the beat-writer snapshot the Action commits as `news.json` carries the same fields (`title`, `link`, `source`, `published` as ISO text, never an image) and is converted by a three-line helper in the application, because it is this project's own format, not a provider's. A story whose link is not a web link (`http`/`https`) is dropped at every step: the producer, the adapter and the page.
 
 ```
 { title, link, image, source, publishedAt }

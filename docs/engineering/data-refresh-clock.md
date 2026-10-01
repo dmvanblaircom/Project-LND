@@ -21,7 +21,8 @@ up: 2026-10-01.)
   GitHub's own scheduler; "(hand)" is the Run workflow button.
 - **The Worker:** `https://suite-api.dmvanblaircom.workers.dev/v1/health`
   says `"clock": true` once its token is set (never the token itself). The
-  deploy workflow warns when it is `false`.
+  deploy workflow warns when it is `false`. It has been `true` since
+  2026-10-01; the first clock-started run was at 11:07 UTC that day.
 - **Without looking:** the freshness monitor (`tools/producers/freshness.py`)
   runs at the end of every refresh. Inside a game window, if two runs are more
   than 45 minutes apart, it opens a `data-freshness` issue saying whether the

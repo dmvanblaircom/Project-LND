@@ -57,7 +57,7 @@ Normalized Domain Model
 Irish Watch
 ```
 
-Status: **complete for ESPN** as of 4C. Milestones 4A (league view: `LeagueGame`, `Poll`), 4B (Game Center: `GameDetail`, `SeasonStat`) and 4C (news: `NewsItem`) moved every ESPN payload the Suite consumes behind `teamos/espn.js`; `app.js` no longer carries an ESPN URL, id or key name. A 4D milestone for the two remaining small providers — Kalshi odds (`Market`) and the Open-Meteo forecast (`Forecast`) — is defined but deferred until a concrete product or architectural reason calls for it. **4D Market done 2026-10-01 (W18):** Kalshi's schema now enters only through `teamos/markets.js`; the forecast stays deferred.
+Status: **complete for ESPN** as of 4C. Milestones 4A (league view: `LeagueGame`, `Poll`), 4B (Game Center: `GameDetail`, `SeasonStat`) and 4C (news: `NewsItem`) moved every ESPN payload the Suite consumes behind `teamos/espn.js`; `app.js` no longer carries an ESPN URL, id or key name. A 4D milestone for the two remaining small providers — Kalshi odds (`Market`) and the Open-Meteo forecast (`Forecast`) — is defined but deferred until a concrete product or architectural reason calls for it. **4D Market done 2026-10-01 (W18):** Kalshi's schema now enters only through `teamos/markets.js`. **4D Forecast done** with the canonical Home: Open-Meteo's forecast enters only through `teamos/weather.js`, and since the code review of 2026-10-01 its geocoder does too. Phase 4 is complete.
 
 ## Phase 5: Add Ohio State
 
@@ -137,14 +137,17 @@ chooser since 7C, and filtering by the `hidden` attribute would not have
 worked in WebKit. Decision 0016.
 
 Carried forward, none of it blocking:
-- There is no way to change teams from inside a Suite — a switcher is the
-  obvious next thing.
+- ~~There is no way to change teams from inside a Suite.~~ Settings' Change
+  Team opens the chooser and keeps the current team until another is picked
+  (decision 0022 #7).
 - The registry is generated weekly by the Action from ESPN's standings page
   (decision 0017): 138 FBS programs, each with its conference, none of it
   hand-maintained.
-- `roster.yml` only fires once it is on the default branch — GitHub reads
-  `schedule` and `workflow_dispatch` from there.
-- A first visit to a team while offline still cannot work.
+- ~~`roster.yml` only fires once it is on the default branch.~~ It is: `main`
+  is the default branch.
+- A first visit to a team while offline still cannot work. Since the code
+  review of 2026-10-01 it no longer costs the fan their saved team: the boot
+  keeps it unless the server says the config is gone.
 
 ## Phase 8: My Teams / My Box
 
