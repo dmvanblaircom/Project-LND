@@ -1,9 +1,11 @@
 # Deploys Suite's edge API (worker/, decision 0030) to Cloudflare Workers
 # when worker/ changes on main, or from the Actions tab.
 #
-# Needs three repository secrets (docs/engineering/edge-api.md):
+# Needs repository secrets (docs/engineering/edge-api.md):
 #   CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID  - where it deploys
 #   CFBD_API_KEY                                  - set as a Worker secret
+#   REFRESH_CLOCK_TOKEN (optional)                - the refresh clock's token,
+#                                                   set as a Worker secret when present
 # Until they exist, the job says so and stops green: nothing half-deploys.
 name: Deploy the edge API
 
@@ -30,9 +32,13 @@ jobs:
         env:
           TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOCK: ${{ secrets.REFRESH_CLOCK_TOKEN }}
         run: |
           if [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"
           else echo "::notice::Cloudflare secrets are not set yet (docs/engineering/edge-api.md); nothing deployed."; fi
+          # Worker secrets to set: the clock's only once it exists, so a
+          # missing token never fails the deploy.
+          { echo "secrets<<EOF"; echo "CFBD_API_KEY"; [ -n "$CLOCK" ] && echo "REFRESH_CLOCK_TOKEN"; echo "EOF"; } >> "$GITHUB_OUTPUT"
       - name: The edge API passes its checks
         if: steps.ready.outputs.ok == 'true'
         run: node tools/workercheck.mjs
@@ -44,10 +50,10 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
-          secrets: |
-            CFBD_API_KEY
+          secrets: ${{ steps.ready.outputs.secrets }}
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          REFRESH_CLOCK_TOKEN: ${{ secrets.REFRESH_CLOCK_TOKEN }}
       - name: It answers
         if: steps.ready.outputs.ok == 'true'
         env:
@@ -58,7 +64,11 @@ jobs:
           # (the first deploy got a 404 three seconds in): try for 2 minutes.
           for i in $(seq 1 24); do
             body=$(curl -sS "$URL/v1/health" || true)
-            if echo "$body" | grep -q '"ok":true'; then echo "$URL/v1/health -> $body"; exit 0; fi
+            if echo "$body" | grep -q '"ok":true'; then
+              echo "$URL/v1/health -> $body"
+              echo "$body" | grep -q '"clock":true' || echo "::warning::the refresh clock has no token yet (REFRESH_CLOCK_TOKEN): no clock-started refreshes"
+              exit 0
+            fi
             sleep 5
           done
           echo "::error::$URL/v1/health did not answer ok within 2 minutes: $body"; exit 1

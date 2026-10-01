@@ -5,3 +5,8 @@ name = "suite-api"
 main = "src/index.js"
 compatibility_date = "2026-09-01"
 workers_dev = true
+
+# The data refresh clock (W02): start "Refresh team data" at :07 and :37 every
+# hour, off the hour like the workflow's own schedule. UTC.
+[triggers]
+crons = ["7,37 * * * *"]

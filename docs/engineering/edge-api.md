@@ -36,6 +36,7 @@ keys server-side, fetches, caches, and returns only what a screen shows.
    | `CLOUDFLARE_API_TOKEN` | the token from step 3 |
    | `CLOUDFLARE_ACCOUNT_ID` | the ID from step 2 |
    | `CFBD_API_KEY` | the key from step 4 |
+   | `REFRESH_CLOCK_TOKEN` | the refresh clock's token (`data-refresh-clock.md`) |
 
 6. Tell Claude. Claude runs *Deploy the edge API* and *Probe CFBD field
    names* and checks both.
@@ -48,5 +49,6 @@ None of these values ever goes in the repository.
   answers `{"ok":true,...}`; the deploy workflow checks this itself.
 - **Rotating a key:** replace the GitHub secret and re-run *Deploy the
   edge API*.
-- **Next on this Worker** (decision 0030): the refresh clock (replacing
-  cron-job.org) and notifications (W19). Kalshi stays on GitHub Actions.
+- **The refresh clock** runs on this Worker (`docs/engineering/data-refresh-clock.md`).
+- **Next on this Worker** (decision 0030): notifications (W19). Kalshi stays
+  on GitHub Actions.
