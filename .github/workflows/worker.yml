@@ -60,18 +60,22 @@ jobs:
           URL: ${{ steps.deploy.outputs.deployment-url }}
         run: |
           [ -n "$URL" ] || { echo "::warning::no deployment URL reported; check the Cloudflare dashboard"; exit 0; }
-          # A new Worker's address takes a little while to answer everywhere
-          # (the first deploy got a 404 three seconds in): try for 2 minutes.
-          for i in $(seq 1 24); do
+          # The version this commit deploys. Cloudflare keeps serving the old
+          # one for a little while after a deploy (Oct 1: the clock deploy's
+          # check got edge-2026-10-01b back), and a new Worker's address can
+          # 404 at first: wait up to 3 minutes for THIS version to answer.
+          want=$(sed -n 's/^export const VERSION = "\(.*\)";$/\1/p' worker/src/index.js)
+          [ -n "$want" ] || { echo "::error::no VERSION in worker/src/index.js"; exit 1; }
+          for i in $(seq 1 36); do
             body=$(curl -sS "$URL/v1/health" || true)
-            if echo "$body" | grep -q '"ok":true'; then
+            if echo "$body" | grep -q '"ok":true' && echo "$body" | grep -q "\"version\":\"$want\""; then
               echo "$URL/v1/health -> $body"
               echo "$body" | grep -q '"clock":true' || echo "::warning::the refresh clock has no token yet (REFRESH_CLOCK_TOKEN): no clock-started refreshes"
               exit 0
             fi
             sleep 5
           done
-          echo "::error::$URL/v1/health did not answer ok within 2 minutes: $body"; exit 1
+          echo "::error::$URL/v1/health did not answer with $want within 3 minutes: $body"; exit 1
       # The CFBD route end to end: real key, real CFBD, one real team. Prints
       # which fields came back and whether they are numbers - never a value,
       # because this log is public and CFBD's data may not be republished.
