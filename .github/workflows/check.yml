@@ -51,6 +51,8 @@ jobs:
         run: node tools/suitecheck.js
       - name: One request out at a time - two wake-ups never fetch the same thing twice
         run: node tools/pollcheck.js
+      - name: What the app learns stays honest across refreshes (final summaries, the line, previews, Game's views)
+        run: node tools/controllercheck.js
       - name: The matchup card agrees with the data
         run: node tools/matchupcheck.js
       - name: Predictive ratings are shaped from the producer's snapshot, never invented

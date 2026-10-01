@@ -507,12 +507,14 @@ Suite.game = (function () {
     var last = host.__gameLast || (host.__gameLast = {});
     if (!m.game) {
       host.innerHTML = '<section class="game-empty">' + quiet("No game to show right now.") +
-        '<a class="btn btn-secondary" href="#schedule">See the schedule' + CHEVRON + "</a></section>";
+        '<a class="btn btn-secondary" href="#schedule">Full Schedule' + CHEVRON + "</a></section>";
       host.__gameLast = {};
       return;
     }
     if (!host.querySelector("[data-game]")) {
-      host.innerHTML = '<div data-game="head"></div><div data-game="strip"></div><div data-game="body" class="game-body"></div>';
+      host.innerHTML = '<div data-game="head"></div><div data-game="strip"></div>' +
+        '<div class="game-schedule"><a class="sec-link" href="#schedule">Full Schedule' + CHEVRON + "</a></div>" +
+        '<div data-game="body" class="game-body"></div>';
       last = host.__gameLast = {};
     }
     var html = { head: header(m), strip: strip(m), body: body(m) };
