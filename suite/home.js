@@ -298,7 +298,7 @@ Suite.home = (function () {
     SECTIONS.forEach(function (k) {
       if (last[k] === html[k]) return;
       var el = host.querySelector('[data-home="' + k + '"]');
-      el.innerHTML = html[k];
+      ui.fill(el, html[k]);
       el.hidden = !html[k];
       last[k] = html[k];
       if (k === "hero") ui.fitNames(host, ".gc-matchup", ".gc-name");

@@ -149,7 +149,7 @@ Suite.schedule = (function () {
     var html = { fresh: ui.freshBanner(m.fresh), strip: strip(m.view), body: list(m) };
     ["fresh", "strip", "body"].forEach(function (k) {
       if (last[k] === html[k]) return;
-      host.querySelector('[data-sc="' + k + '"]').innerHTML = html[k];
+      ui.fill(host.querySelector('[data-sc="' + k + '"]'), html[k]);
       last[k] = html[k];
     });
   }

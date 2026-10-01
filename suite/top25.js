@@ -234,7 +234,7 @@ Suite.top25 = (function () {
     var html = { fresh: ui.freshBanner(m.fresh), strip: strip(m.view), body: m.view === "rankings" ? rankings(m) : games(m) };
     ["fresh", "strip", "body"].forEach(function (k) {
       if (last[k] === html[k]) return;
-      host.querySelector('[data-t25="' + k + '"]').innerHTML = html[k];
+      ui.fill(host.querySelector('[data-t25="' + k + '"]'), html[k]);
       last[k] = html[k];
     });
   }
