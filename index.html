@@ -220,6 +220,13 @@
 </script>
 </head>
 <body>
+<!-- The launch screen (David, 2026-10-01): covers the first open while the
+     screen and its logos load, so a fan sees the finished page rather than
+     it filling in. app.js lifts it as soon as the screen is ready, and never
+     later than 2 seconds; app.css lifts it on its own at 2.5 seconds if the
+     app never runs. Not shown on the chooser. Decorative: hidden from
+     assistive technology, which reads the page underneath. -->
+<div class="launch" id="launch" aria-hidden="true"><img class="launch-mark" src="assets/suite/suite-wordmark-pearl.svg" alt="" width="662" height="132"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- The compact SUITE header: the chooser, Home and Game (decision 0023).
