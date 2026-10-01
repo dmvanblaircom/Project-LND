@@ -12,6 +12,11 @@
    - never more than 6 seconds, however slow the network
    - lifted by its own inline style at 7 seconds if app.js never runs
    - an update's reload carries the animation on from where it was
+   - a new version found on this open: the launch holds until the worker's
+     reload, so the page never shows between two launches (David,
+     2026-10-01: the nav flashed up before the launch faded), up to 10
+     seconds; an install slower than that lifts it once and the reload does
+     not play it again
    - never on the chooser; hidden from assistive technology
 
    Usage: node tools/launchcheck.js     (exit 1 on failure) */
@@ -153,6 +158,77 @@ function fixture(url) {
   var te = await liftedAt(e, 8000);
   ok(te != null && te < 2400, "and lifts on the same clock (" + te + " ms after the reload)");
   await e.ctx.close();
+
+  // A real update: a copy of the site, opened once so its worker installs,
+  // then given a new VERSION and opened again. The new worker's shell
+  // downloads slowly, as on a phone. Every frame of every document is logged.
+  async function updateOpen(shellDelay) {
+    var os = require("os");
+    var dir = fs.mkdtempSync(path.join(os.tmpdir(), "launch-upd-"));
+    fs.cpSync(root, dir, { recursive: true, filter: function (f) { return !/[\\/](\.git|node_modules)$/.test(f); } });
+    var srv = serve(dir); await new Promise(function (r) { srv.listen(0, "127.0.0.1", r); });
+    var b2 = "http://127.0.0.1:" + srv.address().port, slow = false;
+    var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "allow" });
+    await ctx.route("**/*", async function (route) {
+      var req = route.request(), u = req.url();
+      if (u.startsWith(b2)) {
+        if (slow && req.serviceWorker && req.serviceWorker() && !/\/data\//.test(u)) await new Promise(function (r) { setTimeout(r, shellDelay); });
+        return route.continue();
+      }
+      var body = fixture(u);
+      if (body) { await new Promise(function (r) { setTimeout(r, 150); }); return route.fulfill({ status: 200, contentType: "application/json", body: body }); }
+      if (/teamlogos|espncdn/.test(u)) return route.fulfill({ status: 200, contentType: "image/png", body: LOGO });
+      return route.abort();
+    });
+    var page = await ctx.newPage(), frames = [];
+    page.on("console", function (m) { var t = m.text(); if (t.indexOf("LF|") === 0) frames.push(t.split("|")); if (process.env.LAUNCH_DEBUG && /^L[EF]\|/.test(t)) console.log("    " + Date.now() % 100000 + " " + t); });
+    await page.addInitScript(function () {
+      var doc = Math.random().toString(36).slice(2, 7), t0 = Date.now(), prev = "";
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.addEventListener("controllerchange", function () { console.log("LE|" + doc + "|controllerchange"); });
+        navigator.serviceWorker.getRegistration().then(function (r) { if (r) r.addEventListener("updatefound", function () { console.log("LE|" + doc + "|updatefound"); }); });
+      }
+      (function f() {
+        var l = document.getElementById("launch"), cs = l && getComputedStyle(l);
+        if (!l && !document.body) { requestAnimationFrame(f); return; }
+        var cover = l && cs.display !== "none" && cs.visibility === "visible" ? (+cs.opacity).toFixed(2) : "0.00";
+        if (cover !== prev) { console.log("LF|" + doc + "|" + cover); prev = cover; }
+        if (Date.now() - t0 < 20000) requestAnimationFrame(f);
+      })();
+    });
+    await page.goto(b2 + "/?team=notre-dame#home");
+    await page.waitForFunction(function () { return navigator.serviceWorker.controller && !document.getElementById("launch"); }, null, { timeout: 15000 });
+    var sw = path.join(dir, "sw.js");
+    fs.writeFileSync(sw, fs.readFileSync(sw, "utf8").replace(/var VERSION = "([^"]+)"/, 'var VERSION = "$1-next"'));
+    frames.length = 0; slow = true;
+    await page.reload();
+    // until the worker's reload has come and its page has lifted the launch
+    // (or there was none to lift), or 35 seconds
+    var until = Date.now() + 35000;
+    for (;;) {
+      await page.waitForTimeout(250);
+      var ds = []; frames.forEach(function (f) { if (ds.indexOf(f[1]) === -1) ds.push(f[1]); });
+      var settled = ds.length >= 2 && await page.evaluate(function () { return !document.getElementById("launch"); }).catch(function () { return false; });
+      if (settled || Date.now() > until) break;
+    }
+    await page.waitForTimeout(500);
+    await ctx.close(); srv.close();
+    fs.rmSync(dir, { recursive: true, force: true });
+    var docs = []; frames.forEach(function (f) { if (docs.indexOf(f[1]) === -1) docs.push(f[1]); });
+    function of(d) { return frames.filter(function (f) { return f[1] === d; }).map(function (f) { return f[2]; }); }
+    return { docs: docs, of: of };
+  }
+
+  console.log("a new version found on this open");
+  var u1 = await updateOpen(350);
+  var first = u1.of(u1.docs[0]), last = u1.of(u1.docs[u1.docs.length - 1]);
+  ok(u1.docs.length === 2, "the worker reloads the page once (" + u1.docs.length + " documents)");
+  ok(first.length && first.every(function (c) { return c === "1.00"; }), "the launch holds over the page until that reload: it never starts to lift (" + first.join(",") + ")");
+  ok(last[0] === "1.00" && last[last.length - 1] === "0.00", "the reloaded page carries the same launch on and lifts it once");
+  var u2 = await updateOpen(1000);
+  var slowLast = u2.of(u2.docs[u2.docs.length - 1]);
+  ok(u2.docs.length === 2 && slowLast.every(function (c) { return c === "0.00"; }),
+     "an install slower than its 10-second wait: it lifts once, and the reload does not play it again (" + u2.docs.length + " documents; " + slowLast.join(",") + ")");
 
   console.log("the chooser");
   var f = await open("/?choose=1");

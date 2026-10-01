@@ -200,9 +200,34 @@ function noteSource(url, cached){
 // two seconds after the page opens - so a new version is found, and swapped
 // in by its worker, as early as possible. A first visit waits for load, so
 // installing never competes with the first paint.
+// An update found on this open reloads the page as soon as its worker takes
+// over (sw.js reloadWindows). Until then the launch screen holds, so the fan
+// sees one launch across the reload - not the page, then a second launch
+// (David, 2026-10-01: the nav flashed up before the launch faded). A first
+// install reloads nothing, so only a page a worker already controls waits.
+var UPDATING=false;
+function watchUpdate(reg){
+  if(!reg || !navigator.serviceWorker.controller) return;
+  // An activated worker reloads this page; if that never comes, the launch's
+  // own cap still lifts it. One update can install twice (the browser's own
+  // check racing ours), and the first then turns redundant on being replaced,
+  // so the wait ends only when no worker it saw is still alive: a failed
+  // install reloads nothing.
+  var seen=[];
+  function track(w){
+    if(!w || seen.indexOf(w)!==-1) return;
+    seen.push(w); UPDATING=true;
+    w.addEventListener("statechange", function(){
+      UPDATING=seen.some(function(x){ return x.state!=="redundant"; });
+    });
+  }
+  track(reg.installing || reg.waiting);
+  if(reg.addEventListener) reg.addEventListener("updatefound", function(){ track(reg.installing); });
+}
 if("serviceWorker" in navigator){
   var registerWorker=function(){
     navigator.serviceWorker.register("sw.js").then(function(reg){
+      watchUpdate(reg);
       if(navigator.serviceWorker.controller && reg && reg.update) reg.update().catch(function(){});
       return navigator.serviceWorker.ready;
     }).then(tellWorkerOurTeam).catch(function(){});
@@ -1591,11 +1616,25 @@ liftLaunchWhenReady();
 // rank, odds, news, weather and line all answered or failed), and every
 // image in view has loaded or failed. So nothing fills in once it lifts.
 // Never later than MAX: a slow network shows what it has. Reduced motion
-// has no animation to wait for, so its minimum is short.
+// has no animation to wait for, so its minimum is short. While an update is
+// installing it holds too (UPDATING), up to UPD_MAX - an update comes once a
+// release, and lifting before its reload shows the page and then reloads it -
+// and keeps its start time, so the reloaded page carries on this launch
+// rather than playing a second one; a page reloaded late in the launch still
+// gets OWN ms to finish its screen.
 function liftLaunchWhenReady(){
   var el=$("launch"); if(!el) return;
+  if(document.documentElement.hasAttribute("data-launched")){
+    el.parentNode.removeChild(el);
+    try{ sessionStorage.removeItem("suite-launch-at"); }catch(e){}
+    return;
+  }
+  // From here this decides when it lifts; the inline 7-second lift is only
+  // for an app.js that never runs, and must not cut an update's wait short.
+  el.style.animation="none";
   var reduce=window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var at=window.SUITE_LAUNCH_AT||Date.now(), MIN=reduce?600:2600, MAX=6000, QUIET=300;
+  var start=Date.now(), at=window.SUITE_LAUNCH_AT||start, MIN=reduce?600:2600, MAX=6000, UPD_MAX=10000, OWN=3000, QUIET=300;
+  var cap=Math.max(at+MAX, start+OWN);
   function screen(){ return document.querySelector("#main > div:not([hidden])"); }
   function inView(img){
     var r=img.getBoundingClientRect();
@@ -1604,14 +1643,21 @@ function liftLaunchWhenReady(){
   function ready(){
     var sc=screen(); if(!sc || !sc.firstChild) return false;
     if(sc.id==="screenHome" && !S.games && !SC.failed) return false;
+    if(UPDATING) return false;
     if(NET.busy>0 || Date.now()-NET.quietSince<QUIET) return false;
     return Array.prototype.every.call(sc.querySelectorAll("img"), function(i){ return !inView(i) || i.complete; });
   }
   (function tick(){
     var age=Date.now()-at;
-    if(age>=MAX || (age>=MIN && ready())){
+    var limit=UPDATING ? Math.max(cap, at+UPD_MAX) : cap;
+    if(Date.now()>=limit || (age>=MIN && ready())){
       el.classList.add("done");
-      try{ sessionStorage.removeItem("suite-launch-at"); }catch(e){}
+      // Lifting while an update installs: its reload is still to come, and
+      // must not play the launch a second time over a page already seen.
+      try{
+        sessionStorage.removeItem("suite-launch-at");
+        if(UPDATING) sessionStorage.setItem("suite-launch-lifted", String(Date.now()));
+      }catch(e){}
       setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 500);
       return;
     }
