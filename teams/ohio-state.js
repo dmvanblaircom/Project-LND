@@ -37,11 +37,14 @@ var TEAM_CONFIG = {
     }
   },
 
-  // Only the trophy game whose name reads correctly after the page's
-  // "Playing for the ..." - the Michigan game has no trophy and calling it
-  // "the The Game" would be wrong. That copy is one of the proof's findings.
+  // Trophy and rivalry names, matched on the opponent's name. kind (W21):
+  // "trophy" is played for and gets the trophy mark; "rivalry" is a name
+  // with nothing to win - Michigan is The Game, shown as itself, never as
+  // "Playing for the The Game" (David approved it, 2026-10-01). Other Ohio
+  // State rivalry names wait for W20's source work.
   series: [
-    [/illinois/i, "Illibuck Trophy"]
+    { match: /illinois/i,               name: "Illibuck Trophy", kind: "trophy" },
+    { match: /^michigan( wolverines)?$/i, name: "The Game",       kind: "rivalry" }
   ],
 
   links: {

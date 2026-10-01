@@ -239,10 +239,13 @@ Suite.game = (function () {
 
   function seriesCard(g) {
     if (!g.series) return "";
-    // The trophy's name, which the team's configuration verifies. No
-    // description: until a trustworthy rivalry source exists, nothing
-    // generic stands in for one (Game review, 2026-09-24).
-    return '<section class="card gcard series"><span class="series-ic">' + TROPHY + '</span><p class="series-name">' +
+    // The trophy, rivalry or series name, which the team's configuration
+    // verifies. No description: until a trustworthy rivalry source exists,
+    // nothing generic stands in for one (Game review, 2026-09-24). The trophy
+    // mark only for a trophy (W21): a rivalry name or a branded game (The
+    // Game, the Shamrock Series) has nothing to win.
+    return '<section class="card gcard series">' + (g.seriesKind === "trophy" ? '<span class="series-ic">' + TROPHY + "</span>" : "") +
+           '<p class="series-name">' +
            esc(g.series.replace(/^Playing for (the )?/i, "")) + "</p></section>";
   }
 
