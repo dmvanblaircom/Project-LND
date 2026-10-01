@@ -1,9 +1,9 @@
 /* Ohio State - the second team, and the architecture's proof.
 
-   Same shape as teams/notre-dame.js, nothing else changed: index.html loads
-   this file instead and app.js renders the Buckeyes. What comes out right
-   and what comes out wrong is recorded in docs/engineering/ - that record,
-   not this file, is the point of Phase 5A.
+   Same shape as teams/notre-dame.js, nothing else changed: the page loads
+   this file instead (/?team=ohio-state) and the same app renders the
+   Buckeyes. What came out right and what came out wrong is recorded in
+   docs/engineering/phase-5a-ohio-state-proof.md.
 
    Values verified against the feeds on 2026-09-18: ESPN team 194 spells the
    home field "Ohio Stadium"; Kalshi's championship and playoff markets are

@@ -62,8 +62,6 @@ function paintIdentity(){
   document.title = DOC_TITLE;
 
   // ---- the page ----
-  text("#heroHead", "Next "+TEAM.name+" game");
-  text("#dataHead", TEAM.name+" and national football data");
 
   // The masthead: the team frames its own sections. Its nickname is the
   // registry's (the provider's shortDisplayName), not a second copy typed
@@ -287,29 +285,17 @@ var UI={ tab:"schedule" };
 // Open-Meteo: free, no key, CORS-open. The venue is geocoded once and kept in
 // localStorage; the forecast is pulled for the kickoff hour. Forecasts run 16
 // days out, so a game further away than that simply shows nothing.
-var GEO="https://geocoding-api.open-meteo.com/v1/search";
 var GEO_KEY="iw-geo-v1";
-var US_STATES={AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",
-  CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",
-  ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",
-  ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",
-  MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",
-  NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",
-  OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
-  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",
-  WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
 
 function geoCache(){ try{ return JSON.parse(localStorage.getItem(GEO_KEY)||"{}"); }catch(e){ return {}; } }
 function geoRemember(key, pt){
   try{ var c=geoCache(); c[key]=pt; localStorage.setItem(GEO_KEY, JSON.stringify(c)); }catch(e){}
 }
-function geoSearch(q, admin1){
-  return get(GEO+"?name="+encodeURIComponent(q)+"&count=5&language=en&format=json").then(function(d){
-    var hits=(d.results||[]).filter(function(r){
-      return r.country_code==="US" && (!admin1 || r.admin1===admin1);
-    });
-    if(!hits.length) throw new Error("no geocode hit for "+q);
-    return { lat:hits[0].latitude, lon:hits[0].longitude };
+function geoSearch(q, state){
+  return get(TeamOS.weather.placeUrl(q)).then(function(d){
+    var pt=TeamOS.weather.place(d, state);
+    if(!pt) throw new Error("no geocode hit for "+q);
+    return pt;
   });
 }
 // Where the game is: the home field from the team config, else zip, else
@@ -320,7 +306,7 @@ function venuePoint(g){
   var key=[g.zip,g.city,g.venueState].join("|"), hit=geoCache()[key];
   if(hit) return Promise.resolve(hit);
   var first = g.zip ? geoSearch(g.zip) : Promise.reject(new Error("no zip"));
-  return first.catch(function(){ return geoSearch(g.city, US_STATES[g.venueState]||null); })
+  return first.catch(function(){ return geoSearch(g.city, g.venueState||null); })
     .then(function(pt){ geoRemember(key, pt); return pt; });
 }
 
@@ -332,7 +318,7 @@ function venuePoint(g){
 // The polls move once or twice a week: fetched on entry when an hour old.
 // Until the network answers, the last good copies (the worker's) are drawn,
 // so the screen opens offline; those are never fed back into the live state.
-var T25={ polls:null, cachedGames:null, at:0, loading:false, pollsFailed:false, gamesFailed:false };
+var T25={ polls:null, cachedGames:null, at:0, pollsFailed:false, gamesFailed:false };
 
 function top25Sources(){
   function s(key, maxAge){
@@ -377,12 +363,11 @@ function loadTop25(){
 // The polls: one request out at a time, and what it came to.
 function loadRankings(){
   if(T25.p) return T25.p;
-  T25.loading=true;
   T25.p=get(TeamOS.espn.rankingsUrl(), function(d){ return !!d && Array.isArray(d.rankings); }).then(function(d){
     T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); T25.at=Date.now(); T25.pollsFailed=false;
     return { key:"rankings", outcome:outcomeOf("rankings") };
   }).catch(function(){ T25.pollsFailed=true; return { key:"rankings", outcome:"failed" }; })
-    .then(function(r){ T25.loading=false; T25.p=null; paintTop25(); return r; });
+    .then(function(r){ T25.p=null; paintTop25(); return r; });
   return T25.p;
 }
 
@@ -876,7 +861,9 @@ function paintGame(){
   if(g){ loadGameDetail(GV, g, lc, paintGame); loadHomeWeather(g); }
 }
 // A game's summary: every 25 seconds while it is under way, every five
-// minutes otherwise, never two requests at once.
+// minutes otherwise, never two requests at once. While one is out, V.p is
+// its promise, resolving to how it came out ("network" or "failed"), so a
+// refresh can wait for it and report it.
 function loadGameDetail(V, g, lc, repaint){
   var live=TeamOS.game.underWay(g);
   if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))){
@@ -886,12 +873,14 @@ function loadGameDetail(V, g, lc, repaint){
     return;
   }
   V.loading=true;
-  summaryFor(g.id, live).then(function(raw){
+  V.p=summaryFor(g.id, live).then(function(raw){
     V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
     if(learnOpening(g.id, V.gd) && SB.games) SB.games=TeamOS.live.withOpening(SB.games, OPENING);
     if(lc.phase==="pregame" && (V.preview===undefined || V.previewFailed)) loadGamePreview(V, g, repaint);
-  }).catch(function(){}).then(function(){
-    V.at=Date.now(); V.loading=false; repaint();
+    return "network";
+  }).catch(function(){ return "failed"; }).then(function(outcome){
+    V.at=Date.now(); V.loading=false; V.p=null; repaint();
+    return outcome;
   });
 }
 // Pregame Matchup: both teams' season figures, with national ranks. One
@@ -1182,16 +1171,9 @@ function autoTick(){
     paintGame();                         // the Game screen refreshes itself on its own clock
     paintTop25();
   }).catch(function(){});
-
-  if(!$("screenTop25").hidden){
-    // Looking at Top 25: the tick's scoreboard is its data. Only the parts
-    // that changed are redrawn (suite/top25.js), so scroll and focus stay.
-    getScoreboard(30000).then(paintTop25).catch(function(){});
-  } else if(Date.now()-SB.at > 300000){
-    // not looking, but re-check every five minutes so polling stands down
-    // once the last game ends
-    getScoreboard(0).catch(function(){});
-  }
+  // Top 25 redraws only the parts that changed (suite/top25.js), so scroll
+  // and focus stay. The tick's own scoreboard is also what lets polling
+  // stand down once the last game ends.
 }
 
 // Coming back to the app should feel current immediately, not in 30 seconds.
@@ -1404,11 +1386,12 @@ function prefetchSummaries(){
 }
 
 
-// Everything Refresh Data does, and the silent refresh on return to a tab
-// left in the background. Its scope (Product, 2026-09-25, on the catch-up
-// review's recommendation): this team's shared data - its status, schedule,
-// news and Season Outlook markets - and the data of screens already loaded
-// this visit (the scoreboard, the polls, the roster); never unopened games or
+// Everything Refresh Data and a pull down do, and the silent refresh on
+// return to a tab left in the background. Its scope (Product, 2026-09-25, on
+// the catch-up review's recommendation): this team's shared data - its
+// status, schedule, news and Season Outlook markets - and the data of screens
+// already loaded this visit (the scoreboard, the polls, the roster, the game
+// open on Game or from Schedule unless it is final); never unopened games or
 // another team's. Work already under way is joined, not repeated. It resolves
 // once every step has settled, to what each came to: "network", "cached"
 // (the worker's last copy) or "failed" (catch-up review 1.2).
@@ -1420,7 +1403,19 @@ function refreshAll(silent){
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
+  // An open game's summary is otherwise kept up to five minutes before
+  // kickoff: drop that, so a refresh refreshes what the fan is looking at.
+  [GV, SV].forEach(function(V){
+    var g=V.id && gameById(V.id);
+    if(g && g.state!=="post"){ V.at=0; delete SUM.mem[String(V.id)]; }
+  });
   if(UI.tab==="game") paintGame();
+  if(UI.tab==="schedule") paintScheduleScreen();
+  // ...and the refresh is not done until that game's summary is: it waits
+  // for it and reports it with the rest.
+  [UI.tab==="game" && GV, UI.tab==="schedule" && SV].forEach(function(V){
+    if(V && V.p) steps.push(V.p.then(function(o){ return { key:"summary", outcome:o }; }));
+  });
   FRESH.at=Date.now();
   return Promise.all(steps).then(function(r){
     var flat=[]; (function add(x){ if(Array.isArray(x)) x.forEach(add); else if(x && x.outcome) flat.push(x); })(r);
@@ -1435,7 +1430,7 @@ function refreshAll(silent){
 // current team until another is picked and offers Cancel back to it.
 // from: the last screen the fan was on, for Feedback - null until there is
 // one (a direct entry names none). result: what the last Refresh Data did.
-var MORE={ from:null, refreshing:false, version:null, result:null };
+var MORE={ from:null, refreshing:false, p:null, version:null, result:null };
 var FEEDBACK_TO="suiteappfeedback@gmail.com";
 function paintMore(){
   var r=Suite.nav.current(), host=$(MORE_HOSTS[r.screen]);
@@ -1539,19 +1534,31 @@ function refreshResult(outcomes){
   return { say:"Couldn\u2019t refresh. Showing the last data this device saw.",
            note:"Couldn\u2019t refresh at "+t+". Showing the last data this device saw." };
 }
+// The manual refresh. Settings' Refresh Data and a pull down on any screen
+// are one action (David, 2026-10-01), so they can never drift apart: either
+// one shows as under way on the other, and Settings reports how the last one
+// came out, whichever started it. A second ask while one runs joins it.
+function manualRefresh(){
+  if(MORE.p) return MORE.p;
+  MORE.refreshing=true; paintMore();
+  MORE.p=refreshAll(false).then(function(outcomes){
+    var r=refreshResult(outcomes);
+    MORE.refreshing=false; MORE.p=null; MORE.result=r.note; paintMore();
+    return r;
+  });
+  return MORE.p;
+}
 document.addEventListener("click", function(e){
   var b=e.target.closest && e.target.closest("[data-refresh]");
   if(!b || MORE.refreshing) return;
-  MORE.refreshing=true; paintMore();
-  refreshAll(false).then(function(outcomes){
-    var r=refreshResult(outcomes);
-    MORE.refreshing=false; MORE.result=r.note; paintMore();
+  manualRefresh().then(function(r){
     // Back to the button the fan pressed - unless they have moved on.
     var btn=document.querySelector("#screenSettings [data-refresh]"), a=document.activeElement;
     if(btn && !$("screenSettings").hidden && (!a || a===document.body || a===btn)) btn.focus();
     say(r.say);
   });
 });
+Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); }); });
 
 // How long data may sit before a silent refresh: on return to a tab that was
 // hidden this long, and on a timer while it stays visible.

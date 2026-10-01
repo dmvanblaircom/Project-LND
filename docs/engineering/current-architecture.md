@@ -25,7 +25,7 @@ External sources ──► adapters (teamos/espn.js, cfbd.js, markets.js, weathe
 | `teams/<team>.js` | One team's configuration: identity, colors, provider ids, official sources, Kalshi match, beat feeds (`docs/04_TEAM_CONFIG.md`). |
 | `teams/index.js` | The program registry, regenerated weekly by `roster.yml` (decisions 0014, 0017). |
 | `chooser.js` | The no-team-yet page (decision 0016); never loads `app.js`. |
-| `teamos/*.js` | Domain rules every surface shares: game status/lifecycle/hero (`game.js`), live state (`live.js`), roster and depth chart (`roster.js`), Season Outlook (`outlook.js`), freshness (`freshness.js`), identity, registry, snapshots, sources, season figures. `ratings.js` (FPI for Top 25 → Rankings) is tested but not loaded until its snapshot is scheduled. Provider adapters: `espn.js`, `cfbd.js`, `markets.js` (Kalshi), `weather.js` (Open-Meteo). |
+| `teamos/*.js` | Domain rules every surface shares: game status/lifecycle/hero (`game.js`), live state (`live.js`), roster and depth chart (`roster.js`), Season Outlook (`outlook.js`), freshness (`freshness.js`), identity, registry, snapshots, sources, season figures. `ratings.js` (FPI for Top 25 → Rankings) is tested but not loaded until its snapshot is scheduled. Provider adapters: `espn.js`, `cfbd.js`, `markets.js` (Kalshi), `weather.js` (Open-Meteo forecast and geocoding). |
 | `suite/*.js` | Screens: Home, Game, Top 25, Schedule, Roster, More; `nav.js` routes, `ui.js` shared pieces. Draw what TeamOS decided. |
 | `app.js` | The controller: fetches, cache-first paint, polling, per-source freshness, Refresh Data. Names no team and reads no provider field. |
 | `app.css` | One stylesheet; team color comes from identity tokens. |
@@ -37,7 +37,7 @@ Three paths, chosen by how fresh the data must be and what its terms allow:
 
 | Path | Used for | Why |
 |---|---|---|
-| **Browser → provider** | ESPN scores, schedule, scoreboard, game summary, rankings, news, roster; Open-Meteo weather | Must be current; no key; CORS permitted. |
+| **Browser → provider** | ESPN scores, schedule, scoreboard, game summary, rankings, news, roster; Open-Meteo weather and geocoding | Must be current; no key; CORS permitted. |
 | **GitHub Action → committed snapshot** (`data/<team>/`, `data/league/`) | Kalshi odds and odds history, official depth chart and availability report, beat news; FPI producer ready (`tools/producers/fpi.py`), not yet scheduled | Changes over hours or days; Kalshi sends no CORS header; official PDFs need parsing. Runs from `odds.yml` (decision 0020 cadence). |
 | **Browser → Suite's edge API → provider** (`worker/`, `https://suite-api.dmvanblaircom.workers.dev`) | CollegeFootballData season figures (Matchup yards allowed) | Needs a key kept server-side, and CFBD's terms allow display but not publishing its data as files (decision 0030). |
 

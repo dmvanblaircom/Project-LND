@@ -39,11 +39,9 @@ Suite.home = (function () {
   var EXTERNAL = '<svg class="ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4"/></svg>';
   var BALL = ui.ball("gc-ball");
 
-  function ordinal(p) {
-    return p === 1 ? "1st" : p === 2 ? "2nd" : p === 3 ? "3rd" : p === 4 ? "4th" : p > 4 ? (p === 5 ? "OT" : (p - 4) + "OT") : "";
-  }
+  var ordinal = ui.period;
   function whereWord(g) { return g.home || g.neutral ? "vs" : "at"; }
-  function oppLabel(g) { return (g.oppRank ? "#" + g.oppRank + " " : "") + g.oppName; }
+  var oppLabel = ui.oppLabel;
 
   // ---- the hero ------------------------------------------------------------
 
@@ -244,7 +242,7 @@ Suite.home = (function () {
 
   function scheduleHtml(rows, heroId) {
     var head = '<div class="sec-head"><h2 class="sec-title" id="schedHead">Schedule</h2>' +
-               '<a class="sec-link" href="#schedule">View All' + CHEVRON + "</a></div>";
+               '<a class="sec-link" href="#schedule">View Full Schedule' + CHEVRON + "</a></div>";
     if (!rows || !rows.length) return head + '<p class="sec-quiet">No games on the schedule yet.</p>';
     // The same row the Schedule screen draws (suite/schedule.js), compact.
     return head + '<ul class="sched-list card" aria-labelledby="schedHead">' + rows.map(function (g) {

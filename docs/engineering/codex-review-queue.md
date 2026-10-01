@@ -5,7 +5,34 @@ Codex owns presentation and motion; Claude owns the data, behavior and
 tests underneath (the split in `backlog.md` and `wednesday-delivery-handoff.md`).
 When an item is done, delete its entry and record it in the backlog.
 
-## 1. Swipe between a screen's views: review the motion
+## 1. Pull to refresh: review the indicator
+
+**Asked by David, 2026-10-01:** a pull-down refresh that does what
+Settings' Refresh Data does, with no explanation on screen.
+
+**Built (Claude):** `suite/nav.js` `pull()` and `app.js` `manualRefresh()`.
+What counts as a pull is behavior and is settled - one finger, starting with
+the page at its top, at least 64px down and twice as far down as sideways,
+not on a form control or inside anything scrolled down itself; a pull while
+a refresh runs, or Refresh Data pressed during one, joins it. The pull and
+the button are one refresh: Settings shows it under way and reports its
+outcome whichever started it. `tools/pullcheck.js` pins all of it.
+
+**For Codex to review - the indicator only (`app.css`, end of file):**
+- `.pull` / `.pull-mark`: a white disc with a ring that slides out from under
+  the header with the finger (60% of its travel), completes its arc at the
+  mark (`.is-armed`), and turns while the refresh runs (`.is-refreshing`).
+  A placeholder: size, travel, the ring's colour (`--t-accent-on-light`),
+  shadow, whether the content should move with the pull.
+- Whether a pull that came back with stale data should show anything beyond
+  the screens' existing freshness lines (today it shows nothing, per David).
+- Reduced motion: no turning, no slide transition. Keep that.
+
+Check at 320/375/390 on Home, Game, Top 25 and Roster, Team Style and Suite
+Style. `node tools/pullcheck.js` must stay green; it asserts the classes, not
+their look.
+
+## 2. Swipe between a screen's views: review the motion
 
 **Asked by David, 2026-10-01:** "Claude builds the navigation, Codex reviews
 the animation." Sub-views only, never the primary tabs.
@@ -34,7 +61,7 @@ Check at 320/375/390 on Top 25, Roster and Game (live and final), Team Style
 and Suite Style. `node tools/swipecheck.js` must stay green; it asserts the
 class is applied and removed, not its look.
 
-## 2. Launch animation: review the motion and look
+## 3. Launch animation: review the motion and look
 
 **Asked by David, 2026-10-01:** "about 3 seconds and clean", like Sleeper's
 launch; the first version's wordmark jumped and lifted before data loaded.
@@ -58,12 +85,12 @@ a team cue belongs on it (team-first vs install identity), and the
 reduced-motion state (static wordmark, no animation). Changing the 2.6s
 minimum is David's call, not a styling choice.
 
-## 3. UIs waiting on Claude's models
+## 4. UIs waiting on Claude's models
 
 | Item | Model, ready | What Codex builds |
 |---|---|---|
-| W06 changes disclosure (issue #30) | `TeamOS.roster.depth(...).since` (PR #48) | The collapsed "N changes since the last chart" under the source line; render only when `since && since.count > 0` |
 | W07 FPI in Rankings (issue #29) | `TeamOS.ratings.fpi()` (PR #53); app loading follows the refresh schedule | The fourth selector option, rating column, "predictive rating" labeling, source/edition line |
 | W18 Season Outlook full field | `TeamOS.markets.field()`, `MARKET_FIELD` in app.js (PR #55) | The "View full field" board: light theme, attribution, stale/missing states, Home navigation |
-| W08 schedule links | Rules shipped (PR #36) | "View All" → "View Full Schedule" on Home; a Full Schedule link on Game |
 | W21 series card | `seriesKind` (W21 PR) | Review the card without the trophy mark for a rivalry or event (The Game, the Shamrock Series) |
+
+**David's October 1 correction:** preserve the deliberately compact depth-chart changes section and its movement arrows. W06's disclosure is withdrawn; do not restore or enlarge the changes section. See the controlling direction in `backlog.md`.

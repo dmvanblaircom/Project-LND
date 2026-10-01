@@ -93,8 +93,11 @@ TeamOS.espn = (function () {
   // ESPN does not always set neutralSite. A game where the team is the listed
   // home side but the venue is not its home field is a neutral site in
   // practice - Lambeau, Gillette, the Shamrock Series and so on.
-  // Venues that are never a college team's home field.
-  var NEUTRAL_VENUES = /lambeau|gillette|metlife|m&t bank|soldier field|yankee stadium|aviva|at&t stadium|allegiant|mercedes-benz|hard rock|raymond james|caesars superdome|camping world|alamodome/i;
+  // Venues that are never a college team's home field. A stadium a college
+  // team does play its home games in (Hard Rock - Miami, Raymond James -
+  // USF, the Alamodome - UTSA, Allegiant - UNLV) is not on it: a road game
+  // there is a road game, and ESPN marks the bowls played there neutral.
+  var NEUTRAL_VENUES = /lambeau|gillette|metlife|m&t bank|soldier field|yankee stadium|aviva|at&t stadium|mercedes-benz|caesars superdome|camping world/i;
 
   // Case-insensitive match on the home field's name, the way ESPN spells it.
   function isHomeField(team, venueName){
