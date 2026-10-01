@@ -1422,14 +1422,22 @@ function lastUpdated(){
 // share sheet, the text is copied to paste into a message; where that is
 // refused too, it opens as a new text message. The link carries the team, so
 // a friend lands on the same Suite, not the chooser.
+var SHARE={ t:0 };
 function shareSuite(){
   var url=location.origin+location.pathname+"?team="+encodeURIComponent(TEAM.id);
   var text="Join me in my "+TEAM.name+" Suite";
   var note=document.querySelector("[data-share-note]");
   // Said twice: in the status line (announced) and on the row itself, which
-  // is where the eye is when the status line sits below the fold.
-  var sub=document.querySelector("[data-share] .mo-sub"), was=sub && sub.textContent;
-  function say(t){ if(note) note.textContent=t; if(sub && t){ sub.textContent=t; setTimeout(function(){ sub.textContent=was; }, 4000); } }
+  // is where the eye is when the status line sits below the fold. The row's
+  // own words are kept on it the first time, so a second tap while the
+  // first's message shows never makes that message the row's words.
+  var sub=document.querySelector("[data-share] .mo-sub");
+  if(sub && !sub.hasAttribute("data-words")) sub.setAttribute("data-words", sub.textContent);
+  var was=sub && sub.getAttribute("data-words");
+  function say(t){
+    if(note) note.textContent=t;
+    if(sub && t){ sub.textContent=t; clearTimeout(SHARE.t); SHARE.t=setTimeout(function(){ sub.textContent=was; }, 4000); }
+  }
   say("");
   if(navigator.share){
     navigator.share({ title:"Suite", text:text, url:url }).catch(function(){});

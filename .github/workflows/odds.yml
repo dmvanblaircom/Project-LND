@@ -73,9 +73,14 @@ jobs:
             return 1
           }
 
+          # Each market on its own: one that cannot be had keeps its last good
+          # file (grab only replaces a file on a 200), and the other is still
+          # committed. The step fails only when neither came back.
           mkdir -p data/league
-          grab "$BASE/markets?event_ticker=KXNCAAF-27&limit=200&status=open"        data/league/odds-title.json
-          grab "$BASE/markets?event_ticker=KXNCAAFPLAYOFF-26&limit=200&status=open" data/league/odds-playoff.json
+          got=0
+          grab "$BASE/markets?event_ticker=KXNCAAF-27&limit=200&status=open"        data/league/odds-title.json   && got=$((got+1))
+          grab "$BASE/markets?event_ticker=KXNCAAFPLAYOFF-26&limit=200&status=open" data/league/odds-playoff.json && got=$((got+1))
+          [ "$got" -gt 0 ] || exit 1
 
       - name: Refuse to commit anything that is not market data
         id: odds
