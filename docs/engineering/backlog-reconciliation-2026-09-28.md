@@ -89,3 +89,14 @@ Future completion entries should cite the accepted PR, checks and verification. 
 | W07 FPI data slice (partial) | PR #35 merged | Producer, checks and source record. Scheduling, TeamOS model and UI remain. |
 | W08 schedule rules (partial) | PR #36 merged; production verified `suite-2026-09-30b` | Rules done. The two link changes remain with Codex. |
 
+## Completed October 1, 2026
+
+| Item | Evidence | Disposition |
+|---|---|---|
+| W03 pregame availability | PR #38 merged (team config only; no shell change) | Done. ND posts the pregame update only on X (David); `minutesBeforeKickoff` removed and the reason recorded in `teams/notre-dame.js`. Close #15. |
+| W05 battle framing | PR #39 merged; production verified `suite-2026-09-30c` | Done (option A): Battle badge and open-jobs count only on preseason / Game 1 charts, from the chart's own title. ORs, levels, arrows and history kept. |
+| Backend decision | PR #40 merged (decision 0030) | Cloudflare Workers edge API; Postgres/FCM later if needed. |
+| W15 yards allowed | PRs #41-#45 merged (Worker `suite-api`, `edge-2026-10-01b`; app `suite-2026-10-01a`, production verified) | Done, by a different route than the original row: CFBD season totals through our own edge API, shown only (Bill at CFBD, Oct 1), replacing Yards per play and Tackles for loss (David). The deploy smoke test checks all three fields arrive as numbers. |
+| W11 Kalshi relays | PR #46 merged; production verified `suite-2026-10-01b` | Done. Odds come only from the same-origin snapshot; public relays removed. |
+| W09 scan log | PR #25 merged | Partial: the log landed. Item-4 review and device checks remain. |
+
