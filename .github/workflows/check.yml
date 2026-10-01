@@ -94,6 +94,8 @@ jobs:
       # A redraw never reloads a logo already showing: the hero's flicker
       # on first open and on every live tick (David, 2026-10-01).
       - run: node tools/flickercheck.js
+      # A background refresh never drops a keyboard or VoiceOver user's focus.
+      - run: node tools/focuscheck.js
       # The launch screen covers the first open and never outstays it.
       - run: node tools/launchcheck.js
       # Swiping moves between a screen's peer views, and only on purpose.

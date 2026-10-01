@@ -65,6 +65,13 @@ def _text(node):
 BARE_AMP = re.compile(rb"&(?!#\d+;|#x[0-9a-fA-F]+;|[A-Za-z][A-Za-z0-9]*;)")
 
 
+# A story's link is written into an href on the page; only a plain web
+# address may be one. A javascript: (or data:, or relative) link from a feed
+# would run or misroute on a tap, so the story is dropped (code review,
+# 2026-10-01).
+WEB = re.compile(r"^https?://\S+$", re.I)
+
+
 def parse_feed(raw, source):
     """RSS 2.0 or Atom bytes -> stories. Raises ValueError if it is not a feed."""
     try:
@@ -80,7 +87,7 @@ def parse_feed(raw, source):
     for it in root.iter("item"):
         t, link = _text(it.find("title")), _text(it.find("link"))
         d = when(_text(it.find("pubDate")))
-        if t and link:
+        if t and WEB.match(link or ""):
             items.append({"title": t, "link": link, "source": source,
                           "summary": _text(it.find("description"))[:600],
                           "published": d.isoformat() if d else None})
@@ -89,7 +96,7 @@ def parse_feed(raw, source):
         ln = en.find(ATOM + "link")
         link = ln.get("href") if ln is not None else ""
         d = when(_text(en.find(ATOM + "updated")) or _text(en.find(ATOM + "published")))
-        if t and link:
+        if t and WEB.match(link or ""):
             items.append({"title": t, "link": link, "source": source,
                           "summary": (_text(en.find(ATOM + "summary")) or _text(en.find(ATOM + "content")))[:600],
                           "published": d.isoformat() if d else None})
