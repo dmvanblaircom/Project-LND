@@ -632,7 +632,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
 
 console.log("mark");
@@ -1249,6 +1249,45 @@ eq(TeamOS.espn.teamStatus({ team: { record: { items: [
 eq(TeamOS.espn.teamStatus({ team: { record: { items: [{ type: "total", summary: "2-1" }] } } }).record, "2-1",
   "and when it is the only one");
 eq(TeamOS.espn.teamStatus({ team: {} }).record, null, "no record at all is null");
+
+// ---- the Stats screen's Team view (W27; real payloads, 2026-10-01) ----
+console.log("teamos/espn.js: a team's season, for Stats");
+function fx(f) { return JSON.parse(read("tools/fixtures/" + f)); }
+var tsND = TeamOS.espn.teamSeason(fx("espn-teamstats-nd-2026-reg.json"), fx("espn-sitestats-nd.json"));
+function rowOf(t, key) { var hit = null; t.groups.forEach(function (g) { g.rows.forEach(function (r) { if (r.key === key) hit = r; }); }); return hit; }
+eq(tsND.groups.map(function (g) { return g.label; }), ["Offense", "Defense", "Special teams", "Turnovers and penalties"], "four groups, in order");
+eq(tsND.games, 4, "four games played");
+eq([rowOf(tsND, "pointsPerGame").value, rowOf(tsND, "pointsPerGame").rank], ["42.3", "17th"], "points per game with its national rank");
+eq(rowOf(tsND, "completionPct").value, "69.6%", "a percentage says so");
+eq([rowOf(tsND, "pointsAllowed").value, rowOf(tsND, "yardsAllowed").value, rowOf(tsND, "rushAllowed").value, rowOf(tsND, "passAllowed").value],
+   ["8.3", "199.3", "53.8", "145.5"], "what the team allowed comes from the site API's opponent figures, never ESPN's 0 stubs");
+ok(["pointsAllowed", "yardsAllowed", "rushAllowed", "passAllowed"].every(function (k) { return rowOf(tsND, k).rank === null; }),
+   "and carries no rank: those ranks count beyond the FBS");
+eq([rowOf(tsND, "sacks").value, rowOf(tsND, "sacks").rank], ["13", "Tied-10th"], "sacks are the defense's, not the passing game's sacks allowed");
+eq(rowOf(tsND, "thirdDowns"), { key: "thirdDowns", label: "Third-down conversions", value: "17 of 41 (41.5%)", rank: null },
+   "third downs as made of attempted, with no rank (ESPN never fills it)");
+eq(rowOf(tsND, "possession").value, "31:05", "time of possession per game, from the season's seconds");
+eq([rowOf(tsND, "turnoverMargin").value, rowOf(tsND, "turnoverMargin").rank], ["+7", "Tied-10th"], "a positive margin says so");
+eq([rowOf(tsND, "penalties").value, rowOf(tsND, "penalties").rank], ["2.5 for 26.5 yards", null],
+   "penalties per game, with no rank: ESPN ranks the raw count, so the fewest would read last");
+var shown = JSON.stringify(tsND);
+ok(!/2075|Tied-289th/.test(shown), "none of ESPN's stub values or ranks reaches the screen");
+var ranked = []; tsND.groups.forEach(function (g) { g.rows.forEach(function (r) { if (r.rank) ranked.push(r.key); }); });
+eq(ranked, ["pointsPerGame", "yardsPerGame", "passYards", "rushYards", "completionPct", "yardsPerPass", "yardsPerRush", "passTds", "rushTds",
+            "sacks", "tacklesForLoss", "interceptions", "forcedFumbles", "turnoverMargin", "takeaways"],
+   "a rank only where more of the figure is better");
+var tsOSU = TeamOS.espn.teamSeason(fx("espn-teamstats-osu-2026-reg.json"), null);
+eq(tsOSU.groups.map(function (g) { return g.label + ":" + g.rows.length; }), ["Offense:12", "Defense:4", "Special teams:6", "Turnovers and penalties:4"],
+   "Ohio State, the same code; without the site payload only the allowed rows are missing, never shown as 0");
+eq(TeamOS.espn.teamSeason(fx("espn-teamstats-nd-2024-post.json"), null).games, 16,
+   "the postseason payload is the whole season: Notre Dame 2024, 12 games and 4 in the CFP");
+eq(TeamOS.espn.teamSeason(null, null).groups, [], "nothing to show is no groups, not empty rows");
+eq([TeamOS.espn.seasonTypeFor(null), TeamOS.espn.seasonTypeFor(fx("espn-schedule-nd-2024-post.json"))], [2, 3],
+   "the season type is the postseason once a postseason game has been played");
+eq([TeamOS.espn.seasonStatsUrl("87", 2026), TeamOS.espn.seasonStatsUrl("87", 2024, 3)],
+   ["https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/teams/87/statistics",
+    "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2024/types/3/teams/87/statistics"],
+   "the season statistics URL takes the season type, the regular season by default (the Matchup card is unchanged)");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "all adapter checks passed"));
 process.exit(failures ? 1 : 0);

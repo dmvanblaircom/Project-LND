@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-01hd3";
+var VERSION = "suite-2026-10-01st";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -38,7 +38,7 @@ var DATA    = VERSION + "-data";
 // - and nothing that is not.
 var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
-  "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js",
+  "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js", "./suite/stats.js",
   "./teams/index.js",
   "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
   "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",

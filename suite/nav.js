@@ -68,6 +68,8 @@ Suite.nav = (function () {
     // More's other destinations (reference 10), each a secondary destination
     // that keeps More selected (decision 0028).
     news:     { title: "News",        owner: "more" },
+    // The team's season (W27): reached from More, Roster and Game's Matchup.
+    stats:    { title: "Stats",       owner: "more" },
     settings: { title: "Settings",    owner: "more" },
     feedback: { title: "Feedback",    owner: "more" },
     about:    { title: "About Suite", owner: "more" }

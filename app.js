@@ -624,6 +624,57 @@ function teamSeasonStats(key){
 
 
 
+/* ---------- season stats (W27) ---------- */
+// The Stats screen's Team view (docs/product/season-stats-proposal.md). Per
+// team, two requests: the core API's season statistics (figures and ranks)
+// and the site API's team statistics (what the team allowed). Asked when
+// Stats opens and kept for the session; Refresh Data and a pull ask again.
+// In game week the next opponent's season sits beside ours (David,
+// 2026-10-01). TeamOS decides which figures exist and what they are called.
+var ST={ us:null, them:null, opp:null, p:null, failed:false };
+function statsType(){ return TeamOS.espn.seasonTypeFor(POST); }
+function teamSeasonFor(key){
+  var type=statsType(), year=seasonYear();
+  return Promise.all([
+    get(TeamOS.espn.seasonStatsUrl(key, year, type)).catch(function(){ return null; }),
+    get(TeamOS.espn.teamStatsUrl(key)).catch(function(){ return null; })
+  ]).then(function(r){
+    if(!r[0] && !r[1]) throw new Error("no season stats");
+    return TeamOS.espn.teamSeason(r[0], r[1]);
+  });
+}
+// This week's opponent: the next game, while it is on or within seven days.
+function gameWeekGame(){
+  var g=S.next;
+  if(!g || !g.oppProviderId) return null;
+  var ms=new Date(g.date).getTime()-Date.now();
+  return g.state==="in" || (ms>-6*3600e3 && ms<7*86400e3) ? g : null;
+}
+function loadStats(force){
+  if(ST.p) return ST.p;
+  var g=gameWeekGame();
+  var have=ST.us && (!g || (ST.opp && ST.opp.oppProviderId===g.oppProviderId && ST.them));
+  if(have && !force) return Promise.resolve();
+  ST.failed=false;
+  ST.p=Promise.all([
+    teamSeasonFor(TEAM_CONFIG.sources.espn.teamId),
+    g ? teamSeasonFor(g.oppProviderId).catch(function(){ return null; }) : Promise.resolve(null)
+  ]).then(function(r){ ST.us=r[0]; ST.them=r[1]; ST.opp=r[1] ? g : null; },
+          function(){ if(!ST.us) ST.failed=true; })
+    .then(function(){ ST.p=null; paintStats(); });
+  paintStats();
+  return ST.p;
+}
+function paintStats(){
+  var host=$("screenStats");
+  if(!host || host.hidden) return;
+  var g=ST.them ? ST.opp : null;
+  Suite.stats.paint(host, { team:{ name:TEAM.name, abbr:TEAM.abbreviation },
+    opp: g ? { name:g.oppName, abbr:g.oppAbbr } : null,
+    season:String(seasonYear()), postseason: statsType()===3,
+    us:ST.us, them:ST.them, failed:ST.failed, offline:navigator.onLine===false });
+}
+
 /* ---------- news ---------- */
 // Two sources merged: ESPN's own feed, which arrives as NewsItem[] from
 // TeamOS.espn, and - for a team that declares one - the beat-writer RSS
@@ -981,9 +1032,9 @@ $("scheduleList").addEventListener("pointerdown", function(e){
 // other half: which host a screen shows, and what it loads on entry. UI.tab
 // names the screen's family, for what Refresh Data reloads.
 var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"roster", more:"more", schedule:"schedule",
-                news:"more", settings:"more", feedback:"more", about:"more" };
+                news:"more", stats:"more", settings:"more", feedback:"more", about:"more" };
 // More and the destinations it owns, each its own host (suite/more.js).
-var MORE_HOSTS={ more:"screenMore", news:"screenNews", settings:"screenSettings", feedback:"screenFeedback", about:"screenAbout" };
+var MORE_HOSTS={ more:"screenMore", news:"screenNews", stats:"screenStats", settings:"screenSettings", feedback:"screenFeedback", about:"screenAbout" };
 function showScreen(route){
   var name=PANEL_FOR[route.screen]||"schedule";
   // Home, Game, Top 25, Schedule and Roster are canonical; More is still
@@ -1001,7 +1052,7 @@ function showScreen(route){
   $("screenSchedule").hidden=!sched;
   $("screenRoster").hidden=!roster;
   if(home){ paintHome(); loadNews(); }
-  if(MORE_HOSTS[route.screen]){ askVersion(); paintMore(); if(route.screen==="news") loadNews(); }
+  if(MORE_HOSTS[route.screen]){ askVersion(); paintMore(); if(route.screen==="news") loadNews(); if(route.screen==="stats") loadStats(); }
   if(game) paintGame();
   if(top25){ paintTop25(); loadTop25(); }
   if(sched) paintScheduleScreen();
@@ -1389,6 +1440,7 @@ function refreshAll(silent){
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
+  if(ST.us || ST.p || ST.failed) steps.push(loadStats(true).then(function(){ return { key:"stats", outcome: ST.failed ? "failed" : "network" }; }));
   // An open game's summary is otherwise kept up to five minutes before
   // kickoff: drop that, so a refresh refreshes what the fan is looking at.
   [GV, SV].forEach(function(V){
@@ -1423,6 +1475,7 @@ function paintMore(){
   if(!host) return;
   if(r.screen==="more") Suite.more.menu(host);
   if(r.screen==="news") paintNews();
+  if(r.screen==="stats") paintStats();
   if(r.screen==="settings") Suite.more.settings(host, {
     team:{ name:TEAM.name, abbr:TEAM.abbreviation,
            mark:Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId), TEAM.name, TEAM.abbreviation) },

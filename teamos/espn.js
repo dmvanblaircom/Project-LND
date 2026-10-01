@@ -805,6 +805,78 @@ TeamOS.espn = (function () {
   // filed a stat this year. Each stat is keyed twice: qualified by its
   // category, and bare. Bare names collide across categories and the last one
   // listed wins - which is why anything ambiguous is looked up qualified.
+  // The Stats screen's Team view (W27; docs/product/season-stats-proposal.md).
+  // ESPN's season payload carries about 285 figures, many of them stubs: a
+  // 0 "Tied-1st" for every red-zone, big-play and kickoff-average field,
+  // pointsAllowed/yardsAllowed always 0, firstDownsPerGame "2075.00". And
+  // its ranks order the raw value, so the fewest penalties reads "137th".
+  // So this is an allowlist, checked against real payloads for Notre Dame
+  // and Ohio State (2024-2026): each row names its source, and a rank shows
+  // only where more of it is better. Points and yards allowed come from the
+  // site API's `opponent` section, which carries real figures; its ranks
+  // count beyond the FBS ("252nd") and are not shown.
+  //   [key, label, how]  how: "core:cat.name" | "opp:cat.name" | a function
+  //   of (core, opp) -> display string; "+rank" shows the core rank
+  var TEAM_GROUPS=[
+    ["offense", "Offense", [
+      ["pointsPerGame", "Points per game",        "core:scoring.totalpointspergame+rank"],
+      ["yardsPerGame",  "Total yards per game",   "core:passing.yardspergame+rank"],
+      ["passYards",     "Passing yards per game", "core:passing.netpassingyardspergame+rank"],
+      ["rushYards",     "Rushing yards per game", "core:rushing.rushingyardspergame+rank"],
+      ["completionPct", "Completion percentage",  "core:passing.completionpct+rank", null, "%"],
+      ["yardsPerPass",  "Yards per pass",         "core:passing.yardsperpassattempt+rank"],
+      ["yardsPerRush",  "Yards per rush",         "core:rushing.yardsperrushattempt+rank"],
+      ["passTds",       "Passing touchdowns",     "core:passing.passingtouchdowns+rank"],
+      ["rushTds",       "Rushing touchdowns",     "core:rushing.rushingtouchdowns+rank"],
+      ["thirdDowns",    "Third-down conversions", function(c){ return ofTotal(c, "miscellaneous.thirddownconvs", "miscellaneous.thirddownattempts"); }],
+      ["fourthDowns",   "Fourth-down conversions",function(c){ return ofTotal(c, "miscellaneous.fourthdownconvs", "miscellaneous.fourthdownattempts"); }],
+      ["possession",    "Time of possession per game", function(c){ return possession(c); }]
+    ]],
+    ["defense", "Defense", [
+      ["pointsAllowed", "Points allowed per game",        "opp:scoring.totalpointspergame"],
+      ["yardsAllowed",  "Yards allowed per game",         "opp:passing.yardspergame"],
+      ["rushAllowed",   "Rushing yards allowed per game", "opp:rushing.rushingyardspergame"],
+      ["passAllowed",   "Passing yards allowed per game", "opp:passing.netpassingyardspergame"],
+      ["sacks",         "Sacks",                          "core:defensive.sacks+rank"],
+      ["tacklesForLoss","Tackles for loss",               "core:defensive.tacklesforloss+rank"],
+      ["interceptions", "Interceptions",                  "core:defensiveinterceptions.interceptions+rank"],
+      ["forcedFumbles", "Forced fumbles",                 "core:general.fumblesforced+rank"]
+    ]],
+    ["special", "Special teams", [
+      ["fieldGoals",    "Field goals",          function(c){ return ofTotal(c, "kicking.fieldgoalsmade", "kicking.fieldgoalattempts"); }],
+      ["longFieldGoal", "Longest field goal",   "core:kicking.longfieldgoalmade", null, " yards"],
+      ["extraPoints",   "Extra points",         function(c){ return ofTotal(c, "kicking.extrapointsmade", "kicking.extrapointattempts"); }],
+      ["puntAverage",   "Punting average",      "core:punting.grossavgpuntyards"],
+      ["kickReturns",   "Kick return average",  "core:returning.yardsperkickreturn"],
+      ["puntReturns",   "Punt return average",  "core:returning.yardsperpuntreturn"]
+    ]],
+    ["turnovers", "Turnovers and penalties", [
+      ["turnoverMargin","Turnover margin",      function(c){ var v=num(c, "miscellaneous.turnoverdifferential"); return v==null ? null : (v>0 ? "+" : "")+v; }, "miscellaneous.turnoverdifferential"],
+      ["takeaways",     "Takeaways",            "core:miscellaneous.totaltakeaways+rank"],
+      ["giveaways",     "Giveaways",            "core:miscellaneous.totalgiveaways"],
+      ["penalties",     "Penalties per game",   function(c){ return perGame(c, "miscellaneous.totalpenalties", "miscellaneous.totalpenaltyyards"); }]
+    ]]
+  ];
+  function rawOf(map, k){ return map && map[k] ? map[k] : null; }
+  function num(map, k){ var v=rawOf(map, k); return v && typeof v.value==="number" && isFinite(v.value) ? v.value : null; }
+  function gamesOf(map){ return num(map, "general.gamesplayed") || num(map, "passing.teamgamesplayed"); }
+  // "17 of 41 (41.5%)"; nothing when there were no attempts to count
+  function ofTotal(map, made, att){
+    var m=num(map, made), a=num(map, att);
+    if(m==null || !a) return null;
+    return m+" of "+a+" ("+(Math.round(m/a*1000)/10).toFixed(1)+"%)";
+  }
+  function possession(map){
+    var t=num(map, "miscellaneous.possessiontimeseconds"), g=gamesOf(map);
+    if(!t || !g) return null;
+    var per=Math.round(t/g), m=Math.floor(per/60), sec=per%60;
+    return m+":"+(sec<10?"0":"")+sec;
+  }
+  function perGame(map, count, yards){
+    var n=num(map, count), y=num(map, yards), g=gamesOf(map);
+    if(n==null || !g) return null;
+    return (n/g).toFixed(1)+(y!=null ? " for "+(y/g).toFixed(1)+" yards" : "");
+  }
   function flattenStats(d){
     var out={};
     var cats=pick(d,["splits","categories"],[])||[];
@@ -813,6 +885,7 @@ TeamOS.espn = (function () {
       (c.stats||[]).forEach(function(s){
         if(!s||!s.name) return;
         var v={
+          value: typeof s.value==="number" ? s.value : null,
           display: s.displayValue!=null?s.displayValue:s.value,
           rank: typeof s.rank==="number" ? s.rank : null,
           rankText: s.rankDisplayValue||null
@@ -884,8 +957,14 @@ TeamOS.espn = (function () {
     },
     // National ranks are not in the site API; they live in ESPN's core API.
     // `key` is a GameDetail side's opaque key; `season` the season year.
-    seasonStatsUrl: function(key, season){
-      return CORE+"/seasons/"+season+"/types/2/teams/"+key+"/statistics";
+    // `type` 2 is the regular season, 3 the season with its postseason.
+    seasonStatsUrl: function(key, season, type){
+      return CORE+"/seasons/"+season+"/types/"+(type||2)+"/teams/"+key+"/statistics";
+    },
+    // The site API's team statistics: the team's own figures and, under
+    // `opponent`, what it allowed (the Stats screen's defense rows).
+    teamStatsUrl: function(key){
+      return SITE+"/teams/"+key+"/statistics";
     },
     rankingsUrl: function(){
       return SITE+"/rankings";
@@ -1013,6 +1092,45 @@ TeamOS.espn = (function () {
                  rank: hit ? hit.rank : null,
                  rankText: hit ? hit.rankText : null };
       });
+    },
+
+    // A team's season, for the Stats screen's Team view (W27). `core` is the
+    // core API's season statistics (seasonStatsUrl), `site` the site API's
+    // team statistics (teamStatsUrl), whose `opponent` section is what the
+    // team allowed. Either may be missing: its rows are simply left out.
+    // -> { games, groups: [{ id, label, rows: [{ key, label, value, rank }] }] }
+    // value is the display string; rank the provider's rank text or null.
+    teamSeason: function(core, site){
+      var c=core ? flattenStats(core) : null;
+      var oppCats=site && site.results && site.results.opponent;
+      var o=oppCats ? flattenStats({ splits:{ categories: oppCats } }) : null;
+      var groups=TEAM_GROUPS.map(function(g){
+        var rows=[];
+        g[2].forEach(function(r){
+          var value=null, rank=null, how=r[2];
+          if(typeof how==="function"){ value=c ? how(c) : null; }
+          else {
+            var m=/^(core|opp):([a-z.]+)(\+rank)?$/.exec(how), map=m[1]==="core" ? c : o, hit=rawOf(map, m[2]);
+            if(hit && hit.display!=null && hit.display!==""){ value=str(hit.display); if(m[3] && hit.rankText) rank=str(hit.rankText); }
+          }
+          if(r[3] && c && rawOf(c, r[3]) && rawOf(c, r[3]).rankText) rank=str(rawOf(c, r[3]).rankText);
+          if(value!=null && r[4]) value+=r[4];
+          if(value!=null) rows.push({ key:r[0], label:r[1], value:value, rank:rank });
+        });
+        return { id:g[0], label:g[1], rows:rows };
+      }).filter(function(g){ return g.rows.length; });
+      return { games: c ? gamesOf(c) : null, groups: groups };
+    },
+    // Which season type holds the whole season so far: the postseason one
+    // (3) once a postseason game has been played - its figures are
+    // cumulative, regular season included (Notre Dame 2024: 16 games) -
+    // otherwise the regular season (2).
+    seasonTypeFor: function(postseason){
+      var played=((postseason&&postseason.events)||[]).some(function(ev){
+        var c=(ev.competitions&&ev.competitions[0])||{}, st=(c.status&&c.status.type)||{};
+        return st.completed===true || st.state==="post";
+      });
+      return played ? POSTSEASON : REGULAR;
     },
 
     // A team's own schedule payload -> the score line of every game on it,

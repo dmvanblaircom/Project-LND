@@ -97,7 +97,7 @@ ok(MS.ui.STYLE.colors.accentText !== MS.ui.STYLE.colors.accent, "Suite Style's w
 
 var m = mhost(); MS.more.menu(m);
 eq((m.innerHTML.match(/class="mo-title">([^<]+)/g) || []).map(function (x) { return x.replace(/.*>/, ""); }),
-   ["News", "Schedule", "Settings", "Feedback", "Share Suite", "About Suite"], "More lists its five destinations and Share Suite, in order");
+   ["News", "Schedule", "Stats", "Settings", "Feedback", "Share Suite", "About Suite"], "More lists its six destinations and Share Suite, in order (Stats: W27)");
 ok(/<button type="button" class="mo-row" data-share>/.test(m.innerHTML) && /role="status" data-share-note/.test(m.innerHTML),
    "Share Suite is a button (an action, not a destination), with a status line for what it did");
 
@@ -295,6 +295,37 @@ ok(/Purdue drive[\s\S]*class="f-result">Turnover on downs<\/span> · 10 plays, 2
    "the finished drive says how it ended, before its summary");
 ok(/aria-label="Last drive: Purdue, [^"]*Result: Turnover on downs\."/.test(bd), "and says so to a screen reader");
 ok(/class="lp-text"><span class="lp-at">9:56<\/span> No Huddle-Shotgun/.test(bd), "the last play leads with its time, then ESPN's words");
+
+// ---- Stats: the team's season (W27; David, 2026-10-01) ----
+console.log("Stats: the team's season, and in game week the opponent's beside it");
+var stx = vm.createContext({ console: console, Intl: Intl, Date: Date, document: { addEventListener: function () {} } });
+["teams/notre-dame.js", "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js",
+ "suite/ui.js", "suite/stats.js"].forEach(function (f) { vm.runInContext(read(f), stx, { filename: f }); });
+function sfx(f) { return JSON.parse(read("tools/fixtures/" + f)); }
+var usSeason = stx.TeamOS.espn.teamSeason(sfx("espn-teamstats-nd-2026-reg.json"), sfx("espn-sitestats-nd.json"));
+var themSeason = stx.TeamOS.espn.teamSeason(sfx("espn-teamstats-osu-2026-reg.json"), null);
+function statsHtml(m) {
+  var h = { innerHTML: "" };
+  stx.Suite.stats.paint(h, Object.assign({ team: { name: "Notre Dame", abbr: "ND" }, opp: null, season: "2026", postseason: false,
+                                           us: null, them: null, failed: false, offline: false }, m));
+  return h.innerHTML;
+}
+var one = statsHtml({ us: usSeason });
+eq((one.match(/class="ss-row"/g) || []).length, 30, "every figure TeamOS returned is a row");
+ok(/2026 regular season · 4 games/.test(one), "it says which season and how many games");
+ok(/Points per game<\/span><span class="ss-v us"><span class="ss-n">42\.3<\/span><span class="ss-rk">17th<\/span>/.test(one), "the figure and its national rank");
+ok(!/ss-cols/.test(one), "no opponent column outside game week");
+var two = statsHtml({ us: usSeason, them: themSeason, opp: { name: "Ohio State", abbr: "OSU" } });
+eq((two.match(/class="ss-row two"/g) || []).length, 30, "in game week every row has the opponent's figure beside it");
+ok(/This week: ND and Ohio State, side by side\./.test(two) && (two.match(/<span>ND<\/span><span>OSU<\/span>/g) || []).length === 4,
+   "said once at the top, and each group labels both columns");
+ok(/Points allowed per game<\/span><span class="ss-v us"><span class="ss-n">8\.3<\/span><\/span><span class="ss-v them"><span class="ss-n">–<\/span><\/span>/.test(two),
+   "a figure the opponent has no source for is a dash, never a 0");
+ok(/postseason included/.test(statsHtml({ us: usSeason, postseason: true })), "a season with its postseason says so");
+ok(/Loading season stats/.test(statsHtml({})), "loading says so");
+ok(/didn't load\. Pull down to try again/.test(statsHtml({ failed: true })), "a failure says how to try again");
+ok(/You're offline\. Season stats load when the connection returns/.test(statsHtml({ failed: true, offline: true })), "offline says so");
+ok(!/notre|irish|ohio|buckeye/i.test(read("suite/stats.js").replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, "")), "the view names no team in its code");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Suite draws what TeamOS decided, the way Product set"));
 process.exit(failures ? 1 : 0);
