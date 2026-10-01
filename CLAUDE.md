@@ -50,7 +50,7 @@ Run the existing checks after changes:
 - `node --check sw.js`
 - `python3 tools/csscheck.py app.css`
 - the `tools/*check` gates and browser checks that `.github/workflows/check.yml` runs on every pull request
-- a change to any shell file (the page, its scripts and styles, team configs, icons) needs a new `VERSION` in `sw.js`; `tools/versioncheck.js` enforces it
+- a change to any shell file (the page, its scripts and styles, team configs, icons) needs a new `VERSION` in `sw.js`; run `node tools/versioncheck.js origin/main` before merging, because CI runs it only on the push after merge
 
 ## Architecture Rules
 

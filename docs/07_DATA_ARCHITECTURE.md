@@ -116,7 +116,7 @@ They should eventually represent normalized data rather than leaking provider-sp
 
 ## GitHub Actions
 
-The workflows are team-driven: `odds.yml` loops over the teams that declare each snapshot kind, and every producer in `tools/producers/` reads where to write - and its sources, such as a team's beat feeds - from the team's config (backlog C2). It runs on GitHub's scheduler and on the edge API's clock (`docs/engineering/data-refresh-clock.md`). Only Notre Dame declares team snapshots today; Ohio State's sources are W20.
+The workflows are team-driven: `odds.yml` loops over the teams that declare each snapshot kind, and every team-scoped producer in `tools/producers/` (`odds_history.py`, `beat_news.py`, and `official_depth.py` for the depth chart and availability report) reads where to write - and its sources, such as a team's beat feeds - from the team's config (backlog C2). League-wide producers are not per team: `fpi.py` reads ESPN's FPI and writes `data/league/fpi.json`. The rest write no snapshot: `cadence.py` (is the depth chart due?), `freshness.py` (the staleness monitor, which opens issues), `teamconfig.py` (reads a team config) and `twodeep.py` (the depth-chart parser). It runs on GitHub's scheduler and on the edge API's clock (`docs/engineering/data-refresh-clock.md`). Only Notre Dame declares team snapshots today; Ohio State's sources are W20.
 
 ## Content Model
 
