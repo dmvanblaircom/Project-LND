@@ -956,6 +956,16 @@ TeamOS.espn = (function () {
     // ESPN's game summary -> GameDetail (docs/03_DOMAIN_MODEL.md).
     gameDetail: gameDetail,
 
+    // Whether a game summary is itself a finished game's: ESPN's own
+    // completed flag. A summary fetched while the schedule already says
+    // "final" can still be a mid-game copy - the worker's offline copy, or
+    // ESPN's summary lagging its scoreboard - and must never be kept as the
+    // final one.
+    summaryFinal: function(json){
+      var st=pick(json,["header","competitions",0,"status","type"],null);
+      return !!st && st.completed===true;
+    },
+
     // ESPN's team news -> NewsItem[], in the feed's own order (ESPN does not
     // sort it; the view does). Articles with no headline or no web link are
     // dropped here - nothing could be shown for them. A link or image that
