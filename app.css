@@ -390,6 +390,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 
 .home-sec{padding-top:.2rem}
 .home-sec .sec-head{margin:1.4rem 0 .6rem}
+.home-schedule .sec-head{flex-wrap:wrap;column-gap:.75rem;row-gap:0}
 
 .news-row{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:.75rem;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:0 calc(var(--gutter) + env(safe-area-inset-left,0px)) .35rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gutter);scrollbar-width:none}
 .news-row::-webkit-scrollbar{display:none}
@@ -518,6 +519,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .game-tabs a[aria-current="page"]::after{content:"";position:absolute;left:12%;right:12%;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--t-accent)}
 .game-tabs a:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 
+.game-schedule{display:flex;justify-content:flex-end;margin-top:.5rem}
 .game-body{padding-bottom:.5rem}
 .gcard{margin-top:.9rem;padding:.85rem 1rem 1rem}
 .gcard-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.6rem}
