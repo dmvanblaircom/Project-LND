@@ -16,7 +16,7 @@
 
    No dependencies: Workers' standard fetch, Request, Response and Cache. */
 
-export const VERSION = "edge-2026-10-01a";
+export const VERSION = "edge-2026-10-01b";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
 const CFBD = "https://api.collegefootballdata.com";
@@ -70,7 +70,11 @@ async function cfbdSeason(url, env, origin, ctx) {
   if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
 
   const cache = env.CACHE || caches.default;
-  const key = new Request("https://edge.cache/v1/cfbd/season?team=" + encodeURIComponent(team.toLowerCase()) + "&year=" + year);
+  const fields = env.FIELDS || CFBD_FIELDS;
+  // The allowed fields are part of the key: after the list changes, a copy
+  // saved under the old list is never served as the answer to the new one.
+  const key = new Request("https://edge.cache/v1/cfbd/season?team=" + encodeURIComponent(team.toLowerCase()) +
+                          "&year=" + year + "&f=" + encodeURIComponent(fields.join(",")));
   const held = await cache.match(key);
   let heldBody = null;
   if (held) {
@@ -91,7 +95,7 @@ async function cfbdSeason(url, env, origin, ctx) {
     return fail(502, "CFBD could not be reached", origin);
   }
   const body = { source: "cfbd", team: team, year: year, fetchedAt: new Date().toISOString(),
-                 stats: pickSeason(rows, team, year, env.FIELDS || CFBD_FIELDS) };
+                 stats: pickSeason(rows, team, year, fields) };
   const put = cache.put(key, new Response(JSON.stringify(body), {
     headers: { "content-type": "application/json", "cache-control": "max-age=" + KEEP_SECONDS } }));
   if (ctx && ctx.waitUntil) ctx.waitUntil(put); else await put;

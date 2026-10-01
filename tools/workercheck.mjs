@@ -70,7 +70,10 @@ console.log("the CFBD route");
   const other = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, "https://elsewhere.example");
   ok(other.r.headers.get("access-control-allow-origin") === null, "another site's browser may not");
   await get("/v1/cfbd/season?team=notre%20dame&year=2026", e, SITE);
-  ok(e.calls.length === 1, "a second request within the fresh window is served from the cache: CFBD called once"); }
+  ok(e.calls.length === 1, "a second request within the fresh window is served from the cache: CFBD called once");
+  const wider = Object.assign({}, e, { FIELDS: FIELDS.concat(["sacks"]) });
+  await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", wider, SITE);
+  ok(e.calls.length === 2, "after the allowed fields change, the old copy is not reused: CFBD is asked again"); }
 
 console.log("when CFBD fails");
 { const cache = memoryCache();
