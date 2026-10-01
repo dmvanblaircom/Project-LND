@@ -300,7 +300,7 @@ real.forEach(function (p) { ok(!POLLLEAK.test(JSON.stringify(p)), "real " + p.ke
 
 // ---- game center ----
 var GD = ["state","detail","home","away","lastPlay","winProb","linescore","teamStats","leaders","box","scoring","drives"];
-var SIDE = ["key","name","abbreviation","record","score","mine","possession","colors"];
+var SIDE = ["key","name","school","abbreviation","record","score","mine","possession","colors"];
 // "drives" is the domain's own word now; ESPN's drive keys are what must not leak.
 var GDLEAK = /competitions|competitors|homeAway|shortDetail|situation|yardsToEndzone|possessionText|statYardage|scoringPlay\b|displayResult|winprobability|homeWinPercentage|linescores|boxscore|scoringPlays|athlete|displayValue|shortDisplayName|pickcenter|espn/i;
 var sumPre = JSON.parse(read("tools/fixtures/espn-summary-pre.json"));
@@ -363,9 +363,12 @@ eq(gdFinal.scoring.map(function (p) { return p.text.replace(/ kick\)$/, " KICK)"
 
 console.log("gameDetail() - pregame");
 eq([gdPre.state, gdPre.detail], ["pre", "Sat, September 19th at 7:30 PM EDT"], "scheduled, long status text");
-eq(gdPre.home, { key:"87", name:"Notre Dame Fighting Irish", abbreviation:"ND", record:"", score:null, mine:true, possession:false, colors:{ primary:null, alt:null } },
+eq(gdPre.home, { key:"87", name:"Notre Dame Fighting Irish", school:"", abbreviation:"ND", record:"", score:null, mine:true, possession:false, colors:{ primary:null, alt:null } },
    "home side: name falls back to displayName, no record or score yet, mine; no colours in the trimmed capture");
 eq(gdPre.away.mine, false, "away side is not ours");
+var purPre = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-pre.json")), team, TEAM_CONFIG);
+eq([purPre.home.school, purPre.away.school].sort(), ["Notre Dame", "Purdue"],
+   "each side's school, as ESPN lists it, for the CollegeFootballData lookup (a capture without it says \"\", never a guess)");
 eq([gdPre.lastPlay, gdPre.winProb, gdPre.linescore, gdPre.box, gdPre.scoring], [null, null, null, null, null], "no play, win prob, linescore, box or scoring before kickoff");
 eq(gdPre.teamStats, null, "pregame per-game stat names match no Team-stats row -> null");
 eq(gdPre.leaders.home[0], { category:"Passing", name:"C. Carr", line:"35/49, 492 YDS, 6 TD" }, "season leaders still render pregame");
@@ -401,7 +404,7 @@ ok(wisBox.home.concat(wisBox.away).some(function (t) { return t.key === "kickRet
    "a real game's categories read as words: Kick Returns, Defense");
 eq(gdPost.leaders.away[4], { category:"Tackles", name:"M. Posa", line:"15" }, "leader category names are mapped, not ESPN's");
 eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).state, "post", "an empty payload is treated as final (no polling)");
-eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", abbreviation:"", record:"", score:null, mine:false, possession:false, colors:{ primary:null, alt:null } }, "an empty side");
+eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", school:"", abbreviation:"", record:"", score:null, mine:false, possession:false, colors:{ primary:null, alt:null } }, "an empty side");
 
 console.log("seasonStats()");
 var stats = JSON.parse(read("tools/fixtures/espn-season-stats.json"));
@@ -409,13 +412,16 @@ var nd = TeamOS.espn.seasonStats(stats.teams["87"]);
 var op = TeamOS.espn.seasonStats(stats.teams["127"]);
 eq(nd.map(function (r) { return r.key; }),
    ["pointsFor","pointsAllowed","totalOffense","rushOffense","passOffense",
-    "yardsPerPlay","sacks","tacklesForLoss","turnoverMargin"],
+    "rushDefense","passDefense","sacks","turnoverMargin"],
    "the nine preview rows in order");
 nd.forEach(function (r) { eq(Object.keys(r), ["key","label","value","rank","rankText"], r.key + " is a SeasonStat"); });
 eq(nd[0], { key:"pointsFor", label:"Points per game", value:"40.0", rank:28, rankText:"Tied-28th" },
    "value, rank and ESPN's rank text from the first name it files the stat under");
-eq([nd[2].value, nd[3].value, nd[4].value, nd[5].value], ["407.7","130.0","277.7","6.3"],
+function row(rows, key) { return rows.filter(function (r) { return r.key === key; })[0]; }
+eq([row(nd, "totalOffense").value, row(nd, "rushOffense").value, row(nd, "passOffense").value], ["407.7","130.0","277.7"],
    "the yardage rows");
+eq([row(nd, "rushDefense").value, row(nd, "passDefense").value, row(nd, "rushDefense").rank], [null, null, null],
+   "yards allowed is not ESPN's to answer (its yardsAllowed is a stub): null, for TeamOS.cfbd to fill");
 eq([nd[8].value, op[8].value], ["6","-2"], "turnover margin keeps a negative");
 ok(!/splits|categories|rankDisplayValue|espn/i.test(JSON.stringify(nd)), "carries no ESPN keys or names");
 
@@ -423,9 +429,9 @@ console.log(" the sacks collision");
 // ESPN files "sacks" under passing (given up by this offence) AND defensive
 // (made by this defence). A bare lookup takes whichever category the feed
 // lists last, which is luck, not a decision. The rows name the category.
-eq(nd[6], { key:"sacks", label:"Sacks", value:"7", rank:36, rankText:"Tied-36th" },
+eq(row(nd, "sacks"), { key:"sacks", label:"Sacks", value:"7", rank:36, rankText:"Tied-36th" },
    "Sacks is the defence's 7, not the offence's 2 from the passing category");
-eq(op[6].value, "3", "and the same for the other side");
+eq(row(op, "sacks").value, "3", "and the same for the other side");
 
 // The fixture lists passing before defensive, as ESPN does today, so a bare
 // "sacks" lookup would land on the right value by luck. Feed the SAME two
@@ -436,7 +442,7 @@ function sacksFrom(order) {
     passing:   { name:"passing",   stats:[{ name:"sacks", displayValue:"2", value:2, rank:108, rankDisplayValue:"Tied-108th" }] },
     defensive: { name:"defensive", stats:[{ name:"sacks", displayValue:"7", value:7, rank:36,  rankDisplayValue:"Tied-36th" }] }
   };
-  return TeamOS.espn.seasonStats({ splits: { categories: order.map(function (k) { return cat[k]; }) } })[6];
+  return row(TeamOS.espn.seasonStats({ splits: { categories: order.map(function (k) { return cat[k]; }) } }), "sacks");
 }
 eq(sacksFrom(["passing","defensive"]).value, "7", "defence's sacks with the feed in today's order");
 eq(sacksFrom(["defensive","passing"]).value, "7", "and still the defence's with the categories swapped");
