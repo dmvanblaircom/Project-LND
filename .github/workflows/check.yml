@@ -53,6 +53,8 @@ jobs:
         run: node tools/pollcheck.js
       - name: The matchup card agrees with the data
         run: node tools/matchupcheck.js
+      - name: Predictive ratings are shaped from the producer's snapshot, never invented
+        run: node tools/ratingscheck.js
       - name: The depth chart parser reads the official chart as written
         run: python3 tools/depthcheck.py
       - name: The data refresh checks the depth chart when it should
