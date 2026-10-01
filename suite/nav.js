@@ -8,16 +8,16 @@
 
      location.hash  ->  Suite.nav.current()  ->  { screen, path, view }
                                    |
-                  painted here:    v   the nav's current item, which header the
-                                       screen wears, the screen's heading, focus
+                  painted here:    v   the nav's current item, the team context,
+                                       the screen's heading, focus
                   handled by app:      Suite.nav.on(fn) - which content shows
 
-   Which header a screen wears is a product rule, stated once in SCREENS
-   (decisions 0023, 0024 §6):
-     bar      the compact SUITE header - Home and Game
-     context  the SUITE header with the selected team as quiet context, and
-              a neutral page heading - Top 25, which is national content
-     mast     the team masthead - the team-centric sections
+   Every screen wears the same header (David, 2026-10-01, superseding the
+   three-header rule of decisions 0023 and 0024 section 6): the SUITE bar
+   with the selected team as quiet context - its mark and name - as Top 25
+   first had it. Under it, a screen names itself with a visible page title,
+   except where a hero already leads the page (Home, Game, and a game opened
+   from Schedule); there the title is for assistive technology only.
    Schedule has no primary nav item of its own: it is a secondary destination
    owned by More, so More stays selected on every Schedule route - the list,
    Results and a game opened from it (decision 0028). News, Settings,
@@ -52,25 +52,25 @@ Suite.nav = (function () {
   "use strict";
 
   var SCREENS = {
-    home:     { header: "bar",     title: "Home"     },
-    top25:    { header: "context", title: "Top 25",
+    home:     { hero: true,  title: "Home"     },
+    top25:    { title: "Top 25",
                 views: [{ id: "games", label: "Games" }, { id: "rankings", label: "Rankings" }] },
-    game:     { header: "bar",     title: "Game"     },
-    roster:   { header: "mast",    title: "Roster",
+    game:     { hero: true,  title: "Game"     },
+    roster:   { title: "Roster",
                 views: [{ id: "depth", label: "Depth Chart" }, { id: "roster", label: "Roster" },
                         { id: "availability", label: "Availability" }] },
-    more:     { header: "mast",    title: "More"     },
+    more:     { title: "More"     },
     // Schedule | Results; #schedule/<game id> opens one game in the Game
-    // layout, under the compact header, with a way back to the list.
-    schedule: { header: "mast",    title: "Schedule", owner: "more",
+    // layout, under its hero, with a way back to the list.
+    schedule: { title: "Schedule", owner: "more",
                 views: [{ id: "schedule", label: "Schedule" }, { id: "results", label: "Results" }],
-                item: /^[0-9]+$/, itemHeader: "bar", itemTitle: "Game" },
+                item: /^[0-9]+$/, itemHero: true, itemTitle: "Game" },
     // More's other destinations (reference 10), each a secondary destination
     // that keeps More selected (decision 0028).
-    news:     { header: "mast",    title: "News",        owner: "more" },
-    settings: { header: "mast",    title: "Settings",    owner: "more" },
-    feedback: { header: "mast",    title: "Feedback",    owner: "more" },
-    about:    { header: "mast",    title: "About Suite", owner: "more" }
+    news:     { title: "News",        owner: "more" },
+    settings: { title: "Settings",    owner: "more" },
+    feedback: { title: "Feedback",    owner: "more" },
+    about:    { title: "About Suite", owner: "more" }
   };
   var DEFAULT = "home";
 
@@ -172,7 +172,7 @@ Suite.nav = (function () {
 
   function paint(route) {
     var def = SCREENS[route.screen];
-    var kind = route.item && def.itemHeader ? def.itemHeader : def.header;
+    var hero = route.item ? !!def.itemHero : !!def.hero;
     var title = route.item && def.itemTitle ? def.itemTitle : def.title;
 
     // The nav: one current item - the screen's own, or for a secondary
@@ -183,19 +183,14 @@ Suite.nav = (function () {
       else a.removeAttribute("aria-current");
     });
 
-    // The header this screen wears, and the one heading that names it.
-    var bar = $("appBar"), ctx = $("barContext"), mast = $("masthead"),
-        mastTitle = $("mastTitle"), sr = $("screenHead");
-    if (bar)  bar.hidden = kind === "mast";
-    if (ctx)  ctx.hidden = kind !== "context";
-    if (mast) mast.hidden = kind !== "mast";
-    if (mastTitle) mastTitle.textContent = kind === "mast" ? title : "";
+    // One header everywhere; the one heading that names the screen is
+    // visible unless a hero leads it.
+    var ctx = $("barContext"), sr = $("screenHead");
+    if (ctx) ctx.hidden = false;
     if (sr) {
-      sr.textContent = kind === "mast" ? "" : title;
-      sr.hidden = kind === "mast";
-      // On a context screen the heading is visible: national content under
-      // a neutral title, not under the team's name.
-      sr.className = kind === "context" ? "page-title" : "sr-only";
+      sr.textContent = title;
+      sr.hidden = false;
+      sr.className = hero ? "sr-only" : "page-title";
     }
   }
 
@@ -204,9 +199,7 @@ Suite.nav = (function () {
   // keyboard and screen-reader users start there rather than on a nav link
   // that no longer describes what is on screen.
   function focusHeading(route, keepScroll) {
-    var def = SCREENS[route.screen];
-    var kind = route.item && def.itemHeader ? def.itemHeader : def.header;
-    var h = $(kind === "mast" ? "mastTitle" : "screenHead");
+    var h = $("screenHead");
     if (h && h.focus) { h.focus({ preventScroll: true }); }
     if (!keepScroll) window.scrollTo(0, 0);
   }

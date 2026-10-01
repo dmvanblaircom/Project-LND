@@ -427,15 +427,16 @@
       "</section>";
 
     /* The Suite's own team furniture is not ours: there is no team to put in
-       it, so a masthead or a bottom nav would be either somebody's or
-       nobody's, and both are wrong (decision 0016). Everything inside #main
-       goes on its own, because the chooser writes over #main wholesale two
-       lines down. The nav and the masthead are siblings of #main, so they
+       it, so the bar's team context or a bottom nav would be either
+       somebody's or nobody's, and both are wrong (decision 0016). Everything
+       inside #main goes on its own, because the chooser writes over #main
+       wholesale two lines down. The nav and the team context are outside
+       #main, so they
        survive unless they are removed by name - which is how a fan once saw
        Home / Top 25 / Game with no team behind any of them. The SUITE header
        and the skip link stay: both are the Suite's, and #main is still there
        for the skip link to reach. */
-    [".navbar", "#masthead"].forEach(function (sel) {
+    [".navbar", "#barContext"].forEach(function (sel) {
       [].slice.call(document.querySelectorAll(sel)).forEach(function (el) {
         // Never remove the chooser's own host, or anything containing it.
         if (el === host || (el.contains && el.contains(host))) return;

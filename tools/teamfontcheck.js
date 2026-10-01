@@ -4,7 +4,8 @@
 
    Real pages in Chromium with real fixtures, counting font requests:
      - Ohio State in Team Style: text and headings are set in Nunito Sans,
-       from the repository's own files, and the masthead's name fits at 320
+       from the repository's own files, and the SUITE bar's team name fits at
+       320 (decision 0031)
      - Notre Dame, the chooser, and Ohio State in Suite Style never download
        it: a face is fetched only where a team's type uses it
 
@@ -64,12 +65,16 @@ function fixture(url) {
   console.log("Ohio State, Team Style");
   var o = await open("/?team=ohio-state#roster", { width: 320 });
   ok(/^"?Nunito Sans"?/.test(await family(o.page, "body")), "text is set in Nunito Sans (" + await family(o.page, "body") + ")");
-  ok(/^"?Nunito Sans"?/.test(await family(o.page, ".mast-name")), "and so are the headings");
+  ok(/^"?Nunito Sans"?/.test(await family(o.page, ".page-title")), "and so are the headings");
   ok(o.fonts.length > 0 && o.fonts.every(function (u) { return u.startsWith(base + "/assets/fonts/nunito-sans/"); }),
      "from the repository's own files (" + o.fonts.length + " requested), never a third party");
   ok(await o.page.evaluate(function () { return document.fonts.check('800 16px "Nunito Sans"'); }), "and the face really loaded");
-  ok(await o.page.evaluate(function () { var n = document.querySelector(".mast-name"); return n && n.scrollWidth <= n.clientWidth + 1; }),
-     "the masthead's name fits at 320px");
+  ok(await o.page.evaluate(function () { // Laid-out text against its box: scrollWidth rounds, and a
+    // sub-pixel overflow still draws an ellipsis.
+    var n = document.getElementById("barTeam"); if (!n || !n.textContent) return false;
+    var r = document.createRange(); r.selectNodeContents(n);
+    return r.getBoundingClientRect().width <= n.getBoundingClientRect().width + 0.01; }),
+     "the SUITE bar's team name fits at 320px, untruncated");
   ok(await o.page.evaluate(function () { return document.documentElement.scrollWidth <= innerWidth; }), "and nothing scrolls sideways");
   await o.ctx.close();
 

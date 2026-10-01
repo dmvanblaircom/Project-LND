@@ -98,7 +98,7 @@ function render(registry) {
   // because the old code only ever looked inside the page.
   var outside = [
     { sel: ".navbar", what: "the bottom nav" },
-    { sel: "#masthead", what: "the team masthead" },
+    { sel: "#barContext", what: "the team context" },
     { sel: "a.skip", what: "the skip link" }
   ].map(function (f) {
     var node = { what: f.what, sel: f.sel, gone: false, contains: function () { return false; } };
@@ -447,12 +447,12 @@ r.picks.filter(function (p) { return p.openable; }).forEach(function (p) {
 });
 
 console.log(" the Suite's team furniture is not shown");
-// There is no team, so a masthead or a bottom nav would be somebody's or
-// nobody's. Both are wrong. They are siblings of #main, so nothing removes
+// There is no team, so the bar's team context or a bottom nav would be
+// somebody's or nobody's. Both are wrong. They are outside #main, so nothing removes
 // them unless the chooser does - it once did not, and a fan on the chooser
 // got Home / Top 25 / Game with no team behind any of them.
 ok(r.removed.indexOf("the bottom nav") !== -1, "the bottom nav is removed, though it is not inside #main");
-ok(r.removed.indexOf("the team masthead") !== -1, "and so is the team masthead");
+ok(r.removed.indexOf("the team context") !== -1, "and so is the team context in the SUITE bar");
 ok(r.removed.indexOf("the skip link") === -1, "the skip link stays: its target, #main, is still there");
 
 console.log(" it never names a team in its own code");
