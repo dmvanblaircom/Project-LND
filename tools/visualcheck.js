@@ -249,6 +249,10 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             return { hash: location.hash, current: cur ? cur.getAttribute("data-screen") : null,
                      bar: bar.checkVisibility(),
                      ctx: ctx && ctx.checkVisibility() ? document.getElementById("barTeam").textContent : null,
+                     // The text's own laid-out width against its box: scrollWidth rounds,
+                     // and a sub-pixel overflow still draws an ellipsis.
+                     ctxCut: (function (t) { var r = document.createRange(); r.selectNodeContents(t);
+                                             return r.getBoundingClientRect().width > t.getBoundingClientRect().width + 0.01; })(document.getElementById("barTeam")),
                      ctxControl: !!(ctx && ctx.closest("a,button")) || !!(ctx && ctx.querySelector("a,button")),
                      heading: sh && sh.checkVisibility() && !sh.classList.contains("sr-only") ? sh.textContent : null,
                      focus: document.activeElement ? document.activeElement.id : null };
@@ -261,6 +265,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           if (!st.bar) fail(label, "behaviour", "#appBar", "this screen lost the SUITE header");
           if (!st.ctx) fail(label, "behaviour", "#barContext", "the SUITE bar does not carry the selected team as context");
           if (st.ctxControl) fail(label, "behaviour", "#barContext", "the team context is a control; Change Team lives in Settings");
+          if (st.ctxCut) fail(label, "behaviour", "#barTeam", "the team's name is cut off in the SUITE bar");
           if (TITLE[screen]) {
             if (st.heading !== TITLE[screen]) fail(label, "behaviour", "#screenHead", "the visible page title reads '" + st.heading + "', not '" + TITLE[screen] + "'");
           } else if (st.heading) {

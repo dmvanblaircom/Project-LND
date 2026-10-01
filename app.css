@@ -137,12 +137,22 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
    the gutter. */
 .wordmark{display:block;flex:none;height:1.6rem;width:auto;margin:0 -.19rem}
 .app-bar .spacer{flex:1}
+/* Nothing after it on a team screen: its gap would only cost the team's
+   name width ("OHIO STATE" in Nunito Sans at 320px). The chooser adds its
+   controls after it. */
+.app-bar .spacer:last-child{display:none}
 /* The selected team as quiet context beside the wordmark, on every team
    screen - a lockup, not a
    button: no fill, no border, no chevron (decision 0024 §6). */
 .bar-context{display:flex;align-items:center;gap:.5rem;min-width:0;padding-left:.75rem;border-left:1px solid rgba(255,255,255,.28);color:var(--s-on-dark-2)}
 .bar-context .mark{--mark:1.6rem}
 .bar-team{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:var(--t-font-display);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+/* The narrowest phones: a team's whole name, in its own face or the fallback
+   before that face loads, rather than an ellipsis. */
+@media (max-width:359.98px){
+  .bar-context{padding-left:.6rem}
+  .bar-team{letter-spacing:.02em}
+}
 .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;margin-right:-.5rem;padding:0;border:0;border-radius:50%;background:none;color:inherit;cursor:pointer}
 .icon-btn svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .bar-text-btn{min-height:2.75rem;margin-left:.25rem;padding:0 .4rem;border:0;border-radius:var(--s-radius-ctl);background:none;color:var(--s-on-dark);font-family:var(--t-font-ui);font-weight:600;font-size:1.05rem;cursor:pointer}

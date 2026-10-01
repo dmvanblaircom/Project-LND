@@ -69,7 +69,11 @@ function fixture(url) {
   ok(o.fonts.length > 0 && o.fonts.every(function (u) { return u.startsWith(base + "/assets/fonts/nunito-sans/"); }),
      "from the repository's own files (" + o.fonts.length + " requested), never a third party");
   ok(await o.page.evaluate(function () { return document.fonts.check('800 16px "Nunito Sans"'); }), "and the face really loaded");
-  ok(await o.page.evaluate(function () { var n = document.getElementById("barTeam"); return n && n.textContent && n.scrollWidth <= n.clientWidth + 1; }),
+  ok(await o.page.evaluate(function () { // Laid-out text against its box: scrollWidth rounds, and a
+    // sub-pixel overflow still draws an ellipsis.
+    var n = document.getElementById("barTeam"); if (!n || !n.textContent) return false;
+    var r = document.createRange(); r.selectNodeContents(n);
+    return r.getBoundingClientRect().width <= n.getBoundingClientRect().width + 0.01; }),
      "the SUITE bar's team name fits at 320px, untruncated");
   ok(await o.page.evaluate(function () { return document.documentElement.scrollWidth <= innerWidth; }), "and nothing scrolls sideways");
   await o.ctx.close();
