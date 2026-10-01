@@ -49,6 +49,8 @@ jobs:
         run: node tools/rostercheck.js
       - name: Suite draws what TeamOS decided (box score, postponed dates)
         run: node tools/suitecheck.js
+      - name: One request out at a time - two wake-ups never fetch the same thing twice
+        run: node tools/pollcheck.js
       - name: The matchup card agrees with the data
         run: node tools/matchupcheck.js
       - name: The depth chart parser reads the official chart as written

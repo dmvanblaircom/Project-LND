@@ -34,7 +34,7 @@ var PLAYOFF_EVENT = "KXNCAAFPLAYOFF-26";   // playoff qualifiers
 
 // The season as every screen reads it, and the next game. Whether any of it
 // is old is per source (SRC, noteSource) - each screen says so itself.
-var S = { games:null, next:null, oddsTried:null };
+var S = { games:null, next:null, oddsTried:null, p:null };
 // What Home shows beyond the schedule: normalized data only (suite/home.js).
 var HOME = { news:null, markets:{}, weather:null, weatherFor:null, weatherAt:0, status:null };
 function $(id){ return document.getElementById(id); }
@@ -1258,7 +1258,12 @@ function retrySchedule(){
 // usually empty; when it fails, the games it last returned stay on screen
 // rather than a bowl game vanishing until the next poll.
 var POST=null;
+// One schedule request out at a time; a second caller joins it. Returning to
+// the app mid-game wakes two handlers at once (the live tick and the stale
+// refresh), and a slow answer outlasts the live poller's interval: each used
+// to fetch the schedule and the postseason again (W10).
 function refreshSchedule(first){
+  if(S.p) return S.p;
   var url=TeamOS.espn.scheduleUrl(TEAM_CONFIG), postUrl=TeamOS.espn.postseasonUrl(TEAM_CONFIG);
   var announce=first && !S.games;      // only the very first paint is news
 
@@ -1297,7 +1302,7 @@ function refreshSchedule(first){
   }
 
   var post=get(postUrl, hasEvents).then(function(d){ POST=d; }).catch(function(){});
-  return Promise.all([get(url, hasEvents), post]).then(function(r){
+  S.p=Promise.all([get(url, hasEvents), post]).then(function(r){
     var games=apply(r[0]);
     // A game under way before the first scoreboard tick: fetch it now, so
     // Home's hero has the clock, the ball and the down from the start.
@@ -1331,6 +1336,8 @@ function refreshSchedule(first){
     }
     return { key:"schedule", outcome:"failed" };
   });
+  S.p.then(function(){ S.p=null; });
+  return S.p;
 }
 
 /* ---------- summaries: one fetch per game, finals kept for good ---------- */
