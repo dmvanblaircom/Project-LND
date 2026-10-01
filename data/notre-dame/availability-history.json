@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-09-29T02:13:36.864322+00:00",
+ "updated": "2026-10-01T21:07:43.344883+00:00",
  "reports": [
   {
    "schema": 1,
@@ -346,21 +346,14 @@
    "capability": "availability",
    "tier": "official",
    "game": "at North Carolina",
-   "sourceUrl": "https://fightingirish.com/documents/dc6145e3-f280-4b5a-8d4d-8d3ff2a318d5.pdf",
+   "sourceUrl": "https://fightingirish.com/documents/c0401295-5324-4947-9669-dd85eef35a57.pdf",
    "sourceLabel": "FightingIrish.com",
-   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/29/kVcp4Wwr3ULAzDnknGEvkAGPzCEqMms5MYHg1jCp.pdf",
-   "fetchedAt": "2026-09-29T02:13:36.864322+00:00",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/01/wmoRIakcIhSYXAZoXiD2NluaH8tbc0yQDFOHUEyQ.pdf",
+   "fetchedAt": "2026-10-01T21:07:43.344883+00:00",
    "reported": true,
-   "effectiveAt": "2026-09-28",
-   "heading": "AVAILABILITY UPDATE (SEPT. 28)",
+   "effectiveAt": "2026-10-01",
+   "heading": "AVAILABILITY UPDATE (OCT. 1)",
    "players": [
-    {
-     "no": "",
-     "pos": "OL",
-     "name": "Owen Strebig",
-     "status": "questionable",
-     "detail": "Concussion"
-    },
     {
      "no": "",
      "pos": "OL",

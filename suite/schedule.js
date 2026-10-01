@@ -1,6 +1,6 @@
 /* Suite - Schedule, the team's season (reference 08; decision 0022 #8).
 
-   Under the team masthead, two peer views, both routes:
+   Under the SUITE bar and the Schedule title, two peer views, both routes:
      #schedule           Schedule: every entry of the season, in date order,
                          postponed and canceled included
      #schedule/results   Results: the games genuinely completed
@@ -39,7 +39,7 @@ Suite.schedule = (function () {
 
   var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg>';
 
-  function oppLabel(g) { return (g.oppRank ? "#" + g.oppRank + " " : "") + g.oppName; }
+  var oppLabel = ui.oppLabel;
   function num(s) { var v = parseInt(s, 10); return isNaN(v) ? null : v; }
   function result(g) {
     var a = num(g.us), b = num(g.them);

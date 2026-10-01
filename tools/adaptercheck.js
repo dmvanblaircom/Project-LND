@@ -103,6 +103,22 @@ eq([pur.home, pur.neutral, pur.timeSet], [false, false, false], "away, real home
 eq(pur.net, "Peacock", "broadcast fallback from config.sources.espn.broadcastFallback");
 eq(pur.series, "Shillelagh Trophy", "series from config");
 
+// Code review, 2026-10-01: a college team's own stadium is never "neutral" by
+// name. Miami plays at Hard Rock; a road game there is a road game.
+console.log("away at a college home field that also hosts bowls (Miami at Hard Rock)");
+function venueGame(name, neutralSite) {
+  var e = JSON.parse(JSON.stringify(fixture.events.filter(function (x) { return x.id === "401858460"; })[0]));
+  e.competitions[0].venue.fullName = name;
+  if (neutralSite === undefined) delete e.competitions[0].neutralSite; else e.competitions[0].neutralSite = neutralSite;
+  return TeamOS.espn.schedule({ events: [e] }, team, TEAM_CONFIG)[0];
+}
+eq([venueGame("Hard Rock Stadium", false).home, venueGame("Hard Rock Stadium", false).neutral], [false, false], "away, not neutral");
+eq(venueGame("Hard Rock Stadium", true).neutral, true, "the Orange Bowl there, which ESPN marks neutral, still is");
+[["Raymond James Stadium", "USF"], ["Alamodome", "UTSA"], ["Allegiant Stadium", "UNLV"]].forEach(function (v) {
+  eq(venueGame(v[0], false).neutral, false, "nor at " + v[0] + " (" + v[1] + ")");
+});
+eq(venueGame("Gillette Stadium", false).neutral, true, "a pro venue no college calls home stays neutral whatever ESPN says");
+
 // W21 (David, 2026-10-01): each series entry says what it is, and only a
 // trophy gets the trophy mark on Game.
 console.log("series kinds: trophy, rivalry, event");
@@ -665,7 +681,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
 
 console.log("mark");
@@ -803,8 +819,18 @@ eq(osuId.tagline, null, "no tagline: Leave No Doubt. belongs to Notre Dame");
 eq(osuId.colors.accent, "#BA0C2F", "BUX scarlet");
 eq(osuId.colors.accentText, "#EFF1F2", "accent TEXT is BUX gray-light, not a lightened scarlet");
 ok(osuId.colors.accentText !== osuId.colors.accent, "a team whose accent cannot carry text says so explicitly");
-eq(osuId.fonts.ui.indexOf("BuckeyeSans"), 1, "BuckeyeSans leads the UI stack");
-ok(/Barlow/.test(osuId.fonts.ui), "with a fallback, because the font files are not distributed");
+// C19: Ohio State's own fonts are not available for independent use; Nunito
+// Sans is the public face it recommended, self-hosted under the OFL.
+eq(osuId.fonts.ui.indexOf("Nunito Sans"), 1, "Nunito Sans, Ohio State's recommended public face, leads the UI stack");
+eq(osuId.fonts.display.indexOf("Nunito Sans"), 1, "and the display stack");
+ok(!/Buckeye/i.test(osuId.fonts.ui + osuId.fonts.display), "the Buckeye fonts, not licensed to us, are not named at all");
+ok(/Barlow/.test(osuId.fonts.ui), "with a fallback while the face loads");
+var css = read("app.css"), faces = css.match(/@font-face\{font-family:'Nunito Sans';[^}]*\}/g) || [];
+ok(faces.length === 4 && faces.every(function (f) {
+  var u = (f.match(/url\(([^)]+)\)/) || [])[1];
+  return u && fs.existsSync(path.join(root, u)) && /font-display:swap/.test(f) && /unicode-range:/.test(f);
+}), "app.css declares it from the repository's own files (normal and italic, latin and latin-ext), swapped in, never blocking text");
+ok(fs.existsSync(path.join(root, "assets/fonts/nunito-sans/OFL.txt")), "its Open Font License ships beside it");
 
 console.log(" the two teams differ where identity lives");
 ["programLabel"].forEach(function (k) {

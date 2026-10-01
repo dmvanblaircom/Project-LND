@@ -8,16 +8,16 @@
 
      location.hash  ->  Suite.nav.current()  ->  { screen, path, view }
                                    |
-                  painted here:    v   the nav's current item, which header the
-                                       screen wears, the screen's heading, focus
+                  painted here:    v   the nav's current item, the team context,
+                                       the screen's heading, focus
                   handled by app:      Suite.nav.on(fn) - which content shows
 
-   Which header a screen wears is a product rule, stated once in SCREENS
-   (decisions 0023, 0024 §6):
-     bar      the compact SUITE header - Home and Game
-     context  the SUITE header with the selected team as quiet context, and
-              a neutral page heading - Top 25, which is national content
-     mast     the team masthead - the team-centric sections
+   Every screen wears the same header (David, 2026-10-01, superseding the
+   three-header rule of decisions 0023 and 0024 section 6): the SUITE bar
+   with the selected team as quiet context - its mark and name - as Top 25
+   first had it. Under it, a screen names itself with a visible page title,
+   except where a hero already leads the page (Home, Game, and a game opened
+   from Schedule); there the title is for assistive technology only.
    Schedule has no primary nav item of its own: it is a secondary destination
    owned by More, so More stays selected on every Schedule route - the list,
    Results and a game opened from it (decision 0028). News, Settings,
@@ -36,6 +36,10 @@
   (David, 2026-10-01: sub-views only, never the primary tabs). See swipe()
   below for what counts as a swipe; the tabs stay, so nothing depends on it.
 
+  Pulling a screen down from its top refreshes it - the same refresh as
+  Settings' Refresh Data (David, 2026-10-01). See pull() below; Settings
+  keeps the button, so nothing depends on the gesture.
+
   Selected and live are different things (decision 0024 §1): aria-current
    marks the destination the fan is on; setGameState() raises the Game
    control because a game is under way, wherever the fan is.
@@ -48,25 +52,25 @@ Suite.nav = (function () {
   "use strict";
 
   var SCREENS = {
-    home:     { header: "bar",     title: "Home"     },
-    top25:    { header: "context", title: "Top 25",
+    home:     { hero: true,  title: "Home"     },
+    top25:    { title: "Top 25",
                 views: [{ id: "games", label: "Games" }, { id: "rankings", label: "Rankings" }] },
-    game:     { header: "bar",     title: "Game"     },
-    roster:   { header: "mast",    title: "Roster",
+    game:     { hero: true,  title: "Game"     },
+    roster:   { title: "Roster",
                 views: [{ id: "depth", label: "Depth Chart" }, { id: "roster", label: "Roster" },
                         { id: "availability", label: "Availability" }] },
-    more:     { header: "mast",    title: "More"     },
+    more:     { title: "More"     },
     // Schedule | Results; #schedule/<game id> opens one game in the Game
-    // layout, under the compact header, with a way back to the list.
-    schedule: { header: "mast",    title: "Schedule", owner: "more",
+    // layout, under its hero, with a way back to the list.
+    schedule: { title: "Schedule", owner: "more",
                 views: [{ id: "schedule", label: "Schedule" }, { id: "results", label: "Results" }],
-                item: /^[0-9]+$/, itemHeader: "bar", itemTitle: "Game" },
+                item: /^[0-9]+$/, itemHero: true, itemTitle: "Game" },
     // More's other destinations (reference 10), each a secondary destination
     // that keeps More selected (decision 0028).
-    news:     { header: "mast",    title: "News",        owner: "more" },
-    settings: { header: "mast",    title: "Settings",    owner: "more" },
-    feedback: { header: "mast",    title: "Feedback",    owner: "more" },
-    about:    { header: "mast",    title: "About Suite", owner: "more" }
+    news:     { title: "News",        owner: "more" },
+    settings: { title: "Settings",    owner: "more" },
+    feedback: { title: "Feedback",    owner: "more" },
+    about:    { title: "About Suite", owner: "more" }
   };
   var DEFAULT = "home";
 
@@ -168,7 +172,7 @@ Suite.nav = (function () {
 
   function paint(route) {
     var def = SCREENS[route.screen];
-    var kind = route.item && def.itemHeader ? def.itemHeader : def.header;
+    var hero = route.item ? !!def.itemHero : !!def.hero;
     var title = route.item && def.itemTitle ? def.itemTitle : def.title;
 
     // The nav: one current item - the screen's own, or for a secondary
@@ -179,19 +183,14 @@ Suite.nav = (function () {
       else a.removeAttribute("aria-current");
     });
 
-    // The header this screen wears, and the one heading that names it.
-    var bar = $("appBar"), ctx = $("barContext"), mast = $("masthead"),
-        mastTitle = $("mastTitle"), sr = $("screenHead");
-    if (bar)  bar.hidden = kind === "mast";
-    if (ctx)  ctx.hidden = kind !== "context";
-    if (mast) mast.hidden = kind !== "mast";
-    if (mastTitle) mastTitle.textContent = kind === "mast" ? title : "";
+    // One header everywhere; the one heading that names the screen is
+    // visible unless a hero leads it.
+    var ctx = $("barContext"), sr = $("screenHead");
+    if (ctx) ctx.hidden = false;
     if (sr) {
-      sr.textContent = kind === "mast" ? "" : title;
-      sr.hidden = kind === "mast";
-      // On a context screen the heading is visible: national content under
-      // a neutral title, not under the team's name.
-      sr.className = kind === "context" ? "page-title" : "sr-only";
+      sr.textContent = title;
+      sr.hidden = false;
+      sr.className = hero ? "sr-only" : "page-title";
     }
   }
 
@@ -200,9 +199,7 @@ Suite.nav = (function () {
   // keyboard and screen-reader users start there rather than on a nav link
   // that no longer describes what is on screen.
   function focusHeading(route, keepScroll) {
-    var def = SCREENS[route.screen];
-    var kind = route.item && def.itemHeader ? def.itemHeader : def.header;
-    var h = $(kind === "mast" ? "mastTitle" : "screenHead");
+    var h = $("screenHead");
     if (h && h.focus) { h.focus({ preventScroll: true }); }
     if (!keepScroll) window.scrollTo(0, 0);
   }
@@ -289,6 +286,82 @@ Suite.nav = (function () {
     main.addEventListener("touchcancel", function () { start = null; }, { passive: true });
   }
 
+  /* Pull to refresh. A single finger that starts with the page scrolled to
+     its top and moves down at least PULL_ARM px (twice as far down as
+     sideways, so a swipe is never taken for one) asks for a refresh when it
+     lets go; less than that, or moving back up, and nothing happens. Not on
+     a form control or a button, or inside anything scrolled down itself, and never while
+     a refresh is already under way. The indicator follows the finger, then
+     turns while the refresh runs and goes when it has settled. It is
+     aria-hidden: the refresh announces itself through the app's live
+     region, and Settings' button is the way in for anyone not pulling.
+     onRefresh returns a promise; the browser's own pull-to-reload is turned
+     off in app.css so the page is not reloaded under it. */
+  var PULL_ARM = 64, PULL_MAX = 96, PULL_RATIO = 2;
+  function scrolledInside(el, stop) {
+    for (; el && el !== stop && el.nodeType === 1; el = el.parentNode) {
+      if (/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName) || el.isContentEditable) return true;
+      if (el.scrollTop > 0) return true;
+    }
+    return false;
+  }
+  function pull(onRefresh) {
+    var main = $("main"), start = null, busy = false, dist = 0, ind = null;
+    if (!main || typeof onRefresh !== "function") return;
+    function indicator() {
+      if (ind) return ind;
+      ind = document.createElement("div");
+      ind.className = "pull";
+      ind.id = "pullRefresh";
+      ind.setAttribute("aria-hidden", "true");
+      ind.innerHTML = '<span class="pull-mark"></span>';
+      document.body.appendChild(ind);
+      return ind;
+    }
+    function show(d, armed) {
+      var el = indicator();
+      el.style.top = Math.max(0, main.getBoundingClientRect().top) + "px";
+      el.style.setProperty("--pull", String(Math.min(1, d / PULL_ARM)));
+      el.style.transform = "translate(-50%," + Math.round(d * 0.6) + "px)";
+      el.classList.toggle("is-armed", armed);
+      el.classList.add("is-pulling");
+    }
+    function hide() {
+      if (!ind) return;
+      ind.classList.remove("is-pulling", "is-armed", "is-refreshing");
+      ind.style.transform = "";
+    }
+    main.addEventListener("touchstart", function (e) {
+      start = null; dist = 0;
+      if (busy || e.touches.length !== 1 || window.scrollY > 0) return;
+      if (scrolledInside(e.target, main)) return;
+      start = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }, { passive: true });
+    main.addEventListener("touchmove", function (e) {
+      if (!start || e.touches.length !== 1) return;
+      var dx = e.touches[0].clientX - start.x, dy = e.touches[0].clientY - start.y;
+      if (window.scrollY > 0 || (dy < PULL_RATIO * Math.abs(dx) && Math.abs(dx) > 10)) { start = null; hide(); return; }
+      dist = Math.max(0, Math.min(PULL_MAX, dy));
+      if (dist > 4) show(dist, dist >= PULL_ARM); else hide();
+    }, { passive: true });
+    main.addEventListener("touchend", function () {
+      if (!start) return;
+      var go = dist >= PULL_ARM;
+      start = null; dist = 0;
+      if (!go) { hide(); return; }
+      busy = true;
+      var el = indicator();
+      el.classList.remove("is-pulling");
+      el.classList.add("is-refreshing");
+      el.style.transform = "translate(-50%," + Math.round(PULL_ARM * 0.6) + "px)";
+      var done = function () { busy = false; hide(); };
+      var p;
+      try { p = onRefresh(); } catch (err) { p = null; }
+      Promise.resolve(p).then(done, done);
+    }, { passive: true });
+    main.addEventListener("touchcancel", function () { start = null; dist = 0; if (!busy) hide(); }, { passive: true });
+  }
+
   // The Game control's state: null for a normal Game item, or one of
   // GAME_STATES. TeamOS decides which from the game's normalized status and
   // whether play has begun; this only draws and announces it.
@@ -316,5 +389,5 @@ Suite.nav = (function () {
 
   return { SCREENS: SCREENS, parse: parse, current: current, href: href, go: go,
            replace: replace, setViews: setViews, on: on, start: start,
-           setGameState: setGameState, title: title };
+           setGameState: setGameState, title: title, pull: pull };
 })();

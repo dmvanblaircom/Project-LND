@@ -115,6 +115,8 @@ uses a compact team-aware header:
 No locked reference exists for this variant; its first implementation is
 reviewed visually before it is propagated.
 
+*(Propagated to every screen by 0031, 2026-10-01.)*
+
 ### 7. Tickets is hidden in v1
 
 No Tickets destination ships until Suite has a real ticket capability. Pregame
