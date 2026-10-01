@@ -187,12 +187,15 @@ def main():
     old_ahist = load(AHIST, {"reports": []}) if AHIST else {"reports": []}
     known_charts = {s.get("sourceUrl"): s for s in old_dhist.get("snapshots", []) if s.get("schema") == 2}
     known_reports = {r.get("pdf"): r for r in old_ahist.get("reports", []) if r.get("schema") == 1}
+    # What was recorded for each game, for when this run cannot read it again.
+    recorded = {r.get("game"): r for r in old_ahist.get("reports", []) if r.get("schema") == 1 and r.get("game")}
 
     rows = chart_links(index, args.season)
     if not rows:
         sys.exit("no %s rows at %s - leaving files alone" % (args.season, index))
 
     charts, reports = [], []
+    current_report_failed = False
     for i, row in enumerate(rows):
         latest = i == len(rows) - 1
         log("official depth:", row["game"])
@@ -235,7 +238,19 @@ def main():
                                "pdf": url, "fetchedAt": now}, **parsed)
             reports.append(report)
         except Exception as e:                           # noqa: BLE001
-            log("  availability skipped:", str(e)[:140])
+            # A failed fetch is not a missing report. Keep what was recorded
+            # for this game, so the history never loses a week; with nothing
+            # recorded, this week is simply absent from this run - and if it
+            # is the current week, availability.json is left alone below
+            # rather than replaced with last week's report.
+            prev = recorded.get(row["game"])
+            if prev is not None:
+                log("  availability fetch failed; keeping the recorded report:", str(e)[:120])
+                reports.append(prev)
+            else:
+                log("  availability skipped:", str(e)[:140])
+                if latest:
+                    current_report_failed = True
 
     for i, c in enumerate(charts):
         c["changes"] = twodeep.diff(c["units"], charts[i - 1]["units"] if i else None)
@@ -247,7 +262,9 @@ def main():
     if write_if_changed(DHIST,
                         {"schema": 2, "team": args.team, "updated": now, "snapshots": charts}, old_dhist):
         wrote.append(DHIST)
-    if latest_report is not None and AV:
+    if current_report_failed:
+        log("availability: this week's game notes could not be read - availability.json left as it was")
+    if latest_report is not None and AV and not current_report_failed:
         if write_if_changed(AV, latest_report, old_av):
             wrote.append(AV)
         if AHIST and write_if_changed(AHIST,
