@@ -179,6 +179,42 @@ ok(/--drive:#E84A27/.test(theirs), "and drawn in their colour that shows on the 
 ok(/--drive:#FFFFFF/.test(driveHtml(false, null)), "no published colours: neutral white, never our colour");
 ok(/--drive:#FFFFFF/.test(driveHtml(false, ["0B3D11", "123F18"])), "colours that vanish on the turf: neutral white");
 
+// ---- Plays: scoring drives (David, 2026-10-01, with a fan's feedback) ----
+console.log("Plays: each score opens the drive that made it (real final, Notre Dame v Wisconsin)");
+function playsHtml(detail, open) {
+  var h = host();
+  sctx.Suite.game.paint(h, { team: { name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, oppMark: function () { return ""; },
+    game: WG, detail: detail, lifecycle: G.lifecycle(WG), view: "plays", preview: null, side: "us", open: open || {},
+    weather: null, now: new Date("2026-09-07T14:00:00Z") });
+  return h.parts.body.innerHTML;
+}
+var ph = playsHtml(WD);
+ok(/Scoring drives/.test(ph) && !/Scoring plays/.test(ph), "the card is Scoring drives");
+var scoreBlocks = ph.match(/<details data-key="score-[^"]+"[\s\S]*?<\/details>/g) || [];
+eq(scoreBlocks.length, WD.scoring.length, "every score opens");
+ok(scoreBlocks.every(function (b, i) {
+  var p = WD.scoring[i], d = WD.drives.list.filter(function (x) { return x.id === p.driveId; })[0] || { plays: [] };
+  var at = d.plays.map(function (q) { return q.id; }).indexOf(p.id);
+  var rows = b.match(/<li[^>]*>[\s\S]*?<\/li>/g) || [];
+  return rows.length === at + 1 && /^<li class="is-score">/.test(rows[rows.length - 1]) &&
+         rows.filter(function (r) { return /is-score/.test(r); }).length === 1;
+}), "opened, it shows the drive's plays up to the score, and the score - marked - is the last of them");
+var trailing = WD.scoring.filter(function (p) {
+  var d = WD.drives.list.filter(function (x) { return x.id === p.driveId; })[0];
+  return d && d.plays[d.plays.length - 1].id !== p.id;
+});
+ok(trailing.length > 0 && trailing.every(function (p) {
+  var b = scoreBlocks[WD.scoring.indexOf(p)] || "", d = WD.drives.list.filter(function (x) { return x.id === p.driveId; })[0];
+  return (b.match(/<li[^>]*>/g) || []).length < d.plays.length;
+}),
+   "a timeout ESPN logged after a score (" + trailing.length + " in this game) is left out of the scoring drive");
+eq((ph.match(/data-key="drive-/g) || []).length, WD.drives.list.length, "and every drive is still listed under Drives, whole");
+ok(/<details data-key="score-[^"]+" open>/.test(playsHtml(WD, (function (o) { o["score-" + WD.scoring[0].id] = true; return o; })({}))),
+   "a score the fan opened stays open through a refresh");
+var noDrive = JSON.parse(JSON.stringify(WD)); noDrive.scoring[0].driveId = null;
+var nd = playsHtml(noDrive);
+eq((nd.match(/data-key="score-/g) || []).length, WD.scoring.length - 1, "a score whose drive the feed did not send is a plain row, not a dead control");
+
 // ---- the possession football in the Game header (David, 2026-09-26) ----
 console.log("Game header: the football is with the team that has the ball (real live ND at Purdue)");
 var purRaw = JSON.parse(read("tools/fixtures/espn-summary-pur-live.json"));

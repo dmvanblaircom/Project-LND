@@ -604,8 +604,16 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .lp-dd{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;color:var(--t-surface)}
 .lp-text{margin:.25rem 0 0;color:var(--s-ink-2)}
 
-.sp-list li{display:grid;grid-template-columns:auto 1fr auto;column-gap:.6rem;padding:.55rem 0}
-.sp-list li + li{border-top:1px solid var(--s-line)}
+.sp-row{display:grid;grid-template-columns:auto 1fr auto;column-gap:.6rem;padding:.55rem 0}
+.sp-list > li + li{border-top:1px solid var(--s-line)}
+.sp-list summary{grid-template-columns:auto 1fr auto auto;list-style:none;cursor:pointer;min-height:2.75rem}
+.sp-list summary::-webkit-details-marker{display:none}
+.sp-list summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:-2px}
+.sp-list summary .dr-chev{grid-column:4;grid-row:1;align-self:center}
+.sp-list details[open] > summary .dr-chev{transform:rotate(-135deg) translateY(-1px)}
+.sp-drive{margin:0 0 .35rem;font-size:.82rem;color:var(--s-muted)}
+.pl-list li.is-score{border-left-color:var(--t-accent-on-light);background:var(--t-accent-tint-soft)}
+.pl-list li.is-score .pl-text{font-weight:700;color:var(--s-ink)}
 .sp-when{font-size:.82rem;color:var(--s-muted)}
 .sp-team{font-family:var(--t-font-display);font-weight:700;color:var(--s-ink)}
 .sp-list .mine .sp-team{color:var(--t-accent-on-light)}
