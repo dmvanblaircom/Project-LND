@@ -375,7 +375,8 @@ Suite.game = (function () {
     var lp = m.detail && m.detail.lastPlay;
     if (!lp) return "";
     return card("Last play", (lp.downDistance ? '<p class="lp-dd">' + esc(lp.downDistance) + "</p>" : "") +
-      '<p class="lp-text">' + (lp.at ? '<span class="lp-at">' + esc(lp.at) + "</span> " : "") + esc(lp.text) + "</p>" +
+      '<p class="lp-text">' + (lp.at ? '<span class="lp-at">' + esc(lp.at) + "</span> " : "") + keepNames(lp.text) + (lp.tags && lp.tags.length ? " " + playTags(lp.tags) : "") + "</p>" +
+      playNotes(lp.notes) +
       '<a class="sec-link" href="' + esc(base(m)) + '/plays">View play-by-play' + CHEVRON + "</a>");
   }
 
@@ -388,10 +389,24 @@ Suite.game = (function () {
   // the try) stays in the full drive under Drives, so the score is always
   // the last thing a scoring drive shows. A score whose drive the payload
   // does not carry is a plain row, as before.
+  // One play, for a fan (TeamOS cleans ESPN's words): where it started and
+  // when, what happened, how it ended, and what happened around it.
+  var TAG_KIND = { "Touchdown": "score", "Turnover": "turnover", "Turnover on downs": "turnover", "No play": "void", "1st down": "first" };
+  function playTags(tags) {
+    return (tags || []).map(function (t) { return '<span class="pl-tag ' + (TAG_KIND[t] || "") + '">' + esc(t) + "</span>"; }).join("");
+  }
+  // "C. Carr" never breaks between the initial and the name.
+  function keepNames(t) { return esc(t).replace(/\b([A-Z]\.) (?=[A-Z])/g, "$1\u00a0"); }
+  function playNotes(notes) {
+    return notes && notes.length ? '<ul class="pl-notes">' + notes.map(function (n) { return "<li>" + keepNames(n) + "</li>"; }).join("") + "</ul>" : "";
+  }
   function playRow(p, score) {
-    return '<li' + (score ? ' class="is-score"' : "") + '><span class="pl-dd">' +
-           esc(p.start && p.start.short ? p.start.short + (p.start.spot ? " at " + p.start.spot : "") : "") + "</span>" +
-           '<span class="pl-text">' + esc(p.text) + "</span></li>";
+    if (p.snap === false) return '<li class="pl-between"><span class="pl-text">' + esc(p.text) + "</span></li>";
+    var where = p.start && p.start.short ? p.start.short + (p.start.spot ? " at " + p.start.spot : "") : "";
+    return '<li' + (score ? ' class="is-score"' : "") + ">" +
+           (where || p.at ? '<span class="pl-meta"><span class="pl-dd">' + esc(where) + "</span>" + (p.at ? '<span class="pl-at">' + esc(p.at) + "</span>" : "") + "</span>" : "") +
+           '<span class="pl-text">' + keepNames(p.text) + (p.tags && p.tags.length ? " " + playTags(p.tags) : "") + "</span>" +
+           playNotes(p.notes) + "</li>";
   }
   function plays(m) {
     var gd = m.detail;
