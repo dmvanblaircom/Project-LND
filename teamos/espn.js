@@ -665,6 +665,21 @@ TeamOS.espn = (function () {
     t=t.replace(/(intercepted by ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?))(?:,)? \2 return (\d+) yards?/, "$1, returned $3 yards");
     t=t.replace(/,? ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?) return (\d+) yards?/g, function(_, who, y){ return ", returned "+(y==="0"?"for no gain":y+(y==="1"?" yard":" yards"))+" by "+who; });
     t=t.replace(/,? ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?) return for (?:a )?loss of (\d+) yards?/g, function(_, who, y){ return ", returned for a loss of "+y+(y==="1"?" yard":" yards")+" by "+who; });
+    // ESPN's scoring-summary form, which a drive sometimes carries for a
+    // score: "DJ McKinney 55 Yd Interception Return (Spencer Porath Kick)".
+    // The same words, read the same way as the long form: "DJ McKinney
+    // 55-yard interception return", the conversion on its own line.
+    var cm=/^(.+?) (\d+) Yd (.+?)(?:\s*\(([^()]*)\))?$/.exec(t);
+    if(cm){
+      var what=cm[3].split(" from "), conv=cm[4]||"", k=/^(.+?) Kick$/i.exec(conv);
+      what[0]=what[0].toLowerCase();
+      t=cm[1]+" "+cm[2]+"-yard "+what.join(" from ");
+      if(k) notes.push(k[1]+" extra point good");
+      else if(/kick (failed|blocked|no good)/i.test(conv)) notes.push("Extra point "+(/blocked/i.test(conv)?"blocked":"failed"));
+      else if(conv) notes.push(conv);
+    }
+    // the play's own type says it scored, whatever form the words took
+    if(/Touchdown/i.test(type||"") && tags.indexOf("Touchdown")<0) tags.unshift("Touchdown");
     if(!t && notes.length && /^Penalty/.test(notes[0])){ t=notes.shift(); }
     return { text:t, tags:tags, notes:notes };
   }
@@ -712,8 +727,10 @@ TeamOS.espn = (function () {
     var w=playText(p, codes);
     var type=str(pick(p,["type","text"],""));
     // A timeout or the end of a period happens between snaps: no down,
-    // no distance, no spot of its own.
-    var snap=!/^(timeout|end period|end of (half|game|regulation))/i.test(type);
+    // no distance, no spot of its own. ESPN sometimes sends one without a
+    // type ("Timeout Notre Dame", "End of 4th quarter."): then its words say.
+    var snap=type ? !/^(timeout|end period|end of (half|game|regulation))/i.test(type)
+                  : !/^(timeout\b|end of (the )?(\d(st|nd|rd|th) quarter|half|game|regulation|period)\b)/i.test(w.text);
     return { id: str(p.id), text: w.text, at: w.at, tags: w.tags, notes: w.notes, snap: snap, period: pick(p,["period","number"],null),
              clock: str(pick(p,["clock","displayValue"],"")), type: str(pick(p,["type","text"],"")),
              yards: typeof p.statYardage==="number" ? p.statYardage : null,

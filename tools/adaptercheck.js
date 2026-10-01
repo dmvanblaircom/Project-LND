@@ -417,7 +417,7 @@ fs.readdirSync(path.join(root, "tools/fixtures")).filter(function (f) { return /
 });
 function wordsOf(p) { return [p.text].concat(p.notes || []).join(" "); }
 var leftovers = everyPlay.filter(function (x) {
-  return /#\d|\(H:|LS:|\b[A-Za-z]+\d\d\b|^\(\d|clock \d|Shotgun|No Huddle|TOUCHDOWN|1ST DOWN|NO PLAY|PENALTY|End Of Play|QB hurried/.test(wordsOf(x.shown));
+  return /#\d|\(H:|LS:|\b[A-Za-z]+\d\d\b|^\(\d|clock \d|Shotgun|No Huddle|TOUCHDOWN|1ST DOWN|NO PLAY|PENALTY|End Of Play|QB hurried|\bYd\b/.test(wordsOf(x.shown));
 });
 ok(everyPlay.length > 500 && leftovers.length === 0, everyPlay.length + " real plays: no jersey number, spot code, holder or snapper, formation, repeated clock or shouting left" +
    (leftovers.length ? " - e.g. " + wordsOf(leftovers[0].shown) : ""));
@@ -444,6 +444,11 @@ var fg = shownFor(/field goal attempt from 39 yards NO GOOD/);
 eq(fg.text, "S. Porath 39-yard field goal is no good", "a missed field goal");
 var pick = shownFor(/intercepted by #8 A.Shuler at MSU36 QB hurried/);
 eq([pick.text, pick.tags], ["A. Milivojevic pass intercepted by A. Shuler, returned 9 yards", ["Turnover"]], "an interception and its return");
+var six = shownFor(/DJ McKinney 55 Yd Interception Return/);
+eq([six.text, six.tags, six.notes], ["DJ McKinney 55-yard interception return", ["Touchdown", "Turnover"], ["Spencer Porath extra point good"]],
+   "a score in ESPN's short form reads the same way: Touchdown from the play's type, the kick on its own line");
+eq([shownFor(/^Timeout Notre Dame/).snap, shownFor(/^End of 4th quarter/).snap], [false, false],
+   "a timeout or a period's end that ESPN sent without a type is still not a snap: its words say what it is");
 var rev = shownFor(/Runner broke the plane/);
 ok(rev.notes.indexOf("Upheld after review: runner broke the plane") > -1, "a replay review is one quiet line");
 var fum = shownFor(/fumble by #11 A.Milivojevic recovered by MSU #75 B.Murawski/);
