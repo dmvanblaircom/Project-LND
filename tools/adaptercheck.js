@@ -760,8 +760,18 @@ eq(osuId.tagline, null, "no tagline: Leave No Doubt. belongs to Notre Dame");
 eq(osuId.colors.accent, "#BA0C2F", "BUX scarlet");
 eq(osuId.colors.accentText, "#EFF1F2", "accent TEXT is BUX gray-light, not a lightened scarlet");
 ok(osuId.colors.accentText !== osuId.colors.accent, "a team whose accent cannot carry text says so explicitly");
-eq(osuId.fonts.ui.indexOf("BuckeyeSans"), 1, "BuckeyeSans leads the UI stack");
-ok(/Barlow/.test(osuId.fonts.ui), "with a fallback, because the font files are not distributed");
+// C19: Ohio State's own fonts are not available for independent use; Nunito
+// Sans is the public face it recommended, self-hosted under the OFL.
+eq(osuId.fonts.ui.indexOf("Nunito Sans"), 1, "Nunito Sans, Ohio State's recommended public face, leads the UI stack");
+eq(osuId.fonts.display.indexOf("Nunito Sans"), 1, "and the display stack");
+ok(!/Buckeye/i.test(osuId.fonts.ui + osuId.fonts.display), "the Buckeye fonts, not licensed to us, are not named at all");
+ok(/Barlow/.test(osuId.fonts.ui), "with a fallback while the face loads");
+var css = read("app.css"), faces = css.match(/@font-face\{font-family:'Nunito Sans';[^}]*\}/g) || [];
+ok(faces.length === 4 && faces.every(function (f) {
+  var u = (f.match(/url\(([^)]+)\)/) || [])[1];
+  return u && fs.existsSync(path.join(root, u)) && /font-display:swap/.test(f) && /unicode-range:/.test(f);
+}), "app.css declares it from the repository's own files (normal and italic, latin and latin-ext), swapped in, never blocking text");
+ok(fs.existsSync(path.join(root, "assets/fonts/nunito-sans/OFL.txt")), "its Open Font License ships beside it");
 
 console.log(" the two teams differ where identity lives");
 ["programLabel"].forEach(function (k) {
