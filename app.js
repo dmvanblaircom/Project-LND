@@ -663,9 +663,11 @@ function beatItem(i){
   return { title:i.title, link:i.link, image:"", source:i.source, publishedAt: isNaN(t) ? null : t };
 }
 // Every source's stories -> one NewsItem[], newest first, one story per
-// headline. Home and the full News list read the same list.
+// headline. Home and the full News list read the same list. Only a plain
+// http(s) link survives: it is written into an href, and a feed's
+// javascript: address there would run on a tap (code review, 2026-10-01).
 function newsList(items){
-  var all=items.filter(function(a){ return a && a.link && a.title; });
+  var all=items.filter(function(a){ return a && a.title && /^https?:\/\/\S+$/i.test(String(a.link||"")); });
   var seen={}, list=[];
   all.forEach(function(a){
     var k=a.title.toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,60);
