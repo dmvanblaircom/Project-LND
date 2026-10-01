@@ -297,7 +297,7 @@ Suite.nav = (function () {
      its top and moves down at least PULL_ARM px (twice as far down as
      sideways, so a swipe is never taken for one) asks for a refresh when it
      lets go; less than that, or moving back up, and nothing happens. Not on
-     a form control or inside anything scrolled down itself, and never while
+     a form control or a button, or inside anything scrolled down itself, and never while
      a refresh is already under way. The indicator follows the finger, then
      turns while the refresh runs and goes when it has settled. It is
      aria-hidden: the refresh announces itself through the app's live
@@ -307,7 +307,7 @@ Suite.nav = (function () {
   var PULL_ARM = 64, PULL_MAX = 96, PULL_RATIO = 2;
   function scrolledInside(el, stop) {
     for (; el && el !== stop && el.nodeType === 1; el = el.parentNode) {
-      if (/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName) || el.isContentEditable) return true;
+      if (/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName) || el.isContentEditable) return true;
       if (el.scrollTop > 0) return true;
     }
     return false;

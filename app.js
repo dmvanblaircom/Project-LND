@@ -876,7 +876,9 @@ function paintGame(){
   if(g){ loadGameDetail(GV, g, lc, paintGame); loadHomeWeather(g); }
 }
 // A game's summary: every 25 seconds while it is under way, every five
-// minutes otherwise, never two requests at once.
+// minutes otherwise, never two requests at once. While one is out, V.p is
+// its promise, resolving to how it came out ("network" or "failed"), so a
+// refresh can wait for it and report it.
 function loadGameDetail(V, g, lc, repaint){
   var live=TeamOS.game.underWay(g);
   if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))){
@@ -886,12 +888,14 @@ function loadGameDetail(V, g, lc, repaint){
     return;
   }
   V.loading=true;
-  summaryFor(g.id, live).then(function(raw){
+  V.p=summaryFor(g.id, live).then(function(raw){
     V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
     if(learnOpening(g.id, V.gd) && SB.games) SB.games=TeamOS.live.withOpening(SB.games, OPENING);
     if(lc.phase==="pregame" && (V.preview===undefined || V.previewFailed)) loadGamePreview(V, g, repaint);
-  }).catch(function(){}).then(function(){
-    V.at=Date.now(); V.loading=false; repaint();
+    return "network";
+  }).catch(function(){ return "failed"; }).then(function(outcome){
+    V.at=Date.now(); V.loading=false; V.p=null; repaint();
+    return outcome;
   });
 }
 // Pregame Matchup: both teams' season figures, with national ranks. One
@@ -1429,6 +1433,11 @@ function refreshAll(silent){
   });
   if(UI.tab==="game") paintGame();
   if(UI.tab==="schedule") paintScheduleScreen();
+  // ...and the refresh is not done until that game's summary is: it waits
+  // for it and reports it with the rest.
+  [UI.tab==="game" && GV, UI.tab==="schedule" && SV].forEach(function(V){
+    if(V && V.p) steps.push(V.p.then(function(o){ return { key:"summary", outcome:o }; }));
+  });
   FRESH.at=Date.now();
   return Promise.all(steps).then(function(r){
     var flat=[]; (function add(x){ if(Array.isArray(x)) x.forEach(add); else if(x && x.outcome) flat.push(x); })(r);

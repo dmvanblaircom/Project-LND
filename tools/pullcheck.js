@@ -52,14 +52,16 @@ var FILE = { post: "espn-schedule-nd-2025-post.json", schedule: "espn-schedule.j
   async function open(url, opts) {
     opts = opts || {};
     var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, serviceWorkers: "block" });
-    var page = await ctx.newPage(), counts = {};
+    var page = await ctx.newPage(), counts = {}, ctl = { delays: opts.delays || {}, fail: {} };
     await page.route("**/*", async function (route) {
       var u = route.request().url();
       if (u.startsWith(base)) return route.continue();
       var k = kind(u);
       if (k) {
         counts[k] = (counts[k] || 0) + 1;
-        if (opts.delay) await new Promise(function (r) { setTimeout(r, opts.delay); });
+        var wait = k in ctl.delays ? ctl.delays[k] : opts.delay;
+        if (wait) await new Promise(function (r) { setTimeout(r, wait); });
+        if (ctl.fail[k]) return route.fulfill({ status: 503, body: "" });
         return route.fulfill({ status: 200, contentType: "application/json", body: fs.readFileSync(path.join(FX, FILE[k])) });
       }
       return route.abort();
@@ -67,7 +69,7 @@ var FILE = { post: "espn-schedule-nd-2025-post.json", schedule: "espn-schedule.j
     await page.goto(base + url);
     if (!/choose/.test(url)) await page.waitForFunction(function () { return !document.getElementById("launch"); }, null, { timeout: 8000 });
     await page.waitForTimeout(400);
-    return { ctx: ctx, page: page, counts: counts };
+    return { ctx: ctx, page: page, counts: counts, ctl: ctl };
   }
   // One finger along `ys` (and `xs`), a touchmove per step, then let go.
   function drag(page, xs, ys, fingers) {
@@ -158,6 +160,35 @@ var FILE = { post: "espn-schedule-nd-2025-post.json", schedule: "espn-schedule.j
   ok(await g.page.evaluate(function () { return getComputedStyle(document.documentElement).overscrollBehaviorY; }) === "contain",
      "the browser's own pull-to-reload is off, so the app is not reloaded under the pull");
   await g.ctx.close();
+
+  // Codex review of #71: the refresh waits for the open game's summary and
+  // reports it; a pull that starts on a button is the button's.
+  console.log("Game: the refresh waits for the open game's summary");
+  var gs = await open("/?team=notre-dame#game");
+  await gs.page.waitForTimeout(600);
+  gs.ctl.delays.summary = 1500;
+  before = snap(gs.counts);
+  await drag(gs.page, [195], down(320, 470));
+  await gs.page.waitForTimeout(900);
+  ok(more(snap(gs.counts), before, "schedule") === 1 && /is-refreshing/.test(await indicator(gs.page) || ""),
+     "the rest has answered, the summary has not: still refreshing");
+  await gs.page.waitForTimeout(1500);
+  ok(!/is-refreshing/.test(await indicator(gs.page) || "") && /^Data refreshed\.$/.test(await gs.page.evaluate(function () { return document.getElementById("live").textContent; })),
+     "done, and said so, only once the summary is in");
+  gs.ctl.delays.summary = 0; gs.ctl.fail.summary = true;
+  await drag(gs.page, [195], down(320, 470)); await gs.page.waitForTimeout(1200);
+  ok(/^Some data refreshed\./.test(await gs.page.evaluate(function () { return document.getElementById("live").textContent; })),
+     "a summary that fails is reported, not left out");
+  await gs.ctx.close();
+
+  console.log("a pull that starts on a button");
+  var bt = await open("/?team=notre-dame#more");
+  before = snap(bt.counts);
+  var box = await bt.page.evaluate(function () { var r = document.querySelector("[data-share]").getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; });
+  await drag(bt.page, [Math.round(box.x)], down(Math.round(box.y), Math.round(box.y) + 150));
+  await bt.page.waitForTimeout(600);
+  ok(more(snap(bt.counts), before, "schedule") === 0, "is the button's, not a refresh");
+  await bt.ctx.close();
 
   console.log("the chooser");
   var c = await open("/?choose=1");
