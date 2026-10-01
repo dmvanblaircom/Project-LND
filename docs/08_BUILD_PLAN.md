@@ -57,7 +57,7 @@ Normalized Domain Model
 Irish Watch
 ```
 
-Status: **complete for ESPN** as of 4C. Milestones 4A (league view: `LeagueGame`, `Poll`), 4B (Game Center: `GameDetail`, `SeasonStat`) and 4C (news: `NewsItem`) moved every ESPN payload the Suite consumes behind `teamos/espn.js`; `app.js` no longer carries an ESPN URL, id or key name. A 4D milestone for the two remaining small providers — Kalshi odds (`Market`) and the Open-Meteo forecast (`Forecast`) — is defined but deferred until a concrete product or architectural reason calls for it.
+Status: **complete for ESPN** as of 4C. Milestones 4A (league view: `LeagueGame`, `Poll`), 4B (Game Center: `GameDetail`, `SeasonStat`) and 4C (news: `NewsItem`) moved every ESPN payload the Suite consumes behind `teamos/espn.js`; `app.js` no longer carries an ESPN URL, id or key name. A 4D milestone for the two remaining small providers — Kalshi odds (`Market`) and the Open-Meteo forecast (`Forecast`) — is defined but deferred until a concrete product or architectural reason calls for it. **4D Market done 2026-10-01 (W18):** Kalshi's schema now enters only through `teamos/markets.js`; the forecast stays deferred.
 
 ## Phase 5: Add Ohio State
 
@@ -192,18 +192,24 @@ Validate the domain model against additional sports and leagues. Add sport-speci
 
 ## Data Sources
 
-Irish Watch reaches providers two ways, chosen by **how fresh the data has to
-be**, not by who publishes it (decision 0012):
+Suite reaches providers three ways, chosen by **how fresh the data has to
+be** and **what its terms allow**, not by who publishes it (decisions 0012,
+0030):
 
 - **Browser -> provider**, for anything a fan watches change: ESPN scores,
   schedule, scoreboard, summary, news. No key possible, CORS must be permitted,
   rate limits land per device.
 - **Action -> provider -> a committed snapshot**, for anything that changes over
-  days: the odds history, the depth chart, beat news, and — proposed — opponent
-  statistics from CollegeFootballData.com. A key is safe in repository secrets,
-  CORS does not apply, and the cost is a handful of calls a week.
+  days: the odds history, the depth chart, beat news. A key is safe in
+  repository secrets, CORS does not apply, and the cost is a handful of calls
+  a week.
+- **Browser -> Suite's edge API -> provider** (decision 0030), for data whose
+  key must stay server-side or whose terms allow display but not publishing
+  files: CollegeFootballData's season figures. The Worker caches, so the
+  provider sees a handful of calls however many fans load the page.
 
-A new provider takes the Action path unless the data must be current. Snapshots
+A new provider takes the Action path unless the data must be current, or its
+terms rule out a committed file. Snapshots
 are owned by declaration (decision 0008), so a team without a source for a kind
 declares none and the Suite shows that kind as unavailable.
 

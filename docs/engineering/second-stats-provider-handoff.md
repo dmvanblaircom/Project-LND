@@ -1,5 +1,10 @@
 # Engineering Handoff: opponent statistics from a second provider
 
+> **Superseded (2026-10-01).** W15 shipped by another route: CFBD season
+> figures through Suite's edge API (decision 0030), shown only, never
+> published as files (CFBD's condition). "No backend" below no longer holds.
+> Kept as the record of the original plan.
+
 **Status:** blocked. See *Stop / Escalate If* — two gates must clear before any
 code is written.
 **Decision:** `docs/decisions/0012-second-stats-provider.md`
