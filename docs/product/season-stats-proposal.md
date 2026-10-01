@@ -26,9 +26,11 @@ Build one new destination, **Stats**, owned by More like Schedule (decision
 Two links point to it: one from More, and "Full season stats" under
 Game's Matchup card.
 
-**Smallest version first:** ship **Team** alone. Its data is already
-fetched for the Matchup card, so it needs no new source, no backend and no
-new request. **Players** follows once its source is confirmed (§3).
+**Smallest version first:** ship **Team** alone. It uses the same ESPN
+request the Matchup card makes, so it needs no new source and no backend.
+Today that request is only made inside the pregame Matchup load
+(`loadGamePreview()`), so Stats makes it itself when opened directly, with
+its own loading, failure and offline (cached) states. **Players** follows once its source is confirmed (§3).
 Historical seasons come after both (§5).
 
 ## 2. Where it lives: options
@@ -47,6 +49,7 @@ belongs, and Players rows can link to them once they exist.
 | Need | Source | Status |
 |---|---|---|
 | Team season stats with national ranks | ESPN core API, `seasons/<year>/types/2/teams/<id>/statistics`, fetched by the browser today (`teamSeasonStats()` in app.js, `TeamOS.espn.seasonStats()`) | **Verified for what Matchup reads** (9 rows, in the categories general, passing, rushing, defensive, scoring, miscellaneous). The fixture is trimmed to those, so which other categories the full payload carries (kicking, punting, returns) is Phase 0's first question |
+| Postseason | ESPN files bowl and CFP games under season type 3, separately from the regular season (type 2), as the schedule does (backlog C17) | **Not yet verified for stats.** Phase 0 captures type-3 statistics and settles how they combine (totals add; averages are recomputed from totals and games; ranks are per type). Until then the view is labelled "Regular season" |
 | Points allowed | ESPN publishes `pointsAllowed` as a permanent 0 ranked "Tied-1st" (decision 0011) | **Derived** from the team's own results (`TeamOS.season`), as Matchup does now |
 | Yards allowed (rushing, passing, total) | ESPN publishes `yardsAllowed` as a permanent 0 too. CFBD through our edge API (`/v1/cfbd/season`, decision 0030) | **Live** for Matchup. CFBD allows display in the app but not republishing its data as a file, which is why it goes through the Worker |
 | Player season stats | ESPN, either a per-team season leaders/statistics call or a per-athlete call, **or** CFBD's player season stats through the Worker | **Not yet verified.** This environment cannot reach ESPN; the first step is to capture real payloads with `capture-fixture.yml`-style workflows on GitHub's runner, as the offseason proposal did |
@@ -64,9 +67,17 @@ handle the same way:
 
 ## 4. How it scales to Ohio State and every team
 
-Every call above is keyed by the provider's team id, which TeamOS already
-resolves from the team config. Nothing is per-team code, so Ohio State
-gets Stats the day Notre Dame does. A team the Worker has no CFBD figures
+Each source has its own key, and both come from data the app already
+has, not from per-team code:
+- ESPN calls are keyed by ESPN's team id, which TeamOS resolves from the
+  team config.
+- CFBD is keyed by **school name**, not an id. `yardsAllowedFor()` passes
+  the game's `school` and the Worker matches CFBD's `team` field by name.
+  Any new CFBD call keeps that key, or adds an explicit id-to-name mapping;
+  an ESPN id sent to CFBD would match nothing and the rows would quietly
+  show as unavailable.
+
+So Ohio State gets Stats the day Notre Dame does. A team the Worker has no CFBD figures
 for shows the yards-allowed rows as unavailable, never another team's
 numbers (decision 0008's rule).
 
@@ -83,9 +94,15 @@ Notes for when it is picked up:
   - ESPN, if past seasons answer the same call: free, no new key.
   - Otherwise CFBD, through the Worker, displayed in the app only (its
     condition).
-- **Shape:** a season picker on Stats, plus player pages. Player pages
-  need the player identity that headshots already established (decision
-  0029).
+- **Shape:** a season picker on Stats, plus player pages.
+- **Player identity comes first.** Today's `Player` model
+  (`TeamOS.espn` `player()`) drops the provider's athlete id. The headshot
+  join (decision 0029) matches on number and last name within the current
+  roster, which is not a key across seasons: transfers, shared names,
+  number and name changes would merge two players or split one career.
+  Before any player row links to history, `Player` keeps the provider's
+  athlete id, and a capture confirms it stays the same across seasons and
+  schools.
 - **Not in scope:** all-time records and program history. Those belong to
   a separate brief, and the offseason proposal's "history" thread may
   cover them.
@@ -94,7 +111,7 @@ Notes for when it is picked up:
 
 | Phase | What | Effort (Claude) | Needs |
 |---|---|---|---|
-| 0 | Capture real payloads: full team season stats for ND and OSU, and one player-stats candidate per source | 1 block | A capture workflow run (GitHub's runner can reach ESPN) |
+| 0 | Capture real payloads: full team season stats for ND and OSU (regular season and postseason), and one player-stats candidate per source, with its athlete ids | 1 block | A capture workflow run (GitHub's runner can reach ESPN) |
 | 1 | **Team** view: every category, ranks, opponent column in game week, link from Matchup | 2-3 blocks | Codex: layout and type |
 | 2 | **Players** view: category tables from the confirmed source, reusing Box Score's table | 2-3 blocks | Phase 0's answer; Codex review |
 | 3 | Historical (queued): season picker, player pages, Worker caching | Scoped when picked up | A source verified for past seasons |
