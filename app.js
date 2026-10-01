@@ -1527,4 +1527,31 @@ setInterval(function(){
 Suite.nav.setViews("roster", TeamOS.roster.views(TEAM_CONFIG));
 Suite.nav.start();
 load();
+liftLaunchWhenReady();
+
+// The launch screen (index.html, David 2026-10-01) lifts when the screen the
+// fan opened is ready: Home once its hero has the season (from the saved copy
+// or the network) - or the schedule has failed, which Home says itself - and
+// every screen once the logos on it have loaded or failed. Never before
+// 250ms, so it fades rather than blinks; never after 2 seconds, whatever is
+// still on its way.
+function liftLaunchWhenReady(){
+  var el=$("launch"); if(!el) return;
+  var t0=Date.now(), MIN=250, MAX=2000;
+  function screen(){ return document.querySelector("#main > div:not([hidden])"); }
+  function ready(){
+    var sc=screen(); if(!sc || !sc.firstChild) return false;
+    if(sc.id==="screenHome" && !S.games && !SC.failed) return false;
+    return Array.prototype.every.call(sc.querySelectorAll("img[data-mark]"), function(i){ return i.complete; });
+  }
+  (function tick(){
+    var age=Date.now()-t0;
+    if(age>=MAX || (age>=MIN && ready())){
+      el.classList.add("done");
+      setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 400);
+      return;
+    }
+    setTimeout(tick, 50);
+  })();
+}
 })();
