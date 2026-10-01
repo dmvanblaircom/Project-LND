@@ -89,8 +89,8 @@ minimum is David's call, not a styling choice.
 
 | Item | Model, ready | What Codex builds |
 |---|---|---|
-| W06 changes disclosure (issue #30) | `TeamOS.roster.depth(...).since` (PR #48) | The collapsed "N changes since the last chart" under the source line; render only when `since && since.count > 0` |
 | W07 FPI in Rankings (issue #29) | `TeamOS.ratings.fpi()` (PR #53); app loading follows the refresh schedule | The fourth selector option, rating column, "predictive rating" labeling, source/edition line |
 | W18 Season Outlook full field | `TeamOS.markets.field()`, `MARKET_FIELD` in app.js (PR #55) | The "View full field" board: light theme, attribution, stale/missing states, Home navigation |
-| W08 schedule links | Rules shipped (PR #36) | "View All" → "View Full Schedule" on Home; a Full Schedule link on Game |
 | W21 series card | `seriesKind` (W21 PR) | Review the card without the trophy mark for a rivalry or event (The Game, the Shamrock Series) |
+
+**David's October 1 correction:** preserve the deliberately compact depth-chart changes section and its movement arrows. W06's disclosure is withdrawn; do not restore or enlarge the changes section. See the controlling direction in `backlog.md`.

@@ -103,6 +103,22 @@ eq([pur.home, pur.neutral, pur.timeSet], [false, false, false], "away, real home
 eq(pur.net, "Peacock", "broadcast fallback from config.sources.espn.broadcastFallback");
 eq(pur.series, "Shillelagh Trophy", "series from config");
 
+// Code review, 2026-10-01: a college team's own stadium is never "neutral" by
+// name. Miami plays at Hard Rock; a road game there is a road game.
+console.log("away at a college home field that also hosts bowls (Miami at Hard Rock)");
+function venueGame(name, neutralSite) {
+  var e = JSON.parse(JSON.stringify(fixture.events.filter(function (x) { return x.id === "401858460"; })[0]));
+  e.competitions[0].venue.fullName = name;
+  if (neutralSite === undefined) delete e.competitions[0].neutralSite; else e.competitions[0].neutralSite = neutralSite;
+  return TeamOS.espn.schedule({ events: [e] }, team, TEAM_CONFIG)[0];
+}
+eq([venueGame("Hard Rock Stadium", false).home, venueGame("Hard Rock Stadium", false).neutral], [false, false], "away, not neutral");
+eq(venueGame("Hard Rock Stadium", true).neutral, true, "the Orange Bowl there, which ESPN marks neutral, still is");
+[["Raymond James Stadium", "USF"], ["Alamodome", "UTSA"], ["Allegiant Stadium", "UNLV"]].forEach(function (v) {
+  eq(venueGame(v[0], false).neutral, false, "nor at " + v[0] + " (" + v[1] + ")");
+});
+eq(venueGame("Gillette Stadium", false).neutral, true, "a pro venue no college calls home stays neutral whatever ESPN says");
+
 // W21 (David, 2026-10-01): each series entry says what it is, and only a
 // trophy gets the trophy mark on Game.
 console.log("series kinds: trophy, rivalry, event");

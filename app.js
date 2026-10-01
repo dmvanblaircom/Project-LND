@@ -62,8 +62,6 @@ function paintIdentity(){
   document.title = DOC_TITLE;
 
   // ---- the page ----
-  text("#heroHead", "Next "+TEAM.name+" game");
-  text("#dataHead", TEAM.name+" and national football data");
 
   // The masthead: the team frames its own sections. Its nickname is the
   // registry's (the provider's shortDisplayName), not a second copy typed
@@ -287,29 +285,17 @@ var UI={ tab:"schedule" };
 // Open-Meteo: free, no key, CORS-open. The venue is geocoded once and kept in
 // localStorage; the forecast is pulled for the kickoff hour. Forecasts run 16
 // days out, so a game further away than that simply shows nothing.
-var GEO="https://geocoding-api.open-meteo.com/v1/search";
 var GEO_KEY="iw-geo-v1";
-var US_STATES={AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",
-  CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",
-  ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",
-  ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",
-  MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",
-  NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",
-  OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
-  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",
-  WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
 
 function geoCache(){ try{ return JSON.parse(localStorage.getItem(GEO_KEY)||"{}"); }catch(e){ return {}; } }
 function geoRemember(key, pt){
   try{ var c=geoCache(); c[key]=pt; localStorage.setItem(GEO_KEY, JSON.stringify(c)); }catch(e){}
 }
-function geoSearch(q, admin1){
-  return get(GEO+"?name="+encodeURIComponent(q)+"&count=5&language=en&format=json").then(function(d){
-    var hits=(d.results||[]).filter(function(r){
-      return r.country_code==="US" && (!admin1 || r.admin1===admin1);
-    });
-    if(!hits.length) throw new Error("no geocode hit for "+q);
-    return { lat:hits[0].latitude, lon:hits[0].longitude };
+function geoSearch(q, state){
+  return get(TeamOS.weather.placeUrl(q)).then(function(d){
+    var pt=TeamOS.weather.place(d, state);
+    if(!pt) throw new Error("no geocode hit for "+q);
+    return pt;
   });
 }
 // Where the game is: the home field from the team config, else zip, else
@@ -320,7 +306,7 @@ function venuePoint(g){
   var key=[g.zip,g.city,g.venueState].join("|"), hit=geoCache()[key];
   if(hit) return Promise.resolve(hit);
   var first = g.zip ? geoSearch(g.zip) : Promise.reject(new Error("no zip"));
-  return first.catch(function(){ return geoSearch(g.city, US_STATES[g.venueState]||null); })
+  return first.catch(function(){ return geoSearch(g.city, g.venueState||null); })
     .then(function(pt){ geoRemember(key, pt); return pt; });
 }
 
@@ -332,7 +318,7 @@ function venuePoint(g){
 // The polls move once or twice a week: fetched on entry when an hour old.
 // Until the network answers, the last good copies (the worker's) are drawn,
 // so the screen opens offline; those are never fed back into the live state.
-var T25={ polls:null, cachedGames:null, at:0, loading:false, pollsFailed:false, gamesFailed:false };
+var T25={ polls:null, cachedGames:null, at:0, pollsFailed:false, gamesFailed:false };
 
 function top25Sources(){
   function s(key, maxAge){
@@ -377,12 +363,11 @@ function loadTop25(){
 // The polls: one request out at a time, and what it came to.
 function loadRankings(){
   if(T25.p) return T25.p;
-  T25.loading=true;
   T25.p=get(TeamOS.espn.rankingsUrl(), function(d){ return !!d && Array.isArray(d.rankings); }).then(function(d){
     T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); T25.at=Date.now(); T25.pollsFailed=false;
     return { key:"rankings", outcome:outcomeOf("rankings") };
   }).catch(function(){ T25.pollsFailed=true; return { key:"rankings", outcome:"failed" }; })
-    .then(function(r){ T25.loading=false; T25.p=null; paintTop25(); return r; });
+    .then(function(r){ T25.p=null; paintTop25(); return r; });
   return T25.p;
 }
 
@@ -1186,16 +1171,9 @@ function autoTick(){
     paintGame();                         // the Game screen refreshes itself on its own clock
     paintTop25();
   }).catch(function(){});
-
-  if(!$("screenTop25").hidden){
-    // Looking at Top 25: the tick's scoreboard is its data. Only the parts
-    // that changed are redrawn (suite/top25.js), so scroll and focus stay.
-    getScoreboard(30000).then(paintTop25).catch(function(){});
-  } else if(Date.now()-SB.at > 300000){
-    // not looking, but re-check every five minutes so polling stands down
-    // once the last game ends
-    getScoreboard(0).catch(function(){});
-  }
+  // Top 25 redraws only the parts that changed (suite/top25.js), so scroll
+  // and focus stay. The tick's own scoreboard is also what lets polling
+  // stand down once the last game ends.
 }
 
 // Coming back to the app should feel current immediately, not in 30 seconds.
