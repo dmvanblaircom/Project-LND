@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-01q";
+var VERSION = "suite-2026-10-01x";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -290,7 +290,7 @@ function isShell(url) {
   if (url.origin === self.location.origin) {
     var p = url.pathname;
     return p.endsWith("/") || /\/index\.html$/.test(p) || /\/manifest\.json$/.test(p)
-        || /\.(css|js|png|svg)$/.test(p);
+        || /\.(css|js|png|svg|woff2)$/.test(p);
   }
   return url.hostname === "fonts.googleapis.com" || url.hostname === "fonts.gstatic.com";
 }
