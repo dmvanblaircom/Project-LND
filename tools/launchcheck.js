@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 /* The launch screen (index.html, app.js liftLaunchWhenReady; David,
-   2026-10-01): it covers the first open while the screen and its logos load,
-   then gets out of the way.
+   2026-10-01: "about 3 seconds and clean", as Sleeper's is).
 
-   - shown on the very first paint, before any script has run
-   - lifted once Home's hero has the season and its logos have loaded -
-     the fan sees the finished hero, not it filling in
-   - never more than 2 seconds, however slow the network
-   - lifted by the stylesheet alone at 2.5 seconds if app.js never runs
-   - never on the chooser
-   - hidden from assistive technology throughout
+   - up on the very first paint, before any script runs, with the wordmark
+     drawn inline: nothing to load, so it never pops in, and it never moves
+     while the letters animate
+   - it plays its animation (about 2.6 seconds) and only then lifts - and
+     only once the screen is complete: every first request answered and every
+     image in view loaded. A late answer (news after 3.5s) holds it; when it
+     lifts, the hero has its game and the news its stories
+   - never more than 6 seconds, however slow the network
+   - lifted by its own inline style at 7 seconds if app.js never runs
+   - an update's reload carries the animation on from where it was
+   - never on the chooser; hidden from assistive technology
 
    Usage: node tools/launchcheck.js     (exit 1 on failure) */
 "use strict";
@@ -42,8 +45,9 @@ function fixture(url) {
   var base = "http://127.0.0.1:" + server.address().port;
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
 
-  // opts: delay (ms) for the providers' answers, logoDelay for logos, noApp to
-  // make app.js fail to load
+  // opts: delay (ms) for the providers' answers, newsDelay for news alone,
+  // noApp to make app.js fail to load, startedAgo to resume a launch begun
+  // that long ago (an update's reload)
   async function open(url, opts) {
     opts = opts || {};
     var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
@@ -55,24 +59,35 @@ function fixture(url) {
         return route.continue();
       }
       var body = fixture(u);
-      if (body) { await new Promise(function (r) { setTimeout(r, opts.delay || 0); }); return route.fulfill({ status: 200, contentType: "application/json", body: body }); }
-      if (/teamlogos/.test(u)) { await new Promise(function (r) { setTimeout(r, opts.logoDelay || 0); }); return route.fulfill({ status: 200, contentType: "image/png", body: LOGO }); }
+      if (body) {
+        var wait = /\/news\?/.test(u) && opts.newsDelay != null ? opts.newsDelay : (opts.delay || 0);
+        await new Promise(function (r) { setTimeout(r, wait); });
+        return route.fulfill({ status: 200, contentType: "application/json", body: body });
+      }
+      if (/teamlogos|espncdn/.test(u)) { await new Promise(function (r) { setTimeout(r, opts.delay || 0); }); return route.fulfill({ status: 200, contentType: "image/png", body: LOGO }); }
       return route.abort();
     });
-    await page.addInitScript(function () {
-      window.__first = null;
+    await page.addInitScript(function (ago) {
+      if (ago != null) { try { sessionStorage.setItem("suite-launch-at", String(Date.now() - ago)); } catch (e) {} }
+      window.__first = null; window.__boxes = [];
       document.addEventListener("DOMContentLoaded", function () {
-        var l = document.getElementById("launch");
+        var l = document.getElementById("launch"), m = l && l.querySelector(".launch-mark");
         window.__first = l ? getComputedStyle(l).visibility + "/" + getComputedStyle(l).opacity : "none";
+        // where the wordmark sits, every 100ms while the screen is up
+        (function watch() {
+          var mm = document.querySelector("#launch .launch-mark");
+          if (!mm || document.getElementById("launch").classList.contains("done")) return;
+          var r = mm.getBoundingClientRect(); window.__boxes.push([Math.round(r.left), Math.round(r.top), Math.round(r.width), Math.round(r.height)].join(","));
+          setTimeout(watch, 100);
+        })();
       });
-    });
+    }, opts.startedAgo == null ? null : opts.startedAgo);
     var t0 = Date.now();
     await page.goto(base + url, { waitUntil: "commit" });
     return { ctx: ctx, page: page, t0: t0 };
   }
-  // when the launch screen stopped covering the page, ms from navigation
   async function liftedAt(o, limit) {
-    await o.page.waitForFunction(function () { return window.__first !== null; });   // the page exists
+    await o.page.waitForFunction(function () { return window.__first !== null; });
     var deadline = Date.now() + limit;
     while (Date.now() < deadline) {
       var gone = await o.page.evaluate(function () {
@@ -84,46 +99,69 @@ function fixture(url) {
     }
     return null;
   }
-  function heroReady(page) {
+  function complete(page) {
     return page.evaluate(function () {
       var hero = document.querySelector("[data-home=hero] .home-hero");
-      var imgs = hero ? Array.prototype.slice.call(hero.querySelectorAll("img[data-mark]")) : [];
-      return { card: !!(hero && hero.querySelector(".gamecard")), logos: imgs.length, loaded: imgs.every(function (i) { return i.complete; }) };
+      var stories = document.querySelectorAll("[data-home=news] li").length;
+      var imgs = Array.prototype.slice.call(document.querySelectorAll("#screenHome img")).filter(function (i) {
+        var r = i.getBoundingClientRect(); return r.width > 0 && r.bottom > 0 && r.top < innerHeight;
+      });
+      return { card: !!(hero && hero.querySelector(".gamecard")), stories: stories,
+               images: imgs.length, loaded: imgs.every(function (i) { return i.complete; }) };
     });
   }
 
   console.log("a normal first open");
-  var a = await open("/?team=notre-dame#home", { delay: 300, logoDelay: 300 });
+  var a = await open("/?team=notre-dame#home", { delay: 300 });
   await a.page.waitForFunction(function () { return window.__first !== null; });
-  ok(/^visible\//.test(await a.page.evaluate(function () { return window.__first; })), "the launch screen is up on the first paint, before any script runs");
-  ok(await a.page.evaluate(function () { var l = document.getElementById("launch"); return l && l.getAttribute("aria-hidden") === "true"; }),
-     "and is hidden from assistive technology");
-  var t = await liftedAt(a, 4000), hero = await heroReady(a.page);
-  ok(t != null && t < 2300, "it lifts once Home is ready (" + t + " ms)");
-  ok(hero.card && hero.logos > 0 && hero.loaded, "by then the hero has its game and every logo has loaded (" + hero.logos + " logos)");
-  await a.page.waitForTimeout(600);
-  ok(await a.page.evaluate(function () { return !document.getElementById("launch"); }), "and then it is gone from the page");
+  ok(/^visible\//.test(await a.page.evaluate(function () { return window.__first; })), "up on the first paint, before any script runs");
+  ok(await a.page.evaluate(function () { var l = document.getElementById("launch"); return l.getAttribute("aria-hidden") === "true" && !!l.querySelector("svg .launch-l"); }),
+     "the wordmark is drawn inline, letter by letter, and hidden from assistive technology");
+  var t = await liftedAt(a, 8000), done = await complete(a.page);
+  ok(t != null && t >= 2600 && t < 4000, "it plays its animation, then lifts (" + t + " ms)");
+  ok(done.card && done.stories >= 3 && done.loaded, "by then the hero has its game, the news its stories, and every image in view has loaded (" + done.images + ")");
+  var boxes = await a.page.evaluate(function () { return window.__boxes; });
+  ok(boxes.length > 5 && boxes.every(function (b) { return b === boxes[0]; }), "the wordmark never moves or resizes while it is up (" + boxes.length + " samples)");
+  ok(await a.page.evaluate(function () { return !document.querySelector("#launch img"); }), "and has no image to fetch: it cannot pop in");
+  await a.page.waitForTimeout(700);
+  ok(await a.page.evaluate(function () { return !document.getElementById("launch"); }), "then it is gone from the page");
   await a.ctx.close();
 
-  console.log("a slow network");
-  var b = await open("/?team=notre-dame#home", { delay: 5000, logoDelay: 5000 });
-  var tb = await liftedAt(b, 4000);
-  ok(tb != null && tb >= 1900 && tb < 2600, "it never waits more than 2 seconds for data still on its way (" + tb + " ms)");
+  console.log("a late answer holds it");
+  var b = await open("/?team=notre-dame#home", { delay: 100, newsDelay: 3500 });
+  var tb = await liftedAt(b, 8000), cb = await complete(b.page);
+  ok(tb != null && tb >= 3500 && cb.stories >= 3, "news after 3.5s: it waits, and lifts with the stories there (" + tb + " ms)");
   await b.ctx.close();
 
-  console.log("app.js never runs");
-  var c = await open("/?team=notre-dame#home", { noApp: true });
-  var tc = await liftedAt(c, 4500);
-  ok(tc != null && tc < 3200, "the stylesheet lifts it on its own (" + tc + " ms): it can never trap a fan");
+  console.log("a slow network");
+  var c = await open("/?team=notre-dame#home", { delay: 9000 });
+  var tc = await liftedAt(c, 9000);
+  ok(tc != null && tc >= 5800 && tc < 7000, "never more than 6 seconds, whatever is still on its way (" + tc + " ms)");
   await c.ctx.close();
 
-  console.log("the chooser");
-  var d = await open("/?choose=1");
-  ok(await d.page.evaluate(function () { var l = document.getElementById("launch"); return !l || getComputedStyle(l).display === "none"; }),
-     "no launch screen over the team chooser");
+  console.log("app.js never runs");
+  var d = await open("/?team=notre-dame#home", { noApp: true });
+  var td = await liftedAt(d, 9000);
+  ok(td != null && td >= 6800 && td < 8000, "its own style lifts it (" + td + " ms): it can never trap a fan");
   await d.ctx.close();
 
+  console.log("an update's reload");
+  var e = await open("/?team=notre-dame#home", { startedAgo: 1500 });
+  await e.page.waitForFunction(function () { return window.__first !== null; });
+  var lt = await e.page.evaluate(function () { return document.documentElement.style.getPropertyValue("--launch-t"); });
+  ok(/^-1[45]\d\dms$/.test(lt.trim()), "carries the animation on from where it was (" + lt.trim() + "), not from the start");
+  var te = await liftedAt(e, 8000);
+  ok(te != null && te < 2400, "and lifts on the same clock (" + te + " ms after the reload)");
+  await e.ctx.close();
+
+  console.log("the chooser");
+  var f = await open("/?choose=1");
+  await f.page.waitForTimeout(300);
+  ok(await f.page.evaluate(function () { var l = document.getElementById("launch"); return !l || getComputedStyle(l).display === "none"; }),
+     "no launch screen over the team chooser");
+  await f.ctx.close();
+
   await browser.close(); server.close();
-  console.log("\n" + (failures ? failures + " check(s) FAILED" : "the launch screen covers loading and never outstays it"));
+  console.log("\n" + (failures ? failures + " check(s) FAILED" : "the launch screen plays, waits for a complete screen, and never outstays it"));
   process.exit(failures ? 1 : 0);
 })().catch(function (e) { console.error(e); process.exit(1); });
