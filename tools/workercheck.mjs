@@ -7,7 +7,7 @@
    fails, and never passes CFBD's raw payload or errors through.
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
-import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK } from "../worker/src/index.js";
+import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE } from "../worker/src/index.js";
 
 let failures = 0;
 function ok(cond, what) { console.log("  " + (cond ? "ok  " : "FAIL") + " " + what); if (!cond) failures++; }
@@ -70,6 +70,23 @@ console.log("the refresh clock");
   let waited = null;
   await worker.scheduled({ cron: "7,37 * * * *" }, e(204), { waitUntil: (p) => { waited = p; } });
   ok(waited && await waited === "started", "the scheduled event runs it to completion"); }
+
+console.log("the ESPN probe (W19 Phase 0)");
+{ const asked = [];
+  const e = (status, body, fail) => ({ FETCH: async (url) => { asked.push(url); if (fail) throw new Error("down");
+    return new Response(body === undefined ? JSON.stringify({ events: [{ id: 1 }, { id: 2 }], leagues: [{ secret: "x" }] }) : body, { status }); } });
+  const r = await probeEspn(e(200), "ORD");
+  ok(asked[0] === PROBE.espn && /scoreboard\?groups=80/.test(asked[0]), "asks ESPN's FBS scoreboard, the one the app reads");
+  ok(r.status === 200 && r.events === 2 && typeof r.ms === "number" && r.colo === "ORD", "reports status, time, game count and location");
+  ok(!JSON.stringify(r).includes("secret") && !("events" in r && Array.isArray(r.events)), "and never ESPN's data");
+  const blocked = await probeEspn(e(403, "blocked"));
+  ok(blocked.status === 403 && blocked.events === null, "a refusal is reported as its status");
+  const down = await probeEspn(e(0, undefined, true));
+  ok(down.status === 0 && down.error === "unreachable", "ESPN unreachable: reported, not thrown");
+  const route = await worker.fetch(new Request("https://suite-api.example/v1/probe/espn"), e(200), null);
+  const rb = await route.json();
+  ok(route.status === 200 && rb.source === "probe" && rb.events === 2 && route.headers.get("cache-control") === "no-store",
+     "the route answers with the probe, never cached"); }
 
 console.log("only what a screen shows");
 { const s = pickSeason(ROWS, "notre dame", 2026, FIELDS);

@@ -31,7 +31,12 @@
    announced - so no dead route is left active and Back never leads to one
    (decision 0024 §15).
 
-   Selected and live are different things (decision 0024 §1): aria-current
+   A horizontal swipe on a screen's content moves to its next or previous
+  peer view - the same route a tap on the view's tab makes, so Back walks it
+  (David, 2026-10-01: sub-views only, never the primary tabs). See swipe()
+  below for what counts as a swipe; the tabs stay, so nothing depends on it.
+
+  Selected and live are different things (decision 0024 §1): aria-current
    marks the destination the fan is on; setGameState() raises the Game
    control because a game is under way, wherever the fan is.
 
@@ -76,6 +81,7 @@ Suite.nav = (function () {
 
   var listeners = [];
   var last = null;
+  var slide = null;                       // "next" | "prev": the view a swipe just asked for
 
   function $(id) { return document.getElementById(id); }
 
@@ -220,6 +226,67 @@ Suite.nav = (function () {
     paint(route);
     listeners.forEach(function (fn) { fn(route, first); });
     if (!first && !quiet && changed && screenChanged) focusHeading(route, backToList);
+    if (slide) { slideIn(slide); slide = null; }
+  }
+
+  /* ---- swiping between a screen's peer views ----
+
+     A swipe is a single finger moving at least SWIPE_MIN px sideways, at
+     least SWIPE_RATIO times as far as it moved up or down, within
+     SWIPE_MS - so a vertical scroll is never taken for one. It is ignored
+     when it starts on anything that scrolls sideways itself (the news row,
+     the drive tracker, a wide table), on a form control, inside an element
+     marked data-no-swipe, or within SWIPE_EDGE px of either screen edge,
+     where the system's own gestures live. Left goes to the next view,
+     right to the previous; the first and last views stop there. A screen
+     with one view, or an item opened from a list, does not swipe. */
+  var SWIPE_MIN = 60, SWIPE_RATIO = 1.5, SWIPE_MS = 800, SWIPE_EDGE = 20;
+  function scrollsSideways(el, stop) {
+    for (; el && el !== stop && el.nodeType === 1; el = el.parentNode) {
+      if (el.hasAttribute("data-no-swipe")) return true;
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName) || el.isContentEditable) return true;
+      var ox = getComputedStyle(el).overflowX;
+      if ((ox === "auto" || ox === "scroll") && el.scrollWidth > el.clientWidth + 1) return true;
+    }
+    return false;
+  }
+  function neighbour(route, dir) {
+    var ids = viewIds(route.screen);
+    if (!ids || ids.length < 2 || route.item || !route.view) return null;
+    var i = ids.indexOf(route.view) + (dir === "next" ? 1 : -1);
+    return i >= 0 && i < ids.length ? ids[i] : null;
+  }
+  function slideIn(dir) {
+    var el = document.querySelector("#main > div:not([hidden])");
+    if (!el) return;
+    el.classList.remove("view-in-next", "view-in-prev");
+    void el.offsetWidth;                   // restart the animation if one is running
+    el.classList.add("view-in-" + dir);
+    el.addEventListener("animationend", function done() {
+      el.classList.remove("view-in-" + dir); el.removeEventListener("animationend", done);
+    });
+  }
+  function swipe() {
+    var main = $("main"), start = null;
+    if (!main) return;
+    main.addEventListener("touchstart", function (e) {
+      var t = e.touches[0], w = window.innerWidth;
+      start = null;
+      if (e.touches.length !== 1 || t.clientX < SWIPE_EDGE || t.clientX > w - SWIPE_EDGE) return;
+      if (scrollsSideways(e.target, main)) return;
+      start = { x: t.clientX, y: t.clientY, t: Date.now() };
+    }, { passive: true });
+    main.addEventListener("touchend", function (e) {
+      if (!start || e.changedTouches.length !== 1) { start = null; return; }
+      var t = e.changedTouches[0], dx = t.clientX - start.x, dy = t.clientY - start.y, dt = Date.now() - start.t;
+      start = null;
+      if (Math.abs(dx) < SWIPE_MIN || Math.abs(dx) < SWIPE_RATIO * Math.abs(dy) || dt > SWIPE_MS) return;
+      var route = current(), dir = dx < 0 ? "next" : "prev", to = neighbour(route, dir);
+      if (!to) return;
+      slide = dir;
+      go(route.screen, [to]);
+    }, { passive: true });
+    main.addEventListener("touchcancel", function () { start = null; }, { passive: true });
   }
 
   // The Game control's state: null for a normal Game item, or one of
@@ -240,6 +307,7 @@ Suite.nav = (function () {
 
   function start() {
     window.addEventListener("hashchange", function () { apply(false); });
+    swipe();
     apply(true);
   }
 

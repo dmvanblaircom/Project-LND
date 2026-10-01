@@ -1,9 +1,10 @@
 # Proposal: notifications MVP (W19)
 
-**Status:** Claude's proposal, 2026-10-01, for David's approval (and
-ChatGPT's critique of the fan-facing parts). Nothing here is built. The
-blueprint's rule stands until David approves a scope: no bells, settings,
-permission prompts or implied notification behavior in the UI.
+**Status:** Approved by David, 2026-10-01, as proposed (§8): kickoff and
+final on by default, score changes opt-in; Cloudflare D1; the Phase 0 probe;
+Live Activities out of scope for now. Phase 0 is built (`/v1/probe/espn` on
+the edge API, run by each Saturday refresh). Phases 1-3 follow its result. No
+notification UI ships until Phase 2, with Codex's opt-in row.
 
 Follows: backlog W19 ("produce a bounded brief and service proposal
 first"), the product blueprint (notifications are the first new MVP

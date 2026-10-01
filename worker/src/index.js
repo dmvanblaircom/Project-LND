@@ -9,6 +9,9 @@
      GET /v1/health                         liveness and version
      GET /v1/cfbd/season?team=&year=        CFBD season stats for one team,
                                             only the fields in CFBD_FIELDS
+     GET /v1/probe/espn                     can this Worker reach ESPN's live
+                                            scoreboard? Status, time, game
+                                            count only (W19 Phase 0)
 
    Scheduled (wrangler.toml [triggers]): the data refresh clock. Every 30
    minutes it starts the repository's "Refresh team data" workflow with
@@ -21,7 +24,7 @@
 
    No dependencies: Workers' standard fetch, Request, Response and Cache. */
 
-export const VERSION = "edge-2026-10-01c";
+export const VERSION = "edge-2026-10-01d";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
 const CFBD = "https://api.collegefootballdata.com";
@@ -134,6 +137,27 @@ export async function startRefresh(env) {
   }
 }
 
+// W19 Phase 0 (David approved, 2026-10-01): notifications would detect
+// scores here, so first find out whether ESPN answers Cloudflare's network
+// at all, and how fast - Kalshi rate-limits it (decision 0030). Read-only:
+// it reports the HTTP status, the time taken, how many games the scoreboard
+// listed and which Cloudflare location asked. No ESPN data passes through,
+// nothing is stored, and no fan's request ever reaches it.
+export const PROBE = { espn: "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&limit=400" };
+
+export async function probeEspn(env, colo) {
+  const t0 = Date.now(), at = new Date().toISOString();
+  try {
+    const r = await (env.FETCH || fetch)(PROBE.espn, { headers: { accept: "application/json" } });
+    let events = null;
+    if (r.ok) { try { const d = await r.json(); events = Array.isArray(d && d.events) ? d.events.length : null; } catch (e) { events = null; } }
+    return { source: "probe", target: "espn-scoreboard", at, status: r.status, ms: Date.now() - t0, events, colo: colo || null };
+  } catch (e) {
+    return { source: "probe", target: "espn-scoreboard", at, status: 0, ms: Date.now() - t0, events: null, colo: colo || null,
+             error: "unreachable" };
+  }
+}
+
 export default {
   async scheduled(event, env, ctx) {
     const done = startRefresh(env || {});
@@ -151,6 +175,8 @@ export default {
     if (url.pathname === "/v1/health") return json({ ok: true, version: VERSION, clock: !!(env && env.REFRESH_CLOCK_TOKEN) },
                                                    200, origin, { "cache-control": "no-store" });
     if (url.pathname === "/v1/cfbd/season") return cfbdSeason(url, env || {}, origin, ctx);
+    if (url.pathname === "/v1/probe/espn") return json(await probeEspn(env || {}, request.cf && request.cf.colo), 200, origin,
+                                                       { "cache-control": "no-store" });
     return fail(404, "no such route", origin);
   }
 };

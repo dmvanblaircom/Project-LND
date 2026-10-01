@@ -1,7 +1,8 @@
 # Proposal: rivalry, trophy and series names (W21)
 
-**Status:** Claude's proposal, 2026-10-01, for David's approval. Nothing
-is built.
+**Status:** Approved by David, 2026-10-01, with Ohio State's "The Game"
+(Michigan) added. Built in the W21 PR: `seriesKind` on each game; the trophy
+mark only for a trophy.
 
 ## What exists
 
