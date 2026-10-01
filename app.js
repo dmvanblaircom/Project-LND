@@ -34,7 +34,9 @@ var PLAYOFF_EVENT = "KXNCAAFPLAYOFF-26";   // playoff qualifiers
 
 // The season as every screen reads it, and the next game. Whether any of it
 // is old is per source (SRC, noteSource) - each screen says so itself.
-var S = { games:null, next:null, oddsTried:null, p:null };
+// odds: the pregame line by game id, from the game's summary (the schedule
+// carries none), re-attached each time the schedule is rebuilt.
+var S = { games:null, next:null, oddsTried:null, p:null, odds:{} };
 // What Home shows beyond the schedule: normalized data only (suite/home.js).
 var HOME = { news:null, markets:{}, weather:null, weatherFor:null, weatherAt:0, status:null };
 function $(id){ return document.getElementById(id); }
@@ -596,15 +598,18 @@ function pointsAllowedFor(key, ourGames){
         get(TeamOS.espn.teamPostseasonUrl(key)).catch(function(){ return null; })
       ]).then(function(r){
         return TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(TeamOS.espn.joinSeason(r[0], r[1]), key));
-      }).catch(function(){ return null; });
-  return p.then(function(v){ PTS_ALLOWED[key]=v; return v; });
+      });
+  // An answer is kept for the session; a failure is not, so the next
+  // preview asks again (code review, 2026-10-01).
+  return p.then(function(v){ PTS_ALLOWED[key]=v; return v; }, function(){ return null; });
 }
 
 // Yards allowed per game, for one side: CollegeFootballData through Suite's
 // edge API (decision 0030, W15) - ESPN's own figure is an empty stub. Keyed by
-// school name, cached for the session; a failure, or a school CFBD does not
-// know, resolves to null figures rather than rejecting: the row shows a dash
-// for that side, and the card stands.
+// school name. An answer is kept for the session (a school CFBD does not know
+// answers with null figures); a failure resolves to null without being kept,
+// so the next preview asks again. Either way the row shows a dash for that
+// side, and the card stands.
 var EDGE="https://suite-api.dmvanblaircom.workers.dev";
 var YDS_ALLOWED={};               // school -> { rush, pass, ... } | null
 
@@ -612,9 +617,8 @@ function yardsAllowedFor(school){
   if(!school) return Promise.resolve(null);
   if(YDS_ALLOWED.hasOwnProperty(school)) return Promise.resolve(YDS_ALLOWED[school]);
   return get(EDGE+TeamOS.cfbd.seasonPath(school, seasonYear()))
-    .then(function(d){ return TeamOS.cfbd.yardsAllowed(d); })
-    .catch(function(){ return null; })
-    .then(function(v){ YDS_ALLOWED[school]=v; return v; });
+    .then(function(d){ var v=TeamOS.cfbd.yardsAllowed(d); YDS_ALLOWED[school]=v; return v; },
+          function(){ return null; });            // a failure is not kept: the next preview asks again
 }
 
 // The rows no ESPN feed fills: points allowed (from results) and yards
@@ -660,9 +664,11 @@ function beatItem(i){
   return { title:i.title, link:i.link, image:"", source:i.source, publishedAt: isNaN(t) ? null : t };
 }
 // Every source's stories -> one NewsItem[], newest first, one story per
-// headline. Home and the full News list read the same list.
+// headline. Home and the full News list read the same list. Only a plain
+// http(s) link survives: it is written into an href, and a feed's
+// javascript: address there would run on a tap (code review, 2026-10-01).
 function newsList(items){
-  var all=items.filter(function(a){ return a && a.link && a.title; });
+  var all=items.filter(function(a){ return a && a.title && /^https?:\/\/\S+$/i.test(String(a.link||"")); });
   var seen={}, list=[];
   all.forEach(function(a){
     var k=a.title.toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,60);
@@ -820,6 +826,9 @@ function loadHomeWeather(g){
 // The connection changes what an open screen says (catch-up review 1.3).
 window.addEventListener("online",  function(){
   retrySchedule();
+  // A Matchup card that failed offline is asked for again now.
+  [GV, SV].forEach(function(V){ if(V && V.previewFailed) V.at=0; });
+  paintGame(); paintScheduleScreen();
   paintHome(); paintTop25(); paintRoster(); paintMore();
   loadNews();                              // each source that failed, or came from the worker's copy, is asked again
 });
@@ -867,27 +876,36 @@ function paintGame(){
 // minutes otherwise, never two requests at once.
 function loadGameDetail(V, g, lc, repaint){
   var live=TeamOS.game.underWay(g);
-  if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))) return;
+  if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))){
+    // The summary is fresh, but a Matchup preview that failed is asked
+    // again on re-entry - at most every 30 seconds, not on every paint.
+    if(V.previewFailed && V.gd && lc.phase==="pregame" && Date.now()-(V.previewAt||0) > 30e3) loadGamePreview(V, g, repaint);
+    return;
+  }
   V.loading=true;
   summaryFor(g.id, live).then(function(raw){
     V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
     if(learnOpening(g.id, V.gd) && SB.games) SB.games=TeamOS.live.withOpening(SB.games, OPENING);
-    if(lc.phase==="pregame" && V.preview===undefined) loadGamePreview(V, g, repaint);
+    if(lc.phase==="pregame" && (V.preview===undefined || V.previewFailed)) loadGamePreview(V, g, repaint);
   }).catch(function(){}).then(function(){
     V.at=Date.now(); V.loading=false; repaint();
   });
 }
-// Pregame Matchup: both teams' season figures, with national ranks.
+// Pregame Matchup: both teams' season figures, with national ranks. One
+// request set out at a time. A failed set leaves no card but is tried again
+// at the next summary refresh, or as soon as the connection returns - never
+// given up on for the session (code review, 2026-10-01).
 function loadGamePreview(V, g, repaint){
   var s=Suite.game.sides(V.gd, g);
   if(!s){ V.preview=null; return; }
-  V.preview=undefined;
+  if(V.previewLoading) return;
+  V.previewLoading=true; V.previewAt=Date.now();
   Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
                pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null),
                yardsAllowedFor(s.us.school), yardsAllowedFor(s.them.school)])
-    .then(function(r){ V.preview={ us:withDerived(r[0], r[2], r[4]), them:withDerived(r[1], r[3], r[5]) }; })
-    .catch(function(){ V.preview=null; })
-    .then(repaint);
+    .then(function(r){ V.preview={ us:withDerived(r[0], r[2], r[4]), them:withDerived(r[1], r[3], r[5]) }; V.previewFailed=false; })
+    .catch(function(){ if(V.preview===undefined) V.preview=null; V.previewFailed=true; })
+    .then(function(){ V.previewLoading=false; repaint(); });
 }
 // Which game state a control belongs to, by the host it sits in.
 function gameAt(el){
@@ -1227,11 +1245,19 @@ function refreshSchedule(first){
     // Home's hero, Game, the schedule rows and Top 25 -
     // reads one state (docs/decisions/0010-one-live-state-per-game.md).
     games=TeamOS.live.reconcileAll(games, SB.games);
+    // The line came from the summary, not the schedule: carry it onto the
+    // rebuilt games, or it vanished at the next refresh (code review,
+    // 2026-10-01) and oddsTried kept it from being asked for again.
+    games.forEach(function(g){ if(!g.odds && S.odds[g.id]) g.odds=S.odds[g.id]; });
     S.games=games;
     var live=games.filter(function(g){return g.state==="in";})[0];
     var up=games.filter(function(g){return g.state==="pre";})[0];
     S.next=live||up||null;
     SC.failed=false;
+    // Game's views and the nav's live state follow the hero game from the
+    // first paint - the saved copy too - so a reload onto #game/plays opens
+    // Plays, not the lifecycle's default (code review, 2026-10-01).
+    applyGameRules();
     paintScheduleScreen();
     paintHome();
     paintGame();
@@ -1270,10 +1296,15 @@ function refreshSchedule(first){
     }
 
     if(S.next && !S.next.odds && S.oddsTried!==S.next.id){
-      S.oddsTried=S.next.id;          // ESPN often has no line for these; ask once
-      summaryFor(S.next.id).then(function(sm){
+      var oddsFor=S.next.id;
+      S.oddsTried=oddsFor;            // ESPN often has no line for these; ask once
+      summaryFor(oddsFor).then(function(sm){
         var o=TeamOS.espn.gameOdds(sm); if(!o) return;
-        S.next.odds=o;
+        // the line belongs to the game it was asked for, even if the
+        // schedule has moved on to another next game meanwhile
+        S.odds[oddsFor]=o;
+        (S.games||[]).forEach(function(x){ if(x.id===oddsFor) x.odds=o; });
+        if(S.next && S.next.id===oddsFor) S.next.odds=o;
         paintHome(); paintGame(); paintScheduleScreen();
       }).catch(function(){});
     }
@@ -1309,23 +1340,38 @@ function summaryFor(id, live){
   if(!live && hit && (hit.final || Date.now()-hit.at<60000)) return Promise.resolve(hit.d);
   if(SUM.inflight[id]) return SUM.inflight[id];
 
+  // A finished game's summary is kept for good - but only one that is
+  // itself complete (ESPN's own flag) and came from the network, never the
+  // worker's offline copy: either could be a mid-game copy that would then
+  // stand as the final forever (code review, 2026-10-01). A stored copy is
+  // checked again on the way out, so one kept before this rule is dropped.
   var stored = (isFinal && !live && typeof caches!=="undefined")
-    ? caches.open(SUM_CACHE).then(function(c){ return c.match(url); })
-        .then(function(r){ if(!r) throw 0; return r.json(); })
+    ? caches.open(SUM_CACHE).then(function(c){
+        return c.match(url).then(function(r){ if(!r) throw 0; return r.json(); }).then(function(d){
+          if(TeamOS.espn.summaryFinal(d)) return { d:d, final:true };
+          c.delete(url).catch(function(){});
+          throw 0;
+        });
+      })
     : Promise.reject(0);
 
   var p = stored.catch(function(){
     return fetch(url,{cache:"no-store"}).then(function(r){
       if(!r.ok) throw new Error("HTTP "+r.status);
-      if(isFinal && typeof caches!=="undefined"){
-        var copy=r.clone();
-        caches.open(SUM_CACHE).then(function(c){ return c.put(url, copy); }).catch(function(){});
-      }
-      return r.json();
+      var fromWorker=!!r.headers.get("X-IW-Cached");
+      return r.json().then(function(d){
+        var done=isFinal && !fromWorker && TeamOS.espn.summaryFinal(d);
+        if(done && typeof caches!=="undefined"){
+          caches.open(SUM_CACHE).then(function(c){
+            return c.put(url, new Response(JSON.stringify(d), { headers:{ "content-type":"application/json" } }));
+          }).catch(function(){});
+        }
+        return { d:d, final:done };
+      });
     });
-  }).then(function(d){
-    SUM.mem[id]={ d:d, at:Date.now(), final:isFinal };
-    return d;
+  }).then(function(x){
+    SUM.mem[id]={ d:x.d, at:Date.now(), final:x.final };
+    return x.d;
   });
   SUM.inflight[id]=p;
   p.then(function(){ delete SUM.inflight[id]; }, function(){ delete SUM.inflight[id]; });
