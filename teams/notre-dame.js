@@ -105,19 +105,21 @@ var TEAM_CONFIG = {
     ]
   },
 
-  // Trophy and series names for the season's opponents, matched on the
-  // opponent name because no public feed carries this. Sourced from the
+  // Trophy, rivalry and series names for the season's opponents, matched on
+  // the opponent name because no public feed carries this. Sourced from the
   // team's own schedule release; the USC entry is dormant while that series
-  // is paused.
+  // is paused. kind: "trophy" is played for, "rivalry" is a name with
+  // nothing to win, "event" is a branded game (W21) - only a trophy gets the
+  // trophy mark.
   series: [
-    [/wisconsin/i,                 "Shamrock Series"],
-    [/michigan st/i,               "Megaphone Trophy"],
-    [/purdue/i,                    "Shillelagh Trophy"],
-    [/stanford/i,                  "Legends Trophy"],
-    [/navy|midshipmen/i,           "Rip Miller Trophy"],
-    [/boston college/i,            "Frank Leahy Memorial Bowl"],
-    [/^usc$|southern cal|trojans/i,"Jeweled Shillelagh"],
-    [/northwestern/i,              "Lost Shillelagh"]
+    { match: /wisconsin/i,                  name: "Shamrock Series",           kind: "event" },
+    { match: /michigan st/i,                name: "Megaphone Trophy",          kind: "trophy" },
+    { match: /purdue/i,                     name: "Shillelagh Trophy",         kind: "trophy" },
+    { match: /stanford/i,                   name: "Legends Trophy",            kind: "trophy" },
+    { match: /navy|midshipmen/i,            name: "Rip Miller Trophy",         kind: "trophy" },
+    { match: /boston college/i,            name: "Frank Leahy Memorial Bowl", kind: "trophy" },
+    { match: /^usc$|southern cal|trojans/i, name: "Jeweled Shillelagh",        kind: "trophy" },
+    { match: /northwestern/i,               name: "Lost Shillelagh",           kind: "trophy" }
   ],
 
   // The team's own pages, where the app points readers for the official word.

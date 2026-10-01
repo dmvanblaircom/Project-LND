@@ -56,6 +56,7 @@ var YA = yards(4, 420, 780), YB = yards(4, 610, 905);
 function card(a, b, pa, pb, ya, yb) {
   ctx.__a = a; ctx.__b = b; ctx.__pa = pa; ctx.__pb = pb;
   ctx.__ya = arguments.length > 4 ? ya : YA; ctx.__yb = arguments.length > 5 ? yb : YB;
+  ctx.__series = card.series || null; ctx.__kind = card.kind || null;
   return vm.runInContext([
     '(function(){',
     '  var parts={}, host={ innerHTML:"", querySelector:function(q){',
@@ -63,7 +64,8 @@ function card(a, b, pa, pb, ya, yb) {
     '    var k=(/data-game="(\\w+)"/.exec(q)||[])[1]; if(!k) return null;',
     '    return parts[k]||(parts[k]={ innerHTML:"" }); }, querySelectorAll:function(){ return []; } };',
     '  var g={ id:"401858453", date:"2026-10-03T19:30:00Z", timeSet:true, home:true, neutral:false,',
-    '          oppName:"Michigan State", oppAbbr:"MSU", status:"scheduled", state:"pre", hasStarted:false };',
+    '          oppName:"Michigan State", oppAbbr:"MSU", status:"scheduled", state:"pre", hasStarted:false,',
+    '          series:__series||null, seriesKind:__kind||null };',
     '  Suite.game.paint(host, { team:{ name:"Notre Dame", abbr:"ND", markUrl:null }, oppMark:function(){ return null; },',
     '    game:g, detail:null, lifecycle:TeamOS.game.lifecycle(g), view:"details",',
     '    preview:{ us:withDerived(__a,__pa,__ya), them:withDerived(__b,__pb,__yb) },',
@@ -160,6 +162,21 @@ console.log(" the card itself");
 var whole = card(ND, OP, ndPA, 24.7);
 ok(/Matchup/.test(whole) && /Season averages/.test(whole), "is the Matchup card, titled and labelled as season averages");
 ok(/<span class="sr-only"> \(better\)<\/span>/.test(whole), "and the better side is said, not only coloured");
+
+// W21 (David, 2026-10-01): the trophy mark only for a trophy.
+console.log("the series card");
+function seriesCard(name, kind) {
+  card.series = name; card.kind = kind;
+  var html = card(ND, OP, ndPA, 24.7);
+  card.series = card.kind = null;
+  var m = /<section class="card gcard series">([\s\S]*?)<\/section>/.exec(html);
+  return m ? { icon: /series-ic/.test(m[1]), name: m[1].replace(/<[^>]*>/g, "").trim() } : null;
+}
+var tr = seriesCard("Megaphone Trophy", "trophy"), rv = seriesCard("The Game", "rivalry"), ev = seriesCard("Shamrock Series", "event");
+ok(tr && tr.icon && tr.name === "Megaphone Trophy", "a trophy game shows its name with the trophy mark");
+ok(rv && !rv.icon && rv.name === "The Game", "a rivalry shows its name plainly - no trophy, no \"Playing for the The Game\"");
+ok(ev && !ev.icon && ev.name === "Shamrock Series", "a branded event shows its name plainly");
+ok(seriesCard(null, null) === null, "no series, no card");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the matchup card agrees with the data"));
 process.exit(failures ? 1 : 0);
