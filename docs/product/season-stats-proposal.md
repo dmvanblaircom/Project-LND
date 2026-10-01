@@ -65,6 +65,19 @@ handle the same way:
 
 `tools/fixtures/espn-season-stats.json` holds all three.
 
+### Phase 0 findings (captured 2026-10-01 on GitHub's runner)
+
+Branch `feat/season-stats`, `tools/fixtures/espn-{teamstats,leaders,athletestats,sitestats}-*.json`:
+
+| Question | Answer from the payload |
+|---|---|
+| Full team season | **Yes.** Core API team statistics: 11 categories, about 285 figures, 279 of them with a national rank (`rankDisplayValue`). Notre Dame and Ohio State answer the same shape. |
+| Postseason | **One call, no merge.** The type-3 payload is the whole season: Notre Dame 2024 shows 16 games played (12 regular season plus 4 CFP), Ohio State 2025 shows 14. Stats asks for type 3 once the team has played a postseason game. |
+| Past seasons | **Yes.** 2024 and 2025 answer for both teams, ranks included. |
+| Points and yards allowed | **Real figures exist.** The site API's team statistics carry an `opponent` section: Notre Dame 2026 allowed 8.3 points and 199.3 yards per game (rushing 53.8, passing 145.5). This could replace both the derived points allowed and the CFBD yards allowed. **Ranks in this section are not FBS-only:** "252nd" appears among about 136 FBS teams. They stay off screen until that is understood. |
+| Player season stats | **Yes.** Core API team leaders: 14 categories (passing, rushing, receiving, tackles, sacks, interceptions, touchdowns, QB rating, receptions), each up to 25 players deep. Each player is an ESPN athlete id plus a summary line ("67/95, 963 YDS, 9 TD, 1 INT"). Names come from the roster, which carries the same id. |
+| One player's season | **Yes.** Core API athlete statistics: CJ Carr 2026 and 2025, with per-game values and national ranks. That gives the career view (W27) its stable key, the athlete id. |
+
 ## 4. How it scales to Ohio State and every team
 
 Each source has its own key, and both come from data the app already
