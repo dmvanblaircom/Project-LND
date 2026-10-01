@@ -242,7 +242,7 @@ Suite.home = (function () {
 
   function scheduleHtml(rows, heroId) {
     var head = '<div class="sec-head"><h2 class="sec-title" id="schedHead">Schedule</h2>' +
-               '<a class="sec-link" href="#schedule">View All' + CHEVRON + "</a></div>";
+               '<a class="sec-link" href="#schedule">View Full Schedule' + CHEVRON + "</a></div>";
     if (!rows || !rows.length) return head + '<p class="sec-quiet">No games on the schedule yet.</p>';
     // The same row the Schedule screen draws (suite/schedule.js), compact.
     return head + '<ul class="sched-list card" aria-labelledby="schedHead">' + rows.map(function (g) {

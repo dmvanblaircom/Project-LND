@@ -285,29 +285,17 @@ var UI={ tab:"schedule" };
 // Open-Meteo: free, no key, CORS-open. The venue is geocoded once and kept in
 // localStorage; the forecast is pulled for the kickoff hour. Forecasts run 16
 // days out, so a game further away than that simply shows nothing.
-var GEO="https://geocoding-api.open-meteo.com/v1/search";
 var GEO_KEY="iw-geo-v1";
-var US_STATES={AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",
-  CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",
-  ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",
-  ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",
-  MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",
-  NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",
-  OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
-  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",
-  WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
 
 function geoCache(){ try{ return JSON.parse(localStorage.getItem(GEO_KEY)||"{}"); }catch(e){ return {}; } }
 function geoRemember(key, pt){
   try{ var c=geoCache(); c[key]=pt; localStorage.setItem(GEO_KEY, JSON.stringify(c)); }catch(e){}
 }
-function geoSearch(q, admin1){
-  return get(GEO+"?name="+encodeURIComponent(q)+"&count=5&language=en&format=json").then(function(d){
-    var hits=(d.results||[]).filter(function(r){
-      return r.country_code==="US" && (!admin1 || r.admin1===admin1);
-    });
-    if(!hits.length) throw new Error("no geocode hit for "+q);
-    return { lat:hits[0].latitude, lon:hits[0].longitude };
+function geoSearch(q, state){
+  return get(TeamOS.weather.placeUrl(q)).then(function(d){
+    var pt=TeamOS.weather.place(d, state);
+    if(!pt) throw new Error("no geocode hit for "+q);
+    return pt;
   });
 }
 // Where the game is: the home field from the team config, else zip, else
@@ -318,7 +306,7 @@ function venuePoint(g){
   var key=[g.zip,g.city,g.venueState].join("|"), hit=geoCache()[key];
   if(hit) return Promise.resolve(hit);
   var first = g.zip ? geoSearch(g.zip) : Promise.reject(new Error("no zip"));
-  return first.catch(function(){ return geoSearch(g.city, US_STATES[g.venueState]||null); })
+  return first.catch(function(){ return geoSearch(g.city, g.venueState||null); })
     .then(function(pt){ geoRemember(key, pt); return pt; });
 }
 
