@@ -76,7 +76,7 @@ function fakeCaches() {
   // ---- R3 + R8: refreshSchedule keeps the line and sets Game's views ----
   console.log("the schedule, rebuilt");
   var S_DECL = appSrc.match(/^var S = \{[^\n]*\};$/m)[0];
-  function scheduleScope(cached) {
+  function scheduleScope(cached, slowSummary) {
     var c = vm.createContext({ console: console, Promise: Promise, setTimeout: setTimeout });
     vm.runInContext([S_DECL,
       "var SB={ games:null }, SC={}, POST=null, TEAM={}, TEAM_CONFIG={}, window={}, rules=0, painted=[];",
@@ -87,7 +87,9 @@ function fakeCaches() {
       "function cachedJSON(){ return " + (cached ? "Promise.resolve({ events:[] })" : "Promise.reject(0)") + "; }",
       "function hasEvents(){ return true; } function outcomeOf(){ return 'network'; } function say(){}",
       "function startAuto(){} function paintScheduleScreen(){} function paintHome(){ painted.push('home'); } function paintGame(){} function paintTop25(){}",
-      "function warmTabs(){} function summaryFor(){ return Promise.resolve({}); } function applyGameRules(){ rules++; }"].join("\n"), c);
+      "function warmTabs(){} function applyGameRules(){ rules++; }",
+      slowSummary ? "var release; function summaryFor(){ return new Promise(function(r){ release=r; }); }"
+                  : "function summaryFor(){ return Promise.resolve({}); }"].join("\n"), c);
     vm.runInContext(lift("refreshSchedule"), c);
     return c;
   }
@@ -96,6 +98,14 @@ function fakeCaches() {
   ok(s.S.next && s.S.next.odds && s.S.next.odds.line === "ND -7.5", "the line arrives from the summary");
   await s.refreshSchedule(false); await settled();
   ok(s.S.games[0].odds && s.S.games[0].odds.line === "ND -7.5", "and is still there after the schedule is rebuilt (it used to vanish within 30 seconds)");
+  // Codex review of PR #67: a slow summary must not hand its line to the
+  // game the schedule moved on to meanwhile.
+  var slow = scheduleScope(false, true);
+  slow.refreshSchedule(false); await settled();
+  slow.S.next = { id: "10", state: "pre" };
+  slow.release({}); await settled();
+  ok(slow.S.odds["9"] && slow.S.odds["9"].line === "ND -7.5" && !slow.S.odds["10"] && !slow.S.next.odds,
+     "a line that arrives after the next game has changed is kept for the game it was asked for, not the new one");
   var r = scheduleScope(true);
   r.refreshSchedule(true); await settle(); await settle();
   ok(r.rules >= 1, "Game's views and the live state are set from the saved copy's paint, before the network answers");
@@ -113,7 +123,8 @@ function fakeCaches() {
       "function get(u){ if(u.indexOf('E')===0 && edgeFail>0){ edgeFail--; return Promise.reject(new Error('edge down')); } if(u==='TS' && statsFail>0){ return Promise.reject(new Error('down')); } return Promise.resolve({}); }",
       "function teamSeasonStats(){ if(statsFail>0){ statsFail--; return Promise.reject(new Error('down')); } return Promise.resolve([]); }",
       "function withDerived(rows, p, y){ return { p:p, y:y }; }"].join("\n"), c);
-    vm.runInContext(lift("yardsAllowedFor") + lift("pointsAllowedFor") + lift("loadGamePreview"), c);
+    vm.runInContext("TeamOS.game={ underWay:function(){ return false; } }; var summaries=0; function summaryFor(){ summaries++; return Promise.resolve({}); }", c);
+    vm.runInContext(lift("yardsAllowedFor") + lift("pointsAllowedFor") + lift("loadGamePreview") + lift("loadGameDetail"), c);
     return c;
   }
   var p = previewScope(), V = {};
@@ -130,6 +141,16 @@ function fakeCaches() {
   twice.statsFail = 0; twice.teamSeasonStats = function () { calls++; return new Promise(function () {}); };
   twice.loadGamePreview(V2, {}, function () {}); twice.loadGamePreview(V2, {}, function () {});
   ok(calls === 2, "one preview request set out at a time (2 calls = one set of us and them, not two sets)");
+
+  // Codex review of PR #67: re-entering Game inside the summary's five
+  // minutes still retries a failed preview (at most every 30 seconds).
+  var re = previewScope(); re.statsFail = 0; re.edgeFail = 0;
+  var V3 = { at: Date.now(), gd: {}, preview: null, previewFailed: true, previewAt: Date.now() - 31e3 };
+  re.loadGameDetail(V3, {}, { phase: "pregame" }, function () {}); await settled();
+  ok(V3.preview && V3.previewFailed === false && re.summaries === 0, "re-entering within the summary's five minutes retries the failed preview, without refetching the summary");
+  var V4 = { at: Date.now(), gd: {}, preview: null, previewFailed: true, previewAt: Date.now() - 5e3 };
+  re.loadGameDetail(V4, {}, { phase: "pregame" }, function () {}); await settled();
+  ok(V4.preview === null, "but not on every paint: not again within 30 seconds");
 
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "what the app learns stays honest across refreshes"));
   process.exit(failures ? 1 : 0);

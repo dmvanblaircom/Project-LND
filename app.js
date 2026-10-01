@@ -879,7 +879,12 @@ function paintGame(){
 // minutes otherwise, never two requests at once.
 function loadGameDetail(V, g, lc, repaint){
   var live=TeamOS.game.underWay(g);
-  if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))) return;
+  if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))){
+    // The summary is fresh, but a Matchup preview that failed is asked
+    // again on re-entry - at most every 30 seconds, not on every paint.
+    if(V.previewFailed && V.gd && lc.phase==="pregame" && Date.now()-(V.previewAt||0) > 30e3) loadGamePreview(V, g, repaint);
+    return;
+  }
   V.loading=true;
   summaryFor(g.id, live).then(function(raw){
     V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
@@ -897,7 +902,7 @@ function loadGamePreview(V, g, repaint){
   var s=Suite.game.sides(V.gd, g);
   if(!s){ V.preview=null; return; }
   if(V.previewLoading) return;
-  V.previewLoading=true;
+  V.previewLoading=true; V.previewAt=Date.now();
   Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
                pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null),
                yardsAllowedFor(s.us.school), yardsAllowedFor(s.them.school)])
@@ -1301,10 +1306,15 @@ function refreshSchedule(first){
     }
 
     if(S.next && !S.next.odds && S.oddsTried!==S.next.id){
-      S.oddsTried=S.next.id;          // ESPN often has no line for these; ask once
-      summaryFor(S.next.id).then(function(sm){
+      var oddsFor=S.next.id;
+      S.oddsTried=oddsFor;            // ESPN often has no line for these; ask once
+      summaryFor(oddsFor).then(function(sm){
         var o=TeamOS.espn.gameOdds(sm); if(!o) return;
-        S.odds[S.next.id]=o; S.next.odds=o;
+        // the line belongs to the game it was asked for, even if the
+        // schedule has moved on to another next game meanwhile
+        S.odds[oddsFor]=o;
+        (S.games||[]).forEach(function(x){ if(x.id===oddsFor) x.odds=o; });
+        if(S.next && S.next.id===oddsFor) S.next.odds=o;
         paintHome(); paintGame(); paintScheduleScreen();
       }).catch(function(){});
     }
