@@ -147,7 +147,10 @@ Everything the Game Center renders for one game. **Implemented in Phase 4B**, pr
   teamStats: [ { label, away, home, better } ] | null,
   leaders:   { away: [ { category, name, line } ], home: [...] } | null,
   box:       { away: [ { title, labels, rows: [ { name, jersey, stats: string[] } ] } ], home: [...] } | null,
-  scoring:   [ { period, clock, teamAbbr, mine, text, awayScore, homeScore } ] | null }
+  scoring:   [ { id, period, clock, teamAbbr, mine, text, awayScore, homeScore, driveId } ] | null,
+  drives:    { current: Drive | null,
+               list: [ { id, side, mine, summary, result,
+                         plays: [ { id, text, period, clock, type, yards, scoring, start, end, offense } ] } ] } | null }
 ```
 
 | Section | Meaning |
@@ -160,7 +163,7 @@ Everything the Game Center renders for one game. **Implemented in Phase 4B**, pr
 | `teamStats` | the eight fixed rows (Total yards … Possession), values as displayed or `null`, and which side is `better` — `"away"`, `"home"` or `null`. Fewer turnovers and penalties win; penalties compare by count; `5-13` compares as a rate and `28:24` as seconds |
 | `leaders` | per side, one line per category (`Passing`, `Rushing`, `Receiving`, `Sacks`, `Tackles`, `Int`) |
 | `box` | per side, one table per category with its own column `labels` |
-| `scoring` | each scoring play in order, with the score after it and whether it was ours. `text` is the source's words; only its shouted conversion is set in lower case, and only where the score confirms it (a touchdown worth 7: `"(S. Porath KICK)"` -> `"(S. Porath kick)"`; a field goal worth 3: `"FG GOOD"` -> `"FG good"`) |
+| `scoring` | each scoring play in order, with the score after it and whether it was ours. `text` is the source's words; only its shouted conversion is set in lower case, and only where the score confirms it (a touchdown worth 7: `"(S. Porath KICK)"` -> `"(S. Porath kick)"`; a field goal worth 3: `"FG GOOD"` -> `"FG good"`) | `id` is the play's own id; `driveId` names the drive in `drives` that holds that play - the drive the score ended, whoever had the ball - or `null` when the payload carries no such drive (2026-10-01: Plays opens each score's drive).
 | `drives` | `{ current, list }` or `null`: each drive's side, `mine`, the source's `summary` (`"10 plays, 27 yards, 4:24"`), its `result` - how it ended in a fan's words (`"Touchdown"`, `"Punt"`, `"Turnover on downs"`), `""` while it goes on - and its plays |
 
 There is no `id`: the Game Center keys on the `Game` it was opened from. There is no win-probability history or pregame line here: the line is `TeamOS.espn.gameOdds()` on the same payload, and the rest has no consumer.

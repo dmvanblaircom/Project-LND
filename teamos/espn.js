@@ -93,8 +93,11 @@ TeamOS.espn = (function () {
   // ESPN does not always set neutralSite. A game where the team is the listed
   // home side but the venue is not its home field is a neutral site in
   // practice - Lambeau, Gillette, the Shamrock Series and so on.
-  // Venues that are never a college team's home field.
-  var NEUTRAL_VENUES = /lambeau|gillette|metlife|m&t bank|soldier field|yankee stadium|aviva|at&t stadium|allegiant|mercedes-benz|hard rock|raymond james|caesars superdome|camping world|alamodome/i;
+  // Venues that are never a college team's home field. A stadium a college
+  // team does play its home games in (Hard Rock - Miami, Raymond James -
+  // USF, the Alamodome - UTSA, Allegiant - UNLV) is not on it: a road game
+  // there is a road game, and ESPN marks the bowls played there neutral.
+  var NEUTRAL_VENUES = /lambeau|gillette|metlife|m&t bank|soldier field|yankee stadium|aviva|at&t stadium|mercedes-benz|caesars superdome|camping world/i;
 
   // Case-insensitive match on the home field's name, the way ESPN spells it.
   function isHomeField(team, venueName){
@@ -535,6 +538,8 @@ TeamOS.espn = (function () {
       colors:       { primary: hexColor(t.color), alt: hexColor(t.alternateColor) }
     };
   }
+  // A web address a page may link to or load: http(s) only, else null.
+  function webUrl(v){ var u=str(v).trim(); return /^https?:\/\/[^\s]+$/i.test(u) ? u : null; }
   function hexColor(v){ var h=String(v||"").replace(/^#/,""); return /^[0-9a-f]{6}$/i.test(h) ? "#"+h.toUpperCase() : null; }
   function linescoreOf(c){
     return (c.linescores||[]).map(function(v){ return str(v.displayValue!=null?v.displayValue:v.value); });
@@ -609,7 +614,7 @@ TeamOS.espn = (function () {
              teamId: str(pick(s,["team","id"],"")) };
   }
   function playOf(p){
-    return { text: str(p.text), period: pick(p,["period","number"],null),
+    return { id: str(p.id), text: str(p.text), period: pick(p,["period","number"],null),
              clock: str(pick(p,["clock","displayValue"],"")), type: str(pick(p,["type","text"],"")),
              yards: typeof p.statYardage==="number" ? p.statYardage : null,
              scoring: !!p.scoringPlay, start: spotOf(p.start), end: spotOf(p.end) };
@@ -729,6 +734,7 @@ TeamOS.espn = (function () {
         var scoredAway = pid ? pid===away.key : (pab ? pab===away.abbreviation : false);
         var ab = pab || (scoredAway?away.abbreviation:home.abbreviation);
         return {
+          id:        str(p.id),
           period:    pick(p,["period","number"],null),
           clock:     str(pick(p,["clock","displayValue"],"")),
           teamAbbr:  str(ab),
@@ -739,6 +745,16 @@ TeamOS.espn = (function () {
         };
       });
     }
+    // Which drive each score ended (David, 2026-10-01: a scoring play opens
+    // its drive): the drive holding a play with the score's own id, or null
+    // when the payload carries no such drive.
+    var drives=drivesOf(d, teamId, home, away);
+    if(scoring) scoring.forEach(function(p){
+      var hit=p.id && drives ? drives.list.filter(function(x){
+        return x.plays.some(function(q){ return q.id===p.id; });
+      })[0] : null;
+      p.driveId = hit ? hit.id : null;
+    });
 
     return {
       state:     str(st.state||"post"),
@@ -754,7 +770,7 @@ TeamOS.espn = (function () {
       scoring:   scoring,
       // { current: Drive | null, list: Drive[] } - every drive in order, the
       // one in progress last and also as `current`; null with no drives.
-      drives:    drivesOf(d, teamId, home, away)
+      drives:    drives
     };
   }
 
@@ -954,16 +970,28 @@ TeamOS.espn = (function () {
     // ESPN's game summary -> GameDetail (docs/03_DOMAIN_MODEL.md).
     gameDetail: gameDetail,
 
+    // Whether a game summary is itself a finished game's: ESPN's own
+    // completed flag. A summary fetched while the schedule already says
+    // "final" can still be a mid-game copy - the worker's offline copy, or
+    // ESPN's summary lagging its scoreboard - and must never be kept as the
+    // final one.
+    summaryFinal: function(json){
+      var st=pick(json,["header","competitions",0,"status","type"],null);
+      return !!st && st.completed===true;
+    },
+
     // ESPN's team news -> NewsItem[], in the feed's own order (ESPN does not
     // sort it; the view does). Articles with no headline or no web link are
-    // dropped here - nothing could be shown for them.
+    // dropped here - nothing could be shown for them. A link or image that
+    // is not plain http(s) is no link at all: it is written into an href or
+    // src, and a javascript: address there would run on a tap.
     news: function(json){
       return ((json&&json.articles)||[]).map(function(a){
         var t=a.published ? Date.parse(a.published) : NaN;
         return {
           title:       str(a.headline),
-          link:        a.links&&a.links.web&&a.links.web.href ? str(a.links.web.href) : null,
-          image:       a.images&&a.images[0]&&a.images[0].url ? str(a.images[0].url) : "",
+          link:        webUrl(a.links&&a.links.web&&a.links.web.href),
+          image:       webUrl(a.images&&a.images[0]&&a.images[0].url) || "",
           source:      "ESPN",
           publishedAt: isNaN(t) ? null : t
         };

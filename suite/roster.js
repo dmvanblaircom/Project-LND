@@ -1,7 +1,7 @@
 /* Suite - Roster: the team's people (reference 09; decisions 0019, 0024
    §8, §9).
 
-   Under the team masthead, peer views that follow what the team has
+   Under the SUITE bar and the Roster title, peer views that follow what the team has
    (TeamOS.roster.views): Depth Chart | Roster | Availability for a team with
    an official depth chart and availability report, Roster alone for one
    without. Routes: #roster/depth[/<unit>], #roster/roster[/<unit>],

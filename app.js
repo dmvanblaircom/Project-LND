@@ -34,14 +34,16 @@ var PLAYOFF_EVENT = "KXNCAAFPLAYOFF-26";   // playoff qualifiers
 
 // The season as every screen reads it, and the next game. Whether any of it
 // is old is per source (SRC, noteSource) - each screen says so itself.
-var S = { games:null, next:null, oddsTried:null, p:null };
+// odds: the pregame line by game id, from the game's summary (the schedule
+// carries none), re-attached each time the schedule is rebuilt.
+var S = { games:null, next:null, oddsTried:null, p:null, odds:{} };
 // What Home shows beyond the schedule: normalized data only (suite/home.js).
 var HOME = { news:null, markets:{}, weather:null, weatherFor:null, weatherAt:0, status:null };
 function $(id){ return document.getElementById(id); }
 function say(msg){ $("live").textContent = msg; }
 
 /* ---------- identity ---------- */
-// The selected team's identity INSIDE Suite: the masthead, the tagline and
+// The selected team's identity INSIDE Suite: the bar's team context and
 // the team tokens the stylesheet reads, from the team config, applied once,
 // here. The product itself - its installed name, manifest, icons and share
 // card - is Suite's, the same for every team, and lives in index.html and
@@ -60,33 +62,17 @@ function paintIdentity(){
   document.title = DOC_TITLE;
 
   // ---- the page ----
-  text("#heroHead", "Next "+TEAM.name+" game");
-  text("#dataHead", TEAM.name+" and national football data");
 
-  // The masthead: the team frames its own sections. Its nickname is the
-  // registry's (the provider's shortDisplayName), not a second copy typed
-  // into the team config; its mark is TeamOS's to name.
+  // The team as quiet context in the SUITE bar, on every screen. Its
+  // nickname - for Home's hero - is the registry's (the provider's
+  // shortDisplayName), not a second copy typed into the team config; its
+  // mark is TeamOS's to name.
   var reg = TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []).get(TEAM.id);
-  text("#mastName", TEAM.name);
-  // The same team as quiet context in the SUITE bar, on national screens.
   text("#barTeam", TEAM.name);
   var bm = $("barMark");
   if(bm) bm.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
                                        TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="barMark"');
   TEAM_NICK = reg && reg.nick ? reg.nick : "";
-  text("#mastNick", TEAM_NICK);
-  // A team without a tagline gets no empty line where one would be.
-  var tl = $("mastTagline");
-  if(tl){ if(ID.tagline) tl.textContent = ID.tagline; else tl.parentNode.removeChild(tl); }
-  // The masthead's art is the same composition as Home's hero: the team's
-  // approved photography, or the finished fallback in its colours and mark.
-  var ma = $("mastArt");
-  if(ma) ma.outerHTML = Suite.ui.art({ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation,
-                                       markUrl:TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true) })
-                          .replace('class="art-slot', 'id="mastArt" class="art-slot');
-  var mk = $("mastMark");
-  if(mk) mk.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
-                                       TEAM.name, TEAM.abbreviation, "bare").replace('class="mark bare"', 'class="mark bare" id="mastMark"');
 
   applyStyle();
 }
@@ -285,29 +271,17 @@ var UI={ tab:"schedule" };
 // Open-Meteo: free, no key, CORS-open. The venue is geocoded once and kept in
 // localStorage; the forecast is pulled for the kickoff hour. Forecasts run 16
 // days out, so a game further away than that simply shows nothing.
-var GEO="https://geocoding-api.open-meteo.com/v1/search";
 var GEO_KEY="iw-geo-v1";
-var US_STATES={AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",
-  CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",
-  ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",
-  ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",
-  MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",
-  NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",
-  OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
-  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",
-  WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
 
 function geoCache(){ try{ return JSON.parse(localStorage.getItem(GEO_KEY)||"{}"); }catch(e){ return {}; } }
 function geoRemember(key, pt){
   try{ var c=geoCache(); c[key]=pt; localStorage.setItem(GEO_KEY, JSON.stringify(c)); }catch(e){}
 }
-function geoSearch(q, admin1){
-  return get(GEO+"?name="+encodeURIComponent(q)+"&count=5&language=en&format=json").then(function(d){
-    var hits=(d.results||[]).filter(function(r){
-      return r.country_code==="US" && (!admin1 || r.admin1===admin1);
-    });
-    if(!hits.length) throw new Error("no geocode hit for "+q);
-    return { lat:hits[0].latitude, lon:hits[0].longitude };
+function geoSearch(q, state){
+  return get(TeamOS.weather.placeUrl(q)).then(function(d){
+    var pt=TeamOS.weather.place(d, state);
+    if(!pt) throw new Error("no geocode hit for "+q);
+    return pt;
   });
 }
 // Where the game is: the home field from the team config, else zip, else
@@ -318,7 +292,7 @@ function venuePoint(g){
   var key=[g.zip,g.city,g.venueState].join("|"), hit=geoCache()[key];
   if(hit) return Promise.resolve(hit);
   var first = g.zip ? geoSearch(g.zip) : Promise.reject(new Error("no zip"));
-  return first.catch(function(){ return geoSearch(g.city, US_STATES[g.venueState]||null); })
+  return first.catch(function(){ return geoSearch(g.city, g.venueState||null); })
     .then(function(pt){ geoRemember(key, pt); return pt; });
 }
 
@@ -330,7 +304,7 @@ function venuePoint(g){
 // The polls move once or twice a week: fetched on entry when an hour old.
 // Until the network answers, the last good copies (the worker's) are drawn,
 // so the screen opens offline; those are never fed back into the live state.
-var T25={ polls:null, cachedGames:null, at:0, loading:false, pollsFailed:false, gamesFailed:false };
+var T25={ polls:null, cachedGames:null, at:0, pollsFailed:false, gamesFailed:false };
 
 function top25Sources(){
   function s(key, maxAge){
@@ -375,12 +349,11 @@ function loadTop25(){
 // The polls: one request out at a time, and what it came to.
 function loadRankings(){
   if(T25.p) return T25.p;
-  T25.loading=true;
   T25.p=get(TeamOS.espn.rankingsUrl(), function(d){ return !!d && Array.isArray(d.rankings); }).then(function(d){
     T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); T25.at=Date.now(); T25.pollsFailed=false;
     return { key:"rankings", outcome:outcomeOf("rankings") };
   }).catch(function(){ T25.pollsFailed=true; return { key:"rankings", outcome:"failed" }; })
-    .then(function(r){ T25.loading=false; T25.p=null; paintTop25(); return r; });
+    .then(function(r){ T25.p=null; paintTop25(); return r; });
   return T25.p;
 }
 
@@ -599,15 +572,18 @@ function pointsAllowedFor(key, ourGames){
         get(TeamOS.espn.teamPostseasonUrl(key)).catch(function(){ return null; })
       ]).then(function(r){
         return TeamOS.season.pointsAllowedPerGame(TeamOS.espn.scoreLines(TeamOS.espn.joinSeason(r[0], r[1]), key));
-      }).catch(function(){ return null; });
-  return p.then(function(v){ PTS_ALLOWED[key]=v; return v; });
+      });
+  // An answer is kept for the session; a failure is not, so the next
+  // preview asks again (code review, 2026-10-01).
+  return p.then(function(v){ PTS_ALLOWED[key]=v; return v; }, function(){ return null; });
 }
 
 // Yards allowed per game, for one side: CollegeFootballData through Suite's
 // edge API (decision 0030, W15) - ESPN's own figure is an empty stub. Keyed by
-// school name, cached for the session; a failure, or a school CFBD does not
-// know, resolves to null figures rather than rejecting: the row shows a dash
-// for that side, and the card stands.
+// school name. An answer is kept for the session (a school CFBD does not know
+// answers with null figures); a failure resolves to null without being kept,
+// so the next preview asks again. Either way the row shows a dash for that
+// side, and the card stands.
 var EDGE="https://suite-api.dmvanblaircom.workers.dev";
 var YDS_ALLOWED={};               // school -> { rush, pass, ... } | null
 
@@ -615,9 +591,8 @@ function yardsAllowedFor(school){
   if(!school) return Promise.resolve(null);
   if(YDS_ALLOWED.hasOwnProperty(school)) return Promise.resolve(YDS_ALLOWED[school]);
   return get(EDGE+TeamOS.cfbd.seasonPath(school, seasonYear()))
-    .then(function(d){ return TeamOS.cfbd.yardsAllowed(d); })
-    .catch(function(){ return null; })
-    .then(function(v){ YDS_ALLOWED[school]=v; return v; });
+    .then(function(d){ var v=TeamOS.cfbd.yardsAllowed(d); YDS_ALLOWED[school]=v; return v; },
+          function(){ return null; });            // a failure is not kept: the next preview asks again
 }
 
 // The rows no ESPN feed fills: points allowed (from results) and yards
@@ -663,9 +638,11 @@ function beatItem(i){
   return { title:i.title, link:i.link, image:"", source:i.source, publishedAt: isNaN(t) ? null : t };
 }
 // Every source's stories -> one NewsItem[], newest first, one story per
-// headline. Home and the full News list read the same list.
+// headline. Home and the full News list read the same list. Only a plain
+// http(s) link survives: it is written into an href, and a feed's
+// javascript: address there would run on a tap (code review, 2026-10-01).
 function newsList(items){
-  var all=items.filter(function(a){ return a && a.link && a.title; });
+  var all=items.filter(function(a){ return a && a.title && /^https?:\/\/\S+$/i.test(String(a.link||"")); });
   var seen={}, list=[];
   all.forEach(function(a){
     var k=a.title.toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,60);
@@ -823,6 +800,9 @@ function loadHomeWeather(g){
 // The connection changes what an open screen says (catch-up review 1.3).
 window.addEventListener("online",  function(){
   retrySchedule();
+  // A Matchup card that failed offline is asked for again now.
+  [GV, SV].forEach(function(V){ if(V && V.previewFailed) V.at=0; });
+  paintGame(); paintScheduleScreen();
   paintHome(); paintTop25(); paintRoster(); paintMore();
   loadNews();                              // each source that failed, or came from the worker's copy, is asked again
 });
@@ -867,30 +847,43 @@ function paintGame(){
   if(g){ loadGameDetail(GV, g, lc, paintGame); loadHomeWeather(g); }
 }
 // A game's summary: every 25 seconds while it is under way, every five
-// minutes otherwise, never two requests at once.
+// minutes otherwise, never two requests at once. While one is out, V.p is
+// its promise, resolving to how it came out ("network" or "failed"), so a
+// refresh can wait for it and report it.
 function loadGameDetail(V, g, lc, repaint){
   var live=TeamOS.game.underWay(g);
-  if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))) return;
+  if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))){
+    // The summary is fresh, but a Matchup preview that failed is asked
+    // again on re-entry - at most every 30 seconds, not on every paint.
+    if(V.previewFailed && V.gd && lc.phase==="pregame" && Date.now()-(V.previewAt||0) > 30e3) loadGamePreview(V, g, repaint);
+    return;
+  }
   V.loading=true;
-  summaryFor(g.id, live).then(function(raw){
+  V.p=summaryFor(g.id, live).then(function(raw){
     V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
     if(learnOpening(g.id, V.gd) && SB.games) SB.games=TeamOS.live.withOpening(SB.games, OPENING);
-    if(lc.phase==="pregame" && V.preview===undefined) loadGamePreview(V, g, repaint);
-  }).catch(function(){}).then(function(){
-    V.at=Date.now(); V.loading=false; repaint();
+    if(lc.phase==="pregame" && (V.preview===undefined || V.previewFailed)) loadGamePreview(V, g, repaint);
+    return "network";
+  }).catch(function(){ return "failed"; }).then(function(outcome){
+    V.at=Date.now(); V.loading=false; V.p=null; repaint();
+    return outcome;
   });
 }
-// Pregame Matchup: both teams' season figures, with national ranks.
+// Pregame Matchup: both teams' season figures, with national ranks. One
+// request set out at a time. A failed set leaves no card but is tried again
+// at the next summary refresh, or as soon as the connection returns - never
+// given up on for the session (code review, 2026-10-01).
 function loadGamePreview(V, g, repaint){
   var s=Suite.game.sides(V.gd, g);
   if(!s){ V.preview=null; return; }
-  V.preview=undefined;
+  if(V.previewLoading) return;
+  V.previewLoading=true; V.previewAt=Date.now();
   Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
                pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null),
                yardsAllowedFor(s.us.school), yardsAllowedFor(s.them.school)])
-    .then(function(r){ V.preview={ us:withDerived(r[0], r[2], r[4]), them:withDerived(r[1], r[3], r[5]) }; })
-    .catch(function(){ V.preview=null; })
-    .then(repaint);
+    .then(function(r){ V.preview={ us:withDerived(r[0], r[2], r[4]), them:withDerived(r[1], r[3], r[5]) }; V.previewFailed=false; })
+    .catch(function(){ if(V.preview===undefined) V.preview=null; V.previewFailed=true; })
+    .then(function(){ V.previewLoading=false; repaint(); });
 }
 // Which game state a control belongs to, by the host it sits in.
 function gameAt(el){
@@ -1164,16 +1157,9 @@ function autoTick(){
     paintGame();                         // the Game screen refreshes itself on its own clock
     paintTop25();
   }).catch(function(){});
-
-  if(!$("screenTop25").hidden){
-    // Looking at Top 25: the tick's scoreboard is its data. Only the parts
-    // that changed are redrawn (suite/top25.js), so scroll and focus stay.
-    getScoreboard(30000).then(paintTop25).catch(function(){});
-  } else if(Date.now()-SB.at > 300000){
-    // not looking, but re-check every five minutes so polling stands down
-    // once the last game ends
-    getScoreboard(0).catch(function(){});
-  }
+  // Top 25 redraws only the parts that changed (suite/top25.js), so scroll
+  // and focus stay. The tick's own scoreboard is also what lets polling
+  // stand down once the last game ends.
 }
 
 // Coming back to the app should feel current immediately, not in 30 seconds.
@@ -1237,11 +1223,19 @@ function refreshSchedule(first){
     // Home's hero, Game, the schedule rows and Top 25 -
     // reads one state (docs/decisions/0010-one-live-state-per-game.md).
     games=TeamOS.live.reconcileAll(games, SB.games);
+    // The line came from the summary, not the schedule: carry it onto the
+    // rebuilt games, or it vanished at the next refresh (code review,
+    // 2026-10-01) and oddsTried kept it from being asked for again.
+    games.forEach(function(g){ if(!g.odds && S.odds[g.id]) g.odds=S.odds[g.id]; });
     S.games=games;
     var live=games.filter(function(g){return g.state==="in";})[0];
     var up=games.filter(function(g){return g.state==="pre";})[0];
     S.next=live||up||null;
     SC.failed=false;
+    // Game's views and the nav's live state follow the hero game from the
+    // first paint - the saved copy too - so a reload onto #game/plays opens
+    // Plays, not the lifecycle's default (code review, 2026-10-01).
+    applyGameRules();
     paintScheduleScreen();
     paintHome();
     paintGame();
@@ -1280,10 +1274,15 @@ function refreshSchedule(first){
     }
 
     if(S.next && !S.next.odds && S.oddsTried!==S.next.id){
-      S.oddsTried=S.next.id;          // ESPN often has no line for these; ask once
-      summaryFor(S.next.id).then(function(sm){
+      var oddsFor=S.next.id;
+      S.oddsTried=oddsFor;            // ESPN often has no line for these; ask once
+      summaryFor(oddsFor).then(function(sm){
         var o=TeamOS.espn.gameOdds(sm); if(!o) return;
-        S.next.odds=o;
+        // the line belongs to the game it was asked for, even if the
+        // schedule has moved on to another next game meanwhile
+        S.odds[oddsFor]=o;
+        (S.games||[]).forEach(function(x){ if(x.id===oddsFor) x.odds=o; });
+        if(S.next && S.next.id===oddsFor) S.next.odds=o;
         paintHome(); paintGame(); paintScheduleScreen();
       }).catch(function(){});
     }
@@ -1319,23 +1318,38 @@ function summaryFor(id, live){
   if(!live && hit && (hit.final || Date.now()-hit.at<60000)) return Promise.resolve(hit.d);
   if(SUM.inflight[id]) return SUM.inflight[id];
 
+  // A finished game's summary is kept for good - but only one that is
+  // itself complete (ESPN's own flag) and came from the network, never the
+  // worker's offline copy: either could be a mid-game copy that would then
+  // stand as the final forever (code review, 2026-10-01). A stored copy is
+  // checked again on the way out, so one kept before this rule is dropped.
   var stored = (isFinal && !live && typeof caches!=="undefined")
-    ? caches.open(SUM_CACHE).then(function(c){ return c.match(url); })
-        .then(function(r){ if(!r) throw 0; return r.json(); })
+    ? caches.open(SUM_CACHE).then(function(c){
+        return c.match(url).then(function(r){ if(!r) throw 0; return r.json(); }).then(function(d){
+          if(TeamOS.espn.summaryFinal(d)) return { d:d, final:true };
+          c.delete(url).catch(function(){});
+          throw 0;
+        });
+      })
     : Promise.reject(0);
 
   var p = stored.catch(function(){
     return fetch(url,{cache:"no-store"}).then(function(r){
       if(!r.ok) throw new Error("HTTP "+r.status);
-      if(isFinal && typeof caches!=="undefined"){
-        var copy=r.clone();
-        caches.open(SUM_CACHE).then(function(c){ return c.put(url, copy); }).catch(function(){});
-      }
-      return r.json();
+      var fromWorker=!!r.headers.get("X-IW-Cached");
+      return r.json().then(function(d){
+        var done=isFinal && !fromWorker && TeamOS.espn.summaryFinal(d);
+        if(done && typeof caches!=="undefined"){
+          caches.open(SUM_CACHE).then(function(c){
+            return c.put(url, new Response(JSON.stringify(d), { headers:{ "content-type":"application/json" } }));
+          }).catch(function(){});
+        }
+        return { d:d, final:done };
+      });
     });
-  }).then(function(d){
-    SUM.mem[id]={ d:d, at:Date.now(), final:isFinal };
-    return d;
+  }).then(function(x){
+    SUM.mem[id]={ d:x.d, at:Date.now(), final:x.final };
+    return x.d;
   });
   SUM.inflight[id]=p;
   p.then(function(){ delete SUM.inflight[id]; }, function(){ delete SUM.inflight[id]; });
@@ -1358,11 +1372,12 @@ function prefetchSummaries(){
 }
 
 
-// Everything Refresh Data does, and the silent refresh on return to a tab
-// left in the background. Its scope (Product, 2026-09-25, on the catch-up
-// review's recommendation): this team's shared data - its status, schedule,
-// news and Season Outlook markets - and the data of screens already loaded
-// this visit (the scoreboard, the polls, the roster); never unopened games or
+// Everything Refresh Data and a pull down do, and the silent refresh on
+// return to a tab left in the background. Its scope (Product, 2026-09-25, on
+// the catch-up review's recommendation): this team's shared data - its
+// status, schedule, news and Season Outlook markets - and the data of screens
+// already loaded this visit (the scoreboard, the polls, the roster, the game
+// open on Game or from Schedule unless it is final); never unopened games or
 // another team's. Work already under way is joined, not repeated. It resolves
 // once every step has settled, to what each came to: "network", "cached"
 // (the worker's last copy) or "failed" (catch-up review 1.2).
@@ -1374,7 +1389,19 @@ function refreshAll(silent){
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
+  // An open game's summary is otherwise kept up to five minutes before
+  // kickoff: drop that, so a refresh refreshes what the fan is looking at.
+  [GV, SV].forEach(function(V){
+    var g=V.id && gameById(V.id);
+    if(g && g.state!=="post"){ V.at=0; delete SUM.mem[String(V.id)]; }
+  });
   if(UI.tab==="game") paintGame();
+  if(UI.tab==="schedule") paintScheduleScreen();
+  // ...and the refresh is not done until that game's summary is: it waits
+  // for it and reports it with the rest.
+  [UI.tab==="game" && GV, UI.tab==="schedule" && SV].forEach(function(V){
+    if(V && V.p) steps.push(V.p.then(function(o){ return { key:"summary", outcome:o }; }));
+  });
   FRESH.at=Date.now();
   return Promise.all(steps).then(function(r){
     var flat=[]; (function add(x){ if(Array.isArray(x)) x.forEach(add); else if(x && x.outcome) flat.push(x); })(r);
@@ -1389,7 +1416,7 @@ function refreshAll(silent){
 // current team until another is picked and offers Cancel back to it.
 // from: the last screen the fan was on, for Feedback - null until there is
 // one (a direct entry names none). result: what the last Refresh Data did.
-var MORE={ from:null, refreshing:false, version:null, result:null };
+var MORE={ from:null, refreshing:false, p:null, version:null, result:null };
 var FEEDBACK_TO="suiteappfeedback@gmail.com";
 function paintMore(){
   var r=Suite.nav.current(), host=$(MORE_HOSTS[r.screen]);
@@ -1422,14 +1449,22 @@ function lastUpdated(){
 // share sheet, the text is copied to paste into a message; where that is
 // refused too, it opens as a new text message. The link carries the team, so
 // a friend lands on the same Suite, not the chooser.
+var SHARE={ t:0 };
 function shareSuite(){
   var url=location.origin+location.pathname+"?team="+encodeURIComponent(TEAM.id);
   var text="Join me in my "+TEAM.name+" Suite";
   var note=document.querySelector("[data-share-note]");
   // Said twice: in the status line (announced) and on the row itself, which
-  // is where the eye is when the status line sits below the fold.
-  var sub=document.querySelector("[data-share] .mo-sub"), was=sub && sub.textContent;
-  function say(t){ if(note) note.textContent=t; if(sub && t){ sub.textContent=t; setTimeout(function(){ sub.textContent=was; }, 4000); } }
+  // is where the eye is when the status line sits below the fold. The row's
+  // own words are kept on it the first time, so a second tap while the
+  // first's message shows never makes that message the row's words.
+  var sub=document.querySelector("[data-share] .mo-sub");
+  if(sub && !sub.hasAttribute("data-words")) sub.setAttribute("data-words", sub.textContent);
+  var was=sub && sub.getAttribute("data-words");
+  function say(t){
+    if(note) note.textContent=t;
+    if(sub && t){ sub.textContent=t; clearTimeout(SHARE.t); SHARE.t=setTimeout(function(){ sub.textContent=was; }, 4000); }
+  }
   say("");
   if(navigator.share){
     navigator.share({ title:"Suite", text:text, url:url }).catch(function(){});
@@ -1485,19 +1520,31 @@ function refreshResult(outcomes){
   return { say:"Couldn\u2019t refresh. Showing the last data this device saw.",
            note:"Couldn\u2019t refresh at "+t+". Showing the last data this device saw." };
 }
+// The manual refresh. Settings' Refresh Data and a pull down on any screen
+// are one action (David, 2026-10-01), so they can never drift apart: either
+// one shows as under way on the other, and Settings reports how the last one
+// came out, whichever started it. A second ask while one runs joins it.
+function manualRefresh(){
+  if(MORE.p) return MORE.p;
+  MORE.refreshing=true; paintMore();
+  MORE.p=refreshAll(false).then(function(outcomes){
+    var r=refreshResult(outcomes);
+    MORE.refreshing=false; MORE.p=null; MORE.result=r.note; paintMore();
+    return r;
+  });
+  return MORE.p;
+}
 document.addEventListener("click", function(e){
   var b=e.target.closest && e.target.closest("[data-refresh]");
   if(!b || MORE.refreshing) return;
-  MORE.refreshing=true; paintMore();
-  refreshAll(false).then(function(outcomes){
-    var r=refreshResult(outcomes);
-    MORE.refreshing=false; MORE.result=r.note; paintMore();
+  manualRefresh().then(function(r){
     // Back to the button the fan pressed - unless they have moved on.
     var btn=document.querySelector("#screenSettings [data-refresh]"), a=document.activeElement;
     if(btn && !$("screenSettings").hidden && (!a || a===document.body || a===btn)) btn.focus();
     say(r.say);
   });
 });
+Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); }); });
 
 // How long data may sit before a silent refresh: on return to a tab that was
 // hidden this long, and on a timer while it stays visible.

@@ -30,6 +30,8 @@ the source of truth.
   alike), and Game.
 - The team masthead: Top 25, Schedule, Roster and More.
   *(Superseded for Top 25 by 0024 §6: a compact team-aware header.)*
+  *(Superseded for every screen by 0031: one header, the SUITE bar with the
+  team as context, on every screen.)*
 - No Home search icon, no Share, no persistent Game back arrow.
 
 **Primary navigation.**

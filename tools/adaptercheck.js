@@ -103,6 +103,22 @@ eq([pur.home, pur.neutral, pur.timeSet], [false, false, false], "away, real home
 eq(pur.net, "Peacock", "broadcast fallback from config.sources.espn.broadcastFallback");
 eq(pur.series, "Shillelagh Trophy", "series from config");
 
+// Code review, 2026-10-01: a college team's own stadium is never "neutral" by
+// name. Miami plays at Hard Rock; a road game there is a road game.
+console.log("away at a college home field that also hosts bowls (Miami at Hard Rock)");
+function venueGame(name, neutralSite) {
+  var e = JSON.parse(JSON.stringify(fixture.events.filter(function (x) { return x.id === "401858460"; })[0]));
+  e.competitions[0].venue.fullName = name;
+  if (neutralSite === undefined) delete e.competitions[0].neutralSite; else e.competitions[0].neutralSite = neutralSite;
+  return TeamOS.espn.schedule({ events: [e] }, team, TEAM_CONFIG)[0];
+}
+eq([venueGame("Hard Rock Stadium", false).home, venueGame("Hard Rock Stadium", false).neutral], [false, false], "away, not neutral");
+eq(venueGame("Hard Rock Stadium", true).neutral, true, "the Orange Bowl there, which ESPN marks neutral, still is");
+[["Raymond James Stadium", "USF"], ["Alamodome", "UTSA"], ["Allegiant Stadium", "UNLV"]].forEach(function (v) {
+  eq(venueGame(v[0], false).neutral, false, "nor at " + v[0] + " (" + v[1] + ")");
+});
+eq(venueGame("Gillette Stadium", false).neutral, true, "a pro venue no college calls home stays neutral whatever ESPN says");
+
 // W21 (David, 2026-10-01): each series entry says what it is, and only a
 // trophy gets the trophy mark on Game.
 console.log("series kinds: trophy, rivalry, event");
@@ -368,6 +384,14 @@ eq([gdDowns.drives.current.mine, gdDowns.drives.current.result], [false, "Turnov
 eq([gdDowns.lastPlay.at, /^No Huddle-Shotgun #15 R\.Browne pass incomplete/.test(gdDowns.lastPlay.text), /^\(/.test(gdDowns.lastPlay.text)], ["9:56", true, false],
    "the last play's snap clock is lifted out as a time; the words are ESPN's, unchanged");
 var gdFinal = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-final.json")), team, TEAM_CONFIG);
+// David, 2026-10-01: a scoring play opens the drive that made it.
+ok(gdFinal.scoring.every(function (p) {
+  var d = gdFinal.drives.list.filter(function (x) { return x.id === p.driveId; })[0];
+  return d && d.plays.some(function (q) { return q.id === p.id; });
+}), "every scoring play names the drive that holds it, matched on the play's own id (" + gdFinal.scoring.length + " of " + gdFinal.scoring.length + ")");
+var pick6 = gdFinal.scoring.filter(function (p) { return /fumble/i.test(p.text); })[0];
+ok(pick6 && (gdFinal.drives.list.filter(function (x) { return x.id === pick6.driveId; })[0] || {}).mine === !pick6.mine,
+   "a defensive score belongs to the drive it ended - the other team's");
 var tds = gdFinal.scoring.filter(function (p) { return /for a TD/.test(p.text); });
 ok(tds.length === 8 && tds.every(function (p) { return /\([^()]+ kick\)$/.test(p.text); }),
    "a touchdown worth 7 says its kick quietly: \"(S. Porath kick)\" - both teams' (" + tds.length + " TDs)");
@@ -402,7 +426,9 @@ eq(gdLive.teamStats[4].better, "away", "3rd down compares the rate: 5-13 beats 3
 eq(gdLive.teamStats[6].better, "home", "penalties compare the count: 4 beats 6");
 eq(gdLive.teamStats[7].better, "home", "possession compares seconds: 31:36 beats 28:24");
 eq(gdLive.scoring.length, 4, "four scoring plays so far");
-eq(gdLive.scoring[1], { period:1, clock:"1:31", teamAbbr:"ND", mine:true, text:"Spencer Porath 52 Yd Field Goal  ", awayScore:3, homeScore:3 }, "a scoring play, ours");
+eq(gdLive.scoring[1], { id: gdLive.scoring[1].id, period:1, clock:"1:31", teamAbbr:"ND", mine:true, text:"Spencer Porath 52 Yd Field Goal  ", awayScore:3, homeScore:3,
+                       driveId: null }, "a scoring play, ours (this trimmed capture carries no drive for it: driveId null)");
+ok(/^\d+$/.test(gdLive.scoring[1].id), "a scoring play keeps the play's own id");
 eq(gdLive.scoring[0].mine, false, "a scoring play, theirs");
 
 console.log("gameDetail() - final");
@@ -596,13 +622,17 @@ eq(items[1], { title:"College football Week 3 preview: Can Ole Miss take down LS
    "a full article: headline, web link, first image, source label, timestamp");
 eq(TeamOS.espn.news({ articles: [{ headline:"No picture", published:"2026-09-01T00:00:00Z", links:{ web:{ href:"https://x/y" } } }] })[0].image, "", "no image -> empty string (the view skips the <img>)");
 eq(TeamOS.espn.news({ articles: [{ headline:"No date", links:{ web:{ href:"https://x/y" } } }] })[0].publishedAt, null, "no date -> null (the view shows no date and sorts it last)");
+eq(TeamOS.espn.news({ articles: [{ headline:"Evil", links:{ web:{ href:"javascript:alert(1)" } } }] }), [],
+   "a javascript: link is no link - the article is dropped, never written into an href");
+eq(TeamOS.espn.news({ articles: [{ headline:"Odd image", links:{ web:{ href:"https://x/y" } }, images:[{ url:"javascript:x" }] }] })[0].image, "",
+   "nor a non-web image address");
 eq(TeamOS.espn.news({ articles: [{ headline:"No link" }, { links:{ web:{ href:"https://x/y" } } }] }), [], "no web link or no headline -> dropped");
 eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
 
 console.log("mark");
@@ -740,8 +770,18 @@ eq(osuId.tagline, null, "no tagline: Leave No Doubt. belongs to Notre Dame");
 eq(osuId.colors.accent, "#BA0C2F", "BUX scarlet");
 eq(osuId.colors.accentText, "#EFF1F2", "accent TEXT is BUX gray-light, not a lightened scarlet");
 ok(osuId.colors.accentText !== osuId.colors.accent, "a team whose accent cannot carry text says so explicitly");
-eq(osuId.fonts.ui.indexOf("BuckeyeSans"), 1, "BuckeyeSans leads the UI stack");
-ok(/Barlow/.test(osuId.fonts.ui), "with a fallback, because the font files are not distributed");
+// C19: Ohio State's own fonts are not available for independent use; Nunito
+// Sans is the public face it recommended, self-hosted under the OFL.
+eq(osuId.fonts.ui.indexOf("Nunito Sans"), 1, "Nunito Sans, Ohio State's recommended public face, leads the UI stack");
+eq(osuId.fonts.display.indexOf("Nunito Sans"), 1, "and the display stack");
+ok(!/Buckeye/i.test(osuId.fonts.ui + osuId.fonts.display), "the Buckeye fonts, not licensed to us, are not named at all");
+ok(/Barlow/.test(osuId.fonts.ui), "with a fallback while the face loads");
+var css = read("app.css"), faces = css.match(/@font-face\{font-family:'Nunito Sans';[^}]*\}/g) || [];
+ok(faces.length === 4 && faces.every(function (f) {
+  var u = (f.match(/url\(([^)]+)\)/) || [])[1];
+  return u && fs.existsSync(path.join(root, u)) && /font-display:swap/.test(f) && /unicode-range:/.test(f);
+}), "app.css declares it from the repository's own files (normal and italic, latin and latin-ext), swapped in, never blocking text");
+ok(fs.existsSync(path.join(root, "assets/fonts/nunito-sans/OFL.txt")), "its Open Font License ships beside it");
 
 console.log(" the two teams differ where identity lives");
 ["programLabel"].forEach(function (k) {
@@ -836,6 +876,20 @@ ok(!/'Barlow|'Grenze/.test(cssRules), "type comes from the team's stacks, not fr
 // capability is declared, and a team without it never sees the surface.
 // Odds reach the page only from the committed snapshot (W11): no public
 // relay ever sees a fan's request or touches the prices.
+function liftFn2(name) {
+  var src = read("app.js").replace(/\r\n/g, "\n");
+  var m = src.match(new RegExp("^function " + name + "\\([^)]*\\)\\{[\\s\\S]*?^\\}", "m"));
+  if (!m) throw new Error("could not find " + name + " in app.js");
+  return m[0] + "\n";
+}
+console.log("app.js news: only web links reach an href");
+{ var nl = vm.createContext({});
+  vm.runInContext(liftFn2("newsList") + liftFn2("beatItem"), nl);
+  var got = vm.runInContext("newsList([beatItem({ title:'Fine', link:'https://a.example/1', source:'A', published:'2026-09-30T12:00:00Z' })," +
+    " beatItem({ title:'Evil', link:'javascript:alert(1)', source:'A' }), beatItem({ title:'Rel', link:'/x', source:'A' })," +
+    " { title:'Espn', link:'https://espn.example/2', image:'', source:'ESPN', publishedAt: 1 }]).map(function(a){ return a.title; })", nl);
+  eq(got, ["Fine", "Espn"], "a beat story with a javascript: or relative link never reaches Home or News"); }
+
 console.log("odds come from our own snapshot only");
 // line comments first: one of them mentions "teamos/*.js", which would
 // otherwise open a block comment and swallow real code
