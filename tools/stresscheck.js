@@ -26,32 +26,21 @@
             node tools/stresscheck.js */
 "use strict";
 process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = "1";
-var fs = require("fs"), http = require("http"), path = require("path");
+var fs = require("fs"), path = require("path");
+var serve = require("./lib/serve");
 var chromium = require("playwright").chromium;
 
 var repo = path.join(__dirname, "..");
 var SERVE = { root: repo };
 var FX = path.join(repo, "tools", "fixtures");
 function fx(f) { return fs.readFileSync(path.join(FX, f)); }
-function mime(f) {
-  return f.endsWith(".html") ? "text/html" : f.endsWith(".css") ? "text/css" : f.endsWith(".js") ? "text/javascript" :
-    f.endsWith(".json") ? "application/json" : f.endsWith(".svg") ? "image/svg+xml" : f.endsWith(".png") ? "image/png" :
-    f.endsWith(".webmanifest") ? "application/manifest+json" : "application/octet-stream";
-}
 var notFound = [];
-var server = http.createServer(function (req, res) {
-  var p = new URL(req.url, "http://x").pathname;
-  var file = path.join(SERVE.root, p === "/" ? "index.html" : decodeURIComponent(p.slice(1)));
-  if (!file.startsWith(SERVE.root) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
-    // expected: a bad team id's missing config, and anything an older release asks for
-    // (the Irish Watch page, in the moments before an update reloads it, asks for its own icons)
-    if (SERVE.root === repo && !/favicon\.ico$/.test(p) && !/^\/teams\/(bogus|not-a-team)\.js$/.test(p) &&
-        !/^\/assets\/notre-dame\//.test(p)) notFound.push(p);
-    res.writeHead(404); res.end("nf"); return;
-  }
-  res.writeHead(200, { "content-type": mime(file), "cache-control": "no-store" });
-  fs.createReadStream(file).pipe(res);
-});
+var server = serve(function () { return SERVE.root; }, { onMissing: function (p) {
+  // expected: a bad team id's missing config, and anything an older release asks for
+  // (the Irish Watch page, in the moments before an update reloads it, asks for its own icons)
+  if (SERVE.root === repo && !/favicon\.ico$/.test(p) && !/^\/teams\/(bogus|not-a-team)\.js$/.test(p) &&
+      !/^\/assets\/notre-dame\//.test(p)) notFound.push(p);
+} });
 
 var ROSTERS = { "87": "espn-roster-nd-sep24.json", "194": "espn-roster-osu-sep24.json" };
 var NEWS = { "87": "espn-news-nd-sep24.json", "194": "espn-news-osu-sep24.json" };
