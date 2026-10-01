@@ -78,14 +78,15 @@ var TEAM_CONFIG = {
       surfaceRaise:   "#3F4443"    // BUX gray-dark-60
     },
 
-    // Ohio State's official webfonts, named as BUX names them. The font
-    // files are NOT distributed with this project and no @font-face is
-    // declared for them, so these stacks fall through to the Suite's own
-    // faces until we have permission; activating them is then a resource
-    // change, not an architectural one.
+    // Ohio State's own webfonts are not available for independent use
+    // (Ohio State's brand center, 2026-09-29). Nunito Sans is the public
+    // face it recommended to stay close to the brand (2026-10-01; "not
+    // Nunito"), self-hosted in assets/fonts/nunito-sans/ and declared in
+    // app.css. One face for text and headings, as Ohio State sets both in
+    // one family; David approved, 2026-10-01.
     fonts: {
-      ui:       "'BuckeyeSans','Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'BuckeyeSans','Barlow Condensed',sans-serif"
+      ui:       "'Nunito Sans','Barlow',system-ui,-apple-system,sans-serif",
+      display:  "'Nunito Sans','Barlow Condensed',sans-serif"
     }
   },
 
