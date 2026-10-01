@@ -829,7 +829,8 @@ ok(!/api\.elections\.kalshi\.com/.test(appSrc), "nor straight to Kalshi, which s
 ok(/data\/league\/odds-playoff\.json/.test(appSrc) && /data\/league\/odds-title\.json/.test(appSrc), "the same-origin snapshots are the route");
 
 // Before this, a config with no kalshi block threw on the first market check.
-console.log("app.js: Kalshi is a capability");
+// Kalshi's schema now lives in TeamOS.markets (W18); app.js only asks it.
+console.log("TeamOS.markets: Kalshi is a capability");
 var appSrc = read("app.js").replace(/\r\n/g, "\n");
 
 // Lift a function out of app.js by matching to a closing brace in column 1.
@@ -844,61 +845,86 @@ function liftFn(name) {
                              " - it is probably a one-liner; stub it instead");
   return m[0] + "\n";
 }
-// The two one-liners this needs, stubbed rather than lifted, per the above.
-var ONELINERS =
-  "function teamOf(m){ return m.yes_sub_title||m.subtitle||m.title||m.ticker; }\n" +
-  "function isTeamMarket(m){ return teamMarket(m.ticker, teamOf(m)); }\n";
-
-function kalshiCtx(config) {
+function marketsCtx() {
   var c = vm.createContext({});
-  vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
-  vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + ONELINERS, c);
+  ["teamos/outlook.js", "teamos/markets.js"].forEach(function (f) { vm.runInContext(read(f), c, { filename: f }); });
   return c;
 }
-function has(config) { return vm.runInContext("hasKalshi()", kalshiCtx(config)); }
-function market(config, ticker, name) {
-  var c = kalshiCtx(config);
-  c.__t = ticker; c.__n = name;
-  // A throw is the bug, not a crash of this file: report it as a failure so
-  // the line that broke is named rather than a stack trace being the answer.
-  try { return vm.runInContext("teamMarket(__t, __n)", c); }
-  catch (e) { return "THREW: " + e.message; }
-}
+var MK = marketsCtx().TeamOS.markets;
+var mkSrc = uncomment(read("teamos/markets.js"));
+ok(!/\bfetch\s*\(|\b(document|window|localStorage)\b/.test(mkSrc), "teamos/markets.js is pure: no fetch, no DOM, no storage");
+ok(!/notre|irish|ohio|buckeye|"-ND"|"-OSU"/i.test(mkSrc), "and names no team");
+ok(!/yes_bid|yes_sub_title|last_price|previous_price/.test(uncomment(appSrc)), "app.js reads no Kalshi field: the schema enters only through TeamOS.markets");
 
-var ndCfg = JSON.stringify({ sources: { kalshi: { tickerSuffix: "-ND" } } });
-ok(has(ndCfg), "a team that declares Kalshi markets has the capability");
-ok(!has(JSON.stringify({ sources: {} })), "a team whose config has no kalshi block does not");
-ok(!has(JSON.stringify({})), "nor one with no sources at all");
-ok(!has(JSON.stringify({ sources: { kalshi: null } })), "nor one that declares it as null");
-
-// The bug: these used to throw, which is what a second team without Kalshi
-// would have hit the moment it became selectable.
-eq(market(JSON.stringify({ sources: {} }), "KXNCAAF-27-ND", "Notre Dame"), false,
+var ndK = { sources: { kalshi: { tickerSuffix: "-ND" } } };
+ok(MK.covers(ndK), "a team that declares Kalshi markets has the capability");
+ok(!MK.covers({ sources: {} }), "a team whose config has no kalshi block does not");
+ok(!MK.covers({}), "nor one with no sources at all");
+ok(!MK.covers({ sources: { kalshi: null } }), "nor one that declares it as null");
+function safe(f) { try { return f(); } catch (e) { return "THREW: " + e.message; } }
+eq(safe(function () { return MK.isTeams({ sources: {} }, "KXNCAAF-27-ND", "Notre Dame"); }), false,
    "asking whether a market is ours, with no kalshi config, answers no");
-eq(market(JSON.stringify({}), "KXNCAAF-27-ND", "Notre Dame"), false, "and does not throw with no sources");
-eq(market(ndCfg, "KXNCAAF-27-ND", "Somebody"), true, "a matching ticker suffix is ours");
-eq(market(ndCfg, "KXNCAAF-27-OSU", "Ohio St."), false, "another team's ticker is not");
+eq(safe(function () { return MK.isTeams({}, "KXNCAAF-27-ND", "Notre Dame"); }), false, "and does not throw with no sources");
+eq(MK.isTeams(ndK, "KXNCAAF-27-ND", "Somebody"), true, "a matching ticker suffix is ours");
+eq(MK.isTeams(ndK, "KXNCAAF-27-OSU", "Ohio St."), false, "another team's ticker is not");
+
+console.log("TeamOS.markets: prices, as the app has always read them");
+eq(MK.price({ yes_bid_dollars: "0.8000", yes_ask_dollars: "0.8400" }), 82, "the bid/ask midpoint, as a percent");
+eq(MK.price({ yes_bid_dollars: "0", yes_ask_dollars: "0", last_price_dollars: "0.0300" }), 3, "no quotes: the last trade");
+eq(MK.price({ yes_bid: 40, yes_ask: 44 }), 42, "the older integer-cents shape still reads");
+eq(MK.price({}), null, "no price at all: null, never 0");
+eq(MK.previous({ previous_price_dollars: "0.0500" }), 5, "the previous price, as a percent");
+eq(MK.previous({}), null, "no previous price: null");
+
+console.log("TeamOS.markets: the full field (W18), from the committed snapshots");
+var titleEv = JSON.parse(read("data/league/odds-title.json")), playoffEv = JSON.parse(read("data/league/odds-playoff.json"));
+var osuK = { sources: { kalshi: { tickerSuffix: "-OSU", namePattern: /ohio st/i } } };
+[["title", titleEv, "National Title"], ["playoff", playoffEv, "Playoff"]].forEach(function (e) {
+  var fld = MK.field(e[1], ndK, e[0]);
+  ok(fld && fld.key === e[0] && fld.label === e[2], e[2] + ": the field, under Home's label for it");
+  var priced = e[1].markets.filter(function (m) { return MK.price(m) != null; }).length;
+  eq(fld.rows.length, priced, e[2] + ": every team the event prices, and only those");
+  ok(fld.rows.every(function (r, i) { return !i || r.value <= fld.rows[i - 1].value; }), e[2] + ": most likely first");
+  ok(fld.rows.every(function (r) { return r.value >= 0 && r.value <= 100 && r.team; }), e[2] + ": every row a named team with a percent");
+  var team = MK.teamMarket(e[1], ndK), mine = fld.rows.filter(function (r) { return r.mine; });
+  ok(team ? mine.length === 1 && mine[0].value === MK.price(team) : mine.length === 0,
+     e[2] + ": the team's own row agrees with the number Home shows (" + (mine[0] ? mine[0].value.toFixed(1) + "%" : "not priced") + ")");
+  var osuRows = MK.field(e[1], osuK, e[0]).rows.filter(function (r) { return r.mine; });
+  ok(osuRows.length <= 1 && !osuRows.some(function (r) { return /-ND$/.test(r.ticker); }), e[2] + ": for Ohio State, its own row is marked instead");
+});
+var tiny = { markets: [
+  { ticker: "X-A", yes_sub_title: "Alpha", yes_bid_dollars: "0.2000", yes_ask_dollars: "0.2200", previous_price_dollars: "0.1800", status: "active" },
+  { ticker: "X-B", yes_sub_title: "Beta",  status: "active" },
+  { ticker: "X-C", yes_sub_title: "Gamma", last_price_dollars: "0.5000", status: "settled" },
+  { ticker: "X-D", yes_sub_title: "Delta", yes_bid_dollars: "0.2000", yes_ask_dollars: "0.2200", status: "active" } ] };
+var tf = MK.field(tiny, { sources: { kalshi: { tickerSuffix: "-D" } } }, "title");
+eq(tf.rows.map(function (r) { return r.team; }), ["Alpha", "Delta"], "an unpriced market and a closed one are left out; ties read by name");
+eq([tf.rows[0].change, tf.rows[1].change], [3, null], "change against the source's previous price, else none");
+ok(tf.rows[1].mine && !tf.rows[0].mine, "the team's row is marked");
+eq(MK.field({ markets: [] }, ndK, "title"), null, "an event with nothing priced: no field");
+eq(MK.field(null, ndK, "title"), null, "no event at all: no field");
 
 console.log(" and the Season Outlook actually goes");
 // Behavioural, not a grep: run the real loadStrip against a stubbed page and
 // see what Home is given (decision 0024 §12: each market independent, and a
 // team Kalshi does not price has no Season Outlook).
 function stripRun(config) {
-  var c = vm.createContext({ console: console });
+  var c = marketsCtx();
+  c.console = console;
   vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
   vm.runInContext([
     "var asked = 0, painted = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
     "var HOME = { markets: {} }, SRC = {};",
     "function paintHome(){ painted++; }",
-    "function price(){ return null; }",
-    "function prevPrice(){ return null; }",
     // answers synchronously, so the result is here when the check reads it
     "function kalshi(){ asked++; return { then: function(f){ f({ markets: [] }); return { catch: function(){} }; } }; }"
   ].join("\n"), c);
-  vm.runInContext(liftFn("hasKalshi") + liftFn("teamMarket") + liftFn("loadStrip") + ONELINERS, c);
+  vm.runInContext(liftFn("loadStrip") + "function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }\nvar MARKET_FIELD = {};\n", c);
   vm.runInContext("loadStrip();", c);
   return c;
 }
+var ndCfg = JSON.stringify(ndK);
+ok(/^function hasKalshi\(\)\{ return TeamOS\.markets\.covers\(TEAM_CONFIG\); \}$/m.test(appSrc), "app.js asks TeamOS whether the team has markets");
 var noKalshi = stripRun(JSON.stringify({ sources: {} }));
 eq(noKalshi.asked, 0, "a team with no Kalshi markets never asks Kalshi");
 eq(Object.keys(noKalshi.HOME.markets), [], "and Home is given no markets, so no Season Outlook");
