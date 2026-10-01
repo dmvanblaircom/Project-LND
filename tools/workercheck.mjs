@@ -7,7 +7,7 @@
    fails, and never passes CFBD's raw payload or errors through.
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
-import worker, { pickSeason, VERSION } from "../worker/src/index.js";
+import worker, { pickSeason, VERSION, CFBD_FIELDS } from "../worker/src/index.js";
 
 let failures = 0;
 function ok(cond, what) { console.log("  " + (cond ? "ok  " : "FAIL") + " " + what); if (!cond) failures++; }
@@ -41,6 +41,10 @@ async function get(path, e, origin) {
   const r = await worker.fetch(new Request("https://suite-api.example" + path, { headers: origin ? { origin } : {} }), e, null);
   return { r, body: r.status === 204 ? null : await r.json() };
 }
+
+console.log("what may leave CFBD");
+ok(JSON.stringify(CFBD_FIELDS) === JSON.stringify(["games", "rushingYardsOpponent", "netPassingYardsOpponent"]),
+   "exactly the three fields W15 needs, read from a real CFBD response - widening it is a deliberate change");
 
 console.log("health");
 { const { r, body } = await get("/v1/health", env());

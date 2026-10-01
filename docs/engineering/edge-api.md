@@ -9,8 +9,10 @@ keys server-side, fetches, caches, and returns only what a screen shows.
   main, or from the Actions tab. Until the secrets below exist it stops
   green with a notice.
 - Routes: `GET /v1/health`; `GET /v1/cfbd/season?team=&year=` (CFBD season
-  stats for one team, only the fields in `CFBD_FIELDS`, which stays empty
-  until a real response has been read with the CFBD probe below).
+  stats for one team, only the fields in `CFBD_FIELDS`: `games`,
+  `rushingYardsOpponent`, `netPassingYardsOpponent`, for W15's yards
+  allowed. The names come from a real response, read with *Probe CFBD
+  field names* on 2026-10-01.)
 - Only Suite's origin (`https://dmvanblaircom.github.io`) may read it from
   a browser. Responses carry `fetchedAt`; a cached copy served because the
   provider failed carries `stale: true`.

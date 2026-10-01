@@ -16,17 +16,18 @@
 
    No dependencies: Workers' standard fetch, Request, Response and Cache. */
 
-export const VERSION = "edge-2026-09-30a";
+export const VERSION = "edge-2026-10-01a";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
 const CFBD = "https://api.collegefootballdata.com";
 const FRESH_SECONDS = 6 * 3600;        // season stats move once a week
 const KEEP_SECONDS = 7 * 24 * 3600;    // a stale copy may stand in for a week
 
-// The CFBD stat names a screen may show. Empty until a real response has
-// been read (decision 0012: never design against unverified field names);
-// `tools/cfbd_probe.py` prints the names CFBD actually returns.
-export const CFBD_FIELDS = [];
+// The CFBD stat names a screen may show, read from a real response by the
+// CFBD probe (2026-10-01, tools/cfbd_probe.py): the Matchup card's rushing
+// and passing yards allowed per game (W15) - season totals the opponents
+// gained, and the games they came from. Nothing else leaves CFBD.
+export const CFBD_FIELDS = ["games", "rushingYardsOpponent", "netPassingYardsOpponent"];
 
 const TEAM = /^[A-Za-z0-9 .&'()À-ſ-]{2,40}$/;
 
