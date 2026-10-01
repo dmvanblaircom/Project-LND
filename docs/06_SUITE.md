@@ -53,7 +53,7 @@ Prioritize news, recruiting, roster movement, schedule, history, and upcoming ev
 
 ## Team Identity
 
-Suite inherits team identity from TeamOS: `app.js` reads one object, `TeamOS.identity.create(TEAM_CONFIG, TEAM)`, and applies it in one place, `paintIdentity()`, which sets the tab title ("Notre Dame · Suite"), the team masthead (name, nickname, mark, tagline, art) and the stylesheet's `--t-*` tokens. `app.css` keeps its own rules, spacing, layout and semantic colours; what it does not keep is a team's values.
+Suite inherits team identity from TeamOS: `app.js` reads one object, `TeamOS.identity.create(TEAM_CONFIG, TEAM)`, and applies it in one place, `paintIdentity()`, which sets the tab title ("Notre Dame · Suite"), the SUITE bar's team context on every screen (mark and name, decision 0031), the nickname Home's hero uses and the stylesheet's `--t-*` tokens. `app.css` keeps its own rules, spacing, layout and semantic colours; what it does not keep is a team's values.
 
 - Colours - as a **fill** (`accent`) and, separately, as legible **text** (`accentText`, `accentOnLight`)
 - Typography - the team's UI and display stacks
