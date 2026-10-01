@@ -25,6 +25,16 @@ runner) with `tools/probe_sources.py` via `.github/workflows/probe-sources.yml`.
   refresh:** per issue #29, record several days of observed `lastUpdated`
   here first, then add the producer to `odds.yml`.
 
+- **TeamOS model (Oct 1):** `teamos/ratings.js` → `TeamOS.ratings.fpi(snapshot,
+  TEAM_CONFIG, season)`, Poll-shaped (`key: "fpi"`, `kind: "rating"`), top 25
+  rows plus the active team's row wherever it ranks, rank and rating
+  separate, ESPN's 7-day rank change as given (`changeWindow`), `current:
+  false` for another season's table, `null` with no usable snapshot.
+  Freshness: stale after 3 days without a new edition. Tested on the real
+  capture through the real producer for ND and OSU by `tools/ratingscheck.js`.
+  Not yet loaded by the app: that comes with the refresh schedule above
+  (no file to load until then) and Codex's selector UI.
+
 ## SP+: blocked
 
 - The ESPN SP+ table is an article
@@ -36,4 +46,8 @@ runner) with `tools/probe_sources.py` via `.github/workflows/probe-sources.yml`.
   which falls under CFBD's redistribution terms: Bill (CFBD, 2026-09-29)
   said displaying figures is fine but publishing the underlying data as
   publicly reusable JSON is not. Same open question as W15 / decision 0012.
-- **Owner:** David (CFBD's answer, or ship FPI without SP+).
+- **Oct 1 update:** Suite now has its own server (decision 0030), and Bill
+  confirmed display through it is fine; CFBD's SP+ could come through the
+  edge API the way W15's yards allowed do. Open: whether SP+ (Bill
+  Connelly's rating) carries its own terms - David's email to Bill.
+- **Owner:** David (Bill's answer on SP+, or ship FPI without SP+).
