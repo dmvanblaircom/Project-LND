@@ -162,7 +162,10 @@ function fixture(url) {
   // A real update: a copy of the site, opened once so its worker installs,
   // then given a new VERSION and opened again. The new worker's shell
   // downloads slowly, as on a phone. Every frame of every document is logged.
-  async function updateOpen(shellDelay) {
+  // shellDelay: each shell file the new worker fetches; checkDelay: sw.js
+  // itself (the update check); stall: app.css alone held this long, so the
+  // install takes that long whatever the browser fetches in parallel.
+  async function updateOpen(shellDelay, checkDelay, stall) {
     var os = require("os");
     var dir = fs.mkdtempSync(path.join(os.tmpdir(), "launch-upd-"));
     fs.cpSync(root, dir, { recursive: true, filter: function (f) { return !/[\\/](\.git|node_modules)$/.test(f); } });
@@ -172,7 +175,9 @@ function fixture(url) {
     await ctx.route("**/*", async function (route) {
       var req = route.request(), u = req.url();
       if (u.startsWith(b2)) {
-        if (slow && req.serviceWorker && req.serviceWorker() && !/\/data\//.test(u)) await new Promise(function (r) { setTimeout(r, shellDelay); });
+        if (slow && checkDelay && /\/sw\.js(\?|$)/.test(u)) await new Promise(function (r) { setTimeout(r, checkDelay); });
+        if (slow && req.serviceWorker && req.serviceWorker() && !/\/data\//.test(u))
+          await new Promise(function (r) { setTimeout(r, stall && /\/app\.css(\?|$)/.test(u) ? stall : shellDelay); });
         return route.continue();
       }
       var body = fixture(u);
@@ -233,10 +238,20 @@ function fixture(url) {
   ok(u1.docs.length === 2, "the worker reloads the page once (" + u1.docs.length + " documents)");
   ok(first.length && first.every(function (c) { return c === "1.00"; }), "the launch holds over the page until that reload: it never starts to lift (" + first.join(",") + ")");
   ok(last[0] === "1.00" && last[last.length - 1] === "0.00", "the reloaded page carries the same launch on and lifts it once");
-  var u2 = await updateOpen(1000);
+  // One essential shell file held 11 seconds: the install outlasts the
+  // 10-second wait however many files the browser fetches at once (a CI
+  // runner fetches more in parallel than this box).
+  var u2 = await updateOpen(150, 0, 11000);
   var slowLast = u2.of(u2.docs[u2.docs.length - 1]);
   ok(u2.docs.length === 2 && slowLast.every(function (c) { return c === "0.00"; }),
      "an install slower than its 10-second wait: it lifts once, and the reload does not play it again (" + u2.docs.length + " documents; " + slowLast.join(",") + ")");
+
+  // The update check alone is slow: sw.js takes 4 seconds to answer, longer
+  // than the launch's own 2.6 (Codex review, #80). The check holds it.
+  var u3 = await updateOpen(150, 4000);
+  var u3first = u3.of(u3.docs[0]);
+  ok(u3.docs.length === 2 && u3first.every(function (c) { return c === "1.00"; }),
+     "a slow update check holds the launch too: no lift before the reload (" + u3.docs.length + " documents; " + u3first.join(",") + ")");
 
   console.log("the chooser");
   var f = await open("/?choose=1");

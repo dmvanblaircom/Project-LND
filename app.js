@@ -205,7 +205,13 @@ function noteSource(url, cached){
 // sees one launch across the reload - not the page, then a second launch
 // (David, 2026-10-01: the nav flashed up before the launch faded). A first
 // install reloads nothing, so only a page a worker already controls waits.
-var UPDATING=false;
+var UPDATING=false, CHECKING=false;
+// The launch has lifted while an update was still on its way: the reload it
+// brings must not play the launch again (index.html reads this). A failed
+// update brings no reload, so it is cleared.
+function liftedMarker(on){
+  try{ if(on) sessionStorage.setItem("suite-launch-lifted", String(Date.now())); else sessionStorage.removeItem("suite-launch-lifted"); }catch(e){}
+}
 function watchUpdate(reg){
   if(!reg || !navigator.serviceWorker.controller) return;
   // An activated worker reloads this page; if that never comes, the launch's
@@ -219,6 +225,7 @@ function watchUpdate(reg){
     seen.push(w); UPDATING=true;
     w.addEventListener("statechange", function(){
       UPDATING=seen.some(function(x){ return x.state!=="redundant"; });
+      if(!UPDATING) liftedMarker(false);
     });
   }
   track(reg.installing || reg.waiting);
@@ -228,7 +235,16 @@ if("serviceWorker" in navigator){
   var registerWorker=function(){
     navigator.serviceWorker.register("sw.js").then(function(reg){
       watchUpdate(reg);
-      if(navigator.serviceWorker.controller && reg && reg.update) reg.update().catch(function(){});
+      // The check itself holds the launch too: on a slow connection fetching
+      // sw.js can outlast the launch's 2.6 seconds, and an update found after
+      // it lifted would reload the page under the fan (Codex review, #80).
+      if(navigator.serviceWorker.controller && reg && reg.update){
+        CHECKING=true;
+        reg.update().catch(function(){}).then(function(){
+          CHECKING=false;
+          if(!UPDATING) liftedMarker(false);
+        });
+      }
       return navigator.serviceWorker.ready;
     }).then(tellWorkerOurTeam).catch(function(){});
   };
@@ -1643,21 +1659,19 @@ function liftLaunchWhenReady(){
   function ready(){
     var sc=screen(); if(!sc || !sc.firstChild) return false;
     if(sc.id==="screenHome" && !S.games && !SC.failed) return false;
-    if(UPDATING) return false;
+    if(UPDATING || CHECKING) return false;
     if(NET.busy>0 || Date.now()-NET.quietSince<QUIET) return false;
     return Array.prototype.every.call(sc.querySelectorAll("img"), function(i){ return !inView(i) || i.complete; });
   }
   (function tick(){
     var age=Date.now()-at;
-    var limit=UPDATING ? Math.max(cap, at+UPD_MAX) : cap;
+    var limit=UPDATING || CHECKING ? Math.max(cap, at+UPD_MAX) : cap;
     if(Date.now()>=limit || (age>=MIN && ready())){
       el.classList.add("done");
       // Lifting while an update installs: its reload is still to come, and
       // must not play the launch a second time over a page already seen.
-      try{
-        sessionStorage.removeItem("suite-launch-at");
-        if(UPDATING) sessionStorage.setItem("suite-launch-lifted", String(Date.now()));
-      }catch(e){}
+      try{ sessionStorage.removeItem("suite-launch-at"); }catch(e){}
+      if(UPDATING || CHECKING) liftedMarker(true);
       setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 500);
       return;
     }

@@ -262,10 +262,12 @@ html[data-choosing] .launch,html[data-launched] .launch{display:none}
     if (prev && now >= prev && now - prev < 15000) at = prev;   // never a start in the future: a clock moved back else sessionStorage.setItem("suite-launch-at", String(now));
     // The launch already lifted on this open and an update's reload followed
     // (a slow install outlasted it): the fan has seen the page, so the reload
-    // draws it again without a second launch.
+    // draws it again without a second launch. The next page always consumes
+    // the marker; app.js clears it when an update fails. The bound is only
+    // against a marker somehow left behind.
     var lifted = +sessionStorage.getItem("suite-launch-lifted");
     sessionStorage.removeItem("suite-launch-lifted");
-    if (lifted && now - lifted < 15000) document.documentElement.setAttribute("data-launched", "");
+    if (lifted && now >= lifted && now - lifted < 300000) document.documentElement.setAttribute("data-launched", "");
   } catch (e) {}
   window.SUITE_LAUNCH_AT = at;
   document.documentElement.style.setProperty("--launch-t", (at - now) + "ms");
