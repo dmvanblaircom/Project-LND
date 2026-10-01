@@ -2,7 +2,9 @@
 
 ## Current State
 
-Irish Watch combines live provider data, local snapshots, and GitHub Actions workflows. As of Phase 3A, one data path — the team's schedule — runs through a TeamOS adapter; every other path is still consumed in its provider or snapshot shape by `app.js`.
+Suite combines live provider data, local snapshots written by GitHub Actions, and one keyed source served through Suite's own edge API. Every provider payload the Suite reads now crosses a TeamOS adapter (`teamos/espn.js`, `markets.js`, `weather.js`, `cfbd.js`); the snapshots are this project's own shapes, read through `TeamOS.snapshots`, `TeamOS.roster` and `TeamOS.markets`. The three data paths - browser to provider, Action to committed snapshot, browser to edge API to provider - and why each source takes the one it does are in `docs/engineering/current-architecture.md`.
+
+The sections below record how each path crossed the boundary, phase by phase.
 
 ### The schedule path (Phase 3A)
 
@@ -59,7 +61,7 @@ data/<team>/news.json ->  beatItem() in app.js ->  NewsItem[]  /
 
 `data/<team>/news.json` is this project's own snapshot, written by `.github/workflows/odds.yml` from each team's beat-writer RSS feeds; it is already NewsItem-shaped and is converted in the application rather than treated as a provider. Both fetches, the cache-first paint and the cache keys are unchanged.
 
-With 4C every ESPN payload the Suite consumes crosses `teamos/espn.js`, and `app.js` no longer carries the ESPN base URL or the ESPN team id. What remains provider-shaped in `app.js` — Kalshi odds and the Open-Meteo forecast — is the deferred Phase 4D; the depth chart is the project's own snapshot.
+With 4C every ESPN payload the Suite consumes crosses `teamos/espn.js`, and `app.js` no longer carries the ESPN base URL or the ESPN team id. Kalshi's events have since crossed `teamos/markets.js` (Season Outlook and its full field), Open-Meteo's forecast and geocoder `teamos/weather.js`, and CollegeFootballData `teamos/cfbd.js` through the edge API (decisions 0012, 0030); the depth chart and availability report are the project's own snapshots, read through `teamos/roster.js`.
 
 ### The team-data snapshots (Phase 5B)
 
@@ -71,7 +73,7 @@ loaded snapshot JSON   ->  TeamOS.snapshots.owned(team, json)   ->  true | false
 
 depth.json / depth-history.json  ->  Depth Chart (slots by level, week by week)        or the roster + "No depth chart."
 availability.json (+ history)    ->  Availability (the official report, dated)         or "not yet available" (decision 0019)
-odds-history.json                ->  sparklines under the odds numbers                    or the numbers alone
+odds-history.json                ->  written and cached; no screen reads it today
 news.json                        ->  beatItem() -> NewsItem[] merged into the News tab    or ESPN alone
 ```
 
@@ -114,9 +116,7 @@ They should eventually represent normalized data rather than leaking provider-sp
 
 ## GitHub Actions
 
-The current GitHub Actions workflows perform significant Notre Dame-specific ingestion and processing. They can remain initially. As of Phase 5B the Suite no longer assumes their output belongs to whichever team is loaded; the workflows themselves are unchanged.
-
-Over time, move toward configurable pipelines where the team and provider are inputs rather than assumptions embedded in workflow logic.
+The workflows are team-driven: `odds.yml` loops over the teams that declare each snapshot kind, and every team-scoped producer in `tools/producers/` (`odds_history.py`, `beat_news.py`, and `official_depth.py` for the depth chart and availability report) reads where to write - and its sources, such as a team's beat feeds - from the team's config (backlog C2). League-wide producers are not per team: `fpi.py` reads ESPN's FPI and writes `data/league/fpi.json`. The rest write no snapshot: `cadence.py` (is the depth chart due?), `freshness.py` (the staleness monitor, which opens issues), `teamconfig.py` (reads a team config) and `twodeep.py` (the depth-chart parser). It runs on GitHub's scheduler and on the edge API's clock (`docs/engineering/data-refresh-clock.md`). Only Notre Dame declares team snapshots today; Ohio State's sources are W20.
 
 ## Content Model
 
@@ -132,7 +132,7 @@ Weather should be associated with a game/venue context rather than treated as a 
 
 ## Freshness
 
-TeamOS should eventually expose source freshness/status so Suite can distinguish between:
+`TeamOS.freshness` gives each screen one freshness state from its sources' own ages (decision 0024 section 13), so Suite can distinguish between:
 
 - Live/current data
 - Recently cached data

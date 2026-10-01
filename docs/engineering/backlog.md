@@ -75,16 +75,28 @@ Start the existing offseason proposal review while Waves 1–3 run. **Ship the o
 
 | Order / ID | Implementation owner | Remaining work | Scope and dependencies | Completion requirement |
 |---|---|---|---|---|
-| 25 / W25 | Claude; each owner updates own docs | Current architecture docs and branch cleanup | **Oct 1: `docs/engineering/current-architecture.md` (as built); historical docs marked; build plan data paths and 4D updated (this PR). Branch cleanup still waits on David's approval of C12.** C10/C12. Backlog and completion pointers reconciled here; CLAUDE.md/current architecture/team-config/build-plan and old CFBD/superseded design docs still contain stale guidance. The approved old branches still exist. | Correct current-state docs without rewriting historical decisions. Recheck branch containment against current main; archive approved historical tips before deleting. Preserve open #25/#28 branches and unique live captures until landed/retained. Keep main + short work branches. Do not delete merely because a name looks old. |
+| 25 / W25 | Claude; each owner updates own docs | Current architecture docs and branch cleanup | **Oct 1: `docs/engineering/current-architecture.md` (as built); historical docs marked; build plan data paths and 4D updated (this PR). C12 closed Oct 1: David approved the list, turned on automatic deletion of merged PR branches, and kept the old branches as they are (`branch-cleanup.md`); no destructive cleanup is planned.** C10/C12. Backlog and completion pointers reconciled here; CLAUDE.md/current architecture/team-config/build-plan and old CFBD/superseded design docs still contain stale guidance. The approved old branches still exist. | Correct current-state docs without rewriting historical decisions. Recheck branch containment against current main; archive approved historical tips before deleting. Preserve open #25/#28 branches and unique live captures until landed/retained. Keep main + short work branches. Do not delete merely because a name looks old. |
 | 26 / W26 | Claude | Consolidate duplicate browser-test infrastructure (C15) | **Oct 1: one static server for the browser checks (PR #57, `tools/lib/serve.js`); two drifted copies served SVGs as HTML.** Existing checks have separate server/router setup. Lower priority than fan-visible work. | Extract shared harness mechanics only where duplication is real; preserve fixtures, failure injection, isolated workers and negative controls. No drop in behavioral coverage; do not expand testing merely to mirror refactoring. |
 
-W25's small documentation fixes can accompany each earlier PR. Its destructive branch cleanup happens only after containment/archive checks. No need to delay a valuable fix for a broad cleanup project.
+W25's small documentation fixes can accompany each earlier PR. C12 is closed: no branches are archived or deleted by hand. No need to delay a valuable fix for a broad cleanup project.
 
 ## Also shipped October 1
 
 - **Hero logo flicker (David's report):** sections redraw without reloading logos already shown (`Suite.ui.fill`), Home/Game/Top 25/Schedule; `tools/flickercheck.js`. PR #56, production `suite-2026-10-01f`.
 - **Edge API deploy check** waits for the exact deployed version (PR #50); the Worker's refresh clock is deployed and reports `"clock": false` until David's token is set.
 - `verify-production.yml` must be run by hand after a deploy: its after-Pages trigger has not fired.
+- **Code review fixes A-G** (PRs #66-#70, #73), each production-verified:
+  - data correctness: the final summary, the pregame line, a preview retry and the game's views (`tools/controllercheck.js`);
+  - availability keeps last week's report when a fetch fails;
+  - offline and service-worker resilience: a failed refetch keeps the team, the install needs only the essential shell, and kept data expires after 30 days;
+  - TeamOS: neutral venues, weather times across DST, and geocoding behind an adapter;
+  - security and accessibility: RSS `javascript:` links are refused and focus returns after More;
+  - dead code removed;
+  - Share Suite's timer and the Kalshi step's count.
+- **Pull to refresh** (David): one refresh with Settings' Refresh Data, with no explanation on screen. `tools/pullcheck.js`, PR #71.
+- **Ohio State's Team Style in Nunito Sans** (C19, David): self-hosted and loaded only for that team. `tools/teamfontcheck.js`, PR #74.
+- **Scoring drives** (David and a fan): each scoring play opens its drive, which ends on the highlighted score. Every drive stays listed. PR #75.
+- **One header on every screen** (decision 0031, David): the SUITE bar with the team as context. The masthead is removed, and the name fits at 320px for both teams. PR #76.
 
 ## External, conditional and intentionally deferred work
 
@@ -93,7 +105,7 @@ These remain visible but do not halt the runnable queue or get falsely marked co
 | Item | Next action / owner | Why it is not a normal build task |
 |---|---|---|
 | Physical iPhone/Safari/installed-PWA checks (A3, V12) | David + ChatGPT/Claude guided checklist after relevant releases: upgrade once, icon, safe areas, text scaling, keyboard/scrolling. | Cannot establish a real-device pass from desktop CI. |
-| Official ND/OSU font permissions (C19) | Permission requested 2026-09-29: David confirmed both emails sent (Ohio State brandcenter@osu.edu, Buckeye webfonts; Notre Dame licensing@nd.edu, athletics typography). **Notre Dame replied: not permitted without a license (via Fanatics)**; get an attorney consult before any commercial launch. Ohio State: awaiting reply. David supplies actual replies/authorization if obtained; Claude integrates only then. | Instrument fallback unblocks the brand pass. Do not send emails or bundle proprietary fonts on an assumed permission. |
+| Official ND/OSU font permissions (C19) | Permission requested 2026-09-29: David confirmed both emails sent (Ohio State brandcenter@osu.edu, Buckeye webfonts; Notre Dame licensing@nd.edu, athletics typography). **Notre Dame replied: not permitted without a license (via Fanatics)**; get an attorney consult before any commercial launch. **Ohio State replied 2026-09-29: the Buckeye fonts are not available for independent use; on 2026-10-01, asked for the closest public alternative, it recommended two Google Fonts: Source Serif 4 and Nunito Sans ("not Nunito").** Both are SIL Open Font License, so they can be self-hosted like Instrument (W12). **David approved (Oct 1): Nunito Sans for Ohio State's text and headings in Team Style**, self-hosted (`assets/fonts/nunito-sans/`, downloaded only on Ohio State's Suite; `tools/teamfontcheck.js`); the Buckeye font names are gone from its config. Source Serif 4 has no team role in Suite today and is not added. | Instrument fallback unblocks the brand pass. Do not send emails or bundle proprietary fonts on an assumed permission. |
 | Exceptional game-status payloads (C8) | Capture a real delayed/suspended/postponed/canceled response when one occurs; retain provenance, then add regression fixtures. | Event-dependent. Existing defensive behavior can be tested without claiming synthetic data is a real capture. |
 | Offseason live provider verification | Validate actual January polls/markets against the W16 implementation. | Real offseason timing cannot be accelerated; fixtures cover release readiness beforehand. |
 | Cloudflare GitHub App removal (C13) | Optional account cleanup by David if the installation still exists. | The old Workers were deleted; no app build required. Not the edge API: Suite's `suite-api` Worker (decision 0030) deploys from Actions with an API token, not the GitHub App. Account state not verified here. |
