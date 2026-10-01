@@ -52,7 +52,7 @@ source for a kind shows that kind as unavailable, never another team's data.
 | `odds.yml` "Refresh team data" | GitHub's scheduler (best effort) and the Worker's clock at :07/:37 (`source=clock`, once its token is set) | Odds, news, depth chart, availability, freshness monitor |
 | `roster.yml` | Tuesdays | Regenerates `teams/index.js` |
 | `worker.yml` | Push to `worker/**` | Tests and deploys the edge API; waits for the new version; smoke-tests CFBD (names only in logs) |
-| `verify-production.yml` | After every Pages deploy, or by hand | `tools/prodcheck.js`: the live site serves this release's service-worker `VERSION`, with Suite's identity assets |
+| `verify-production.yml` | By hand after each deploy (its after-Pages trigger has not fired for this site's Pages deployments: every run to date was started by hand) | `tools/prodcheck.js`: the live site serves this release's service-worker `VERSION`, with Suite's identity assets |
 | `capture-fixture.yml`, `probe-*.yml`, `cfbd-probe.yml`, `stress.yml` | By hand | Capture real payloads as fixtures; probe sources from a runner; stress tests |
 
 ## Delivery
