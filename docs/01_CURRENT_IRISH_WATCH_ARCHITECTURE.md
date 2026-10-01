@@ -1,5 +1,11 @@
 # Current Irish Watch Architecture
 
+> **Historical baseline.** This describes Irish Watch before the TeamOS /
+> Suite refactor (September 2026), and is kept as the starting point the
+> architecture was measured from. Several files it lists no longer exist.
+> For the application as it is built today, see
+> `docs/engineering/current-architecture.md`.
+
 ## Current Stack
 
 Irish Watch is a lightweight browser-based PWA built with:

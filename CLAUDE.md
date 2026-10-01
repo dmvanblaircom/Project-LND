@@ -21,7 +21,7 @@ If adding Ohio State requires copying the application or scattering team conditi
 
 ## Current State
 
-Irish Watch is a vanilla HTML/CSS/JavaScript PWA using browser APIs, ESPN data, local JSON snapshots, GitHub Actions, Kalshi data, RSS/news sources, a service worker, responsive UI, accessibility features, and automated checks.
+Irish Watch is a vanilla HTML/CSS/JavaScript PWA using browser APIs, ESPN data, local JSON snapshots, GitHub Actions, Kalshi data, RSS/news sources, a service worker, responsive UI, accessibility features, and automated checks. It now runs as Suite on TeamOS: one codebase, the team chosen at runtime from `teams/<team>.js`, with a small edge API (Cloudflare Worker, decision 0030) for keyed data. The as-built map is `docs/engineering/current-architecture.md`.
 
 The existing app is a strong foundation. Do not rewrite it from scratch.
 
