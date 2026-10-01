@@ -59,6 +59,8 @@ jobs:
         run: node tools/ratingscheck.js
       - name: The depth chart parser reads the official chart as written
         run: python3 tools/depthcheck.py
+      - name: A failed game-notes fetch never costs the right availability report
+        run: python3 tools/availabilitycheck.py
       - name: The data refresh checks the depth chart when it should
         run: python3 tools/cadencecheck.py
       - name: The beat-news producer reads feeds and finds moved ones
@@ -96,6 +98,8 @@ jobs:
       # A redraw never reloads a logo already showing: the hero's flicker
       # on first open and on every live tick (David, 2026-10-01).
       - run: node tools/flickercheck.js
+      # A background refresh never drops a keyboard or VoiceOver user's focus.
+      - run: node tools/focuscheck.js
       # The launch screen covers the first open and never outstays it.
       - run: node tools/launchcheck.js
       # Swiping moves between a screen's peer views, and only on purpose.
