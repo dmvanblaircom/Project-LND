@@ -1,8 +1,8 @@
 # Proposal: full season stats, team and player
 
-**Status:** Claude's proposal, 2026-10-01, for David. David asked for full
-team and individual season stats, and for historical stats (per team, per
-player) to be queued after them. It is not approved and not scheduled.
+**Status:** approved by David, 2026-10-01 (§7). David asked for full team
+and individual season stats, and for historical stats (per team, per
+player) to be queued after them (W27).
 
 **Today:** season figures appear in one place only. That is Game, before
 kickoff: the Matchup card (nine season averages with national ranks) and
@@ -23,8 +23,8 @@ Build one new destination, **Stats**, owned by More like Schedule (decision
   main figure. These are the same tables Box Score draws for one game, so
   the component already exists.
 
-Two links point to it: one from More, and "Full season stats" under
-Game's Matchup card.
+Three ways in (David, 2026-10-01): More, a link on the Roster tab, and
+"Full season stats" on Game's Matchup card.
 
 **Smallest version first:** ship **Team** alone. It uses the same ESPN
 request the Matchup card makes, so it needs no new source and no backend.
@@ -118,19 +118,17 @@ Notes for when it is picked up:
 
 (A block is 1-2 hours that ends with something shippable.)
 
-## 7. Decisions for David
+## 7. Decisions (David, 2026-10-01)
 
-1. **Where:** More → Stats (recommended), a Roster view, or player pages
-   first.
-2. **Team only first?** Recommended. It ships with no new data source.
-3. **Opponent column in game week:** keep it (recommended) or the team
-   alone.
-4. **Historical:** confirm it is queued as its own backlog item behind
-   Players (done in this PR as W27).
+1. **Where:** under More. Also linked from the Roster tab and from Game's
+   Matchup card ("Full season stats").
+2. **Team view first:** yes.
+3. **Opponent column during game week:** keep it.
+4. **Historical:** queued behind Players as W27.
 
 ## 8. Done means (phases 1-2)
 
-- Stats is reachable from More and from Matchup.
+- Stats is reachable from More, the Roster tab and Matchup.
 - It shows ND's and OSU's seasons with the same code.
 - Every figure is the provider's, or derived from the team's own results
   and labelled as such.
