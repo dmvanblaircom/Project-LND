@@ -5,7 +5,32 @@ Codex owns presentation and motion; Claude owns the data, behavior and
 tests underneath (the split in `backlog.md` and `wednesday-delivery-handoff.md`).
 When an item is done, delete its entry and record it in the backlog.
 
-## 1. One header on every screen: review the page title under the bar
+## 1. Game hero: the weather and the line moved under the game
+
+**Asked by David, 2026-10-01:** the weather and the betting line sat in the
+hero's top-right corner and read "off and unbalanced". David approved
+moving them and asked that Codex be told.
+
+**Built (Claude):** `suite/game.js` `header()` now draws the conditions
+(`tertiary()`, `.gh-extra`) after the team row instead of before it. The
+result is one centred row under the countdown (or under the clock while
+live), with weather and line as two equal halves either side of a rule.
+Which facts show, and when, is unchanged. `tools/suitecheck.js` pins the
+order and the halves. The same component draws a game opened from Schedule.
+
+**For Codex to review - the look only (`app.css` `.gh-extra`):**
+- Spacing above the row, the halves' width (`flex:0 1 9.5rem`), the rule,
+  and type sizes against the countdown.
+- Below 360px the row is still hidden (0024 §2: tertiary goes first). With
+  the row under the game instead of beside the title it may now fit at 320;
+  showing it there is a product call for David.
+- Home's game card keeps its own conditions placement (`.gc-extra`); match
+  it if you judge it has the same imbalance.
+
+Check at 320/375/390/1280, both teams, Team Style and Suite Style, pregame
+and live.
+
+## 2. One header on every screen: review the page title under the bar
 
 **Asked by David, 2026-10-01:** every screen wears the Top 25 header, and it
 scales to Ohio State (decision 0031).
@@ -26,7 +51,7 @@ Notre Dame and Ohio State.
 
 Check at 320/390/1280 for both teams, Team Style and Suite Style.
 
-## 2. Pull to refresh: review the indicator
+## 3. Pull to refresh: review the indicator
 
 **Asked by David, 2026-10-01:** a pull-down refresh that does what
 Settings' Refresh Data does, with no explanation on screen.
@@ -53,7 +78,7 @@ Check at 320/375/390 on Home, Game, Top 25 and Roster, Team Style and Suite
 Style. `node tools/pullcheck.js` must stay green; it asserts the classes, not
 their look.
 
-## 3. Swipe between a screen's views: review the motion
+## 4. Swipe between a screen's views: review the motion
 
 **Asked by David, 2026-10-01:** "Claude builds the navigation, Codex reviews
 the animation." Sub-views only, never the primary tabs.
@@ -82,7 +107,7 @@ Check at 320/375/390 on Top 25, Roster and Game (live and final), Team Style
 and Suite Style. `node tools/swipecheck.js` must stay green; it asserts the
 class is applied and removed, not its look.
 
-## 4. Launch animation: review the motion and look
+## 5. Launch animation: review the motion and look
 
 **Asked by David, 2026-10-01:** "about 3 seconds and clean", like Sleeper's
 launch; the first version's wordmark jumped and lifted before data loaded.
@@ -106,7 +131,7 @@ a team cue belongs on it (team-first vs install identity), and the
 reduced-motion state (static wordmark, no animation). Changing the 2.6s
 minimum is David's call, not a styling choice.
 
-## 5. UIs waiting on Claude's models
+## 6. UIs waiting on Claude's models
 
 | Item | Model, ready | What Codex builds |
 |---|---|---|
