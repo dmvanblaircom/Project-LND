@@ -201,7 +201,7 @@ Suite.more = (function () {
   var SUPPLIES = {
     scores: "Scores", schedule: "Schedule", rankings: "Rankings", rosters: "Rosters and player photos",
     news: "News", depth: "Official depth chart", availability: "Availability report",
-    outlook: "Season Outlook markets", weather: "Kickoff weather"
+    outlook: "Season Outlook markets", weather: "Kickoff weather", matchup: "Matchup yards allowed"
   };
 
   function about(host, m) {

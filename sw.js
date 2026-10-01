@@ -42,7 +42,7 @@ var SHELL_FILES = [
   "./teams/index.js",
   "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
   "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",
-  "./teamos/game.js", "./teamos/outlook.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js",
+  "./teamos/game.js", "./teamos/outlook.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js", "./teamos/cfbd.js",
   // Suite's install identity, the same for every team (decision 0024 §11).
   // The manifest's own icons are read from it at install; these are the ones
   // only index.html names. tools/identitycheck.js keeps the two lists equal.
@@ -299,7 +299,8 @@ function isData(url) {
   if (url.origin === self.location.origin) return /\.json$/.test(url.pathname) && !url.pathname.endsWith("/manifest.json");
   return /(^|\.)espn\.com$/.test(url.hostname)
       || /kalshi\.com$/.test(url.hostname)
-      || /open-meteo\.com$/.test(url.hostname);
+      || /open-meteo\.com$/.test(url.hostname)
+      || /^suite-api\.[a-z0-9-]+\.workers\.dev$/.test(url.hostname);   // Suite's edge API (decision 0030)
 }
 
 // The page busts its own cache with ?t=<now>. Strip that so the key is stable;

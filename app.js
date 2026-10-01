@@ -644,13 +644,34 @@ function pointsAllowedFor(key, ourGames){
   return p.then(function(v){ PTS_ALLOWED[key]=v; return v; });
 }
 
-// The one row no provider fills. Copies rather than writes, because the rows
-// themselves are cached in SEASON_STATS and shared between renders.
-function withPointsAllowed(rows, perGame){
-  if(perGame==null) return rows;
+// Yards allowed per game, for one side: CollegeFootballData through Suite's
+// edge API (decision 0030, W15) - ESPN's own figure is an empty stub. Keyed by
+// school name, cached for the session; a failure, or a school CFBD does not
+// know, resolves to null figures rather than rejecting: the row shows a dash
+// for that side, and the card stands.
+var EDGE="https://suite-api.dmvanblaircom.workers.dev";
+var YDS_ALLOWED={};               // school -> { rush, pass, ... } | null
+
+function yardsAllowedFor(school){
+  if(!school) return Promise.resolve(null);
+  if(YDS_ALLOWED.hasOwnProperty(school)) return Promise.resolve(YDS_ALLOWED[school]);
+  return get(EDGE+TeamOS.cfbd.seasonPath(school, seasonYear()))
+    .then(function(d){ return TeamOS.cfbd.yardsAllowed(d); })
+    .catch(function(){ return null; })
+    .then(function(v){ YDS_ALLOWED[school]=v; return v; });
+}
+
+// The rows no ESPN feed fills: points allowed (from results) and yards
+// allowed (from CFBD). Copies rather than writes, because the rows themselves
+// are cached in SEASON_STATS and shared between renders.
+function withDerived(rows, perGame, yards){
+  var fill={ pointsAllowed: perGame,
+             rushDefense: yards ? yards.rush : null,
+             passDefense: yards ? yards.pass : null };
   return rows.map(function(r){
-    if(r.key!=="pointsAllowed") return r;
-    return { key:r.key, label:r.label, value:perGame.toFixed(1),
+    var v=fill[r.key];
+    if(v==null) return r;
+    return { key:r.key, label:r.label, value:v.toFixed(1),
              rank:r.rank, rankText:r.rankText };
   });
 }
@@ -906,8 +927,9 @@ function loadGamePreview(V, g, repaint){
   if(!s){ V.preview=null; return; }
   V.preview=undefined;
   Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
-               pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null)])
-    .then(function(r){ V.preview={ us:withPointsAllowed(r[0], r[2]), them:withPointsAllowed(r[1], r[3]) }; })
+               pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null),
+               yardsAllowedFor(s.us.school), yardsAllowedFor(s.them.school)])
+    .then(function(r){ V.preview={ us:withDerived(r[0], r[2], r[4]), them:withDerived(r[1], r[3], r[5]) }; })
     .catch(function(){ V.preview=null; })
     .then(repaint);
 }
