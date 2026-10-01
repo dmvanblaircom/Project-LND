@@ -40,9 +40,7 @@ Suite.game = (function () {
   var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg>';
   var TROPHY = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 4h8v5a4 4 0 0 1-8 0V4ZM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7M10 17h4v3h-4z"/></svg>';
 
-  function ordinal(p) {
-    return p === 1 ? "1st" : p === 2 ? "2nd" : p === 3 ? "3rd" : p === 4 ? "4th" : p === 5 ? "OT" : p > 5 ? (p - 4) + "OT" : "";
-  }
+  var ordinal = ui.period;
   function state(g) { return Suite.home.cardState(g); }
 
   // Which side of a GameDetail is the team's.
