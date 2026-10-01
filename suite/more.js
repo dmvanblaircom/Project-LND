@@ -46,10 +46,31 @@ Suite.more = (function () {
   };
 
   // Paint only when something changed, so a background refresh never
-  // resets a scroll position or steals focus.
+  // resets a scroll position. When it does change - Settings' Last Updated
+  // minute, a story's "min ago" - the markup is replaced, so the control the
+  // fan had focused (a link, a radio, a button) is found again in the new
+  // markup and given focus back: a keyboard or VoiceOver user is never
+  // dropped to the top of the page by a refresh they did not ask for (code
+  // review, 2026-10-01).
+  var FOCUSABLE = "a[href],button,input,select,textarea,[tabindex]";
+  function focusKey(el) {
+    return [el.tagName, el.getAttribute("href") || "", el.getAttribute("name") || "", el.value || "",
+            el.hasAttribute("data-refresh") ? "refresh" : "", el.hasAttribute("data-more") ? "more" : "",
+            (el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 60)].join("|");
+  }
   function put(host, key, html) {
     if (last[key] === html && host.innerHTML) return false;
+    var active = document.activeElement, was = null, at = -1;
+    if (active && active !== host && host.contains(active)) {
+      was = focusKey(active);
+      at = Array.prototype.indexOf.call(host.querySelectorAll(FOCUSABLE), active);
+    }
     host.innerHTML = html; last[key] = html;
+    if (was) {
+      var now = Array.prototype.slice.call(host.querySelectorAll(FOCUSABLE));
+      var back = now.filter(function (el) { return focusKey(el) === was; })[0] || now[at];
+      if (back) back.focus({ preventScroll: true });
+    }
     return true;
   }
 
@@ -174,13 +195,7 @@ Suite.more = (function () {
         // keyboard focus the fan left on it
         '<button type="button" class="btn btn-secondary" data-refresh' + (m.refreshing ? ' aria-disabled="true"' : "") + ">Refresh Data</button></div>");
 
-    // Keep focus on the control the fan used: a repaint replaces the markup.
-    var active = document.activeElement, focusVal = active && host.contains(active)
-      ? (active.name === "appStyle" ? "r:" + active.value : active.hasAttribute("data-refresh") ? "refresh" : null) : null;
-    if (!put(host, "settings", team + style + data)) return;
-    var back = focusVal === "refresh" ? host.querySelector("[data-refresh]")
-             : focusVal ? host.querySelector('input[name="appStyle"][value="' + focusVal.slice(2) + '"]') : null;
-    if (back) back.focus();
+    put(host, "settings", team + style + data);   // keeps the fan's focus (put)
   }
 
   // ---- Feedback (0022 #12) -------------------------------------------------

@@ -538,6 +538,8 @@ TeamOS.espn = (function () {
       colors:       { primary: hexColor(t.color), alt: hexColor(t.alternateColor) }
     };
   }
+  // A web address a page may link to or load: http(s) only, else null.
+  function webUrl(v){ var u=str(v).trim(); return /^https?:\/\/[^\s]+$/i.test(u) ? u : null; }
   function hexColor(v){ var h=String(v||"").replace(/^#/,""); return /^[0-9a-f]{6}$/i.test(h) ? "#"+h.toUpperCase() : null; }
   function linescoreOf(c){
     return (c.linescores||[]).map(function(v){ return str(v.displayValue!=null?v.displayValue:v.value); });
@@ -959,14 +961,16 @@ TeamOS.espn = (function () {
 
     // ESPN's team news -> NewsItem[], in the feed's own order (ESPN does not
     // sort it; the view does). Articles with no headline or no web link are
-    // dropped here - nothing could be shown for them.
+    // dropped here - nothing could be shown for them. A link or image that
+    // is not plain http(s) is no link at all: it is written into an href or
+    // src, and a javascript: address there would run on a tap.
     news: function(json){
       return ((json&&json.articles)||[]).map(function(a){
         var t=a.published ? Date.parse(a.published) : NaN;
         return {
           title:       str(a.headline),
-          link:        a.links&&a.links.web&&a.links.web.href ? str(a.links.web.href) : null,
-          image:       a.images&&a.images[0]&&a.images[0].url ? str(a.images[0].url) : "",
+          link:        webUrl(a.links&&a.links.web&&a.links.web.href),
+          image:       webUrl(a.images&&a.images[0]&&a.images[0].url) || "",
           source:      "ESPN",
           publishedAt: isNaN(t) ? null : t
         };
