@@ -596,13 +596,17 @@ eq(items[1], { title:"College football Week 3 preview: Can Ole Miss take down LS
    "a full article: headline, web link, first image, source label, timestamp");
 eq(TeamOS.espn.news({ articles: [{ headline:"No picture", published:"2026-09-01T00:00:00Z", links:{ web:{ href:"https://x/y" } } }] })[0].image, "", "no image -> empty string (the view skips the <img>)");
 eq(TeamOS.espn.news({ articles: [{ headline:"No date", links:{ web:{ href:"https://x/y" } } }] })[0].publishedAt, null, "no date -> null (the view shows no date and sorts it last)");
+eq(TeamOS.espn.news({ articles: [{ headline:"Evil", links:{ web:{ href:"javascript:alert(1)" } } }] }), [],
+   "a javascript: link is no link - the article is dropped, never written into an href");
+eq(TeamOS.espn.news({ articles: [{ headline:"Odd image", links:{ web:{ href:"https://x/y" } }, images:[{ url:"javascript:x" }] }] })[0].image, "",
+   "nor a non-web image address");
 eq(TeamOS.espn.news({ articles: [{ headline:"No link" }, { links:{ web:{ href:"https://x/y" } } }] }), [], "no web link or no headline -> dropped");
 eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
 
 console.log("mark");
@@ -836,6 +840,20 @@ ok(!/'Barlow|'Grenze/.test(cssRules), "type comes from the team's stacks, not fr
 // capability is declared, and a team without it never sees the surface.
 // Odds reach the page only from the committed snapshot (W11): no public
 // relay ever sees a fan's request or touches the prices.
+function liftFn2(name) {
+  var src = read("app.js").replace(/\r\n/g, "\n");
+  var m = src.match(new RegExp("^function " + name + "\\([^)]*\\)\\{[\\s\\S]*?^\\}", "m"));
+  if (!m) throw new Error("could not find " + name + " in app.js");
+  return m[0] + "\n";
+}
+console.log("app.js news: only web links reach an href");
+{ var nl = vm.createContext({});
+  vm.runInContext(liftFn2("newsList") + liftFn2("beatItem"), nl);
+  var got = vm.runInContext("newsList([beatItem({ title:'Fine', link:'https://a.example/1', source:'A', published:'2026-09-30T12:00:00Z' })," +
+    " beatItem({ title:'Evil', link:'javascript:alert(1)', source:'A' }), beatItem({ title:'Rel', link:'/x', source:'A' })," +
+    " { title:'Espn', link:'https://espn.example/2', image:'', source:'ESPN', publishedAt: 1 }]).map(function(a){ return a.title; })", nl);
+  eq(got, ["Fine", "Espn"], "a beat story with a javascript: or relative link never reaches Home or News"); }
+
 console.log("odds come from our own snapshot only");
 // line comments first: one of them mentions "teamos/*.js", which would
 // otherwise open a block comment and swallow real code

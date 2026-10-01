@@ -39,7 +39,7 @@ function scope() {
     "function cachedJSON(){ return Promise.reject(new Error('no cache')); }",
     "function hasEvents(){ return true; } function outcomeOf(){ return 'network'; } function say(){}",
     "function startAuto(){} function paintScheduleScreen(){} function paintHome(){} function paintGame(){} function paintTop25(){}",
-    "function warmTabs(){} function summaryFor(){ return Promise.reject(new Error('none')); }"
+    "function warmTabs(){} function summaryFor(){ return Promise.reject(new Error('none')); } function applyGameRules(){}"
   ].join("\n"), c);
   vm.runInContext(liftFn("refreshSchedule"), c);
   return c;

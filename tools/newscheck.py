@@ -52,6 +52,15 @@ except ValueError:
 ok(amp == ["Q&A: depth chart & notes"],
    "a bare & in a headline is tolerated, as every feed reader does; a real entity is left alone")
 
+print("only web links")
+evil = RSS.replace(b"</channel>", b"<item><title>Click me</title><link>javascript:alert(1)</link></item>"
+                                   b"<item><title>Data</title><link>data:text/html,x</link></item>"
+                                   b"<item><title>Relative</title><link>/news/1</link></item></channel>")
+ok([i["title"] for i in bn.parse_feed(evil, "Site A")] == ["Depth chart notes"],
+   "a javascript:, data: or relative link is dropped - it would be written into an href")
+evil_atom = ATOM.replace(b"https://b.example/2", b"javascript:alert(1)")
+ok(bn.parse_feed(evil_atom, "Site B") == [], "in Atom too")
+
 print("finding a feed that moved")
 found = bn.discover(PAGE, "https://site.example/")
 ok(found[0] == "https://site.example/news/feed.rss", "the page's own <link rel=alternate> is tried first")
