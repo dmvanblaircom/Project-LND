@@ -35,12 +35,14 @@ function boot(opts) {
   var fetched = [];
   var missing = opts.missing || [];     // paths whose fetch fails
 
-  function body(v) {
+  var stamps = opts.stamps || {};       // key -> X-IW-Stored, for any cache
+  function body(v, key) {
     return {
       text: function () { return Promise.resolve(String(v)); },
       json: function () { try { return Promise.resolve(JSON.parse(v)); }
                           catch (e) { return Promise.reject(e); } },
-      ok: true, clone: function () { return body(v); }, headers: { get: function () { return null; } }
+      ok: true, clone: function () { return body(v, key); },
+      headers: { get: function (n) { return /^x-iw-stored$/i.test(n) && key in stamps ? stamps[key] : null; } }
     };
   }
   function cache(name) {
@@ -52,7 +54,7 @@ function boot(opts) {
       },
       match: function (k) {
         var key = typeof k === "string" ? k : k.url;
-        return Promise.resolve(key in store[name] ? body(store[name][key]) : undefined);
+        return Promise.resolve(key in store[name] ? body(store[name][key], key) : undefined);
       },
       delete: function (k) {
         var key = typeof k === "string" ? k : k.url;
@@ -73,7 +75,7 @@ function boot(opts) {
       location: { origin: "https://example.test" },
       addEventListener: function (ev, fn) { (listeners[ev] = listeners[ev] || []).push(fn); },
       skipWaiting: function () { return Promise.resolve(); },
-      clients: { claim: function () { return Promise.resolve(); } }
+      clients: { claim: function () { return Promise.resolve(); }, matchAll: function () { return Promise.resolve([]); } }
     },
     caches: {
       open: function (n) { return Promise.resolve(cache(n)); },
@@ -90,6 +92,7 @@ function boot(opts) {
     Request: function (r, o) { this.url = typeof r === "string" ? r : r.url; this.opts = o; },
     Response: function (b, o) { var self_ = body(b); self_.init = o; return self_; },
     URL: URL,
+    setTimeout: setTimeout,
     console: console
   };
   sandbox.self.self = sandbox.self;
@@ -102,7 +105,16 @@ function boot(opts) {
     });
     return Promise.all(waits);
   }
+  // An install's outcome: what its waitUntil settled to.
+  function settle(ev, data) {
+    var waits = [];
+    (listeners[ev] || []).forEach(function (fn) {
+      fn({ data: data, waitUntil: function (p) { waits.push(p); }, ports: [] });
+    });
+    return Promise.all(waits);
+  }
   return { sandbox: sandbox, store: store, deleted: deleted, fetched: fetched, fire: fire,
+           installs: function () { return settle("install").then(function () { return "installed"; }, function (e) { return "failed: " + e.message; }); },
            shell: function () { return Object.keys(store[sandbox.SHELL] || {}).sort(); },
            data:  function () { return Object.keys(store[sandbox.DATA]  || {}).sort(); } };
 }
@@ -129,6 +141,8 @@ function return_install() {
      "the one Suite manifest is, because the installed product is the same for every team (decision 0024)");
   ok(files.indexOf("./teams/index.js") !== -1, "the registry is, because it belongs to no team");
   ok(files.indexOf("./app.js") !== -1 && files.indexOf("./app.css") !== -1, "and the application itself");
+  ok(files.every(function (f) { return f === "./" || fs.existsSync(path.join(root, f)); }),
+     "every file it names exists - the install fails without all of them");
   var data = (src.match(/var DATA_FILES/) || [])[0];
   ok(!data, "nothing team-owned is precached at install at all");
 }
@@ -188,6 +202,51 @@ w.fire("message", ND).then(function () {
        "resolved relative to the manifest, so changing one in the manifest is enough");
     ok(w4.fetched.every(function (u) { return !/^https:\/\/cdn\.example/.test(u); }),
        "an icon on another origin is left alone");
+  });
+}).then(function () {
+  // Code review, 2026-10-01: a flaky connection during an update used to
+  // install half a shell, activate it, and delete the whole one it replaced.
+  console.log("an install that cannot fetch the whole shell fails, so the working version stays");
+  var w6 = boot({ missing: ["./app.js"] });
+  return w6.installs().then(function (r) {
+    ok(/^failed: .*\.\/app\.js/.test(r), "app.js unreachable: the install fails (" + r + ")");
+    var w7 = boot({ missing: ["./assets/suite/icon-512.png"], bodies: { "./manifest.json": JSON.stringify({ icons: [{ src: "assets/suite/icon-512.png" }] }) } });
+    return w7.installs();
+  }).then(function (r) {
+    eq(r, "installed", "an install icon that cannot be had now does not stop it");
+    // Codex review of #69: the favicons index.html names are in the shell
+    // list too, and are no more essential than the manifest's icons.
+    return boot({ missing: ["./assets/suite/favicon-32.png", "./assets/suite/suite-wordmark-pearl.svg"] }).installs();
+  }).then(function (r) {
+    eq(r, "installed", "nor does a favicon or the wordmark image from the shell list");
+  });
+}).then(function () {
+  // Code review, 2026-10-01: the page names its team on every open.
+  console.log("the same team on every open downloads nothing again");
+  var w8 = boot();
+  return w8.fire("message", ND).then(function () {
+    var before = w8.fetched.length;
+    return w8.fire("message", ND).then(function () {
+      eq(w8.fetched.slice(before), [], "the second open fetches nothing the worker already holds");
+      delete w8.store[w8.sandbox.DATA]["news.json"];
+      before = w8.fetched.length;
+      return w8.fire("message", ND);
+    }).then(function () {
+      eq(w8.fetched.slice(before), ["news.json"], "and only what has gone missing after that");
+    });
+  });
+}).then(function () {
+  // Code review, 2026-10-01: every provider URL is kept, so the data cache
+  // grew all season, carried from version to version.
+  console.log("an update leaves old data behind");
+  var day = 24 * 3600 * 1000, now = Date.now();
+  var w9 = boot({ stamps: { "https://x/summary?event=1": new Date(now - 45 * day).toUTCString(),
+                            "https://x/summary?event=2": new Date(now - 2 * day).toUTCString() } });
+  w9.store["suite-2026-01-01a-data"] = { "https://x/summary?event=1": "old game", "https://x/summary?event=2": "last week", "https://x/unstamped": "?" };
+  return w9.fire("activate").then(function () {
+    eq(w9.data(), ["https://x/summary?event=2", "https://x/unstamped"],
+       "kept 45 days ago: not carried into the new version; last week's, and one with no stamp to judge, are");
+    ok(!("suite-2026-01-01a-data" in w9.store), "and the old version's cache is gone");
   });
 }).then(function () {
   console.log(" a message that is not a team is ignored");
