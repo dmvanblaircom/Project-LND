@@ -170,25 +170,38 @@
   }
 
   // No team to show after all: the chooser, as for a first visit (decision
-  // 0016). The id that failed is not kept, so it does not fail again.
-  function choose(){
-    forget(TEAM_KEY);
+  // 0016). An id with no config is not kept, so it does not fail again; one
+  // that only could not be reached is, so the next open with a connection
+  // is the fan's team again.
+  function choose(forgetTeam){
+    if (forgetTeam) forget(TEAM_KEY);
     document.documentElement.setAttribute("data-team", "");
     document.documentElement.setAttribute("data-choosing", "");
     if (meta) meta.setAttribute("content", "#0B1F3A");   // --s-chrome, the chooser's header
     inject("chooser.js");
   }
 
+  // A script's onerror cannot say why it failed. Asked again, the server
+  // answers 404 for a team with no config; offline (the stadium, no copy
+  // cached yet) there is no answer at all, and that is not a reason to
+  // forget the fan's team.
+  function gone(src, then){
+    if (typeof fetch !== "function") { then(true); return; }
+    fetch(src, { cache: "no-store" }).then(function(r){ then(r.status === 404 || r.status === 410); },
+                                           function(){ then(false); });
+  }
+
   function loadTeam(tid, fallback){
-    inject("teams/" + tid + ".js",
-      function(){                               // no config under that id
+    var src = "teams/" + tid + ".js";
+    inject(src,
+      function(){                               // no config loaded under that id
         if (fallback && fallback !== tid && ID.test(fallback)) {
           set(TEAM_KEY, fallback);              // the fan's own team, not a bad link's
           document.documentElement.setAttribute("data-team", fallback);
           loadTeam(fallback, null);
-        } else {
-          choose();                             // never another team's page instead
+          return;
         }
+        gone(src, function(really){ choose(really); });   // never another team's page instead
       },
       function(){ teamReady = true; start(); });
   }
