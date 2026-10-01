@@ -611,7 +611,7 @@ TeamOS.espn = (function () {
              teamId: str(pick(s,["team","id"],"")) };
   }
   function playOf(p){
-    return { text: str(p.text), period: pick(p,["period","number"],null),
+    return { id: str(p.id), text: str(p.text), period: pick(p,["period","number"],null),
              clock: str(pick(p,["clock","displayValue"],"")), type: str(pick(p,["type","text"],"")),
              yards: typeof p.statYardage==="number" ? p.statYardage : null,
              scoring: !!p.scoringPlay, start: spotOf(p.start), end: spotOf(p.end) };
@@ -731,6 +731,7 @@ TeamOS.espn = (function () {
         var scoredAway = pid ? pid===away.key : (pab ? pab===away.abbreviation : false);
         var ab = pab || (scoredAway?away.abbreviation:home.abbreviation);
         return {
+          id:        str(p.id),
           period:    pick(p,["period","number"],null),
           clock:     str(pick(p,["clock","displayValue"],"")),
           teamAbbr:  str(ab),
@@ -741,6 +742,16 @@ TeamOS.espn = (function () {
         };
       });
     }
+    // Which drive each score ended (David, 2026-10-01: a scoring play opens
+    // its drive): the drive holding a play with the score's own id, or null
+    // when the payload carries no such drive.
+    var drives=drivesOf(d, teamId, home, away);
+    if(scoring) scoring.forEach(function(p){
+      var hit=p.id && drives ? drives.list.filter(function(x){
+        return x.plays.some(function(q){ return q.id===p.id; });
+      })[0] : null;
+      p.driveId = hit ? hit.id : null;
+    });
 
     return {
       state:     str(st.state||"post"),
@@ -756,7 +767,7 @@ TeamOS.espn = (function () {
       scoring:   scoring,
       // { current: Drive | null, list: Drive[] } - every drive in order, the
       // one in progress last and also as `current`; null with no drives.
-      drives:    drivesOf(d, teamId, home, away)
+      drives:    drives
     };
   }
 

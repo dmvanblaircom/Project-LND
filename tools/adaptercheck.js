@@ -368,6 +368,14 @@ eq([gdDowns.drives.current.mine, gdDowns.drives.current.result], [false, "Turnov
 eq([gdDowns.lastPlay.at, /^No Huddle-Shotgun #15 R\.Browne pass incomplete/.test(gdDowns.lastPlay.text), /^\(/.test(gdDowns.lastPlay.text)], ["9:56", true, false],
    "the last play's snap clock is lifted out as a time; the words are ESPN's, unchanged");
 var gdFinal = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-final.json")), team, TEAM_CONFIG);
+// David, 2026-10-01: a scoring play opens the drive that made it.
+ok(gdFinal.scoring.every(function (p) {
+  var d = gdFinal.drives.list.filter(function (x) { return x.id === p.driveId; })[0];
+  return d && d.plays.some(function (q) { return q.id === p.id; });
+}), "every scoring play names the drive that holds it, matched on the play's own id (" + gdFinal.scoring.length + " of " + gdFinal.scoring.length + ")");
+var pick6 = gdFinal.scoring.filter(function (p) { return /fumble/i.test(p.text); })[0];
+ok(pick6 && (gdFinal.drives.list.filter(function (x) { return x.id === pick6.driveId; })[0] || {}).mine === !pick6.mine,
+   "a defensive score belongs to the drive it ended - the other team's");
 var tds = gdFinal.scoring.filter(function (p) { return /for a TD/.test(p.text); });
 ok(tds.length === 8 && tds.every(function (p) { return /\([^()]+ kick\)$/.test(p.text); }),
    "a touchdown worth 7 says its kick quietly: \"(S. Porath kick)\" - both teams' (" + tds.length + " TDs)");
@@ -402,7 +410,9 @@ eq(gdLive.teamStats[4].better, "away", "3rd down compares the rate: 5-13 beats 3
 eq(gdLive.teamStats[6].better, "home", "penalties compare the count: 4 beats 6");
 eq(gdLive.teamStats[7].better, "home", "possession compares seconds: 31:36 beats 28:24");
 eq(gdLive.scoring.length, 4, "four scoring plays so far");
-eq(gdLive.scoring[1], { period:1, clock:"1:31", teamAbbr:"ND", mine:true, text:"Spencer Porath 52 Yd Field Goal  ", awayScore:3, homeScore:3 }, "a scoring play, ours");
+eq(gdLive.scoring[1], { id: gdLive.scoring[1].id, period:1, clock:"1:31", teamAbbr:"ND", mine:true, text:"Spencer Porath 52 Yd Field Goal  ", awayScore:3, homeScore:3,
+                       driveId: null }, "a scoring play, ours (this trimmed capture carries no drive for it: driveId null)");
+ok(/^\d+$/.test(gdLive.scoring[1].id), "a scoring play keeps the play's own id");
 eq(gdLive.scoring[0].mine, false, "a scoring play, theirs");
 
 console.log("gameDetail() - final");

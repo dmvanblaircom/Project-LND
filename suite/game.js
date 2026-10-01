@@ -383,30 +383,49 @@ Suite.game = (function () {
 
   // ---- plays -----------------------------------------------------------------------
 
+  // Scoring drives, then every drive (David, 2026-10-01, with a fan's
+  // feedback: a score should open the drive that made it). Each score is a
+  // row that opens its drive's plays, ending with the score itself, marked;
+  // anything ESPN logged after it in the drive (a TV timeout, a penalty on
+  // the try) stays in the full drive under Drives, so the score is always
+  // the last thing a scoring drive shows. A score whose drive the payload
+  // does not carry is a plain row, as before.
+  function playRow(p, score) {
+    return '<li' + (score ? ' class="is-score"' : "") + '><span class="pl-dd">' +
+           esc(p.start && p.start.short ? p.start.short + (p.start.spot ? " at " + p.start.spot : "") : "") + "</span>" +
+           '<span class="pl-text">' + esc(p.text) + "</span></li>";
+  }
   function plays(m) {
     var gd = m.detail;
     if (!gd) return quiet("Loading the plays…");
-    var out = "";
+    var out = "", drives = gd.drives && gd.drives.list || [];
+    function driveOf(id) { return id ? drives.filter(function (d) { return d.id === id; })[0] || null : null; }
+    function teamOf(d) { return d.mine ? m.team.abbr : (m.game.oppAbbr || m.game.oppName); }
     if (gd.scoring && gd.scoring.length) {
-      out += card("Scoring plays", '<ol class="sp-list">' + gd.scoring.map(function (p) {
-        return '<li class="' + (p.mine ? "mine" : "") + '"><span class="sp-when">' + esc([ordinal(p.period), p.clock].filter(Boolean).join(" · ")) + "</span>" +
-               '<span class="sp-team">' + esc(p.teamAbbr) + "</span>" +
-               '<span class="sp-text">' + esc(p.text) + "</span>" +
-               (p.awayScore != null ? '<span class="sp-score">' + esc(scoreFor(m, p)) + "</span>" : "") + "</li>";
+      out += card("Scoring drives", '<ol class="sp-list">' + gd.scoring.map(function (p) {
+        var head = '<span class="sp-when">' + esc([ordinal(p.period), p.clock].filter(Boolean).join(" · ")) + "</span>" +
+                   '<span class="sp-team">' + esc(p.teamAbbr) + "</span>" +
+                   '<span class="sp-text">' + esc(p.text) + "</span>" +
+                   (p.awayScore != null ? '<span class="sp-score">' + esc(scoreFor(m, p)) + "</span>" : "");
+        var d = driveOf(p.driveId), at = -1;
+        if (d) d.plays.forEach(function (q, i) { if (q.id === p.id) at = i; });
+        if (at < 0) return '<li class="' + (p.mine ? "mine" : "") + '"><div class="sp-row">' + head + "</div></li>";
+        var key = "score-" + p.id, open = m.open && m.open[key];
+        return '<li class="' + (p.mine ? "mine" : "") + '"><details data-key="' + esc(key) + '"' + (open ? " open" : "") + ">" +
+               '<summary class="sp-row">' + head + '<span class="dr-chev" aria-hidden="true"></span></summary>' +
+               (d.summary ? '<p class="sp-drive">' + esc(teamOf(d) + " drive · " + d.summary) + "</p>" : "") +
+               '<ol class="pl-list">' + d.plays.slice(0, at + 1).map(function (q, i) { return playRow(q, i === at); }).join("") +
+               "</ol></details></li>";
       }).join("") + "</ol>");
     }
-    var drives = gd.drives && gd.drives.list || [];
     if (drives.length) {
       out += card("Drives", '<ol class="dr-list">' + drives.slice().reverse().map(function (d) {
         var dk = "drive-" + (d.id || ""), dopen = m.open && m.open[dk];
-        return '<li><details data-key="' + esc(dk) + '"' + (dopen ? " open" : "") + '><summary><span class="dr-team">' + esc(d.mine ? m.team.abbr : (m.game.oppAbbr || m.game.oppName)) + "</span>" +
+        return '<li><details data-key="' + esc(dk) + '"' + (dopen ? " open" : "") + '><summary><span class="dr-team">' + esc(teamOf(d)) + "</span>" +
                '<span class="dr-sum">' + esc(d.summary || "") + "</span>" +
                '<span class="dr-res">' + esc(d.result || "") + "</span>" +
                '<span class="dr-chev" aria-hidden="true"></span></summary>' +
-               '<ol class="pl-list">' + (d.plays || []).map(function (p) {
-                 return '<li><span class="pl-dd">' + esc(p.start && p.start.short ? p.start.short + (p.start.spot ? " at " + p.start.spot : "") : "") + "</span>" +
-                        '<span class="pl-text">' + esc(p.text) + "</span></li>";
-               }).join("") + "</ol></details></li>";
+               '<ol class="pl-list">' + (d.plays || []).map(function (q) { return playRow(q, false); }).join("") + "</ol></details></li>";
       }).join("") + "</ol>");
     }
     return out || quiet("No plays yet.");
