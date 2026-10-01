@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-01sa";
+var VERSION = "suite-2026-10-01sb";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -63,14 +63,26 @@ function fresh(req) {
   return new Request(req, { cache: "no-cache" });
 }
 
-function addAll(cacheName, files) {
+// Fetch and keep `files`. An icon, a font sheet or a team file that cannot
+// be had now is fetched again later, so by default a failure is skipped.
+// The shell's code and page are `required`: an install that could not fetch
+// all of them fails, and the browser keeps the working version and tries
+// again later - rather than activating half an app and deleting the whole
+// one it replaced. Its images (favicons, the wordmark) are not: a missing
+// icon never holds back an update or a first offline install.
+function essential(f) { return !/\.(png|svg)$/i.test(f); }
+function addAll(cacheName, files, required) {
   return caches.open(cacheName).then(function (c) {
-    // one missing file must not stop the install
     return Promise.all(files.map(function (f) {
       return fetch(fresh(f)).then(function (res) {
-        if (res && res.ok) return c.put(f, res);
-      }).catch(function () {});
+        if (res && res.ok) return c.put(f, res).then(function () { return true; });
+        return false;
+      }).catch(function () { return false; });
     }));
+  }).then(function (got) {
+    var lost = files.filter(function (f, i) { return !got[i]; });
+    if (required && lost.length) throw new Error("could not precache " + lost.join(", "));
+    return lost;
   });
 }
 
@@ -79,7 +91,10 @@ self.addEventListener("install", function (e) {
   // not wait on anything after the precache.
   self.skipWaiting();
   e.waitUntil(Promise.all([
-    missing(SHELL, SHELL_FILES).then(function (files) { return addAll(SHELL, files); }).then(function () {
+    missing(SHELL, SHELL_FILES).then(function (files) {
+      return Promise.all([addAll(SHELL, files.filter(essential), true),
+                          addAll(SHELL, files.filter(function (f) { return !essential(f); }))]);
+    }).then(function () {
       return Promise.all([cacheManifestIcons("./manifest.json"), cacheFontSheets("./index.html")]);
     }),
     adoptPreviousTeam()
@@ -137,9 +152,21 @@ function cacheFontSheets(pagePath) {
   }).catch(function () {});
 }
 
+// How long a kept data response is worth carrying into a new version. The
+// data cache keys every provider URL - each game's summary, each week's
+// scoreboard, each opponent's schedule - so without a limit it grows all
+// season. Anything the app still asks for is fetched again and kept fresh;
+// what is left behind longer than this is a game nobody is looking at.
+var DATA_KEEP_MS = 30 * 24 * 3600 * 1000;
+function stale(res, now) {
+  var at = Date.parse(res.headers.get("X-IW-Stored") || res.headers.get("date") || "");
+  return !isNaN(at) && now - at > DATA_KEEP_MS;      // an unstamped copy cannot be judged, so it stays
+}
+
 // An update keeps what the fan already had offline: the last good data, and
 // font files (their URLs name their contents, so they are the same bytes).
 function carryOver(old) {
+  var now = Date.now();
   return Promise.all(old.map(function (k) {
     var into = /-data$/.test(k) ? DATA : /-shell$/.test(k) ? SHELL : null;
     if (!into) return null;
@@ -149,7 +176,10 @@ function carryOver(old) {
           if (into === SHELL && !/^https:\/\/fonts\.gstatic\.com\//.test(req.url)) return null;
           return cs[1].match(req).then(function (have) {
             if (have) return null;                     // this version's copy wins
-            return cs[0].match(req).then(function (r) { return r && cs[1].put(req, r); });
+            return cs[0].match(req).then(function (r) {
+              if (!r || (into === DATA && stale(r, now))) return null;
+              return cs[1].put(req, r);
+            });
           });
         }));
       });
@@ -248,8 +278,12 @@ function adoptTeam(msg) {
         }));
       });
     }
+    // Only what is not cached yet. The page tells the worker on every open,
+    // and it fetches those same data files itself, through the worker, which
+    // keeps them fresh; downloading them all again here doubled every open.
     return clear
-      .then(function () { return Promise.all([addAll(SHELL, shell), addAll(DATA, data)]); })
+      .then(function () { return Promise.all([missing(SHELL, shell), missing(DATA, data)]); })
+      .then(function (todo) { return Promise.all([addAll(SHELL, todo[0]), addAll(DATA, todo[1])]); })
       .then(function () { return writeMark({ team: id, data: data }); })
       .then(function () { return true; });
   });

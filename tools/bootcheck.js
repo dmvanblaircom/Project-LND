@@ -83,6 +83,16 @@ function run(opts) {
     URLSearchParams: URLSearchParams,
     JSON: JSON
   };
+  // Asked again after a config fails to load: opts.probe(src) is the answer,
+  // a status or "offline". Delivered through the same queue as a script's
+  // callbacks, as a browser would deliver it.
+  if (opts.probe) {
+    sandbox.fetch = function (src, init) {
+      return { then: function (ok, bad) {
+        pending.push(function () { var a = opts.probe(src, init); if (a === "offline") bad(new Error("offline")); else ok({ status: a }); });
+      } };
+    };
+  }
   if (opts.storageThrows) {
     sandbox.localStorage.getItem = function () { throw new Error("blocked"); };
   }
@@ -154,6 +164,24 @@ ok(both.injected.filter(function (s) { return s === "chooser.js"; }).length === 
 var storedGone = run({ storage: { "iw-team": "texas" }, missing: ["teams/texas.js"] });
 eq(storedGone.team, "", "a stored team whose config is gone: the chooser");
 ok(!("iw-team" in storedGone.store), "and it is forgotten");
+
+// Code review, 2026-10-01: offline, a config not yet cached fails to load
+// exactly as a missing one does. That is no reason to forget the fan's team.
+console.log(" a config that is only out of reach is not a config that is gone");
+var asked = [];
+var offline = run({ storage: { "iw-team": "texas" }, missing: ["teams/texas.js"],
+                    probe: function (src, init) { asked.push([src, init && init.cache]); return "offline"; } });
+eq(asked, [["teams/texas.js", "no-store"]], "the boot asks again, past the browser's cache");
+eq(offline.store["iw-team"], "texas", "offline: the team is kept, so the next open with a connection is theirs");
+ok(offline.injected.indexOf("app.js") === -1 && offline.injected.indexOf("chooser.js") !== -1,
+   "(nothing to draw it with, so the chooser - never another team)");
+eq(run({ storage: { "iw-team": "texas" }, missing: ["teams/texas.js"], probe: function () { return 503; } }).store["iw-team"], "texas",
+   "a server error is out of reach too");
+var reallyGone = run({ storage: { "iw-team": "texas" }, missing: ["teams/texas.js"], probe: function () { return 404; } });
+ok(!("iw-team" in reallyGone.store) && reallyGone.injected.indexOf("chooser.js") !== -1, "a 404 is gone: forgotten, the chooser");
+ok(!("iw-team" in run({ storage: { "iw-team": "texas" }, missing: ["teams/texas.js"], probe: function () { return 410; } }).store), "and so is a 410");
+var linkOffline = run({ search: "?team=alabama", storage: { "iw-team": "ohio-state" }, missing: ["teams/alabama.js"], probe: function () { return "offline"; } });
+eq([linkOffline.team, linkOffline.store["iw-team"]], ["ohio-state", "ohio-state"], "a link followed offline still lands on the fan's own team");
 
 console.log(" and it is remembered");
 eq(run({ search: "?team=ohio-state" }).store["iw-team"], "ohio-state", "the choice is stored");
