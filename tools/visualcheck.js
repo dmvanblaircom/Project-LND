@@ -97,12 +97,21 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
 
   function fail(label, kind, sel, detail) { failures.push({ label: label, kind: kind, sel: sel, detail: detail }); }
 
+  // A fan sees a team's page once the launch screen has lifted (index.html,
+  // app.js liftLaunchWhenReady). Whatever brought the page here - a load, a
+  // reload, a team switch - nothing is measured or captured before then, or
+  // the overlay's Ink would be judged as the page's background.
+  async function launchGone(page) {
+    await page.waitForFunction(function () { return !document.getElementById("launch"); }, null, { timeout: 10000 }).catch(function () {});
+  }
+
   // A full-length screenshot that shows the page as a fan scrolling it sees.
   // Playwright's fullPage mode keeps fixed elements where they sat in the
   // original viewport, which paints the bottom tab bar across the middle of
   // the schedule - a picture of a bug that does not exist. Growing the
   // viewport to the document keeps fixed elements at the true bottom.
   async function fullShot(page, file) {
+    await launchGone(page);
     var vp = page.viewportSize();
     var h = await page.evaluate(function () { return document.documentElement.scrollHeight; });
     await page.setViewportSize({ width: vp.width, height: Math.min(7000, Math.max(vp.height, h)) });
@@ -136,6 +145,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
   }
 
   async function checkState(page, label) {
+    await launchGone(page);
     var overflow = await page.evaluate(function () {
       return document.documentElement.scrollWidth > document.documentElement.clientWidth;
     });
