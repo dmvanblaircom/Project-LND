@@ -42,6 +42,10 @@ ChatGPT should not silently change engineering scope or dictate implementation d
 
 ChatGPT owns UX, UI and visual QA, and does not modify production code (David, 2026-09-23, after the vNext release was withdrawn).
 
+### Codex — production UI (since 2026-09-28)
+
+David split implementation between two engineers on 2026-09-28 (`docs/engineering/backlog.md`): **Codex** (working from ChatGPT) owns design-file parity, presentation, motion and production UI code; **Claude Code** owns data, behavior, reliability and the tests underneath. One owner per change. What Claude Code has built that waits on Codex's eye is listed in `docs/engineering/codex-review-queue.md`.
+
 ### Claude Code — Engineering Partner
 
 Claude Code owns implementation inside the repository.
@@ -199,22 +203,15 @@ For low-risk implementation details, use the simplest approach consistent with t
 
 ## Branch Strategy
 
-Current Project LND structure:
+From the Suite release (2026-09-27), per David's decision of 2026-09-25 (CLAUDE.md):
 
 ```text
 main
-  Stable Irish Watch product
-
-project-lnd-platform
-  Active Project LND platform development
-
-project-lnd-foundation
-  Architecture checkpoint / historical foundation branch
+  The product. Every piece of work is a short branch and a pull request
+  into main; the pull request's checks are the gate.
 ```
 
-Feature work should normally branch from `project-lnd-platform` rather than `main`.
-
-`main` must remain a stable Irish Watch experience until the platform is ready to replace or supersede it intentionally.
+Pull requests merge with a merge commit, only when every check is green; GitHub deletes the branch once it merges. `project-lnd-platform` and `project-lnd-foundation` were retired with the release (`docs/engineering/branch-cleanup.md`).
 
 ## Definition of Done
 
