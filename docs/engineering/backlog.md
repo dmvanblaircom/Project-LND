@@ -85,6 +85,18 @@ W25's small documentation fixes can accompany each earlier PR. Its destructive b
 - **Hero logo flicker (David's report):** sections redraw without reloading logos already shown (`Suite.ui.fill`), Home/Game/Top 25/Schedule; `tools/flickercheck.js`. PR #56, production `suite-2026-10-01f`.
 - **Edge API deploy check** waits for the exact deployed version (PR #50); the Worker's refresh clock is deployed and reports `"clock": false` until David's token is set.
 - `verify-production.yml` must be run by hand after a deploy: its after-Pages trigger has not fired.
+- **Code review fixes A-G** (PRs #66-#70, #73), each production-verified:
+  - data correctness: the final summary, the pregame line, a preview retry and the game's views (`tools/controllercheck.js`);
+  - availability keeps last week's report when a fetch fails;
+  - offline and service-worker resilience: a failed refetch keeps the team, the install needs only the essential shell, and kept data expires after 30 days;
+  - TeamOS: neutral venues, weather times across DST, and geocoding behind an adapter;
+  - security and accessibility: RSS `javascript:` links are refused and focus returns after More;
+  - dead code removed;
+  - Share Suite's timer and the Kalshi step's count.
+- **Pull to refresh** (David): one refresh with Settings' Refresh Data, with no explanation on screen. `tools/pullcheck.js`, PR #71.
+- **Ohio State's Team Style in Nunito Sans** (C19, David): self-hosted and loaded only for that team. `tools/teamfontcheck.js`, PR #74.
+- **Scoring drives** (David and a fan): each scoring play opens its drive, which ends on the highlighted score. Every drive stays listed. PR #75.
+- **One header on every screen** (decision 0031, David): the SUITE bar with the team as context. The masthead is removed, and the name fits at 320px for both teams. PR #76.
 
 ## External, conditional and intentionally deferred work
 
