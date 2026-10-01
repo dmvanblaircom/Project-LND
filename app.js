@@ -8,50 +8,27 @@
 // only provider config this file still reads is TEAM_CONFIG.sources.kalshi,
 // in teamMarket().
 var TEAM = TeamOS.createTeam(TEAM_CONFIG.team);
-// Kalshi serves public market data without a key, but sends no CORS header, so
-// a browser cannot read it directly. Each entry below is a way to reach them;
-// they are tried in order until one works.
-//
-// If you deploy worker.js to Cloudflare Workers, paste the worker URL here and
-// it goes first — your own relay, no third party, no rate limit worth worrying
-// about. Leave it empty and the public relays below carry the load.
-// Left empty on purpose. A Cloudflare worker was tried here and Kalshi
-// rate-limits Cloudflare's shared edge IPs, so the GitHub Action writes the
-// snapshot files instead. Paste a worker URL here only if that ever changes.
-var KALSHI_PROXY = "";
-
-var KALSHI_DIRECT = "https://api.elections.kalshi.com/trade-api/v2";
-
-// Each builder turns a Kalshi path into a full URL to fetch.
+// Kalshi's markets reach the page one way only: the snapshot the refresh
+// workflow commits (odds.yml -> data/league/odds-*.json), same origin, so CORS
+// never enters. Kalshi sends no CORS header and rate-limits Cloudflare's
+// shared network, so neither a direct call nor our edge API can stand in.
+// The public relays that used to follow (corsproxy.io, allorigins,
+// codetabs) are gone (W11): third parties that saw every fan's request and
+// could have altered the prices, for a fallback that only ran when the
+// snapshot itself failed. When it does, the service worker's last copy is
+// shown, and freshness says how old it is.
 var KALSHI_ROUTES = [];
-// Same-origin snapshot committed by the GitHub Action, if you set that up.
-// No cross-origin request at all, so CORS can never break it.
 function localSnapshot(path){
   // Test PLAYOFF first: KXNCAAF is a prefix of KXNCAAFPLAYOFF.
   if(/KXNCAAFPLAYOFF/.test(path)) return "data/league/odds-playoff.json";
   if(/KXNCAAF-/.test(path))       return "data/league/odds-title.json";
   return null;
 }
-KALSHI_ROUTES.push(
-  // 1. the snapshot the GitHub Action commits — same origin, always works
-  function(path){
-    var f = localSnapshot(path);
-    if(!f) throw new Error("no snapshot for this path");
-    return f + "?t=" + Date.now();
-  }
-);
-// 2. a Cloudflare worker, if one is set. Kalshi currently rate-limits
-//    Cloudflare's shared edge IPs, so this is a fallback, not the main route.
-if (KALSHI_PROXY) {
-  KALSHI_ROUTES.push(function(path){ return KALSHI_PROXY + path; });
-}
-KALSHI_ROUTES.push(
-  // 3. direct, in case Kalshi ever starts sending the header
-  function(path){ return KALSHI_DIRECT + path; },
-  function(path){ return "https://corsproxy.io/?url=" + encodeURIComponent(KALSHI_DIRECT + path); },
-  function(path){ return "https://api.allorigins.win/raw?url=" + encodeURIComponent(KALSHI_DIRECT + path); },
-  function(path){ return "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(KALSHI_DIRECT + path); }
-);
+KALSHI_ROUTES.push(function(path){
+  var f = localSnapshot(path);
+  if(!f) throw new Error("no snapshot for this path");
+  return f + "?t=" + Date.now();
+});
 var TITLE_EVENT   = "KXNCAAF-27";          // national championship winner
 var PLAYOFF_EVENT = "KXNCAAFPLAYOFF-26";   // playoff qualifiers
 

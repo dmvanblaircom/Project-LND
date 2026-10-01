@@ -818,6 +818,16 @@ ok(!/'Barlow|'Grenze/.test(cssRules), "type comes from the team's stacks, not fr
 // no market on has nothing to show, and a card reading "No market" every week
 // is worse than no card. Same shape as the snapshot rule (decision 0008): the
 // capability is declared, and a team without it never sees the surface.
+// Odds reach the page only from the committed snapshot (W11): no public
+// relay ever sees a fan's request or touches the prices.
+console.log("odds come from our own snapshot only");
+// line comments first: one of them mentions "teamos/*.js", which would
+// otherwise open a block comment and swallow real code
+var appSrc = read("app.js").replace(/^\s*\/\/.*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, "");
+ok(!/corsproxy|allorigins|codetabs|https?:\/\/[^"']*proxy/i.test(appSrc), "app.js routes nothing through a third-party relay");
+ok(!/api\.elections\.kalshi\.com/.test(appSrc), "nor straight to Kalshi, which sends no CORS header");
+ok(/data\/league\/odds-playoff\.json/.test(appSrc) && /data\/league\/odds-title\.json/.test(appSrc), "the same-origin snapshots are the route");
+
 // Before this, a config with no kalshi block threw on the first market check.
 console.log("app.js: Kalshi is a capability");
 var appSrc = read("app.js").replace(/\r\n/g, "\n");
