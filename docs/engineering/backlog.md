@@ -6,6 +6,8 @@ David requested a complete reconciliation and prioritization, removing completed
 
 ## Execution contract for Claude and Codex
 
+**Codex: start with [the review queue](codex-review-queue.md)** - what Claude has built that is waiting on Codex's review or UI (swipe motion, launch screen, W06/W07/W08/W18/W21 presentation).
+
 1. Start from current main; inspect the tree, open PRs and any changes since the audit baseline before editing. Use short branches and PRs. Do not recreate work already present.
 2. Work in the order below. Finish, validate and report each bounded slice. Keep going to the next unblocked item rather than waiting for a new task prompt after every slice.
 3. A source/account/permission blocker blocks that item, not the whole queue. Record the evidence, exact dependency and owner, then continue with the next unblocked item. Do not mark a blocked item done.
