@@ -861,7 +861,9 @@ function paintGame(){
   if(g){ loadGameDetail(GV, g, lc, paintGame); loadHomeWeather(g); }
 }
 // A game's summary: every 25 seconds while it is under way, every five
-// minutes otherwise, never two requests at once.
+// minutes otherwise, never two requests at once. While one is out, V.p is
+// its promise, resolving to how it came out ("network" or "failed"), so a
+// refresh can wait for it and report it.
 function loadGameDetail(V, g, lc, repaint){
   var live=TeamOS.game.underWay(g);
   if(V.loading || (V.at && Date.now()-V.at < (live ? 25e3 : 5*60e3))){
@@ -871,12 +873,14 @@ function loadGameDetail(V, g, lc, repaint){
     return;
   }
   V.loading=true;
-  summaryFor(g.id, live).then(function(raw){
+  V.p=summaryFor(g.id, live).then(function(raw){
     V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
     if(learnOpening(g.id, V.gd) && SB.games) SB.games=TeamOS.live.withOpening(SB.games, OPENING);
     if(lc.phase==="pregame" && (V.preview===undefined || V.previewFailed)) loadGamePreview(V, g, repaint);
-  }).catch(function(){}).then(function(){
-    V.at=Date.now(); V.loading=false; repaint();
+    return "network";
+  }).catch(function(){ return "failed"; }).then(function(outcome){
+    V.at=Date.now(); V.loading=false; V.p=null; repaint();
+    return outcome;
   });
 }
 // Pregame Matchup: both teams' season figures, with national ranks. One
@@ -1382,11 +1386,12 @@ function prefetchSummaries(){
 }
 
 
-// Everything Refresh Data does, and the silent refresh on return to a tab
-// left in the background. Its scope (Product, 2026-09-25, on the catch-up
-// review's recommendation): this team's shared data - its status, schedule,
-// news and Season Outlook markets - and the data of screens already loaded
-// this visit (the scoreboard, the polls, the roster); never unopened games or
+// Everything Refresh Data and a pull down do, and the silent refresh on
+// return to a tab left in the background. Its scope (Product, 2026-09-25, on
+// the catch-up review's recommendation): this team's shared data - its
+// status, schedule, news and Season Outlook markets - and the data of screens
+// already loaded this visit (the scoreboard, the polls, the roster, the game
+// open on Game or from Schedule unless it is final); never unopened games or
 // another team's. Work already under way is joined, not repeated. It resolves
 // once every step has settled, to what each came to: "network", "cached"
 // (the worker's last copy) or "failed" (catch-up review 1.2).
@@ -1398,7 +1403,19 @@ function refreshAll(silent){
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
+  // An open game's summary is otherwise kept up to five minutes before
+  // kickoff: drop that, so a refresh refreshes what the fan is looking at.
+  [GV, SV].forEach(function(V){
+    var g=V.id && gameById(V.id);
+    if(g && g.state!=="post"){ V.at=0; delete SUM.mem[String(V.id)]; }
+  });
   if(UI.tab==="game") paintGame();
+  if(UI.tab==="schedule") paintScheduleScreen();
+  // ...and the refresh is not done until that game's summary is: it waits
+  // for it and reports it with the rest.
+  [UI.tab==="game" && GV, UI.tab==="schedule" && SV].forEach(function(V){
+    if(V && V.p) steps.push(V.p.then(function(o){ return { key:"summary", outcome:o }; }));
+  });
   FRESH.at=Date.now();
   return Promise.all(steps).then(function(r){
     var flat=[]; (function add(x){ if(Array.isArray(x)) x.forEach(add); else if(x && x.outcome) flat.push(x); })(r);
@@ -1413,7 +1430,7 @@ function refreshAll(silent){
 // current team until another is picked and offers Cancel back to it.
 // from: the last screen the fan was on, for Feedback - null until there is
 // one (a direct entry names none). result: what the last Refresh Data did.
-var MORE={ from:null, refreshing:false, version:null, result:null };
+var MORE={ from:null, refreshing:false, p:null, version:null, result:null };
 var FEEDBACK_TO="suiteappfeedback@gmail.com";
 function paintMore(){
   var r=Suite.nav.current(), host=$(MORE_HOSTS[r.screen]);
@@ -1509,19 +1526,31 @@ function refreshResult(outcomes){
   return { say:"Couldn\u2019t refresh. Showing the last data this device saw.",
            note:"Couldn\u2019t refresh at "+t+". Showing the last data this device saw." };
 }
+// The manual refresh. Settings' Refresh Data and a pull down on any screen
+// are one action (David, 2026-10-01), so they can never drift apart: either
+// one shows as under way on the other, and Settings reports how the last one
+// came out, whichever started it. A second ask while one runs joins it.
+function manualRefresh(){
+  if(MORE.p) return MORE.p;
+  MORE.refreshing=true; paintMore();
+  MORE.p=refreshAll(false).then(function(outcomes){
+    var r=refreshResult(outcomes);
+    MORE.refreshing=false; MORE.p=null; MORE.result=r.note; paintMore();
+    return r;
+  });
+  return MORE.p;
+}
 document.addEventListener("click", function(e){
   var b=e.target.closest && e.target.closest("[data-refresh]");
   if(!b || MORE.refreshing) return;
-  MORE.refreshing=true; paintMore();
-  refreshAll(false).then(function(outcomes){
-    var r=refreshResult(outcomes);
-    MORE.refreshing=false; MORE.result=r.note; paintMore();
+  manualRefresh().then(function(r){
     // Back to the button the fan pressed - unless they have moved on.
     var btn=document.querySelector("#screenSettings [data-refresh]"), a=document.activeElement;
     if(btn && !$("screenSettings").hidden && (!a || a===document.body || a===btn)) btn.focus();
     say(r.say);
   });
 });
+Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); }); });
 
 // How long data may sit before a silent refresh: on return to a tab that was
 // hidden this long, and on a timer while it stays visible.
