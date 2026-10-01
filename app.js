@@ -150,12 +150,19 @@ paintIdentity();
 
 // A provider answer: { data, cached } - cached is the worker's X-IW-Cached
 // stamp when the network failed and it answered from its last good copy.
+// How many requests are out, and since when none have been: the launch
+// screen waits for the first load to go quiet before it lifts.
+var NET={ busy:0, quietSince:Date.now() };
 function fetchJSON(url){
-  return fetch(url,{cache:"no-store"}).then(function(r){
+  NET.busy++;
+  function done(){ if(--NET.busy===0) NET.quietSince=Date.now(); }
+  var p=fetch(url,{cache:"no-store"}).then(function(r){
     if(!r.ok) throw new Error("HTTP "+r.status);
     var cached=r.headers.get("X-IW-Cached");
     return r.json().then(function(d){ return { data:d, cached:cached }; });
   });
+  p.then(done, done);
+  return p;
 }
 // The data itself. A source's freshness moves only once its answer is
 // usable: parsed, and - where a check is given - the right shape. An answer
@@ -1531,26 +1538,36 @@ Suite.nav.start();
 load();
 liftLaunchWhenReady();
 
-// The launch screen (index.html, David 2026-10-01) lifts when the screen the
-// fan opened is ready: Home once its hero has the season (from the saved copy
-// or the network) - or the schedule has failed, which Home says itself - and
-// every screen once the logos on it have loaded or failed. Never before
-// 250ms, so it fades rather than blinks; never after 2 seconds, whatever is
-// still on its way.
+// The launch screen (index.html; David 2026-10-01: "about 3 seconds and
+// clean") lifts when two things are true. Its animation has played - MIN
+// from when this launch began, which an update's reload carries over - and
+// the screen the fan opened is complete: Home has the season (or says it
+// could not load it), no request has been out for QUIET ms (the schedule,
+// rank, odds, news, weather and line all answered or failed), and every
+// image in view has loaded or failed. So nothing fills in once it lifts.
+// Never later than MAX: a slow network shows what it has. Reduced motion
+// has no animation to wait for, so its minimum is short.
 function liftLaunchWhenReady(){
   var el=$("launch"); if(!el) return;
-  var t0=Date.now(), MIN=250, MAX=2000;
+  var reduce=window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var at=window.SUITE_LAUNCH_AT||Date.now(), MIN=reduce?600:2600, MAX=6000, QUIET=300;
   function screen(){ return document.querySelector("#main > div:not([hidden])"); }
+  function inView(img){
+    var r=img.getBoundingClientRect();
+    return r.width>0 && r.height>0 && r.bottom>0 && r.top<innerHeight && r.right>0 && r.left<innerWidth;
+  }
   function ready(){
     var sc=screen(); if(!sc || !sc.firstChild) return false;
     if(sc.id==="screenHome" && !S.games && !SC.failed) return false;
-    return Array.prototype.every.call(sc.querySelectorAll("img[data-mark]"), function(i){ return i.complete; });
+    if(NET.busy>0 || Date.now()-NET.quietSince<QUIET) return false;
+    return Array.prototype.every.call(sc.querySelectorAll("img"), function(i){ return !inView(i) || i.complete; });
   }
   (function tick(){
-    var age=Date.now()-t0;
+    var age=Date.now()-at;
     if(age>=MAX || (age>=MIN && ready())){
       el.classList.add("done");
-      setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 400);
+      try{ sessionStorage.removeItem("suite-launch-at"); }catch(e){}
+      setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 500);
       return;
     }
     setTimeout(tick, 50);

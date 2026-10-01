@@ -34,17 +34,29 @@ Check at 320/375/390 on Top 25, Roster and Game (live and final), Team Style
 and Suite Style. `node tools/swipecheck.js` must stay green; it asserts the
 class is applied and removed, not its look.
 
-## 2. Launch screen: review the look
+## 2. Launch animation: review the motion and look
 
-**Built (Claude, PR #60, live as `suite-2026-10-01h`):** a static launch
-screen in `index.html` - Ink `#111D35` with the Suite wordmark, the app
-icon's identity - up on the first paint, lifted when the opened screen and
-its logos are ready (never before 250ms, never after 2s; the stylesheet lifts
-it at 2.5s if the app never runs). `tools/launchcheck.js` pins the timing.
+**Asked by David, 2026-10-01:** "about 3 seconds and clean", like Sleeper's
+launch; the first version's wordmark jumped and lifted before data loaded.
 
-**For Codex:** the composition (`.launch`, `.launch-mark` in `app.css`):
-wordmark size and position, whether a team cue belongs on it (David's
-team-first principle vs the install identity), and the 250ms fade.
+**Built (Claude):** `index.html` - the Suite wordmark drawn inline (no image
+to load, so it cannot pop in), letters rising in one by one (150ms + 90ms
+each, 450ms), then a champagne `#D4B896` rule drawing beneath (from 850ms,
+600ms), on Ink `#111D35`; a 350ms crossfade with a 1.04 scale-up on lift.
+Styles and clock are inline in the head so they hold on the first paint; an
+update's reload resumes the animation instead of restarting it.
+
+**Settled behavior (Claude, `app.js` `liftLaunchWhenReady`, pinned by
+`tools/launchcheck.js`):** it lifts after 2.6s (0.6s under reduced motion)
+and only onto a complete screen - every first request answered, every image
+in view loaded - never after 6s; the inline style lifts it at 7s if the app
+never runs.
+
+**For Codex - motion and look only (`#launch-style` in `index.html`):**
+timings and easing of the letters and rule, the exit, wordmark size, whether
+a team cue belongs on it (team-first vs install identity), and the
+reduced-motion state (static wordmark, no animation). Changing the 2.6s
+minimum is David's call, not a styling choice.
 
 ## 3. UIs waiting on Claude's models
 
