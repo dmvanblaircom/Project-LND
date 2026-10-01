@@ -573,17 +573,112 @@ TeamOS.espn = (function () {
     var t=str(text), m=/^\((\d{1,2}):(\d{2})\)\s+/.exec(t);
     return m ? { at: String(+m[1])+":"+m[2], text: t.slice(m[0].length) } : { at: "", text: t };
   }
+
+  /* ---- play words, for a fan (David, 2026-10-01: "no one needs who the
+     holder and long snapper were... 'to the WIS00' reads as clunky data").
+
+     ESPN's play-by-play is the stats crew's: jersey numbers, formation,
+     the clock twice, spots as internal codes ("UND29", "Illini00"),
+     tacklers, holder and long snapper, shouted results. cleanPlay() keeps
+     what happened - who, what, how far, how it ended - and nothing else:
+       text   the play, e.g. "C. Carr pass complete deep middle to
+              M. Gilbert for 61 yards"
+       tags   how it ended, from the play's own words or type: "Touchdown",
+              "1st down", "Turnover", "Turnover on downs", "No play"
+       notes  what happened around it, each its own line: a penalty ("on the
+              try" when it came after the touchdown), the extra point, a
+              replay review's outcome
+     Where the ball went is left to the next snap's down-and-distance line,
+     which says it from structured data. It only removes and rewords: every
+     name and number it shows is ESPN's (tools/adaptercheck.js replays every
+     real play and fails if one is not). A team code is named only where a
+     play's structured end spot confirms it (spotCodes); one that cannot be
+     confirmed is shown in capitals. */
+  function playerNames(s){ return s.replace(/#\d+\s+/g,"").replace(/\b([A-Z])\.(?=[A-Z])/g,"$1. "); }
+  // ESPN's spot code for each team ("UND" -> "ND"), learned from plays whose
+  // text and structured end spot agree: "to the UND29" ending at "ND 29".
+  function spotCodes(plays){
+    var map={};
+    (plays||[]).forEach(function(p){
+      var re=/to the ([A-Za-z]+)(\d\d)\b/g, m, last=null;
+      while((m=re.exec(String(p&&p.text||"")))) last=m;
+      var em=/^([A-Z]+) (\d+)$/.exec(str(pick(p,["end","possessionText"],"")));
+      if(last && em && +last[2]===+em[2] && +em[2]!==50) map[last[1]]=em[1];
+    });
+    return map;
+  }
+  function cleanPlay(text, type, codes){
+      var t=String(text||""), tags=[], notes=[];
+    codes=codes||{};
+    function team(c){ return codes[c]||c.toUpperCase(); }
+    // the clock prefix, and the clock repeated after a score
+    t=t.replace(/^\(\d\d?:\d\d\)\s*/,"").replace(/,? clock \d\d?:\d\d/g,"");
+    // replay review -> a note
+    t=t.replace(/\.?\s*The previous play is under (?:automatic )?review\s*-\s*"([^"]*)"\.?\s*CALL (UPHELD|REVERSED|CONFIRMED|OVERTURNED|STANDS)/i, function(_, why, call){
+      notes.push((/UPHELD|CONFIRMED|STANDS/i.test(call) ? "Upheld after review" : "Overturned after review") + (why ? ": " + why.charAt(0).toLowerCase()+why.slice(1) : ""));
+      return "";
+    });
+    // the try after a touchdown -> a note
+    t=t.replace(/\s*(#\d+\s+[A-Z]\.[^#(]*?) kick attempt (good|failed|no good|blocked)(?:\s*\(H:[^)]*\))?/i, function(_, who, res){
+      notes.push(playerNames(who).trim()+" extra point "+res.toLowerCase()); return "";
+    });
+    t=t.replace(/\s*\(H:[^)]*\)/g,"");
+    // penalties -> a note. One after a touchdown is on the try, not the play.
+    var tdAt=t.search(/\bTOUCHDOWN\b/);
+    t=t.replace(/\s*PENALTY ([A-Za-z]+) (?:[A-Z]{3}: )?([^(#\d]+?)(?:\s*\([^)]*\))?(?:\s+(\d+) yards? from [A-Za-z]+\d\d to [A-Za-z]+\d\d)?( declined)?(,? 1ST DOWN)?(\.? NO PLAY)?(?=$|\s*#|\s*\.)/, function(m, tm, foul, yds, dec, fd, np, at){
+      var onTry=tdAt>=0 && at>tdAt;
+      var s="Penalty on "+team(tm)+": "+foul.trim().toLowerCase()+(yds?", "+yds+" yards":"")+(dec?", declined":"")+(onTry?" (on the try)":"");
+      notes.push(s); if(np && !onTry) tags.push("No play"); if(fd && !onTry) tags.push("1st down"); return "";
+    });
+    // formation and filler
+    t=t.replace(/\b(No Huddle-Shotgun|No Huddle|Shotgun)\s+/g,"");
+    t=t.replace(/,?\s*End Of Play\.?/g,"").replace(/\s*QB hurried by #\d+ [A-Z]\.[A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?/g,"");
+    // tacklers "(#8 A.Shuler; #4 J.Ausberry)"
+    t=t.replace(/\s*\((?:#\d+ [^()]+)\)/g,"");
+    // where it was caught / thrown / went out / recovered: the next snap's spot says it
+    t=t.replace(/\s*caught at [A-Za-z]+\d\d,?/g,"").replace(/\s*thrown to [A-Za-z]+\d\d/g,"")
+       .replace(/(out of bounds) at [A-Za-z]+\d\d/g,"$1").replace(/ at [A-Za-z]+\d\d\b/g,"");
+    t=t.replace(/(recovered by) ([A-Za-z]+) (?=#)/g, function(_, r, c){ return r+" "+team(c)+" "; });
+    // results
+    if(/\bTOUCHDOWN\b/.test(t)) tags.unshift("Touchdown");
+    if(/TURNOVER ON DOWNS/.test(t)) tags.push("Turnover on downs");
+    if(/1ST DOWN/.test(t) && tags.indexOf("1st down")<0 && tags.indexOf("Touchdown")<0) tags.push("1st down");
+    if(/Interception|Fumble Recovery \(Opponent\)/.test(type||"")) tags.push("Turnover");
+    t=t.replace(/,?\s*TOUCHDOWN/g,"").replace(/,?\s*TURNOVER ON DOWNS/g,"").replace(/,?\s*1ST DOWN/g,"");
+    t=t.replace(/ to the [A-Za-z]+\d\d\b/g,"").replace(/ gain\b/g,"");
+    t=t.replace(/\bGOOD\b/g,"good").replace(/\bNO good\b/g,"no good").replace(/, Touchback/g,", touchback").replace(/\bmuffed\b/,"muffed");
+    t=playerNames(t);
+    t=t.replace(/field goal attempt from (\d+) yards (no good|good|blocked)/, function(_, y, r){ return y+"-yard field goal "+(r==="blocked"?"blocked":"is "+r); });
+    t=t.replace(/ for 0 yards\b/g," for no gain");
+    t=t.replace(/ for (\d+) yards? loss\b/g, function(_, y){ return " for a loss of "+y+(y==="1"?" yard":" yards"); });
+    t=t.replace(/ for loss of (\d+) yards?/g, function(_, y){ return " for a loss of "+y+(y==="1"?" yard":" yards"); });
+    t=t.replace(/ fumbled by ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?)/g, ", fumble by $1");
+    t=t.replace(/([^,]) (recovered by|broken up by)/g, "$1, $2");
+    t=t.replace(/ (fair catch by|blocked by|muffed by)/g,", $1");
+    t=t.replace(/,? fumble by ([^,]+?) recovered by ([A-Z]{2,4}) ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?)/, ", fumble by $1, recovered by $3 ($2)");
+    t=t.replace(/ recovered by ([A-Z]{2,4}) ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?)/, " recovered by $2 ($1)");
+    t=t.replace(/\s+([,.])/g,"$1").replace(/\s{2,}/g," ").replace(/,(\s*,)+/g,",").replace(/^[,\s]+|[,\s]+$/g,"");
+    // a return reads as its own clause; after a pick, the same player's
+    t=t.replace(/(intercepted by ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?))(?:,)? \2 return (\d+) yards?/, "$1, returned $3 yards");
+    t=t.replace(/,? ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?) return (\d+) yards?/g, function(_, who, y){ return ", returned "+(y==="0"?"for no gain":y+(y==="1"?" yard":" yards"))+" by "+who; });
+    t=t.replace(/,? ([A-Z]\. [A-Za-z'.-]+(?: (?:Jr\.|III|II|IV))?) return for (?:a )?loss of (\d+) yards?/g, function(_, who, y){ return ", returned for a loss of "+y+(y==="1"?" yard":" yards")+" by "+who; });
+    if(!t && notes.length && /^Penalty/.test(notes[0])){ t=notes.shift(); }
+    return { text:t, tags:tags, notes:notes };
+  }
+
   // A play's words for a last-play line: splitAt, and one more reading.
   // Right after an extra point ESPN's text is only the conversion's tail,
   // "(C. Talty KICK)" - a bare, shouted fragment (live scan #11). Where the
   // play's own type says the kick was good and the text is exactly that
   // shape, it reads "Extra point good (C. Talty)": the words from the type,
   // the kicker from the text. Any other shape stays as ESPN wrote it.
-  function playText(p){
+  function playText(p, codes){
     var sp=splitAt(p&&p.text);
     var type=String(pick(p,["type","text"],"")||"");
     var m=/^\(([^()]+?) KICK\)$/.exec(sp.text);
-    if(m && /^extra point good$/i.test(type)) sp.text="Extra point good ("+m[1]+")";
+    if(m && /^extra point good$/i.test(type)){ sp.text="Extra point good ("+m[1]+")"; sp.tags=[]; sp.notes=[]; return sp; }
+    var c=cleanPlay(sp.text, type, codes||{});
+    sp.text=c.text; sp.tags=c.tags; sp.notes=c.notes;
     return sp;
   }
   // Scoring text shouts its conversion: "... for a TD (S. Porath KICK)",
@@ -610,8 +705,13 @@ TeamOS.espn = (function () {
              short: str(s.shortDownDistanceText), spot: str(s.possessionText),
              teamId: str(pick(s,["team","id"],"")) };
   }
-  function playOf(p){
-    return { id: str(p.id), text: str(p.text), period: pick(p,["period","number"],null),
+  function playOf(p, codes){
+    var w=playText(p, codes);
+    var type=str(pick(p,["type","text"],""));
+    // A timeout or the end of a period happens between snaps: no down,
+    // no distance, no spot of its own.
+    var snap=!/^(timeout|end period|end of (half|game|regulation))/i.test(type);
+    return { id: str(p.id), text: w.text, at: w.at, tags: w.tags, notes: w.notes, snap: snap, period: pick(p,["period","number"],null),
              clock: str(pick(p,["clock","displayValue"],"")), type: str(pick(p,["type","text"],"")),
              yards: typeof p.statYardage==="number" ? p.statYardage : null,
              scoring: !!p.scoringPlay, start: spotOf(p.start), end: spotOf(p.end) };
@@ -630,22 +730,27 @@ TeamOS.espn = (function () {
     var code=String(d.result||"").toUpperCase();
     return DRIVE_RESULT[code] || str(d.displayResult||d.result);
   }
-  function driveOf(d, teamId, home, away){
+  function driveOf(d, teamId, home, away, codes){
     var tid=str(pick(d,["team","id"],""));
     return { id: str(d.id), side: tid===home.key ? "home" : tid===away.key ? "away" : null,
              mine: tid===teamId, summary: str(d.description), result: driveResult(d),
              plays: (d.plays||[]).map(function(p){
-               var pl=playOf(p);
+               var pl=playOf(p, codes);
                pl.offense = !pl.start || !pl.start.teamId || pl.start.teamId===tid;
                return pl;
              }) };
   }
 
-  function drivesOf(d, teamId, home, away){
+  function rawPlays(d){
+    var dr=d.drives||{}, all=[];
+    (dr.previous||[]).concat(dr.current?[dr.current]:[]).forEach(function(x){ all=all.concat(x.plays||[]); });
+    return all;
+  }
+  function drivesOf(d, teamId, home, away, codes){
     var dr=d.drives;
     if(!dr || (!dr.previous && !dr.current)) return null;
-    var list=(dr.previous||[]).map(function(x){ return driveOf(x, teamId, home, away); });
-    var current=dr.current ? driveOf(dr.current, teamId, home, away) : null;
+    var list=(dr.previous||[]).map(function(x){ return driveOf(x, teamId, home, away, codes); });
+    var current=dr.current ? driveOf(dr.current, teamId, home, away, codes) : null;
     if(current && !list.some(function(x){ return x.id && x.id===current.id; })) list.push(current);
     return list.length || current ? { current: current, list: list } : null;
   }
@@ -677,11 +782,14 @@ TeamOS.espn = (function () {
         if(pl&&pl.length&&pl[pl.length-1].text) lastObj=pl[pl.length-1];
       }
     }
+    var codes=spotCodes(rawPlays(d));
     var lastText=lastObj&&lastObj.text;
-    var lastSplit = playText(lastObj);
+    var lastSplit = playText(lastObj, codes);
     var lastPlay = lastText ? {
       text:         lastSplit.text,
       at:           lastSplit.at,
+      tags:         lastSplit.tags,
+      notes:        lastSplit.notes,
       possession:   str(pick(sit,["lastPlay","team","abbreviation"],"")),
       downDistance: str(sit.downDistanceText||sit.shortDownDistanceText)
     } : null;
@@ -745,7 +853,7 @@ TeamOS.espn = (function () {
     // Which drive each score ended (David, 2026-10-01: a scoring play opens
     // its drive): the drive holding a play with the score's own id, or null
     // when the payload carries no such drive.
-    var drives=drivesOf(d, teamId, home, away);
+    var drives=drivesOf(d, teamId, home, away, codes);
     if(scoring) scoring.forEach(function(p){
       var hit=p.id && drives ? drives.list.filter(function(x){
         return x.plays.some(function(q){ return q.id===p.id; });

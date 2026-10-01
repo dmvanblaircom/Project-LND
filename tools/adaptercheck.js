@@ -217,7 +217,7 @@ eq([mia.away, mia.home], [{ name:"Miami", abbr:null, providerId:"2390", rank:5, 
                          { name:"Wake Forest", abbr:null, providerId:"154", rank:null, record:null, score:"0" }],
    "sides: ranked away, unranked home, scores as strings; no abbreviation or record in the payload -> null");
 eq([mia.net, mia.odds, mia.mine, mia.live], ["ESPN", { line:"MIA -20.5", total:56.5, provider:null }, false, null], "broadcast from names[], odds, not ours, not live");
-eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"#47 T.Woody kickoff 65 yards to the Pitt00 #24 T.Robinson return 20 yards to the Pitt20", lastPlayAt:"3:28", lastPlayKind:null, lastPlaySide:null }], "live game carries down/distance and last play, the snap's clock lifted out of the words");
+eq([pitt.state, pitt.live], ["in", { downDistance:"1st & 10 at PITT 20", short:"1st & 10", spot:"", possession:null, lastPlay:"T. Woody kickoff 65 yards, returned 20 yards by T. Robinson", lastPlayAt:"3:28", lastPlayKind:null, lastPlaySide:null }], "live game carries down/distance and last play, the snap's clock lifted out of the words");
 
 // Between plays: what the last play was, and whose (for TeamOS.live.withBall).
 // The shapes are today's real ones (2026-09-26 scoreboards): a kickoff tagged
@@ -365,8 +365,8 @@ console.log("gameDetail() - play text and drive results, from today's real Notre
 var gdDowns = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-downs.json")), team, TEAM_CONFIG);
 eq([gdDowns.drives.current.mine, gdDowns.drives.current.result], [false, "Turnover on downs"],
    "a finished drive says how it ended, in a fan's words (ESPN's code DOWNS)");
-eq([gdDowns.lastPlay.at, /^No Huddle-Shotgun #15 R\.Browne pass incomplete/.test(gdDowns.lastPlay.text), /^\(/.test(gdDowns.lastPlay.text)], ["9:56", true, false],
-   "the last play's snap clock is lifted out as a time; the words are ESPN's, unchanged");
+eq([gdDowns.lastPlay.at, gdDowns.lastPlay.text, gdDowns.lastPlay.tags], ["9:56", "R. Browne pass incomplete short right", ["Turnover on downs"]],
+   "the last play's snap clock is lifted out as a time; the words are the play's, for a fan (formation, jersey, pressure and shouting gone)");
 var gdFinal = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-final.json")), team, TEAM_CONFIG);
 // David, 2026-10-01: a scoring play opens the drive that made it.
 ok(gdFinal.scoring.every(function (p) {
@@ -385,6 +385,55 @@ eq(gdFinal.scoring.map(function (p) { return p.text.replace(/ kick\)$/, " KICK)"
    JSON.parse(read("tools/fixtures/espn-summary-pur-final.json")).scoringPlays.map(function (p) { return p.text; }),
    "and case is the only change: every scoring play's words are ESPN's");
 
+// David, 2026-10-01: plays a fan can read. Every real play in every captured
+// game, through the adapter: nothing of the stats crew's shorthand left,
+// and every name and number shown is one ESPN sent.
+console.log("plays, for a fan: every real play replayed");
+var everyPlay = [], seenPlay = {};
+fs.readdirSync(path.join(root, "tools/fixtures")).filter(function (f) { return /^espn-summary/.test(f); }).forEach(function (f) {
+  var raw = JSON.parse(read("tools/fixtures/" + f)), gd = TeamOS.espn.gameDetail(raw, team, TEAM_CONFIG);
+  var src = {}; ((raw.drives || {}).previous || []).concat(raw.drives && raw.drives.current ? [raw.drives.current] : []).forEach(function (d) {
+    (d.plays || []).forEach(function (p) { src[p.id] = p.text; });
+  });
+  (gd.drives ? gd.drives.list : []).forEach(function (d) { d.plays.forEach(function (p) {
+    if (seenPlay[p.id]) return; seenPlay[p.id] = 1; everyPlay.push({ shown: p, espn: src[p.id] || "" });
+  }); });
+});
+function wordsOf(p) { return [p.text].concat(p.notes || []).join(" "); }
+var leftovers = everyPlay.filter(function (x) {
+  return /#\d|\(H:|LS:|\b[A-Za-z]+\d\d\b|^\(\d|clock \d|Shotgun|No Huddle|TOUCHDOWN|1ST DOWN|NO PLAY|PENALTY|End Of Play|QB hurried/.test(wordsOf(x.shown));
+});
+ok(everyPlay.length > 500 && leftovers.length === 0, everyPlay.length + " real plays: no jersey number, spot code, holder or snapper, formation, repeated clock or shouting left" +
+   (leftovers.length ? " - e.g. " + wordsOf(leftovers[0].shown) : ""));
+var invented = everyPlay.filter(function (x) {
+  var espn = x.espn.replace(/#\d+\s+/g, "").replace(/\b([A-Z])\.(?=[A-Z])/g, "$1. ");
+  var nums = (x.espn.replace(/\(\d\d?:\d\d\)|clock \d\d?:\d\d|#\d+|[A-Za-z]+\d\d\b/g, "").match(/\b\d+\b/g) || []);
+  var w = wordsOf(x.shown);
+  return (w.match(/\b[A-Z]\. [A-Z][A-Za-z'-]+/g) || []).some(function (n) { return espn.indexOf(n) < 0; }) ||
+         (w.match(/\b\d+\b/g) || []).some(function (n) { return nums.indexOf(n) < 0; });
+});
+ok(invented.length === 0, "every name and every number shown is one ESPN sent" + (invented.length ? " - not: " + wordsOf(invented[0].shown) : ""));
+ok(everyPlay.every(function (x) { return x.shown.text; }), "and no play is left without words");
+function shownFor(re) { var x = everyPlay.filter(function (y) { return re.test(y.espn); })[0]; return x ? x.shown : null; }
+var td = shownFor(/rush middle for 2 yards gain to the MSU00 TOUCHDOWN/);
+eq([td.text, td.tags, td.notes], ["N. James Jr. rush middle for 2 yards", ["Touchdown"], ["S. Porath extra point good"]],
+   "a touchdown: the run, Touchdown, and the extra point on its own line - no holder, no long snapper");
+var pi = shownFor(/thrown to MSU00 broken up by #3 T.Bell PENALTY MSU Pass Interference/);
+eq([pi.text, pi.tags, pi.notes], ["C. Carr pass incomplete short right to J. Faison, broken up by T. Bell", ["No play", "1st down"], ["Penalty on MSU: pass interference, 15 yards"]],
+   "a penalty is its own line, the team by its own abbreviation, and the play says it did not count");
+var onTry = shownFor(/rush left for 7 yards gain to the Illini00 TOUCHDOWN, clock 00:15 PENALTY/);
+eq([onTry.tags, onTry.notes[1]], [["Touchdown"], "Penalty on OSU: false start, 5 yards (on the try)"],
+   "a penalty after the touchdown is on the try: the touchdown stands");
+var fg = shownFor(/field goal attempt from 39 yards NO GOOD/);
+eq(fg.text, "S. Porath 39-yard field goal is no good", "a missed field goal");
+var pick = shownFor(/intercepted by #8 A.Shuler at MSU36 QB hurried/);
+eq([pick.text, pick.tags], ["A. Milivojevic pass intercepted by A. Shuler, returned 9 yards", ["Turnover"]], "an interception and its return");
+var rev = shownFor(/Runner broke the plane/);
+ok(rev.notes.indexOf("Upheld after review: runner broke the plane") > -1, "a replay review is one quiet line");
+var fum = shownFor(/fumble by #11 A.Milivojevic recovered by MSU #75 B.Murawski/);
+eq(fum.text, "A. Milivojevic sacked for a loss of 12 yards, fumble by A. Milivojevic, recovered by B. Murawski (MSU)", "a fumble and who recovered it");
+ok(/^1[0-5]?:\d\d$|^\d:\d\d$/.test(everyPlay.filter(function (x) { return /^\(\d/.test(x.espn); })[0].shown.at), "the snap's clock is kept as the play's time");
+
 console.log("gameDetail() - pregame");
 eq([gdPre.state, gdPre.detail], ["pre", "Sat, September 19th at 7:30 PM EDT"], "scheduled, long status text");
 eq(gdPre.home, { key:"87", name:"Notre Dame Fighting Irish", school:"", abbreviation:"ND", record:"", score:null, mine:true, possession:false, colors:{ primary:null, alt:null } },
@@ -400,7 +449,7 @@ eq(gdPre.leaders.away.length, 5, "five leader categories per side");
 
 console.log("gameDetail() - live");
 eq([gdLive.state, gdLive.detail, gdLive.home.score, gdLive.away.score], ["in", "3:23 - 2nd", "13", "10"], "in progress, clock, scores");
-eq(gdLive.lastPlay, { text:"Timeout Notre Dame, clock 08:53", at:"", possession:"ND", downDistance:"2nd & 7 at WIS 34" }, "last play from the live situation, with possession and down/distance");
+eq(gdLive.lastPlay, { text:"Timeout Notre Dame", at:"", tags:[], notes:[], possession:"ND", downDistance:"2nd & 7 at WIS 34" }, "last play from the live situation, with possession and down/distance");
 eq(gdLive.winProb, { homePct:0.78 }, "win probability is the latest point");
 eq(gdLive.linescore, { away:["3","7"], home:["10","3"] }, "two periods of linescores");
 eq(gdLive.teamStats.map(function (r) { return r.label; }), ["Total yards","Passing","Rushing","First downs","3rd down","Turnovers","Penalties","Possession"], "the eight Team-stats rows in order");
@@ -417,7 +466,7 @@ eq(gdLive.scoring[0].mine, false, "a scoring play, theirs");
 
 console.log("gameDetail() - final");
 eq([gdPost.state, gdPost.detail, gdPost.home.score, gdPost.away.score], ["post", "Final", "41", "13"], "final score");
-eq(gdPost.lastPlay, { text:"End of 4th quarter.", at:"", possession:"", downDistance:"" }, "last play falls back to the last drive when there is no live situation");
+eq(gdPost.lastPlay, { text:"End of 4th quarter.", at:"", tags:[], notes:[], possession:"", downDistance:"" }, "last play falls back to the last drive when there is no live situation");
 eq(gdPost.winProb, { homePct:1 }, "final win probability point kept (the view only shows it live)");
 eq(gdPost.linescore, { away:["3","7","3","0"], home:["10","3","14","14"] }, "four periods");
 eq(gdPost.box.home.map(function (t) { return t.title + ":" + t.labels.length + ":" + t.rows.length; }), ["Notre Dame Passing:6:1","Notre Dame Rushing:5:3","Notre Dame Receiving:5:3"], "box tables per side: title, column labels, rows");
