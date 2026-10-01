@@ -107,14 +107,14 @@ def cadence_problems(kicks, previous_run, now, last_clock=None):
     kick = min((k for k in kicks if k - cadence.BEFORE <= now <= k + AFTER), default=now)
     if last_clock is None:
         seen = ("None of the recent runs was started by the clock, so it is not reaching GitHub at "
-                "all: the cron-job.org job is missing or disabled, or every request it sends is "
-                "refused. A refused request starts no run, so only the job's own history shows "
-                "it: 401 is a wrong token, 403 or 404 a token without Actions write access on "
-                "this repository.")
+                "all: the edge API Worker has no REFRESH_CLOCK_TOKEN (its /v1/health says "
+                "clock:false), or every request it sends is refused. A refused request starts no "
+                "run, so only the Worker's logs in Cloudflare show it: 401 is a wrong or expired "
+                "token, 403 or 404 a token without Actions write access on this repository.")
     else:
         seen = ("The clock last started a run at %s UTC, %d hours ago, so it worked and has "
-                "stopped: most likely its token expired, or the job was disabled. Check the "
-                "cron-job.org job's history." % (last_clock.strftime("%Y-%m-%d %H:%M"),
+                "stopped: most likely its token expired, or the Worker's schedule was removed. "
+                "Check the Worker's logs in Cloudflare." % (last_clock.strftime("%Y-%m-%d %H:%M"),
                                                  (now - last_clock).total_seconds() // 3600))
     return [{
         "title": "Data refresh: runs too far apart in the %s game window" % kick.date().isoformat(),

@@ -7,7 +7,7 @@
    fails, and never passes CFBD's raw payload or errors through.
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
-import worker, { pickSeason, VERSION, CFBD_FIELDS } from "../worker/src/index.js";
+import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK } from "../worker/src/index.js";
 
 let failures = 0;
 function ok(cond, what) { console.log("  " + (cond ? "ok  " : "FAIL") + " " + what); if (!cond) failures++; }
@@ -48,7 +48,28 @@ ok(JSON.stringify(CFBD_FIELDS) === JSON.stringify(["games", "rushingYardsOpponen
 
 console.log("health");
 { const { r, body } = await get("/v1/health", env());
-  ok(r.status === 200 && body.ok === true && body.version === VERSION, "answers with its version"); }
+  ok(r.status === 200 && body.ok === true && body.version === VERSION, "answers with its version");
+  ok(body.clock === false && !JSON.stringify(body).includes("tok"), "says whether the clock has its token - never the token");
+  const withTok = await get("/v1/health", Object.assign(env(), { REFRESH_CLOCK_TOKEN: "secret-token" }));
+  ok(withTok.body.clock === true && !JSON.stringify(withTok.body).includes("secret-token"), "and with one set, true, still without it"); }
+
+console.log("the refresh clock");
+{ const sent = [];
+  const e = (status, fail) => ({ REFRESH_CLOCK_TOKEN: "clock-token",
+    FETCH: async (url, init) => { sent.push({ url, init }); if (fail) throw new Error("down"); return new Response(null, { status }); } });
+  ok(await startRefresh(e(204)) === "started", "starts the refresh");
+  const s = sent[0], body = JSON.parse(s.init.body);
+  ok(s.url === "https://api.github.com/repos/" + CLOCK.repo + "/actions/workflows/odds.yml/dispatches" && s.init.method === "POST",
+     "by dispatching the Refresh team data workflow");
+  ok(body.ref === "main" && body.inputs.source === "clock", "on main, as the clock, so its runs are titled (clock) and follow the cadence rules");
+  ok(s.init.headers.authorization === "Bearer clock-token" && !!s.init.headers["user-agent"], "with its token, and a user agent GitHub requires");
+  ok(await startRefresh(e(401)) === "refused-401", "a refused token is reported, not thrown");
+  ok(await startRefresh(e(204, true)) === "unreachable", "GitHub unreachable: reported, not thrown");
+  const before = sent.length;
+  ok(await startRefresh({}) === "no-token" && sent.length === before, "no token set: nothing is sent");
+  let waited = null;
+  await worker.scheduled({ cron: "7,37 * * * *" }, e(204), { waitUntil: (p) => { waited = p; } });
+  ok(waited && await waited === "started", "the scheduled event runs it to completion"); }
 
 console.log("only what a screen shows");
 { const s = pickSeason(ROWS, "notre dame", 2026, FIELDS);

@@ -55,6 +55,10 @@ On game day, 2026-09-19, runs started at 00:05, 04:29, 08:56, 13:01, 16:20,
 The rules above are correct for any spacing of runs. But they cannot make
 runs happen more often.
 
+**Superseded (David, 2026-10-01):** the clock runs on Suite's edge API Worker
+(decision 0030) - a Cloudflare cron trigger, not cron-job.org, which was never
+set up. Same token, same `source=clock`; `docs/engineering/data-refresh-clock.md`.
+
 **Resolved (David, 2026-09-23): an external clock.** A cron-job.org job starts
 the workflow every 30 minutes through `workflow_dispatch`. It sends
 `source=clock`, so its runs follow the cadence rules like scheduled ones.

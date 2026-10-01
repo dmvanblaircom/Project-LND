@@ -10,13 +10,18 @@
      GET /v1/cfbd/season?team=&year=        CFBD season stats for one team,
                                             only the fields in CFBD_FIELDS
 
+   Scheduled (wrangler.toml [triggers]): the data refresh clock. Every 30
+   minutes it starts the repository's "Refresh team data" workflow with
+   source=clock - the job cron-job.org was meant to do (W02, decision 0030).
+   GitHub's own scheduler runs that workflow only every few hours.
+
    Every answer is JSON with `source`, `fetchedAt` and, when it is a cached
    copy served because the provider failed, `stale: true`. Errors say what
    failed without passing the provider's body through.
 
    No dependencies: Workers' standard fetch, Request, Response and Cache. */
 
-export const VERSION = "edge-2026-10-01b";
+export const VERSION = "edge-2026-10-01c";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
 const CFBD = "https://api.collegefootballdata.com";
@@ -102,7 +107,39 @@ async function cfbdSeason(url, env, origin, ctx) {
   return json(body, 200, origin);
 }
 
+// The refresh clock. Starts the data refresh through GitHub's API with a
+// fine-grained token that can do only that (REFRESH_CLOCK_TOKEN, Actions
+// read/write on this repository). Never throws: a failed start is logged and
+// the next tick tries again; the freshness monitor reports a stalled clock.
+export const CLOCK = { repo: "dmvanblaircom/Project-LND", workflow: "odds.yml" };
+
+export async function startRefresh(env) {
+  if (!env.REFRESH_CLOCK_TOKEN) { console.log("clock: no REFRESH_CLOCK_TOKEN set; nothing started"); return "no-token"; }
+  const url = "https://api.github.com/repos/" + CLOCK.repo + "/actions/workflows/" + CLOCK.workflow + "/dispatches";
+  try {
+    const r = await (env.FETCH || fetch)(url, { method: "POST", headers: {
+      "authorization": "Bearer " + env.REFRESH_CLOCK_TOKEN,
+      "accept": "application/vnd.github+json",
+      "x-github-api-version": "2022-11-28",
+      "user-agent": "suite-api refresh clock",          // GitHub refuses requests without one
+      "content-type": "application/json"
+    }, body: JSON.stringify({ ref: "main", inputs: { source: "clock" } }) });
+    if (r.status === 204) { console.log("clock: refresh started"); return "started"; }
+    // 401: wrong or expired token; 403/404: a token without Actions write here
+    console.log("clock: GitHub answered " + r.status + "; the refresh was not started");
+    return "refused-" + r.status;
+  } catch (e) {
+    console.log("clock: GitHub could not be reached");
+    return "unreachable";
+  }
+}
+
 export default {
+  async scheduled(event, env, ctx) {
+    const done = startRefresh(env || {});
+    if (ctx && ctx.waitUntil) ctx.waitUntil(done); else await done;
+  },
+
   async fetch(request, env, ctx) {
     const url = new URL(request.url), origin = request.headers.get("origin");
     if (request.method === "OPTIONS") {
@@ -110,7 +147,9 @@ export default {
         "access-control-allow-methods": "GET", "access-control-max-age": "86400" }) });
     }
     if (request.method !== "GET") return fail(405, "GET only", origin);
-    if (url.pathname === "/v1/health") return json({ ok: true, version: VERSION }, 200, origin, { "cache-control": "no-store" });
+    // `clock` says only whether the refresh clock has its token - never the token.
+    if (url.pathname === "/v1/health") return json({ ok: true, version: VERSION, clock: !!(env && env.REFRESH_CLOCK_TOKEN) },
+                                                   200, origin, { "cache-control": "no-store" });
     if (url.pathname === "/v1/cfbd/season") return cfbdSeason(url, env || {}, origin, ctx);
     return fail(404, "no such route", origin);
   }
