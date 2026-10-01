@@ -54,6 +54,11 @@ jobs:
           URL: ${{ steps.deploy.outputs.deployment-url }}
         run: |
           [ -n "$URL" ] || { echo "::warning::no deployment URL reported; check the Cloudflare dashboard"; exit 0; }
-          body=$(curl -sSf --retry 3 "$URL/v1/health")
-          echo "$URL/v1/health -> $body"
-          echo "$body" | grep -q '"ok":true'
+          # A new Worker's address takes a little while to answer everywhere
+          # (the first deploy got a 404 three seconds in): try for 2 minutes.
+          for i in $(seq 1 24); do
+            body=$(curl -sS "$URL/v1/health" || true)
+            if echo "$body" | grep -q '"ok":true'; then echo "$URL/v1/health -> $body"; exit 0; fi
+            sleep 5
+          done
+          echo "::error::$URL/v1/health did not answer ok within 2 minutes: $body"; exit 1
