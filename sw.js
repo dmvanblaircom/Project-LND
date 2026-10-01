@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-01t";
+var VERSION = "suite-2026-10-01ta";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -65,9 +65,12 @@ function fresh(req) {
 
 // Fetch and keep `files`. An icon, a font sheet or a team file that cannot
 // be had now is fetched again later, so by default a failure is skipped.
-// The shell is `required`: an install that could not fetch all of it fails,
-// and the browser keeps the working version and tries again later - rather
-// than activating half an app and deleting the whole one it replaced.
+// The shell's code and page are `required`: an install that could not fetch
+// all of them fails, and the browser keeps the working version and tries
+// again later - rather than activating half an app and deleting the whole
+// one it replaced. Its images (favicons, the wordmark) are not: a missing
+// icon never holds back an update or a first offline install.
+function essential(f) { return !/\.(png|svg)$/i.test(f); }
 function addAll(cacheName, files, required) {
   return caches.open(cacheName).then(function (c) {
     return Promise.all(files.map(function (f) {
@@ -88,7 +91,10 @@ self.addEventListener("install", function (e) {
   // not wait on anything after the precache.
   self.skipWaiting();
   e.waitUntil(Promise.all([
-    missing(SHELL, SHELL_FILES).then(function (files) { return addAll(SHELL, files, true); }).then(function () {
+    missing(SHELL, SHELL_FILES).then(function (files) {
+      return Promise.all([addAll(SHELL, files.filter(essential), true),
+                          addAll(SHELL, files.filter(function (f) { return !essential(f); }))]);
+    }).then(function () {
       return Promise.all([cacheManifestIcons("./manifest.json"), cacheFontSheets("./index.html")]);
     }),
     adoptPreviousTeam()

@@ -214,6 +214,11 @@ w.fire("message", ND).then(function () {
     return w7.installs();
   }).then(function (r) {
     eq(r, "installed", "an install icon that cannot be had now does not stop it");
+    // Codex review of #69: the favicons index.html names are in the shell
+    // list too, and are no more essential than the manifest's icons.
+    return boot({ missing: ["./assets/suite/favicon-32.png", "./assets/suite/suite-wordmark-pearl.svg"] }).installs();
+  }).then(function (r) {
+    eq(r, "installed", "nor does a favicon or the wordmark image from the shell list");
   });
 }).then(function () {
   // Code review, 2026-10-01: the page names its team on every open.
