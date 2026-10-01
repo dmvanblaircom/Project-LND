@@ -195,9 +195,9 @@ eq(scoreBlocks.length, WD.scoring.length, "every score opens");
 ok(scoreBlocks.every(function (b, i) {
   var p = WD.scoring[i], d = WD.drives.list.filter(function (x) { return x.id === p.driveId; })[0] || { plays: [] };
   var at = d.plays.map(function (q) { return q.id; }).indexOf(p.id);
-  var rows = b.match(/<li[^>]*>[\s\S]*?<\/li>/g) || [];
-  return rows.length === at + 1 && /^<li class="is-score">/.test(rows[rows.length - 1]) &&
-         rows.filter(function (r) { return /is-score/.test(r); }).length === 1;
+  var rows = (b.match(/class="pl-text"/g) || []).length, i = b.lastIndexOf('<li class="is-score">');
+  return rows === at + 1 && i > -1 && (b.match(/is-score/g) || []).length === 1 &&
+         (b.slice(i).match(/class="pl-text"/g) || []).length === 1;
 }), "opened, it shows the drive's plays up to the score, and the score - marked - is the last of them");
 var trailing = WD.scoring.filter(function (p) {
   var d = WD.drives.list.filter(function (x) { return x.id === p.driveId; })[0];
@@ -205,7 +205,7 @@ var trailing = WD.scoring.filter(function (p) {
 });
 ok(trailing.length > 0 && trailing.every(function (p) {
   var b = scoreBlocks[WD.scoring.indexOf(p)] || "", d = WD.drives.list.filter(function (x) { return x.id === p.driveId; })[0];
-  return (b.match(/<li[^>]*>/g) || []).length < d.plays.length;
+  return (b.match(/class="pl-text"/g) || []).length < d.plays.length;
 }),
    "a timeout ESPN logged after a score (" + trailing.length + " in this game) is left out of the scoring drive");
 eq((ph.match(/data-key="drive-/g) || []).length, WD.drives.list.length, "and every drive is still listed under Drives, whole");
@@ -294,7 +294,8 @@ var bd = hb.parts.body.innerHTML;
 ok(/Purdue drive[\s\S]*class="f-result">Turnover on downs<\/span> · 10 plays, 27 yards, 4:24/.test(bd),
    "the finished drive says how it ended, before its summary");
 ok(/aria-label="Last drive: Purdue, [^"]*Result: Turnover on downs\."/.test(bd), "and says so to a screen reader");
-ok(/class="lp-text"><span class="lp-at">9:56<\/span> No Huddle-Shotgun/.test(bd), "the last play leads with its time, then ESPN's words");
+ok(/class="lp-text"><span class="lp-at">9:56<\/span> R\.\u00a0Browne pass incomplete short right <span class="pl-tag turnover">Turnover on downs<\/span>/.test(bd),
+   "the last play leads with its time, then the play in a fan's words, and how it ended");
 
 // ---- Stats: the team's season (W27; David, 2026-10-01) ----
 console.log("Stats: the team's season, and in game week the opponent's beside it");
