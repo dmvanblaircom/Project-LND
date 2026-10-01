@@ -497,7 +497,7 @@ Suite.game = (function () {
     ["head", "strip", "body"].forEach(function (k) {
       if (last[k] === html[k]) return;
       var el = host.querySelector('[data-game="' + k + '"]');
-      el.innerHTML = html[k];
+      ui.fill(el, html[k]);
       last[k] = html[k];
       if (k === "head") fit(host);
     });

@@ -116,6 +116,30 @@ Suite.ui = (function () {
   document.addEventListener("load", settle, true);
   document.addEventListener("error", settle, true);
 
+  /* Redraw a section without reloading the logos it already shows. Setting
+     innerHTML makes new <img> elements, and a new image paints nothing until
+     it decodes again - even from cache - so each redraw flashed the initials
+     underneath (Home's hero, three times on a first open, as the schedule,
+     rank, line and weather arrived; every tick of a live game). A logo that
+     has loaded is moved into the new markup in place of its fresh copy:
+     same address, same picture, nothing to reload. */
+  function fill(el, html) {
+    if (!el) return;
+    if (!el.querySelectorAll) { el.innerHTML = html; return; }   // no DOM to keep (a test's stand-in)
+    var keep = {};
+    Array.prototype.forEach.call(el.querySelectorAll("img[data-mark]"), function (img) {
+      var src = img.getAttribute("src");
+      if (img.complete && img.naturalWidth > 0) (keep[src] = keep[src] || []).push(img);
+    });
+    el.innerHTML = html;
+    Array.prototype.forEach.call(el.querySelectorAll("img[data-mark]"), function (img) {
+      var old = (keep[img.getAttribute("src")] || []).shift();
+      if (!old || !img.parentNode) return;
+      img.parentNode.replaceChild(old, img);
+      old.parentNode.classList.add("loaded");
+    });
+  }
+
   /* Suite Style (decision 0026): Suite's standard visual system, the same
      for every team, when the fan chooses it over Team Style. The same colour
      roles a team supplies, so TeamOS.identity checks it exactly as it checks
@@ -183,5 +207,5 @@ Suite.ui = (function () {
   }
 
   return { ball: ball, esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner,
-           fitNames: fitNames, STYLE: STYLE };
+           fitNames: fitNames, STYLE: STYLE, fill: fill };
 })();
