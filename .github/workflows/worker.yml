@@ -62,3 +62,26 @@ jobs:
             sleep 5
           done
           echo "::error::$URL/v1/health did not answer ok within 2 minutes: $body"; exit 1
+      # The CFBD route end to end: real key, real CFBD, one real team. Prints
+      # which fields came back and whether they are numbers - never a value,
+      # because this log is public and CFBD's data may not be republished.
+      - name: CFBD answers through it
+        if: steps.ready.outputs.ok == 'true'
+        env:
+          URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          [ -n "$URL" ] || exit 0
+          year=$(date -u +%Y); [ "$(date -u +%-m)" -lt 7 ] && year=$((year-1))
+          curl -sS --retry 3 "$URL/v1/cfbd/season?team=Notre%20Dame&year=$year" | python3 -c '
+          import json, sys
+          d = json.load(sys.stdin)
+          if "error" in d:
+              sys.exit("::error::the CFBD route answered an error: " + d["error"])
+          s = d.get("stats") or {}
+          print("source=%s stale=%s fields=%s" % (d.get("source"), d.get("stale", False), sorted(s)))
+          want = {"games", "rushingYardsOpponent", "netPassingYardsOpponent"}
+          missing = want - set(k for k, v in s.items() if isinstance(v, (int, float)))
+          if missing:
+              sys.exit("::error::missing or non-numeric: %s" % sorted(missing))
+          print("all three fields present and numeric")'
+
