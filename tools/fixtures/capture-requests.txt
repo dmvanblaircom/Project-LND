@@ -56,3 +56,5 @@ roster-87 nd-oct02
 401858454 osu-kent-final
 401858465 osu-ill-final
 schedule-194-2026-2 osu-2026
+401858432 osu-g1-final
+401856682 osu-g2-final
