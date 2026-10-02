@@ -752,7 +752,9 @@ function paintStats(){
 // finished game's summary is kept on the device for good (summaryFor), so
 // it is asked for once. `named`: every name source has answered, so a row
 // still without a name is counted as such rather than as still loading.
-var PL={ tables:null, type:null, p:null, failed:false, outcome:null, box:{}, named:false, np:null };
+// `again`/`nagain`: the season type or the schedule moved while a request
+// was out, so ask once more when it settles (as loadStats does).
+var PL={ tables:null, type:null, p:null, failed:false, outcome:null, box:{}, named:false, np:null, again:false, nagain:false };
 function playerNames(){
   var names={};
   Object.keys(PL.box).forEach(function(id){ var b=PL.box[id]; for(var k in b) if(!names[k]) names[k]=b[k]; });
@@ -762,22 +764,31 @@ function playerNames(){
 function playersModel(){
   if(!PL.tables) return null;
   var m=TeamOS.espn.namedLeaders(PL.tables, playerNames());
-  if(!PL.named) m.unnamed=0;           // still being named, not unnamed
+  // a table missing a name that may still come is not shown as if complete:
+  // the view stays loading until every name source has answered (Codex, #92)
+  if(!PL.named && m.unnamed) return null;
   return m;
 }
 // The names: the roster (joined if it is already being asked for) and each
 // finished game's box score not yet read.
 function loadPlayerNames(){
-  if(PL.np) return PL.np;
+  // the schedule answered while names were out: that pass never saw its
+  // finished games, so scan again when it settles (Codex, #92)
+  if(PL.np){ PL.nagain=true; return PL.np; }
+  var scanned=!!S.games;
   var finals=(S.games||[]).filter(function(g){ return g.state==="post" && !PL.box[g.id]; });
   var roster=loadRosterScreen(false, true);
   PL.np=Promise.all([roster.catch(function(){})].concat(finals.map(function(g){
     return summaryFor(g.id).then(function(raw){ PL.box[g.id]=TeamOS.espn.boxNames(raw); paintStats(); }, function(){});
-  }))).then(function(){ PL.np=null; PL.named=!!S.games; paintStats(); });
+  }))).then(function(){
+    PL.np=null; PL.named=PL.named || scanned;
+    if(PL.nagain){ PL.nagain=false; return loadPlayerNames(); }
+    paintStats();
+  });
   return PL.np;
 }
 function loadPlayers(force){
-  if(PL.p) return PL.p;
+  if(PL.p){ PL.again=true; return PL.p; }
   var type=statsType();
   if(PL.tables && PL.type===type && !force){ loadPlayerNames(); return Promise.resolve(); }
   var url=TeamOS.espn.leadersUrl(TEAM_CONFIG.sources.espn.teamId, seasonYear(), type);
@@ -785,7 +796,12 @@ function loadPlayers(force){
   PL.p=fetchJSON(url).then(function(r){
     PL.tables=TeamOS.espn.seasonLeaders(r.data); PL.type=type; PL.outcome=r.cached ? "cached" : "network";
   }, function(){ PL.outcome="failed"; if(!PL.tables) PL.failed=true; })
-    .then(function(){ PL.p=null; paintStats(); return loadPlayerNames(); });
+    .then(function(){
+      PL.p=null; paintStats();
+      // the season type moved while the leaders were out (Codex, #92)
+      if(PL.again){ PL.again=false; if(!$("screenStats").hidden) return loadPlayers(); }
+      return loadPlayerNames();
+    });
   paintStats();
   return PL.p;
 }

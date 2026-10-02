@@ -214,8 +214,8 @@ function fakeCaches() {
   ["playerNames", "playersModel", "loadPlayerNames"].forEach(function (f) { vm.runInContext(lift(f), pc); });
   pc.PL.tables = pc.TeamOS.espn.seasonLeaders(JSON.parse(read("tools/fixtures/espn-leaders-nd-2026-reg.json")));
   pc.RO.roster = pc.TeamOS.espn.roster(JSON.parse(read("tools/fixtures/espn-roster-nd-oct02.json")));
-  var early = pc.playersModel();
-  ok(early.unnamed === 0 && early.tables.length === 4, "before the box scores have answered, a row without a name is still loading - not counted as unnamed");
+  ok(pc.playersModel() === null,
+     "before the box scores have answered, tables missing a name are still loading - not shown as if complete, nor counted as unnamed (Codex, #92)");
   pc.S.games = [{ id: "w", state: "post" }, { id: "m", state: "post" }, { id: "p", state: "post" }, { id: "next", state: "pre" }];
   pc.summaries = { w: JSON.parse(read("tools/fixtures/espn-summary-wis-final.json")), m: JSON.parse(read("tools/fixtures/espn-summary-msu-final.json")),
                    p: JSON.parse(read("tools/fixtures/espn-summary-pur-final.json")) };
@@ -235,6 +235,39 @@ function fakeCaches() {
   pd.RO.roster = pd.TeamOS.espn.roster(JSON.parse(read("tools/fixtures/espn-roster-nd-oct02.json")));
   await pd.loadPlayerNames(); await settled();
   ok(pd.playersModel().unnamed === 6, "every source answered or failed: what is still unnamed is counted, so the page can say so");
+
+  // The schedule answers while a name pass is still waiting on the roster:
+  // that pass saw no finished games, so it must scan again (Codex, #92).
+  var pe = vm.createContext({ console: console, Promise: Promise, setTimeout: setTimeout });
+  vm.runInContext(read("teamos/espn.js") + "\n" + PL_DECL + "\n" +
+    "var RO={ roster:null }, S={ games:null }, summaries={}, asked=[], openRoster;" +
+    "function paintStats(){} function loadRosterScreen(){ return new Promise(function(r){ openRoster=r; }); }" +
+    "function summaryFor(id){ asked.push(id); return summaries[id] ? Promise.resolve(summaries[id]) : Promise.reject(new Error('down')); }", pe);
+  ["playerNames", "playersModel", "loadPlayerNames"].forEach(function (f) { vm.runInContext(lift(f), pe); });
+  pe.PL.tables = pe.TeamOS.espn.seasonLeaders(JSON.parse(read("tools/fixtures/espn-leaders-nd-2026-reg.json")));
+  var pass = pe.loadPlayerNames();
+  pe.S.games = pc.S.games; pe.summaries = pc.summaries;
+  pe.loadPlayerNames();
+  pe.RO.roster = pe.TeamOS.espn.roster(JSON.parse(read("tools/fixtures/espn-roster-nd-oct02.json"))); pe.openRoster();
+  await settled(); pe.openRoster(); await pass; await settled();
+  ok(JSON.stringify(pe.asked.slice().sort()) === '["m","p","w"]' && pe.playersModel() && pe.playersModel().unnamed === 0,
+     "the schedule arriving mid-pass: its finished games are still read, and no leader is left unnamed");
+
+  // The postseason arrives while the regular-season leaders are out: the
+  // Players view asks again for the new type when that request settles.
+  var pf = vm.createContext({ console: console, Promise: Promise, setTimeout: setTimeout });
+  vm.runInContext(read("teamos/espn.js") + "\n" + PL_DECL + "\n" +
+    "var RO={ roster:null }, S={ games:[] }, TEAM_CONFIG={ sources:{ espn:{ teamId:'87' } } }, T=2, asked=[], answer=[];" +
+    "function statsType(){ return T; } function seasonYear(){ return 2026; } function $(){ return { hidden:false }; }" +
+    "function paintStats(){} function loadRosterScreen(){ return Promise.resolve(); } function summaryFor(){ return Promise.reject(new Error('x')); }" +
+    "function fetchJSON(u){ asked.push(u); return new Promise(function(r){ answer.push(r); }); }", pf);
+  ["playerNames", "playersModel", "loadPlayerNames", "loadPlayers"].forEach(function (f) { vm.runInContext(lift(f), pf); });
+  var leaders = JSON.parse(read("tools/fixtures/espn-leaders-nd-2026-reg.json"));
+  pf.loadPlayers(); pf.T = 3; pf.loadPlayers();
+  pf.answer[0]({ data: leaders, cached: null }); await settled();
+  ok(pf.asked.length === 2 && /types\/3\//.test(pf.asked[1]), "the season type moving mid-request asks again, for the new type");
+  pf.answer[1]({ data: leaders, cached: null }); await settled();
+  ok(pf.PL.type === 3 && !pf.PL.p, "and what is held is the new type's leaders");
 
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "what the app learns stays honest across refreshes"));
   process.exit(failures ? 1 : 0);
