@@ -174,6 +174,11 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .navbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;
   padding:.3rem max(.4rem,env(safe-area-inset-right,0px)) max(.55rem,env(safe-area-inset-bottom,0px)) max(.4rem,env(safe-area-inset-left,0px));
   background:var(--s-surface);border-top:1px solid var(--s-line);box-shadow:0 -6px 20px rgba(15,27,45,.06)}
+/* The nav's surface carries on below it, off-screen. iOS can leave a fixed
+   bar short of the screen's bottom edge (David's iPhone, 2026-10-02, on
+   screens too short to scroll), and the strip under it then showed the page
+   behind; now that strip is the nav. */
+.navbar::after{content:"";position:absolute;left:0;right:0;top:100%;height:12rem;background:inherit;pointer-events:none}
 .nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:var(--s-muted);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1;-webkit-tap-highlight-color:transparent}
 .nav-item svg{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav-item svg .solid{fill:currentColor;stroke:none}
@@ -927,6 +932,7 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
 @media (min-width:48rem){
   :root{--gutter:1.5rem}
   .navbar{left:50%;right:auto;width:min(40rem,calc(100% - 2rem));transform:translateX(-50%);border:1px solid var(--s-line);border-bottom:0;border-radius:18px 18px 0 0}
+  .navbar::after{left:-1px;right:-1px;border:1px solid var(--s-line);border-width:0 1px}
   .chooser-soon{grid-template-columns:repeat(3,minmax(0,1fr))}
   /* Home on a wide screen: the hero is a framed panel in the column, and
      the three stories sit side by side instead of scrolling. */
