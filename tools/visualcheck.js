@@ -274,7 +274,11 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                    pad: parseFloat(cs.paddingBottom),
                    below: (function () { var a = getComputedStyle(n, "::after");
                      return a.position === "absolute" && parseFloat(a.top) >= n.getBoundingClientRect().height - 2 &&
-                            parseFloat(a.height) >= 96 && a.backgroundColor === cs.backgroundColor; })() };
+                            parseFloat(a.height) >= 96 && a.backgroundColor === cs.backgroundColor; })(),
+                   // below the viewport's edge the canvas shows: the nav's colour, and the
+                   // body still fills the viewport in the page's colour above it
+                   canvas: getComputedStyle(document.documentElement).backgroundColor === cs.backgroundColor &&
+                           document.body.getBoundingClientRect().height >= innerHeight - 1 };
         });
         if (nav.labels.join("|") !== "Home|Top 25|Game|Roster|More")
           fail(who, "behaviour", ".navbar", "nav reads " + nav.labels.join(" / ") + ", not Home / Top 25 / Game / Roster / More");
@@ -282,6 +286,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         // iOS can stop a fixed bar short of the bottom edge; the nav's own
         // surface must fill what is left under it, not the page (David, 2026-10-02).
         if (!nav.below) fail(who, "layout", ".navbar", "nothing of the nav's colour fills below it, so a gap under it shows the page");
+        if (!nav.canvas) fail(who, "layout", "html", "the canvas under the nav is not the nav's colour, or the body does not fill the viewport (David's iPhone, 2026-10-02)");
 
         for (var k = 0; k < SCREENS.length; k++) {
           var screen = SCREENS[k];

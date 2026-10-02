@@ -90,7 +90,13 @@
 /* A focused element scrolls only until it touches the viewport's edge -
    which is under the sticky header and the fixed nav. Keep it clear of both
    (WCAG 2.4.11). */
-html{background:var(--s-page);scroll-padding-top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px) + .75rem);scroll-padding-bottom:calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 2.5rem)}
+/* The canvas under the page is the nav's colour, and the body carries the
+   page colour down to the bottom of the viewport. On an installed iPhone app
+   iOS can stop the viewport - and every fixed bar with it - short of the
+   screen's bottom edge, and it clips fixed content at that line, so nothing
+   the nav paints can reach below it; what shows there is this canvas. With it
+   the nav's colour, the strip reads as the nav (David, 2026-10-02, twice). */
+html{background:var(--s-surface);scroll-padding-top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px) + .75rem);scroll-padding-bottom:calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 2.5rem)}
 /* Ohio State's type (C19). Ohio State's own fonts are not available for
    independent use; it recommended Nunito Sans (not Nunito) as the closest
    public face, and David approved it for Ohio State's Team Style
@@ -103,7 +109,7 @@ html{background:var(--s-page);scroll-padding-top:calc(var(--s-bar-h) + env(safe-
 @font-face{font-family:'Nunito Sans';font-style:normal;font-weight:200 1000;font-display:swap;src:url(assets/fonts/nunito-sans/nunito-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Nunito Sans';font-style:normal;font-weight:200 1000;font-display:swap;src:url(assets/fonts/nunito-sans/nunito-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-body{margin:0;background:var(--s-page);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1rem;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;min-height:100dvh;background:var(--s-page);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1rem;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
 [hidden]{display:none !important}
 img{max-width:100%}
 button{font:inherit}
@@ -174,10 +180,9 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .navbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;
   padding:.3rem max(.4rem,env(safe-area-inset-right,0px)) max(.55rem,env(safe-area-inset-bottom,0px)) max(.4rem,env(safe-area-inset-left,0px));
   background:var(--s-surface);border-top:1px solid var(--s-line);box-shadow:0 -6px 20px rgba(15,27,45,.06)}
-/* The nav's surface carries on below it, off-screen. iOS can leave a fixed
-   bar short of the screen's bottom edge (David's iPhone, 2026-10-02, on
-   screens too short to scroll), and the strip under it then showed the page
-   behind; now that strip is the nav. */
+/* The nav's surface carries on below it, off-screen, for a bar lifted
+   inside the viewport. Below the viewport's own edge it is clipped, and the
+   canvas (html, above) is what fills the strip. */
 .navbar::after{content:"";position:absolute;left:0;right:0;top:100%;height:12rem;background:inherit;pointer-events:none}
 .nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:var(--s-muted);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1;-webkit-tap-highlight-color:transparent}
 .nav-item svg{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
