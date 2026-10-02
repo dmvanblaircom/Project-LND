@@ -122,8 +122,10 @@ eq(MT.sources.list(ND).map(function (x) { return x.name; }),
 eq(MT.sources.list(ND)[1].supplies, ["depth", "availability"], "the official site: depth chart and availability, once");
 var osuCtx = vm.createContext({});
 ["teams/ohio-state.js"].forEach(function (f) { vm.runInContext(read(f), osuCtx, { filename: f }); });
-eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "Kalshi", "CollegeFootballData", "Open-Meteo"],
-   "Ohio State, with no official snapshots or beat feeds, is credited none");
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern", "Kalshi", "CollegeFootballData", "Open-Meteo"],
+   "Ohio State is credited its beat feeds, and no official snapshot it does not have");
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).filter(function (x) { return x.supplies.indexOf("depth") >= 0 || x.supplies.indexOf("availability") >= 0; }), [],
+   "nothing is credited for an Ohio State depth chart or availability report");
 var abh = mhost(); MS.more.about(abh, { version: "2026-09-24v", sources: MT.sources.list(ND) });
 ok(!/project\s*lnd/i.test(abh.innerHTML + m.innerHTML + st.innerHTML + fbh.innerHTML), "no screen says Project LND (0022 #9)");
 ok(/not affiliated with, endorsed by or sponsored by/.test(abh.innerHTML) && /used only to\s+identify/.test(abh.innerHTML.replace(/" \+ "/g, "")),

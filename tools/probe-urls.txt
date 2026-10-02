@@ -1,3 +1,10 @@
-# W07 (2026-10-02): FPI's edition time, a third day, before it joins the
-# refresh. Probed from GitHub's network by probe-sources.yml on push.
-https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=200
+# W20 (2026-10-02), round 4: David's rule - official sources first, a
+# credited projection where a team publishes none. Who publishes a weekly
+# projected Ohio State depth chart that the runner can read, and on what
+# terms? Probed from GitHub's network by probe-sources.yml on push.
+https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/ohio-state/91533
+https://www.ourlads.com/ncaa-football-depth-charts/depth-chart.aspx?id=91533
+https://www.ourlads.com/terms.aspx
+https://www.ourlads.com/termsofuse.aspx
+https://www.landgrantholyland.com/ohio-state-football
+https://www.on3.com/teams/ohio-state-buckeyes/depth-chart/
