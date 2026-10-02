@@ -86,7 +86,7 @@ function fakeCaches() {
       "function get(){ return Promise.resolve({ events:[] }); }",
       "function cachedJSON(){ return " + (cached ? "Promise.resolve({ events:[] })" : "Promise.reject(0)") + "; }",
       "function hasEvents(){ return true; } function outcomeOf(){ return 'network'; } function say(){}",
-      "function startAuto(){} function paintScheduleScreen(){} function paintHome(){ painted.push('home'); } function paintGame(){} function paintTop25(){}",
+      "function startAuto(){} function paintScheduleScreen(){} function paintHome(){ painted.push('home'); } function paintGame(){} function paintTop25(){} function statsInputsChanged(){}",
       "function warmTabs(){} function applyGameRules(){ rules++; }",
       slowSummary ? "var release; function summaryFor(){ return new Promise(function(r){ release=r; }); }"
                   : "function summaryFor(){ return Promise.resolve({}); }"].join("\n"), c);
@@ -166,7 +166,7 @@ function fakeCaches() {
       "  if(mode==='down') return Promise.reject(new Error('offline'));",
       "  return Promise.resolve({ data: JSON.parse(/\\/types\\//.test(url) ? CORE : SITE), cached: mode==='cached' ? new Date().toUTCString() : null }); }"
     ].join("\n"), c);
-    ["statsType", "teamSeasonFor", "gameWeekGame", "loadStats", "statsTypeChanged"].forEach(function (f) { vm.runInContext(lift(f), c); });
+    ["statsType", "teamSeasonFor", "gameWeekGame", "loadStats", "statsInputsChanged"].forEach(function (f) { vm.runInContext(lift(f), c); });
     return c;
   }
   var st = statsScope();
@@ -174,7 +174,7 @@ function fakeCaches() {
   ok(st.ST.type === 2 && st.asked.some(function (u) { return /\/types\/2\/teams\/87\//.test(u); }),
      "opened before the postseason schedule is known: the regular season, and it says which");
   st.POST = JSON.parse(read("tools/fixtures/espn-schedule-nd-2024-post.json")); st.asked.length = 0;
-  st.statsTypeChanged(); await settled();
+  st.statsInputsChanged(); await settled();
   ok(st.ST.type === 3 && st.asked.some(function (u) { return /\/types\/3\/teams\/87\//.test(u); }),
      "the postseason's schedule arrives with a game played: the season is asked again, postseason included - never relabelled");
   st.asked.length = 0; await st.loadStats(); await settled();
@@ -186,6 +186,22 @@ function fakeCaches() {
      "a refresh that fails keeps the figures on screen and reports the failure");
   st.mode = "network"; await st.loadStats(true); await settled();
   ok(st.ST.outcome === "network", "and a real answer is a real refresh");
+  // David, 2026-10-02: opened straight onto Stats in game week, the
+  // figures were fetched before the schedule said who this week's opponent
+  // was, and the opponent's column never came.
+  var gw = statsScope(), wk = { oppProviderId: "2509", oppName: "Purdue", state: "pre", date: new Date(Date.now() + 2 * 864e5).toISOString() };
+  var first = gw.loadStats();
+  gw.S.next = wk; gw.statsInputsChanged();             // the schedule answers while the first ask is out
+  await first; await settled(); await settled();
+  ok(gw.ST.oppFor === "2509" && !!gw.ST.them && gw.asked.some(function (u) { return /\/teams\/2509\//.test(u); }),
+     "the schedule naming this week's opponent after Stats opened: the opponent's season is asked for and shown");
+  gw.asked.length = 0; gw.statsInputsChanged(); await settled();
+  ok(gw.asked.length === 0, "and the schedule's next answer, the same week, asks nothing");
+  var fo = statsScope(); fo.S.next = wk;
+  fo.fetchJSON = function (url) { fo.asked.push(url); return /2509/.test(url) ? Promise.reject(new Error("down")) : Promise.resolve({ data: JSON.parse(/\/types\//.test(url) ? fo.CORE : fo.SITE), cached: null }); };
+  await fo.loadStats(); await settled(); fo.asked.length = 0;
+  fo.statsInputsChanged(); await settled();
+  ok(!fo.ST.them && fo.asked.length === 0, "an opponent whose season failed is not asked for on every schedule poll (a refresh asks again)");
 
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "what the app learns stays honest across refreshes"));
   process.exit(failures ? 1 : 0);
