@@ -1,4 +1,3 @@
-# W16 offseason follow-ups, round 5 (2026-10-02). A recruit's status object
-# (committed school?) and a draft prospect's full attribute list.
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/265222 | status|commit|college|school|team|"name"|"id"|"description"|"abbreviation"
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/2027/athletes?limit=1 | status|commit|college|team|"description"|stars
+# W16 offseason follow-ups, round 6 (2026-10-02). Which of a recruit's
+# schools carries the commitment? Leaves are printed with full JSON paths.
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/265222 | ^status|^schools\[\d+\]\.(status|team)|recruitingClass
