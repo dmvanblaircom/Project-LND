@@ -130,6 +130,11 @@ jobs:
       - name: Fill in provider ids
         run: node tools/registry-ids.js sb/*.json --write
 
+      # The edge API answers CFBD questions only for registry schools; its
+      # list follows the registry (tools/build-worker-schools.js).
+      - name: The edge API's school list follows the registry
+        run: node tools/build-worker-schools.js
+
       - name: The registry must still be valid
         run: |
           node --check teams/index.js
@@ -147,7 +152,7 @@ jobs:
           after=$(grep -c '{ id:' teams/index.js || true)
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add teams/index.js
+          git add teams/index.js worker/src/schools.js
           git commit -m "Refresh the team registry: ${before} -> ${after} programs"
           git push
 

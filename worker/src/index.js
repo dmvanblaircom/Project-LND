@@ -8,7 +8,8 @@
    Routes
      GET /v1/health                         liveness and version
      GET /v1/cfbd/season?team=&year=        CFBD season stats for one team,
-                                            only the fields in CFBD_FIELDS
+                                            only the fields in CFBD_FIELDS; a school in
+                                            the registry, this season or last
      GET /v1/probe/espn                     can this Worker reach ESPN's live
                                             scoreboard? Status, time, game
                                             count only (W19 Phase 0)
@@ -24,7 +25,9 @@
 
    No dependencies: Workers' standard fetch, Request, Response and Cache. */
 
-export const VERSION = "edge-2026-10-01d";
+import { SCHOOLS } from "./schools.js";
+
+export const VERSION = "edge-2026-10-02a";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
 const CFBD = "https://api.collegefootballdata.com";
@@ -38,6 +41,12 @@ const KEEP_SECONDS = 7 * 24 * 3600;    // a stale copy may stand in for a week
 export const CFBD_FIELDS = ["games", "rushingYardsOpponent", "netPassingYardsOpponent"];
 
 const TEAM = /^[A-Za-z0-9 .&'()À-ſ-]{2,40}$/;
+// Only the registry's schools, and only this season or last, ever reach
+// CFBD: each new (school, season) spends one call of the key's monthly
+// allowance, and a script asking for made-up names or years could spend it
+// all and blank Matchup's yards-allowed rows for every fan (bug hunt,
+// 2026-10-02). worker/src/schools.js is generated from teams/index.js.
+const KNOWN = new Set(SCHOOLS.map(function (s) { return s.toLowerCase(); }));
 
 function cors(origin) {
   const h = { "vary": "Origin" };
@@ -75,6 +84,9 @@ async function cfbdSeason(url, env, origin, ctx) {
   const year = Number(url.searchParams.get("year"));
   if (!TEAM.test(team)) return fail(400, "team is required", origin);
   if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
+  if (!KNOWN.has(team.toLowerCase())) return fail(404, "not a school Suite covers", origin);
+  const now = new Date(env.NOW ? env.NOW() : Date.now()).getUTCFullYear();
+  if (year !== now && year !== now - 1) return fail(400, "only this season or last", origin);
   if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
 
   const cache = env.CACHE || caches.default;

@@ -8,6 +8,7 @@
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
 import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE } from "../worker/src/index.js";
+import { SCHOOLS } from "../worker/src/schools.js";
 
 let failures = 0;
 function ok(cond, what) { console.log("  " + (cond ? "ok  " : "FAIL") + " " + what); if (!cond) failures++; }
@@ -31,7 +32,8 @@ const SITE = "https://dmvanblaircom.github.io";
 function env(opts) {
   opts = opts || {};
   const calls = [];
-  return { calls, CACHE: opts.cache || memoryCache(), FIELDS, CFBD_API_KEY: "key" in opts ? opts.key : "test-key",
+  // the season is judged against this date, so the checks do not age
+  return { calls, NOW: () => Date.parse("2026-10-02T12:00:00Z"), CACHE: opts.cache || memoryCache(), FIELDS, CFBD_API_KEY: "key" in opts ? opts.key : "test-key",
     FETCH: async (url, init) => { calls.push({ url, init });
       if (opts.down) throw new Error("network");
       if (opts.status) return new Response("upstream says no: " + "x".repeat(50), { status: opts.status });
@@ -126,12 +128,28 @@ console.log("when CFBD fails");
      "nothing saved and CFBD failing: a plain error, never CFBD's body");
   ok(none.r.headers.get("cache-control") === "no-store", "and an error is never cached"); }
 
+console.log("the schools it answers for");
+{ const fs = await import("fs"), vm = await import("vm");
+  const c = vm.createContext({});
+  vm.runInContext(fs.readFileSync(new URL("../teams/index.js", import.meta.url), "utf8") + "\nthis.R = TEAM_REGISTRY;", c);
+  const reg = c.R.map((t) => t.name);
+  ok(SCHOOLS.length >= 100 && reg.every((n) => SCHOOLS.includes(n)), "every program in the registry (" + reg.length + "), by the name the app sends");
+  ok(SCHOOLS.every((n) => reg.includes(n)), "and nothing else"); }
+
 console.log("bad requests");
 { const e = env();
   ok((await get("/v1/cfbd/season?year=2026", e)).r.status === 400, "no team: 400");
   ok((await get("/v1/cfbd/season?team=%3Cscript%3E&year=2026", e)).r.status === 400, "a team that is not a name: 400");
   ok((await get("/v1/cfbd/season?team=Notre%20Dame", e)).r.status === 400, "no year: 400");
   ok(e.calls.length === 0, "none of them reaches CFBD");
+  // Bug hunt, 2026-10-02: any name or year used to reach CFBD and spend the
+  // key's monthly allowance.
+  ok((await get("/v1/cfbd/season?team=Made%20Up%20State&year=2026", e)).r.status === 404, "a school not in the registry: 404");
+  ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2019", e)).r.status === 400, "a season before last: 400");
+  ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2027", e)).r.status === 400, "a season not yet played: 400");
+  ok(e.calls.length === 0, "none of those reaches CFBD either");
+  ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2025", e)).r.status === 200 && e.calls.length === 1, "last season is still answered (January's bowl games)");
+  ok((await get("/v1/cfbd/season?team=ohio%20state&year=2026", e)).r.status === 200, "a registry school in any case is answered");
   ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", env({ key: "" }))).r.status === 503, "no key configured: 503, not a crash");
   ok((await get("/nope", e)).r.status === 404, "an unknown route: 404");
   const post = await worker.fetch(new Request("https://suite-api.example/v1/health", { method: "POST" }), e, null);
