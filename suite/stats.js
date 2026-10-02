@@ -44,9 +44,10 @@ Suite.stats = (function () {
     if (them) them.groups.forEach(function (tg) { tg.rows.forEach(function (x) { theirs[x.key] = x; }); });
     var two = !!them;
     return '<section class="card gcard ss-card" aria-labelledby="ss-' + esc(g.id) + '">' +
-             '<div class="gcard-head"><h2 class="gcard-title" id="ss-' + esc(g.id) + '">' + esc(g.label) + "</h2>" +
-               (two ? '<span class="ss-cols" aria-hidden="true"><span>' + esc(m.team.abbr) + "</span><span>" + esc(m.opp.abbr || m.opp.name) + "</span></span>" : "") +
-             "</div>" +
+             '<div class="gcard-head"><h2 class="gcard-title" id="ss-' + esc(g.id) + '">' + esc(g.label) + "</h2></div>" +
+             // the column labels sit on the rows' own grid, so each is over
+             // its figures whatever the title's length (David, 2026-10-02)
+             (two ? '<div class="ss-cols" aria-hidden="true"><span></span><span>' + esc(m.team.abbr) + "</span><span>" + esc(m.opp.abbr || m.opp.name) + "</span></div>" : "") +
              '<ul class="ss-list">' + g.rows.map(function (r) { return rowHtml(r, theirs[r.key], two, m); }).join("") + "</ul>" +
            "</section>";
   }

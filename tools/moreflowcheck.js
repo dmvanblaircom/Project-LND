@@ -56,7 +56,7 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
     var ctx = await browser.newContext({ viewport: { width: 390, height: 844 },
       serviceWorkers: opts.worker ? "allow" : "block" });
     var page = await ctx.newPage();
-    var st = { mode: { espn: "ok", beat: "ok", team: "ok", schedule: "ok", scoreboard: "ok", odds: "ok", snap: "ok", roster: "ok" }, n: {} };
+    var st = { mode: { espn: "ok", beat: "ok", team: "ok", schedule: "ok", scoreboard: "ok", odds: "ok", snap: "ok", roster: "ok", stats: "ok", oppstats: "ok" }, n: {} };
     var H = { "access-control-allow-origin": "*", "access-control-expose-headers": "X-IW-Cached" };
     async function answer(route, key, body) {
       st.n[key] = (st.n[key] || 0) + 1;
@@ -84,6 +84,12 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
       if (/\/teams\/87\/schedule(\?|$)/.test(u)) return answer(route, "schedule", fixture("espn-schedule-nd-sep24.json"));
       if (/\/teams\/87(\?|$)/.test(u)) return answer(route, "team", fixture("espn-team.json"));
       if (/\/scoreboard\?/.test(u)) return answer(route, "scoreboard", fixture("espn-scoreboard-sep26.json"));
+      // Stats: the season's figures (core API) and what each side allowed
+      // (site API), for us and for this week's opponent
+      if (/\/types\/\d\/teams\/87\/statistics(\?|$)/.test(u)) return answer(route, "stats", fixture("espn-teamstats-nd-2026-reg.json"));
+      if (/\/types\/\d\/teams\/\d+\/statistics(\?|$)/.test(u)) return answer(route, "oppstats", fixture("espn-teamstats-osu-2026-reg.json"));
+      if (/\/teams\/87\/statistics(\?|$)/.test(u)) return answer(route, "stats", fixture("espn-sitestats-nd.json"));
+      if (/\/teams\/\d+\/statistics(\?|$)/.test(u)) return answer(route, "oppstats", fixture("espn-sitestats-nd.json"));
       return route.abort();
     };
     if (opts.worker) await ctx.route("**/*", router); else await page.route("**/*", router);
@@ -275,6 +281,55 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
   await sh.page.click("[data-share]"); await sh.page.waitForTimeout(4400);
   ok(await row(sh.page) === words, "and after a second tap, four seconds on, its own words again: " + JSON.stringify(words));
   await sh.ctx.close();
+
+  // David, 2026-10-02: in game week the team labels sat under the card's
+  // title, not over their figures; and Stats, failed offline, said it would
+  // load when the connection returned but never asked again.
+  console.log("6. Stats: labels over their figures, and back with the connection");
+  var sx = await open();
+  // the day before the fixture's next game, Purdue: game week, two columns
+  await sx.page.clock.setFixedTime(new Date("2026-09-25T12:00:00Z"));
+  sx.st.mode.stats = "fail";
+  await sx.page.goto(base + "/?team=notre-dame#stats"); await sx.page.waitForTimeout(1500);
+  var sx1 = await sx.page.evaluate(function () { return document.getElementById("screenStats").textContent; });
+  ok(/didn.t load/i.test(sx1), "Stats failing says so: " + JSON.stringify(sx1.slice(0, 60)));
+  sx.st.mode.stats = "ok";
+  await sx.ctx.setOffline(true); await sx.page.waitForTimeout(300);
+  await sx.ctx.setOffline(false); await sx.page.waitForTimeout(1500);
+  var rows = await sx.page.evaluate(function () { return document.querySelectorAll("#screenStats .ss-row.two").length; });
+  ok(rows > 20, "the connection back, Stats asks again and fills in, both teams (" + rows + " rows)");
+  for (var vw of [320, 390]) {
+    await sx.page.setViewportSize({ width: vw, height: 844 }); await sx.page.waitForTimeout(200);
+    var off = await sx.page.evaluate(function () {
+      var worst = 0, cards = document.querySelectorAll("#screenStats .ss-card");
+      [].forEach.call(cards, function (card) {
+        var labels = card.querySelectorAll(".ss-cols > span"), row = card.querySelector(".ss-row.two");
+        if (!row || labels.length !== 3) { worst = 999; return; }
+        ["us", "them"].forEach(function (side, i) {
+          var a = labels[i + 1].getBoundingClientRect(), b = row.querySelector(".ss-v." + side).getBoundingClientRect();
+          worst = Math.max(worst, Math.abs((a.left + a.width / 2) - (b.left + b.width / 2)));
+          if (a.bottom > b.top) worst = 999;           // the label is above its figures
+        });
+      });
+      return { worst: worst, cards: cards.length };
+    });
+    ok(off.cards >= 4 && off.worst <= 1, "at " + vw + "px each team label sits over its own column in all " + off.cards + " cards (off by " + off.worst.toFixed(1) + "px)");
+  }
+  await sx.ctx.close();
+  // Codex review, #84: ours loaded, the opponent's failed - the connection
+  // back asks for the opponent too, not only for a season that failed whole.
+  var so = await open();
+  await so.page.clock.setFixedTime(new Date("2026-09-25T12:00:00Z"));
+  so.st.mode.oppstats = "fail";
+  await so.page.goto(base + "/?team=notre-dame#stats"); await so.page.waitForTimeout(1500);
+  var so1 = await so.page.evaluate(function () { return { one: document.querySelectorAll("#screenStats .ss-row").length, two: document.querySelectorAll("#screenStats .ss-row.two").length }; });
+  ok(so1.one > 20 && so1.two === 0, "the opponent's season failing: ours shows, one column (" + so1.one + " rows)");
+  so.st.mode.oppstats = "ok";
+  await so.ctx.setOffline(true); await so.page.waitForTimeout(300);
+  await so.ctx.setOffline(false); await so.page.waitForTimeout(1500);
+  var so2 = await so.page.evaluate(function () { return document.querySelectorAll("#screenStats .ss-row.two").length; });
+  ok(so2 > 20, "the connection back, the opponent's column fills in (" + so2 + " rows)");
+  await so.ctx.close();
 
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "More recovers per source, reports refreshes truthfully and follows the connection"));
