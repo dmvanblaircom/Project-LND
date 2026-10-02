@@ -675,9 +675,13 @@ function teamSeasonStats(key){
 // `type` is the season type the figures were fetched for: the postseason
 // is only known once its schedule has answered, so data fetched before
 // that is the regular season's and is asked again when the type changes
-// (Codex review, #82). `outcome` is what the last ask came to, for Refresh
-// Data's report: network, the worker's kept copy, or failed.
-var ST={ us:null, them:null, opp:null, type:null, p:null, failed:false, outcome:null };
+// (Codex review, #82). `oppFor` is the opponent the figures were fetched
+// for (null outside game week): the schedule, too, can answer after Stats
+// opened, and only then is this week's opponent known (David, 2026-10-02).
+// `again`: something changed while a request was out; ask once more after.
+// `outcome` is what the last ask came to, for Refresh Data's report:
+// network, the worker's kept copy, or failed.
+var ST={ us:null, them:null, opp:null, oppFor:null, type:null, p:null, again:false, failed:false, outcome:null };
 function statsType(){ return TeamOS.espn.seasonTypeFor(POST); }
 function teamSeasonFor(key, type){
   var year=seasonYear(), how=[];
@@ -700,27 +704,31 @@ function gameWeekGame(){
   return g.state==="in" || (ms>-6*3600e3 && ms<7*86400e3) ? g : null;
 }
 function loadStats(force){
-  if(ST.p) return ST.p;
-  var g=gameWeekGame(), type=statsType();
-  var have=ST.us && ST.type===type && (!g || (ST.opp && ST.opp.oppProviderId===g.oppProviderId && ST.them));
+  if(ST.p){ ST.again=true; return ST.p; }
+  var g=gameWeekGame(), type=statsType(), oppFor=g ? g.oppProviderId : null;
+  var have=ST.us && ST.type===type && ST.oppFor===oppFor;
   if(have && !force) return Promise.resolve();
   ST.failed=false;
   ST.p=Promise.all([
     teamSeasonFor(TEAM_CONFIG.sources.espn.teamId, type),
     g ? teamSeasonFor(g.oppProviderId, type).catch(function(){ return null; }) : Promise.resolve(null)
-  ]).then(function(r){ ST.us=r[0].season; ST.outcome=r[0].outcome; ST.type=type;
+  ]).then(function(r){ ST.us=r[0].season; ST.outcome=r[0].outcome; ST.type=type; ST.oppFor=oppFor;
                        ST.them=r[1] ? r[1].season : null; ST.opp=r[1] ? g : null; },
           // a failed refresh keeps what was on screen, and says it failed
           function(){ ST.outcome="failed"; if(!ST.us) ST.failed=true; })
-    .then(function(){ ST.p=null; paintStats(); });
+    .then(function(){
+      ST.p=null; paintStats();
+      if(ST.again){ ST.again=false; if(!$("screenStats").hidden) loadStats(); }
+    });
   paintStats();
   return ST.p;
 }
-// The postseason's schedule answered: if it moved the season type, figures
-// already fetched are the wrong season - ask again while Stats is open, or
-// the next time it opens.
-function statsTypeChanged(){
-  if(ST.us && ST.type!==statsType() && !$("screenStats").hidden) loadStats(true);
+// The schedule or the postseason answered: if that moved the season type or
+// this week's opponent, the figures held are the wrong ones - ask again
+// while Stats is open (loadStats asks only when something differs), or the
+// next time it opens.
+function statsInputsChanged(){
+  if((ST.us || ST.p) && !$("screenStats").hidden) loadStats();
 }
 function paintStats(){
   var host=$("screenStats");
@@ -913,6 +921,8 @@ window.addEventListener("online",  function(){
   paintGame(); paintScheduleScreen();
   paintHome(); paintTop25(); paintRoster(); paintMore();
   loadNews();                              // each source that failed, or came from the worker's copy, is asked again
+  // Stats said it would load when the connection returned: it does.
+  if(!$("screenStats").hidden && ST.outcome==="failed") loadStats(true);
 });
 window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); });
 
@@ -1348,6 +1358,7 @@ function refreshSchedule(first){
     paintHome();
     paintGame();
     paintTop25();                        // which game #game opens rides on the schedule
+    statsInputsChanged();                // and Stats' opponent column, in game week
     return games;
   }
   var painted=false;
@@ -1362,7 +1373,7 @@ function refreshSchedule(first){
     }).catch(function(){});
   }
 
-  var post=get(postUrl, hasEvents).then(function(d){ POST=d; statsTypeChanged(); }).catch(function(){});
+  var post=get(postUrl, hasEvents).then(function(d){ POST=d; statsInputsChanged(); }).catch(function(){});
   S.p=Promise.all([get(url, hasEvents), post]).then(function(r){
     var games=apply(r[0]);
     // A game under way before the first scoreboard tick: fetch it now, so

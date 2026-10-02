@@ -22,7 +22,11 @@ beside it during game week (proposal: `docs/product/season-stats-proposal.md`).
 
 **For Codex to review - the look only (`app.css`, "Stats: the team's season"):**
 - The rows (`.ss-row`, `.ss-v`, `.ss-rk`): one column, and two in game week
-  (`.ss-row.two`, `.ss-cols`).
+  (`.ss-row.two`, `.ss-cols`). The team labels (`.ss-cols`) now sit on the
+  rows' own grid, under the card title, so each is over its figures (David,
+  2026-10-02: they had wrapped under the title, flush left).
+  `tools/moreflowcheck.js` holds them centred over their columns at 320 and
+  390px; restyle freely within that.
 - Long values ("17 of 41 (41.5%)") wrap inside a 5.4rem column at 320px.
   Decide whether they should.
 - The season line, the "This week" line and the source note.
