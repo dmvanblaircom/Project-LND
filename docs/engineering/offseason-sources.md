@@ -6,7 +6,7 @@ David's decisions on the offseason proposal (§7):
   permission emails for David to review. Nothing is sent without him.
 
 Every source below was probed from GitHub's network, the production runner's
-(`probe-sources.yml`, five rounds on branch `probe/offseason-sources`). The
+(`probe-sources.yml`, seven rounds on branch `probe/offseason-sources`). The
 probes print what a source returns and store nothing.
 
 ## What the sources carry
@@ -14,7 +14,7 @@ probes print what a source returns and store nothing.
 | Source | From the runner | What it carries | Gaps |
 |---|---|---|---|
 | **ESPN draft API**<br>`sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/<year>/draft` | 200, JSON | **2027 draft:**<ul><li>Status "Scheduled"; start `2027-04-30T00:00Z`, which is the evening of Apr 29 ET; 7 rounds.</li><li>`/draft/athletes`: a 50-player prospect board (2026's grew to 689).</li><li>Each prospect has a college (a `$ref` with ESPN's team id, so a team filter is exact: Ohio State is 194), position, height and weight.</li><li>Attributes include position rank and overall rank.</li><li>After the draft, each prospect also has a `pick` (round and number) and ESPN's analysis text.</li></ul> | <ul><li>**Grade:** no grade appears on 2027 prospects yet. 2026's had one (e.g. Grade 92), but when ESPN fills it in during the cycle has not been observed.</li><li>**"Projected pick":** none appears; the board is a rank, not a mock draft.</li></ul> |
-| **ESPN recruiting API**<br>`sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/<year>` | 200, JSON | Classes 2007-2029.<ul><li>The 2027 list holds 2,837 recruits.</li><li>Each recruit has a high school, position, grade (e.g. 93), and national, position, state and region rank.</li><li>Each recruit has a commitment status (e.g. "Verbal") and a `schools` list. Each school is an ESPN team `$ref` (Notre Dame 87 and Ohio State 194 both appear) with its own status (e.g. "Undecided").</li></ul> | <ul><li>Which school entry is the commitment needs one captured record to confirm. That is presumably the school whose status matches the recruit's.</li><li>Team class rankings (`/rankings`) hold one item.</li></ul> |
+| **ESPN recruiting API**<br>`sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/<year>` | 200, JSON | Classes 2007-2029.<ul><li>The 2027 list holds 2,837 recruits.</li><li>Each recruit has a high school, position, grade (e.g. 93), and national, position, state and region rank.</li><li>Each recruit has a commitment status (e.g. "Verbal") and a `schools` list of candidate schools, each an ESPN team `$ref`.</li><li>The committed school is the one entry whose status matches the recruit's. On the record probed, 21 of 22 schools read "Undecided" (Notre Dame 87 and Ohio State 194 among them), and `schools[21]` reads "Verbal".</li></ul> | <ul><li>A team's class must be built from that matching entry, never from a school's appearance in the list.</li><li>Team class rankings (`/rankings`) hold one item.</li></ul> |
 | **NFL.com prospects**<br>`nfl.com/draft/tracker/prospects` | 200, HTML (now at `/2026/prospects`) | 2026 prospects with Lance Zierlein's grades (e.g. 7.04, 6.78) and scouting text. | 2026 only today. HTML, not an API. |
 | **On3 / Rivals** (one company since 2025)<br>`on3.com/college/<team>/football/<year>/commits/` | 200, HTML | Notre Dame 2027 (updated 07/23/26):<ul><li>23 high-school commits.</li><li>National rank 2nd, industry rank 1st.</li></ul> | HTML, behind a subscriber layer in places. |
 | **247Sports** | **406, refused** (never bypassed) | Nothing readable from the runner. Its owner's (CBS Interactive) terms were readable at `legal.paramount.com`. | |
@@ -43,7 +43,7 @@ probes print what a source returns and store nothing.
      - capture the board monthly to learn when grades appear;
      - read one prospect's `status` and `pick` fields.
 2. **D4 (recruiting): ESPN's recruiting API covers the core need without a license:** the class, each recruit's grade and ranks, position and high school.
-   - The commitment and the team are in the data: a status plus a `schools` list keyed by ESPN team id. A team's class is the recruits whose commitment points at its id.
-   - Before building, capture one committed recruit as a fixture to confirm which entry marks the commitment.
+   - The commitment and the team are in the data. A team's class is the recruits whose matching `schools[]` entry (the one with the recruit's own status, not "Undecided") points at its team id.
+   - Before building, capture recruits as fixtures, a verbal and a signed one, so the adapter is tested on real records.
    - 247Sports and On3 would add their composite and industry rankings. Those need permission, so the emails are drafted for David (not sent).
 3. **Hold any email to ESPN.** Asking ESPN for permission raises the whole app's use of ESPN, not just recruiting. That is the launch-or-monetization question David has already deferred.
