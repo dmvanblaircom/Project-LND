@@ -541,6 +541,8 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .mu-v.better{background:rgba(var(--t-accent-rgb),.16)}
 .mu-n{font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;color:var(--s-ink)}
 .mu-rk{font-size:.75rem;color:var(--s-muted)}
+/* On the better side's team tint the muted grey falls below 4.5:1 (Ohio State's scarlet tint, 4.11:1); the rank reads in the darker ink there. */
+.mu-v.better .mu-rk{color:var(--s-ink-2)}
 .mu-l{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.92rem;color:var(--s-ink-2);text-align:center}
 .mu-arrow{width:0;height:0;border-top:.4rem solid transparent;border-bottom:.4rem solid transparent}
 .mu-arrow.l{border-right:.55rem solid var(--t-accent-on-light)}
@@ -1040,3 +1042,22 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .pull.is-refreshing .pull-mark{animation:pull-turn .8s linear infinite}
 @keyframes pull-turn{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.pull,.pull.is-pulling{transition:none}.pull.is-refreshing .pull-mark{animation:none}}
+
+/* ---- Stats: the team's season (W27) ------------------------------------
+   Placeholder styling on the shared card (gcard), for Codex's review: the
+   Team view's rows, the opponent column in game week, the Roster link. */
+.ro-stats{display:flex;justify-content:flex-end;margin:0}
+.ss-season{margin:.7rem 0 0;font-size:.95rem;color:var(--s-muted)}
+.ss-week{margin:.2rem 0 0;font-size:.95rem;color:var(--s-ink-2)}
+.ss-card{margin-top:.8rem}
+.ss-cols{display:grid;grid-template-columns:5.4rem 5.4rem;gap:.5rem;font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-align:center;color:var(--s-muted)}
+.ss-list{list-style:none;margin:0;padding:0}
+.ss-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem;padding:.45rem 0}
+.ss-row.two{grid-template-columns:minmax(0,1fr) 5.4rem 5.4rem;gap:.5rem}
+.ss-row + .ss-row{border-top:1px solid var(--s-line)}
+.ss-l{font-size:.95rem;color:var(--s-ink-2)}
+.ss-v{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.ss-row.two .ss-v{align-items:center;text-align:center}
+.ss-n{font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;color:var(--s-ink)}
+.ss-rk{font-size:.75rem;color:var(--s-muted)}
+.ss-note{margin:1rem 0 0;font-size:.85rem;color:var(--s-muted)}

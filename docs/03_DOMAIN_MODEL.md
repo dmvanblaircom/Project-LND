@@ -192,6 +192,19 @@ One team in a `GameDetail`: `{ key, name, abbreviation, record, score, mine, pos
 
 Rushing and passing *defense* are deliberately absent: ESPN's team statistics endpoint carries no opponent-facing data, and the `pointsAllowed`/`yardsAllowed` fields it does publish are permanently `0` ranked `Tied-1st`. See `docs/decisions/0011-derived-season-figures.md`.
 
+
+### TeamSeason
+
+`{ games, groups: [{ id, label, rows: [{ key, label, value, rank }] }] }`: a team's season for the Stats screen's Team view (W27, `docs/product/season-stats-proposal.md`). It is produced by `TeamOS.espn.teamSeason(core, site)` from two provider payloads:
+- `core`: the core API's season statistics, which give the figures and national ranks;
+- `site`: the site API's team statistics, whose `opponent` section is what the team allowed.
+
+The four groups are offense, defense, special teams, and turnovers and penalties.
+- `value` is the display string.
+- `rank` is the provider's rank text, kept only where more of the figure is better. The provider ranks raw values, so the fewest penalties would read last.
+- A row whose source is missing is left out, never shown as 0. The provider publishes stubs (a 0 ranked "Tied-1st"), so the rows are an allowlist checked against real payloads for both teams.
+- `games` counts the postseason when the payload is the postseason one (`TeamOS.espn.seasonTypeFor()` picks it once a postseason game has been played; its figures are cumulative).
+
 ### Player
 
 A roster entry. **Implemented in Phase 3B**, produced only by `TeamOS.espn.roster()`. Provider-neutral; exactly the fields the roster view shows and searches, all strings, empty when the feed has nothing:

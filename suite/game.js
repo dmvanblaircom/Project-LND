@@ -213,7 +213,10 @@ Suite.game = (function () {
     });
     if (!rows) return "";
     return card("Matchup", '<p class="mu-teams"><span>' + esc(m.team.abbr) + "</span><span>" + esc(m.game.oppAbbr || m.game.oppName) + "</span></p>" +
-                '<ul class="mu-list">' + rows + "</ul>", '<span class="gcard-note">Season averages</span>');
+                '<ul class="mu-list">' + rows + "</ul>" +
+                // the whole season, both teams side by side in game week (W27)
+                '<a class="sec-link" href="#stats">Full season stats' + CHEVRON + "</a>",
+                '<span class="gcard-note">Season averages</span>');
   }
   function ordinalRank(n) {
     var s = ["th", "st", "nd", "rd"], v = n % 100;

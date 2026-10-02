@@ -33,3 +33,15 @@ scoreboard-20260926 sep26-live
 401858467 pur-live
 401858465 osu-ill-live
 fpi-2026 sep30
+# W27 season stats, Phase 0 (David approved the proposal, 2026-10-01): the full
+# team season for both teams, regular season and last year's postseason, and
+# the player-stats candidates. A 404 is a finding.
+teamstats-87-2026-2 nd-2026-reg
+teamstats-194-2026-2 osu-2026-reg
+teamstats-87-2025-2 nd-2025-reg
+teamstats-194-2025-3 osu-2025-post
+teamstats-87-2024-3 nd-2024-post
+leaders-87-2026-2 nd-2026-reg
+athletestats-5079369-2026-2 carr-2026-reg
+athletestats-5079369-2025-2 carr-2025-reg
+sitestats-87 nd

@@ -29,7 +29,7 @@ One Suite renders every configured team; Irish Watch is Notre Dame's. Its destin
 - Top 25 - Games and Rankings (national content, with the team as quiet context)
 - Game - the hero game through its lifecycle: preview, live, final
 - Roster - Depth Chart, Roster and Availability, as the team has them
-- More - News, Schedule and Results, Settings (App Style, Change Team, Refresh Data), Feedback, About Suite
+- More - News, Schedule and Results, Stats (the team's season; also linked from Roster and Game's Matchup card), Settings (App Style, Change Team, Refresh Data), Feedback, About Suite
 
 `suite/nav.js` routes them on the page's hash, so Back walks every view. A screen's peer views also change with a sideways swipe, and a pull down from the top of any screen refreshes it - the same refresh as Settings' Refresh Data.
 

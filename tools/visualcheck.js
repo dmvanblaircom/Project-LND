@@ -70,6 +70,12 @@ function responseFor(url) {
     return fs.readFileSync(path.join(root, "tools", "fixtures", NEWS[nw[1]]));
   if (/\/news\?/.test(url)) return fixture("news");
   if (/\/summary\?/.test(url)) return fixture("summary");
+  // A team's season, real payloads captured on the runner (W27): Stats and
+  // the Matchup card read the same core-API call; the site API's carries
+  // what the team allowed (captured for Notre Dame).
+  var ts = /\/types\/\d\/teams\/(\d+)\/statistics/.exec(url);
+  if (ts) return fs.readFileSync(path.join(root, "tools", "fixtures", ts[1] === "87" ? "espn-teamstats-nd-2026-reg.json" : "espn-teamstats-osu-2026-reg.json"));
+  if (/\/teams\/87\/statistics(?:\?|$)/.test(url)) return fs.readFileSync(path.join(root, "tools", "fixtures", "espn-sitestats-nd.json"));
   if (/\/statistics(?:\?|$)/.test(url)) return fixture("statistics");
   if (/\/teams\/\d+(?:\?|$)/.test(url)) return fixture("team");
   return null;
@@ -78,13 +84,13 @@ function responseFor(url) {
 var TEAMS = ["notre-dame", "ohio-state"];
 // Every screen a fan can reach, by route. The first five are the primary nav;
 // Schedule is reached from Home and More (decision 0023).
-var SCREENS = ["home", "top25", "game", "roster", "more", "schedule", "news", "settings", "feedback", "about"];
+var SCREENS = ["home", "top25", "game", "roster", "more", "schedule", "news", "stats", "settings", "feedback", "about"];
 var NAV = ["home", "top25", "game", "roster", "more"];
-var OWNER = { schedule: "more", news: "more", settings: "more", feedback: "more", about: "more" };
+var OWNER = { schedule: "more", news: "more", stats: "more", settings: "more", feedback: "more", about: "more" };
 // Every screen wears one header: the SUITE bar with the team as context
 // (decision 0031). Under it, a visible page title names every screen that
 // has no hero; Home and Game lead with their hero instead.
-var TITLE = { top25: "Top 25", roster: "Roster", more: "More", schedule: "Schedule", news: "News",
+var TITLE = { top25: "Top 25", roster: "Roster", more: "More", schedule: "Schedule", news: "News", stats: "Stats",
               settings: "Settings", feedback: "Feedback", about: "About Suite" };
 // VISUAL_WIDTHS="375,390,1280" adds the canonical 390px review width.
 var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).filter(Boolean);
@@ -513,8 +519,17 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                 return a.querySelector(".mo-title").textContent + "=" + (a.getAttribute("href") || (a.hasAttribute("data-share") ? "share" : "?"));
               }).join("|");
             });
-            if (mo !== "News=#news|Schedule=#schedule|Settings=#settings|Feedback=#feedback|Share Suite=share|About Suite=#about")
+            if (mo !== "News=#news|Schedule=#schedule|Stats=#stats|Settings=#settings|Feedback=#feedback|Share Suite=share|About Suite=#about")
               fail(label, "behaviour", ".mo-list", "More lists " + mo);
+          }
+          if (screen === "stats") {
+            // The team's season (W27): every group, the same code for both teams.
+            await page.waitForFunction(function () { return document.querySelectorAll("#screenStats .ss-row").length > 20; }, null, { timeout: 8000 }).catch(function () {});
+            var ss = await page.evaluate(function () { return { rows: document.querySelectorAll("#screenStats .ss-row").length,
+              groups: document.querySelectorAll("#screenStats .ss-card").length }; });
+            if (ss.rows < 20 || ss.groups < 4) fail(label, "behaviour", "#screenStats", "Stats shows " + ss.rows + " rows in " + ss.groups + " groups");
+            var links = await page.evaluate(function () { return { roster: !!document.querySelector('#screenRoster a[href="#stats"]') }; });
+            if (!links.roster) fail(label, "behaviour", ".ro-stats", "Roster has no link to Stats");
           }
           if (screen === "news") {
             await page.waitForFunction(function () { return document.querySelectorAll("#screenNews .nw-row").length > 0; }, null, { timeout: 8000 }).catch(function () {});

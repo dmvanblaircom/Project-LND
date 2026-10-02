@@ -37,6 +37,7 @@ Suite.roster = (function () {
   "use strict";
 
   var ui = Suite.ui, esc = ui.esc;
+  var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg>';
   var last = {};
 
   var EXTERNAL = '<svg class="ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4"/></svg>';
@@ -238,7 +239,11 @@ Suite.roster = (function () {
   function paint(host, m) {
     if (!host) return;
     if (!host.querySelector("[data-ro]")) {
-      host.innerHTML = '<div data-ro="fresh" role="status"></div><div data-ro="strip"></div><div data-ro="body" class="ro-body"></div>';
+      // The team's season is one tap away from its players (David,
+      // 2026-10-01: Stats lives under More, linked from Roster).
+      host.innerHTML = '<div data-ro="fresh" role="status"></div>' +
+        '<p class="ro-stats"><a class="sec-link" href="#stats">Season stats' + CHEVRON + "</a></p>" +
+        '<div data-ro="strip"></div><div data-ro="body" class="ro-body"></div>';
       last = {};
     }
     var body = m.view === "roster" ? rosterView(m) : m.view === "availability" ? availView(m) : depthView(m);

@@ -1,7 +1,7 @@
 /* Suite - More, and the destinations it owns (reference 10; decisions 0022,
    0024 §17 §18, 0026, 0028).
 
-     #more       the menu: News, Schedule, Settings, Feedback, About Suite
+     #more       the menu: News, Schedule, Stats, Settings, Feedback, About Suite
      #news       every story, newest first; each opens its publisher
      #settings   Team, Appearance (App Style), Data
      #feedback   an email to the Suite team - the fan's mail app sends it
@@ -37,6 +37,8 @@ Suite.more = (function () {
   var ICONS = {
     news:     icon('<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M7 8.5h10M7 12h4M7 15.5h4"/><rect x="13" y="11.5" width="4" height="4.5" rx=".6"/>'),
     schedule: icon('<rect x="3.5" y="5.5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3.5v4M16 3.5v4"/><path d="M7.5 13.5h.01M12 13.5h.01M16.5 13.5h.01M7.5 17h.01M12 17h.01"/>'),
+    // three rising bars on a baseline
+    stats:    icon('<path d="M4 20h16"/><rect x="5.5" y="12" width="3" height="6" rx=".5"/><rect x="10.5" y="8" width="3" height="10" rx=".5"/><rect x="15.5" y="4.5" width="3" height="13.5" rx=".5"/>'),
     // a cog: eight square teeth round a hub (catch-up review 1.6)
     settings: icon('<path d="M9.3 5.5 L10.2 5.2 L10.2 3.0 L13.8 3.0 L13.8 5.2 L14.7 5.5 L15.5 5.9 L17.1 4.4 L19.6 6.9 L18.1 8.5 L18.5 9.3 L18.8 10.2 L21.0 10.2 L21.0 13.8 L18.8 13.8 L18.5 14.7 L18.1 15.5 L19.6 17.1 L17.1 19.6 L15.5 18.1 L14.7 18.5 L13.8 18.8 L13.8 21.0 L10.2 21.0 L10.2 18.8 L9.3 18.5 L8.5 18.1 L6.9 19.6 L4.4 17.1 L5.9 15.5 L5.5 14.7 L5.2 13.8 L3.0 13.8 L3.0 10.2 L5.2 10.2 L5.5 9.3 L5.9 8.5 L4.4 6.9 L6.9 4.4 L8.5 5.9Z"/><circle cx="12" cy="12" r="3"/>'),
     feedback: icon('<path d="M4.5 5.5h15a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4.5 3.5v-3.5h-1a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"/>'),
@@ -79,6 +81,7 @@ Suite.more = (function () {
   var MENU = [
     { id: "news",     href: "#news",     title: "News",        sub: "Latest team and national coverage" },
     { id: "schedule", href: "#schedule", title: "Schedule",    sub: "Season schedule, results, and game details" },
+    { id: "stats",    href: "#stats",    title: "Stats",       sub: "The team's season, with national ranks" },
     { id: "settings", href: "#settings", title: "Settings",    sub: "Manage your app preferences" },
     { id: "feedback", href: "#feedback", title: "Feedback",    sub: "Share your thoughts and help us improve" },
     { id: "share",    action: "share",   title: "Share Suite", sub: "Text a friend a link to join you" },

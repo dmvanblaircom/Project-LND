@@ -152,6 +152,41 @@ function fakeCaches() {
   re.loadGameDetail(V4, {}, { phase: "pregame" }, function () {}); await settled();
   ok(V4.preview === null, "but not on every paint: not again within 30 seconds");
 
+  // ---- Stats: the right season, and an honest refresh (Codex review, #82) ----
+  console.log("Stats: the season type, and what a refresh came to");
+  var ST_DECL = appSrc.match(/^var ST=\{[^\n]*\};$/m)[0];
+  function statsScope() {
+    var c = vm.createContext({ console: console, Promise: Promise, setTimeout: setTimeout });
+    vm.runInContext(read("teamos/espn.js") + "\n" + ST_DECL + "\n" + [
+      "var POST=null, S={ next:null }, TEAM_CONFIG={ sources:{ espn:{ teamId:'87' } } }, asked=[], mode='network';",
+      "function seasonYear(){ return 2026; } function noteSource(){} function paintStats(){}",
+      "function $(){ return { hidden:false }; }",
+      "var CORE=" + JSON.stringify(read("tools/fixtures/espn-teamstats-nd-2026-reg.json")) + ", SITE=" + JSON.stringify(read("tools/fixtures/espn-sitestats-nd.json")) + ";",
+      "function fetchJSON(url){ asked.push(url);",
+      "  if(mode==='down') return Promise.reject(new Error('offline'));",
+      "  return Promise.resolve({ data: JSON.parse(/\\/types\\//.test(url) ? CORE : SITE), cached: mode==='cached' ? new Date().toUTCString() : null }); }"
+    ].join("\n"), c);
+    ["statsType", "teamSeasonFor", "gameWeekGame", "loadStats", "statsTypeChanged"].forEach(function (f) { vm.runInContext(lift(f), c); });
+    return c;
+  }
+  var st = statsScope();
+  await st.loadStats(); await settled();
+  ok(st.ST.type === 2 && st.asked.some(function (u) { return /\/types\/2\/teams\/87\//.test(u); }),
+     "opened before the postseason schedule is known: the regular season, and it says which");
+  st.POST = JSON.parse(read("tools/fixtures/espn-schedule-nd-2024-post.json")); st.asked.length = 0;
+  st.statsTypeChanged(); await settled();
+  ok(st.ST.type === 3 && st.asked.some(function (u) { return /\/types\/3\/teams\/87\//.test(u); }),
+     "the postseason's schedule arrives with a game played: the season is asked again, postseason included - never relabelled");
+  st.asked.length = 0; await st.loadStats(); await settled();
+  ok(st.asked.length === 0, "and once it holds the right season it is not asked again on the next visit");
+  st.mode = "cached"; await st.loadStats(true); await settled();
+  ok(st.ST.outcome === "cached", "a refresh answered by the worker's kept copy says so, not 'refreshed'");
+  st.mode = "down"; var kept = st.ST.us; await st.loadStats(true); await settled();
+  ok(st.ST.outcome === "failed" && st.ST.us === kept && !st.ST.failed,
+     "a refresh that fails keeps the figures on screen and reports the failure");
+  st.mode = "network"; await st.loadStats(true); await settled();
+  ok(st.ST.outcome === "network", "and a real answer is a real refresh");
+
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "what the app learns stays honest across refreshes"));
   process.exit(failures ? 1 : 0);
 })().catch(function (e) { console.error(e); process.exit(1); });
