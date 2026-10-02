@@ -61,7 +61,7 @@ var games = TeamOS.espn.schedule(fixture, team, TEAM_CONFIG);
 var byId = {}; games.forEach(function (g) { byId[g.id] = g; });
 var SHAPE = ["id","date","timeSet","home","neutral","oppName","oppRank",
              "oppProviderId","oppAbbr","usRank","usRecord","oppRecord","venue","city","venueState","zip",
-             "net","odds","series","seriesKind","state","detail","status","hasStarted","period","clock","newDate","us","them","won"];
+             "net","odds","series","seriesKind","state","detail","status","hasStarted","period","clock","newDate","us","them","won","postseason","stage"];
 var LEAK = /competitions|competitors|curatedRank|pickcenter|neutralSite|geoBroadcasts|timeValid|shortDetail|displayValue|zipCode|homeAway|espn/i;
 
 console.log("schedule()");
@@ -614,7 +614,7 @@ ok(!/\bfetch\s*\(/.test(seasonSrc), "does not call fetch()");
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(seasonSrc), "does not touch the DOM or browser storage");
 ok(!/espn|kalshi|open-meteo/i.test(uncomment(seasonSrc)), "names no provider");
 ok(!/notre|irish|ohio|buckeye/i.test(uncomment(seasonSrc)), "names no team");
-eq(Object.keys(TeamOS.season).sort(), ["gamesCounted","pointsAllowedPerGame","pointsPerGame"],
+eq(Object.keys(TeamOS.season).sort(), ["gamesCounted","phase","pointsAllowedPerGame","pointsPerGame"],
    "exactly the documented functions");
 
 var season = [ { state:"post", us:"56", them:"13" },
@@ -686,7 +686,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonSelected","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"],
    "exactly the documented functions");
 
 console.log("mark");
@@ -1347,6 +1347,111 @@ eq([TeamOS.espn.seasonStatsUrl("87", 2026), TeamOS.espn.seasonStatsUrl("87", 202
    ["https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/teams/87/statistics",
     "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2024/types/3/teams/87/statistics"],
    "the season statistics URL takes the season type, the regular season by default (the Matchup card is unchanged)");
+
+// ---- the postseason and the season's phase (W16) ----
+// Real seasons: Notre Dame 2024 (four playoff games, lost the title game),
+// Ohio State 2024 (won it), Ohio State 2025 (a conference title game in the
+// regular season, out in the quarterfinal), Notre Dame 2025 (no postseason).
+console.log("the postseason: what each game is (W16)");
+function seasonOf(cfgCtx, reg, post) {
+  var cfg = cfgCtx.TEAM_CONFIG, tm = cfgCtx.TeamOS.createTeam(cfg.team);
+  return cfgCtx.TeamOS.espn.schedule(cfgCtx.TeamOS.espn.joinSeason(
+    JSON.parse(read("tools/fixtures/espn-schedule-" + reg + ".json")),
+    post ? JSON.parse(read("tools/fixtures/espn-schedule-" + post + ".json")) : null), tm, cfg);
+}
+var osuCtx = load("teams/ohio-state.js");
+var nd24 = seasonOf(ctx, "nd-2024-default", "nd-2024-post-notes");
+var nd25 = seasonOf(ctx, "nd-2025-reg", "nd-2025-post");
+var nd26 = seasonOf(ctx, "nd-2026-reg", null);
+var osu25 = seasonOf(osuCtx, "osu-2025-reg", "osu-2025-post-notes");
+eq(nd24.map(function (g) { return g.postseason; }).filter(Boolean).length, 4, "Notre Dame 2024: four postseason games, every regular-season game not one");
+eq(nd24.filter(function (g) { return g.postseason; }).map(function (g) { return [g.stage.kind, g.stage.round, g.stage.bowl, g.stage.last]; }),
+   [["playoff", "First Round", null, false],
+    ["playoff", "Quarterfinal", "Allstate Sugar Bowl", false],
+    ["playoff", "Semifinal", "Capital One Orange Bowl", false],
+    ["playoff", "National Championship", null, true]],
+   "each playoff game's round and bowl, as ESPN's note says them - sponsor's 'Presented by' and the reschedule aside dropped");
+eq(nd24.filter(function (g) { return g.postseason; })[1].stage.text,
+   "College Football Playoff Quarterfinal at the Allstate Sugar Bowl - Rescheduled from Jan 1", "and the note itself is kept, word for word");
+eq(osu25.filter(function (g) { return g.postseason; }).map(function (g) { return g.stage.bowl; }), ["Goodyear Cotton Bowl Classic"],
+   "a bowl's name is kept as published, sponsor and all: which words are the sponsor's is not guessed");
+var bowls = JSON.parse(read("tools/fixtures/espn-scoreboard-postseason-2024.json"));
+var la = (bowls.events || []).filter(function (ev) { return /LA Bowl/.test(JSON.stringify(ev.competitions[0].notes)); })[0];
+ok(!!la, "(the league's 2024 postseason fixture holds a non-playoff bowl)");
+var laGame = TeamOS.espn.schedule({ events: [la] }, team, TEAM_CONFIG)[0];
+eq([laGame.postseason, laGame.stage.kind, laGame.stage.bowl, laGame.stage.last], [true, "bowl", "Art of Sport LA Bowl", true],
+   "a bowl outside the playoff: the last game of that team's season, from the scoreboard's season type");
+eq(nd26.filter(function (g) { return g.postseason || g.stage; }).length, 0, "a regular season carries no postseason game and, trimmed of notes, no stage");
+
+console.log("TeamOS.espn.postseasonSelected");
+eq(TeamOS.espn.postseasonSelected(bowls), true, "the 2024 postseason, bracket set: selected");
+var tbd = JSON.parse(JSON.stringify(bowls));
+tbd.events.forEach(function (ev) { ev.competitions[0].competitors.forEach(function (c) { c.team = { id: "-2", displayName: "TBD" }; }); });
+eq(TeamOS.espn.postseasonSelected(tbd), false, "the same games listed before selection, teams to be determined: not selected");
+eq(TeamOS.espn.postseasonSelected({ events: [] }), false, "nothing listed: not selected");
+eq(TeamOS.espn.postseasonSelected(null), null, "no answer: not known");
+
+console.log("TeamOS.season.phase (W16): where the season stands, never inferred");
+var P = TeamOS.season.phase;
+function ph(o) { var r = P(o); return [r.state, r.ended]; }
+var D = function (s) { return new Date(s); };
+eq(ph({ games: nd26, now: D("2026-10-02T12:00:00Z") }), ["in-season", null], "Notre Dame today: in season");
+eq(P({ games: nd26, now: D("2026-10-02T12:00:00Z") }).askNext, false, "and next season is not asked for while this one is being played");
+eq(ph({ games: upTo(osu25, "2025-12-05T12:00:00Z"), now: D("2025-12-05T12:00:00Z") }), ["in-season", null],
+   "Ohio State before its conference title game: still the regular season - ESPN files that game as one");
+var ndRegOnly = nd25.filter(function (g) { return !g.postseason; });
+eq(ph({ games: ndRegOnly, now: D("2025-12-01T12:00:00Z") }), ["awaiting-postseason", null],
+   "Notre Dame 2025 the day after its last game: the postseason is not settled - not 'no bowl'");
+var r1 = P({ games: ndRegOnly, now: D("2025-12-01T12:00:00Z") });
+ok(r1.askNext && r1.nextSeason === 2026 && r1.season === 2025, "and from now next season's schedule is asked for: 2026");
+eq(r1.record, ndRegOnly[ndRegOnly.length - 1].usRecord, "the record is the last game's, as ESPN printed it");
+eq(ph({ games: nd25, selected: null, now: D("2025-12-20T12:00:00Z") }), ["awaiting-postseason", null],
+   "an empty postseason, selection not known: still 'not settled' - an empty feed is not a published answer");
+eq(ph({ games: nd25, selected: true, now: D("2025-12-08T12:00:00Z") }), ["complete", "not-selected"],
+   "selection made and no postseason game: the season is complete");
+eq(ph({ games: nd25, selected: null, now: D("2026-02-01T00:00:00Z") }), ["complete", "calendar"],
+   "from February no postseason is coming, selection known or not");
+eq(ph({ games: nd25, selected: true, next: nd26, now: D("2026-03-01T12:00:00Z") }), ["next-published", "not-selected"],
+   "next season's schedule published: next-published");
+eq(P({ games: nd25, selected: true, next: nd26, now: D("2026-03-01T12:00:00Z") }).opener.oppName, nd26[0].oppName,
+   "with its opener");
+eq(ph({ games: nd25, selected: true, next: [], now: D("2026-03-01T12:00:00Z") }), ["complete", "not-selected"],
+   "next season asked for and nothing listed: complete, no opener promised");
+
+function upTo(list, iso) {
+  // the season as the schedule read on that date: later postseason games not
+  // yet listed, the listed ones not yet played
+  var t = Date.parse(iso);
+  return list.map(function (g) { return Object.assign({}, g); }).filter(function (g, i, all) {
+    if (!g.postseason) return true;
+    var prior = all.filter(function (x) { return x.postseason && Date.parse(x.date) < Date.parse(g.date); });
+    return !prior.length || Date.parse(prior[prior.length - 1].date) + 6 * 3600e3 <= t;
+  }).map(function (g) {
+    if (Date.parse(g.date) > t) { g.state = "pre"; g.status = "scheduled"; g.won = false; }
+    return g;
+  });
+}
+eq(ph({ games: upTo(nd24, "2024-12-15T12:00:00Z"), now: D("2024-12-15T12:00:00Z") }), ["postseason", null],
+   "Notre Dame 2024 after selection: its first-round game is listed - postseason");
+eq(ph({ games: upTo(nd24, "2024-12-22T12:00:00Z").filter(function (g) { return !g.postseason || Date.parse(g.date) < Date.parse("2024-12-22"); }), now: D("2024-12-22T12:00:00Z") }),
+   ["awaiting-postseason", null], "a first-round win and the quarterfinal not yet listed: awaiting, never 'complete'");
+eq(ph({ games: upTo(nd24, "2025-01-03T12:00:00Z"), now: D("2025-01-03T12:00:00Z") }), ["postseason", null],
+   "the semifinal listed after the quarterfinal win: postseason again");
+eq(ph({ games: nd24, now: D("2025-01-22T12:00:00Z") }), ["complete", "lost"], "the title game lost: complete");
+var title = nd24.map(function (g) { var c = Object.assign({}, g); if (c.stage && c.stage.round === "National Championship") c.won = true; return c; });
+eq(ph({ games: title, now: D("2025-01-22T12:00:00Z") }), ["complete", "champion"], "the title game won: complete, champion");
+eq(ph({ games: osu25, now: D("2026-01-02T12:00:00Z") }), ["complete", "lost"], "Ohio State 2025, out in the quarterfinal: complete");
+var laWin = Object.assign({}, laGame, { state: "post", status: "final", won: true });
+eq(ph({ games: ndRegOnly.concat([laWin]), now: D("2025-12-21T12:00:00Z") }), ["complete", "bowl"], "a bowl won: complete - no game follows a bowl");
+var noStage = upTo(nd24, "2024-12-22T12:00:00Z").filter(function (g) { return !g.postseason || Date.parse(g.date) < Date.parse("2024-12-22"); })
+  .map(function (g) { return g.postseason ? Object.assign({}, g, { stage: null }) : g; });
+eq(ph({ games: noStage, now: D("2024-12-22T12:00:00Z") }), ["awaiting-postseason", null],
+   "a postseason win with no note to say which: awaiting, not complete");
+eq(ph({ games: noStage, now: D("2025-02-01T00:00:00Z") }), ["complete", "calendar"], "until the calendar rules out another game");
+eq(ph({ games: [], now: D("2026-10-02T12:00:00Z") }), ["unknown", null], "no games at all: unknown, nothing claimed");
+eq(ph({ games: [], next: nd26, now: D("2026-03-01T12:00:00Z") }), ["next-published", null], "only next season's games: next-published");
+var seasonSrc = uncomment(read("teamos/season.js"));
+ok(!/espn|kalshi|notre|irish|ohio|buckeye|\bfetch\s*\(|\b(document|window)\b/i.test(seasonSrc), "teamos/season.js names no provider and no team, and fetches nothing");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "all adapter checks passed"));
 process.exit(failures ? 1 : 0);

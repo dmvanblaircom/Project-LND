@@ -211,6 +211,39 @@ TeamOS.espn = (function () {
   }
   function idOf(t){ var id = t && t.id != null ? String(t.id) : ""; return /^[0-9]+$/.test(id) ? id : null; }
 
+  // A game's stage, from ESPN's note on the competition - the only place a
+  // bowl's or a playoff round's name is carried (real payloads, 2026-10-02,
+  // tools/fixtures/espn-*-post-notes.json): "College Football Playoff
+  // Quarterfinal at the Allstate Sugar Bowl - Rescheduled from Jan 1",
+  // "Art of Sport LA Bowl". A sponsor's "Presented by ..." and a scheduling
+  // aside are dropped; a bowl's own name is kept as published, sponsor and
+  // all, because which words are the sponsor's is not ours to guess.
+  //   kind      playoff | bowl | other (a conference title game, a series)
+  //   round     First Round | Quarterfinal | Semifinal | National Championship
+  //   bowl      the bowl it is played in or as, when there is one
+  //   last      no game can follow it this season: a bowl, or the title game
+  // null when ESPN carries no note.
+  var PLAYOFF_ROUND=/^College Football Playoff (First Round|Quarterfinal|Semifinal|National Championship)(?: at the (.+))?$/i;
+  var ROUND_NAME={ "first round":"First Round", quarterfinal:"Quarterfinal", semifinal:"Semifinal", "national championship":"National Championship" };
+  function stageOf(comp){
+    var h=((comp&&comp.notes)||[]).map(function(n){ return n && n.headline ? String(n.headline) : ""; }).filter(Boolean)[0];
+    if(!h) return null;
+    var t=h.replace(/\s+-\s+Rescheduled\b.*$/i,"").replace(/\s+Presented by\b.*$/i,"").trim();
+    var m=PLAYOFF_ROUND.exec(t);
+    if(m){
+      var round=ROUND_NAME[m[1].toLowerCase()];
+      return { kind:"playoff", round:round, bowl:m[2]||null, last:round==="National Championship", text:h };
+    }
+    if(/\bBowl\b/i.test(t)) return { kind:"bowl", round:null, bowl:t, last:true, text:h };
+    return { kind:"other", round:null, bowl:null, last:false, text:h };
+  }
+  // ESPN's season type for one event: the schedule says it as seasonType,
+  // the scoreboard as season.type.
+  function isPostseason(ev){
+    var t=(ev.seasonType&&ev.seasonType.type)!=null ? ev.seasonType.type : (ev.season&&ev.season.type);
+    return Number(t)===POSTSEASON;
+  }
+
   function game(ev, team, config){
     var teamId = config.sources.espn.teamId;
     var comp=(ev.competitions&&ev.competitions[0])||{}, cs=comp.competitors||[];
@@ -252,7 +285,10 @@ TeamOS.espn = (function () {
       // which left the model unable to tell "0-0 in progress" from "no
       // score yet".
       us: scoreOf(us), them: scoreOf(them),
-      won: us?us.winner===true:null
+      won: us?us.winner===true:null,
+      // The postseason (W16): a bowl or playoff game, and its stage.
+      postseason: isPostseason(ev),
+      stage: stageOf(comp)
     };
   }
 
@@ -1250,6 +1286,24 @@ TeamOS.espn = (function () {
     // (3) once a postseason game has been played - its figures are
     // cumulative, regular season included (Notre Dame 2024: 16 games) -
     // otherwise the regular season (2).
+    // The league's postseason payload (the scoreboard asked for season type
+    // 3) -> whether selection has happened: a playoff First Round game lists
+    // two real teams. Bowls and the bracket are announced together, so from
+    // then on a team with no postseason game has none (TeamOS.season.phase).
+    // A game listed before selection names a placeholder, not a team, and
+    // does not count. null when the payload says nothing either way.
+    postseasonSelected: function(payload){
+      var evs=(payload&&payload.events)||null;
+      if(!evs) return null;
+      return evs.some(function(ev){
+        var comp=(ev.competitions&&ev.competitions[0])||{}, st=stageOf(comp), cs=comp.competitors||[];
+        return !!st && st.round==="First Round" && cs.length===2 && cs.every(function(c){
+          var tm=c.team||{};
+          return !!idOf(tm) && !/\bTBD\b|to be (determined|announced)/i.test(tm.displayName||tm.name||"");
+        });
+      });
+    },
+
     seasonTypeFor: function(postseason){
       var played=((postseason&&postseason.events)||[]).some(function(ev){
         var c=(ev.competitions&&ev.competitions[0])||{}, st=(c.status&&c.status.type)||{};

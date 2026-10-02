@@ -72,6 +72,14 @@ S2 and S4 are new designs; S3 and S5 reuse the existing game card with new data.
 
 P1 is correctness work and can start in the hardening block; it needs no design.
 
+### Engineering status (2026-10-02)
+
+- **P1 done** (PR #9): the postseason is fetched and joined to the season.
+- **P4 done:** a game's note names its bowl or playoff round, word for word: "College Football Playoff Quarterfinal at the Allstate Sugar Bowl - Rescheduled from Jan 1", or "Art of Sport LA Bowl". Captured whole in `tools/fixtures/espn-*-post-notes.json`. `Game.stage` reads it (`docs/03_DOMAIN_MODEL.md`). The league's postseason scoreboard (`seasontype=3`) returns every bowl and playoff game whatever the date asked, which is how selection is known (`TeamOS.espn.postseasonSelected`).
+- **The season model is built:** `TeamOS.season.phase` gives S1-S5 from real data, tested against Notre Dame 2024 and 2025 and Ohio State 2025. Notre Dame 2025 had no postseason; its empty postseason reads "not settled" until selection is known.
+- **Not yet wired into the app**, and no screen changes: that waits on the S2/S4 designs (§6).
+- **Still open:** P2's fetch side (asking for a given season by year, and next season's schedule), and P3 (January polls and markets, a dated check).
+
 ## 6. Questions for ChatGPT and David
 
 1. **S2:** lead with the team's season story (record, ranking, the win that
