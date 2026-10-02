@@ -51,3 +51,8 @@ sitestats-87 nd
 leaders-194-2026-2 osu-2026-reg
 roster-194 osu-oct02
 roster-87 nd-oct02
+# Ohio State's finished games, for the Players view's names (the roster
+# leaves some players out; box scores carry everyone who played).
+401858454 osu-kent-final
+401858465 osu-ill-final
+schedule-194-2026-2 osu-2026
