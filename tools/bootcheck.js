@@ -260,7 +260,7 @@ console.log("what it loads");
 var order = run({ search: "?team=ohio-state" }).injected;
 eq(order[0], "teams/ohio-state.js", "the team's config first - app.js reads it at parse time");
 eq(order[order.length - 1], "app.js", "and app.js last");
-eq(order, ["teams/ohio-state.js", "teams/index.js", "teamos/registry.js", "teamos/team.js",
+eq(order, ["teams/ohio-state.js", "teams/index.js", "leagues/college-football.js", "teamos/registry.js", "teamos/team.js",
            "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js",
            "teamos/espn.js", "teamos/game.js", "teamos/outlook.js", "teamos/markets.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js", "teamos/sources.js", "teamos/cfbd.js",
            "suite/ui.js", "suite/nav.js", "suite/schedule.js", "suite/home.js", "suite/game.js", "suite/top25.js", "suite/roster.js", "suite/more.js", "suite/stats.js", "app.js"],

@@ -189,7 +189,11 @@ minimum is David's call, not a styling choice.
 
 Ohio State's beat feeds (PR #89) brought stories without photos from "Land-Grant Holy Land". At 320 and 375px the name's first line was clipped off the top of the tile, and the accessibility gate failed. The tile now keeps the photo's 4:3 as its least height and grows for a longer name, so a team's source names never need to fit a fixed box. Review: whether a taller tile in that one row reads well, or whether a long source name should be drawn another way.
 
-## 9. UIs waiting on Claude's models
+## 9. The CFP calendar on Top 25 and Schedule (David, 2026-10-02)
+
+Top 25's notice under the poll selector now names the next CFP rankings show (day, time in the fan's zone, network), or says it is on now, and Selection Day with the playoff field and then the bowls. The schedule's last row says when the team's bowl or playoff game is announced. Both are built from existing tokens (`.rk-note`, the schedule list). Review: the two-line notice's weight above the poll, and the schedule's foot row (`.sched-post`) beside the game rows. Decision 0033.
+
+## 10. UIs waiting on Claude's models
 
 | Item | Model, ready | What Codex builds |
 |---|---|---|

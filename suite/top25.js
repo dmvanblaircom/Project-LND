@@ -15,6 +15,8 @@
      Suite.top25.paint(host, model)
        model.view      "games" | "rankings"
        model.poll      the poll asked for by the route ("ap", "cfp", ...) or null
+       model.calendar  TeamOS.season.calendar(): the next CFP rankings show and
+                       Selection Day, from the league's published calendar
        model.polls     Poll[] | null (still loading)
        model.games     LeagueGame[] | null (still loading)
        model.gamesFailed, model.pollsFailed   no copy and the network failed
@@ -214,13 +216,32 @@ Suite.top25 = (function () {
     if (m.polls == null) return pollSeg(chosen(m).key) + quiet(m.pollsFailed ? "The rankings didn’t load. They appear when the connection returns."
                                                                              : "Loading the rankings…");
     var c = chosen(m), hasCfp = (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; });
-    // Until the committee publishes: one compact notice, directly under the
-    // poll selector, on every poll - and it is all the CFP view has. No date
-    // is promised that the feed does not give. Once CFP rankings exist the
-    // notice is gone and CFP leads.
-    var note = hasCfp ? "" : '<p class="rk-note" role="note">CFP rankings will appear once the committee releases them.</p>';
     var body = c.poll ? pollTable(m, c.poll) : c.key === "cfp" ? "" : quiet("This poll is not available right now.");
-    return pollSeg(c.key) + note + body;
+    return pollSeg(c.key) + calendarNote(m.calendar, hasCfp) + body;
+  }
+
+  // What is coming from the committee (David, 2026-10-02; decision 0033):
+  // one compact notice directly under the poll selector, on every poll. It
+  // names only the NEXT rankings show, or the one on air, so it moves on by
+  // itself each week - never the whole season's list - and Selection Day,
+  // when the playoff field and then every bowl matchup are announced. The
+  // dates are the league's published calendar (leagues/), in the fan's own
+  // time; nothing is said once Selection Day is over.
+  function show(e) { return ui.kickoff(e.start).full; }
+  function calendarNote(cal, hasCfp) {
+    var lines = [];
+    var r = cal && cal.rankings, s = cal && cal.selection;
+    if (r) {
+      lines.push(r.live ? "<strong>CFP rankings:</strong> on now" + (r.on ? " on " + esc(r.on) : "")
+        : "<strong>" + (r.first ? "First CFP rankings" : "Next CFP rankings") + ":</strong> " + esc(show(r)) + (r.on ? " on " + esc(r.on) : ""));
+    }
+    if (s) {
+      lines.push(s.live ? "<strong>Selection Day:</strong> the playoff field is being revealed now" + (s.on ? " on " + esc(s.on) : "") + "."
+        : "<strong>Selection Day:</strong> " + esc(show(s)) + (s.on ? " on " + esc(s.on) : "") + ". The 12-team playoff field" +
+          (cal.bowls ? ", then every bowl matchup that afternoon." : "."));
+    }
+    if (!lines.length) return hasCfp ? "" : '<p class="rk-note" role="note">CFP rankings will appear once the committee releases them.</p>';
+    return '<div class="rk-note" role="note">' + lines.map(function (l) { return "<p>" + l + "</p>"; }).join("") + "</div>";
   }
 
   // ---- mount -------------------------------------------------------------------
@@ -239,5 +260,5 @@ Suite.top25 = (function () {
     });
   }
 
-  return { paint: paint, chosenPoll: function (m) { return chosen(m).key; } };
+  return { paint: paint, chosenPoll: function (m) { return chosen(m).key; }, calendarNote: calendarNote };
 })();

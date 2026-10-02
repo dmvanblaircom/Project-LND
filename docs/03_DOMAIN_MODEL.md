@@ -116,7 +116,7 @@ Weather is its own shape (below), found from the Game's venue.
 | `opener` | next season's first game, once published |
 | `askNext` | the regular season is done: ask for next season's schedule |
 
-It never infers. An empty postseason means "not selected" only once selection is known to have happened, or from February 1, when no college football postseason game remains. A won playoff game ends the season only when it was the title game; until the next round is listed the season is `awaiting-postseason`.
+It never infers. An empty postseason means "not selected" only once selection is known to have happened, or from February 1, when no college football postseason game remains. A won playoff game ends the season only when it was the title game. The bracket is fixed, so after any other round win the season stays `postseason`, even before the next game is listed; selection never reopens.
 
 ### Weather
 
