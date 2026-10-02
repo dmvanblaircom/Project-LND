@@ -1,7 +1,10 @@
-# W20 (2026-10-02), round 3: the Big Ten's availability reports are PDFs at
-# bigten.org/api/media/file/<id>-FB_Reporting_Week_<n>.pdf (2023's, found by
-# search). Which page links this season's? Probed from GitHub's network by
-# .github/workflows/probe-sources.yml on push.
-https://bigten.org/news/2026/8/28/big-ten-announces-changes-to-football-availability-reporting-process.aspx
-https://bigten.org/news/2026/9/30/2026-week-5-football-release.aspx
-https://bigten.org/sports/football/schedule
+# W20 (2026-10-02), round 4: David's rule - official sources first, a
+# credited projection where a team publishes none. Who publishes a weekly
+# projected Ohio State depth chart that the runner can read, and on what
+# terms? Probed from GitHub's network by probe-sources.yml on push.
+https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/ohio-state/91533
+https://www.ourlads.com/ncaa-football-depth-charts/depth-chart.aspx?id=91533
+https://www.ourlads.com/terms.aspx
+https://www.ourlads.com/termsofuse.aspx
+https://www.landgrantholyland.com/ohio-state-football
+https://www.on3.com/teams/ohio-state-buckeyes/depth-chart/
