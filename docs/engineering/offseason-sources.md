@@ -30,7 +30,7 @@ probes print what a source returns and store nothing.
 | **On3 and Rivals** | "personal, non-commercial use"; commercial use needs "On3's prior written consent" | Bars "scrape, crawl, mine, or collect data … by using any automated tool, bot, spider" | `on3.com/contact/` lists two email addresses (on the page; the runner sees them masked) |
 
 **What this means:**
-- **ESPN:** an ESPN-sourced draft or recruiting feature stands on the same terms as every score, schedule and roster the app already takes from ESPN. It adds no new kind of exposure, only more of the same reliance. It falls under David's Oct 2 rule: keep the app as is while it is free, and revisit before a public launch or monetization.
+- **ESPN:** an ESPN-sourced draft or recruiting feature stands on the same terms as every score, schedule and roster the app already takes from ESPN. It adds no new kind of exposure, only more of the same reliance. It falls under David's Oct 2 rule: keep the app as is while it is free, and revisit before monetization or any wider promotion. The app is already public on GitHub Pages, and that deployment is covered as it stands.
 - **NFL.com, 247Sports and On3/Rivals:** none of the three allows an app to collect its data without written permission.
 
 ## Recommendation
