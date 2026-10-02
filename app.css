@@ -539,6 +539,8 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .mu-v.better{background:rgba(var(--t-accent-rgb),.16)}
 .mu-n{font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;color:var(--s-ink)}
 .mu-rk{font-size:.75rem;color:var(--s-muted)}
+/* On the better side's team tint the muted grey falls below 4.5:1 (Ohio State's scarlet tint, 4.11:1); the rank reads in the darker ink there. */
+.mu-v.better .mu-rk{color:var(--s-ink-2)}
 .mu-l{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.92rem;color:var(--s-ink-2);text-align:center}
 .mu-arrow{width:0;height:0;border-top:.4rem solid transparent;border-bottom:.4rem solid transparent}
 .mu-arrow.l{border-right:.55rem solid var(--t-accent-on-light)}
