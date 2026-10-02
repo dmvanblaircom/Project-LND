@@ -1,25 +1,16 @@
-# W16 offseason follow-ups (2026-10-02), per David's decisions on the
-# offseason proposal: Idea 6 "probe sources, then decide" (NFL draft
-# prospects) and D4 "research, then draft emails" (recruiting classes).
-# What does each source return from GitHub's network, and on what terms?
+# W16 offseason follow-ups, round 2 (2026-10-02). Round 1: ESPN's NFL draft
+# core API answers (2026 and 2027 drafts); NFL.com's terms allow personal,
+# non-commercial use only; On3's team commit pages are readable; 247Sports
+# returns 406 to the runner; On3's and Rivals' terms URLs were guesses.
 #
-# Idea 6: ESPN's NFL draft data (core API) and prospect pages.
-https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft
-https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft
-https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft/athletes?limit=5
-https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes?limit=5
-https://www.espn.com/nfl/draft/bestavailable | grade|rank|Notre Dame|Ohio State
-https://www.nfl.com/draft/tracker/prospects | grade|prospect
-https://www.nfl.com/legal/terms | commercial|personal|non-commercial|scrap|automated|license
-https://disneytermsofuse.com/english/ | commercial|personal|non-commercial|scrap|automated|robot|license
-# D4: recruiting classes, team pages and terms.
-https://247sports.com/college/notre-dame/season/2027-football/commits/ | commit|rank|composite
-https://247sports.com/college/ohio-state/season/2027-football/commits/ | commit|rank|composite
-https://247sports.com/terms-of-use/ | commercial|personal|scrap|automated|robot|license|permission
-https://www.on3.com/college/notre-dame-fighting-irish/football/2027/commits/ | commit|rank|industry
-https://www.on3.com/terms-of-service/ | commercial|personal|scrap|automated|robot|license|permission
-https://www.on3.com/rivals/ | rivals|terms
-https://n.rivals.com/terms | commercial|personal|scrap|automated|license
-https://www.espn.com/college-sports/football/recruiting/rankings | rank|class
-https://www.on3.com/contact-us/ | licens|partner|business|email|@
-https://247sports.com/contact/ | licens|partner|business|email|@
+# Idea 6: what an ESPN draft athlete carries (grade, rank, college).
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes?limit=3 | count|\$ref
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft/athletes?limit=3 | count|\$ref
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft | status|startDate|rounds|athletes|"name"
+# D4: terms pages, found from each site's own footer.
+https://www.on3.com/ | terms|legal|licens|contact|advertis
+https://www.on3.com/rivals/ | terms|legal|licens|contact
+https://legal.paramount.com/us/en/cbsi/terms-of-use | commercial|personal|scrap|automated|robot|licens|permission
+https://www.paramount.com/ | 247
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting | ref|count
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/recruiting/rankings | ref|count|rank

@@ -13,6 +13,8 @@ A URL may be followed by " | <pattern>": the probe then also prints the
 short runs of the page's visible text that match it (at most 25, each cut to
 200 characters) - a published schedule's dates and times, checked at the
 source rather than taken from a summary of it (2026-10-02, the CFP calendar).
+For JSON it prints the matching lines of the indented document, and for HTML
+the links whose address or label match (a terms page found from a footer).
 """
 import json
 import re
@@ -76,6 +78,10 @@ def probe(url, pattern=None):
         for k in ("season", "lastUpdated", "updated", "date"):
             if isinstance(d, dict) and k in d:
                 print("  %s: %s" % (k, json.dumps(d[k])[:120]))
+        if pattern:
+            # A JSON source's field names and values, matched line by line.
+            for l in matching(json.dumps(d, indent=1), pattern):
+                print("  json: %s" % l)
         return
     if pattern:
         for l in matching(text, pattern):
@@ -93,7 +99,8 @@ def probe(url, pattern=None):
     links = []
     for m in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', text, re.S | re.I):
         href, label = m.group(1), re.sub(r"<[^>]+>|\s+", " ", m.group(2)).strip()
-        if re.search(r"availab|depth|injur|two.deep|game.notes", href + " " + label, re.I) and href not in [x[0] for x in links]:
+        wanted = r"availab|depth|injur|two.deep|game.notes" + ("|" + pattern if pattern else "")
+        if re.search(wanted, href + " " + label, re.I) and href not in [x[0] for x in links]:
             links.append((href, label[:60]))
     for href, label in links[:15]:
         print("  link: %s  [%s]" % (href[:160], label))
