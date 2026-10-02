@@ -271,13 +271,19 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
   var sh = await open();
   await sh.page.addInitScript(function () {
     try { Object.defineProperty(navigator, "share", { value: undefined, configurable: true }); } catch (e) {}
-    Object.defineProperty(navigator, "clipboard", { value: { writeText: function () { return Promise.resolve(); } }, configurable: true });
+    window.__copied = [];
+    Object.defineProperty(navigator, "clipboard", { value: { writeText: function (t) { window.__copied.push(t); return Promise.resolve(); } }, configurable: true });
   });
   await sh.page.goto(base + "/?team=notre-dame#more"); await sh.page.waitForTimeout(1200);
   function row(page) { return page.evaluate(function () { return document.querySelector("[data-share] .mo-sub").textContent; }); }
   var words = await row(sh.page);
   await sh.page.click("[data-share]"); await sh.page.waitForTimeout(300);
   ok(/Link copied/.test(await row(sh.page)), "the row says the link was copied");
+  // David, 2026-10-02: it shares the app, not the fan's team - a friend
+  // picks their own.
+  var copied = await sh.page.evaluate(function () { return window.__copied[0] || ""; });
+  ok(/^Join me on Suite: https?:\/\/[^?#\s]+$/.test(copied) && !/notre|irish|team=/i.test(copied),
+     "the message names no team and the link carries none: " + JSON.stringify(copied));
   await sh.page.click("[data-share]"); await sh.page.waitForTimeout(4400);
   ok(await row(sh.page) === words, "and after a second tap, four seconds on, its own words again: " + JSON.stringify(words));
   await sh.ctx.close();

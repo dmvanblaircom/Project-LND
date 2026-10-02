@@ -1567,15 +1567,17 @@ function lastUpdated(){
     var x=SRC[k]; return x && !x.cached && x.fetchedAt > max ? x.fetchedAt : max;
   }, 0) || null;
 }
-// Share Suite: a line of text and the link to this team's Suite, handed to
-// the phone's share sheet (Messages is one tap from there). Where there is no
-// share sheet, the text is copied to paste into a message; where that is
-// refused too, it opens as a new text message. The link carries the team, so
-// a friend lands on the same Suite, not the chooser.
+// Share Suite: a line of text and the link to Suite, handed to the phone's
+// share sheet (Messages is one tap from there). Where there is no share
+// sheet, the text is copied to paste into a message; where that is refused
+// too, it opens as a new text message. It shares the app, not the fan's
+// team: no team in the words or the link, so a friend picks their own
+// (David, 2026-10-02: "sharing the app isn't dependent on liking the same
+// team").
 var SHARE={ t:0 };
 function shareSuite(){
-  var url=location.origin+location.pathname+"?team="+encodeURIComponent(TEAM.id);
-  var text="Join me in my "+TEAM.name+" Suite";
+  var url=location.origin+location.pathname;
+  var text="Join me on Suite";
   var note=document.querySelector("[data-share-note]");
   // Said twice: in the status line (announced) and on the row itself, which
   // is where the eye is when the status line sits below the fold. The row's
