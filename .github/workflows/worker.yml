@@ -12,7 +12,7 @@ name: Deploy the edge API
 on:
   push:
     branches: [main]
-    paths: ["worker/**", ".github/workflows/worker.yml"]
+    paths: ["worker/**", ".github/workflows/worker.yml", "teams/index.js", "tools/build-worker-schools.js"]
   workflow_dispatch:
 
 permissions:
@@ -39,6 +39,11 @@ jobs:
           # Worker secrets to set: the clock's only once it exists, so a
           # missing token never fails the deploy.
           { echo "secrets<<EOF"; echo "CFBD_API_KEY"; [ -n "$CLOCK" ] && echo "REFRESH_CLOCK_TOKEN"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+      # The schools the CFBD route answers for, from the registry as it is
+      # now: a deploy is never older than the registry it came from.
+      - name: The school list follows the registry
+        if: steps.ready.outputs.ok == 'true'
+        run: node tools/build-worker-schools.js
       - name: The edge API passes its checks
         if: steps.ready.outputs.ok == 'true'
         run: node tools/workercheck.mjs
