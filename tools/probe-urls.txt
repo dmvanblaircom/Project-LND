@@ -1,7 +1,14 @@
-# W07 (issue #29): candidate FPI and SP+ sources, probed from GitHub's network
-# by .github/workflows/probe-sources.yml on push. One URL per line.
-https://www.espn.com/college-football/fpi
-https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=200
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/powerindex?limit=200
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/powerindex?limit=200
-https://www.espn.com/college-football/story/_/id/49868647/2026-college-football-sp%2B-rankings-all-138-fbs-teams
+# W20 (2026-10-02): Ohio State's official sources. The Big Ten publishes
+# four player availability reports a week for conference games on
+# BigTen.org (2026 policy); where, and in what form? Does Ohio State publish
+# a depth chart or game notes? Probed from GitHub's network by
+# .github/workflows/probe-sources.yml on push. One URL per line.
+https://bigten.org/
+https://bigten.org/fb/
+https://bigten.org/fb/article/60284/
+https://bigten.org/fb/availability/
+https://bigten.org/fb/availability-report/
+https://ohiostatebuckeyes.com/sports/football/
+https://ohiostatebuckeyes.com/sports/football/schedule/
+https://ohiostatebuckeyes.com/sports/football/depth-chart/
+https://ohiostatebuckeyes.com/sports/football/roster/

@@ -66,6 +66,18 @@ def probe(url):
     dates = re.findall(r'"(?:dateModified|datePublished|lastModified)"\s*:\s*"([^"]+)"', text)
     if dates:
         print("  dates: %s" % ", ".join(sorted(set(dates))[:4]))
+    # Where a page points for the documents a source would be built on
+    # (W20: availability reports, depth charts): the links only, never text.
+    links = []
+    for m in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', text, re.S | re.I):
+        href, label = m.group(1), re.sub(r"<[^>]+>|\s+", " ", m.group(2)).strip()
+        if re.search(r"availab|depth|injur|two.deep|game.notes", href + " " + label, re.I) and href not in [x[0] for x in links]:
+            links.append((href, label[:60]))
+    for href, label in links[:15]:
+        print("  link: %s  [%s]" % (href[:160], label))
+    pdfs = sorted(set(re.findall(r'href="([^"]+\.pdf[^"]*)"', text, re.I)))
+    if pdfs:
+        print("  pdfs: %d, e.g. %s" % (len(pdfs), ", ".join(p[:120] for p in pdfs[:4])))
 
 
 def main():
