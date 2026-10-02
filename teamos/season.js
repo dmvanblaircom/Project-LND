@@ -59,10 +59,12 @@ TeamOS.season = (function () {
      docs/product/offseason-home-proposal.md §2, states S1-S5:
 
        in-season            a regular-season game is still to come or under way (S1)
-       awaiting-postseason  the regular season is done and the postseason is
-                            not settled: selection has not happened, or a
-                            playoff round was won and the next is not listed (S2)
-       postseason           a postseason game is scheduled or under way (S3)
+       awaiting-postseason  the regular season is done and selection has not
+                            happened (S2)
+       postseason           a postseason game is scheduled or under way, or a
+                            playoff round was won: the bracket is fixed, so the
+                            season goes on to the next round whether or not
+                            the feed lists that game yet (S3)
        complete             nothing more this season, and next season's
                             schedule is not published (S4)
        next-published       nothing more this season, and next season's
@@ -72,7 +74,8 @@ TeamOS.season = (function () {
      It never infers. An empty postseason is "not selected" only when the
      league's selection is known to have happened (`selected`), or once the
      calendar rules any postseason out; a won playoff game ends the season
-     only when it was the title game. What ended the season is `ended`:
+     only when it was the title game, and never sends it back to selection.
+     What ended the season is `ended`:
      lost | bowl | champion | not-selected | calendar.
 
      Input:  { games    Game[] of this season, regular and postseason joined
@@ -145,8 +148,10 @@ TeamOS.season = (function () {
       if (lastPost.won !== true) return over("lost");
       var st = lastPost.stage;
       if (st && st.last) return over(st.kind === "bowl" ? "bowl" : "champion");
-      // A playoff round won: the next one may not be listed yet.
-      if (t - at(lastPost) < ROUND_GAP_MS && !postseasonOver(season, t)) return is("awaiting-postseason");
+      // A playoff round won: the bracket is fixed, so the team plays on
+      // (David, 2026-10-02) - postseason, even before the feed lists the
+      // next game. Selection never reopens.
+      if (t - at(lastPost) < ROUND_GAP_MS && !postseasonOver(season, t)) return is("postseason");
       return over("calendar");
     }
     if (o.selected === true) return over("not-selected");
@@ -154,7 +159,43 @@ TeamOS.season = (function () {
     return is("awaiting-postseason");
   }
 
+  /* ---------- the league's calendar (the CFP's rankings, Selection Day) ----------
+
+     What a fan should know is coming, from the league's published calendar
+     (leagues/<league>.js, LEAGUE_CALENDAR): the ONE rankings release on air
+     now or next - never the whole list, so it moves on by itself each week -
+     Selection Day until its show ends, and the day the bowls name their teams.
+     Nothing once Selection Day is over: the bowl and playoff games are then on
+     the schedule itself.
+
+       { rankings  { n, start, end, on, live, first, last } | null
+         selection { start, end, on, live } | null
+         bowls     { day } | null - while Selection Day is still to come }
+
+     Pure: the calendar is passed in, nothing is fetched or formatted. */
+  function calendar(cal, season, now) {
+    var t = (now instanceof Date ? now : new Date(now == null ? Date.now() : now)).getTime();
+    var events = (cal && cal.seasons && cal.seasons[String(season)]) || [];
+    var shows = events.filter(function (e) { return e.kind === "rankings" && isFinite(Date.parse(e.start)); })
+      .sort(function (a, b) { return Date.parse(a.start) - Date.parse(b.start); });
+    var lastN = shows.length ? shows[shows.length - 1].n : null;
+    function on(e) { return Date.parse(e.start) <= t && t < Date.parse(e.end || e.start); }
+    var pick = shows.filter(on)[0] || shows.filter(function (e) { return Date.parse(e.start) > t; })[0] || null;
+    var sel = events.filter(function (e) { return e.kind === "selection"; })[0] || null;
+    var selection = sel && t < Date.parse(sel.end || sel.start)
+      ? { start: sel.start, end: sel.end || null, on: sel.on || null, live: on(sel) } : null;
+    var bowls = events.filter(function (e) { return e.kind === "bowls"; })[0] || null;
+    return {
+      rankings: pick ? { n: pick.n, start: pick.start, end: pick.end || null, on: pick.on || null,
+                         live: on(pick), first: pick.n === 1, last: pick.n === lastN } : null,
+      selection: selection,
+      bowls: bowls && selection ? { day: bowls.day } : null
+    };
+  }
+
   return {
+    calendar: calendar,
+
     // Points this team has allowed per finished game: the opponent's score,
     // averaged. `them` is the opponent's score from this team's point of
     // view, which is what both a Game and a score line carry.

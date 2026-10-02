@@ -26,6 +26,8 @@
        model.record    the team's overall record ("3-0") or null
        model.oppMark   providerId -> logo URL for a light surface
        model.fresh     TeamOS.freshness.summary() output
+       model.postseason { day } - Selection Day, while it is still to come and
+                       the team has no postseason game listed; else null
 
      Suite.schedule.row(game, { heroId, full, oppMark })   one <li>         */
 
@@ -123,6 +125,18 @@ Suite.schedule = (function () {
 
   function quiet(text) { return '<p class="sec-quiet">' + esc(text) + "</p>"; }
 
+  // Where the season goes next, at the foot of the schedule (David,
+  // 2026-10-02): until Selection Day, the day this team's bowl or playoff
+  // game will be announced. From the league's published calendar; gone once
+  // that day is over or the team's postseason game is on the schedule.
+  function postseason(p) {
+    if (!p || !p.day) return "";
+    var d = new Date(p.day + "T12:00:00");
+    var day = isNaN(d) ? p.day : d.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
+    return '<li class="sched-post"><p class="sched-post-k">Postseason</p>' +
+           '<p class="sched-post-v">Bowl and playoff matchups are announced on Selection Day, ' + esc(day) + ".</p></li>";
+  }
+
   function list(m) {
     if (m.season == null) return quiet(m.failed ? "The schedule didn’t load. Check your connection; it fills in when the connection returns."
                                                 : "Loading the schedule…");
@@ -137,6 +151,7 @@ Suite.schedule = (function () {
     return '<section class="card sc-card">' + head +
            '<ul class="sched-list" aria-labelledby="scHead">' +
            games.map(function (g) { return row(g, { heroId: m.heroId, full: true, oppMark: m.oppMark }); }).join("") +
+           (results ? "" : postseason(m.postseason)) +
            "</ul></section>";
   }
 
@@ -154,5 +169,5 @@ Suite.schedule = (function () {
     });
   }
 
-  return { paint: paint, row: row };
+  return { paint: paint, row: row, postseason: postseason };
 })();

@@ -118,6 +118,7 @@ W25's small documentation fixes can accompany each earlier PR. C12 is closed: no
   - **Schedule rows:** a name never breaks mid-word on a phone. visualcheck now fails any name that does. PR #85.
   - **The edge API:** CFBD is answered only for registry schools, this season or last, so no script can spend the key's monthly allowance. FCS opponents show a dash. PR #86, deployed `edge-2026-10-02a`.
 - **Share Suite** shares the app, not the fan's team: "Join me on Suite" and the plain link (David). PR #87.
+- **The CFP calendar (David, Oct 2):** Top 25 names the next CFP rankings show (day, the fan's time, ESPN) and Selection Day; the schedule's foot says when the team's bowl or playoff game is announced. Dates checked at the source and kept as league data (`leagues/college-football.js`, decision 0033).
 
 ## External, conditional and intentionally deferred work
 
@@ -134,6 +135,8 @@ These remain visible but do not halt the runnable queue or get falsely marked co
 | Internal iw- names (C16) | Keep until a concrete migration benefit exists; inventory if touched by W10. | Internal branding cleanup adds migration risk with no current fan benefit. Not a required “finish everything” gate. |
 | Phase 4D Market/Forecast provider boundaries | Revisit when W11/W18 or another concrete change warrants extraction. | Deliberately deferred architecture, not unfinished mandatory platform work. |
 | More teams/sports (Phase 9), recruiting/transfers | Discovery after complete OSU and validated user need; source decisions first. | Directional roadmap, not an unlimited build instruction. |
+| NFL draft prospects (David's idea, Oct 2) | Offseason option in the "Suite offseason: options to decide" doc (Idea 6): each draft-eligible player's projected grade and round or pick, credited, then the actual pick. Claude probes ESPN's draft data from the runner first. | Needs a source whose grades are public and whose terms allow it before David decides. |
+| Postseason notifications (David, Oct 2) | Queued in `docs/product/notifications-brief.md` §2: CFP rankings released, Selection Day reminder, the team's bowl or playoff game set, no postseason. | Built after W19's kickoff and final alerts are proven. |
 | Bronze-halo app-icon option (B10) | Flat default stands; no action unless David requests the alternate. | Existing final icon set is delivered; do not reopen it as a blocker. |
 
 ## Settled decisions: do not ask again

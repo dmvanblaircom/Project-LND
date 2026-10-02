@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-02sm3";
+var VERSION = "suite-2026-10-02cf1";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -40,7 +40,7 @@ var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
   "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js", "./suite/stats.js",
   "./teams/index.js",
-  "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
+  "./leagues/college-football.js", "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
   "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",
   "./teamos/game.js", "./teamos/outlook.js", "./teamos/markets.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js", "./teamos/cfbd.js",
   // Suite's install identity, the same for every team (decision 0024 §11).

@@ -149,6 +149,30 @@ var noScore = Object.assign({}, WG, { us: null, them: null });
 var scored = SR.row(Object.assign({}, WG, { us: "0", them: "13" }), { heroId: null, full: true, oppMark: function () { return null; } });
 ok(/Lost 0 to 13\./.test(scored) && />L<\/span> 0–13/.test(scored), "a shutout keeps its zero: L 0–13, 'Lost 0 to 13.'");
 
+// ---- The CFP calendar (David, 2026-10-02): the next show, Selection Day ----
+console.log("The CFP calendar: Top 25's notice and the schedule's foot");
+vm.runInContext(read("leagues/college-football.js") + "\n" + read("teamos/season.js"), sctx, { filename: "calendar" });
+vm.runInContext(read("suite/top25.js"), sctx, { filename: "suite/top25.js" });
+var calAt = function (iso) { return sctx.TeamOS.season.calendar(sctx.LEAGUE_CALENDAR, 2026, new Date(iso)); };
+var n1 = sctx.Suite.top25.calendarNote(calAt("2026-10-02T16:00:00Z"), false);
+// in the fan's own device time, with its zone - the same words a kickoff uses
+var kick = function (iso) { return sctx.Suite.ui.kickoff(iso).full; };
+ok(n1.indexOf("First CFP rankings:</strong> " + kick("2026-11-03T19:00:00-05:00") + " on ESPN") >= 0, "before the first show: its day, time with zone, and network");
+ok(n1.indexOf("Selection Day:</strong> " + kick("2026-12-06T12:00:00-05:00") + " on ESPN. The 12-team playoff field, then every bowl matchup that afternoon.") >= 0,
+   "and Selection Day: the playoff field, then the bowls");
+ok((n1.match(/CFP rankings/g) || []).length === 1, "one rankings show at a time, never the season's list");
+var n2 = sctx.Suite.top25.calendarNote(calAt("2026-11-04T01:00:00Z"), true);
+ok(n2.indexOf("Next CFP rankings:</strong> " + kick("2026-11-10T21:00:00-05:00")) >= 0, "after the first show: the next one, Tue Nov 10");
+ok(/CFP rankings:<\/strong> on now on ESPN/.test(sctx.Suite.top25.calendarNote(calAt("2026-11-04T00:30:00Z"), false)), "during a show: on now");
+ok(/being revealed now on ESPN/.test(sctx.Suite.top25.calendarNote(calAt("2026-12-06T18:00:00Z"), true)), "during Selection Day's show: revealed now");
+eq(sctx.Suite.top25.calendarNote(calAt("2026-12-07T12:00:00Z"), true), "", "after Selection Day, with the CFP published: no notice");
+ok(/once the committee releases them/.test(sctx.Suite.top25.calendarNote({ rankings: null, selection: null }, false)),
+   "a season with no published calendar keeps the old notice, with no date promised");
+var foot = SR.postseason({ day: "2026-12-06" });
+ok(/Postseason/.test(foot) && /announced on Selection Day, Sun, Dec 6\./.test(foot), "the schedule's foot: when this team's bowl or playoff game is announced");
+eq(SR.postseason(null), "", "and nothing once that day is over or the game is listed");
+ok(!/notre|irish|ohio|buckeye/i.test(read("suite/top25.js") + read("suite/schedule.js")), "neither view names a team");
+
 // ---- Drive Tracker: whose drive, in whose colour (David, 2026-09-26) ----
 console.log("Drive Tracker colour follows the ball");
 var msu = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-msu-final.json")), TEAM, CFG);

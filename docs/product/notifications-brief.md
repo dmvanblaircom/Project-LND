@@ -34,6 +34,22 @@ Deferred until the first three are proven: depth chart / availability report
 published, ranking changes, kickoff-time announced, news. Each is a new
 source of pushes and a new way to annoy; add one at a time with evidence.
 
+**Postseason events (David, 2026-10-02), queued after the first three.** The
+dates come from the league's published calendar (`leagues/`, decision 0033),
+the outcomes from the same feeds the screens use:
+
+| Event | Default | Example text | When |
+|---|---|---|---|
+| **CFP rankings released** | Off (opt-in) | "The CFP rankings are out: [team] is No. [n]." / "...: [team] is not in the top 25." | After each Tuesday show, Nov 3 to Dec 1 (2026) |
+| **Selection Day reminder** | On, once | "Selection Day is today. The playoff field is revealed at [time] on ESPN." | Morning of Selection Day, Dec 6 (2026) |
+| **Team's postseason set** | On | "[Team] is in the College Football Playoff: No. [seed] vs. [opponent], [date]." / "[Team] will play [opponent] in the [bowl], [date]." | When the team's playoff or bowl game appears, Selection Day |
+| **No postseason** | Off | "[Team]'s season is complete: no bowl this year." | Only once selection is known (TeamOS.season.phase `not-selected`), never inferred from an empty feed |
+
+The last two read the season model (`TeamOS.season.phase`, `Game.stage`), so
+a bowl's name is ESPN's own words. No time is promised for a bowl
+announcement: bowls name their teams through Selection Day afternoon, after
+the playoff field (2025 practice), and the push fires when the game appears.
+
 Wording comes from TeamOS's normalized game (team names from the team
 config, scores from the same live state every screen uses, decision 0010),
 never from a provider's text. No odds in a notification (decision 0025 keeps

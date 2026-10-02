@@ -781,6 +781,14 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .rk-same{color:var(--s-muted)}
 .rk-new{font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--s-win)}
 .rk-note{margin:.7rem 0 0;padding:.7rem .9rem;border:1px solid var(--s-line);border-radius:var(--s-radius-ctl);background:var(--s-inset);font-size:.9rem;color:var(--s-ink-2)}
+/* The schedule's foot until Selection Day: when the postseason is announced */
+.sched-post{padding:.7rem .75rem .7rem .8rem}
+.sched-post p{margin:0}
+.sched-post .sched-post-k{font-family:var(--t-font-ui);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.sched-post .sched-post-v{margin-top:.2rem;font-size:.95rem;color:var(--s-ink-2)}
+.rk-note p{margin:0}
+.rk-note p + p{margin-top:.4rem}
+.rk-note strong{color:var(--s-ink);font-weight:700}
 
 /* ---- Roster (reference 09; 0019, 0024 §8, §9) ---------------------- */
 .ro-body{padding-bottom:.5rem}
