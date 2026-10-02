@@ -99,6 +99,20 @@ jobs:
               print(f, "->", len(d["markets"]), "markets")
           PY
 
+      # ESPN's Football Power Index for every FBS team (W07). ESPN publishes a
+      # new edition daily at 08:00Z, 4 AM ET (observed Sep 30, Oct 1 and Oct 2:
+      # docs/engineering/rankings-sources.md), so most runs find the same
+      # table and write nothing. A table that fails validation is refused and
+      # the last good snapshot stays. The season is the one being played:
+      # January to June is last season's, as the page counts it.
+      - name: Fetch ESPN's FPI
+        id: fpi
+        continue-on-error: true      # a refused table must never block the odds
+        run: |
+          Y=$(date -u +%Y); M=$(date -u +%-m)
+          [ "$M" -lt 7 ] && Y=$((Y - 1))
+          python3 tools/producers/fpi.py --season "$Y"
+
       # Every team that declares an odds history (backlog C2): its price, read
       # from the league-wide markets by its own Kalshi declaration.
       - name: Append each team's price to its season history
@@ -175,6 +189,7 @@ jobs:
           HISTORY: ${{ steps.oddshistory.outcome }}
           NEWS: ${{ steps.news.outcome }}
           DEPTH: ${{ steps.depth.outcome }}
+          FPI: ${{ steps.fpi.outcome }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -189,6 +204,7 @@ jobs:
           [ "$NEWS" = success ]    && add "news" 'data/*/news.json'
           [ "$DEPTH" = success ]   && add "depth chart" 'data/*/depth.json' 'data/*/depth-history.json'
           [ "$DEPTH" = success ]   && add "availability" 'data/*/availability.json' 'data/*/availability-history.json'
+          [ "$FPI" = success ]     && add "FPI" 'data/league/fpi.json'
           if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
           git commit -q -m "Refresh team data: $moved"
           echo "committed: $moved"
