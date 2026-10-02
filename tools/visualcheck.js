@@ -73,6 +73,9 @@ function responseFor(url) {
   // A team's season, real payloads captured on the runner (W27): Stats and
   // the Matchup card read the same core-API call; the site API's carries
   // what the team allowed (captured for Notre Dame).
+  // Each team's season leaders (the Players view, W27 Phase 2).
+  var ld = /\/types\/\d\/teams\/(\d+)\/leaders/.exec(url);
+  if (ld) return fs.readFileSync(path.join(root, "tools", "fixtures", ld[1] === "194" ? "espn-leaders-osu-2026-reg.json" : "espn-leaders-nd-2026-reg.json"));
   var ts = /\/types\/\d\/teams\/(\d+)\/statistics/.exec(url);
   if (ts) return fs.readFileSync(path.join(root, "tools", "fixtures", ts[1] === "87" ? "espn-teamstats-nd-2026-reg.json" : "espn-teamstats-osu-2026-reg.json"));
   if (/\/teams\/87\/statistics(?:\?|$)/.test(url)) return fs.readFileSync(path.join(root, "tools", "fixtures", "espn-sitestats-nd.json"));
@@ -562,6 +565,22 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             if (ss.rows < 20 || ss.groups < 4) fail(label, "behaviour", "#screenStats", "Stats shows " + ss.rows + " rows in " + ss.groups + " groups");
             var links = await page.evaluate(function () { return { roster: !!document.querySelector('#screenRoster a[href="#stats"]') }; });
             if (!links.roster) fail(label, "behaviour", ".ro-stats", "Roster has no link to Stats");
+            // Players (W27 Phase 2): the season leaders, named, in Box Score's table.
+            await page.evaluate(function () { location.hash = "#stats/players"; });
+            await page.waitForFunction(function () { return document.querySelectorAll("#screenStats table.bx tbody tr").length > 20; }, null, { timeout: 8000 }).catch(function () {});
+            await fullShot(page, path.join(shots, team + "-" + width + "-stats-players.png"));
+            await checkState(page, team + " stats players " + width + "px");
+            var sp = await page.evaluate(function () {
+              var h = document.getElementById("screenStats");
+              return { tables: h.querySelectorAll("table.bx").length, rows: h.querySelectorAll("table.bx tbody tr").length,
+                       cur: (h.querySelector('.view-tabs a[aria-current="page"]') || {}).textContent || "",
+                       ids: [].some.call(h.querySelectorAll("table.bx td, table.bx tbody th"), function (c) { return /^\d{6,}$/.test(c.textContent.trim()); }) };
+            });
+            if (sp.tables < 4 || sp.rows < 20) fail(team + " stats players " + width + "px", "behaviour", "#screenStats", "Players shows " + sp.rows + " rows in " + sp.tables + " tables");
+            if (sp.cur !== "Players") fail(team + " stats players " + width + "px", "behaviour", ".view-tabs", "the view strip marks " + sp.cur);
+            if (sp.ids) fail(team + " stats players " + width + "px", "behaviour", "#screenStats", "an athlete id is shown");
+            await page.evaluate(function () { location.hash = "#stats"; });
+            await page.waitForTimeout(200);
           }
           if (screen === "news") {
             await page.waitForFunction(function () { return document.querySelectorAll("#screenNews .nw-row").length > 0; }, null, { timeout: 8000 }).catch(function () {});

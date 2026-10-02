@@ -5,6 +5,9 @@
                  defense, special teams, turnovers and penalties - each figure
                  with its national rank where more of it is better; in game
                  week, this week's opponent beside it
+     #stats/players  the Players view (Phase 2): the season leaders as
+                 tables - Passing, Rushing, Receiving, Defense - in Box
+                 Score's table, each figure the provider's own
 
    A secondary destination owned by More (decision 0028), reached from More,
    the Roster tab and Game's Matchup card. This file only draws: app.js
@@ -15,7 +18,11 @@
        team: { name, abbr }, opp: { name, abbr } | null,
        season: "2026" , postseason: bool,
        us: TeamSeason | null, them: TeamSeason | null,
-       loading: bool, failed: bool, offline: bool })              */
+       loading: bool, failed: bool, offline: bool,
+       view: "team" | "players",
+       players: { tables: [{ key, label, labels, rows: [{ name, stats }] }],
+                  unnamed: number } | null,
+       playersFailed: bool })                                       */
 
 var Suite = Suite || {};
 
@@ -52,23 +59,67 @@ Suite.stats = (function () {
            "</section>";
   }
 
+  function seasonLine(m) {
+    return m.season + (m.postseason ? " season, postseason included" : " regular season") +
+           (m.us && m.us.games ? " \u00b7 " + m.us.games + (m.us.games === 1 ? " game" : " games") : "");
+  }
+
+  function strip(view) {
+    return '<nav class="game-tabs view-tabs" aria-label="Stats views">' +
+      [["team", "Team", "#stats"], ["players", "Players", "#stats/players"]].map(function (v) {
+        return '<a href="' + v[2] + '"' + (v[0] === view ? ' aria-current="page"' : "") + ">" + v[1] + "</a>";
+      }).join("") + "</nav>";
+  }
+
+  // One leader table, in Box Score's table (.bx): the player, then the
+  // provider's own figures under its own labels.
+  function tableHtml(t, team) {
+    return '<section class="card gcard ss-card" aria-labelledby="sp-' + esc(t.key) + '">' +
+             '<div class="gcard-head"><h2 class="gcard-title" id="sp-' + esc(t.key) + '">' + esc(t.label) + "</h2></div>" +
+             '<div class="bx-wrap"><table class="bx" aria-label="' + esc(team + " " + t.label) + '">' +
+               '<thead><tr><th scope="col">Player</th>' + t.labels.map(function (l) { return '<th scope="col">' + esc(l) + "</th>"; }).join("") + "</tr></thead>" +
+               "<tbody>" + t.rows.map(function (r) {
+                 return '<tr><th scope="row">' + esc(r.name) + "</th>" + r.stats.map(function (v) {
+                   return "<td>" + (v === "\u2013" ? '<span aria-hidden="true">\u2013</span><span class="sr-only">none</span>' : esc(v)) + "</td>";
+                 }).join("") + "</tr>";
+               }).join("") + "</tbody></table></div>" +
+           "</section>";
+  }
+
+  function playersHtml(m) {
+    var p = m.players;
+    if (!p) {
+      return '<p class="sec-quiet">' + (m.playersFailed
+        ? (m.offline ? "You're offline. Player stats load when the connection returns."
+                     : "Player stats didn't load. Pull down to try again.")
+        : "Loading player stats\u2026") + "</p>";
+    }
+    if (!p.tables.length) return '<p class="sec-quiet">No player stats yet this season.</p>';
+    return p.tables.map(function (t) { return tableHtml(t, m.team.name); }).join("") +
+      '<p class="ss-note">Each category\u2019s season leaders, up to 25 deep. Source: ESPN.' +
+      (p.unnamed ? " " + p.unnamed + (p.unnamed === 1 ? " player isn\u2019t" : " players aren\u2019t") + " shown: ESPN hasn\u2019t named them yet." : "") +
+      "</p>";
+  }
+
   function paint(host, m) {
     if (!host) return;
     var html;
-    if (!m.us) {
+    var players = m.view === "players";
+    if (players) {
+      html = strip("players") + '<p class="ss-season">' + esc(seasonLine(m)) + "</p>" + playersHtml(m);
+    } else if (!m.us) {
       html = m.failed
         ? '<p class="sec-quiet">' + (m.offline ? "You're offline. Season stats load when the connection returns."
                                                 : "Season stats didn't load. Pull down to try again.") + "</p>"
         : '<p class="sec-quiet">Loading season stats…</p>';
     } else {
       var them = m.opp && m.them ? m.them : null;
-      var line = m.season + (m.postseason ? " season, postseason included" : " regular season") +
-                 (m.us.games ? " · " + m.us.games + (m.us.games === 1 ? " game" : " games") : "");
-      html = '<p class="ss-season">' + esc(line) + "</p>" +
+      html = '<p class="ss-season">' + esc(seasonLine(m)) + "</p>" +
              (them ? '<p class="ss-week">This week: ' + esc(m.team.abbr) + " and " + esc(m.opp.name) + ", side by side.</p>" : "") +
              m.us.groups.map(function (g) { return groupHtml(g, them, m); }).join("") +
              '<p class="ss-note">Ranks are national, where a higher figure is better. Source: ESPN.</p>';
     }
+    if (!players) html = strip("team") + html;
     if (html === last && host.innerHTML) return;     // a background refresh never resets the scroll
     last = html;
     host.innerHTML = html;

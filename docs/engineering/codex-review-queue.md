@@ -51,6 +51,11 @@ beside it during game week (proposal: `docs/product/season-stats-proposal.md`).
 - The Roster link (`.ro-stats`, above the view strip) and Matchup's "Full
   season stats" link.
 - The More menu's new Stats icon (`suite/more.js` `ICONS.stats`).
+- **Players (Phase 2, Oct 2):** the Team | Players strip (`#stats`,
+  `#stats/players`) and the four leader tables. They are Box Score's table
+  (`.bx`) inside the Stats cards, with every row showing, nothing folded.
+  Decide whether a long table (Defense, 25 rows) should start folded like
+  Box Score's, and how the unnamed-players note reads.
 
 Check at 320/390/1280, both teams, Team Style and Suite Style, inside and
 outside game week.

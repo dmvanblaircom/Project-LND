@@ -728,16 +728,66 @@ function loadStats(force){
 // while Stats is open (loadStats asks only when something differs), or the
 // next time it opens.
 function statsInputsChanged(){
-  if((ST.us || ST.p) && !$("screenStats").hidden) loadStats();
+  if($("screenStats").hidden) return;
+  if(statsView()==="players"){ if(PL.tables || PL.p) loadPlayers(); return; }
+  if(ST.us || ST.p) loadStats();
 }
+function statsView(){ return Suite.nav.current().view==="players" ? "players" : "team"; }
 function paintStats(){
   var host=$("screenStats");
   if(!host || host.hidden) return;
-  var g=ST.them ? ST.opp : null;
+  var g=ST.them ? ST.opp : null, view=statsView();
+  var shownType = view==="players" ? (PL.tables ? PL.type : statsType()) : (ST.us ? ST.type : statsType());
   Suite.stats.paint(host, { team:{ name:TEAM.name, abbr:TEAM.abbreviation },
     opp: g ? { name:g.oppName, abbr:g.oppAbbr } : null,
-    season:String(seasonYear()), postseason: (ST.us ? ST.type : statsType())===3,
-    us:ST.us, them:ST.them, failed:ST.failed, offline:navigator.onLine===false });
+    season:String(seasonYear()), postseason: shownType===3,
+    us:ST.us, them:ST.them, failed:ST.failed, offline:navigator.onLine===false,
+    view:view, players:playersModel(), playersFailed:PL.failed });
+}
+
+/* ---------- season stats: Players (W27 Phase 2) ---------- */
+// The season leaders by category, from the core API, named by athlete id
+// from what the app already has: the roster, and the box score of every
+// finished game this season - ESPN's roster leaves some players out, and a
+// finished game's summary is kept on the device for good (summaryFor), so
+// it is asked for once. `named`: every name source has answered, so a row
+// still without a name is counted as such rather than as still loading.
+var PL={ tables:null, type:null, p:null, failed:false, outcome:null, box:{}, named:false, np:null };
+function playerNames(){
+  var names={};
+  Object.keys(PL.box).forEach(function(id){ var b=PL.box[id]; for(var k in b) if(!names[k]) names[k]=b[k]; });
+  (RO.roster||[]).forEach(function(gr){ gr.players.forEach(function(p){ if(p.id && p.name) names[p.id]=p.name; }); });
+  return names;
+}
+function playersModel(){
+  if(!PL.tables) return null;
+  var m=TeamOS.espn.namedLeaders(PL.tables, playerNames());
+  if(!PL.named) m.unnamed=0;           // still being named, not unnamed
+  return m;
+}
+// The names: the roster (joined if it is already being asked for) and each
+// finished game's box score not yet read.
+function loadPlayerNames(){
+  if(PL.np) return PL.np;
+  var finals=(S.games||[]).filter(function(g){ return g.state==="post" && !PL.box[g.id]; });
+  var roster=loadRosterScreen(false, true);
+  PL.np=Promise.all([roster.catch(function(){})].concat(finals.map(function(g){
+    return summaryFor(g.id).then(function(raw){ PL.box[g.id]=TeamOS.espn.boxNames(raw); paintStats(); }, function(){});
+  }))).then(function(){ PL.np=null; PL.named=!!S.games; paintStats(); });
+  return PL.np;
+}
+function loadPlayers(force){
+  if(PL.p) return PL.p;
+  var type=statsType();
+  if(PL.tables && PL.type===type && !force){ loadPlayerNames(); return Promise.resolve(); }
+  var url=TeamOS.espn.leadersUrl(TEAM_CONFIG.sources.espn.teamId, seasonYear(), type);
+  PL.failed=false;
+  PL.p=fetchJSON(url).then(function(r){
+    PL.tables=TeamOS.espn.seasonLeaders(r.data); PL.type=type; PL.outcome=r.cached ? "cached" : "network";
+  }, function(){ PL.outcome="failed"; if(!PL.tables) PL.failed=true; })
+    .then(function(){ PL.p=null; paintStats(); return loadPlayerNames(); });
+  paintStats();
+  return PL.p;
 }
 
 /* ---------- news ---------- */
@@ -924,7 +974,8 @@ window.addEventListener("online",  function(){
   // Stats said it would load when the connection returned: it does - and
   // so does a season that came from the worker's copy, or one missing this
   // week's opponent (Codex review, #84).
-  if(!$("screenStats").hidden && (ST.outcome!=="network" || (ST.oppFor && !ST.them))) loadStats(true);
+  if(!$("screenStats").hidden && statsView()==="team" && (ST.outcome!=="network" || (ST.oppFor && !ST.them))) loadStats(true);
+  if(!$("screenStats").hidden && statsView()==="players" && PL.outcome!=="network") loadPlayers(true);
 });
 window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); });
 
@@ -1121,7 +1172,7 @@ function showScreen(route){
   $("screenSchedule").hidden=!sched;
   $("screenRoster").hidden=!roster;
   if(home){ paintHome(); loadNews(); }
-  if(MORE_HOSTS[route.screen]){ askVersion(); paintMore(); if(route.screen==="news") loadNews(); if(route.screen==="stats") loadStats(); }
+  if(MORE_HOSTS[route.screen]){ askVersion(); paintMore(); if(route.screen==="news") loadNews(); if(route.screen==="stats"){ if(route.view==="players") loadPlayers(); else loadStats(); } }
   if(game) paintGame();
   if(top25){ paintTop25(); loadTop25(); }
   if(sched) paintScheduleScreen();
@@ -1511,6 +1562,7 @@ function refreshAll(silent){
   if(T25.polls || T25.p) steps.push(loadRankings());
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
   if(ST.us || ST.p || ST.failed) steps.push(loadStats(true).then(function(){ return { key:"stats", outcome: ST.outcome || "failed" }; }));
+  if(PL.tables || PL.p || PL.failed) steps.push(loadPlayers(true).then(function(){ return { key:"players", outcome: PL.outcome || "failed" }; }));
   // An open game's summary is otherwise kept up to five minutes before
   // kickoff: drop that, so a refresh refreshes what the fan is looking at.
   [GV, SV].forEach(function(V){

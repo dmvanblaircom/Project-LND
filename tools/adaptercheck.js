@@ -147,7 +147,7 @@ eq(TeamOS.espn.gameOdds(null), null, "no summary -> null");
 
 // ---- roster ----
 var rosterFixture = JSON.parse(read("tools/fixtures/espn-roster.json"));
-var PLAYER = ["name","jersey","position","positionName","height","weight","classYear","hometown","photo"];
+var PLAYER = ["id","name","jersey","position","positionName","height","weight","classYear","hometown","photo"];
 var PLEAK = /displayName|fullName|displayHeight|displayWeight|experience|birthPlace|abbreviation|athletes|espn/i;
 
 console.log("rosterUrl / teamUrl");
@@ -173,11 +173,11 @@ groups.forEach(function (g) {
   });
 });
 var absher = groups[0].players[0], scaife = groups[2].players[0], walkon = groups[2].players[1];
-eq(absher, { name:"Sullivan Absher", jersey:"75", position:"OL", positionName:"Offensive Lineman",
+eq(absher, { id:"4917976", name:"Sullivan Absher", jersey:"75", position:"OL", positionName:"Offensive Lineman",
              height:"6' 7\"", weight:"320 lbs", classYear:"SR", hometown:{ city:"Belmont", state:"NC" }, photo:null },
    "full player: abbreviation shown, full position name kept for search, class abbreviation");
 eq([scaife.hometown.city, scaife.hometown.state], ["West Perth", ""], "missing state -> empty string, not undefined");
-eq(walkon, { name:"Walk On", jersey:"", position:"Long Snapper", positionName:"Long Snapper",
+eq(walkon, { id:"0000001", name:"Walk On", jersey:"", position:"Long Snapper", positionName:"Long Snapper",
              height:"", weight:"", classYear:"", hometown:{ city:"", state:"" }, photo:null },
    "sparse athlete: no jersey/height/weight/class/hometown -> empty strings; position falls back to name");
 eq(TeamOS.espn.roster({ athletes: [absherRaw(), absherRaw()] }).map(function (g) { return g.key + ":" + g.label + ":" + g.players.length; }),
@@ -412,7 +412,10 @@ fs.readdirSync(path.join(root, "tools/fixtures")).filter(function (f) { return /
     (d.plays || []).forEach(function (p) { src[p.id] = p.text; });
   });
   (gd.drives ? gd.drives.list : []).forEach(function (d) { d.plays.forEach(function (p) {
-    if (seenPlay[p.id]) return; seenPlay[p.id] = 1; everyPlay.push({ shown: p, espn: src[p.id] || "" });
+    // the same play in a live and a final capture is two real texts: ESPN
+    // rewrites some after the game, so both are replayed
+    var k = p.id + "|" + (src[p.id] || "");
+    if (seenPlay[k]) return; seenPlay[k] = 1; everyPlay.push({ shown: p, espn: src[p.id] || "" });
   }); });
 });
 function wordsOf(p) { return [p.text].concat(p.notes || []).join(" "); }
@@ -686,7 +689,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"],
+   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
    "exactly the documented functions");
 
 console.log("mark");
@@ -1342,6 +1345,43 @@ eq([TeamOS.espn.seasonStatsUrl("87", 2026), TeamOS.espn.seasonStatsUrl("87", 202
    ["https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/teams/87/statistics",
     "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2024/types/3/teams/87/statistics"],
    "the season statistics URL takes the season type, the regular season by default (the Matchup card is unchanged)");
+
+// ---- Stats, Players (W27 Phase 2): the season leaders, named ----
+console.log("Stats: the Players view's model");
+function rosterNames(file) {
+  var n = {}; TeamOS.espn.roster(fx(file)).forEach(function (g) { g.players.forEach(function (p) { if (p.id) n[p.id] = p.name; }); }); return n;
+}
+function withBoxes(names, files) {
+  files.forEach(function (f) { var b = TeamOS.espn.boxNames(fx(f)); for (var k in b) if (!names[k]) names[k] = b[k]; }); return names;
+}
+var ldND = TeamOS.espn.seasonLeaders(fx("espn-leaders-nd-2026-reg.json"));
+eq(ldND.map(function (t) { return t.label + ":" + t.labels.join("/") + ":" + t.rows.length; }),
+   ["Passing:C/ATT/YDS/TD/INT/RTG:3", "Rushing:CAR/YDS/TD:7", "Receiving:REC/YDS/TD:15", "Defense:TCK/SACK/INT:25"],
+   "Notre Dame's leaders: four tables under the provider's own labels, kicking and punting left to the Team view");
+eq(ldND[0].rows[0].stats, ["67/95", "963", "9", "1", "130.3"], "a row is the provider's line, split - never re-derived");
+ok(ldND.every(function (t) { return t.rows.every(function (r) { return /^\d+$/.test(r.id) && r.stats.length === t.labels.length; }); }),
+   "every row is keyed by athlete id and has a value or a dash for every column");
+var rosterOnly = TeamOS.espn.namedLeaders(ldND, rosterNames("espn-roster-nd-oct02.json"));
+ok(rosterOnly.unnamed === 6, "ESPN's roster leaves 6 of Notre Dame's leaders out (" + rosterOnly.unnamed + "), the top rusher among them");
+var named = TeamOS.espn.namedLeaders(ldND, withBoxes(rosterNames("espn-roster-nd-oct02.json"), ["espn-summary-wis-final.json", "espn-summary-msu-final.json", "espn-summary-pur-final.json"]));
+eq([named.unnamed, named.tables[1].rows[0].name], [0, "Aneyas Williams"], "the season's box scores name every one of them");
+ok(!JSON.stringify(named).includes("$ref") && !/espn/i.test(JSON.stringify(named)), "nothing of the provider's shape reaches the view");
+var ldOSU = TeamOS.espn.seasonLeaders(fx("espn-leaders-osu-2026-reg.json"));
+var osuNamed = TeamOS.espn.namedLeaders(ldOSU, withBoxes(rosterNames("espn-roster-osu-oct02.json"),
+  ["espn-summary-osu-g1-final.json", "espn-summary-osu-g2-final.json", "espn-summary-osu-kent-final.json", "espn-summary-osu-ill-final.json"]));
+eq([osuNamed.tables.map(function (t) { return t.label; }), osuNamed.unnamed, osuNamed.tables[2].rows[0].name],
+   [["Passing", "Rushing", "Receiving", "Defense"], 0, "Jeremiah Smith"], "Ohio State, the same code: every leader named");
+var thin = TeamOS.espn.namedLeaders(ldND, {});
+eq([thin.tables.length, thin.unnamed > 0], [0, true], "no names at all: no rows shown as ids, and the count says why");
+eq(TeamOS.espn.leadersUrl("194", 2026, 3), "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/3/teams/194/leaders",
+   "the leaders URL takes the season type");
+eq(TeamOS.espn.seasonLeaders(null), [], "no payload: no tables");
+
+console.log("plays: two fouls on one snap");
+var twoFouls = shownFor(/PENALTY OhioSt Pass Interference \(#6 D.Sanchez\) Illini UNS/);
+eq([twoFouls.text, twoFouls.tags, twoFouls.notes], ["K. Houser pass incomplete short left to C. Dixon", ["No play", "1st down"],
+   ["Penalty on OSU: pass interference", "Penalty on ILL: unsportsmanlike conduct"]],
+   "each foul its own line; the yardage, whose the feed does not say, is given to neither (Illinois-Ohio State 2026)");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "all adapter checks passed"));
 process.exit(failures ? 1 : 0);

@@ -631,10 +631,18 @@ TeamOS.espn = (function () {
     t=t.replace(/\s*\(H:[^)]*\)/g,"");
     // penalties -> a note. One after a touchdown is on the try, not the play.
     var tdAt=t.search(/\bTOUCHDOWN\b/);
-    t=t.replace(/\s*PENALTY ([A-Za-z]+) (?:[A-Z]{3}: )?([^(#\d]+?)(?:\s*\([^)]*\))?(?:\s+(\d+) yards? from [A-Za-z]+\d\d to [A-Za-z]+\d\d)?( declined)?(,? 1ST DOWN)?(\.? NO PLAY)?(?=$|\s*#|\s*\.)/, function(m, tm, foul, yds, dec, fd, np, at){
+    // Two fouls on one snap ("PENALTY OhioSt Pass Interference Illini UNS:
+    // Unsportsmanlike Conduct 28 yards ...", Illinois-Ohio State 2026) are two
+    // notes; the yardage is not given to either, since the feed does not say
+    // whose it is.
+    t=t.replace(/\s*PENALTY ([A-Za-z]+) (?:[A-Z]{3}: )?([^(#\d]+?)(?:\s*\([^)]*\))?(?:\s+([A-Za-z]+) [A-Z]{3}: ([^(#\d]+?)(?:\s*\([^)]*\))?)?(?:\s+(\d+) yards? from [A-Za-z]+\d\d to [A-Za-z]+\d\d)?( declined)?(,? 1ST DOWN)?(\.? NO PLAY)?(?=$|\s*#|\s*\.)/, function(m, tm, foul, tm2, foul2, yds, dec, fd, np, at){
       var onTry=tdAt>=0 && at>tdAt;
-      var s="Penalty on "+team(tm)+": "+foul.trim().toLowerCase()+(yds?", "+yds+" yards":"")+(dec?", declined":"")+(onTry?" (on the try)":"");
-      notes.push(s); if(np && !onTry) tags.push("No play"); if(fd && !onTry) tags.push("1st down"); return "";
+      var tail=(dec?", declined":"")+(onTry?" (on the try)":"");
+      if(tm2){
+        notes.push("Penalty on "+team(tm)+": "+foul.trim().toLowerCase()+tail);
+        notes.push("Penalty on "+team(tm2)+": "+foul2.trim().toLowerCase()+tail);
+      } else notes.push("Penalty on "+team(tm)+": "+foul.trim().toLowerCase()+(yds?", "+yds+" yards":"")+tail);
+      if(np && !onTry) tags.push("No play"); if(fd && !onTry) tags.push("1st down"); return "";
     });
     // formation and filler
     t=t.replace(/\b(No Huddle-Shotgun|No Huddle|Shotgun)\s+/g,"");
