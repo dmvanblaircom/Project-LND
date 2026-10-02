@@ -69,7 +69,9 @@ Suite.nav = (function () {
     // that keeps More selected (decision 0028).
     news:     { title: "News",        owner: "more" },
     // The team's season (W27): reached from More, Roster and Game's Matchup.
-    stats:    { title: "Stats",       owner: "more" },
+    // Team | Players (W27 Phase 2).
+    stats:    { title: "Stats",       owner: "more",
+                views: [{ id: "team", label: "Team" }, { id: "players", label: "Players" }] },
     settings: { title: "Settings",    owner: "more" },
     feedback: { title: "Feedback",    owner: "more" },
     about:    { title: "About Suite", owner: "more" }

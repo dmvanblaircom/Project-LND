@@ -229,6 +229,7 @@ A roster entry. **Implemented in Phase 3B**, produced only by `TeamOS.espn.roste
 
 | Field | Meaning |
 |---|---|
+| `id` | the provider's athlete id (digits), or `null`. Opaque: it joins a player across feeds - season leaders, box scores - and later across seasons (W27). Never shown |
 | `name` | display name |
 | `jersey` | number as printed, e.g. `"75"`; a string, sorted numerically by the view |
 | `position` | abbreviation, e.g. `"OL"`, falling back to the full name |
@@ -236,6 +237,16 @@ A roster entry. **Implemented in Phase 3B**, produced only by `TeamOS.espn.roste
 | `height`, `weight` | as displayed, e.g. `"6' 7\""`, `"320 lbs"` |
 | `classYear` | e.g. `"SR"` |
 | `hometown` | `{ city, state }`; `state` is `""` for players from outside the U.S. |
+
+### SeasonLeaders (W27 Phase 2)
+
+The Players view's tables. `TeamOS.espn.seasonLeaders(json)` turns ESPN's core-API season leaders into `[{ key, label, labels, rows: [{ id, stats }] }]`:
+
+- The tables are Passing (with RTG), Rushing, Receiving and Defense (TCK, SACK, INT).
+- The columns are the provider's own summary line split by its own labels ("67/95, 963 YDS, 9 TD, 1 INT").
+- A figure the feed does not give a player is `"–"`.
+
+`TeamOS.espn.namedLeaders(tables, names)` joins names by `id` and leaves a row without a name out, counting it (`unnamed`). The app's names come from the roster's `Player.id` and from `TeamOS.espn.boxNames(summary)`, every finished game's box score: ESPN's roster leaves some players out. Kicking and punting have no leaders; their season figures are TeamSeason's.
 
 ### RosterGroup
 

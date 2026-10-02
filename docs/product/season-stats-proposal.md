@@ -126,7 +126,7 @@ Notes for when it is picked up:
 |---|---|---|---|
 | 0 | Capture real payloads: full team season stats for ND and OSU (regular season and postseason), and one player-stats candidate per source, with its athlete ids | 1 block | A capture workflow run (GitHub's runner can reach ESPN) |
 | 1 | **Team** view: every category, ranks, opponent column in game week, link from Matchup | 2-3 blocks | Codex: layout and type |
-| 2 | **Players** view: category tables from the confirmed source, reusing Box Score's table | 2-3 blocks | Phase 0's answer; Codex review |
+| 2 | **Players** view: category tables from the confirmed source, reusing Box Score's table. **Built Oct 2:**<ul><li>the core API's season leaders, as Passing, Rushing, Receiving and Defense;</li><li>names joined by athlete id from the roster and the season's box scores, since ESPN's roster leaves some leaders out (6 for ND, 7 for OSU, the top rusher among them);</li><li>no kicking or punting leaders exist, so those stay on the Team view.</li></ul> | 2-3 blocks | Phase 0's answer; Codex review |
 | 3 | Historical (queued): season picker, player pages, Worker caching | Scoped when picked up | A source verified for past seasons |
 
 (A block is 1-2 hours that ends with something shippable.)
