@@ -1,12 +1,25 @@
-# The CFP calendar (2026-10-02, David): when each set of rankings is
-# released, on what network, Selection Day, and when bowls that are not in
-# the playoff announce their teams. Checked at the source, from GitHub's
-# network by probe-sources.yml on push.
-https://collegefootballplayoff.com/news/2026/8/6/sc-aug-2627 | (Nov|Dec|Jan)[a-z]*\.? \d|ESPN|p\.m\.|ET
-https://collegefootballplayoff.com/sports/2026/8/9/bracket-place-holder | (Nov|Dec|Jan)[a-z]*\.? \d|ESPN|ABC|TNT
-https://www.ncaa.com/news/football/article/2026-08-11/when-do-college-football-playoff-rankings-come-out | (Nov|Dec)[a-z]*\.? \d|ESPN|p\.m\.
-https://fbschedules.com/college-football-playoff-sets-2026-rankings-release-schedule/ | (Nov|Dec)[a-z]*\.? \d|ESPN|pm
-https://www.ncaa.com/news/football/article/2026-08-04/2026-27-college-football-playoff-schedule-dates-tv-channel-sites | (Dec|Jan)[a-z]*\.? \d|ESPN|ABC|TNT
-http://espnpressroom.com/press-release/espn-exclusively-reveals-2025-26-cfp-bracket-on-sunday-dec-7-espn-networks-set-for-full-slate-of-selection-day-studio-programming/ | [Bb]owl|p\.m\.
-https://en.wikipedia.org/wiki/2026%E2%80%9327_NCAA_football_bowl_games | [Ss]elect|announc|December 6|Dec\. 6
-https://en.wikipedia.org/wiki/2025%E2%80%9326_NCAA_football_bowl_games | [Ss]elect|announc|December 7
+# W16 offseason follow-ups (2026-10-02), per David's decisions on the
+# offseason proposal: Idea 6 "probe sources, then decide" (NFL draft
+# prospects) and D4 "research, then draft emails" (recruiting classes).
+# What does each source return from GitHub's network, and on what terms?
+#
+# Idea 6: ESPN's NFL draft data (core API) and prospect pages.
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft/athletes?limit=5
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes?limit=5
+https://www.espn.com/nfl/draft/bestavailable | grade|rank|Notre Dame|Ohio State
+https://www.nfl.com/draft/tracker/prospects | grade|prospect
+https://www.nfl.com/legal/terms | commercial|personal|non-commercial|scrap|automated|license
+https://disneytermsofuse.com/english/ | commercial|personal|non-commercial|scrap|automated|robot|license
+# D4: recruiting classes, team pages and terms.
+https://247sports.com/college/notre-dame/season/2027-football/commits/ | commit|rank|composite
+https://247sports.com/college/ohio-state/season/2027-football/commits/ | commit|rank|composite
+https://247sports.com/terms-of-use/ | commercial|personal|scrap|automated|robot|license|permission
+https://www.on3.com/college/notre-dame-fighting-irish/football/2027/commits/ | commit|rank|industry
+https://www.on3.com/terms-of-service/ | commercial|personal|scrap|automated|robot|license|permission
+https://www.on3.com/rivals/ | rivals|terms
+https://n.rivals.com/terms | commercial|personal|scrap|automated|license
+https://www.espn.com/college-sports/football/recruiting/rankings | rank|class
+https://www.on3.com/contact-us/ | licens|partner|business|email|@
+https://247sports.com/contact/ | licens|partner|business|email|@
