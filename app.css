@@ -875,7 +875,10 @@ button.mo-row{width:100%;margin:0;border:0;background:none;font:inherit;text-ali
 .nw-img{position:relative;flex:none;width:6.5rem;aspect-ratio:4 / 3;overflow:hidden;border-radius:var(--s-radius-ctl);background:var(--s-inset)}
 .nw-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .nw-src{display:none}
-.nw-img.none{display:flex;align-items:flex-end;padding:.45rem .55rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
+/* With no photo the tile carries the source's name, so it grows to fit a long
+   one rather than clip it: "Land-Grant Holy Land" lost its first line at 320
+   and 375px (2026-10-02). The photo's 4:3 is the least it is. */
+.nw-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;min-height:4.875rem;padding:.45rem .55rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
 .nw-img.none .nw-src{display:block;overflow-wrap:anywhere;color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:.82rem;line-height:1.1;letter-spacing:.08em;text-transform:uppercase}
 .nw-body{display:flex;flex:1;flex-direction:column;gap:.4rem;min-width:0}
 .nw-hl{font-family:var(--s-font-editorial);font-weight:700;font-size:1.08rem;line-height:1.28;color:var(--s-ink);overflow-wrap:anywhere}
@@ -982,6 +985,7 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   /* News at 320: a smaller photo, so the headline has ~170px to wrap in (catch-up review 1.5) */
   .nw-row{gap:.7rem;padding:.85rem .9rem}
   .nw-img{width:4.5rem}
+  .nw-img.none{min-height:3.375rem}
   :root{--gutter:.85rem}
   /* the venue and trophy run under the kickoff column instead of beside it */
   .sched-row.full .sched-vis{grid-template-areas:"date mark site side chev" "date mark opp side chev" "date mark meta meta chev" "date mark series series chev"}
