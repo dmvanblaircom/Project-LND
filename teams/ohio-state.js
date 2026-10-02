@@ -34,7 +34,20 @@ var TEAM_CONFIG = {
     kalshi: {
       tickerSuffix: "-OSU",
       namePattern:  /ohio st|buckeyes/i
-    }
+    },
+
+    // Beat writers, read by the Action server-side (RSS sends no CORS
+    // header). Each was confirmed from GitHub's network on 2026-10-02 and
+    // approved by David (docs/engineering/ohio-state-sources.md): the
+    // athletics department's own football feed, SB Nation, SI, On3, and the
+    // student paper's football section.
+    beatFeeds: [
+      { name: "Ohio State Athletics",  feed: "https://ohiostatebuckeyes.com/rss?path=football",               site: "https://ohiostatebuckeyes.com/sports/football/" },
+      { name: "Land-Grant Holy Land",  feed: "https://www.landgrantholyland.com/rss/current.xml",            site: "https://www.landgrantholyland.com/" },
+      { name: "Ohio State On SI",      feed: "https://www.si.com/college/ohiostate/feed",                    site: "https://www.si.com/college/ohiostate" },
+      { name: "On3",                   feed: "https://www.on3.com/teams/ohio-state-buckeyes/feed/",          site: "https://www.on3.com/teams/ohio-state-buckeyes/" },
+      { name: "The Lantern",           feed: "https://www.thelantern.com/category/sports/football/feed/",    site: "https://www.thelantern.com/category/sports/football/" }
+    ]
   },
 
   // Trophy and rivalry names, matched on the opponent's name. kind (W21):
@@ -90,9 +103,15 @@ var TEAM_CONFIG = {
     }
   },
 
-  // No Action writes anything for Ohio State yet: no depth-chart source,
-  // no price history, no beat feeds. Declaring none is what keeps Notre
-  // Dame's files off this page (Phase 5B); each kind appears here when a
-  // source for it exists.
-  snapshots: {}
+  // The snapshots .github/workflows/odds.yml commits for Ohio State, each
+  // because a source exists for it (W20). Price history is read from the
+  // Kalshi markets above, going forward from 2026-10-02 - never back-filled;
+  // the beat stories from sources.beatFeeds. Ohio State publishes no weekly
+  // depth chart (a credited projection waits on permission, decision 0032);
+  // the Big Ten's availability reports come when their listing is found. A kind left out
+  // shows as unavailable, never as Notre Dame's (Phase 5B).
+  snapshots: {
+    oddsHistory: { file: "data/ohio-state/odds-history.json" },
+    beatNews:    { file: "data/ohio-state/news.json" }
+  }
 };
