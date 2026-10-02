@@ -142,8 +142,11 @@ Suite.game = (function () {
     }
     return '<section class="game-head on-dark gh-' + st + '" aria-label="' + esc(summary(m, st)) + '">' +
              ui.art({ photo: m.photo, name: m.team.name, abbr: m.team.abbr, markUrl: m.team.markUrl }) +
-             '<div class="gh-inner">' + tertiary(g, st, m.weather) +
+             '<div class="gh-inner">' +
                '<div class="gh-row" aria-hidden="true">' + teamBlock(m, true, st) + center + teamBlock(m, false, st) + "</div>" +
+               // the conditions follow the game they describe, centred under
+               // it (David, 2026-10-01: in the corner it read unbalanced)
+               tertiary(g, st, m.weather) +
                '<p class="sr-only">' + esc(summary(m, st)) + "</p>" +
              "</div></section>";
   }

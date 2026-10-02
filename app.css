@@ -477,9 +477,11 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .game-head{position:relative;isolation:isolate;overflow:hidden;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));color:var(--s-on-dark)}
 .game-head p{margin:0}
 .gh-inner{position:relative;z-index:1;padding:.9rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.2rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
-.gh-extra{display:flex;justify-content:flex-end;gap:.9rem;min-height:1.2rem;font-size:.85rem;color:var(--s-on-dark-2);text-align:right}
-.gh-extra > span{display:flex;flex-direction:column;gap:.1rem}
-.gh-extra > span + span{padding-left:.9rem;border-left:1px solid rgba(255,255,255,.3)}
+/* The weather and the line: one centred row under the game, two equal
+   halves either side of a rule (David, 2026-10-01). */
+.gh-extra{display:flex;justify-content:center;margin-top:.9rem;font-size:.85rem;color:var(--s-on-dark-2);text-align:center}
+.gh-extra > span{display:flex;flex:0 1 9.5rem;flex-direction:column;align-items:center;gap:.1rem;padding:0 .75rem}
+.gh-extra > span + span{border-left:1px solid rgba(255,255,255,.3)}
 .gh-extra strong{font-family:var(--t-font-display);font-size:1.05rem;color:var(--s-on-dark)}
 .gh-odds-ou{font-size:.85rem}
 .gh-sub{font-size:.8rem}
