@@ -709,8 +709,8 @@ eq(TeamOS.snapshots.files(TEAM_CONFIG),
    ["data/notre-dame/depth.json", "data/notre-dame/depth-history.json", "data/notre-dame/availability.json",
     "data/notre-dame/availability-history.json", "data/notre-dame/odds-history.json", "data/notre-dame/news.json"],
    "Notre Dame's snapshots, files and histories together - availability is its own now");
-eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), [],
-   "Ohio State declares none, so there is nothing to cache for it");
+eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), ["data/ohio-state/odds-history.json"],
+   "Ohio State caches only what it declares: its own odds history (W20)");
 eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
 eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.json"],
    "a kind with no history contributes one file");
@@ -768,7 +768,8 @@ ok(["depth", "depth-history", "availability", "availability-history", "odds-hist
 
 console.log(" ohio-state");
 eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "depth"),       null, "declares no depth chart");
-eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "oddsHistory"), null, "declares no odds history");
+eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "oddsHistory"), { file:"data/ohio-state/odds-history.json" },
+   "declares its own odds history, in its own folder (W20) - never Notre Dame's");
 eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "beatNews"),    null, "declares no beat news");
 eq(TeamOS.snapshots.get({ team: osu.TEAM_CONFIG.team }, "depth"), null, "a config with no snapshots section declares nothing");
 

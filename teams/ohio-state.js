@@ -90,9 +90,13 @@ var TEAM_CONFIG = {
     }
   },
 
-  // No Action writes anything for Ohio State yet: no depth-chart source,
-  // no price history, no beat feeds. Declaring none is what keeps Notre
-  // Dame's files off this page (Phase 5B); each kind appears here when a
-  // source for it exists.
-  snapshots: {}
+  // The snapshots .github/workflows/odds.yml commits for Ohio State, each
+  // because a source exists for it (W20). Price history is read from the
+  // Kalshi markets above, going forward from 2026-10-02 - never back-filled.
+  // Ohio State publishes no weekly depth chart; its availability reports
+  // and beat feeds come when their sources are confirmed. A kind left out
+  // shows as unavailable, never as Notre Dame's (Phase 5B).
+  snapshots: {
+    oddsHistory: { file: "data/ohio-state/odds-history.json" }
+  }
 };

@@ -39,8 +39,8 @@ print("teamconfig: which teams, which files")
 ok(teamconfig.teams() == ["notre-dame", "ohio-state"], "every configured team, and not the registry: %s" % teamconfig.teams())
 with_kind = {k: [t for t in teamconfig.teams() if teamconfig.snapshot(teamconfig.load(t), k)]
              for k in ("depth", "availability", "oddsHistory", "beatNews")}
-ok(all(v == ["notre-dame"] for v in with_kind.values()),
-   "the workflow's loops run for the teams that declare each kind - Notre Dame today: %s" % with_kind)
+ok(with_kind == {"depth": ["notre-dame"], "availability": ["notre-dame"], "oddsHistory": ["notre-dame", "ohio-state"], "beatNews": ["notre-dame"]},
+   "the workflow's loops run for the teams that declare each kind - Ohio State's odds history too (W20): %s" % with_kind)
 nd, osu = teamconfig.load("notre-dame"), teamconfig.load("ohio-state")
 ok(teamconfig.snapshot(nd, "beatNews")["file"] == "data/notre-dame/news.json", "a producer's file is the team's declaration")
 ok(teamconfig.snapshot(osu, "depth") is None, "a team without a source has no file to write")
@@ -80,7 +80,11 @@ try:
         sys.argv = ["odds_history.py", "--team", team]
         oh.main()
     ok(os.path.exists(out), "Notre Dame's history is created in data/notre-dame/")
-    ok(not os.path.exists(os.path.join(tmp, "data", "ohio-state")), "Ohio State declares no history, so nothing is written for it")
+    osu_out = os.path.join(tmp, "data", "ohio-state", "odds-history.json")
+    ok(os.path.exists(osu_out) and json.load(open(osu_out)).get("team") == "ohio-state",
+       "Ohio State's own history is created in data/ohio-state/, stamped as its own (W20)")
+    ok(not any(f for f in os.listdir(os.path.join(tmp, "data", "ohio-state")) if f != "odds-history.json"),
+       "and nothing else is written for it: it declares no other kind")
     first = json.load(open(out))
     ok(first.get("team") == "notre-dame" and len(first["points"]) == 1, "stamped with its team, one point")
     stamp = os.path.getmtime(out)
