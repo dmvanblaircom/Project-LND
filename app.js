@@ -233,20 +233,20 @@ function watchUpdate(reg){
 }
 if("serviceWorker" in navigator){
   var registerWorker=function(){
+    // The check holds the launch too, from before register(): on a slow
+    // connection fetching sw.js can outlast the launch's 2.6 seconds - and
+    // register() itself can wait on that fetch - and an update found after
+    // the launch lifted would reload the page under the fan (Codex review,
+    // #80). A first visit has nothing to check against.
+    var checking=!!navigator.serviceWorker.controller;
+    if(checking) CHECKING=true;
+    function checked(){ CHECKING=false; if(!UPDATING) liftedMarker(false); }
     navigator.serviceWorker.register("sw.js").then(function(reg){
       watchUpdate(reg);
-      // The check itself holds the launch too: on a slow connection fetching
-      // sw.js can outlast the launch's 2.6 seconds, and an update found after
-      // it lifted would reload the page under the fan (Codex review, #80).
-      if(navigator.serviceWorker.controller && reg && reg.update){
-        CHECKING=true;
-        reg.update().catch(function(){}).then(function(){
-          CHECKING=false;
-          if(!UPDATING) liftedMarker(false);
-        });
-      }
+      if(checking && reg && reg.update) reg.update().catch(function(){}).then(checked);
+      else checked();
       return navigator.serviceWorker.ready;
-    }).then(tellWorkerOurTeam).catch(function(){});
+    }).then(tellWorkerOurTeam).catch(function(){ checked(); });
   };
   if(navigator.serviceWorker.controller) registerWorker();
   else window.addEventListener("load", registerWorker);

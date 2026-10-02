@@ -169,19 +169,28 @@ function fixture(url) {
     var os = require("os");
     var dir = fs.mkdtempSync(path.join(os.tmpdir(), "launch-upd-"));
     fs.cpSync(root, dir, { recursive: true, filter: function (f) { return !/[\\/](\.git|node_modules)$/.test(f); } });
-    var srv = serve(dir); await new Promise(function (r) { srv.listen(0, "127.0.0.1", r); });
+    var srv = serve(dir);
+    // sw.js and app.css are held at the server, which every client goes
+    // through - the page, the browser's update check and the worker's own
+    // install alike. Playwright does not route a worker's requests on every
+    // build (CI's did not), so a hold there never applied.
+    var handle = srv.listeners("request")[0], held = 0;
+    srv.removeAllListeners("request");
+    srv.on("request", function (req, res) {
+      // checkDelay holds the first sw.js fetch only - the update check under
+      // test. A second check of the same version (the browser's own, on the
+      // reload's navigation) is the double-install issue, not this case.
+      var wait = !slow ? 0 : checkDelay && !held && /\/sw\.js(\?|$)/.test(req.url) ? (held = checkDelay)
+               : stall && /\/app\.css(\?|$)/.test(req.url) ? stall : 0;
+      if (wait) setTimeout(function () { handle(req, res); }, wait); else handle(req, res);
+    });
+    await new Promise(function (r) { srv.listen(0, "127.0.0.1", r); });
     var b2 = "http://127.0.0.1:" + srv.address().port, slow = false;
     var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "allow" });
     await ctx.route("**/*", async function (route) {
       var req = route.request(), u = req.url();
       if (u.startsWith(b2)) {
-        if (slow && checkDelay && /\/sw\.js(\?|$)/.test(u)) await new Promise(function (r) { setTimeout(r, checkDelay); });
-        // app.css is held by URL alone, not by asking whether the request is
-        // the worker's: some Chromium builds do not say (CI's did not). The
-        // open page gets app.css from the old worker's cache, so only the new
-        // worker's install waits on it.
-        if (slow && stall && /\/app\.css(\?|$)/.test(u)) await new Promise(function (r) { setTimeout(r, stall); });
-        else if (slow && req.serviceWorker && req.serviceWorker() && !/\/data\//.test(u)) await new Promise(function (r) { setTimeout(r, shellDelay); });
+        if (slow && req.serviceWorker && req.serviceWorker() && !/\/data\//.test(u)) await new Promise(function (r) { setTimeout(r, shellDelay); });
         return route.continue();
       }
       var body = fixture(u);
