@@ -1,3 +1,5 @@
-# W16 offseason follow-ups, round 6 (2026-10-02). Which of a recruit's
-# schools carries the commitment? Leaves are printed with full JSON paths.
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/265222 | ^status|^schools\[\d+\]\.(status|team)|recruitingClass
+# W16 offseason follow-ups, round 7 (2026-10-02). Round 6: the recruit is
+# "Verbal", and the first 12 of his schools all read "Undecided" (Notre Dame
+# and Ohio State among them), so the list is his candidate schools. Which
+# entry, or which other field, names the committed school?
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/265222 | ^status|description = "(?!Undecided)|^activity|^athlete\.(college|team)|commit
