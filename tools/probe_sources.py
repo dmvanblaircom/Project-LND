@@ -8,6 +8,11 @@ final URL, content type and size; for JSON the top-level keys and the length
 of the first list it finds; for HTML the page title, the number of table
 rows, and whether subscriber or bot-challenge markers appear. It stores and
 commits nothing: an article's text is never kept.
+
+A URL may be followed by " | <pattern>": the probe then also prints the
+short runs of the page's visible text that match it (at most 25, each cut to
+200 characters) - a published schedule's dates and times, checked at the
+source rather than taken from a summary of it (2026-10-02, the CFP calendar).
 """
 import json
 import re
@@ -30,8 +35,22 @@ def first_list(o, path="$", depth=0):
     return None
 
 
-def probe(url):
-    print("== " + url)
+def matching(text, pattern):
+    """The visible text's sentences or table cells that match, shortened."""
+    plain = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", text)
+    plain = re.sub(r"(?i)<br\s*/?>|</(p|li|td|th|tr|h[1-6]|div)>", "\n", plain)
+    plain = re.sub(r"<[^>]+>", " ", plain)
+    plain = re.sub(r"&nbsp;|&#160;", " ", plain).replace("&amp;", "&")
+    out = []
+    for line in plain.split("\n"):
+        line = re.sub(r"\s+", " ", line).strip()
+        if line and re.search(pattern, line, re.I) and line not in out:
+            out.append(line)
+    return [l[:200] for l in out[:25]]
+
+
+def probe(url, pattern=None):
+    print("== " + url + ("  | " + pattern if pattern else ""))
     try:
         req = urllib.request.Request(url, headers={"user-agent": UA, "accept": "*/*"})
         with urllib.request.urlopen(req, timeout=30) as r:
@@ -58,6 +77,9 @@ def probe(url):
             if isinstance(d, dict) and k in d:
                 print("  %s: %s" % (k, json.dumps(d[k])[:120]))
         return
+    if pattern:
+        for l in matching(text, pattern):
+            print("  text: %s" % l)
     title = re.search(r"<title[^>]*>(.*?)</title>", text, re.S | re.I)
     print("  title: %s" % (title.group(1).strip()[:140] if title else "-"))
     print("  table rows: %d" % len(re.findall(r"<tr[\s>]", text, re.I)))
@@ -86,7 +108,8 @@ def main():
     for line in open(sys.argv[1], encoding="utf-8"):
         line = line.strip()
         if line and not line.startswith("#"):
-            probe(line)
+            url, _, pattern = line.partition(" | ")
+            probe(url.strip(), pattern.strip() or None)
 
 
 if __name__ == "__main__":

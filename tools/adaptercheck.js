@@ -617,7 +617,7 @@ ok(!/\bfetch\s*\(/.test(seasonSrc), "does not call fetch()");
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(seasonSrc), "does not touch the DOM or browser storage");
 ok(!/espn|kalshi|open-meteo/i.test(uncomment(seasonSrc)), "names no provider");
 ok(!/notre|irish|ohio|buckeye/i.test(uncomment(seasonSrc)), "names no team");
-eq(Object.keys(TeamOS.season).sort(), ["gamesCounted","phase","pointsAllowedPerGame","pointsPerGame"],
+eq(Object.keys(TeamOS.season).sort(), ["calendar","gamesCounted","phase","pointsAllowedPerGame","pointsPerGame"],
    "exactly the documented functions");
 
 var season = [ { state:"post", us:"56", them:"13" },
@@ -1437,7 +1437,7 @@ function upTo(list, iso) {
 eq(ph({ games: upTo(nd24, "2024-12-15T12:00:00Z"), now: D("2024-12-15T12:00:00Z") }), ["postseason", null],
    "Notre Dame 2024 after selection: its first-round game is listed - postseason");
 eq(ph({ games: upTo(nd24, "2024-12-22T12:00:00Z").filter(function (g) { return !g.postseason || Date.parse(g.date) < Date.parse("2024-12-22"); }), now: D("2024-12-22T12:00:00Z") }),
-   ["awaiting-postseason", null], "a first-round win and the quarterfinal not yet listed: awaiting, never 'complete'");
+   ["postseason", null], "a first-round win and the quarterfinal not yet listed: still the postseason - the bracket is fixed, selection never reopens (David)");
 eq(ph({ games: upTo(nd24, "2025-01-03T12:00:00Z"), now: D("2025-01-03T12:00:00Z") }), ["postseason", null],
    "the semifinal listed after the quarterfinal win: postseason again");
 eq(ph({ games: nd24, now: D("2025-01-22T12:00:00Z") }), ["complete", "lost"], "the title game lost: complete");
@@ -1448,11 +1448,34 @@ var laWin = Object.assign({}, laGame, { state: "post", status: "final", won: tru
 eq(ph({ games: ndRegOnly.concat([laWin]), now: D("2025-12-21T12:00:00Z") }), ["complete", "bowl"], "a bowl won: complete - no game follows a bowl");
 var noStage = upTo(nd24, "2024-12-22T12:00:00Z").filter(function (g) { return !g.postseason || Date.parse(g.date) < Date.parse("2024-12-22"); })
   .map(function (g) { return g.postseason ? Object.assign({}, g, { stage: null }) : g; });
-eq(ph({ games: noStage, now: D("2024-12-22T12:00:00Z") }), ["awaiting-postseason", null],
-   "a postseason win with no note to say which: awaiting, not complete");
+eq(ph({ games: noStage, now: D("2024-12-22T12:00:00Z") }), ["postseason", null],
+   "a postseason win with no note to say which: still the postseason, never complete");
 eq(ph({ games: noStage, now: D("2025-02-01T00:00:00Z") }), ["complete", "calendar"], "until the calendar rules out another game");
 eq(ph({ games: [], now: D("2026-10-02T12:00:00Z") }), ["unknown", null], "no games at all: unknown, nothing claimed");
 eq(ph({ games: [], next: nd26, now: D("2026-03-01T12:00:00Z") }), ["next-published", null], "only next season's games: next-published");
+console.log("TeamOS.season.calendar: the next CFP show, Selection Day, the bowls (David, 2026-10-02)");
+vm.runInContext(read("leagues/college-football.js"), ctx, { filename: "leagues/college-football.js" });
+var CAL = ctx.LEAGUE_CALENDAR, cal = function (iso) { return TeamOS.season.calendar(CAL, 2026, new Date(iso)); };
+var oct = cal("2026-10-02T16:00:00Z");
+eq([oct.rankings.n, oct.rankings.first, oct.rankings.live, oct.rankings.start, oct.rankings.on], [1, true, false, "2026-11-03T19:00:00-05:00", "ESPN"],
+   "today: the first rankings, Tue Nov 3 at 7 p.m. ET on ESPN - only that one, not the season's list");
+eq([oct.selection.start, oct.selection.live, oct.bowls.day], ["2026-12-06T12:00:00-05:00", false, "2026-12-06"],
+   "and Selection Day, Sun Dec 6 at noon ET, the day the bowls name their teams");
+eq([cal("2026-11-04T00:30:00Z").rankings.n, cal("2026-11-04T00:30:00Z").rankings.live], [1, true], "during the first show (7:30 p.m. ET): on now");
+eq([cal("2026-11-04T01:00:00Z").rankings.n, cal("2026-11-04T01:00:00Z").rankings.live], [2, false], "the moment it ends: the next show, Tue Nov 10");
+eq(cal("2026-11-11T02:15:00Z").rankings.live, true, "a 9 p.m. ET show is on air at 9:15");
+eq([cal("2026-12-01T12:00:00Z").rankings.n, cal("2026-12-01T12:00:00Z").rankings.last], [5, true], "Tue Dec 1: the last show before Selection Day");
+eq(cal("2026-12-02T12:00:00Z").rankings, null, "after it, no rankings show is promised: the final rankings come with Selection Day");
+eq(cal("2026-12-06T18:00:00Z").selection.live, true, "Selection Day at 1 p.m. ET: the field is being revealed now");
+eq([cal("2026-12-06T20:00:00Z").selection, cal("2026-12-06T20:00:00Z").bowls], [null, null], "once its show is over, nothing: the games are on the schedule");
+eq(TeamOS.season.calendar(CAL, 2027, new Date("2027-10-02T12:00:00Z")), { rankings: null, selection: null, bowls: null },
+   "a season the league has not published: nothing is invented");
+eq(TeamOS.season.calendar(null, 2026, new Date()), { rankings: null, selection: null, bowls: null }, "no calendar: nothing");
+ok(CAL.seasons["2026"].filter(function (e) { return e.start; }).every(function (e) { return /-05:00$/.test(e.start) && (!e.end || /-05:00$/.test(e.end)); }),
+   "every time carries Eastern standard time's offset (the calendar starts after Nov 1)");
+var calSrc = uncomment(read("leagues/college-football.js"));
+ok(!/notre|irish|ohio|buckeye/i.test(calSrc), "the league calendar names no team");
+
 var seasonSrc = uncomment(read("teamos/season.js"));
 ok(!/espn|kalshi|notre|irish|ohio|buckeye|\bfetch\s*\(|\b(document|window)\b/i.test(seasonSrc), "teamos/season.js names no provider and no team, and fetches nothing");
 

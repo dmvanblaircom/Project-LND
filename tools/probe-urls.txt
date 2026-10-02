@@ -1,10 +1,12 @@
-# W20 (2026-10-02), round 4: David's rule - official sources first, a
-# credited projection where a team publishes none. Who publishes a weekly
-# projected Ohio State depth chart that the runner can read, and on what
-# terms? Probed from GitHub's network by probe-sources.yml on push.
-https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/ohio-state/91533
-https://www.ourlads.com/ncaa-football-depth-charts/depth-chart.aspx?id=91533
-https://www.ourlads.com/terms.aspx
-https://www.ourlads.com/termsofuse.aspx
-https://www.landgrantholyland.com/ohio-state-football
-https://www.on3.com/teams/ohio-state-buckeyes/depth-chart/
+# The CFP calendar (2026-10-02, David): when each set of rankings is
+# released, on what network, Selection Day, and when bowls that are not in
+# the playoff announce their teams. Checked at the source, from GitHub's
+# network by probe-sources.yml on push.
+https://collegefootballplayoff.com/news/2026/8/6/sc-aug-2627 | (Nov|Dec|Jan)[a-z]*\.? \d|ESPN|p\.m\.|ET
+https://collegefootballplayoff.com/sports/2026/8/9/bracket-place-holder | (Nov|Dec|Jan)[a-z]*\.? \d|ESPN|ABC|TNT
+https://www.ncaa.com/news/football/article/2026-08-11/when-do-college-football-playoff-rankings-come-out | (Nov|Dec)[a-z]*\.? \d|ESPN|p\.m\.
+https://fbschedules.com/college-football-playoff-sets-2026-rankings-release-schedule/ | (Nov|Dec)[a-z]*\.? \d|ESPN|pm
+https://www.ncaa.com/news/football/article/2026-08-04/2026-27-college-football-playoff-schedule-dates-tv-channel-sites | (Dec|Jan)[a-z]*\.? \d|ESPN|ABC|TNT
+http://espnpressroom.com/press-release/espn-exclusively-reveals-2025-26-cfp-bracket-on-sunday-dec-7-espn-networks-set-for-full-slate-of-selection-day-studio-programming/ | [Bb]owl|p\.m\.
+https://en.wikipedia.org/wiki/2026%E2%80%9327_NCAA_football_bowl_games | [Ss]elect|announc|December 6|Dec\. 6
+https://en.wikipedia.org/wiki/2025%E2%80%9326_NCAA_football_bowl_games | [Ss]elect|announc|December 7

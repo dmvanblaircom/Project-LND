@@ -371,6 +371,7 @@ function paintTop25(){
     heroId: hero ? hero.id : null,
     mark:   function(id){ return TeamOS.espn.mark(id, false); },
     fresh:  TeamOS.freshness.summary(top25Sources(), { now:now, online: navigator.onLine!==false }),
+    calendar: TeamOS.season.calendar(window.LEAGUE_CALENDAR, seasonYear(), now),
     now:    now
   });
 }
@@ -1127,8 +1128,16 @@ function paintScheduleScreen(){
     heroId: hero ? hero.id : null,
     record: HOME.status && HOME.status.record || null,
     oppMark: function(id){ return TeamOS.espn.mark(id, false); },
-    fresh: TeamOS.freshness.summary(scheduleSources(), { now:new Date(), online: navigator.onLine!==false })
+    fresh: TeamOS.freshness.summary(scheduleSources(), { now:new Date(), online: navigator.onLine!==false }),
+    postseason: schedulePostseason(season)
   });
+}
+// Selection Day at the schedule's foot, until it is over or this team's
+// postseason game is listed (leagues/, TeamOS.season.calendar).
+function schedulePostseason(season){
+  if(!season || season.some(function(g){ return g.postseason; })) return null;
+  var c=TeamOS.season.calendar(window.LEAGUE_CALENDAR, seasonYear(), new Date());
+  return c.selection ? { day: c.selection.start.slice(0,10) } : null;
 }
 function paintScheduleGame(route){
   var host=$("scheduleGameHost"), back=$("scheduleBack");

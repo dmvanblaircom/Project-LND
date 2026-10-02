@@ -1,7 +1,8 @@
 # Proposal: Home (and the app) after the regular season
 
-**Status:** Claude's proposal, 2026-09-25, for David to send to ChatGPT for
-critique and design (backlog B4). **Deadline:** before Notre Dame's last
+**Status:** decided by David, 2026-10-02 (§7). Claude's proposal of
+2026-09-25; the options were laid out in the "Suite offseason: options to
+decide" doc. **Deadline:** before Notre Dame's last
 regular-season game, **Nov 28, 2026** (at Syracuse). After that, Home falls
 into the interim `season-over` state, which draws no game card at all.
 
@@ -92,3 +93,26 @@ P1 is correctness work and can start in the hardening block; it needs no design.
    source. Park them (like rivalry context), or look for a source now?
 5. **Season Outlook in the offseason:** next-season title odds as soon as
    markets exist, or nothing until the preseason?
+
+## 7. Decisions (David, 2026-10-02)
+
+| # | Question | Decision |
+|---|---|---|
+| 1 | S2 hero: after the last regular-season game, until Selection Day | **The season's story, then what's next:** final regular-season record, current CFP rank, the last result, then "Bowl and playoff selections" with Selection Day's date and time (leagues/, decision 0033). |
+| 2 | S4 hero: once the season is over | **A scoreboard-style season card:** final record, the postseason result line, final ranking when published, a link to Results; then next season's opener, or "the 2027 schedule hasn't been released yet". Not an editorial recap. |
+| 3 | Home's order in the offseason | **News moves up** to sit under the hero from S4; the in-season order is unchanged. |
+| 4 | Roster movement and recruiting | **Parked for now, and pursued:** 247Sports, On3, Rivals and ESPN are a real option. Claude researches each one's terms and data, then drafts permission or licence emails for David to review before anything is sent. |
+| 5 | Season Outlook in the offseason | **Next season's markets as soon as Kalshi lists them**, hidden until then; never last season's. |
+| 6 | NFL draft prospects (David's idea) | **Probe the sources first** (ESPN's draft data, NFL.com's terms), then decide. |
+| 7 | The bottom nav in the offseason | **Seasonal nav:** from S4 until next season, Home, News, Schedule, Roster, More. Top 25 stays through the title game and returns when the preseason AP poll appears in the feed. Game returns at the same moment, but never later than 14 days before the team's opener, showing the opener's pregame view (David, Oct 2: "at minimum 2 weeks out"). A saved link to Game opens the last game played; one to Top 25, the final polls, also reachable from More. |
+
+§4's "rest of the app" is superseded by decision 7 for Game and Top 25;
+Schedule opens on Results, Roster shows the roster only, and Stats stays on
+the final season, as proposed. A playoff win never sends the season back to
+selection: the bracket is fixed, so the season stays S3 until the team's
+last game (TeamOS.season.phase).
+
+Next: Claude wires the season state into the app (next season's schedule,
+the league's postseason); Codex designs the S2 and S4 cards and the
+seasonal nav from these decisions; David reviews renders of each state
+before they ship. Due before Nov 28.
