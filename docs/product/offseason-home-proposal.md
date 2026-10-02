@@ -104,7 +104,7 @@ P1 is correctness work and can start in the hardening block; it needs no design.
 | 4 | Roster movement and recruiting | **Parked for now, and pursued:** 247Sports, On3, Rivals and ESPN are a real option. Claude researches each one's terms and data, then drafts permission or licence emails for David to review before anything is sent. |
 | 5 | Season Outlook in the offseason | **Next season's markets as soon as Kalshi lists them**, hidden until then; never last season's. |
 | 6 | NFL draft prospects (David's idea) | **Probe the sources first** (ESPN's draft data, NFL.com's terms), then decide. |
-| 7 | The bottom nav in the offseason | **Seasonal nav:** from S4 until next season, Home, News, Schedule, Roster, More. Top 25 stays through the title game and returns with the preseason AP poll in August; Game returns in the opener's week. A saved link to Game opens the last game played; one to Top 25, the final polls, also reachable from More. |
+| 7 | The bottom nav in the offseason | **Seasonal nav:** from S4 until next season, Home, News, Schedule, Roster, More. Top 25 stays through the title game and returns when the preseason AP poll appears in the feed. Game returns at the same moment, but never later than 14 days before the team's opener, showing the opener's pregame view (David, Oct 2: "at minimum 2 weeks out"). A saved link to Game opens the last game played; one to Top 25, the final polls, also reachable from More. |
 
 §4's "rest of the app" is superseded by decision 7 for Game and Top 25;
 Schedule opens on Results, Roster shows the roster only, and Stats stays on
