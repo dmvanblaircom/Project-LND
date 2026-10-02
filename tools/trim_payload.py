@@ -11,7 +11,10 @@ can read a field without a recapture.
 A news feed is the exception: a story IS its headline, link and image, so
 `--news` keeps those and drops only other systems' ids.
 
-Usage:  python3 tools/trim_payload.py [--news] raw.json out.json "<comment>"
+A postseason payload is the other: a bowl's or a playoff round's name lives
+only in a competition's `notes` (W16), so `--postseason` keeps them.
+
+Usage:  python3 tools/trim_payload.py [--news|--postseason] raw.json out.json "<comment>"
 """
 import json
 import sys
@@ -34,9 +37,10 @@ def trim(o, drop=DROP):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    news = args[:1] == ["--news"]
-    raw, out, comment = args[1:] if news else args
-    d = trim(json.load(open(raw)), NEWS_DROP if news else DROP)
+    mode = args[0] if args[:1] in (["--news"], ["--postseason"]) else None
+    raw, out, comment = args[1:] if mode else args
+    drop = NEWS_DROP if mode == "--news" else (DROP - {"notes"} if mode == "--postseason" else DROP)
+    d = trim(json.load(open(raw)), drop)
     d = {"_comment": comment, **d}
     with open(out, "w") as f:
         json.dump(d, f, separators=(",", ":"))

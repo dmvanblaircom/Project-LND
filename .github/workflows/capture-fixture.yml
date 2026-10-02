@@ -60,6 +60,8 @@ jobs:
             # "leaders-<id>-<YYYY>-<type> <name>"     a team's season leaders, core API (W27 candidate)
             # "athletestats-<athlete id>-<YYYY>-<type> <name>"  one player's season, core API (W27 candidate)
             # "sitestats-<id> <name>"         a team's statistics, site API (W27 candidate)
+            # "postschedule-<id>-<YYYY> <name>"  a team's postseason, notes kept (W16)
+            # "bowls-<YYYYMMDD> <name>"       one postseason day's FBS games, notes kept (W16)
             # The W27 kinds keep the payload whole ($ref links included: they show
             # what each call points at), and a candidate that answers 404 is a
             # finding, not a failure: it is noted and the run goes on.
@@ -86,6 +88,14 @@ jobs:
               out="tools/fixtures/espn-schedule-$name.json"; kind=payload
               url="$API/teams/${BASH_REMATCH[1]}/schedule?season=${BASH_REMATCH[2]}"
               [ -n "${BASH_REMATCH[4]}" ] && url="$url&seasontype=${BASH_REMATCH[4]}"
+            elif [[ "$ev" =~ ^postschedule-([0-9]+)-([0-9]{4})$ ]]; then
+              # a team's postseason, with each game's notes: the bowl or round name (W16)
+              out="tools/fixtures/espn-schedule-$name.json"; kind=postseason
+              url="$API/teams/${BASH_REMATCH[1]}/schedule?season=${BASH_REMATCH[2]}&seasontype=3"
+            elif [[ "$ev" =~ ^bowls-([0-9]{8})$ ]]; then
+              # one postseason day's FBS games, with their notes (W16)
+              out="tools/fixtures/espn-scoreboard-$name.json"; kind=postseason
+              url="$API/scoreboard?groups=80&limit=400&seasontype=3&dates=${BASH_REMATCH[1]}"
             elif [[ "$ev" =~ ^fpi-([0-9]{4})$ ]]; then
               # ESPN's Football Power Index, every FBS team (W07, issue #29)
               out="tools/fixtures/espn-fpi-$name.json"; kind=payload
@@ -118,6 +128,9 @@ jobs:
             if [ "$kind" = summary ]; then
               python3 tools/trim_summary.py raw.json "$out" \
                 "Real ESPN game summary for event $ev, captured $(date -u +%Y-%m-%d) by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged."
+            elif [ "$kind" = postseason ]; then
+              python3 tools/trim_payload.py --postseason raw.json "$out" \
+                "Real ESPN postseason payload, captured $(date -u +%Y-%m-%dT%H:%MZ) by capture-fixture.yml from $url; trimmed as tools/trim_payload.py does, but each game's notes kept (the bowl or round name, W16)."
             elif [ "$kind" = news ]; then
               python3 tools/trim_payload.py --news raw.json "$out" \
                 "Real ESPN news feed, captured $(date -u +%Y-%m-%dT%H:%MZ) by capture-fixture.yml from $url; only other systems' ids removed (tools/trim_payload.py --news)."
