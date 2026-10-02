@@ -348,6 +348,28 @@ ok(/Loading season stats/.test(statsHtml({})), "loading says so");
 ok(/didn't load\. Pull down to try again/.test(statsHtml({ failed: true })), "a failure says how to try again");
 ok(/You're offline\. Season stats load when the connection returns/.test(statsHtml({ failed: true, offline: true })), "offline says so");
 ok(!/notre|irish|ohio|buckeye/i.test(read("suite/stats.js").replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, "")), "the view names no team in its code");
+ok(/<nav class="game-tabs view-tabs" aria-label="Stats views"><a href="#stats" aria-current="page">Team<\/a><a href="#stats\/players">Players<\/a><\/nav>/.test(one),
+   "Team | Players, Team current");
+
+console.log("Stats: Players, the season leaders in Box Score's table (W27 Phase 2)");
+var ldr = stx.TeamOS.espn.seasonLeaders(sfx("espn-leaders-nd-2026-reg.json"));
+var nm = {}; stx.TeamOS.espn.roster(sfx("espn-roster-nd-oct02.json")).forEach(function (g) { g.players.forEach(function (p) { if (p.id) nm[p.id] = p.name; }); });
+["espn-summary-wis-final.json", "espn-summary-msu-final.json", "espn-summary-pur-final.json"].forEach(function (f) {
+  var b = stx.TeamOS.espn.boxNames(sfx(f)); for (var k in b) if (!nm[k]) nm[k] = b[k]; });
+var pl = statsHtml({ view: "players", players: stx.TeamOS.espn.namedLeaders(ldr, nm) });
+ok(/aria-label="Stats views"><a href="#stats">Team<\/a><a href="#stats\/players" aria-current="page">Players<\/a>/.test(pl), "Players current in the strip");
+eq((pl.match(/<table class="bx"/g) || []).length, 4, "four tables: Passing, Rushing, Receiving, Defense");
+ok(/aria-label="Notre Dame Passing"><thead><tr><th scope="col">Player<\/th><th scope="col">C\/ATT<\/th><th scope="col">YDS<\/th><th scope="col">TD<\/th><th scope="col">INT<\/th><th scope="col">RTG<\/th><\/tr><\/thead><tbody><tr><th scope="row">CJ Carr<\/th><td>67\/95<\/td><td>963<\/td><td>9<\/td><td>1<\/td><td>130\.3<\/td>/.test(pl),
+   "a table names the team, the player heads his row, the figures are the provider's");
+ok(/<th scope="row">Aneyas Williams<\/th><td>52<\/td><td>224<\/td><td>4<\/td>/.test(pl), "a back ESPN's roster leaves out is named from the box scores");
+ok(/<td><span aria-hidden="true">–<\/span><span class="sr-only">none<\/span><\/td>/.test(pl), "a figure the player does not have is a dash, said as none");
+ok(!/\b\d{7}\b/.test(pl), "no athlete id reaches the page");
+ok(/up to 25 deep\. Source: ESPN\.<\/p>/.test(pl) && !/aren.t shown|isn.t shown/.test(pl), "the source, and no unnamed note when every row is named");
+ok(/3 players aren’t shown: ESPN hasn’t named them yet\./.test(statsHtml({ view: "players", players: { tables: [{ key: "x", label: "Passing", labels: ["YDS"], rows: [{ name: "A", stats: ["1"] }] }], unnamed: 3 } })),
+   "rows ESPN never named are counted, never shown as ids");
+ok(/Loading player stats/.test(statsHtml({ view: "players" })), "loading says so");
+ok(/Player stats didn't load\. Pull down to try again/.test(statsHtml({ view: "players", playersFailed: true })), "a failure says how to try again");
+ok(/You're offline\. Player stats load when the connection returns/.test(statsHtml({ view: "players", playersFailed: true, offline: true })), "offline says so");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "Suite draws what TeamOS decided, the way Product set"));
 process.exit(failures ? 1 : 0);

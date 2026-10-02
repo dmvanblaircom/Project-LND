@@ -1071,6 +1071,10 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .ss-season{margin:.7rem 0 0;font-size:.95rem;color:var(--s-muted)}
 .ss-week{margin:.2rem 0 0;font-size:.95rem;color:var(--s-ink-2)}
 .ss-card{margin-top:.8rem}
+/* the Players tables scroll inside their card; the screen-reader "none" in
+   an empty cell is positioned, so the wrap must contain it or it widens
+   the page at 320px */
+.ss-card .bx-wrap{position:relative}
 .ss-cols{display:grid;grid-template-columns:minmax(0,1fr) 5.4rem 5.4rem;gap:.5rem;margin-top:-.2rem;font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-align:center;color:var(--s-muted)}
 .ss-list{list-style:none;margin:0;padding:0}
 .ss-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem;padding:.45rem 0}

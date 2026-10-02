@@ -276,6 +276,9 @@ TeamOS.espn = (function () {
   function player(p){
     var pos=p.position||{}, xp=p.experience||{}, bp=p.birthPlace||{};
     return {
+      // the provider's athlete id: the one key that joins a player across
+      // feeds (season leaders, box scores) and, later, across seasons (W27)
+      id:           idOf(p),
       name:         str(p.displayName||p.fullName),
       jersey:       str(p.jersey),
       position:     str(pos.abbreviation||pos.name),
@@ -628,10 +631,18 @@ TeamOS.espn = (function () {
     t=t.replace(/\s*\(H:[^)]*\)/g,"");
     // penalties -> a note. One after a touchdown is on the try, not the play.
     var tdAt=t.search(/\bTOUCHDOWN\b/);
-    t=t.replace(/\s*PENALTY ([A-Za-z]+) (?:[A-Z]{3}: )?([^(#\d]+?)(?:\s*\([^)]*\))?(?:\s+(\d+) yards? from [A-Za-z]+\d\d to [A-Za-z]+\d\d)?( declined)?(,? 1ST DOWN)?(\.? NO PLAY)?(?=$|\s*#|\s*\.)/, function(m, tm, foul, yds, dec, fd, np, at){
+    // Two fouls on one snap ("PENALTY OhioSt Pass Interference Illini UNS:
+    // Unsportsmanlike Conduct 28 yards ...", Illinois-Ohio State 2026) are two
+    // notes; the yardage is not given to either, since the feed does not say
+    // whose it is.
+    t=t.replace(/\s*PENALTY ([A-Za-z]+) (?:[A-Z]{3}: )?([^(#\d]+?)(?:\s*\([^)]*\))?(?:\s+([A-Za-z]+) [A-Z]{3}: ([^(#\d]+?)(?:\s*\([^)]*\))?)?(?:\s+(\d+) yards? from [A-Za-z]+\d\d to [A-Za-z]+\d\d)?( declined)?(,? 1ST DOWN)?(\.? NO PLAY)?(?=$|\s*#|\s*\.)/, function(m, tm, foul, tm2, foul2, yds, dec, fd, np, at){
       var onTry=tdAt>=0 && at>tdAt;
-      var s="Penalty on "+team(tm)+": "+foul.trim().toLowerCase()+(yds?", "+yds+" yards":"")+(dec?", declined":"")+(onTry?" (on the try)":"");
-      notes.push(s); if(np && !onTry) tags.push("No play"); if(fd && !onTry) tags.push("1st down"); return "";
+      var tail=(dec?", declined":"")+(onTry?" (on the try)":"");
+      if(tm2){
+        notes.push("Penalty on "+team(tm)+": "+foul.trim().toLowerCase()+tail);
+        notes.push("Penalty on "+team(tm2)+": "+foul2.trim().toLowerCase()+tail);
+      } else notes.push("Penalty on "+team(tm)+": "+foul.trim().toLowerCase()+(yds?", "+yds+" yards":"")+tail);
+      if(np && !onTry) tags.push("No play"); if(fd && !onTry) tags.push("1st down"); return "";
     });
     // formation and filler
     t=t.replace(/\b(No Huddle-Shotgun|No Huddle|Shotgun)\s+/g,"");
@@ -1023,6 +1034,86 @@ TeamOS.espn = (function () {
     return out;
   }
 
+  /* ---------- season leaders: the Players view (W27 Phase 2) ----------
+     ESPN's core API lists a team's season leaders by category, each up to
+     25 deep: an athlete id and a summary line ("67/95, 963 YDS, 9 TD,
+     1 INT"). The line is the provider's own; it is split into columns by its
+     own labels, never re-derived. Names are not in it: they are joined by
+     athlete id from what the app already has (the roster, and the season's
+     box scores, which carry everyone who played - ESPN's roster leaves some
+     out). A row with no name is left out and counted, never shown as an id.
+     Kicking and punting have no leaders; their season figures are the Team
+     view's. */
+  var LEADER_TABLES=[
+    { key:"passing",   label:"Passing",   line:"passingLeader",   extra:[["quarterbackRating","RTG"]] },
+    { key:"rushing",   label:"Rushing",   line:"rushingLeader" },
+    { key:"receiving", label:"Receiving", line:"receivingLeader" },
+    { key:"defense",   label:"Defense",   cols:[["totalTackles","TCK"],["sacks","SACK"],["interceptions","INT"]] }
+  ];
+  function athleteId(l){
+    var m=/\/athletes\/(\d+)/.exec(str(pick(l,["athlete","$ref"],"")));
+    return m ? m[1] : null;
+  }
+  // "67/95, 963 YDS, 9 TD, 1 INT" -> [["C/ATT","67/95"],["YDS","963"],["TD","9"],["INT","1"]]
+  function lineCells(line){
+    var out=[];
+    str(line).split(/,\s*/).forEach(function(t){
+      var m;
+      if((m=/^(\d+)\/(\d+)$/.exec(t))) out.push(["C/ATT", t]);
+      else if((m=/^(-?[\d.]+)\s+([A-Z]+)$/.exec(t))) out.push([m[2], m[1]]);
+    });
+    return out;
+  }
+  function seasonLeaders(json){
+    var cats={};
+    (pick(json,["categories"],[])||[]).forEach(function(c){ if(c && c.name) cats[c.name]=c.leaders||[]; });
+    function byId(name){
+      var m={};
+      (cats[name]||[]).forEach(function(l){ var id=athleteId(l); if(id && !(id in m)) m[id]=str(l.displayValue); });
+      return m;
+    }
+    return LEADER_TABLES.map(function(t){
+      var order=[], cells={}, labels=[];
+      function add(id, label, value){
+        if(!cells[id]){ cells[id]={}; order.push(id); }
+        cells[id][label]=value;
+        if(labels.indexOf(label)<0) labels.push(label);
+      }
+      if(t.line){
+        (cats[t.line]||[]).forEach(function(l){
+          var id=athleteId(l); if(!id || cells[id]) return;
+          lineCells(l.displayValue).forEach(function(c){ add(id, c[0], c[1]); });
+        });
+        (t.extra||[]).forEach(function(x){
+          var v=byId(x[0]);
+          order.forEach(function(id){ if(v[id]!=null) add(id, x[1], v[id]); });
+        });
+      } else {
+        t.cols.forEach(function(x){
+          var v=byId(x[0]);
+          (cats[x[0]]||[]).forEach(function(l){ var id=athleteId(l); if(id) add(id, x[1], v[id]); });
+        });
+        labels=t.cols.map(function(x){ return x[1]; }).filter(function(l){ return order.some(function(id){ return cells[id][l]!=null; }); });
+      }
+      return { key:t.key, label:t.label, labels:labels,
+               rows: order.map(function(id){ return { id:id, stats: labels.map(function(l){ return cells[id][l]!=null ? cells[id][l] : "\u2013"; }) }; }) };
+    }).filter(function(t){ return t.rows.length; });
+  }
+  // Everyone a game's box score names, by athlete id: the Players view's
+  // second source of names.
+  function boxNames(d){
+    var out={};
+    (pick(d,["boxscore","players"],[])||[]).forEach(function(g){
+      (g.statistics||[]).forEach(function(c){
+        (c.athletes||[]).forEach(function(a){
+          var id=idOf(a.athlete), n=str(pick(a,["athlete","displayName"],""));
+          if(id && n && !out[id]) out[id]=n;
+        });
+      });
+    });
+    return out;
+  }
+
   /* ---------- team ---------- */
 
   // One season type per request. Asked for without one, ESPN returns the
@@ -1088,6 +1179,23 @@ TeamOS.espn = (function () {
     },
     // The site API's team statistics: the team's own figures and, under
     // `opponent`, what it allowed (the Stats screen's defense rows).
+    // A team's season leaders (the Players view): core API, by season type.
+    leadersUrl: function(key, season, type){
+      return CORE+"/seasons/"+season+"/types/"+(type||2)+"/teams/"+key+"/leaders";
+    },
+    seasonLeaders: seasonLeaders,
+    boxNames: boxNames,
+    // Leader tables with names joined from `names` ({ id: name }). A row
+    // without a name is left out and counted.
+    namedLeaders: function(tables, names){
+      var unnamed={};
+      var out=(tables||[]).map(function(t){
+        return { key:t.key, label:t.label, labels:t.labels,
+                 rows: t.rows.filter(function(r){ if(names && names[r.id]) return true; unnamed[r.id]=1; return false; })
+                             .map(function(r){ return { id:r.id, name:names[r.id], stats:r.stats }; }) };
+      }).filter(function(t){ return t.rows.length; });
+      return { tables: out, unnamed: Object.keys(unnamed).length };
+    },
     teamStatsUrl: function(key){
       return SITE+"/teams/"+key+"/statistics";
     },
