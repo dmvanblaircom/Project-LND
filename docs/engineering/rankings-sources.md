@@ -27,10 +27,13 @@ runner) with `tools/probe_sources.py` via `.github/workflows/probe-sources.yml`.
   |---|---|
   | 2026-09-30 | 2026-09-30T08:00Z (4 AM ET) |
   | 2026-10-01 14:34 | 2026-10-01T08:00Z (4 AM ET) |
+  | 2026-10-02 13:30 | 2026-10-02T08:00Z (4 AM ET) |
 
-  Two days, the same 4 AM ET edition. **Not yet scheduled in the refresh:**
-  per issue #29, record several days of observed `lastUpdated` here first,
-  then add the producer to `odds.yml`.
+  Three days, the same 4 AM ET edition. **Scheduled Oct 2:** the producer
+  runs in every `odds.yml` refresh (every 30 minutes). It writes
+  `data/league/fpi.json` only when ESPN publishes a new edition, so the file
+  moves once a day. A refused table keeps the last good one and never
+  blocks the odds.
 
 - **TeamOS model (Oct 1):** `teamos/ratings.js` → `TeamOS.ratings.fpi(snapshot,
   TEAM_CONFIG, season)`, Poll-shaped (`key: "fpi"`, `kind: "rating"`), top 25
@@ -39,8 +42,8 @@ runner) with `tools/probe_sources.py` via `.github/workflows/probe-sources.yml`.
   false` for another season's table, `null` with no usable snapshot.
   Freshness: stale after 3 days without a new edition. Tested on the real
   capture through the real producer for ND and OSU by `tools/ratingscheck.js`.
-  Not yet loaded by the app: that comes with the refresh schedule above
-  (no file to load until then) and Codex's selector UI.
+  Not yet loaded by the app: the file now exists (refreshed above), and
+  loading it waits on Codex's selector UI.
 
 ## SP+: blocked
 
