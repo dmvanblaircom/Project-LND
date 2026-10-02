@@ -1,16 +1,12 @@
-# W16 offseason follow-ups, round 2 (2026-10-02). Round 1: ESPN's NFL draft
-# core API answers (2026 and 2027 drafts); NFL.com's terms allow personal,
-# non-commercial use only; On3's team commit pages are readable; 247Sports
-# returns 406 to the runner; On3's and Rivals' terms URLs were guesses.
-#
-# Idea 6: what an ESPN draft athlete carries (grade, rank, college).
-https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes?limit=3 | count|\$ref
-https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft/athletes?limit=3 | count|\$ref
-https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft | status|startDate|rounds|athletes|"name"
-# D4: terms pages, found from each site's own footer.
-https://www.on3.com/ | terms|legal|licens|contact|advertis
-https://www.on3.com/rivals/ | terms|legal|licens|contact
-https://legal.paramount.com/us/en/cbsi/terms-of-use | commercial|personal|scrap|automated|robot|licens|permission
-https://www.paramount.com/ | 247
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting | ref|count
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/recruiting/rankings | ref|count|rank
+# W16 offseason follow-ups, round 3 (2026-10-02). Round 2: ESPN's 2027
+# draft lists 50 prospects (2026's had 689); ESPN's core API has recruiting
+# classes 2007-2029; On3's terms live at /page/terms-of-service/; CBS
+# (247Sports) terms bar scraping and require written permission for
+# commercial use. What one record of each carries:
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582818 | "[a-zA-Z]+":
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft/athletes/110756 | "[a-zA-Z]+":
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/2027 | "[a-zA-Z]+":
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/2027/athletes?limit=2 | "[a-zA-Z]+":
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/2027/classes?limit=2 | "[a-zA-Z]+":
+https://www.on3.com/page/terms-of-service/ | commercial|personal|scrap|automated|robot|licens|permission|API
+https://www.on3.com/contact/ | licens|partner|business|data|@|email
