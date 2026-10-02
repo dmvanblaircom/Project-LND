@@ -45,6 +45,14 @@ leaders-87-2026-2 nd-2026-reg
 athletestats-5079369-2026-2 carr-2026-reg
 athletestats-5079369-2025-2 carr-2025-reg
 sitestats-87 nd
+postschedule-87-2024 nd-2024-post-notes
+postschedule-194-2025 osu-2025-post-notes
+postschedule-194-2024 osu-2024-post-notes
+bowls-20250102 postseason-2024
+schedule-87-2025-2 nd-2025-reg
+schedule-194-2025-2 osu-2025-reg
+schedule-87-2026-2 nd-2026-reg
+
 # W27 Phase 2, Players (2026-10-02): Ohio State's season leaders, so the
 # Players view is checked on both teams with the same code; Notre Dame's
 # again, a week on, to see the roster and box-score name coverage hold.

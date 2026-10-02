@@ -93,12 +93,30 @@ Fields, in order:
 | `newDate` | a postponed game's replacement date when a source states one trustworthily; `null` from ESPN, which does not |
 | `us`, `them` | scores as displayed, or `null` before kickoff |
 | `won` | `true` when the team won; `false` otherwise, including before kickoff |
+| `postseason` | `true` for a bowl or playoff game (W16) |
+| `stage` | `{ kind, round, bowl, last, text }` from the provider's note on the game, or `null` when it carries none. `kind` is `playoff`, `bowl` or `other` (a conference title game, a series). `round` is the playoff round: First Round, Quarterfinal, Semifinal or National Championship. `bowl` is the bowl's name as published, sponsor included. `last` is `true` when no game can follow it that season: a bowl, or the title game. `text` is the note word for word. |
 
 `state` and `venueState` are distinct on purpose. Before Phase 3A both meanings were written to one `state` key and the game status won, so the venue's state was never available; `venueState` corrects that (see `docs/decisions/0004-adapters-are-pure.md`).
 
 Games are plain objects and are not frozen; the application patches `odds` onto the next game once the pregame line arrives.
 
-Not yet modelled: season. Weather is its own shape (below), found from the Game's venue.
+Weather is its own shape (below), found from the Game's venue.
+
+### SeasonPhase
+
+`TeamOS.season.phase({ games, next, selected, season, now })`: where a team's season stands (W16, the states S1-S5 of `docs/product/offseason-home-proposal.md` §2). `games` is this season's Games, regular season and postseason joined; `next` is next season's Games (`null` when not known, `[]` when asked and nothing is published); `selected` is whether the league's postseason is set (`TeamOS.espn.postseasonSelected()`, `null` when not known).
+
+| Field | Meaning |
+|---|---|
+| `state` | `in-season`, `awaiting-postseason`, `postseason`, `complete`, `next-published` or `unknown` |
+| `ended` | what ended it: `lost`, `bowl`, `champion`, `not-selected` or `calendar`; `null` while it runs |
+| `season`, `nextSeason` | the years |
+| `last`, `record` | the last game played, and the record ESPN printed with it |
+| `postseason` | `{ games, last, result }`, or `null` with no postseason game |
+| `opener` | next season's first game, once published |
+| `askNext` | the regular season is done: ask for next season's schedule |
+
+It never infers. An empty postseason means "not selected" only once selection is known to have happened, or from February 1, when no college football postseason game remains. A won playoff game ends the season only when it was the title game; until the next round is listed the season is `awaiting-postseason`.
 
 ### Weather
 
