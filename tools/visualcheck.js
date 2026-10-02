@@ -150,12 +150,44 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
     return { context: context, page: page };
   }
 
+  // Where a team's, player's or figure's name is drawn.
+  var NAME_SELECTORS = ".sched-opp, .ro-name, .rk-team, .rk-name, .tg-name, .sp-team, .series-name, .ld-name, " +
+                       ".gh-name, .gh-opp, .gc-name, .ab-name, .mu-l, .ss-l, .ts-l, .out-label, .gcard-title, .sec-title";
+  var wordsUnjudged = 0;
   async function checkState(page, label) {
     await launchGone(page);
     var overflow = await page.evaluate(function () {
       return document.documentElement.scrollWidth > document.documentElement.clientWidth;
     });
     if (overflow) fail(label, "layout", "document", "horizontal overflow");
+    // A name never breaks inside a word: "Wiscons / in", or one letter a
+    // line when a row's other columns squeeze it (bug hunt, 2026-10-02).
+    // Wrapping between words, or at a hyphen, is fine. Measured per word: a word laid out on
+    // two lines has two boxes.
+    // Only text its own typeface drew: a wider system fallback (a sandbox
+    // that cannot reach the font host) breaks words the real face would not.
+    var split = await page.evaluate(function (sel) {
+      var out = [], loaded = {}, unjudged = 0;
+      if (document.fonts) document.fonts.forEach(function (f) { if (f.status === "loaded") loaded[f.family.replace(/["']/g, "").toLowerCase()] = 1; });
+      [].forEach.call(document.querySelectorAll(sel), function (el) {
+        if (!el.offsetParent) return;
+        var face = getComputedStyle(el).fontFamily.split(",")[0].replace(/["']/g, "").trim().toLowerCase();
+        if (!loaded[face]) { unjudged++; return; }
+        var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+        while ((n = walker.nextNode())) {
+          var re = /[^\s\u2010-\u2014-]+/g, m;          // a hyphen is a fair place to wrap
+          while ((m = re.exec(n.data))) {
+            var r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+            var tops = {};
+            [].forEach.call(r.getClientRects(), function (b) { if (b.width > 0) tops[Math.round(b.top)] = 1; });
+            if (Object.keys(tops).length > 1) out.push((el.className.split(" ")[0]) + ": " + JSON.stringify(m[0]));
+          }
+        }
+      });
+      return { out: out, unjudged: unjudged };
+    }, NAME_SELECTORS);
+    wordsUnjudged += split.unjudged;
+    split.out.forEach(function (w) { fail(label, "layout", w.split(":")[0], "a word breaks across lines: " + w); });
     var t = await audit.auditText(page, label);
     var f = await audit.auditFocus(page, label);
     failures = failures.concat(t.failures, f.failures);
@@ -841,6 +873,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
     console.log("\nCould not be measured (no single background colour behind the text):");
     gaps.forEach(function (k) { console.log("  " + k + " - in " + unassessed[k] + " state(s)"); });
   }
+  if (wordsUnjudged) console.log("\nWord breaks not judged for " + wordsUnjudged + " name(s): their typeface did not load here (a system fallback is wider).");
   if (!failures.length) {
     console.log("\nSuite visual checks passed: contrast, focus and layout in every state. Screenshots: " + shots);
     return;

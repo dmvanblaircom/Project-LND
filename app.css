@@ -947,6 +947,11 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .ro-ht,.ro-wt,.ro-cl{display:none}
   .ro-bio{display:block}
   .ro-card{padding-left:.75rem;padding-right:.75rem}
+  /* Home's schedule rows too: the site tag rides above the opponent, so a
+     name never breaks mid-word beside the tag and the network (bug hunt,
+     2026-10-02: "Wiscons/in", one letter a line at 320) */
+  .sched-row:not(.full) .sched-main{grid-template-columns:minmax(0,1fr)}
+  .sched-row:not(.full) .sched-main .site{justify-self:start}
   /* the full schedule row: the site tag rides above the opponent, so the
      name keeps its room beside the kickoff, network and line */
   .sched-row.full{padding-left:.6rem;padding-right:.55rem}
@@ -988,6 +993,12 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
 }
 /* Tertiary information is the first to go on a small phone (0024 §2). */
 @media (max-width:22.5rem){
+  /* the full schedule row's mark repeats the name beside it: it gives its
+     column to the name, which otherwise broke mid-word at 320 (bug hunt,
+     2026-10-02: "Michiga / n St") */
+  .sched-row.full .mark{display:none}
+  .sched-row.full .sched-vis{grid-template-columns:2.3rem minmax(0,1fr) auto auto;
+    grid-template-areas:"date site side chev" "date opp side chev" "date meta meta chev" "date series series chev"}
   .gc-extra,.gh-extra{display:none}
   .tg-row{padding:.65rem .7rem}
   .tg-status{min-width:4.8rem;padding-left:.55rem}
