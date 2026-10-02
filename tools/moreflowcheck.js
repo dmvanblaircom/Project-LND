@@ -56,7 +56,7 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
     var ctx = await browser.newContext({ viewport: { width: 390, height: 844 },
       serviceWorkers: opts.worker ? "allow" : "block" });
     var page = await ctx.newPage();
-    var st = { mode: { espn: "ok", beat: "ok", team: "ok", schedule: "ok", scoreboard: "ok", odds: "ok", snap: "ok", roster: "ok", stats: "ok" }, n: {} };
+    var st = { mode: { espn: "ok", beat: "ok", team: "ok", schedule: "ok", scoreboard: "ok", odds: "ok", snap: "ok", roster: "ok", stats: "ok", oppstats: "ok" }, n: {} };
     var H = { "access-control-allow-origin": "*", "access-control-expose-headers": "X-IW-Cached" };
     async function answer(route, key, body) {
       st.n[key] = (st.n[key] || 0) + 1;
@@ -87,8 +87,9 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
       // Stats: the season's figures (core API) and what each side allowed
       // (site API), for us and for this week's opponent
       if (/\/types\/\d\/teams\/87\/statistics(\?|$)/.test(u)) return answer(route, "stats", fixture("espn-teamstats-nd-2026-reg.json"));
-      if (/\/types\/\d\/teams\/\d+\/statistics(\?|$)/.test(u)) return answer(route, "stats", fixture("espn-teamstats-osu-2026-reg.json"));
-      if (/\/teams\/\d+\/statistics(\?|$)/.test(u)) return answer(route, "stats", fixture("espn-sitestats-nd.json"));
+      if (/\/types\/\d\/teams\/\d+\/statistics(\?|$)/.test(u)) return answer(route, "oppstats", fixture("espn-teamstats-osu-2026-reg.json"));
+      if (/\/teams\/87\/statistics(\?|$)/.test(u)) return answer(route, "stats", fixture("espn-sitestats-nd.json"));
+      if (/\/teams\/\d+\/statistics(\?|$)/.test(u)) return answer(route, "oppstats", fixture("espn-sitestats-nd.json"));
       return route.abort();
     };
     if (opts.worker) await ctx.route("**/*", router); else await page.route("**/*", router);
@@ -315,6 +316,20 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
     ok(off.cards >= 4 && off.worst <= 1, "at " + vw + "px each team label sits over its own column in all " + off.cards + " cards (off by " + off.worst.toFixed(1) + "px)");
   }
   await sx.ctx.close();
+  // Codex review, #84: ours loaded, the opponent's failed - the connection
+  // back asks for the opponent too, not only for a season that failed whole.
+  var so = await open();
+  await so.page.clock.setFixedTime(new Date("2026-09-25T12:00:00Z"));
+  so.st.mode.oppstats = "fail";
+  await so.page.goto(base + "/?team=notre-dame#stats"); await so.page.waitForTimeout(1500);
+  var so1 = await so.page.evaluate(function () { return { one: document.querySelectorAll("#screenStats .ss-row").length, two: document.querySelectorAll("#screenStats .ss-row.two").length }; });
+  ok(so1.one > 20 && so1.two === 0, "the opponent's season failing: ours shows, one column (" + so1.one + " rows)");
+  so.st.mode.oppstats = "ok";
+  await so.ctx.setOffline(true); await so.page.waitForTimeout(300);
+  await so.ctx.setOffline(false); await so.page.waitForTimeout(1500);
+  var so2 = await so.page.evaluate(function () { return document.querySelectorAll("#screenStats .ss-row.two").length; });
+  ok(so2 > 20, "the connection back, the opponent's column fills in (" + so2 + " rows)");
+  await so.ctx.close();
 
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "More recovers per source, reports refreshes truthfully and follows the connection"));

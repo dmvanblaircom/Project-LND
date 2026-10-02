@@ -921,8 +921,10 @@ window.addEventListener("online",  function(){
   paintGame(); paintScheduleScreen();
   paintHome(); paintTop25(); paintRoster(); paintMore();
   loadNews();                              // each source that failed, or came from the worker's copy, is asked again
-  // Stats said it would load when the connection returned: it does.
-  if(!$("screenStats").hidden && ST.outcome==="failed") loadStats(true);
+  // Stats said it would load when the connection returned: it does - and
+  // so does a season that came from the worker's copy, or one missing this
+  // week's opponent (Codex review, #84).
+  if(!$("screenStats").hidden && (ST.outcome!=="network" || (ST.oppFor && !ST.them))) loadStats(true);
 });
 window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); });
 
