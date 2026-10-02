@@ -1,8 +1,7 @@
-# W20 (2026-10-02), round 2: the Big Ten's site is SIDEARM (/news/... .aspx).
-# Where are its football availability reports linked from? Probed from
-# GitHub's network by .github/workflows/probe-sources.yml on push.
+# W20 (2026-10-02), round 3: the Big Ten's availability reports are PDFs at
+# bigten.org/api/media/file/<id>-FB_Reporting_Week_<n>.pdf (2023's, found by
+# search). Which page links this season's? Probed from GitHub's network by
+# .github/workflows/probe-sources.yml on push.
+https://bigten.org/news/2026/8/28/big-ten-announces-changes-to-football-availability-reporting-process.aspx
 https://bigten.org/news/2026/9/30/2026-week-5-football-release.aspx
-https://bigten.org/sports/football
-https://bigten.org/sports/fb
-https://bigten.org/sports/football/availability-report
-https://bigten.org/availability
+https://bigten.org/sports/football/schedule

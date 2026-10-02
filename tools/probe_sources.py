@@ -75,9 +75,11 @@ def probe(url):
             links.append((href, label[:60]))
     for href, label in links[:15]:
         print("  link: %s  [%s]" % (href[:160], label))
-    pdfs = sorted(set(re.findall(r'href="([^"]+\.pdf[^"]*)"', text, re.I)))
+    pdfs = sorted(set(re.findall(r'["\'(]((?:https?:)?[^"\'()\s]*\.pdf[^"\'()\s]*)', text, re.I)))
     if pdfs:
-        print("  pdfs: %d, e.g. %s" % (len(pdfs), ", ".join(p[:120] for p in pdfs[:4])))
+        print("  pdfs: %d" % len(pdfs))
+        for p in [x for x in pdfs if re.search(r"report|availab", x, re.I)][:10] or pdfs[:4]:
+            print("    %s" % p[:200])
 
 
 def main():
