@@ -239,6 +239,22 @@ ok(/gh-team them[\s\S]*gh-ball/.test(hd2) && !/gh-team us">[^]*?gh-ball[^]*?gh-t
    "the league's live state wins when it has one: Purdue's side");
 ok(!/gh-ball/.test(headHtml(Object.assign({}, liveG, { state: "post", status: "final" })) ), "no football once it is over");
 
+// ---- the weather and the line sit under the game, not in a corner (David, 2026-10-01) ----
+console.log("Game header: the weather and the line are one row under the game");
+function headWith(game, weather) {
+  var h = host();
+  sctx.Suite.game.paint(h, { team: { name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, oppMark: function () { return ""; },
+    game: game, detail: null, lifecycle: G.lifecycle(game), view: "preview", preview: null, side: "us", open: {},
+    weather: weather, now: new Date("2026-09-05T14:00:00Z") });
+  return h.parts.head.innerHTML;
+}
+var preG = Object.assign({}, WG, { state: "pre", status: "scheduled", us: null, them: null, odds: { line: "ND -22.5", total: 46.5 } });
+var ph = headWith(preG, { tempF: 74, sky: "overcast", windMph: 10 });
+ok(ph.indexOf('class="gh-extra"') > ph.lastIndexOf("gh-countdown") && ph.lastIndexOf("gh-countdown") > ph.indexOf("gh-row"),
+   "after the teams and the countdown, not before them");
+ok(/gh-wx[\s\S]*74°F[\s\S]*gh-odds[\s\S]*ND -22\.5[\s\S]*O\/U 46\.5/.test(ph), "weather first, then the line, each its own half");
+ok(!/gh-extra/.test(headWith(Object.assign({}, preG, { odds: null }), null)), "and no empty row when there is neither");
+
 // ---- halftime and the final header (live scan #6, #7, #9) ----
 console.log("Game header at halftime and at the final");
 var halfHead = headHtml(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
