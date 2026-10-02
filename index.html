@@ -244,7 +244,7 @@
   animation:launch-rule .6s cubic-bezier(.3,.7,.2,1) forwards;animation-delay:calc(var(--launch-t,0ms) + 850ms)}
 .launch.done{opacity:0;visibility:hidden;pointer-events:none}
 .launch.done .launch-mark{transform:scale(1.04)}
-html[data-choosing] .launch{display:none}
+html[data-choosing] .launch,html[data-launched] .launch{display:none}
 @keyframes launch-l{to{opacity:1;transform:none}}
 @keyframes launch-rule{to{transform:scaleX(1)}}
 @keyframes launch-out{to{opacity:0;visibility:hidden;pointer-events:none}}
@@ -260,7 +260,15 @@ html[data-choosing] .launch{display:none}
   var now = Date.now(), at = now;
   try {
     var prev = +sessionStorage.getItem("suite-launch-at");
-    if (prev && now - prev < 6000) at = prev; else sessionStorage.setItem("suite-launch-at", String(now));
+    if (prev && now >= prev && now - prev < 15000) at = prev;   // never a start in the future: a clock moved back else sessionStorage.setItem("suite-launch-at", String(now));
+    // The launch already lifted on this open and an update's reload followed
+    // (a slow install outlasted it): the fan has seen the page, so the reload
+    // draws it again without a second launch. The next page always consumes
+    // the marker; app.js clears it when an update fails. The bound is only
+    // against a marker somehow left behind.
+    var lifted = +sessionStorage.getItem("suite-launch-lifted");
+    sessionStorage.removeItem("suite-launch-lifted");
+    if (lifted && now >= lifted && now - lifted < 300000) document.documentElement.setAttribute("data-launched", "");
   } catch (e) {}
   window.SUITE_LAUNCH_AT = at;
   document.documentElement.style.setProperty("--launch-t", (at - now) + "ms");
