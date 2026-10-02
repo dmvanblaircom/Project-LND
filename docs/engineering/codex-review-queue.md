@@ -32,6 +32,18 @@ beside it during game week (proposal: `docs/product/season-stats-proposal.md`).
 
 Check at 320/390/1280, both teams, Team Style and Suite Style, inside and
 outside game week.
+
+**Codex review, October 2:** reviewed the merged Team view from main
+`103dfaf`, preserving the model and behavior. The team-column labels drifted
+left when the card heading wrapped (all four cards at 320px, and the long
+Turnovers and penalties heading at wider phone widths). Keep `.ss-cols`
+right-aligned on its own flex line so each label stays above its values.
+The focused browser review covers both teams/styles at 320/390/1280, with
+and without the opponent column: 24 layouts, text contrast and column
+alignment. The original CSS fails the alignment check by 78px at 320px.
+Long values remain allowed to wrap; no data, navigation or roster-density
+change. The Roster/Matchup link and More-icon visual review remains queued.
+
 ## 2. Game hero: the weather and the line moved under the game
 
 **Asked by David, 2026-10-01:** the weather and the betting line sat in the
