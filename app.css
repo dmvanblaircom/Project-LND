@@ -614,8 +614,8 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .sp-list summary .dr-chev{grid-column:4;grid-row:1;align-self:center}
 .sp-list details[open] > summary .dr-chev{transform:rotate(-135deg) translateY(-1px)}
 .sp-drive{margin:0 0 .35rem;font-size:.82rem;color:var(--s-muted)}
-.pl-list li.is-score{border-left-color:var(--t-accent-on-light);background:var(--t-accent-tint-soft)}
-.pl-list li.is-score .pl-text{font-weight:700;color:var(--s-ink)}
+.pl-list > li.is-score{border-left-color:var(--t-accent-on-light);background:var(--t-accent-tint-soft)}
+.pl-list > li.is-score .pl-text{font-weight:700;color:var(--s-ink)}
 .sp-when{font-size:.82rem;color:var(--s-muted)}
 .sp-team{font-family:var(--t-font-display);font-weight:700;color:var(--s-ink)}
 .sp-list .mine .sp-team{color:var(--t-accent-on-light)}
@@ -632,8 +632,19 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .dr-chev{width:.5rem;height:.5rem;margin:0 .15rem 0 .1rem;border-right:2px solid var(--s-muted);border-bottom:2px solid var(--s-muted);transform:rotate(45deg) translateY(-2px)}
 .dr-list details[open] > summary .dr-chev{transform:rotate(-135deg) translateY(-1px)}
 .pl-list{margin:0 0 .6rem;padding-left:.2rem}
-.pl-list li{display:grid;row-gap:.1rem;padding:.35rem 0 .35rem .6rem;border-left:2px solid var(--s-line)}
+.pl-list > li{display:grid;row-gap:.1rem;padding:.35rem 0 .35rem .6rem;border-left:2px solid var(--s-line)}
+.pl-meta{display:flex;justify-content:space-between;gap:.5rem}
 .pl-dd{font-size:.8rem;font-weight:600;color:var(--s-muted)}
+.pl-at{font-size:.78rem;color:var(--s-muted);font-variant-numeric:tabular-nums}
+.pl-tag{display:inline-block;margin-left:.15rem;padding:.05rem .4rem;border-radius:var(--s-radius-pill);font-size:.72rem;font-weight:700;line-height:1.35;vertical-align:.08em;background:var(--s-inset);color:var(--s-ink-2)}
+.pl-tag.score{background:var(--t-accent-on-light);color:#fff}
+.pl-tag.turnover{background:var(--s-live);color:#fff}
+.pl-tag.void{background:none;box-shadow:inset 0 0 0 1px var(--s-line-strong);color:var(--s-muted)}
+.pl-list > li.pl-between{padding-top:.15rem;padding-bottom:.15rem}
+.pl-between .pl-text{font-size:.8rem;color:var(--s-muted)}
+.pl-notes{list-style:none;margin:.15rem 0 0;padding:0}
+.pl-notes li{font-size:.8rem;color:var(--s-muted)}
+.pl-notes li + li{margin-top:.05rem}
 .pl-text{font-size:.9rem;color:var(--s-ink-2)}
 
 /* Box Score categories: each its own disclosure. The heading always shows,
