@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-02pl1";
+var VERSION = "suite-2026-10-02pl2";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
