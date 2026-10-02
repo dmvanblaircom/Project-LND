@@ -672,17 +672,25 @@ function teamSeasonStats(key){
 // Stats opens and kept for the session; Refresh Data and a pull ask again.
 // In game week the next opponent's season sits beside ours (David,
 // 2026-10-01). TeamOS decides which figures exist and what they are called.
-var ST={ us:null, them:null, opp:null, p:null, failed:false };
+// `type` is the season type the figures were fetched for: the postseason
+// is only known once its schedule has answered, so data fetched before
+// that is the regular season's and is asked again when the type changes
+// (Codex review, #82). `outcome` is what the last ask came to, for Refresh
+// Data's report: network, the worker's kept copy, or failed.
+var ST={ us:null, them:null, opp:null, type:null, p:null, failed:false, outcome:null };
 function statsType(){ return TeamOS.espn.seasonTypeFor(POST); }
-function teamSeasonFor(key){
-  var type=statsType(), year=seasonYear();
-  return Promise.all([
-    get(TeamOS.espn.seasonStatsUrl(key, year, type)).catch(function(){ return null; }),
-    get(TeamOS.espn.teamStatsUrl(key)).catch(function(){ return null; })
-  ]).then(function(r){
-    if(!r[0] && !r[1]) throw new Error("no season stats");
-    return TeamOS.espn.teamSeason(r[0], r[1]);
-  });
+function teamSeasonFor(key, type){
+  var year=seasonYear(), how=[];
+  function one(url){
+    return fetchJSON(url).then(function(r){ noteSource(url, r.cached); how.push(r.cached ? "cached" : "network"); return r.data; },
+                               function(){ how.push("failed"); return null; });
+  }
+  return Promise.all([one(TeamOS.espn.seasonStatsUrl(key, year, type)), one(TeamOS.espn.teamStatsUrl(key))])
+    .then(function(r){
+      if(!r[0] && !r[1]) throw new Error("no season stats");
+      var outcome=how.every(function(h){ return h==="network"; }) ? "network" : "cached";
+      return { season: TeamOS.espn.teamSeason(r[0], r[1]), outcome: outcome };
+    });
 }
 // This week's opponent: the next game, while it is on or within seven days.
 function gameWeekGame(){
@@ -693,18 +701,26 @@ function gameWeekGame(){
 }
 function loadStats(force){
   if(ST.p) return ST.p;
-  var g=gameWeekGame();
-  var have=ST.us && (!g || (ST.opp && ST.opp.oppProviderId===g.oppProviderId && ST.them));
+  var g=gameWeekGame(), type=statsType();
+  var have=ST.us && ST.type===type && (!g || (ST.opp && ST.opp.oppProviderId===g.oppProviderId && ST.them));
   if(have && !force) return Promise.resolve();
   ST.failed=false;
   ST.p=Promise.all([
-    teamSeasonFor(TEAM_CONFIG.sources.espn.teamId),
-    g ? teamSeasonFor(g.oppProviderId).catch(function(){ return null; }) : Promise.resolve(null)
-  ]).then(function(r){ ST.us=r[0]; ST.them=r[1]; ST.opp=r[1] ? g : null; },
-          function(){ if(!ST.us) ST.failed=true; })
+    teamSeasonFor(TEAM_CONFIG.sources.espn.teamId, type),
+    g ? teamSeasonFor(g.oppProviderId, type).catch(function(){ return null; }) : Promise.resolve(null)
+  ]).then(function(r){ ST.us=r[0].season; ST.outcome=r[0].outcome; ST.type=type;
+                       ST.them=r[1] ? r[1].season : null; ST.opp=r[1] ? g : null; },
+          // a failed refresh keeps what was on screen, and says it failed
+          function(){ ST.outcome="failed"; if(!ST.us) ST.failed=true; })
     .then(function(){ ST.p=null; paintStats(); });
   paintStats();
   return ST.p;
+}
+// The postseason's schedule answered: if it moved the season type, figures
+// already fetched are the wrong season - ask again while Stats is open, or
+// the next time it opens.
+function statsTypeChanged(){
+  if(ST.us && ST.type!==statsType() && !$("screenStats").hidden) loadStats(true);
 }
 function paintStats(){
   var host=$("screenStats");
@@ -712,7 +728,7 @@ function paintStats(){
   var g=ST.them ? ST.opp : null;
   Suite.stats.paint(host, { team:{ name:TEAM.name, abbr:TEAM.abbreviation },
     opp: g ? { name:g.oppName, abbr:g.oppAbbr } : null,
-    season:String(seasonYear()), postseason: statsType()===3,
+    season:String(seasonYear()), postseason: (ST.us ? ST.type : statsType())===3,
     us:ST.us, them:ST.them, failed:ST.failed, offline:navigator.onLine===false });
 }
 
@@ -1346,7 +1362,7 @@ function refreshSchedule(first){
     }).catch(function(){});
   }
 
-  var post=get(postUrl, hasEvents).then(function(d){ POST=d; }).catch(function(){});
+  var post=get(postUrl, hasEvents).then(function(d){ POST=d; statsTypeChanged(); }).catch(function(){});
   S.p=Promise.all([get(url, hasEvents), post]).then(function(r){
     var games=apply(r[0]);
     // A game under way before the first scoreboard tick: fetch it now, so
@@ -1481,7 +1497,7 @@ function refreshAll(silent){
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
-  if(ST.us || ST.p || ST.failed) steps.push(loadStats(true).then(function(){ return { key:"stats", outcome: ST.failed ? "failed" : "network" }; }));
+  if(ST.us || ST.p || ST.failed) steps.push(loadStats(true).then(function(){ return { key:"stats", outcome: ST.outcome || "failed" }; }));
   // An open game's summary is otherwise kept up to five minutes before
   // kickoff: drop that, so a refresh refreshes what the fan is looking at.
   [GV, SV].forEach(function(V){

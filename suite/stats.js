@@ -25,11 +25,15 @@ Suite.stats = (function () {
   var ui = Suite.ui, esc = ui.esc;
   var last = "";
 
-  function rowHtml(r, b, two) {
+  // In game week each value is said with its team: the column labels are
+  // drawn once per card for the eye and hidden from assistive technology, so
+  // a screen reader hears "ND 42.3, 17th; MSU 45.0, 6th" (Codex review, #82).
+  function rowHtml(r, b, two, m) {
     function cell(x, side) {
-      if (!x) return '<span class="ss-v ' + side + '"><span class="ss-n">–</span></span>';
-      return '<span class="ss-v ' + side + '"><span class="ss-n">' + esc(x.value) + "</span>" +
-             (x.rank ? '<span class="ss-rk">' + esc(x.rank) + "</span>" : "") + "</span>";
+      var who = two ? '<span class="sr-only">' + esc(side === "us" ? m.team.abbr : (m.opp.abbr || m.opp.name)) + " </span>" : "";
+      if (!x) return '<span class="ss-v ' + side + '">' + who + '<span class="ss-n">–</span><span class="sr-only"> not available</span></span>';
+      return '<span class="ss-v ' + side + '">' + who + '<span class="ss-n">' + esc(x.value) + "</span>" +
+             (x.rank ? '<span class="ss-rk"><span class="sr-only">, </span>' + esc(x.rank) + "</span>" : "") + "</span>";
     }
     return '<li class="ss-row' + (two ? " two" : "") + '"><span class="ss-l">' + esc(r.label) + "</span>" +
            cell(r, "us") + (two ? cell(b, "them") : "") + "</li>";
@@ -43,7 +47,7 @@ Suite.stats = (function () {
              '<div class="gcard-head"><h2 class="gcard-title" id="ss-' + esc(g.id) + '">' + esc(g.label) + "</h2>" +
                (two ? '<span class="ss-cols" aria-hidden="true"><span>' + esc(m.team.abbr) + "</span><span>" + esc(m.opp.abbr || m.opp.name) + "</span></span>" : "") +
              "</div>" +
-             '<ul class="ss-list">' + g.rows.map(function (r) { return rowHtml(r, theirs[r.key], two); }).join("") + "</ul>" +
+             '<ul class="ss-list">' + g.rows.map(function (r) { return rowHtml(r, theirs[r.key], two, m); }).join("") + "</ul>" +
            "</section>";
   }
 

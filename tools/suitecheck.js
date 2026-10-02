@@ -330,14 +330,17 @@ function statsHtml(m) {
 var one = statsHtml({ us: usSeason });
 eq((one.match(/class="ss-row"/g) || []).length, 30, "every figure TeamOS returned is a row");
 ok(/2026 regular season · 4 games/.test(one), "it says which season and how many games");
-ok(/Points per game<\/span><span class="ss-v us"><span class="ss-n">42\.3<\/span><span class="ss-rk">17th<\/span>/.test(one), "the figure and its national rank");
+ok(/Points per game<\/span><span class="ss-v us"><span class="ss-n">42\.3<\/span><span class="ss-rk"><span class="sr-only">, <\/span>17th<\/span>/.test(one), "the figure and its national rank");
 ok(!/ss-cols/.test(one), "no opponent column outside game week");
 var two = statsHtml({ us: usSeason, them: themSeason, opp: { name: "Ohio State", abbr: "OSU" } });
 eq((two.match(/class="ss-row two"/g) || []).length, 30, "in game week every row has the opponent's figure beside it");
 ok(/This week: ND and Ohio State, side by side\./.test(two) && (two.match(/<span>ND<\/span><span>OSU<\/span>/g) || []).length === 4,
    "said once at the top, and each group labels both columns");
-ok(/Points allowed per game<\/span><span class="ss-v us"><span class="ss-n">8\.3<\/span><\/span><span class="ss-v them"><span class="ss-n">–<\/span><\/span>/.test(two),
-   "a figure the opponent has no source for is a dash, never a 0");
+ok(/Points allowed per game<\/span><span class="ss-v us"><span class="sr-only">ND <\/span><span class="ss-n">8\.3<\/span><\/span><span class="ss-v them"><span class="sr-only">OSU <\/span><span class="ss-n">–<\/span><span class="sr-only"> not available<\/span><\/span>/.test(two),
+   "a figure the opponent has no source for is a dash, never a 0, and says it is not available");
+ok(/<span class="ss-v us"><span class="sr-only">ND <\/span><span class="ss-n">42\.3<\/span><span class="ss-rk"><span class="sr-only">, <\/span>17th<\/span><\/span><span class="ss-v them"><span class="sr-only">OSU <\/span>/.test(two),
+   "in game week each value is said with its team, for a screen reader: the column labels are only for the eye (Codex review, #82)");
+ok(!/sr-only">ND /.test(one), "outside game week there is one column and nothing to tell apart");
 ok(/postseason included/.test(statsHtml({ us: usSeason, postseason: true })), "a season with its postseason says so");
 ok(/Loading season stats/.test(statsHtml({})), "loading says so");
 ok(/didn't load\. Pull down to try again/.test(statsHtml({ failed: true })), "a failure says how to try again");
