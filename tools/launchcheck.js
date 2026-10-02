@@ -176,8 +176,12 @@ function fixture(url) {
       var req = route.request(), u = req.url();
       if (u.startsWith(b2)) {
         if (slow && checkDelay && /\/sw\.js(\?|$)/.test(u)) await new Promise(function (r) { setTimeout(r, checkDelay); });
-        if (slow && req.serviceWorker && req.serviceWorker() && !/\/data\//.test(u))
-          await new Promise(function (r) { setTimeout(r, stall && /\/app\.css(\?|$)/.test(u) ? stall : shellDelay); });
+        // app.css is held by URL alone, not by asking whether the request is
+        // the worker's: some Chromium builds do not say (CI's did not). The
+        // open page gets app.css from the old worker's cache, so only the new
+        // worker's install waits on it.
+        if (slow && stall && /\/app\.css(\?|$)/.test(u)) await new Promise(function (r) { setTimeout(r, stall); });
+        else if (slow && req.serviceWorker && req.serviceWorker() && !/\/data\//.test(u)) await new Promise(function (r) { setTimeout(r, shellDelay); });
         return route.continue();
       }
       var body = fixture(u);
