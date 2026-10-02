@@ -180,7 +180,11 @@ a team cue belongs on it (team-first vs install identity), and the
 reduced-motion state (static wordmark, no animation). Changing the 2.6s
 minimum is David's call, not a styling choice.
 
-## 8. UIs waiting on Claude's models
+## 8. News: the no-photo tile grows to fit its source (2026-10-02)
+
+Ohio State's beat feeds (PR #89) brought stories without photos from "Land-Grant Holy Land". At 320 and 375px the name's first line was clipped off the top of the tile, and the accessibility gate failed. The tile now keeps the photo's 4:3 as its least height and grows for a longer name, so a team's source names never need to fit a fixed box. Review: whether a taller tile in that one row reads well, or whether a long source name should be drawn another way.
+
+## 9. UIs waiting on Claude's models
 
 | Item | Model, ready | What Codex builds |
 |---|---|---|
