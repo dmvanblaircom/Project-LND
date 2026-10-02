@@ -13,6 +13,8 @@ A URL may be followed by " | <pattern>": the probe then also prints the
 short runs of the page's visible text that match it (at most 25, each cut to
 200 characters) - a published schedule's dates and times, checked at the
 source rather than taken from a summary of it (2026-10-02, the CFP calendar).
+For JSON it prints each matching leaf with its full path, and for HTML
+the links whose address or label match (a terms page found from a footer).
 """
 import json
 import re
@@ -49,6 +51,28 @@ def matching(text, pattern):
     return [l[:200] for l in out[:25]]
 
 
+def json_matching(d, pattern, limit=40):
+    """Every leaf as "path = value" where the path or the value matches."""
+    out = []
+
+    def walk(o, path):
+        if len(out) >= limit:
+            return
+        if isinstance(o, dict):
+            for k, v in o.items():
+                walk(v, "%s.%s" % (path, k) if path else k)
+        elif isinstance(o, list):
+            for i, v in enumerate(o):
+                walk(v, "%s[%d]" % (path, i))
+        else:
+            line = "%s = %s" % (path, json.dumps(o)[:120])
+            if re.search(pattern, line, re.I):
+                out.append(line)
+
+    walk(d, "")
+    return out
+
+
 def probe(url, pattern=None):
     print("== " + url + ("  | " + pattern if pattern else ""))
     try:
@@ -76,6 +100,11 @@ def probe(url, pattern=None):
         for k in ("season", "lastUpdated", "updated", "date"):
             if isinstance(d, dict) and k in d:
                 print("  %s: %s" % (k, json.dumps(d[k])[:120]))
+        if pattern:
+            # A JSON source's leaves, each with its full path, so a value
+            # stays tied to the object it belongs to (schools[3].status...).
+            for l in json_matching(d, pattern):
+                print("  json: %s" % l)
         return
     if pattern:
         for l in matching(text, pattern):
@@ -93,7 +122,8 @@ def probe(url, pattern=None):
     links = []
     for m in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', text, re.S | re.I):
         href, label = m.group(1), re.sub(r"<[^>]+>|\s+", " ", m.group(2)).strip()
-        if re.search(r"availab|depth|injur|two.deep|game.notes", href + " " + label, re.I) and href not in [x[0] for x in links]:
+        wanted = r"availab|depth|injur|two.deep|game.notes" + ("|" + pattern if pattern else "")
+        if re.search(wanted, href + " " + label, re.I) and href not in [x[0] for x in links]:
             links.append((href, label[:60]))
     for href, label in links[:15]:
         print("  link: %s  [%s]" % (href[:160], label))
