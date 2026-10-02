@@ -709,8 +709,8 @@ eq(TeamOS.snapshots.files(TEAM_CONFIG),
    ["data/notre-dame/depth.json", "data/notre-dame/depth-history.json", "data/notre-dame/availability.json",
     "data/notre-dame/availability-history.json", "data/notre-dame/odds-history.json", "data/notre-dame/news.json"],
    "Notre Dame's snapshots, files and histories together - availability is its own now");
-eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), ["data/ohio-state/odds-history.json"],
-   "Ohio State caches only what it declares: its own odds history (W20)");
+eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), ["data/ohio-state/odds-history.json", "data/ohio-state/news.json"],
+   "Ohio State caches only what it declares: its own odds history and beat news (W20)");
 eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
 eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.json"],
    "a kind with no history contributes one file");
@@ -770,7 +770,11 @@ console.log(" ohio-state");
 eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "depth"),       null, "declares no depth chart");
 eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "oddsHistory"), { file:"data/ohio-state/odds-history.json" },
    "declares its own odds history, in its own folder (W20) - never Notre Dame's");
-eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "beatNews"),    null, "declares no beat news");
+eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "beatNews"),    { file:"data/ohio-state/news.json" }, "declares its own beat news (W20)");
+eq(osu.TEAM_CONFIG.sources.beatFeeds.map(function (f) { return f.name; }),
+   ["Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern"], "the five feeds David approved, 2026-10-02");
+ok(osu.TeamOS.snapshots.owned(osu.TeamOS.createTeam(osu.TEAM_CONFIG.team), JSON.parse(read("data/ohio-state/news.json"))),
+   "and owns its committed news.json, empty until the first refresh fills it");
 eq(TeamOS.snapshots.get({ team: osu.TEAM_CONFIG.team }, "depth"), null, "a config with no snapshots section declares nothing");
 
 console.log(" a stamped file");
