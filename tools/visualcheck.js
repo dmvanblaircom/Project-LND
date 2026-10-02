@@ -592,8 +592,14 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             await page.waitForFunction(function () { return document.querySelectorAll("#screenNews .nw-row").length > 0; }, null, { timeout: 8000 }).catch(function () {});
             var nw = await page.evaluate(function () {
               var rows = [].slice.call(document.querySelectorAll("#screenNews .nw-row"));
-              return { n: rows.length, safe: rows.every(function (a) { return a.target === "_blank" && /noopener/.test(a.rel) && /new tab/.test(a.textContent); }) };
+              // a story with no photo names its source in the tile: all of it
+              var clipped = [].slice.call(document.querySelectorAll("#screenNews .nw-img.none .nw-src")).filter(function (s) {
+                var box = s.parentNode.getBoundingClientRect(), t = s.getBoundingClientRect();
+                return box.width > 0 && (t.top < box.top - 0.5 || t.bottom > box.bottom + 0.5);
+              }).map(function (s) { return s.textContent; });
+              return { n: rows.length, clipped: clipped, safe: rows.every(function (a) { return a.target === "_blank" && /noopener/.test(a.rel) && /new tab/.test(a.textContent); }) };
             });
+            if (nw.clipped.length) fail(label, "layout", ".nw-src", "a source's name is cut off in its no-photo tile: " + nw.clipped[0]);
             if (!nw.n) fail(label, "behaviour", ".nw-list", "News shows no stories");
             if (!nw.safe) fail(label, "behaviour", ".nw-row", "a story does not open its publisher in a new tab with rel protections and a spoken cue (0024 §17)");
           }
