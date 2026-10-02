@@ -48,6 +48,7 @@ sitestats-87 nd
 postschedule-87-2024 nd-2024-post-notes
 postschedule-194-2025 osu-2025-post-notes
 postschedule-194-2024 osu-2024-post-notes
-bowls-20241221 cfp-first-round-dec21-2024
-bowls-20250102 bowls-jan02-2025
-bowls-20241227 bowls-dec27-2024
+bowls-20250102 postseason-2024
+schedule-87-2025-2 nd-2025-reg
+schedule-194-2025-2 osu-2025-reg
+schedule-87-2026-2 nd-2026-reg
