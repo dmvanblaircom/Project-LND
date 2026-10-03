@@ -103,7 +103,7 @@ jobs:
               # a core-API list whose items are $ref links: follow each (tools/capture_core.py)
               if [ -n "${BASH_REMATCH[2]}" ]; then
                 out="tools/fixtures/espn-recruits-$name.json"
-                url="https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/${BASH_REMATCH[2]}/recruits?season=${BASH_REMATCH[3]}&limit=100"; cap=100
+                url="https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/${BASH_REMATCH[3]}/teams/${BASH_REMATCH[2]}/recruits?limit=100"; cap=100
               else
                 out="tools/fixtures/espn-draftboard-$name.json"; cap="${BASH_REMATCH[5]}"
                 url="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${BASH_REMATCH[4]}/draft/athletes?limit=$cap"
