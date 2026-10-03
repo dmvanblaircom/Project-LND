@@ -1627,7 +1627,8 @@ function paintMore(){
     team:{ name:TEAM.name, abbr:TEAM.abbreviation,
            mark:Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId), TEAM.name, TEAM.abbreviation) },
     changeHref: location.pathname+"?change", style: appStyle(),
-    updatedAt: lastUpdated(), refreshing: MORE.refreshing, online: navigator.onLine!==false, result: MORE.result });
+    updatedAt: lastUpdated(), refreshing: MORE.refreshing, online: navigator.onLine!==false, result: MORE.result,
+    alerts: alertsModel() });
   if(r.screen==="feedback") Suite.more.feedback(host, { href: feedbackHref(), address: FEEDBACK_TO });
   if(r.screen==="about") Suite.more.about(host, { version: MORE.version, sources: TeamOS.sources.list(TEAM_CONFIG) });
 }
@@ -1747,6 +1748,90 @@ document.addEventListener("click", function(e){
   });
 });
 Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); }); });
+
+/* ---------- Game alerts (W19) ---------- */
+// Kickoff and final for this team, pushed by the edge API (worker/src/push.js)
+// to this device. Nothing is asked of the browser until the fan taps Turn On
+// in Settings (notifications brief §3). Whether this device turned them on
+// for this team is kept here; the Worker keeps the subscription itself.
+var ALERTS={ busy:false, note:null };
+var ALERT_KEY="iw-alerts-"+TEAM.id;
+function alertSupport(){
+  var ios=/iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+  var installed=navigator.standalone===true || (window.matchMedia && matchMedia("(display-mode: standalone)").matches);
+  if(!("serviceWorker" in navigator) || !("PushManager" in window) || !("Notification" in window))
+    return ios && !installed ? "install" : "unsupported";      // iOS offers push only to an installed app
+  return "ok";
+}
+function alertsOnHere(){ try{ return localStorage.getItem(ALERT_KEY)==="1"; }catch(e){ return false; } }
+function alertsModel(){
+  var support=alertSupport();
+  return { support:support, on:alertsOnHere(), busy:ALERTS.busy, note:ALERTS.note,
+           denied: support==="ok" && Notification.permission==="denied" };
+}
+function keyBytes(b64){
+  var s=atob(b64.replace(/-/g,"+").replace(/_/g,"/")+"===".slice((b64.length+3)%4)), out=new Uint8Array(s.length);
+  for(var i=0;i<s.length;i++) out[i]=s.charCodeAt(i);
+  return out;
+}
+function sameKey(sub, key){
+  var k=sub && sub.options && sub.options.applicationServerKey;
+  if(!k) return true;                                    // the browser does not say: keep it
+  var a=new Uint8Array(k);
+  return a.length===key.length && a.every(function(v,i){ return v===key[i]; });
+}
+function postEdge(path, body){
+  return fetch(EDGE+path, { method:"POST", headers:{ "content-type":"application/json" }, body:JSON.stringify(body) })
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(b){ return { status:r.status, body:b }; }); });
+}
+function alertsDone(note, on){
+  if(on!=null){ try{ on ? localStorage.setItem(ALERT_KEY,"1") : localStorage.removeItem(ALERT_KEY); }catch(e){} }
+  ALERTS.busy=false; ALERTS.note=note; paintMore(); say(note);
+  var btn=document.querySelector("#screenSettings [data-alerts]");
+  if(btn && !$("screenSettings").hidden) btn.focus();
+}
+function alertsTurnOn(){
+  ALERTS.busy=true; ALERTS.note=null; paintMore();
+  // First thing in the tap: iOS grants permission only from the tap itself.
+  var asked=Notification.requestPermission();
+  Promise.resolve(asked).then(function(perm){
+    if(perm!=="granted") throw { why:"denied" };
+    return Promise.all([navigator.serviceWorker.ready, fetch(EDGE+"/v1/push/key").then(function(r){ return r.json(); })]);
+  }).then(function(x){
+    var reg=x[0], key=keyBytes(x[1].key);
+    return reg.pushManager.getSubscription().then(function(old){
+      // A subscription made with another key cannot be reused: replace it.
+      if(old && !sameKey(old, key)) return old.unsubscribe().then(function(){ return null; });
+      return old;
+    }).then(function(old){ return old || reg.pushManager.subscribe({ userVisibleOnly:true, applicationServerKey:key }); });
+  }).then(function(sub){
+    return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:{ id:String(TEAM_CONFIG.sources.espn.teamId), name:TEAM.name } });
+  }).then(function(r){
+    if(r.status!==200) throw { why:"server" };
+    alertsDone(r.body.confirmation==="sent" ? "Game alerts are on. A test alert is on its way."
+                                           : "Game alerts are on, but the test alert didn’t go through. Try Turn Off, then Turn On.", true);
+  }).catch(function(e){
+    alertsDone(e && e.why==="denied" ? "Notifications weren’t allowed, so game alerts are off."
+                                     : "Couldn’t turn on game alerts. Check your connection and try again.", false);
+  });
+}
+function alertsTurnOff(){
+  ALERTS.busy=true; ALERTS.note=null; paintMore();
+  navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
+    if(!sub) return { status:200 };
+    return postEdge("/v1/push/unsubscribe", { endpoint:sub.endpoint, team:{ id:String(TEAM_CONFIG.sources.espn.teamId) } });
+  }).then(function(r){
+    if(r.status!==200) throw new Error("server");
+    alertsDone("Game alerts are off.", false);
+  }).catch(function(){
+    alertsDone("Couldn’t turn off game alerts. Check your connection and try again.", null);
+  });
+}
+document.addEventListener("click", function(e){
+  var b=e.target.closest && e.target.closest("[data-alerts]");
+  if(!b || ALERTS.busy || alertSupport()!=="ok") return;
+  if(b.getAttribute("data-alerts")==="on") alertsTurnOn(); else alertsTurnOff();
+});
 
 // How long data may sit before a silent refresh: on return to a tab that was
 // hidden this long, and on a timer while it stays visible.

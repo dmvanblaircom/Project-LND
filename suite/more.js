@@ -15,7 +15,8 @@
      Suite.more.menu(host)
      Suite.more.news(host, { items: NewsItem[]|null, failed, fresh, team })
      Suite.more.settings(host, { team:{name,abbr,mark}, changeHref, style,
-                                 updatedAt, refreshing, online, result })
+                                 updatedAt, refreshing, online, result,
+                                 alerts:{ support, on, busy, denied, note } })
      Suite.more.feedback(host, { href, address })
      Suite.more.about(host, { version, sources: Source[] })              */
 
@@ -198,7 +199,32 @@ Suite.more = (function () {
         // keyboard focus the fan left on it
         '<button type="button" class="btn btn-secondary" data-refresh' + (m.refreshing ? ' aria-disabled="true"' : "") + ">Refresh Data</button></div>");
 
-    put(host, "settings", team + style + data);   // keeps the fan's focus (put)
+    put(host, "settings", team + style + gameAlerts(m) + data);   // keeps the fan's focus (put)
+  }
+
+  // Game alerts (W19): kickoff and final for this team, pushed by the edge
+  // API. Provisional until Codex designs the opt-in row (notifications brief
+  // §3); it says plainly when this device cannot get them, and why. The
+  // button is the only thing that ever asks the browser for permission.
+  function gameAlerts(m) {
+    var a = m.alerts;
+    if (!a) return "";
+    var name = m.team.name, body;
+    if (a.support === "install") {
+      body = '<div class="st-row st-action"><span class="st-note">To get game alerts on iPhone or iPad, add Suite to your Home Screen, then turn them on here.</span></div>';
+    } else if (a.support !== "ok") {
+      body = '<div class="st-row st-action"><span class="st-note">This browser can’t receive game alerts.</span></div>';
+    } else if (a.denied && !a.on) {
+      body = '<div class="st-row st-action"><span class="st-note">Notifications are off for Suite in this device’s settings. Allow them there, then come back.</span></div>';
+    } else {
+      var note = a.note || (a.on ? "You’ll get a notification when " + name + " kicks off and when the game ends."
+                                 : "A notification when " + name + " kicks off and when the game ends.");
+      body = '<div class="st-row"><span class="st-k">Kickoff and Final</span><span class="st-v" data-st="alerts">' + (a.on ? "On" : "Off") + "</span></div>" +
+        '<div class="st-row st-action"><span class="st-note" data-st="alerts-note">' + esc(note) + "</span>" +
+        '<button type="button" class="btn btn-secondary" data-alerts="' + (a.on ? "off" : "on") + '"' + (a.busy ? ' aria-disabled="true"' : "") + ">" +
+        (a.busy ? (a.on ? "Turning Off…" : "Turning On…") : (a.on ? "Turn Off" : "Turn On")) + "</button></div>";
+    }
+    return group("alerts", "Game Alerts", body);
   }
 
   // ---- Feedback (0022 #12) -------------------------------------------------

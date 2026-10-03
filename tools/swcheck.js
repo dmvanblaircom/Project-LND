@@ -113,10 +113,51 @@ function boot(opts) {
     });
     return Promise.all(waits);
   }
-  return { sandbox: sandbox, store: store, deleted: deleted, fetched: fetched, fire: fire,
+  return { sandbox: sandbox, store: store, deleted: deleted, fetched: fetched, fire: fire, listeners: listeners,
            installs: function () { return settle("install").then(function () { return "installed"; }, function (e) { return "failed: " + e.message; }); },
            shell: function () { return Object.keys(store[sandbox.SHELL] || {}).sort(); },
            data:  function () { return Object.keys(store[sandbox.DATA]  || {}).sort(); } };
+}
+
+// Game alerts (W19): a push is shown as the edge API wrote it, and a tap
+// opens Suite - only ever a Suite page, whatever the push says.
+function alertsChecks() {
+  console.log("game alerts");
+  var w = boot(), shown = [], opened = [], focused = [];
+  w.sandbox.self.registration = { scope: "https://example.test/Project-LND/",
+    showNotification: function (t, o) { shown.push([t, o]); return Promise.resolve(); } };
+  w.sandbox.self.clients.openWindow = function (u) { opened.push(u); return Promise.resolve(null); };
+  function fireWith(ev, e) {
+    var waits = [];
+    e.waitUntil = function (p) { waits.push(p); };
+    (w.listeners[ev] || []).forEach(function (fn) { fn(e); });
+    return Promise.all(waits);
+  }
+  var msg = { title: "Ohio State", body: "Ohio State at Iowa has kicked off.", url: "https://example.test/Project-LND/#game", tag: "401858473-kickoff" };
+  return fireWith("push", { data: { json: function () { return msg; }, text: function () { return JSON.stringify(msg); } } }).then(function () {
+    eq([shown.length, shown[0] && shown[0][0], shown[0] && shown[0][1].body, shown[0] && shown[0][1].tag],
+       [1, "Ohio State", "Ohio State at Iowa has kicked off.", "401858473-kickoff"], "a push is shown as sent, once, tagged by game and event");
+    var closed = false;
+    return fireWith("notificationclick", { notification: { data: { url: msg.url }, close: function () { closed = true; } } }).then(function () {
+      ok(closed && opened[0] === msg.url, "a tap closes it and opens Suite at the game");
+    });
+  }).then(function () {
+    opened.length = 0;
+    return fireWith("notificationclick", { notification: { data: { url: "https://evil.example/" }, close: function () {} } });
+  }).then(function () {
+    ok(opened[0] === "https://example.test/Project-LND/", "a push pointing anywhere else opens Suite's front page instead");
+    var win = { url: "https://example.test/Project-LND/#home", focus: function () { focused.push(this.url); return Promise.resolve(this); },
+                navigate: function (u) { this.url = u; return Promise.resolve(this); } };
+    w.sandbox.self.clients.matchAll = function () { return Promise.resolve([win]); };
+    opened.length = 0;
+    return fireWith("notificationclick", { notification: { data: { url: msg.url }, close: function () {} } });
+  }).then(function () {
+    ok(opened.length === 0 && focused[0] === msg.url, "with Suite already open: that window goes to the game, no second window");
+    shown.length = 0;
+    return fireWith("push", { data: null });
+  }).then(function () {
+    ok(shown.length === 1 && shown[0][0] === "Suite", "an empty push still shows (browsers require it), titled Suite");
+  });
 }
 
 // What the page sends since decision 0024: a team's own shell is its config.
@@ -262,6 +303,8 @@ w.fire("message", ND).then(function () {
   });
 }).then(function () {
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the worker caches one team at a time"));
+  return alertsChecks();
+}).then(function () {
   process.exit(failures ? 1 : 0);
 }).catch(function (e) {
   console.log("  FAIL threw: " + (e && e.stack || e));
