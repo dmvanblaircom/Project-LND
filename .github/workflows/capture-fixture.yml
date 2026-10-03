@@ -65,6 +65,7 @@ jobs:
             # "recruits-<id>-<YYYY> <name>"   a team's recruiting class, each recruit's record (W16)
             # "draftboard-<YYYY>-<n> <name>"  an NFL draft's first n prospects, each record (W16)
             # "draftrounds-<YYYY> <name>"     an NFL draft's rounds and picks, kept whole (W16)
+            # "nflteams <name>"               the NFL's 32 teams, for a pick's team name (W16)
             # The W27 kinds keep the payload whole ($ref links included: they show
             # what each call points at), and a candidate that answers 404 is a
             # finding, not a failure: it is noted and the run goes on.
@@ -115,6 +116,9 @@ jobs:
             elif [[ "$ev" =~ ^draftrounds-([0-9]{4})$ ]]; then
               kind=raw; out="tools/fixtures/espn-draftrounds-$name.json"
               url="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${BASH_REMATCH[1]}/draft/rounds"
+            elif [ "$ev" = "nflteams" ]; then
+              out="tools/fixtures/espn-nflteams-$name.json"; kind=payload
+              url="https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"
             elif [[ "$ev" =~ ^fpi-([0-9]{4})$ ]]; then
               # ESPN's Football Power Index, every FBS team (W07, issue #29)
               out="tools/fixtures/espn-fpi-$name.json"; kind=payload
@@ -164,7 +168,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/espn-fpi-*.json tools/fixtures/espn-teamstats-*.json tools/fixtures/espn-leaders-*.json tools/fixtures/espn-athletestats-*.json tools/fixtures/espn-sitestats-*.json tools/fixtures/espn-recruits-*.json tools/fixtures/espn-draftboard-*.json tools/fixtures/espn-draftrounds-*.json tools/fixtures/img
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/espn-fpi-*.json tools/fixtures/espn-teamstats-*.json tools/fixtures/espn-leaders-*.json tools/fixtures/espn-athletestats-*.json tools/fixtures/espn-sitestats-*.json tools/fixtures/espn-recruits-*.json tools/fixtures/espn-draftboard-*.json tools/fixtures/espn-draftrounds-*.json tools/fixtures/espn-nflteams-*.json tools/fixtures/img
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
           git commit -m "Capture ESPN fixtures"
           git pull --rebase -q && git push
