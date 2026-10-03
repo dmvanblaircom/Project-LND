@@ -1,0 +1,5092 @@
+{
+ "_comment": "Real ESPN core-API list, captured 2026-10-03T05:42Z by capture-fixture.yml from https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194/recruits?season=2027&limit=100, each item's $ref followed and its record kept whole except links and analysis copy (tools/capture_core.py).",
+ "count": 19,
+ "items": [
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/256358?lang=en&region=us",
+   "athlete": {
+    "id": "256358",
+    "firstName": "Angelo",
+    "lastName": "Smith",
+    "fullName": "Angelo Smith",
+    "displayName": "Angelo Smith",
+    "shortName": "A. Smith",
+    "weight": 160.0,
+    "height": 68.0,
+    "highSchool": {
+     "id": "18739",
+     "name": "Chaminade-Madonna College Preparatory Sc",
+     "properName": "Chaminade-Madonna College Preparatory School",
+     "address": {
+      "city": "",
+      "state": "Florida",
+      "stateAbbreviation": "FL"
+     }
+    },
+    "hometown": {
+     "city": "Hollywood",
+     "state": "Florida",
+     "stateAbbreviation": "FL"
+    },
+    "position": {
+     "id": "20",
+     "abbreviation": "S"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 76,
+   "gradeDisplayValue": "76",
+   "attributes": [
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 121.0,
+     "displayValue": "121"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 120.0,
+     "displayValue": "120"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 485.0,
+     "displayValue": "485"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/24?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2229?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2247?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2649?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "3"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/259365?lang=en&region=us",
+   "athlete": {
+    "id": "259365",
+    "firstName": "Caden",
+    "lastName": "Moss",
+    "fullName": "Caden Moss",
+    "displayName": "Caden Moss",
+    "shortName": "C. Moss",
+    "weight": 330.0,
+    "height": 77.0,
+    "highSchool": {
+     "id": "6497",
+     "name": "Jackson Academy",
+     "properName": "Jackson Academy",
+     "address": {
+      "city": "Jackson",
+      "state": "Mississippi",
+      "stateAbbreviation": "MS",
+      "address1": "4908 Ridgewood Rd",
+      "zipCode": "39211"
+     }
+    },
+    "hometown": {
+     "city": "Jackson",
+     "state": "Mississippi",
+     "stateAbbreviation": "MS"
+    },
+    "position": {
+     "id": "17",
+     "abbreviation": "OT"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 90,
+   "gradeDisplayValue": "90",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 14.0,
+     "displayValue": "14"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 8.0,
+     "displayValue": "8"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "visit": "2026-06-19T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/145?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-06-05T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-05-29T07:00Z",
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-05-29T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-05-22T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2633?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-04-17T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/99?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/24?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/38?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/52?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/57?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/142?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/150?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/166?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/201?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/204?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/238?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/239?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/245?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/251?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/333?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/344?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2006?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/259559?lang=en&region=us",
+   "athlete": {
+    "id": "259559",
+    "firstName": "Brady",
+    "lastName": "Edmunds",
+    "fullName": "Brady Edmunds",
+    "displayName": "Brady Edmunds",
+    "shortName": "B. Edmunds",
+    "weight": 220.0,
+    "height": 78.0,
+    "highSchool": {
+     "id": "6282",
+     "name": "Huntington Beach High School",
+     "properName": "Huntington Beach High School",
+     "address": {
+      "city": "Huntington Beach",
+      "state": "California",
+      "stateAbbreviation": "CA",
+      "address1": "1905 Main St",
+      "zipCode": "92648"
+     }
+    },
+    "hometown": {
+     "city": "Huntington Beach",
+     "state": "California",
+     "stateAbbreviation": "CA"
+    },
+    "position": {
+     "id": "18",
+     "abbreviation": "QB-PP"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 81,
+   "gradeDisplayValue": "81",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 173.0,
+     "displayValue": "173"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 13.0,
+     "displayValue": "13"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 14.0,
+     "displayValue": "14"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 24.0,
+     "displayValue": "24"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/9?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/52?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/97?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/103?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/213?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/251?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/259?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/264?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/265?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2439?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2567?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/260408?lang=en&region=us",
+   "athlete": {
+    "id": "260408",
+    "firstName": "Jamier",
+    "lastName": "Brown",
+    "fullName": "Jamier Brown",
+    "displayName": "Jamier Brown",
+    "shortName": "J. Brown",
+    "weight": 185.0,
+    "height": 71.0,
+    "highSchool": {
+     "id": "1064",
+     "name": "Big Walnut High School",
+     "properName": "Big Walnut High School",
+     "address": {
+      "city": "Sunbury",
+      "state": "Ohio",
+      "stateAbbreviation": "OH",
+      "address1": "555 South Old 3 C Hwy",
+      "zipCode": "43074"
+     }
+    },
+    "hometown": {
+     "city": "Sunbury",
+     "state": "Ohio",
+     "stateAbbreviation": "OH"
+    },
+    "position": {
+     "id": "24",
+     "abbreviation": "WR"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 90,
+   "gradeDisplayValue": "90",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 10.0,
+     "displayValue": "10"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/84?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/87?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/120?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/158?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/213?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/221?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/238?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2050?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2117?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2132?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2509?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2633?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2649?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/261490?lang=en&region=us",
+   "athlete": {
+    "id": "261490",
+    "firstName": "D.J.",
+    "lastName": "Jacobs",
+    "fullName": "D.J. Jacobs",
+    "displayName": "D.J. Jacobs",
+    "shortName": "D.J. Jacobs",
+    "weight": 225.0,
+    "height": 77.0,
+    "highSchool": {
+     "id": "1200",
+     "name": "Blessed Trinity High School",
+     "properName": "Blessed Trinity High School",
+     "address": {
+      "city": "Roswell",
+      "state": "Georgia",
+      "stateAbbreviation": "GA",
+      "address1": "11320 Woodstock Rd",
+      "zipCode": "30075"
+     }
+    },
+    "hometown": {
+     "city": "Roswell",
+     "state": "Georgia",
+     "stateAbbreviation": "GA"
+    },
+    "position": {
+     "id": "5",
+     "abbreviation": "DE"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 92,
+   "gradeDisplayValue": "92",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/8?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/24?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/25?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/52?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/61?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/84?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/87?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/97?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/127?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/154?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/158?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/228?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/245?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/251?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2305?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2579?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2633?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/261588?lang=en&region=us",
+   "athlete": {
+    "id": "261588",
+    "firstName": "Jaden",
+    "lastName": "Carey",
+    "fullName": "Jaden Carey",
+    "displayName": "Jaden Carey",
+    "shortName": "J. Carey",
+    "weight": 175.0,
+    "height": 71.0,
+    "highSchool": {
+     "id": "21854",
+     "name": "Saint Thomas Aquinas High School",
+     "properName": "Saint Thomas Aquinas High School",
+     "address": {
+      "city": "Fort Lauderdale",
+      "state": "Florida",
+      "stateAbbreviation": "FL"
+     }
+    },
+    "hometown": {
+     "city": "Fort Lauderdale",
+     "state": "Florida",
+     "stateAbbreviation": "FL"
+    },
+    "position": {
+     "id": "3",
+     "abbreviation": "CB"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 77,
+   "gradeDisplayValue": "77",
+   "attributes": [
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 76.0,
+     "displayValue": "76"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 89.0,
+     "displayValue": "89"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 368.0,
+     "displayValue": "368"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/8?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/25?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/38?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/52?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/57?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/58?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/59?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/61?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/84?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/87?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/103?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/135?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/142?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/145?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/153?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/201?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/213?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/221?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/245?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/259?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/277?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/356?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2229?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2509?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/261965?lang=en&region=us",
+   "athlete": {
+    "id": "261965",
+    "firstName": "Marcus",
+    "lastName": "Fakatou",
+    "fullName": "Marcus Fakatou",
+    "displayName": "Marcus Fakatou",
+    "shortName": "M. Fakatou",
+    "weight": 275.0,
+    "height": 79.0,
+    "highSchool": {
+     "id": "16297",
+     "name": "Sierra Canyon High School",
+     "properName": "Sierra Canyon High School",
+     "address": {
+      "city": "Chatsworth",
+      "state": "California",
+      "stateAbbreviation": "CA",
+      "address1": "20801 West Rinaldi Street",
+      "zipCode": "91311"
+     }
+    },
+    "hometown": {
+     "city": "Chatsworth",
+     "state": "California",
+     "stateAbbreviation": "CA"
+    },
+    "position": {
+     "id": "7",
+     "abbreviation": "DT"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 90,
+   "gradeDisplayValue": "90",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 12.0,
+     "displayValue": "12"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "visit": "2026-06-12T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/87?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-06-05T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/251?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-05-31T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/61?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-05-29T07:00Z",
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/9?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/12?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/25?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/30?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/38?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/57?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/99?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/135?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/142?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/158?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/183?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/201?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/213?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/245?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/252?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/254?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/259?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/264?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2567?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2633?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/262021?lang=en&region=us",
+   "athlete": {
+    "id": "262021",
+    "firstName": "Jimmy",
+    "lastName": "Kalis",
+    "fullName": "Jimmy Kalis",
+    "displayName": "Jimmy Kalis",
+    "shortName": "J. Kalis",
+    "weight": 285.0,
+    "height": 78.0,
+    "highSchool": {
+     "id": "10833",
+     "name": "Pittsburgh Central Catholic H. S.",
+     "properName": "Pittsburgh Central Catholic H. S.",
+     "address": {
+      "city": "Pittsburgh",
+      "state": "Pennsylvania",
+      "stateAbbreviation": "PA",
+      "address1": "4720 5th Ave",
+      "zipCode": "15213"
+     }
+    },
+    "hometown": {
+     "city": "Pittsburgh",
+     "state": "Pennsylvania",
+     "stateAbbreviation": "PA"
+    },
+    "position": {
+     "id": "17",
+     "abbreviation": "OT"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 80,
+   "gradeDisplayValue": "80",
+   "attributes": [
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 36.0,
+     "displayValue": "36"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 8.0,
+     "displayValue": "8"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 33.0,
+     "displayValue": "33"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/9?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/25?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/26?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/52?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/57?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/61?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/84?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/120?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/127?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/135?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/142?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/145?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/150?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/152?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/153?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/158?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/183?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/201?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/213?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/221?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/245?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/251?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/259?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/264?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/275?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/277?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/333?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2006?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2117?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2633?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2649?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/262467?lang=en&region=us",
+   "athlete": {
+    "id": "262467",
+    "firstName": "Quinton",
+    "lastName": "Cypher",
+    "fullName": "Quinton Cypher",
+    "displayName": "Quinton Cypher",
+    "shortName": "Q. Cypher",
+    "weight": 220.0,
+    "height": 74.0,
+    "highSchool": {
+     "id": "8753",
+     "name": "Millbrook High School",
+     "properName": "Millbrook High School",
+     "address": {
+      "city": "Raleigh",
+      "state": "North Carolina",
+      "stateAbbreviation": "NC",
+      "address1": "2201 Spring Forest Rd",
+      "zipCode": "27615"
+     }
+    },
+    "hometown": {
+     "city": "Raleigh",
+     "state": "North Carolina",
+     "stateAbbreviation": "NC"
+    },
+    "position": {
+     "id": "9",
+     "abbreviation": "ILB"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 80,
+   "gradeDisplayValue": "80",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 279.0,
+     "displayValue": "279"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 8.0,
+     "displayValue": "8"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 11.0,
+     "displayValue": "11"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 131.0,
+     "displayValue": "131"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/8?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/52?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/57?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/61?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/87?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/103?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/120?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/127?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/150?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/151?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/152?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/153?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/228?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/245?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/259?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/275?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/333?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2429?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2633?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/262668?lang=en&region=us",
+   "athlete": {
+    "id": "262668",
+    "firstName": "Eli",
+    "lastName": "Johnson",
+    "fullName": "Eli Johnson",
+    "displayName": "Eli Johnson",
+    "shortName": "E. Johnson",
+    "weight": 195.0,
+    "height": 75.0,
+    "highSchool": {
+     "id": "15679",
+     "name": "Byron P. Steele II High School",
+     "properName": "Byron P. Steele II High School",
+     "address": {
+      "city": "",
+      "state": "Texas",
+      "stateAbbreviation": "TX",
+      "address1": "",
+      "zipCode": "0"
+     }
+    },
+    "hometown": {
+     "city": "Cibolo",
+     "state": "Texas",
+     "stateAbbreviation": "TX"
+    },
+    "position": {
+     "id": "20",
+     "abbreviation": "S"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 82,
+   "gradeDisplayValue": "82",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 116.0,
+     "displayValue": "116"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 11.0,
+     "displayValue": "11"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 14.0,
+     "displayValue": "14"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 20.0,
+     "displayValue": "20"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/9?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/25?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/52?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/135?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/197?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/201?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/204?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/221?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/239?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/245?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/248?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/251?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/252?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2439?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2509?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2628?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2636?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2638?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2641?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/265014?lang=en&region=us",
+   "athlete": {
+    "id": "265014",
+    "firstName": "Wyatt",
+    "lastName": "Smith",
+    "fullName": "Wyatt Smith",
+    "displayName": "Wyatt Smith",
+    "shortName": "W. Smith",
+    "weight": 240.0,
+    "height": 78.0,
+    "highSchool": {
+     "id": "21854",
+     "name": "Saint Thomas Aquinas High School",
+     "properName": "Saint Thomas Aquinas High School",
+     "address": {
+      "city": "Fort Lauderdale",
+      "state": "Florida",
+      "stateAbbreviation": "FL"
+     }
+    },
+    "hometown": {
+     "city": "Fort Lauderdale",
+     "state": "Florida",
+     "stateAbbreviation": "FL"
+    },
+    "position": {
+     "id": "5",
+     "abbreviation": "DE"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 82,
+   "gradeDisplayValue": "82",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 112.0,
+     "displayValue": "112"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 12.0,
+     "displayValue": "12"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 11.0,
+     "displayValue": "11"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 48.0,
+     "displayValue": "48"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "visit": "2026-06-05T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2509?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-05-29T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/142?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/58?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/59?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/84?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/87?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/98?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/103?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/158?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/221?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/238?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/277?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2226?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2567?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2649?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "2"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/266379?lang=en&region=us",
+   "athlete": {
+    "id": "266379",
+    "firstName": "Deontay",
+    "lastName": "Malone",
+    "fullName": "Deontay Malone",
+    "displayName": "Deontay Malone",
+    "shortName": "D. Malone",
+    "weight": 175.0,
+    "height": 72.0,
+    "highSchool": {
+     "id": "14608",
+     "name": "Washington High School",
+     "properName": "Washington High School",
+     "address": {
+      "city": "Massillon",
+      "state": "Ohio",
+      "stateAbbreviation": "OH",
+      "address1": "1 Paul Brown Dr.",
+      "zipCode": "44646"
+     }
+    },
+    "hometown": {
+     "city": "Massillon",
+     "state": "Ohio",
+     "stateAbbreviation": "OH"
+    },
+    "position": {
+     "id": "1",
+     "abbreviation": "ATH"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 80,
+   "gradeDisplayValue": "80",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 249.0,
+     "displayValue": "249"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 11.0,
+     "displayValue": "11"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 9.0,
+     "displayValue": "9"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 25.0,
+     "displayValue": "25"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "visit": "2026-06-12T07:00Z",
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "visit": "2026-05-29T07:00Z",
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/127?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/103?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/120?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/151?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/153?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/189?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/193?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/221?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/277?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2026?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2309?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2509?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2649?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/267346?lang=en&region=us",
+   "athlete": {
+    "id": "267346",
+    "firstName": "Karlos",
+    "lastName": "May",
+    "fullName": "Karlos May",
+    "displayName": "Karlos May",
+    "shortName": "K. May",
+    "weight": 330.0,
+    "height": 74.0,
+    "highSchool": {
+     "id": "16808",
+     "name": "Ramsay High School",
+     "properName": "Ramsay High School",
+     "address": {
+      "city": "Birmingham",
+      "state": "Alabama",
+      "stateAbbreviation": "AL",
+      "address1": " 1800 13th Ave S",
+      "zipCode": "35205"
+     }
+    },
+    "hometown": {
+     "city": "Birmingham",
+     "state": "Alabama",
+     "stateAbbreviation": "AL"
+    },
+    "position": {
+     "id": "7",
+     "abbreviation": "DT"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 80,
+   "gradeDisplayValue": "80",
+   "attributes": [
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 33.0,
+     "displayValue": "33"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 18.0,
+     "displayValue": "18"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 151.0,
+     "displayValue": "151"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/5?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/8?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/25?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/59?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/61?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/87?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/98?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/99?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/130?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/142?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/145?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/153?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/158?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/201?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/238?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/251?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/333?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2032?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2579?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2653?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/267354?lang=en&region=us",
+   "athlete": {
+    "id": "267354",
+    "firstName": "Mason",
+    "lastName": "Wilt",
+    "fullName": "Mason Wilt",
+    "displayName": "Mason Wilt",
+    "shortName": "M. Wilt",
+    "weight": 290.0,
+    "height": 77.0,
+    "highSchool": {
+     "id": "11930",
+     "name": "Saint Clairsville High School",
+     "properName": "Saint Clairsville High School",
+     "address": {
+      "city": "Saint Clairsville",
+      "state": "Ohio",
+      "stateAbbreviation": "OH",
+      "address1": "102 Woodrow Ave",
+      "zipCode": "43950"
+     }
+    },
+    "hometown": {
+     "city": "Saint Clairsville",
+     "state": "Ohio",
+     "stateAbbreviation": "OH"
+    },
+    "position": {
+     "id": "17",
+     "abbreviation": "OT"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 79,
+   "gradeDisplayValue": "79",
+   "attributes": [
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 42.0,
+     "displayValue": "42"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 13.0,
+     "displayValue": "13"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 55.0,
+     "displayValue": "55"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/52?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/152?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/153?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/193?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/195?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/259?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/277?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2132?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2335?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2649?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/267355?lang=en&region=us",
+   "athlete": {
+    "id": "267355",
+    "firstName": "Kellen",
+    "lastName": "Wymer",
+    "fullName": "Kellen Wymer",
+    "displayName": "Kellen Wymer",
+    "shortName": "K. Wymer",
+    "weight": 260.0,
+    "height": 77.0,
+    "highSchool": {
+     "id": "7582",
+     "name": "Liberty Center School",
+     "properName": "Liberty Center School",
+     "address": {
+      "city": "Liberty Center",
+      "state": "Ohio",
+      "stateAbbreviation": "OH",
+      "address1": "103 Young St- Box 434",
+      "zipCode": "43532"
+     }
+    },
+    "hometown": {
+     "city": "Liberty Center",
+     "state": "Ohio",
+     "stateAbbreviation": "OH"
+    },
+    "position": {
+     "id": "17",
+     "abbreviation": "OT"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 81,
+   "gradeDisplayValue": "81",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 147.0,
+     "displayValue": "147"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 15.0,
+     "displayValue": "15"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 15.0,
+     "displayValue": "15"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/77?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/84?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/127?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/189?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/193?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/238?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2649?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2711?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/267356?lang=en&region=us",
+   "athlete": {
+    "id": "267356",
+    "firstName": "Brody",
+    "lastName": "McNeel",
+    "fullName": "Brody McNeel",
+    "displayName": "Brody McNeel",
+    "shortName": "B. McNeel",
+    "weight": 265.0,
+    "height": 77.0,
+    "highSchool": {
+     "id": "8773",
+     "name": "Mills E. Godwin High School",
+     "properName": "Mills E. Godwin High School",
+     "address": {
+      "city": "Richmond",
+      "state": "Virginia",
+      "stateAbbreviation": "VA",
+      "address1": "2101 Pump Rd",
+      "zipCode": "23233"
+     }
+    },
+    "hometown": {
+     "city": "Richmond",
+     "state": "Virginia",
+     "stateAbbreviation": "VA"
+    },
+    "position": {
+     "id": "17",
+     "abbreviation": "OT"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 79,
+   "gradeDisplayValue": "79",
+   "attributes": [
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 52.0,
+     "displayValue": "52"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 11.0,
+     "displayValue": "11"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 51.0,
+     "displayValue": "51"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/120?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/127?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/152?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/183?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/213?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/259?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/277?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2335?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/268505?lang=en&region=us",
+   "athlete": {
+    "id": "268505",
+    "firstName": "Davis",
+    "lastName": "Seaman",
+    "fullName": "Davis Seaman",
+    "displayName": "Davis Seaman",
+    "shortName": "D. Seaman",
+    "weight": 275.0,
+    "height": 76.0,
+    "highSchool": {
+     "id": "1155",
+     "name": "Bishop Watterson High School",
+     "properName": "Bishop Watterson High School",
+     "address": {
+      "city": "Columbus",
+      "state": "Ohio",
+      "stateAbbreviation": "OH",
+      "address1": "99 East Cooke Rd",
+      "zipCode": "43214"
+     }
+    },
+    "hometown": {
+     "city": "Columbus",
+     "state": "Ohio",
+     "stateAbbreviation": "OH"
+    },
+    "position": {
+     "id": "14",
+     "abbreviation": "OG"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 79,
+   "gradeDisplayValue": "79",
+   "attributes": [
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 16.0,
+     "displayValue": "16"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 11.0,
+     "displayValue": "11"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 50.0,
+     "displayValue": "50"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/66?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/120?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/152?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/154?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/158?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/183?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/193?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/213?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/221?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/238?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/258?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/259?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/277?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/356?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2132?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2649?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/271311?lang=en&region=us",
+   "athlete": {
+    "id": "271311",
+    "firstName": "Prince",
+    "lastName": "Goldsby",
+    "fullName": "Prince Goldsby",
+    "displayName": "Prince Goldsby",
+    "shortName": "P. Goldsby",
+    "weight": 210.0,
+    "height": 75.0,
+    "highSchool": {
+     "id": "1235",
+     "name": "Blue Springs South High School",
+     "properName": "Blue Springs South High School",
+     "address": {
+      "city": "Blue Springs",
+      "state": "Missouri",
+      "stateAbbreviation": "MO",
+      "address1": "1200 Adams Dairy Parkway",
+      "zipCode": "64014"
+     }
+    },
+    "hometown": {
+     "city": "Blue Springs",
+     "state": "Missouri",
+     "stateAbbreviation": "MO"
+    },
+    "position": {
+     "id": "16",
+     "abbreviation": "OLB"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 81,
+   "gradeDisplayValue": "81",
+   "attributes": [
+    {
+     "type": 1,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "RK",
+     "value": 161.0,
+     "displayValue": "161"
+    },
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 12.0,
+     "displayValue": "12"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 29.0,
+     "displayValue": "29"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/84?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/96?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/142?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/145?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/158?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/201?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/213?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/275?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/333?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2305?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2306?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2483?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2509?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "1"
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/272679?lang=en&region=us",
+   "athlete": {
+    "id": "272679",
+    "firstName": "Jordan",
+    "lastName": "Donahoo",
+    "fullName": "Jordan Donahoo",
+    "displayName": "Jordan Donahoo",
+    "shortName": "J. Donahoo",
+    "weight": 185.0,
+    "height": 75.0,
+    "highSchool": {
+     "id": "10291",
+     "name": "Oviedo High School",
+     "properName": "Oviedo High School",
+     "address": {
+      "city": "Oviedo",
+      "state": "Florida",
+      "stateAbbreviation": "FL",
+      "address1": "601 King St",
+      "zipCode": "32765"
+     }
+    },
+    "hometown": {
+     "city": "Oviedo",
+     "state": "Florida",
+     "stateAbbreviation": "FL"
+    },
+    "position": {
+     "id": "24",
+     "abbreviation": "WR"
+    }
+   },
+   "recruitingClass": 2027,
+   "status": {
+    "id": 1,
+    "description": "Verbal"
+   },
+   "grade": 77,
+   "gradeDisplayValue": "77",
+   "attributes": [
+    {
+     "type": 2,
+     "name": "positionRank",
+     "displayName": "Position Rank",
+     "abbreviation": "POS RK",
+     "value": 122.0,
+     "displayValue": "122"
+    },
+    {
+     "type": 3,
+     "name": "stateRank",
+     "displayName": "State Rank",
+     "abbreviation": "STA RK",
+     "value": 88.0,
+     "displayValue": "88"
+    },
+    {
+     "type": 4,
+     "name": "regionRank",
+     "displayName": "Region Rank",
+     "abbreviation": "REG RK",
+     "value": 367.0,
+     "displayValue": "367"
+    },
+    {
+     "type": 5,
+     "name": "fortyYrdDash",
+     "displayName": "40-Yard Dash",
+     "abbreviation": "40 YD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 6,
+     "name": "threeConeDrill",
+     "displayName": "3-Cone Drill",
+     "abbreviation": "3 CD",
+     "value": 99.0,
+     "displayValue": "99"
+    },
+    {
+     "type": 7,
+     "name": "twentyYrdShuttle",
+     "displayName": "20-Yard Shuttle",
+     "abbreviation": "20 YS",
+     "value": 99.0,
+     "displayValue": "99"
+    }
+   ],
+   "schools": [
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/41?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/43?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/58?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/59?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/108?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/135?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 1,
+      "description": "Verbal"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/194?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/221?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/235?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/275?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/277?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2132?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2229?lang=en&region=us"
+     }
+    },
+    {
+     "status": {
+      "id": 0,
+      "description": "Undecided"
+     },
+     "team": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2306?lang=en&region=us"
+     }
+    }
+   ],
+   "activity": "2"
+  }
+ ]
+}
