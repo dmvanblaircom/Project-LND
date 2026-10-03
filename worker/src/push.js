@@ -4,6 +4,8 @@
      POST /v1/push/subscribe     { subscription, team: { id, name } }
      POST /v1/push/unsubscribe   { endpoint, team: { id } }
      GET  /v1/push/key           the VAPID public key the app subscribes with
+     GET  /v1/push/status        counts, watched games, events sent, the last
+                                 minute's log - nothing about any fan
 
    Every minute (wrangler.toml) the Worker looks at the games of the teams
    someone follows. Outside a game's window it asks ESPN nothing: the team's
@@ -230,6 +232,24 @@ export function unsubscribe(db, body) {
   return { status: 200, body: { ok: true } };
 }
 
+// A score as ESPN gives it: {value} from the core API, {value} or a string
+// from the site API's schedule. null when there is none.
+export function scoreOf(x) {
+  const v = x && typeof x === "object" ? x.value : x;
+  const n = typeof v === "number" ? v : (typeof v === "string" && /^\d+$/.test(v) ? Number(v) : NaN);
+  return isFinite(n) ? Math.round(n) : null;
+}
+
+// One game from a team's schedule (site API): its status and each side's score.
+export function scheduleGame(schedule, id) {
+  const e = ((schedule && schedule.events) || []).filter(function (x) { return String(x.id) === String(id); })[0];
+  const c = e && e.competitions && e.competitions[0];
+  if (!c || !c.status) return null;
+  const scores = {};
+  (c.competitors || []).forEach(function (x) { scores[String((x.team || {}).id)] = x.score; });
+  return { status: c.status, scores };
+}
+
 async function getJson(env, url) {
   try {
     const r = await (env.FETCH || fetch)(url, { headers: { accept: "application/json" } });
@@ -258,7 +278,15 @@ export async function tick(db, env, now) {
     if (now < game.at - LIMITS.before) { log.push(team.id + ": waiting for " + new Date(game.at).toISOString()); continue; }
     const sent = new Set(db.all("SELECT event FROM sent WHERE game_id = ?", game.id).map(function (r) { return r.event; }));
     if (sent.has("final") || sent.has("canceled")) { log.push(team.id + ": done"); continue; }
-    const status = await getJson(env, CORE + "/events/" + game.id + "/competitions/" + game.comp + "/status");
+    // ESPN's core API first (a few hundred bytes); if it does not answer this
+    // network, the same status from the team's schedule on the site API,
+    // which the Phase 0 probe showed does.
+    let status = await getJson(env, CORE + "/events/" + game.id + "/competitions/" + game.comp + "/status"), fromSchedule = null;
+    if (!status) {
+      fromSchedule = scheduleGame(await getJson(env, SITE + "/teams/" + team.id + "/schedule"), game.id);
+      status = fromSchedule && fromSchedule.status;
+      if (status) log.push(team.id + ": status from the schedule");
+    }
     if (!status) { log.push(team.id + ": status unavailable"); continue; }
     for (const d of due(game, status, sent)) {
       // Record first: if two runs overlap, only the one that recorded sends.
@@ -269,8 +297,11 @@ export async function tick(db, env, now) {
       if (d.event === "final") {
         const base = CORE + "/events/" + game.id + "/competitions/" + game.comp + "/competitors/";
         const us = await getJson(env, base + team.id + "/score"), them = await getJson(env, base + game.opponent.id + "/score");
-        scores = { us: us && typeof us.value === "number" ? Math.round(us.value) : null,
-                   them: them && typeof them.value === "number" ? Math.round(them.value) : null };
+        scores = { us: scoreOf(us), them: scoreOf(them) };
+        if (scores.us == null || scores.them == null) {
+          const sg = fromSchedule || scheduleGame(await getJson(env, SITE + "/teams/" + team.id + "/schedule"), game.id);
+          if (sg) scores = { us: scoreOf(sg.scores[team.id]), them: scoreOf(sg.scores[game.opponent.id]) };
+        }
       }
       const w = words(d.event, team, game, scores);
       const message = { title: w.title, body: w.body, url: APP_URL + "#game", tag: game.id + "-" + d.event };
@@ -285,7 +316,26 @@ export async function tick(db, env, now) {
       log.push(team.id + ": " + d.event + " sent to " + ok + " of " + subs.length + (gone ? ", " + gone + " gone" : ""));
     }
   }
+  db.run("INSERT INTO meta (k, v) VALUES ('last', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
+         JSON.stringify({ at: new Date(now).toISOString(), log }));
   return log;
+}
+
+// What the alerts are doing, for watching a game day from outside: counts,
+// the watched games, what was sent and the last minute's log. No push
+// address, key or anything else about a fan.
+export function report(db) {
+  const last = db.all("SELECT v FROM meta WHERE k = 'last'")[0];
+  return {
+    subscriptions: db.all("SELECT team_id AS team, COUNT(*) AS n FROM subs GROUP BY team_id"),
+    games: db.all("SELECT team_id AS team, game FROM games").map(function (r) {
+      const g = r.game ? JSON.parse(r.game) : null;
+      return { team: r.team, game: g && { id: g.id, at: new Date(g.at).toISOString(), opponent: g.opponent.name, home: g.home } };
+    }),
+    sent: db.all("SELECT game_id AS game, event, at FROM sent ORDER BY at DESC LIMIT 20")
+            .map(function (r) { return { game: r.game, event: r.event, at: new Date(r.at).toISOString() }; }),
+    last: last ? JSON.parse(last.v) : null
+  };
 }
 
 // ---- the Durable Object -----------------------------------------------------
@@ -310,6 +360,7 @@ export class Alerts {
     const op = new URL(request.url).pathname.slice(1), now = Date.now();
     let out;
     if (op === "tick") out = { status: 200, body: { log: await tick(this.db, this.env, now) } };
+    else if (op === "status") out = { status: 200, body: report(this.db) };
     else if (op === "key") out = { status: 200, body: { key: vapidPublic(await vapidKey(this.db, this.env)) } };
     else if (op === "subscribe") out = await subscribe(this.db, this.env, await request.json(), now);
     else if (op === "unsubscribe") out = unsubscribe(this.db, await request.json());

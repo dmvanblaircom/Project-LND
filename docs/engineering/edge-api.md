@@ -22,7 +22,9 @@ keys server-side, fetches, caches, and returns only what a screen shows.
   deploy both run.
 - Game alerts (W19, `worker/src/push.js`): `GET /v1/push/key` (the VAPID
   public key), `POST /v1/push/subscribe` and `POST /v1/push/unsubscribe`
-  (only from Suite's origin). A cron every minute checks the followed teams'
+  (only from Suite's origin), and `GET /v1/push/status` (counts, watched
+  games, events sent, the last minute's log; nothing about any fan). A cron
+  every minute checks the followed teams'
   games: kickoff and final, once each, by Web Push. Storage is one Durable
   Object with SQLite (`Alerts`, created by the deploy's migration). The VAPID
   key pair is made on first use and kept there, unless a

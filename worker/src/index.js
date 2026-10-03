@@ -16,6 +16,7 @@
      GET  /v1/push/key                      game alerts (W19, ./push.js): the
      POST /v1/push/subscribe                VAPID public key; a browser's push
      POST /v1/push/unsubscribe              subscription for a team, and off
+     GET  /v1/push/status                   what alerts are doing (counts only)
 
    Scheduled (wrangler.toml [triggers]): the data refresh clock. Every 30
    minutes it starts the repository's "Refresh team data" workflow with
@@ -222,6 +223,7 @@ export default {
         "access-control-max-age": "86400" }) });
     }
     if (url.pathname === "/v1/push/key" && request.method === "GET") return pushRoute("key", request, env, origin);
+    if (url.pathname === "/v1/push/status" && request.method === "GET") return pushRoute("status", request, env, origin);
     if (url.pathname === "/v1/push/subscribe" && request.method === "POST") return pushRoute("subscribe", request, env, origin);
     if (url.pathname === "/v1/push/unsubscribe" && request.method === "POST") return pushRoute("unsubscribe", request, env, origin);
     if (request.method !== "GET") return fail(405, "GET only", origin);

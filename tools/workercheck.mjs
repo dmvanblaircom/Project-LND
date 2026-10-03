@@ -8,7 +8,7 @@
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
 import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
-import { validSubscription, validTeam, subscribe, unsubscribe, tick, migrate, vapidKey, b64u, unb64u, APP_URL } from "../worker/src/push.js";
+import { validSubscription, validTeam, subscribe, unsubscribe, tick, migrate, vapidKey, b64u, unb64u, APP_URL, report } from "../worker/src/push.js";
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
 import { SCHOOLS } from "../worker/src/schools.js";
@@ -208,7 +208,7 @@ function alertEnv(o) {
   const e = { calls, pushes, status: o.status, scores: o.scores || {}, push: o.push || 201,
     FETCH: async (url, init) => {
       calls.push(url);
-      if (/\/teams\/194\/schedule$/.test(url)) return new Response(JSON.stringify(OSU_SCHEDULE), { status: 200 });
+      if (/\/teams\/194\/schedule$/.test(url)) return e.down ? new Response("", { status: 503 }) : new Response(JSON.stringify(OSU_SCHEDULE), { status: 200 });
       if (/\/competitions\/\d+\/status$/.test(url)) return e.status ? new Response(JSON.stringify(e.status), { status: 200 }) : new Response("", { status: 503 });
       const sc = /\/competitors\/(\d+)\/score$/.exec(url);
       if (sc) return e.scores[sc[1]] == null ? new Response("", { status: 404 }) : new Response(JSON.stringify({ value: e.scores[sc[1]] }), { status: 200 });
@@ -293,8 +293,29 @@ console.log("game alerts: what a real game day throws at it");
   e.push = (url) => url === a.sub.endpoint ? 410 : 201;
   const log = await tick(db, e, KICK + 60e3);
   ok(/sent to 1 of 2, 1 gone/.test(log.join(" ")) && db.all("SELECT COUNT(*) AS n FROM subs")[0].n === 1, "a browser that unsubscribed on its own is removed on the next send");
-  e.status = null; e.push = 201; e.pushes.length = 0;
+  e.status = null; e.down = true; e.push = 201; e.pushes.length = 0;
   ok(/status unavailable/.test((await tick(db, e, KICK + 2 * 60e3)).join(" ")) && e.pushes.length === 0, "ESPN down: nothing guessed; the next minute tries again"); }
+{ // ESPN's core API not answering this network: the same status and score
+  // from the team's schedule on the site API (the one Phase 0 proved).
+  const db = dbOf(), b = await browserSub(), sched = JSON.parse(JSON.stringify(OSU_SCHEDULE));
+  const ev = sched.events.filter((x) => x.id === GAME)[0], comp = ev.competitions[0];
+  comp.status = { period: 4, type: { state: "post", name: "STATUS_FINAL", completed: true } };
+  comp.competitors.forEach((c) => { c.score = { value: c.team.id === "194" ? 38 : 10, displayValue: "x" }; });
+  const e = alertEnv({});
+  e.FETCH = async (url, init) => {
+    if (/\/teams\/194\/schedule$/.test(url)) return new Response(JSON.stringify(sched), { status: 200 });
+    if (/sports\.core\.api\.espn\.com/.test(url)) return new Response("", { status: 403 });
+    e.pushes.push({ url, init }); return new Response("", { status: 201 });
+  };
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" } }, KICK); e.pushes.length = 0;
+  db.run("INSERT INTO sent (game_id, event, at) VALUES (?, ?, ?)", GAME, "kickoff", KICK);
+  const log = await tick(db, e, KICK + 3.4 * 3600e3);
+  const f = e.pushes.length === 1 ? await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth) : {};
+  ok(/status from the schedule/.test(log.join(" ")) && f.body === "Final: Ohio State 38, Iowa 10.", "core API refused: the schedule's status and score stand in = " + f.body);
+  const r = report(db);
+  ok(r.subscriptions[0].n === 1 && r.games[0].game.id === GAME && r.sent.some((x) => x.event === "final") && r.last && r.last.log.length,
+     "the status report: counts, the watched game, what was sent, the last minute");
+  ok(!JSON.stringify(r).includes(b.sub.endpoint) && !JSON.stringify(r).includes(b.sub.keys.auth), "and nothing about the fan: no push address, no key"); }
 { const db = dbOf();
   db.run("INSERT INTO sent (game_id, event, at) VALUES (?, ?, ?)", GAME, "kickoff", 1);
   ok(db.run("INSERT OR IGNORE INTO sent (game_id, event, at) VALUES (?, ?, ?)", GAME, "kickoff", 2).changes === 0,
@@ -321,6 +342,8 @@ console.log("game alerts: the routes and the minute");
   const pre = await worker.fetch(new Request("https://suite-api.example/v1/push/subscribe", { method: "OPTIONS", headers: { origin: SITE } }), env2, null);
   ok(/POST/.test(pre.headers.get("access-control-allow-methods")) && /content-type/.test(pre.headers.get("access-control-allow-headers")), "the preflight allows Suite's POST");
   ok((await worker.fetch(new Request("https://suite-api.example/v1/push/key"), {}, null)).status === 503, "no Durable Object bound: 503, not a crash");
+  const rs = await worker.fetch(new Request("https://suite-api.example/v1/push/status"), env2, null);
+  ok(rs.status === 200 && Array.isArray((await rs.json()).subscriptions) && rs.headers.get("cache-control") === "no-store", "GET /v1/push/status: the report, never cached");
   calls.length = 0; let waited;
   await worker.scheduled({ cron: ALERTS_CRON }, env2, { waitUntil: (p) => { waited = p; } }); await waited;
   ok(calls.some((u) => /\/tick$/.test(u)), "the every-minute cron runs the alerts tick");
