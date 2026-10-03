@@ -187,6 +187,23 @@ function collectTextInPage() {
     }
     if (!isFinite(L) || R - L < 2 || B - T < 2) continue;
 
+    // Only sample pixels where the glyphs are painted. A horizontal rail's
+    // next card can extend beyond its clipping ancestor while remaining
+    // inside the viewport; that hidden portion is the page, not its label's
+    // background. Still measure every visible portion of the label.
+    for (var clip = el; clip && clip !== document.body; clip = clip.parentElement) {
+      var cs = getComputedStyle(clip), cb = clip.getBoundingClientRect();
+      if (/^(auto|scroll|hidden|clip)$/.test(cs.overflowX)) {
+        L = Math.max(L, cb.left + clip.clientLeft);
+        R = Math.min(R, cb.left + clip.clientLeft + clip.clientWidth);
+      }
+      if (/^(auto|scroll|hidden|clip)$/.test(cs.overflowY)) {
+        T = Math.max(T, cb.top + clip.clientTop);
+        B = Math.min(B, cb.top + clip.clientTop + clip.clientHeight);
+      }
+    }
+    if (R - L < 2 || B - T < 2) continue;
+
     // Pure decoration is exempt from text contrast (WCAG 1.4.3): the team
     // art's outlined watermark initials are artwork, hidden from assistive
     // technology, with the team named in real text beside them. Only an
@@ -472,6 +489,9 @@ var SELF_TEST_PAGE = [
   "#ring-dim{background:#0B213D;color:#F8F4EC}",
   "#ring-dim:focus{outline:3px solid #FFD966;outline-offset:-3px}",
   "#ring-animated:focus{outline-color:#245C72}",
+  ".clip-test{width:70px;overflow:hidden;white-space:nowrap}",
+  ".clip-test p{width:300px;padding:8px;color:#FFFFFF;background:#0C2340}",
+  ".clip-test #fail-clipped{color:#777777;background:#FFFFFF}",
   "</style></head><body>",
   "<p id='fail-grey'>grey 777 on white</p>",
   "<p id='pass-grey'>grey 767676 on white</p>",
@@ -488,6 +508,7 @@ var SELF_TEST_PAGE = [
   "</div><div class='narrow'><a id='ring-wrap' href='#x'>a link long enough that it wraps onto a second line</a>",
   "</div><div class='dim'><button id='ring-dim'>dimmed past-game row</button>",
   "</div><details id='hidden-fold'><summary>folded section</summary><p id='fail-folded'>hidden grey 777</p></details><div>",
+  "</div><div class='clip-test'><p id='pass-clipped'>White label in a clipped navy card</p><p id='fail-clipped'>Visible low contrast still fails</p><div style='margin-left:90px'><p id='hidden-clipped' style='color:#777777;background:#FFFFFF'>Fully clipped</p></div>",
   "</div></body></html>"
 ].join("");
 
@@ -501,7 +522,7 @@ async function selfTest(browser) {
 
   var flaggedText = t.failures.map(function (x) { return x.sel; }).sort();
   var flaggedFocus = f.failures.map(function (x) { return x.sel.split(" ")[0]; }).sort();
-  var wantText = ["p#fail-cream", "p#fail-faded", "p#fail-grey"];
+  var wantText = ["p#fail-clipped", "p#fail-cream", "p#fail-faded", "p#fail-grey"];
   var wantFocus = ["button#ring-invisible", "button#ring-none"];
   var problems = [];
   if (JSON.stringify(flaggedText) !== JSON.stringify(wantText)) {

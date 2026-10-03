@@ -101,6 +101,13 @@ Suite.ui = (function () {
     // fallback instead of showing a broken image.
     if (img.hasAttribute("data-fallback")) {
       if (e.type === "error" || !img.naturalWidth) {
+        var logo = img.getAttribute("data-fallback-src");
+        if (logo && img.parentNode) {
+          img.removeAttribute("data-fallback-src");
+          img.parentNode.classList.add("is-logo");
+          img.src = logo;
+          return;
+        }
         if (img.parentNode) { img.parentNode.classList.add("none"); img.parentNode.removeChild(img); }
       }
       return;
@@ -115,6 +122,13 @@ Suite.ui = (function () {
   }
   document.addEventListener("load", settle, true);
   document.addEventListener("error", settle, true);
+
+  // A peeking news card may count as visible to native keyboard scrolling.
+  // Reveal the whole card, so its headline and focus ring remain readable.
+  document.addEventListener("focusin", function (e) {
+    var card = e.target.closest && e.target.closest(".news-card");
+    if (card && card.matches(":focus-visible")) card.scrollIntoView({ block: "nearest", inline: "nearest" });
+  });
 
   /* Redraw a section without reloading the logos it already shows. Setting
      innerHTML makes new <img> elements, and a new image paints nothing until
@@ -213,6 +227,16 @@ Suite.ui = (function () {
            '<ellipse cx="12" cy="12" rx="9.5" ry="5.6" transform="rotate(-35 12 12)"/><path d="m9.2 14.8 5.6-5.6M10.6 11.4l2 2M12 10l2 2"/></svg>';
   }
 
-  return { ball: ball, esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner,
+  // One thumbnail policy on Home and News: article photo, publisher logo,
+  // then the source-name tile. A failed image advances once, never loops.
+  function newsImage(a, prefix, fallbackName) {
+    var photo = a.image, logo = a.sourceLogo, src = photo || logo;
+    return '<span class="' + prefix + '-img' + (!src ? " none" : !photo ? " is-logo" : "") + '" aria-hidden="true">' +
+      '<span class="' + prefix + '-src">' + esc(a.source || fallbackName || "") + "</span>" +
+      (src ? '<img src="' + esc(src) + '" alt="" loading="lazy" decoding="async" data-fallback' +
+        (photo && logo && photo !== logo ? ' data-fallback-src="' + esc(logo) + '"' : "") + ">" : "") + "</span>";
+  }
+
+  return { ball: ball, esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner, newsImage: newsImage,
            fitNames: fitNames, STYLE: STYLE, fill: fill, period: period, oppLabel: oppLabel };
 })();

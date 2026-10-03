@@ -815,10 +815,12 @@ function loadPlayers(force){
 // never read them directly. A team without beat feeds gets ESPN alone.
 
 // news.json is this project's own snapshot (docs/03_DOMAIN_MODEL.md, NewsItem):
-// the same fields, with the date as ISO text and never an image.
+// the same fields, with the date as ISO text and optional article/source art.
 function beatItem(i){
   var t=i.published ? Date.parse(i.published) : NaN;
-  return { title:i.title, link:i.link, image:"", source:i.source, publishedAt: isNaN(t) ? null : t };
+  function picture(u){ return /^https?:\/\/\S+$/i.test(String(u||"")) ? u : ""; }
+  return { title:i.title, link:i.link, image:picture(i.image), sourceLogo:picture(i.sourceLogo),
+           source:i.source, publishedAt: isNaN(t) ? null : t };
 }
 // Every source's stories -> one NewsItem[], newest first, one story per
 // headline. Home and the full News list read the same list. Only a plain
