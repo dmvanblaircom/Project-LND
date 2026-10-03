@@ -618,7 +618,8 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                        refresh: !!h.querySelector("[data-refresh]"),
                        updated: (h.querySelector('[data-st="updated"]') || {}).textContent || "" };
             });
-            if (stt.groups !== "Team|Appearance|Data") fail(label, "behaviour", ".st-group", "Settings groups read " + stt.groups + " (0024 §18, 0026)");
+            // Game Alerts (W19) sits between Appearance and Data.
+            if (stt.groups !== "Team|Appearance|Game Alerts|Data") fail(label, "behaviour", ".st-group", "Settings groups read " + stt.groups + " (0024 §18, 0026, W19)");
             if (stt.team.indexOf(await page.evaluate(function () { return TEAM_CONFIG.team.name; })) === -1) fail(label, "behaviour", ".st-team", "Settings does not name the current team");
             if (!stt.change) fail(label, "behaviour", ".st-link", "Change Team is missing: it is the only way to change team in the app");
             if (stt.opts !== "team*|suite" && stt.opts !== "team|suite*") fail(label, "behaviour", "appStyle", "App Style offers " + stt.opts);
