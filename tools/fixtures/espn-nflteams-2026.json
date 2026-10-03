@@ -1,1 +1,0 @@
-{"_comment":"Real ESPN nflteams payload, captured 2026-10-03T05:45Z by capture-fixture.yml from https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams and cut of logos, links and other bulk no screen reads (tools/trim_payload.py). ESPN's structure and positions are unchanged.","sports":[{"id":"20","name":"Football"}]}

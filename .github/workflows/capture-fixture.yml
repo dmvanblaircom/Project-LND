@@ -117,7 +117,7 @@ jobs:
               kind=raw; out="tools/fixtures/espn-draftrounds-$name.json"
               url="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${BASH_REMATCH[1]}/draft/rounds"
             elif [ "$ev" = "nflteams" ]; then
-              out="tools/fixtures/espn-nflteams-$name.json"; kind=payload
+              out="tools/fixtures/espn-nflteams-$name.json"; kind=raw   # trim_payload drops "leagues", where the teams are
               url="https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"
             elif [[ "$ev" =~ ^fpi-([0-9]{4})$ ]]; then
               # ESPN's Football Power Index, every FBS team (W07, issue #29)
