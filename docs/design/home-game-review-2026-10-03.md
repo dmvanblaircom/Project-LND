@@ -4,7 +4,9 @@ David assigned the UI order: Home/Game, Stats, navigation/motion, brand/type,
 FPI, photography, Season Outlook full field, notifications, offseason. This
 is the first slice. The code began from main `ec10c0d`, after Claude's player
 stats, season model, CFP calendar, news-source tile and latest iOS navigation
-fixes merged. No open PR existed at the initial October 3 check.
+fixes merged. No open PR existed at the initial October 3 check. On resuming,
+main through `f42be61` was merged, including Claude's PR #101 recruiting and
+NFL draft data foundation and the newer scheduled snapshots.
 
 ## Requested corrections
 
@@ -56,3 +58,8 @@ The local comparison preview and screenshots are review artifacts. The
 earlier standalone preview at `5bbe08a` is superseded. New visual treatment
 needs David's review before propagation, per the delivery handoff; automated
 checks establish behavior and layout constraints, not visual approval.
+
+The desktop news rail now reveals each whole card on keyboard focus. The
+contrast auditor samples only text actually visible inside clipping parents;
+self-tests prove it still flags low-contrast text in a partially clipped card.
+Source-name fallbacks grow to fit long names rather than cropping them.

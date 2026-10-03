@@ -123,6 +123,13 @@ Suite.ui = (function () {
   document.addEventListener("load", settle, true);
   document.addEventListener("error", settle, true);
 
+  // A peeking news card may count as visible to native keyboard scrolling.
+  // Reveal the whole card, so its headline and focus ring remain readable.
+  document.addEventListener("focusin", function (e) {
+    var card = e.target.closest && e.target.closest(".news-card");
+    if (card && card.matches(":focus-visible")) card.scrollIntoView({ block: "nearest", inline: "nearest" });
+  });
+
   /* Redraw a section without reloading the logos it already shows. Setting
      innerHTML makes new <img> elements, and a new image paints nothing until
      it decodes again - even from cache - so each redraw flashed the initials

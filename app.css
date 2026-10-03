@@ -418,7 +418,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .news-img.is-logo img,.nw-img.is-logo img{object-fit:contain;padding:.65rem}
 .news-src{display:none}
 /* No photo: a shorter band in the team's colours with the outlet's name. */
-.news-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;height:3.25rem;padding:.6rem .8rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
+.news-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;min-height:3.25rem;padding:.6rem .8rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
 .news-img.none .news-src{display:block;color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase}
 .news-body{display:flex;flex:1;flex-direction:column;gap:.4rem;padding:.7rem .85rem .8rem}
 .news-hl{display:-webkit-box;overflow:hidden;-webkit-line-clamp:3;-webkit-box-orient:vertical;font-family:var(--s-font-editorial);font-weight:700;font-size:1.12rem;line-height:1.28;color:var(--s-ink)}

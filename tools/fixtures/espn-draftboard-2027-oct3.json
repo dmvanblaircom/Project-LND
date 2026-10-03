@@ -1,0 +1,4206 @@
+{
+ "_comment": "Real ESPN core-API list, captured 2026-10-03T05:42Z by capture-fixture.yml from https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes?limit=100, each item's $ref followed and its record kept whole except links and analysis copy (tools/capture_core.py).",
+ "count": 50,
+ "items": [
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582818?lang=en&region=us",
+   "id": "4582818",
+   "guid": "d946ce07-3355-3ac6-98b1-ca667acef1d7",
+   "firstName": "Jeremiah",
+   "lastName": "Smith",
+   "fullName": "Jeremiah Smith",
+   "displayName": "Jeremiah Smith",
+   "shortName": "J. Smith",
+   "weight": 222.0,
+   "displayWeight": "222 lbs",
+   "height": 76.0,
+   "displayHeight": "6' 4\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/194?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+    "id": "1",
+    "name": "Wide Receiver",
+    "displayName": "Wide Receiver",
+    "abbreviation": "WR",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+     "id": "1",
+     "name": "Wide Receiver",
+     "displayName": "Wide Receiver",
+     "abbreviation": "WR",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/194?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 1.0,
+     "displayValue": "1"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079720?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582819?lang=en&region=us",
+   "id": "4582819",
+   "guid": "255cc855-104b-31d7-86b8-9bd4cc0afb67",
+   "firstName": "Leonard",
+   "lastName": "Moore",
+   "fullName": "Leonard Moore",
+   "displayName": "Leonard Moore",
+   "shortName": "L. Moore",
+   "weight": 197.0,
+   "displayWeight": "197 lbs",
+   "height": 74.0,
+   "displayHeight": "6' 2\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/87?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+    "id": "29",
+    "name": "Cornerback",
+    "displayName": "Cornerback",
+    "abbreviation": "CB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+     "id": "29",
+     "name": "Cornerback",
+     "displayName": "Cornerback",
+     "abbreviation": "CB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/87?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 2.0,
+     "displayValue": "2"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079629?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582820?lang=en&region=us",
+   "id": "4582820",
+   "guid": "82773726-0e38-31fc-a028-ab67acc9d259",
+   "firstName": "Colin",
+   "lastName": "Simmons",
+   "fullName": "Colin Simmons",
+   "displayName": "Colin Simmons",
+   "shortName": "C. Simmons",
+   "weight": 246.0,
+   "displayWeight": "246 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/251?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+    "id": "264",
+    "name": "EDGE",
+    "displayName": "EDGE",
+    "abbreviation": "EDGE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+     "id": "264",
+     "name": "EDGE",
+     "displayName": "EDGE",
+     "abbreviation": "EDGE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/251?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 3.0,
+     "displayValue": "3"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079689?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582821?lang=en&region=us",
+   "id": "4582821",
+   "guid": "0fbe6d69-83a7-3b5b-9c67-84063d5f00a0",
+   "firstName": "Will",
+   "lastName": "Echoles",
+   "fullName": "Will Echoles",
+   "displayName": "Will Echoles",
+   "shortName": "W. Echoles",
+   "weight": 315.0,
+   "displayWeight": "315 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/145?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+    "id": "32",
+    "name": "Defensive Tackle",
+    "displayName": "Defensive Tackle",
+    "abbreviation": "DT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+     "id": "32",
+     "name": "Defensive Tackle",
+     "displayName": "Defensive Tackle",
+     "abbreviation": "DT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/145?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 4.0,
+     "displayValue": "4"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5218778?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582822?lang=en&region=us",
+   "id": "4582822",
+   "guid": "3333a35a-548d-351a-a364-24f78c6686dd",
+   "firstName": "Dylan",
+   "lastName": "Stewart",
+   "fullName": "Dylan Stewart",
+   "displayName": "Dylan Stewart",
+   "shortName": "D. Stewart",
+   "weight": 250.0,
+   "displayWeight": "250 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2579?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+    "id": "264",
+    "name": "EDGE",
+    "displayName": "EDGE",
+    "abbreviation": "EDGE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+     "id": "264",
+     "name": "EDGE",
+     "displayName": "EDGE",
+     "abbreviation": "EDGE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2579?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 5.0,
+     "displayValue": "5"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079709?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582823?lang=en&region=us",
+   "id": "4582823",
+   "guid": "e2115635-bdb1-3b30-8316-9c598a4ddb24",
+   "firstName": "Jordan",
+   "lastName": "Seaton",
+   "fullName": "Jordan Seaton",
+   "displayName": "Jordan Seaton",
+   "shortName": "J. Seaton",
+   "weight": 307.0,
+   "displayWeight": "307 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/99?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+    "id": "46",
+    "name": "Offensive Tackle",
+    "displayName": "Offensive Tackle",
+    "abbreviation": "OT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+     "id": "46",
+     "name": "Offensive Tackle",
+     "displayName": "Offensive Tackle",
+     "abbreviation": "OT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/99?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 6.0,
+     "displayValue": "6"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079682?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/99.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582824?lang=en&region=us",
+   "id": "4582824",
+   "guid": "ffc67267-b440-3a28-9066-ec2fd1a578d3",
+   "firstName": "Yhonzae",
+   "lastName": "Pierre",
+   "fullName": "Yhonzae Pierre",
+   "displayName": "Yhonzae Pierre",
+   "shortName": "Y. Pierre",
+   "weight": 251.0,
+   "displayWeight": "251 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/333?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+    "id": "264",
+    "name": "EDGE",
+    "displayName": "EDGE",
+    "abbreviation": "EDGE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+     "id": "264",
+     "name": "EDGE",
+     "displayName": "EDGE",
+     "abbreviation": "EDGE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/333?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 3.0,
+     "displayValue": "3"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 7.0,
+     "displayValue": "7"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4870970?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582825?lang=en&region=us",
+   "id": "4582825",
+   "guid": "536b691f-5f45-3356-a345-02aa5d5f418c",
+   "firstName": "Charlie",
+   "lastName": "Becker",
+   "fullName": "Charlie Becker",
+   "displayName": "Charlie Becker",
+   "shortName": "C. Becker",
+   "weight": 208.0,
+   "displayWeight": "208 lbs",
+   "height": 76.0,
+   "displayHeight": "6' 4\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/84?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+    "id": "1",
+    "name": "Wide Receiver",
+    "displayName": "Wide Receiver",
+    "abbreviation": "WR",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+     "id": "1",
+     "name": "Wide Receiver",
+     "displayName": "Wide Receiver",
+     "abbreviation": "WR",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/84?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 8.0,
+     "displayValue": "8"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5146735?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582826?lang=en&region=us",
+   "id": "4582826",
+   "guid": "73a6b5ab-154d-33d4-bb2d-30a9affcb008",
+   "firstName": "Trevor",
+   "lastName": "Goosby",
+   "fullName": "Trevor Goosby",
+   "displayName": "Trevor Goosby",
+   "shortName": "T. Goosby",
+   "weight": 325.0,
+   "displayWeight": "325 lbs",
+   "height": 79.0,
+   "displayHeight": "6' 7\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/251?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+    "id": "46",
+    "name": "Offensive Tackle",
+    "displayName": "Offensive Tackle",
+    "abbreviation": "OT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+     "id": "46",
+     "name": "Offensive Tackle",
+     "displayName": "Offensive Tackle",
+     "abbreviation": "OT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/251?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 9.0,
+     "displayValue": "9"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4918430?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582827?lang=en&region=us",
+   "id": "4582827",
+   "guid": "411a457d-d949-3b9b-918b-a65390dd848a",
+   "firstName": "Jadan",
+   "lastName": "Baugh",
+   "fullName": "Jadan Baugh",
+   "displayName": "Jadan Baugh",
+   "shortName": "J. Baugh",
+   "weight": 225.0,
+   "displayWeight": "225 lbs",
+   "height": 73.0,
+   "displayHeight": "6' 1\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/57?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/9?lang=en&region=us",
+    "id": "9",
+    "name": "Running Back",
+    "displayName": "Running Back",
+    "abbreviation": "RB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/9?lang=en&region=us",
+     "id": "9",
+     "name": "Running Back",
+     "displayName": "Running Back",
+     "abbreviation": "RB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/57?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 10.0,
+     "displayValue": "10"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079322?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/57.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582828?lang=en&region=us",
+   "id": "4582828",
+   "guid": "a0c750f4-989f-3b88-bf11-4bd18a46deb1",
+   "firstName": "Drew",
+   "lastName": "Mestemaker",
+   "fullName": "Drew Mestemaker",
+   "displayName": "Drew Mestemaker",
+   "shortName": "D. Mestemaker",
+   "weight": 215.0,
+   "displayWeight": "215 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/197?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+    "id": "8",
+    "name": "Quarterback",
+    "displayName": "Quarterback",
+    "abbreviation": "QB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+     "id": "8",
+     "name": "Quarterback",
+     "displayName": "Quarterback",
+     "abbreviation": "QB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/197?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 11.0,
+     "displayValue": "11"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5219834?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/197.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582829?lang=en&region=us",
+   "id": "4582829",
+   "guid": "ed7d8278-f366-3d03-ab66-c3829337bcf9",
+   "firstName": "Cam",
+   "lastName": "Coleman",
+   "fullName": "Cam Coleman",
+   "displayName": "Cam Coleman",
+   "shortName": "C. Coleman",
+   "weight": 204.0,
+   "displayWeight": "204 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/251?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+    "id": "1",
+    "name": "Wide Receiver",
+    "displayName": "Wide Receiver",
+    "abbreviation": "WR",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+     "id": "1",
+     "name": "Wide Receiver",
+     "displayName": "Wide Receiver",
+     "abbreviation": "WR",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/251?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 3.0,
+     "displayValue": "3"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 12.0,
+     "displayValue": "12"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079376?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582830?lang=en&region=us",
+   "id": "4582830",
+   "guid": "c668f497-da01-3164-9278-6ded82772ac5",
+   "firstName": "Ashton",
+   "lastName": "Hampton",
+   "fullName": "Ashton Hampton",
+   "displayName": "Ashton Hampton",
+   "shortName": "A. Hampton",
+   "weight": 205.0,
+   "displayWeight": "205 lbs",
+   "height": 74.0,
+   "displayHeight": "6' 2\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/228?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+    "id": "29",
+    "name": "Cornerback",
+    "displayName": "Cornerback",
+    "abbreviation": "CB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+     "id": "29",
+     "name": "Cornerback",
+     "displayName": "Cornerback",
+     "abbreviation": "CB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/228?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 13.0,
+     "displayValue": "13"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5127738?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/228.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582831?lang=en&region=us",
+   "id": "4582831",
+   "guid": "eaed114d-6659-3a14-b8ac-3604531f81ae",
+   "firstName": "Darian",
+   "lastName": "Mensah",
+   "fullName": "Darian Mensah",
+   "displayName": "Darian Mensah",
+   "shortName": "D. Mensah",
+   "weight": 205.0,
+   "displayWeight": "205 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2390?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+    "id": "8",
+    "name": "Quarterback",
+    "displayName": "Quarterback",
+    "abbreviation": "QB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+     "id": "8",
+     "name": "Quarterback",
+     "displayName": "Quarterback",
+     "abbreviation": "QB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 14.0,
+     "displayValue": "14"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5121169?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582832?lang=en&region=us",
+   "id": "4582832",
+   "guid": "6899d773-80b8-3c56-b297-ef22ab6429ce",
+   "firstName": "Greg",
+   "lastName": "Johnson",
+   "fullName": "Greg Johnson",
+   "displayName": "Greg Johnson",
+   "shortName": "G. Johnson",
+   "weight": 325.0,
+   "displayWeight": "325 lbs",
+   "height": 78.0,
+   "displayHeight": "6' 6\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/135?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/47?lang=en&region=us",
+    "id": "47",
+    "name": "Offensive Guard",
+    "displayName": "Offensive Guard",
+    "abbreviation": "OG",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/47?lang=en&region=us",
+     "id": "47",
+     "name": "Offensive Guard",
+     "displayName": "Offensive Guard",
+     "abbreviation": "OG",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/135?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 15.0,
+     "displayValue": "15"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5090565?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/135.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582833?lang=en&region=us",
+   "id": "4582833",
+   "guid": "a4f48e48-f06b-3cfc-a19d-2487eac549a9",
+   "firstName": "Trinidad",
+   "lastName": "Chambliss",
+   "fullName": "Trinidad Chambliss",
+   "displayName": "Trinidad Chambliss",
+   "shortName": "T. Chambliss",
+   "weight": 205.0,
+   "displayWeight": "205 lbs",
+   "height": 72.0,
+   "displayHeight": "6' 0\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/145?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+    "id": "8",
+    "name": "Quarterback",
+    "displayName": "Quarterback",
+    "abbreviation": "QB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+     "id": "8",
+     "name": "Quarterback",
+     "displayName": "Quarterback",
+     "abbreviation": "QB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/145?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 3.0,
+     "displayValue": "3"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 16.0,
+     "displayValue": "16"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4911529?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582834?lang=en&region=us",
+   "id": "4582834",
+   "guid": "d499f837-dace-3ada-8168-eaaa41b706e3",
+   "firstName": "Arch",
+   "lastName": "Manning",
+   "fullName": "Arch Manning",
+   "displayName": "Arch Manning",
+   "shortName": "A. Manning",
+   "weight": 222.0,
+   "displayWeight": "222 lbs",
+   "height": 76.0,
+   "displayHeight": "6' 4\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/251?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+    "id": "8",
+    "name": "Quarterback",
+    "displayName": "Quarterback",
+    "abbreviation": "QB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+     "id": "8",
+     "name": "Quarterback",
+     "displayName": "Quarterback",
+     "abbreviation": "QB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/251?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 17.0,
+     "displayValue": "17"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4870906?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582835?lang=en&region=us",
+   "id": "4582835",
+   "guid": "dbf0592d-9167-3c49-b7fc-bef44df470c4",
+   "firstName": "Chris",
+   "lastName": "Cole",
+   "fullName": "Chris Cole",
+   "displayName": "Chris Cole",
+   "shortName": "C. Cole",
+   "weight": 235.0,
+   "displayWeight": "235 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/61?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/30?lang=en&region=us",
+    "id": "30",
+    "name": "Linebacker",
+    "displayName": "Linebacker",
+    "abbreviation": "LB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/30?lang=en&region=us",
+     "id": "30",
+     "name": "Linebacker",
+     "displayName": "Linebacker",
+     "abbreviation": "LB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/61?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 18.0,
+     "displayValue": "18"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5145410?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582836?lang=en&region=us",
+   "id": "4582836",
+   "guid": "0094feb3-ef33-39b3-8f8d-26a24985edc1",
+   "firstName": "Ellis",
+   "lastName": "Robinson IV",
+   "fullName": "Ellis Robinson IV",
+   "displayName": "Ellis Robinson IV",
+   "shortName": "E. Robinson IV",
+   "weight": 180.0,
+   "displayWeight": "180 lbs",
+   "height": 72.0,
+   "displayHeight": "6' 0\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/61?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+    "id": "29",
+    "name": "Cornerback",
+    "displayName": "Cornerback",
+    "abbreviation": "CB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+     "id": "29",
+     "name": "Cornerback",
+     "displayName": "Cornerback",
+     "abbreviation": "CB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/61?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 3.0,
+     "displayValue": "3"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 19.0,
+     "displayValue": "19"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079698?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582837?lang=en&region=us",
+   "id": "4582837",
+   "guid": "499a514b-f7d0-35f9-a71a-4ec131562fa1",
+   "firstName": "Dante",
+   "lastName": "Moore",
+   "fullName": "Dante Moore",
+   "displayName": "Dante Moore",
+   "shortName": "D. Moore",
+   "weight": 220.0,
+   "displayWeight": "220 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2483?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+    "id": "8",
+    "name": "Quarterback",
+    "displayName": "Quarterback",
+    "abbreviation": "QB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+     "id": "8",
+     "name": "Quarterback",
+     "displayName": "Quarterback",
+     "abbreviation": "QB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2483?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 5.0,
+     "displayValue": "5"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 20.0,
+     "displayValue": "20"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4870921?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582838?lang=en&region=us",
+   "id": "4582838",
+   "guid": "ffcee867-627d-33f2-876c-9fa85d1be58c",
+   "firstName": "Jamari",
+   "lastName": "Johnson",
+   "fullName": "Jamari Johnson",
+   "displayName": "Jamari Johnson",
+   "shortName": "J. Johnson",
+   "weight": 255.0,
+   "displayWeight": "255 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2483?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/7?lang=en&region=us",
+    "id": "7",
+    "name": "Tight End",
+    "displayName": "Tight End",
+    "abbreviation": "TE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/7?lang=en&region=us",
+     "id": "7",
+     "name": "Tight End",
+     "displayName": "Tight End",
+     "abbreviation": "TE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2483?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 21.0,
+     "displayValue": "21"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4922988?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582839?lang=en&region=us",
+   "id": "4582839",
+   "guid": "9efd8aae-3821-39dd-8c77-23abfe62bcb5",
+   "firstName": "CJ",
+   "lastName": "Carr",
+   "fullName": "CJ Carr",
+   "displayName": "CJ Carr",
+   "shortName": "C. Carr",
+   "weight": 215.0,
+   "displayWeight": "215 lbs",
+   "height": 74.0,
+   "displayHeight": "6' 2\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/87?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+    "id": "8",
+    "name": "Quarterback",
+    "displayName": "Quarterback",
+    "abbreviation": "QB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/8?lang=en&region=us",
+     "id": "8",
+     "name": "Quarterback",
+     "displayName": "Quarterback",
+     "abbreviation": "QB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/87?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 6.0,
+     "displayValue": "6"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 22.0,
+     "displayValue": "22"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079369?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582840?lang=en&region=us",
+   "id": "4582840",
+   "guid": "931ed4f8-615a-3172-8e6c-bdb7424f12d8",
+   "firstName": "Trey'Dez",
+   "lastName": "Green",
+   "fullName": "Trey'Dez Green",
+   "displayName": "Trey'Dez Green",
+   "shortName": "T. Green",
+   "weight": 237.0,
+   "displayWeight": "237 lbs",
+   "height": 79.0,
+   "displayHeight": "6' 7\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/99?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/7?lang=en&region=us",
+    "id": "7",
+    "name": "Tight End",
+    "displayName": "Tight End",
+    "abbreviation": "TE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/7?lang=en&region=us",
+     "id": "7",
+     "name": "Tight End",
+     "displayName": "Tight End",
+     "abbreviation": "TE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/99?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 23.0,
+     "displayValue": "23"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079420?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/99.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582841?lang=en&region=us",
+   "id": "4582841",
+   "guid": "48d22b09-c256-328e-945e-bbe57306ae0f",
+   "firstName": "KJ",
+   "lastName": "Bolden",
+   "fullName": "KJ Bolden",
+   "displayName": "KJ Bolden",
+   "shortName": "K. Bolden",
+   "weight": 195.0,
+   "displayWeight": "195 lbs",
+   "height": 72.0,
+   "displayHeight": "6' 0\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/61?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/36?lang=en&region=us",
+    "id": "36",
+    "name": "Safety",
+    "displayName": "Safety",
+    "abbreviation": "S",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/36?lang=en&region=us",
+     "id": "36",
+     "name": "Safety",
+     "displayName": "Safety",
+     "abbreviation": "S",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/61?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 24.0,
+     "displayValue": "24"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079334?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582842?lang=en&region=us",
+   "id": "4582842",
+   "guid": "d16d8053-2e76-3cd0-ba6a-4b3a45552efe",
+   "firstName": "Trevor",
+   "lastName": "Lauck",
+   "fullName": "Trevor Lauck",
+   "displayName": "Trevor Lauck",
+   "shortName": "T. Lauck",
+   "weight": 314.0,
+   "displayWeight": "314 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2294?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+    "id": "46",
+    "name": "Offensive Tackle",
+    "displayName": "Offensive Tackle",
+    "abbreviation": "OT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+     "id": "46",
+     "name": "Offensive Tackle",
+     "displayName": "Offensive Tackle",
+     "abbreviation": "OT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2294?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 3.0,
+     "displayValue": "3"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 25.0,
+     "displayValue": "25"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4920139?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582843?lang=en&region=us",
+   "id": "4582843",
+   "guid": "8fe411f3-2a65-330f-b1a5-fa30b0ee84d9",
+   "firstName": "Brauntae",
+   "lastName": "Johnson",
+   "fullName": "Brauntae Johnson",
+   "displayName": "Brauntae Johnson",
+   "shortName": "B. Johnson",
+   "weight": 200.0,
+   "displayWeight": "200 lbs",
+   "height": 74.0,
+   "displayHeight": "6' 2\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/87?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/36?lang=en&region=us",
+    "id": "36",
+    "name": "Safety",
+    "displayName": "Safety",
+    "abbreviation": "S",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/36?lang=en&region=us",
+     "id": "36",
+     "name": "Safety",
+     "displayName": "Safety",
+     "abbreviation": "S",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/87?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 26.0,
+     "displayValue": "26"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5218506?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582844?lang=en&region=us",
+   "id": "4582844",
+   "guid": "733bef89-3707-3eae-8ef6-98575746315f",
+   "firstName": "Nick",
+   "lastName": "Marsh",
+   "fullName": "Nick Marsh",
+   "displayName": "Nick Marsh",
+   "shortName": "N. Marsh",
+   "weight": 210.0,
+   "displayWeight": "210 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/84?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+    "id": "1",
+    "name": "Wide Receiver",
+    "displayName": "Wide Receiver",
+    "abbreviation": "WR",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+     "id": "1",
+     "name": "Wide Receiver",
+     "displayName": "Wide Receiver",
+     "abbreviation": "WR",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/84?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 27.0,
+     "displayValue": "27"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079600?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582845?lang=en&region=us",
+   "id": "4582845",
+   "guid": "777b2aa5-c9a2-3ea6-b65f-ddd15f7e13f2",
+   "firstName": "Kewan",
+   "lastName": "Lacy",
+   "fullName": "Kewan Lacy",
+   "displayName": "Kewan Lacy",
+   "shortName": "K. Lacy",
+   "weight": 205.0,
+   "displayWeight": "205 lbs",
+   "height": 71.0,
+   "displayHeight": "5' 11\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/145?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/9?lang=en&region=us",
+    "id": "9",
+    "name": "Running Back",
+    "displayName": "Running Back",
+    "abbreviation": "RB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/9?lang=en&region=us",
+     "id": "9",
+     "name": "Running Back",
+     "displayName": "Running Back",
+     "abbreviation": "RB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/145?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 28.0,
+     "displayValue": "28"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5086388?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582846?lang=en&region=us",
+   "id": "4582846",
+   "guid": "ba70f2d6-607c-3c66-8aea-d7d15eaa3af7",
+   "firstName": "Deuce",
+   "lastName": "Alexander",
+   "fullName": "Deuce Alexander",
+   "displayName": "Deuce Alexander",
+   "shortName": "D. Alexander",
+   "weight": 180.0,
+   "displayWeight": "180 lbs",
+   "height": 72.0,
+   "displayHeight": "6' 0\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/145?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+    "id": "1",
+    "name": "Wide Receiver",
+    "displayName": "Wide Receiver",
+    "abbreviation": "WR",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+     "id": "1",
+     "name": "Wide Receiver",
+     "displayName": "Wide Receiver",
+     "abbreviation": "WR",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/145?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 5.0,
+     "displayValue": "5"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 29.0,
+     "displayValue": "29"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5152158?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582847?lang=en&region=us",
+   "id": "4582847",
+   "guid": "22b3dbcc-e49d-3656-8732-b7b6784c4738",
+   "firstName": "Kingston",
+   "lastName": "Lopa",
+   "fullName": "Kingston Lopa",
+   "displayName": "Kingston Lopa",
+   "shortName": "K. Lopa",
+   "weight": 210.0,
+   "displayWeight": "210 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/25?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/36?lang=en&region=us",
+    "id": "36",
+    "name": "Safety",
+    "displayName": "Safety",
+    "abbreviation": "S",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/36?lang=en&region=us",
+     "id": "36",
+     "name": "Safety",
+     "displayName": "Safety",
+     "abbreviation": "S",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/25?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 3.0,
+     "displayValue": "3"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 30.0,
+     "displayValue": "30"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5087950?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/25.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582848?lang=en&region=us",
+   "id": "4582848",
+   "guid": "24083e71-f1b0-3f15-855f-7929fc5c2be9",
+   "firstName": "Kade",
+   "lastName": "Pieper",
+   "fullName": "Kade Pieper",
+   "displayName": "Kade Pieper",
+   "shortName": "K. Pieper",
+   "weight": 298.0,
+   "displayWeight": "298 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2294?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/91?lang=en&region=us",
+    "id": "91",
+    "name": "Center",
+    "displayName": "Center",
+    "abbreviation": "C",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/45?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/91?lang=en&region=us",
+     "id": "91",
+     "name": "Center",
+     "displayName": "Center",
+     "abbreviation": "C",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/45?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2294?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 1.0,
+     "displayValue": "1"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 31.0,
+     "displayValue": "31"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5112633?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582849?lang=en&region=us",
+   "id": "4582849",
+   "guid": "711be829-f299-3c36-85b6-9427c14b6415",
+   "firstName": "Justin",
+   "lastName": "Scott",
+   "fullName": "Justin Scott",
+   "displayName": "Justin Scott",
+   "shortName": "J. Scott",
+   "weight": 303.0,
+   "displayWeight": "303 lbs",
+   "height": 76.0,
+   "displayHeight": "6' 4\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2390?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+    "id": "32",
+    "name": "Defensive Tackle",
+    "displayName": "Defensive Tackle",
+    "abbreviation": "DT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+     "id": "32",
+     "name": "Defensive Tackle",
+     "displayName": "Defensive Tackle",
+     "abbreviation": "DT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 32.0,
+     "displayValue": "32"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079678?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582850?lang=en&region=us",
+   "id": "4582850",
+   "guid": "4804952d-c6ce-3ec0-8451-c65d1eca47d4",
+   "firstName": "Kelley",
+   "lastName": "Jones",
+   "fullName": "Kelley Jones",
+   "displayName": "Kelley Jones",
+   "shortName": "K. Jones",
+   "weight": 205.0,
+   "displayWeight": "205 lbs",
+   "height": 76.0,
+   "displayHeight": "6' 4\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/344?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+    "id": "29",
+    "name": "Cornerback",
+    "displayName": "Cornerback",
+    "abbreviation": "CB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+     "id": "29",
+     "name": "Cornerback",
+     "displayName": "Cornerback",
+     "abbreviation": "CB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/344?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 33.0,
+     "displayValue": "33"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5076950?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/344.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2026-08-26T13:55Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582851?lang=en&region=us",
+   "id": "4582851",
+   "guid": "f5296bdb-6386-391d-aa5c-36f7d25e9929",
+   "firstName": "Ryan",
+   "lastName": "Coleman-Williams",
+   "fullName": "Ryan Coleman-Williams",
+   "displayName": "Ryan Coleman-Williams",
+   "shortName": "R. Coleman-Williams",
+   "weight": 184.0,
+   "displayWeight": "184 lbs",
+   "height": 72.0,
+   "displayHeight": "6' 0\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/333?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+    "id": "1",
+    "name": "Wide Receiver",
+    "displayName": "Wide Receiver",
+    "abbreviation": "WR",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+     "id": "1",
+     "name": "Wide Receiver",
+     "displayName": "Wide Receiver",
+     "abbreviation": "WR",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/333?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 6.0,
+     "displayValue": "6"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 34.0,
+     "displayValue": "34"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5141711?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582852?lang=en&region=us",
+   "id": "4582852",
+   "guid": "0cac60ba-1dfb-3f9b-a69d-ba803c6408d6",
+   "firstName": "A'Mauri",
+   "lastName": "Washington",
+   "fullName": "A'Mauri Washington",
+   "displayName": "A'Mauri Washington",
+   "shortName": "A. Washington",
+   "weight": 325.0,
+   "displayWeight": "325 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2483?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+    "id": "32",
+    "name": "Defensive Tackle",
+    "displayName": "Defensive Tackle",
+    "abbreviation": "DT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+     "id": "32",
+     "name": "Defensive Tackle",
+     "displayName": "Defensive Tackle",
+     "abbreviation": "DT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2483?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 3.0,
+     "displayValue": "3"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 35.0,
+     "displayValue": "35"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4899488?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582853?lang=en&region=us",
+   "id": "4582853",
+   "guid": "2fd0ccdb-4d22-3388-8fad-a1375512d32d",
+   "firstName": "Devan",
+   "lastName": "Thompkins",
+   "fullName": "Devan Thompkins",
+   "displayName": "Devan Thompkins",
+   "shortName": "D. Thompkins",
+   "weight": 300.0,
+   "displayWeight": "300 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/333?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+    "id": "264",
+    "name": "EDGE",
+    "displayName": "EDGE",
+    "abbreviation": "EDGE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+     "id": "264",
+     "name": "EDGE",
+     "displayName": "EDGE",
+     "abbreviation": "EDGE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/333?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 36.0,
+     "displayValue": "36"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4905925?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582854?lang=en&region=us",
+   "id": "4582854",
+   "guid": "d316138f-637f-31aa-9121-8cef49d2f533",
+   "firstName": "Zabien",
+   "lastName": "Brown",
+   "fullName": "Zabien Brown",
+   "displayName": "Zabien Brown",
+   "shortName": "Z. Brown",
+   "weight": 194.0,
+   "displayWeight": "194 lbs",
+   "height": 72.0,
+   "displayHeight": "6' 0\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/333?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+    "id": "29",
+    "name": "Cornerback",
+    "displayName": "Cornerback",
+    "abbreviation": "CB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/29?lang=en&region=us",
+     "id": "29",
+     "name": "Cornerback",
+     "displayName": "Cornerback",
+     "abbreviation": "CB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/333?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 5.0,
+     "displayValue": "5"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 37.0,
+     "displayValue": "37"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079344?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582855?lang=en&region=us",
+   "id": "4582855",
+   "guid": "b9ef3955-15bd-3929-814b-717f45e17823",
+   "firstName": "KJ",
+   "lastName": "Duff",
+   "fullName": "KJ Duff",
+   "displayName": "KJ Duff",
+   "shortName": "K. Duff",
+   "weight": 225.0,
+   "displayWeight": "225 lbs",
+   "height": 78.0,
+   "displayHeight": "6' 6\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/164?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+    "id": "1",
+    "name": "Wide Receiver",
+    "displayName": "Wide Receiver",
+    "abbreviation": "WR",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+     "id": "1",
+     "name": "Wide Receiver",
+     "displayName": "Wide Receiver",
+     "abbreviation": "WR",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/164?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 7.0,
+     "displayValue": "7"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 38.0,
+     "displayValue": "38"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5084771?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2026-07-01T04:35Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582856?lang=en&region=us",
+   "id": "4582856",
+   "guid": "b00ebeca-60c8-3dac-aa3c-152ec876657e",
+   "firstName": "David",
+   "lastName": "Stone",
+   "fullName": "David Stone",
+   "displayName": "David Stone",
+   "shortName": "D. Stone",
+   "weight": 312.0,
+   "displayWeight": "312 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/201?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+    "id": "32",
+    "name": "Defensive Tackle",
+    "displayName": "Defensive Tackle",
+    "abbreviation": "DT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+     "id": "32",
+     "name": "Defensive Tackle",
+     "displayName": "Defensive Tackle",
+     "abbreviation": "DT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/201?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 39.0,
+     "displayValue": "39"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079711?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/201.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582857?lang=en&region=us",
+   "id": "4582857",
+   "guid": "a19bca0d-ed9f-3a30-befe-695cee5b1811",
+   "firstName": "Samson",
+   "lastName": "Okunlola",
+   "fullName": "Samson Okunlola",
+   "displayName": "Samson Okunlola",
+   "shortName": "S. Okunlola",
+   "weight": 330.0,
+   "displayWeight": "330 lbs",
+   "height": 78.0,
+   "displayHeight": "6' 6\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2390?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+    "id": "46",
+    "name": "Offensive Tackle",
+    "displayName": "Offensive Tackle",
+    "abbreviation": "OT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+     "id": "46",
+     "name": "Offensive Tackle",
+     "displayName": "Offensive Tackle",
+     "abbreviation": "OT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 40.0,
+     "displayValue": "40"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4870875?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582858?lang=en&region=us",
+   "id": "4582858",
+   "guid": "cb699203-5561-30d2-8f00-0af30f6d1e77",
+   "firstName": "Clev",
+   "lastName": "Lubin",
+   "fullName": "Clev Lubin",
+   "displayName": "Clev Lubin",
+   "shortName": "C. Lubin",
+   "weight": 260.0,
+   "displayWeight": "260 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/97?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+    "id": "264",
+    "name": "EDGE",
+    "displayName": "EDGE",
+    "abbreviation": "EDGE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+     "id": "264",
+     "name": "EDGE",
+     "displayName": "EDGE",
+     "abbreviation": "EDGE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/97?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 5.0,
+     "displayValue": "5"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 41.0,
+     "displayValue": "41"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5082149?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/97.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582859?lang=en&region=us",
+   "id": "4582859",
+   "guid": "c35766da-eddd-3906-98ce-20281c5c008e",
+   "firstName": "Ahmad",
+   "lastName": "Moten Sr.",
+   "fullName": "Ahmad Moten Sr.",
+   "displayName": "Ahmad Moten Sr.",
+   "shortName": "A. Moten Sr.",
+   "weight": 300.0,
+   "displayWeight": "300 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/2390?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+    "id": "32",
+    "name": "Defensive Tackle",
+    "displayName": "Defensive Tackle",
+    "abbreviation": "DT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/32?lang=en&region=us",
+     "id": "32",
+     "name": "Defensive Tackle",
+     "displayName": "Defensive Tackle",
+     "abbreviation": "DT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 5.0,
+     "displayValue": "5"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 42.0,
+     "displayValue": "42"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4916996?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582860?lang=en&region=us",
+   "id": "4582860",
+   "guid": "1402d9c0-9b6b-332f-a8a6-d1d842fd0088",
+   "firstName": "Jaylen",
+   "lastName": "McClain",
+   "fullName": "Jaylen McClain",
+   "displayName": "Jaylen McClain",
+   "shortName": "J. McClain",
+   "weight": 203.0,
+   "displayWeight": "203 lbs",
+   "height": 72.0,
+   "displayHeight": "6' 0\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/194?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/36?lang=en&region=us",
+    "id": "36",
+    "name": "Safety",
+    "displayName": "Safety",
+    "abbreviation": "S",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/36?lang=en&region=us",
+     "id": "36",
+     "name": "Safety",
+     "displayName": "Safety",
+     "abbreviation": "S",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/35?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/194?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 4.0,
+     "displayValue": "4"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 43.0,
+     "displayValue": "43"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079518?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582861?lang=en&region=us",
+   "id": "4582861",
+   "guid": "c0831d60-3753-3949-87ab-dde625c6d8cc",
+   "firstName": "Carter",
+   "lastName": "Smith",
+   "fullName": "Carter Smith",
+   "displayName": "Carter Smith",
+   "shortName": "C. Smith",
+   "weight": 310.0,
+   "displayWeight": "310 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/84?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/47?lang=en&region=us",
+    "id": "47",
+    "name": "Offensive Guard",
+    "displayName": "Offensive Guard",
+    "abbreviation": "OG",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/47?lang=en&region=us",
+     "id": "47",
+     "name": "Offensive Guard",
+     "displayName": "Offensive Guard",
+     "abbreviation": "OG",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/84?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 44.0,
+     "displayValue": "44"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4819239?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582862?lang=en&region=us",
+   "id": "4582862",
+   "guid": "831e4a56-0262-345c-a7b9-0d58ab11af85",
+   "firstName": "Melvin",
+   "lastName": "Siani",
+   "fullName": "Melvin Siani",
+   "displayName": "Melvin Siani",
+   "shortName": "M. Siani",
+   "weight": 317.0,
+   "displayWeight": "317 lbs",
+   "height": 78.0,
+   "displayHeight": "6' 6\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/251?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+    "id": "46",
+    "name": "Offensive Tackle",
+    "displayName": "Offensive Tackle",
+    "abbreviation": "OT",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/46?lang=en&region=us",
+     "id": "46",
+     "name": "Offensive Tackle",
+     "displayName": "Offensive Tackle",
+     "abbreviation": "OT",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/251?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 5.0,
+     "displayValue": "5"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 45.0,
+     "displayValue": "45"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5121994?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T23:48Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582863?lang=en&region=us",
+   "id": "4582863",
+   "guid": "42e667f3-7182-31d1-91c7-329181018431",
+   "firstName": "Reed",
+   "lastName": "Harris",
+   "fullName": "Reed Harris",
+   "displayName": "Reed Harris",
+   "shortName": "R. Harris",
+   "weight": 220.0,
+   "displayWeight": "220 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/9?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+    "id": "1",
+    "name": "Wide Receiver",
+    "displayName": "Wide Receiver",
+    "abbreviation": "WR",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/1?lang=en&region=us",
+     "id": "1",
+     "name": "Wide Receiver",
+     "displayName": "Wide Receiver",
+     "abbreviation": "WR",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/9?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 8.0,
+     "displayValue": "8"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 46.0,
+     "displayValue": "46"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5031157?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/9.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582864?lang=en&region=us",
+   "id": "4582864",
+   "guid": "49f022cb-4867-3ce6-b33e-83869b697b97",
+   "firstName": "Boubacar",
+   "lastName": "Traore",
+   "fullName": "Boubacar Traore",
+   "displayName": "Boubacar Traore",
+   "shortName": "B. Traore",
+   "weight": 253.0,
+   "displayWeight": "253 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/87?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+    "id": "264",
+    "name": "EDGE",
+    "displayName": "EDGE",
+    "abbreviation": "EDGE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+     "id": "264",
+     "name": "EDGE",
+     "displayName": "EDGE",
+     "abbreviation": "EDGE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/87?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 6.0,
+     "displayValue": "6"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 47.0,
+     "displayValue": "47"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/4871079?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582865?lang=en&region=us",
+   "id": "4582865",
+   "guid": "77edde6e-3db0-3a11-b7b9-3608036ca850",
+   "firstName": "Kyngstonn",
+   "lastName": "Viliamu-Asa",
+   "fullName": "Kyngstonn Viliamu-Asa",
+   "displayName": "Kyngstonn Viliamu-Asa",
+   "shortName": "K. Viliamu-Asa",
+   "weight": 234.0,
+   "displayWeight": "234 lbs",
+   "height": 75.0,
+   "displayHeight": "6' 3\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/87?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/30?lang=en&region=us",
+    "id": "30",
+    "name": "Linebacker",
+    "displayName": "Linebacker",
+    "abbreviation": "LB",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/30?lang=en&region=us",
+     "id": "30",
+     "name": "Linebacker",
+     "displayName": "Linebacker",
+     "abbreviation": "LB",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/87?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 2.0,
+     "displayValue": "2"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 48.0,
+     "displayValue": "48"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5079748?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582866?lang=en&region=us",
+   "id": "4582866",
+   "guid": "cfbae5a3-93f7-3eaf-9bfc-caae1062ae37",
+   "firstName": "Anthonie",
+   "lastName": "Knapp",
+   "fullName": "Anthonie Knapp",
+   "displayName": "Anthonie Knapp",
+   "shortName": "A. Knapp",
+   "weight": 305.0,
+   "displayWeight": "305 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/87?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/47?lang=en&region=us",
+    "id": "47",
+    "name": "Offensive Guard",
+    "displayName": "Offensive Guard",
+    "abbreviation": "OG",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/47?lang=en&region=us",
+     "id": "47",
+     "name": "Offensive Guard",
+     "displayName": "Offensive Guard",
+     "abbreviation": "OG",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/70?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/87?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 3.0,
+     "displayValue": "3"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 49.0,
+     "displayValue": "49"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5139001?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-19T22:33Z"
+   }
+  },
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes/4582867?lang=en&region=us",
+   "id": "4582867",
+   "guid": "334abd36-141d-3268-8edf-2aa20710cf13",
+   "firstName": "Jide",
+   "lastName": "Abasiri",
+   "fullName": "Jide Abasiri",
+   "displayName": "Jide Abasiri",
+   "shortName": "J. Abasiri",
+   "weight": 280.0,
+   "displayWeight": "280 lbs",
+   "height": 77.0,
+   "displayHeight": "6' 5\"",
+   "college": {
+    "$ref": "http://sports.core.api.espn.com/v2/colleges/30?lang=en&region=us"
+   },
+   "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+    "id": "264",
+    "name": "EDGE",
+    "displayName": "EDGE",
+    "abbreviation": "EDGE",
+    "leaf": true,
+    "parent": {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+    }
+   },
+   "positions": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/264?lang=en&region=us",
+     "id": "264",
+     "name": "EDGE",
+     "displayName": "EDGE",
+     "abbreviation": "EDGE",
+     "leaf": true,
+     "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/positions/71?lang=en&region=us"
+     }
+    }
+   ],
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/30?lang=en&region=us"
+   },
+   "attributes": [
+    {
+     "type": 4,
+     "name": "speed",
+     "displayName": "Speed",
+     "abbreviation": "SPD",
+     "value": 0.0,
+     "displayValue": "0"
+    },
+    {
+     "type": 3,
+     "name": "rank",
+     "displayName": "Rank",
+     "abbreviation": "POS RK",
+     "value": 7.0,
+     "displayValue": "7"
+    },
+    {
+     "type": 1,
+     "name": "overall",
+     "displayName": "Overall",
+     "abbreviation": "OVR RK",
+     "value": 50.0,
+     "displayValue": "50"
+    }
+   ],
+   "athlete": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/athletes/5138455?lang=en&region=us"
+   },
+   "logo": {
+    "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/30.png",
+    "width": 500,
+    "height": 500,
+    "alt": "",
+    "rel": [
+     "full",
+     "default"
+    ],
+    "lastUpdated": "2025-12-23T01:44Z"
+   }
+  }
+ ]
+}

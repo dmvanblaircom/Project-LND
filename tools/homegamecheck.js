@@ -74,6 +74,15 @@ fs.mkdirSync(shots,{recursive:true});
         var contrast=await audit.auditText(page,"matchup "+team+style+width);assert.deepStrictEqual(contrast.failures,[]);
         if(style==="team"&&(width===320||width===390))await page.locator(".gcard").screenshot({path:path.join(shots,team+"-"+width+"-matchup.png")});
         passed.push("PASS "+[team,style,width,"nine highlighted comparisons and arrows"].join(" | "));
+        await page.evaluate(function(){
+          document.getElementById("game").hidden=true;document.getElementById("home").hidden=false;
+          Suite.home.paint(document.getElementById("home"),{team:reviewTeam,oppMark:function(){return "";},art:{},hero:{},schedule:[],outlook:[],fresh:null,news:[0,1,2].map(function(i){return{title:"A full article headline remains readable",link:"https://publisher.test/story/"+i,source:"Land-Grant Holy Land",image:"",sourceLogo:""};})});
+        });
+        var railText=await audit.auditText(page,"news rail "+team+style+width);assert.deepStrictEqual(railText.failures,[]);
+        // Explicit keyboard mode, then focus the clipped last card.
+        await page.keyboard.press("Tab");await page.locator(".news-card").last().focus();
+        await page.waitForFunction(function(){var e=document.querySelector(".news-row li:last-child .news-card"),r=e.getBoundingClientRect(),p=e.closest(".news-row").getBoundingClientRect();return r.left>=Math.max(0,p.left)-1&&r.right<=Math.min(innerWidth,p.right)+1;});
+        passed.push("PASS "+[team,style,width,"news rail contrast and keyboard reach"].join(" | "));
       }
       // Both renderers use the shared policy; distinguish a real article
       // image from the logo, and force every fallthrough without the network.
