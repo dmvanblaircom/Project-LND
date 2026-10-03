@@ -1,5 +1,12 @@
-# W16 offseason follow-ups, round 7 (2026-10-02). Round 6: the recruit is
-# "Verbal", and the first 12 of his schools all read "Undecided" (Notre Dame
-# and Ohio State among them), so the list is his candidate schools. Which
-# entry, or which other field, names the committed school?
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruits/265222 | ^status|description = "(?!Undecided)|^activity|^athlete\.(college|team)|commit
+# W16 offseason data (2026-10-03), after David chose ESPN for the draft board
+# and recruiting. Is there a team-filtered recruiting list, and how is the
+# draft's pick list shaped? Leaves are printed with full JSON paths.
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/2027/athletes?team=87&limit=3 | ^count|^pageCount|items\[\d+\]\.athlete\.fullName
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/2027/teams/87 | ^[a-zA-Z$]+(\.|$)|count
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2027/teams/87/recruits | ^[a-zA-Z$]+(\.|$)|count
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/87/recruits?season=2027 | ^[a-zA-Z$]+(\.|$)|count
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/2027/rankings | .
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/recruiting/2027/athletes?limit=1000 | ^count|^pageCount|^pageSize
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft/rounds | ^count|items\[0\]\.(number|displayName|picks\.\$ref|picks\.count)|items\[0\]\.picks\[0\]\.
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/draft/rounds/1/picks/5 | .
+https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2027/draft/athletes?limit=100 | ^count|^pageCount|^pageSize

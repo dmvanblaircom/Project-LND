@@ -118,6 +118,20 @@ Weather is its own shape (below), found from the Game's venue.
 
 It never infers. An empty postseason means "not selected" only once selection is known to have happened, or from February 1, when no college football postseason game remains. A won playoff game ends the season only when it was the title game. The bracket is fixed, so after any other round win the season stays `postseason`, even before the next game is listed; selection never reopens.
 
+### RecruitClass and DraftClass
+
+`TeamOS.prospects` (W16, `teamos/prospects.js`). Both come from ESPN, which David chose on 2026-10-03. `tools/producers/prospects.py` writes the snapshots: `data/<team>/recruits.json` and `data/league/draft.json`. Neither is scheduled or loaded yet; the screens come with the offseason designs.
+
+- **`recruits(snap, config)`:** `{ label, sourceUrl, classYear, fetchedAt, total, recruits }`.
+  - Each recruit is `{ name, position, highSchool, hometown, grade, rank, positionRank, stateRank, status }`, best grade first.
+  - A recruit is in the class only when his committed school is this team: the one `schools[]` entry whose status matches his own. A school appearing in his list of candidate schools means nothing.
+- **`draft(snap, config)`:** `{ label, sourceUrl, year, fetchedAt, phase, total, prospects }`, the team's players by ESPN college id.
+  - Each prospect is `{ name, position, positionRank, overall, grade, pick }`, and `pick` is `{ round, pick, overall, team }` or `null`.
+  - `phase` is `board` before the draft, in ESPN's overall order. Once any pick is made it is `drafted`, in draft order with undrafted players last.
+  - The board is a ranking, not a mock draft: no projected pick is ever made from a rank. `grade` stays `null` until ESPN publishes one.
+
+Both return `null` when there is no usable snapshot, or when the snapshot is another team's.
+
 ### Weather
 
 `{ tempF, sky, rainPct, windMph, zone, at }`, produced by `TeamOS.weather` from Open-Meteo: the forecast for the kickoff hour at the venue (in the venue's own time zone), or current conditions during a game; `null` when there is no answer (decision 0022 #3). `sky` is plain words; the Suite chooses any glyph.

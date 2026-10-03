@@ -57,6 +57,8 @@ jobs:
         run: node tools/matchupcheck.js
       - name: Predictive ratings are shaped from the producer's snapshot, never invented
         run: node tools/ratingscheck.js
+      - name: Recruiting classes and draft prospects are ESPN's, shaped, never invented
+        run: node tools/prospectscheck.js
       - name: The depth chart parser reads the official chart as written
         run: python3 tools/depthcheck.py
       - name: A failed game-notes fetch never costs the right availability report
