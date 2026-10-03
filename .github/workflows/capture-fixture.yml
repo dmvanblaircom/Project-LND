@@ -62,6 +62,9 @@ jobs:
             # "sitestats-<id> <name>"         a team's statistics, site API (W27 candidate)
             # "postschedule-<id>-<YYYY> <name>"  a team's postseason, notes kept (W16)
             # "bowls-<YYYYMMDD> <name>"       one postseason day's FBS games, notes kept (W16)
+            # "recruits-<id>-<YYYY> <name>"   a team's recruiting class, each recruit's record (W16)
+            # "draftboard-<YYYY>-<n> <name>"  an NFL draft's first n prospects, each record (W16)
+            # "draftrounds-<YYYY> <name>"     an NFL draft's rounds and picks, kept whole (W16)
             # The W27 kinds keep the payload whole ($ref links included: they show
             # what each call points at), and a candidate that answers 404 is a
             # finding, not a failure: it is noted and the run goes on.
@@ -96,6 +99,22 @@ jobs:
               # one postseason day's FBS games, with their notes (W16)
               out="tools/fixtures/espn-scoreboard-$name.json"; kind=postseason
               url="$API/scoreboard?groups=80&limit=400&seasontype=3&dates=${BASH_REMATCH[1]}"
+            elif [[ "$ev" =~ ^(recruits-([0-9]+)-([0-9]{4})|draftboard-([0-9]{4})-([0-9]+))$ ]]; then
+              # a core-API list whose items are $ref links: follow each (tools/capture_core.py)
+              if [ -n "${BASH_REMATCH[2]}" ]; then
+                out="tools/fixtures/espn-recruits-$name.json"
+                url="https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/${BASH_REMATCH[2]}/recruits?season=${BASH_REMATCH[3]}&limit=100"; cap=100
+              else
+                out="tools/fixtures/espn-draftboard-$name.json"; cap="${BASH_REMATCH[5]}"
+                url="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${BASH_REMATCH[4]}/draft/athletes?limit=$cap"
+              fi
+              if [ -z "${EVENT:-}" ] && [ -f "$out" ]; then echo "  $out exists"; continue; fi
+              python3 tools/capture_core.py "$url" "$out" \
+                "Real ESPN core-API list, captured $(date -u +%Y-%m-%dT%H:%MZ) by capture-fixture.yml from $url, each item's \$ref followed and its record kept whole except links and analysis copy (tools/capture_core.py)." "$cap"
+              continue
+            elif [[ "$ev" =~ ^draftrounds-([0-9]{4})$ ]]; then
+              kind=raw; out="tools/fixtures/espn-draftrounds-$name.json"
+              url="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${BASH_REMATCH[1]}/draft/rounds"
             elif [[ "$ev" =~ ^fpi-([0-9]{4})$ ]]; then
               # ESPN's Football Power Index, every FBS team (W07, issue #29)
               out="tools/fixtures/espn-fpi-$name.json"; kind=payload
@@ -121,7 +140,7 @@ jobs:
               code=$(curl -sS --retry 3 -o raw.json -w '%{http_code}' "$url" || echo 000)
               if [ "$code" != 200 ]; then echo "::warning::$url answered $code - noted, not captured"; rm -f raw.json; continue; fi
               python3 -c 'import json,sys; d=json.load(open("raw.json")); json.dump({"_comment": sys.argv[2], **(d if isinstance(d, dict) else {"items": d})}, open(sys.argv[1], "w"), indent=1)' \
-                "$out" "Real ESPN payload, captured $(date -u +%Y-%m-%dT%H:%MZ) by capture-fixture.yml from $url, kept whole (W27 season stats, Phase 0)."
+                "$out" "Real ESPN payload, captured $(date -u +%Y-%m-%dT%H:%MZ) by capture-fixture.yml from $url, kept whole."
               rm -f raw.json; continue
             fi
             curl -sSf --retry 3 -o raw.json "$url"
@@ -145,7 +164,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/espn-fpi-*.json tools/fixtures/espn-teamstats-*.json tools/fixtures/espn-leaders-*.json tools/fixtures/espn-athletestats-*.json tools/fixtures/espn-sitestats-*.json tools/fixtures/img
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/espn-fpi-*.json tools/fixtures/espn-teamstats-*.json tools/fixtures/espn-leaders-*.json tools/fixtures/espn-athletestats-*.json tools/fixtures/espn-sitestats-*.json tools/fixtures/espn-recruits-*.json tools/fixtures/espn-draftboard-*.json tools/fixtures/espn-draftrounds-*.json tools/fixtures/img
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
           git commit -m "Capture ESPN fixtures"
           git pull --rebase -q && git push

@@ -66,3 +66,10 @@ roster-87 nd-oct02
 schedule-194-2026-2 osu-2026
 401858432 osu-g1-final
 401856682 osu-g2-final
+# W16 (Oct 3): ESPN's draft board and recruiting classes, chosen by David.
+recruits-87-2027 nd-2027
+recruits-194-2027 osu-2027
+recruits-87-2026 nd-2026
+draftboard-2027-100 2027-oct3
+draftboard-2026-40 2026-final
+draftrounds-2026 2026
