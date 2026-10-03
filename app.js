@@ -1765,9 +1765,17 @@ function alertSupport(){
 }
 function alertsOnHere(){ try{ return localStorage.getItem(ALERT_KEY)==="1"; }catch(e){ return false; } }
 function alertsModel(){
-  var support=alertSupport();
-  return { support:support, on:alertsOnHere(), busy:ALERTS.busy, note:ALERTS.note,
+  var support=alertSupport(), granted=support==="ok" && Notification.permission==="granted";
+  // On only while this device can still get them: permission taken back in
+  // the device's settings reads Off, not a promise nothing will keep.
+  return { support:support, on:granted && alertsOnHere(), busy:ALERTS.busy, note:ALERTS.note,
            denied: support==="ok" && Notification.permission==="denied" };
+}
+// A subscription the browser has dropped on its own (iOS can) is not on.
+if(alertsOnHere() && alertSupport()==="ok" && navigator.serviceWorker.ready){
+  navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
+    if(!sub){ try{ localStorage.removeItem(ALERT_KEY); }catch(e){} paintMore(); }
+  }).catch(function(){});
 }
 function keyBytes(b64){
   var s=atob(b64.replace(/-/g,"+").replace(/_/g,"/")+"===".slice((b64.length+3)%4)), out=new Uint8Array(s.length);
