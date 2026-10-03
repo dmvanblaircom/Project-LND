@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-02ng2";
+var VERSION = "suite-2026-10-03ga1";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -352,6 +352,34 @@ function withHeader(res, name, value) {
     return new Response(b, { status: res.status, statusText: res.statusText, headers: h });
   });
 }
+
+// Game alerts (W19): the edge API pushes kickoff and final for the fan's
+// team (worker/src/push.js). Show it as sent - the Worker wrote the words
+// from TeamOS's names and ESPN's status - and open Suite when it is tapped.
+self.addEventListener("push", function (e) {
+  var d = {};
+  try { d = e.data ? e.data.json() : {}; } catch (err) { d = { body: e.data ? e.data.text() : "" }; }
+  e.waitUntil(self.registration.showNotification(d.title || "Suite", {
+    body: d.body || "", tag: d.tag || undefined, icon: "assets/suite/icon-192.png",
+    data: { url: d.url || "" }
+  }));
+});
+self.addEventListener("notificationclick", function (e) {
+  e.notification.close();
+  var scope = self.registration.scope, want = (e.notification.data && e.notification.data.url) || "";
+  // Only ever Suite's own pages: anything else opens Suite's front page.
+  var url = want.indexOf(scope) === 0 ? want : scope;
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(function (list) {
+    for (var i = 0; i < list.length; i++) {
+      var c = list[i];
+      if (c.url.indexOf(scope) === 0 && "focus" in c) {
+        return (c.navigate && c.url !== url ? c.navigate(url).catch(function () { return c; }) : Promise.resolve(c))
+          .then(function (w) { return (w || c).focus(); });
+      }
+    }
+    return self.clients.openWindow ? self.clients.openWindow(url) : null;
+  }));
+});
 
 self.addEventListener("fetch", function (e) {
   if (e.request.method !== "GET") return;
