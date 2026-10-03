@@ -6,6 +6,15 @@ Live Activities out of scope for now. Phase 0 is built (`/v1/probe/espn` on
 the edge API, run by each Saturday refresh). Phases 1-3 follow its result. No
 notification UI ships until Phase 2, with Codex's opt-in row.
 
+**Oct 3:** Phase 0 answered yes: every Saturday run reached ESPN from the
+Worker (the last in 112 ms, all 59 FBS games). David asked to test live on
+the Ohio State game, so Phases 1-2 were built for **kickoff and final**:
+- **Storage:** score changes (opt-in) come later. The store is a SQLite
+  Durable Object rather than D1, because the deploy creates it and the
+  Workers-only token needs no new permission. It is the same SQLite.
+- **The app:** a provisional "Game Alerts" section in Settings, until
+  Codex's design.
+
 Follows: backlog W19 ("produce a bounded brief and service proposal
 first"), the product blueprint (notifications are the first new MVP
 pillar), the MVP validation framework ("notifications where the underlying
