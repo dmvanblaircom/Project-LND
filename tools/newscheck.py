@@ -61,6 +61,25 @@ ok([i["title"] for i in bn.parse_feed(evil, "Site A")] == ["Depth chart notes"],
 evil_atom = ATOM.replace(b"https://b.example/2", b"javascript:alert(1)")
 ok(bn.parse_feed(evil_atom, "Site B") == [], "in Atom too")
 
+print("article thumbnails and publisher logos")
+media = RSS.replace(b'<rss version="2.0">', b'<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">')
+media = media.replace(b"<title>X</title>", b"<title>X</title><image><url>https://a.example/logo.png</url></image>")
+media = media.replace(b"</pubDate>", b'</pubDate><media:thumbnail url="/photo.jpg"/><content:encoded><![CDATA[<img src="https://a.example/inline.jpg">]]></content:encoded>')
+pic = bn.parse_feed(media, "Site A")[0]
+ok(pic["image"] == "https://a.example/photo.jpg", "explicit thumbnail wins over inline article imagery and resolves a relative URL")
+ok(pic["sourceLogo"] == "https://a.example/logo.png", "RSS channel image is a separate publisher fallback")
+ok(bn.parse_feed(media, "Site A", "https://a.example/large-logo.png")[0]["sourceLogo"] == "https://a.example/large-logo.png", "a verified configured logo can replace a tiny feed icon")
+inline = RSS.replace(b"</pubDate>", b'</pubDate><description><![CDATA[<img width="1" src="https://a.example/pixel"><img src="data:image/gif,stub" data-src="/article.jpg">]]></description>')
+ok(bn.parse_feed(inline, "Site A")[0]["image"] == "https://a.example/article.jpg", "HTML description supplies a lazy-loaded photo, not its tracking pixel")
+enclosed = RSS.replace(b"</pubDate>", b'</pubDate><enclosure type="audio/mpeg" url="https://a.example/audio.mp3"/><enclosure type="image/jpeg" url="https://a.example/photo.jpg"/>')
+ok(bn.parse_feed(enclosed, "Site A")[0]["image"] == "https://a.example/photo.jpg", "only image enclosures are thumbnails")
+atom_pic = ATOM.replace(b'<link href="https://b.example/2"/>', b'<link rel="enclosure" type="image/jpeg" href="https://b.example/photo.jpg"/><link rel="alternate" href="https://b.example/2"/>')
+ap = bn.parse_feed(atom_pic, "Site B")[0]
+ok(ap["link"] == "https://b.example/2" and ap["image"] == "https://b.example/photo.jpg", "Atom keeps its article URL separate from the image enclosure")
+unsafe = RSS.replace(b"</pubDate>", b'</pubDate><description><![CDATA[<img src="javascript:alert(1)"><img src="data:text/html,x">]]></description>')
+ok(bn.parse_feed(unsafe, "Site A", "javascript:bad")[0]["image"] is None and bn.parse_feed(unsafe, "Site A", "javascript:bad")[0]["sourceLogo"] is None, "non-web photo and logo URLs are rejected")
+ok(rss[0]["image"] is None and rss[0]["sourceLogo"] is None, "a text-only feed still produces a usable story")
+
 print("finding a feed that moved")
 found = bn.discover(PAGE, "https://site.example/")
 ok(found[0] == "https://site.example/news/feed.rss", "the page's own <link rel=alternate> is tried first")

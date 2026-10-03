@@ -88,7 +88,7 @@ Suite.game = (function () {
     var name = us ? m.team.name : g.oppName, abbr = us ? m.team.abbr : g.oppAbbr;
     // A final without a score shows none (B7), as on Home.
     var scored = st === "live" || st === "paused" || (st === "final" && TeamOS.game.scored(g));
-    return '<div class="gh-team ' + (us ? "us" : "them") + '">' + mark +
+    return '<div class="gh-team ' + (us ? "us" : "them") + Suite.home.scoreTone(g, us) + '">' + mark +
              (scored ? '<span class="gh-score">' + esc(score == null ? "0" : score) +
                (hasBall(m, us, st) ? ui.ball("gh-ball") + '<span class="sr-only"> (has the ball)</span>' : "") + "</span>" : "") +
              // The short name, and the abbreviation fit() swaps in for BOTH
@@ -198,7 +198,7 @@ Suite.game = (function () {
     p.us.forEach(function (a, i) {
       var b = p.them[i];
       if (!b || a.value == null && b.value == null) return;
-      var better = a.rank && b.rank && a.rank !== b.rank ? (a.rank < b.rank ? "us" : "them") : null;
+      var better = TeamOS.espn.matchupBetter(a, b);
       function cell(s, side) {
         var rk = s.rankText || (s.rank ? ordinalRank(s.rank) : "");
         return '<span class="mu-v ' + side + (better === side ? " better" : "") + '">' +

@@ -333,13 +333,13 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .fresh-banner.offline{background:var(--s-inset);border-color:var(--s-line);color:var(--s-ink-2)}
 
 .home-hero{position:relative;isolation:isolate;overflow:hidden;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));color:var(--s-on-dark)}
-.hh-inner{position:relative;z-index:1;padding:1.2rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.25rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
+.hh-inner{position:relative;z-index:1;padding:1rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
 .hh-id p{margin:0}
 .hh-school{font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.24em;text-transform:uppercase;color:var(--t-accent-text)}
 .hh-nick{font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.2rem,10.5vw,3rem);line-height:.95;letter-spacing:.005em;text-transform:uppercase}
 .hh-tagline{margin-top:.3rem !important;font-size:1.2rem;color:var(--s-on-dark-2)}
 
-.gamecard{margin-top:1.1rem;padding:.95rem 1rem 1rem;border:1px solid rgba(255,255,255,.16);border-radius:var(--s-radius-card);background:rgba(var(--t-abyss-rgb),.66);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.gamecard{margin-top:.85rem;padding:.95rem 1rem 1rem;border:1px solid rgba(255,255,255,.16);border-radius:var(--s-radius-card);background:rgba(var(--t-abyss-rgb),.66);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .gamecard p{margin:0}
 .gc-top{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:.75rem;row-gap:.15rem}
 .gc-top > :first-child{justify-self:start}
@@ -361,6 +361,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gc-abbr,.fit-abbr .gc-full{display:none}
 .fit-abbr .gc-abbr{display:inline}
 .fit-tight .gc-name{font-size:.92rem;letter-spacing:0}
+.gc-side.is-loser .gc-score,.gh-team.is-loser .gh-score{font-weight:500;color:var(--s-on-dark-2)}
 .gc-record{font-size:.95rem;color:var(--s-on-dark-2)}
 .gc-mid{display:flex;flex-direction:column;align-items:center;gap:.1rem;font-family:var(--t-font-display);text-transform:uppercase}
 .gc-vs{font-weight:700;font-size:1.3rem;letter-spacing:.1em;color:var(--s-on-dark-2)}
@@ -387,7 +388,10 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 /* "2nd & 10" and "PUR 28" each stay whole (live scan #8). */
 .gc-situation span{white-space:nowrap}
 .gc-series{margin-top:.55rem !important;text-align:center;font-size:.95rem;color:var(--t-accent-text)}
-.gc-extra{display:flex;flex-wrap:wrap;justify-content:center;margin-top:.55rem !important;font-size:.92rem;color:var(--s-on-dark-2)}
+.gc-extra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:.75rem;align-items:start;margin-top:.8rem !important;font-size:.92rem;color:var(--s-on-dark-2);text-align:center}
+.gc-extra .dot{display:none}
+.gc-extra .gc-wx ~ .gc-odds{border-left:1px solid rgba(255,255,255,.3);padding-left:.75rem}
+.gc-extra > :only-child{grid-column:1 / -1}
 .gc-cta{width:100%;margin-top:.9rem}
 .gc-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
 .gc-cta:focus-visible{outline-color:var(--t-focus)}
@@ -400,18 +404,21 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .home-sec .sec-head{margin:1.4rem 0 .6rem}
 .home-schedule .sec-head{flex-wrap:wrap;column-gap:.75rem;row-gap:0}
 
-.news-row{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:.75rem;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:0 calc(var(--gutter) + env(safe-area-inset-left,0px)) .35rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gutter);scrollbar-width:none}
+.news-row{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:.75rem;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:0 calc(var(--gutter) + env(safe-area-inset-left,0px)) .35rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gutter);scrollbar-width:none}
 .news-row::-webkit-scrollbar{display:none}
 .news-row li{min-width:0}
 /* Positioned, so its screen-reader text stays inside the scrolling row
    instead of widening the page. */
 .news-card{position:relative;display:flex;flex-direction:column;height:100%;overflow:hidden;color:inherit;text-decoration:none;scroll-snap-align:start}
-.news-card:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
+.home-news .news-card{box-shadow:none}
+.news-card:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .news-img{position:relative;display:block;aspect-ratio:16 / 9;overflow:hidden;background:var(--s-inset)}
 .news-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.news-img.is-logo,.nw-img.is-logo{background:var(--s-surface)}
+.news-img.is-logo img,.nw-img.is-logo img{object-fit:contain;padding:.65rem}
 .news-src{display:none}
 /* No photo: a shorter band in the team's colours with the outlet's name. */
-.news-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;height:4.6rem;padding:.6rem .8rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
+.news-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;min-height:3.25rem;padding:.6rem .8rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
 .news-img.none .news-src{display:block;color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase}
 .news-body{display:flex;flex:1;flex-direction:column;gap:.4rem;padding:.7rem .85rem .8rem}
 .news-hl{display:-webkit-box;overflow:hidden;-webkit-line-clamp:3;-webkit-box-orient:vertical;font-family:var(--s-font-editorial);font-weight:700;font-size:1.12rem;line-height:1.28;color:var(--s-ink)}
@@ -467,17 +474,19 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .sc-back:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:6px}
 
 .outlook{padding:1rem 1rem .85rem}
-.out-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1rem 1.4rem}
-.out-metric{display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:.5rem;row-gap:.3rem}
+.out-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.3rem 1.4rem}
+/* Shared rows keep values, wrapping labels, bars and optional timestamps
+   aligned across adjacent metrics; stacked metrics keep the same order. */
+.out-metric{display:grid;grid-row:span 4;grid-template-columns:auto 1fr;grid-template-rows:subgrid;align-items:baseline;column-gap:.5rem;row-gap:.3rem}
 .out-value{font-family:var(--t-font-display);font-weight:800;font-size:2.3rem;line-height:1;color:var(--s-ink)}
 .out-value .pct{font-size:.6em}
 .out-chg{font-size:.9rem;font-weight:700}
 .out-chg.up{color:var(--s-win)}
 .out-chg.down{color:var(--s-loss)}
-.out-label{grid-column:1 / -1;font-size:.95rem;color:var(--s-ink-2)}
-.out-bar{grid-column:1 / -1;display:block;height:.45rem;overflow:hidden;border-radius:var(--s-radius-pill);background:var(--s-inset)}
+.out-label{grid-column:1 / -1;grid-row:2;font-size:.95rem;color:var(--s-ink-2)}
+.out-bar{grid-column:1 / -1;grid-row:3;display:block;height:.45rem;overflow:hidden;border-radius:var(--s-radius-pill);background:var(--s-inset)}
 .out-bar span{display:block;height:100%;background:var(--t-accent)}
-.out-asof{grid-column:1 / -1;font-size:.8rem;color:var(--s-muted)}
+.out-asof{grid-column:1 / -1;grid-row:4;font-size:.8rem;color:var(--s-muted)}
 .out-credit{margin:.85rem 0 0;font-size:.85rem;color:var(--s-muted)}
 .home-loading{padding:2rem 0}
 
@@ -489,7 +498,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gh-inner{position:relative;z-index:1;padding:.9rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.2rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
 /* The weather and the line: one centred row under the game, two equal
    halves either side of a rule (David, 2026-10-01). */
-.gh-extra{display:flex;justify-content:center;margin-top:.9rem;font-size:.85rem;color:var(--s-on-dark-2);text-align:center}
+.gh-extra{display:flex;justify-content:center;max-width:22rem;margin:1rem auto 0;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem;color:var(--s-on-dark-2);text-align:center}
 .gh-extra > span{display:flex;flex:0 1 9.5rem;flex-direction:column;align-items:center;gap:.1rem;padding:0 .75rem}
 .gh-extra > span + span{border-left:1px solid rgba(255,255,255,.3)}
 .gh-extra strong{font-family:var(--t-font-display);font-size:1.05rem;color:var(--s-on-dark)}
@@ -618,14 +627,14 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .lp-dd{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;color:var(--t-surface)}
 .lp-text{margin:.25rem 0 0;color:var(--s-ink-2)}
 
-.sp-row{display:grid;grid-template-columns:auto 1fr auto;column-gap:.6rem;padding:.55rem 0}
+.sp-row{display:grid;grid-template-columns:auto 1fr auto;column-gap:.6rem;row-gap:.3rem;padding:.75rem 0}
 .sp-list > li + li{border-top:1px solid var(--s-line)}
 .sp-list summary{grid-template-columns:auto 1fr auto auto;list-style:none;cursor:pointer;min-height:2.75rem}
 .sp-list summary::-webkit-details-marker{display:none}
 .sp-list summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:-2px}
 .sp-list summary .dr-chev{grid-column:4;grid-row:1;align-self:center}
 .sp-list details[open] > summary .dr-chev{transform:rotate(-135deg) translateY(-1px)}
-.sp-drive{margin:0 0 .35rem;font-size:.82rem;color:var(--s-muted)}
+.sp-drive{margin:0 0 .5rem;padding:.4rem .6rem;border-left:2px solid var(--s-line-strong);font-size:.82rem;color:var(--s-muted)}
 .pl-list > li.is-score{border-left-color:var(--t-accent-on-light);background:var(--t-accent-tint-soft)}
 .pl-list > li.is-score .pl-text{font-weight:700;color:var(--s-ink)}
 .sp-when{font-size:.82rem;color:var(--s-muted)}
@@ -644,7 +653,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .dr-chev{width:.5rem;height:.5rem;margin:0 .15rem 0 .1rem;border-right:2px solid var(--s-muted);border-bottom:2px solid var(--s-muted);transform:rotate(45deg) translateY(-2px)}
 .dr-list details[open] > summary .dr-chev{transform:rotate(-135deg) translateY(-1px)}
 .pl-list{margin:0 0 .6rem;padding-left:.2rem}
-.pl-list > li{display:grid;row-gap:.1rem;padding:.35rem 0 .35rem .6rem;border-left:2px solid var(--s-line)}
+.pl-list > li{display:grid;row-gap:.25rem;padding:.55rem .5rem .55rem .7rem;border-left:2px solid var(--s-line)}
 .pl-meta{display:flex;justify-content:space-between;gap:.5rem}
 .pl-dd{font-size:.8rem;font-weight:600;color:var(--s-muted)}
 .pl-at{font-size:.78rem;color:var(--s-muted);font-variant-numeric:tabular-nums}
@@ -657,7 +666,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .pl-notes{list-style:none;margin:.15rem 0 0;padding:0}
 .pl-notes li{font-size:.8rem;color:var(--s-muted)}
 .pl-notes li + li{margin-top:.05rem}
-.pl-text{font-size:.9rem;color:var(--s-ink-2)}
+.pl-text{font-size:.9rem;line-height:1.45;color:var(--s-ink-2)}
 
 /* Box Score categories: each its own disclosure. The heading always shows,
    with how many players it holds and, in words, what a press will do. */
@@ -951,11 +960,12 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .navbar::after{left:-1px;right:-1px;border:1px solid var(--s-line);border-width:0 1px}
   .chooser-soon{grid-template-columns:repeat(3,minmax(0,1fr))}
   /* Home on a wide screen: the hero is a framed panel in the column, and
-     the three stories sit side by side instead of scrolling. */
+     news keeps two readable stories with a visible preview of the third. */
   .home-hero{margin:1rem 0 0;border-radius:var(--s-radius-card)}
   .hh-inner{padding:1.4rem 1.5rem}
   .fresh-banner{margin:0;border-radius:0 0 var(--s-radius-ctl) var(--s-radius-ctl)}
-  .news-row{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:0;overflow:visible}
+  .news-row{grid-auto-columns:46%;margin:0;padding:0 0 .5rem;scroll-padding-left:0;scrollbar-width:thin}
+  .news-row::-webkit-scrollbar{display:block;height:6px}
   .game-head,.game-tabs{margin:1rem 0 0;border-radius:var(--s-radius-card)}
   .game-tabs{margin-top:.6rem;border:1px solid var(--s-line)}
   .gh-inner{padding:1.1rem 1.5rem 1.4rem}
