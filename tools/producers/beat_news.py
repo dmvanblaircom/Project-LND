@@ -72,7 +72,61 @@ BARE_AMP = re.compile(rb"&(?!#\d+;|#x[0-9a-fA-F]+;|[A-Za-z][A-Za-z0-9]*;)")
 WEB = re.compile(r"^https?://\S+$", re.I)
 
 
-def parse_feed(raw, source):
+def image_url(value, base):
+    """Only public web image addresses, resolving feed-relative paths."""
+    value = (value or "").strip()
+    if not value:
+        return None
+    url = urljoin(base or "", value)
+    return url if WEB.match(url) else None
+
+
+class _Images(HTMLParser):
+    def __init__(self, base):
+        super().__init__()
+        self.base, self.urls = base, []
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower().rsplit(":", 1)[-1] != "img":
+            return
+        a = dict(attrs)
+        if a.get("width") == "1" or a.get("height") == "1":
+            return
+        for key in ("data-src", "src"):
+            url = image_url(a.get(key), self.base)
+            if url:
+                self.urls.append(url)
+                break
+
+
+def article_image(item, base):
+    # Prefer the feed's explicit image metadata, then a picture in its
+    # article HTML. Nothing from that HTML is ever rendered in Suite.
+    for tag in ("{http://search.yahoo.com/mrss/}thumbnail", "{http://search.yahoo.com/mrss/}content", "enclosure", ATOM + "link"):
+        for node in item.iter(tag):
+            if tag == "enclosure" and not (node.get("type") or "").startswith("image/"):
+                continue
+            if tag == ATOM + "link" and (node.get("rel") != "enclosure" or not (node.get("type") or "").startswith("image/")):
+                continue
+            if tag.endswith("}content") and node.get("medium") not in (None, "image"):
+                continue
+            if tag.endswith("}content") and node.get("type") and not node.get("type").startswith("image/"):
+                continue
+            url = image_url(node.get("url") or node.get("href"), base)
+            if url:
+                return url
+    for tag in ("{http://purl.org/rss/1.0/modules/content/}encoded", ATOM + "content", "description", ATOM + "summary"):
+        node = item.find(tag)
+        if node is None:
+            continue
+        parser = _Images(base)
+        parser.feed("".join(node.itertext()) if not len(node) else ET.tostring(node, encoding="unicode"))
+        if parser.urls:
+            return parser.urls[0]
+    return None
+
+
+def parse_feed(raw, source, source_logo=None):
     """RSS 2.0 or Atom bytes -> stories. Raises ValueError if it is not a feed."""
     try:
         root = ET.fromstring(raw)
@@ -83,6 +137,7 @@ def parse_feed(raw, source):
             raise ValueError("not XML: %s" % e)
     if root.tag not in ("rss", ATOM + "feed", "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}RDF"):
         raise ValueError("XML, but not a feed (<%s>)" % root.tag)
+    logo = image_url(source_logo or root.findtext("./channel/image/url") or root.findtext(ATOM + "logo") or root.findtext(ATOM + "icon"), "")
     items = []
     for it in root.iter("item"):
         t, link = _text(it.find("title")), _text(it.find("link"))
@@ -90,15 +145,17 @@ def parse_feed(raw, source):
         if t and WEB.match(link or ""):
             items.append({"title": t, "link": link, "source": source,
                           "summary": _text(it.find("description"))[:600],
+                          "image": article_image(it, link), "sourceLogo": logo,
                           "published": d.isoformat() if d else None})
     for en in root.iter(ATOM + "entry"):
         t = _text(en.find(ATOM + "title"))
-        ln = en.find(ATOM + "link")
+        ln = next((n for n in en.findall(ATOM + "link") if n.get("rel", "alternate") == "alternate"), None)
         link = ln.get("href") if ln is not None else ""
         d = when(_text(en.find(ATOM + "updated")) or _text(en.find(ATOM + "published")))
         if t and WEB.match(link or ""):
             items.append({"title": t, "link": link, "source": source,
                           "summary": (_text(en.find(ATOM + "summary")) or _text(en.find(ATOM + "content")))[:600],
+                          "image": article_image(en, link), "sourceLogo": logo,
                           "published": d.isoformat() if d else None})
     return items
 
@@ -164,7 +221,7 @@ def get(url):
 def read_source(src):
     """-> (items, url that worked, note). Raises if nothing works."""
     try:
-        return parse_feed(get(src["feed"]), src["name"]), src["feed"], None
+        return parse_feed(get(src["feed"]), src["name"], src.get("logo")), src["feed"], None
     except Exception as first:                          # noqa: BLE001
         failed = str(first)[:90]
     site = src.get("site")
@@ -184,7 +241,7 @@ def read_source(src):
         if url == src["feed"]:
             continue
         try:
-            items = parse_feed(get(url), src["name"])
+            items = parse_feed(get(url), src["name"], src.get("logo"))
         except Exception:                               # noqa: BLE001
             continue
         if items:

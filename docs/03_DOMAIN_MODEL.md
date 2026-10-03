@@ -201,14 +201,14 @@ One team in a `GameDetail`: `{ key, name, abbreviation, record, score, mine, pos
 | `totalOffense` | Total offense | provider |
 | `rushOffense` | Rushing offense | provider |
 | `passOffense` | Passing offense | provider |
-| `yardsPerPlay` | Yards per play | provider |
+| `rushDefense` | Rushing defense | yards allowed per game from CFBD through the edge API |
+| `passDefense` | Passing defense | yards allowed per game from CFBD through the edge API |
 | `sacks` | Sacks | provider (`defensive.sacks` — the bare name is ambiguous) |
-| `tacklesForLoss` | Tackles for loss | provider |
 | `turnoverMargin` | Turnover margin | provider |
 
-`key` is stable and provider-neutral; it is what lets a caller fill a row the provider cannot answer without matching on display copy. `value` is `null` when the feed has the stat under none of the names that row is filed under, and the view skips a row null on both sides. `rank`/`rankText` are `null` for a derived row — computing a national rank would mean holding every team's season — and the view then omits the rank and the better-rank marker for it.
+`key` is stable and provider-neutral; it is what lets a caller fill a row the provider cannot answer without matching on display copy. `value` is `null` when the feed has the stat under none of the names that row is filed under, and the view skips a row null on both sides. `rank`/`rankText` are `null` for a derived row; no national rank is invented. `TeamOS.espn.matchupBetter(a, b)` returns `us`, `them` or `null` from the displayed values: fewer points/yards allowed is better, while more is better for the other six metrics. Ties and incomplete pairs remain unmarked. Suite uses that result for both the arrow and highlighted stat.
 
-Rushing and passing *defense* are deliberately absent: ESPN's team statistics endpoint carries no opponent-facing data, and the `pointsAllowed`/`yardsAllowed` fields it does publish are permanently `0` ranked `Tied-1st`. See `docs/decisions/0011-derived-season-figures.md`.
+ESPN's unpopulated `pointsAllowed`/`yardsAllowed` stubs remain excluded. Real defensive allowances arrive through the season-results and CFBD models above. See `docs/decisions/0011-derived-season-figures.md`.
 
 
 ### TeamSeason
@@ -266,10 +266,10 @@ See `Poll` above.
 
 ### NewsItem
 
-One story in the News tab. **Implemented in Phase 4C**, produced by `TeamOS.espn.news(json)` for ESPN's team feed; the beat-writer snapshot the Action commits as `news.json` carries the same fields (`title`, `link`, `source`, `published` as ISO text, never an image) and is converted by a three-line helper in the application, because it is this project's own format, not a provider's. A story whose link is not a web link (`http`/`https`) is dropped at every step: the producer, the adapter and the page.
+One story in the News tab. **Implemented in Phase 4C**, produced by `TeamOS.espn.news(json)` for ESPN's team feed; the beat-writer snapshot the Action commits as `news.json` carries `title`, `link`, `source`, `published` as ISO text, and optional `image`/`sourceLogo` URLs. The application converts this project's snapshot format into the same model. A story whose link is not a web link (`http`/`https`) is dropped at every step: the producer, the adapter and the page. Image URLs are also restricted to web URLs.
 
 ```
-{ title, link, image, source, publishedAt }
+{ title, link, image, sourceLogo?, source, publishedAt }
 ```
 
 | Field | Meaning |
@@ -277,6 +277,7 @@ One story in the News tab. **Implemented in Phase 4C**, produced by `TeamOS.espn
 | `title` | headline |
 | `link` | the article's web URL |
 | `image` | thumbnail URL, or `""` |
+| `sourceLogo` | optional publisher-logo URL; used only if the article image is absent or fails |
 | `source` | the outlet's display name — `"ESPN"`, `"One Foot Down"`, … — which the view also uses to style ESPN stories differently |
 | `publishedAt` | epoch milliseconds, or `null` when the feed gave no usable date |
 

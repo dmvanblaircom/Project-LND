@@ -109,16 +109,16 @@ eq(rows.map(function (r) { return r.label; }),
 console.log(" the derived row");
 eq([rows[1].away.value, rows[1].home.value], ["13.0", "24.7"], "points allowed is printed on both sides");
 eq([rows[1].away.rank, rows[1].home.rank], [null, null], "with no national rank, because none is published");
-eq([rows[1].away.win, rows[1].home.win], [false, false],
-   "and no better-rank mark, because the mark means a better national rank and there is none");
+eq([rows[1].away.win, rows[1].home.win], [true, false],
+   "fewer points allowed is marked even without a national rank");
 
 console.log(" the rows the feed answers");
 eq([rows[0].away.value, rows[0].away.rank], ["40.0", "Tied-28th"], "points per game carries its rank");
 eq([rows[7].away.value, rows[7].home.value], ["7", "3"], "sacks is the defence's, both sides");
 eq([rows[8].away.value, rows[8].home.value], ["6", "-2"], "turnover margin keeps a negative");
 eq(rows.filter(function (r) { return r.away.win; }).map(function (r) { return r.label; }),
-   ["Points per game", "Total offense", "Passing offense", "Sacks", "Turnover margin"],
-   "Notre Dame is marked on every row where its national rank is better");
+   ["Points per game", "Points allowed", "Total offense", "Passing offense", "Rushing defense", "Passing defense", "Sacks", "Turnover margin"],
+   "Notre Dame is marked on every row where its displayed value is better");
 eq(rows.filter(function (r) { return r.home.win; }).map(function (r) { return r.label; }),
    ["Rushing offense"], "and the opponent on the one where theirs is");
 
@@ -145,8 +145,8 @@ eq(rowsOf(card(ND, OP, 0, 17.5))[1].away.value, "0.0",
 console.log(" yards allowed, from CFBD (W15)");
 eq([rows[5].away.value, rows[5].home.value, rows[6].away.value, rows[6].home.value], ["105.0", "152.5", "195.0", "226.3"],
    "per game: the opponents' season totals over the games played");
-eq([rows[5].away.rank, rows[6].home.rank, rows[5].away.win, rows[6].home.win], [null, null, false, false],
-   "no national rank and no better-rank mark: CFBD publishes no rank for them");
+eq([rows[5].away.rank, rows[6].home.rank, rows[5].away.win, rows[6].home.win], [null, null, true, false],
+   "fewer yards allowed gets the mark without inventing a national rank");
 var noYards = rowsOf(card(ND, OP, ndPA, 24.7, null, null));
 eq(noYards.length, 7, "the edge API unreachable: both rows go, the card stands");
 ok(noYards.every(function (r) { return !/defense/.test(r.label); }), "and it is those two that went");
@@ -159,6 +159,23 @@ eq([yards(0, 0, 0).rush, yards(null, 100, 100).pass, yards(4, null, 100).rush], 
    "no games, no games count, or no total: nothing, never a guess");
 
 console.log(" the card itself");
+// David's screenshot: every ND value is better except rushing offense.
+var keys=ND.map(function(r){ return r.key; });
+var valuesA=[42.3,8.3,416.8,141.8,275,53.8,145.5,13,7];
+var valuesB=[23.3,13.7,366,155,211,123,189.3,10,0];
+function screenshotRows(values){ return ND.map(function(r,i){ return Object.assign({},r,{ value:String(values[i]),rank:null,rankText:null }); }); }
+var shown=rowsOf(card(screenshotRows(valuesA),screenshotRows(valuesB),8.3,13.7,yards(1,53.8,145.5),yards(1,123,189.3)));
+eq(shown.map(function(r){ return r.away.win ? "ND" : r.home.win ? "UNC" : null; }),
+   ["ND","ND","ND","UNC","ND","ND","ND","ND","ND"], "all nine screenshot comparisons show the better team");
+var cmp=ctx.TeamOS.espn.matchupBetter;
+keys.forEach(function(key){
+  eq(cmp({key:key,value:"0"},{key:key,value:"0"}),null,key+": ties stay balanced");
+  eq(cmp({key:key,value:null,rank:1},{key:key,value:"10",rank:2}),null,key+": ranks never hide a missing value");
+});
+eq(cmp({key:"turnoverMargin",value:"-2"},{key:"turnoverMargin",value:"-5"}),"us","negative margins compare numerically");
+eq(cmp({key:"pointsAllowed",value:"0",rank:99},{key:"pointsAllowed",value:"8.3",rank:1}),"us","a shutout wins despite misleading provider ranks");
+eq(cmp({key:"pointsFor",value:"-"},{key:"pointsFor",value:"10"}),null,"a placeholder is not a zero");
+eq(cmp({key:"pointsFor",value:"42.3"},{key:"sacks",value:"13"}),null,"unrelated rows are never compared");
 var whole = card(ND, OP, ndPA, 24.7);
 ok(/Matchup/.test(whole) && /Season averages/.test(whole), "is the Matchup card, titled and labelled as season averages");
 ok(/<span class="sr-only"> \(better\)<\/span>/.test(whole), "and the better side is said, not only coloured");

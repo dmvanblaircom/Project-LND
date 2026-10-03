@@ -109,10 +109,7 @@ Suite.more = (function () {
   var FIRST = 20;
 
   function story(a, now, extra) {
-    var img = '<span class="nw-img' + (a.image ? "" : " none") + '" aria-hidden="true">' +
-                '<span class="nw-src">' + esc(a.source || "") + "</span>" +
-                (a.image ? '<img src="' + esc(a.image) + '" alt="" loading="lazy" decoding="async" data-fallback>' : "") +
-              "</span>";
+    var img = ui.newsImage(a, "nw");
     return "<li" + (extra ? " data-extra hidden" : "") + '><a class="nw-row" href="' + esc(a.link) +
            '" target="_blank" rel="noopener noreferrer">' + img +
            '<span class="nw-body"><span class="nw-hl">' + esc(a.title) + "</span>" +

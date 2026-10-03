@@ -1363,6 +1363,22 @@ TeamOS.espn = (function () {
       });
     },
 
+    // The better displayed matchup value, including rows without national
+    // ranks. Lower points/yards allowed is better; the other nine-row
+    // matchup metrics reward more. A tie or an incomplete pair has no edge.
+    matchupBetter: function(a, b){
+      if(!a || !b || a.key!==b.key || !PREVIEW_ROWS.some(function(r){ return r[0]===a.key; })) return null;
+      function value(v){
+        if(v==null || String(v).trim()==="") return null;
+        var n=Number(String(v).replace(/,/g,""));
+        return isFinite(n) ? n : null;
+      }
+      var x=value(a.value), y=value(b.value);
+      if(x==null || y==null || x===y) return null;
+      var lower=a.key==="pointsAllowed" || a.key==="rushDefense" || a.key==="passDefense";
+      return (lower ? x<y : x>y) ? "us" : "them";
+    },
+
     // A team's season, for the Stats screen's Team view (W27). `core` is the
     // core API's season statistics (seasonStatsUrl), `site` the site API's
     // team statistics (teamStatsUrl), whose `opponent` section is what the

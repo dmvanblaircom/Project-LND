@@ -689,7 +689,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","news","newsUrl","postseasonSelected","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
+   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonSelected","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
    "exactly the documented functions");
 
 console.log("mark");
