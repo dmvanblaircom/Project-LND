@@ -15,6 +15,11 @@ shows the better value, including unranked defensive allowances; Outlook
 probability tracks align across widths; Home and News prefer article photos
 and fall back to publisher logos. See the [Home/Game review](../design/home-game-review-2026-10-03.md).
 
+**October 3 progress:** David approved Home/Game; #100 is deployed and
+production-verified. Stats is the next production slice, carrying that
+treatment into Claude's Team and Players views; see the
+[Stats review](../design/stats-review-2026-10-03.md). Navigation/motion follows.
+
 ## 1. Home's schedule rows on phones: the site tag above the name
 
 **Found in the bug hunt, 2026-10-02:** on a phone, Home's three schedule

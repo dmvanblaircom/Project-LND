@@ -107,6 +107,8 @@ jobs:
       - run: node tools/flickercheck.js
       # All matchup edges, aligned Outlook bars, and news photo/logo fallbacks.
       - run: node tools/homegamecheck.js
+      # Stats columns, enlarged text and complete keyboard-scrollable tables.
+      - run: node tools/statslayoutcheck.js
       # A background refresh never drops a keyboard or VoiceOver user's focus.
       - run: node tools/focuscheck.js
       # The launch screen covers the first open and never outstays it.

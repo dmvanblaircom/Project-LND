@@ -1088,24 +1088,36 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 @media (prefers-reduced-motion:reduce){.pull,.pull.is-pulling{transition:none}.pull.is-refreshing .pull-mark{animation:none}}
 
 /* ---- Stats: the team's season (W27) ------------------------------------
-   Placeholder styling on the shared card (gcard), for Codex's review: the
-   Team view's rows, the opponent column in game week, the Roster link. */
+   Team values share their header grid; player names stay visible while
+   wide tables scroll. Home/Game's quiet cards carry into this screen. */
 .ro-stats{display:flex;justify-content:flex-end;margin:0}
 .ss-season{margin:.7rem 0 0;font-size:.95rem;color:var(--s-muted)}
 .ss-week{margin:.2rem 0 0;font-size:.95rem;color:var(--s-ink-2)}
-.ss-card{margin-top:.8rem}
+.ss-card{margin-top:.8rem;box-shadow:none;container-type:inline-size}
 /* the Players tables scroll inside their card; the screen-reader "none" in
    an empty cell is positioned, so the wrap must contain it or it widens
    the page at 320px */
 .ss-card .bx-wrap{position:relative}
-.ss-cols{display:grid;grid-template-columns:minmax(0,1fr) 5.4rem 5.4rem;gap:.5rem;margin-top:-.2rem;font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-align:center;color:var(--s-muted)}
+.ss-card .bx-wrap:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
+.ss-card .bx{border-collapse:separate;border-spacing:0}
+.ss-card .bx th,.ss-card .bx td{padding:.6rem .5rem}
+.ss-card .bx tbody tr + tr > *{border-top:1px solid var(--s-line)}
+.ss-card .bx th:first-child{position:sticky;left:0;z-index:1;min-width:7rem;max-width:10rem;white-space:normal;background:var(--s-surface);box-shadow:1px 0 0 var(--s-line);line-height:1.3}
+.ss-card .bx td{min-width:3rem}
+.ss-scroll-hint{margin:.1rem 0 .6rem;color:var(--s-muted);font-size:.85rem}
+.ss-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(3.4rem,22%) minmax(3.4rem,22%);gap:.5rem;margin-top:0;padding-bottom:.3rem;font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-align:center;color:var(--s-muted)}
 .ss-list{list-style:none;margin:0;padding:0}
-.ss-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem;padding:.45rem 0}
-.ss-row.two{grid-template-columns:minmax(0,1fr) 5.4rem 5.4rem;gap:.5rem}
+.ss-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem;padding:.6rem 0;min-height:3.1rem}
+.ss-row.two{grid-template-columns:minmax(0,1fr) minmax(3.4rem,22%) minmax(3.4rem,22%);gap:.5rem}
 .ss-row + .ss-row{border-top:1px solid var(--s-line)}
-.ss-l{font-size:.95rem;color:var(--s-ink-2)}
+.ss-l{font-size:.95rem;line-height:1.35;overflow-wrap:break-word;color:var(--s-ink-2)}
 .ss-v{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 .ss-row.two .ss-v{align-items:center;text-align:center}
-.ss-n{font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;color:var(--s-ink)}
-.ss-rk{font-size:.75rem;color:var(--s-muted)}
+.ss-n{font-family:var(--t-font-display);font-weight:700;font-size:1.12rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.ss-rk{margin-top:.1rem;font-size:.75rem;line-height:1.3;color:var(--s-muted)}
 .ss-note{margin:1rem 0 0;font-size:.85rem;color:var(--s-muted)}
+@container (max-width:15rem){
+  .ss-cols,.ss-row.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .ss-cols > :first-child{display:none}
+  .ss-row.two .ss-l{grid-column:1 / -1}
+}
