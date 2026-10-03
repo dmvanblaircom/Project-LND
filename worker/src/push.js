@@ -19,8 +19,10 @@
    sent, each team's watched game, and the VAPID key pair - generated on
    first use and never leaving Cloudflare, unless VAPID_PRIVATE_JWK is set.
 
-   Correctness (brief §4): one push per event, ever (the event's key is
-   recorded before anything is sent, so overlapping runs cannot both send);
+   Correctness (brief §4): one push per event and follower, ever (the
+   event is recorded per team before anything is sent, and each follower's
+   copy is claimed before it is sent, so overlapping runs cannot both send;
+   a push service that fails for a moment is retried the next minute);
    a kickoff first noticed after the first quarter is recorded, not sent;
    the final is sent only on ESPN's final status, and without numbers if
    ESPN gives none; a postponed or canceled game gets one push saying so.
@@ -33,7 +35,8 @@ const CORE = "https://sports.core.api.espn.com/v2/sports/football/leagues/colleg
 const SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football";
 export const APP_URL = "https://dmvanblaircom.github.io/Project-LND/";
 const MIN = 60 * 1000;
-export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20 * MIN, window: 8 * 60 * MIN };
+export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20 * MIN, window: 8 * 60 * MIN,
+                        tries: 10, kickoffLate: 15 * MIN };
 
 // Only the browsers' own push services: the Worker is never a relay to an
 // arbitrary address.
@@ -190,7 +193,15 @@ export function words(ev, team, game, scores) {
 export function migrate(db) {
   db.exec("CREATE TABLE IF NOT EXISTS subs (endpoint TEXT NOT NULL, team_id TEXT NOT NULL, team_name TEXT NOT NULL," +
           " p256dh TEXT NOT NULL, auth TEXT NOT NULL, created INTEGER NOT NULL, PRIMARY KEY (endpoint, team_id))");
-  db.exec("CREATE TABLE IF NOT EXISTS sent (game_id TEXT NOT NULL, event TEXT NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (game_id, event))");
+  // An event noticed for a team's game, once (both teams in a game may have
+  // followers, so the team is part of the key - Codex, PR #102).
+  db.exec("CREATE TABLE IF NOT EXISTS sent (team_id TEXT NOT NULL, game_id TEXT NOT NULL, event TEXT NOT NULL, at INTEGER NOT NULL," +
+          " PRIMARY KEY (team_id, game_id, event))");
+  // Each follower's copy of it: due until a push service takes it, retried
+  // the next minute after a refusal or an outage, never sent twice.
+  db.exec("CREATE TABLE IF NOT EXISTS deliveries (team_id TEXT NOT NULL, game_id TEXT NOT NULL, event TEXT NOT NULL," +
+          " endpoint TEXT NOT NULL, state TEXT NOT NULL, tries INTEGER NOT NULL, at INTEGER NOT NULL, data TEXT NOT NULL," +
+          " PRIMARY KEY (team_id, game_id, event, endpoint))");
   db.exec("CREATE TABLE IF NOT EXISTS games (team_id TEXT PRIMARY KEY, game TEXT, checked INTEGER NOT NULL)");
   db.exec("CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT NOT NULL)");
 }
@@ -260,65 +271,103 @@ async function getJson(env, url) {
 // One minute's work. Returns what it did, for the log and the tests.
 export async function tick(db, env, now) {
   const log = [];
-  const teams = db.all("SELECT team_id, MIN(team_name) AS team_name FROM subs GROUP BY team_id");
+  const teams = db.all("SELECT DISTINCT team_id FROM subs");
   for (const t of teams) {
-    const team = { id: t.team_id, name: t.team_name };
-    let row = db.all("SELECT game, checked FROM games WHERE team_id = ?", team.id)[0];
+    const teamId = t.team_id;
+    let row = db.all("SELECT game, checked FROM games WHERE team_id = ?", teamId)[0];
     let game = row && row.game ? JSON.parse(row.game) : null;
     const stale = !row || now - row.checked > LIMITS.scheduleEvery || (game && now - game.at > LIMITS.window);
     if (stale) {
-      const schedule = await getJson(env, SITE + "/teams/" + team.id + "/schedule");
+      const schedule = await getJson(env, SITE + "/teams/" + teamId + "/schedule");
       if (schedule) {
-        game = pickGame(schedule, team.id, now);
+        game = pickGame(schedule, teamId, now);
         db.run("INSERT INTO games (team_id, game, checked) VALUES (?, ?, ?) ON CONFLICT (team_id) DO UPDATE SET game = excluded.game, checked = excluded.checked",
-               team.id, game ? JSON.stringify(game) : null, now);
+               teamId, game ? JSON.stringify(game) : null, now);
       }
     }
-    if (!game) { log.push(team.id + ": no game"); continue; }
-    if (now < game.at - LIMITS.before) { log.push(team.id + ": waiting for " + new Date(game.at).toISOString()); continue; }
-    const sent = new Set(db.all("SELECT event FROM sent WHERE game_id = ?", game.id).map(function (r) { return r.event; }));
-    if (sent.has("final") || sent.has("canceled")) { log.push(team.id + ": done"); continue; }
-    // ESPN's core API first (a few hundred bytes); if it does not answer this
-    // network, the same status from the team's schedule on the site API,
-    // which the Phase 0 probe showed does.
-    let status = await getJson(env, CORE + "/events/" + game.id + "/competitions/" + game.comp + "/status"), fromSchedule = null;
-    if (!status) {
-      fromSchedule = scheduleGame(await getJson(env, SITE + "/teams/" + team.id + "/schedule"), game.id);
-      status = fromSchedule && fromSchedule.status;
-      if (status) log.push(team.id + ": status from the schedule");
-    }
-    if (!status) { log.push(team.id + ": status unavailable"); continue; }
-    for (const d of due(game, status, sent)) {
-      // Record first: if two runs overlap, only the one that recorded sends.
-      const got = db.run("INSERT OR IGNORE INTO sent (game_id, event, at) VALUES (?, ?, ?)", game.id, d.event, now);
-      if (!got.changes) continue;
-      if (d.late) { log.push(team.id + ": " + d.event + " noticed late, not sent"); continue; }
-      let scores = null;
-      if (d.event === "final") {
-        const base = CORE + "/events/" + game.id + "/competitions/" + game.comp + "/competitors/";
-        const us = await getJson(env, base + team.id + "/score"), them = await getJson(env, base + game.opponent.id + "/score");
-        scores = { us: scoreOf(us), them: scoreOf(them) };
-        if (scores.us == null || scores.them == null) {
-          const sg = fromSchedule || scheduleGame(await getJson(env, SITE + "/teams/" + team.id + "/schedule"), game.id);
-          if (sg) scores = { us: scoreOf(sg.scores[team.id]), them: scoreOf(sg.scores[game.opponent.id]) };
-        }
-      }
-      const w = words(d.event, team, game, scores);
-      const message = { title: w.title, body: w.body, url: APP_URL + "#game", tag: game.id + "-" + d.event };
-      const subs = db.all("SELECT endpoint, p256dh, auth FROM subs WHERE team_id = ?", team.id);
-      const jwk = await vapidKey(db, env);
-      let ok = 0, gone = 0;
-      for (const s of subs) {
-        const code = await sendPush(env, jwk, s, message, now);
-        if (code >= 200 && code < 300) ok++;
-        else if (code === 404 || code === 410) { gone++; db.run("DELETE FROM subs WHERE endpoint = ?", s.endpoint); }
-      }
-      log.push(team.id + ": " + d.event + " sent to " + ok + " of " + subs.length + (gone ? ", " + gone + " gone" : ""));
-    }
+    if (game && now >= game.at - LIMITS.before) await detect(db, env, teamId, game, now, log);
+    else log.push(teamId + ": " + (game ? "waiting for " + new Date(game.at).toISOString() : "no game"));
+    await deliver(db, env, teamId, now, log);
   }
   db.run("INSERT INTO meta (k, v) VALUES ('last', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
          JSON.stringify({ at: new Date(now).toISOString(), log }));
   return log;
+}
+
+// What ESPN says of the team's game, and a delivery for each follower of
+// every event newly due.
+async function detect(db, env, teamId, game, now, log) {
+  const sent = new Set(db.all("SELECT event FROM sent WHERE team_id = ? AND game_id = ?", teamId, game.id).map(function (r) { return r.event; }));
+  if (sent.has("final") || sent.has("canceled")) { log.push(teamId + ": done"); return; }
+  // ESPN's core API first (a few hundred bytes); if it does not answer this
+  // network, the same status from the team's schedule on the site API,
+  // which the Phase 0 probe showed does.
+  let status = await getJson(env, CORE + "/events/" + game.id + "/competitions/" + game.comp + "/status"), fromSchedule = null;
+  if (!status) {
+    fromSchedule = scheduleGame(await getJson(env, SITE + "/teams/" + teamId + "/schedule"), game.id);
+    status = fromSchedule && fromSchedule.status;
+    if (status) log.push(teamId + ": status from the schedule");
+  }
+  if (!status) { log.push(teamId + ": status unavailable"); return; }
+  for (const d of due(game, status, sent)) {
+    // Record first: if two runs overlap, only the one that recorded goes on.
+    const got = db.run("INSERT OR IGNORE INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", teamId, game.id, d.event, now);
+    if (!got.changes) continue;
+    if (d.late) { log.push(teamId + ": " + d.event + " noticed late, not sent"); continue; }
+    let scores = null;
+    if (d.event === "final") {
+      const base = CORE + "/events/" + game.id + "/competitions/" + game.comp + "/competitors/";
+      const us = await getJson(env, base + teamId + "/score"), them = await getJson(env, base + game.opponent.id + "/score");
+      scores = { us: scoreOf(us), them: scoreOf(them) };
+      if (scores.us == null || scores.them == null) {
+        const sg = fromSchedule || scheduleGame(await getJson(env, SITE + "/teams/" + teamId + "/schedule"), game.id);
+        if (sg) scores = { us: scoreOf(sg.scores[teamId]), them: scoreOf(sg.scores[game.opponent.id]) };
+      }
+    }
+    const data = JSON.stringify({ game, scores });
+    const n = db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data)" +
+                     " SELECT team_id, ?, ?, endpoint, 'due', 0, ?, ? FROM subs WHERE team_id = ?",
+                     game.id, d.event, now, data, teamId).changes;
+    log.push(teamId + ": " + d.event + " due for " + n);
+  }
+}
+
+// Send what is due. Each follower's alert uses the team name their own app
+// sent, so no subscription can put words in another's (Codex, PR #102). A
+// push service that takes it ends it; one that has dropped the subscription
+// removes it; anything else - a 429, a 5xx, no answer - is tried again the
+// next minute, up to LIMITS.tries, and a kickoff only while it is news.
+async function deliver(db, env, teamId, now, log) {
+  const due = db.all("SELECT d.game_id, d.event, d.endpoint, d.tries, d.at, d.data, s.team_name, s.p256dh, s.auth" +
+                     " FROM deliveries d JOIN subs s ON s.endpoint = d.endpoint AND s.team_id = d.team_id" +
+                     " WHERE d.team_id = ? AND d.state = 'due'", teamId);
+  if (!due.length) return;
+  const jwk = await vapidKey(db, env);
+  const tally = {};
+  for (const d of due) {
+    const key = [teamId, d.game_id, d.event, d.endpoint];
+    const t = tally[d.event] = tally[d.event] || { sent: 0, retry: 0, gone: 0, dropped: 0 };
+    if (d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) {
+      db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", ...key);
+      t.dropped++; continue;
+    }
+    // Claim it, so an overlapping run cannot send it too.
+    if (!db.run("UPDATE deliveries SET state = 'sending' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ? AND state = 'due'", ...key).changes) continue;
+    const x = JSON.parse(d.data), w = words(d.event, { id: teamId, name: d.team_name }, x.game, x.scores);
+    const code = await sendPush(env, jwk, { endpoint: d.endpoint, p256dh: d.p256dh, auth: d.auth },
+                                { title: w.title, body: w.body, url: APP_URL + "#game", tag: d.game_id + "-" + d.event }, now);
+    let state;
+    if (code >= 200 && code < 300) { state = "done"; t.sent++; }
+    else if (code === 404 || code === 410) { state = "gone"; t.gone++; db.run("DELETE FROM subs WHERE endpoint = ?", d.endpoint); }
+    else if (d.tries + 1 >= LIMITS.tries) { state = "failed"; t.dropped++; }
+    else { state = "due"; t.retry++; }
+    db.run("UPDATE deliveries SET state = ?, tries = tries + 1 WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", state, ...key);
+  }
+  Object.keys(tally).forEach(function (ev) {
+    const t = tally[ev];
+    log.push(teamId + ": " + ev + " sent to " + t.sent + (t.retry ? ", " + t.retry + " to retry" : "") +
+             (t.gone ? ", " + t.gone + " gone" : "") + (t.dropped ? ", " + t.dropped + " dropped" : ""));
+  });
 }
 
 // What the alerts are doing, for watching a game day from outside: counts,
@@ -332,8 +381,10 @@ export function report(db) {
       const g = r.game ? JSON.parse(r.game) : null;
       return { team: r.team, game: g && { id: g.id, at: new Date(g.at).toISOString(), opponent: g.opponent.name, home: g.home } };
     }),
-    sent: db.all("SELECT game_id AS game, event, at FROM sent ORDER BY at DESC LIMIT 20")
-            .map(function (r) { return { game: r.game, event: r.event, at: new Date(r.at).toISOString() }; }),
+    sent: db.all("SELECT team_id AS team, game_id AS game, event, at FROM sent ORDER BY at DESC LIMIT 20")
+            .map(function (r) { return { team: r.team, game: r.game, event: r.event, at: new Date(r.at).toISOString() }; }),
+    deliveries: db.all("SELECT team_id AS team, game_id AS game, event, state, COUNT(*) AS n FROM deliveries" +
+                       " GROUP BY team_id, game_id, event, state ORDER BY game_id, event"),
     last: last ? JSON.parse(last.v) : null
   };
 }

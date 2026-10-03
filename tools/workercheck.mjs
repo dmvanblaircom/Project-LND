@@ -292,7 +292,7 @@ console.log("game alerts: what a real game day throws at it");
   await subscribe(db, e, { subscription: c.sub, team: { id: "194", name: "Ohio State" } }, KICK); e.pushes.length = 0;
   e.push = (url) => url === a.sub.endpoint ? 410 : 201;
   const log = await tick(db, e, KICK + 60e3);
-  ok(/sent to 1 of 2, 1 gone/.test(log.join(" ")) && db.all("SELECT COUNT(*) AS n FROM subs")[0].n === 1, "a browser that unsubscribed on its own is removed on the next send");
+  ok(/kickoff sent to 1, 1 gone/.test(log.join(" ")) && db.all("SELECT COUNT(*) AS n FROM subs")[0].n === 1, "a browser that unsubscribed on its own is removed on the next send");
   e.status = null; e.down = true; e.push = 201; e.pushes.length = 0;
   ok(/status unavailable/.test((await tick(db, e, KICK + 2 * 60e3)).join(" ")) && e.pushes.length === 0, "ESPN down: nothing guessed; the next minute tries again"); }
 { // ESPN's core API not answering this network: the same status and score
@@ -308,7 +308,7 @@ console.log("game alerts: what a real game day throws at it");
     e.pushes.push({ url, init }); return new Response("", { status: 201 });
   };
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" } }, KICK); e.pushes.length = 0;
-  db.run("INSERT INTO sent (game_id, event, at) VALUES (?, ?, ?)", GAME, "kickoff", KICK);
+  db.run("INSERT INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", "194", GAME, "kickoff", KICK);
   const log = await tick(db, e, KICK + 3.4 * 3600e3);
   const f = e.pushes.length === 1 ? await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth) : {};
   ok(/status from the schedule/.test(log.join(" ")) && f.body === "Final: Ohio State 38, Iowa 10.", "core API refused: the schedule's status and score stand in = " + f.body);
@@ -317,9 +317,54 @@ console.log("game alerts: what a real game day throws at it");
      "the status report: counts, the watched game, what was sent, the last minute");
   ok(!JSON.stringify(r).includes(b.sub.endpoint) && !JSON.stringify(r).includes(b.sub.keys.auth), "and nothing about the fan: no push address, no key"); }
 { const db = dbOf();
-  db.run("INSERT INTO sent (game_id, event, at) VALUES (?, ?, ?)", GAME, "kickoff", 1);
-  ok(db.run("INSERT OR IGNORE INTO sent (game_id, event, at) VALUES (?, ?, ?)", GAME, "kickoff", 2).changes === 0,
+  db.run("INSERT INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", "194", GAME, "kickoff", 1);
+  ok(db.run("INSERT OR IGNORE INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", "194", GAME, "kickoff", 2).changes === 0,
      "an event already recorded cannot be recorded again: overlapping minutes send once"); }
+
+console.log("game alerts: Codex's review of PR #102");
+{ // A push service that fails for a moment: that follower is retried the
+  // next minute; the one it already reached is not sent it again.
+  const db = dbOf(), e = alertEnv({ status: st("in", 1, "STATUS_IN_PROGRESS") }), a = await browserSub(), c = await browserSub("fcm.googleapis.com");
+  await subscribe(db, e, { subscription: a.sub, team: { id: "194", name: "Ohio State" } }, KICK);
+  await subscribe(db, e, { subscription: c.sub, team: { id: "194", name: "Ohio State" } }, KICK); e.pushes.length = 0;
+  e.push = (url) => url === a.sub.endpoint ? 503 : 201;
+  let log = await tick(db, e, KICK + 60e3);
+  ok(/kickoff sent to 1, 1 to retry/.test(log.join(" ")), "Apple's service answers 503: Chrome's copy is sent, Apple's waits");
+  e.push = 201; e.pushes.length = 0;
+  log = await tick(db, e, KICK + 2 * 60e3);
+  ok(e.pushes.length === 1 && e.pushes[0].url === a.sub.endpoint, "the next minute: only the one that failed is sent, once");
+  e.pushes.length = 0; await tick(db, e, KICK + 3 * 60e3);
+  ok(e.pushes.length === 0, "and then nothing more");
+  e.push = 0; e.status = st("post", 4, "STATUS_FINAL", true); e.scores = { 194: 31, 2294: 17 };
+  for (let m = 0; m < 12; m++) await tick(db, e, KICK + 3.4 * 3600e3 + m * 60e3);
+  const fin = db.all("SELECT state, tries FROM deliveries WHERE event = 'final'");
+  ok(fin.length === 2 && fin.every((r) => r.state === "failed" && r.tries === 10), "a push service down for good: tried ten minutes, then given up, not forever"); }
+{ // A kickoff that could not be delivered while it was news is let go.
+  const db = dbOf(), e = alertEnv({ status: st("in", 1, "STATUS_IN_PROGRESS"), push: 503 }), a = await browserSub();
+  await subscribe(db, e, { subscription: a.sub, team: { id: "194", name: "Ohio State" } }, KICK); e.push = 503; e.pushes.length = 0;
+  await tick(db, e, KICK + 60e3); e.push = 201; e.pushes.length = 0;
+  const log = await tick(db, e, KICK + 20 * 60e3);
+  ok(e.pushes.length === 0 && /kickoff sent to 0, 1 dropped/.test(log.join(" ")), "a kickoff still undelivered 15 minutes on is dropped, not sent late"); }
+{ // Both teams in one game followed: each team's followers get their own.
+  const db = dbOf(), e = alertEnv({ status: st("in", 1, "STATUS_IN_PROGRESS") }), osu = await browserSub(), iowa = await browserSub("fcm.googleapis.com");
+  const iowaSched = JSON.parse(JSON.stringify(OSU_SCHEDULE));
+  const base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/2294\/schedule$/.test(url) ? new Response(JSON.stringify(iowaSched), { status: 200 }) : base(url, init);
+  await subscribe(db, e, { subscription: osu.sub, team: { id: "194", name: "Ohio State" } }, KICK);
+  await subscribe(db, e, { subscription: iowa.sub, team: { id: "2294", name: "Iowa" } }, KICK); e.pushes.length = 0;
+  await tick(db, e, KICK + 60e3);
+  const got = {};
+  for (const p of e.pushes) got[p.url === osu.sub.endpoint ? "osu" : "iowa"] = (await openPush(p.init.body, p.url === osu.sub.endpoint ? osu.kp : iowa.kp,
+                                                       p.url === osu.sub.endpoint ? osu.sub.keys.auth : iowa.sub.keys.auth)).body;
+  eq([got.osu, got.iowa], ["Ohio State at Iowa has kicked off.", "Iowa vs. Ohio State has kicked off."], "Ohio State at Iowa, both followed: each side hears it in its own words"); }
+{ // A sign-up cannot put its own words in other followers' alerts.
+  const db = dbOf(), e = alertEnv({ status: st("in", 1, "STATUS_IN_PROGRESS") }), fan = await browserSub(), prank = await browserSub("fcm.googleapis.com");
+  await subscribe(db, e, { subscription: fan.sub, team: { id: "194", name: "Ohio State" } }, KICK);
+  await subscribe(db, e, { subscription: prank.sub, team: { id: "194", name: "AA" } }, KICK); e.pushes.length = 0;
+  await tick(db, e, KICK + 60e3);
+  const mine = e.pushes.filter((p) => p.url === fan.sub.endpoint)[0];
+  const m = mine ? await openPush(mine.init.body, fan.kp, fan.sub.keys.auth) : {};
+  eq([m.title, m.body], ["Ohio State", "Ohio State at Iowa has kicked off."], "another sign-up's team name never reaches this fan's alert"); }
 
 console.log("game alerts: the routes and the minute");
 { const calls = [];
