@@ -13,11 +13,15 @@
      GET /v1/probe/espn                     can this Worker reach ESPN's live
                                             scoreboard? Status, time, game
                                             count only (W19 Phase 0)
+     GET  /v1/push/key                      game alerts (W19, ./push.js): the
+     POST /v1/push/subscribe                VAPID public key; a browser's push
+     POST /v1/push/unsubscribe              subscription for a team, and off
 
    Scheduled (wrangler.toml [triggers]): the data refresh clock. Every 30
    minutes it starts the repository's "Refresh team data" workflow with
    source=clock - the job cron-job.org was meant to do (W02, decision 0030).
-   GitHub's own scheduler runs that workflow only every few hours.
+   GitHub's own scheduler runs that workflow only every few hours. And every
+   minute, game alerts look at the followed teams' games (./push.js).
 
    Every answer is JSON with `source`, `fetchedAt` and, when it is a cached
    copy served because the provider failed, `stale: true`. Errors say what
@@ -26,8 +30,14 @@
    No dependencies: Workers' standard fetch, Request, Response and Cache. */
 
 import { SCHOOLS } from "./schools.js";
+import { Alerts } from "./push.js";
 
-export const VERSION = "edge-2026-10-02a";
+// The Durable Object that holds game alerts (wrangler.toml); exported here
+// because Cloudflare finds it in the main module.
+export { Alerts };
+
+export const VERSION = "edge-2026-10-03a";
+export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
 const CFBD = "https://api.collegefootballdata.com";
@@ -170,9 +180,37 @@ export async function probeEspn(env, colo) {
   }
 }
 
+// Game alerts live in one Durable Object (./push.js); this asks it.
+function alerts(env) {
+  return env && env.ALERTS ? env.ALERTS.get(env.ALERTS.idFromName("alerts")) : null;
+}
+
+async function pushRoute(op, request, env, origin) {
+  const stub = alerts(env);
+  if (!stub) return fail(503, "game alerts are not configured", origin);
+  let body;
+  if (request.method === "POST") {
+    // Only the app may sign a browser up, and a subscription is small.
+    if (ORIGINS.indexOf(origin) < 0) return fail(403, "not from Suite", origin);
+    const text = await request.text();
+    if (text.length > 4096) return fail(413, "too large", origin);
+    body = text;
+  }
+  const r = await stub.fetch("https://alerts/" + op, request.method === "POST" ? { method: "POST", body } : {});
+  return json(await r.json(), r.status, origin, { "cache-control": "no-store" });
+}
+
 export default {
   async scheduled(event, env, ctx) {
-    const done = startRefresh(env || {});
+    let done;
+    if (event && event.cron === ALERTS_CRON) {
+      const stub = alerts(env);
+      done = stub ? stub.fetch("https://alerts/tick", { method: "POST" })
+                      .then(function (r) { return r.json(); })
+                      .then(function (b) { if (b.log && b.log.length) console.log("alerts: " + b.log.join("; ")); })
+                      .catch(function () { console.log("alerts: the tick failed"); })
+                  : Promise.resolve();
+    } else done = startRefresh(env || {});
     if (ctx && ctx.waitUntil) ctx.waitUntil(done); else await done;
   },
 
@@ -180,8 +218,12 @@ export default {
     const url = new URL(request.url), origin = request.headers.get("origin");
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: Object.assign(cors(origin), {
-        "access-control-allow-methods": "GET", "access-control-max-age": "86400" }) });
+        "access-control-allow-methods": "GET, POST", "access-control-allow-headers": "content-type",
+        "access-control-max-age": "86400" }) });
     }
+    if (url.pathname === "/v1/push/key" && request.method === "GET") return pushRoute("key", request, env, origin);
+    if (url.pathname === "/v1/push/subscribe" && request.method === "POST") return pushRoute("subscribe", request, env, origin);
+    if (url.pathname === "/v1/push/unsubscribe" && request.method === "POST") return pushRoute("unsubscribe", request, env, origin);
     if (request.method !== "GET") return fail(405, "GET only", origin);
     // `clock` says only whether the refresh clock has its token - never the token.
     if (url.pathname === "/v1/health") return json({ ok: true, version: VERSION, clock: !!(env && env.REFRESH_CLOCK_TOKEN) },

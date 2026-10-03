@@ -8,5 +8,17 @@ workers_dev = true
 
 # The data refresh clock (W02): start "Refresh team data" at :07 and :37 every
 # hour, off the hour like the workflow's own schedule. UTC.
+# And every minute, game alerts (W19, src/push.js): outside a game's window
+# the tick asks ESPN nothing.
 [triggers]
-crons = ["7,37 * * * *"]
+crons = ["7,37 * * * *", "* * * * *"]
+
+# Game alerts' store: one Durable Object with SQLite (W19, src/push.js).
+# Created by the deploy itself, so the Workers-only API token is enough.
+[[durable_objects.bindings]]
+name = "ALERTS"
+class_name = "Alerts"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Alerts"]

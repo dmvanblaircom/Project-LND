@@ -18,6 +18,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0     # versioncheck compares against the previous push
+      # Node 22: the edge API's game-alert checks use node:sqlite to play the
+      # Durable Object's SQLite (W19).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Dead and shadowed CSS
         run: python3 tools/csscheck.py app.css
       - name: JavaScript parses

@@ -27,6 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # Node 22: the game-alert checks use node:sqlite (W19).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Is Cloudflare configured?
         id: ready
         env:
