@@ -35,6 +35,8 @@ probes print what a source returns and store nothing.
 
 ## Recommendation
 
+**Decided by David, Oct 3: items 1 and 2 as recommended.** Draft and recruiting come from ESPN; no email goes to ESPN.
+
 1. **Idea 6 (draft): build it from ESPN's draft API, for the spring.**
    - Show each of the team's players on ESPN's board with position rank and overall rank, plus ESPN's grade once it appears.
    - Credit it as "ESPN draft board". Show the actual pick and round after the draft.
