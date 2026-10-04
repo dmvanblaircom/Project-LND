@@ -123,6 +123,8 @@ function fixture(url) {
   console.log("a normal first open");
   var a = await open("/?team=notre-dame#home", { delay: 300 });
   await a.page.waitForFunction(function () { return window.__first !== null; });
+  ok(await a.page.evaluate(function () { return +sessionStorage.getItem("suite-launch-at") === window.SUITE_LAUNCH_AT; }),
+     "a first open saves its launch clock for an update's reload");
   ok(/^visible\//.test(await a.page.evaluate(function () { return window.__first; })), "up on the first paint, before any script runs");
   ok(await a.page.evaluate(function () { var l = document.getElementById("launch"); return l.getAttribute("aria-hidden") === "true" && !!l.querySelector("svg .launch-l"); }),
      "the wordmark is drawn inline, letter by letter, and hidden from assistive technology");
@@ -162,6 +164,20 @@ function fixture(url) {
   var te = await liftedAt(e, 8000);
   ok(te != null && te < 2400, "and lifts on the same clock (" + te + " ms after the reload)");
   await e.ctx.close();
+
+  console.log("a reload uses the first document's actual saved clock");
+  // Do not seed storage: the old bootstrap's commented-out write passed
+  // the seeded test above while restarting every actual first launch.
+  var resumed = await open("/?team=notre-dame#home", { noApp: true });
+  await resumed.page.waitForFunction(function () { return window.__first !== null; });
+  var originalAt = await resumed.page.evaluate(function () { return window.SUITE_LAUNCH_AT; });
+  await resumed.page.waitForTimeout(400);
+  await resumed.page.reload({ waitUntil: "domcontentloaded" });
+  ok(await resumed.page.evaluate(function (at) {
+    return window.SUITE_LAUNCH_AT === at && +sessionStorage.getItem("suite-launch-at") === at &&
+      parseFloat(document.documentElement.style.getPropertyValue("--launch-t")) <= -400;
+  }, originalAt), "an unseeded reload carries on the same launch instead of starting over");
+  await resumed.ctx.close();
 
   // A real update: a copy of the site, opened once so its worker installs,
   // then given a new VERSION and opened again. The new worker's shell
