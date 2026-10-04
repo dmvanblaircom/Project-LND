@@ -20,6 +20,13 @@ team/leader fixtures. It checks alignment, overflow, every leader row,
 sticky names, keyboard scrolling/focus, contrast, resize and missing data.
 All 84 focused cases passed locally. The full release workflow also applies.
 
+The release run exposed an existing launch-check visibility error after the
+new thumbnail feed arrived: a lazy image at x=556px on a 390px viewport was
+counted as visible because the test checked only its vertical position.
+The check now requires horizontal intersection too, matching the existing
+app readiness rule. The original failure was reproduced before correction;
+visible images still must settle before the normal launch lifts.
+
 Game Alerts is separate work in Claude's #103. This slice changes neither
 its controls nor subscription behavior. Its service-worker version bump
 must be combined with any newer alert handlers when merging concurrent work.

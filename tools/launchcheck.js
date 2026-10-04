@@ -109,7 +109,11 @@ function fixture(url) {
       var hero = document.querySelector("[data-home=hero] .home-hero");
       var stories = document.querySelectorAll("[data-home=news] li").length;
       var imgs = Array.prototype.slice.call(document.querySelectorAll("#screenHome img")).filter(function (i) {
-        var r = i.getBoundingClientRect(); return r.width > 0 && r.bottom > 0 && r.top < innerHeight;
+        // The news rail extends sideways. An offscreen lazy image can stay
+        // pending until scrolled into view; only intersecting images belong
+        // to the complete first screen (the same bounds app.js uses).
+        var r = i.getBoundingClientRect();
+        return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth;
       });
       return { card: !!(hero && hero.querySelector(".gamecard")), stories: stories,
                images: imgs.length, loaded: imgs.every(function (i) { return i.complete; }) };
