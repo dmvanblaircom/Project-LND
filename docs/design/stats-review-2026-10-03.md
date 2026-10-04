@@ -27,6 +27,12 @@ The check now requires horizontal intersection too, matching the existing
 app readiness rule. The original failure was reproduced before correction;
 visible images still must settle before the normal launch lifts.
 
+The rerun crossed October 4 UTC and exposed a second test assumption:
+the roster fallback test accepted only "Sep" for a copy saved three days
+earlier. It now compares the displayed date to the actual seeded cache
+timestamp in the browser's locale. The app correctly reported "Oct 1";
+no production freshness logic changed.
+
 Game Alerts is separate work in Claude's #103. This slice changes neither
 its controls nor subscription behavior. Its service-worker version bump
 must be combined with any newer alert handlers when merging concurrent work.
