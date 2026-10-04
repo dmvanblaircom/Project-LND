@@ -123,10 +123,12 @@ function ok(cond, what) {
   await d.page.goto(base + "/?team=notre-dame#home");
   await d.page.waitForTimeout(800);
   // the copy the worker would have kept, fetched three days ago
-  await d.page.evaluate(function (body) {
+  var savedRosterDate = await d.page.evaluate(function (body) {
     var threeDays = new Date(Date.now() - 3 * 864e5).toUTCString();
     return caches.open("iw-data-test").then(function (cache) {
-      return cache.put(TeamOS.espn.rosterUrl(TEAM_CONFIG), new Response(body, { headers: { "content-type": "application/json", date: threeDays } }));
+      return cache.put(TeamOS.espn.rosterUrl(TEAM_CONFIG), new Response(body, { headers: { "content-type": "application/json", date: threeDays } })).then(function () {
+        return new Date(threeDays).toLocaleString([], { month: "short", day: "numeric" });
+      });
     });
   }, fixture("espn-roster-nd-sep24.json").toString());
   d.st.mode = "fail";
@@ -136,7 +138,8 @@ function ok(cond, what) {
   await d.page.waitForTimeout(1500);
   var sd = await screen(d.page);
   ok(sd.rows > 50, "the last good copy is on screen (" + sd.rows + " rows)");
-  ok(/outdated/i.test(sd.banner) && /3 days|Sep|ago/.test(sd.banner), "and the page says it may be outdated: '" + sd.banner.trim() + "'");
+  ok(/outdated/i.test(sd.banner) && sd.banner.indexOf("Last refreshed " + savedRosterDate) !== -1,
+     "and the page says it may be outdated with the saved date: '" + sd.banner.trim() + "'");
   // the Depth Chart displays the roster only as extra detail, but the copy
   // it shows is still the old one - it warns too
   await d.go("#roster/depth");

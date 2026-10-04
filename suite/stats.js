@@ -31,6 +31,37 @@ Suite.stats = (function () {
 
   var ui = Suite.ui, esc = ui.esc;
   var last = "";
+  var tableObserver = null;
+
+  // Tables become keyboard-scrollable only when they need to scroll. Watch
+  // both boxes: a viewport resize or a late font can change that need.
+  function watchTables(host) {
+    if (tableObserver) { tableObserver.disconnect(); tableObserver = null; }
+    if (!host.querySelectorAll) return;
+    var wraps = host.querySelectorAll(".ss-card .bx-wrap");
+    function update() {
+      Array.prototype.forEach.call(wraps, function (wrap) {
+        var scrolls = wrap.scrollWidth > wrap.clientWidth + 1;
+        var hint = wrap.previousElementSibling;
+        hint.hidden = !scrolls;
+        if (scrolls) {
+          wrap.tabIndex = 0;
+          wrap.setAttribute("role", "region");
+          wrap.setAttribute("aria-labelledby", wrap.closest("section").getAttribute("aria-labelledby"));
+          wrap.setAttribute("aria-describedby", hint.id);
+        } else {
+          ["tabindex", "role", "aria-labelledby", "aria-describedby"].forEach(function (a) { wrap.removeAttribute(a); });
+        }
+      });
+    }
+    update();
+    if (typeof ResizeObserver !== "undefined" && wraps.length) {
+      tableObserver = new ResizeObserver(update);
+      Array.prototype.forEach.call(wraps, function (wrap) {
+        tableObserver.observe(wrap); tableObserver.observe(wrap.querySelector("table"));
+      });
+    }
+  }
 
   // In game week each value is said with its team: the column labels are
   // drawn once per card for the eye and hidden from assistive technology, so
@@ -76,6 +107,7 @@ Suite.stats = (function () {
   function tableHtml(t, team) {
     return '<section class="card gcard ss-card" aria-labelledby="sp-' + esc(t.key) + '">' +
              '<div class="gcard-head"><h2 class="gcard-title" id="sp-' + esc(t.key) + '">' + esc(t.label) + "</h2></div>" +
+             '<p class="ss-scroll-hint" id="sp-scroll-' + esc(t.key) + '" hidden>Scroll for more stats</p>' +
              '<div class="bx-wrap"><table class="bx" aria-label="' + esc(team + " " + t.label) + '">' +
                '<thead><tr><th scope="col">Player</th>' + t.labels.map(function (l) { return '<th scope="col">' + esc(l) + "</th>"; }).join("") + "</tr></thead>" +
                "<tbody>" + t.rows.map(function (r) {
@@ -123,6 +155,7 @@ Suite.stats = (function () {
     if (html === last && host.innerHTML) return;     // a background refresh never resets the scroll
     last = html;
     host.innerHTML = html;
+    watchTables(host);
   }
 
   return { paint: paint };

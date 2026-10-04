@@ -1,4 +1,9 @@
-# Home and Game refinement — October 3, 2026
+# Home and Game refinement - October 3, 2026
+
+**Approved by David and deployed October 3:** PR #100, merge `8378cf3`.
+The live worker and identity passed production verification. The first
+scheduled news refresh then published 60 article-thumbnail URLs per team.
+The approval permits carrying this visual treatment into the following slices.
 
 David assigned the UI order: Home/Game, Stats, navigation/motion, brand/type,
 FPI, photography, Season Outlook full field, notifications, offseason. This
