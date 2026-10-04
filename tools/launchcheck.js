@@ -130,6 +130,8 @@ function fixture(url) {
      "the wordmark is drawn inline, letter by letter, and hidden from assistive technology");
   var t = await liftedAt(a, 8000), done = await complete(a.page);
   ok(t != null && t >= 2600 && t < 4000, "it plays its animation, then lifts (" + t + " ms)");
+  ok(await a.page.evaluate(function () { return getComputedStyle(document.querySelector("#launch .launch-mark")).transform === "none"; }),
+     "the approved exit fades without enlarging the wordmark");
   ok(done.card && done.stories >= 3 && done.loaded, "by then the hero has its game, the news its stories, and every image in view has loaded (" + done.images + ")");
   var boxes = await a.page.evaluate(function () { return window.__boxes; });
   ok(boxes.length > 5 && boxes.every(function (b) { return b === boxes[0]; }), "the wordmark never moves or resizes while it is up (" + boxes.length + " samples)");

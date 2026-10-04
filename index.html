@@ -237,13 +237,12 @@
 <style id="launch-style">
 .launch{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;background:#111D35;
   transition:opacity .35s ease,visibility 0s linear .35s;animation:launch-out 0s linear 7s forwards}
-.launch-mark{display:block;width:min(52vw,15rem);height:auto;overflow:visible;transition:transform .35s ease}
-.launch-l{opacity:0;transform:translateY(14px);animation:launch-l .45s cubic-bezier(.2,.7,.2,1) forwards;
+.launch-mark{display:block;width:min(52vw,15rem);height:auto;overflow:visible}
+.launch-l{opacity:0;transform:translateY(8px);animation:launch-l .45s cubic-bezier(.2,.7,.2,1) forwards;
   animation-delay:calc(var(--launch-t,0ms) + 150ms + var(--i) * 90ms)}
 .launch-rule{display:block;width:min(30vw,8.5rem);height:2px;border-radius:1px;background:#D4B896;transform:scaleX(0);
   animation:launch-rule .6s cubic-bezier(.3,.7,.2,1) forwards;animation-delay:calc(var(--launch-t,0ms) + 850ms)}
 .launch.done{opacity:0;visibility:hidden;pointer-events:none}
-.launch.done .launch-mark{transform:scale(1.04)}
 html[data-choosing] .launch,html[data-launched] .launch{display:none}
 @keyframes launch-l{to{opacity:1;transform:none}}
 @keyframes launch-rule{to{transform:scaleX(1)}}

@@ -17,15 +17,19 @@ actual document without seeding storage. The older seeded reload test is
 retained as a separate check of the lift timing. The visible-image test
 also uses horizontal intersection, as corrected in Stats #104.
 
-## Motion proposal awaiting review
+## Approved motion, applied October 4
 
 A local interactive study uses the real Top 25 renderer and captured
-September data. It proposes a 12px / 180ms swipe with a lighter fade, a
+September data. David approved the proposed motion in chat. It uses a 12px / 180ms swipe with a lighter fade, a
 quieter refresh-ring shadow, 8px launch-letter travel, and no wordmark
-enlargement on exit. These cosmetic changes are not applied by this fix.
+enlargement on exit. The production rules now match that approved study.
 Gesture thresholds, routes, history, launch minimums and reduced-motion
 behavior stay settled. Page titles, sticky roster controls and the bottom
 navigation still need their own visual review.
+
+Stats #104 merged as `b078b8a` after both full release runs passed on
+`80a6cdc`. This slice includes that release and the newer data refreshes.
+Claude's Game Alerts #103 remains separate and untouched.
 
 The study passed both views at 320/375/390/768/1280 for both teams/styles,
 plus standard and system reduced-motion checks. Its refresh/launch
