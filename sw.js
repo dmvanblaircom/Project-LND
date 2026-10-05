@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-04-motion";
+var VERSION = "suite-2026-10-05-brand";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -50,7 +50,9 @@ var SHELL_FILES = [
   "./assets/suite/favicon.svg", "./assets/suite/favicon-32.png", "./assets/suite/favicon-64.png",
   "./assets/suite/apple-touch-180.png",
   // the header's wordmark: part of the shell, so the header draws offline
-  "./assets/suite/suite-wordmark-pearl.svg"
+  "./assets/suite/suite-wordmark-pearl.svg",
+  "./assets/fonts/instrument-sans/instrument-sans.woff2",
+  "./assets/fonts/instrument-sans/instrument-display.woff2"
 ];
 
 // Where the worker records which team it has cached, inside the shell cache.

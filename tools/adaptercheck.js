@@ -837,7 +837,7 @@ ok(osuId.colors.accentText !== osuId.colors.accent, "a team whose accent cannot 
 eq(osuId.fonts.ui.indexOf("Nunito Sans"), 1, "Nunito Sans, Ohio State's recommended public face, leads the UI stack");
 eq(osuId.fonts.display.indexOf("Nunito Sans"), 1, "and the display stack");
 ok(!/Buckeye/i.test(osuId.fonts.ui + osuId.fonts.display), "the Buckeye fonts, not licensed to us, are not named at all");
-ok(/Barlow/.test(osuId.fonts.ui), "with a fallback while the face loads");
+ok(/Instrument Sans/.test(osuId.fonts.ui), "with a fallback while the face loads");
 var css = read("app.css"), faces = css.match(/@font-face\{font-family:'Nunito Sans';[^}]*\}/g) || [];
 ok(faces.length === 4 && faces.every(function (f) {
   var u = (f.match(/url\(([^)]+)\)/) || [])[1];

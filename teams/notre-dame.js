@@ -162,10 +162,10 @@ var TEAM_CONFIG = {
     },
 
     // ui carries body copy, display the condensed athletic voice - the
-    // Suite's own Barlow family. Editorial type is the Suite's, not a team's.
+    // Suite's own Instrument Sans family. Editorial type is the Suite's, not a team's.
     fonts: {
-      ui:       "'Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'Barlow Condensed',sans-serif"
+      ui:       "'Instrument Sans',system-ui,-apple-system,sans-serif",
+      display:  "'Instrument Display',sans-serif"
     },
   },
 
