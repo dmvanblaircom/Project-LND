@@ -3,20 +3,20 @@
  "team": "notre-dame",
  "capability": "availability",
  "tier": "official",
- "game": "at North Carolina",
- "sourceUrl": "https://fightingirish.com/documents/c0401295-5324-4947-9669-dd85eef35a57.pdf",
+ "game": "Stanford",
+ "sourceUrl": "https://fightingirish.com/documents/6e67ed80-8303-4120-be73-859652ce1a17.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/01/wmoRIakcIhSYXAZoXiD2NluaH8tbc0yQDFOHUEyQ.pdf",
- "fetchedAt": "2026-10-01T21:07:43.344883+00:00",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/05/o7ivmrFxMoPWjqiKc10ZrJpR3Skt3nffwhCFWWib.pdf",
+ "fetchedAt": "2026-10-05T17:38:03.127846+00:00",
  "reported": true,
- "effectiveAt": "2026-10-01",
- "heading": "AVAILABILITY UPDATE (OCT. 1)",
+ "effectiveAt": "2026-10-05",
+ "heading": "AVAILABILITY UPDATE (OCT. 5)",
  "players": [
   {
    "no": "",
    "pos": "OL",
    "name": "Matty Augustine",
-   "status": "out-game",
+   "status": "questionable",
    "detail": "Right Foot"
   },
   {
@@ -67,13 +67,6 @@
    "name": "Chris Terek",
    "status": "out-game",
    "detail": "Right Knee"
-  },
-  {
-   "no": "",
-   "pos": "WR",
-   "name": "Quincy Porter",
-   "status": "out-season",
-   "detail": "Left Knee"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-10-01T21:07:43.344883+00:00",
+ "updated": "2026-10-05T17:38:03.127846+00:00",
  "reports": [
   {
    "schema": 1,
@@ -416,6 +416,78 @@
      "name": "Quincy Porter",
      "status": "out-season",
      "detail": "Left Knee"
+    }
+   ]
+  },
+  {
+   "schema": 1,
+   "team": "notre-dame",
+   "capability": "availability",
+   "tier": "official",
+   "game": "Stanford",
+   "sourceUrl": "https://fightingirish.com/documents/6e67ed80-8303-4120-be73-859652ce1a17.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/05/o7ivmrFxMoPWjqiKc10ZrJpR3Skt3nffwhCFWWib.pdf",
+   "fetchedAt": "2026-10-05T17:38:03.127846+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-05",
+   "heading": "AVAILABILITY UPDATE (OCT. 5)",
+   "players": [
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Matty Augustine",
+     "status": "questionable",
+     "detail": "Right Foot"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Christopher Burgess Jr.",
+     "status": "out-game",
+     "detail": "Left Tibia"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Tiki Hola",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Charles Jagusah",
+     "status": "out-game",
+     "detail": "Left Humerus"
+    },
+    {
+     "no": "",
+     "pos": "S",
+     "name": "Brauntae Johnson",
+     "status": "out-game",
+     "detail": "Left Foot"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Jason Onye",
+     "status": "out-game",
+     "detail": "Left Ankle"
+    },
+    {
+     "no": "",
+     "pos": "DB",
+     "name": "Chaz Smith",
+     "status": "out-game",
+     "detail": "Right Wrist"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Chris Terek",
+     "status": "out-game",
+     "detail": "Right Knee"
     }
    ]
   }
