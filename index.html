@@ -111,6 +111,33 @@
   // set to replay is Suite's own, kept under a key no team id can take.
   var suiteStyle = get("suite-style") === "suite";
   try { saved = choosing ? null : JSON.parse(get(suiteStyle ? "iw-boot:suite" : BOOT_KEY + id) || "null"); } catch(e){}
+  // Suite Style is known before any team config loads. These tokens mirror
+  // Suite.ui.STYLE; bootcheck verifies every value. This also upgrades old
+  // saved cobalt/Barlow settings without flashing the retired appearance.
+  var suiteBoot = {
+    "--t-accent": "#111D35",
+    "--t-accent-text": "#D4B896",
+    "--t-accent-on-light": "#111D35",
+    "--t-accent-ink": "#F1F2F0",
+    "--t-accent-soft": "#B6BEC7",
+    "--t-accent-tint": "#D9DEE3",
+    "--t-accent-tint-soft": "#EDF0F2",
+    "--t-focus": "#D4B896",
+    "--t-surface": "#111D35",
+    "--t-deep": "#101A2D",
+    "--t-abyss": "#0B1322",
+    "--t-raise": "#223047",
+    "--t-accent-rgb": "17,29,53",
+    "--t-surface-rgb": "17,29,53",
+    "--t-deep-rgb": "16,26,45",
+    "--t-abyss-rgb": "11,19,34",
+    "--t-raise-rgb": "34,48,71",
+    "--t-font-ui": "'Instrument Sans',system-ui,-apple-system,sans-serif",
+    "--t-font-display": "'Instrument Display',sans-serif",
+    "themeColor": "#101A2D"
+  };
+  if (suiteStyle && !choosing) saved = Object.assign({}, saved || {}, suiteBoot);
+  document.documentElement.setAttribute("data-style", suiteStyle ? "suite" : "team");
   // The browser chrome, decided once at the end. iOS takes theme-color at
   // first paint and keeps it, so it must never be left pointing at one
   // team's colour when this page is some other team
@@ -118,7 +145,7 @@
   // stored, then the header colour we actually applied, then the neutral; on
   // the chooser, the Suite's own header. A value that is not a plain hex
   // colour is not used at all.
-  var hex = /^#[0-9a-f]{6}$/i, chrome = choosing ? "#0B1F3A" : "#0C0F13";   // --s-chrome / --t-deep, the neutral
+  var hex = /^#[0-9a-f]{6}$/i, chrome = choosing ? "#111D35" : "#0C0F13";   // --s-chrome / --t-deep, the neutral
 
   if (saved && typeof saved === "object") {
     // Values come from this page's own storage, but they are read as data:
@@ -129,6 +156,9 @@
       v = saved[k];
       if (!/^--[a-z-]+$/.test(k) || typeof v !== "string") continue;
       if (/[;{}<>\\]|url\(/i.test(v)) continue;
+      // Existing installs may have stored the retired font stacks.
+      if (k === "--t-font-ui") v = v.replace(/'Barlow'/g, "'Instrument Sans'");
+      if (k === "--t-font-display") v = v.replace(/'Barlow Condensed'/g, "'Instrument Display'");
       root.setProperty(k, v);
       if (k === "--t-deep" && hex.test(v)) chrome = v;
     }
@@ -178,7 +208,7 @@
     if (forgetTeam) forget(TEAM_KEY);
     document.documentElement.setAttribute("data-team", "");
     document.documentElement.setAttribute("data-choosing", "");
-    if (meta) meta.setAttribute("content", "#0B1F3A");   // --s-chrome, the chooser's header
+    if (meta) meta.setAttribute("content", "#111D35");   // --s-chrome, the chooser's header
     inject("chooser.js");
   }
 

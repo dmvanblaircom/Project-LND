@@ -158,29 +158,27 @@ Suite.ui = (function () {
      for every team, when the fan chooses it over Team Style. The same colour
      roles a team supplies, so TeamOS.identity checks it exactly as it checks
      a team (tools/suitecheck.js), and app.js applies it the same way.
-     PROVISIONAL, from Product's direction (2026-09-24) while Design sets the
-     final tokens: blue-led - ink for the foundation (the surfaces), cobalt
-     for actions (fills, selected states, links and chevrons on light), and
-     champagne used sparingly, only as accent text on the ink header. */
+     Approved Ink actions and Pearl pages; Champagne and Bronze are small
+     accents. Instrument Sans is the UI face, Georgia stays editorial. */
   var STYLE = {
     programLabel: "SUITE",
     colors: {
-      accent:         "#2F5BEA",   // cobalt: buttons, selected tabs, the nav rule; white on it 5.5:1
-      accentText:     "#E4CF9E",   // champagne, the one warm note: small labels on ink
-      accentOnLight:  "#2A52D6",   // cobalt as text/icons on white 6.4:1, ivory 5.8:1
-      accentInk:      "#FFFFFF",
-      accentSoft:     "#6F8FF0",
-      accentTint:     "#C9D6FB",
-      accentTintSoft: "#E9EEFD",   // the fan's team, highlighted on light
-      focus:          "#9DB4FF",
-      surface:        "#0F1C33",   // ink
-      surfaceDeep:    "#0A1426",
-      surfaceAbyss:   "#060D1A",
-      surfaceRaise:   "#1A2B4A"
+      accent:         "#111D35",
+      accentText:     "#D4B896",
+      accentOnLight:  "#111D35",
+      accentInk:      "#F1F2F0",
+      accentSoft:     "#B6BEC7",
+      accentTint:     "#D9DEE3",
+      accentTintSoft: "#EDF0F2",
+      focus:          "#D4B896",
+      surface:        "#111D35",
+      surfaceDeep:    "#101A2D",
+      surfaceAbyss:   "#0B1322",
+      surfaceRaise:   "#223047"
     },
     fonts: {
-      ui:      "'Barlow',system-ui,-apple-system,sans-serif",
-      display: "'Barlow Condensed',sans-serif"
+      ui:      "'Instrument Sans',system-ui,-apple-system,sans-serif",
+      display: "'Instrument Display',sans-serif"
     }
   };
 

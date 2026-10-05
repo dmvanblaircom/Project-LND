@@ -47,7 +47,7 @@ function fixture(url) {
     await page.route("**/*", function (route) {
       var u = route.request().url();
       if (u.startsWith(base)) return route.continue();
-      if (/fonts\.(googleapis|gstatic)\.com/.test(u)) return route.abort();   // Barlow: not what this checks
+      if (/fonts\.(googleapis|gstatic)\.com/.test(u)) return route.abort();   // Every current face is self-hosted.
       var body = fixture(u);
       if (body) return route.fulfill({ status: 200, contentType: "application/json", body: body });
       return route.abort();
@@ -81,9 +81,14 @@ function fixture(url) {
   console.log("everyone else never downloads it");
   var n = await open("/?team=notre-dame#home");
   ok(n.fonts.length === 0, "Notre Dame: no Nunito Sans request");
+  ok((await family(n.page, "body")).includes("Instrument Sans"), "Notre Dame uses Instrument Sans");
+  ok((await family(n.page, ".hh-nick")).includes("Instrument Display"), "display uses the native condensed instance");
+  ok((await family(n.page, ".sec-title")).startsWith("Georgia"), "News keeps Georgia");
+  ok(await n.page.evaluate(function () { return document.fonts.check('700 16px "Instrument Sans"') && document.fonts.check('700 16px "Instrument Display"'); }), "both local Instrument faces really loaded");
   await n.ctx.close();
   var s = await open("/?team=ohio-state#home", { suiteStyle: true });
   ok(s.fonts.length === 0, "Ohio State in Suite Style: none either (Suite's own type)");
+  ok((await family(s.page, "body")).includes("Instrument Sans"), "Suite Style uses Instrument on Ohio State too");
   await s.ctx.close();
   var c = await open("/?choose=1");
   await c.page.waitForTimeout(500);

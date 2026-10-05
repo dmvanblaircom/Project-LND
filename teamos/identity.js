@@ -53,7 +53,7 @@ TeamOS.identity = (function () {
   // checked against. They are the Suite's, not a team's: they mirror
   // --s-surface and --s-page in app.css, and adaptercheck asserts the two
   // stay equal.
-  var LIGHT = { surface: "#FFFFFF", page: "#F6F4EF" };
+  var LIGHT = { surface: "#FFFFFF", page: "#F1F2F0" };
 
   // Colour tokens every team supplies. Each is a role the stylesheet asks
   // for by name; none of them is a Notre Dame or an Ohio State value.

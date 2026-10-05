@@ -98,8 +98,8 @@ var TEAM_CONFIG = {
     // app.css. One face for text and headings, as Ohio State sets both in
     // one family; David approved, 2026-10-01.
     fonts: {
-      ui:       "'Nunito Sans','Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'Nunito Sans','Barlow Condensed',sans-serif"
+      ui:       "'Nunito Sans','Instrument Sans',system-ui,-apple-system,sans-serif",
+      display:  "'Nunito Sans','Instrument Display',sans-serif"
     }
   },
 

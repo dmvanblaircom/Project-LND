@@ -151,7 +151,7 @@ ok(gone.attrs["data-choosing"] === "", "the page is in the chooser's state");
 ok(gone.injected.indexOf("chooser.js") !== -1 && gone.injected.indexOf("app.js") === -1,
    "the chooser loads, and no team app does");
 ok(!("iw-team" in gone.store), "and the bad id is not left stored to fail again tomorrow");
-eq(gone.meta["theme-color"], "#0B1F3A", "the browser chrome is the chooser's header, not a team's");
+eq(gone.meta["theme-color"], "#111D35", "the browser chrome is the chooser's header, not a team's");
 eq(gone.injected.filter(function (s) { return /^teams\/[a-z-]+\.js$/.test(s); }),
    ["teams/alabama.js", "teams/index.js"], "no other team's config is fetched");
 var mine = run({ search: "?team=alabama", storage: { "iw-team": "ohio-state" }, missing: ["teams/alabama.js"] });
@@ -207,6 +207,20 @@ eq(legacyTitle.title, "Suite",
    "a title stored before decision 0024, naming a team product, is not replayed");
 
 console.log(" one team is never painted in another's colours");
+var oldFonts = run({ search: "?team=notre-dame", storage: saved("notre-dame", {
+  "--t-font-ui": "'Barlow',system-ui", "--t-font-display": "'Barlow Condensed',sans-serif"
+}) });
+eq(oldFonts.applied["--t-font-ui"], "'Instrument Sans',system-ui", "stored UI type upgrades before first paint");
+eq(oldFonts.applied["--t-font-display"], "'Instrument Display',sans-serif", "stored display type upgrades too");
+var styleContext = vm.createContext({ document: { addEventListener: function () {} } });
+vm.runInContext(read("suite/ui.js"), styleContext);
+var styleModel = styleContext.Suite.ui.STYLE;
+var suiteWarm = run({ search: "?team=ohio-state", storage: { "suite-style": "suite", "iw-boot:suite": JSON.stringify({ "--t-accent": "#2F5BEA", themeColor: "#0A1426" }) } });
+var styleKeys = { accent:"accent", "accent-text":"accentText", "accent-on-light":"accentOnLight", "accent-ink":"accentInk", "accent-soft":"accentSoft", "accent-tint":"accentTint", "accent-tint-soft":"accentTintSoft", focus:"focus", surface:"surface", deep:"surfaceDeep", abyss:"surfaceAbyss", raise:"surfaceRaise" };
+Object.keys(styleKeys).forEach(function (k) { eq(suiteWarm.applied["--t-"+k], styleModel.colors[styleKeys[k]], "Suite first-paint " + k + " matches its live identity"); });
+eq(suiteWarm.applied["--t-font-ui"], styleModel.fonts.ui, "Suite first-paint UI font matches");
+eq(suiteWarm.applied["--t-font-display"], styleModel.fonts.display, "Suite first-paint display font matches");
+eq(suiteWarm.meta["theme-color"], styleModel.colors.surfaceDeep, "Suite's browser chrome upgrades on first paint");
 // The whole reason the set is keyed by team. Ohio State's colours are on this
 // browser; the page being opened is Notre Dame's.
 var cross = run({ search: "?team=notre-dame", storage: saved("ohio-state", OSU) });
@@ -231,7 +245,7 @@ eq(nasty.meta["theme-color"], "#0C0F13",
 var surfOnly = run({ search: "?team=ohio-state", storage: saved("ohio-state",
   { "--t-deep": "#0B1115", themeColor: "not-a-colour" }) });
 eq(surfOnly.meta["theme-color"], "#0B1115", "it falls back to the header colour actually applied");
-eq(run({}).meta["theme-color"], "#0B1F3A", "the chooser's chrome is the Suite's own header, not a team's");
+eq(run({}).meta["theme-color"], "#111D35", "the chooser's chrome is the Suite's own header, not a team's");
 eq(run({ storage: { "iw-boot-notre-dame": "{not json" } }).applied, {}, "unparseable storage is ignored, not thrown on");
 eq(run({ storage: { "iw-boot-notre-dame": "\"a string\"" } }).applied, {}, "and so is storage of the wrong type");
 
