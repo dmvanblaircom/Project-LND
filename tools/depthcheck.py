@@ -144,6 +144,28 @@ ok(sorted(p["name"] for p in av["players"]) ==
    sorted(p["name"] for p in old["availability"]["out"] + old["availability"]["questionable"]),
    "the same nine out and one questionable the previous parser found")
 
+print("availability: hand-typed dashes (Oct. 5: Moore and Viliamu-Asa were missed)")
+both = fixture("fi-notes-2026-dashes.txt").split("== SEPT10")
+oct5 = twodeep.parse_availability(both[0], "2026")
+eq([(p["pos"], p["name"], p["detail"]) for p in oct5["players"] if p["status"] == "questionable"],
+   [("OL", "Matty Augustine", "Right Foot"), ("CB", "Leonard Moore", "Concussion"),
+    ("LB", "Kyngstonn Viliamu-Asa", "Left Thumb")],
+   "all three questionable: an en dash, 'Moore- ', and 'LB- ... Viliamu-Asa- ' (a hyphenated name stays whole)")
+eq(len([p for p in oct5["players"] if p["status"] == "out-game"]), 7, "and the seven out for the game")
+eq(oct5["unread"], ["• Only new additions to the Out for the Season category will be listed on the availability update."],
+   "the only bullet not read as a player is the policy note")
+sept10 = twodeep.parse_availability(both[1], "2026")
+onye = next((p for p in sept10["players"] if p["name"] == "Jason Onye"), None)
+eq(onye and (onye["no"], onye["pos"], onye["detail"]), ("47", "DL", "Left Ankle"),
+   "an unspaced 'Onye-Left Ankle' splits at the hyphen before the ailment")
+eq(len(sept10["players"]), 11, "every player on the Sept. 10 report, none lost")
+eq(sept10["unread"], [], "nothing unread")
+bad = twodeep.parse_availability("AVAILABILITY UPDATE (OCT. 5)\nQuestionable\n• OL Matty Augustine Right Foot\n", "2026")
+eq((bad["players"], bad["unread"]), ([], ["• OL Matty Augustine Right Foot"]),
+   "a player line the reading cannot split is reported as unread, never dropped in silence")
+ok(isinstance(twodeep.AVAILABILITY_PARSER, int) and twodeep.AVAILABILITY_PARSER >= 2,
+   "the reading carries a version, so a fix re-reads reports an older reading recorded")
+
 print("absence is not health")
 none = twodeep.parse_availability("AVAILABILITY UPDATES\n• Notre Dame will provide a report.\n", "2026")
 eq((none["reported"], none["players"]), (False, []), "policy prose alone is NO report - unknown, not 'nobody hurt'")

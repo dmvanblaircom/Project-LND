@@ -7,7 +7,8 @@
  "sourceUrl": "https://fightingirish.com/documents/6e67ed80-8303-4120-be73-859652ce1a17.pdf",
  "sourceLabel": "FightingIrish.com",
  "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/05/o7ivmrFxMoPWjqiKc10ZrJpR3Skt3nffwhCFWWib.pdf",
- "fetchedAt": "2026-10-05T17:38:03.127846+00:00",
+ "parser": 2,
+ "fetchedAt": "2026-10-07T20:33:51.316940+00:00",
  "reported": true,
  "effectiveAt": "2026-10-05",
  "heading": "AVAILABILITY UPDATE (OCT. 5)",
@@ -18,6 +19,20 @@
    "name": "Matty Augustine",
    "status": "questionable",
    "detail": "Right Foot"
+  },
+  {
+   "no": "",
+   "pos": "CB",
+   "name": "Leonard Moore",
+   "status": "questionable",
+   "detail": "Concussion"
+  },
+  {
+   "no": "",
+   "pos": "LB",
+   "name": "Kyngstonn Viliamu-Asa",
+   "status": "questionable",
+   "detail": "Left Thumb"
   },
   {
    "no": "",

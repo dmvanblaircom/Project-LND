@@ -186,7 +186,11 @@ def main():
     old_av = load(AV, None) if AV else None
     old_ahist = load(AHIST, {"reports": []}) if AHIST else {"reports": []}
     known_charts = {s.get("sourceUrl"): s for s in old_dhist.get("snapshots", []) if s.get("schema") == 2}
-    known_reports = {r.get("pdf"): r for r in old_ahist.get("reports", []) if r.get("schema") == 1}
+    # Reused only if read by the current parser: a fix to the reading
+    # re-reads the season's notes once, so a player an older reading missed
+    # is not missing for good.
+    known_reports = {r.get("pdf"): r for r in old_ahist.get("reports", [])
+                     if r.get("schema") == 1 and r.get("parser") == twodeep.AVAILABILITY_PARSER}
     # What was recorded for each game, for when this run cannot read it again.
     recorded = {r.get("game"): r for r in old_ahist.get("reports", []) if r.get("schema") == 1 and r.get("game")}
 
@@ -233,9 +237,12 @@ def main():
             if report is None:                           # a new or replaced document
                 log("  reading game notes:", url.rsplit("/", 1)[-1])
                 parsed = twodeep.parse_availability(pdf_text(url), args.season)
+                for line in parsed.pop("unread", []):
+                    if not line.lower().lstrip("•* ").startswith("only new additions"):
+                        print("::warning::%s availability: a line not read as a player: %s" % (row["game"], line[:120]))
                 report = dict({"schema": 1, "team": args.team, "capability": "availability", "tier": "official",
                                "game": row["game"], "sourceUrl": row["notes"], "sourceLabel": av_label,
-                               "pdf": url, "fetchedAt": now}, **parsed)
+                               "pdf": url, "parser": twodeep.AVAILABILITY_PARSER, "fetchedAt": now}, **parsed)
             reports.append(report)
         except Exception as e:                           # noqa: BLE001
             # A failed fetch is not a missing report. Keep what was recorded

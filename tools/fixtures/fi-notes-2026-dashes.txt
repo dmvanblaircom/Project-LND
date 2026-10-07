@@ -1,0 +1,53 @@
+# Excerpts of Notre Dame's official game notes, as extracted by pypdf: the dated availability
+# reports for Game 6 vs Stanford (Oct. 5) and Game 2 vs Rice (Sept. 10), each with the depth
+# rows that follow it. The dashes are typed by hand and drift: "Moore- Concussion",
+# "LB- Kyngstonn Viliamu-Asa- Left Thumb", "Jason Onye-Left Ankle" (2026-10-07, David: the
+# app missed Moore and Viliamu-Asa on Oct. 5).
+# Sources: https://storage.googleapis.com/fightingirish-com/2026/10/05/o7ivmrFxMoPWjqiKc10ZrJpR3Skt3nffwhCFWWib.pdf
+#          https://storage.googleapis.com/fightingirish-com/2026/09/11/O7XRHX699n9zzBw0F2L2POnPGmlpQ4goiwcgb5BX.pdf
+== OCT5
+2026 FOOTBALL GAME NOTES
+Game 6 | vs Stanford |   4
+DEPTH CHART - GAME 6
+AVAILABILITY UPDATE (OCT. 5)
+Questionable
+• OL Matty Augustine – Right Foot
+• CB Leonard Moore- Concussion
+• LB- Kyngstonn Viliamu-Asa- Left Thumb
+Out for the Game
+• DL Christopher Burgess Jr. – Left Tibia
+• DL Tiki Hola – Right Knee
+• OL Charles Jagusah – Left Humerus
+• S Brauntae Johnson – Left Foot
+• DL Jason Onye – Left Ankle
+• DB Chaz Smith – Right Wrist
+• OL Chris Terek – Right Knee
+Out for the Season
+• Only new additions to the Out for the Season category will be listed on the availability update.  
+NOTRE DAME OFFENSE
+Pos. No. Name Ht. Wt. Class
+WR 6 Jordan Faison 5-11 185 Sr.
+33 Matt Jeffery 5-11 195 Jr.
+5 Cam Williams 6-2 201 Jr.
+== SEPT10
+Game 2   |   vs. Rice  |   4
+DEPTH CHART - GAME 2
+AVAILABILITY UPDATE (SEPT. 10)
+Questionable
+• No. 27 LB Kyngstonn Viliamu-Asa- Left Knee
+Out for the Game
+• No. 58 OL Matty Augustine – Right Foot 
+• No. 6 DL Christopher Burgess Jr. – Left Tibia
+• No. 55 DL Tiki Hola – Right Knee
+• No. 56 OL Charles Jagusah – Left Humerus
+• No. 9 S Brauntae Johnson- Left Foot
+• No. 16 LB Ko’ o Kia – Left Shoulder
+• No. 47 DL Jason Onye-Left Ankle
+• No. 0 WR Quincy Porter – Left Knee
+• No. 26 DB Chaz Smith – Right Wrist
+• No. 55 OL Chris Terek – Right Knee
+    Pronunciation guide on pg. 7.
+NOTRE DAME OFFENSE
+Pos. No. Name Ht. Wt. Class
+WR 6 Jordan Faison 5-11 185 Sr.
+33 Matt Jeffery 5-11 195 Jr.

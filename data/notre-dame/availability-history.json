@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-10-05T17:38:03.127846+00:00",
+ "updated": "2026-10-07T20:33:51.316940+00:00",
  "reports": [
   {
    "schema": 1,
@@ -12,11 +12,19 @@
    "sourceUrl": "https://fightingirish.com/documents/7eb88fcd-ad56-4b31-8972-35f9c371fef5.pdf",
    "sourceLabel": "FightingIrish.com",
    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/04/3i4LwKW4b6HpjocmfhKpj1TM2oC6YbX3qu8mXEw6.pdf",
-   "fetchedAt": "2026-09-23T17:56:32.985815+00:00",
+   "parser": 2,
+   "fetchedAt": "2026-10-07T20:33:51.316940+00:00",
    "reported": true,
-   "effectiveAt": null,
-   "heading": null,
+   "effectiveAt": "2026-09-04",
+   "heading": "AVAILABILITY UPDATE (SEPT. 4)",
    "players": [
+    {
+     "no": "27",
+     "pos": "LB",
+     "name": "Kyngstonn Viliamu-Asa",
+     "status": "questionable",
+     "detail": "Left Knee"
+    },
     {
      "no": "58",
      "pos": "OL",
@@ -72,13 +80,6 @@
      "name": "Chris Terek",
      "status": "out-game",
      "detail": "Right Knee"
-    },
-    {
-     "no": "27",
-     "pos": "LB",
-     "name": "Kyngstonn Viliamu-Asa",
-     "status": "questionable",
-     "detail": "Left Knee"
     }
    ]
   },
@@ -91,11 +92,19 @@
    "sourceUrl": "https://fightingirish.com/documents/9fb6798f-0c21-40d2-991d-883283bb7173.pdf",
    "sourceLabel": "FightingIrish.com",
    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/11/O7XRHX699n9zzBw0F2L2POnPGmlpQ4goiwcgb5BX.pdf",
-   "fetchedAt": "2026-09-23T17:56:39.043452+00:00",
+   "parser": 2,
+   "fetchedAt": "2026-10-07T20:33:51.316940+00:00",
    "reported": true,
-   "effectiveAt": null,
-   "heading": null,
+   "effectiveAt": "2026-09-10",
+   "heading": "AVAILABILITY UPDATE (SEPT. 10)",
    "players": [
+    {
+     "no": "27",
+     "pos": "LB",
+     "name": "Kyngstonn Viliamu-Asa",
+     "status": "questionable",
+     "detail": "Left Knee"
+    },
     {
      "no": "58",
      "pos": "OL",
@@ -165,13 +174,6 @@
      "name": "Chris Terek",
      "status": "out-game",
      "detail": "Right Knee"
-    },
-    {
-     "no": "27",
-     "pos": "LB",
-     "name": "Kyngstonn Viliamu-Asa",
-     "status": "questionable",
-     "detail": "Left Knee"
     }
    ]
   },
@@ -184,10 +186,11 @@
    "sourceUrl": "https://fightingirish.com/documents/0b15d41e-8f8e-4fe6-a7d1-36691fe572db.pdf",
    "sourceLabel": "FightingIrish.com",
    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/15/E5oQ09nVRL3tMvxmnCvyLR1ndB7qA0zrXtuogGLI.pdf",
-   "fetchedAt": "2026-09-23T17:56:44.370114+00:00",
+   "parser": 2,
+   "fetchedAt": "2026-10-07T20:33:51.316940+00:00",
    "reported": true,
-   "effectiveAt": null,
-   "heading": null,
+   "effectiveAt": "2026-09-14",
+   "heading": "AVAILABILITY UPDATE (SEPT. 14)",
    "players": [
     {
      "no": "58",
@@ -263,7 +266,8 @@
    "sourceUrl": "https://fightingirish.com/documents/20023b01-f9bc-42a8-822a-335e23c2721f.pdf",
    "sourceLabel": "FightingIrish.com",
    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/09/24/nXXGEi4lT58VE7wB2tPLV2Wpxh0vQwuGVOH46U7X.pdf",
-   "fetchedAt": "2026-09-24T18:37:13.853767+00:00",
+   "parser": 2,
+   "fetchedAt": "2026-10-07T20:33:51.316940+00:00",
    "reported": true,
    "effectiveAt": "2026-09-24",
    "heading": "AVAILABILITY UPDATE (SEPT. 24)",
@@ -349,7 +353,8 @@
    "sourceUrl": "https://fightingirish.com/documents/c0401295-5324-4947-9669-dd85eef35a57.pdf",
    "sourceLabel": "FightingIrish.com",
    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/01/wmoRIakcIhSYXAZoXiD2NluaH8tbc0yQDFOHUEyQ.pdf",
-   "fetchedAt": "2026-10-01T21:07:43.344883+00:00",
+   "parser": 2,
+   "fetchedAt": "2026-10-07T20:33:51.316940+00:00",
    "reported": true,
    "effectiveAt": "2026-10-01",
    "heading": "AVAILABILITY UPDATE (OCT. 1)",
@@ -428,7 +433,8 @@
    "sourceUrl": "https://fightingirish.com/documents/6e67ed80-8303-4120-be73-859652ce1a17.pdf",
    "sourceLabel": "FightingIrish.com",
    "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/05/o7ivmrFxMoPWjqiKc10ZrJpR3Skt3nffwhCFWWib.pdf",
-   "fetchedAt": "2026-10-05T17:38:03.127846+00:00",
+   "parser": 2,
+   "fetchedAt": "2026-10-07T20:33:51.316940+00:00",
    "reported": true,
    "effectiveAt": "2026-10-05",
    "heading": "AVAILABILITY UPDATE (OCT. 5)",
@@ -439,6 +445,20 @@
      "name": "Matty Augustine",
      "status": "questionable",
      "detail": "Right Foot"
+    },
+    {
+     "no": "",
+     "pos": "CB",
+     "name": "Leonard Moore",
+     "status": "questionable",
+     "detail": "Concussion"
+    },
+    {
+     "no": "",
+     "pos": "LB",
+     "name": "Kyngstonn Viliamu-Asa",
+     "status": "questionable",
+     "detail": "Left Thumb"
     },
     {
      "no": "",
