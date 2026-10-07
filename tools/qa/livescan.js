@@ -98,7 +98,26 @@ var truth = ndEv ? {
       var s = [].filter.call(document.querySelectorAll("[id^='screen']:not(#screenHead)"), function (x) { return !x.hidden; })[0];
       var ids = {}, dup = [];
       [].forEach.call(document.querySelectorAll("[id]"), function (e) { if (ids[e.id]) dup.push(e.id); ids[e.id] = 1; });
-      return { hash: location.hash, text: s ? s.innerText : "", overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+      // Text cut off or spilling out of its box (David, 2026-10-07:
+      // "MARYL..." and "HOURSMINUTES" on Ohio State's Game hero), measured
+      // as drawn: the text's own laid-out box against its element's.
+      var cut = [], spill = [];
+      if (s) [].forEach.call(s.querySelectorAll("*"), function (e) {
+        if (!e.offsetWidth || e.children.length || !e.textContent.trim()) return;
+        // the hero's watermark is meant to bleed; a logo's initials stand
+        // in only when the logo cannot load (the sandbox blocks them)
+        if (e.closest(".art, .mark, .sr-only") || /initials/.test(e.className)) return;
+        var cs = getComputedStyle(e), r = document.createRange(); r.selectNodeContents(e);
+        var t = r.getBoundingClientRect(), b = e.getBoundingClientRect();
+        var what = (e.className || e.tagName) + ': "' + e.textContent.trim().slice(0, 40) + '"';
+        if (t.width > b.width + 1 && cs.textOverflow === "ellipsis" && cs.overflow !== "visible") { cut.push(what); return; }
+        // drawn past the box that holds it: the element's own, or for a
+        // shrink-to-fit label, its parent's ("HOURSMINUTES")
+        var p = e.parentElement && e.parentElement.getBoundingClientRect();
+        if ((t.width > b.width + 1 && cs.overflow === "visible") ||
+            (p && p.width && (t.left < p.left - 1 || t.right > p.right + 1))) spill.push(what);
+      });
+      return { hash: location.hash, text: s ? s.innerText : "", cut: cut.slice(0, 5), spill: spill.slice(0, 5), overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
                dup: dup, ball: [].map.call(document.querySelectorAll(".gh-ball, .gc-ball"), function (b) { return b.closest(".us") ? "us" : b.closest(".them") ? "them" : "?"; }),
                drive: (document.querySelector(".gcard-drive .gcard-title") || {}).textContent || null,
                driveColor: (document.querySelector(".gcard-drive .f-wrap") || { getAttribute: function () { return null; } }).getAttribute("style") };
@@ -109,6 +128,9 @@ var truth = ndEv ? {
     var bad = /\bundefined\b|\bNaN\b|\bnull\b|\[object/.exec(r.text);
     if (bad) find("error", name + " @" + width, "visible text contains '" + bad[0] + "': …" + r.text.slice(Math.max(0, bad.index - 60), bad.index + 40).replace(/\s+/g, " ") + "…");
     if (r.overflow) find("warn", name + " @" + width, "horizontal overflow");
+    // A team or player name is never cut (ui.fitNames); a detail line may be.
+    r.cut.forEach(function (c) { find(/name|opp|team|gh-|gc-/.test(c.split(":")[0]) ? "error" : "warn", name + " @" + width, "text cut off with an ellipsis - " + c); });
+    r.spill.forEach(function (c) { find("error", name + " @" + width, "text spills out of its box - " + c); });
     if (r.dup.length) find("warn", name + " @" + width, "duplicate ids: " + r.dup.join(", "));
     screens.push(Object.assign({ name: name, width: width }, r, { text: r.text.replace(/\s+/g, " ").slice(0, 400) }));
     return r;
