@@ -1284,8 +1284,8 @@ ok(/refreshSchedule\(false\);[\s\S]{0,300}paintGame\(\)/.test(appLive),
    "the same tick drives the Game screen, after the schedule it reads");
 ok(!/S\.tick|tickOnce/.test(appLive),
    "no countdown timer of its own: Home shows the kickoff, never a ticking countdown (suite/home.js)");
-ok(/S\.next\.state==="pre"[\s\S]{0,140}refreshSchedule\(false\)/.test(appLive),
-   "and a session opened before kickoff goes looking once kickoff passes");
+ok(/next\.state!=="pre"[\s\S]{0,400}?\n\}/.test(appLive) && /lateKickoffDue\(S\.next[\s\S]{0,120}refreshSchedule\(false\)/.test(appLive),
+   "and a session opened before kickoff goes looking once kickoff passes (backing off: tools/pollcheck.js)");
 
 console.log("teamos/espn.js: a 0 is a 0");
 var espnSrc = read("teamos/espn.js");
@@ -1515,6 +1515,65 @@ var twoFouls = shownFor(/PENALTY OhioSt Pass Interference \(#6 D.Sanchez\) Illin
 eq([twoFouls.text, twoFouls.tags, twoFouls.notes], ["K. Houser pass incomplete short left to C. Dixon", ["No play", "1st down"],
    ["Penalty on OSU: pass interference", "Penalty on ILL: unsportsmanlike conduct"]],
    "each foul its own line; the yardage, whose the feed does not say, is given to neither (Illinois-Ohio State 2026)");
+
+console.log("a null where ESPN's list should have an entry (W10; bug hunt 2026-10-02)");
+// Every list shape in real payloads, with one entry nulled - the first and
+// the last of each list, every list - through each adapter: a feed glitch
+// costs that entry, never the screen. Before the fix, 25 distinct throws.
+(function () {
+  var team = TeamOS.createTeam(TEAM_CONFIG.team);
+  var cases = [
+    ["schedule", "espn-schedule-nd-2026-reg.json", function (d) { return TeamOS.espn.schedule(d, team, TEAM_CONFIG); }],
+    ["scoreboard", "espn-scoreboard-sep26.json", function (d) { return TeamOS.espn.scoreboard(d, TEAM_CONFIG); }],
+    ["rankings", "espn-rankings-sep20.json", function (d) { return TeamOS.espn.rankings(d, TEAM_CONFIG); }],
+    ["roster", "espn-roster-nd-sep24.json", function (d) { return TeamOS.espn.roster(d); }],
+    ["news", "espn-news-nd-sep24.json", function (d) { return TeamOS.espn.news(d); }],
+    ["gameDetail", "espn-summary-wis-final.json", function (d) { return TeamOS.espn.gameDetail(d, team, TEAM_CONFIG); }],
+    ["boxNames", "espn-summary-wis-final.json", function (d) { return TeamOS.espn.boxNames(d); }],
+    ["seasonLeaders", "espn-leaders-nd-2026-reg.json", function (d) { return TeamOS.espn.seasonLeaders(d); }]
+  ];
+  function spots(o, p, seen, out) {
+    if (Array.isArray(o)) {
+      var shape = p.map(function (x) { return typeof x === "number" ? "[]" : x; }).join(".");
+      [0, o.length - 1].forEach(function (i, k) {
+        if (o.length && !(k && i === 0) && !seen[shape + "#" + k]) { seen[shape + "#" + k] = 1; out.push(p.concat(i)); }
+      });
+      o.forEach(function (v, i) { spots(v, p.concat(i), seen, out); });
+    } else if (o && typeof o === "object") {
+      Object.keys(o).forEach(function (k) { spots(o[k], p.concat(k), seen, out); });
+    }
+    return out;
+  }
+  cases.forEach(function (cs) {
+    var raw = read("tools/fixtures/" + cs[1]);
+    var where = spots(JSON.parse(raw), [], {}, []), threw = [];
+    where.forEach(function (p) {
+      var d = JSON.parse(raw), o = d;
+      for (var i = 0; i < p.length - 1; i++) o = o[p[i]];
+      o[p[p.length - 1]] = null;
+      try { cs[2](d); } catch (e) { threw.push(p.join(".") + ": " + e.message); }
+    });
+    ok(!threw.length, cs[0] + ": " + where.length + " lists, each with a null entry, and no throw" + (threw.length ? " - " + threw.slice(0, 3).join(" | ") : ""));
+  });
+  // and the null costs that entry alone
+  var sched = JSON.parse(read("tools/fixtures/espn-schedule-nd-2026-reg.json"));
+  var all = TeamOS.espn.schedule(JSON.parse(JSON.stringify(sched)), team, TEAM_CONFIG).length;
+  sched.events.splice(2, 0, null);
+  eq(TeamOS.espn.schedule(sched, team, TEAM_CONFIG).length, all, "a null game in the schedule: every real game still listed");
+  var nws = JSON.parse(read("tools/fixtures/espn-news-nd-sep24.json"));
+  var stories = TeamOS.espn.news(JSON.parse(JSON.stringify(nws))).length;
+  nws.articles[1] = null;
+  eq(TeamOS.espn.news(nws).length, stories - 1, "a null story: one fewer story, the rest kept");
+  // a quarter's score stays in its quarter
+  var sm = JSON.parse(read("tools/fixtures/espn-summary-wis-final.json"));
+  var whole = TeamOS.espn.gameDetail(JSON.parse(JSON.stringify(sm)), team, TEAM_CONFIG).linescore;
+  var hc = sm.header.competitions[0].competitors.filter(function (c) { return c.homeAway === "home"; })[0];
+  hc.linescores[1] = null;
+  var gap = TeamOS.espn.gameDetail(sm, team, TEAM_CONFIG).linescore;
+  eq(gap.home, [whole.home[0], ""].concat(whole.home.slice(2)),
+     "a null quarter reads blank in its own place; the next quarter does not slide into it");
+  eq(gap.away, whole.away, "and the other side's quarters are untouched");
+})();
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "all adapter checks passed"));
 process.exit(failures ? 1 : 0);

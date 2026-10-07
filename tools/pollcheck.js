@@ -61,6 +61,28 @@ function settle() { return new Promise(function (r) { setTimeout(r, 0); }); }
   vm.runInContext("refreshSchedule(false)", c);
   ok(sched() === 2, "once it has answered, the next call asks again: joining never serves an old copy");
 
-  console.log("\n" + (failures ? failures + " check(s) FAILED" : "no duplicate requests"));
+  console.log("a kickoff that passes with the game still upcoming: look, then back off (W10)");
+  var k = vm.createContext({});
+  vm.runInContext(liftFn("lateKickoffDue"), k);
+  var due = function (next, now, last) { return k.lateKickoffDue(next, now, last); };
+  var KO = Date.parse("2026-10-10T19:30:00Z"), MIN = 60e3;
+  var pre = { state: "pre", timeSet: true, date: "2026-10-10T19:30:00Z" };
+  ok(!due(pre, KO - MIN, 0), "before kickoff: not due");
+  ok(due(pre, KO, 0), "at kickoff: due");
+  var asks = 0, last = 0;
+  for (var t = KO; t <= KO + 60 * MIN; t += MIN) if (due(pre, t, last)) { asks++; last = t; }
+  // minutes 0-9 every minute (10), then five after the last: 14, 19 ... 59 (10)
+  ok(asks === 20, "the first hour past kickoff: 10 looks in the first ten minutes, then one every five (" + asks + " in all), not 61");
+  ok(due(pre, KO + 3 * MIN + 500, KO + 2 * MIN + 1000), "a tick that lands a little early still counts as the minute");
+  ok(!due(pre, KO + 9 * 3600e3, 0), "eight hours on, it stops: the half-hour refresh covers a game that never started");
+  ok(!due({ state: "in", timeSet: true, date: pre.date }, KO + MIN, 0), "a game under way is the live poller's, not this");
+  ok(!due({ state: "pre", timeSet: false, date: pre.date }, KO + MIN, 0), "a kickoff time not yet set is never 'passed'");
+  ok(!due(null, KO, 0), "no next game: nothing to do");
+
+  console.log("refresh data: once schedule and scoreboard are both in, they are reconciled");
+  ok(/return Promise\.all\(steps\)\.then\(function\(r\)\{[\s\S]{0,600}?if\(SB\.games\) scoreboardArrived\(\);/.test(liftFn("refreshAll")),
+     "refreshAll reconciles after every step has settled");
+
+  console.log("\n" + (failures ? failures + " check(s) FAILED" : "no duplicate requests, and a late kickoff backs off"));
   process.exit(failures ? 1 : 0);
 })();
