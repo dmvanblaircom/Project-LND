@@ -113,6 +113,34 @@ var off = mhost();
 MS.more.settings(off, { team: { name: "Notre Dame", mark: "" }, changeHref: "/?change", style: "suite", updatedAt: Date.now() - 60000, refreshing: false, online: false });
 ok(/Offline · /.test(off.innerHTML), "offline, Last Updated still says when");
 
+// Game alerts (W19): the only notification control, and only with the
+// capability behind it (the edge API's Web Push). One button asks; a device
+// that cannot get them is told why, with no button to press.
+function alertsHtml(alerts) {
+  var h = mhost();
+  MS.more.settings(h, { team: { name: "Ohio State", mark: "" }, changeHref: "/?change", style: "team", updatedAt: null,
+                        refreshing: false, online: true, alerts: alerts });
+  var sec = /<section class="st-group" aria-labelledby="st-alerts">[\s\S]*?<\/section>/.exec(h.innerHTML);
+  return { all: h.innerHTML, sec: sec ? sec[0] : "" };
+}
+var aOff = alertsHtml({ support: "ok", on: false, busy: false, denied: false, note: null });
+ok(/<h2 class="sec-title" id="st-alerts">Game Alerts<\/h2>/.test(aOff.sec) && /data-st="alerts">Off</.test(aOff.sec) &&
+   /<button type="button" class="btn btn-secondary" data-alerts="on">Turn On<\/button>/.test(aOff.sec),
+   "off: Game Alerts says Off, with one Turn On button");
+ok(/when Ohio State kicks off and when the game ends/.test(aOff.sec), "it says what the alerts are, for this team");
+ok(aOff.all.indexOf('id="st-appearance"') < aOff.all.indexOf('id="st-alerts"') && aOff.all.indexOf('id="st-alerts"') < aOff.all.indexOf('id="st-data"'),
+   "between Appearance and Data");
+var aOn = alertsHtml({ support: "ok", on: true, busy: false, denied: false, note: "Game alerts are on. A test alert is on its way." });
+ok(/data-st="alerts">On</.test(aOn.sec) && /data-alerts="off">Turn Off</.test(aOn.sec) && /A test alert is on its way\./.test(aOn.sec),
+   "on: On, Turn Off, and what the last tap did");
+ok(/aria-disabled="true">Turning On…</.test(alertsHtml({ support: "ok", on: false, busy: true, denied: false }).sec),
+   "while it works: Turning On…, still focusable (aria-disabled)");
+var aIos = alertsHtml({ support: "install", on: false, busy: false, denied: false });
+ok(/add Suite to your Home Screen/.test(aIos.sec) && !/data-alerts/.test(aIos.sec), "iPhone in Safari: install first, and no button that cannot work");
+ok(/can’t receive game alerts/.test(alertsHtml({ support: "unsupported" }).sec), "a browser without Web Push is told so");
+var aDen = alertsHtml({ support: "ok", on: false, busy: false, denied: true });
+ok(/off for Suite in this device’s settings/.test(aDen.sec) && !/data-alerts/.test(aDen.sec), "blocked in the device's settings: says where to allow them");
+
 var fbh = mhost(); MS.more.feedback(fbh, { href: "mailto:suiteappfeedback@gmail.com?subject=x", address: "suiteappfeedback@gmail.com" });
 ok(!/(thank|sent|submitted)/i.test(fbh.innerHTML), "Feedback shows no sent state: the mail app sends (0022 #12)");
 
