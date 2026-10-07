@@ -148,6 +148,7 @@ These remain visible but do not halt the runnable queue or get falsely marked co
 - Flat Suite icon stays. Existing release wordmark/icon assets are completed.
 - Refresh Data scope and Feedback origin were adopted and implemented with More corrections; B13 is not an unresolved prerequisite.
 - Notifications first among new MVP pillars; finish OSU before adding more teams.
+- Notifications: no push without a reason the fan would name; noise makes fans tune out all of them (David, Oct 7). The "Game alerts are on" test push stays for testing. Before any public launch it becomes an on-screen confirmation, or a first-time-only push (notifications-brief.md §3).
 - Main + short-lived branches, PR-based delivery. Four-hour silent check-ins unless action is needed remains the recorded preference; actual automation state was not inspected.
 - First backend: Cloudflare Workers edge API (`suite-api`, decision 0030); Postgres and FCM only when a feature needs them. CFBD data is shown in the app only, never published as files (Bill at CFBD, Oct 1).
 - Pregame availability is posted only on X: Suite does not expect it (W03, Oct 1).
