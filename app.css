@@ -520,16 +520,20 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gh-record{font-size:.9rem;color:var(--s-on-dark-2)}
 .gh-center{display:flex;flex-direction:column;align-items:center;gap:.25rem;min-width:0;text-align:center}
 .gh-where{font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--s-on-dark)}
-.gh-opp{max-width:100%;overflow:hidden;text-overflow:ellipsis;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.8rem,8.5vw,2.6rem);line-height:.95;text-transform:uppercase}
+.gh-opp{max-width:100%;overflow:hidden;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.8rem,8.5vw,2.6rem);line-height:.95;text-transform:uppercase}
+.go-short,.gh-opp.fit-short .go-full{display:none}
+.gh-opp.fit-short .go-short{display:inline}
 .gh-when{font-size:1rem;font-weight:600}
 .gh-venue{font-size:.88rem;color:var(--s-on-dark-2)}
 .gh-series{font-size:.88rem;color:var(--t-accent-text)}
-.gh-countdown{margin-top:.45rem !important;max-width:100%}
-.gh-countdown > span{display:inline-flex;max-width:100%;flex-wrap:wrap;justify-content:center;border:1px solid rgba(255,255,255,.3);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.55)}
+.gh-countdown{display:flex;justify-content:center;margin-top:.8rem !important;max-width:100%}
+.gh-countdown > span{display:flex;width:16rem;max-width:100%;justify-content:center;border:1px solid rgba(255,255,255,.3);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.55)}
 .cd-cell{display:flex;flex-direction:column;align-items:center;min-width:0;flex:1;padding:.3rem .5rem}
 .cd-cell + .cd-cell{border-left:1px solid rgba(255,255,255,.25)}
 .cd-n{font-family:var(--t-font-display);font-weight:800;font-size:1.7rem;line-height:1;color:var(--t-accent-text)}
-.cd-l{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s-on-dark-2)}
+.cd-l{max-width:100%;overflow:hidden;white-space:nowrap;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s-on-dark-2)}
+.lbl-short,.fit-short .lbl-long{display:none}
+.fit-short .lbl-short{display:inline}
 .gh-clock{font-family:var(--t-font-display);font-weight:700;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase}
 /* The FINAL label. Not .gh-final: that is the header's own state class at
    final, and the label's wide tracking spread across the whole header -

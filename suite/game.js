@@ -58,10 +58,14 @@ Suite.game = (function () {
     var ms = Date.parse(g.date) - now.getTime();
     if (!(ms > 0)) return "";
     var d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4);
-    function cell(n, l) { return '<span class="cd-cell"><span class="cd-n">' + n + '</span><span class="cd-l">' + l + "</span></span>"; }
+    // Each label with a short form, for a face too wide for the long one
+    // in the hero's middle column (fit(): "HOURSMINUTES", David 2026-10-07).
+    function cell(n, l, s) { return '<span class="cd-cell"><span class="cd-n">' + n + '</span><span class="cd-l"><span class="lbl-long">' + l +
+                                    '</span><span class="lbl-short">' + s + "</span></span></span>"; }
     return '<p class="gh-countdown" aria-label="Kickoff in ' + d + " days, " + h + " hours, " + m + ' minutes">' +
-           '<span aria-hidden="true">' + cell(d, d === 1 ? "Day" : "Days") + cell(h, h === 1 ? "Hour" : "Hours") +
-           cell(m, m === 1 ? "Minute" : "Minutes") + "</span></p>";
+           '<span aria-hidden="true">' + cell(d, d === 1 ? "Day" : "Days", d === 1 ? "Day" : "Days") +
+           cell(h, h === 1 ? "Hour" : "Hours", h === 1 ? "Hr" : "Hrs") +
+           cell(m, m === 1 ? "Minute" : "Minutes", "Min") + "</span></p>";
   }
 
   // Which side has the ball while it is live: the league's live state on the
@@ -121,11 +125,11 @@ Suite.game = (function () {
       center = '<div class="gh-center">' +
         (st === "upcoming" ? '<p class="gh-where">' + esc(where) + "</p>"
                            : '<span class="state-pill ' + st + '">' + esc(st) + "</span>") +
-        '<p class="gh-opp">' + esc(g.oppName) + "</p>" +
+        // Never an ellipsis: fit() shrinks it, then takes the abbreviation.
+        '<p class="gh-opp"><span class="go-full">' + esc(g.oppName) + '</span><span class="go-short">' + esc(g.oppAbbr || g.oppName) + "</span></p>" +
         '<p class="gh-when">' + esc(when) + (g.net && st !== "canceled" ? " · " + esc(g.net) : "") + "</p>" +
         (g.venue ? '<p class="gh-venue">' + esc([g.venue, [g.city, g.venueState].filter(Boolean).join(", ")].filter(Boolean).join(" · ")) + "</p>" : "") +
         (g.series ? '<p class="gh-series">' + esc(g.series) + "</p>" : "") +
-        (st === "upcoming" ? countdown(g, m.now) : "") +
         "</div>";
     } else {
       var top = st === "live" ? '<span class="live-pill">Live</span>'
@@ -144,6 +148,10 @@ Suite.game = (function () {
              ui.art({ photo: m.photo, name: m.team.name, abbr: m.team.abbr, markUrl: m.team.markUrl }) +
              '<div class="gh-inner">' +
                '<div class="gh-row" aria-hidden="true">' + teamBlock(m, true, st) + center + teamBlock(m, false, st) + "</div>" +
+               // The countdown under the matchup, the hero's full width: in
+               // the middle column its labels ran together in a wider face
+               // ("HOURSMINUTES", David 2026-10-07).
+               (st === "upcoming" ? countdown(g, m.now) : "") +
                // the conditions follow the game they describe, centred under
                // it (David, 2026-10-01: in the corner it read unbalanced)
                tertiary(g, st, m.weather) +
@@ -517,7 +525,13 @@ Suite.game = (function () {
   }
 
   // The names row follows ui.fitNames: never an ellipsis, both sides alike.
-  function fit(host) { ui.fitNames(host, ".gh-row", ".gh-name"); }
+  // The opponent's title shrinks to fit (to 18px, then its abbreviation),
+  // and the countdown's labels take their short forms when they must.
+  function fit(host) {
+    ui.fitNames(host, ".gh-row", ".gh-name");
+    ui.fitText(host, ".gh-opp", 18);
+    ui.fitLabels(host, ".gh-countdown > span");
+  }
 
   // One module draws the hero game on Game and any game opened from
   // Schedule, so what each host last received is remembered per host.
