@@ -197,6 +197,7 @@
     inject("suite/roster.js");
     inject("suite/more.js");
     inject("suite/stats.js");
+    inject("suite/outlook.js");
     inject("app.js");
   }
 
@@ -350,6 +351,8 @@ html[data-choosing] .launch,html[data-launched] .launch{display:none}
   <div class="game" id="screenGame" hidden></div>
   <div class="top25" id="screenTop25" hidden></div>
   <div class="roster" id="screenRoster" hidden></div>
+  <!-- Season Outlook's full field, Home's (suite/outlook.js). -->
+  <div class="more outlook-field" id="screenOutlook" hidden></div>
   <!-- More and the destinations it owns (suite/more.js). -->
   <div class="more" id="screenMore" hidden></div>
   <div class="more news" id="screenNews" hidden></div>

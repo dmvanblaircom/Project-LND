@@ -122,6 +122,9 @@ jobs:
       # More's news recovery, Refresh Data's outcome, the connection while a
       # screen is open, and Feedback's version and origin (catch-up review).
       - run: node tools/moreflowcheck.js
+      # Season Outlook's full field: the market whole, Home's number on it,
+      # Home navigation, and its failed, offline and saved states (W18).
+      - run: node tools/outlookcheck.js
       # A first visit that can't reach the schedule says so on Home and Game,
       # and fills in on reconnection or re-entry (release regression pass).
       - run: node tools/outagecheck.js

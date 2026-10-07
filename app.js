@@ -405,7 +405,9 @@ function loadRankings(){
 // (decision 0024 §12): a capability the team's config declares.
 function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }
 // Every team each event prices, for Season Outlook's "View full field" (W18).
-var MARKET_FIELD = { title:null, playoff:null };
+// settled/failed are per market: the full field says loading, failed or "no
+// open market" for each view on its own.
+var MARKET_FIELD = { title:null, playoff:null, settled:{}, failed:{} };
 
 function loadStrip(){
   // A team Kalshi takes no market on has no Season Outlook (decision 0024 §12).
@@ -418,12 +420,30 @@ function loadStrip(){
       var p = m ? TeamOS.markets.price(m) : null;
       MARKET_FIELD[q.key] = TeamOS.markets.field(d, TEAM_CONFIG, q.key);
       var o = SRC.odds||{};
+      MARKET_FIELD.settled[q.key] = { asOf:o.fetchedAt||null, cached:!!o.cached };
+      MARKET_FIELD.failed[q.key] = false;
       HOME.markets[q.key] = p==null ? null
         : { value:p, previous:TeamOS.markets.previous(m), asOf:o.fetchedAt||null, cached:!!o.cached };
-      paintHome();
+      paintHome(); paintOutlook();
       return { key:"odds-"+q.key, outcome: o.cached ? "cached" : "network" };
-    }, function(){ return { key:"odds-"+q.key, outcome:"failed" }; });
+    }, function(){
+      // A failed refresh keeps the field already drawn; it fails only a
+      // field that never loaded.
+      MARKET_FIELD.failed[q.key] = !MARKET_FIELD[q.key];
+      paintOutlook();
+      return { key:"odds-"+q.key, outcome:"failed" };
+    });
   }));
+}
+// Season Outlook's full field (suite/outlook.js): the view's market, whole.
+function paintOutlook(){
+  var host=$("screenOutlook");
+  if(!host || host.hidden) return;
+  var view=Suite.nav.current().view==="title" ? "title" : "playoff";
+  var s=MARKET_FIELD.settled[view];
+  Suite.outlook.paint(host, { team:{ name:TEAM.name }, view:view, covered:hasKalshi(),
+    field:MARKET_FIELD[view], loading:!s && !MARKET_FIELD.failed[view], failed:!!MARKET_FIELD.failed[view],
+    offline:navigator.onLine===false, asOf:s ? s.asOf : null, stale:!!(s && s.cached) });
 }
 
 
@@ -1179,7 +1199,7 @@ $("scheduleList").addEventListener("pointerdown", function(e){
 // other half: which host a screen shows, and what it loads on entry. UI.tab
 // names the screen's family, for what Refresh Data reloads.
 var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"roster", more:"more", schedule:"schedule",
-                news:"more", stats:"more", settings:"more", feedback:"more", about:"more" };
+                news:"more", stats:"more", settings:"more", feedback:"more", about:"more", outlook:"home" };
 // More and the destinations it owns, each its own host (suite/more.js).
 var MORE_HOSTS={ more:"screenMore", news:"screenNews", stats:"screenStats", settings:"screenSettings", feedback:"screenFeedback", about:"screenAbout" };
 function showScreen(route){
@@ -1198,7 +1218,9 @@ function showScreen(route){
   $("screenTop25").hidden=!top25;
   $("screenSchedule").hidden=!sched;
   $("screenRoster").hidden=!roster;
+  $("screenOutlook").hidden=route.screen!=="outlook";
   if(home){ paintHome(); loadNews(); }
+  if(route.screen==="outlook") paintOutlook();
   if(MORE_HOSTS[route.screen]){ askVersion(); paintMore(); if(route.screen==="news") loadNews(); if(route.screen==="stats"){ if(route.view==="players") loadPlayers(); else loadStats(); } }
   if(game) paintGame();
   if(top25){ paintTop25(); loadTop25(); }

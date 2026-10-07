@@ -1138,3 +1138,25 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
   .ss-cols > :first-child{display:none}
   .ss-row.two .ss-l{grid-column:1 / -1}
 }
+
+/* ---- Season Outlook's full field (W18) ----------------------------------
+   Every team the market prices, most likely first, in Home's Season Outlook
+   language: the same figure, change mark and bar, a row per team. The
+   team's own row is marked and repeated above the list. */
+.of-you{margin:.35rem 0 0;font-size:.95rem;color:var(--s-ink-2)}
+.of-you strong{font-family:var(--t-font-display);font-weight:800;color:var(--s-ink)}
+.of-card{margin-top:.8rem;padding:.35rem 1rem}
+.of-list{list-style:none;margin:0;padding:0}
+.of-row{display:grid;grid-template-columns:1.9rem minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:baseline;column-gap:.5rem;row-gap:.3rem;padding:.55rem 0}
+.of-row + .of-row{border-top:1px solid var(--s-line)}
+.of-row.mine{margin:0 -.6rem;padding-left:.6rem;padding-right:.6rem;border-radius:var(--s-radius-ctl);background:var(--s-inset);box-shadow:inset .2rem 0 0 var(--t-accent)}
+.of-row.mine + .of-row,.of-row + .of-row.mine{border-top-color:transparent}
+.of-rank{font-size:.85rem;font-variant-numeric:tabular-nums;color:var(--s-muted);text-align:right}
+.of-team{min-width:0;overflow-wrap:anywhere;font-size:1rem;color:var(--s-ink)}
+.of-row.mine .of-team{font-weight:700}
+.of-num{display:flex;align-items:baseline;gap:.4rem;justify-content:flex-end}
+.of-val{font-family:var(--t-font-display);font-weight:800;font-size:1.15rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.of-val .pct{font-size:.7em}
+.of-bar{grid-column:2 / -1;display:block;height:.3rem;overflow:hidden;border-radius:var(--s-radius-pill);background:var(--s-inset)}
+.of-row.mine .of-bar{background:var(--s-surface)}
+.of-bar span{display:block;height:100%;background:var(--t-accent)}
