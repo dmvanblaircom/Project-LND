@@ -62,6 +62,15 @@ Suite.home = (function () {
   // delay is DELAYED and a suspension SUSPENDED, never one for the other.
   var PILL = { delayed: "Delayed", postponed: "Postponed", canceled: "Canceled" };
 
+  // Presentation only: keep ties and incomplete finals balanced. The score
+  // itself supplies the winner cue, including an active-team loss.
+  function scoreTone(g, us) {
+    if (!g || g.status !== "final" || !TeamOS.game.scored(g)) return "";
+    var a = Number(g.us), b = Number(g.them);
+    if (!isFinite(a) || !isFinite(b) || a < 0 || b < 0 || a === b) return "";
+    return (us ? a > b : b > a) ? " is-winner" : " is-loser";
+  }
+
   function side(team, g, us, st, m) {
     var name = us ? team.name : g.oppName;
     var rank = us ? g.usRank : g.oppRank;
@@ -76,7 +85,7 @@ Suite.home = (function () {
     // half (TeamOS.live.receives); otherwise who has it.
     var ball = (st === "live" || st === "paused") && g.situation &&
                (TeamOS.game.halftime(g) ? g.situation.receives : g.situation.possession) === (us ? "us" : "them");
-    return '<div class="gc-side ' + (us ? "us" : "them") + '">' +
+    return '<div class="gc-side ' + (us ? "us" : "them") + scoreTone(g, us) + '">' +
              '<div class="gc-line">' + mark +
                (showScore ? '<span class="gc-score">' + esc(score == null ? "0" : score) + "</span>" : "") +
                (ball ? BALL : "") +
@@ -224,13 +233,9 @@ Suite.home = (function () {
     if (!items.length) return head + '<p class="sec-quiet">No stories right now.</p>';
     var now = Date.now();
     return head + '<ul class="news-row" aria-labelledby="newsHead">' + items.slice(0, 3).map(function (a) {
-      // A story without a photo, or whose photo fails, gets the designed
-      // fallback: the outlet's name on the team's colours - never a broken
-      // image (suite/ui.js removes an image that fails to load).
-      var img = '<span class="news-img' + (a.image ? "" : " none") + '" aria-hidden="true">' +
-                  '<span class="news-src">' + esc(a.source || team.name) + "</span>" +
-                  (a.image ? '<img src="' + esc(a.image) + '" alt="" loading="lazy" decoding="async" data-fallback>' : "") +
-                "</span>";
+      // Prefer the article photo, then its publisher's logo; the source-name
+      // tile is the last fallback when neither image can load.
+      var img = ui.newsImage(a, "news", team.name);
       return '<li><a class="news-card card" href="' + esc(a.link) + '" target="_blank" rel="noopener noreferrer">' + img +
              '<span class="news-body"><span class="news-hl">' + esc(a.title) + "</span>" +
              '<span class="news-meta">' + esc([ui.ago(a.publishedAt, now), a.source].filter(Boolean).join(" · ")) +
@@ -303,5 +308,5 @@ Suite.home = (function () {
     });
   }
 
-  return { paint: paint, cardState: cardState, newDate: newDate };
+  return { paint: paint, cardState: cardState, newDate: newDate, scoreTone: scoreTone };
 })();

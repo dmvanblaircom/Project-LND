@@ -97,12 +97,12 @@ var TEAM_CONFIG = {
     // `site` is where the producer looks for the feed when `feed` stops
     // answering, so a moved feed is found and named in the run's log.
     beatFeeds: [
-      { name: "One Foot Down",       feed: "https://www.onefootdown.com/rss/current.xml",   site: "https://www.onefootdown.com/" },
-      { name: "Slap the Sign",       feed: "https://slapthesign.com/feed/",                 site: "https://slapthesign.com/" },
+      { name: "One Foot Down",       feed: "https://www.onefootdown.com/rss/current.xml",   site: "https://www.onefootdown.com/", logo: "https://platform.sbnation.com/wp-content/uploads/sites/2/team-logos/logo-onefootdown.png?w=180" },
+      { name: "Slap the Sign",       feed: "https://slapthesign.com/feed/",                 site: "https://slapthesign.com/", logo: "https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/favicon_2-7584840191d9f13dce826391650b7201.ico" },
       { name: "UHND",                feed: "https://www.uhnd.com/feed/",                    site: "https://www.uhnd.com/" },
-      { name: "NDNation",            feed: "https://ndnation.com/feed",                     site: "https://ndnation.com/" },
-      { name: "Blue & Gold",         feed: "https://www.on3.com/teams/notre-dame-fighting-irish/feed/", site: "https://www.on3.com/teams/notre-dame-fighting-irish/" },
-      { name: "Notre Dame On SI",    feed: "https://www.si.com/college/notredame/feed",     site: "https://www.si.com/college/notredame" }
+      { name: "NDNation",            feed: "https://ndnation.com/feed",                     site: "https://ndnation.com/", logo: "https://ndnation.com/wp-content/uploads/2018/05/cropped-ndn-192x192.png" },
+      { name: "Blue & Gold",         feed: "https://www.on3.com/teams/notre-dame-fighting-irish/feed/", site: "https://www.on3.com/teams/notre-dame-fighting-irish/", logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
+      { name: "Notre Dame On SI",    feed: "https://www.si.com/college/notredame/feed",     site: "https://www.si.com/college/notredame", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
     ]
   },
 
@@ -162,10 +162,10 @@ var TEAM_CONFIG = {
     },
 
     // ui carries body copy, display the condensed athletic voice - the
-    // Suite's own Barlow family. Editorial type is the Suite's, not a team's.
+    // Suite's own Instrument Sans family. Editorial type is the Suite's, not a team's.
     fonts: {
-      ui:       "'Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'Barlow Condensed',sans-serif"
+      ui:       "'Instrument Sans',system-ui,-apple-system,sans-serif",
+      display:  "'Instrument Display',sans-serif"
     },
   },
 

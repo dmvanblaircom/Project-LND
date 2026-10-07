@@ -3,11 +3,11 @@
  "team": "notre-dame",
  "capability": "depth",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/892bcf50-8a65-4145-bba5-f3a458b0f7d3.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/2e00e1d4-7af3-41d4-88ee-64a656f85cf0.pdf",
  "sourceLabel": "FightingIrish.com",
- "title": "DEPTH CHART - GAME 5 AT NORTH CAROLINA",
- "game": "at North Carolina",
- "fetchedAt": "2026-09-29T02:13:36.864322+00:00",
+ "title": "DEPTH CHART - GAME 6 VS STANFORD",
+ "game": "Stanford",
+ "fetchedAt": "2026-10-05T17:38:03.127846+00:00",
  "units": [
   {
    "unit": "Defense",

@@ -176,8 +176,11 @@ function return_install() {
   ok(files.length > 0, "the worker precaches a shell");
   ok(!files.some(function (f) { return /teams\/(?!index)[a-z-]+\.js/.test(f); }),
      "and no team's config is in it - a worker cannot know which team this is");
-  ok(!files.some(function (f) { return /assets\/(?!suite\/)[a-z-]+\//.test(f); }),
+  ok(!files.some(function (f) { return /assets\/(?!suite\/|fonts\/instrument-sans\/)[a-z-]+\//.test(f); }),
      "nor any team's artwork");
+  ok(files.indexOf("./assets/fonts/instrument-sans/instrument-sans.woff2") !== -1 &&
+     files.indexOf("./assets/fonts/instrument-sans/instrument-display.woff2") !== -1,
+     "Suite's two local font faces are available offline");
   ok(files.indexOf("./manifest.json") !== -1,
      "the one Suite manifest is, because the installed product is the same for every team (decision 0024)");
   ok(files.indexOf("./teams/index.js") !== -1, "the registry is, because it belongs to no team");

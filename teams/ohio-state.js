@@ -42,11 +42,11 @@ var TEAM_CONFIG = {
     // athletics department's own football feed, SB Nation, SI, On3, and the
     // student paper's football section.
     beatFeeds: [
-      { name: "Ohio State Athletics",  feed: "https://ohiostatebuckeyes.com/rss?path=football",               site: "https://ohiostatebuckeyes.com/sports/football/" },
-      { name: "Land-Grant Holy Land",  feed: "https://www.landgrantholyland.com/rss/current.xml",            site: "https://www.landgrantholyland.com/" },
-      { name: "Ohio State On SI",      feed: "https://www.si.com/college/ohiostate/feed",                    site: "https://www.si.com/college/ohiostate" },
-      { name: "On3",                   feed: "https://www.on3.com/teams/ohio-state-buckeyes/feed/",          site: "https://www.on3.com/teams/ohio-state-buckeyes/" },
-      { name: "The Lantern",           feed: "https://www.thelantern.com/category/sports/football/feed/",    site: "https://www.thelantern.com/category/sports/football/" }
+      { name: "Ohio State Athletics",  feed: "https://ohiostatebuckeyes.com/rss?path=football",               site: "https://ohiostatebuckeyes.com/sports/football/", logo: "https://ohiostatebuckeyes.com/favicon.ico" },
+      { name: "Land-Grant Holy Land",  feed: "https://www.landgrantholyland.com/rss/current.xml",            site: "https://www.landgrantholyland.com/", logo: "https://platform.sbnation.com/wp-content/uploads/sites/2/team-logos/logo-landgrantholyland.png?w=180" },
+      { name: "Ohio State On SI",      feed: "https://www.si.com/college/ohiostate/feed",                    site: "https://www.si.com/college/ohiostate", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "On3",                   feed: "https://www.on3.com/teams/ohio-state-buckeyes/feed/",          site: "https://www.on3.com/teams/ohio-state-buckeyes/", logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
+      { name: "The Lantern",           feed: "https://www.thelantern.com/category/sports/football/feed/",    site: "https://www.thelantern.com/category/sports/football/", logo: "https://bpb-us-e1.wpmucdn.com/www.thelantern.com/dist/c/1/files/2023/08/cropped-cropped-cropped-NEW-LOGO-2grhniz-192x192.png" }
     ]
   },
 
@@ -98,8 +98,8 @@ var TEAM_CONFIG = {
     // app.css. One face for text and headings, as Ohio State sets both in
     // one family; David approved, 2026-10-01.
     fonts: {
-      ui:       "'Nunito Sans','Barlow',system-ui,-apple-system,sans-serif",
-      display:  "'Nunito Sans','Barlow Condensed',sans-serif"
+      ui:       "'Nunito Sans','Instrument Sans',system-ui,-apple-system,sans-serif",
+      display:  "'Nunito Sans','Instrument Display',sans-serif"
     }
   },
 

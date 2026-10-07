@@ -340,6 +340,16 @@ function homeHero(game) {
   return parts.hero.innerHTML;
 }
 var noScoreFinal = Object.assign({}, liveG, { state: "post", status: "final", us: null, them: null });
+console.log("Final winner emphasis follows the score, including a team loss");
+[[41,13,"us"],[13,41,"them"],[0,13,"them"],[24,24,null],[null,13,null]].forEach(function(x){
+  var g=Object.assign({},noScoreFinal,{us:x[0],them:x[1]});
+  [["Home",homeHero(g),"gc-side"],["Game",headHtml(g),"gh-team"]].forEach(function(c){
+    var winners=c[1].match(new RegExp(c[2]+' (us|them) is-winner','g'))||[];
+    ok(x[2] ? winners.length===1 && winners[0]===c[2]+" "+x[2]+" is-winner" : winners.length===0,
+       c[0]+": "+x[0]+" to "+x[1]+" highlights "+(x[2]||"neither side"));
+  });
+});
+ok(!/is-winner|is-loser/.test(homeHero(liveG)+headHtml(liveG)),"live scores get no final winner treatment");
 [["Home", homeHero(noScoreFinal), "gc-score"], ["Game", headHtml(noScoreFinal), "gh-score"]].forEach(function (c) {
   ok(!new RegExp(c[2]).test(c[1]), c[0] + ": no score is drawn for either team");
   ok(/Final\. Notre Dame (at|versus) [^.]*Purdue\./.test(c[1]) && !/Notre Dame 0,/.test(c[1]),

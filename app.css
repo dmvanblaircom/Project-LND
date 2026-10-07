@@ -24,15 +24,15 @@
      and --s-surface are mirrored in TeamOS.identity.LIGHT, which checks
      every team's light-UI colours against them; adaptercheck keeps the two
      equal. */
-  --s-page:#F6F4EF;
+  --s-page:#F1F2F0;
   --s-surface:#FFFFFF;
-  --s-inset:#F0F2F5;           /* segmented tracks, away badges, insets */
-  --s-chrome:#0B1F3A;          /* the Suite's own header, before a team is chosen */
+  --s-inset:#E9ECEC;           /* segmented tracks, away badges, insets */
+  --s-chrome:#111D35;          /* the Suite's own header, before a team is chosen */
 
   /* Ink, measured on white and on the ivory page. */
-  --s-ink:#0F1B2D;             /* 17.3:1 / 15.7:1 */
-  --s-ink-2:#3B4658;           /*  9.5:1 /  8.7:1 */
-  --s-muted:#5D6A7E;           /*  5.5:1 /  5.0:1 */
+  --s-ink:#111D35;             /* 17.3:1 / 15.7:1 */
+  --s-ink-2:#485563;           /*  9.5:1 /  8.7:1 */
+  --s-muted:#485563;           /*  5.5:1 /  5.0:1 */
   --s-on-dark:#FFFFFF;
   --s-on-dark-2:#D5DCE6;       /* secondary text on dark team art */
 
@@ -46,7 +46,7 @@
   --s-loss:#B42318;
   --s-football:#7A4A21;        /* the possession football, one place */
 
-  /* Type. The Barlow family is the Suite's foundation; a team may bring its
+  /* Type. Instrument Sans is the Suite's foundation; a team may bring its
      own ui/display faces through --t-font-*. Editorial type (news headlines)
      is the Suite's alone. */
   --s-font-editorial:Georgia,Charter,"Times New Roman",serif;
@@ -79,8 +79,8 @@
   --t-deep:#0C0F13;--t-deep-rgb:12,15,19;
   --t-abyss:#07090C;--t-abyss-rgb:7,9,12;
   --t-raise:#232932;--t-raise-rgb:35,41,50;
-  --t-font-ui:'Barlow',system-ui,-apple-system,sans-serif;
-  --t-font-display:'Barlow Condensed',sans-serif;
+  --t-font-ui:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --t-font-display:'Instrument Display',sans-serif;
   --t-accent-line:rgba(var(--t-accent-rgb),.30)}
 
 /* ====================================================================
@@ -109,7 +109,11 @@ html{background:var(--s-surface);scroll-padding-top:calc(var(--s-bar-h) + env(sa
 @font-face{font-family:'Nunito Sans';font-style:normal;font-weight:200 1000;font-display:swap;src:url(assets/fonts/nunito-sans/nunito-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Nunito Sans';font-style:normal;font-weight:200 1000;font-display:swap;src:url(assets/fonts/nunito-sans/nunito-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-body{margin:0;min-height:100vh;min-height:100dvh;background:var(--s-page);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1rem;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+/* Self-hosted, native variable weights; Display pins the width axis at 80%.
+   Georgia remains the editorial face (David, October 4). No faux bold. */
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/instrument-sans/instrument-sans.woff2) format('woff2')}
+@font-face{font-family:'Instrument Display';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/instrument-sans/instrument-display.woff2) format('woff2')}
+body{font-synthesis:none;margin:0;min-height:100vh;min-height:100dvh;background:var(--s-page);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1rem;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
 [hidden]{display:none !important}
 img{max-width:100%}
 button{font:inherit}
@@ -132,16 +136,16 @@ h1,h2,h3{margin:0}
    ==================================================================== */
 /* The one SUITE header, on every screen (decision 0031). The status-bar inset
    is its own padding, so the header paints behind the clock. */
-.app-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:.75rem;
+.app-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:min(.75rem,12px);
   min-height:calc(var(--s-bar-h) + env(safe-area-inset-top,0px));
-  padding:env(safe-area-inset-top,0px) calc(var(--gutter) + env(safe-area-inset-right,0px)) 0 calc(var(--gutter) + env(safe-area-inset-left,0px));
+  padding:env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));
   background:var(--t-deep);color:var(--s-on-dark)}
 html[data-choosing] .app-bar{background:var(--s-chrome)}
 /* The approved wordmark, at its own aspect ratio: 132 units tall with the
    glyphs 100 units tall inset 16 - so a 1.6rem box draws 1.2rem glyphs,
    the cap height the typed wordmark had, and the inset is pulled back into
    the gutter. */
-.wordmark{display:block;flex:none;height:1.6rem;width:auto;margin:0 -.19rem}
+.wordmark{display:block;flex:none;height:min(1.6rem,25.6px);width:auto;margin:0 -.19rem}
 .app-bar .spacer{flex:1}
 /* Nothing after it on a team screen: its gap would only cost the team's
    name width ("OHIO STATE" in Nunito Sans at 320px). The chooser adds its
@@ -150,13 +154,14 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 /* The selected team as quiet context beside the wordmark, on every team
    screen - a lockup, not a
    button: no fill, no border, no chevron (decision 0024 §6). */
-.bar-context{display:flex;align-items:center;gap:.5rem;min-width:0;padding-left:.75rem;border-left:1px solid rgba(255,255,255,.28);color:var(--s-on-dark-2)}
-.bar-context .mark{--mark:1.6rem}
-.bar-team{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:var(--t-font-display);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+.bar-context{display:flex;align-items:center;gap:min(.5rem,8px);min-width:0;padding-left:min(.75rem,12px);border-left:1px solid rgba(255,255,255,.28);color:var(--s-on-dark-2)}
+.bar-context .mark{--mark:min(1.6rem,25.6px)}
+html[data-style="suite"] .bar-context{border-color:#B8845A}
+.bar-team{overflow:hidden;white-space:normal;font-family:var(--t-font-display);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
 /* The narrowest phones: a team's whole name, in its own face or the fallback
    before that face loads, rather than an ellipsis. */
 @media (max-width:359.98px){
-  .bar-context{padding-left:.6rem}
+  .bar-context{padding-left:min(.6rem,12px)}
   .bar-team{letter-spacing:.02em}
 }
 .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;margin-right:-.5rem;padding:0;border:0;border-radius:50%;background:none;color:inherit;cursor:pointer}
@@ -172,7 +177,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 /* The visible page heading of every screen without a hero: neutral Suite
    ink, so national content does not read as the team's own and team
    content is framed by the bar's team context instead. */
-.page-title{margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:1.1rem calc(var(--gutter) + env(safe-area-inset-left,0px)) .8rem;background:var(--s-page);font-family:var(--t-font-display);font-weight:800;font-size:2.35rem;line-height:1;letter-spacing:.01em;text-transform:uppercase;color:var(--s-chrome)}
+.page-title{margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:1rem calc(var(--gutter) + env(safe-area-inset-left,0px)) .65rem;background:var(--s-page);font-family:var(--t-font-display);font-weight:700;font-size:2.15rem;line-height:1.1;letter-spacing:.01em;text-transform:uppercase;color:var(--s-chrome)}
 .page-title:focus{outline:none}
 
 /* Bottom navigation. Five destinations. It never touches the physical
@@ -184,7 +189,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
    inside the viewport. Below the viewport's own edge it is clipped, and the
    canvas (html, above) is what fills the strip. */
 .navbar::after{content:"";position:absolute;left:0;right:0;top:100%;height:12rem;background:inherit;pointer-events:none}
-.nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:var(--s-muted);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1;-webkit-tap-highlight-color:transparent}
+.nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:var(--s-muted);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1.15;-webkit-tap-highlight-color:transparent}
 .nav-item svg{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav-item svg .solid{fill:currentColor;stroke:none}
 .nav-item[aria-current="page"]{color:var(--t-surface);font-weight:700}
@@ -333,13 +338,13 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .fresh-banner.offline{background:var(--s-inset);border-color:var(--s-line);color:var(--s-ink-2)}
 
 .home-hero{position:relative;isolation:isolate;overflow:hidden;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));color:var(--s-on-dark)}
-.hh-inner{position:relative;z-index:1;padding:1.2rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.25rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
+.hh-inner{position:relative;z-index:1;padding:1rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
 .hh-id p{margin:0}
 .hh-school{font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.24em;text-transform:uppercase;color:var(--t-accent-text)}
 .hh-nick{font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.2rem,10.5vw,3rem);line-height:.95;letter-spacing:.005em;text-transform:uppercase}
 .hh-tagline{margin-top:.3rem !important;font-size:1.2rem;color:var(--s-on-dark-2)}
 
-.gamecard{margin-top:1.1rem;padding:.95rem 1rem 1rem;border:1px solid rgba(255,255,255,.16);border-radius:var(--s-radius-card);background:rgba(var(--t-abyss-rgb),.66);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.gamecard{margin-top:.85rem;padding:.95rem 1rem 1rem;border:1px solid rgba(255,255,255,.16);border-radius:var(--s-radius-card);background:rgba(var(--t-abyss-rgb),.66);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .gamecard p{margin:0}
 .gc-top{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:.75rem;row-gap:.15rem}
 .gc-top > :first-child{justify-self:start}
@@ -361,6 +366,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gc-abbr,.fit-abbr .gc-full{display:none}
 .fit-abbr .gc-abbr{display:inline}
 .fit-tight .gc-name{font-size:.92rem;letter-spacing:0}
+.gc-side.is-loser .gc-score,.gh-team.is-loser .gh-score{font-weight:500;color:var(--s-on-dark-2)}
 .gc-record{font-size:.95rem;color:var(--s-on-dark-2)}
 .gc-mid{display:flex;flex-direction:column;align-items:center;gap:.1rem;font-family:var(--t-font-display);text-transform:uppercase}
 .gc-vs{font-weight:700;font-size:1.3rem;letter-spacing:.1em;color:var(--s-on-dark-2)}
@@ -387,7 +393,10 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 /* "2nd & 10" and "PUR 28" each stay whole (live scan #8). */
 .gc-situation span{white-space:nowrap}
 .gc-series{margin-top:.55rem !important;text-align:center;font-size:.95rem;color:var(--t-accent-text)}
-.gc-extra{display:flex;flex-wrap:wrap;justify-content:center;margin-top:.55rem !important;font-size:.92rem;color:var(--s-on-dark-2)}
+.gc-extra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:.75rem;align-items:start;margin-top:.8rem !important;font-size:.92rem;color:var(--s-on-dark-2);text-align:center}
+.gc-extra .dot{display:none}
+.gc-extra .gc-wx ~ .gc-odds{border-left:1px solid rgba(255,255,255,.3);padding-left:.75rem}
+.gc-extra > :only-child{grid-column:1 / -1}
 .gc-cta{width:100%;margin-top:.9rem}
 .gc-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
 .gc-cta:focus-visible{outline-color:var(--t-focus)}
@@ -400,18 +409,21 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .home-sec .sec-head{margin:1.4rem 0 .6rem}
 .home-schedule .sec-head{flex-wrap:wrap;column-gap:.75rem;row-gap:0}
 
-.news-row{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:.75rem;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:0 calc(var(--gutter) + env(safe-area-inset-left,0px)) .35rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gutter);scrollbar-width:none}
+.news-row{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:.75rem;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:0 calc(var(--gutter) + env(safe-area-inset-left,0px)) .35rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gutter);scrollbar-width:none}
 .news-row::-webkit-scrollbar{display:none}
 .news-row li{min-width:0}
 /* Positioned, so its screen-reader text stays inside the scrolling row
    instead of widening the page. */
 .news-card{position:relative;display:flex;flex-direction:column;height:100%;overflow:hidden;color:inherit;text-decoration:none;scroll-snap-align:start}
-.news-card:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
+.home-news .news-card{box-shadow:none}
+.news-card:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .news-img{position:relative;display:block;aspect-ratio:16 / 9;overflow:hidden;background:var(--s-inset)}
 .news-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.news-img.is-logo,.nw-img.is-logo{background:var(--s-surface)}
+.news-img.is-logo img,.nw-img.is-logo img{object-fit:contain;padding:.65rem}
 .news-src{display:none}
 /* No photo: a shorter band in the team's colours with the outlet's name. */
-.news-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;height:4.6rem;padding:.6rem .8rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
+.news-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;min-height:3.25rem;padding:.6rem .8rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
 .news-img.none .news-src{display:block;color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase}
 .news-body{display:flex;flex:1;flex-direction:column;gap:.4rem;padding:.7rem .85rem .8rem}
 .news-hl{display:-webkit-box;overflow:hidden;-webkit-line-clamp:3;-webkit-box-orient:vertical;font-family:var(--s-font-editorial);font-weight:700;font-size:1.12rem;line-height:1.28;color:var(--s-ink)}
@@ -467,17 +479,19 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .sc-back:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:6px}
 
 .outlook{padding:1rem 1rem .85rem}
-.out-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1rem 1.4rem}
-.out-metric{display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:.5rem;row-gap:.3rem}
+.out-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.3rem 1.4rem}
+/* Shared rows keep values, wrapping labels, bars and optional timestamps
+   aligned across adjacent metrics; stacked metrics keep the same order. */
+.out-metric{display:grid;grid-row:span 4;grid-template-columns:auto 1fr;grid-template-rows:subgrid;align-items:baseline;column-gap:.5rem;row-gap:.3rem}
 .out-value{font-family:var(--t-font-display);font-weight:800;font-size:2.3rem;line-height:1;color:var(--s-ink)}
 .out-value .pct{font-size:.6em}
 .out-chg{font-size:.9rem;font-weight:700}
 .out-chg.up{color:var(--s-win)}
 .out-chg.down{color:var(--s-loss)}
-.out-label{grid-column:1 / -1;font-size:.95rem;color:var(--s-ink-2)}
-.out-bar{grid-column:1 / -1;display:block;height:.45rem;overflow:hidden;border-radius:var(--s-radius-pill);background:var(--s-inset)}
+.out-label{grid-column:1 / -1;grid-row:2;font-size:.95rem;color:var(--s-ink-2)}
+.out-bar{grid-column:1 / -1;grid-row:3;display:block;height:.45rem;overflow:hidden;border-radius:var(--s-radius-pill);background:var(--s-inset)}
 .out-bar span{display:block;height:100%;background:var(--t-accent)}
-.out-asof{grid-column:1 / -1;font-size:.8rem;color:var(--s-muted)}
+.out-asof{grid-column:1 / -1;grid-row:4;font-size:.8rem;color:var(--s-muted)}
 .out-credit{margin:.85rem 0 0;font-size:.85rem;color:var(--s-muted)}
 .home-loading{padding:2rem 0}
 
@@ -489,7 +503,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .gh-inner{position:relative;z-index:1;padding:.9rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.2rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
 /* The weather and the line: one centred row under the game, two equal
    halves either side of a rule (David, 2026-10-01). */
-.gh-extra{display:flex;justify-content:center;margin-top:.9rem;font-size:.85rem;color:var(--s-on-dark-2);text-align:center}
+.gh-extra{display:flex;justify-content:center;max-width:22rem;margin:1rem auto 0;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem;color:var(--s-on-dark-2);text-align:center}
 .gh-extra > span{display:flex;flex:0 1 9.5rem;flex-direction:column;align-items:center;gap:.1rem;padding:0 .75rem}
 .gh-extra > span + span{border-left:1px solid rgba(255,255,255,.3)}
 .gh-extra strong{font-family:var(--t-font-display);font-size:1.05rem;color:var(--s-on-dark)}
@@ -505,14 +519,14 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .fit-tight .gh-name{font-size:.9rem;letter-spacing:0}
 .gh-record{font-size:.9rem;color:var(--s-on-dark-2)}
 .gh-center{display:flex;flex-direction:column;align-items:center;gap:.25rem;min-width:0;text-align:center}
-.gh-where{font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--t-accent-text)}
+.gh-where{font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--s-on-dark)}
 .gh-opp{max-width:100%;overflow:hidden;text-overflow:ellipsis;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.8rem,8.5vw,2.6rem);line-height:.95;text-transform:uppercase}
 .gh-when{font-size:1rem;font-weight:600}
 .gh-venue{font-size:.88rem;color:var(--s-on-dark-2)}
 .gh-series{font-size:.88rem;color:var(--t-accent-text)}
-.gh-countdown{margin-top:.45rem !important}
-.gh-countdown > span{display:inline-flex;border:1px solid rgba(255,255,255,.3);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.55)}
-.cd-cell{display:flex;flex-direction:column;align-items:center;min-width:3.4rem;padding:.3rem .5rem}
+.gh-countdown{margin-top:.45rem !important;max-width:100%}
+.gh-countdown > span{display:inline-flex;max-width:100%;flex-wrap:wrap;justify-content:center;border:1px solid rgba(255,255,255,.3);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.55)}
+.cd-cell{display:flex;flex-direction:column;align-items:center;min-width:0;flex:1;padding:.3rem .5rem}
 .cd-cell + .cd-cell{border-left:1px solid rgba(255,255,255,.25)}
 .cd-n{font-family:var(--t-font-display);font-weight:800;font-size:1.7rem;line-height:1;color:var(--t-accent-text)}
 .cd-l{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s-on-dark-2)}
@@ -531,7 +545,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 
 .game-schedule{display:flex;justify-content:flex-end;margin-top:.5rem}
 .game-body{padding-bottom:.5rem}
-.gcard{margin-top:.9rem;padding:.85rem 1rem 1rem}
+.gcard{container-type:inline-size;margin-top:.9rem;padding:.85rem 1rem 1rem}
 .gcard-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.6rem}
 .gcard-title{margin:0;padding-left:.6rem;border-left:4px solid var(--t-accent);font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t-surface)}
 .gcard-note{font-size:.85rem;font-weight:600;color:var(--s-muted)}
@@ -557,6 +571,16 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .mu-arrow{width:0;height:0;border-top:.4rem solid transparent;border-bottom:.4rem solid transparent}
 .mu-arrow.l{border-right:.55rem solid var(--t-accent-on-light)}
 .mu-arrow.r{border-left:.55rem solid var(--t-accent-on-light)}
+/* Large text keeps every comparison visible instead of widening the page. */
+@container(max-width:14rem){
+  .mu-row{grid-template-columns:repeat(2,minmax(0,1fr));padding:.6rem 0}
+  .mu-l{grid-column:1/-1;grid-row:1}
+  .mu-v.us{grid-column:1;grid-row:2}
+  .mu-v.them{grid-column:2;grid-row:2}
+  .mu-v{min-width:0}
+  .mu-rk{text-align:center}
+  .mu-arrow{flex:none}
+}
 
 .ld-list li{display:grid;grid-template-columns:5.6rem minmax(0,1fr);column-gap:.6rem;padding:.5rem 0}
 .ld-list li + li{border-top:1px solid var(--s-line)}
@@ -618,14 +642,14 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .lp-dd{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;color:var(--t-surface)}
 .lp-text{margin:.25rem 0 0;color:var(--s-ink-2)}
 
-.sp-row{display:grid;grid-template-columns:auto 1fr auto;column-gap:.6rem;padding:.55rem 0}
+.sp-row{display:grid;grid-template-columns:auto 1fr auto;column-gap:.6rem;row-gap:.3rem;padding:.75rem 0}
 .sp-list > li + li{border-top:1px solid var(--s-line)}
 .sp-list summary{grid-template-columns:auto 1fr auto auto;list-style:none;cursor:pointer;min-height:2.75rem}
 .sp-list summary::-webkit-details-marker{display:none}
 .sp-list summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:-2px}
 .sp-list summary .dr-chev{grid-column:4;grid-row:1;align-self:center}
 .sp-list details[open] > summary .dr-chev{transform:rotate(-135deg) translateY(-1px)}
-.sp-drive{margin:0 0 .35rem;font-size:.82rem;color:var(--s-muted)}
+.sp-drive{margin:0 0 .5rem;padding:.4rem .6rem;border-left:2px solid var(--s-line-strong);font-size:.82rem;color:var(--s-muted)}
 .pl-list > li.is-score{border-left-color:var(--t-accent-on-light);background:var(--t-accent-tint-soft)}
 .pl-list > li.is-score .pl-text{font-weight:700;color:var(--s-ink)}
 .sp-when{font-size:.82rem;color:var(--s-muted)}
@@ -644,7 +668,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .dr-chev{width:.5rem;height:.5rem;margin:0 .15rem 0 .1rem;border-right:2px solid var(--s-muted);border-bottom:2px solid var(--s-muted);transform:rotate(45deg) translateY(-2px)}
 .dr-list details[open] > summary .dr-chev{transform:rotate(-135deg) translateY(-1px)}
 .pl-list{margin:0 0 .6rem;padding-left:.2rem}
-.pl-list > li{display:grid;row-gap:.1rem;padding:.35rem 0 .35rem .6rem;border-left:2px solid var(--s-line)}
+.pl-list > li{display:grid;row-gap:.25rem;padding:.55rem .5rem .55rem .7rem;border-left:2px solid var(--s-line)}
 .pl-meta{display:flex;justify-content:space-between;gap:.5rem}
 .pl-dd{font-size:.8rem;font-weight:600;color:var(--s-muted)}
 .pl-at{font-size:.78rem;color:var(--s-muted);font-variant-numeric:tabular-nums}
@@ -657,7 +681,7 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .pl-notes{list-style:none;margin:.15rem 0 0;padding:0}
 .pl-notes li{font-size:.8rem;color:var(--s-muted)}
 .pl-notes li + li{margin-top:.05rem}
-.pl-text{font-size:.9rem;color:var(--s-ink-2)}
+.pl-text{font-size:.9rem;line-height:1.45;color:var(--s-ink-2)}
 
 /* Box Score categories: each its own disclosure. The heading always shows,
    with how many players it holds and, in words, what a press will do. */
@@ -809,7 +833,7 @@ details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}
 .ro-changes{margin:.2rem 0 0;padding-left:1.1rem;font-size:.9rem;color:var(--s-ink-2)}
 .ro-changes li + li{margin-top:.25rem}
 /* Offense | Defense | Special Teams stays in reach on a long chart (0024 §8). */
-.unit-seg{position:sticky;top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px));z-index:20;margin-top:.9rem;box-shadow:0 0 0 .5rem var(--s-page)}
+.unit-seg{position:sticky;top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px));z-index:20;margin-top:.75rem;box-shadow:0 -1px 0 .35rem var(--s-page),0 1px 3px rgba(15,27,45,.08)}
 .unit-seg a{display:flex;flex:1;align-items:center;justify-content:center;min-height:2.75rem;padding:.35rem .4rem;border-radius:8px;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:1.02rem;text-align:center;text-decoration:none}
 .unit-seg a[aria-current="page"]{background:var(--s-surface);color:var(--t-surface);box-shadow:0 1px 3px rgba(15,27,45,.12)}
 .unit-seg a:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
@@ -947,15 +971,17 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
    ==================================================================== */
 @media (min-width:48rem){
   :root{--gutter:1.5rem}
+  .app-bar{padding-left:max(calc((100% - var(--s-content-max))/2 + var(--gutter)),env(safe-area-inset-left,0px));padding-right:max(calc((100% - var(--s-content-max))/2 + var(--gutter)),env(safe-area-inset-right,0px))}
   .navbar{left:50%;right:auto;width:min(40rem,calc(100% - 2rem));transform:translateX(-50%);border:1px solid var(--s-line);border-bottom:0;border-radius:18px 18px 0 0}
   .navbar::after{left:-1px;right:-1px;border:1px solid var(--s-line);border-width:0 1px}
   .chooser-soon{grid-template-columns:repeat(3,minmax(0,1fr))}
   /* Home on a wide screen: the hero is a framed panel in the column, and
-     the three stories sit side by side instead of scrolling. */
+     news keeps two readable stories with a visible preview of the third. */
   .home-hero{margin:1rem 0 0;border-radius:var(--s-radius-card)}
   .hh-inner{padding:1.4rem 1.5rem}
   .fresh-banner{margin:0;border-radius:0 0 var(--s-radius-ctl) var(--s-radius-ctl)}
-  .news-row{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:0;overflow:visible}
+  .news-row{grid-auto-columns:46%;margin:0;padding:0 0 .5rem;scroll-padding-left:0;scrollbar-width:thin}
+  .news-row::-webkit-scrollbar{display:block;height:6px}
   .game-head,.game-tabs{margin:1rem 0 0;border-radius:var(--s-radius-card)}
   .game-tabs{margin-top:.6rem;border:1px solid var(--s-line)}
   .gh-inner{padding:1.1rem 1.5rem 1.4rem}
@@ -1051,26 +1077,27 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .navbar.game-live .nav-game .nav-live,.live-pill::before{animation:none}
 }
 /* Swiping between a screen's peer views (suite/nav.js): the new view slides
-   in from the side the fan swiped toward. Motion for Codex to tune. */
-.view-in-next{animation:view-in-next .2s ease-out}
-.view-in-prev{animation:view-in-prev .2s ease-out}
-@keyframes view-in-next{from{transform:translateX(1.75rem);opacity:.4}to{transform:none;opacity:1}}
-@keyframes view-in-prev{from{transform:translateX(-1.75rem);opacity:.4}to{transform:none;opacity:1}}
+   in from the side the fan swiped toward. David approved the gentler
+   arrival in the October 3 motion study. */
+.view-in-next{animation:view-in-next .18s cubic-bezier(.2,.7,.2,1)}
+.view-in-prev{animation:view-in-prev .18s cubic-bezier(.2,.7,.2,1)}
+@keyframes view-in-next{from{transform:translateX(.75rem);opacity:.85}to{transform:none;opacity:1}}
+@keyframes view-in-prev{from{transform:translateX(-.75rem);opacity:.85}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.view-in-next,.view-in-prev{animation:none}}
 
 /* Pull to refresh (suite/nav.js pull(); David, 2026-10-01). The page's own
    pull-to-reload is turned off so a pull refreshes the data instead of
    reloading the app; the chooser keeps the browser's. The indicator slides
    out from under the header as the finger pulls, completes its arc when a
-   release would refresh, and turns while the refresh runs. A placeholder
-   for Codex: see docs/engineering/codex-review-queue.md. */
+   release would refresh, and turns while the refresh runs. The quiet ring
+   and shadow follow David's approved October 3 motion study. */
 html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:contain}
 .pull{position:fixed;left:50%;z-index:50;width:2.25rem;height:2.25rem;margin-top:-2.25rem;border-radius:50%;
-  background:var(--s-surface);box-shadow:var(--s-shadow-raise);display:flex;align-items:center;justify-content:center;
+  background:var(--s-surface);border:1px solid var(--s-line);box-shadow:0 2px 8px rgba(15,27,45,.12);display:flex;align-items:center;justify-content:center;
   opacity:0;pointer-events:none;transform:translate(-50%,0);transition:opacity .15s ease-out,transform .2s ease-out}
 .pull.is-pulling{transition:none;opacity:var(--pull,0)}
 .pull.is-armed,.pull.is-refreshing{opacity:1}
-.pull-mark{width:1.1rem;height:1.1rem;border-radius:50%;border:2px solid var(--s-line-strong);border-top-color:var(--t-accent-on-light);
+.pull-mark{width:1rem;height:1rem;border-radius:50%;border:2px solid var(--s-line-strong);border-top-color:var(--t-accent-on-light);
   transform:rotate(calc(var(--pull,0) * 270deg))}
 .pull.is-armed .pull-mark{border-right-color:var(--t-accent-on-light)}
 .pull.is-refreshing .pull-mark{animation:pull-turn .8s linear infinite}
@@ -1078,24 +1105,36 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 @media (prefers-reduced-motion:reduce){.pull,.pull.is-pulling{transition:none}.pull.is-refreshing .pull-mark{animation:none}}
 
 /* ---- Stats: the team's season (W27) ------------------------------------
-   Placeholder styling on the shared card (gcard), for Codex's review: the
-   Team view's rows, the opponent column in game week, the Roster link. */
+   Team values share their header grid; player names stay visible while
+   wide tables scroll. Home/Game's quiet cards carry into this screen. */
 .ro-stats{display:flex;justify-content:flex-end;margin:0}
 .ss-season{margin:.7rem 0 0;font-size:.95rem;color:var(--s-muted)}
 .ss-week{margin:.2rem 0 0;font-size:.95rem;color:var(--s-ink-2)}
-.ss-card{margin-top:.8rem}
+.ss-card{margin-top:.8rem;box-shadow:none;container-type:inline-size}
 /* the Players tables scroll inside their card; the screen-reader "none" in
    an empty cell is positioned, so the wrap must contain it or it widens
    the page at 320px */
 .ss-card .bx-wrap{position:relative}
-.ss-cols{display:grid;grid-template-columns:minmax(0,1fr) 5.4rem 5.4rem;gap:.5rem;margin-top:-.2rem;font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-align:center;color:var(--s-muted)}
+.ss-card .bx-wrap:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
+.ss-card .bx{border-collapse:separate;border-spacing:0}
+.ss-card .bx th,.ss-card .bx td{padding:.6rem .5rem}
+.ss-card .bx tbody tr + tr > *{border-top:1px solid var(--s-line)}
+.ss-card .bx th:first-child{position:sticky;left:0;z-index:1;min-width:7rem;max-width:10rem;white-space:normal;background:var(--s-surface);box-shadow:1px 0 0 var(--s-line);line-height:1.3}
+.ss-card .bx td{min-width:3rem}
+.ss-scroll-hint{margin:.1rem 0 .6rem;color:var(--s-muted);font-size:.85rem}
+.ss-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(3.4rem,22%) minmax(3.4rem,22%);gap:.5rem;margin-top:0;padding-bottom:.3rem;font-family:var(--t-font-display);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-align:center;color:var(--s-muted)}
 .ss-list{list-style:none;margin:0;padding:0}
-.ss-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem;padding:.45rem 0}
-.ss-row.two{grid-template-columns:minmax(0,1fr) 5.4rem 5.4rem;gap:.5rem}
+.ss-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem;padding:.6rem 0;min-height:3.1rem}
+.ss-row.two{grid-template-columns:minmax(0,1fr) minmax(3.4rem,22%) minmax(3.4rem,22%);gap:.5rem}
 .ss-row + .ss-row{border-top:1px solid var(--s-line)}
-.ss-l{font-size:.95rem;color:var(--s-ink-2)}
+.ss-l{font-size:.95rem;line-height:1.35;overflow-wrap:break-word;color:var(--s-ink-2)}
 .ss-v{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 .ss-row.two .ss-v{align-items:center;text-align:center}
-.ss-n{font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;color:var(--s-ink)}
-.ss-rk{font-size:.75rem;color:var(--s-muted)}
+.ss-n{font-family:var(--t-font-display);font-weight:700;font-size:1.12rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.ss-rk{margin-top:.1rem;font-size:.75rem;line-height:1.3;color:var(--s-muted)}
 .ss-note{margin:1rem 0 0;font-size:.85rem;color:var(--s-muted)}
+@container (max-width:15rem){
+  .ss-cols,.ss-row.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .ss-cols > :first-child{display:none}
+  .ss-row.two .ss-l{grid-column:1 / -1}
+}

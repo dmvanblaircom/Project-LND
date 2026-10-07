@@ -5,6 +5,23 @@ Codex owns presentation and motion; Claude owns the data, behavior and
 tests underneath (the split in `backlog.md` and `wednesday-delivery-handoff.md`).
 When an item is done, delete its entry and record it in the backlog.
 
+**David's UI order, October 2:** Home/Game → Stats → navigation and motion →
+brand/type → FPI → photography → Season Outlook full field → notifications →
+offseason. These are the chat's items **2, 3, 4, 1, 5, 7, 6, 9, 8**. This
+order supersedes earlier UI sequencing; offseason's mid-November target stays.
+
+**October 3 additions to the first slice:** every comparable Matchup row
+shows the better value, including unranked defensive allowances; Outlook
+probability tracks align across widths; Home and News prefer article photos
+and fall back to publisher logos. See the [Home/Game review](../design/home-game-review-2026-10-03.md).
+
+**October 4 progress:** Home/Game #100 is deployed and production-verified.
+Stats #104 merged after both full release runs passed. David approved the
+motion study; the gentler swipe, quieter refresh indicator and launch fade
+are applied in the next slice, alongside the launch-clock correction. See
+the [Stats review](../design/stats-review-2026-10-03.md) and
+[navigation review](../design/navigation-review-2026-10-03.md).
+
 ## 1. Home's schedule rows on phones: the site tag above the name
 
 **Found in the bug hunt, 2026-10-02:** on a phone, Home's three schedule

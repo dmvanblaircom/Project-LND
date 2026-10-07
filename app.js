@@ -815,10 +815,12 @@ function loadPlayers(force){
 // never read them directly. A team without beat feeds gets ESPN alone.
 
 // news.json is this project's own snapshot (docs/03_DOMAIN_MODEL.md, NewsItem):
-// the same fields, with the date as ISO text and never an image.
+// the same fields, with the date as ISO text and optional article/source art.
 function beatItem(i){
   var t=i.published ? Date.parse(i.published) : NaN;
-  return { title:i.title, link:i.link, image:"", source:i.source, publishedAt: isNaN(t) ? null : t };
+  function picture(u){ return /^https?:\/\/\S+$/i.test(String(u||"")) ? u : ""; }
+  return { title:i.title, link:i.link, image:picture(i.image), sourceLogo:picture(i.sourceLogo),
+           source:i.source, publishedAt: isNaN(t) ? null : t };
 }
 // Every source's stories -> one NewsItem[], newest first, one story per
 // headline. Home and the full News list read the same list. Only a plain
@@ -1771,12 +1773,18 @@ function alertsModel(){
   return { support:support, on:granted && alertsOnHere(), busy:ALERTS.busy, note:ALERTS.note,
            denied: support==="ok" && Notification.permission==="denied" };
 }
-// A subscription the browser has dropped on its own (iOS can) is not on.
-if(alertsOnHere() && alertSupport()==="ok" && navigator.serviceWorker.ready){
+// A subscription the browser has dropped on its own (iOS can, even while
+// the installed app sits suspended) is not on: checked at start, each time
+// Settings is shown and each time the app comes back (Codex, PR #103).
+function alertsRecheck(){
+  if(!alertsOnHere() || alertSupport()!=="ok" || ALERTS.busy || !navigator.serviceWorker.ready) return;
   navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
-    if(!sub){ try{ localStorage.removeItem(ALERT_KEY); }catch(e){} paintMore(); }
+    if(!sub && !ALERTS.busy){ try{ localStorage.removeItem(ALERT_KEY); }catch(e){} paintMore(); }
   }).catch(function(){});
 }
+alertsRecheck();
+document.addEventListener("visibilitychange", function(){ if(!document.hidden) alertsRecheck(); });
+window.addEventListener("hashchange", function(){ if(Suite.nav.current().screen==="settings") alertsRecheck(); });
 function keyBytes(b64){
   var s=atob(b64.replace(/-/g,"+").replace(/_/g,"/")+"===".slice((b64.length+3)%4)), out=new Uint8Array(s.length);
   for(var i=0;i<s.length;i++) out[i]=s.charCodeAt(i);
