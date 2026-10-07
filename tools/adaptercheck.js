@@ -1047,11 +1047,11 @@ function stripRun(config) {
   vm.runInContext([
     "var asked = 0, painted = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
     "var HOME = { markets: {} }, SRC = {};",
-    "function paintHome(){ painted++; }",
+    "function paintHome(){ painted++; } function paintOutlook(){}",
     // answers synchronously, so the result is here when the check reads it
     "function kalshi(){ asked++; return { then: function(f){ f({ markets: [] }); return { catch: function(){} }; } }; }"
   ].join("\n"), c);
-  vm.runInContext(liftFn("loadStrip") + "function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }\nvar MARKET_FIELD = {};\n", c);
+  vm.runInContext(liftFn("loadStrip") + "function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }\nvar MARKET_FIELD = { settled:{}, failed:{} };\n", c);
   vm.runInContext("loadStrip();", c);
   return c;
 }
