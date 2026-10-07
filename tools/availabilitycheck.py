@@ -109,5 +109,21 @@ finally:
 ok(av == recorded, "availability.json is left as it was - never replaced with last week's report")
 ok("left as it was" in log, "and the run says so")
 
+print("a report recorded by an older reading is read again")
+def older_reading(path, empty):
+    d = real(path, empty)
+    if isinstance(d, dict) and "reports" in d:
+        d = dict(d, reports=[dict(r, parser=None) if r.get("game") == current else r for r in d["reports"]])
+    return d
+od.load = older_reading
+try:
+    _, _, log = run(set())
+finally:
+    od.load = real
+reread = [l for l in log.splitlines() if "reading game notes" in l]
+ok(len(reread) == 1, "only that week's notes are read again (%d read)" % len(reread))
+_, _, log = run(set())
+ok("reading game notes" not in log, "and a report from the current reading is reused, not fetched again")
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "a failed fetch never costs the right report"))
 sys.exit(1 if failures else 0)

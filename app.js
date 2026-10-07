@@ -1631,6 +1631,11 @@ function refreshAll(silent){
   });
   FRESH.at=Date.now();
   return Promise.all(steps).then(function(r){
+    // The schedule and the scoreboard answer in either order, and the
+    // schedule reconciles only with the scoreboard it found: so once both
+    // are in, reconcile again - this week's opponent's record and rank, and
+    // a game the scoreboard already calls under way (W10).
+    if(SB.games) scoreboardArrived();
     var flat=[]; (function add(x){ if(Array.isArray(x)) x.forEach(add); else if(x && x.outcome) flat.push(x); })(r);
     return flat;
   });
@@ -1884,15 +1889,28 @@ document.addEventListener("visibilitychange", function(){
   FRESH.hiddenAt=null;
   if(away>FRESH.afterHidden || Date.now()-FRESH.at>FRESH.whileVisible) refreshAll(true);
 });
+// Kickoff has come and gone but our snapshot still calls the game upcoming.
+// Nothing else would notice for up to half an hour: startAuto() only runs
+// after a fetch, and without a fetch there is no fetch. So look - every
+// minute for the first ten minutes past kickoff, when the game is most
+// likely starting, then every five while a delay drags on (a weather hold
+// can be hours: a minute's poll for all of it is wasted requests, W10), and
+// after eight hours stop: the half-hour refresh covers a game that never
+// started. Pure, so pollcheck can ask it.
+var LATE_KICKOFF={ at:0 };
+function lateKickoffDue(next, now, lastAt){
+  if(!next || next.state!=="pre" || !next.timeSet) return false;
+  var past=now-new Date(next.date).getTime();
+  if(!(past>=0) || past>8*3600e3) return false;
+  var every=past<10*60e3 ? 60e3 : 5*60e3;
+  return now-lastAt >= every-1000;                 // a tick's jitter never skips a turn
+}
 setInterval(function(){
   if(document.hidden) return;
   if(somethingLive()) return;                      // the live poller is already refreshing
 
-  // Kickoff has come and gone but our snapshot still calls the game upcoming.
-  // Nothing else would notice for up to half an hour: startAuto() only runs
-  // after a fetch, and without a fetch there is no fetch. Look once.
-  if(S.next && S.next.state==="pre" && S.next.timeSet &&
-     Date.now() >= new Date(S.next.date).getTime()){
+  if(lateKickoffDue(S.next, Date.now(), LATE_KICKOFF.at)){
+    LATE_KICKOFF.at=Date.now();
     refreshSchedule(false);
     return;
   }
