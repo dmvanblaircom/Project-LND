@@ -17,15 +17,21 @@
 
    It writes JSON findings and screenshots; it changes nothing.
 
-   Usage: node tools/qa/livescan.js <tag> <outdir>
+   Usage: node tools/qa/livescan.js <tag> <outdir> [notre-dame|ohio-state]
      reads tools/fixtures/espn-scoreboard-scan-<tag>.json,
-           espn-schedule-scan-nd-<tag>.json, espn-summary-scan-*-<tag>.json */
+           espn-schedule-scan-<nd|osu>-<tag>.json, espn-summary-scan-*-<tag>.json
+   (Oct 10: either team, and the screens added since Sep 26 - Roster's
+   Availability, Stats, Season Outlook and its full field, Settings.) */
 "use strict";
 var http = require("http"), fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
 
 var root = path.join(__dirname, "..", "..");
-var tag = process.argv[2], out = process.argv[3];
+var tag = process.argv[2], out = process.argv[3], slug = process.argv[4] || "notre-dame";
+var TEAMS = { "notre-dame": { id: "87", abbr: "nd", post: "espn-schedule-nd-2025-post.json", sched: "espn-schedule-nd-sep24.json", roster: "espn-roster-nd-oct02.json" },
+              "ohio-state": { id: "194", abbr: "osu", post: "espn-schedule-osu-2025-post-notes.json", sched: "espn-schedule-osu-2026.json", roster: "espn-roster-osu-oct02.json" } };
+var T = TEAMS[slug];
+if (!T) { console.error("unknown team " + slug); process.exit(2); }
 var FX = path.join(root, "tools", "fixtures");
 function fx(name) { var f = path.join(FX, name); return fs.existsSync(f) ? fs.readFileSync(f) : null; }
 var board = fx("espn-scoreboard-scan-" + tag + ".json");
@@ -37,7 +43,7 @@ fs.readdirSync(FX).forEach(function (f) {
   var m = new RegExp("^espn-summary-scan-.*-" + tag + "\\.json$").exec(f);
   if (m) { var j = JSON.parse(fs.readFileSync(path.join(FX, f))); var id = (/event (\d+)/.exec(j._comment || "") || [])[1]; if (id) summaries[id] = fs.readFileSync(path.join(FX, f)); }
 });
-var schedule = fx("espn-schedule-scan-nd-" + tag + ".json") || fx("espn-schedule-nd-sep24.json");
+var schedule = fx("espn-schedule-scan-" + T.abbr + "-" + tag + ".json") || fx(T.sched);
 var rankings = fx("espn-rankings-scan-" + tag + ".json") || fx("espn-rankings-sep20.json");
 
 var srv = http.createServer(function (q, r) {
@@ -49,7 +55,7 @@ var srv = http.createServer(function (q, r) {
 });
 
 // The configured team's game on the scoreboard, as the payload says it.
-var ND = "87";
+var ND = T.id;
 var ndEv = (boardJ.events || []).filter(function (e) { return e.competitions[0].competitors.some(function (c) { return String(c.id || c.team.id) === ND; }); })[0];
 function sideOf(ev, us) { return ev.competitions[0].competitors.filter(function (c) { return (String(c.id || c.team.id) === ND) === us; })[0]; }
 var truth = ndEv ? {
@@ -77,13 +83,13 @@ var truth = ndEv ? {
       var J = function (b) { return b ? rt.fulfill({ status: 200, contentType: "application/json", body: b }) : rt.abort(); };
       var ev = /summary\?event=(\d+)/.exec(u); if (ev) return J(summaries[ev[1]] || null);
       if (/scoreboard/.test(u)) return J(board);
-      if (/\/teams\/87\/schedule\?seasontype=3/.test(u)) return J(fx("espn-schedule-nd-2025-post.json"));
-      if (/\/teams\/87\/schedule/.test(u)) return J(schedule);
-      if (/\/teams\/87\/roster/.test(u)) return J(fx("espn-roster-nd-sep24.json"));
+      if (new RegExp("/teams/" + ND + "/schedule\\?seasontype=3").test(u)) return J(fx(T.post));
+      if (new RegExp("/teams/" + ND + "/schedule").test(u)) return J(schedule);
+      if (new RegExp("/teams/" + ND + "/roster").test(u)) return J(fx(T.roster));
       if (/\/rankings/.test(u)) return J(rankings);
       return rt.abort();
     });
-    await pg.goto(base + "/?team=notre-dame" + hash); await pg.waitForTimeout(3500);
+    await pg.goto(base + "/?team=" + slug + hash); await pg.waitForTimeout(3500);
     var r = await pg.evaluate(function () {
       var s = [].filter.call(document.querySelectorAll("[id^='screen']:not(#screenHead)"), function (x) { return !x.hidden; })[0];
       var ids = {}, dup = [];
@@ -113,6 +119,10 @@ var truth = ndEv ? {
   await open("#top25/rankings", 390, "top25-rankings");
   await open("#schedule", 390, "schedule");
   await open("#roster", 390, "roster");
+  await open("#roster/availability", 390, "roster-availability");
+  await open("#outlook", 390, "outlook");
+  await open("#stats", 390, "stats");
+  await open("#settings", 390, "settings");
 
   // The configured team's live game, against the payload.
   if (truth && truth.state === "in") {
