@@ -581,7 +581,7 @@ TeamOS.espn = (function () {
   function webUrl(v){ var u=str(v).trim(); return /^https?:\/\/[^\s]+$/i.test(u) ? u : null; }
   function hexColor(v){ var h=String(v||"").replace(/^#/,""); return /^[0-9a-f]{6}$/i.test(h) ? "#"+h.toUpperCase() : null; }
   function linescoreOf(c){
-    return (c.linescores||[]).map(function(v){ return str(v.displayValue!=null?v.displayValue:v.value); });
+    return (c.linescores||[]).map(function(v){ return v ? str(v.displayValue!=null?v.displayValue:v.value) : ""; });
   }
 
   // ---- between plays ----
@@ -826,6 +826,25 @@ TeamOS.espn = (function () {
   // each null when the payload has nothing for it. Field names vary by game
   // state, so every read is defensive; a missing section drops out rather
   // than blanking the tab.
+  // ESPN's lists can carry a null where an entry should be (a feed glitch).
+  // Each adapter below drops those before reading, so one bad entry costs
+  // that entry, never the whole screen's "didn't load" (W10, bug hunt
+  // 2026-10-02). In place, on the payload just parsed or cached. Lists of
+  // plain values keep their nulls - there the position is the meaning (a
+  // stat's column) - and so do linescores: a missing quarter reads blank,
+  // it does not slide the next one into its place.
+  function clean(o, key){
+    if(Array.isArray(o)){
+      if(key!=="linescores" && o.every(function(v){ return v==null || typeof v==="object"; })){
+        for(var i=o.length-1; i>=0; i--) if(o[i]==null) o.splice(i, 1);
+      }
+      for(var j=0; j<o.length; j++) clean(o[j], key);
+    } else if(o && typeof o==="object"){
+      for(var k in o) if(Object.prototype.hasOwnProperty.call(o, k)) clean(o[k], k);
+    }
+    return o;
+  }
+
   function gameDetail(d, team, config){
     var teamId=config.sources.espn.teamId;
     var comp=pick(d,["header","competitions",0],{})||{};
@@ -1219,8 +1238,8 @@ TeamOS.espn = (function () {
     leadersUrl: function(key, season, type){
       return CORE+"/seasons/"+season+"/types/"+(type||2)+"/teams/"+key+"/leaders";
     },
-    seasonLeaders: seasonLeaders,
-    boxNames: boxNames,
+    seasonLeaders: function(json){ return seasonLeaders(clean(json)); },
+    boxNames: function(d){ return boxNames(clean(d)); },
     // Leader tables with names joined from `names` ({ id: name }). A row
     // without a name is left out and counted.
     namedLeaders: function(tables, names){
@@ -1254,6 +1273,7 @@ TeamOS.espn = (function () {
     // flat athletes array or one grouped by unit; empty units (IR, practice
     // squad) are dropped, and a flat list becomes one group called "Roster".
     roster: function(json){
+      json=clean(json);
       var groups=[];
       var a=(json&&json.athletes)||[];
       if(a.length && a[0] && Array.isArray(a[0].items)){
@@ -1287,7 +1307,7 @@ TeamOS.espn = (function () {
 
     // ESPN's schedule payload -> Game[], oldest first.
     schedule: function(json, team, config){
-      return ((json&&json.events)||[]).map(function(ev){ return game(ev, team, config); })
+      return ((clean(json)&&json.events)||[]).map(function(ev){ return game(ev, team, config); })
         .sort(function(a,b){ return new Date(a.date)-new Date(b.date); });
     },
 
@@ -1300,7 +1320,7 @@ TeamOS.espn = (function () {
     // ESPN's scoreboard payload (every game the league is showing this week) ->
     // LeagueGame[], oldest first. Ranked games are the ones with a side rank.
     scoreboard: function(json, config){
-      return ((json&&json.events)||[]).map(function(ev){ return leagueGame(ev, config); })
+      return ((clean(json)&&json.events)||[]).map(function(ev){ return leagueGame(ev, config); })
         .sort(function(a,b){ return new Date(a.date)-new Date(b.date); });
     },
 
@@ -1308,6 +1328,7 @@ TeamOS.espn = (function () {
     // team, CFP first, one per label when ESPN publishes a poll twice.
     rankings: function(json, config){
       var seen={};
+      clean(json);
       return ((json&&json.rankings)||[])
         .filter(function(r){ return (r.ranks||[]).length && isFBS(r); })
         .sort(function(a,b){ return pollOrder(a)-pollOrder(b); })
@@ -1316,7 +1337,7 @@ TeamOS.espn = (function () {
     },
 
     // ESPN's game summary -> GameDetail (docs/03_DOMAIN_MODEL.md).
-    gameDetail: gameDetail,
+    gameDetail: function(d, team, config){ return gameDetail(clean(d), team, config); },
 
     // Whether a game summary is itself a finished game's: ESPN's own
     // completed flag. A summary fetched while the schedule already says
@@ -1334,7 +1355,7 @@ TeamOS.espn = (function () {
     // is not plain http(s) is no link at all: it is written into an href or
     // src, and a javascript: address there would run on a tap.
     news: function(json){
-      return ((json&&json.articles)||[]).map(function(a){
+      return ((clean(json)&&json.articles)||[]).map(function(a){
         var t=a.published ? Date.parse(a.published) : NaN;
         return {
           title:       str(a.headline),
