@@ -22,6 +22,7 @@ function ok(cond, what) { if (cond) { console.log("  ok   " + what); return; } f
 
 function fixture(url) {
   var f = /\/schedule\?seasontype=3/.test(url) ? "espn-schedule-nd-2025-post.json"
+        : /\/teams\/194\/schedule(\?|$)/.test(url) ? "espn-schedule-osu-2026.json"
         : /\/schedule(\?|$)/.test(url) ? "espn-schedule.json"
         : /\/scoreboard\?/.test(url) ? "espn-scoreboard-sep26.json"
         : /\/rankings/.test(url) ? "espn-rankings-sep20.json"
@@ -43,6 +44,8 @@ function fixture(url) {
     var ctx = await browser.newContext({ viewport: { width: opts.width || 390, height: 844 }, serviceWorkers: "block" });
     var page = await ctx.newPage(), fonts = [];
     page.on("request", function (r) { if (/nunito/i.test(r.url())) fonts.push(r.url()); });
+    // Days before a real kickoff, so the Game hero shows its countdown.
+    if (opts.at) await page.clock.setSystemTime(new Date(opts.at));
     if (opts.suiteStyle) await page.addInitScript(function () { try { localStorage.setItem("suite-style", "suite"); } catch (e) {} });
     await page.route("**/*", function (route) {
       var u = route.request().url();
@@ -77,6 +80,31 @@ function fixture(url) {
      "the SUITE bar's team name fits at 320px, untruncated");
   ok(await o.page.evaluate(function () { return document.documentElement.scrollWidth <= innerWidth; }), "and nothing scrolls sideways");
   await o.ctx.close();
+
+  console.log("Ohio State's Game hero in its own (wider) face (David, 2026-10-07: 'MARYL...', 'HOURSMINUTES')");
+  for (var w of [390, 320]) {
+    var gh = await open("/?team=ohio-state#game", { width: w, at: "2026-10-07T22:08:00Z" });
+    await gh.page.waitForSelector("#screenGame .gh-countdown", { timeout: 8000 }).catch(function () {});
+    // Measured as drawn - the text's own laid-out box against the box it
+    // must stay inside - so it holds whatever the markup.
+    var hero = await gh.page.evaluate(function () {
+      function textBox(n) { var r = document.createRange(); r.selectNodeContents(n); return r.getBoundingClientRect(); }
+      var opp = document.querySelector("#screenGame .gh-opp");
+      var ob = opp && opp.getBoundingClientRect(), ot = opp && textBox(opp);
+      var cells = [].map.call(document.querySelectorAll("#screenGame .cd-cell"), function (c) {
+        var l = c.querySelector(".cd-l"), shown = [].filter.call(l.querySelectorAll("span"), function (x) { return x.offsetWidth; })[0] || l;
+        var cb = c.getBoundingClientRect(), tb = textBox(shown);
+        return { label: shown.textContent, inside: tb.left >= cb.left - 0.5 && tb.right <= cb.right + 0.5 };
+      });
+      return { opp: opp ? opp.innerText : null, oppName: opp && opp.querySelector(".go-full") ? opp.querySelector(".go-full").textContent : opp && opp.textContent,
+               oppFits: !!opp && ot.width <= ob.width + 0.5 && getComputedStyle(opp).textOverflow !== "ellipsis", cells: cells };
+    });
+    ok(hero.oppFits && hero.opp === hero.oppName.toUpperCase(),
+       w + "px: the opponent's name whole, never cut (" + hero.opp + ")");
+    ok(hero.cells.length === 3 && hero.cells.every(function (c) { return c.inside; }),
+       w + "px: each countdown label inside its own cell (" + hero.cells.map(function (c) { return c.label; }).join(" | ") + ")");
+    await gh.ctx.close();
+  }
 
   console.log("everyone else never downloads it");
   var n = await open("/?team=notre-dame#home");
