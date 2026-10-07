@@ -76,6 +76,17 @@ odds as media metadata; a push is not the place).
   around games the fan chose. Score changes stop at the final.
 - **Off is one tap**, in the same place, and the browser's own setting also
   works: a subscription the browser revokes is deleted on the next send.
+- **No notification without a reason the fan would name** (David, Oct 7).
+  The moment fans start getting alerts they don't need, they tune all of them
+  out, and then none of them are worth anything. Every push must be one the
+  fan asked for and would miss. Each new kind of push is weighed against that
+  rule before it ships.
+- **The "Game alerts are on" test push is for testing, not for launch.**
+  Turning alerts on sends one confirmation push, so a broken setup shows up
+  before a game rather than during one. On Oct 7 it caught a Focus mode
+  holding alerts back. David: keep it for now. **Before any public launch,
+  replace it with an on-screen confirmation, or send it only the first time
+  a device turns alerts on, so toggling stays silent.**
 
 ## 4. Correctness rules (where notifications go wrong)
 
