@@ -25,7 +25,7 @@ Potential experiences include:
 
 One Suite renders every configured team; Irish Watch is Notre Dame's. Its destinations (decisions 0022, 0023, 0028), each drawn by a file in `suite/`:
 
-- Home - the hero game, Season Outlook, the schedule preview, news
+- Home - the hero game, Season Outlook (and its full field, `#outlook`: every team the Playoff and National Title markets price), the schedule preview, news
 - Top 25 - Games and Rankings (national content, with the team as quiet context)
 - Game - the hero game through its lifecycle: preview, live, final
 - Roster - Depth Chart, Roster and Availability, as the team has them

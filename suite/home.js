@@ -259,7 +259,8 @@ Suite.home = (function () {
 
   function outlookHtml(metrics) {
     if (!metrics || !metrics.length) return "";                   // no supported market: no section
-    return '<div class="sec-head"><h2 class="sec-title" id="outHead">Season Outlook</h2></div>' +
+    return '<div class="sec-head"><h2 class="sec-title" id="outHead">Season Outlook</h2>' +
+             '<a class="sec-link" href="#outlook">View Full Field' + CHEVRON + "</a></div>" +
       '<div class="card outlook" role="group" aria-labelledby="outHead"><div class="out-metrics">' +
       metrics.map(function (x) {
         // A move that rounds to nothing is not shown as "0".

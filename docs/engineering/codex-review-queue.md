@@ -215,7 +215,7 @@ Top 25's notice under the poll selector now names the next CFP rankings show (da
 | Item | Model, ready | What Codex builds |
 |---|---|---|
 | W07 FPI in Rankings (issue #29) | `TeamOS.ratings.fpi()` (PR #53); app loading follows the refresh schedule | The fourth selector option, rating column, "predictive rating" labeling, source/edition line |
-| W18 Season Outlook full field | `TeamOS.markets.field()`, `MARKET_FIELD` in app.js (PR #55) | The "View full field" board: light theme, attribution, stale/missing states, Home navigation |
+| W18 Season Outlook full field | **Built by Claude, Oct 7 (David: "wire it up").** `suite/outlook.js`, `#outlook` and `#outlook/title`, `.of-*` in app.css, `tools/outlookcheck.js` | Review the board: the team's row (inset, accent edge) and its line above the list, row density at 53 teams, the "<1%" floor |
 | W21 series card | `seriesKind` (W21 PR) | Review the card without the trophy mark for a rivalry or event (The Game, the Shamrock Series) |
 
 **David's October 1 correction:** preserve the deliberately compact depth-chart changes section and its movement arrows. W06's disclosure is withdrawn; do not restore or enlarge the changes section. See the controlling direction in `backlog.md`.
