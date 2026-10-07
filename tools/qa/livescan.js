@@ -90,6 +90,10 @@ var truth = ndEv ? {
       return rt.abort();
     });
     await pg.goto(base + "/?team=" + slug + hash); await pg.waitForTimeout(3500);
+    // The launch screen (Oct 1) lifts on elapsed time, which stands still
+    // under the fixed clock: take it away, or every screenshot is the mark.
+    await pg.evaluate(function () { var l = document.getElementById("launch"); if (l) l.remove(); });
+    await pg.waitForTimeout(300);
     var r = await pg.evaluate(function () {
       var s = [].filter.call(document.querySelectorAll("[id^='screen']:not(#screenHead)"), function (x) { return !x.hidden; })[0];
       var ids = {}, dup = [];
