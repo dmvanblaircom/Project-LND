@@ -1015,8 +1015,12 @@ window.addEventListener("online",  function(){
   // week's opponent (Codex review, #84).
   if(!$("screenStats").hidden && statsView()==="team" && (ST.outcome!=="network" || (ST.oppFor && !ST.them))) loadStats(true);
   if(!$("screenStats").hidden && statsView()==="players" && PL.outcome!=="network") loadPlayers(true);
+  // So did the full field: a market that never loaded is asked again
+  // (Codex review, #109).
+  if(MARKET_FIELD.failed.title || MARKET_FIELD.failed.playoff) loadStrip();
+  paintOutlook();
 });
-window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); });
+window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); paintOutlook(); });
 
 /* ---------- Game (canonical) ---------- */
 // The Game screen is the hero game - the one TeamOS rule Home and the nav

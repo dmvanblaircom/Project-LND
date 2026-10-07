@@ -179,10 +179,13 @@ function expected(slug, key) {
   await a.ctx.close();
 
   var g = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
-  var gp = await g.newPage();
+  var gp = await g.newPage(), down = true;
   await gp.route("**/*", function (route) {
     var u = route.request().url();
-    if (/odds-(title|playoff)\.json/.test(u) || /kalshi|corsproxy|allorigins|codetabs/.test(u)) return route.abort();
+    var odds = /\/(odds-(title|playoff)\.json)(\?|$)/.exec(u);
+    if (odds && !down) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
+                                              body: fs.readFileSync(path.join(root, "data", "league", odds[1])) });
+    if (odds || /kalshi|corsproxy|allorigins|codetabs/.test(u)) return route.abort();
     if (u.startsWith(base)) return route.continue();
     return route.abort();
   });
@@ -193,7 +196,14 @@ function expected(slug, key) {
   await gp.evaluate(function () { window.dispatchEvent(new Event("offline")); location.hash = "#outlook/title"; });
   await gp.waitForTimeout(800);
   var off = await board(gp);
-  ok(/offline/i.test(off.quiet) || /didn't load/.test(off.quiet), "offline, it says so (" + off.quiet + ")");
+  ok(/offline/i.test(off.quiet), "offline, it says so (" + off.quiet + ")");
+  down = false;
+  await gp.context().setOffline(false);
+  await gp.evaluate(function () { window.dispatchEvent(new Event("online")); });
+  await gp.waitForTimeout(1500);
+  var back2 = await board(gp);
+  ok(back2.rows.length === expected("notre-dame", "title").rows.length,
+     "and when the connection returns, the field loads, as it said it would (" + back2.rows.length + " rows; Codex review, #109)");
   await g.close();
 
   // ---- 5. another team ---------------------------------------------------------
