@@ -54,6 +54,12 @@ the outcomes from the same feeds the screens use:
 | **Team's postseason set** | On | "[Team] is in the College Football Playoff: No. [seed] vs. [opponent], [date]." / "[Team] will play [opponent] in the [bowl], [date]." | When the team's playoff or bowl game appears, Selection Day |
 | **No postseason** | Off | "[Team]'s season is complete: no bowl this year." | Only once selection is known (TeamOS.season.phase `not-selected`), never inferred from an empty feed |
 
+**"Default" means the switch's position when a fan first turns alerts on,
+never a new kind of push switched on for fans already subscribed** (the
+noise rule, §3). A fan who turned on kickoff and final gets nothing else
+until they turn it on. When a new kind ships, it starts off for existing
+subscribers, and Settings shows it with its own switch.
+
 The last two read the season model (`TeamOS.season.phase`, `Game.stage`), so
 a bowl's name is ESPN's own words. No time is promised for a bowl
 announcement: bowls name their teams through Selection Day afternoon, after
@@ -76,6 +82,18 @@ odds as media metadata; a push is not the place).
   around games the fan chose. Score changes stop at the final.
 - **Off is one tap**, in the same place, and the browser's own setting also
   works: a subscription the browser revokes is deleted on the next send.
+- **No notification without a reason the fan would name** (David, Oct 7).
+  The moment fans start getting alerts they don't need, they tune all of them
+  out, and then none of them are worth anything. Every push must be one the
+  fan asked for and would miss. Each new kind of push is weighed against that
+  rule before it ships, and none is ever switched on for fans who already
+  subscribed: they turn it on themselves (§2).
+- **The "Game alerts are on" test push is for testing, not for launch.**
+  Turning alerts on sends one confirmation push, so a broken setup shows up
+  before a game rather than during one. On Oct 7 it caught a Focus mode
+  holding alerts back. David: keep it for now. **Before any public launch,
+  replace it with an on-screen confirmation, or send it only the first time
+  a device turns alerts on, so toggling stays silent.**
 
 ## 4. Correctness rules (where notifications go wrong)
 
