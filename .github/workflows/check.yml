@@ -125,6 +125,9 @@ jobs:
       # Season Outlook's full field: the market whole, Home's number on it,
       # Home navigation, and its failed, offline and saved states (W18).
       - run: node tools/outlookcheck.js
+      # The road to a round number of all-time wins: the official count
+      # plus this season's results, and Home's card (the 1,000th win).
+      - run: node tools/milestonecheck.js
       # A first visit that can't reach the schedule says so on Home and Game,
       # and fills in on reconnection or re-entry (release regression pass).
       - run: node tools/outagecheck.js

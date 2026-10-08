@@ -308,8 +308,9 @@ Suite.home = (function () {
       '<div class="card ms" role="group" aria-labelledby="msHead">' +
         '<p class="ms-count"><span class="ms-n">' + n(ms.wins) + '</span><span class="ms-l">all-time wins</span></p>' +
         '<p class="ms-line">' + line + "</p>" +
-        '<p class="ms-src">Official record ' + esc(n(ms.wins) + "-" + n(ms.losses) + "-" + n(ms.ties)) +
-          (ms.source ? " \u00b7 " + esc(ms.source) : "") + "</p>" +
+        // the program's own count, entering the season, plus its results since
+        '<p class="ms-src">All-time record ' + esc(n(ms.wins) + "-" + n(ms.losses) + "-" + n(ms.ties)) +
+          (ms.source ? " \u00b7 official count, " + esc(ms.source) : "") + "</p>" +
       "</div>";
   }
 

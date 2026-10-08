@@ -52,7 +52,7 @@ TeamOS.milestones = (function () {
       else l += 1;
     });
     var base = { wins: w, losses: l, ties: t, source: r.source || null, asOf: r.asOf || null };
-    var nowT = (now instanceof Date ? now : new Date()).getTime();
+    var nowT = now && typeof now.getTime === "function" ? now.getTime() : Date.now();
     // The week after the hundredth win belongs to it, whatever comes next.
     if (reachedBy && nowT - time(reachedBy) <= HOLD_DAYS * 864e5) {
       return Object.assign(base, { phase: "reached", target: reachedAt, toGo: 0, game: reachedBy });
