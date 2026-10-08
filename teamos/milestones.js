@@ -20,8 +20,8 @@
    - A record for another season is never carried forward: a new season needs
      its own entering record, so a stale one shows nothing rather than a wrong
      count (null).
-   - Only a final with a known result counts. A game in progress counts when
-     it ends, never before.
+   - Only a final with both scores counts, its result read from them. A game
+     in progress counts when it ends, never before.
    - null when the team declares no record, when no hundred is within reach,
      or when the last one was reached more than HOLD_DAYS ago.
 
@@ -43,12 +43,16 @@ TeamOS.milestones = (function () {
     var list = (games || []).filter(Boolean).slice().sort(function (a, b) { return time(a) - time(b); });
     var w = int(r.wins), l = int(r.losses), t = int(r.ties) || 0, reachedBy = null, reachedAt = null;
     list.forEach(function (g) {
-      // a final with both scores: one without them is no result (B7)
-      if (g.status !== "final" || g.won == null || g.us == null || g.them == null || g.us === "" || g.them === "") return;
-      if (g.won === true) {
+      // A final with both scores, and the result read from the scores: the
+      // feed's winner flag can be missing, and a missing flag is not a loss
+      // (Codex review, #112). A final without scores is no result (B7).
+      if (g.status !== "final" || g.us == null || g.them == null || g.us === "" || g.them === "") return;
+      var us = Number(g.us), them = Number(g.them);
+      if (!isFinite(us) || !isFinite(them)) return;
+      if (us > them) {
         w += 1;
         if (w % STEP === 0) { reachedBy = g; reachedAt = w; }
-      } else if (g.us != null && g.them != null && String(g.us) === String(g.them)) t += 1;
+      } else if (us === them) t += 1;
       else l += 1;
     });
     var base = { wins: w, losses: l, ties: t, source: r.source || null, asOf: r.asOf || null };

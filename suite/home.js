@@ -297,7 +297,8 @@ Suite.home = (function () {
       line = esc(team.name) + "\u2019s " + n(ms.target) + "th win" +
              (g ? ": " + esc((g.us != null ? g.us + "-" + g.them + " " : "") + where(g)) + ", " + esc(ui.kickoff(g.date, g.timeSet).day) : "") + ".";
     } else if (ms.toGo === 1) {
-      var live = g && (g.status === "live" || g.status === "delayed" || g.status === "suspended");
+      // under way as TeamOS says: a delay before kickoff is still upcoming
+      var live = TeamOS.game.underWay(g);
       line = "Win No. " + n(ms.target) + " is on the line" +
              (g ? (live ? " now, " : ": ") + esc(where(g)) + (live ? "" : ", " + esc(ui.kickoff(g.date, g.timeSet).day)) : "") + ".";
     } else {

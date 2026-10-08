@@ -67,6 +67,9 @@ eq(M.wins(nd.TEAM_CONFIG, g2, 2026, new Date("2026-10-26T12:00:00Z")), null, "ei
 var lost = games(); result(byOpp(lost, /stanford/i), 14, 21);
 var ll = M.wins(nd.TEAM_CONFIG, lost, 2026, new Date("2026-10-11T12:00:00Z"));
 eq(ll && [ll.wins, ll.losses, ll.toGo, ll.game.oppName], [998, 343, 2, "BYU"], "a loss: the count holds, still two to go");
+var noflag = games(); var sf = byOpp(noflag, /stanford/i); result(sf, 31, 17); sf.won = false;
+var nf = M.wins(nd.TEAM_CONFIG, noflag, 2026, new Date("2026-10-11T12:00:00Z"));
+eq(nf && [nf.wins, nf.losses], [999, 342], "a 31-17 final whose winner flag is missing still counts as a win: read from the scores (Codex, #112)");
 var bare = games(); var st = byOpp(bare, /stanford/i); st.status = "final"; st.us = null; st.them = null; st.won = false;
 var bb = M.wins(nd.TEAM_CONFIG, bare, 2026, AT);
 eq(bb && [bb.wins, bb.losses], [998, 342], "a final without a score is no result: neither a win nor a loss");
@@ -75,6 +78,27 @@ eq(M.wins({ history: {} }, games(), 2026, AT), null, "a team with no record: not
 var osu = load("teams/ohio-state.js");
 eq(osu.TeamOS.milestones.wins(osu.TEAM_CONFIG, games(), 2026, AT), null, "Ohio State declares no record: nothing");
 ok(!/notre|irish|\b87\b/i.test(read("teamos/milestones.js").replace(/\/\*[\s\S]*?\*\//g, "")), "milestones.js names no team");
+
+console.log("2b. what the card says of the game that could make it");
+(function () {
+  // Home's own milestoneHtml, with TeamOS.game, and ui reduced to what it uses.
+  var h = vm.createContext({});
+  vm.runInContext(read("teamos/game.js") + "\n;this.TeamOS = TeamOS;", h, { filename: "teamos/game.js" });
+  vm.runInContext("var ui = { esc: function (s) { return String(s == null ? '' : s); }," +
+    " oppLabel: function (g) { return (g.oppRank ? '#' + g.oppRank + ' ' : '') + g.oppName; }," +
+    " kickoff: function () { return { day: 'Sat, Oct 17' }; } }, esc = ui.esc;", h);
+  var src = read("suite/home.js");
+  vm.runInContext(src.slice(src.indexOf("  var WORDS"), src.indexOf("  // ---- mount")) + "\n;this.mh = milestoneHtml;", h);
+  function say(status, started) {
+    var g = { home: false, oppName: "BYU", oppRank: 8, date: "2026-10-17T23:30Z", status: status, hasStarted: started };
+    return h.mh({ phase: "countdown", target: 1000, toGo: 1, wins: 999, losses: 342, ties: 42, source: "x", game: g }, { name: "T" })
+      .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+  }
+  ok(/on the line: at #8 BYU, Sat, Oct 17/.test(say("scheduled", false)), "before kickoff: on the line, with the date");
+  ok(/on the line: at #8 BYU, Sat, Oct 17/.test(say("delayed", false)), "a weather delay before kickoff is still upcoming, not 'now' (Codex, #112)");
+  ok(/on the line now, at #8 BYU/.test(say("live", true)), "under way: on the line now");
+  ok(/on the line now/.test(say("delayed", true)), "and a delay after kickoff is still now");
+})();
 
 console.log("3. Home");
 (async function () {
