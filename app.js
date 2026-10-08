@@ -968,6 +968,8 @@ function paintHome(){
     news: HOME.news,
     schedule: TeamOS.game.schedulePreview(S.games, now, TEAM.timeZone),
     outlook: TeamOS.outlook.metrics(HOME.markets),
+    // the next round number of all-time wins, when one is near (W: 1,000th)
+    milestone: S.games ? TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now) : null,
     fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),
                                     { now:now, online: navigator.onLine!==false })
   });

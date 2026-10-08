@@ -6,7 +6,7 @@
    shape; the page's boot script loads the one this browser chose
    (?team=, then the saved choice: decision 0013).
 
-   Six sections, each owned by a different layer (docs/04_TEAM_CONFIG.md):
+   Seven sections, each owned by a different layer (docs/04_TEAM_CONFIG.md):
 
      team     the Team domain object. Provider-neutral: nothing in it names
               ESPN, Kalshi or anyone else. app.js gets it through
@@ -16,6 +16,9 @@
               by the TeamOS adapters and the Action's producers.
      series   trophy, rivalry and event names, matched by opponent name;
               TeamOS.espn puts them on the normalized Game.
+     history  the program's official all-time record entering the season,
+              as its own game notes give it; TeamOS.milestones adds the
+              season's results (the countdown to a round number of wins).
      links    the team's own pages, for the official word.
      identity how the team is presented inside Suite: colours, type, tagline
               and labels. Read through TeamOS.identity.
@@ -122,6 +125,17 @@ var TEAM_CONFIG = {
     { match: /^usc$|southern cal|trojans/i, name: "Jeweled Shillelagh",        kind: "trophy" },
     { match: /northwestern/i,               name: "Lost Shillelagh",           kind: "trophy" }
   ],
+
+  // The official all-time record ENTERING this season. The Oct. 5, 2026
+  // game notes give 998-342-42 through a 5-0 start, so 993-342-42 entering
+  // 2026: the program's own count (the asterisk there is the NCAA-vacated
+  // wins, which the official count leaves out). Replace it with next
+  // season's entering record when that season's first notes publish; until
+  // then the countdown shows nothing rather than a guess (TeamOS.milestones).
+  history: {
+    record: { season: 2026, wins: 993, losses: 342, ties: 42,
+              source: "Notre Dame game notes", asOf: "2026-10-05" }
+  },
 
   // The team's own pages, where the app points readers for the official word.
   links: {

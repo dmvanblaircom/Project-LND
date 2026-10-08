@@ -75,3 +75,4 @@ draftboard-2027-100 2027-oct3
 draftboard-2026-40 2026-final
 draftrounds-2026 2026
 nflteams 2026-oct3
+schedule-87 nd-oct08
