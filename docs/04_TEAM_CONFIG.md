@@ -44,6 +44,7 @@ var TEAM_CONFIG = {
   // (played for; Game shows the trophy mark), "rivalry" (a name, nothing to
   // win: The Game) or "event" (a branded game: the Shamrock Series).
   series: [ { match: /purdue/i, name: "Shillelagh Trophy", kind: "trophy" } /* ... */ ],
+  history: { record: { season: 2026, wins: 993, losses: 342, ties: 42, source: "Notre Dame game notes", asOf: "2026-10-05" } },
 
   // The team's own pages.
   links: { roster: { url: "...", label: "..." } },
@@ -81,6 +82,7 @@ The real files are `teams/notre-dame.js` and `teams/ohio-state.js` (which declar
 - `team` — stable identity: id, name, abbreviation, sport, league, home venue
 - `sources` — provider identifiers and source declarations, including the team's beat feeds. For official team data such as depth charts, the official athletics source takes precedence over media/beat sources.
 - `series` — trophy, rivalry and event names no public feed carries, each with its kind
+- `history.record` — the program's official all-time record entering a season, from its own game notes; `TeamOS.milestones` adds the season's results for the countdown to a round number of wins (the 1,000th). A record for another season shows nothing; it is replaced when the next season's first notes publish
 - `links` — the team's official pages
 - `snapshots` — which of the Action-written team-data files this team has (the depth chart is a capability; the beat feed is a content source; the odds history is team-scoped) and where they are
 - `identity` — how the team is presented inside Suite: colours, type, tagline, program label
