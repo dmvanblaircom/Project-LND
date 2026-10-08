@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-10-07T20:33:51.316940+00:00",
+ "updated": "2026-10-08T16:38:09.315615+00:00",
  "reports": [
   {
    "schema": 1,
@@ -430,14 +430,14 @@
    "capability": "availability",
    "tier": "official",
    "game": "Stanford",
-   "sourceUrl": "https://fightingirish.com/documents/6e67ed80-8303-4120-be73-859652ce1a17.pdf",
+   "sourceUrl": "https://fightingirish.com/documents/da81c778-2bc8-4656-80a4-f12b2137b3c3.pdf",
    "sourceLabel": "FightingIrish.com",
-   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/05/o7ivmrFxMoPWjqiKc10ZrJpR3Skt3nffwhCFWWib.pdf",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/08/9tCZLKmf5oEhBWSnmuL6Jg37bMkO3h0QmpH0NzU1.pdf",
    "parser": 2,
-   "fetchedAt": "2026-10-07T20:33:51.316940+00:00",
+   "fetchedAt": "2026-10-08T16:38:09.315615+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-05",
-   "heading": "AVAILABILITY UPDATE (OCT. 5)",
+   "effectiveAt": "2026-10-08",
+   "heading": "AVAILABILITY UPDATE (OCT. 8)",
    "players": [
     {
      "no": "",
@@ -452,13 +452,6 @@
      "name": "Leonard Moore",
      "status": "questionable",
      "detail": "Concussion"
-    },
-    {
-     "no": "",
-     "pos": "LB",
-     "name": "Kyngstonn Viliamu-Asa",
-     "status": "questionable",
-     "detail": "Left Thumb"
     },
     {
      "no": "",
@@ -508,6 +501,13 @@
      "name": "Chris Terek",
      "status": "out-game",
      "detail": "Right Knee"
+    },
+    {
+     "no": "",
+     "pos": "LB",
+     "name": "Kyngstonn Viliamu-Asa",
+     "status": "out-game",
+     "detail": "Left Thumb"
     }
    ]
   }
