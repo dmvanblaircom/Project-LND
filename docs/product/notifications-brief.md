@@ -70,6 +70,107 @@ config, scores from the same live state every screen uses, decision 0010),
 never from a provider's text. No odds in a notification (decision 0025 keeps
 odds as media metadata; a push is not the place).
 
+## 2b. Alert options: round 2 (proposal for David, 2026-10-09)
+
+David, 2026-10-09: *"Make it a toggle where users can pick every score, my
+team only, quarter score, halftime score, close finish, and final only + any
+others you recommend. Also an easy way for all to be selected. Edge cases
+should be considered for UX."* **Status: proposal, awaiting David's OK.**
+Built after Saturday's live test proves kickoff and final.
+
+### The settings screen (Settings → Game Alerts, for the active team)
+
+```
+Game Alerts                                   [ On ]
+
+Quick picks:  ( Everything )  ( Key moments )  ( Final only )
+
+GAME
+  Kickoff                                       [on]
+  Final score                                   [on]
+  Delays & postponements                        [on]
+
+SCORING
+  ( ) Off   ( ) My team's scores   (•) Every score
+
+UPDATES
+  End of each quarter                           [off]
+  Halftime score                                [off]
+  Close finish                                  [off]
+     One alert when it's a one-score game late in the 4th, and if it goes to OT
+```
+
+- **Scoring is one choice, not two switches.** "My team's scores" and "Every
+  score" can't both be on, so there's nothing to reconcile.
+- **Quick picks set the switches, then step aside.** A pick is a shortcut, not
+  a mode: after tapping one, any switch can still be changed. The pick shows
+  as selected only while every switch matches it.
+  - **Everything:** every switch on, scoring set to Every score.
+  - **Key moments:** kickoff, halftime, close finish, final, delays. No
+    per-score alerts.
+  - **Final only:** final score only. Delays stay on, because a postponed
+    game has no final.
+- **"Everything" means everything the fan can see today.** When a new kind
+  of alert ships later, it starts off for existing subscribers (the noise
+  rule, §2), so "Everything" stops showing as selected until they turn it on.
+  Nothing new is ever switched on for them.
+- **Turning every switch off turns Game Alerts off,** and the screen says so
+  ("No alerts selected, so Game Alerts are off"). A subscription that would
+  send nothing is deleted, not kept.
+- **Defaults for a first-time sign-up:** kickoff, final and delays on, as
+  approved on Oct 1 (§2). Everything else is off.
+
+### What each alert says
+
+| Alert | Example | Sent when |
+|---|---|---|
+| Score (every / my team) | "Touchdown, Notre Dame. ND 21, STAN 7 · 2nd 4:12" | ESPN's score changes |
+| End of quarter | "End of 1st: ND 14, STAN 7" | End of the 1st, 2nd and 3rd quarters (the 2nd is the halftime alert when Halftime is also on, edge case 1) |
+| Halftime | "Halftime: ND 21, STAN 10" | ESPN's status reads halftime |
+| Close finish | "One-score game: ND 24, STAN 20 · 4th 4:51" | Once, the first time it's within 8 points with 5:00 or less left in the 4th |
+| Overtime | "Overtime: ND 27, STAN 27" | When OT starts (part of Close finish) |
+| Delay / postponed / canceled | "Weather delay: ND 7, STAN 3 · 2nd 9:15" / "Postponed: Notre Dame vs. Stanford" | ESPN's status changes to it |
+
+### Edge cases, and what happens
+
+1. **"End of each quarter" and "Halftime" both on:** one alert at the half,
+   not two. The halftime alert stands in for the end of the 2nd.
+2. **The end of the 4th quarter** is the final, or overtime. There is no
+   separate "End of 4th" alert.
+3. **A score as the quarter ends:** the score alert goes, then the quarter
+   alert. They are different things the fan asked for; both carry the same
+   score, so nothing contradicts.
+4. **One card per game on the lock screen.** Score, quarter and halftime
+   alerts share a game tag, so each replaces the last instead of stacking
+   eight cards in a 52-0 game. The phone still buzzes each time. Kickoff,
+   close finish and the final get their own cards.
+5. **An overturned touchdown:** one correction, only to devices that got
+   the original ("Correction: the Notre Dame touchdown was overturned. ND 14,
+   STAN 7"). Never a silent second alert.
+6. **Close finish fires once.** If the lead grows and the game tightens again,
+   no second alert. Overtime is its own single alert. A blowout never sends
+   one.
+7. **Late detection.** A score or quarter alert noticed more than 5 minutes
+   late is dropped: a 2nd-quarter score arriving in the 3rd is noise. The
+   final is always sent (as today, §4).
+8. **Delay before kickoff:** a delay alert, but no kickoff alert until the
+   game actually starts. A game postponed before kickoff gets the postponed
+   alert and nothing else.
+9. **Both teams followed, and they play each other** (ND vs. OSU on one
+   device): one alert per event, not one per team.
+10. **Changing options mid-game** takes effect from the next event; nothing
+    already sent is repeated.
+11. **iPhone Focus mode** can hold alerts back (Oct 7). Settings gets one
+    line: "If alerts don't arrive, allow Suite in your Focus settings."
+
+### Other alerts recommended, not in this round
+
+- **Kickoff time set:** when a TBA game gets its time. Useful, but it fires
+  days before the game; it waits for a fan to ask for it.
+- **Not recommended:** upset alerts and other teams' games. Those are
+  alerts the fan didn't ask for about games they didn't pick, which is
+  exactly what the noise rule rules out.
+
 ## 3. Opt-in, preferences, and quiet behavior
 
 - **Asked once, at a moment it makes sense:** a quiet "Get game alerts" row
