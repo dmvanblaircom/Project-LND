@@ -125,7 +125,7 @@ UPDATES
 | Alert | Example | Sent when |
 |---|---|---|
 | Score (every / my team) | "Touchdown, Notre Dame. ND 21, STAN 7 · 2nd 4:12" | ESPN's score changes |
-| End of quarter | "End of 1st: ND 14, STAN 7" | End of the 1st and 3rd quarters |
+| End of quarter | "End of 1st: ND 14, STAN 7" | End of the 1st, 2nd and 3rd quarters (the 2nd is the halftime alert when Halftime is also on, edge case 1) |
 | Halftime | "Halftime: ND 21, STAN 10" | ESPN's status reads halftime |
 | Close finish | "One-score game: ND 24, STAN 20 · 4th 4:51" | Once, the first time it's within 8 points with 5:00 or less left in the 4th |
 | Overtime | "Overtime: ND 27, STAN 27" | When OT starts (part of Close finish) |

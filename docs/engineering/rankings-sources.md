@@ -45,9 +45,12 @@ runner) with `tools/probe_sources.py` via `.github/workflows/probe-sources.yml`.
   Not yet loaded by the app: the file now exists (refreshed above), and
   loading it waits on Codex's selector UI.
 
-## SP+: blocked
+## SP+: approved, through CFBD and the edge API (was blocked until Oct 1)
 
-- The ESPN SP+ table is an article
+Current state: buildable. The top 25 with ranks and ratings, through the edge API, credited to SP+ and CFBD (Bill, Oct 1; see the last entry). The history below is why ESPN is not the source.
+
+
+- (History) The ESPN SP+ table is an article
   (`espn.com/college-football/story/_/id/49868647/...`). From the runner,
   every espn.com page (the FPI page too) answers **HTTP 202 with an empty
   body**: bot protection. Not bypassed.
