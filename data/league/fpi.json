@@ -8,7 +8,7 @@
  "seasonType": 2,
  "week": 6,
  "weekText": "Week 6",
- "sourceUpdated": "2026-10-08T08:00Z",
+ "sourceUpdated": "2026-10-09T08:00Z",
  "teams": [
   {
    "espnId": "194",
@@ -24,7 +24,7 @@
    "name": "Georgia",
    "abbr": "UGA",
    "rank": 2,
-   "rating": 28.1,
+   "rating": 28.4,
    "rankChange": 0,
    "record": "5-0"
   },
@@ -38,29 +38,29 @@
    "record": "5-0"
   },
   {
-   "espnId": "251",
-   "name": "Texas",
-   "abbr": "TEX",
-   "rank": 4,
-   "rating": 27.5,
-   "rankChange": 0,
-   "record": "4-0"
-  },
-  {
    "espnId": "2390",
    "name": "Miami",
    "abbr": "MIA",
-   "rank": 5,
+   "rank": 4,
    "rating": 27.5,
-   "rankChange": 0,
+   "rankChange": 1,
    "record": "5-0"
+  },
+  {
+   "espnId": "251",
+   "name": "Texas",
+   "abbr": "TEX",
+   "rank": 5,
+   "rating": 27.4,
+   "rankChange": -1,
+   "record": "4-0"
   },
   {
    "espnId": "333",
    "name": "Alabama",
    "abbr": "ALA",
    "rank": 6,
-   "rating": 27.0,
+   "rating": 26.9,
    "rankChange": 0,
    "record": "5-0"
   },
@@ -69,7 +69,7 @@
    "name": "Indiana",
    "abbr": "IU",
    "rank": 7,
-   "rating": 25.5,
+   "rating": 25.8,
    "rankChange": 0,
    "record": "5-0"
   },
@@ -78,7 +78,7 @@
    "name": "LSU",
    "abbr": "LSU",
    "rank": 8,
-   "rating": 21.9,
+   "rating": 21.8,
    "rankChange": 0,
    "record": "4-1"
   },
@@ -96,27 +96,27 @@
    "name": "Tennessee",
    "abbr": "TENN",
    "rank": 10,
-   "rating": 18.5,
+   "rating": 18.4,
    "rankChange": 0,
    "record": "4-1"
-  },
-  {
-   "espnId": "2641",
-   "name": "Texas Tech",
-   "abbr": "TTU",
-   "rank": 11,
-   "rating": 18.2,
-   "rankChange": 0,
-   "record": "5-0"
   },
   {
    "espnId": "254",
    "name": "Utah",
    "abbr": "UTAH",
-   "rank": 12,
+   "rank": 11,
    "rating": 18.1,
-   "rankChange": 0,
+   "rankChange": 1,
    "record": "4-0"
+  },
+  {
+   "espnId": "2641",
+   "name": "Texas Tech",
+   "abbr": "TTU",
+   "rank": 12,
+   "rating": 17.8,
+   "rankChange": -1,
+   "record": "5-0"
   },
   {
    "espnId": "158",
@@ -132,7 +132,7 @@
    "name": "Texas A&M",
    "abbr": "TA&M",
    "rank": 14,
-   "rating": 16.2,
+   "rating": 16.0,
    "rankChange": 0,
    "record": "3-2"
   },
@@ -146,29 +146,29 @@
    "record": "4-1"
   },
   {
-   "espnId": "252",
-   "name": "BYU",
-   "abbr": "BYU",
-   "rank": 16,
-   "rating": 14.9,
-   "rankChange": 0,
-   "record": "4-0"
-  },
-  {
    "espnId": "77",
    "name": "Northwestern",
    "abbr": "NU",
-   "rank": 17,
-   "rating": 14.8,
-   "rankChange": 0,
+   "rank": 16,
+   "rating": 14.9,
+   "rankChange": 1,
    "record": "3-1"
+  },
+  {
+   "espnId": "252",
+   "name": "BYU",
+   "abbr": "BYU",
+   "rank": 17,
+   "rating": 14.9,
+   "rankChange": -1,
+   "record": "4-0"
   },
   {
    "espnId": "142",
    "name": "Missouri",
    "abbr": "MIZ",
    "rank": 18,
-   "rating": 14.5,
+   "rating": 14.4,
    "rankChange": 0,
    "record": "4-1"
   },
@@ -186,7 +186,7 @@
    "name": "Penn State",
    "abbr": "PSU",
    "rank": 20,
-   "rating": 13.8,
+   "rating": 13.7,
    "rankChange": 0,
    "record": "3-2"
   },
@@ -204,7 +204,7 @@
    "name": "Ole Miss",
    "abbr": "MISS",
    "rank": 22,
-   "rating": 13.2,
+   "rating": 13.1,
    "rankChange": 0,
    "record": "3-1"
   },
@@ -231,7 +231,7 @@
    "name": "Houston",
    "abbr": "HOU",
    "rank": 25,
-   "rating": 12.2,
+   "rating": 12.1,
    "rankChange": 0,
    "record": "4-1"
   },
@@ -258,7 +258,7 @@
    "name": "Boise St",
    "abbr": "BOIS",
    "rank": 28,
-   "rating": 11.7,
+   "rating": 11.6,
    "rankChange": 0,
    "record": "4-1"
   },
@@ -276,7 +276,7 @@
    "name": "Wake Forest",
    "abbr": "WAKE",
    "rank": 30,
-   "rating": 11.1,
+   "rating": 11.0,
    "rankChange": 1,
    "record": "4-1"
   },
@@ -285,7 +285,7 @@
    "name": "Florida St",
    "abbr": "FSU",
    "rank": 31,
-   "rating": 11.0,
+   "rating": 10.9,
    "rankChange": -1,
    "record": "3-2"
   },
@@ -299,21 +299,21 @@
    "record": "3-2"
   },
   {
-   "espnId": "275",
-   "name": "Wisconsin",
-   "abbr": "WIS",
-   "rank": 33,
-   "rating": 10.4,
-   "rankChange": 0,
-   "record": "4-1"
-  },
-  {
    "espnId": "96",
    "name": "Kentucky",
    "abbr": "UK",
+   "rank": 33,
+   "rating": 10.5,
+   "rankChange": 1,
+   "record": "4-1"
+  },
+  {
+   "espnId": "275",
+   "name": "Wisconsin",
+   "abbr": "WIS",
    "rank": 34,
    "rating": 10.4,
-   "rankChange": 0,
+   "rankChange": -1,
    "record": "4-1"
   },
   {
@@ -321,7 +321,7 @@
    "name": "UCLA",
    "abbr": "UCLA",
    "rank": 35,
-   "rating": 10.3,
+   "rating": 10.2,
    "rankChange": 0,
    "record": "4-0"
   },
@@ -353,39 +353,39 @@
    "record": "2-3"
   },
   {
-   "espnId": "2567",
-   "name": "SMU",
-   "abbr": "SMU",
-   "rank": 39,
-   "rating": 9.0,
-   "rankChange": 1,
-   "record": "4-1"
-  },
-  {
    "espnId": "167",
    "name": "New Mexico",
    "abbr": "UNM",
-   "rank": 40,
+   "rank": 39,
    "rating": 8.9,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "4-1"
   },
   {
    "espnId": "2306",
    "name": "Kansas St",
    "abbr": "KSU",
-   "rank": 41,
+   "rank": 40,
    "rating": 8.8,
-   "rankChange": 0,
+   "rankChange": 1,
    "record": "3-1"
   },
   {
    "espnId": "12",
    "name": "Arizona",
    "abbr": "ARIZ",
-   "rank": 42,
+   "rank": 41,
    "rating": 8.6,
-   "rankChange": 0,
+   "rankChange": 1,
+   "record": "4-1"
+  },
+  {
+   "espnId": "2567",
+   "name": "SMU",
+   "abbr": "SMU",
+   "rank": 42,
+   "rating": 8.5,
+   "rankChange": -2,
    "record": "4-1"
   },
   {
@@ -407,22 +407,22 @@
    "record": "3-2"
   },
   {
-   "espnId": "197",
-   "name": "Oklahoma St",
-   "abbr": "OKST",
-   "rank": 45,
-   "rating": 6.8,
-   "rankChange": 0,
-   "record": "3-1"
-  },
-  {
    "espnId": "2116",
    "name": "UCF",
    "abbr": "UCF",
-   "rank": 46,
-   "rating": 6.8,
-   "rankChange": 0,
+   "rank": 45,
+   "rating": 6.7,
+   "rankChange": 1,
    "record": "3-2"
+  },
+  {
+   "espnId": "197",
+   "name": "Oklahoma St",
+   "abbr": "OKST",
+   "rank": 46,
+   "rating": 6.7,
+   "rankChange": -1,
+   "record": "3-1"
   },
   {
    "espnId": "153",
@@ -434,22 +434,22 @@
    "record": "2-2"
   },
   {
-   "espnId": "2628",
-   "name": "TCU",
-   "abbr": "TCU",
-   "rank": 48,
-   "rating": 6.5,
-   "rankChange": 0,
-   "record": "2-3"
-  },
-  {
    "espnId": "256",
    "name": "James Madison",
    "abbr": "JMU",
+   "rank": 48,
+   "rating": 6.7,
+   "rankChange": 1,
+   "record": "5-0"
+  },
+  {
+   "espnId": "2628",
+   "name": "TCU",
+   "abbr": "TCU",
    "rank": 49,
    "rating": 6.4,
-   "rankChange": 0,
-   "record": "5-0"
+   "rankChange": -1,
+   "record": "2-3"
   },
   {
    "espnId": "228",
@@ -483,7 +483,7 @@
    "name": "Vanderbilt",
    "abbr": "VAN",
    "rank": 53,
-   "rating": 4.8,
+   "rating": 4.9,
    "rankChange": 0,
    "record": "3-2"
   },
@@ -519,7 +519,7 @@
    "name": "Memphis",
    "abbr": "MEM",
    "rank": 57,
-   "rating": 3.6,
+   "rating": 3.5,
    "rankChange": 0,
    "record": "4-1"
   },
@@ -555,7 +555,7 @@
    "name": "West Virginia",
    "abbr": "WVU",
    "rank": 61,
-   "rating": 1.4,
+   "rating": 1.5,
    "rankChange": 0,
    "record": "3-2"
   },
@@ -578,156 +578,156 @@
    "record": "4-1"
   },
   {
+   "espnId": "2335",
+   "name": "Liberty",
+   "abbr": "LIB",
+   "rank": 64,
+   "rating": 1.3,
+   "rankChange": 9,
+   "record": "5-1"
+  },
+  {
    "espnId": "2449",
    "name": "N Dakota St",
    "abbr": "NDSU",
-   "rank": 64,
+   "rank": 65,
    "rating": 0.9,
-   "rankChange": 0,
+   "rankChange": -1,
    "record": "5-0"
   },
   {
    "espnId": "8",
    "name": "Arkansas",
    "abbr": "ARK",
-   "rank": 65,
-   "rating": 0.8,
-   "rankChange": 0,
+   "rank": 66,
+   "rating": 0.7,
+   "rankChange": -1,
    "record": "2-3"
   },
   {
    "espnId": "183",
    "name": "Syracuse",
    "abbr": "SYR",
-   "rank": 66,
+   "rank": 67,
    "rating": 0.2,
-   "rankChange": 0,
+   "rankChange": -1,
    "record": "2-2"
   },
   {
    "espnId": "249",
    "name": "North Texas",
    "abbr": "UNT",
-   "rank": 67,
+   "rank": 68,
    "rating": 0.1,
-   "rankChange": 0,
+   "rankChange": -1,
    "record": "3-2"
   },
   {
    "espnId": "2649",
    "name": "Toledo",
    "abbr": "TOL",
-   "rank": 68,
-   "rating": -0.2,
-   "rankChange": 0,
+   "rank": 69,
+   "rating": -0.1,
+   "rankChange": -1,
    "record": "4-1"
   },
   {
    "espnId": "9",
    "name": "Arizona St",
    "abbr": "ASU",
-   "rank": 69,
-   "rating": -0.3,
-   "rankChange": 0,
+   "rank": 70,
+   "rating": -0.4,
+   "rankChange": -1,
    "record": "2-2"
   },
   {
    "espnId": "2509",
    "name": "Purdue",
    "abbr": "PUR",
-   "rank": 70,
+   "rank": 71,
    "rating": -0.4,
-   "rankChange": 0,
+   "rankChange": -1,
    "record": "2-3"
   },
   {
    "espnId": "59",
    "name": "Georgia Tech",
    "abbr": "GT",
-   "rank": 71,
+   "rank": 72,
    "rating": -0.5,
-   "rankChange": 0,
+   "rankChange": -1,
    "record": "1-3"
   },
   {
    "espnId": "38",
    "name": "Colorado",
    "abbr": "COLO",
-   "rank": 72,
-   "rating": -0.5,
-   "rankChange": 0,
-   "record": "2-3"
-  },
-  {
-   "espnId": "2335",
-   "name": "Liberty",
-   "abbr": "LIB",
    "rank": 73,
-   "rating": -1.1,
-   "rankChange": 0,
-   "record": "4-1"
-  },
-  {
-   "espnId": "2439",
-   "name": "UNLV",
-   "abbr": "UNLV",
-   "rank": 74,
-   "rating": -1.4,
-   "rankChange": 0,
-   "record": "3-2"
+   "rating": -0.6,
+   "rankChange": -1,
+   "record": "2-3"
   },
   {
    "espnId": "2636",
    "name": "UTSA",
    "abbr": "UTSA",
-   "rank": 75,
-   "rating": -1.6,
-   "rankChange": 0,
-   "record": "4-1"
+   "rank": 74,
+   "rating": -1.0,
+   "rankChange": 1,
+   "record": "5-1"
   },
   {
-   "espnId": "58",
-   "name": "South Florida",
-   "abbr": "USF",
-   "rank": 76,
-   "rating": -2.2,
-   "rankChange": 1,
-   "record": "4-1"
+   "espnId": "2439",
+   "name": "UNLV",
+   "abbr": "UNLV",
+   "rank": 75,
+   "rating": -1.4,
+   "rankChange": -1,
+   "record": "3-2"
   },
   {
    "espnId": "326",
    "name": "Texas St",
    "abbr": "TXST",
-   "rank": 77,
+   "rank": 76,
    "rating": -2.4,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "2-3"
   },
   {
    "espnId": "120",
    "name": "Maryland",
    "abbr": "MD",
-   "rank": 78,
-   "rating": -2.5,
-   "rankChange": 1,
+   "rank": 77,
+   "rating": -2.6,
+   "rankChange": 2,
    "record": "2-3"
   },
   {
-   "espnId": "349",
-   "name": "Army",
-   "abbr": "ARMY",
-   "rank": 79,
-   "rating": -2.7,
-   "rankChange": 1,
-   "record": "2-2"
+   "espnId": "58",
+   "name": "South Florida",
+   "abbr": "USF",
+   "rank": 78,
+   "rating": -2.6,
+   "rankChange": -1,
+   "record": "4-2"
   },
   {
    "espnId": "2655",
    "name": "Tulane",
    "abbr": "TULN",
+   "rank": 79,
+   "rating": -2.6,
+   "rankChange": -1,
+   "record": "2-2"
+  },
+  {
+   "espnId": "349",
+   "name": "Army",
+   "abbr": "ARMY",
    "rank": 80,
    "rating": -2.8,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "2-2"
   },
   {
@@ -762,54 +762,54 @@
    "name": "Louisiana",
    "abbr": "UL",
    "rank": 84,
-   "rating": -4.2,
+   "rating": -4.4,
    "rankChange": 0,
    "record": "4-1"
-  },
-  {
-   "espnId": "202",
-   "name": "Tulsa",
-   "abbr": "TLSA",
-   "rank": 85,
-   "rating": -4.3,
-   "rankChange": 0,
-   "record": "3-2"
   },
   {
    "espnId": "151",
    "name": "East Carolina",
    "abbr": "ECU",
-   "rank": 86,
+   "rank": 85,
    "rating": -4.4,
-   "rankChange": 0,
+   "rankChange": 1,
    "record": "2-2"
   },
   {
    "espnId": "218",
    "name": "Temple",
    "abbr": "TEM",
-   "rank": 87,
-   "rating": -4.6,
-   "rankChange": 0,
+   "rank": 86,
+   "rating": -4.7,
+   "rankChange": 1,
    "record": "2-3"
   },
   {
-   "espnId": "103",
-   "name": "Boston College",
-   "abbr": "BC",
-   "rank": 88,
-   "rating": -5.0,
-   "rankChange": 0,
-   "record": "2-3"
+   "espnId": "202",
+   "name": "Tulsa",
+   "abbr": "TLSA",
+   "rank": 87,
+   "rating": -4.7,
+   "rankChange": -2,
+   "record": "3-2"
   },
   {
    "espnId": "164",
    "name": "Rutgers",
    "abbr": "RUTG",
+   "rank": 88,
+   "rating": -5.0,
+   "rankChange": 1,
+   "record": "1-4"
+  },
+  {
+   "espnId": "103",
+   "name": "Boston College",
+   "abbr": "BC",
    "rank": 89,
    "rating": -5.1,
-   "rankChange": 0,
-   "record": "1-4"
+   "rankChange": -1,
+   "record": "2-3"
   },
   {
    "espnId": "2348",
@@ -825,7 +825,7 @@
    "name": "Air Force",
    "abbr": "AFA",
    "rank": 91,
-   "rating": -5.5,
+   "rating": -5.4,
    "rankChange": 0,
    "record": "3-1"
   },
@@ -834,7 +834,7 @@
    "name": "San Diego St",
    "abbr": "SDSU",
    "rank": 92,
-   "rating": -5.5,
+   "rating": -5.4,
    "rankChange": 0,
    "record": "2-3"
   },
@@ -843,7 +843,7 @@
    "name": "Troy",
    "abbr": "TROY",
    "rank": 93,
-   "rating": -5.8,
+   "rating": -6.2,
    "rankChange": 6,
    "record": "3-2"
   },
@@ -861,7 +861,7 @@
    "name": "GA Southern",
    "abbr": "GASO",
    "rank": 95,
-   "rating": -6.6,
+   "rating": -6.5,
    "rankChange": -1,
    "record": "2-3"
   },
@@ -870,7 +870,7 @@
    "name": "Utah State",
    "abbr": "USU",
    "rank": 96,
-   "rating": -6.6,
+   "rating": -6.7,
    "rankChange": -1,
    "record": "1-4"
   },
@@ -906,61 +906,61 @@
    "name": "South Alabama",
    "abbr": "USA",
    "rank": 100,
-   "rating": -8.8,
+   "rating": -7.6,
    "rankChange": 0,
-   "record": "3-2"
-  },
-  {
-   "espnId": "2032",
-   "name": "Arkansas St",
-   "abbr": "ARST",
-   "rank": 101,
-   "rating": -8.8,
-   "rankChange": 0,
-   "record": "2-3"
+   "record": "4-2"
   },
   {
    "espnId": "55",
    "name": "Jax State",
    "abbr": "JXST",
-   "rank": 102,
+   "rank": 101,
    "rating": -8.9,
-   "rankChange": 1,
+   "rankChange": 2,
    "record": "4-2"
   },
   {
    "espnId": "265",
    "name": "Washington St",
    "abbr": "WSU",
-   "rank": 103,
+   "rank": 102,
    "rating": -9.1,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "1-4"
+  },
+  {
+   "espnId": "2440",
+   "name": "Nevada",
+   "abbr": "NEV",
+   "rank": 103,
+   "rating": -9.5,
+   "rankChange": 1,
+   "record": "1-3"
   },
   {
    "espnId": "2229",
    "name": "FIU",
    "abbr": "FIU",
    "rank": 104,
-   "rating": -9.4,
+   "rating": -9.5,
    "rankChange": 7,
    "record": "3-2"
   },
   {
-   "espnId": "2440",
-   "name": "Nevada",
-   "abbr": "NEV",
+   "espnId": "2032",
+   "name": "Arkansas St",
+   "abbr": "ARST",
    "rank": 105,
    "rating": -9.8,
-   "rankChange": -1,
-   "record": "1-3"
+   "rankChange": -4,
+   "record": "2-4"
   },
   {
    "espnId": "338",
    "name": "Kennesaw St",
    "abbr": "KENN",
    "rank": 106,
-   "rating": -10.0,
+   "rating": -10.2,
    "rankChange": -1,
    "record": "1-4"
   },
@@ -996,72 +996,72 @@
    "name": "Ohio",
    "abbr": "OHIO",
    "rank": 110,
-   "rating": -11.0,
+   "rating": -10.9,
    "rankChange": -1,
    "record": "3-2"
-  },
-  {
-   "espnId": "2534",
-   "name": "Sam Houston",
-   "abbr": "SHSU",
-   "rank": 111,
-   "rating": -11.4,
-   "rankChange": 2,
-   "record": "1-3"
   },
   {
    "espnId": "23",
    "name": "San Jos\u00e9 St",
    "abbr": "SJSU",
-   "rank": 112,
+   "rank": 111,
    "rating": -11.6,
-   "rankChange": 0,
+   "rankChange": 1,
    "record": "3-2"
+  },
+  {
+   "espnId": "48",
+   "name": "Delaware",
+   "abbr": "DEL",
+   "rank": 112,
+   "rating": -12.0,
+   "rankChange": 5,
+   "record": "2-3"
   },
   {
    "espnId": "62",
    "name": "Hawai'i",
    "abbr": "HAW",
    "rank": 113,
-   "rating": -12.2,
+   "rating": -12.1,
    "rankChange": 2,
    "record": "1-4"
-  },
-  {
-   "espnId": "2623",
-   "name": "Missouri St",
-   "abbr": "MOST",
-   "rank": 114,
-   "rating": -12.4,
-   "rankChange": 2,
-   "record": "1-3"
-  },
-  {
-   "espnId": "48",
-   "name": "Delaware",
-   "abbr": "DEL",
-   "rank": 115,
-   "rating": -12.4,
-   "rankChange": 2,
-   "record": "2-3"
   },
   {
    "espnId": "242",
    "name": "Rice",
    "abbr": "RICE",
-   "rank": 116,
-   "rating": -12.9,
-   "rankChange": 2,
+   "rank": 114,
+   "rating": -12.8,
+   "rankChange": 4,
    "record": "1-4"
   },
   {
    "espnId": "2117",
    "name": "C Michigan",
    "abbr": "CMU",
+   "rank": 115,
+   "rating": -13.1,
+   "rankChange": 4,
+   "record": "3-2"
+  },
+  {
+   "espnId": "166",
+   "name": "New Mexico St",
+   "abbr": "NMSU",
+   "rank": 116,
+   "rating": -13.1,
+   "rankChange": -6,
+   "record": "2-4"
+  },
+  {
+   "espnId": "324",
+   "name": "Coastal",
+   "abbr": "CCU",
    "rank": 117,
    "rating": -13.1,
-   "rankChange": 2,
-   "record": "3-2"
+   "rankChange": 4,
+   "record": "1-4"
   },
   {
    "espnId": "113",
@@ -1073,49 +1073,49 @@
    "record": "4-1"
   },
   {
-   "espnId": "166",
-   "name": "New Mexico St",
-   "abbr": "NMSU",
+   "espnId": "98",
+   "name": "Western KY",
+   "abbr": "WKU",
    "rank": 119,
-   "rating": -13.4,
-   "rankChange": -9,
+   "rating": -13.2,
+   "rankChange": 7,
    "record": "2-4"
-  },
-  {
-   "espnId": "324",
-   "name": "Coastal",
-   "abbr": "CCU",
-   "rank": 120,
-   "rating": -13.5,
-   "rankChange": 1,
-   "record": "1-4"
   },
   {
    "espnId": "295",
    "name": "Old Dominion",
    "abbr": "ODU",
-   "rank": 121,
+   "rank": 120,
    "rating": -13.5,
-   "rankChange": 1,
+   "rankChange": 2,
    "record": "1-4"
   },
   {
    "espnId": "2572",
    "name": "Southern Miss",
    "abbr": "USM",
-   "rank": 122,
+   "rank": 121,
    "rating": -13.6,
-   "rankChange": -8,
+   "rankChange": -7,
    "record": "1-4"
   },
   {
    "espnId": "5",
    "name": "UAB",
    "abbr": "UAB",
-   "rank": 123,
+   "rank": 122,
    "rating": -13.9,
-   "rankChange": 0,
+   "rankChange": 1,
    "record": "3-2"
+  },
+  {
+   "espnId": "2534",
+   "name": "Sam Houston",
+   "abbr": "SHSU",
+   "rank": 123,
+   "rating": -14.2,
+   "rankChange": -10,
+   "record": "1-4"
   },
   {
    "espnId": "2199",
@@ -1131,17 +1131,17 @@
    "name": "Marshall",
    "abbr": "MRSH",
    "rank": 125,
-   "rating": -15.1,
+   "rating": -15.5,
    "rankChange": 0,
    "record": "3-2"
   },
   {
-   "espnId": "98",
-   "name": "Western KY",
-   "abbr": "WKU",
+   "espnId": "2623",
+   "name": "Missouri St",
+   "abbr": "MOST",
    "rank": 126,
-   "rating": -15.5,
-   "rankChange": 0,
+   "rating": -15.8,
+   "rankChange": -10,
    "record": "1-4"
   },
   {
@@ -1176,7 +1176,7 @@
    "name": "Bowling Green",
    "abbr": "BGSU",
    "rank": 130,
-   "rating": -18.8,
+   "rating": -18.9,
    "rankChange": 0,
    "record": "1-4"
   },
@@ -1185,7 +1185,7 @@
    "name": "MTSU",
    "abbr": "MTSU",
    "rank": 131,
-   "rating": -19.3,
+   "rating": -19.4,
    "rankChange": 0,
    "record": "2-3"
   },
@@ -1194,7 +1194,7 @@
    "name": "Kent State",
    "abbr": "KENT",
    "rank": 132,
-   "rating": -20.5,
+   "rating": -20.4,
    "rankChange": 0,
    "record": "2-3"
   },
@@ -1212,7 +1212,7 @@
    "name": "Ball State",
    "abbr": "BALL",
    "rank": 134,
-   "rating": -21.8,
+   "rating": -21.4,
    "rankChange": 0,
    "record": "1-4"
   },
@@ -1239,7 +1239,7 @@
    "name": "UL Monroe",
    "abbr": "ULM",
    "rank": 137,
-   "rating": -24.9,
+   "rating": -24.8,
    "rankChange": 0,
    "record": "0-5"
   },
@@ -1253,5 +1253,5 @@
    "record": "1-4"
   }
  ],
- "fetchedAt": "2026-10-08T09:07Z"
+ "fetchedAt": "2026-10-09T09:37Z"
 }
