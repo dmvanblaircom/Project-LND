@@ -44,6 +44,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE)
 import teamconfig  # noqa: E402
+import gamenotes  # noqa: E402
 import twodeep  # noqa: E402
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -177,6 +178,10 @@ def main():
 
     snaps = teamconfig.load(args.team)
     dsnap, asnap = teamconfig.snapshot(snaps, "depth"), teamconfig.snapshot(snaps, "availability")
+    nsnap = teamconfig.snapshot(snaps, "notes")
+    NOTES = nsnap["file"] if nsnap else None
+    old_notes = load(NOTES, None) if NOTES else None
+    notes_out = None                     # this week's facts, when there is a new reading
     if not dsnap or not dsnap.get("history"):
         sys.exit("teams/%s.js declares no depth-chart snapshot with a history" % args.team)
     DEPTH, DHIST = dsnap["file"], dsnap["history"]
@@ -231,12 +236,14 @@ def main():
                             "reported": False, "effectiveAt": None, "heading": None, "players": [],
                             "fetchedAt": now})
             continue
+        url = text = None
         try:
             url = pdf_url(row["notes"])
             report = known_reports.get(url)
             if report is None:                           # a new or replaced document
                 log("  reading game notes:", url.rsplit("/", 1)[-1])
-                parsed = twodeep.parse_availability(pdf_text(url), args.season)
+                text = pdf_text(url)
+                parsed = twodeep.parse_availability(text, args.season)
                 for line in parsed.pop("unread", []):
                     if not line.lower().lstrip("•* ").startswith("only new additions"):
                         print("::warning::%s availability: a line not read as a player: %s" % (row["game"], line[:120]))
@@ -259,6 +266,30 @@ def main():
                 if latest:
                     current_report_failed = True
 
+        # ---- this week's facts from the same notes (pronunciations,
+        # captains, honors, the series, By the Numbers): read again only when
+        # the document or the reading changed. Their own failure boundary: a
+        # notes section that will not read never costs the availability
+        # report above (Codex, #114) - last week's facts simply stay.
+        if latest and NOTES and url and not (old_notes and old_notes.get("pdf") == url
+                                             and old_notes.get("parser") == gamenotes.PARSER):
+            try:
+                facts = gamenotes.parse(text if text is not None else pdf_text(url))
+                for line in facts.pop("unread", []):
+                    print("::warning::%s game notes: a line not read: %s" % (row["game"], line[:120]))
+                ok = gamenotes.usable(facts)
+                facts.pop("roster", None)          # read only to match names; the app has ESPN's
+                if ok:
+                    m = re.search(r"/(\d{4})/(\d{2})/(\d{2})/", url)
+                    notes_out = dict({"schema": 1, "team": args.team, "capability": "notes", "tier": "official",
+                                      "sourceUrl": row["notes"], "sourceLabel": av_label, "pdf": url,
+                                      "parser": gamenotes.PARSER, "fetchedAt": now,
+                                      "publishedAt": "-".join(m.groups()) if m else None}, **facts)
+                else:
+                    log("  game notes: too little read; keeping last week's facts")
+            except Exception as e:                       # noqa: BLE001
+                print("::warning::%s game notes not read; keeping last week's facts: %s" % (row["game"], str(e)[:120]))
+
     for i, c in enumerate(charts):
         c["changes"] = twodeep.diff(c["units"], charts[i - 1]["units"] if i else None)
 
@@ -277,6 +308,9 @@ def main():
         if AHIST and write_if_changed(AHIST,
                                       {"schema": 1, "team": args.team, "updated": now, "reports": reports}, old_ahist):
             wrote.append(AHIST)
+
+    if notes_out is not None and write_if_changed(NOTES, notes_out, old_notes):
+        wrote.append(NOTES)
 
     log("charts:", len(charts), "| latest:", latest_chart["title"],
         "|", twodeep.count_players(latest_chart["units"]), "players,",

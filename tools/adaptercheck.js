@@ -710,7 +710,8 @@ eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the d
 console.log(" every file a team declares, for the worker to cache");
 eq(TeamOS.snapshots.files(TEAM_CONFIG),
    ["data/notre-dame/depth.json", "data/notre-dame/depth-history.json", "data/notre-dame/availability.json",
-    "data/notre-dame/availability-history.json", "data/notre-dame/odds-history.json", "data/notre-dame/news.json"],
+    "data/notre-dame/availability-history.json", "data/notre-dame/odds-history.json", "data/notre-dame/news.json",
+    "data/notre-dame/notes.json"],
    "Notre Dame's snapshots, files and histories together - availability is its own now");
 eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), ["data/ohio-state/odds-history.json", "data/ohio-state/news.json"],
    "Ohio State caches only what it declares: its own odds history and beat news (W20)");

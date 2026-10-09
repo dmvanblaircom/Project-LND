@@ -18,6 +18,8 @@
        model.schedule  Game[] (the preview) and heroId
        model.outlook   TeamOS.outlook.metrics() output
        model.milestone TeamOS.milestones.wins() output, or null
+       model.numbers   [{ n, text }] | null - By the Numbers from the week's
+                       game notes, for the hero game only
        model.fresh     TeamOS.freshness.summary() output
 
    Each section is redrawn only when its markup changed, so a 30-second live
@@ -315,9 +317,24 @@ Suite.home = (function () {
       "</div>";
   }
 
+  // ---- By the Numbers (David, 2026-10-09) -------------------------------------
+  // Three of the program's weekly figures from its game notes; all of them on
+  // Game's pregame view.
+
+  var NUMBERS_HOME = 3;
+  function numbersHtml(list) {
+    if (!list || !list.length) return "";
+    return '<div class="sec-head"><h2 class="sec-title" id="bnHead">By the Numbers</h2>' +
+             '<a class="sec-link" href="#game">View All' + CHEVRON + "</a></div>" +
+      '<div class="card bn" role="group" aria-labelledby="bnHead"><ul class="bn-list">' +
+      list.slice(0, NUMBERS_HOME).map(function (x) {
+        return '<li><span class="bn-n">' + esc(x.n) + '</span><span class="bn-t">' + esc(x.text) + "</span></li>";
+      }).join("") + "</ul></div>";
+  }
+
   // ---- mount -----------------------------------------------------------------
 
-  var SECTIONS = ["fresh", "hero", "milestone", "news", "schedule", "outlook"];
+  var SECTIONS = ["fresh", "hero", "milestone", "numbers", "news", "schedule", "outlook"];
 
   function paint(host, m) {
     if (!host) return;
@@ -333,6 +350,7 @@ Suite.home = (function () {
       fresh: ui.freshBanner(m.fresh),
       hero: heroHtml(m),
       milestone: milestoneHtml(m.milestone, m.team),
+      numbers: numbersHtml(m.numbers),
       news: newsHtml(m.news, m.team),
       schedule: scheduleHtml(m.schedule, m.heroId),
       outlook: outlookHtml(m.outlook)

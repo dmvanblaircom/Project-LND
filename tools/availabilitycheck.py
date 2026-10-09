@@ -125,5 +125,25 @@ ok(len(reread) == 1, "only that week's notes are read again (%d read)" % len(rer
 _, _, log = run(set())
 ok("reading game notes" not in log, "and a report from the current reading is reused, not fetched again")
 
+print("this week's notes facts will not read (Codex, #114)")
+import gamenotes                # noqa: E402
+saved_notes = (gamenotes.parse, gamenotes.PARSER)
+def broken(text):
+    raise ValueError("a section that will not read")
+gamenotes.parse, gamenotes.PARSER = broken, saved_notes[1] + 1      # a new reading, so the facts are read again
+try:
+    av, hist, log = run(set())
+    ok(av == recorded and hist == games, "a recorded report: availability as recorded, the history without a duplicate week")
+    ok("game notes not read; keeping last week's facts" in log, "and the run says the facts were kept")
+    od.load = without_current
+    try:
+        av, hist, log = run(set())
+    finally:
+        od.load = real
+    ok("availability skipped" not in log and av["game"] == current and hist[-1] == current and hist.count(current) == 1,
+       "a new report: still read and written, the notes failure never costs it")
+finally:
+    gamenotes.parse, gamenotes.PARSER = saved_notes
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "a failed fetch never costs the right report"))
 sys.exit(1 if failures else 0)
