@@ -60,4 +60,7 @@ runner) with `tools/probe_sources.py` via `.github/workflows/probe-sources.yml`.
   confirmed display through it is fine; CFBD's SP+ could come through the
   edge API the way W15's yards allowed do. Open: whether SP+ (Bill
   Connelly's rating) carries its own terms - David's email to Bill.
-- **Owner:** David (Bill's answer on SP+, or ship FPI without SP+).
+- **Answered (Oct 1, found Oct 9):** Bill: "I have no objection to
+  displaying the SP+ top 25 with ranks and ratings as you described,
+  credited to SP+ and CFBD." SP+ is buildable: the top 25 with ranks and
+  ratings, through the edge API, credited to SP+ and CFBD.
