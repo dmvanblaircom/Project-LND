@@ -70,7 +70,8 @@ console.log("2-3. on screen");
     await page.clock.setSystemTime(AT);
     await page.route("**/*", function (route) {
       var u = route.request().url();
-      if (/\/data\/notre-dame\/notes\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: opts.notes || read(SNAP) });
+      if (/\/data\/notre-dame\/notes\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: opts.notes || read(SNAP),
+                                                                     headers: opts.cached ? { "X-IW-Cached": opts.cached } : {} });
       if (/\/data\/notre-dame\/depth\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/nd-depth-g4.json") });
       if (u.startsWith(base)) return route.continue();
       if (/\/teams\/87\/roster/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/espn-roster-nd-oct02.json") });
@@ -166,6 +167,25 @@ console.log("2-3. on screen");
   ok(bh && bg === 0, "notes written for BYU: no numbers on Home, no series facts or numbers on Game");
   ok(br > 0, "but the players' names, captains and honors are the season's, and stay");
   await b.ctx.close();
+
+  // ---- what Refresh Data says of the notes (Codex, #114) ----
+  // Every other source is cut off here, so the count of sources Refresh
+  // Data could not reach moves by one exactly when the notes are not a
+  // refresh.
+  async function unreached(opts) {
+    var r = await open("notre-dame", opts);
+    await go(r.page, "#settings");
+    await r.page.click("#screenSettings [data-refresh]");
+    await r.page.waitForTimeout(2500);
+    var live = await r.page.evaluate(function () { return document.getElementById("live").textContent; });
+    await r.ctx.close();
+    var m = /(\d+) sources? couldn/.exec(live);
+    return m ? +m[1] : (/^Data refreshed/.test(live) ? 0 : -1);
+  }
+  var base0 = await unreached({});
+  ok(base0 >= 0, "Refresh Data with the notes answering: " + base0 + " other sources unreached");
+  eq(await unreached({ cached: "Thu, 08 Oct 2026 12:00:00 GMT" }), base0 + 1, "the worker's kept copy of the notes is not called a refresh");
+  eq(await unreached({ notes: JSON.stringify(Object.assign({}, snap, { team: "ohio-state" })) }), base0 + 1, "nor is another team's file");
 
   // ---- Ohio State ----
   var o = await open("ohio-state", { schedule: "tools/fixtures/espn-schedule-osu-2026.json" });

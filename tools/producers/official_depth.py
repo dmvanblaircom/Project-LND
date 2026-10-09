@@ -236,10 +236,10 @@ def main():
                             "reported": False, "effectiveAt": None, "heading": None, "players": [],
                             "fetchedAt": now})
             continue
+        url = text = None
         try:
             url = pdf_url(row["notes"])
             report = known_reports.get(url)
-            text = None
             if report is None:                           # a new or replaced document
                 log("  reading game notes:", url.rsplit("/", 1)[-1])
                 text = pdf_text(url)
@@ -251,24 +251,6 @@ def main():
                                "game": row["game"], "sourceUrl": row["notes"], "sourceLabel": av_label,
                                "pdf": url, "parser": twodeep.AVAILABILITY_PARSER, "fetchedAt": now}, **parsed)
             reports.append(report)
-            # ---- this week's facts from the same notes (pronunciations,
-            # captains, honors, the series, By the Numbers): read again only
-            # when the document or the reading changed ----
-            if latest and NOTES and not (old_notes and old_notes.get("pdf") == url
-                                         and old_notes.get("parser") == gamenotes.PARSER):
-                facts = gamenotes.parse(text if text is not None else pdf_text(url))
-                for line in facts.pop("unread", []):
-                    print("::warning::%s game notes: a line not read: %s" % (row["game"], line[:120]))
-                ok = gamenotes.usable(facts)
-                facts.pop("roster", None)          # read only to match names; the app has ESPN's
-                if ok:
-                    m = re.search(r"/(\d{4})/(\d{2})/(\d{2})/", url)
-                    notes_out = dict({"schema": 1, "team": args.team, "capability": "notes", "tier": "official",
-                                      "sourceUrl": row["notes"], "sourceLabel": av_label, "pdf": url,
-                                      "parser": gamenotes.PARSER, "fetchedAt": now,
-                                      "publishedAt": "-".join(m.groups()) if m else None}, **facts)
-                else:
-                    log("  game notes: too little read; keeping last week's facts")
         except Exception as e:                           # noqa: BLE001
             # A failed fetch is not a missing report. Keep what was recorded
             # for this game, so the history never loses a week; with nothing
@@ -283,6 +265,30 @@ def main():
                 log("  availability skipped:", str(e)[:140])
                 if latest:
                     current_report_failed = True
+
+        # ---- this week's facts from the same notes (pronunciations,
+        # captains, honors, the series, By the Numbers): read again only when
+        # the document or the reading changed. Their own failure boundary: a
+        # notes section that will not read never costs the availability
+        # report above (Codex, #114) - last week's facts simply stay.
+        if latest and NOTES and url and not (old_notes and old_notes.get("pdf") == url
+                                             and old_notes.get("parser") == gamenotes.PARSER):
+            try:
+                facts = gamenotes.parse(text if text is not None else pdf_text(url))
+                for line in facts.pop("unread", []):
+                    print("::warning::%s game notes: a line not read: %s" % (row["game"], line[:120]))
+                ok = gamenotes.usable(facts)
+                facts.pop("roster", None)          # read only to match names; the app has ESPN's
+                if ok:
+                    m = re.search(r"/(\d{4})/(\d{2})/(\d{2})/", url)
+                    notes_out = dict({"schema": 1, "team": args.team, "capability": "notes", "tier": "official",
+                                      "sourceUrl": row["notes"], "sourceLabel": av_label, "pdf": url,
+                                      "parser": gamenotes.PARSER, "fetchedAt": now,
+                                      "publishedAt": "-".join(m.groups()) if m else None}, **facts)
+                else:
+                    log("  game notes: too little read; keeping last week's facts")
+            except Exception as e:                       # noqa: BLE001
+                print("::warning::%s game notes not read; keeping last week's facts: %s" % (row["game"], str(e)[:120]))
 
     for i, c in enumerate(charts):
         c["changes"] = twodeep.diff(c["units"], charts[i - 1]["units"] if i else None)

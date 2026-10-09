@@ -174,9 +174,11 @@ function sourceKey(url){
   if(/scoreboard/.test(url)) return "scoreboard";
   if(url===TeamOS.espn.rankingsUrl()) return "rankings";
   if(url===TeamOS.espn.rosterUrl(TEAM_CONFIG)) return "roster";
-  var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability");
+  var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability"),
+      gn=TeamOS.snapshots.get(TEAM_CONFIG,"notes");
   if(dep && url.split("?")[0]===dep.file) return "depth";
   if(av && url.split("?")[0]===av.file) return "availability";
+  if(gn && url.split("?")[0]===gn.file) return "notes";
   if(/odds-(title|playoff)\.json|kalshi/i.test(url)) return "odds";
   if(/open-meteo/.test(url)) return "weather";
   var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
@@ -1417,10 +1419,12 @@ function loadNotes(){
   var snap=TeamOS.snapshots.get(TEAM_CONFIG, "notes");
   if(!snap) return Promise.resolve(null);
   if(NOTES.p) return NOTES.p;
-  NOTES.p=get(snap.file+"?t="+Date.now()).then(function(d){
-    var m=TeamOS.notes.model(roOurs(d), TEAM_CONFIG);
-    if(m){ NOTES.model=m; paintHome(); paintGame(); paintRoster(); }
-    return { key:"notes", outcome:"network" };
+  // An answer that is not this team's notes is a failure, and the worker's
+  // kept copy is "cached", not a refresh (Codex, #114).
+  function model(d){ return TeamOS.notes.model(roOurs(d), TEAM_CONFIG); }
+  NOTES.p=get(snap.file+"?t="+Date.now(), model).then(function(d){
+    NOTES.model=model(d); paintHome(); paintGame(); paintRoster();
+    return { key:"notes", outcome:outcomeOf("notes") };
   }, function(){ return { key:"notes", outcome:"failed" }; });
   NOTES.p.then(function(){ NOTES.p=null; });
   return NOTES.p;
