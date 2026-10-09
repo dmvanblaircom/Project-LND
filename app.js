@@ -536,6 +536,7 @@ function rosterModel(route, views){
     hasDepth: !!rosterSnap("depth"),
     depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail, RO.histRaw) : null,
     history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart) : null, query: RO.q,
+    notes: NOTES.model,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
     fresh: TeamOS.freshness.summary(rosterFreshSources(view), { now:new Date(), online: navigator.onLine!==false })
@@ -970,6 +971,8 @@ function paintHome(){
     outlook: TeamOS.outlook.metrics(HOME.markets),
     // the next round number of all-time wins, when one is near (W: 1,000th)
     milestone: S.games ? TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now) : null,
+    // By the Numbers, while the notes are this week's game's
+    numbers: (TeamOS.notes.forGame(NOTES.model, g) || {}).numbers || null,
     fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),
                                     { now:now, online: navigator.onLine!==false })
   });
@@ -1049,7 +1052,9 @@ function gameModel(V, g, lc, view, base){
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
     photo:ID.art, game:g, detail:V.gd, lifecycle:lc, base:base,
     view: view || lc.defaultView, preview:V.preview, side:V.side, open:V.open,
-    weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date()
+    weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date(),
+    // this game's facts from the week's notes: only the game they were written for
+    notes: TeamOS.notes.forGame(NOTES.model, g)
   };
 }
 function paintGame(){
@@ -1402,8 +1407,27 @@ function loadTeamStatus(){
     return { key:"team", outcome:"network" };
   }).catch(function(){ return { key:"team", outcome:"failed" }; });
 }
+/* ---------- the week's game notes (David, 2026-10-09) ---------- */
+// Pronunciations, captains and honors for Roster; the series facts and By
+// the Numbers for Home and Game, from the team's own notes snapshot
+// (TeamOS.notes). A team that declares none has none; a failed fetch keeps
+// what was shown.
+var NOTES={ model:null, p:null };
+function loadNotes(){
+  var snap=TeamOS.snapshots.get(TEAM_CONFIG, "notes");
+  if(!snap) return Promise.resolve(null);
+  if(NOTES.p) return NOTES.p;
+  NOTES.p=get(snap.file+"?t="+Date.now()).then(function(d){
+    var m=TeamOS.notes.model(roOurs(d), TEAM_CONFIG);
+    if(m){ NOTES.model=m; paintHome(); paintGame(); paintRoster(); }
+    return { key:"notes", outcome:"network" };
+  }, function(){ return { key:"notes", outcome:"failed" }; });
+  NOTES.p.then(function(){ NOTES.p=null; });
+  return NOTES.p;
+}
 function load(){
   loadTeamStatus();
+  loadNotes();
 
   loadStrip();
   return refreshSchedule(true);
@@ -1612,6 +1636,7 @@ function refreshAll(silent){
   T25.at=0;
   if(!silent) say("Refreshing…");
   var steps=[loadTeamStatus(), refreshSchedule(false), loadStrip(), loadNews(true)];
+  if(TeamOS.snapshots.get(TEAM_CONFIG, "notes")) steps.push(loadNotes());
   if(SB.data || SB.p) steps.push(getScoreboard(0).then(function(){ return { key:"scoreboard", outcome:outcomeOf("scoreboard") }; },
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());

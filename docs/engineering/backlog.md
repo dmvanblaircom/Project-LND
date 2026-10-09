@@ -4,7 +4,16 @@ Reconciled September 28, 2026 (America/New_York). **Start Wednesday, September 3
 
 David requested a complete reconciliation and prioritization, removing completed work from the active list. He then requested an explicit Claude/Codex split for implementation and visual parity. **Claude owns data/behavior/reliability; Codex owns design-file parity and production UI implementation.** David remains the product approver. This file replaces the previous weekend/staged roadmap. Completed work is recorded in [the reconciliation record](backlog-reconciliation-2026-09-28.md); the original document is retained in [the archive](backlog-archive-2026-09-28.md). Do not rebuild archived items.
 
-## Claude's next, in David's order (October 2)
+## Claude's next, in David's order (October 9)
+
+1. **Game notes quick wins** (`docs/product/game-notes-features.md`): pronunciation guide, captain and honors badges, the series history card, By the Numbers. Shipped October 9 (see below).
+2. **Notifications round 2:** the alert options in `docs/product/notifications-brief.md` §2b, once David approves them and after the October 10 test.
+3. **W16:** the offseason screens, due mid-November.
+4. **W07 SP+:** unblocked; Bill approved the top 25 with ranks and ratings on October 1 (`rankings-sources.md`).
+
+**Game notes, October 9:** `tools/producers/gamenotes.py` reads the week's notes the depth-chart producer already downloads into `data/<team>/notes.json` (a `notes` snapshot a team declares; Ohio State declares none). `TeamOS.notes` matches players by name; Home shows three of By the Numbers in game week; Game's pregame shows the series card and By the Numbers, each linking the notes; Roster marks captains and shows pronunciations and honors. The series facts and numbers show only for the game the notes were written for, and only until it is final. Gates: `tools/notescheck.py` (parser), `tools/notescheck.js` (adapter and screens).
+
+## Claude's next, in David's order (October 2, done)
 
 1. This reconciliation.
 2. **W27 Phase 2:** player season stats.

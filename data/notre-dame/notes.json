@@ -1,0 +1,268 @@
+{
+ "schema": 1,
+ "team": "notre-dame",
+ "capability": "notes",
+ "tier": "official",
+ "sourceUrl": "https://fightingirish.com/documents/da81c778-2bc8-4656-80a4-f12b2137b3c3.pdf",
+ "sourceLabel": "FightingIrish.com",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/08/9tCZLKmf5oEhBWSnmuL6Jg37bMkO3h0QmpH0NzU1.pdf",
+ "parser": 1,
+ "fetchedAt": "2026-10-09T20:08:57.763953+00:00",
+ "publishedAt": "2026-10-08",
+ "game": "Stanford",
+ "pronounce": {
+  "Khary Adams": "CAR-ee",
+  "Matty Augustine": "August-EEN",
+  "Drayk Bowen": "Drake BOE-en",
+  "Francis Brewu": "BREW",
+  "Christopher Burgess Jr.": "BURG-jess",
+  "Ja’Kobe Clapper": "jah-COE-bee",
+  "Davion Dixon": "DAY-vee-on",
+  "Ebenezer Ewetade": "EBB-en-EE-zer eh-WUH-tah-DAY",
+  "Dylan Faison": "FAY-zonn",
+  "Jordan Faison": "FAY-zonn",
+  "Madden Faraimo": "far-AIM-oh",
+  "Kaydon Finley": "KAY-den",
+  "Preston Fryzel": "fry-ZELL",
+  "Henry Garrity": "GARE [like stare]-itty",
+  "Tionne Gray": "TEE-on",
+  "Jaden Greathouse": "JAY-den",
+  "Blake Hebert": "HEE-bert",
+  "Cam Herron": "HAIR-en",
+  "Tiki Hola": "HOLE-ah",
+  "Devan Houstan": "Devin Houston (like the city)",
+  "Dominik Hulak": "HUE-lack",
+  "Charles Jagusah": "JOG-oo-saw",
+  "Teddy Jarrard": "jer-ARD",
+  "Brauntae Johnson": "bray-ON-tay",
+  "Keon Keeley": "KEY-on",
+  "Kahanu Kia": "Ka-HA-new KEE-ah",
+  "Ko’o Kia": "KOH-oh KEE-ah",
+  "Anthonie Knapp": "Nap",
+  "Andrew Kros": "Cross",
+  "Guerby Lambert": "Gur-bee",
+  "Grayson McKeogh": "Mc-Cue",
+  "Armel Mukam": "MOO-kam",
+  "Jason Onye": "OWN-yay",
+  "Javian Osborne": "JAY-vee-en",
+  "Joe Otting": "Ott (like otter)-ing",
+  "Spencer Porath": "PORE-ath",
+  "Tommy Powlus": "PAUL-us",
+  "Ian Premer": "PREE-mer",
+  "Joe Reiff": "Reef",
+  "Teddy Rezac": "REE-zak",
+  "Logan Saldate": "sal-DAH-tay",
+  "Jasper Scaife": "SKAY-ff",
+  "Sean Sevillano Jr.": "Sev-ill-ON-oh",
+  "Adon Shuler": "Uh-DONN",
+  "Xavier Southall": "Ex-avier SOUTH-all",
+  "Owen Strebig": "STREE-big",
+  "Luke Talich": "Taal (like tally)-ich",
+  "Charlie Thom": "Tom",
+  "Boubacar Traore": "BOO-bah-car TRAY-or-ree",
+  "Kyngstonn Viliamu-Asa": "Vill-ee-ah-moo AH-sah",
+  "Joseph Vinci": "Vin-see",
+  "Jonaz Walton": "Jonas",
+  "Aneyas Williams": "uh-NEE-us",
+  "Robbie Wollan": "Wool-an",
+  "Kedren Young": "KEY-dren"
+ },
+ "captains": [
+  "Drayk Bowen",
+  "CJ Carr",
+  "Jordan Faison",
+  "Adon Shuler"
+ ],
+ "honors": {
+  "Will Black": [
+   "Shaun Alexander Freshman of the Year Award Watch List"
+  ],
+  "Drayk Bowen": [
+   "Bronko Nagurski Trophy Watch List",
+   "Butkus Award Watch List",
+   "Phil Steele Preseason All-America Third Team",
+   "Sporting News Preseason All-America Second Team"
+  ],
+  "CJ Carr": [
+   "Davey O’Brien Award Preseason Watch List",
+   "Davey O’Brien Great 8 (Oct. 5)",
+   "ESPN Preseason All-America Second Team",
+   "Johnny Unitas Golden Arm Award Watch List",
+   "Manning Award Watch List",
+   "Manning Award Star of the Week (Oct. 5)",
+   "Maxwell Award Watch List",
+   "Phil Steele Preseason All-America Fourth Team",
+   "Senior Bowl Top 300",
+   "Shriners Children’s East-West Shrine Bowl 1000",
+   "Walter Camp Player of the Year Award Watch List"
+  ],
+  "Ashton Craig": [
+   "College Football Comeback Player of the Year Pre-Season Watch List",
+   "Rimington Trophy Watch List"
+  ],
+  "Devin Fitzgerald": [
+   "Hispanic College Football Player of the Year Award Watch List"
+  ],
+  "Jaden Greathouse": [
+   "College Football Comeback Player of the Year Pre-Season Watch List",
+   "Earl Campbell Tyler Rose Award Watch List"
+  ],
+  "Charles Jagusah": [
+   "Phil Steele Preseason All-America Fourth Team"
+  ],
+  "Brauntae Johnson": [
+   "Associated Press Preseason All-America Second Team",
+   "On3 Preseason All-America Second Team",
+   "Phil Steele Preseason All-America Second Team",
+   "Senior Bowl Top 300",
+   "Sporting News Preseason All-America First Team"
+  ],
+  "Anthonie Knapp": [
+   "CBS Sports Preseason All-America First Team",
+   "ESPN Preseason All-America First Team",
+   "Lombardi Award Watch List",
+   "On3 Preseason All-America Second Team",
+   "Outland Trophy Watch List",
+   "Pro Football Network Preseason All-America First Team",
+   "Shriners Children’s East-West Shrine Bowl 1000",
+   "Sporting News Preseason All-America Second Team",
+   "USA TODAY Sports Preseason All-America Second Team",
+   "Walter Camp Preseason All-America First Team"
+  ],
+  "Guerby Lambert": [
+   "Outland Trophy Watch List"
+  ],
+  "Leonard Moore": [
+   "Allstate AFCA Good Works Team Watch List",
+   "AFCA Good Works Team",
+   "Allstate Wuerffel Trophy Watch List",
+   "Allstate Wuerffel Trophy Semifinalist",
+   "Associated Press Preseason All-America First Team",
+   "Bronko Nagurski Trophy Watch List",
+   "CBS Sports Preseason All-America First Team",
+   "Chuck Bednarik Award Watch List",
+   "ESPN Preseason All-America First Team",
+   "Lott IMPACT Trophy Watch List",
+   "Maxwell Award Watch List",
+   "On3 Preseason All-America First Team",
+   "Paycom Jim Thorpe Award Watch List",
+   "Phil Steele Preseason All-America First Team",
+   "Phil Steele Preseason Defensive Player of the Year",
+   "Pro Football Network Preseason All-America First Team",
+   "Senior Bowl Top 300",
+   "Shriners Children’s East-West Shrine Bowl 1000",
+   "Sporting News Preseason All-America First Team",
+   "The Athletic Preseason All-America First Team",
+   "USA TODAY Sports Preseason All-America First Team",
+   "Walter Camp Player of the Year Award Watch List",
+   "Walter Camp Preseason All-America First Team"
+  ],
+  "Spencer Porath": [
+   "Lou Groza Award Watch List"
+  ],
+  "Adon Shuler": [
+   "Chuck Bednarik Award Watch List"
+  ],
+  "Luke Talich": [
+   "William V. Campbell Trophy Nominee"
+  ],
+  "Boubacar Traore": [
+   "Bronko Nagurski Trophy Watch List",
+   "Chuck Bednarik Award Watch List",
+   "College Football Comeback Player of the Year Pre-Season Watch List",
+   "Phil Steele Preseason All-America Third Team",
+   "Senior Bowl Top 300"
+  ],
+  "Kyngstonn Viliamu-Asa": [
+   "Associated Press Preseason All-America Second Team",
+   "Bronko Nagurski Trophy Watch List",
+   "Butkus Award Watch List",
+   "CBS Sports Preseason All-America Second Team",
+   "College Football Comeback Player of the Year Pre-Season Watch List",
+   "Lombardi Award Watch List",
+   "Lott IMPACT Trophy Watch List",
+   "On3 Preseason All-America Second Team",
+   "Shriners Children’s East-West Shrine Bowl 1000",
+   "Walter Camp Preseason All-America Second Team"
+  ],
+  "Jonaz Walton": [
+   "Paul Hornung Award Weekly Honor Roll (Oct. 6)"
+  ],
+  "Aneyas Williams": [
+   "Paul Hornung Award Weekly Honor Roll (Sept. 9)"
+  ],
+  "Kedren Young": [
+   "College Football Comeback Player of the Year Pre-Season Watch List"
+  ]
+ },
+ "glance": [
+  "Saturday afternoon will mark the 40th meeting between Notre Dame and Stanford. The series stands at a 25-14-0 Notre Dame advantage all-time.",
+  "The Irish are 3-1 against the Cardinal under Freeman.",
+  "The two teams last faced off at Notre Dame Stadium on October 12, 2024, when the Irish defeated the Cardinal 49-7.",
+  "The Irish are 21-4 against current ACC opponents under Dick Corbett Head Coach Marcus Freeman. Freeman has five wins against ACC opponents in every season he has coached at Notre Dame.",
+  "The two teams play for the Legends Trophy, which is a combination of Irish crystal and California redwood.",
+  "The Notre Dame Club of the San Francisco area first presented the trophy in 1989."
+ ],
+ "numbers": [
+  {
+   "n": "2",
+   "text": "Drayk Bowen and Adon Shuler are the 28th and 29th players to be elected captain twice."
+  },
+  {
+   "n": "5",
+   "text": "Career games in which CJ Carr has recorded both a passing and rushing touchdown."
+  },
+  {
+   "n": "5",
+   "text": "Luke Talich is the fifth NDFB player to have a reception, interception return and punt return for a touchdown in a career."
+  },
+  {
+   "n": "6",
+   "text": "Consecutive games in which Notre Dame has held its opponent below 100 rushing yards, dating back to the 2025 regular-season finale at Stanford."
+  },
+  {
+   "n": "7",
+   "text": "Career interceptions for Leonard Moore, most among all returning Irish defenders."
+  },
+  {
+   "n": "15",
+   "text": "Consecutive wins by double digits, dating back to Sept. 20, 2025."
+  },
+  {
+   "n": "15",
+   "text": "Seconds between Notre Dame touchdown passes in the first quarter at North Carolina."
+  },
+  {
+   "n": "17",
+   "text": "Plays on Notre Dame’s 75-yard touchdown drive in the third quarter at North Carolina."
+  },
+  {
+   "n": "26",
+   "text": "Consecutive games with a reception for Jordan Faison, matching Chase Claypool’s 26-game streak in 2017-18."
+  },
+  {
+   "n": "28",
+   "text": "Career field goals for Spencer Porath (28-for-35, 80.0%), including a perfect 67-for-67 on extra points."
+  },
+  {
+   "n": "33",
+   "text": "Non-offensive touchdowns scored by Notre Dame since the start of the 2021 season, the most in the FBS over that span."
+  },
+  {
+   "n": "37",
+   "text": "Career touchdown passes for CJ Carr, who matched his career high with four at North Carolina."
+  },
+  {
+   "n": "120",
+   "text": "Rushing yards for freshman Jonaz Walton at North Carolina, his first career 100-yard game."
+  },
+  {
+   "n": "132",
+   "text": "Career-high receiving yards for Jordan Faison at North Carolina, on a career-best eight catches with two touchdowns."
+  },
+  {
+   "n": "170",
+   "text": "Micah Gilbert finished the Michigan State game with 170 receiving yards, the most by an Irish player since November 4, 2017, when Chase Claypool recorded 180 receiving yards against Wake Forest."
+  }
+ ]
+}

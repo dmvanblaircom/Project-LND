@@ -204,6 +204,7 @@ jobs:
           [ "$NEWS" = success ]    && add "news" 'data/*/news.json'
           [ "$DEPTH" = success ]   && add "depth chart" 'data/*/depth.json' 'data/*/depth-history.json'
           [ "$DEPTH" = success ]   && add "availability" 'data/*/availability.json' 'data/*/availability-history.json'
+          [ "$DEPTH" = success ]   && add "game notes" 'data/*/notes.json'
           [ "$FPI" = success ]     && add "FPI" 'data/league/fpi.json'
           if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
           git commit -q -m "Refresh team data: $moved"

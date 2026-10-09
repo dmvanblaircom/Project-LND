@@ -198,6 +198,9 @@ var TEAM_CONFIG = {
     // (docs/decisions/0019).
     availability: { file: "data/notre-dame/availability.json", history: "data/notre-dame/availability-history.json", label: "FightingIrish.com" },
     oddsHistory: { file: "data/notre-dame/odds-history.json" },
+    // This week's facts from the same game notes: pronunciations, captains,
+    // honors, the series and By the Numbers (tools/producers/gamenotes.py).
+    notes:       { file: "data/notre-dame/notes.json", label: "FightingIrish.com" },
     beatNews:    { file: "data/notre-dame/news.json" }
   }
 };

@@ -42,7 +42,7 @@ var TeamOS = TeamOS || {};
 TeamOS.snapshots = (function () {
   "use strict";
 
-  var KINDS = { depth: 1, availability: 1, oddsHistory: 1, beatNews: 1 };
+  var KINDS = { depth: 1, availability: 1, oddsHistory: 1, beatNews: 1, notes: 1 };
 
   function fail(what) { throw new Error("TeamOS.snapshots: " + what); }
 

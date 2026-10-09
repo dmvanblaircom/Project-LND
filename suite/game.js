@@ -26,6 +26,8 @@
        model.now         Date
        model.base        the route its views hang off: "#game" (default) or
                          "#schedule/<id>"
+       model.notes       TeamOS.notes.forGame() | null - the week's official
+                         game notes, only for the game they were written for
 
    The screen is written from the team's side: the team is always on the
    left, whoever is home. */
@@ -249,16 +251,50 @@ Suite.game = (function () {
     return card(title, body, sideToggle(m, m.side), "gcard-leaders");
   }
 
-  function seriesCard(g) {
-    if (!g.series) return "";
+  // Where the week's notes came from: their facts are the program's own,
+  // so each card carries the source and a link to the document.
+  function notesSource(notes) {
+    var s = notes.source, label = esc(s.label);
+    return '<p class="gn-src">From the game notes \u00b7 ' +
+           (s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + label + "</a>" : label) + "</p>";
+  }
+
+  function seriesCard(g, notes) {
+    var facts = notes && notes.glance.length ? notes.glance : null;
+    if (!g.series && !facts) return "";
     // The trophy, rivalry or series name, which the team's configuration
-    // verifies. No description: until a trustworthy rivalry source exists,
-    // nothing generic stands in for one (Game review, 2026-09-24). The trophy
-    // mark only for a trophy (W21): a rivalry name or a branded game (The
-    // Game, the Shamrock Series) has nothing to win.
-    return '<section class="card gcard series">' + (g.seriesKind === "trophy" ? '<span class="series-ic">' + TROPHY + "</span>" : "") +
-           '<p class="series-name">' +
-           esc(g.series.replace(/^Playing for (the )?/i, "")) + "</p></section>";
+    // verifies. The trophy mark only for a trophy (W21): a rivalry name or a
+    // branded game (The Game, the Shamrock Series) has nothing to win. Its
+    // story is the program's own, from the week's game notes ("Game Day at a
+    // Glance": the all-time series, the last meeting, the trophy) - the
+    // trustworthy source the 2026-09-24 Game review waited for. Without
+    // notes, the name alone: nothing generic stands in for them.
+    var name = g.series ? '<p class="series-name">' + esc(g.series.replace(/^Playing for (the )?/i, "")) + "</p>" : "";
+    if (!facts) {
+      return '<section class="card gcard series">' + (g.seriesKind === "trophy" ? '<span class="series-ic">' + TROPHY + "</span>" : "") +
+             name + "</section>";
+    }
+    return card("The series",
+      (name ? '<div class="series series-in">' + (g.seriesKind === "trophy" ? '<span class="series-ic">' + TROPHY + "</span>" : "") + name + "</div>" : "") +
+      '<ul class="gn-facts">' + facts.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") + "</ul>" +
+      notesSource(notes), "", "gcard-series");
+  }
+
+  // By the Numbers: the program's own weekly figures, the number big and the
+  // fact it counts beside it. The first six; the rest a tap away.
+  var NUMBERS_SHOWN = 6;
+  function numberItem(x) {
+    return '<li><span class="bn-n">' + esc(x.n) + '</span><span class="bn-t">' + esc(x.text) + "</span></li>";
+  }
+  function numbersCard(notes) {
+    var list = notes && notes.numbers;
+    if (!list || !list.length) return "";
+    var more = list.slice(NUMBERS_SHOWN);
+    return card("By the numbers",
+      '<ul class="bn-list">' + list.slice(0, NUMBERS_SHOWN).map(numberItem).join("") + "</ul>" +
+      (more.length ? '<details class="bn-more"><summary>' + "Show " + more.length + " more</summary>" +
+                     '<ul class="bn-list">' + more.map(numberItem).join("") + "</ul></details>" : "") +
+      notesSource(notes), "", "gcard-numbers");
   }
 
   function linescore(m) {
@@ -508,7 +544,7 @@ Suite.game = (function () {
   function body(m) {
     var g = m.game, v = m.view;
     if (m.lifecycle.phase === "pregame") {
-      return matchup(m) + leaders(m, "Leaders (season)") + seriesCard(g);
+      return matchup(m) + leaders(m, "Leaders (season)") + seriesCard(g, m.notes) + numbersCard(m.notes);
     }
     if (v === "drive") {
       var html = driveCard(m) + lastPlay(m) + linescore(m);

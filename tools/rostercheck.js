@@ -33,7 +33,7 @@ function uncomment(t) { return t.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\
 
 function teamContext(file) {
   var ctx = vm.createContext({});
-  ["teamos/team.js", "teamos/snapshots.js", "teamos/espn.js", "teamos/roster.js", file].forEach(function (f) {
+  ["teamos/team.js", "teamos/snapshots.js", "teamos/espn.js", "teamos/roster.js", "teamos/notes.js", file].forEach(function (f) {
     vm.runInContext(read(f), ctx, { filename: f });
   });
   return ctx;
