@@ -75,7 +75,8 @@ odds as media metadata; a push is not the place).
 David, 2026-10-09: *"Make it a toggle where users can pick every score, my
 team only, quarter score, halftime score, close finish, and final only + any
 others you recommend. Also an easy way for all to be selected. Edge cases
-should be considered for UX."* **Status: proposal, awaiting David's OK.**
+should be considered for UX."* **Status: approved by David, 2026-10-09, as
+written, plus "Kickoff time set" (moved up from "Other alerts" below).**
 Built after Saturday's live test proves kickoff and final.
 
 ### The settings screen (Settings → Game Alerts, for the active team)
@@ -89,6 +90,8 @@ GAME
   Kickoff                                       [on]
   Final score                                   [on]
   Delays & postponements                        [on]
+  Kickoff time set                              [off]
+     When a TBA game gets its time, or a set time moves
 
 SCORING
   ( ) Off   ( ) My team's scores   (•) Every score
@@ -129,6 +132,7 @@ UPDATES
 | Halftime | "Halftime: ND 21, STAN 10" | ESPN's status reads halftime |
 | Close finish | "One-score game: ND 24, STAN 20 · 4th 4:51" | Once, the first time it's within 8 points with 5:00 or less left in the 4th |
 | Overtime | "Overtime: ND 27, STAN 27" | When OT starts (part of Close finish) |
+| Kickoff time set | "Notre Dame vs. BYU: Sat, Oct 17, 7:30 PM ET on NBC" | A TBA game gets its time, or a set time moves |
 | Delay / postponed / canceled | "Weather delay: ND 7, STAN 3 · 2nd 9:15" / "Postponed: Notre Dame vs. Stanford" | ESPN's status changes to it |
 
 ### Edge cases, and what happens
@@ -162,11 +166,17 @@ UPDATES
     already sent is repeated.
 11. **iPhone Focus mode** can hold alerts back (Oct 7). Settings gets one
     line: "If alerts don't arrive, allow Suite in your Focus settings."
+12. **Kickoff time set** is about the schedule, not the game: one alert
+    when ESPN first gives a TBA game a time, and one each time a set time
+    moves. Not within 3 hours of the old kickoff (that is a delay, and the
+    delay alert covers it), and never for a game already under way or final.
+    It is in Everything, not in Key moments or Final only, and off for a
+    first-time sign-up: it fires days before the game.
 
-### Other alerts recommended, not in this round
+### Other alerts considered
 
-- **Kickoff time set:** when a TBA game gets its time. Useful, but it fires
-  days before the game; it waits for a fan to ask for it.
+- **Kickoff time set:** added to this round by David (Oct 9); see the
+  table and edge case 12.
 - **Not recommended:** upset alerts and other teams' games. Those are
   alerts the fan didn't ask for about games they didn't pick, which is
   exactly what the noise rule rules out.
