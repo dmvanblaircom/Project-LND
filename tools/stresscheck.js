@@ -108,6 +108,8 @@ async function inspect(page, scn, where, opts) {
     var imgs = [].filter.call(document.images, function (i) { return vis(i) && i.complete && i.naturalWidth === 0 && i.src.indexOf(location.origin) === 0; }).map(function (i) { return i.getAttribute("src"); });
     var wm = document.querySelector(".app-bar img.wordmark");
     var navCur = document.querySelectorAll("nav [aria-current='page'][data-screen]").length;
+    // Settings is the header gear's (decision 0034): the gear is current, no nav item is
+    var gearCur = !!document.querySelector("#barGear[aria-current='page']");
     var ids = {}, dup = [];
     [].forEach.call(document.querySelectorAll("[id]"), function (e) { if (ids[e.id]) dup.push(e.id); ids[e.id] = 1; });
     var noName = [].filter.call(document.querySelectorAll("a[href],button"), function (e) {
@@ -118,7 +120,7 @@ async function inspect(page, scn, where, opts) {
       junk: (text.match(/\b(undefined|NaN|null|Infinity)\b|\[object [A-Za-z]+\]|Invalid Date/g) || []).slice(0, 5),
       lnd: /Project LND|Irish Watch/.test(text), over: over, imgs: imgs,
       wm: wm ? (wm.complete && wm.naturalWidth > 0) : null, wmVisible: wm ? vis(wm) : false,
-      navCur: navCur, chooser: !!document.querySelector(".chooser:not([hidden]), #chooser:not([hidden])") && vis(document.querySelector(".chooser, #chooser")),
+      navCur: navCur, gearCur: gearCur, settings: /^#settings(\/|$)/.test(location.hash), chooser: !!document.querySelector(".chooser:not([hidden]), #chooser:not([hidden])") && vis(document.querySelector(".chooser, #chooser")),
       dup: dup, noName: noName, textLen: text.trim().length
     };
   });
@@ -127,7 +129,8 @@ async function inspect(page, scn, where, opts) {
   if (r.over > 1) bad(scn, where, "horizontal overflow " + r.over + "px");
   if (r.imgs.length) bad(scn, where, "broken same-origin image " + r.imgs.join(","));
   if (!opts.chooser && r.wm === false && r.wmVisible) bad(scn, where, "wordmark image not loaded");
-  if (!opts.chooser && r.navCur !== 1 && !opts.noNav) bad(scn, where, "nav aria-current count " + r.navCur);
+  if (!opts.chooser && !opts.noNav && (r.settings ? r.navCur !== 0 || !r.gearCur : r.navCur !== 1 || r.gearCur))
+    bad(scn, where, "nav aria-current count " + r.navCur + (r.gearCur ? ", gear current" : ", gear not current"));
   if (r.dup.length) bad(scn, where, "duplicate ids " + r.dup.slice(0, 5).join(","));
   if (r.noName.length) bad(scn, where, "unnamed control " + r.noName[0]);
   if (r.textLen < 20) bad(scn, where, "near-empty page");

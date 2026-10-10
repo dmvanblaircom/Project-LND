@@ -4,6 +4,7 @@
 
 Accepted. Supersedes the header rule of 0023 ("Headers, by destination
 rather than by state") and extends 0024 §6 from Top 25 to every screen.
+Amended by 0034: the bar carries a Settings gear at its right edge.
 
 ## Date
 

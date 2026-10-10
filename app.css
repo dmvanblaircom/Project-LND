@@ -151,6 +151,16 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
    name width ("OHIO STATE" in Nunito Sans at 320px). The chooser adds its
    controls after it. */
 .app-bar .spacer:last-child{display:none}
+/* Settings, at the bar's right edge; the spacer after it stays hidden. The
+   team context takes the free width, and the gear's 44px target overlaps
+   the gap and the gutter rather than the name: its 24px glyph keeps 12px
+   from the name and lines up with the content edge. */
+.bar-context:not([hidden]){flex:1 1 auto}
+.bar-gear{flex:none;margin:0 -10px 0 -10px;text-decoration:none}
+.bar-gear svg{width:24px;height:24px;stroke-width:1.8}
+/* current: the accent TeamOS validated for dark surfaces, never the raw
+   accent (Suite Style's is the header's own navy; Codex, #120) */
+.bar-gear[aria-current="page"]{color:var(--t-accent-text)}
 /* The selected team as quiet context beside the wordmark, on every team
    screen - a lockup, not a
    button: no fill, no border, no chevron (decision 0024 §6). */
