@@ -172,6 +172,9 @@ its extra point in):
   shows ("... XP missed.").
 - The try alert replaces the touchdown alert on the lock screen (edge
   case 4), and the phone still buzzes.
+- **At the final:** a score still holding its minute, or a try, is sent
+  before the final alert, so a walk-off score or an overtime winner gets its
+  own alert too.
 - The play line is ESPN's, from the game summary, read only when the score
   moves or a try is awaited. It is cleaned to plain text and cut at 120
   characters. Without the summary the alert goes without the play, with the

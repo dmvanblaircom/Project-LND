@@ -465,8 +465,10 @@ async function detect(db, env, teamId, game, now, log) {
   const t = status.type || {}, x0 = { period: status.period || 0, clock: status.displayClock || null };
   // While the game is on, its score each minute (round 2): announced first,
   // so a quarter's alert never shows a score the fan has not had (§2b, 3).
+  // And once at the final, before it: a score still holding its minute, or
+  // a touchdown's try, is told rather than lost (Codex, #119).
   let cur = null, told = null;
-  if (t.state === "in") {
+  if (t.state === "in" || t.state === "post") {
     cur = await liveScores(env, teamId, game, fromSchedule);
     // ESPN's scoring plays (the game summary, tens of kilobytes) only when
     // the score has moved or a touchdown's try is still to be told.
@@ -476,7 +478,7 @@ async function detect(db, env, teamId, game, now, log) {
       if (ls && ls.base && (cur.us !== ls.base.us || cur.them !== ls.base.them || awaitingTry(ls, now)))
         plays = scoringPlays(await getJson(env, SITE + "/summary?event=" + game.id), teamId, game);
     }
-    if (cur) for (const e of scoreStep(db, teamId, game, status, cur, now, /END_PERIOD|HALFTIME/.test(t.name || ""), plays))
+    if (cur) for (const e of scoreStep(db, teamId, game, status, cur, now, t.state === "post" || /END_PERIOD|HALFTIME/.test(t.name || ""), plays))
       emit(db, teamId, game, e.event, e.scores, Object.assign({}, x0, e.x), now, log, !!e.late);
     // The score the fans have been told: a close finish is judged on it, so
     // it never arrives before the score that made the game close.
@@ -657,7 +659,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     n += 1;
     out.push({ event: "score:" + n, scores: c, x });
     if (x.kind === "xp" || x.kind === "2pt") { if (next.tryq && next.tryq.side === scorer) next.tryq = null; }
-    if (x.kind === "td" && !x.try) next.tryq = { side: scorer, score: c[scorer], at: now };
+    if (x.kind === "td" && !x.try) next.tryq = { side: scorer, score: c[scorer], scores: { us: c.us, them: c.them }, at: now };
     const h = hist();
     if (du > 0) h.us.push(["score:" + n, c.us]);
     if (dt > 0) h.them.push(["score:" + n, c.them]);
@@ -676,7 +678,8 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     const tr = pl ? tryOf(pl.text) : null;
     if (tr === "xpmiss" || tr === "2ptfail") {
       n += 1;
-      out.push({ event: "score:" + n, scores: b, x: Object.assign({ scorer: side, ours: false, kind: tr }, playX(pl), { play: undefined }) });
+      // the score as the touchdown left it, to match the play's clock (Codex, #119)
+      out.push({ event: "score:" + n, scores: st.tryq.scores || b, x: Object.assign({ scorer: side, ours: false, kind: tr }, playX(pl), { play: undefined }) });
       next.tryq = null;
     }
   }
