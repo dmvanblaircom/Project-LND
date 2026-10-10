@@ -38,7 +38,7 @@ Three paths, chosen by how fresh the data must be and what its terms allow:
 | Path | Used for | Why |
 |---|---|---|
 | **Browser → provider** | ESPN scores, schedule, scoreboard, game summary, rankings, news, roster; Open-Meteo weather and geocoding | Must be current; no key; CORS permitted. |
-| **GitHub Action → committed snapshot** (`data/<team>/`, `data/league/`) | Kalshi odds and odds history, official depth chart, availability report and game-notes facts, beat news; FPI producer ready (`tools/producers/fpi.py`), not yet scheduled | Changes over hours or days; Kalshi sends no CORS header; official PDFs need parsing. Runs from `odds.yml` (decision 0020 cadence). |
+| **GitHub Action → committed snapshot** (`data/<team>/`, `data/league/`) | Kalshi odds and odds history, official depth chart, availability report (school game notes, or the conference's report feed) and game-notes facts, beat news; FPI producer ready (`tools/producers/fpi.py`), not yet scheduled | Changes over hours or days; Kalshi sends no CORS header; official PDFs need parsing. Runs from `odds.yml` (decision 0020 cadence). |
 | **Browser → Suite's edge API → provider** (`worker/`, `https://suite-api.dmvanblaircom.workers.dev`) | CollegeFootballData season figures (Matchup yards allowed) | Needs a key kept server-side, and CFBD's terms allow display but not publishing its data as files (decision 0030). |
 
 Snapshots are owned by declaration (decision 0008): a team that declares no
@@ -65,5 +65,5 @@ Strategy). Rollback: `docs/engineering/rollback-runbook.md`.
 ## Known gaps (tracked in `docs/engineering/backlog.md`)
 
 - `app.js` still owns several stores and timers (W10); the schedule now joins a request already out, like the scoreboard.
-- Ohio State lacks official depth/availability sources and beat news (W20).
+- Ohio State lacks an official depth chart (W20; Ourlads permission pending). Its availability report is the Big Ten's (`tools/producers/conference_availability.py`).
 - Internal `iw-` names remain (C16), by decision.

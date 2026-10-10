@@ -1,0 +1,4627 @@
+{
+"note": "Captured 2026-10-10 04:56Z from the Big Ten's public availability viewer (BigTen.org embed, HD Intelligence get-publish-public / get-archive-public); images and colors removed, archive rows kept for four teams.",
+"publish": {
+"3055": {
+"ReportType": "Game Day",
+"conferenceTimeZone": "CT",
+"footer": {
+"date": "2026-10-09",
+"location": "Seattle, WA",
+"time": "20:00:00",
+"venueImage": ""
+},
+"gameNeutral": false,
+"games": [
+{
+"rows": [
+{
+"exemptStatus": "NonExempt",
+"name": "WR #0 Jarriett Buie",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #0 Cody Haddad",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #1 KJ Parker",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #1 Darion Jones",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #2 Reece Vander Zee",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #2 Tyler Brown",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #3 Jimmy Sullivan",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #3 Jaylen Watson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #4 Julian Manson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #4 Tradon Bessinger",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #5 Nathan McNeil",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #5 Anthony Hawkins",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #6 Zach Lutmer",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #6 Xavier Stinson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #7 Rashad Godfrey, Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #7 Dayton Howard",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #8 Deshaun Lee",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #8 Evan James",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #9 Hank Brown",
+"status": "Game Time Decision"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #9 Kasen Thomas",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #10 Burke Gautcher",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #10 Jeremy Hecklinski",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #11 Jacob Wallace",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #11 Brody Schaffer",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #12 Billy Weivoda",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #12 Diondre Smith",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #13 Drew Campbell",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #13 Brevin Doll",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #14 Alex Mota",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #14 Tony Diaz",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #15 Carson Cooney",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #15 O’Lontae Dean",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #16 Ryan Fitzgerald",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #16 Ronnie Hill",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #17 Alex Eichmann",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #18 Xavier Styles",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #18 Luke Brewer",
+"status": "Available"
+},
+{
+"exemptStatus": "Out",
+"name": "DB #19 Kyler Gerardy",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #19 Mason Woods",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #20 Ty Hudkins",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #21 L.J. Phillips Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #21 Marcello Vitti",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #22 Braeden Jackson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #22 Derek Weisskopf",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #23 Landyn Van Kekerix",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #25 Eli Ozick",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #26 Xavier Williams",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #26 Eli Robbins",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #28 Kamari Moulton",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #29 Noah Daniel",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #30 Eli Kampman",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #31 Nolan DeLong",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #32 Sawyer Jezierski",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #33 Cam Buffington",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #34 Drew MacPherson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "P #35 Tanner Philpott",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #36 Jayden Montgomery",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #37 Brayton Alford",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #40 Chima Chineke",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #42 David Fason",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #43 Kahmari Brown",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #44 Kenneth Merrieweather",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #45 Jack Janda",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #46 Preston Ries",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #47 Jack Laughlin",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #48 Zach Ortwerth",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "P #49 Boston Everitt",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #50 Will Lockhart",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #51 Luke Gaffney",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #52 Will Hahn",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #53 Michael Myslinski",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LS #54 Matty McLaughlin",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #56 Maddux Borcherding-Johnson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #57 Will Hubert",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #58 Kade Pieper",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #59 Trevor Lauck",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #60 Lucas Allgeyer",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #61 Cael Winter",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #63 Josh Janowski",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #64 Leighton Jones",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #65 Trent Wilson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #68 Will Nolan",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LS #69 Ike Speltz",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #70 Hudson Parliament",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #71 Jack Dotzler",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #72 Owen Linder",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #73 Colin Whitters",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #74 Bodey McCaslin",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #75 Cannon Leonard",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #77 George Nahas",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #78 Gene Riordan",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #79 Carson Nielsen",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #80 Michael Burt",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #81 DJ Vonnahme",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #82 Dylan Stecker",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #83 Jackson Naeve",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #84 Joseph Anderson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #84 Apollo Payne",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #85 Thomas Meyer",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #86 Eli Johnson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #87 Addison Ostrenga",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #88 Lance Beeghley",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #88 Emmanuel Olagbaju",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #89 Isaiah Oliver",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #91 Devan Kennedy",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #92 Caden Buhr",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #92 Brice Stevenson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #95 Lance Ingold",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #96 Bryce Hawthorne",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #97 Iose Epenesa",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #99 Brad Fitzgibbon",
+"status": "Available"
+}
+],
+"teamDisplayName": "Iowa",
+"teamName": "Iowa"
+},
+{
+"rows": [
+{
+"exemptStatus": "NonExempt",
+"name": "LB #0 Taariq Al-Uqdah",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #1 Demond Williams Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #2 Rahshawn Clark",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #2 Dezmen Roebuck",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #3 Rashid Williams",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #3 Emmanuel Karnley",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #4 Rylon Dillard-Allen",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #4 Jordan Washington",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #5 Derek Colman-Brusa",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #5 Christian Moss",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #6 Dylan Robinson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #6 Mason James",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #7 Alex McLaughlin",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #7 Elijah Brown",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #8 Ramonz Adams Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #8 Chris Lawson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #9 Dash Beierly",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #9 Jacob Manu",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #10 Xe'ree Alexander",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #10 Treston \"Kini\" McMillan",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "EDG #11 Ramzak Fruean",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #11 Jordan Clay",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #12 Trez Davis",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "EDG #12 Logan George",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "CB #13 Rahsjon Duncan",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #15 Rahim Wright II",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #15 Derek Zammit",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #16 Justice Williams",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #17 Elijah Durr",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #17 Jayden Limar",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #18 Kai McClendon",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "WR #18 Bodpegn Miller",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "RB #20 D’Aryhian Clemons",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #20 Grady Gross",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #21 Quaid Carr",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #21 Gavin Day",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #22 Trey Cooley",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #23 Zaydrius Rainey-Sale",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #24 Jeron Jones",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #25 Donovan Robinson Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #26 Elias Johnson",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "LB #27 Beck Walker",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "S #28 Ksani Jiles",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "RB #29 Julian McMahan",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #30 Kayden Greene",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #30 Ansu Sanoe",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #31 Paul Mencke Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #32 Ryken Moon",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LS #33 Ryan Kean",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #33 Darin Conley",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #34 Brian Bonner Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "WR #35 Jace Burton",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "K #36 C.J. Wallace",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #38 Hunter McKee",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "LB #40 Ezaya Tokio",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "LS #42 Ben Ferber",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #44 Kade Eldridge",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "EDG #44 Hayden Moore",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "TE #45 Austin Simmons",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "P #45 Luke Dunne",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #46 Ta'ita'i Uiagalelei",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "EDG #48 Jacob Lane",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "EDG #50 David Schwerzel",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "EDG #52 Devin Hyde",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "OL #54 Parker Cross",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "EDG #54 JD Hill",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "DL #55 Victor Sanchez Hernandez",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #55 Kolt Dieterich",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #56 Geirean Hatchett",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "DL #56 Ta'a Malu",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "LB #57 Jesse Ewell Jr.",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #58 DeSean Watts",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #64 Tufanua Ionatana Umu-Cais",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #65 Jack Shaffer",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #66 Landen Hatchett",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "OL #67 Aidan Anderson",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #68 Soane Faasolo",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #70 Justin Hylkema",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "OL #71 Ah Deong Yang",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #72 John Mills",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #73 Champ Taulealea",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #74 Drew Azzopardi",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #75 Lowen Colman-Brusa",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #76 Kodi Greene",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "OL #77 Elishah Jackett",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #78 Jake Flores",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "OL #79 Dominic Harris",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "WR #80 Blaise LaVista",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "WR #81 Asa Thompson",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "WR #82 Deji Ajose",
+"status": "Exempt"
+},
+{
+"exemptStatus": "Exempt",
+"name": "TE #84 Kekua Aumua",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #85 Baron Naone",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #86 Decker DeGraaf",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #88 Sam Vyhlidal",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "TE #89 Charlie Crowell",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #90 Elinneus Davis",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "EDG #91 Isaiah Ward",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "P #93 Hunter Green",
+"status": "Available"
+},
+{
+"exemptStatus": "Exempt",
+"name": "DL #94 Joseph Peko",
+"status": "Exempt"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #95 Tyler Robles",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #98 Omar Khan",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "EDG #99 Russell Davis II",
+"status": "Available"
+},
+{
+"exemptStatus": "Out",
+"name": "S CJ Christian",
+"status": "Out"
+}
+],
+"teamDisplayName": "Washington",
+"teamName": "Washington"
+}
+],
+"outCombined": 1,
+"postedTime": "18:00:00",
+"publishDate": "2026-10-09",
+"publishDayOfWeek": "Friday",
+"statusReportOrder": [
+"Out",
+"Out - (1st Half)",
+"Game Time Decision",
+"Available"
+]
+},
+"3130": {
+"ReportType": "Update 2",
+"conferenceTimeZone": "CT",
+"footer": {
+"date": "2026-10-10",
+"location": "Columbus, OH",
+"time": "15:15:00",
+"venueImage": ""
+},
+"gameNeutral": false,
+"games": [
+{
+"rows": [
+{
+"exemptStatus": "NonExempt",
+"name": "RB #0 DeJuan Williams",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #0 Zion Elee",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #1 Daniel Wingate",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #1 Na'eem Abdul-Rahim Gladding",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #2 Lavain Scruggs",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #2 Kaleb Webb",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #3 Trey Reddick",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #4 Jamare Glasker",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #5 Darrell Carey",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #6 Cardell Williams",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #6 Jordan Scruggs",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #7 Gavin Edwards",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #7 Malik Washington",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #8 Mekhai White",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #8 Preston Howard",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #9 Dorian Fleming",
+"status": "Available"
+},
+{
+"exemptStatus": "Out",
+"name": "LB #9 Zahir Mathis",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #10 Zymear Smith",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #10 Cam Brickle II",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #11 Ryan Manning",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #11 Sidney Stewart",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #12 Jayden Shipps",
+"status": "Questionable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #12 Nathan Bernhard",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #13 Chris Durr Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #13 DD Holmes",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #14 Jordan Scott",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #14 Sean Johnson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #15 Jackson Hamilton",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #15 Lloyd Irvin III",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #16 Dontay Joyner",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #16 Damon Hall Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #17 Jayden Kitchens",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #18 Alex Moore",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #18 Josiah Teasley",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #19 Stephen Dean III",
+"status": "Available"
+},
+{
+"exemptStatus": "Out",
+"name": "RB #20 DJ Samuels",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #20 Ontario Washington Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #21 Judah Jenkins",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #21 Sean Williams",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #22 Zahir Cobb",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #22 Jack Capaldi",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #23 Max Lawrence",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #23 Jordan Williams",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #24 Iverson Howard",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #24 Amari Jackson",
+"status": "Questionable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #25 Ricardo Cooper Jr.",
+"status": "Probable"
+},
+{
+"exemptStatus": "Out",
+"name": "RB #25 Harry Dalton III",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #26 Hakim Satterwhite",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #26 Terrez Worthy",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #27 Kaden Carter",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #29 Liam Willson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #30 Travares Daniels II",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #32 Carlton Smith",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #33 Messiah Delhomme",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "P #34 Bryce McFerson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #34 Jianni Davis",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #35 Keyari James",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #36 Sean O'Haire",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #38 Taylor Best",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #39 Daniel Owens",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #40 Nahsir Taylor",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #41 John Boley",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "P #43 Philip Noyes",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #44 Joel Starlings",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #45 Solomon Foye",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #48 Darius Grimes",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #49 Chris Wells",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #50 EJ Moore Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #50 Trevor Szymanski",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #51 Michael McMonigle",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #52 Jonathan Panagou",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #53 Kellen McConnell",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #54 Lamar Williams",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #54 JaMarcus Whyce",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #55 Tellek Lockette",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #57 Bryce Jenkins",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #57 Jesse Moody",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #58 Joshua Simmons",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LS #59 Rory Knipp",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #61 Michael Hershey",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #64 Aaron Folivi",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #66 Teagan Cox",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #68 Carlos Moore",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #69 Logan Bennett",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #70 Jaylen Gilchrist",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #71 Ryan Howerton",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #72 Ben Beymer",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #73 Davon Watkins",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #74 Isaiah Wright",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #75 Day'Jon Moore",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #76 Rahtrel Perry",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #77 Amory Hills",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #78 Anthony Robsock",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #80 Ejani Shakir",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #81 Javonte Williams",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #83 Emerson Smith",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #84 Thomas McCluskey",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #85 JT Taggart",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #86 Eli Fulcher",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #87 Brayden Marko",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #88 Justin DeVaughn",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #88 Derrick LeBlanc",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #89 AJ Szymanski",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #90 Delmar White",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #95 Armon Parker",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LS #97 Luke O'Hare",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #97 Jayvon Parker",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #98 Eyan Thomas",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #98 Daniel Leahy",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DL #99 Lavon Johnson",
+"status": "Out"
+}
+],
+"teamDisplayName": "Maryland",
+"teamName": "Maryland"
+},
+{
+"rows": [
+{
+"exemptStatus": "NonExempt",
+"name": "WR #0 Brandon Inniss",
+"status": "Doubtful"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #1 Earl Little Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #2 Kenyatta Jackson Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #2 Legend Bey",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #3 Devin McCuin",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #3 James Smith",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #4 Jeremiah Smith",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #4 Qua Russaw",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #5 Riley Pettijohn",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #5 Kyle Parker",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #6 Devin Sanchez",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #6 Jerquaden Guilford",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #7 Phillip Bell",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #7 Jermaine Mathews Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #8 De’Zie Jones",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #8 Jaylen McClain",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #9 Zion Grady",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #9 Tavien St. Clair",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #10 Leroy Roker III",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #10 Julian Sayin",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #11 Terry Moore",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #11 Brock Boyd",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #12 Beau Atkinson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #13 Miles Lockhart",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #13 Luke Fahey",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #14 Christian Alliegro",
+"status": "Doubtful"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #15 Chris Henry Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #15 Jordan Thomas",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #16 Justyn Martin",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #16 Blaine Bradford",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #17 Tarvos \"TJ\" Alford",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #18 Kolton Stover",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #18 Cam Calhoun",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #19 Jordyn Woods",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "QB #19 Brady Geibel",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #20 Cincere Johnson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #21 Brenten \"Inky\" Jones",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #21 Anthony “Turbo” Rogers",
+"status": "Doubtful"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #23 Nolan Baudo",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #23 Garrett Stover",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #24 Dominick Kelly",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #24 Ja’Kobi Jackson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #25 Bo Jackson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #25 Jay Timmons",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #26 Payton Pierce",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #28 Stanley Jackson Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #28 Simeon Caldwell",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #29 Deshawn Stewart",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #29 Favour Akih",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #30 Amari Valerio-Hudson",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #30 Khmari Bing",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "RB #32 Isaiah West",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #32 Kaden Gebhardt",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #33 Eli Lee",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #33 Ryan Seimetz",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #34 Brennen Schramm",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #34 Khary Wilder",
+"status": "Doubtful"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #36 CJ Sanna",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #37 Zach Hayes",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #38 Eli Riggs",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #38 Frankie McAllister",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #39 Glorien Gough",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #41 Braxton Rembert",
+"status": "Probable"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "P #42 Joe McGuire",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "CB #43 Amar’e Miller",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LS #43 Brody Jenkins",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #44 Epi Sitanilei",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #46 Ryan Rudzinski",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LS #48 Dalton Riggs",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DB #48 Jackson Gula",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "S #49 Gavin Thobe",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #49 Marcello Diomede",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #50 Alec DelSignore",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #51 Luke Montgomery",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #52 Ty Howard",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #53 Will Smith Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LB #54 Na'il Diggs Jr.",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #55 John Walker",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #56 Nate Riegle",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #57 Ian Gecse",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #58 Gabe VanSickle",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #59 Ashton Yeager",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #60 Jaxon Powell",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "LS #61 Landon Beal",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #62 Joshua Padilla",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #63 Julian Goines-Jackson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #64 Simon Lorentz",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #65 Tucker Smith",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #66 Landry Brede",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #67 Austin Siereveld",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #68 Mason Wilhelm",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #69 Ian Moore",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #70 Phillip Daniels",
+"status": "Doubtful"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #72 Deontae Armstrong",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #73 Vasean Washington",
+"status": "Out"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #74 Carter Lowe",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #75 Carson Hinzman",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #76 Jake Cook",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #77 Sam Greer",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "OL #78 Max Riley",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #80 Jaeden Ricketts",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "WR #82 David Adolph",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #83 Nate Roberts",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #84 Hunter Welcing",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #85 Bennett Christian",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #86 Mason Williams",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #87 Brody Lennon",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #88 Maxence LeBlanc",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "TE #89 Nick Lautar",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #90 Damari Simeon",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #91 Darryus McKinley",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #92 Cooper Peterson",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "P #93 Brady Young",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #94 Jason Moore",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #95 Emanuel Ruffin",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #96 Eddrick Houston",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "K #96 Connor Hawkins",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DE #97 Dre Quinn",
+"status": "Available"
+},
+{
+"exemptStatus": "NonExempt",
+"name": "DT #98 Jamir Perez",
+"status": "Available"
+}
+],
+"teamDisplayName": "Ohio State",
+"teamName": "Ohio St."
+}
+],
+"outCombined": 1,
+"postedTime": "19:00:00",
+"publishDate": "2026-10-09",
+"publishDayOfWeek": "Friday",
+"statusReportOrder": [
+"Out",
+"Out - (1st Half)",
+"Doubtful",
+"Questionable",
+"Probable",
+"Available"
+]
+}
+},
+"archive": {
+"loaded": true,
+"report_days": [
+"Initial",
+"Update 1",
+"Update 2",
+"Game Day"
+],
+"data": [
+{
+"Game Day": "Out",
+"Initial": "Doubtful",
+"Number": "#1",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Jayshon Platt",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Doubtful",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Game Time Decision",
+"Initial": "Available",
+"Number": "#4",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Daniel Brown",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Questionable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#9",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Alex Perry",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Available",
+"Number": "#11",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Jacob Alexander",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#16",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Logan Farrell",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Game Time Decision",
+"Initial": "Questionable",
+"Number": "#20",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Almirian Thomas",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#23",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Jaylen Stewart",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Available",
+"Number": "#31",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Murphy Clement",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Probable",
+"Number": "#32",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Tywan Cox",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#34",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Erik Gayle",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Available",
+"Number": "#38",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Jack Paris",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Available",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#55",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "TJ McMillen",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#56",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "JJ Hirdes",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#65",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Dezmond Schuster",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#70",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Maika Matelau",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#75",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Brandon Henderson",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#84",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Grant Smith",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#87",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "BJ Thurman",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#89",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Tanner Hollinger",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#91",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Cameron Brooks",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Game Time Decision",
+"Initial": "Questionable",
+"Number": "#1",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Jayshon Platt",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Questionable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Probable",
+"Number": "#4",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Daniel Brown",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Game Time Decision",
+"Initial": "Available",
+"Number": "#8",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Cameron Thomas",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Doubtful",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#9",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Alex Perry",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Doubtful",
+"Number": "#11",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Jacob Alexander",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Doubtful",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Available",
+"Number": "#14",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Andre Lovett Jr.",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Probable",
+"Number": "#16",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Tanner Heckel",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#38",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Jack Paris",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Available",
+"Number": "#48",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Carter Smith",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Doubtful",
+"Update 2": "Doubtful",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Doubtful",
+"Number": "#52",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Champ Smith",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#55",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "TJ McMillen",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#65",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Dezmond Schuster",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Probable",
+"Number": "#70",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Maika Matelau",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Probable",
+"Number": "#75",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Brandon Henderson",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#83",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Kaden Feagin",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Doubtful",
+"Update 2": "Doubtful",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#87",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "BJ Thurman",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Probable",
+"Number": "#96",
+"Opponent": "vs. Purdue",
+"OpponentDisplay": "vs. Purdue",
+"Player": "Darrell Prater",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "-",
+"Initial": "Probable",
+"Number": "#1",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Jayshon Platt",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#5",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Ca'Lil Valentine",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#9",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Alex Perry",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Doubtful",
+"Number": "#32",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Tywan Cox",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#38",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Jack Paris",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#48",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Carter Smith",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#52",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Champ Smith",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Doubtful",
+"Number": "#53",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Kai Pritchard",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Doubtful",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#55",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "TJ McMillen",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Doubtful",
+"Number": "#65",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "Dezmond Schuster",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#87",
+"Opponent": "at Michigan St.",
+"OpponentDisplay": "at Michigan State",
+"Player": "BJ Thurman",
+"Team": "Illinois",
+"TeamDisplay": "Illinois",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#13",
+"Opponent": "at Michigan",
+"OpponentDisplay": "at Michigan",
+"Player": "Brevin Doll",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#19",
+"Opponent": "at Michigan",
+"OpponentDisplay": "at Michigan",
+"Player": "Kyler Gerardy",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#28",
+"Opponent": "at Michigan",
+"OpponentDisplay": "at Michigan",
+"Player": "Kamari Moulton",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#81",
+"Opponent": "at Michigan",
+"OpponentDisplay": "at Michigan",
+"Player": "DJ Vonnahme",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#1",
+"Opponent": "vs. Ohio St.",
+"OpponentDisplay": "vs. Ohio State",
+"Player": "Darion Jones",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Questionable",
+"Update 2": "Questionable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#2",
+"Opponent": "vs. Ohio St.",
+"OpponentDisplay": "vs. Ohio State",
+"Player": "Tyler Brown",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#19",
+"Opponent": "vs. Ohio St.",
+"OpponentDisplay": "vs. Ohio State",
+"Player": "Kyler Gerardy",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#22",
+"Opponent": "vs. Ohio St.",
+"OpponentDisplay": "vs. Ohio State",
+"Player": "Derek Weisskopf",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Questionable",
+"Update 2": "Available",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#2",
+"Opponent": "at Washington",
+"OpponentDisplay": "at Washington",
+"Player": "Tyler Brown",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Fri, 09 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#9",
+"Opponent": "at Washington",
+"OpponentDisplay": "at Washington",
+"Player": "Hank Brown",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Questionable",
+"Update 2": "Questionable",
+"Week": "Fri, 09 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Available",
+"Number": "#15",
+"Opponent": "at Washington",
+"OpponentDisplay": "at Washington",
+"Player": "Carson Cooney",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Fri, 09 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#19",
+"Opponent": "at Washington",
+"OpponentDisplay": "at Washington",
+"Player": "Kyler Gerardy",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Fri, 09 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Available",
+"Number": "#19",
+"Opponent": "at Washington",
+"OpponentDisplay": "at Washington",
+"Player": "Mason Woods",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Fri, 09 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#20",
+"Opponent": "at Washington",
+"OpponentDisplay": "at Washington",
+"Player": "Ty Hudkins",
+"Team": "Iowa",
+"TeamDisplay": "Iowa",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Fri, 09 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#0",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "DeJuan Williams",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#6",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Cardell Williams",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#6",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Jordan Scruggs",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#8",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Preston Howard",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#9",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Zahir Mathis",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#13",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "DD Holmes",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#15",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Lloyd Irvin III",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#16",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Dontay Joyner",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#18",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Josiah Teasley",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#20",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "DJ Samuels",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#21",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Sean Williams",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#25",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Harry Dalton III",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#26",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Terrez Worthy",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#30",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Travares Daniels II",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#41",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "John Boley",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#45",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Solomon Foye",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#50",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Trevor Szymanski",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#51",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Michael McMonigle",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Available",
+"Number": "#52",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Jonathan Panagou",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Doubtful",
+"Number": "#66",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Teagan Cox",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Available",
+"Number": "#70",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Jaylen Gilchrist",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#90",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Delmar White",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#95",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Armon Parker",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Available",
+"Number": "#99",
+"Opponent": "vs. UCLA",
+"OpponentDisplay": "vs. UCLA",
+"Player": "Lavon Johnson",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Available",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#0",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "DeJuan Williams",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Game Time Decision",
+"Initial": "Doubtful",
+"Number": "#3",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Trey Reddick",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Doubtful",
+"Update 2": "Doubtful",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Doubtful",
+"Number": "#8",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Preston Howard",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#9",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Zahir Mathis",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Game Time Decision",
+"Initial": "Available",
+"Number": "#13",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "DD Holmes",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Available",
+"Update 2": "Questionable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#15",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Lloyd Irvin III",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#16",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Dontay Joyner",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Available",
+"Number": "#17",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Jayden Kitchens",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Available",
+"Update 2": "Questionable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#18",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Josiah Teasley",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#20",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "DJ Samuels",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#21",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Sean Williams",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#24",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Iverson Howard",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#25",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Harry Dalton III",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#26",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Terrez Worthy",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Available",
+"Number": "#30",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Travares Daniels II",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#41",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "John Boley",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#45",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Solomon Foye",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#48",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Darius Grimes",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#50",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Trevor Szymanski",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#51",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Michael McMonigle",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#57",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Bryce Jenkins",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#75",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Day'Jon Moore",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#90",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Delmar White",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#95",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Armon Parker",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "Probable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#99",
+"Opponent": "at Nebraska",
+"OpponentDisplay": "at Nebraska",
+"Player": "Lavon Johnson",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#0",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "DeJuan Williams",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#3",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Trey Reddick",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Doubtful",
+"Number": "#4",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Jamare Glasker",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#8",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Preston Howard",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#9",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Zahir Mathis",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Doubtful",
+"Number": "#12",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Jayden Shipps",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#15",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Lloyd Irvin III",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#16",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Dontay Joyner",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#18",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Josiah Teasley",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#20",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "DJ Samuels",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#21",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Sean Williams",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#24",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Amari Jackson",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Available",
+"Number": "#25",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Ricardo Cooper Jr.",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#25",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Harry Dalton III",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#26",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Terrez Worthy",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#45",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Solomon Foye",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#50",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Trevor Szymanski",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Doubtful",
+"Number": "#57",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Bryce Jenkins",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#75",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Day'Jon Moore",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#76",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Rahtrel Perry",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#90",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Delmar White",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#98",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Daniel Leahy",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Probable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Doubtful",
+"Number": "#99",
+"Opponent": "at Ohio St.",
+"OpponentDisplay": "at Ohio State",
+"Player": "Lavon Johnson",
+"Team": "Maryland",
+"TeamDisplay": "Maryland",
+"Update 1": "Doubtful",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#5",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Kyle Parker",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Probable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#9",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Zion Grady",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#21",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Anthony “Turbo” Rogers",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Available",
+"Number": "#30",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Amari Valerio-Hudson",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Available",
+"Number": "#41",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Braxton Rembert",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Available",
+"Update 2": "Questionable",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#57",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Ian Gecse",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#60",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Jaxon Powell",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#70",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Phillip Daniels",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Doubtful",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#73",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Vasean Washington",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#85",
+"Opponent": "vs. Illinois",
+"OpponentDisplay": "vs. Illinois",
+"Player": "Bennett Christian",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 26 Sep 2026 00:00:00 GMT",
+"WeekNum": 4
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#21",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Brenten \"Inky\" Jones",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Available",
+"Update 2": "Available",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#21",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Anthony “Turbo” Rogers",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Game Time Decision",
+"Initial": "Questionable",
+"Number": "#25",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Jay Timmons",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Questionable",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#30",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Amari Valerio-Hudson",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#41",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Braxton Rembert",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#60",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Jaxon Powell",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Questionable",
+"Number": "#70",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Phillip Daniels",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Out",
+"Initial": "Out",
+"Number": "#73",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Vasean Washington",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "Out",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "Available",
+"Initial": "Questionable",
+"Number": "#85",
+"Opponent": "at Iowa",
+"OpponentDisplay": "at Iowa",
+"Player": "Bennett Christian",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "Available",
+"Week": "Sat, 03 Oct 2026 00:00:00 GMT",
+"WeekNum": 5
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#0",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Brandon Inniss",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#3",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Devin McCuin",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#10",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Leroy Roker III",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Available",
+"Number": "#11",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Terry Moore",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Available",
+"Number": "#14",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Christian Alliegro",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#21",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Anthony “Turbo” Rogers",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Available",
+"Number": "#25",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Jay Timmons",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#30",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Amari Valerio-Hudson",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#34",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Khary Wilder",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#41",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Braxton Rembert",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#60",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Jaxon Powell",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Questionable",
+"Number": "#70",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Phillip Daniels",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Questionable",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+},
+{
+"Game Day": "-",
+"Initial": "Out",
+"Number": "#73",
+"Opponent": "vs. Maryland",
+"OpponentDisplay": "vs. Maryland",
+"Player": "Vasean Washington",
+"Team": "Ohio St.",
+"TeamDisplay": "Ohio State",
+"Update 1": "Out",
+"Update 2": "-",
+"Week": "Sat, 10 Oct 2026 00:00:00 GMT",
+"WeekNum": 6
+}
+]
+}
+}

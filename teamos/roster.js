@@ -70,12 +70,15 @@ TeamOS.roster = (function () {
   // no numbers. A report for another game marks nobody.
   // With no chart to compare against (a team with a report but no depth
   // chart), the report alone decides.
+  // Out means out of the game. Out for the first half is not: that player
+  // still plays, so the chart and roster keep him (Big Ten reports, 2026).
+  var OUT = /^out-(game|season)$/;
   function outNames(report, chart) {
     var out = {};
     if (!report || !report.reported) return out;
     if (chart && (!report.game || report.game !== chart.game)) return out;
     (report.players || []).forEach(function (p) {
-      if (/^out-/.test(p.status || "") && fold(p.name)) out[fold(p.name)] = p.status;
+      if (OUT.test(p.status || "") && fold(p.name)) out[fold(p.name)] = p.status;
     });
     return out;
   }
@@ -229,8 +232,11 @@ TeamOS.roster = (function () {
   // the report's own order of severity, each person joined to the roster for
   // a photo by exact name only - the report carries no jersey numbers.
   // `reported: false` is "no report", never "everyone is fine".
+  // A conference report (the Big Ten's) adds two: out for the first half,
+  // and the gameday report's game-time decision.
   var STATUS = [["out-season", "Out for the season"], ["out-game", "Out for the game"],
-                ["doubtful", "Doubtful"], ["questionable", "Questionable"], ["probable", "Probable"]];
+                ["out-half", "Out for the first half"], ["doubtful", "Doubtful"],
+                ["gtd", "Game-time decision"], ["questionable", "Questionable"], ["probable", "Probable"]];
   function availability(report, groups) {
     if (!report) return null;
     var all = everyone(groups);
@@ -258,7 +264,7 @@ TeamOS.roster = (function () {
       return { game: s.game || "", title: s.title || "", url: s.sourceUrl || null,
                changes: (s.changes || []).map(function (c) { return { kind: c.kind, text: c.text }; }),
                availability: !r ? null : { reported: !!r.reported,
-                 out: ps.filter(function (p) { return /^out/.test(p.status); }).length,
+                 out: ps.filter(function (p) { return OUT.test(p.status); }).length,
                  questionable: ps.filter(function (p) { return p.status === "questionable"; }).length } };
     });
   }

@@ -20,7 +20,9 @@ Suite.ui = (function () {
   // provider's short code when there is one, else the name's first letters.
   function initials(name, abbr) {
     if (abbr && /^[A-Za-z&]{1,4}$/.test(abbr)) return abbr.toUpperCase();
-    var w = String(name || "").split(/\s+/).filter(Boolean);
+    // Words that start with a letter: a nickname in quotes ("Anthony
+    // “Turbo” Rogers") or a lone "&" is not an initial.
+    var w = String(name || "").split(/\s+/).filter(function (x) { return /^[A-Za-z\u00C0-\u024F]/.test(x); });
     return w.slice(0, 3).map(function (x) { return x.charAt(0).toUpperCase(); }).join("") || "?";
   }
 
