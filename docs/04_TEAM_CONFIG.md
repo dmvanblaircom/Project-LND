@@ -44,6 +44,7 @@ var TEAM_CONFIG = {
   // (played for; Game shows the trophy mark), "rivalry" (a name, nothing to
   // win: The Game) or "event" (a branded game: the Shamrock Series).
   series: [ { match: /purdue/i, name: "Shillelagh Trophy", kind: "trophy" } /* ... */ ],
+  history: { record: { season: 2026, wins: 993, losses: 342, ties: 42, source: "Notre Dame game notes", asOf: "2026-10-05" } },
 
   // The team's own pages.
   links: { roster: { url: "...", label: "..." } },
@@ -67,7 +68,8 @@ var TEAM_CONFIG = {
     depth:        { file: "data/notre-dame/depth.json", history: "data/notre-dame/depth-history.json", label: "FightingIrish.com" },
     availability: { file: "data/notre-dame/availability.json", history: "data/notre-dame/availability-history.json", label: "FightingIrish.com" },
     oddsHistory:  { file: "data/notre-dame/odds-history.json" },
-    beatNews:     { file: "data/notre-dame/news.json" }
+    beatNews:     { file: "data/notre-dame/news.json" },
+    notes:        { file: "data/notre-dame/notes.json", label: "FightingIrish.com" }
   }
 };
 ```
@@ -81,8 +83,9 @@ The real files are `teams/notre-dame.js` and `teams/ohio-state.js` (which declar
 - `team` — stable identity: id, name, abbreviation, sport, league, home venue
 - `sources` — provider identifiers and source declarations, including the team's beat feeds. For official team data such as depth charts, the official athletics source takes precedence over media/beat sources.
 - `series` — trophy, rivalry and event names no public feed carries, each with its kind
+- `history.record` — the program's official all-time record entering a season, from its own game notes; `TeamOS.milestones` adds the season's results for the countdown to a round number of wins (the 1,000th). A record for another season shows nothing; it is replaced when the next season's first notes publish
 - `links` — the team's official pages
-- `snapshots` — which of the Action-written team-data files this team has (the depth chart is a capability; the beat feed is a content source; the odds history is team-scoped) and where they are
+- `snapshots` — which of the Action-written team-data files this team has (the depth chart is a capability; the beat feed is a content source; the odds history is team-scoped) and where they are. `notes` is the week's facts from the team's official game notes (pronunciations, captains, honors, the series, By the Numbers), written by the same producer that reads the depth chart and availability from those notes; a team that declares none shows none of it
 - `identity` — how the team is presented inside Suite: colours, type, tagline, program label
 
 `identity.colors` separates the **fill** (`accent`) from accent-coloured **text**

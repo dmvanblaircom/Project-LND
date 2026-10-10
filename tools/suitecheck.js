@@ -127,7 +127,8 @@ var aOff = alertsHtml({ support: "ok", on: false, busy: false, denied: false, no
 ok(/<h2 class="sec-title" id="st-alerts">Game Alerts<\/h2>/.test(aOff.sec) && /data-st="alerts">Off</.test(aOff.sec) &&
    /<button type="button" class="btn btn-secondary" data-alerts="on">Turn On<\/button>/.test(aOff.sec),
    "off: Game Alerts says Off, with one Turn On button");
-ok(/when Ohio State kicks off and when the game ends/.test(aOff.sec), "it says what the alerts are, for this team");
+ok(/Notifications for Ohio State games: kickoff and the final to start/.test(aOff.sec) && !/al-opts/.test(aOff.sec),
+   "it says what the alerts are, for this team; the choices wait until they are on");
 ok(aOff.all.indexOf('id="st-appearance"') < aOff.all.indexOf('id="st-alerts"') && aOff.all.indexOf('id="st-alerts"') < aOff.all.indexOf('id="st-data"'),
    "between Appearance and Data");
 var aOn = alertsHtml({ support: "ok", on: true, busy: false, denied: false, note: "Game alerts are on. A test alert is on its way." });
@@ -135,6 +136,20 @@ ok(/data-st="alerts">On</.test(aOn.sec) && /data-alerts="off">Turn Off</.test(aO
    "on: On, Turn Off, and what the last tap did");
 ok(/aria-disabled="true">Turning On…</.test(alertsHtml({ support: "ok", on: false, busy: true, denied: false }).sec),
    "while it works: Turning On…, still focusable (aria-disabled)");
+// Round 2 (notifications brief §2b): once on, the choices - quick picks,
+// scoring as one choice, a switch for everything else, and the Focus hint.
+var OPTS = { kickoff: true, final: true, delays: true, scoring: "mine", quarters: false, halftime: true, close: true };
+var aCh = alertsHtml({ support: "ok", on: true, busy: false, denied: false, note: null, opts: OPTS, pick: null });
+eq((aCh.sec.match(/data-alert-pick="(\w+)"/g) || []).map(function (x) { return x.slice(17, -1); }), ["everything", "key", "final"], "three quick picks");
+ok(!/aria-pressed="true"/.test(aCh.sec), "a custom choice: no pick shown as chosen");
+ok(/data-alert-pick="key" aria-pressed="true"/.test(alertsHtml({ support: "ok", on: true, opts: OPTS, pick: "key" }).sec), "the pick every switch matches: shown as chosen");
+eq((aCh.sec.match(/name="alertScoring" value="(\w+)"( checked)?/g) || []).map(function (x) { return /checked/.test(x) ? "*" + x.split('"')[3] : x.split('"')[3]; }),
+   ["off", "*mine", "all"], "scoring: one choice of three, My team's scores chosen");
+eq((aCh.sec.match(/role="switch" class="al-switch" name="alert-(\w+)" data-alert-opt="\w+"( checked)?/g) || []).map(function (x) { return (/checked/.test(x) ? "+" : "-") + /alert-(\w+)/.exec(x)[1]; }),
+   ["+kickoff", "+final", "+delays", "-quarters", "+halftime", "+close"], "a switch for each of the rest, set from the choice");
+ok(/one-score game late in the 4th, and if it goes to overtime/.test(aCh.sec) && /allow Suite in your Focus settings/.test(aCh.sec), "close finish explained; the Focus hint (§2b, 11)");
+ok(/<label class="al-row">[\s\S]*?<input type="checkbox" role="switch"/.test(aCh.sec) && /<legend class="al-legend">Scoring<\/legend>/.test(aCh.sec),
+   "each switch is labelled by its row; each group has a legend");
 var aIos = alertsHtml({ support: "install", on: false, busy: false, denied: false });
 ok(/add Suite to your Home Screen/.test(aIos.sec) && !/data-alerts/.test(aIos.sec), "iPhone in Safari: install first, and no button that cannot work");
 ok(/can’t receive game alerts/.test(alertsHtml({ support: "unsupported" }).sec), "a browser without Web Push is told so");
@@ -150,10 +165,11 @@ eq(MT.sources.list(ND).map(function (x) { return x.name; }),
 eq(MT.sources.list(ND)[1].supplies, ["depth", "availability"], "the official site: depth chart and availability, once");
 var osuCtx = vm.createContext({});
 ["teams/ohio-state.js"].forEach(function (f) { vm.runInContext(read(f), osuCtx, { filename: f }); });
-eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern", "Kalshi", "CollegeFootballData", "Open-Meteo"],
-   "Ohio State is credited its beat feeds, and no official snapshot it does not have");
-eq(MT.sources.list(osuCtx.TEAM_CONFIG).filter(function (x) { return x.supplies.indexOf("depth") >= 0 || x.supplies.indexOf("availability") >= 0; }), [],
-   "nothing is credited for an Ohio State depth chart or availability report");
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "BigTen.org", "Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern", "Kalshi", "CollegeFootballData", "Open-Meteo"],
+   "Ohio State is credited its beat feeds and the Big Ten's report, and no official snapshot it does not have");
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).filter(function (x) { return x.supplies.indexOf("depth") >= 0 || x.supplies.indexOf("availability") >= 0; })
+     .map(function (x) { return [x.name, x.supplies.join()]; }), [["BigTen.org", "availability"]],
+   "the availability report is credited to BigTen.org; nothing is credited for an Ohio State depth chart");
 var abh = mhost(); MS.more.about(abh, { version: "2026-09-24v", sources: MT.sources.list(ND) });
 ok(!/project\s*lnd/i.test(abh.innerHTML + m.innerHTML + st.innerHTML + fbh.innerHTML), "no screen says Project LND (0022 #9)");
 ok(/not affiliated with, endorsed by or sponsored by/.test(abh.innerHTML) && /used only to\s+identify/.test(abh.innerHTML.replace(/" \+ "/g, "")),
@@ -184,6 +200,8 @@ vm.runInContext(read("suite/top25.js"), sctx, { filename: "suite/top25.js" });
 var calAt = function (iso) { return sctx.TeamOS.season.calendar(sctx.LEAGUE_CALENDAR, 2026, new Date(iso)); };
 var n1 = sctx.Suite.top25.calendarNote(calAt("2026-10-02T16:00:00Z"), false);
 // in the fan's own device time, with its zone - the same words a kickoff uses
+eq(["Anthony “Turbo” Rogers", "Leroy Roker III", "Texas A&M", ""].map(function (n) { return sctx.Suite.ui.initials(n); }),
+   ["AR", "LRI", "TA", "?"], "initials come from words that start with a letter: never a quote mark or an ampersand");
 var kick = function (iso) { return sctx.Suite.ui.kickoff(iso).full; };
 ok(n1.indexOf("First CFP rankings:</strong> " + kick("2026-11-03T19:00:00-05:00") + " on ESPN") >= 0, "before the first show: its day, time with zone, and network");
 ok(n1.indexOf("Selection Day:</strong> " + kick("2026-12-06T12:00:00-05:00") + " on ESPN. The 12-team playoff field, then every bowl matchup that afternoon.") >= 0,

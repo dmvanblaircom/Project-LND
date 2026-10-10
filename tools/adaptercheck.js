@@ -279,6 +279,45 @@ eq(lgs.filter(function (g) { return g.home.rank || g.away.rank; }).map(function 
    ["401858100","401858226","401858460"], "ranked games are the ones with a side rank");
 eq(TeamOS.espn.scoreboard(null, TEAM_CONFIG), [], "no payload -> empty list");
 
+console.log(" between quarters, as the fan reads them (David, Oct 9-10, Iowa State-BYU)");
+(function () {
+  function one(status, last, scores) {
+    var ev = JSON.parse(JSON.stringify(sbFixture.events.filter(function (e) {
+      return ((e.competitions[0].status || {}).type || {}).state === "in"; })[0] || sbFixture.events[0]));
+    ev.competitions[0].status = status;
+    ev.competitions[0].situation = last ? { lastPlay: { text: last } } : {};
+    if (scores) ev.competitions[0].competitors.forEach(function (c, i) { c.score = String(scores[i]); });
+    var g = TeamOS.espn.scoreboard({ events: [ev] }, TEAM_CONFIG)[0];
+    return [g.detail, g.period, g.clock, g.state];
+  }
+  var t = function (name, d) { return { state: "in", name: name, shortDetail: d }; };
+  eq(one({ period: 1, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 1st") }, "End of 1st quarter."), ["15:00 - 2nd", 2, "15:00", "in"],
+     "end of the 1st (ESPN's \"15:00 - 1st\"): 15:00 - 2nd");
+  eq(one({ period: 1, displayClock: "0:00", type: t("STATUS_END_PERIOD", "End of 1st") }, ""), ["15:00 - 2nd", 2, "15:00", "in"],
+     "end of the 1st (ESPN's end-of-period status): the same");
+  eq(one({ period: 2, displayClock: "0:00", type: t("STATUS_HALFTIME", "Halftime") }, "End of 2nd quarter."), ["Halftime", 2, "0:00", "in"],
+     "end of the 2nd: Halftime");
+  eq(one({ period: 2, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 2nd") }, "End of 2nd quarter."), ["Halftime", 2, "0:00", "in"],
+     "end of the 2nd with ESPN's clock reset: still Halftime, until the 3rd starts");
+  eq(one({ period: 3, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 3rd") }, "Kickoff to start the second half"), ["15:00 - 3rd", 3, "15:00", "in"],
+     "the 3rd under way: 15:00 - 3rd");
+  eq(one({ period: 3, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 3rd") }, "End of 3rd Quarter"), ["15:00 - 4th", 4, "15:00", "in"],
+     "end of the 3rd: 15:00 - 4th");
+  eq(one({ period: 4, displayClock: "0:00", type: t("STATUS_END_PERIOD", "End of 4th") }, "End of 4th quarter.", [24, 17]), ["Final", 4, "0:00", "post"],
+     "end of the 4th, 24-17: Final");
+  eq(one({ period: 4, displayClock: "0:00", type: t("STATUS_END_PERIOD", "End of 4th") }, "End of 4th quarter.", [17, 17]), ["End of 4th", 4, "0:00", "in"],
+     "end of the 4th, tied: not Final - overtime is next");
+  eq(one({ period: 1, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 1st") }, "J. Smith kickoff for 65 yds"), ["15:00 - 1st", 1, "15:00", "in"],
+     "the real start of the game stays 15:00 - 1st");
+  // The team's own game (schedule), ended at the 4th before ESPN calls it.
+  var sch = JSON.parse(read("tools/fixtures/espn-schedule-nd-oct08.json")), ev = sch.events[0];
+  var c0 = ev.competitions[0];
+  c0.status = { period: 4, displayClock: "0:00", type: { state: "in", name: "STATUS_END_PERIOD", shortDetail: "End of 4th" } };
+  c0.competitors.forEach(function (c) { c.score = { value: String(c.team.id) === "87" ? 31 : 20 }; delete c.winner; });
+  var fin = TeamOS.espn.schedule({ events: [ev] }, TeamOS.createTeam(TEAM_CONFIG.team), TEAM_CONFIG)[0];
+  eq([fin.state, fin.status, fin.detail, fin.won], ["post", "final", "Final", true], "the team's game ended 31-20 before ESPN sets a winner: Final, won (Codex, #117)");
+})();
+
 console.log("scoreboard(), a real week");
 var wk = TeamOS.espn.scoreboard(JSON.parse(read("tools/fixtures/espn-scoreboard-sep26.json")), TEAM_CONFIG);
 var rankedWk = wk.filter(function (g) { return g.home.rank || g.away.rank; });
@@ -710,10 +749,12 @@ eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the d
 console.log(" every file a team declares, for the worker to cache");
 eq(TeamOS.snapshots.files(TEAM_CONFIG),
    ["data/notre-dame/depth.json", "data/notre-dame/depth-history.json", "data/notre-dame/availability.json",
-    "data/notre-dame/availability-history.json", "data/notre-dame/odds-history.json", "data/notre-dame/news.json"],
+    "data/notre-dame/availability-history.json", "data/notre-dame/odds-history.json", "data/notre-dame/news.json",
+    "data/notre-dame/notes.json"],
    "Notre Dame's snapshots, files and histories together - availability is its own now");
-eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), ["data/ohio-state/odds-history.json", "data/ohio-state/news.json"],
-   "Ohio State caches only what it declares: its own odds history and beat news (W20)");
+eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), ["data/ohio-state/availability.json",
+    "data/ohio-state/availability-history.json", "data/ohio-state/odds-history.json", "data/ohio-state/news.json"],
+   "Ohio State caches only what it declares: the Big Ten's availability report, its own odds history and beat news (W20)");
 eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
 eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.json"],
    "a kind with no history contributes one file");
@@ -1047,11 +1088,11 @@ function stripRun(config) {
   vm.runInContext([
     "var asked = 0, painted = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
     "var HOME = { markets: {} }, SRC = {};",
-    "function paintHome(){ painted++; }",
+    "function paintHome(){ painted++; } function paintOutlook(){}",
     // answers synchronously, so the result is here when the check reads it
     "function kalshi(){ asked++; return { then: function(f){ f({ markets: [] }); return { catch: function(){} }; } }; }"
   ].join("\n"), c);
-  vm.runInContext(liftFn("loadStrip") + "function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }\nvar MARKET_FIELD = {};\n", c);
+  vm.runInContext(liftFn("loadStrip") + "function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }\nvar MARKET_FIELD = { settled:{}, failed:{} };\n", c);
   vm.runInContext("loadStrip();", c);
   return c;
 }
@@ -1284,8 +1325,8 @@ ok(/refreshSchedule\(false\);[\s\S]{0,300}paintGame\(\)/.test(appLive),
    "the same tick drives the Game screen, after the schedule it reads");
 ok(!/S\.tick|tickOnce/.test(appLive),
    "no countdown timer of its own: Home shows the kickoff, never a ticking countdown (suite/home.js)");
-ok(/S\.next\.state==="pre"[\s\S]{0,140}refreshSchedule\(false\)/.test(appLive),
-   "and a session opened before kickoff goes looking once kickoff passes");
+ok(/next\.state!=="pre"[\s\S]{0,400}?\n\}/.test(appLive) && /lateKickoffDue\(S\.next[\s\S]{0,120}refreshSchedule\(false\)/.test(appLive),
+   "and a session opened before kickoff goes looking once kickoff passes (backing off: tools/pollcheck.js)");
 
 console.log("teamos/espn.js: a 0 is a 0");
 var espnSrc = read("teamos/espn.js");
@@ -1515,6 +1556,65 @@ var twoFouls = shownFor(/PENALTY OhioSt Pass Interference \(#6 D.Sanchez\) Illin
 eq([twoFouls.text, twoFouls.tags, twoFouls.notes], ["K. Houser pass incomplete short left to C. Dixon", ["No play", "1st down"],
    ["Penalty on OSU: pass interference", "Penalty on ILL: unsportsmanlike conduct"]],
    "each foul its own line; the yardage, whose the feed does not say, is given to neither (Illinois-Ohio State 2026)");
+
+console.log("a null where ESPN's list should have an entry (W10; bug hunt 2026-10-02)");
+// Every list shape in real payloads, with one entry nulled - the first and
+// the last of each list, every list - through each adapter: a feed glitch
+// costs that entry, never the screen. Before the fix, 25 distinct throws.
+(function () {
+  var team = TeamOS.createTeam(TEAM_CONFIG.team);
+  var cases = [
+    ["schedule", "espn-schedule-nd-2026-reg.json", function (d) { return TeamOS.espn.schedule(d, team, TEAM_CONFIG); }],
+    ["scoreboard", "espn-scoreboard-sep26.json", function (d) { return TeamOS.espn.scoreboard(d, TEAM_CONFIG); }],
+    ["rankings", "espn-rankings-sep20.json", function (d) { return TeamOS.espn.rankings(d, TEAM_CONFIG); }],
+    ["roster", "espn-roster-nd-sep24.json", function (d) { return TeamOS.espn.roster(d); }],
+    ["news", "espn-news-nd-sep24.json", function (d) { return TeamOS.espn.news(d); }],
+    ["gameDetail", "espn-summary-wis-final.json", function (d) { return TeamOS.espn.gameDetail(d, team, TEAM_CONFIG); }],
+    ["boxNames", "espn-summary-wis-final.json", function (d) { return TeamOS.espn.boxNames(d); }],
+    ["seasonLeaders", "espn-leaders-nd-2026-reg.json", function (d) { return TeamOS.espn.seasonLeaders(d); }]
+  ];
+  function spots(o, p, seen, out) {
+    if (Array.isArray(o)) {
+      var shape = p.map(function (x) { return typeof x === "number" ? "[]" : x; }).join(".");
+      [0, o.length - 1].forEach(function (i, k) {
+        if (o.length && !(k && i === 0) && !seen[shape + "#" + k]) { seen[shape + "#" + k] = 1; out.push(p.concat(i)); }
+      });
+      o.forEach(function (v, i) { spots(v, p.concat(i), seen, out); });
+    } else if (o && typeof o === "object") {
+      Object.keys(o).forEach(function (k) { spots(o[k], p.concat(k), seen, out); });
+    }
+    return out;
+  }
+  cases.forEach(function (cs) {
+    var raw = read("tools/fixtures/" + cs[1]);
+    var where = spots(JSON.parse(raw), [], {}, []), threw = [];
+    where.forEach(function (p) {
+      var d = JSON.parse(raw), o = d;
+      for (var i = 0; i < p.length - 1; i++) o = o[p[i]];
+      o[p[p.length - 1]] = null;
+      try { cs[2](d); } catch (e) { threw.push(p.join(".") + ": " + e.message); }
+    });
+    ok(!threw.length, cs[0] + ": " + where.length + " lists, each with a null entry, and no throw" + (threw.length ? " - " + threw.slice(0, 3).join(" | ") : ""));
+  });
+  // and the null costs that entry alone
+  var sched = JSON.parse(read("tools/fixtures/espn-schedule-nd-2026-reg.json"));
+  var all = TeamOS.espn.schedule(JSON.parse(JSON.stringify(sched)), team, TEAM_CONFIG).length;
+  sched.events.splice(2, 0, null);
+  eq(TeamOS.espn.schedule(sched, team, TEAM_CONFIG).length, all, "a null game in the schedule: every real game still listed");
+  var nws = JSON.parse(read("tools/fixtures/espn-news-nd-sep24.json"));
+  var stories = TeamOS.espn.news(JSON.parse(JSON.stringify(nws))).length;
+  nws.articles[1] = null;
+  eq(TeamOS.espn.news(nws).length, stories - 1, "a null story: one fewer story, the rest kept");
+  // a quarter's score stays in its quarter
+  var sm = JSON.parse(read("tools/fixtures/espn-summary-wis-final.json"));
+  var whole = TeamOS.espn.gameDetail(JSON.parse(JSON.stringify(sm)), team, TEAM_CONFIG).linescore;
+  var hc = sm.header.competitions[0].competitors.filter(function (c) { return c.homeAway === "home"; })[0];
+  hc.linescores[1] = null;
+  var gap = TeamOS.espn.gameDetail(sm, team, TEAM_CONFIG).linescore;
+  eq(gap.home, [whole.home[0], ""].concat(whole.home.slice(2)),
+     "a null quarter reads blank in its own place; the next quarter does not slide into it");
+  eq(gap.away, whole.away, "and the other side's quarters are untouched");
+})();
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "all adapter checks passed"));
 process.exit(failures ? 1 : 0);

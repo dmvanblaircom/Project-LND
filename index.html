@@ -197,6 +197,7 @@
     inject("suite/roster.js");
     inject("suite/more.js");
     inject("suite/stats.js");
+    inject("suite/outlook.js");
     inject("app.js");
   }
 
@@ -247,7 +248,7 @@
   // The registry and TeamOS load either way - the chooser needs them too.
   ["teams/index.js", "leagues/college-football.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
    "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js",
-   "teamos/game.js", "teamos/outlook.js", "teamos/markets.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js", "teamos/sources.js", "teamos/cfbd.js",
+   "teamos/game.js", "teamos/outlook.js", "teamos/milestones.js", "teamos/notes.js", "teamos/markets.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js", "teamos/sources.js", "teamos/cfbd.js",
    "suite/ui.js"]
     .forEach(function(src){ inject(src); });
 
@@ -350,6 +351,8 @@ html[data-choosing] .launch,html[data-launched] .launch{display:none}
   <div class="game" id="screenGame" hidden></div>
   <div class="top25" id="screenTop25" hidden></div>
   <div class="roster" id="screenRoster" hidden></div>
+  <!-- Season Outlook's full field, Home's (suite/outlook.js). -->
+  <div class="more outlook-field" id="screenOutlook" hidden></div>
   <!-- More and the destinations it owns (suite/more.js). -->
   <div class="more" id="screenMore" hidden></div>
   <div class="more news" id="screenNews" hidden></div>

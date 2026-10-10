@@ -28,6 +28,8 @@
        model.roster    roster groups (TeamOS.espn.roster) | null (loading)
        model.avail     TeamOS.roster.availability() | null (loading or none)
        model.query     the roster search, as typed
+       model.notes     TeamOS.notes.model() | null - pronunciations, captains
+                       and honors from the week's official game notes
        model.failed    { depth, roster, avail } - no copy and the network failed
        model.fresh     TeamOS.freshness.summary() output                     */
 
@@ -104,6 +106,23 @@ Suite.roster = (function () {
     return ' <abbr class="ro-out" title="' + said.charAt(0).toUpperCase() + said.slice(1) + '">O</abbr>' +
            '<span class="sr-only"> (' + said + ")</span>";
   }
+  // From the week's game notes (David, 2026-10-09): a captain's C after the
+  // name, how to say it, and the player's honors - folded, because a
+  // preseason All-American can carry twenty.
+  function captainMark(n) {
+    return n && n.captain ? ' <abbr class="ro-capt" title="Captain">C</abbr><span class="sr-only"> (captain)</span>' : "";
+  }
+  function sayLine(n) {
+    return n && n.say ? '<span class="ro-say"><span class="ro-say-l">Say</span> ' + esc(n.say) + "</span>" : "";
+  }
+  function honorsFold(n) {
+    if (!n || !n.honors.length) return "";
+    var k = n.honors.length;
+    if (k === 1) return '<span class="ro-honor">' + esc(n.honors[0]) + "</span>";
+    return '<details class="ro-honors"><summary>' + k + " honors</summary>" +
+           "<ul>" + n.honors.map(function (h) { return "<li>" + esc(h) + "</li>"; }).join("") + "</ul></details>";
+  }
+
   // Moved since the last chart: an arrow, for one chart.
   function moveMark(moved) {
     if (moved !== "up" && moved !== "down") return "";
@@ -112,7 +131,7 @@ Suite.roster = (function () {
            '<span class="sr-only"> (moved ' + moved + " since the last chart)</span>";
   }
 
-  function spotCard(s) {
+  function spotCard(s, notes) {
     var rows = [];
     s.levels.forEach(function (lv) {
       lv.players.forEach(function (p, i) {
@@ -121,7 +140,7 @@ Suite.roster = (function () {
           '<span class="ro-lvl">' + (i ? '<span class="ro-or">or</span>' : esc(LEVEL[lv.level] || lv.level)) + "</span>" +
           '<span class="ro-no">' + esc(p.no) + "</span>" + photo(p) +
           '<span class="ro-who"><span class="sr-only">' + esc(said) + '</span><span class="ro-name">' + esc(p.name) +
-            moveMark(p.moved) + outMark(p.out) + "</span>" +
+            captainMark(TeamOS.notes.player(notes, p.name)) + moveMark(p.moved) + outMark(p.out) + "</span>" +
             (town(p.hometown) ? '<span class="ro-town">' + esc(town(p.hometown)) + "</span>" : "") + bio(p) + "</span>" +
           '<span class="ro-ht">' + esc(p.height) + '</span><span class="ro-wt">' + esc(weight(p.weight)) + '</span><span class="ro-cl">' + esc(p.classYear) + "</span>" +
           "</li>");
@@ -163,7 +182,8 @@ Suite.roster = (function () {
                (open ? '<p class="ro-meta">' + open + (open === 1 ? " starting job" : " starting jobs") + " still open</p>" : "") +
                "</section>";
     return head + unitSeg("depth", units, key) +
-           '<div class="ro-unit" role="region" aria-label="' + esc(unit.unit + " depth chart") + '">' + unit.slots.map(spotCard).join("") + "</div>" +
+           '<div class="ro-unit" role="region" aria-label="' + esc(unit.unit + " depth chart") + '">' +
+             unit.slots.map(function (s) { return spotCard(s, m.notes); }).join("") + "</div>" +
            history(m.history);
   }
 
@@ -202,9 +222,10 @@ Suite.roster = (function () {
            '<span class="ro-fold-count" role="status">' + players.length + (players.length === 1 ? " player" : " players") + "</span></div>" +
            (players.length ? '<div class="ro-cols roster" aria-hidden="true"><span>#</span><span>Player</span><span>Ht</span><span>Wt</span><span>Class</span></div>' +
              '<ul class="ro-list">' + players.map(function (p) {
+               var n = TeamOS.notes.player(m.notes, p.name);
                return '<li class="ro-row roster"><span class="ro-no">' + esc(p.jersey) + "</span>" + photo({ name: p.name, photo: p.photo }) +
-                 '<span class="ro-who"><span class="ro-name">' + esc(p.name) + outMark(p.out) + "</span>" +
-                   '<span class="ro-town">' + esc([p.position, town(p.hometown)].filter(Boolean).join(" · ")) + "</span>" + bio(p) + "</span>" +
+                 '<span class="ro-who"><span class="ro-name">' + esc(p.name) + captainMark(n) + outMark(p.out) + "</span>" + sayLine(n) +
+                   '<span class="ro-town">' + esc([p.position, town(p.hometown)].filter(Boolean).join(" · ")) + "</span>" + bio(p) + honorsFold(n) + "</span>" +
                  '<span class="ro-ht">' + esc(p.height) + '</span><span class="ro-wt">' + esc(weight(p.weight)) + '</span><span class="ro-cl">' + esc(p.classYear) + "</span></li>";
              }).join("") + "</ul>"
            : quiet("No player matches “" + q + "”."));
@@ -223,7 +244,7 @@ Suite.roster = (function () {
     var when = a.effectiveAt ? new Date(a.effectiveAt + "T12:00:00") : null;
     var date = when && !isNaN(when) ? when.toLocaleDateString([], { month: "long", day: "numeric" }) : "";
     head += '<p class="ro-meta">' + (date ? esc(date) + " · " : "") + "Official · " + external(a.source.url, a.source.label) + "</p>" +
-            (a.game ? '<p class="ro-meta">For the game ' + esc(a.game) + "</p>" : "") + "</section>";
+            (a.game ? '<p class="ro-meta">Game: ' + esc(a.game) + "</p>" : "") + "</section>";
     if (!a.groups.length) return head + '<section class="card ro-card"><p class="ro-all">The report lists nobody: everyone is available.</p></section>';
     return head + a.groups.map(function (g) {
       return '<section class="card ro-card"><div class="ro-card-head"><h3 class="ro-spot">' + esc(g.label) + "</h3>" +

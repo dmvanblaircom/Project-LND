@@ -25,10 +25,10 @@ Potential experiences include:
 
 One Suite renders every configured team; Irish Watch is Notre Dame's. Its destinations (decisions 0022, 0023, 0028), each drawn by a file in `suite/`:
 
-- Home - the hero game, Season Outlook, the schedule preview, news
+- Home - the hero game, a program milestone while one is near (Road to 1,000: all-time wins, from `TeamOS.milestones`), By the Numbers in game week (three of the program's weekly figures from its game notes, `TeamOS.notes`), Season Outlook (and its full field, `#outlook`: every team the Playoff and National Title markets price), the schedule preview, news
 - Top 25 - Games and Rankings (national content, with the team as quiet context)
-- Game - the hero game through its lifecycle: preview, live, final
-- Roster - Depth Chart, Roster and Availability, as the team has them
+- Game - the hero game through its lifecycle: preview, live, final. Before kickoff, from the week's game notes when the team has them: the series card (the all-time series, the last meeting, the trophy's story) and By the Numbers, each naming its source
+- Roster - Depth Chart, Roster and Availability, as the team has them; from the game notes, a captain's C, how to say a name, and a player's honors
 - More - News, Schedule and Results, Stats (Team: the team's season; Players: the season leaders by category; also linked from Roster and Game's Matchup card), Settings (App Style, Change Team, Refresh Data), Feedback, About Suite
 
 `suite/nav.js` routes them on the page's hash, so Back walks every view. A screen's peer views also change with a sideways swipe, and a pull down from the top of any screen refreshes it - the same refresh as Settings' Refresh Data.

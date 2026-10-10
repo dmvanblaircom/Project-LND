@@ -1,7 +1,8 @@
 /* Suite - Home, the canonical dashboard (references 02, 05, 06; decisions
    0022, 0023, 0024).
 
-   Order: Hero, Latest News, Schedule, Season Outlook. No Current Game card.
+   Order: Hero, a program milestone when one is near, Latest News, Schedule,
+   Season Outlook. No Current Game card.
 
    This file only draws. Every decision it shows was made in TeamOS - which
    game is the hero and why, what state it is in, which three schedule rows,
@@ -16,6 +17,9 @@
        model.news      NewsItem[] | null (still loading)
        model.schedule  Game[] (the preview) and heroId
        model.outlook   TeamOS.outlook.metrics() output
+       model.milestone TeamOS.milestones.wins() output, or null
+       model.numbers   [{ n, text }] | null - By the Numbers from the week's
+                       game notes, for the hero game only
        model.fresh     TeamOS.freshness.summary() output
 
    Each section is redrawn only when its markup changed, so a 30-second live
@@ -259,7 +263,8 @@ Suite.home = (function () {
 
   function outlookHtml(metrics) {
     if (!metrics || !metrics.length) return "";                   // no supported market: no section
-    return '<div class="sec-head"><h2 class="sec-title" id="outHead">Season Outlook</h2></div>' +
+    return '<div class="sec-head"><h2 class="sec-title" id="outHead">Season Outlook</h2>' +
+             '<a class="sec-link" href="#outlook">View Full Field' + CHEVRON + "</a></div>" +
       '<div class="card outlook" role="group" aria-labelledby="outHead"><div class="out-metrics">' +
       metrics.map(function (x) {
         // A move that rounds to nothing is not shown as "0".
@@ -277,9 +282,59 @@ Suite.home = (function () {
       '<p class="out-credit">Market-implied odds. Powered by Kalshi</p></div>';
   }
 
+  // ---- a program milestone (David, 2026-10-07: the 1,000th win) -------------
+  // Only while one is near (TeamOS.milestones): the count, how many to go and
+  // the game that could make it, then for a week the game that did.
+
+  var WORDS = ["", "One", "Two", "Three"];
+  function n(v) { return Number(v).toLocaleString("en-US"); }
+  function where(g) { return (g.home || g.neutral ? "vs " : "at ") + ui.oppLabel(g); }
+
+  function milestoneHtml(ms, team) {
+    if (!ms) return "";
+    var g = ms.game, reached = ms.phase === "reached";
+    var title = reached ? n(ms.target) + " Wins" : "Road to " + n(ms.target);
+    var line;
+    if (reached) {
+      line = esc(team.name) + "\u2019s " + n(ms.target) + "th win" +
+             (g ? ": " + esc((g.us != null ? g.us + "-" + g.them + " " : "") + where(g)) + ", " + esc(ui.kickoff(g.date, g.timeSet).day) : "") + ".";
+    } else if (ms.toGo === 1) {
+      // under way as TeamOS says: a delay before kickoff is still upcoming
+      var live = TeamOS.game.underWay(g);
+      line = "Win No. " + n(ms.target) + " is on the line" +
+             (g ? (live ? " now, " : ": ") + esc(where(g)) + (live ? "" : ", " + esc(ui.kickoff(g.date, g.timeSet).day)) : "") + ".";
+    } else {
+      line = (WORDS[ms.toGo] || ms.toGo) + " from " + n(ms.target) + "." +
+             (g ? ' <span class="ms-next">Next: ' + esc(where(g)) + ", " + esc(ui.kickoff(g.date, g.timeSet).day) + "</span>" : "");
+    }
+    return '<div class="sec-head"><h2 class="sec-title" id="msHead">' + esc(title) + "</h2></div>" +
+      '<div class="card ms" role="group" aria-labelledby="msHead">' +
+        '<p class="ms-count"><span class="ms-n">' + n(ms.wins) + '</span><span class="ms-l">all-time wins</span></p>' +
+        '<p class="ms-line">' + line + "</p>" +
+        // the program's own count, entering the season, plus its results since
+        '<p class="ms-src">All-time record ' + esc(n(ms.wins) + "-" + n(ms.losses) + "-" + n(ms.ties)) +
+          (ms.source ? " \u00b7 official count, " + esc(ms.source) : "") + "</p>" +
+      "</div>";
+  }
+
+  // ---- By the Numbers (David, 2026-10-09) -------------------------------------
+  // Three of the program's weekly figures from its game notes; all of them on
+  // Game's pregame view.
+
+  var NUMBERS_HOME = 3;
+  function numbersHtml(list) {
+    if (!list || !list.length) return "";
+    return '<div class="sec-head"><h2 class="sec-title" id="bnHead">By the Numbers</h2>' +
+             '<a class="sec-link" href="#game">View All' + CHEVRON + "</a></div>" +
+      '<div class="card bn" role="group" aria-labelledby="bnHead"><ul class="bn-list">' +
+      list.slice(0, NUMBERS_HOME).map(function (x) {
+        return '<li><span class="bn-n">' + esc(x.n) + '</span><span class="bn-t">' + esc(x.text) + "</span></li>";
+      }).join("") + "</ul></div>";
+  }
+
   // ---- mount -----------------------------------------------------------------
 
-  var SECTIONS = ["fresh", "hero", "news", "schedule", "outlook"];
+  var SECTIONS = ["fresh", "hero", "milestone", "numbers", "news", "schedule", "outlook"];
 
   function paint(host, m) {
     if (!host) return;
@@ -294,6 +349,8 @@ Suite.home = (function () {
     var html = {
       fresh: ui.freshBanner(m.fresh),
       hero: heroHtml(m),
+      milestone: milestoneHtml(m.milestone, m.team),
+      numbers: numbersHtml(m.numbers),
       news: newsHtml(m.news, m.team),
       schedule: scheduleHtml(m.schedule, m.heroId),
       outlook: outlookHtml(m.outlook)

@@ -205,10 +205,20 @@ STATUSES = [
     (re.compile(r"^Questionable(?: for the Game)?$", re.I), "questionable"),
     (re.compile(r"^Probable(?: for the Game)?$", re.I), "probable"),
 ]
-ITEM = re.compile(r"^[•*]\s*(?:No\.?\s*(?P<no>\d+)\s+)?(?P<pos>[A-Z][A-Z/]*)\s+(?P<body>.+)$")
-# A spaced dash of any kind, or an unspaced en/em dash. A hyphen with no
-# spaces is part of a name (Viliamu-Asa), never the separator.
-SEPARATOR = re.compile(r"\s+[-–—]\s+|\s*[–—]\s*")
+# The notes are typed by hand and the punctuation drifts week to week: the
+# Oct. 5 report has "CB Leonard Moore- Concussion" and "LB- Kyngstonn
+# Viliamu-Asa- Left Thumb" beside "OL Matty Augustine – Right Foot". So a
+# position may carry a dash, and a dash with a space on EITHER side
+# separates the name from the ailment. A hyphen with no space on either side
+# is part of a name (Viliamu-Asa) - unless the line has no other separator,
+# as in Sept.'s "No. 47 DL Jason Onye-Left Ankle": then the LAST such hyphen
+# before a capital is the separator, which keeps a hyphenated name whole.
+ITEM = re.compile(r"^[•*]\s*(?:No\.?\s*(?P<no>\d+)\s+)?(?P<pos>[A-Z][A-Z/]*)\s*[-–—:]?\s+(?P<body>.+)$")
+SEPARATOR = re.compile(r"\s+[-–—]\s*|[-–—]\s+|\s*[–—]\s*")
+TIGHT = re.compile(r"^(.*\S)-(?=[A-Z])(.+)$")
+# Bumped whenever the reading above changes, so a report recorded by an
+# older reading is read again from its PDF rather than reused as it was.
+AVAILABILITY_PARSER = 2
 MONTHS = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6, "jul": 7,
           "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12}
 
@@ -243,7 +253,7 @@ def parse_availability(text, season):
     heading = rows[start]
     out = {"reported": True,
            "effectiveAt": report_date(REPORT.match(heading).group("date"), season),
-           "heading": heading, "players": []}
+           "heading": heading, "players": [], "unread": []}
     status = None
     for line in rows[start + 1:]:
         if (UNIT.match(line) or line.startswith("Pos. No.") or line.upper().startswith("DEPTH CHART")
@@ -256,10 +266,16 @@ def parse_availability(text, season):
         if status is None:
             continue
         m = ITEM.match(line)
-        if not m:
-            continue
-        parts = SEPARATOR.split(m.group("body"), maxsplit=1)
+        parts = SEPARATOR.split(m.group("body"), maxsplit=1) if m else []
+        if m and len(parts) != 2:
+            tight = TIGHT.match(m.group("body"))
+            parts = list(tight.groups()) if tight else parts
         if len(parts) != 2:
+            # A bullet under a status that is not a player line. The policy
+            # note ("Only new additions ...") is expected; anything else is a
+            # player this reading missed, and the producer says so out loud.
+            if line[:1] in "•*":
+                out["unread"].append(line)
             continue
         out["players"].append({"no": m.group("no") or "", "pos": m.group("pos"),
                                "name": parts[0].strip(), "status": status,

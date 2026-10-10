@@ -76,6 +76,8 @@ TeamOS is a domain layer inside the existing repository: plain-script files in `
 | `season.js` | Season figures a team's own results answer (decision 0011) |
 | `roster.js` | Which roster views a team has, the depth chart joined to the roster, availability and its history (decision 0019) |
 | `outlook.js` | Which Season Outlook markets a team actually has |
+| `milestones.js` | The next round number of all-time wins, from the team's official record plus the season's results |
+| `notes.js` | The week's official game notes: a player's pronunciation, captaincy and honors by name; the series facts and By the Numbers only for the game they were written for |
 | `freshness.js` | One page-level freshness state from each source's age (decision 0024 section 13) |
 | `ratings.js` | FPI for Top 25 → Rankings (W07): tested, not loaded until its snapshot is scheduled |
 

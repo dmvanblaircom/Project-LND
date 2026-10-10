@@ -79,3 +79,4 @@ scoreboard-20261007 scan-2111
 schedule-87 scan-nd-2111
 schedule-194 scan-osu-2111
 rankings scan-2111
+schedule-87 nd-oct08

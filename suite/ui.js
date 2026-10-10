@@ -20,7 +20,9 @@ Suite.ui = (function () {
   // provider's short code when there is one, else the name's first letters.
   function initials(name, abbr) {
     if (abbr && /^[A-Za-z&]{1,4}$/.test(abbr)) return abbr.toUpperCase();
-    var w = String(name || "").split(/\s+/).filter(Boolean);
+    // Words that start with a letter: a nickname in quotes ("Anthony
+    // “Turbo” Rogers") or a lone "&" is not an initial.
+    var w = String(name || "").split(/\s+/).filter(function (x) { return /^[A-Za-z\u00C0-\u024F]/.test(x); });
     return w.slice(0, 3).map(function (x) { return x.charAt(0).toUpperCase(); }).join("") || "?";
   }
 
@@ -191,6 +193,7 @@ Suite.ui = (function () {
   // or its screen coming into view (a hidden row measures nothing).
   var fitting = [];
   function fitOne(f) {
+    if (f.shrink) return shrinkOne(f);
     var row = f.host && f.host.querySelector(f.row);
     if (!row) return;
     var names = row.querySelectorAll(f.name);
@@ -204,8 +207,43 @@ Suite.ui = (function () {
     if (!f) fitting.push(f = { host: host, row: row, name: name });
     fitOne(f);
   }
+  // A single title the same way (David, 2026-10-07: "MARYL..." in Ohio
+  // State's wider face): its size steps down until every word fits, no
+  // further than min px; still too wide, it takes its abbreviation
+  // (.fit-short, which the caller's markup provides).
+  function shrinkOne(f) {
+    var el = f.host && f.host.querySelector(f.row);
+    if (!el || !el.clientWidth) return;
+    function over() { return el.scrollWidth > el.clientWidth + 1; }
+    el.style.fontSize = "";
+    el.classList.remove("fit-short");
+    var px = parseFloat(getComputedStyle(el).fontSize);
+    while (over() && px > f.min) { px = Math.max(f.min, px - 1); el.style.fontSize = px + "px"; }
+    if (over()) el.classList.add("fit-short");
+  }
+  function fitText(host, sel, min) {
+    var f = fitting.filter(function (x) { return x.host === host && x.row === sel; })[0];
+    if (!f) fitting.push(f = { host: host, row: sel, shrink: true, min: min });
+    shrinkOne(f);
+  }
+  // A label set with a short form beside it (.lbl-long / .lbl-short): the
+  // short forms take over when any long one is wider than its box.
+  function fitLabels(host, sel) {
+    var f = fitting.filter(function (x) { return x.host === host && x.row === sel; })[0];
+    if (!f) fitting.push(f = { host: host, row: sel, labels: true });
+    labelsOne(f);
+  }
+  function labelsOne(f) {
+    var box = f.host && f.host.querySelector(f.row);
+    if (!box || !box.clientWidth) return;
+    box.classList.remove("fit-short");
+    var long = [].some.call(box.querySelectorAll(".lbl-long"), function (l) {
+      var p = l.parentNode; return l.getBoundingClientRect().width > p.getBoundingClientRect().width + 0.5;
+    });
+    if (long) box.classList.add("fit-short");
+  }
   if (typeof window !== "undefined") {
-    var refit = function () { fitting.forEach(fitOne); };
+    var refit = function () { fitting.forEach(function (f) { if (f.labels) labelsOne(f); else fitOne(f); }); };
     window.addEventListener("resize", refit);
     window.addEventListener("hashchange", function () { (window.requestAnimationFrame || setTimeout)(refit); });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
@@ -236,5 +274,5 @@ Suite.ui = (function () {
   }
 
   return { ball: ball, esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner, newsImage: newsImage,
-           fitNames: fitNames, STYLE: STYLE, fill: fill, period: period, oppLabel: oppLabel };
+           fitNames: fitNames, fitText: fitText, fitLabels: fitLabels, STYLE: STYLE, fill: fill, period: period, oppLabel: oppLabel };
 })();

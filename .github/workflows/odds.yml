@@ -173,6 +173,24 @@ jobs:
           done
           exit $fail
 
+      # A conference's availability reports, for each team that declares the
+      # feed (sources.official.availabilityFeed) - Ohio State's are the Big
+      # Ten's. Two small JSON calls a run, so on every run: no cadence needed.
+      - name: Conference availability reports
+        id: confav
+        continue-on-error: true
+        run: |
+          fail=0; paths=""
+          for t in $(python3 tools/producers/teamconfig.py --with availability); do
+            if ! grep -q "availabilityFeed" "teams/$t.js"; then continue; fi
+            echo "== $t"
+            if python3 tools/producers/conference_availability.py --team "$t"; then
+              paths="$paths data/$t/availability.json data/$t/availability-history.json"
+            else fail=1; fi
+          done
+          echo "paths=$paths" >> "$GITHUB_OUTPUT"
+          exit $fail
+
       - name: Remember the depth chart checks
         if: always() && hashFiles('.cadence/*') != ''
         uses: actions/cache/save@v4
@@ -189,6 +207,7 @@ jobs:
           HISTORY: ${{ steps.oddshistory.outcome }}
           NEWS: ${{ steps.news.outcome }}
           DEPTH: ${{ steps.depth.outcome }}
+          CONFAV_PATHS: ${{ steps.confav.outputs.paths }}
           FPI: ${{ steps.fpi.outcome }}
         run: |
           git config user.name  "github-actions[bot]"
@@ -204,6 +223,9 @@ jobs:
           [ "$NEWS" = success ]    && add "news" 'data/*/news.json'
           [ "$DEPTH" = success ]   && add "depth chart" 'data/*/depth.json' 'data/*/depth-history.json'
           [ "$DEPTH" = success ]   && add "availability" 'data/*/availability.json' 'data/*/availability-history.json'
+          [ "$DEPTH" = success ]   && add "game notes" 'data/*/notes.json'
+          # only the files of the teams whose conference report was read
+          [ -n "$CONFAV_PATHS" ]   && add "conference availability" $CONFAV_PATHS
           [ "$FPI" = success ]     && add "FPI" 'data/league/fpi.json'
           if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
           git commit -q -m "Refresh team data: $moved"
@@ -241,7 +263,8 @@ jobs:
           failed=""
           for s in "kalshi:${{ steps.kalshi.outcome }}" "odds:${{ steps.odds.outcome }}" \
                    "odds history:${{ steps.oddshistory.outcome }}" "news:${{ steps.news.outcome }}" \
-                   "depth chart:${{ steps.depth.outcome }}"; do
+                   "depth chart:${{ steps.depth.outcome }}" \
+                   "conference availability:${{ steps.confav.outcome }}"; do
             [ "${s##*:}" = failure ] && failed="${failed:+$failed, }${s%:*}"
           done
           if [ -n "$failed" ]; then echo "::error::failed: $failed"; exit 1; fi

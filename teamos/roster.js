@@ -70,12 +70,25 @@ TeamOS.roster = (function () {
   // no numbers. A report for another game marks nobody.
   // With no chart to compare against (a team with a report but no depth
   // chart), the report alone decides.
-  function outNames(report, chart) {
+  // Out means out of the game. Out for the first half is not: that player
+  // still plays, so the chart and roster keep him (Big Ten reports, 2026).
+  var OUT = /^out-(game|season)$/;
+  // `today` is the team's calendar day ("2026-10-11"). A report dated for a
+  // game day that has passed says who missed that game, not who will miss
+  // the next - even while it is still the newest on file, as after a failed
+  // fetch (Codex, #118). Reports with no game date (a school's notes) rely
+  // on the chart's game instead.
+  function outNames(report, chart, today) {
     var out = {};
     if (!report || !report.reported) return out;
+    if (today && report.kickoffDate && today > report.kickoffDate) return out;
+    // A report its producer marks as not current - last game's, kept on
+    // file through a bye or until this week's is filed - says who missed
+    // that game, not who will miss the next (Codex, #118).
+    if (report.current === false) return out;
     if (chart && (!report.game || report.game !== chart.game)) return out;
     (report.players || []).forEach(function (p) {
-      if (/^out-/.test(p.status || "") && fold(p.name)) out[fold(p.name)] = p.status;
+      if (OUT.test(p.status || "") && fold(p.name)) out[fold(p.name)] = p.status;
     });
     return out;
   }
@@ -171,10 +184,10 @@ TeamOS.roster = (function () {
     return { game: game, preseason: pre, known: game != null || pre, battles: pre || game === 1 };
   }
 
-  function depth(chart, groups, report, hist) {
+  function depth(chart, groups, report, hist, today) {
     if (!chart || !chart.units) return null;
     var ph = phase(chart);
-    var all = everyone(groups), outs = outNames(report, chart);
+    var all = everyone(groups), outs = outNames(report, chart, today);
     var prev = previousChart(chart, hist), was = prev ? placesOf(prev) : null;
     function moved(u, s, lv, p) {
       if (!was) return null;
@@ -229,8 +242,11 @@ TeamOS.roster = (function () {
   // the report's own order of severity, each person joined to the roster for
   // a photo by exact name only - the report carries no jersey numbers.
   // `reported: false` is "no report", never "everyone is fine".
+  // A conference report (the Big Ten's) adds two: out for the first half,
+  // and the gameday report's game-time decision.
   var STATUS = [["out-season", "Out for the season"], ["out-game", "Out for the game"],
-                ["doubtful", "Doubtful"], ["questionable", "Questionable"], ["probable", "Probable"]];
+                ["out-half", "Out for the first half"], ["doubtful", "Doubtful"],
+                ["gtd", "Game-time decision"], ["questionable", "Questionable"], ["probable", "Probable"]];
   function availability(report, groups) {
     if (!report) return null;
     var all = everyone(groups);
@@ -258,7 +274,7 @@ TeamOS.roster = (function () {
       return { game: s.game || "", title: s.title || "", url: s.sourceUrl || null,
                changes: (s.changes || []).map(function (c) { return { kind: c.kind, text: c.text }; }),
                availability: !r ? null : { reported: !!r.reported,
-                 out: ps.filter(function (p) { return /^out/.test(p.status); }).length,
+                 out: ps.filter(function (p) { return OUT.test(p.status); }).length,
                  questionable: ps.filter(function (p) { return p.status === "questionable"; }).length } };
     });
   }
@@ -266,8 +282,8 @@ TeamOS.roster = (function () {
   // The roster with each player the report lists as out marked `out`, by the
   // same rule as the depth chart: the report for the chart's game, or the
   // report alone when the team has no chart. Copies; the groups are shared.
-  function withStatus(groups, report, chart) {
-    var outs = outNames(report, chart);
+  function withStatus(groups, report, chart, today) {
+    var outs = outNames(report, chart, today);
     var all = everyone(groups), byPlayer = [];
     (report && report.players || []).forEach(function (p) {
       if (!outs[fold(p.name)]) return;

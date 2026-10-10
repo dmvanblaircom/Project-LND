@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-07ga2";
+var VERSION = "suite-2026-10-10av3";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -38,11 +38,11 @@ var DATA    = VERSION + "-data";
 // - and nothing that is not.
 var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
-  "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js", "./suite/stats.js",
+  "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js", "./suite/stats.js", "./suite/outlook.js",
   "./teams/index.js",
   "./leagues/college-football.js", "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
   "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js",
-  "./teamos/game.js", "./teamos/outlook.js", "./teamos/markets.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js", "./teamos/cfbd.js",
+  "./teamos/game.js", "./teamos/outlook.js", "./teamos/milestones.js", "./teamos/notes.js", "./teamos/markets.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js", "./teamos/cfbd.js",
   // Suite's install identity, the same for every team (decision 0024 §11).
   // The manifest's own icons are read from it at install; these are the ones
   // only index.html names. tools/identitycheck.js keeps the two lists equal.
@@ -355,14 +355,16 @@ function withHeader(res, name, value) {
   });
 }
 
-// Game alerts (W19): the edge API pushes kickoff and final for the fan's
-// team (worker/src/push.js). Show it as sent - the Worker wrote the words
+// Game alerts (W19): the edge API pushes the alerts the fan chose for
+// their team (worker/src/push.js). Show it as sent - the Worker wrote the words
 // from TeamOS's names and ESPN's status - and open Suite when it is tapped.
 self.addEventListener("push", function (e) {
   var d = {};
   try { d = e.data ? e.data.json() : {}; } catch (err) { d = { body: e.data ? e.data.text() : "" }; }
   e.waitUntil(self.registration.showNotification(d.title || "Suite", {
     body: d.body || "", tag: d.tag || undefined, icon: "assets/suite/icon-192.png",
+    // a score replaces the last one on the lock screen, and still sounds
+    renotify: !!(d.renotify && d.tag),
     data: { url: d.url || "" }
   }));
 });

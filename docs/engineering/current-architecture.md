@@ -25,7 +25,7 @@ External sources ──► adapters (teamos/espn.js, cfbd.js, markets.js, weathe
 | `teams/<team>.js` | One team's configuration: identity, colors, provider ids, official sources, Kalshi match, beat feeds (`docs/04_TEAM_CONFIG.md`). |
 | `teams/index.js` | The program registry, regenerated weekly by `roster.yml` (decisions 0014, 0017). |
 | `chooser.js` | The no-team-yet page (decision 0016); never loads `app.js`. |
-| `teamos/*.js` | Domain rules every surface shares: game status/lifecycle/hero (`game.js`), live state (`live.js`), roster and depth chart (`roster.js`), Season Outlook (`outlook.js`), freshness (`freshness.js`), identity, registry, snapshots, sources, season figures. `ratings.js` (FPI for Top 25 → Rankings) is tested but not loaded until its snapshot is scheduled; so is `prospects.js` (ESPN recruiting class and draft board, W16), until the offseason screens use it. Provider adapters: `espn.js`, `cfbd.js`, `markets.js` (Kalshi), `weather.js` (Open-Meteo forecast and geocoding). |
+| `teamos/*.js` | Domain rules every surface shares: game status/lifecycle/hero (`game.js`), live state (`live.js`), roster and depth chart (`roster.js`), Season Outlook (`outlook.js`), freshness (`freshness.js`), program milestones (`milestones.js`), the week's game notes (`notes.js`), identity, registry, snapshots, sources, season figures. `ratings.js` (FPI for Top 25 → Rankings) is tested but not loaded until its snapshot is scheduled; so is `prospects.js` (ESPN recruiting class and draft board, W16), until the offseason screens use it. Provider adapters: `espn.js`, `cfbd.js`, `markets.js` (Kalshi), `weather.js` (Open-Meteo forecast and geocoding). |
 | `suite/*.js` | Screens: Home, Game, Top 25, Schedule, Roster, More; `nav.js` routes and paints the one header every screen wears (decision 0031), plus the swipe between a screen's views, and pull to refresh; `ui.js` shared pieces. Draw what TeamOS decided. |
 | `app.js` | The controller: fetches, cache-first paint, polling, per-source freshness, and the one manual refresh that Refresh Data and a pull down both run. Lifts the launch screen onto a finished first screen. Names no team and reads no provider field. |
 | `app.css` | One stylesheet; team color comes from identity tokens. |
@@ -38,7 +38,7 @@ Three paths, chosen by how fresh the data must be and what its terms allow:
 | Path | Used for | Why |
 |---|---|---|
 | **Browser → provider** | ESPN scores, schedule, scoreboard, game summary, rankings, news, roster; Open-Meteo weather and geocoding | Must be current; no key; CORS permitted. |
-| **GitHub Action → committed snapshot** (`data/<team>/`, `data/league/`) | Kalshi odds and odds history, official depth chart and availability report, beat news; FPI producer ready (`tools/producers/fpi.py`), not yet scheduled | Changes over hours or days; Kalshi sends no CORS header; official PDFs need parsing. Runs from `odds.yml` (decision 0020 cadence). |
+| **GitHub Action → committed snapshot** (`data/<team>/`, `data/league/`) | Kalshi odds and odds history, official depth chart, availability report (school game notes, or the conference's report feed) and game-notes facts, beat news; FPI producer ready (`tools/producers/fpi.py`), not yet scheduled | Changes over hours or days; Kalshi sends no CORS header; official PDFs need parsing. Runs from `odds.yml` (decision 0020 cadence). |
 | **Browser → Suite's edge API → provider** (`worker/`, `https://suite-api.dmvanblaircom.workers.dev`) | CollegeFootballData season figures (Matchup yards allowed) | Needs a key kept server-side, and CFBD's terms allow display but not publishing its data as files (decision 0030). |
 
 Snapshots are owned by declaration (decision 0008): a team that declares no
@@ -65,5 +65,5 @@ Strategy). Rollback: `docs/engineering/rollback-runbook.md`.
 ## Known gaps (tracked in `docs/engineering/backlog.md`)
 
 - `app.js` still owns several stores and timers (W10); the schedule now joins a request already out, like the scoreboard.
-- Ohio State lacks official depth/availability sources and beat news (W20).
+- Ohio State lacks an official depth chart (W20; Ourlads permission pending). Its availability report is the Big Ten's (`tools/producers/conference_availability.py`).
 - Internal `iw-` names remain (C16), by decision.

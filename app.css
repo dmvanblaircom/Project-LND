@@ -520,16 +520,20 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gh-record{font-size:.9rem;color:var(--s-on-dark-2)}
 .gh-center{display:flex;flex-direction:column;align-items:center;gap:.25rem;min-width:0;text-align:center}
 .gh-where{font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--s-on-dark)}
-.gh-opp{max-width:100%;overflow:hidden;text-overflow:ellipsis;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.8rem,8.5vw,2.6rem);line-height:.95;text-transform:uppercase}
+.gh-opp{max-width:100%;overflow:hidden;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.8rem,8.5vw,2.6rem);line-height:.95;text-transform:uppercase}
+.go-short,.gh-opp.fit-short .go-full{display:none}
+.gh-opp.fit-short .go-short{display:inline}
 .gh-when{font-size:1rem;font-weight:600}
 .gh-venue{font-size:.88rem;color:var(--s-on-dark-2)}
 .gh-series{font-size:.88rem;color:var(--t-accent-text)}
-.gh-countdown{margin-top:.45rem !important;max-width:100%}
-.gh-countdown > span{display:inline-flex;max-width:100%;flex-wrap:wrap;justify-content:center;border:1px solid rgba(255,255,255,.3);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.55)}
+.gh-countdown{display:flex;justify-content:center;margin-top:.8rem !important;max-width:100%}
+.gh-countdown > span{display:flex;width:16rem;max-width:100%;justify-content:center;border:1px solid rgba(255,255,255,.3);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.55)}
 .cd-cell{display:flex;flex-direction:column;align-items:center;min-width:0;flex:1;padding:.3rem .5rem}
 .cd-cell + .cd-cell{border-left:1px solid rgba(255,255,255,.25)}
 .cd-n{font-family:var(--t-font-display);font-weight:800;font-size:1.7rem;line-height:1;color:var(--t-accent-text)}
-.cd-l{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s-on-dark-2)}
+.cd-l{max-width:100%;overflow:hidden;white-space:nowrap;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s-on-dark-2)}
+.lbl-short,.fit-short .lbl-long{display:none}
+.fit-short .lbl-short{display:inline}
 .gh-clock{font-family:var(--t-font-display);font-weight:700;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase}
 /* The FINAL label. Not .gh-final: that is the header's own state class at
    final, and the label's wide tracking spread across the whole header -
@@ -871,6 +875,18 @@ details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}
 .ro-who{display:flex;flex-direction:column;min-width:0}
 .ro-name{font-weight:700;font-size:1rem;line-height:1.2;overflow-wrap:break-word;color:var(--s-ink)}
 .ro-town{font-size:.84rem;color:var(--s-muted)}
+.ro-capt{display:inline-block;margin-left:.3rem;padding:0 .3rem;border-radius:.25rem;background:var(--t-surface);color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:.72rem;line-height:1.35;text-decoration:none;vertical-align:.1em;cursor:help}
+.ro-say{font-size:.84rem;font-style:italic;color:var(--s-ink-2)}
+.ro-say-l{font-style:normal;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--s-muted)}
+.ro-honors{font-size:.84rem;color:var(--s-ink-2)}
+.ro-honors > summary{display:flex;align-items:center;gap:.3rem;min-height:2.75rem;cursor:pointer;list-style:none;color:var(--t-surface);font-weight:600}
+.ro-honors > summary::-webkit-details-marker,.bn-more > summary::-webkit-details-marker{display:none}
+.ro-honors > summary::after,.bn-more > summary::after{content:"";width:.45rem;height:.45rem;margin-left:.2rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-.12rem) rotate(45deg)}
+.ro-honors[open] > summary::after,.bn-more[open] > summary::after{transform:translateY(.12rem) rotate(-135deg)}
+.ro-honor{margin-top:.15rem;font-size:.84rem;color:var(--s-ink-2)}
+.ro-honors > summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:6px}
+.ro-honors ul{margin:0 0 .3rem;padding-left:1.1rem}
+.ro-honors li{padding:.12rem 0}
 .ro-bio{display:none;font-size:.82rem;color:var(--s-ink-2)}
 .ro-ht,.ro-wt,.ro-cl{font-size:.92rem;text-align:center;white-space:nowrap;color:var(--s-ink-2)}
 .ro-all{margin:.3rem 0 .6rem;color:var(--s-ink-2)}
@@ -946,6 +962,32 @@ button.mo-row{width:100%;margin:0;border:0;background:none;font:inherit;text-ali
 .st-opt-sub{font-size:.92rem;color:var(--s-muted)}
 .st-action{flex-wrap:wrap}
 .st-note{flex:1 1 12rem;font-size:.92rem;color:var(--s-muted)}
+/* Game alerts, round 2 (notifications brief §2b): quick picks, then the
+   switches they set. Each row is a label the whole width, 44px at least. */
+.al-opts{padding:.2rem 1rem 1rem;border-top:1px solid var(--s-line)}
+.al-picks{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0 .4rem}
+.al-pick{min-height:2.75rem;padding:.4rem .9rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-pill);background:var(--s-surface);color:var(--s-ink);font:inherit;font-weight:600;cursor:pointer}
+.al-pick[aria-pressed="true"]{border-color:var(--t-surface);background:var(--t-surface);color:var(--s-on-dark)}
+.al-pick:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
+.al-set{margin:.9rem 0 0;padding:0;border:0;min-width:0}
+.al-legend{padding:0;margin-bottom:.2rem;font-family:var(--t-font-ui);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.al-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:2.75rem;padding:.35rem 0;cursor:pointer}
+.al-row + .al-row{border-top:1px solid var(--s-line)}
+.al-text{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.al-name{font-weight:600;color:var(--s-ink)}
+.al-sub{font-size:.88rem;color:var(--s-muted)}
+.al-switch{flex:none;appearance:none;-webkit-appearance:none;position:relative;width:3rem;height:1.75rem;margin:0;border-radius:999px;background:var(--s-line-strong);cursor:pointer;transition:background-color .15s}
+.al-switch::after{content:"";position:absolute;top:.2rem;left:.2rem;width:1.35rem;height:1.35rem;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3);transition:transform .15s}
+.al-switch:checked{background:var(--t-surface)}
+.al-switch:checked::after{transform:translateX(1.25rem)}
+.al-switch:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
+.al-seg{display:flex;flex-wrap:wrap;gap:.5rem;padding:.35rem 0}
+.al-choice{display:inline-flex;align-items:center;gap:.45rem;min-height:2.75rem;padding:.3rem .8rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);cursor:pointer;color:var(--s-ink)}
+.al-choice:has(input:checked){border-color:var(--t-surface);box-shadow:inset 0 0 0 1px var(--t-surface)}
+.al-choice input{width:1.15rem;height:1.15rem;margin:0;accent-color:var(--t-surface)}
+.al-choice input:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
+.al-help{margin:.9rem 0 0;font-size:.88rem;color:var(--s-muted)}
+@media (prefers-reduced-motion: reduce){.al-switch,.al-switch::after{transition:none}}
 /* Feedback and About. */
 .fb-card,.ab-card{padding:1.1rem 1.1rem 1.2rem}
 .fb-card p,.ab-card p{margin:.6rem 0 0}
@@ -1138,3 +1180,55 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
   .ss-cols > :first-child{display:none}
   .ss-row.two .ss-l{grid-column:1 / -1}
 }
+
+/* ---- Season Outlook's full field (W18) ----------------------------------
+   Every team the market prices, most likely first, in Home's Season Outlook
+   language: the same figure, change mark and bar, a row per team. The
+   team's own row is marked and repeated above the list. */
+.of-you{margin:.35rem 0 0;font-size:.95rem;color:var(--s-ink-2)}
+.of-you strong{font-family:var(--t-font-display);font-weight:800;color:var(--s-ink)}
+.of-card{margin-top:.8rem;padding:.35rem 1rem}
+.of-list{list-style:none;margin:0;padding:0}
+.of-row{display:grid;grid-template-columns:1.9rem minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:baseline;column-gap:.5rem;row-gap:.3rem;padding:.55rem 0}
+.of-row + .of-row{border-top:1px solid var(--s-line)}
+.of-row.mine{margin:0 -.6rem;padding-left:.6rem;padding-right:.6rem;border-radius:var(--s-radius-ctl);background:var(--s-inset);box-shadow:inset .2rem 0 0 var(--t-accent)}
+.of-row.mine + .of-row,.of-row + .of-row.mine{border-top-color:transparent}
+.of-rank{font-size:.85rem;font-variant-numeric:tabular-nums;color:var(--s-muted);text-align:right}
+.of-team{min-width:0;overflow-wrap:anywhere;font-size:1rem;color:var(--s-ink)}
+.of-row.mine .of-team{font-weight:700}
+.of-num{display:flex;align-items:baseline;gap:.4rem;justify-content:flex-end}
+.of-val{font-family:var(--t-font-display);font-weight:800;font-size:1.15rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.of-val .pct{font-size:.7em}
+.of-bar{grid-column:2 / -1;display:block;height:.3rem;overflow:hidden;border-radius:var(--s-radius-pill);background:var(--s-inset)}
+.of-row.mine .of-bar{background:var(--s-surface)}
+.of-bar span{display:block;height:100%;background:var(--t-accent)}
+
+/* ---- A program milestone on Home (the 1,000th win) ---------------------
+   Shown only while one is near: the count large, the line under it, the
+   official record as its source. */
+.ms{padding:1rem 1rem .85rem}
+.ms-count{display:flex;align-items:baseline;gap:.5rem;margin:0}
+.ms-n{font-family:var(--t-font-display);font-weight:800;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.ms-l{font-size:.95rem;color:var(--s-ink-2)}
+.ms-line{margin:.45rem 0 0;font-size:1.05rem;font-weight:600;color:var(--s-ink)}
+.ms-next{display:block;margin-top:.15rem;font-size:.95rem;font-weight:400;color:var(--s-ink-2)}
+.ms-src{margin:.6rem 0 0;font-size:.85rem;color:var(--s-muted)}
+
+/* ---- The week's game notes (David, 2026-10-09) --------------------------
+   By the Numbers on Home and Game: the number large, the fact beside it.
+   The series card's facts, the roster's captain mark, pronunciation and
+   honors. Every notes card names its source. */
+.bn{padding:.35rem 1rem}
+.bn-list{list-style:none;margin:0;padding:0}
+.bn-list li{display:grid;grid-template-columns:3.6rem minmax(0,1fr);align-items:baseline;column-gap:.75rem;padding:.6rem 0}
+.bn-list li + li{border-top:1px solid var(--s-line)}
+.bn-n{font-family:var(--t-font-display);font-weight:800;font-size:1.7rem;line-height:1;text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:var(--t-surface)}
+.bn-t{font-size:.95rem;line-height:1.4;color:var(--s-ink)}
+.bn-more{border-top:1px solid var(--s-line)}
+.bn-more > summary{display:flex;align-items:center;gap:.3rem;min-height:2.75rem;cursor:pointer;list-style:none;font-weight:600;color:var(--t-surface)}
+.bn-more > summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:6px}
+.gn-facts{margin:.2rem 0 0;padding-left:1.1rem}
+.gn-facts li{padding:.3rem 0;font-size:.95rem;line-height:1.45;color:var(--s-ink)}
+.series-in{margin:.2rem 0 .5rem}
+.gn-src{margin:.6rem 0 0;font-size:.85rem;color:var(--s-muted)}
+.gn-src a{color:inherit;text-decoration:underline;text-underline-offset:2px}

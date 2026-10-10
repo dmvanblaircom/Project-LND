@@ -1,7 +1,9 @@
-/* Game alerts (W19, notifications brief, approved by David 2026-10-01):
-   kickoff and final for the fan's team, by Web Push to the installed Suite.
+/* Game alerts (W19, notifications brief, approved by David 2026-10-01;
+   round 2, §2b, approved 2026-10-09): the fan's own choice of alerts for
+   their team, by Web Push to the installed Suite.
 
-     POST /v1/push/subscribe     { subscription, team: { id, name } }
+     POST /v1/push/subscribe     { subscription, team: { id, name }, options? }
+                                 (again with new options: they replace the old)
      POST /v1/push/unsubscribe   { endpoint, team: { id } }
      GET  /v1/push/key           the VAPID public key the app subscribes with
      GET  /v1/push/status        counts, watched games, events sent, the last
@@ -26,7 +28,20 @@
    a kickoff first noticed after the first quarter is recorded, not sent;
    the final is sent only on ESPN's final status, and without numbers if
    ESPN gives none; a postponed or canceled game gets one push saying so.
-   Score changes (opt-in in the brief) are not in this first slice.
+
+   Round 2 (§2b): each subscription carries its options (OPTIONS below; a
+   subscription from before them has the round-1 set). While a game is on
+   the team's score is read each minute too:
+   - a score is announced once it holds for a minute, so a touchdown and its
+     extra point a minute apart are one alert; an extra point or two-point
+     try right after the team's own touchdown is folded in silently;
+   - a score that goes down is one correction, to the fans who get scores;
+   - each quarter's end, halftime, a close finish (within 8 points, 5:00 or
+     less in the 4th) and overtime are sent once each;
+   - score, quarter and halftime alerts share one lock-screen card per game
+     and are dropped when more than 5 minutes late (LIMITS.liveLate).
+   The score state moves only by compare-and-set on its sequence number, so
+   two overlapping minutes can never both announce the same score.
 
    The wording uses the name the app sent from its team config and ESPN's
    place name for the opponent - never a provider's sentence. */
@@ -36,7 +51,46 @@ const SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-foo
 export const APP_URL = "https://dmvanblaircom.github.io/Project-LND/";
 const MIN = 60 * 1000;
 export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20 * MIN, window: 8 * 60 * MIN,
-                        tries: 10, kickoffLate: 15 * MIN };
+                        tries: 10, kickoffLate: 15 * MIN, liveLate: 5 * MIN, settle: 3 * MIN, fold: 5 * MIN,
+                        closeClock: 300, closeMargin: 8 };
+
+// What a fan can choose (brief §2b). A subscription without options - every
+// one made before round 2 - has the round-1 set: kickoff, final and delays.
+export const DEFAULTS = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false };
+export function validOptions(o) {
+  if (o == null) return Object.assign({}, DEFAULTS);
+  if (typeof o !== "object") return null;
+  const out = {};
+  for (const k of ["kickoff", "final", "delays", "quarters", "halftime", "close"]) out[k] = o[k] == null ? DEFAULTS[k] : o[k] === true;
+  out.scoring = o.scoring == null ? DEFAULTS.scoring : (["off", "mine", "all"].indexOf(o.scoring) >= 0 ? o.scoring : null);
+  // A round-1 device keeps its postponed/canceled alerts while its new
+  // Delays switch starts off (the app sends this; Codex, #116).
+  if (o.outcomes === true) out.outcomes = true;
+  return out.scoring == null ? null : out;
+}
+// A subscription from before round 2 keeps exactly what it had: kickoff,
+// final, and a postponed or canceled game. In-game delays are a new kind of
+// alert, and a new kind starts off for those already signed up (the noise
+// rule, §2; Codex, #116).
+export const LEGACY = Object.assign({}, DEFAULTS, { delays: false, outcomes: true });
+function anyOn(o) { return o.kickoff || o.final || o.delays || o.quarters || o.halftime || o.close || o.scoring !== "off"; }
+// Whether a follower with options `o` gets this event (`d` its details).
+export function wants(o, ev, d) {
+  if (ev === "kickoff") return o.kickoff;
+  if (ev === "final") return o.final;
+  if (ev === "postponed" || ev === "canceled") return o.delays || !!o.outcomes;
+  if (/^delay/.test(ev)) return o.delays;
+  // "mine" is any alert in which the team's own score moved, including one
+  // where both sides scored between two looks (Codex, #116)
+  if (/^score/.test(ev)) return o.scoring === "all" || (o.scoring === "mine" && !!d && (d.scorer === "us" || !!d.ours));
+  if (/^fix/.test(ev)) return o.scoring === "all" || (o.scoring === "mine" && !!d && (d.lost === "us" || !!d.ours));
+  if (ev === "end:2") return o.quarters || o.halftime;
+  if (/^end:/.test(ev)) return o.quarters;
+  if (ev === "close" || ev === "ot") return o.close;
+  return false;
+}
+// Events that are news only for minutes, and share the game's one card.
+function live(ev) { return /^(score|fix|end:)/.test(ev); }
 
 // Only the browsers' own push services: the Worker is never a relay to an
 // arbitrary address.
@@ -165,6 +219,14 @@ export function due(game, status, sent) {
   const t = (status && status.type) || {}, name = t.name || "", out = [];
   if (/POSTPONED/.test(name) && !sent.has("postponed")) out.push({ event: "postponed" });
   else if (/CANCELED|CANCELLED/.test(name) && !sent.has("canceled")) out.push({ event: "canceled" });
+  else if (/DELAY|SUSPENDED/.test(name) && t.state !== "post") out.push({ event: "delay", transition: true });
+  if (t.state === "in") {
+    const p = status.period || 0, clock = typeof status.clock === "number" ? status.clock : null;
+    if (p >= 5 && !sent.has("ot")) out.push({ event: "ot" });
+    if (/END_PERIOD/.test(name) && p >= 1 && p <= 3 && !sent.has("end:" + p)) out.push({ event: "end:" + p, ended: p });
+    if (/HALFTIME/.test(name) && !sent.has("end:2")) out.push({ event: "end:2", ended: 2 });
+    if (p === 4 && clock != null && clock <= LIMITS.closeClock && !/END_PERIOD/.test(name) && !sent.has("close")) out.push({ event: "close", check: true });
+  }
   if (t.state === "in" || t.state === "post") {
     if (!sent.has("kickoff")) out.push({ event: "kickoff", late: !(status.period <= 1) || t.state === "post" });
   }
@@ -172,9 +234,29 @@ export function due(game, status, sent) {
   return out;
 }
 
-export function words(ev, team, game, scores) {
+export function ordinal(p) {
+  if (p >= 5) return p === 5 ? "OT" : (p - 4) + "OT";
+  return ["", "1st", "2nd", "3rd", "4th"][p] || "";
+}
+export function words(ev, team, game, scores, x) {
   const vs = game.home ? " vs. " : " at ";
   const matchup = team.name + vs + game.opponent.name;
+  x = x || {};
+  const line = scores && typeof scores.us === "number" && typeof scores.them === "number"
+    ? team.name + " " + scores.us + ", " + game.opponent.name + " " + scores.them : null;
+  const when = x.period ? " \u00b7 " + ordinal(x.period) + (x.clock && x.period <= 4 ? " " + x.clock : "") : "";
+  if (/^score/.test(ev) && line) {
+    const who = x.scorer === "us" ? team.name : x.scorer === "them" ? game.opponent.name : null;
+    return { title: team.name, body: (who ? (x.label ? x.label + ", " + who + ". " : who + " scores. ") : "Score update. ") + line + when };
+  }
+  if (/^fix/.test(ev) && line) return { title: team.name, body: "Score corrected: " + line + when };
+  if (/^end:/.test(ev) && line) {
+    const p = Number(ev.slice(4));
+    return { title: team.name, body: (p === 2 ? "Halftime: " : "End of " + ordinal(p) + ": ") + line };
+  }
+  if (ev === "close" && line) return { title: team.name, body: "One-score game: " + line + when };
+  if (ev === "ot") return { title: team.name, body: "Overtime: " + (line || matchup) + "." };
+  if (/^delay/.test(ev)) return { title: team.name, body: x.period ? "Delay: " + (line || matchup) + when : matchup + " is delayed." };
   if (ev === "kickoff") return { title: team.name, body: matchup + " has kicked off." };
   if (ev === "final") {
     const us = scores && scores.us, them = scores && scores.them;
@@ -203,6 +285,13 @@ export function migrate(db) {
           " endpoint TEXT NOT NULL, state TEXT NOT NULL, tries INTEGER NOT NULL, at INTEGER NOT NULL, data TEXT NOT NULL," +
           " PRIMARY KEY (team_id, game_id, event, endpoint))");
   db.exec("CREATE TABLE IF NOT EXISTS games (team_id TEXT PRIMARY KEY, game TEXT, checked INTEGER NOT NULL)");
+  // Round 2: each subscription's options (null: the round-1 set), and each
+  // team's game in progress - the last announced score, one waiting to
+  // settle, the quarter and its score, the last announcement - moved only
+  // by compare-and-set on seq.
+  try { db.exec("ALTER TABLE subs ADD COLUMN opts TEXT"); } catch (e) { /* already there */ }
+  db.exec("CREATE TABLE IF NOT EXISTS live (team_id TEXT NOT NULL, game_id TEXT NOT NULL, seq INTEGER NOT NULL, st TEXT NOT NULL," +
+          " PRIMARY KEY (team_id, game_id))");
   db.exec("CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT NOT NULL)");
 }
 
@@ -218,15 +307,25 @@ export async function vapidKey(db, env) {
 export async function subscribe(db, env, body, now) {
   const sub = validSubscription(body && body.subscription), team = validTeam(body && body.team);
   if (!sub || !team) return { status: 400, body: { error: "a push subscription and a team are required" } };
+  // No options at all is a page from before round 2 (still open, or not yet
+  // updated): it keeps the round-1 set, and a row's saved choice is never
+  // overwritten by it (Codex, #116).
+  const given = body && body.options != null;
+  const opts = given ? validOptions(body.options) : LEGACY;
+  if (!opts) return { status: 400, body: { error: "options are not valid" } };
+  // Nothing chosen is alerts off (§2b): the subscription is not kept.
+  if (!anyOn(opts)) { db.run("DELETE FROM subs WHERE endpoint = ? AND team_id = ?", sub.endpoint, team.id); return { status: 200, body: { ok: true, off: true } }; }
   const count = db.all("SELECT COUNT(*) AS n FROM subs")[0].n;
   const had = db.all("SELECT 1 FROM subs WHERE endpoint = ? AND team_id = ?", sub.endpoint, team.id).length > 0;
   if (!had && count >= LIMITS.subscriptions) return { status: 503, body: { error: "alerts are full for now" } };
-  db.run("INSERT INTO subs (endpoint, team_id, team_name, p256dh, auth, created) VALUES (?, ?, ?, ?, ?, ?)" +
-         " ON CONFLICT (endpoint, team_id) DO UPDATE SET team_name = excluded.team_name, p256dh = excluded.p256dh, auth = excluded.auth",
-         sub.endpoint, team.id, team.name, sub.p256dh, sub.auth, now);
-  // A confirmation, so the fan knows at once that alerts reach this device.
+  db.run("INSERT INTO subs (endpoint, team_id, team_name, p256dh, auth, created, opts) VALUES (?, ?, ?, ?, ?, ?, ?)" +
+         " ON CONFLICT (endpoint, team_id) DO UPDATE SET team_name = excluded.team_name, p256dh = excluded.p256dh, auth = excluded.auth, opts = COALESCE(excluded.opts, subs.opts)",
+         sub.endpoint, team.id, team.name, sub.p256dh, sub.auth, now, given ? JSON.stringify(opts) : null);
+  // A confirmation, so the fan knows at once that alerts reach this device -
+  // only when they are turned on: changing a choice sends nothing.
+  if (had) return { status: 200, body: { ok: true, team: team.id, confirmation: "updated" } };
   const status = await sendPush(env, await vapidKey(db, env), sub,
-    { title: team.name, body: "Game alerts are on: kickoff and final.", url: APP_URL, tag: "alerts-on-" + team.id }, now);
+    { title: team.name, body: "Game alerts are on.", url: APP_URL, tag: "alerts-on-" + team.id }, now);
   if (status === 404 || status === 410) {
     db.run("DELETE FROM subs WHERE endpoint = ?", sub.endpoint);
     return { status: 410, body: { error: "the push service no longer accepts this subscription" } };
@@ -294,8 +393,8 @@ export async function tick(db, env, now) {
   return log;
 }
 
-// What ESPN says of the team's game, and a delivery for each follower of
-// every event newly due.
+// What ESPN says of the team's game, and a delivery for each follower who
+// wants it of every event newly due.
 async function detect(db, env, teamId, game, now, log) {
   const sent = new Set(db.all("SELECT event FROM sent WHERE team_id = ? AND game_id = ?", teamId, game.id).map(function (r) { return r.event; }));
   if (sent.has("final") || sent.has("canceled")) { log.push(teamId + ": done"); return; }
@@ -309,27 +408,167 @@ async function detect(db, env, teamId, game, now, log) {
     if (status) log.push(teamId + ": status from the schedule");
   }
   if (!status) { log.push(teamId + ": status unavailable"); return; }
-  for (const d of due(game, status, sent)) {
-    // Record first: if two runs overlap, only the one that recorded goes on.
-    const got = db.run("INSERT OR IGNORE INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", teamId, game.id, d.event, now);
-    if (!got.changes) continue;
-    if (d.late) { log.push(teamId + ": " + d.event + " noticed late, not sent"); continue; }
-    let scores = null;
-    if (d.event === "final") {
-      const base = CORE + "/events/" + game.id + "/competitions/" + game.comp + "/competitors/";
-      const us = await getJson(env, base + teamId + "/score"), them = await getJson(env, base + game.opponent.id + "/score");
-      scores = { us: scoreOf(us), them: scoreOf(them) };
-      if (scores.us == null || scores.them == null) {
-        const sg = fromSchedule || scheduleGame(await getJson(env, SITE + "/teams/" + teamId + "/schedule"), game.id);
-        if (sg) scores = { us: scoreOf(sg.scores[teamId]), them: scoreOf(sg.scores[game.opponent.id]) };
-      }
-    }
-    const data = JSON.stringify({ game, scores });
-    const n = db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data)" +
-                     " SELECT team_id, ?, ?, endpoint, 'due', 0, ?, ? FROM subs WHERE team_id = ?",
-                     game.id, d.event, now, data, teamId).changes;
-    log.push(teamId + ": " + d.event + " due for " + n);
+  const t = status.type || {}, x0 = { period: status.period || 0, clock: status.displayClock || null };
+  // While the game is on, its score each minute (round 2): announced first,
+  // so a quarter's alert never shows a score the fan has not had (§2b, 3).
+  let cur = null, told = null;
+  if (t.state === "in") {
+    cur = await liveScores(env, teamId, game, fromSchedule);
+    if (cur) for (const e of scoreStep(db, teamId, game, status, cur, now, /END_PERIOD|HALFTIME/.test(t.name || "")))
+      emit(db, teamId, game, e.event, e.scores, Object.assign({}, x0, e.x), now, log, !!e.late);
+    // The score the fans have been told: a close finish is judged on it, so
+    // it never arrives before the score that made the game close.
+    const row = db.all("SELECT st FROM live WHERE team_id = ? AND game_id = ?", teamId, game.id)[0];
+    told = row ? JSON.parse(row.st).base : null;
   }
+  // A delay is an alert each time play stops, not once a game or a quarter
+  // (Codex, #116): the game's "delayed now" mark, moved by compare-and-set,
+  // numbers each one.
+  const dk = "dly:" + teamId + ":" + game.id, dw = db.all("SELECT v FROM meta WHERE k = ?", dk)[0];
+  const dly = dw ? JSON.parse(dw.v) : { on: false, n: 0 }, delayed = /DELAY|SUSPENDED/.test(t.name || "") && t.state !== "post";
+  if (dly.on !== delayed) {
+    const nv = JSON.stringify({ on: delayed, n: dly.n + (delayed ? 1 : 0) });
+    const moved = dw ? db.run("UPDATE meta SET v = ? WHERE k = ? AND v = ?", nv, dk, dw.v).changes
+                     : db.run("INSERT OR IGNORE INTO meta (k, v) VALUES (?, ?)", dk, nv).changes;
+    if (moved && delayed) emit(db, teamId, game, "delay:" + (dly.n + 1), cur, x0, now, log, false);
+  }
+  for (const d of due(game, status, sent)) {
+    if (d.transition) continue;                          // handled just above
+    if (d.check && !(told && Math.abs(told.us - told.them) <= LIMITS.closeMargin)) continue;   // not close (yet)
+    let scores = cur;
+    if (d.event === "final") scores = await finalScores(env, teamId, game, fromSchedule);
+    else if (d.check) scores = told;
+    emit(db, teamId, game, d.event, scores, d.ended ? {} : x0, now, log, d.late);
+  }
+}
+
+// Record an event for the team's game once, then a delivery for each
+// follower whose options want it. Record first: if two runs overlap, only
+// the one that recorded goes on.
+function emit(db, teamId, game, ev, scores, x, now, log, late) {
+  if (!db.run("INSERT OR IGNORE INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", teamId, game.id, ev, now).changes) return;
+  if (late) { log.push(teamId + ": " + ev + " noticed late, not sent"); return; }
+  const data = JSON.stringify({ game, scores, x });
+  // A correction goes only to the devices that got the score it corrects,
+  // whatever their choices are now; that score, if still waiting to go
+  // anywhere, never goes (brief §2b, 5; Codex, #116).
+  let only = null;
+  if (/^fix/.test(ev)) {
+    only = new Set();
+    for (const of of (x && x.of) || []) {
+      // an earlier correction still on its way stands for the score it was
+      // correcting, which those devices did get: they get this one instead
+      // (Codex, #116)
+      const states = /^fix/.test(of) ? "('done', 'due', 'sending')" : "('done')";
+      for (const r of db.all("SELECT endpoint FROM deliveries WHERE team_id = ? AND game_id = ? AND event = ? AND state IN " + states, teamId, game.id, of)) only.add(r.endpoint);
+      db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'due'", teamId, game.id, of);
+    }
+  }
+  let n = 0;
+  for (const s of db.all("SELECT endpoint, opts FROM subs WHERE team_id = ?", teamId)) {
+    if (only) {
+      if (!only.has(s.endpoint)) continue;
+      n += db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES (?, ?, ?, ?, 'due', 0, ?, ?)",
+                  teamId, game.id, ev, s.endpoint, now, data).changes;
+      continue;
+    }
+    let o = null; try { o = s.opts ? validOptions(JSON.parse(s.opts)) : LEGACY; } catch (e) { o = null; }
+    if (!wants(o || LEGACY, ev, x)) continue;
+    n += db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES (?, ?, ?, ?, 'due', 0, ?, ?)",
+                teamId, game.id, ev, s.endpoint, now, data).changes;
+  }
+  log.push(teamId + ": " + ev + " due for " + n);
+}
+
+async function finalScores(env, teamId, game, fromSchedule) {
+  const base = CORE + "/events/" + game.id + "/competitions/" + game.comp + "/competitors/";
+  let scores = { us: scoreOf(await getJson(env, base + teamId + "/score")), them: scoreOf(await getJson(env, base + game.opponent.id + "/score")) };
+  if (scores.us == null || scores.them == null) {
+    const sg = fromSchedule || scheduleGame(await getJson(env, SITE + "/teams/" + teamId + "/schedule"), game.id);
+    if (sg) scores = { us: scoreOf(sg.scores[teamId]), them: scoreOf(sg.scores[game.opponent.id]) };
+  }
+  return scores;
+}
+// The score now, or null when ESPN gives no number for either side: a
+// missing score is never read as a change.
+async function liveScores(env, teamId, game, fromSchedule) {
+  const s = await finalScores(env, teamId, game, fromSchedule);
+  return s.us == null || s.them == null ? null : s;
+}
+
+function label(pts) {
+  return pts >= 6 && pts <= 8 ? "Touchdown" : pts === 3 ? "Field goal" : pts === 2 ? "Safety" : pts === 1 ? "Extra point" : null;
+}
+
+// One minute of the score (round 2). The state moves only by compare-and-
+// set on seq; a minute that loses the race announces nothing, and the next
+// minute sees the state the winner left.
+//   base  the last score announced (or folded in, or first seen)
+//   pend  a higher score waiting to hold for a minute (LIMITS.settle at most)
+//   per   the quarter last seen, and ps its last score - a quarter that ended
+//         between two looks still gets its alert, with its own score
+//   last  the last announcement, to fold an extra point into its touchdown
+export function scoreStep(db, teamId, game, status, cur, now, flush) {
+  const row = db.all("SELECT seq, st FROM live WHERE team_id = ? AND game_id = ?", teamId, game.id)[0];
+  const p = status.period || 0;
+  if (!row) {
+    // First look at this game in progress: what it is now is where alerts start.
+    db.run("INSERT OR IGNORE INTO live (team_id, game_id, seq, st) VALUES (?, ?, 0, ?)", teamId, game.id,
+           JSON.stringify({ base: cur, pend: null, per: p, ps: cur, last: null, seen: now }));
+    return [];
+  }
+  const st = JSON.parse(row.st), out = [], next = Object.assign({}, st, { per: Math.max(p, st.per || 0), ps: cur, seen: now });
+  // ESPN out of reach for longer than a live alert lives: what changed
+  // meanwhile is caught up silently, not announced late (Codex, #116).
+  const gap = st.seen && now - st.seen > LIMITS.liveLate;
+  if (st.per && p > st.per && st.per <= 3) out.push({ event: "end:" + st.per, scores: st.ps, x: { period: 0 } });
+  const b = st.base, moved = cur.us !== b.us || cur.them !== b.them;
+  // start again from what it is now: nothing announced before the gap can
+  // be corrected after it (Codex, #116)
+  if (gap) { next.base = cur; next.pend = null; next.last = null; next.hist = { us: [], them: [] }; }
+  else if (!moved) next.pend = null;
+  else if (cur.us < b.us || cur.them < b.them) {
+    // every announced score on each side that the new score takes back: the
+    // devices that got any of them get the correction (Codex, #116)
+    const h = { us: ((st.hist || {}).us || []).slice(), them: ((st.hist || {}).them || []).slice() }, of = [];
+    // Only the side that went down is corrected now; a side that went up in
+    // the same minute is left for the score rule to announce (Codex, #116).
+    const fixed = { us: Math.min(cur.us, b.us), them: Math.min(cur.them, b.them) };
+    for (const side of ["us", "them"]) {
+      let popped = false;
+      while (h[side].length && h[side][h[side].length - 1][1] > fixed[side]) { of.push(h[side].pop()[0]); popped = true; }
+      // the correction itself stands in for what it took back, so a second
+      // correction of the same score reaches the same devices (Codex, #116)
+      if (popped) h[side].push(["fix:" + (row.seq + 1), fixed[side]]);
+    }
+    next.hist = h;
+    out.push({ event: "fix:" + (row.seq + 1), scores: fixed, x: { lost: cur.us < b.us ? "us" : "them", ours: fixed.us !== b.us, of } });
+    next.base = fixed; next.pend = null; next.last = null;
+  } else {
+    const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
+    if (!(held || flush || (st.pend && now - st.pend.at >= LIMITS.settle))) {
+      next.pend = { us: cur.us, them: cur.them, at: st.pend ? st.pend.at : now };
+    } else {
+      const du = cur.us - b.us, dt = cur.them - b.them;
+      const scorer = du > 0 && dt === 0 ? "us" : dt > 0 && du === 0 ? "them" : "both";
+      const pts = scorer === "us" ? du : scorer === "them" ? dt : 0;
+      const fold = (pts === 1 || pts === 2) && st.last && st.last.kind === "td" && st.last.scorer === scorer && now - st.last.at <= LIMITS.fold;
+      if (fold) next.last = null;
+      else {
+        out.push({ event: "score:" + (row.seq + 1), scores: cur, x: { scorer, label: label(pts), ours: du > 0 } });
+        next.last = { kind: pts >= 6 ? "td" : "other", scorer, at: now };
+        const h = { us: ((st.hist || {}).us || []).slice(), them: ((st.hist || {}).them || []).slice() };
+        if (du > 0) h.us.push(["score:" + (row.seq + 1), cur.us]);
+        if (dt > 0) h.them.push(["score:" + (row.seq + 1), cur.them]);
+        next.hist = h;
+      }
+      next.base = cur; next.pend = null;
+    }
+  }
+  const won = db.run("UPDATE live SET seq = seq + 1, st = ? WHERE team_id = ? AND game_id = ? AND seq = ?",
+                     JSON.stringify(next), teamId, game.id, row.seq).changes;
+  if (gap) out.forEach(function (e) { e.late = true; });
+  return won ? out : [];
 }
 
 // Send what is due. Each follower's alert uses the team name their own app
@@ -340,27 +579,36 @@ async function detect(db, env, teamId, game, now, log) {
 async function deliver(db, env, teamId, now, log) {
   const due = db.all("SELECT d.game_id, d.event, d.endpoint, d.tries, d.at, d.data, s.team_name, s.p256dh, s.auth" +
                      " FROM deliveries d JOIN subs s ON s.endpoint = d.endpoint AND s.team_id = d.team_id" +
-                     " WHERE d.team_id = ? AND d.state = 'due'", teamId);
+                     " WHERE d.team_id = ? AND d.state = 'due' ORDER BY d.at, d.rowid", teamId);   // in the order they happened
   if (!due.length) return;
   const jwk = await vapidKey(db, env);
   const tally = {};
+  // A device whose earlier alert is still waiting to be retried gets
+  // nothing later until it goes, so a quarter's alert never arrives before
+  // the score that it carries (Codex, #116).
+  const held = new Set();
   for (const d of due) {
     const key = [teamId, d.game_id, d.event, d.endpoint];
     const t = tally[d.event] = tally[d.event] || { sent: 0, retry: 0, gone: 0, dropped: 0 };
-    if (d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) {
+    if ((d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) || (live(d.event) && now - d.at > LIMITS.liveLate)) {
       db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", ...key);
       t.dropped++; continue;
     }
+    if (held.has(d.endpoint)) { t.retry++; continue; }
     // Claim it, so an overlapping run cannot send it too.
     if (!db.run("UPDATE deliveries SET state = 'sending' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ? AND state = 'due'", ...key).changes) continue;
-    const x = JSON.parse(d.data), w = words(d.event, { id: teamId, name: d.team_name }, x.game, x.scores);
+    const x = JSON.parse(d.data), w = words(d.event, { id: teamId, name: d.team_name }, x.game, x.scores, x.x);
+    if (!w) { db.run("UPDATE deliveries SET state = 'failed' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", ...key); t.dropped++; continue; }
+    // Score, quarter and halftime alerts replace one another on the lock
+    // screen (one card per game, §2b 4); the phone still sounds each time.
+    const tag = live(d.event) ? d.game_id + "-live" : d.game_id + "-" + d.event;
     const code = await sendPush(env, jwk, { endpoint: d.endpoint, p256dh: d.p256dh, auth: d.auth },
-                                { title: w.title, body: w.body, url: APP_URL + "#game", tag: d.game_id + "-" + d.event }, now);
+                                { title: w.title, body: w.body, url: APP_URL + "#game", tag, renotify: live(d.event) }, now);
     let state;
     if (code >= 200 && code < 300) { state = "done"; t.sent++; }
     else if (code === 404 || code === 410) { state = "gone"; t.gone++; db.run("DELETE FROM subs WHERE endpoint = ?", d.endpoint); }
     else if (d.tries + 1 >= LIMITS.tries) { state = "failed"; t.dropped++; }
-    else { state = "due"; t.retry++; }
+    else { state = "due"; t.retry++; held.add(d.endpoint); }
     db.run("UPDATE deliveries SET state = ?, tries = tries + 1 WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", state, ...key);
   }
   Object.keys(tally).forEach(function (ev) {

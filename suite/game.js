@@ -26,6 +26,8 @@
        model.now         Date
        model.base        the route its views hang off: "#game" (default) or
                          "#schedule/<id>"
+       model.notes       TeamOS.notes.forGame() | null - the week's official
+                         game notes, only for the game they were written for
 
    The screen is written from the team's side: the team is always on the
    left, whoever is home. */
@@ -58,10 +60,14 @@ Suite.game = (function () {
     var ms = Date.parse(g.date) - now.getTime();
     if (!(ms > 0)) return "";
     var d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4);
-    function cell(n, l) { return '<span class="cd-cell"><span class="cd-n">' + n + '</span><span class="cd-l">' + l + "</span></span>"; }
+    // Each label with a short form, for a face too wide for the long one
+    // in the hero's middle column (fit(): "HOURSMINUTES", David 2026-10-07).
+    function cell(n, l, s) { return '<span class="cd-cell"><span class="cd-n">' + n + '</span><span class="cd-l"><span class="lbl-long">' + l +
+                                    '</span><span class="lbl-short">' + s + "</span></span></span>"; }
     return '<p class="gh-countdown" aria-label="Kickoff in ' + d + " days, " + h + " hours, " + m + ' minutes">' +
-           '<span aria-hidden="true">' + cell(d, d === 1 ? "Day" : "Days") + cell(h, h === 1 ? "Hour" : "Hours") +
-           cell(m, m === 1 ? "Minute" : "Minutes") + "</span></p>";
+           '<span aria-hidden="true">' + cell(d, d === 1 ? "Day" : "Days", d === 1 ? "Day" : "Days") +
+           cell(h, h === 1 ? "Hour" : "Hours", h === 1 ? "Hr" : "Hrs") +
+           cell(m, m === 1 ? "Minute" : "Minutes", "Min") + "</span></p>";
   }
 
   // Which side has the ball while it is live: the league's live state on the
@@ -121,11 +127,11 @@ Suite.game = (function () {
       center = '<div class="gh-center">' +
         (st === "upcoming" ? '<p class="gh-where">' + esc(where) + "</p>"
                            : '<span class="state-pill ' + st + '">' + esc(st) + "</span>") +
-        '<p class="gh-opp">' + esc(g.oppName) + "</p>" +
+        // Never an ellipsis: fit() shrinks it, then takes the abbreviation.
+        '<p class="gh-opp"><span class="go-full">' + esc(g.oppName) + '</span><span class="go-short">' + esc(g.oppAbbr || g.oppName) + "</span></p>" +
         '<p class="gh-when">' + esc(when) + (g.net && st !== "canceled" ? " · " + esc(g.net) : "") + "</p>" +
         (g.venue ? '<p class="gh-venue">' + esc([g.venue, [g.city, g.venueState].filter(Boolean).join(", ")].filter(Boolean).join(" · ")) + "</p>" : "") +
         (g.series ? '<p class="gh-series">' + esc(g.series) + "</p>" : "") +
-        (st === "upcoming" ? countdown(g, m.now) : "") +
         "</div>";
     } else {
       var top = st === "live" ? '<span class="live-pill">Live</span>'
@@ -144,6 +150,10 @@ Suite.game = (function () {
              ui.art({ photo: m.photo, name: m.team.name, abbr: m.team.abbr, markUrl: m.team.markUrl }) +
              '<div class="gh-inner">' +
                '<div class="gh-row" aria-hidden="true">' + teamBlock(m, true, st) + center + teamBlock(m, false, st) + "</div>" +
+               // The countdown under the matchup, the hero's full width: in
+               // the middle column its labels ran together in a wider face
+               // ("HOURSMINUTES", David 2026-10-07).
+               (st === "upcoming" ? countdown(g, m.now) : "") +
                // the conditions follow the game they describe, centred under
                // it (David, 2026-10-01: in the corner it read unbalanced)
                tertiary(g, st, m.weather) +
@@ -241,16 +251,50 @@ Suite.game = (function () {
     return card(title, body, sideToggle(m, m.side), "gcard-leaders");
   }
 
-  function seriesCard(g) {
-    if (!g.series) return "";
+  // Where the week's notes came from: their facts are the program's own,
+  // so each card carries the source and a link to the document.
+  function notesSource(notes) {
+    var s = notes.source, label = esc(s.label);
+    return '<p class="gn-src">From the game notes \u00b7 ' +
+           (s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + label + "</a>" : label) + "</p>";
+  }
+
+  function seriesCard(g, notes) {
+    var facts = notes && notes.glance.length ? notes.glance : null;
+    if (!g.series && !facts) return "";
     // The trophy, rivalry or series name, which the team's configuration
-    // verifies. No description: until a trustworthy rivalry source exists,
-    // nothing generic stands in for one (Game review, 2026-09-24). The trophy
-    // mark only for a trophy (W21): a rivalry name or a branded game (The
-    // Game, the Shamrock Series) has nothing to win.
-    return '<section class="card gcard series">' + (g.seriesKind === "trophy" ? '<span class="series-ic">' + TROPHY + "</span>" : "") +
-           '<p class="series-name">' +
-           esc(g.series.replace(/^Playing for (the )?/i, "")) + "</p></section>";
+    // verifies. The trophy mark only for a trophy (W21): a rivalry name or a
+    // branded game (The Game, the Shamrock Series) has nothing to win. Its
+    // story is the program's own, from the week's game notes ("Game Day at a
+    // Glance": the all-time series, the last meeting, the trophy) - the
+    // trustworthy source the 2026-09-24 Game review waited for. Without
+    // notes, the name alone: nothing generic stands in for them.
+    var name = g.series ? '<p class="series-name">' + esc(g.series.replace(/^Playing for (the )?/i, "")) + "</p>" : "";
+    if (!facts) {
+      return '<section class="card gcard series">' + (g.seriesKind === "trophy" ? '<span class="series-ic">' + TROPHY + "</span>" : "") +
+             name + "</section>";
+    }
+    return card("The series",
+      (name ? '<div class="series series-in">' + (g.seriesKind === "trophy" ? '<span class="series-ic">' + TROPHY + "</span>" : "") + name + "</div>" : "") +
+      '<ul class="gn-facts">' + facts.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") + "</ul>" +
+      notesSource(notes), "", "gcard-series");
+  }
+
+  // By the Numbers: the program's own weekly figures, the number big and the
+  // fact it counts beside it. The first six; the rest a tap away.
+  var NUMBERS_SHOWN = 6;
+  function numberItem(x) {
+    return '<li><span class="bn-n">' + esc(x.n) + '</span><span class="bn-t">' + esc(x.text) + "</span></li>";
+  }
+  function numbersCard(notes) {
+    var list = notes && notes.numbers;
+    if (!list || !list.length) return "";
+    var more = list.slice(NUMBERS_SHOWN);
+    return card("By the numbers",
+      '<ul class="bn-list">' + list.slice(0, NUMBERS_SHOWN).map(numberItem).join("") + "</ul>" +
+      (more.length ? '<details class="bn-more"><summary>' + "Show " + more.length + " more</summary>" +
+                     '<ul class="bn-list">' + more.map(numberItem).join("") + "</ul></details>" : "") +
+      notesSource(notes), "", "gcard-numbers");
   }
 
   function linescore(m) {
@@ -500,7 +544,7 @@ Suite.game = (function () {
   function body(m) {
     var g = m.game, v = m.view;
     if (m.lifecycle.phase === "pregame") {
-      return matchup(m) + leaders(m, "Leaders (season)") + seriesCard(g);
+      return matchup(m) + leaders(m, "Leaders (season)") + seriesCard(g, m.notes) + numbersCard(m.notes);
     }
     if (v === "drive") {
       var html = driveCard(m) + lastPlay(m) + linescore(m);
@@ -517,7 +561,13 @@ Suite.game = (function () {
   }
 
   // The names row follows ui.fitNames: never an ellipsis, both sides alike.
-  function fit(host) { ui.fitNames(host, ".gh-row", ".gh-name"); }
+  // The opponent's title shrinks to fit (to 18px, then its abbreviation),
+  // and the countdown's labels take their short forms when they must.
+  function fit(host) {
+    ui.fitNames(host, ".gh-row", ".gh-name");
+    ui.fitText(host, ".gh-opp", 18);
+    ui.fitLabels(host, ".gh-countdown > span");
+  }
 
   // One module draws the hero game on Game and any game opened from
   // Schedule, so what each host last received is remembered per host.

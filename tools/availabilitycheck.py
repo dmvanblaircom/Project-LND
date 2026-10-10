@@ -109,5 +109,41 @@ finally:
 ok(av == recorded, "availability.json is left as it was - never replaced with last week's report")
 ok("left as it was" in log, "and the run says so")
 
+print("a report recorded by an older reading is read again")
+def older_reading(path, empty):
+    d = real(path, empty)
+    if isinstance(d, dict) and "reports" in d:
+        d = dict(d, reports=[dict(r, parser=None) if r.get("game") == current else r for r in d["reports"]])
+    return d
+od.load = older_reading
+try:
+    _, _, log = run(set())
+finally:
+    od.load = real
+reread = [l for l in log.splitlines() if "reading game notes" in l]
+ok(len(reread) == 1, "only that week's notes are read again (%d read)" % len(reread))
+_, _, log = run(set())
+ok("reading game notes" not in log, "and a report from the current reading is reused, not fetched again")
+
+print("this week's notes facts will not read (Codex, #114)")
+import gamenotes                # noqa: E402
+saved_notes = (gamenotes.parse, gamenotes.PARSER)
+def broken(text):
+    raise ValueError("a section that will not read")
+gamenotes.parse, gamenotes.PARSER = broken, saved_notes[1] + 1      # a new reading, so the facts are read again
+try:
+    av, hist, log = run(set())
+    ok(av == recorded and hist == games, "a recorded report: availability as recorded, the history without a duplicate week")
+    ok("game notes not read; keeping last week's facts" in log, "and the run says the facts were kept")
+    od.load = without_current
+    try:
+        av, hist, log = run(set())
+    finally:
+        od.load = real
+    ok("availability skipped" not in log and av["game"] == current and hist[-1] == current and hist.count(current) == 1,
+       "a new report: still read and written, the notes failure never costs it")
+finally:
+    gamenotes.parse, gamenotes.PARSER = saved_notes
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "a failed fetch never costs the right report"))
 sys.exit(1 if failures else 0)

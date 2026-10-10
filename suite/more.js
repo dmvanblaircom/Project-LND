@@ -16,7 +16,7 @@
      Suite.more.news(host, { items: NewsItem[]|null, failed, fresh, team })
      Suite.more.settings(host, { team:{name,abbr,mark}, changeHref, style,
                                  updatedAt, refreshing, online, result,
-                                 alerts:{ support, on, busy, denied, note } })
+                                 alerts:{ support, on, busy, denied, note, opts, pick } })
      Suite.more.feedback(host, { href, address })
      Suite.more.about(host, { version, sources: Source[] })              */
 
@@ -199,10 +199,39 @@ Suite.more = (function () {
     put(host, "settings", team + style + gameAlerts(m) + data);   // keeps the fan's focus (put)
   }
 
-  // Game alerts (W19): kickoff and final for this team, pushed by the edge
-  // API. Provisional until Codex designs the opt-in row (notifications brief
-  // §3); it says plainly when this device cannot get them, and why. The
-  // button is the only thing that ever asks the browser for permission.
+  // Game alerts (W19; round 2 per the notifications brief §2b, David
+  // 2026-10-09): on or off for this team, and once on, the fan's choice of
+  // alerts - quick picks that set the switches and step aside, one choice
+  // for scoring, a switch for everything else. It says plainly when this
+  // device cannot get them, and why. The Turn On button is the only thing
+  // that ever asks the browser for permission.
+  var PICKS = [["everything", "Everything"], ["key", "Key moments"], ["final", "Final only"]];
+  var SWITCHES = {
+    game: [["kickoff", "Kickoff"], ["final", "Final score"], ["delays", "Delays & postponements"]],
+    updates: [["quarters", "End of each quarter"], ["halftime", "Halftime score"],
+              ["close", "Close finish", "One alert when it\u2019s a one-score game late in the 4th, and if it goes to overtime"]]
+  };
+  var SCORING = [["off", "Off"], ["mine", "My team\u2019s scores"], ["all", "Every score"]];
+  function alertSwitch(o, sw) {
+    return '<label class="al-row"><span class="al-text"><span class="al-name">' + esc(sw[1]) + "</span>" +
+           (sw[2] ? '<span class="al-sub">' + esc(sw[2]) + "</span>" : "") + "</span>" +
+           '<input type="checkbox" role="switch" class="al-switch" name="alert-' + sw[0] + '" data-alert-opt="' + sw[0] + '"' +
+           (o[sw[0]] ? " checked" : "") + "></label>";
+  }
+  function alertOptions(a) {
+    var o = a.opts;
+    return '<div class="al-opts">' +
+      '<div class="al-picks" role="group" aria-label="Quick picks">' + PICKS.map(function (p) {
+        return '<button type="button" class="al-pick" data-alert-pick="' + p[0] + '" aria-pressed="' + (a.pick === p[0]) + '">' + esc(p[1]) + "</button>";
+      }).join("") + "</div>" +
+      '<fieldset class="al-set"><legend class="al-legend">Game</legend>' + SWITCHES.game.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
+      '<fieldset class="al-set"><legend class="al-legend">Scoring</legend><div class="al-seg">' + SCORING.map(function (c) {
+        return '<label class="al-choice"><input type="radio" name="alertScoring" value="' + c[0] + '"' + (o.scoring === c[0] ? " checked" : "") +
+               "><span>" + esc(c[1]) + "</span></label>";
+      }).join("") + "</div></fieldset>" +
+      '<fieldset class="al-set"><legend class="al-legend">Updates</legend>' + SWITCHES.updates.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
+      '<p class="al-help">If alerts don\u2019t arrive, allow Suite in your Focus settings.</p></div>';
+  }
   function gameAlerts(m) {
     var a = m.alerts;
     if (!a) return "";
@@ -210,16 +239,17 @@ Suite.more = (function () {
     if (a.support === "install") {
       body = '<div class="st-row st-action"><span class="st-note">To get game alerts on iPhone or iPad, add Suite to your Home Screen, then turn them on here.</span></div>';
     } else if (a.support !== "ok") {
-      body = '<div class="st-row st-action"><span class="st-note">This browser can’t receive game alerts.</span></div>';
+      body = '<div class="st-row st-action"><span class="st-note">This browser can\u2019t receive game alerts.</span></div>';
     } else if (a.denied && !a.on) {
-      body = '<div class="st-row st-action"><span class="st-note">Notifications are off for Suite in this device’s settings. Allow them there, then come back.</span></div>';
+      body = '<div class="st-row st-action"><span class="st-note">Notifications are off for Suite in this device\u2019s settings. Allow them there, then come back.</span></div>';
     } else {
-      var note = a.note || (a.on ? "You’ll get a notification when " + name + " kicks off and when the game ends."
-                                 : "A notification when " + name + " kicks off and when the game ends.");
-      body = '<div class="st-row"><span class="st-k">Kickoff and Final</span><span class="st-v" data-st="alerts">' + (a.on ? "On" : "Off") + "</span></div>" +
+      var note = a.note || (a.on ? "Choose which " + name + " alerts this device gets."
+                                 : "Notifications for " + name + " games: kickoff and the final to start, and scores, quarters and close finishes if you want them.");
+      body = '<div class="st-row"><span class="st-k">' + esc(name) + ' alerts</span><span class="st-v" data-st="alerts">' + (a.on ? "On" : "Off") + "</span></div>" +
         '<div class="st-row st-action"><span class="st-note" data-st="alerts-note">' + esc(note) + "</span>" +
         '<button type="button" class="btn btn-secondary" data-alerts="' + (a.on ? "off" : "on") + '"' + (a.busy ? ' aria-disabled="true"' : "") + ">" +
-        (a.busy ? (a.on ? "Turning Off…" : "Turning On…") : (a.on ? "Turn Off" : "Turn On")) + "</button></div>";
+        (a.busy ? (a.on ? "Turning Off\u2026" : "Turning On\u2026") : (a.on ? "Turn Off" : "Turn On")) + "</button></div>" +
+        (a.on && a.opts ? alertOptions(a) : "");
     }
     return group("alerts", "Game Alerts", body);
   }

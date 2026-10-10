@@ -174,9 +174,11 @@ function sourceKey(url){
   if(/scoreboard/.test(url)) return "scoreboard";
   if(url===TeamOS.espn.rankingsUrl()) return "rankings";
   if(url===TeamOS.espn.rosterUrl(TEAM_CONFIG)) return "roster";
-  var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability");
+  var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability"),
+      gn=TeamOS.snapshots.get(TEAM_CONFIG,"notes");
   if(dep && url.split("?")[0]===dep.file) return "depth";
   if(av && url.split("?")[0]===av.file) return "availability";
+  if(gn && url.split("?")[0]===gn.file) return "notes";
   if(/odds-(title|playoff)\.json|kalshi/i.test(url)) return "odds";
   if(/open-meteo/.test(url)) return "weather";
   var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
@@ -405,7 +407,9 @@ function loadRankings(){
 // (decision 0024 §12): a capability the team's config declares.
 function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }
 // Every team each event prices, for Season Outlook's "View full field" (W18).
-var MARKET_FIELD = { title:null, playoff:null };
+// settled/failed are per market: the full field says loading, failed or "no
+// open market" for each view on its own.
+var MARKET_FIELD = { title:null, playoff:null, settled:{}, failed:{} };
 
 function loadStrip(){
   // A team Kalshi takes no market on has no Season Outlook (decision 0024 §12).
@@ -418,12 +422,30 @@ function loadStrip(){
       var p = m ? TeamOS.markets.price(m) : null;
       MARKET_FIELD[q.key] = TeamOS.markets.field(d, TEAM_CONFIG, q.key);
       var o = SRC.odds||{};
+      MARKET_FIELD.settled[q.key] = { asOf:o.fetchedAt||null, cached:!!o.cached };
+      MARKET_FIELD.failed[q.key] = false;
       HOME.markets[q.key] = p==null ? null
         : { value:p, previous:TeamOS.markets.previous(m), asOf:o.fetchedAt||null, cached:!!o.cached };
-      paintHome();
+      paintHome(); paintOutlook();
       return { key:"odds-"+q.key, outcome: o.cached ? "cached" : "network" };
-    }, function(){ return { key:"odds-"+q.key, outcome:"failed" }; });
+    }, function(){
+      // A failed refresh keeps the field already drawn; it fails only a
+      // field that never loaded.
+      MARKET_FIELD.failed[q.key] = !MARKET_FIELD[q.key];
+      paintOutlook();
+      return { key:"odds-"+q.key, outcome:"failed" };
+    });
   }));
+}
+// Season Outlook's full field (suite/outlook.js): the view's market, whole.
+function paintOutlook(){
+  var host=$("screenOutlook");
+  if(!host || host.hidden) return;
+  var view=Suite.nav.current().view==="title" ? "title" : "playoff";
+  var s=MARKET_FIELD.settled[view];
+  Suite.outlook.paint(host, { team:{ name:TEAM.name }, view:view, covered:hasKalshi(),
+    field:MARKET_FIELD[view], loading:!s && !MARKET_FIELD.failed[view], failed:!!MARKET_FIELD.failed[view],
+    offline:navigator.onLine===false, asOf:s ? s.asOf : null, stale:!!(s && s.cached) });
 }
 
 
@@ -511,11 +533,13 @@ function paintRoster(){
 function rosterModel(route, views){
   var view=views.some(function(v){ return v.id===route.view; }) ? route.view : views[0].id;
   function failed(k){ return !roHas(k) && !!roState(k).failed; }
+  var today=TeamOS.game.localDay(new Date(), TEAM.timeZone);   // a report's game day past: it marks nobody out
   return {
     views: views, view: view, unit: route.path[1] || null,
     hasDepth: !!rosterSnap("depth"),
-    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail, RO.histRaw) : null,
-    history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart) : null, query: RO.q,
+    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail, RO.histRaw, today) : null,
+    history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart, today) : null, query: RO.q,
+    notes: NOTES.model,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
     fresh: TeamOS.freshness.summary(rosterFreshSources(view), { now:new Date(), online: navigator.onLine!==false })
@@ -948,6 +972,10 @@ function paintHome(){
     news: HOME.news,
     schedule: TeamOS.game.schedulePreview(S.games, now, TEAM.timeZone),
     outlook: TeamOS.outlook.metrics(HOME.markets),
+    // the next round number of all-time wins, when one is near (W: 1,000th)
+    milestone: S.games ? TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now) : null,
+    // By the Numbers, while the notes are this week's game's
+    numbers: (TeamOS.notes.forGame(NOTES.model, g) || {}).numbers || null,
     fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),
                                     { now:now, online: navigator.onLine!==false })
   });
@@ -995,8 +1023,12 @@ window.addEventListener("online",  function(){
   // week's opponent (Codex review, #84).
   if(!$("screenStats").hidden && statsView()==="team" && (ST.outcome!=="network" || (ST.oppFor && !ST.them))) loadStats(true);
   if(!$("screenStats").hidden && statsView()==="players" && PL.outcome!=="network") loadPlayers(true);
+  // So did the full field: a market that never loaded is asked again
+  // (Codex review, #109).
+  if(MARKET_FIELD.failed.title || MARKET_FIELD.failed.playoff) loadStrip();
+  paintOutlook();
 });
-window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); });
+window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); paintOutlook(); });
 
 /* ---------- Game (canonical) ---------- */
 // The Game screen is the hero game - the one TeamOS rule Home and the nav
@@ -1023,7 +1055,9 @@ function gameModel(V, g, lc, view, base){
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
     photo:ID.art, game:g, detail:V.gd, lifecycle:lc, base:base,
     view: view || lc.defaultView, preview:V.preview, side:V.side, open:V.open,
-    weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date()
+    weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date(),
+    // this game's facts from the week's notes: only the game they were written for
+    notes: TeamOS.notes.forGame(NOTES.model, g)
   };
 }
 function paintGame(){
@@ -1179,7 +1213,7 @@ $("scheduleList").addEventListener("pointerdown", function(e){
 // other half: which host a screen shows, and what it loads on entry. UI.tab
 // names the screen's family, for what Refresh Data reloads.
 var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"roster", more:"more", schedule:"schedule",
-                news:"more", stats:"more", settings:"more", feedback:"more", about:"more" };
+                news:"more", stats:"more", settings:"more", feedback:"more", about:"more", outlook:"home" };
 // More and the destinations it owns, each its own host (suite/more.js).
 var MORE_HOSTS={ more:"screenMore", news:"screenNews", stats:"screenStats", settings:"screenSettings", feedback:"screenFeedback", about:"screenAbout" };
 function showScreen(route){
@@ -1198,7 +1232,9 @@ function showScreen(route){
   $("screenTop25").hidden=!top25;
   $("screenSchedule").hidden=!sched;
   $("screenRoster").hidden=!roster;
+  $("screenOutlook").hidden=route.screen!=="outlook";
   if(home){ paintHome(); loadNews(); }
+  if(route.screen==="outlook") paintOutlook();
   if(MORE_HOSTS[route.screen]){ askVersion(); paintMore(); if(route.screen==="news") loadNews(); if(route.screen==="stats"){ if(route.view==="players") loadPlayers(); else loadStats(); } }
   if(game) paintGame();
   if(top25){ paintTop25(); loadTop25(); }
@@ -1374,8 +1410,29 @@ function loadTeamStatus(){
     return { key:"team", outcome:"network" };
   }).catch(function(){ return { key:"team", outcome:"failed" }; });
 }
+/* ---------- the week's game notes (David, 2026-10-09) ---------- */
+// Pronunciations, captains and honors for Roster; the series facts and By
+// the Numbers for Home and Game, from the team's own notes snapshot
+// (TeamOS.notes). A team that declares none has none; a failed fetch keeps
+// what was shown.
+var NOTES={ model:null, p:null };
+function loadNotes(){
+  var snap=TeamOS.snapshots.get(TEAM_CONFIG, "notes");
+  if(!snap) return Promise.resolve(null);
+  if(NOTES.p) return NOTES.p;
+  // An answer that is not this team's notes is a failure, and the worker's
+  // kept copy is "cached", not a refresh (Codex, #114).
+  function model(d){ return TeamOS.notes.model(roOurs(d), TEAM_CONFIG); }
+  NOTES.p=get(snap.file+"?t="+Date.now(), model).then(function(d){
+    NOTES.model=model(d); paintHome(); paintGame(); paintRoster();
+    return { key:"notes", outcome:outcomeOf("notes") };
+  }, function(){ return { key:"notes", outcome:"failed" }; });
+  NOTES.p.then(function(){ NOTES.p=null; });
+  return NOTES.p;
+}
 function load(){
   loadTeamStatus();
+  loadNotes();
 
   loadStrip();
   return refreshSchedule(true);
@@ -1584,6 +1641,7 @@ function refreshAll(silent){
   T25.at=0;
   if(!silent) say("Refreshing…");
   var steps=[loadTeamStatus(), refreshSchedule(false), loadStrip(), loadNews(true)];
+  if(TeamOS.snapshots.get(TEAM_CONFIG, "notes")) steps.push(loadNotes());
   if(SB.data || SB.p) steps.push(getScoreboard(0).then(function(){ return { key:"scoreboard", outcome:outcomeOf("scoreboard") }; },
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
@@ -1605,6 +1663,11 @@ function refreshAll(silent){
   });
   FRESH.at=Date.now();
   return Promise.all(steps).then(function(r){
+    // The schedule and the scoreboard answer in either order, and the
+    // schedule reconciles only with the scoreboard it found: so once both
+    // are in, reconcile again - this week's opponent's record and rank, and
+    // a game the scoreboard already calls under way (W10).
+    if(SB.games) scoreboardArrived();
     var flat=[]; (function add(x){ if(Array.isArray(x)) x.forEach(add); else if(x && x.outcome) flat.push(x); })(r);
     return flat;
   });
@@ -1752,12 +1815,41 @@ document.addEventListener("click", function(e){
 Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); }); });
 
 /* ---------- Game alerts (W19) ---------- */
-// Kickoff and final for this team, pushed by the edge API (worker/src/push.js)
-// to this device. Nothing is asked of the browser until the fan taps Turn On
-// in Settings (notifications brief §3). Whether this device turned them on
-// for this team is kept here; the Worker keeps the subscription itself.
-var ALERTS={ busy:false, note:null };
-var ALERT_KEY="iw-alerts-"+TEAM.id;
+// This team's alerts, pushed by the edge API (worker/src/push.js) to this
+// device. Nothing is asked of the browser until the fan taps Turn On in
+// Settings (notifications brief §3). Whether this device turned them on for
+// this team, and its choice of alerts (round 2, §2b), are kept here; the
+// Worker keeps the subscription and a copy of the choice.
+var ALERTS={ busy:false, note:null, sync:null, chain:Promise.resolve() };
+var ALERT_KEY="iw-alerts-"+TEAM.id, ALERT_OPTS_KEY="iw-alert-opts-"+TEAM.id;
+var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false };
+// Quick picks set the switches, then step aside (§2b): one shows as chosen
+// only while every switch matches it. Final only keeps delays, because a
+// postponed game has no final.
+var ALERT_PICKS={
+  everything:{ kickoff:true, final:true, delays:true, scoring:"all", quarters:true, halftime:true, close:true },
+  key:{ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:true, close:true },
+  final:{ kickoff:false, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false } };
+function alertOpts(){
+  var o={}, saved=null;
+  try{ saved=JSON.parse(localStorage.getItem(ALERT_OPTS_KEY)||"null"); }catch(e){}
+  // Alerts turned on before there were choices: what that device has had
+  // all along - kickoff, final, and word of a postponement - with the new
+  // in-game Delays off until the fan turns them on (the noise rule; Codex,
+  // #116). `outcomes` keeps the postponement alerts it already had.
+  var base=!saved && alertsOnHere() ? Object.assign({}, ALERT_DEFAULTS, { delays:false, outcomes:true }) : ALERT_DEFAULTS;
+  Object.keys(ALERT_DEFAULTS).forEach(function(k){ o[k]=saved && saved[k]!=null ? saved[k] : base[k]; });
+  if((saved ? saved.outcomes : base.outcomes)===true) o.outcomes=true;
+  if(["off","mine","all"].indexOf(o.scoring)<0) o.scoring="off";
+  return o;
+}
+function saveAlertOpts(o){ try{ localStorage.setItem(ALERT_OPTS_KEY, JSON.stringify(o)); }catch(e){} }
+function alertsAnyOn(o){ return o.kickoff||o.final||o.delays||o.quarters||o.halftime||o.close||o.scoring!=="off"; }
+function alertPick(o){
+  return Object.keys(ALERT_PICKS).filter(function(k){
+    var p=ALERT_PICKS[k]; return Object.keys(p).every(function(x){ return p[x]===o[x]; });
+  })[0]||null;
+}
 function alertSupport(){
   var ios=/iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
   var installed=navigator.standalone===true || (window.matchMedia && matchMedia("(display-mode: standalone)").matches);
@@ -1770,8 +1862,9 @@ function alertsModel(){
   var support=alertSupport(), granted=support==="ok" && Notification.permission==="granted";
   // On only while this device can still get them: permission taken back in
   // the device's settings reads Off, not a promise nothing will keep.
+  var opts=alertOpts();
   return { support:support, on:granted && alertsOnHere(), busy:ALERTS.busy, note:ALERTS.note,
-           denied: support==="ok" && Notification.permission==="denied" };
+           denied: support==="ok" && Notification.permission==="denied", opts:opts, pick:alertPick(opts) };
 }
 // A subscription the browser has dropped on its own (iOS can, even while
 // the installed app sits suspended) is not on: checked at start, each time
@@ -1821,24 +1914,35 @@ function alertsTurnOn(){
       return old;
     }).then(function(old){ return old || reg.pushManager.subscribe({ userVisibleOnly:true, applicationServerKey:key }); });
   }).then(function(sub){
-    return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:{ id:String(TEAM_CONFIG.sources.espn.teamId), name:TEAM.name } });
+    // Turning on with nothing chosen starts from the defaults again.
+    // Kept here now, so this device is never mistaken for one from before
+    // there were choices.
+    var o=alertOpts(); if(!alertsAnyOn(o)) o=Object.assign({}, ALERT_DEFAULTS);
+    saveAlertOpts(o);
+    return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:o });
   }).then(function(r){
     if(r.status!==200) throw { why:"server" };
     alertsDone(r.body.confirmation==="sent" ? "Game alerts are on. A test alert is on its way."
-                                           : "Game alerts are on, but the test alert didn’t go through. Try Turn Off, then Turn On.", true);
+             : r.body.confirmation==="updated" ? "Game alerts are on."
+             : "Game alerts are on, but the test alert didn’t go through. Try Turn Off, then Turn On.", true);
   }).catch(function(e){
     alertsDone(e && e.why==="denied" ? "Notifications weren’t allowed, so game alerts are off."
                                      : "Couldn’t turn on game alerts. Check your connection and try again.", false);
   });
 }
-function alertsTurnOff(){
+function alertsTurnOff(why){
   ALERTS.busy=true; ALERTS.note=null; paintMore();
-  navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
+  // A choice not yet sent is dropped, and one already on its way is let
+  // finish first, so it can never sign the device up again after this
+  // (Codex, #116).
+  clearTimeout(ALERTS.sync); ALERTS.sync=null;
+  ALERTS.chain.catch(function(){}).then(function(){ return navigator.serviceWorker.ready; })
+  .then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
     if(!sub) return { status:200 };
     return postEdge("/v1/push/unsubscribe", { endpoint:sub.endpoint, team:{ id:String(TEAM_CONFIG.sources.espn.teamId) } });
   }).then(function(r){
     if(r.status!==200) throw new Error("server");
-    alertsDone("Game alerts are off.", false);
+    alertsDone(typeof why==="string" ? why : "Game alerts are off.", false);
   }).catch(function(){
     alertsDone("Couldn’t turn off game alerts. Check your connection and try again.", null);
   });
@@ -1847,6 +1951,65 @@ document.addEventListener("click", function(e){
   var b=e.target.closest && e.target.closest("[data-alerts]");
   if(!b || ALERTS.busy || alertSupport()!=="ok") return;
   if(b.getAttribute("data-alerts")==="on") alertsTurnOn(); else alertsTurnOff();
+});
+function alertTeam(){ return { id:String(TEAM_CONFIG.sources.espn.teamId), name:TEAM.name }; }
+// A change of choice: kept here at once, sent to the Worker a moment later
+// (one request for a run of taps), and said when it is saved. Everything
+// switched off is alerts off (§2b), and the screen says so.
+function alertsChoose(o){
+  saveAlertOpts(o);
+  if(!alertsAnyOn(o)){
+    clearTimeout(ALERTS.sync); ALERTS.sync=null;
+    alertsTurnOff("No alerts selected, so Game Alerts are off.");
+    return;
+  }
+  ALERTS.note=null; paintMore();
+  clearTimeout(ALERTS.sync);
+  ALERTS.sync=setTimeout(function(){
+    ALERTS.sync=null;
+    if(ALERTS.busy || !alertsOnHere()) return;             // turned off meanwhile: nothing to save
+    // One save at a time, in order, and Turn Off waits for all of them, so
+    // an older save can never arrive after the unsubscribe (Codex, #116).
+    var saving=ALERTS.chain=ALERTS.chain.catch(function(){}).then(function(){
+      if(ALERTS.busy || !alertsOnHere()) return { skipped:true };
+      return navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
+        if(!sub) throw new Error("gone");
+        return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:alertOpts() });
+      });
+    });
+    saving.then(function(r){
+      if(r && r.skipped) return;
+      if(ALERTS.busy || !alertsOnHere()) return;           // the fan has turned them off since: say nothing
+      if(r.status!==200) throw new Error("server");
+      ALERTS.note="Saved. "+alertsSummary(alertOpts()); paintMore(); say(ALERTS.note);
+    }).catch(function(){
+      if(ALERTS.busy || !alertsOnHere()) return;
+      ALERTS.note="Couldn’t save your choice. Check your connection and change it again."; paintMore(); say(ALERTS.note);
+    });
+  }, 600);
+}
+function alertsSummary(o){
+  var n=["kickoff","final","delays","quarters","halftime","close"].filter(function(k){ return o[k]; }).length+(o.scoring!=="off"?1:0);
+  return n+(n===1?" kind of alert":" kinds of alerts")+" on.";
+}
+document.addEventListener("change", function(e){
+  var t=e.target; if(!t || !t.closest || !t.closest("#screenSettings .al-opts")) return;
+  var o=alertOpts();
+  if(t.getAttribute("data-alert-opt")){
+    o[t.getAttribute("data-alert-opt")]=!!t.checked;
+    // Delays & postponements off means postponements too, for a device
+    // that kept them from before there were choices (Codex, #116).
+    if(t.getAttribute("data-alert-opt")==="delays") delete o.outcomes;
+  }
+  else if(t.name==="alertScoring") o.scoring=t.value;
+  else return;
+  alertsChoose(o);
+});
+document.addEventListener("click", function(e){
+  var b=e.target.closest && e.target.closest("[data-alert-pick]");
+  if(!b || ALERTS.busy) return;
+  var p=ALERT_PICKS[b.getAttribute("data-alert-pick")]; if(!p) return;
+  alertsChoose(Object.assign({}, p));
 });
 
 // How long data may sit before a silent refresh: on return to a tab that was
@@ -1858,15 +2021,28 @@ document.addEventListener("visibilitychange", function(){
   FRESH.hiddenAt=null;
   if(away>FRESH.afterHidden || Date.now()-FRESH.at>FRESH.whileVisible) refreshAll(true);
 });
+// Kickoff has come and gone but our snapshot still calls the game upcoming.
+// Nothing else would notice for up to half an hour: startAuto() only runs
+// after a fetch, and without a fetch there is no fetch. So look - every
+// minute for the first ten minutes past kickoff, when the game is most
+// likely starting, then every five while a delay drags on (a weather hold
+// can be hours: a minute's poll for all of it is wasted requests, W10), and
+// after eight hours stop: the half-hour refresh covers a game that never
+// started. Pure, so pollcheck can ask it.
+var LATE_KICKOFF={ at:0 };
+function lateKickoffDue(next, now, lastAt){
+  if(!next || next.state!=="pre" || !next.timeSet) return false;
+  var past=now-new Date(next.date).getTime();
+  if(!(past>=0) || past>8*3600e3) return false;
+  var every=past<10*60e3 ? 60e3 : 5*60e3;
+  return now-lastAt >= every-1000;                 // a tick's jitter never skips a turn
+}
 setInterval(function(){
   if(document.hidden) return;
   if(somethingLive()) return;                      // the live poller is already refreshing
 
-  // Kickoff has come and gone but our snapshot still calls the game upcoming.
-  // Nothing else would notice for up to half an hour: startAuto() only runs
-  // after a fetch, and without a fetch there is no fetch. Look once.
-  if(S.next && S.next.state==="pre" && S.next.timeSet &&
-     Date.now() >= new Date(S.next.date).getTime()){
+  if(lateKickoffDue(S.next, Date.now(), LATE_KICKOFF.at)){
+    LATE_KICKOFF.at=Date.now();
     refreshSchedule(false);
     return;
   }

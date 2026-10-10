@@ -65,6 +65,10 @@ Suite.nav = (function () {
     schedule: { title: "Schedule", owner: "more",
                 views: [{ id: "schedule", label: "Schedule" }, { id: "results", label: "Results" }],
                 item: /^[0-9]+$/, itemHero: true, itemTitle: "Game" },
+    // Season Outlook's full field (W18): Home's, reached from its Season
+    // Outlook section, so Home stays selected. Playoff | National Title.
+    outlook:  { title: "Season Outlook", owner: "home",
+                views: [{ id: "playoff", label: "Playoff" }, { id: "title", label: "National Title" }] },
     // More's other destinations (reference 10), each a secondary destination
     // that keeps More selected (decision 0028).
     news:     { title: "News",        owner: "more" },
