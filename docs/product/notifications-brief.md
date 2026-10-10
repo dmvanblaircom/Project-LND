@@ -77,7 +77,11 @@ team only, quarter score, halftime score, close finish, and final only + any
 others you recommend. Also an easy way for all to be selected. Edge cases
 should be considered for UX."* **Status: approved by David, 2026-10-09, as
 written, plus "Kickoff time set" (moved up from "Other alerts" below).**
-Built after Saturday's live test proves kickoff and final.
+**Built October 9 for the October 10 games** (David: "Built tonight"),
+except Kickoff time set and the both-teams-in-one-game case, which no
+October 10 game needs. Gates: `tools/workercheck.mjs` replays a real game's
+scoring minute by minute for four kinds of fan; `tools/alertscheck.js`
+drives Settings in a browser.
 
 ### The settings screen (Settings → Game Alerts, for the active team)
 

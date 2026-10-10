@@ -7,7 +7,7 @@ David requested a complete reconciliation and prioritization, removing completed
 ## Claude's next, in David's order (October 9)
 
 1. **Game notes quick wins** (`docs/product/game-notes-features.md`): pronunciation guide, captain and honors badges, the series history card, By the Numbers. Shipped October 9 (see below).
-2. **Notifications round 2:** the alert options in `docs/product/notifications-brief.md` §2b, approved by David on October 9 as written plus "Kickoff time set". Built after the October 10 test.
+2. **Notifications round 2:** the alert options in `docs/product/notifications-brief.md` §2b, approved by David on October 9 as written plus "Kickoff time set". Built October 9 for the October 10 games (David: "Built tonight"); Kickoff time set and the both-teams-in-one-game case follow.
 3. **W16:** the offseason screens, due mid-November.
 4. **W07 SP+:** unblocked; Bill approved the top 25 with ranks and ratings on October 1 (`rankings-sources.md`).
 

@@ -25,7 +25,14 @@ keys server-side, fetches, caches, and returns only what a screen shows.
   (only from Suite's origin), and `GET /v1/push/status` (counts, watched
   games, events sent, the last minute's log; nothing about any fan). A cron
   every minute checks the followed teams'
-  games: kickoff and final, once each, by Web Push. Storage is one Durable
+  games and sends each follower the alerts they chose, once each, by Web
+  Push. A subscription carries its `options` (round 2, notifications brief
+  §2b: kickoff, final, delays, scoring off / my team / every score, end of
+  each quarter, halftime, close finish and overtime); one made before them
+  gets kickoff, final and delays. While a game is on, its score is read
+  each minute; see the comment at the top of `push.js` for the rules (a
+  score held a minute, extra points folded in, corrections, late alerts
+  dropped, one lock-screen card per game). Storage is one Durable
   Object with SQLite (`Alerts`, created by the deploy's migration). The VAPID
   key pair is made on first use and kept there, unless a
   `VAPID_PRIVATE_JWK` Worker secret is set.

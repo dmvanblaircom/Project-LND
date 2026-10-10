@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-09gn2";
+var VERSION = "suite-2026-10-09al1";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -355,14 +355,16 @@ function withHeader(res, name, value) {
   });
 }
 
-// Game alerts (W19): the edge API pushes kickoff and final for the fan's
-// team (worker/src/push.js). Show it as sent - the Worker wrote the words
+// Game alerts (W19): the edge API pushes the alerts the fan chose for
+// their team (worker/src/push.js). Show it as sent - the Worker wrote the words
 // from TeamOS's names and ESPN's status - and open Suite when it is tapped.
 self.addEventListener("push", function (e) {
   var d = {};
   try { d = e.data ? e.data.json() : {}; } catch (err) { d = { body: e.data ? e.data.text() : "" }; }
   e.waitUntil(self.registration.showNotification(d.title || "Suite", {
     body: d.body || "", tag: d.tag || undefined, icon: "assets/suite/icon-192.png",
+    // a score replaces the last one on the lock screen, and still sounds
+    renotify: !!(d.renotify && d.tag),
     data: { url: d.url || "" }
   }));
 });
