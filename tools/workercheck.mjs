@@ -746,6 +746,11 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
     for (const [m, us, them] of [[0, 0, 0], [1, 6, 0], [2, 6, 0], [3, 6, 2], [4, 6, 2]])
       for (const e of scoreStep(db3, "87", g, { period: 2, displayClock: "5:00" }, { us, them }, T0 + m * 60e3, false, null)) h3.push(words(e.event, team, g, e.scores, e.x).title);
     eq(h3, ["Notre Dame TD", "Stanford scores"], "a defensive two-point return is not a safety"); }
+  { // ... nor when ESPN shows the failed try in the same look as the return (Codex, #119).
+    const dbr = dbOf(), hr = [], fail = [pl(2, "J. Walton run for 97 yds, for a TD (Two-Point Pass Conversion Failed)", 6)];
+    for (const [m, us, them, list] of [[0, 0, 0, null], [1, 6, 0, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]], [2, 6, 2, fail], [3, 6, 2, fail]])
+      for (const e of scoreStep(dbr, "87", g, { period: 2, displayClock: "5:00" }, { us, them }, T0 + m * 60e3, false, sum(list || []))) hr.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(hr, ["Notre Dame TD (14:48 2nd)", "Notre Dame 2-pt failed (14:48 2nd)", "Stanford scores"], "a failed try and its return in one look: the miss, then Stanford's two, not a safety"); }
 
   { // The miss shows up only once Stanford has run the kickoff back: the miss is still told, first (Codex, #119).
     const db4 = dbOf(), h4 = [], miss = [pl(2, null, 6)];

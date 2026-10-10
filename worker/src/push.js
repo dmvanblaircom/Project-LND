@@ -657,6 +657,8 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
   // meanwhile is caught up silently, not announced late (Codex, #116).
   const gap = st.seen && now - st.seen > LIMITS.liveLate;
   if (st.per && p > st.per && st.per <= 3) out.push({ event: "end:" + st.per, scores: st.ps, x: { period: 0 } });
+  // the touchdown whose try is out, or was just told missed (LIMITS.fold)
+  const tryBefore = awaitingTry(st, now) ? st.tryq : st.tried && now - st.tried.at <= LIMITS.fold ? st.tried : null;
   // Announce a score from b to c: who, what, and the play behind it.
   function announce(b, c) {
     const du = c.us - b.us, dt = c.them - b.them;
@@ -674,7 +676,9 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
         x.kind = kindOf(pts, pl && pl.type);
         // two points for the other side while a touchdown's try is out: a
         // defensive return of the try unless ESPN calls it a safety
-        if (pts === 2 && awaitingTry(next, now) && next.tryq.side !== scorer && !(pl && pl.type === "SF")) x.kind = null;
+        // (judged on the try as it stood before this look: one told missed
+        // in this same look still counts; Codex, #119)
+        if (pts === 2 && tryBefore && tryBefore.side !== scorer && !(pl && pl.type === "SF")) x.kind = null;
         Object.assign(x, playX(pl));
         if (x.kind === "td" && pts > 6) x.try = pts === 7 ? "xp" : "2pt";
         // the summary already says the try missed: the touchdown says so
@@ -705,7 +709,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
       n += 1;
       // the score as the touchdown left it, to match the play's clock (Codex, #119)
       out.push({ event: "score:" + n, scores: st.tryq.scores || b, x: Object.assign({ scorer: side, ours: false, kind: tr }, playX(pl), { play: undefined }) });
-      next.tryq = null;
+      next.tryq = null; next.tried = { side, at: now };
     }
   }
   // start again from what it is now: nothing announced before the gap can
