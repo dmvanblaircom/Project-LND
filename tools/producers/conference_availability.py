@@ -69,7 +69,10 @@ RANK = {kind: len(ORDER) - i for i, kind in enumerate(ORDER)}  # Initial 1 ... G
 # available ones included. Far fewer rows is a partial or changed answer, not
 # a report that lists nobody - refuse it rather than clear every status.
 MIN_ROWS = 40
-NAME = re.compile(r"^\s*(?P<pos>[A-Z/]{1,5})\s+#\s*(?P<no>\d{1,3})\s+(?P<name>.+?)\s*$")
+# "WR #0 Brandon Inniss"; now and then a player has no number yet ("S CJ
+# Christian", Washington, Oct. 9) - the number is optional, the position is not.
+NAME = re.compile(r"^\s*(?P<pos>[A-Z/]{1,5})\s+(?:#\s*(?P<no>\d{1,3})\s+)?(?P<name>[^#\s].*?)\s*$")
+NUMBERED = 0.9      # the share of a report's rows that must carry "#N"
 
 
 # ---- pure: tools/conferenceavailcheck.py tests these ----------------------
@@ -91,7 +94,7 @@ def player(text):
     m = NAME.match(str(text or ""))
     if not m:
         return {"pos": "", "no": "", "name": str(text or "").strip()}
-    return {"pos": m.group("pos"), "no": m.group("no"), "name": m.group("name")}
+    return {"pos": m.group("pos"), "no": m.group("no") or "", "name": m.group("name")}
 
 
 def _ours(name, names):
@@ -135,6 +138,14 @@ def check_published(report, side, other):
                          % (len(rows) if isinstance(rows, list) else "no"))
     if not all(isinstance(r, dict) and all(str(r.get(k) or "").strip() for k in ("name", "status")) for r in rows):
         raise ValueError("a player row in this week's report has no name or no status")
+    # The rows' form is checked too: every one "POS [#N] Name", nearly all
+    # numbered. A new form ("WR 0 Brandon Inniss") would read as mangled
+    # names that match nobody on the roster (Codex, #118).
+    names = [str(r["name"]) for r in rows]
+    numbered = sum(1 for n in names if (NAME.match(n) or {}) and NAME.match(n).group("no"))
+    if not all(NAME.match(n) for n in names) or numbered < NUMBERED * len(names):
+        raise ValueError("this week's player names are not in the form 'POS #N Name' (%d of %d numbered)"
+                         % (numbered, len(names)))
     if not other or not str(other.get("teamDisplayName") or other.get("teamName") or "").strip():
         raise ValueError("this week's report names no opponent")
 

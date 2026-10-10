@@ -55,6 +55,7 @@ except ValueError:
 ok(ca.player("WR #0 Brandon Inniss") == {"pos": "WR", "no": "0", "name": "Brandon Inniss"}, "position, number and name")
 ok(ca.player("RB #21 Anthony “Turbo” Rogers")["name"] == "Anthony “Turbo” Rogers", "a nickname in quotes stays in the name")
 ok(ca.player("DB #7 Rashad Godfrey, Jr.")["name"] == "Rashad Godfrey, Jr.", "a suffix after a comma stays too")
+ok(ca.player("S CJ Christian") == {"pos": "S", "no": "", "name": "CJ Christian"}, "a player with no number yet: position and name")
 
 print("this week: Friday's update for Maryland at Ohio State")
 latest, history = ca.build(FIXTURE["publish"], FIXTURE["archive"], OSU)
@@ -202,6 +203,8 @@ CASES = [
     ("an archive row's week unreadable", lambda r, a: a[0].update(Week="week 4")),
     ("an archive row's opponent removed", lambda r, a: (a[0].pop("Opponent"), a[0].pop("OpponentDisplay"))),
     ("an archive row's report columns renamed", lambda r, a: [a[0].pop(k) for k in ("Initial", "Update 1", "Update 2", "Game Day")]),
+    ("names in a new form (\"WR 0 Brandon Inniss\")", lambda r, a: [x.update(name=x["name"].replace("#", "")) for g in r["games"] for x in g["rows"]]),
+    ("names without a position", lambda r, a: [x.update(name=x["name"].split(" ", 1)[1]) for g in r["games"] for x in g["rows"]]),
     ("only the archive's Game Day column renamed", lambda r, a: [x.update(Gameday=x.pop("Game Day")) for x in a]),
 ]
 for what, edit in CASES:
