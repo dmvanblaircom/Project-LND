@@ -103,3 +103,11 @@ not a bug: the summary has Stanford's drive ("1st & 10, STAN 25") before the
 scoreboard fills in possession, and the header follows the summary. No new
 items. The faster theScore-style alerts (#119) went live at 22:25Z, during
 this scan's window.
+
+### 2323Z (7:23 PM ET) - Notre Dame final; Ohio State 2:00 left
+Notre Dame Final 58-7: Home shows the final with the record moved to 6-0 and
+Game Recap, then Road to 1,000. Ohio State 45-16, 2:00 4th. First scan with
+the Settings gear in production (#120, 22:57Z): it sits at the bar's right
+edge on both teams' screens, the team name on one line at 390. Repeats: #5
+("#5 OHIO STATE" near the clock, scanner Error, not overlapping) and #2. No
+new items.
