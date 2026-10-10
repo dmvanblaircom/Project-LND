@@ -707,8 +707,11 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
   // score must not swallow it (Codex, #119).
   // The touchdown's own play is found by its score, so a later score by
   // either side cannot hide it (Codex, #119).
-  // Not once the touchdown itself is taken back (Codex, #119).
-  if (!gap && awaitingTry(st, now) && cur[st.tryq.side] >= st.tryq.score) {
+  // Not once the touchdown itself is taken back, and not when the score has
+  // just moved by a try's one or two: the score wins over words ESPN has
+  // not caught up (Codex, #119).
+  const dTry = st.tryq ? cur[st.tryq.side] - st.tryq.score : -1;
+  if (!gap && awaitingTry(st, now) && dTry >= 0 && dTry !== 1 && dTry !== 2) {
     const side = st.tryq.side, at = st.tryq.score;
     const pl = (plays || []).filter(function (q) { return q.side === side && q[side] === at && q.type !== "FG"; }).pop();
     const tr = pl ? tryOf(pl.text) : null;

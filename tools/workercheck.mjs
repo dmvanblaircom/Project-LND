@@ -809,6 +809,12 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
       for (const e of scoreStep(dbs, "87", g, { period: 2, displayClock: "12:00" }, { us, them: 0 }, T0 + m * 60e3, false, sum(list || []))) hs.push(words(e.event, team, g, e.scores, e.x).title);
     eq(hs, ["Notre Dame TD (14:48 2nd)", "Notre Dame Safety (12:00 2nd)"], "ESPN's play says safety: told as one"); }
 
+  { // The score says the kick was good while the summary still says missed: the score wins, one alert (Codex, #119).
+    const dbk = dbOf(), hk = [], stale = [pl(2, null, 6)];
+    for (const [m, us, list] of [[0, 0, null], [1, 6, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]], [2, 7, stale], [3, 7, stale], [4, 7, stale]])
+      for (const e of scoreStep(dbk, "87", g, { period: 2, displayClock: "12:00" }, { us, them: 0 }, T0 + m * 60e3, false, sum(list || []))) hk.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(hk, ["Notre Dame TD (14:48 2nd)", "Notre Dame XP good (14:48 2nd)"], "a kick the score shows good: no 'missed' from stale words"); }
+
   // The other words
   const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
   eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),
