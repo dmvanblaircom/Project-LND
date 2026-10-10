@@ -1,9 +1,14 @@
-# W19 (2026-10-03): the small ESPN endpoints game alerts would poll each
-# minute in a game window: a game's status and each team's score, plus the
-# team schedule the Worker reads hourly. Notre Dame at North Carolina kicks
-# off at 16:00Z; Ohio State at Iowa at 19:30Z.
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858250/competitions/401858250/status | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858250/competitions/401858250/competitors/87/score | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858473/competitions/401858473/status | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858473/competitions/401858473/competitors/194/score | .
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194/schedule | ^events\[[0-9]\]\.(id|date|competitions\[0\]\.(id|status\.type\.(state|name)|competitors\[[01]\]\.(team\.(id|location)|homeAway)))
+# Big Ten availability reports (Ohio State parity, 2026-10-10): find the
+# listing bigten.org's script reads. The 2023 PDFs were served from
+# /api/media/file/<uuid>-FB_Reporting_Week_<n>.pdf, which suggests a
+# CMS media API that can be queried.
+https://bigten.org/ | availab|report|fb|football
+https://bigten.org/sitemap.xml | availab|report
+https://bigten.org/robots.txt | sitemap|api
+https://bigten.org/api/media?where[filename][like]=FB_Reporting&sort=-createdAt&limit=10 | filename|url|createdAt|title
+https://bigten.org/api/media?where[filename][contains]=Reporting&sort=-createdAt&limit=10 | filename|url|createdAt|title
+https://bigten.org/api/media?sort=-createdAt&limit=5 | filename|url|createdAt|totalDocs
+https://bigten.org/api/posts?where[title][like]=availability&sort=-publishedAt&limit=5 | title|slug|publishedAt|url
+https://bigten.org/sports/fb/ | availab|report
+https://bigten.org/sports/football/ | availab|report
+https://bigten.org/news/fb/ | availab|report
