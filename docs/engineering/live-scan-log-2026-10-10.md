@@ -27,6 +27,8 @@ an opportunity, not a defect.
 | 2 | 16:02Z | Warn | Home - schedule preview @390, both teams | Long venue names are cut with an ellipsis on the "time · venue" line: "3:30 PM EDT · Notre Dame Stadium", "7:30 PM EDT · LaVell Edwards Stadium", "Memorial Stadium (Bloomin…", "Los Angeles Memorial Coliseum". Intended truncation, but the venue is the part a fan reads. Proposed: let the venue wrap to a second line. | Open |
 | 3 | 17:41Z | Warn | Top 25 - Games, live game cards at halftime | The possession football shows during halftime (Indiana, Missouri - the teams that receive to start the second half). Home and the Game header hide the football while play is paused between periods (2026-09-26 log #7). One rule everywhere: hide it on Top 25 at halftime and between quarters too. | Open |
 | 4 | 18:30Z | Idea | Top 25 - Games, last-play line | Penalty plays keep ESPN's raw shouting and run three lines: "3:04 A. Simmons pass incomplete short middle to C. Lee thrown to A&M40 PENALTY A&M Pass Interference 10 yards from A&M50 to A&M40. NO PLAY". The safe play-text rule (2026-09-26 #2/#4) could lower-case PENALTY / NO PLAY and shorten penalty plays to the penalty ("Penalty: A&M pass interference, 10 yards - no play"). | Open |
+| 5 | 20:59Z | Warn | Home - live hero @390, Ohio State | The scanner flags "#5 OHIO STATE" (and the Game header's "MD 49" pill) as drawn past their boxes. On screen neither is clipped or overlapping - not fan-visible (scanner rated Error; downgraded by eye). Fragile on Home: "#5 OHIO STATE" ends a few pixels from the clock; a two-digit rank ("#15 OHIO STATE") would touch it. Home should take the Game header's rule: swap both names to the abbreviation when either won't fit. | Open |
+| 6 | 20:59Z | Idea | Game - Drive Tracker, Ohio State | A drive in progress reads "3 plays, 24 yards, 0:00": ESPN has not filled in the drive's time yet. A fan reads 0:00 as no time used. Leave the time out until ESPN gives one. | Open |
 
 ## Scans
 
@@ -75,3 +77,10 @@ time has passed), Notre Dame's summary captured and the scan re-run: Home, Game
 Stanford - no new findings. Ohio State pregame, kickoff 4:15 PM EDT. The
 kickoff and first touchdown alerts went out and were delivered (status probe,
 19:51Z).
+
+### 2059Z (4:59 PM ET) - both teams live
+Notre Dame 37-0, 3:15 2nd; Ohio State 14-3, 1:37 1st - Home, Game (390, 320,
+plays, box) agree with the scoreboard for both, including possession (Stanford,
+Maryland) and down & distance. The scan-script fix worked: both live summaries
+captured, Notre Dame's Drive Tracker and last play show. New: #5 (Warn - scanner
+said Error, not fan-visible), #6 (Idea).
