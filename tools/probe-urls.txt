@@ -1,14 +1,11 @@
-# Big Ten availability reports (Ohio State parity, 2026-10-10): find the
-# listing bigten.org's script reads. The 2023 PDFs were served from
-# /api/media/file/<uuid>-FB_Reporting_Week_<n>.pdf, which suggests a
-# CMS media API that can be queried.
-https://bigten.org/ | availab|report|fb|football
-https://bigten.org/sitemap.xml | availab|report
-https://bigten.org/robots.txt | sitemap|api
-https://bigten.org/api/media?where[filename][like]=FB_Reporting&sort=-createdAt&limit=10 | filename|url|createdAt|title
-https://bigten.org/api/media?where[filename][contains]=Reporting&sort=-createdAt&limit=10 | filename|url|createdAt|title
-https://bigten.org/api/media?sort=-createdAt&limit=5 | filename|url|createdAt|totalDocs
-https://bigten.org/api/posts?where[title][like]=availability&sort=-publishedAt&limit=5 | title|slug|publishedAt|url
-https://bigten.org/sports/fb/ | availab|report
-https://bigten.org/sports/football/ | availab|report
-https://bigten.org/news/fb/ | availab|report
+# Big Ten availability reports, round 2 (2026-10-10): bigten.org is a
+# Sidearm site now (/documents/YYYY/M/D/*.pdf). Find the report's link from
+# the coverage of Ohio State's first report (Illinois, Sept.) and the
+# announcement.
+https://www.landgrantholyland.com/ohio-state-news/122448/ohio-state-football-availability-report-illinois-game | bigten|availability
+https://scarletandgame.com/ohio-state-s-first-big-ten-availability-report-shows-3-players-out-5-questionable-vs-illinois | bigten|availability
+https://www.espn.com/college-football/story/_/id/49755323/big-ten-release-4-player-availability-reports-per-week | bigten\.org|published|posted
+https://bigten.org/sports/fb/availability | availab|report|pdf
+https://bigten.org/fb/availability | availab|report|pdf
+https://bigten.org/sports/fb/availability-report | availab|report|pdf
+https://bigten.org/availability | availab|report|pdf
