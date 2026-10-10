@@ -173,6 +173,18 @@ for what, rows in (("missing", None), ("empty", []), ("cut short", "short")):
        "a report whose player rows are %s is a partial answer, not 'nobody listed': nothing written (Codex, #118)" % what)
     shutil.rmtree(tmp)
 
+for what, field in (("removed", None), ("renamed", "availability"), ("blank", "")):
+    nostatus = copy.deepcopy(FIXTURE["publish"])
+    for g in nostatus["3130"]["games"]:
+        for row in g["rows"]:
+            st = row.pop("status")
+            if field is not None:
+                row[field or "status"] = st if field else ""
+    tmp, code, out = produce([nostatus, FIXTURE["archive"]])
+    ok(code not in (0, None) and files(tmp) == [],
+       "rows whose status is %s are refused, never read as everyone available (Codex, #118)" % what)
+    shutil.rmtree(tmp)
+
 for what, date in (("missing", None), ("unreadable", "Oct 10")):
     nodate = copy.deepcopy(FIXTURE["publish"])
     if date is None:
