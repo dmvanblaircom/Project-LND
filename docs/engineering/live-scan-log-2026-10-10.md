@@ -59,3 +59,8 @@ rule held on two live games: UCF-Oklahoma St and North Carolina-Pitt read
 status line still said "15:00 - 3rd" while its last play was the end of the
 3rd, and the app's reading (from the play) is the right one. New: #4 (Idea).
 #1-#3 seen again.
+
+### 1920Z (3:20 PM ET) - 10 minutes to Notre Dame's kickoff
+Both teams pregame and agreeing with the scoreboard; Notre Dame's Game
+countdown reads 0 days 0 hours 10 minutes. The noon ranked games are in the
+4th quarter and read right on Top 25. No new findings; #1-#4 as before.
