@@ -71,8 +71,10 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
     var router = function (route) {
       var u = route.request().url();
       if (/\/news\.json(\?|$)/.test(u)) return answer(route, "beat", BEAT);
-      // the official depth chart and availability report, the team's snapshots
-      var snap = /\/((depth|availability)(-history)?\.json)(\?|$)/.exec(u);
+      // the official depth chart, availability report and game notes, the
+      // team's snapshots (notes since #114: left to the page server, it
+      // answered while "every source" failed, and Last Updated moved)
+      var snap = /\/((depth|availability|notes)(-history)?\.json)(\?|$)/.exec(u);
       if (snap) return answer(route, "snap", fs.readFileSync(path.join(root, "data", "notre-dame", snap[1])));
       // the Season Outlook markets: the league-wide Kalshi snapshots
       var odds = /\/(odds-(title|playoff)\.json)(\?|$)/.exec(u);

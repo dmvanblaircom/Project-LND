@@ -26,7 +26,8 @@ Game itself, so Game is selected, as always.
 
 The same rule carries into News, Settings, Feedback and About Suite when
 they are rebuilt: each is a secondary destination under More and keeps
-More selected.
+More selected. (Settings since moved to the header's gear and keeps no
+owner: 0034.)
 
 ## Context
 

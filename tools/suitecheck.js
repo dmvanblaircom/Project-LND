@@ -97,7 +97,7 @@ ok(MS.ui.STYLE.colors.accentText !== MS.ui.STYLE.colors.accent, "Suite Style's w
 
 var m = mhost(); MS.more.menu(m);
 eq((m.innerHTML.match(/class="mo-title">([^<]+)/g) || []).map(function (x) { return x.replace(/.*>/, ""); }),
-   ["News", "Schedule", "Stats", "Settings", "Feedback", "Share Suite", "About Suite"], "More lists its six destinations and Share Suite, in order (Stats: W27)");
+   ["News", "Schedule", "Stats", "Feedback", "Share Suite", "About Suite"], "More lists its five destinations and Share Suite, in order (Stats: W27; Settings is the header's gear)");
 ok(/<button type="button" class="mo-row" data-share>/.test(m.innerHTML) && /role="status" data-share-note/.test(m.innerHTML),
    "Share Suite is a button (an action, not a destination), with a status line for what it did");
 
