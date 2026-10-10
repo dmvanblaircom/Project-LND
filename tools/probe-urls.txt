@@ -1,7 +1,2 @@
-# Big Ten availability reports, round 3 (2026-10-10): the conference's own
-# announcement and coverage that reproduces a 2026 report.
-https://bigten.org/news/2026/8/28/big-ten-announces-changes-to-football-availability-reporting-process.aspx | availab|report|\.pdf
-https://www.onthebanks.com/rutgers-football/56617/big-ten-availability-report-for-rutgers-vs-indiana | bigten|\.pdf|availab
-https://www.elevenwarriors.com/ohio-state-football/2026/09/164093/injury-report-phillip-daniels-zion-grady-james-smith-legend-bey-bennett-christian | bigten|\.pdf|availab
-https://www.dispatch.com/story/sports/college/football/2026/09/23/ohio-state-availability-report-te-bennett-christian-out-vs-illinois/91902368007/ | bigten|\.pdf|availab
-https://bigten.org/sports/fb/schedule | availab|\.pdf
+# Big Ten availability reports, round 4 (2026-10-10): the hub page.
+https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx | ohio|illinois|wisconsin|\.pdf|availab|week
