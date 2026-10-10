@@ -24,4 +24,4 @@ jobs:
           for k in publish archive; do
             curl -sS -X POST -H 'Content-Type: application/json' -A "Mozilla/5.0" "$B/api/get-$k-public" -d '{"sport":"Football","organization":"B10","conference":"B10"}' -o $k.json -w "$k HTTP %{http_code} %{size_download}\n"
           done
-          python3 tools/probe/hdi_shape.py publish.json archive.json
+          python3 tools/probe/hdi_fixture.py
