@@ -527,12 +527,19 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
     // every announced score on each side that the new score takes back: the
     // devices that got any of them get the correction (Codex, #116)
     const h = { us: ((st.hist || {}).us || []).slice(), them: ((st.hist || {}).them || []).slice() }, of = [];
+    // Only the side that went down is corrected now; a side that went up in
+    // the same minute is left for the score rule to announce (Codex, #116).
+    const fixed = { us: Math.min(cur.us, b.us), them: Math.min(cur.them, b.them) };
     for (const side of ["us", "them"]) {
-      while (h[side].length && h[side][h[side].length - 1][1] > cur[side]) of.push(h[side].pop()[0]);
+      let popped = false;
+      while (h[side].length && h[side][h[side].length - 1][1] > fixed[side]) { of.push(h[side].pop()[0]); popped = true; }
+      // the correction itself stands in for what it took back, so a second
+      // correction of the same score reaches the same devices (Codex, #116)
+      if (popped) h[side].push(["fix:" + (row.seq + 1), fixed[side]]);
     }
     next.hist = h;
-    out.push({ event: "fix:" + (row.seq + 1), scores: cur, x: { lost: cur.us < b.us ? "us" : "them", ours: cur.us !== b.us, of } });
-    next.base = cur; next.pend = null; next.last = null;
+    out.push({ event: "fix:" + (row.seq + 1), scores: fixed, x: { lost: cur.us < b.us ? "us" : "them", ours: fixed.us !== b.us, of } });
+    next.base = fixed; next.pend = null; next.last = null;
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
     if (!(held || flush || (st.pend && now - st.pend.at >= LIMITS.settle))) {

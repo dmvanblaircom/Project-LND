@@ -599,6 +599,26 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   s(7, 0); await tick(db, e, KICK + 46 * 60e3);                                          // 14 taken back to 7
   eq(e.pushes.length, 0, "a fan told 7, never told 14: no correction back to 7"); }
 
+{ // Their touchdown off the board while we kick a field goal, in one minute (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), mine = await browserSub(), heard = [];
+  await subscribe(db, e, { subscription: mine.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "mine", kickoff: false } }, KICK); e.pushes.length = 0;
+  const s = (us, them) => { e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
+  s(0, 0); await tick(db, e, KICK + 30 * 60e3);
+  s(0, 7); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);
+  s(3, 0); for (let m = 33; m <= 35; m++) await tick(db, e, KICK + m * 60e3);
+  for (const p of e.pushes) heard.push((await openPush(p.init.body, mine.kp, mine.sub.keys.auth)).body);
+  eq(heard, ["Field goal, Ohio State. Ohio State 3, Iowa 0 · 2nd 10:00"], "a my-team fan still hears the field goal"); }
+{ // 14, then 10, then 7: the second correction reaches those told 14 too (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), b = await browserSub(), heard = [];
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK);
+  const s = (us, them) => { e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
+  s(0, 0); await tick(db, e, KICK + 30 * 60e3);
+  s(14, 0); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);
+  s(10, 0); await tick(db, e, KICK + 33 * 60e3);
+  s(7, 0); await tick(db, e, KICK + 34 * 60e3);
+  for (const p of e.pushes) heard.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
+  eq(heard.slice(2), ["Score corrected: Ohio State 10, Iowa 0 · 2nd 10:00", "Score corrected: Ohio State 7, Iowa 0 · 2nd 10:00"], "both corrections reach the fan"); }
+
 { // First look mid-game (the Worker deployed at halftime): no backlog.
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK); e.pushes.length = 0;
