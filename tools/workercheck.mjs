@@ -796,6 +796,12 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
       for (const e of scoreStep(db9, "87", g, { period: 2, displayClock: "13:00" }, { us, them }, T0 + m * 60e3, false, list && sum(list.map((q) => Object.assign({}, q, { awayScore: them }))))) h9.push(words(e.event, team, g, e.scores, e.x).title);
     eq(h9, ["Notre Dame TD (14:48 2nd)", "Score corrected", "Notre Dame XP missed (14:48 2nd)"], "a correction of the other side's score does not end the wait for our try"); }
 
+  { // The touchdown overturned while ESPN still lists its missed kick: the correction alone (Codex, #119).
+    const dbo = dbOf(), ho = [], miss = [pl(2, null, 6)];
+    for (const [m, us, list] of [[0, 0, null], [1, 6, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]], [2, 0, miss]])
+      for (const e of scoreStep(dbo, "87", g, { period: 2, displayClock: "5:00" }, { us, them: 0 }, T0 + m * 60e3, false, sum(list || []))) ho.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(ho, ["Notre Dame TD (14:48 2nd)", "Score corrected"], "a touchdown taken back: no try alert for it, only the correction"); }
+
   // The other words
   const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
   eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),
