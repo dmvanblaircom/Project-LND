@@ -84,3 +84,7 @@ scoreboard-20261010 scan-1602
 schedule-87 scan-nd-1602
 schedule-194 scan-osu-1602
 rankings scan-1602
+scoreboard-20261010 scan-1652
+schedule-87 scan-nd-1652
+schedule-194 scan-osu-1652
+rankings scan-1652
