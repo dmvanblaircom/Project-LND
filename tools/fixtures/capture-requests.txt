@@ -113,3 +113,11 @@ rankings scan-2008
 401858481 scan-x1-2008
 401856716 scan-x2-2008
 401858257 scan-nd-2008
+scoreboard-20261010 scan-2059
+schedule-87 scan-nd-2059
+schedule-194 scan-osu-2059
+rankings scan-2059
+401858257 scan-nd-2059
+401858483 scan-osu-2059
+401856714 scan-x1-2059
+401856717 scan-x2-2059
