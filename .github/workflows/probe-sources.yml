@@ -24,7 +24,10 @@ jobs:
           curl -sSL -A "Mozilla/5.0" "$B/?source=B10&sport=Football&conf=B10&type=archive" -o app.html
           JS=$(grep -oE 'assets/index-[^"]+\.js' app.html | head -1)
           curl -sSL -A "Mozilla/5.0" "$B/$JS" -o app.js
-          echo "--- baseURL"; grep -oE '.{0,120}(baseURL|https://api\.).{0,160}' app.js | head -8
-          echo "--- every Hn call"; grep -oE 'Hn\.(get|post|put)\([^,)]{0,160}' app.js | sort | uniq -c | head -80
-          echo "--- template api paths"; grep -oE '`/api/[^`]{0,140}`' app.js | sort -u | head -60
-          echo "--- public-ish"; grep -oE '"/api/[a-zA-Z0-9_/-]*(public|publish|archive|report)[a-zA-Z0-9_/-]*"' app.js | sort -u
+          echo "--- all /api/ strings"; grep -oE '["`]/api/[^"`]{0,100}["`]' app.js | sort | uniq -c
+          echo "--- fetch( calls"; grep -oE 'fetch\([^)]{0,140}' app.js | sort -u | head -30
+          echo "--- Hn create"; grep -oE '.{0,80}Hn=[^;]{0,200}' app.js | head -3
+          echo "--- archive/published comps"; grep -oE '.{0,60}(archive_data|published_report|getArchive|getPublished|publishedReport|archiveData)[^;]{0,200}' app.js | head -20
+          echo "--- chunks"; grep -oE 'assets/[A-Za-z0-9_-]+\.js' app.js | sort -u | head -40
+          echo "--- public-load try"
+          curl -sS -X POST -H 'Content-Type: application/json' -H 'Origin: https://app.hdintelligence.com' -A "Mozilla/5.0" "$B/api/public-load" -d '{"conference_param":"B10","sport_param":"Football","type_param":"archive","referrer":"https://bigten.org/","source":"B10"}' -w "\nHTTP %{http_code}\n" | head -c 3000
