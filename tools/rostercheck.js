@@ -200,6 +200,10 @@ var b1gRoster = [{ players: [{ name: "Hal Half", jersey: "3" }, { name: "Oscar O
 eq([].concat.apply([], R.withStatus(b1gRoster, b1g, null).map(function (g) { return g.players; }))
      .filter(function (p) { return p.out; }).map(function (p) { return p.name + "=" + p.out; }),
    ["Oscar Out=out-game"], "only out for the game marks a player out: out for the first half still plays, a game-time decision may");
+var lastGame = Object.assign({}, b1g, { current: false });
+eq([].concat.apply([], R.withStatus(b1gRoster, lastGame, null).map(function (g) { return g.players; })).filter(function (p) { return p.out; }).length, 0,
+   "last game's report, kept on file until this week's (current: false), marks nobody out (Codex, #118)");
+eq(R.availability(lastGame, []).groups.length, 5, "but it is still shown, as that game's report");
 var osuReport = JSON.parse(read("data/ohio-state/availability.json"));
 var osuAv = R.availability(osuReport, []);
 ok(osuReport.team === "ohio-state" && osuAv.reported && osuAv.source.label === "BigTen.org",

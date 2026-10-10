@@ -76,6 +76,10 @@ TeamOS.roster = (function () {
   function outNames(report, chart) {
     var out = {};
     if (!report || !report.reported) return out;
+    // A report its producer marks as not current - last game's, kept on
+    // file through a bye or until this week's is filed - says who missed
+    // that game, not who will miss the next (Codex, #118).
+    if (report.current === false) return out;
     if (chart && (!report.game || report.game !== chart.game)) return out;
     (report.players || []).forEach(function (p) {
       if (OUT.test(p.status || "") && fold(p.name)) out[fold(p.name)] = p.status;

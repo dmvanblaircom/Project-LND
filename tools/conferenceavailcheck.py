@@ -86,6 +86,8 @@ ok(none is None and hist == [], "nothing published, nothing archived: no report 
 only_archive, _ = ca.build({}, FIXTURE["archive"], OSU)
 ok(only_archive["game"] == "vs. Maryland" and only_archive["heading"] == "Update 1",
    "this week not published yet (a bye, early in the week): the archive's latest stands")
+ok(only_archive["current"] is False and all(r["current"] is False for r in history[:-1]) and latest["current"] is True,
+   "only a published report is current: an archived one is that game's, never the next game's (Codex, #118)")
 
 
 def produce(answers, tmp=None):

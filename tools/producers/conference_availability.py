@@ -29,7 +29,9 @@ Rules, each tested by tools/conferenceavailcheck.py:
     listed. The conference's own rule: a player not listed is available.
   * The current week's report is the newest one published for the team's
     game; with none published (a bye, early in the week) the latest game in
-    the archive stands, so the file never goes back to "no report".
+    the archive stands, so the file never goes back to "no report" - marked
+    `current: false`, so it is shown as that game's report but never marks
+    a player out on the roster (Codex, #118).
   * A failed fetch changes nothing and exits non-zero: the last good files
     stay in place and the failure is loud.
 """
@@ -160,7 +162,7 @@ def from_archive(day, g):
             break
     newest = next((k for k in ORDER if k in kinds), None)
     return {"reported": True, "effectiveAt": day, "heading": newest, "kickoffDate": day,
-            "game": g["game"], "players": players}
+            "game": g["game"], "players": players, "current": False}
 
 
 def build(publish, archive, names):
@@ -173,7 +175,7 @@ def build(publish, archive, names):
         report, side, other = pub
         day = _date((report.get("footer") or {}).get("date"))
         label = games.get(day, {}).get("game") if day else None
-        season[day or ("~" + (report.get("publishDate") or ""))] = from_published(report, side, other, label)
+        season[day or ("~" + (report.get("publishDate") or ""))] = dict(from_published(report, side, other, label), current=True)
     history = [season[k] for k in sorted(season)]
     return (history[-1] if history else None), history
 

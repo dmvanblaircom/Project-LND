@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-10-10T05:01:05.001403+00:00",
+ "updated": "2026-10-10T05:28:15.043575+00:00",
  "reports": [
   {
    "schema": 1,
@@ -82,7 +82,8 @@
      "status": "out-game",
      "detail": ""
     }
-   ]
+   ],
+   "current": false
   },
   {
    "schema": 1,
@@ -149,7 +150,8 @@
      "status": "out-game",
      "detail": ""
     }
-   ]
+   ],
+   "current": false
   },
   {
    "schema": 1,
@@ -251,7 +253,8 @@
      "status": "out-game",
      "detail": ""
     }
-   ]
+   ],
+   "current": true
   }
  ]
 }
