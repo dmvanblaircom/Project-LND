@@ -307,7 +307,11 @@ export async function vapidKey(db, env) {
 export async function subscribe(db, env, body, now) {
   const sub = validSubscription(body && body.subscription), team = validTeam(body && body.team);
   if (!sub || !team) return { status: 400, body: { error: "a push subscription and a team are required" } };
-  const opts = validOptions(body && body.options);
+  // No options at all is a page from before round 2 (still open, or not yet
+  // updated): it keeps the round-1 set, and a row's saved choice is never
+  // overwritten by it (Codex, #116).
+  const given = body && body.options != null;
+  const opts = given ? validOptions(body.options) : LEGACY;
   if (!opts) return { status: 400, body: { error: "options are not valid" } };
   // Nothing chosen is alerts off (§2b): the subscription is not kept.
   if (!anyOn(opts)) { db.run("DELETE FROM subs WHERE endpoint = ? AND team_id = ?", sub.endpoint, team.id); return { status: 200, body: { ok: true, off: true } }; }
@@ -315,8 +319,8 @@ export async function subscribe(db, env, body, now) {
   const had = db.all("SELECT 1 FROM subs WHERE endpoint = ? AND team_id = ?", sub.endpoint, team.id).length > 0;
   if (!had && count >= LIMITS.subscriptions) return { status: 503, body: { error: "alerts are full for now" } };
   db.run("INSERT INTO subs (endpoint, team_id, team_name, p256dh, auth, created, opts) VALUES (?, ?, ?, ?, ?, ?, ?)" +
-         " ON CONFLICT (endpoint, team_id) DO UPDATE SET team_name = excluded.team_name, p256dh = excluded.p256dh, auth = excluded.auth, opts = excluded.opts",
-         sub.endpoint, team.id, team.name, sub.p256dh, sub.auth, now, JSON.stringify(opts));
+         " ON CONFLICT (endpoint, team_id) DO UPDATE SET team_name = excluded.team_name, p256dh = excluded.p256dh, auth = excluded.auth, opts = COALESCE(excluded.opts, subs.opts)",
+         sub.endpoint, team.id, team.name, sub.p256dh, sub.auth, now, given ? JSON.stringify(opts) : null);
   // A confirmation, so the fan knows at once that alerts reach this device -
   // only when they are turned on: changing a choice sends nothing.
   if (had) return { status: 200, body: { ok: true, team: team.id, confirmation: "updated" } };
@@ -411,7 +415,7 @@ async function detect(db, env, teamId, game, now, log) {
   if (t.state === "in") {
     cur = await liveScores(env, teamId, game, fromSchedule);
     if (cur) for (const e of scoreStep(db, teamId, game, status, cur, now, /END_PERIOD|HALFTIME/.test(t.name || "")))
-      emit(db, teamId, game, e.event, e.scores, Object.assign({}, x0, e.x), now, log, false);
+      emit(db, teamId, game, e.event, e.scores, Object.assign({}, x0, e.x), now, log, !!e.late);
     // The score the fans have been told: a close finish is judged on it, so
     // it never arrives before the score that made the game close.
     const row = db.all("SELECT st FROM live WHERE team_id = ? AND game_id = ?", teamId, game.id)[0];
@@ -506,13 +510,17 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
   if (!row) {
     // First look at this game in progress: what it is now is where alerts start.
     db.run("INSERT OR IGNORE INTO live (team_id, game_id, seq, st) VALUES (?, ?, 0, ?)", teamId, game.id,
-           JSON.stringify({ base: cur, pend: null, per: p, ps: cur, last: null }));
+           JSON.stringify({ base: cur, pend: null, per: p, ps: cur, last: null, seen: now }));
     return [];
   }
-  const st = JSON.parse(row.st), out = [], next = Object.assign({}, st, { per: Math.max(p, st.per || 0), ps: cur });
+  const st = JSON.parse(row.st), out = [], next = Object.assign({}, st, { per: Math.max(p, st.per || 0), ps: cur, seen: now });
+  // ESPN out of reach for longer than a live alert lives: what changed
+  // meanwhile is caught up silently, not announced late (Codex, #116).
+  const gap = st.seen && now - st.seen > LIMITS.liveLate;
   if (st.per && p > st.per && st.per <= 3) out.push({ event: "end:" + st.per, scores: st.ps, x: { period: 0 } });
   const b = st.base, moved = cur.us !== b.us || cur.them !== b.them;
-  if (!moved) next.pend = null;
+  if (gap) { next.base = cur; next.pend = null; next.last = null; }      // start again from what it is now
+  else if (!moved) next.pend = null;
   else if (cur.us < b.us || cur.them < b.them) {
     // the score being taken back is the one that last added to that side
     const of = [cur.us < b.us && st.evUs, cur.them < b.them && st.evThem].filter(Boolean);
@@ -539,6 +547,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
   }
   const won = db.run("UPDATE live SET seq = seq + 1, st = ? WHERE team_id = ? AND game_id = ? AND seq = ?",
                      JSON.stringify(next), teamId, game.id, row.seq).changes;
+  if (gap) out.forEach(function (e) { e.late = true; });
   return won ? out : [];
 }
 

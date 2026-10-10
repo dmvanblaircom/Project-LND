@@ -397,18 +397,26 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   db.run("UPDATE subs SET opts = NULL WHERE endpoint = ?", fans.old.sub.endpoint);    // a row the round-1 Worker wrote
   e.pushes.length = 0;
   const heard = { every: [], mine: [], half: [], old: [] };
+  // The Worker looks every minute: the minutes between two moments of the
+  // game are looked at too, with nothing changed.
+  let lastMin = null;
   async function at(min, period, name, clock, us, them) {
+    if (lastMin != null) for (let m = lastMin + 1; m < min; m++) { e.pushes.length = 0; await tick(db, e, KICK + m * 60e3); await hear(); }
+    lastMin = min;
     e.status = { period, clock: clock == null ? null : clock, displayClock: clock == null ? "0:00" : Math.floor(clock / 60) + ":" + String(clock % 60).padStart(2, "0"),
                  type: { state: /FINAL/.test(name) ? "post" : "in", name, completed: /FINAL/.test(name) } };
     e.scores = { 194: us, 2294: them };
     e.pushes.length = 0;
     const log = await tick(db, e, KICK + min * 60e3);
+    await hear();
+    return log;
+  }
+  async function hear() {
     for (const p of e.pushes) {
       const who = Object.keys(fans).filter((k) => fans[k].sub.endpoint === p.url)[0];
       const m = await openPush(p.init.body, fans[who].kp, fans[who].sub.keys.auth);
       heard[who].push(m.body + (m.renotify ? " [card " + m.tag.replace(/^\d+-/, "") + "]" : ""));
     }
-    return log;
   }
   const P = "STATUS_IN_PROGRESS";
   await at(1, 1, P, 900, 0, 0);                 // kickoff
@@ -478,9 +486,9 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   const log = await tick(db, e, KICK + 9 * 60e3);
   ok(e.pushes.length === 0 && /dropped/.test(log.join(" ")), "a score still undelivered after 5 minutes is dropped, not sent late"); }
 
-{ // Delays (on by default, so a fan from before round 2 gets them).
+{ // Delays (on by default for a new sign-up).
   const db = dbOf(), e = alertEnv({}), b = await browserSub(), heard = [];
-  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" } }, KICK); e.pushes.length = 0;
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: DEFAULTS }, KICK); e.pushes.length = 0;
   const go = async (min, state, period, name, us, them) => {
     e.status = { period, clock: 555, displayClock: "9:15", type: { state, name } }; e.scores = { 194: us, 2294: them }; e.pushes.length = 0;
     await tick(db, e, KICK + min * 60e3);
@@ -529,7 +537,7 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   const db = dbOf(), e = alertEnv({}), b = await browserSub(), seen = [];
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", quarters: true, kickoff: false } }, KICK);
   const s = (name, us, them) => { e.status = { period: 1, clock: name === "STATUS_END_PERIOD" ? 0 : 30, displayClock: "0:30", type: { state: "in", name } }; e.scores = { 194: us, 2294: them }; };
-  s("STATUS_IN_PROGRESS", 0, 0); await tick(db, e, KICK + 10 * 60e3);
+  s("STATUS_IN_PROGRESS", 0, 0); await tick(db, e, KICK + 19 * 60e3);
   s("STATUS_IN_PROGRESS", 3, 0); await tick(db, e, KICK + 20 * 60e3);
   e.push = 429; e.pushes.length = 0;
   s("STATUS_END_PERIOD", 3, 0); await tick(db, e, KICK + 21 * 60e3);           // the field goal (flushed) fails; the quarter waits behind it
@@ -549,6 +557,24 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   s(0, 3); await tick(db, e, KICK + 35 * 60e3);                                          // our touchdown overturned
   const got = []; for (const p of e.pushes) got.push((await openPush(p.init.body, mine.kp, mine.sub.keys.auth)).body);
   eq(got, ["Score corrected: Ohio State 0, Iowa 3 · 2nd 10:00"], "our earlier touchdown overturned after their field goal: the fan who got the touchdown gets the correction"); }
+
+{ // A page from before round 2 sends no options: it keeps round 1, and never overwrites a saved choice (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" } }, KICK);
+  ok(db.all("SELECT opts FROM subs")[0].opts === null, "an old page's sign-up: stored as round 1 (no in-game delays)");
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all" } }, KICK);
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" } }, KICK);
+  ok(JSON.parse(db.all("SELECT opts FROM subs")[0].opts).scoring === "all", "and an old page signing up again keeps the choice already saved"); }
+{ // ESPN out of reach for 10 minutes: what changed meanwhile is caught up silently (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", quarters: true, kickoff: false } }, KICK);
+  const s = (period, us, them) => { e.status = { period, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
+  s(1, 0, 0); await tick(db, e, KICK + 10 * 60e3);
+  e.pushes.length = 0;
+  s(2, 14, 3); await tick(db, e, KICK + 21 * 60e3); await tick(db, e, KICK + 22 * 60e3);   // back after 11 minutes, a quarter and 17 points on
+  const quiet = e.pushes.length;
+  s(2, 21, 3); await tick(db, e, KICK + 23 * 60e3); await tick(db, e, KICK + 24 * 60e3);
+  eq([quiet, e.pushes.length], [0, 1], "no stale score or quarter after the gap; the next real score is announced"); }
 
 { // First look mid-game (the Worker deployed at halftime): no backlog.
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
