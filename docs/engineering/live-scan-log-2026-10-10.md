@@ -25,6 +25,7 @@ an opportunity, not a defect.
 |---|---|---|---|---|---|
 | 1 | 16:02Z | Warn | Top 25 - Games @390, Ohio State's Team Style (Nunito Sans) | The scanner flags "15 Tennessee 4-1": the record is laid out 5.7px past the box of the name line that holds it. On screen it is not clipped and does not touch the column divider - a fan sees nothing wrong (scanner rated it Error; downgraded by eye). Fragile: a longer ranked name could push it into the divider. Proposed: let the name line wrap the record to its own line rather than overflow. | Open |
 | 2 | 16:02Z | Warn | Home - schedule preview @390, both teams | Long venue names are cut with an ellipsis on the "time · venue" line: "3:30 PM EDT · Notre Dame Stadium", "7:30 PM EDT · LaVell Edwards Stadium", "Memorial Stadium (Bloomin…", "Los Angeles Memorial Coliseum". Intended truncation, but the venue is the part a fan reads. Proposed: let the venue wrap to a second line. | Open |
+| 3 | 17:41Z | Warn | Top 25 - Games, live game cards at halftime | The possession football shows during halftime (Indiana, Missouri - the teams that receive to start the second half). Home and the Game header hide the football while play is paused between periods (2026-09-26 log #7). One rule everywhere: hide it on Top 25 at halftime and between quarters too. | Open |
 
 ## Scans
 
@@ -43,3 +44,9 @@ with the scoreboard. Top 25 now carries five live games and reads them right:
 Indiana at Nebraska between quarters shows "15:00 - 2nd" with "End of 1st
 quarter." (the PR #117 rule, first time live), scores, clocks, possession and
 last plays match the scoreboard. No new findings; #1 and #2 seen again.
+
+### 1741Z (1:41 PM ET) - pregame; noon games at halftime
+Both teams still pregame and agreeing with the scoreboard. Four ranked noon
+games at halftime all read "Halftime" on Top 25 with ESPN's "gets the ball to
+start the second half" line; South Carolina-Florida live in the 2nd. New: #3
+(Warn). #1 and #2 seen again.
