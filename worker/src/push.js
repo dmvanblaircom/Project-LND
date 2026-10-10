@@ -426,7 +426,9 @@ async function getJson(env, url) {
 }
 
 // One minute's work. Returns what it did, for the log and the tests.
-export async function tick(db, env, now) {
+// `quick`: a look between minutes (minute()) - new alerts go, retries wait
+// for the minute, so LIMITS.tries still spans ten minutes (Codex, #119).
+export async function tick(db, env, now, quick) {
   const log = [];
   let live = false;
   const teams = db.all("SELECT DISTINCT team_id FROM subs");
@@ -445,7 +447,7 @@ export async function tick(db, env, now) {
     }
     if (game && now >= game.at - LIMITS.before) { if (await detect(db, env, teamId, game, now, log)) live = true; }
     else log.push(teamId + ": " + (game ? "waiting for " + new Date(game.at).toISOString() : "no game"));
-    await deliver(db, env, teamId, now, log);
+    await deliver(db, env, teamId, now, log, !quick);
   }
   db.run("INSERT INTO meta (k, v) VALUES ('last', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
          JSON.stringify({ at: new Date(now).toISOString(), log }));
@@ -465,7 +467,7 @@ export async function minute(db, env, clock, sleep) {
   for (let i = 1; i < LIMITS.looks && log.live; i++) {
     const wait = start + i * LIMITS.lookEvery - clock();
     if (wait > 0) await sleep(wait);
-    log = await tick(db, env, clock());
+    log = await tick(db, env, clock(), true);
     all.push.apply(all, log);
   }
   return all;
@@ -770,7 +772,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
 // push service that takes it ends it; one that has dropped the subscription
 // removes it; anything else - a 429, a 5xx, no answer - is tried again the
 // next minute, up to LIMITS.tries, and a kickoff only while it is news.
-async function deliver(db, env, teamId, now, log) {
+async function deliver(db, env, teamId, now, log, retry) {
   const due = db.all("SELECT d.game_id, d.event, d.endpoint, d.tries, d.at, d.data, s.team_name, s.p256dh, s.auth" +
                      " FROM deliveries d JOIN subs s ON s.endpoint = d.endpoint AND s.team_id = d.team_id" +
                      " WHERE d.team_id = ? AND d.state = 'due' ORDER BY d.at, d.rowid", teamId);   // in the order they happened
@@ -789,6 +791,8 @@ async function deliver(db, env, teamId, now, log) {
       t.dropped++; continue;
     }
     if (held.has(d.endpoint)) { t.retry++; continue; }
+    // a retry only on the minute; this device's later alerts wait behind it
+    if (retry === false && d.tries > 0) { held.add(d.endpoint); t.retry++; continue; }
     // Claim it, so an overlapping run cannot send it too.
     if (!db.run("UPDATE deliveries SET state = 'sending' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ? AND state = 'due'", ...key).changes) continue;
     const x = JSON.parse(d.data), w = words(d.event, { id: teamId, name: d.team_name }, x.game, x.scores, x.x);

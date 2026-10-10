@@ -859,6 +859,13 @@ console.log("game alerts: faster (David, Oct 10): told on ESPN's play, three loo
   e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: 7, 2294: 0 };
   await minute(db, e, clock, sleep);
   eq([looks, slept], [[1800, 1820, 1840], [20000, 20000]], "a game on: three looks in the minute, 20 seconds apart");
+  // A push service failing for a while: tried once a minute, not once a look (Codex, #119).
+  e.push = 503; e.scores = { 194: 10, 2294: 0 };
+  e.FETCH = async (url, init) => { if (/\/status$/.test(url)) looks.push((t - KICK) / 1000); return base(url, init); };
+  for (let m = 31; m <= 34; m++) { t = KICK + m * 60e3; await minute(db, e, clock, sleep); }
+  const tries = db.all("SELECT event, tries, state FROM deliveries WHERE event LIKE 'score%'").map((r) => r.event + ":" + r.state + ":" + r.tries);
+  ok(tries.length === 1 && /:4$/.test(tries[0]), "a failing push service: one try a minute during the game, three looks or not (" + tries.join(",") + ")");
+  e.push = 201;
   looks.length = 0; e.status = { period: 4, type: { state: "post", name: "STATUS_FINAL", completed: true } }; t = KICK + 4 * 3600e3;
   await minute(db, e, clock, sleep);
   ok(looks.length === 1 && LIMITS.looks === 3, "no game on: one look"); }
