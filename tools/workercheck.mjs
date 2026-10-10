@@ -762,6 +762,20 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
       for (const e of scoreStep(db5, "87", g, { period: 2, displayClock: "13:00" }, { us, them: 0 }, T0 + m * 60e3, false, list && sum(list))) h5.push(words(e.event, team, g, e.scores, e.x).title);
     eq(h5, ["Notre Dame TD (14:48 2nd)", "Notre Dame XP missed (14:48 2nd)", "Notre Dame FG (13:10 2nd)"], "a miss ESPN shows only after the same side scored again: still told, first"); }
 
+  { // A later score settles before ESPN shows the miss: the wait for the try goes on (Codex, #119).
+    const db6 = dbOf(), h6 = [], td = pl(2, "J. Walton run for 97 yds, for a TD", 6);
+    const sfg = { team: { id: "24" }, homeScore: 6, awayScore: 3, period: { number: 2 }, clock: { displayValue: "13:40" }, scoringType: { abbreviation: "FG" }, text: "E. Kicker 50 yd FG GOOD" };
+    for (const [m, us, them, list] of [[0, 0, 0, null], [1, 6, 0, [td]], [2, 6, 0, [td]], [3, 6, 3, [td, sfg]], [4, 6, 3, [td, sfg]], [5, 6, 3, [pl(2, null, 6), sfg]], [6, 6, 3, [pl(2, null, 6), sfg]]])
+      for (const e of scoreStep(db6, "87", g, { period: 2, displayClock: "13:00" }, { us, them }, T0 + m * 60e3, false, list && sum(list))) h6.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h6, ["Notre Dame TD (14:48 2nd)", "Stanford FG (13:40 2nd)", "Notre Dame XP missed (14:48 2nd)"], "a miss ESPN shows only after a later score was told: still told, once"); }
+  { // The kick seen as the quarter ends: the touchdown, then its kick, not one combined alert (Codex, #119).
+    const db7 = dbOf(), h7 = [];
+    for (const [m, us, flush] of [[0, 0, false], [1, 6, false], [2, 7, true]])
+      for (const e of scoreStep(db7, "87", g, { period: 1, displayClock: "0:00" }, { us, them: 0 }, T0 + m * 60e3, flush, sum([pl(0, m < 2 ? "N. James Jr. run for 2 yds, for a TD" : null, m < 2 ? 6 : 7)])))
+        h7.push(words(e.event, team, g, e.scores, e.x).title + " | " + words(e.event, team, g, e.scores, e.x).body);
+    eq(h7, ["Notre Dame TD (13:06 1st) | N. James Jr. run for 2 yds, for a TD. PAT pending.\nNotre Dame 6, Stanford 0", "Notre Dame XP good (13:06 1st) | Notre Dame 7, Stanford 0"],
+       "a touchdown and its kick seen across a quarter's end: two alerts, before the quarter's"); }
+
   // The other words
   const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
   eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),

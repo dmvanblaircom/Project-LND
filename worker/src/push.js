@@ -590,8 +590,10 @@ function playX(p) {
   return p ? { play: playText(p.text), period: p.period || undefined, clock: p.clock || undefined } : {};
 }
 // A touchdown announced without its try, still waiting to hear it.
+// Kept apart from every other score: a later score by either side never
+// ends the wait (Codex, #119); only the try told, or LIMITS.fold, does.
 function awaitingTry(st, now) {
-  return !!(st && st.last && st.last.kind === "td" && !st.last.tried && now - st.last.at <= LIMITS.fold);
+  return !!(st && st.tryq && now - st.tryq.at <= LIMITS.fold);
 }
 function kindOf(pts, type) {
   if (type === "TD" && pts >= 6 && pts <= 8) return "td";
@@ -607,8 +609,8 @@ function kindOf(pts, type) {
 //   pend  a higher score waiting to hold for a minute (LIMITS.settle at most)
 //   per   the quarter last seen, and ps its last score - a quarter that ended
 //         between two looks still gets its alert, with its own score
-//   last  the last announcement; a touchdown's waits for its try
-//         (LIMITS.fold at most), which is its own alert (David, 2026-10-10)
+//   tryq  a touchdown told without its try: its side and score, waiting
+//         LIMITS.fold at most for the try, its own alert (David, 2026-10-10)
 //   hist  each side's announced scores, for a correction to find its fans
 // `plays` is the summary's scoring plays when read (scoringPlays), else null:
 // the alert is then told without the play.
@@ -618,7 +620,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
   if (!row) {
     // First look at this game in progress: what it is now is where alerts start.
     db.run("INSERT OR IGNORE INTO live (team_id, game_id, seq, st) VALUES (?, ?, 0, ?)", teamId, game.id,
-           JSON.stringify({ base: cur, pend: null, per: p, ps: cur, last: null, seen: now }));
+           JSON.stringify({ base: cur, pend: null, per: p, ps: cur, tryq: null, seen: now }));
     return [];
   }
   const st = JSON.parse(row.st), out = [], next = Object.assign({}, st, { per: Math.max(p, st.per || 0), ps: cur, seen: now });
@@ -635,7 +637,8 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     const pts = scorer === "us" ? du : scorer === "them" ? dt : 0;
     const x = { scorer, ours: du > 0 };
     if (scorer !== "both") {
-      const isTry = (pts === 1 || pts === 2) && awaitingTry(next, now) && next.last.scorer === scorer;
+      // the try: one or two points straight onto the awaited touchdown
+      const isTry = (pts === 1 || pts === 2) && awaitingTry(next, now) && next.tryq.side === scorer && b[scorer] === next.tryq.score;
       if (isTry) {
         x.kind = pts === 1 ? "xp" : "2pt";
         Object.assign(x, playX(playFor(plays, scorer, b[scorer] - 6, b[scorer])), { play: undefined });
@@ -644,7 +647,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
         x.kind = kindOf(pts, pl && pl.type);
         // two points for the other side while a touchdown's try is out: a
         // defensive return of the try unless ESPN calls it a safety
-        if (pts === 2 && awaitingTry(next, now) && next.last.scorer !== scorer && !(pl && pl.type === "SF")) x.kind = null;
+        if (pts === 2 && awaitingTry(next, now) && next.tryq.side !== scorer && !(pl && pl.type === "SF")) x.kind = null;
         Object.assign(x, playX(pl));
         if (x.kind === "td" && pts > 6) x.try = pts === 7 ? "xp" : "2pt";
         // the summary already says the try missed: the touchdown says so
@@ -653,7 +656,8 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     }
     n += 1;
     out.push({ event: "score:" + n, scores: c, x });
-    next.last = x.kind === "td" && !x.try ? { kind: "td", scorer, at: now, score: c[scorer] } : { kind: "other", scorer, at: now };
+    if (x.kind === "xp" || x.kind === "2pt") { if (next.tryq && next.tryq.side === scorer) next.tryq = null; }
+    if (x.kind === "td" && !x.try) next.tryq = { side: scorer, score: c[scorer], at: now };
     const h = hist();
     if (du > 0) h.us.push(["score:" + n, c.us]);
     if (dt > 0) h.them.push(["score:" + n, c.them]);
@@ -667,18 +671,18 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
   // The touchdown's own play is found by its score, so a later score by
   // either side cannot hide it (Codex, #119).
   if (!gap && awaitingTry(st, now)) {
-    const side = st.last.scorer, at = st.last.score != null ? st.last.score : b[side];
+    const side = st.tryq.side, at = st.tryq.score;
     const pl = (plays || []).filter(function (q) { return q.side === side && q[side] === at && q.type !== "FG"; }).pop();
     const tr = pl ? tryOf(pl.text) : null;
     if (tr === "xpmiss" || tr === "2ptfail") {
       n += 1;
       out.push({ event: "score:" + n, scores: b, x: Object.assign({ scorer: side, ours: false, kind: tr }, playX(pl), { play: undefined }) });
-      next.last = { kind: "other", scorer: side, at: now };
+      next.tryq = null;
     }
   }
   // start again from what it is now: nothing announced before the gap can
   // be corrected after it (Codex, #116)
-  if (gap) { next.base = cur; next.pend = null; next.last = null; next.hist = { us: [], them: [] }; }
+  if (gap) { next.base = cur; next.pend = null; next.tryq = null; next.hist = { us: [], them: [] }; }
   else if (!moved) next.pend = null;
   else if (cur.us < b.us || cur.them < b.them) {
     // every announced score on each side that the new score takes back: the
@@ -697,16 +701,18 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     next.hist = h;
     n += 1;
     out.push({ event: "fix:" + n, scores: fixed, x: { lost: cur.us < b.us ? "us" : "them", ours: fixed.us !== b.us, of } });
-    next.base = fixed; next.pend = null; next.last = null;
+    next.base = fixed; next.pend = null; next.tryq = null;
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
     const pd = st.pend, side = pd && pd.us - b.us === 6 && pd.them === b.them ? "us" : pd && pd.them - b.them === 6 && pd.us === b.us ? "them" : null;
     const other = side === "us" ? "them" : "us";
     // A touchdown moved on by its own try has held: it is told now, and the
-    // try waits its own minute (David, 2026-10-10).
-    if (!held && !flush && side && (cur[side] - pd[side] === 1 || cur[side] - pd[side] === 2) && cur[other] === pd[other]) {
+    // try waits its own minute (David, 2026-10-10) - or, as a quarter ends,
+    // is told straight after it (Codex, #119).
+    if (!held && side && (cur[side] - pd[side] === 1 || cur[side] - pd[side] === 2) && cur[other] === pd[other]) {
       announce(b, { us: pd.us, them: pd.them });
-      next.pend = { us: cur.us, them: cur.them, at: now };
+      if (flush) { announce({ us: pd.us, them: pd.them }, cur); next.pend = null; }
+      else next.pend = { us: cur.us, them: cur.them, at: now };
     } else if (!(held || flush || (st.pend && now - st.pend.at >= LIMITS.settle))) {
       next.pend = { us: cur.us, them: cur.them, at: st.pend ? st.pend.at : now };
     } else {
