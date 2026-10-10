@@ -315,7 +315,12 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                        if (!g || !g.checkVisibility()) return null;
                        var r = g.getBoundingClientRect(), b = bar.getBoundingClientRect(), t = ctx.getBoundingClientRect();
                        var pad = parseFloat(getComputedStyle(bar).paddingRight) || 0;
-                       return { w: r.width, h: r.height, right: b.right - pad - r.right, clear: r.left >= t.right,
+                       // the glyph's colour against the bar: 3:1 at least (WCAG 1.4.11), current or not
+                       var lum = function (c) { var m = c.match(/[\d.]+/g).slice(0, 3).map(function (v) { v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+                                                return 0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]; };
+                       var l1 = lum(getComputedStyle(g).color), l2 = lum(getComputedStyle(bar).backgroundColor);
+                       var contrast = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+                       return { w: r.width, h: r.height, right: b.right - pad - r.right, clear: r.left >= t.right, contrast: contrast,
                                 href: g.getAttribute("href"), label: g.getAttribute("aria-label"),
                                 current: g.getAttribute("aria-current") };
                      })(document.getElementById("barGear")),
@@ -339,6 +344,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             // icon-btn pulls its box 8px into the gutter, so the glyph lines up with the content edge.
             if (st.gear.right > 0.5) fail(label, "layout", "#barGear", "the gear sits " + st.gear.right + "px short of the bar's right edge");
             if (!st.gear.clear) fail(label, "layout", "#barGear", "the gear overlaps the team's name");
+            if (st.gear.contrast < 3) fail(label, "contrast", "#barGear", "the gear is " + st.gear.contrast.toFixed(2) + ":1 against the bar (3:1 needed)");
             if ((st.gear.current === "page") !== (screen === "settings"))
               fail(label, "behaviour", "#barGear", "the gear's aria-current is " + st.gear.current + " on " + screen);
           }
@@ -683,8 +689,17 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           var v = getComputedStyle(document.documentElement).getPropertyValue("--t-surface").trim().toUpperCase();
           return { surface: v, want: Suite.ui.STYLE.colors.surface.toUpperCase(), key: localStorage.getItem("suite-style"),
                    checked: (document.querySelector('#screenSettings input[name="appStyle"]:checked') || {}).value,
-                   name: document.getElementById("barTeam").textContent };
+                   name: document.getElementById("barTeam").textContent,
+                   // the current gear in Suite Style: its accent is the header's own navy (Codex, #120)
+                   gear: (function (g, bar) {
+                     var lum = function (c) { var m = c.match(/[\d.]+/g).slice(0, 3).map(function (v) { v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+                                              return 0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]; };
+                     var l1 = lum(getComputedStyle(g).color), l2 = lum(getComputedStyle(bar).backgroundColor);
+                     return { current: g.getAttribute("aria-current"), contrast: (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05) };
+                   })(document.getElementById("barGear"), document.getElementById("appBar")) };
         });
+        if (sty.gear.current !== "page" || sty.gear.contrast < 3)
+          fail(who, "contrast", "#barGear", "in Suite Style the current gear is " + sty.gear.contrast.toFixed(2) + ":1 against the bar (aria-current " + sty.gear.current + ")");
         if (sty.surface !== sty.want) fail(who, "behaviour", "appStyle", "Suite Style after a reload paints --t-surface " + sty.surface + ", not Suite's " + sty.want);
         if (sty.key !== "suite" || sty.checked !== "suite") fail(who, "behaviour", "appStyle", "Suite Style did not hold across a reload");
         if (!sty.name) fail(who, "behaviour", "#barTeam", "Suite Style dropped the team's name: only style changes");
