@@ -776,6 +776,12 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
     eq(h7, ["Notre Dame TD (13:06 1st) | N. James Jr. run for 2 yds, for a TD. PAT pending.\nNotre Dame 6, Stanford 0", "Notre Dame XP good (13:06 1st) | Notre Dame 7, Stanford 0"],
        "a touchdown and its kick seen across a quarter's end: two alerts, before the quarter's"); }
 
+  { // A touchdown pending its minute, then a field goal by the same side: two alerts, not one "scores" (Codex, #119).
+    const db8 = dbOf(), h8 = [];
+    for (const [m, us] of [[0, 0], [1, 6], [2, 9], [3, 9]])
+      for (const e of scoreStep(db8, "87", g, { period: 2, displayClock: "5:00" }, { us, them: 0 }, T0 + m * 60e3, false, null)) h8.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h8, ["Notre Dame TD", "Notre Dame FG"], "a pending score the game moved on from has held"); }
+
   // The other words
   const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
   eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),

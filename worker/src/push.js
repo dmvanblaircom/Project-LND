@@ -704,12 +704,12 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     next.base = fixed; next.pend = null; next.tryq = null;
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
-    const pd = st.pend, side = pd && pd.us - b.us === 6 && pd.them === b.them ? "us" : pd && pd.them - b.them === 6 && pd.us === b.us ? "them" : null;
-    const other = side === "us" ? "them" : "us";
-    // A touchdown moved on by its own try has held: it is told now, and the
-    // try waits its own minute (David, 2026-10-10) - or, as a quarter ends,
-    // is told straight after it (Codex, #119).
-    if (!held && side && (cur[side] - pd[side] === 1 || cur[side] - pd[side] === 2) && cur[other] === pd[other]) {
+    const pd = st.pend;
+    // A pending score that the game moved on from - its touchdown's own try,
+    // or anything more - has held: it is told now, and what came after waits
+    // its own minute (David, 2026-10-10; Codex, #119) - or, as a quarter
+    // ends, is told straight after it.
+    if (!held && pd && cur.us >= pd.us && cur.them >= pd.them) {
       announce(b, { us: pd.us, them: pd.them });
       if (flush) { announce({ us: pd.us, them: pd.them }, cur); next.pend = null; }
       else next.pend = { us: cur.us, them: cur.them, at: now };
