@@ -112,15 +112,31 @@ def published(payload, names):
     if not found:
         return None
     found.sort(key=lambda x: x[0], reverse=True)
-    if not _date((found[0][1].get("footer") or {}).get("date")):
-        # The game's date is what retires the report once the game is played
-        # (TeamOS.roster); a report without one is not a report we can use.
-        raise ValueError("this week's report has no readable game date")
-    rows = found[0][2].get("rows")
+    check_published(*found[0][1:])
+    return found[0][1:]
+
+
+def check_published(report, side, other):
+    """Every field of this week's report the producer reads, checked before
+    anything is written (Codex, #118): a field missing, renamed or in a new
+    form is a changed answer, never a report - the last good files stay.
+      ReportType   orders the reports (a saved Update 2 outranks the
+                   archive's Update 1)
+      dates        footer.date retires the report once its game is played
+      rows         the whole travel squad, each with a name and a status
+      opponent     names the game"""
+    if report.get("ReportType") not in RANK:
+        raise ValueError("this week's report has an unknown report type: %r" % report.get("ReportType"))
+    if not _date((report.get("footer") or {}).get("date")) or not _date(report.get("publishDate")):
+        raise ValueError("this week's report has no readable game or publish date")
+    rows = side.get("rows")
     if not isinstance(rows, list) or len(rows) < MIN_ROWS:
         raise ValueError("this week's report has %s player rows - not a whole report"
                          % (len(rows) if isinstance(rows, list) else "no"))
-    return found[0][1:]
+    if not all(isinstance(r, dict) and all(str(r.get(k) or "").strip() for k in ("name", "status")) for r in rows):
+        raise ValueError("a player row in this week's report has no name or no status")
+    if not other or not str(other.get("teamDisplayName") or other.get("teamName") or "").strip():
+        raise ValueError("this week's report names no opponent")
 
 
 def archive_games(payload, names):
@@ -129,10 +145,13 @@ def archive_games(payload, names):
     for row in (payload or {}).get("data") or []:
         if not (_ours(row.get("Team"), names) or _ours(row.get("TeamDisplay"), names)):
             continue
+        # The fields the producer reads, checked the same way: the game's
+        # date, the opponent, and the report columns (Codex, #118).
         day = _date(row.get("Week"))
-        if not day:
-            continue
-        g = out.setdefault(day, {"game": row.get("OpponentDisplay") or row.get("Opponent") or "", "rows": []})
+        game = str(row.get("OpponentDisplay") or row.get("Opponent") or "").strip()
+        if not day or not game or not any(k in row for k in ORDER):
+            raise ValueError("an archive row for the team has no readable date, opponent or report columns")
+        g = out.setdefault(day, {"game": game, "rows": []})
         g["rows"].append(row)
     return out
 
@@ -151,11 +170,6 @@ def _date(s):
 def from_published(report, side, other, game_label):
     players = []
     for row in side.get("rows") or []:
-        # Every published row carries a name and a status, "Available"
-        # included: a row without either is a changed answer, never a
-        # player who is fine or a nameless entry (Codex, #118).
-        if not isinstance(row, dict) or not all(str(row.get(k) or "").strip() for k in ("name", "status")):
-            raise ValueError("a player row in this week's report has no name or no status")
         key = status_key(row.get("status"))
         if key:
             players.append(dict(player(row.get("name")), status=key, detail=""))

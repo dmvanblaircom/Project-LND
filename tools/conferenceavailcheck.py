@@ -186,6 +186,26 @@ for what, rows in (("missing", None), ("empty", []), ("cut short", "short")):
        "a report whose player rows are %s is a partial answer, not 'nobody listed': nothing written (Codex, #118)" % what)
     shutil.rmtree(tmp)
 
+print("every field the producer reads is checked before anything is written (Codex, #118)")
+def broken(edit):
+    pub, arc = copy.deepcopy(FIXTURE["publish"]), copy.deepcopy(FIXTURE["archive"])
+    edit(pub["3130"], [r for r in arc["data"] if r["Team"] == "Ohio St."])
+    tmp, code, out = produce([pub, arc])
+    refused = code not in (0, None) and files(tmp) == []
+    shutil.rmtree(tmp)
+    return refused
+CASES = [
+    ("the report type removed", lambda r, a: r.pop("ReportType")),
+    ("the report type renamed", lambda r, a: r.update(ReportType="Update 3")),
+    ("the publish date removed", lambda r, a: r.pop("publishDate")),
+    ("the opponent's side missing", lambda r, a: r.update(games=[g for g in r["games"] if g["teamName"] == "Ohio St."])),
+    ("an archive row's week unreadable", lambda r, a: a[0].update(Week="week 4")),
+    ("an archive row's opponent removed", lambda r, a: (a[0].pop("Opponent"), a[0].pop("OpponentDisplay"))),
+    ("an archive row's report columns renamed", lambda r, a: [a[0].pop(k) for k in ("Initial", "Update 1", "Update 2", "Game Day")]),
+]
+for what, edit in CASES:
+    ok(broken(edit), "%s: refused, last good files kept" % what)
+
 for what in ("removed", "blank"):
     noname = copy.deepcopy(FIXTURE["publish"])
     for g in noname["3130"]["games"]:
