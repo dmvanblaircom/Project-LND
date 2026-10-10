@@ -1,2 +1,2 @@
-# W19 (2026-10-07): David got the confirmation push twice. One subscription or two?
-https://suite-api.dmvanblaircom.workers.dev/v1/push/status | .
+# W19 live test (2026-10-10 19:51Z): did the kickoff alert go out?
+https://suite-api.dmvanblaircom.workers.dev/v1/push/status | kickoff|sent|deliver
