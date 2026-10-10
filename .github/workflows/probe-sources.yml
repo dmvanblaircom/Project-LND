@@ -18,3 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Probe
         run: python3 tools/probe_sources.py tools/probe-urls.txt
+      - name: Raw contexts (probe branch only)
+        run: |
+          curl -sSL -A "Mozilla/5.0" "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx" -o hub.html || true
+          wc -c hub.html
+          grep -oiE '.{0,160}(\.pdf|/documents/|availability|ohio state|iframe|embed|google|drive|boxcast|dropbox)[^"<]{0,160}' hub.html | grep -viE 'MEDIA_GUIDE|Record_Book' | sort -u | head -80
