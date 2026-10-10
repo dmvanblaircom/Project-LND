@@ -36,3 +36,10 @@ shows Friday's Big Ten Update 2 for Maryland - 4 out, 5 doubtful, 3 probable -
 credited to BigTen.org. Findings: #1, #2 (both new, Warn). The Game's Matchup
 card reads "Loading the matchup..." in the scan only: pregame summaries are not
 captured until kickoff - not an app defect.
+
+### 1652Z (12:52 PM ET) - pregame; noon games live
+Both teams still pregame (Notre Dame 3:30, Ohio State 4:15 PM EDT), agreeing
+with the scoreboard. Top 25 now carries five live games and reads them right:
+Indiana at Nebraska between quarters shows "15:00 - 2nd" with "End of 1st
+quarter." (the PR #117 rule, first time live), scores, clocks, possession and
+last plays match the scoreboard. No new findings; #1 and #2 seen again.
