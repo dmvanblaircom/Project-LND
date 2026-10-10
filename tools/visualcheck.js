@@ -89,7 +89,8 @@ var TEAMS = ["notre-dame", "ohio-state"];
 // Schedule is reached from Home and More (decision 0023).
 var SCREENS = ["home", "top25", "game", "roster", "more", "schedule", "news", "stats", "settings", "feedback", "about"];
 var NAV = ["home", "top25", "game", "roster", "more"];
-var OWNER = { schedule: "more", news: "more", stats: "more", settings: "more", feedback: "more", about: "more" };
+// Settings is the header's gear (David, Oct 10): no nav item is selected there.
+var OWNER = { schedule: "more", news: "more", stats: "more", feedback: "more", about: "more" };
 // Every screen wears one header: the SUITE bar with the team as context
 // (decision 0031). Under it, a visible page title names every screen that
 // has no hero; Home and Game lead with their hero instead.
@@ -222,6 +223,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
       await checkState(c.page, "chooser " + width + "px");
       var ch = await c.page.evaluate(function () {
         return { nav: !!document.querySelector(".navbar"), ctx: !!document.getElementById("barContext") && document.getElementById("barContext").checkVisibility(),
+                 gear: !!document.getElementById("barGear") && document.getElementById("barGear").checkVisibility(),
                  bar: !!document.getElementById("appBar") && !document.getElementById("appBar").hidden,
                  picks: document.querySelectorAll(".pick").length,
                  soonFocusable: document.querySelectorAll(".soon a, .soon button, .soon [tabindex]").length,
@@ -230,6 +232,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
       var cw = "chooser " + width + "px";
       if (ch.nav) fail(cw, "behaviour", ".navbar", "the chooser shows a bottom nav with no team behind it");
       if (ch.ctx) fail(cw, "behaviour", "#barContext", "the chooser shows a team in the Suite header before a team is chosen");
+      if (ch.gear) fail(cw, "behaviour", "#barGear", "the chooser shows a Settings gear with no team behind it");
       if (!ch.bar) fail(cw, "behaviour", "#appBar", "the chooser lost the Suite header");
       if (ch.picks < 2) fail(cw, "behaviour", ".pick", "fewer than two openable teams are offered");
       if (ch.marks !== ch.picks) fail(cw, "behaviour", ".pick .mark", "an openable team is drawn without its mark");
@@ -306,6 +309,16 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                      ctxCut: (function (t) { var r = document.createRange(); r.selectNodeContents(t);
                                              return r.getBoundingClientRect().width > t.getBoundingClientRect().width + 0.01; })(document.getElementById("barTeam")),
                      ctxControl: !!(ctx && ctx.closest("a,button")) || !!(ctx && ctx.querySelector("a,button")),
+                     // Settings: the gear at the bar's right edge, a full tap
+                     // target, clear of the team's name, current only on Settings.
+                     gear: (function (g) {
+                       if (!g || !g.checkVisibility()) return null;
+                       var r = g.getBoundingClientRect(), b = bar.getBoundingClientRect(), t = ctx.getBoundingClientRect();
+                       var pad = parseFloat(getComputedStyle(bar).paddingRight) || 0;
+                       return { w: r.width, h: r.height, right: b.right - pad - r.right, clear: r.left >= t.right,
+                                href: g.getAttribute("href"), label: g.getAttribute("aria-label"),
+                                current: g.getAttribute("aria-current") };
+                     })(document.getElementById("barGear")),
                      heading: sh && sh.checkVisibility() && !sh.classList.contains("sr-only") ? sh.textContent : null,
                      focus: document.activeElement ? document.activeElement.id : null };
           });
@@ -318,6 +331,17 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           if (!st.ctx) fail(label, "behaviour", "#barContext", "the SUITE bar does not carry the selected team as context");
           if (st.ctxControl) fail(label, "behaviour", "#barContext", "the team context is a control; Change Team lives in Settings");
           if (st.ctxCut) fail(label, "behaviour", "#barTeam", "the team's name is cut off in the SUITE bar");
+          if (!st.gear) fail(label, "behaviour", "#barGear", "the SUITE bar has no Settings gear");
+          else {
+            if (st.gear.href !== "#settings" || st.gear.label !== "Settings")
+              fail(label, "behaviour", "#barGear", "the gear goes to " + st.gear.href + ", labelled " + st.gear.label);
+            if (st.gear.w < 44 || st.gear.h < 44) fail(label, "layout", "#barGear", "the gear's tap target is " + st.gear.w + "x" + st.gear.h);
+            // icon-btn pulls its box 8px into the gutter, so the glyph lines up with the content edge.
+            if (st.gear.right > 0.5) fail(label, "layout", "#barGear", "the gear sits " + st.gear.right + "px short of the bar's right edge");
+            if (!st.gear.clear) fail(label, "layout", "#barGear", "the gear overlaps the team's name");
+            if ((st.gear.current === "page") !== (screen === "settings"))
+              fail(label, "behaviour", "#barGear", "the gear's aria-current is " + st.gear.current + " on " + screen);
+          }
           if (TITLE[screen]) {
             if (st.heading !== TITLE[screen]) fail(label, "behaviour", "#screenHead", "the visible page title reads '" + st.heading + "', not '" + TITLE[screen] + "'");
           } else if (st.heading) {
@@ -565,7 +589,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                 return a.querySelector(".mo-title").textContent + "=" + (a.getAttribute("href") || (a.hasAttribute("data-share") ? "share" : "?"));
               }).join("|");
             });
-            if (mo !== "News=#news|Schedule=#schedule|Stats=#stats|Settings=#settings|Feedback=#feedback|Share Suite=share|About Suite=#about")
+            if (mo !== "News=#news|Schedule=#schedule|Stats=#stats|Feedback=#feedback|Share Suite=share|About Suite=#about")
               fail(label, "behaviour", ".mo-list", "More lists " + mo);
           }
           if (screen === "stats") {
@@ -863,8 +887,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         // mode, the current team stays stored, Cancel goes back to it, and
         // picking another team switches immediately.
         {
-          await page.click('.nav-item[data-screen="more"]');
-          await page.click('#screenMore a[href="#settings"]');
+          await page.click("#barGear");
           await page.click('#screenSettings a.st-link');
           try {
             await page.waitForSelector(".chooser", { timeout: 10000 });

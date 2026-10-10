@@ -76,7 +76,9 @@ Suite.nav = (function () {
     // Team | Players (W27 Phase 2).
     stats:    { title: "Stats",       owner: "more",
                 views: [{ id: "team", label: "Team" }, { id: "players", label: "Players" }] },
-    settings: { title: "Settings",    owner: "more" },
+    // Settings is the header's gear, not More's: nothing in the nav is
+    // selected there. "#more/settings" still opens it (from More's day).
+    settings: { title: "Settings",    moreAlias: true },
     feedback: { title: "Feedback",    owner: "more" },
     about:    { title: "About Suite", owner: "more" }
   };
@@ -118,7 +120,7 @@ Suite.nav = (function () {
       .map(function (p) { return p.toLowerCase(); });
     // "#more/news" is the older spelling of "#news": the same screen, and
     // the address is corrected in place.
-    if (parts[0] === "more" && SCREENS[parts[1]] && SCREENS[parts[1]].owner === "more") {
+    if (parts[0] === "more" && SCREENS[parts[1]] && (SCREENS[parts[1]].owner === "more" || SCREENS[parts[1]].moreAlias)) {
       return { screen: parts[1], path: parts.slice(2), view: null, invalid: false, alias: true };
     }
     var screen = SCREENS[parts[0]] ? parts[0] : DEFAULT;
@@ -193,8 +195,13 @@ Suite.nav = (function () {
 
     // One header everywhere; the one heading that names the screen is
     // visible unless a hero leads it.
-    var ctx = $("barContext"), sr = $("screenHead");
+    var ctx = $("barContext"), gear = $("barGear"), sr = $("screenHead");
     if (ctx) ctx.hidden = false;
+    if (gear) {
+      gear.hidden = false;
+      if (route.screen === "settings") gear.setAttribute("aria-current", "page");
+      else gear.removeAttribute("aria-current");
+    }
     if (sr) {
       sr.textContent = title;
       sr.hidden = false;
