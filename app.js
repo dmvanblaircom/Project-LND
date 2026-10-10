@@ -1814,12 +1814,41 @@ document.addEventListener("click", function(e){
 Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); }); });
 
 /* ---------- Game alerts (W19) ---------- */
-// Kickoff and final for this team, pushed by the edge API (worker/src/push.js)
-// to this device. Nothing is asked of the browser until the fan taps Turn On
-// in Settings (notifications brief §3). Whether this device turned them on
-// for this team is kept here; the Worker keeps the subscription itself.
-var ALERTS={ busy:false, note:null };
-var ALERT_KEY="iw-alerts-"+TEAM.id;
+// This team's alerts, pushed by the edge API (worker/src/push.js) to this
+// device. Nothing is asked of the browser until the fan taps Turn On in
+// Settings (notifications brief §3). Whether this device turned them on for
+// this team, and its choice of alerts (round 2, §2b), are kept here; the
+// Worker keeps the subscription and a copy of the choice.
+var ALERTS={ busy:false, note:null, sync:null, chain:Promise.resolve() };
+var ALERT_KEY="iw-alerts-"+TEAM.id, ALERT_OPTS_KEY="iw-alert-opts-"+TEAM.id;
+var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false };
+// Quick picks set the switches, then step aside (§2b): one shows as chosen
+// only while every switch matches it. Final only keeps delays, because a
+// postponed game has no final.
+var ALERT_PICKS={
+  everything:{ kickoff:true, final:true, delays:true, scoring:"all", quarters:true, halftime:true, close:true },
+  key:{ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:true, close:true },
+  final:{ kickoff:false, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false } };
+function alertOpts(){
+  var o={}, saved=null;
+  try{ saved=JSON.parse(localStorage.getItem(ALERT_OPTS_KEY)||"null"); }catch(e){}
+  // Alerts turned on before there were choices: what that device has had
+  // all along - kickoff, final, and word of a postponement - with the new
+  // in-game Delays off until the fan turns them on (the noise rule; Codex,
+  // #116). `outcomes` keeps the postponement alerts it already had.
+  var base=!saved && alertsOnHere() ? Object.assign({}, ALERT_DEFAULTS, { delays:false, outcomes:true }) : ALERT_DEFAULTS;
+  Object.keys(ALERT_DEFAULTS).forEach(function(k){ o[k]=saved && saved[k]!=null ? saved[k] : base[k]; });
+  if((saved ? saved.outcomes : base.outcomes)===true) o.outcomes=true;
+  if(["off","mine","all"].indexOf(o.scoring)<0) o.scoring="off";
+  return o;
+}
+function saveAlertOpts(o){ try{ localStorage.setItem(ALERT_OPTS_KEY, JSON.stringify(o)); }catch(e){} }
+function alertsAnyOn(o){ return o.kickoff||o.final||o.delays||o.quarters||o.halftime||o.close||o.scoring!=="off"; }
+function alertPick(o){
+  return Object.keys(ALERT_PICKS).filter(function(k){
+    var p=ALERT_PICKS[k]; return Object.keys(p).every(function(x){ return p[x]===o[x]; });
+  })[0]||null;
+}
 function alertSupport(){
   var ios=/iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
   var installed=navigator.standalone===true || (window.matchMedia && matchMedia("(display-mode: standalone)").matches);
@@ -1832,8 +1861,9 @@ function alertsModel(){
   var support=alertSupport(), granted=support==="ok" && Notification.permission==="granted";
   // On only while this device can still get them: permission taken back in
   // the device's settings reads Off, not a promise nothing will keep.
+  var opts=alertOpts();
   return { support:support, on:granted && alertsOnHere(), busy:ALERTS.busy, note:ALERTS.note,
-           denied: support==="ok" && Notification.permission==="denied" };
+           denied: support==="ok" && Notification.permission==="denied", opts:opts, pick:alertPick(opts) };
 }
 // A subscription the browser has dropped on its own (iOS can, even while
 // the installed app sits suspended) is not on: checked at start, each time
@@ -1883,24 +1913,35 @@ function alertsTurnOn(){
       return old;
     }).then(function(old){ return old || reg.pushManager.subscribe({ userVisibleOnly:true, applicationServerKey:key }); });
   }).then(function(sub){
-    return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:{ id:String(TEAM_CONFIG.sources.espn.teamId), name:TEAM.name } });
+    // Turning on with nothing chosen starts from the defaults again.
+    // Kept here now, so this device is never mistaken for one from before
+    // there were choices.
+    var o=alertOpts(); if(!alertsAnyOn(o)) o=Object.assign({}, ALERT_DEFAULTS);
+    saveAlertOpts(o);
+    return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:o });
   }).then(function(r){
     if(r.status!==200) throw { why:"server" };
     alertsDone(r.body.confirmation==="sent" ? "Game alerts are on. A test alert is on its way."
-                                           : "Game alerts are on, but the test alert didn’t go through. Try Turn Off, then Turn On.", true);
+             : r.body.confirmation==="updated" ? "Game alerts are on."
+             : "Game alerts are on, but the test alert didn’t go through. Try Turn Off, then Turn On.", true);
   }).catch(function(e){
     alertsDone(e && e.why==="denied" ? "Notifications weren’t allowed, so game alerts are off."
                                      : "Couldn’t turn on game alerts. Check your connection and try again.", false);
   });
 }
-function alertsTurnOff(){
+function alertsTurnOff(why){
   ALERTS.busy=true; ALERTS.note=null; paintMore();
-  navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
+  // A choice not yet sent is dropped, and one already on its way is let
+  // finish first, so it can never sign the device up again after this
+  // (Codex, #116).
+  clearTimeout(ALERTS.sync); ALERTS.sync=null;
+  ALERTS.chain.catch(function(){}).then(function(){ return navigator.serviceWorker.ready; })
+  .then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
     if(!sub) return { status:200 };
     return postEdge("/v1/push/unsubscribe", { endpoint:sub.endpoint, team:{ id:String(TEAM_CONFIG.sources.espn.teamId) } });
   }).then(function(r){
     if(r.status!==200) throw new Error("server");
-    alertsDone("Game alerts are off.", false);
+    alertsDone(typeof why==="string" ? why : "Game alerts are off.", false);
   }).catch(function(){
     alertsDone("Couldn’t turn off game alerts. Check your connection and try again.", null);
   });
@@ -1909,6 +1950,65 @@ document.addEventListener("click", function(e){
   var b=e.target.closest && e.target.closest("[data-alerts]");
   if(!b || ALERTS.busy || alertSupport()!=="ok") return;
   if(b.getAttribute("data-alerts")==="on") alertsTurnOn(); else alertsTurnOff();
+});
+function alertTeam(){ return { id:String(TEAM_CONFIG.sources.espn.teamId), name:TEAM.name }; }
+// A change of choice: kept here at once, sent to the Worker a moment later
+// (one request for a run of taps), and said when it is saved. Everything
+// switched off is alerts off (§2b), and the screen says so.
+function alertsChoose(o){
+  saveAlertOpts(o);
+  if(!alertsAnyOn(o)){
+    clearTimeout(ALERTS.sync); ALERTS.sync=null;
+    alertsTurnOff("No alerts selected, so Game Alerts are off.");
+    return;
+  }
+  ALERTS.note=null; paintMore();
+  clearTimeout(ALERTS.sync);
+  ALERTS.sync=setTimeout(function(){
+    ALERTS.sync=null;
+    if(ALERTS.busy || !alertsOnHere()) return;             // turned off meanwhile: nothing to save
+    // One save at a time, in order, and Turn Off waits for all of them, so
+    // an older save can never arrive after the unsubscribe (Codex, #116).
+    var saving=ALERTS.chain=ALERTS.chain.catch(function(){}).then(function(){
+      if(ALERTS.busy || !alertsOnHere()) return { skipped:true };
+      return navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
+        if(!sub) throw new Error("gone");
+        return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:alertOpts() });
+      });
+    });
+    saving.then(function(r){
+      if(r && r.skipped) return;
+      if(ALERTS.busy || !alertsOnHere()) return;           // the fan has turned them off since: say nothing
+      if(r.status!==200) throw new Error("server");
+      ALERTS.note="Saved. "+alertsSummary(alertOpts()); paintMore(); say(ALERTS.note);
+    }).catch(function(){
+      if(ALERTS.busy || !alertsOnHere()) return;
+      ALERTS.note="Couldn’t save your choice. Check your connection and change it again."; paintMore(); say(ALERTS.note);
+    });
+  }, 600);
+}
+function alertsSummary(o){
+  var n=["kickoff","final","delays","quarters","halftime","close"].filter(function(k){ return o[k]; }).length+(o.scoring!=="off"?1:0);
+  return n+(n===1?" kind of alert":" kinds of alerts")+" on.";
+}
+document.addEventListener("change", function(e){
+  var t=e.target; if(!t || !t.closest || !t.closest("#screenSettings .al-opts")) return;
+  var o=alertOpts();
+  if(t.getAttribute("data-alert-opt")){
+    o[t.getAttribute("data-alert-opt")]=!!t.checked;
+    // Delays & postponements off means postponements too, for a device
+    // that kept them from before there were choices (Codex, #116).
+    if(t.getAttribute("data-alert-opt")==="delays") delete o.outcomes;
+  }
+  else if(t.name==="alertScoring") o.scoring=t.value;
+  else return;
+  alertsChoose(o);
+});
+document.addEventListener("click", function(e){
+  var b=e.target.closest && e.target.closest("[data-alert-pick]");
+  if(!b || ALERTS.busy) return;
+  var p=ALERT_PICKS[b.getAttribute("data-alert-pick")]; if(!p) return;
+  alertsChoose(Object.assign({}, p));
 });
 
 // How long data may sit before a silent refresh: on return to a tab that was

@@ -130,6 +130,9 @@ jobs:
       # The road to a round number of all-time wins: the official count
       # plus this season's results, and Home's card (the 1,000th win).
       - run: node tools/milestonecheck.js
+      # Game alerts in Settings (round 2): Turn On sends the defaults, quick
+      # picks and switches send the fan's choice, all off is alerts off.
+      - run: node tools/alertscheck.js
       # The week's game notes: pronunciations, captains and honors on
       # Roster, the series and By the Numbers on Game and Home, only for
       # the game they were written for.
