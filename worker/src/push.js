@@ -456,8 +456,12 @@ function emit(db, teamId, game, ev, scores, x, now, log, late) {
   if (/^fix/.test(ev)) {
     only = new Set();
     for (const of of (x && x.of) || []) {
+      // an earlier correction still on its way stands for the score it was
+      // correcting, which those devices did get: they get this one instead
+      // (Codex, #116)
+      const states = /^fix/.test(of) ? "('done', 'due', 'sending')" : "('done')";
+      for (const r of db.all("SELECT endpoint FROM deliveries WHERE team_id = ? AND game_id = ? AND event = ? AND state IN " + states, teamId, game.id, of)) only.add(r.endpoint);
       db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'due'", teamId, game.id, of);
-      for (const r of db.all("SELECT endpoint FROM deliveries WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'done'", teamId, game.id, of)) only.add(r.endpoint);
     }
   }
   let n = 0;

@@ -619,6 +619,17 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   for (const p of e.pushes) heard.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
   eq(heard.slice(2), ["Score corrected: Ohio State 10, Iowa 0 · 2nd 10:00", "Score corrected: Ohio State 7, Iowa 0 · 2nd 10:00"], "both corrections reach the fan"); }
 
+{ // 14, then 10 (its push fails), then 7: the fan still hears the last word (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), b = await browserSub(), heard = [];
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK); e.pushes.length = 0;
+  const s = (us, them) => { e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
+  s(0, 0); await tick(db, e, KICK + 30 * 60e3);
+  s(14, 0); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);
+  e.push = 503; s(10, 0); await tick(db, e, KICK + 33 * 60e3);
+  e.push = 201; s(7, 0); await tick(db, e, KICK + 34 * 60e3);
+  for (const p of e.pushes) { try { heard.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body); } catch (x) {} }
+  ok(heard[heard.length - 1] === "Score corrected: Ohio State 7, Iowa 0 · 2nd 10:00", "the correction that could not go is replaced by the next, to the same fan (" + heard.slice(1).join(" | ") + ")"); }
+
 { // First look mid-game (the Worker deployed at halftime): no backlog.
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK); e.pushes.length = 0;
