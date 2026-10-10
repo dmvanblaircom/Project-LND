@@ -1994,7 +1994,12 @@ function alertsSummary(o){
 document.addEventListener("change", function(e){
   var t=e.target; if(!t || !t.closest || !t.closest("#screenSettings .al-opts")) return;
   var o=alertOpts();
-  if(t.getAttribute("data-alert-opt")) o[t.getAttribute("data-alert-opt")]=!!t.checked;
+  if(t.getAttribute("data-alert-opt")){
+    o[t.getAttribute("data-alert-opt")]=!!t.checked;
+    // Delays & postponements off means postponements too, for a device
+    // that kept them from before there were choices (Codex, #116).
+    if(t.getAttribute("data-alert-opt")==="delays") delete o.outcomes;
+  }
   else if(t.name==="alertScoring") o.scoring=t.value;
   else return;
   alertsChoose(o);

@@ -451,9 +451,9 @@ function emit(db, teamId, game, ev, scores, x, now, log, late) {
   let only = null;
   if (/^fix/.test(ev)) {
     only = new Set();
-    if (x && x.of) {
-      db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'due'", teamId, game.id, x.of);
-      for (const r of db.all("SELECT endpoint FROM deliveries WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'done'", teamId, game.id, x.of)) only.add(r.endpoint);
+    for (const of of (x && x.of) || []) {
+      db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'due'", teamId, game.id, of);
+      for (const r of db.all("SELECT endpoint FROM deliveries WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'done'", teamId, game.id, of)) only.add(r.endpoint);
     }
   }
   let n = 0;
@@ -514,7 +514,9 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
   const b = st.base, moved = cur.us !== b.us || cur.them !== b.them;
   if (!moved) next.pend = null;
   else if (cur.us < b.us || cur.them < b.them) {
-    out.push({ event: "fix:" + (row.seq + 1), scores: cur, x: { lost: cur.us < b.us ? "us" : "them", ours: cur.us !== b.us, of: st.lastEv || null } });
+    // the score being taken back is the one that last added to that side
+    const of = [cur.us < b.us && st.evUs, cur.them < b.them && st.evThem].filter(Boolean);
+    out.push({ event: "fix:" + (row.seq + 1), scores: cur, x: { lost: cur.us < b.us ? "us" : "them", ours: cur.us !== b.us, of } });
     next.base = cur; next.pend = null; next.last = null;
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
@@ -529,7 +531,8 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
       else {
         out.push({ event: "score:" + (row.seq + 1), scores: cur, x: { scorer, label: label(pts), ours: du > 0 } });
         next.last = { kind: pts >= 6 ? "td" : "other", scorer, at: now };
-        next.lastEv = "score:" + (row.seq + 1);
+        if (du > 0) next.evUs = "score:" + (row.seq + 1);
+        if (dt > 0) next.evThem = "score:" + (row.seq + 1);
       }
       next.base = cur; next.pend = null;
     }
@@ -551,6 +554,10 @@ async function deliver(db, env, teamId, now, log) {
   if (!due.length) return;
   const jwk = await vapidKey(db, env);
   const tally = {};
+  // A device whose earlier alert is still waiting to be retried gets
+  // nothing later until it goes, so a quarter's alert never arrives before
+  // the score that it carries (Codex, #116).
+  const held = new Set();
   for (const d of due) {
     const key = [teamId, d.game_id, d.event, d.endpoint];
     const t = tally[d.event] = tally[d.event] || { sent: 0, retry: 0, gone: 0, dropped: 0 };
@@ -558,6 +565,7 @@ async function deliver(db, env, teamId, now, log) {
       db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", ...key);
       t.dropped++; continue;
     }
+    if (held.has(d.endpoint)) { t.retry++; continue; }
     // Claim it, so an overlapping run cannot send it too.
     if (!db.run("UPDATE deliveries SET state = 'sending' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ? AND state = 'due'", ...key).changes) continue;
     const x = JSON.parse(d.data), w = words(d.event, { id: teamId, name: d.team_name }, x.game, x.scores, x.x);
@@ -571,7 +579,7 @@ async function deliver(db, env, teamId, now, log) {
     if (code >= 200 && code < 300) { state = "done"; t.sent++; }
     else if (code === 404 || code === 410) { state = "gone"; t.gone++; db.run("DELETE FROM subs WHERE endpoint = ?", d.endpoint); }
     else if (d.tries + 1 >= LIMITS.tries) { state = "failed"; t.dropped++; }
-    else { state = "due"; t.retry++; }
+    else { state = "due"; t.retry++; held.add(d.endpoint); }
     db.run("UPDATE deliveries SET state = ?, tries = tries + 1 WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", state, ...key);
   }
   Object.keys(tally).forEach(function (ev) {

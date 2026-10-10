@@ -162,6 +162,9 @@ var STUB = "(" + function () {
   var lo = L.posts[L.posts.length - 1] && L.posts[L.posts.length - 1].options;
   ok(lo && lo.delays === false && lo.outcomes === true && lo.scoring === "mine",
      "its first change keeps Delays off and its postponement alerts (outcomes), and adds only what was chosen");
+  await L.page.click('#screenSettings [data-alert-opt="delays"]'); await L.page.click('#screenSettings [data-alert-opt="delays"]'); await L.page.waitForTimeout(900);
+  var lo2 = L.posts[L.posts.length - 1].options;
+  ok(lo2.delays === false && !lo2.outcomes, "and Delays & postponements turned off by hand means postponements too (Codex, #116)");
   await L.ctx.close();
 
   console.log("5. 320 px");
