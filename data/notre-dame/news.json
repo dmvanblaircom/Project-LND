@@ -1,7 +1,16 @@
 {
  "team": "notre-dame",
- "updated": "2026-10-10T13:07:18.824307+00:00",
+ "updated": "2026-10-10T13:37:17.479343+00:00",
  "items": [
+  {
+   "title": "IMG rolls past New Palestine led by Georgia, Alabama and Notre Dame commits",
+   "link": "https://on3.com/rivals/news/img-rolls-past-new-palestine-led-by-georgia-alabama-and-notre-dame-commits/",
+   "source": "Blue & Gold",
+   "summary": "Georgia 5-star QB commit Jayden Wade tossed five TDs, two to Alabama bound Osani Gayles. Future Notre Dame defensive end Jackson Vaughn was dominant and IMG improved to 7-0 with a win over New Palestine.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/10081826/steve-eye-catchers-AFI-.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-10T13:15:15+00:00"
+  },
   {
    "title": "Game Day Central: Stanford Cardinal vs. No. 3 Notre Dame football",
    "link": "https://on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-game-day-preview-prediction-stanford-cardinal/",
@@ -192,15 +201,6 @@
    "published": "2026-10-09T12:36:56+00:00"
   },
   {
-   "title": "Newsstand: NFL Draft analyst projects three Notre Dame players as first-round picks",
-   "link": "https://on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-nfl-draft-nate-tice-mock-draft/",
-   "source": "Blue & Gold",
-   "summary": "A prominent NFL Draft analyst projects three Notre Dame players to be selected in the first round of the 2027 NFL Draft, which would mark a first for the Irish in 32 years.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/08225039/Notre-Dame-Brauntae-Johnson-hookly.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-09T11:00:00+00:00"
-  },
-  {
    "title": "Notre Dame Football: Stanford Cardinal Q&#038;A with Channel Tree Sports",
    "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/85674/notre-dame-football-stanford-cardinal-qa-with-channel-tree-sports",
    "source": "One Foot Down",
@@ -208,15 +208,6 @@
    "image": "https://platform.onefootdown.com/wp-content/uploads/sites/118/2026/10/gettyimages-2244362496.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": "https://platform.sbnation.com/wp-content/uploads/sites/2/team-logos/logo-onefootdown.png?w=180",
    "published": "2026-10-09T10:58:49+00:00"
-  },
-  {
-   "title": "Frankie V\u2019s Prediction: One More Tune-Up for Notre Dame Before Real Season Begins",
-   "link": "https://www.uhnd.com/football/2026/10/09/frankie-vs-prediction-one-more-tune-up-for-notre-dame-before-real-season-begins/",
-   "source": "UHND",
-   "summary": "Notre Dame has one final tune-up game in what turned into a prolonged preseason for the Fighting Irish thanks to opponents like Purdue, Michigan State, and this weekend&#8217;s foe, Stanford, being at the bottom of their conferences. The Irish are nearly 40 point favorites this weekend before a stretch that will see the Irish square &#8230;\n<p><a href=\"https://www.uhnd.com/football/2026/10/09/frankie-vs-prediction-one-more-tune-up-for-notre-dame-before-real-season-begins/\" rel=\"nofollow\">Source</a></p>",
-   "image": "https://www.uhnd.com/wp-content/uploads/2026/10/573261003026_nd_at_unc-16x9-enhanced.jpg",
-   "sourceLogo": null,
-   "published": "2026-10-09T10:34:44+00:00"
   },
   {
    "title": "Irish Focus on Stanford",
@@ -541,6 +532,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2977,h_1674,x_603,y_511/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/167/01m45ygf0nh32fkp3vyy.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/favicon_2-7584840191d9f13dce826391650b7201.ico",
    "published": "2026-10-05T12:32:37+00:00"
+  },
+  {
+   "title": "Notre Dame's Win Over North Carolina Can Be Seen Two Different Ways",
+   "link": "https://www.si.com/college/notredame/football/notre-dame-fighting-irish-win-north-carolina-two-ways?utm_source=RSS",
+   "source": "Notre Dame On SI",
+   "summary": "Is your Irish glass half empty or half full after the Irish's sloppy at times road victory? This win is in the eye of the beholder.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_5776,h_3249,x_0,y_286/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/irish_breakdown/01m423qcem6ybdw8xgj7.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-05T00:14:49+00:00"
   }
  ]
 }
