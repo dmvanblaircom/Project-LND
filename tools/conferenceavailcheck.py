@@ -143,5 +143,18 @@ tmp, code, out = produce([FIXTURE["publish"], {"loaded": False, "data": []}])
 ok(code not in (0, None) and files(tmp) == [], "an archive that says it did not load is not 'no injuries'")
 shutil.rmtree(tmp)
 
+import copy
+for what, rows in (("missing", None), ("empty", []), ("cut short", "short")):
+    partial = copy.deepcopy(FIXTURE["publish"])
+    side = [g for g in partial["3130"]["games"] if g["teamName"] == "Ohio St."][0]
+    if rows is None:
+        del side["rows"]
+    else:
+        side["rows"] = side["rows"][:5] if rows == "short" else rows
+    tmp, code, out = produce([partial, FIXTURE["archive"]])
+    ok(code not in (0, None) and files(tmp) == [],
+       "a report whose player rows are %s is a partial answer, not 'nobody listed': nothing written (Codex, #118)" % what)
+    shutil.rmtree(tmp)
+
 print("\n%s" % ("all passed" if not failures else "%d FAILED" % failures))
 sys.exit(1 if failures else 0)

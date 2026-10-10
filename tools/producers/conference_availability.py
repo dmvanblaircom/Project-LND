@@ -32,8 +32,9 @@ Rules, each tested by tools/conferenceavailcheck.py:
     the archive stands, so the file never goes back to "no report" - marked
     `current: false`, so it is shown as that game's report but never marks
     a player out on the roster (Codex, #118).
-  * A failed fetch changes nothing and exits non-zero: the last good files
-    stay in place and the failure is loud.
+  * A failed fetch, a status no rule reads, or a report missing its player
+    rows changes nothing and exits non-zero: the last good files stay in
+    place and the failure is loud.
 """
 import argparse
 import json
@@ -63,6 +64,10 @@ STATUSES = [
 ]
 NOT_LISTED = re.compile(r"^(available|exempt|-|)$", re.I)
 ORDER = ["Game Day", "Update 2", "Update 1", "Initial"]      # newest first
+# A published report lists the whole travel squad (about 110-120 players), the
+# available ones included. Far fewer rows is a partial or changed answer, not
+# a report that lists nobody - refuse it rather than clear every status.
+MIN_ROWS = 40
 NAME = re.compile(r"^\s*(?P<pos>[A-Z/]{1,5})\s+#\s*(?P<no>\d{1,3})\s+(?P<name>.+?)\s*$")
 
 
@@ -106,6 +111,10 @@ def published(payload, names):
     if not found:
         return None
     found.sort(key=lambda x: x[0], reverse=True)
+    rows = found[0][2].get("rows")
+    if not isinstance(rows, list) or len(rows) < MIN_ROWS:
+        raise ValueError("this week's report has %s player rows - not a whole report"
+                         % (len(rows) if isinstance(rows, list) else "no"))
     return found[0][1:]
 
 
@@ -211,7 +220,10 @@ def main():
     if not isinstance(publish, dict) or not isinstance(archive, dict) or not archive.get("loaded", True):
         sys.exit("conference availability: an unexpected answer - leaving files alone")
 
-    latest, history = build(publish, archive, names)
+    try:
+        latest, history = build(publish, archive, names)
+    except ValueError as e:
+        sys.exit("conference availability: %s - leaving files alone" % e)
     if latest is None:
         log("availability: no report for", feed.get("team"), "yet this season - nothing written")
         return
