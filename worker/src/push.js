@@ -32,7 +32,10 @@
    Round 2 (§2b): each subscription carries its options (OPTIONS below; a
    subscription from before them has the round-1 set). While a game is on
    the team's score is read each minute too:
-   - a score is announced once it holds for a minute; a touchdown that moves
+   - while a game is on the Worker looks three times a minute, 20 seconds
+     apart (minute(); David, 2026-10-10). A score is announced at once when
+     ESPN's own scoring play at exactly that score confirms it, otherwise
+     once it holds for a look; a touchdown that moves
      on by its own try has held, so it is announced then, and the try is its
      own alert (David, 2026-10-10): extra point or two-point good, from the
      score; missed or failed, from ESPN's scoring play, only when its words
@@ -58,6 +61,7 @@ export const APP_URL = "https://dmvanblaircom.github.io/Project-LND/";
 const MIN = 60 * 1000;
 export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20 * MIN, window: 8 * 60 * MIN,
                         tries: 10, kickoffLate: 15 * MIN, liveLate: 5 * MIN, settle: 3 * MIN, fold: 5 * MIN,
+                        looks: 3, lookEvery: 20 * 1000,
                         closeClock: 300, closeMargin: 8 };
 
 // What a fan can choose (brief §2b). A subscription without options - every
@@ -424,6 +428,7 @@ async function getJson(env, url) {
 // One minute's work. Returns what it did, for the log and the tests.
 export async function tick(db, env, now) {
   const log = [];
+  let live = false;
   const teams = db.all("SELECT DISTINCT team_id FROM subs");
   for (const t of teams) {
     const teamId = t.team_id;
@@ -438,20 +443,39 @@ export async function tick(db, env, now) {
                teamId, game ? JSON.stringify(game) : null, now);
       }
     }
-    if (game && now >= game.at - LIMITS.before) await detect(db, env, teamId, game, now, log);
+    if (game && now >= game.at - LIMITS.before) { if (await detect(db, env, teamId, game, now, log)) live = true; }
     else log.push(teamId + ": " + (game ? "waiting for " + new Date(game.at).toISOString() : "no game"));
     await deliver(db, env, teamId, now, log);
   }
   db.run("INSERT INTO meta (k, v) VALUES ('last', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
          JSON.stringify({ at: new Date(now).toISOString(), log }));
+  log.live = live;
   return log;
+}
+
+// The cron's minute. While any followed game is on, it looks LIMITS.looks
+// times, LIMITS.lookEvery apart (20 seconds: David, 2026-10-10), since the
+// scheduler fires at most once a minute; otherwise once. Each look is a
+// whole tick, so the compare-and-set rules hold between them as between
+// minutes.
+export async function minute(db, env, clock, sleep) {
+  const start = clock();
+  let log = await tick(db, env, start);
+  const all = log.slice();
+  for (let i = 1; i < LIMITS.looks && log.live; i++) {
+    const wait = start + i * LIMITS.lookEvery - clock();
+    if (wait > 0) await sleep(wait);
+    log = await tick(db, env, clock());
+    all.push.apply(all, log);
+  }
+  return all;
 }
 
 // What ESPN says of the team's game, and a delivery for each follower who
 // wants it of every event newly due.
 async function detect(db, env, teamId, game, now, log) {
   const sent = new Set(db.all("SELECT event FROM sent WHERE team_id = ? AND game_id = ?", teamId, game.id).map(function (r) { return r.event; }));
-  if (sent.has("final") || sent.has("canceled")) { log.push(teamId + ": done"); return; }
+  if (sent.has("final") || sent.has("canceled")) { log.push(teamId + ": done"); return false; }
   // ESPN's core API first (a few hundred bytes); if it does not answer this
   // network, the same status from the team's schedule on the site API,
   // which the Phase 0 probe showed does.
@@ -461,7 +485,7 @@ async function detect(db, env, teamId, game, now, log) {
     status = fromSchedule && fromSchedule.status;
     if (status) log.push(teamId + ": status from the schedule");
   }
-  if (!status) { log.push(teamId + ": status unavailable"); return; }
+  if (!status) { log.push(teamId + ": status unavailable"); return false; }
   const t = status.type || {}, x0 = { period: status.period || 0, clock: status.displayClock || null };
   // While the game is on, its score each minute (round 2): announced first,
   // so a quarter's alert never shows a score the fan has not had (§2b, 3).
@@ -504,6 +528,7 @@ async function detect(db, env, teamId, game, now, log) {
     else if (d.check) scores = told;
     emit(db, teamId, game, d.event, scores, d.ended ? {} : x0, now, log, d.late);
   }
+  return t.state === "in";
 }
 
 // Record an event for the team's game once, then a delivery for each
@@ -710,15 +735,18 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
     const pd = st.pend;
+    // ESPN's own scoring play at exactly this score confirms it: told now,
+    // without the minute's hold (David, 2026-10-10).
+    const sure = !!(plays && plays.some(function (q) { return q.us === cur.us && q.them === cur.them; }));
     // A pending score that the game moved on from - its touchdown's own try,
     // or anything more - has held: it is told now, and what came after waits
     // its own minute (David, 2026-10-10; Codex, #119) - or, as a quarter
     // ends, is told straight after it.
     if (!held && pd && cur.us >= pd.us && cur.them >= pd.them) {
       announce(b, { us: pd.us, them: pd.them });
-      if (flush) { announce({ us: pd.us, them: pd.them }, cur); next.pend = null; }
+      if (flush || sure) { announce({ us: pd.us, them: pd.them }, cur); next.pend = null; }
       else next.pend = { us: cur.us, them: cur.them, at: now };
-    } else if (!(held || flush || (st.pend && now - st.pend.at >= LIMITS.settle))) {
+    } else if (!(held || flush || sure || (st.pend && now - st.pend.at >= LIMITS.settle))) {
       next.pend = { us: cur.us, them: cur.them, at: st.pend ? st.pend.at : now };
     } else {
       announce(b, cur);
@@ -819,7 +847,7 @@ export class Alerts {
   async fetch(request) {
     const op = new URL(request.url).pathname.slice(1), now = Date.now();
     let out;
-    if (op === "tick") out = { status: 200, body: { log: await tick(this.db, this.env, now) } };
+    if (op === "tick") out = { status: 200, body: { log: await minute(this.db, this.env, Date.now, function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); }) } };
     else if (op === "status") out = { status: 200, body: report(this.db) };
     else if (op === "key") out = { status: 200, body: { key: vapidPublic(await vapidKey(this.db, this.env)) } };
     else if (op === "subscribe") out = await subscribe(this.db, this.env, await request.json(), now);

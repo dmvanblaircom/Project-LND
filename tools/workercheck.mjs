@@ -8,7 +8,7 @@
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
 import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
-import { validSubscription, validTeam, subscribe, unsubscribe, tick, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
+import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
          words, playText, tryOf, scoringPlays, network, pickGame } from "../worker/src/push.js";
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
@@ -812,7 +812,7 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
                                 e.calls.length = 0; await tick(db, e, KICK + m * 60e3); return e.calls.filter((u) => /\/summary\?event=/.test(u)).length; };
   e.summary = { scoringPlays: [{ team: { id: "194" }, homeScore: 0, awayScore: 3, period: { number: 1 }, clock: { displayValue: "10:05" }, scoringType: { abbreviation: "FG" }, text: "J. Kicker 40 yd FG GOOD" }] };
   const reads = [await go(1, 0), await go(2, 0), await go(3, 3), await go(4, 3), await go(5, 3)];
-  eq(reads, [0, 0, 1, 1, 0], "the summary: not while nothing changes; each minute the score is moving; not once it is told");
+  eq(reads, [0, 0, 1, 0, 0], "the summary: not while nothing changes; read when the score moves; its play confirms the field goal, told at once, and not read again");
   const m = e.pushes.length === 1 ? say(await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth)) : e.pushes.length;
   eq(m, "Ohio State FG (10:05 1st) | J. Kicker 40 yd FG GOOD.\nOhio State 3, Iowa 0", "Ohio State away at Iowa: ESPN's away score is ours, the play's clock in the title"); }
 
@@ -825,6 +825,32 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
   const got = []; for (const p of e.pushes) got.push(say(await openPush(p.init.body, b.kp, b.sub.keys.auth)));
   eq(got, ["Ohio State TD (0:00 4th) | PAT pending.\nOhio State 6, Iowa 3", "Ohio State XP good (0:00 4th) | Ohio State 7, Iowa 3", "Final: Ohio State 7, Iowa 3 | Ohio State wins."],
      "a touchdown as time runs out, its kick seen with the final: the kick, then the final"); }
+
+console.log("game alerts: faster (David, Oct 10): told on ESPN's play, three looks a minute");
+{ const ND = JSON.parse(readFileSync(new URL("./fixtures/espn-summary-nd-stanford-2026-10-10.json", import.meta.url), "utf8"));
+  const g = { id: "401858257", comp: "401858257", home: true, opponent: { id: "24", name: "Stanford" } }, T0 = Date.parse("2026-10-10T19:37:00Z");
+  const sum = (list) => scoringPlays({ scoringPlays: list }, "87", g);
+  const pl = (text, home) => Object.assign({}, ND.scoringPlays[0], { text, homeScore: home });
+  const db = dbOf(), when = [];
+  const look = (sec, us, list) => { for (const e of scoreStep(db, "87", g, { period: 1, displayClock: "13:00" }, { us, them: 0 }, T0 + sec * 1000, false, list && sum(list))) when.push(sec + "s " + e.x.kind); };
+  look(0, 0, null);
+  look(20, 6, [pl("N. James Jr. run for 2 yds, for a TD", 6)]);          // ESPN's play says 6-0: told at once
+  look(40, 7, [pl("N. James Jr. run for 2 yds, for a TD (S. Porath KICK)", 7)]);   // and the kick
+  look(60, 10, [pl("N. James Jr. run for 2 yds, for a TD (S. Porath KICK)", 7)]);  // no play at 10-0: held ...
+  look(80, 10, [pl("N. James Jr. run for 2 yds, for a TD (S. Porath KICK)", 7)]);  // ... a look later
+  eq(when, ["20s td", "40s xp", "80s fg"], "a score ESPN's own scoring play confirms is told at the look that sees it; one with no play holds a look"); }
+{ // minute(): three looks 20 seconds apart while a game is on; one when none is.
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK);
+  let t = KICK + 30 * 60e3; const looks = [], slept = [];
+  const clock = () => t, sleep = async (ms) => { slept.push(ms); t += ms; };
+  const base = e.FETCH; e.FETCH = async (url, init) => { if (/\/status$/.test(url)) looks.push((t - KICK) / 1000); return base(url, init); };
+  e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: 7, 2294: 0 };
+  await minute(db, e, clock, sleep);
+  eq([looks, slept], [[1800, 1820, 1840], [20000, 20000]], "a game on: three looks in the minute, 20 seconds apart");
+  looks.length = 0; e.status = { period: 4, type: { state: "post", name: "STATUS_FINAL", completed: true } }; t = KICK + 4 * 3600e3;
+  await minute(db, e, clock, sleep);
+  ok(looks.length === 1 && LIMITS.looks === 3, "no game on: one look"); }
 
 console.log("game alerts: the routes and the minute");
 { const calls = [];

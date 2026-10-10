@@ -139,7 +139,7 @@ score in the body. Examples are from Stanford at Notre Dame that day.
 
 | Alert | Title / body | Sent when |
 |---|---|---|
-| Touchdown | "Notre Dame TD (13:06 1st)" / "N. James Jr. run for 2 yds, for a TD. PAT pending." + "Notre Dame 6, Stanford 0" | ESPN's score changes and holds a minute, or moves on by its own try |
+| Touchdown | "Notre Dame TD (13:06 1st)" / "N. James Jr. run for 2 yds, for a TD. PAT pending." + "Notre Dame 6, Stanford 0" | ESPN's score changes and its scoring play confirms it (else it holds a 20-second look), or it moves on by its own try |
 | The try | "Notre Dame XP good (13:06 1st)" / "Notre Dame 7, Stanford 0"; also "2-pt good", "XP missed", "2-pt failed" | Its own alert after the touchdown (see below) |
 | Field goal, safety | "Notre Dame FG (12:27 2nd)" / "S. Porath 33 yd FG GOOD." + the score | ESPN's score changes |
 | Both sides, or no single play | "Stanford scores (4:35 4th)" / "Score update (10:00 2nd)" + the score | Two scores between two looks |
@@ -153,11 +153,22 @@ score in the body. Examples are from Stanford at Notre Dame that day.
 | Kickoff time set | "Notre Dame vs. BYU: Sat, Oct 17, 7:30 PM on NBC" (in the fan's own time zone) | A TBA game gets its time, or a set time moves (not built yet) |
 | Delay / postponed / canceled | "Delay (9:15 2nd)" / the score; "Postponed" / "Notre Dame vs. Stanford has been postponed." | ESPN's status changes to it |
 
+**Speed** (David, 2026-10-10, after Suite's touchdown alert arrived about two
+minutes after theScore's and Apple Sports'): while a followed game is on, the
+Worker looks three times a minute, 20 seconds apart (the scheduler fires at
+most once a minute). A new score is sent at the look that sees it when ESPN's
+own scoring play at exactly that score confirms it; without a matching play
+it waits one more look (20 seconds) rather than a minute. Expected: usually
+10-30 seconds behind theScore, depending on how far ESPN trails its feed. The
+cost: a score ESPN posts and takes back is corrected ("Score corrected")
+rather than never sent; that needs a real scoring play behind it, so it
+should be rare.
+
 **The touchdown and its try are two alerts** (David, 2026-10-10; this
 replaces the round-2 rule that held a touchdown up to 5 minutes and folded
 its extra point in):
 
-- The touchdown goes as soon as its score holds a minute. A touchdown that
+- The touchdown goes as soon as ESPN's play confirms it, or its score holds a look. A touchdown that
   moves on by its own +1 or +2 has held: it goes then, and the try waits its
   own minute.
 - **Good tries come from the score:** +1 is "XP good", +2 is "2-pt good".
