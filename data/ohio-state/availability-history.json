@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-10-10T05:28:15.043575+00:00",
+ "updated": "2026-10-10T18:37:27.493391+00:00",
  "reports": [
   {
    "schema": 1,
@@ -162,10 +162,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-10T05:01:05.001403+00:00",
+   "fetchedAt": "2026-10-10T18:37:27.493391+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-09",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-10",
    "game": "vs. Maryland",
    "players": [
@@ -173,14 +173,14 @@
      "pos": "WR",
      "no": "0",
      "name": "Brandon Inniss",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "3",
      "name": "Devin McCuin",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -194,21 +194,21 @@
      "pos": "LB",
      "no": "14",
      "name": "Christian Alliegro",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "RB",
      "no": "21",
      "name": "Anthony “Turbo” Rogers",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "CB",
      "no": "25",
      "name": "Jay Timmons",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -222,14 +222,7 @@
      "pos": "DE",
      "no": "34",
      "name": "Khary Wilder",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "41",
-     "name": "Braxton Rembert",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -241,9 +234,16 @@
     },
     {
      "pos": "OL",
+     "no": "67",
+     "name": "Austin Siereveld",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
      "no": "70",
      "name": "Phillip Daniels",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
