@@ -661,22 +661,22 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     next.base = c;
   }
   const b = st.base, moved = cur.us !== b.us || cur.them !== b.them;
+  // A touchdown's try that missed moves no score: ESPN's play says so. It is
+  // told first, whatever else moved meanwhile - a kickoff returned for a
+  // score must not swallow it (Codex, #119).
+  if (!gap && awaitingTry(st, now) && cur[st.last.scorer] === b[st.last.scorer]) {
+    const side = st.last.scorer, pl = playFor(plays, side, b[side] - 6, b[side]);
+    const tr = pl && pl.type !== "FG" && pl[side] === b[side] ? tryOf(pl.text) : null;
+    if (tr === "xpmiss" || tr === "2ptfail") {
+      n += 1;
+      out.push({ event: "score:" + n, scores: b, x: Object.assign({ scorer: side, ours: false, kind: tr }, playX(pl), { play: undefined }) });
+      next.last = { kind: "other", scorer: side, at: now };
+    }
+  }
   // start again from what it is now: nothing announced before the gap can
   // be corrected after it (Codex, #116)
   if (gap) { next.base = cur; next.pend = null; next.last = null; next.hist = { us: [], them: [] }; }
-  else if (!moved) {
-    next.pend = null;
-    // A touchdown's try that missed moves no score: ESPN's play says so.
-    if (awaitingTry(st, now)) {
-      const side = st.last.scorer, pl = playFor(plays, side, b[side] - 6, b[side]);
-      const tr = pl && pl.type !== "FG" && pl[side] === b[side] ? tryOf(pl.text) : null;
-      if (tr === "xpmiss" || tr === "2ptfail") {
-        n += 1;
-        out.push({ event: "score:" + n, scores: b, x: Object.assign({ scorer: side, ours: false, kind: tr }, playX(pl), { play: undefined }) });
-        next.last = { kind: "other", scorer: side, at: now };
-      }
-    }
-  }
+  else if (!moved) next.pend = null;
   else if (cur.us < b.us || cur.them < b.them) {
     // every announced score on each side that the new score takes back: the
     // devices that got any of them get the correction (Codex, #116)

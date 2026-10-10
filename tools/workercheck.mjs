@@ -745,6 +745,16 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
       for (const e of scoreStep(db3, "87", g, { period: 2, displayClock: "5:00" }, { us, them }, T0 + m * 60e3, false, null)) h3.push(words(e.event, team, g, e.scores, e.x).title);
     eq(h3, ["Notre Dame TD", "Stanford scores"], "a defensive two-point return is not a safety"); }
 
+  { // The miss shows up only once Stanford has run the kickoff back: the miss is still told, first (Codex, #119).
+    const db4 = dbOf(), h4 = [], miss = [pl(2, null, 6)];
+    const kr = { team: { id: "24" }, homeScore: 6, awayScore: 7, period: { number: 2 }, clock: { displayValue: "14:35" }, scoringType: { abbreviation: "TD" },
+                 text: "B. Returner 95 yd kickoff return for a TD (E. Kicker KICK)" };
+    const seq = [[0, 0, 0, null], [1, 6, 0, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]], [2, 6, 0, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]],
+                 [3, 6, 7, miss.concat([kr])], [4, 6, 7, miss.concat([kr])]];
+    for (const [m, us, them, list] of seq)
+      for (const e of scoreStep(db4, "87", g, { period: 2, displayClock: "14:30" }, { us, them }, T0 + m * 60e3, false, list && sum(list))) h4.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h4, ["Notre Dame TD (14:48 2nd)", "Notre Dame XP missed (14:48 2nd)", "Stanford TD (14:35 2nd)"], "a miss ESPN shows only after the other side scored again: still told, before that score"); }
+
   // The other words
   const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
   eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),
