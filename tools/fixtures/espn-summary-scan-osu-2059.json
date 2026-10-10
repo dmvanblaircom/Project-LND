@@ -1,0 +1,7063 @@
+{
+ "_comment": "Real ESPN game summary for event 401858483, captured 2026-10-10 by capture-fixture.yml and trimmed to the keys TeamOS reads (tools/trim_summary.py). ESPN's structure and positions are unchanged.",
+ "header": {
+  "id": "401858483",
+  "uid": "s:20~l:23~e:401858483",
+  "season": {
+   "year": 2026,
+   "current": true,
+   "type": 2
+  },
+  "timeValid": true,
+  "competitions": [
+   {
+    "id": "401858483",
+    "uid": "s:20~l:23~e:401858483~c:401858483",
+    "date": "2026-10-10T20:15Z",
+    "dateValid": true,
+    "neutralSite": false,
+    "conferenceCompetition": true,
+    "boxscoreAvailable": true,
+    "commentaryAvailable": false,
+    "liveAvailable": true,
+    "onWatchESPN": false,
+    "recent": true,
+    "wallclockAvailable": true,
+    "boxscoreSource": "full",
+    "playByPlaySource": "full",
+    "competitors": [
+     {
+      "id": "194",
+      "uid": "s:20~l:23~t:194",
+      "order": 0,
+      "homeAway": "home",
+      "team": {
+       "id": "194",
+       "guid": "2fc3b71f-8247-22a5-f6da-df3902cbb438",
+       "uid": "s:20~l:23~t:194",
+       "location": "Ohio State",
+       "name": "Buckeyes",
+       "nickname": "Ohio State",
+       "abbreviation": "OSU",
+       "displayName": "Ohio State Buckeyes",
+       "color": "ba0c2f",
+       "alternateColor": "a8adb4",
+       "logos": [
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "default"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/194.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "dark"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        }
+       ],
+       "groups": {
+        "id": "5"
+       },
+       "links": [
+        {
+         "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+         ],
+         "href": "https://www.espn.com/college-football/team/_/id/194/ohio-state-buckeyes",
+         "text": "Clubhouse"
+        }
+       ]
+      },
+      "score": "14",
+      "linescores": [
+       {
+        "displayValue": "14"
+       }
+      ],
+      "record": [
+       {
+        "type": "total",
+        "summary": "4-1",
+        "displayValue": "4-1"
+       },
+       {
+        "type": "vsconf",
+        "summary": "2-0",
+        "displayValue": "2-0"
+       }
+      ],
+      "timeoutsUsed": 0,
+      "possession": false,
+      "rank": 5
+     },
+     {
+      "id": "120",
+      "uid": "s:20~l:23~t:120",
+      "order": 1,
+      "homeAway": "away",
+      "team": {
+       "id": "120",
+       "guid": "7dae6b2a-7a04-6d4d-6e35-a625805c6c0a",
+       "uid": "s:20~l:23~t:120",
+       "location": "Maryland",
+       "name": "Terrapins",
+       "nickname": "Maryland",
+       "abbreviation": "MD",
+       "displayName": "Maryland Terrapins",
+       "color": "ce1126",
+       "alternateColor": "ffffff",
+       "logos": [
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "default"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/120.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "dark"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_black"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_white"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_black"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_white"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        }
+       ],
+       "groups": {
+        "id": "5"
+       },
+       "links": [
+        {
+         "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+         ],
+         "href": "https://www.espn.com/college-football/team/_/id/120/maryland-terrapins",
+         "text": "Clubhouse"
+        }
+       ]
+      },
+      "score": "3",
+      "linescores": [
+       {
+        "displayValue": "3"
+       }
+      ],
+      "record": [
+       {
+        "type": "total",
+        "summary": "2-3",
+        "displayValue": "2-3"
+       },
+       {
+        "type": "vsconf",
+        "summary": "0-2",
+        "displayValue": "0-2"
+       }
+      ],
+      "timeoutsUsed": 0,
+      "possession": true
+     }
+    ],
+    "status": {
+     "displayClock": "1:37",
+     "period": 1,
+     "type": {
+      "id": "2",
+      "name": "STATUS_IN_PROGRESS",
+      "state": "in",
+      "completed": false,
+      "description": "In Progress",
+      "detail": "1:37 - 1st Quarter",
+      "shortDetail": "1:37 - 1st",
+      "statusPrimary": "1:37",
+      "statusSecondary": "1st"
+     },
+     "displayPeriod": "1st"
+    },
+    "broadcasts": [
+     {
+      "type": {
+       "id": "1",
+       "shortName": "TV"
+      },
+      "market": {
+       "id": "1",
+       "type": "National"
+      },
+      "media": {
+       "shortName": "BTN"
+      },
+      "lang": "en",
+      "region": "us",
+      "isNational": true
+     }
+    ],
+    "groups": {
+     "id": "5",
+     "name": "Big Ten Conference",
+     "abbreviation": "big10",
+     "shortName": "Big Ten",
+     "midsizeName": "Big Ten"
+    },
+    "boxscoreMinutes": true
+   }
+  ],
+  "links": [
+   {
+    "rel": [
+     "live",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/game?gameId=401858483",
+    "text": "Gamecast",
+    "shortText": "Gamecast",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "boxscore",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/boxscore/_/gameId/401858483",
+    "text": "Box Score",
+    "shortText": "Box Score",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "pbp",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/playbyplay/_/gameId/401858483",
+    "text": "Play-by-Play",
+    "shortText": "Play-by-Play",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "teamstats",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/matchup?gameId=401858483",
+    "text": "Team Stats",
+    "shortText": "Team Stats",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "videos",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/video?gameId=401858483",
+    "text": "Videos",
+    "shortText": "Videos",
+    "isExternal": false,
+    "isPremium": false
+   }
+  ],
+  "week": 6,
+  "league": {
+   "id": "23",
+   "uid": "s:20~l:23",
+   "name": "NCAA - Football",
+   "abbreviation": "NCAAF",
+   "shortName": "NCAA Football",
+   "midsizeName": "NCAA Football",
+   "slug": "college-football",
+   "isTournament": false,
+   "links": [
+    {
+     "rel": [
+      "index",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/",
+     "text": "Index"
+    },
+    {
+     "rel": [
+      "index",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23",
+     "text": "Index"
+    },
+    {
+     "rel": [
+      "schedule",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/schedule",
+     "text": "Schedule"
+    },
+    {
+     "rel": [
+      "schedule",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=scores",
+     "text": "Schedule"
+    },
+    {
+     "rel": [
+      "standings",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/standings",
+     "text": "Standings"
+    },
+    {
+     "rel": [
+      "standings",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=standings",
+     "text": "Standings"
+    },
+    {
+     "rel": [
+      "rankings",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/rankings",
+     "text": "Rankings"
+    },
+    {
+     "rel": [
+      "rankings",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=rankings",
+     "text": "Rankings"
+    },
+    {
+     "rel": [
+      "scores",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/scoreboard",
+     "text": "Scores"
+    },
+    {
+     "rel": [
+      "scores",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=scores",
+     "text": "Scores"
+    },
+    {
+     "rel": [
+      "stats",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/stats",
+     "text": "Stats"
+    },
+    {
+     "rel": [
+      "stats",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=stats",
+     "text": "Stats"
+    },
+    {
+     "rel": [
+      "teams",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/teams",
+     "text": "Teams"
+    },
+    {
+     "rel": [
+      "odds",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/odds",
+     "text": "Odds"
+    },
+    {
+     "rel": [
+      "odds",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=odds",
+     "text": "Odds"
+    }
+   ],
+   "logos": [
+    {
+     "href": "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png",
+     "rel": [
+      "full",
+      "default"
+     ]
+    },
+    {
+     "href": "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png",
+     "rel": [
+      "full",
+      "dark"
+     ]
+    }
+   ]
+  }
+ },
+ "boxscore": {
+  "teams": [
+   {
+    "team": {
+     "id": "120",
+     "uid": "s:20~l:23~t:120",
+     "slug": "maryland-terrapins",
+     "location": "Maryland",
+     "name": "Terrapins",
+     "abbreviation": "MD",
+     "displayName": "Maryland Terrapins",
+     "shortDisplayName": "Maryland",
+     "color": "ce1126",
+     "alternateColor": "ffffff",
+     "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png"
+    },
+    "statistics": [
+     {
+      "name": "firstDowns",
+      "displayValue": "2",
+      "value": 2.0,
+      "label": "1st Downs"
+     },
+     {
+      "name": "thirdDownEff",
+      "displayValue": "1-4",
+      "value": 0.25,
+      "label": "3rd down efficiency"
+     },
+     {
+      "name": "fourthDownEff",
+      "displayValue": "0-0",
+      "value": "-",
+      "label": "4th down efficiency"
+     },
+     {
+      "name": "totalYards",
+      "displayValue": "35",
+      "value": "-",
+      "label": "Total Yards"
+     },
+     {
+      "name": "netPassingYards",
+      "displayValue": "22",
+      "value": 22.0,
+      "label": "Passing"
+     },
+     {
+      "name": "completionAttempts",
+      "displayValue": "6/10",
+      "value": "-",
+      "label": "Comp/Att"
+     },
+     {
+      "name": "yardsPerPass",
+      "displayValue": "2.2",
+      "value": 2.2,
+      "label": "Yards per pass"
+     },
+     {
+      "name": "rushingYards",
+      "displayValue": "13",
+      "value": 13.0,
+      "label": "Rushing"
+     },
+     {
+      "name": "rushingAttempts",
+      "displayValue": "6",
+      "value": 6.0,
+      "label": "Rushing Attempts"
+     },
+     {
+      "name": "yardsPerRushAttempt",
+      "displayValue": "2.2",
+      "value": 2.167,
+      "label": "Yards per rush"
+     },
+     {
+      "name": "totalPenaltiesYards",
+      "displayValue": "1-5",
+      "value": "-",
+      "label": "Penalties"
+     },
+     {
+      "name": "turnovers",
+      "displayValue": "0",
+      "value": "-",
+      "label": "Turnovers"
+     },
+     {
+      "name": "fumblesLost",
+      "displayValue": "0",
+      "value": 0.0,
+      "label": "Fumbles lost"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "0",
+      "value": 0.0,
+      "label": "Interceptions thrown"
+     },
+     {
+      "name": "possessionTime",
+      "displayValue": " 5:44",
+      "value": 344,
+      "label": "Possession"
+     }
+    ],
+    "displayOrder": 1,
+    "homeAway": "away"
+   },
+   {
+    "team": {
+     "id": "194",
+     "uid": "s:20~l:23~t:194",
+     "slug": "ohio-state-buckeyes",
+     "location": "Ohio State",
+     "name": "Buckeyes",
+     "abbreviation": "OSU",
+     "displayName": "Ohio State Buckeyes",
+     "shortDisplayName": "Ohio State",
+     "color": "ba0c2f",
+     "alternateColor": "a8adb4",
+     "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png"
+    },
+    "statistics": [
+     {
+      "name": "firstDowns",
+      "displayValue": "3",
+      "value": 3.0,
+      "label": "1st Downs"
+     },
+     {
+      "name": "thirdDownEff",
+      "displayValue": "0-3",
+      "value": 0,
+      "label": "3rd down efficiency"
+     },
+     {
+      "name": "fourthDownEff",
+      "displayValue": "1-1",
+      "value": 1,
+      "label": "4th down efficiency"
+     },
+     {
+      "name": "totalYards",
+      "displayValue": "124",
+      "value": "-",
+      "label": "Total Yards"
+     },
+     {
+      "name": "netPassingYards",
+      "displayValue": "108",
+      "value": 108.0,
+      "label": "Passing"
+     },
+     {
+      "name": "completionAttempts",
+      "displayValue": "5/7",
+      "value": "-",
+      "label": "Comp/Att"
+     },
+     {
+      "name": "yardsPerPass",
+      "displayValue": "15.4",
+      "value": 15.429,
+      "label": "Yards per pass"
+     },
+     {
+      "name": "rushingYards",
+      "displayValue": "16",
+      "value": 16.0,
+      "label": "Rushing"
+     },
+     {
+      "name": "rushingAttempts",
+      "displayValue": "7",
+      "value": 7.0,
+      "label": "Rushing Attempts"
+     },
+     {
+      "name": "yardsPerRushAttempt",
+      "displayValue": "2.3",
+      "value": 2.286,
+      "label": "Yards per rush"
+     },
+     {
+      "name": "totalPenaltiesYards",
+      "displayValue": "2-20",
+      "value": "-",
+      "label": "Penalties"
+     },
+     {
+      "name": "turnovers",
+      "displayValue": "1",
+      "value": "-",
+      "label": "Turnovers"
+     },
+     {
+      "name": "fumblesLost",
+      "displayValue": "1",
+      "value": 1.0,
+      "label": "Fumbles lost"
+     },
+     {
+      "name": "interceptions",
+      "displayValue": "0",
+      "value": 0.0,
+      "label": "Interceptions thrown"
+     },
+     {
+      "name": "possessionTime",
+      "displayValue": " 6:13",
+      "value": 373,
+      "label": "Possession"
+     }
+    ],
+    "displayOrder": 2,
+    "homeAway": "home"
+   }
+  ],
+  "players": [
+   {
+    "team": {
+     "id": "120",
+     "uid": "s:20~l:23~t:120",
+     "slug": "maryland-terrapins",
+     "location": "Maryland",
+     "name": "Terrapins",
+     "abbreviation": "MD",
+     "displayName": "Maryland Terrapins",
+     "shortDisplayName": "Maryland",
+     "color": "ce1126",
+     "alternateColor": "ffffff",
+     "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png"
+    },
+    "statistics": [
+     {
+      "name": "passing",
+      "keys": [
+       "completions/passingAttempts",
+       "passingYards",
+       "yardsPerPassAttempt",
+       "passingTouchdowns",
+       "interceptions",
+       "adjQBR"
+      ],
+      "text": "Maryland Passing",
+      "labels": [
+       "C/ATT",
+       "YDS",
+       "AVG",
+       "TD",
+       "INT"
+      ],
+      "descriptions": [
+       "Completions/Attempts",
+       "Yards",
+       "Yards Per Pass Attempt",
+       "Touchdowns",
+       "Interceptions"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5141695",
+         "uid": "s:20~l:23~a:5141695",
+         "guid": "835e0cd3-519f-30e0-a69a-468c8dd646ce",
+         "firstName": "Malik",
+         "lastName": "Washington",
+         "displayName": "Malik Washington",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141695/malik-washington",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141695.png",
+          "alt": "Malik Washington"
+         },
+         "jersey": "7"
+        },
+        "stats": [
+         "6/10",
+         "22",
+         "2.2",
+         "0",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "6/10",
+       "22",
+       "2.2",
+       "0",
+       "0"
+      ]
+     },
+     {
+      "name": "rushing",
+      "keys": [
+       "rushingAttempts",
+       "rushingYards",
+       "yardsPerRushAttempt",
+       "rushingTouchdowns",
+       "longRushing"
+      ],
+      "text": "Maryland Rushing",
+      "labels": [
+       "CAR",
+       "YDS",
+       "AVG",
+       "TD",
+       "LONG"
+      ],
+      "descriptions": [
+       "Rushing Attempts",
+       "Yards",
+       "Yards Per Rushing Attempt",
+       "Touchdowns",
+       "Longest Run"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5295550",
+         "uid": "s:20~l:23~a:5295550",
+         "guid": "f4585785-8fe2-3659-90d0-274035f8f1bb",
+         "firstName": "DeJuan",
+         "lastName": "Williams",
+         "displayName": "DeJuan Williams",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5295550/dejuan-williams",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5295550.png",
+          "alt": "DeJuan Williams"
+         },
+         "jersey": "0"
+        },
+        "stats": [
+         "4",
+         "8",
+         "2.0",
+         "0",
+         "4"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5194795",
+         "uid": "s:20~l:23~a:5194795",
+         "guid": "36b68c5b-d2a7-36b3-90c3-fa22757bb222",
+         "firstName": "Na'eem",
+         "lastName": "Abdul-Rahim Gladding",
+         "displayName": "Na'eem Abdul-Rahim Gladding",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5194795/naeem-abdul-rahim-gladding",
+           "text": "Player Card"
+          }
+         ],
+         "jersey": "1"
+        },
+        "stats": [
+         "1",
+         "6",
+         "6.0",
+         "0",
+         "6"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5141522",
+         "uid": "s:20~l:23~a:5141522",
+         "guid": "5c832235-51b1-3e2e-9c1a-932db0fb17e2",
+         "firstName": "Iverson",
+         "lastName": "Howard",
+         "displayName": "Iverson Howard",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141522/iverson-howard",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141522.png",
+          "alt": "Iverson Howard"
+         },
+         "jersey": "24"
+        },
+        "stats": [
+         "1",
+         "-1",
+         "-1.0",
+         "0",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "6",
+       "13",
+       "2.2",
+       "0",
+       "6"
+      ]
+     },
+     {
+      "name": "receiving",
+      "keys": [
+       "receptions",
+       "receivingYards",
+       "yardsPerReception",
+       "receivingTouchdowns",
+       "longReception"
+      ],
+      "text": "Maryland Receiving",
+      "labels": [
+       "REC",
+       "YDS",
+       "AVG",
+       "TD",
+       "LONG"
+      ],
+      "descriptions": [
+       "Receptions",
+       "Yards",
+       "Yards Per Reception",
+       "Touchdowns",
+       "Longest Reception"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "4838556",
+         "uid": "s:20~l:23~a:4838556",
+         "guid": "b3c1bfc4-f203-3dae-be99-4de35c3755aa",
+         "firstName": "Kaleb",
+         "lastName": "Webb",
+         "displayName": "Kaleb Webb",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4838556/kaleb-webb",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4838556.png",
+          "alt": "Kaleb Webb"
+         },
+         "jersey": "2"
+        },
+        "stats": [
+         "2",
+         "14",
+         "7.0",
+         "0",
+         "10"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5092410",
+         "uid": "s:20~l:23~a:5092410",
+         "guid": "4f21ed87-f589-37d6-9f3a-5579a491f7d8",
+         "firstName": "Dorian",
+         "lastName": "Fleming",
+         "displayName": "Dorian Fleming",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5092410/dorian-fleming",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5092410.png",
+          "alt": "Dorian Fleming"
+         },
+         "jersey": "9"
+        },
+        "stats": [
+         "1",
+         "4",
+         "4.0",
+         "0",
+         "4"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5193298",
+         "uid": "s:20~l:23~a:5193298",
+         "guid": "e810199a-3146-3702-9ad4-0cf708a504d2",
+         "firstName": "Chris",
+         "lastName": "Durr Jr.",
+         "displayName": "Chris Durr Jr.",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5193298/chris-durr-jr",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5193298.png",
+          "alt": "Chris Durr Jr."
+         },
+         "jersey": "13"
+        },
+        "stats": [
+         "1",
+         "2",
+         "2.0",
+         "0",
+         "2"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5194795",
+         "uid": "s:20~l:23~a:5194795",
+         "guid": "36b68c5b-d2a7-36b3-90c3-fa22757bb222",
+         "firstName": "Na'eem",
+         "lastName": "Abdul-Rahim Gladding",
+         "displayName": "Na'eem Abdul-Rahim Gladding",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5194795/naeem-abdul-rahim-gladding",
+           "text": "Player Card"
+          }
+         ],
+         "jersey": "1"
+        },
+        "stats": [
+         "1",
+         "2",
+         "2.0",
+         "0",
+         "2"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5295550",
+         "uid": "s:20~l:23~a:5295550",
+         "guid": "f4585785-8fe2-3659-90d0-274035f8f1bb",
+         "firstName": "DeJuan",
+         "lastName": "Williams",
+         "displayName": "DeJuan Williams",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5295550/dejuan-williams",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5295550.png",
+          "alt": "DeJuan Williams"
+         },
+         "jersey": "0"
+        },
+        "stats": [
+         "1",
+         "0",
+         "0.0",
+         "0",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "5",
+       "22",
+       "4.4",
+       "0",
+       "10"
+      ]
+     },
+     {
+      "name": "fumbles",
+      "keys": [
+       "fumbles",
+       "fumblesLost",
+       "fumblesRecovered"
+      ],
+      "text": "Maryland Fumbles",
+      "labels": [
+       "FUM",
+       "LOST",
+       "REC"
+      ],
+      "descriptions": [
+       "Fumbles",
+       "Fumbles Lost",
+       "Fumbles Recovered"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5148665",
+         "uid": "s:20~l:23~a:5148665",
+         "guid": "4077ac23-c4d0-3da0-9f7a-cfb51f970204",
+         "firstName": "Messiah",
+         "lastName": "Delhomme",
+         "displayName": "Messiah Delhomme",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5148665/messiah-delhomme",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5148665.png",
+          "alt": "Messiah Delhomme"
+         },
+         "jersey": "33"
+        },
+        "stats": [
+         "0",
+         "0",
+         "1"
+        ]
+       }
+      ],
+      "totals": [
+       "0",
+       "0",
+       "1"
+      ]
+     },
+     {
+      "name": "defensive",
+      "keys": [
+       "totalTackles",
+       "soloTackles",
+       "sacks",
+       "tacklesForLoss",
+       "passesDefended",
+       "hurries",
+       "defensiveTouchdowns"
+      ],
+      "text": "Maryland Defense",
+      "labels": [
+       "TOT",
+       "SOLO",
+       "SACKS",
+       "TFL",
+       "PD",
+       "QB HUR",
+       "TD"
+      ],
+      "descriptions": [
+       "Tackles",
+       "Solo Tackles",
+       "Sacks",
+       "Tackles For Loss",
+       "Passes Defended",
+       "Quarterback Hurries",
+       "Touchdowns"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5216961",
+         "uid": "s:20~l:23~a:5216961",
+         "guid": "ab2e1339-053b-3feb-8927-ab9f95d474bc",
+         "firstName": "Sidney",
+         "lastName": "Stewart",
+         "displayName": "Sidney Stewart",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5216961/sidney-stewart",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5216961.png",
+          "alt": "Sidney Stewart"
+         },
+         "jersey": "11"
+        },
+        "stats": [
+         "4",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "4916379",
+         "uid": "s:20~l:23~a:4916379",
+         "guid": "7344277b-cfab-3586-98ab-8eef1665b357",
+         "firstName": "Jayvon",
+         "lastName": "Parker",
+         "displayName": "Jayvon Parker",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4916379/jayvon-parker",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4916379.png",
+          "alt": "Jayvon Parker"
+         },
+         "jersey": "97"
+        },
+        "stats": [
+         "2",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5155142",
+         "uid": "s:20~l:23~a:5155142",
+         "guid": "7b9d1560-82f8-3c72-b27e-397274b68f05",
+         "firstName": "Eyan",
+         "lastName": "Thomas",
+         "displayName": "Eyan Thomas",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5155142/eyan-thomas",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5155142.png",
+          "alt": "Eyan Thomas"
+         },
+         "jersey": "98"
+        },
+        "stats": [
+         "2",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "4870792",
+         "uid": "s:20~l:23~a:4870792",
+         "guid": "1eabbeef-7845-35ae-b12b-da07eb29b076",
+         "firstName": "Derrick",
+         "lastName": "LeBlanc",
+         "displayName": "Derrick LeBlanc",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4870792/derrick-leblanc",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4870792.png",
+          "alt": "Derrick LeBlanc"
+         },
+         "jersey": "88"
+        },
+        "stats": [
+         "2",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5141682",
+         "uid": "s:20~l:23~a:5141682",
+         "guid": "c8c28fad-8757-3292-a543-7b8f4f57f955",
+         "firstName": "Carlton",
+         "lastName": "Smith",
+         "displayName": "Carlton Smith",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141682/carlton-smith",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141682.png",
+          "alt": "Carlton Smith"
+         },
+         "jersey": "32"
+        },
+        "stats": [
+         "2",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5218946",
+         "uid": "s:20~l:23~a:5218946",
+         "guid": "c250a822-556b-313d-a581-5b3b69a9faf4",
+         "firstName": "Trey",
+         "lastName": "Reddick",
+         "displayName": "Trey Reddick",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5218946/trey-reddick",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5218946.png",
+          "alt": "Trey Reddick"
+         },
+         "jersey": "3"
+        },
+        "stats": [
+         "2",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5209297",
+         "uid": "s:20~l:23~a:5209297",
+         "guid": "ca278b72-868f-359d-a496-6abfd4293342",
+         "firstName": "Zion",
+         "lastName": "Elee",
+         "displayName": "Zion Elee",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5209297/zion-elee",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5209297.png",
+          "alt": "Zion Elee"
+         },
+         "jersey": "0"
+        },
+        "stats": [
+         "1",
+         "1",
+         "1",
+         "1",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "4870829",
+         "uid": "s:20~l:23~a:4870829",
+         "guid": "297c6946-a7d5-3b48-97eb-da4aeec7cc52",
+         "firstName": "Dontay",
+         "lastName": "Joyner",
+         "displayName": "Dontay Joyner",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4870829/dontay-joyner",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4870829.png",
+          "alt": "Dontay Joyner"
+         },
+         "jersey": "16"
+        },
+        "stats": [
+         "1",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5078405",
+         "uid": "s:20~l:23~a:5078405",
+         "guid": "cdc6c105-e66f-3140-ae8e-28e54fa62593",
+         "firstName": "Alex",
+         "lastName": "Moore",
+         "displayName": "Alex Moore",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5078405/alex-moore",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5078405.png",
+          "alt": "Alex Moore"
+         },
+         "jersey": "18"
+        },
+        "stats": [
+         "1",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5127728",
+         "uid": "s:20~l:23~a:5127728",
+         "guid": "02fa0e7f-3f6b-3b48-a6b8-694183a41e2a",
+         "firstName": "Judah",
+         "lastName": "Jenkins",
+         "displayName": "Judah Jenkins",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5127728/judah-jenkins",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5127728.png",
+          "alt": "Judah Jenkins"
+         },
+         "jersey": "21"
+        },
+        "stats": [
+         "1",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "4921326",
+         "uid": "s:20~l:23~a:4921326",
+         "guid": "72e1ad24-0e2b-3f2a-8f23-88a03209daf7",
+         "firstName": "Daniel",
+         "lastName": "Wingate",
+         "displayName": "Daniel Wingate",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4921326/daniel-wingate",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4921326.png",
+          "alt": "Daniel Wingate"
+         },
+         "jersey": "1"
+        },
+        "stats": [
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5220193",
+         "uid": "s:20~l:23~a:5220193",
+         "guid": "22eabd6b-4f3e-3834-991d-5a416a371e2d",
+         "firstName": "Jordan",
+         "lastName": "Scruggs",
+         "displayName": "Jordan Scruggs",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5220193/jordan-scruggs",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5220193.png",
+          "alt": "Jordan Scruggs"
+         },
+         "jersey": "6"
+        },
+        "stats": [
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5266920",
+         "uid": "s:20~l:23~a:5266920",
+         "guid": "43bd2914-841d-3042-abc1-31508b26d81c",
+         "firstName": "Kaden",
+         "lastName": "Carter",
+         "displayName": "Kaden Carter",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5266920/kaden-carter",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5266920.png",
+          "alt": "Kaden Carter"
+         },
+         "jersey": "27"
+        },
+        "stats": [
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "4912140",
+         "uid": "s:20~l:23~a:4912140",
+         "guid": "4614c447-de08-396e-b149-0c59a034143f",
+         "firstName": "Jamare",
+         "lastName": "Glasker",
+         "displayName": "Jamare Glasker",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4912140/jamare-glasker",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4912140.png",
+          "alt": "Jamare Glasker"
+         },
+         "jersey": "4"
+        },
+        "stats": [
+         "0",
+         "0",
+         "0",
+         "0",
+         "1",
+         "0",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "21",
+       "7",
+       "1",
+       "1",
+       "1",
+       "0",
+       "0"
+      ]
+     },
+     {
+      "name": "interceptions",
+      "keys": [
+       "interceptions",
+       "interceptionYards",
+       "interceptionTouchdowns"
+      ],
+      "text": "Maryland Interceptions",
+      "labels": [
+       "INT",
+       "YDS",
+       "TD"
+      ],
+      "descriptions": [
+       "Interceptions",
+       "Yards",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "kickReturns",
+      "keys": [
+       "kickReturns",
+       "kickReturnYards",
+       "yardsPerKickReturn",
+       "longKickReturn",
+       "kickReturnTouchdowns"
+      ],
+      "text": "Maryland Kick Returns",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "LONG",
+       "TD"
+      ],
+      "descriptions": [
+       "Kick Returns",
+       "Yards",
+       "Yards Per Kick Return",
+       "Longest Kick Return",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "puntReturns",
+      "keys": [
+       "puntReturns",
+       "puntReturnYards",
+       "yardsPerPuntReturn",
+       "longPuntReturn",
+       "puntReturnTouchdowns"
+      ],
+      "text": "Maryland Punt Returns",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "LONG",
+       "TD"
+      ],
+      "descriptions": [
+       "Punt Returns",
+       "Yards",
+       "Yards Per Punt Return",
+       "Longest Punt Return",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "kicking",
+      "keys": [
+       "fieldGoalsMade/fieldGoalAttempts",
+       "fieldGoalPct",
+       "longFieldGoalMade",
+       "extraPointsMade/extraPointAttempts",
+       "totalKickingPoints"
+      ],
+      "text": "Maryland Kicking",
+      "labels": [
+       "FG",
+       "PCT",
+       "LONG",
+       "XP",
+       "PTS"
+      ],
+      "descriptions": [
+       "Field Goals Made/Attempts",
+       "Field Goal Percentage",
+       "Longest Field Goal Made",
+       "Extra Points Made/Attempts",
+       "Kicking Points"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5226837",
+         "uid": "s:20~l:23~a:5226837",
+         "guid": "963e6f6d-4669-3dd3-a93c-480c3a7c8b1b",
+         "firstName": "Sean",
+         "lastName": "O'Haire",
+         "displayName": "Sean O'Haire",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5226837/sean-ohaire",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5226837.png",
+          "alt": "Sean O'Haire"
+         },
+         "jersey": "36"
+        },
+        "stats": [
+         "1/1",
+         "100.0",
+         "39",
+         "0/0",
+         "3"
+        ]
+       }
+      ],
+      "totals": [
+       "1/1",
+       "100.0",
+       "39",
+       "0/0",
+       "3"
+      ]
+     },
+     {
+      "name": "punting",
+      "keys": [
+       "punts",
+       "puntYards",
+       "grossAvgPuntYards",
+       "touchbacks",
+       "puntsInside20",
+       "longPunt"
+      ],
+      "text": "Maryland Punting",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "TB",
+       "In 20",
+       "LONG"
+      ],
+      "descriptions": [
+       "Punts",
+       "Yards",
+       "Average Punt Yards",
+       "Touchbacks",
+       "Punts Inside 20",
+       "Longest Punt"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "4906305",
+         "uid": "s:20~l:23~a:4906305",
+         "guid": "8bb29f07-cdf1-3cb5-8bc2-f8c67add08e0",
+         "firstName": "Bryce",
+         "lastName": "McFerson",
+         "displayName": "Bryce McFerson",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4906305/bryce-mcferson",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4906305.png",
+          "alt": "Bryce McFerson"
+         },
+         "jersey": "34"
+        },
+        "stats": [
+         "2",
+         "87",
+         "43.5",
+         "0",
+         "0",
+         "44"
+        ]
+       }
+      ],
+      "totals": [
+       "2",
+       "87",
+       "43.5",
+       "0",
+       "0",
+       "44"
+      ]
+     }
+    ],
+    "displayOrder": 1
+   },
+   {
+    "team": {
+     "id": "194",
+     "uid": "s:20~l:23~t:194",
+     "slug": "ohio-state-buckeyes",
+     "location": "Ohio State",
+     "name": "Buckeyes",
+     "abbreviation": "OSU",
+     "displayName": "Ohio State Buckeyes",
+     "shortDisplayName": "Ohio State",
+     "color": "ba0c2f",
+     "alternateColor": "a8adb4",
+     "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png"
+    },
+    "statistics": [
+     {
+      "name": "passing",
+      "keys": [
+       "completions/passingAttempts",
+       "passingYards",
+       "yardsPerPassAttempt",
+       "passingTouchdowns",
+       "interceptions",
+       "adjQBR"
+      ],
+      "text": "Ohio State Passing",
+      "labels": [
+       "C/ATT",
+       "YDS",
+       "AVG",
+       "TD",
+       "INT"
+      ],
+      "descriptions": [
+       "Completions/Attempts",
+       "Yards",
+       "Yards Per Pass Attempt",
+       "Touchdowns",
+       "Interceptions"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5079712",
+         "uid": "s:20~l:23~a:5079712",
+         "guid": "a6aa83fc-7532-319a-9f31-6e7df09edda6",
+         "firstName": "Julian",
+         "lastName": "Sayin",
+         "displayName": "Julian Sayin",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5079712/julian-sayin",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5079712.png",
+          "alt": "Julian Sayin"
+         },
+         "jersey": "10"
+        },
+        "stats": [
+         "5/7",
+         "108",
+         "15.4",
+         "2",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "5/7",
+       "108",
+       "15.4",
+       "2",
+       "0"
+      ]
+     },
+     {
+      "name": "rushing",
+      "keys": [
+       "rushingAttempts",
+       "rushingYards",
+       "yardsPerRushAttempt",
+       "rushingTouchdowns",
+       "longRushing"
+      ],
+      "text": "Ohio State Rushing",
+      "labels": [
+       "CAR",
+       "YDS",
+       "AVG",
+       "TD",
+       "LONG"
+      ],
+      "descriptions": [
+       "Rushing Attempts",
+       "Yards",
+       "Yards Per Rushing Attempt",
+       "Touchdowns",
+       "Longest Run"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5151892",
+         "uid": "s:20~l:23~a:5151892",
+         "guid": "4fc44823-c094-3677-ba51-ee7ef0f08d95",
+         "firstName": "Ja'Kobi",
+         "lastName": "Jackson",
+         "displayName": "Ja'Kobi Jackson",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5151892/jakobi-jackson",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5151892.png",
+          "alt": "Ja'Kobi Jackson"
+         },
+         "jersey": "24"
+        },
+        "stats": [
+         "3",
+         "10",
+         "3.3",
+         "0",
+         "5"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5141517",
+         "uid": "s:20~l:23~a:5141517",
+         "guid": "d1b676e4-6e75-3e11-8019-aba2c54329df",
+         "firstName": "Bo",
+         "lastName": "Jackson",
+         "displayName": "Bo Jackson",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141517/bo-jackson",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141517.png",
+          "alt": "Bo Jackson"
+         },
+         "jersey": "25"
+        },
+        "stats": [
+         "1",
+         "3",
+         "3.0",
+         "0",
+         "3"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5079712",
+         "uid": "s:20~l:23~a:5079712",
+         "guid": "a6aa83fc-7532-319a-9f31-6e7df09edda6",
+         "firstName": "Julian",
+         "lastName": "Sayin",
+         "displayName": "Julian Sayin",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5079712/julian-sayin",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5079712.png",
+          "alt": "Julian Sayin"
+         },
+         "jersey": "10"
+        },
+        "stats": [
+         "3",
+         "3",
+         "1.0",
+         "0",
+         "3"
+        ]
+       }
+      ],
+      "totals": [
+       "7",
+       "16",
+       "2.3",
+       "0",
+       "5"
+      ]
+     },
+     {
+      "name": "receiving",
+      "keys": [
+       "receptions",
+       "receivingYards",
+       "yardsPerReception",
+       "receivingTouchdowns",
+       "longReception"
+      ],
+      "text": "Ohio State Receiving",
+      "labels": [
+       "REC",
+       "YDS",
+       "AVG",
+       "TD",
+       "LONG"
+      ],
+      "descriptions": [
+       "Receptions",
+       "Yards",
+       "Yards Per Reception",
+       "Touchdowns",
+       "Longest Reception"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5141656",
+         "uid": "s:20~l:23~a:5141656",
+         "guid": "b9f8d19b-7137-3b3b-94ff-55bc030ea2fe",
+         "firstName": "Nate",
+         "lastName": "Roberts",
+         "displayName": "Nate Roberts",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141656/nate-roberts",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141656.png",
+          "alt": "Nate Roberts"
+         },
+         "jersey": "83"
+        },
+        "stats": [
+         "1",
+         "68",
+         "68.0",
+         "1",
+         "68"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5079720",
+         "uid": "s:20~l:23~a:5079720",
+         "guid": "d946ce07-3355-3ac6-98b1-ca667acef1d7",
+         "firstName": "Jeremiah",
+         "lastName": "Smith",
+         "displayName": "Jeremiah Smith",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5079720/jeremiah-smith",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5079720.png",
+          "alt": "Jeremiah Smith"
+         },
+         "jersey": "4"
+        },
+        "stats": [
+         "1",
+         "33",
+         "33.0",
+         "1",
+         "33"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5141517",
+         "uid": "s:20~l:23~a:5141517",
+         "guid": "d1b676e4-6e75-3e11-8019-aba2c54329df",
+         "firstName": "Bo",
+         "lastName": "Jackson",
+         "displayName": "Bo Jackson",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141517/bo-jackson",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141517.png",
+          "alt": "Bo Jackson"
+         },
+         "jersey": "25"
+        },
+        "stats": [
+         "1",
+         "3",
+         "3.0",
+         "0",
+         "3"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5151892",
+         "uid": "s:20~l:23~a:5151892",
+         "guid": "4fc44823-c094-3677-ba51-ee7ef0f08d95",
+         "firstName": "Ja'Kobi",
+         "lastName": "Jackson",
+         "displayName": "Ja'Kobi Jackson",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5151892/jakobi-jackson",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5151892.png",
+          "alt": "Ja'Kobi Jackson"
+         },
+         "jersey": "24"
+        },
+        "stats": [
+         "1",
+         "3",
+         "3.0",
+         "0",
+         "3"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5081611",
+         "uid": "s:20~l:23~a:5081611",
+         "guid": "5fea37db-b868-397b-8d8f-820f2eaa5033",
+         "firstName": "Mason",
+         "lastName": "Williams",
+         "displayName": "Mason Williams",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5081611/mason-williams",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5081611.png",
+          "alt": "Mason Williams"
+         },
+         "jersey": "86"
+        },
+        "stats": [
+         "1",
+         "1",
+         "1.0",
+         "0",
+         "1"
+        ]
+       }
+      ],
+      "totals": [
+       "5",
+       "108",
+       "21.6",
+       "2",
+       "68"
+      ]
+     },
+     {
+      "name": "fumbles",
+      "keys": [
+       "fumbles",
+       "fumblesLost",
+       "fumblesRecovered"
+      ],
+      "text": "Ohio State Fumbles",
+      "labels": [
+       "FUM",
+       "LOST",
+       "REC"
+      ],
+      "descriptions": [
+       "Fumbles",
+       "Fumbles Lost",
+       "Fumbles Recovered"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5079712",
+         "uid": "s:20~l:23~a:5079712",
+         "guid": "a6aa83fc-7532-319a-9f31-6e7df09edda6",
+         "firstName": "Julian",
+         "lastName": "Sayin",
+         "displayName": "Julian Sayin",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5079712/julian-sayin",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5079712.png",
+          "alt": "Julian Sayin"
+         },
+         "jersey": "10"
+        },
+        "stats": [
+         "1",
+         "1",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "1",
+       "1",
+       "0"
+      ]
+     },
+     {
+      "name": "defensive",
+      "keys": [
+       "totalTackles",
+       "soloTackles",
+       "sacks",
+       "tacklesForLoss",
+       "passesDefended",
+       "hurries",
+       "defensiveTouchdowns"
+      ],
+      "text": "Ohio State Defense",
+      "labels": [
+       "TOT",
+       "SOLO",
+       "SACKS",
+       "TFL",
+       "PD",
+       "QB HUR",
+       "TD"
+      ],
+      "descriptions": [
+       "Tackles",
+       "Solo Tackles",
+       "Sacks",
+       "Tackles For Loss",
+       "Passes Defended",
+       "Quarterback Hurries",
+       "Touchdowns"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5150251",
+         "uid": "s:20~l:23~a:5150251",
+         "guid": "a0c0b833-0fc9-346c-9ab4-1656d2f83c04",
+         "firstName": "Qua",
+         "lastName": "Russaw",
+         "displayName": "Qua Russaw",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5150251/qua-russaw",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5150251.png",
+          "alt": "Qua Russaw"
+         },
+         "jersey": "4"
+        },
+        "stats": [
+         "2",
+         "2",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "4685437",
+         "uid": "s:20~l:23~a:4685437",
+         "guid": "d2a942ae-de40-329b-ab51-ac449dd9f1a6",
+         "firstName": "Earl",
+         "lastName": "Little Jr.",
+         "displayName": "Earl Little Jr.",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4685437/earl-little-jr",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4685437.png",
+          "alt": "Earl Little Jr."
+         },
+         "jersey": "1"
+        },
+        "stats": [
+         "2",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5079485",
+         "uid": "s:20~l:23~a:5079485",
+         "guid": "445f1ceb-d656-3f42-9d51-e9388c2855a2",
+         "firstName": "Eddrick",
+         "lastName": "Houston",
+         "displayName": "Eddrick Houston",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5079485/eddrick-houston",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5079485.png",
+          "alt": "Eddrick Houston"
+         },
+         "jersey": "96"
+        },
+        "stats": [
+         "2",
+         "0",
+         "0",
+         "0.5",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5079667",
+         "uid": "s:20~l:23~a:5079667",
+         "guid": "1c041187-e180-310d-bd2b-7b63bfea7156",
+         "firstName": "Payton",
+         "lastName": "Pierce",
+         "displayName": "Payton Pierce",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5079667/payton-pierce",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5079667.png",
+          "alt": "Payton Pierce"
+         },
+         "jersey": "26"
+        },
+        "stats": [
+         "2",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "4923052",
+         "uid": "s:20~l:23~a:4923052",
+         "guid": "0e2c00ef-434a-305a-b8f8-0b34a28ff761",
+         "firstName": "Cam",
+         "lastName": "Calhoun",
+         "displayName": "Cam Calhoun",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4923052/cam-calhoun",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4923052.png",
+          "alt": "Cam Calhoun"
+         },
+         "jersey": "18"
+        },
+        "stats": [
+         "1",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5141635",
+         "uid": "s:20~l:23~a:5141635",
+         "guid": "a7eb9864-2fdc-3593-8b6f-4243f1de588c",
+         "firstName": "Devin",
+         "lastName": "Sanchez",
+         "displayName": "Devin Sanchez",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141635/devin-sanchez",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141635.png",
+          "alt": "Devin Sanchez"
+         },
+         "jersey": "6"
+        },
+        "stats": [
+         "1",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5209313",
+         "uid": "s:20~l:23~a:5209313",
+         "guid": "ec56acc0-185d-3e04-8fa0-9339aa4a990b",
+         "firstName": "Cincere",
+         "lastName": "Johnson",
+         "displayName": "Cincere Johnson",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5209313/cincere-johnson",
+           "text": "Player Card"
+          }
+         ],
+         "jersey": "20"
+        },
+        "stats": [
+         "1",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5226888",
+         "uid": "s:20~l:23~a:5226888",
+         "guid": "9fded3d8-4d1e-3ba2-9869-6d74ac02eaa7",
+         "firstName": "Stanley",
+         "lastName": "Jackson Jr.",
+         "displayName": "Stanley Jackson Jr.",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5226888/stanley-jackson-jr",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5226888.png",
+          "alt": "Stanley Jackson Jr."
+         },
+         "jersey": "28"
+        },
+        "stats": [
+         "1",
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "4871055",
+         "uid": "s:20~l:23~a:4871055",
+         "guid": "24864bdd-4c61-3637-8051-3ee183aa0d52",
+         "firstName": "John",
+         "lastName": "Walker",
+         "displayName": "John Walker",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/4871055/john-walker",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4871055.png",
+          "alt": "John Walker"
+         },
+         "jersey": "55"
+        },
+        "stats": [
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5081821",
+         "uid": "s:20~l:23~a:5081821",
+         "guid": "da5d5f19-880f-39da-9ba8-d4bda20c6eb5",
+         "firstName": "Kenyatta",
+         "lastName": "Jackson Jr.",
+         "displayName": "Kenyatta Jackson Jr.",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5081821/kenyatta-jackson-jr",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5081821.png",
+          "alt": "Kenyatta Jackson Jr."
+         },
+         "jersey": "2"
+        },
+        "stats": [
+         "1",
+         "0",
+         "0",
+         "0.5",
+         "0",
+         "1",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5141630",
+         "uid": "s:20~l:23~a:5141630",
+         "guid": "78c04380-8630-3ec9-80d6-28e85f0756c4",
+         "firstName": "Riley",
+         "lastName": "Pettijohn",
+         "displayName": "Riley Pettijohn",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141630/riley-pettijohn",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141630.png",
+          "alt": "Riley Pettijohn"
+         },
+         "jersey": "5"
+        },
+        "stats": [
+         "1",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "13",
+       "7",
+       "0",
+       "1",
+       "0",
+       "1",
+       "0"
+      ]
+     },
+     {
+      "name": "interceptions",
+      "keys": [
+       "interceptions",
+       "interceptionYards",
+       "interceptionTouchdowns"
+      ],
+      "text": "Ohio State Interceptions",
+      "labels": [
+       "INT",
+       "YDS",
+       "TD"
+      ],
+      "descriptions": [
+       "Interceptions",
+       "Yards",
+       "Touchdowns"
+      ],
+      "athletes": [],
+      "totals": []
+     },
+     {
+      "name": "kickReturns",
+      "keys": [
+       "kickReturns",
+       "kickReturnYards",
+       "yardsPerKickReturn",
+       "longKickReturn",
+       "kickReturnTouchdowns"
+      ],
+      "text": "Ohio State Kick Returns",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "LONG",
+       "TD"
+      ],
+      "descriptions": [
+       "Kick Returns",
+       "Yards",
+       "Yards Per Kick Return",
+       "Longest Kick Return",
+       "Touchdowns"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5182122",
+         "uid": "s:20~l:23~a:5182122",
+         "guid": "a5504c49-83bb-395a-9b7c-795911556422",
+         "firstName": "Legend",
+         "lastName": "Bey",
+         "displayName": "Legend Bey",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5182122/legend-bey",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5182122.png",
+          "alt": "Legend Bey"
+         },
+         "jersey": "2"
+        },
+        "stats": [
+         "1",
+         "29",
+         "29.0",
+         "29",
+         "0"
+        ]
+       },
+       {
+        "athlete": {
+         "id": "5116115",
+         "uid": "s:20~l:23~a:5116115",
+         "guid": "4716e940-ce30-3a3b-a1f4-063eeb3acdc1",
+         "firstName": "Maxence",
+         "lastName": "LeBlanc",
+         "displayName": "Maxence LeBlanc",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5116115/maxence-leblanc",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5116115.png",
+          "alt": "Maxence LeBlanc"
+         },
+         "jersey": "88"
+        },
+        "stats": [
+         "1",
+         "16",
+         "16.0",
+         "16",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "2",
+       "45",
+       "22.5",
+       "29",
+       "0"
+      ]
+     },
+     {
+      "name": "puntReturns",
+      "keys": [
+       "puntReturns",
+       "puntReturnYards",
+       "yardsPerPuntReturn",
+       "longPuntReturn",
+       "puntReturnTouchdowns"
+      ],
+      "text": "Ohio State Punt Returns",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "LONG",
+       "TD"
+      ],
+      "descriptions": [
+       "Punt Returns",
+       "Yards",
+       "Yards Per Punt Return",
+       "Longest Punt Return",
+       "Touchdowns"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5141384",
+         "uid": "s:20~l:23~a:5141384",
+         "guid": "6020b900-0c93-39a4-a9b6-daa279ab75aa",
+         "firstName": "Phillip",
+         "lastName": "Bell",
+         "displayName": "Phillip Bell",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5141384/phillip-bell",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141384.png",
+          "alt": "Phillip Bell"
+         },
+         "jersey": "7"
+        },
+        "stats": [
+         "2",
+         "37",
+         "18.5",
+         "31",
+         "0"
+        ]
+       }
+      ],
+      "totals": [
+       "2",
+       "37",
+       "18.5",
+       "31",
+       "0"
+      ]
+     },
+     {
+      "name": "kicking",
+      "keys": [
+       "fieldGoalsMade/fieldGoalAttempts",
+       "fieldGoalPct",
+       "longFieldGoalMade",
+       "extraPointsMade/extraPointAttempts",
+       "totalKickingPoints"
+      ],
+      "text": "Ohio State Kicking",
+      "labels": [
+       "FG",
+       "PCT",
+       "LONG",
+       "XP",
+       "PTS"
+      ],
+      "descriptions": [
+       "Field Goals Made/Attempts",
+       "Field Goal Percentage",
+       "Longest Field Goal Made",
+       "Extra Points Made/Attempts",
+       "Kicking Points"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5156433",
+         "uid": "s:20~l:23~a:5156433",
+         "guid": "2d4d1b95-6d91-3c98-818f-3cc82b2d246b",
+         "firstName": "Connor",
+         "lastName": "Hawkins",
+         "displayName": "Connor Hawkins",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5156433/connor-hawkins",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5156433.png",
+          "alt": "Connor Hawkins"
+         },
+         "jersey": "96"
+        },
+        "stats": [
+         "0/0",
+         "0.0",
+         "0",
+         "2/2",
+         "2"
+        ]
+       }
+      ],
+      "totals": [
+       "0/0",
+       "0.0",
+       "0",
+       "2/2",
+       "2"
+      ]
+     },
+     {
+      "name": "punting",
+      "keys": [
+       "punts",
+       "puntYards",
+       "grossAvgPuntYards",
+       "touchbacks",
+       "puntsInside20",
+       "longPunt"
+      ],
+      "text": "Ohio State Punting",
+      "labels": [
+       "NO",
+       "YDS",
+       "AVG",
+       "TB",
+       "In 20",
+       "LONG"
+      ],
+      "descriptions": [
+       "Punts",
+       "Yards",
+       "Average Punt Yards",
+       "Touchbacks",
+       "Punts Inside 20",
+       "Longest Punt"
+      ],
+      "athletes": [
+       {
+        "athlete": {
+         "id": "5159957",
+         "uid": "s:20~l:23~a:5159957",
+         "guid": "6991962a-d4eb-3924-ac50-239e15fd7428",
+         "firstName": "Joe",
+         "lastName": "McGuire",
+         "displayName": "Joe McGuire",
+         "links": [
+          {
+           "rel": [
+            "playercard",
+            "desktop",
+            "athlete"
+           ],
+           "href": "https://www.espn.com/college-football/player/_/id/5159957/joe-mcguire",
+           "text": "Player Card"
+          }
+         ],
+         "headshot": {
+          "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5159957.png",
+          "alt": "Joe McGuire"
+         },
+         "jersey": "42"
+        },
+        "stats": [
+         "1",
+         "52",
+         "52.0",
+         "1",
+         "0",
+         "52"
+        ]
+       }
+      ],
+      "totals": [
+       "1",
+       "52",
+       "52.0",
+       "1",
+       "0",
+       "52"
+      ]
+     }
+    ],
+    "displayOrder": 2
+   }
+  ]
+ },
+ "leaders": [
+  {
+   "team": {
+    "id": "194",
+    "uid": "s:20~l:23~t:194",
+    "displayName": "Ohio State Buckeyes",
+    "abbreviation": "OSU",
+    "links": [
+     {
+      "href": "https://www.espn.com/college-football/team/_/id/194/ohio-state-buckeyes",
+      "text": "Clubhouse"
+     },
+     {
+      "href": "https://www.espn.com/college-football/team/schedule/_/id/194",
+      "text": "Schedule"
+     }
+    ],
+    "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "default"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     },
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/194.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "dark"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     }
+    ]
+   },
+   "leaders": [
+    {
+     "name": "passingYards",
+     "displayName": "Passing Yards",
+     "leaders": [
+      {
+       "displayValue": "5/7, 108 YDS, 2 TD",
+       "value": 108.0,
+       "athlete": {
+        "id": "5079712",
+        "uid": "s:20~l:23~a:5079712",
+        "guid": "a6aa83fc-7532-319a-9f31-6e7df09edda6",
+        "lastName": "Sayin",
+        "fullName": "Julian Sayin",
+        "displayName": "Julian Sayin",
+        "shortName": "J. Sayin",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/5079712/julian-sayin",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5079712.png",
+         "alt": "Julian Sayin"
+        },
+        "jersey": "10",
+        "position": {
+         "name": "Quarterback",
+         "displayName": "Quarterback",
+         "abbreviation": "QB"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "108",
+        "label": "YDS"
+       },
+       "summary": "5/7, 2 TD"
+      }
+     ]
+    },
+    {
+     "name": "rushingYards",
+     "displayName": "Rushing Yards",
+     "leaders": [
+      {
+       "displayValue": "3 CAR, 10 YDS",
+       "value": 10.0,
+       "athlete": {
+        "id": "5151892",
+        "uid": "s:20~l:23~a:5151892",
+        "guid": "4fc44823-c094-3677-ba51-ee7ef0f08d95",
+        "lastName": "Jackson",
+        "fullName": "Ja'Kobi Jackson",
+        "displayName": "Ja'Kobi Jackson",
+        "shortName": "J. Jackson",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/5151892/jakobi-jackson",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5151892.png",
+         "alt": "Ja'Kobi Jackson"
+        },
+        "jersey": "24",
+        "position": {
+         "name": "Running Back",
+         "displayName": "Running Back",
+         "abbreviation": "RB"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "10",
+        "label": "YDS"
+       },
+       "summary": "3 CAR"
+      }
+     ]
+    },
+    {
+     "name": "receivingYards",
+     "displayName": "Receiving Yards",
+     "leaders": [
+      {
+       "displayValue": "1 REC, 68 YDS, 1 TD",
+       "value": 68.0,
+       "athlete": {
+        "id": "5141656",
+        "uid": "s:20~l:23~a:5141656",
+        "guid": "b9f8d19b-7137-3b3b-94ff-55bc030ea2fe",
+        "lastName": "Roberts",
+        "fullName": "Nate Roberts",
+        "displayName": "Nate Roberts",
+        "shortName": "N. Roberts",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/5141656/nate-roberts",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141656.png",
+         "alt": "Nate Roberts"
+        },
+        "jersey": "83",
+        "position": {
+         "name": "Tight End",
+         "displayName": "Tight End",
+         "abbreviation": "TE"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "68",
+        "label": "YDS"
+       },
+       "summary": "1 REC, 1 TD"
+      }
+     ]
+    },
+    {
+     "name": "sacks",
+     "displayName": "Sacks"
+    },
+    {
+     "name": "totalTackles",
+     "displayName": "Tackles",
+     "leaders": [
+      {
+       "displayValue": "2",
+       "value": 2.0,
+       "athlete": {
+        "id": "4685437",
+        "uid": "s:20~l:23~a:4685437",
+        "guid": "d2a942ae-de40-329b-ab51-ac449dd9f1a6",
+        "lastName": "Little Jr.",
+        "fullName": "Earl Little Jr.",
+        "displayName": "Earl Little Jr.",
+        "shortName": "E. Little Jr.",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/4685437/earl-little-jr",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4685437.png",
+         "alt": "Earl Little Jr."
+        },
+        "jersey": "1",
+        "position": {
+         "name": "Safety",
+         "displayName": "Safety",
+         "abbreviation": "S"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "2",
+        "label": "TOT"
+       },
+       "summary": "1 SOLO"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "team": {
+    "id": "120",
+    "uid": "s:20~l:23~t:120",
+    "displayName": "Maryland Terrapins",
+    "abbreviation": "MD",
+    "links": [
+     {
+      "href": "https://www.espn.com/college-football/team/_/id/120/maryland-terrapins",
+      "text": "Clubhouse"
+     },
+     {
+      "href": "https://www.espn.com/college-football/team/schedule/_/id/120",
+      "text": "Schedule"
+     }
+    ],
+    "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "default"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     },
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/120.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "dark"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     }
+    ]
+   },
+   "leaders": [
+    {
+     "name": "passingYards",
+     "displayName": "Passing Yards",
+     "leaders": [
+      {
+       "displayValue": "6/10, 22 YDS",
+       "value": 22.0,
+       "athlete": {
+        "id": "5141695",
+        "uid": "s:20~l:23~a:5141695",
+        "guid": "835e0cd3-519f-30e0-a69a-468c8dd646ce",
+        "lastName": "Washington",
+        "fullName": "Malik Washington",
+        "displayName": "Malik Washington",
+        "shortName": "M. Washington",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/5141695/malik-washington",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5141695.png",
+         "alt": "Malik Washington"
+        },
+        "jersey": "7",
+        "position": {
+         "name": "Quarterback",
+         "displayName": "Quarterback",
+         "abbreviation": "QB"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "22",
+        "label": "YDS"
+       },
+       "summary": "6/10"
+      }
+     ]
+    },
+    {
+     "name": "rushingYards",
+     "displayName": "Rushing Yards",
+     "leaders": [
+      {
+       "displayValue": "4 CAR, 8 YDS",
+       "value": 8.0,
+       "athlete": {
+        "id": "5295550",
+        "uid": "s:20~l:23~a:5295550",
+        "guid": "f4585785-8fe2-3659-90d0-274035f8f1bb",
+        "lastName": "Williams",
+        "fullName": "DeJuan Williams",
+        "displayName": "DeJuan Williams",
+        "shortName": "D. Williams",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/5295550/dejuan-williams",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5295550.png",
+         "alt": "DeJuan Williams"
+        },
+        "jersey": "0",
+        "position": {
+         "name": "Running Back",
+         "displayName": "Running Back",
+         "abbreviation": "RB"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "8",
+        "label": "YDS"
+       },
+       "summary": "4 CAR"
+      }
+     ]
+    },
+    {
+     "name": "receivingYards",
+     "displayName": "Receiving Yards",
+     "leaders": [
+      {
+       "displayValue": "2 REC, 14 YDS",
+       "value": 14.0,
+       "athlete": {
+        "id": "4838556",
+        "uid": "s:20~l:23~a:4838556",
+        "guid": "b3c1bfc4-f203-3dae-be99-4de35c3755aa",
+        "lastName": "Webb",
+        "fullName": "Kaleb Webb",
+        "displayName": "Kaleb Webb",
+        "shortName": "K. Webb",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/4838556/kaleb-webb",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/4838556.png",
+         "alt": "Kaleb Webb"
+        },
+        "jersey": "2",
+        "position": {
+         "name": "Wide Receiver",
+         "displayName": "Wide Receiver",
+         "abbreviation": "WR"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "14",
+        "label": "YDS"
+       },
+       "summary": "2 REC"
+      }
+     ]
+    },
+    {
+     "name": "sacks",
+     "displayName": "Sacks",
+     "leaders": [
+      {
+       "displayValue": "1",
+       "value": 1.0,
+       "athlete": {
+        "id": "5209297",
+        "uid": "s:20~l:23~a:5209297",
+        "guid": "ca278b72-868f-359d-a496-6abfd4293342",
+        "lastName": "Elee",
+        "fullName": "Zion Elee",
+        "displayName": "Zion Elee",
+        "shortName": "Z. Elee",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/5209297/zion-elee",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5209297.png",
+         "alt": "Zion Elee"
+        },
+        "jersey": "0",
+        "position": {
+         "name": "Linebacker",
+         "displayName": "Linebacker",
+         "abbreviation": "LB"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "1",
+        "label": "SACKS"
+       },
+       "summary": ""
+      }
+     ]
+    },
+    {
+     "name": "totalTackles",
+     "displayName": "Tackles",
+     "leaders": [
+      {
+       "displayValue": "4",
+       "value": 4.0,
+       "athlete": {
+        "id": "5216961",
+        "uid": "s:20~l:23~a:5216961",
+        "guid": "ab2e1339-053b-3feb-8927-ab9f95d474bc",
+        "lastName": "Stewart",
+        "fullName": "Sidney Stewart",
+        "displayName": "Sidney Stewart",
+        "shortName": "S. Stewart",
+        "links": [
+         {
+          "rel": [
+           "playercard",
+           "desktop",
+           "athlete"
+          ],
+          "href": "https://www.espn.com/college-football/player/_/id/5216961/sidney-stewart",
+          "text": "Player Card"
+         }
+        ],
+        "headshot": {
+         "href": "https://a.espncdn.com/i/headshots/college-football/players/full/5216961.png",
+         "alt": "Sidney Stewart"
+        },
+        "jersey": "11",
+        "position": {
+         "name": "Linebacker",
+         "displayName": "Linebacker",
+         "abbreviation": "LB"
+        },
+        "status": {
+         "id": "1",
+         "name": "Active",
+         "type": "active",
+         "abbreviation": "Active"
+        }
+       },
+       "mainStat": {
+        "value": "4",
+        "label": "TOT"
+       },
+       "summary": "1 SOLO"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pickcenter": [
+  {
+   "provider": {
+    "id": "100",
+    "name": "DraftKings",
+    "priority": 1,
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/betting/Draftkings_Light.svg",
+      "rel": [
+       "light"
+      ]
+     },
+     {
+      "href": "https://a.espncdn.com/i/betting/Draftkings_Dark.svg",
+      "rel": [
+       "dark"
+      ]
+     }
+    ]
+   },
+   "details": "OSU -31.5",
+   "overUnder": 56.5,
+   "spread": -31.5,
+   "overOdds": -105.0,
+   "underOdds": -115.0,
+   "awayTeamOdds": {
+    "favorite": false,
+    "underdog": true,
+    "spreadOdds": -115.0,
+    "team": {
+     "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/seasons/2026/teams/120?lang=en&region=us"
+    },
+    "teamId": "120",
+    "favoriteAtOpen": false
+   },
+   "homeTeamOdds": {
+    "favorite": true,
+    "underdog": false,
+    "spreadOdds": -105.0,
+    "team": {
+     "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/seasons/2026/teams/194?lang=en&region=us"
+    },
+    "teamId": "194",
+    "favoriteAtOpen": true
+   },
+   "links": [
+    {
+     "language": "en-US",
+     "rel": [
+      "homeSpread",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0HC86518104N3150_1",
+     "text": "Home Point Spread",
+     "shortText": "Home Point Spread",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858483,
+       "betSide": "none",
+       "betType": "straight",
+       "betDetails": "Spread:OSU-31.5"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "awaySpread",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0HC86518104P3150_3",
+     "text": "Away Point Spread",
+     "shortText": "Away Point Spread",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858483,
+       "betSide": "none",
+       "betType": "straight",
+       "betDetails": "Spread:MD+31.5"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "over",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0OU86518104O5650_1",
+     "text": "Over Odds",
+     "shortText": "Over Odds",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858483,
+       "betSide": "over",
+       "betType": "straight",
+       "betDetails": "Over:56.5"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "under",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0OU86518104U5650_3",
+     "text": "Under Odds",
+     "shortText": "Under Odds",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858483,
+       "betSide": "under",
+       "betType": "straight",
+       "betDetails": "Under:56.5"
+      }
+     }
+    },
+    {
+     "language": "en-US",
+     "rel": [
+      "game",
+      "desktop",
+      "bets"
+     ],
+     "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035",
+     "text": "See More Live Odds",
+     "shortText": "Game",
+     "isExternal": true,
+     "isPremium": false,
+     "tracking": {
+      "campaign": "betting-integrations",
+      "tags": {
+       "league": "college-football",
+       "sport": "football",
+       "gameId": 401858483,
+       "betSide": "none",
+       "betType": "straight"
+      }
+     }
+    }
+   ],
+   "moneyline": {
+    "displayName": "Moneyline",
+    "shortDisplayName": "ML",
+    "home": {
+     "close": {
+      "odds": "OFF"
+     },
+     "open": {
+      "odds": "OFF"
+     },
+     "live": {
+      "odds": "-10000",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "home",
+        "desktop",
+        "bets",
+        "draftkings---live-odds"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0ML86677669_1",
+       "text": "Home Bet",
+       "shortText": "Home Bet",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "home",
+         "betType": "straight"
+        }
+       }
+      }
+     }
+    },
+    "away": {
+     "close": {
+      "odds": "OFF"
+     },
+     "open": {
+      "odds": "OFF"
+     },
+     "live": {
+      "odds": "+4800",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "away",
+        "desktop",
+        "bets",
+        "draftkings---live-odds"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0ML86677669_3",
+       "text": "Away Bet",
+       "shortText": "Away Bet",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "away",
+         "betType": "straight"
+        }
+       }
+      }
+     }
+    }
+   },
+   "pointSpread": {
+    "displayName": "Spread",
+    "shortDisplayName": "Spread",
+    "home": {
+     "close": {
+      "line": "-31.5",
+      "odds": "-105",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "homeSpread",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0HC86518104N3150_1",
+       "text": "Home Point Spread",
+       "shortText": "Home Point Spread",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "none",
+         "betType": "straight",
+         "betDetails": "Spread:OSU-31.5"
+        }
+       }
+      }
+     },
+     "open": {
+      "line": "-37.5",
+      "odds": "-110"
+     },
+     "live": {
+      "line": "-32.5",
+      "odds": "-106",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "homeSpread",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0HC86677669N3250_1",
+       "text": "Home Point Spread",
+       "shortText": "Home Point Spread",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "none",
+         "betType": "straight",
+         "betDetails": "Spread:OSU-32.5"
+        }
+       }
+      }
+     }
+    },
+    "away": {
+     "close": {
+      "line": "+31.5",
+      "odds": "-115",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "awaySpread",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0HC86518104P3150_3",
+       "text": "Away Point Spread",
+       "shortText": "Away Point Spread",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "none",
+         "betType": "straight",
+         "betDetails": "Spread:MD+31.5"
+        }
+       }
+      }
+     },
+     "open": {
+      "line": "+37.5",
+      "odds": "-110"
+     },
+     "live": {
+      "line": "+32.5",
+      "odds": "-125",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "awaySpread",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0HC86677669P3250_3",
+       "text": "Away Point Spread",
+       "shortText": "Away Point Spread",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "none",
+         "betType": "straight",
+         "betDetails": "Spread:MD+32.5"
+        }
+       }
+      }
+     }
+    }
+   },
+   "total": {
+    "displayName": "Total",
+    "shortDisplayName": "Total",
+    "over": {
+     "close": {
+      "line": "o56.5",
+      "odds": "-105",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "over",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0OU86518104O5650_1",
+       "text": "Over Odds",
+       "shortText": "Over Odds",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "over",
+         "betType": "straight",
+         "betDetails": "Over:56.5"
+        }
+       }
+      }
+     },
+     "open": {
+      "line": "o54.5",
+      "odds": "-110"
+     },
+     "live": {
+      "line": "o54.5",
+      "odds": "-120",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "over",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0OU86677669O5450_1",
+       "text": "Over Odds",
+       "shortText": "Over Odds",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "over",
+         "betType": "straight",
+         "betDetails": "Over:54.5"
+        }
+       }
+      }
+     }
+    },
+    "under": {
+     "close": {
+      "line": "u56.5",
+      "odds": "-115",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "under",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0OU86518104U5650_3",
+       "text": "Under Odds",
+       "shortText": "Under Odds",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "under",
+         "betType": "straight",
+         "betDetails": "Under:56.5"
+        }
+       }
+      }
+     },
+     "open": {
+      "line": "u54.5",
+      "odds": "-110"
+     },
+     "live": {
+      "line": "u54.5",
+      "odds": "-111",
+      "link": {
+       "language": "en-US",
+       "rel": [
+        "under",
+        "desktop",
+        "bets"
+       ],
+       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035%3Foutcomes%3D0OU86677669U5450_3",
+       "text": "Under Odds",
+       "shortText": "Under Odds",
+       "isExternal": true,
+       "isPremium": false,
+       "tracking": {
+        "campaign": "betting-integrations",
+        "tags": {
+         "league": "college-football",
+         "sport": "football",
+         "gameId": 401858483,
+         "betSide": "under",
+         "betType": "straight",
+         "betDetails": "Under:54.5"
+        }
+       }
+      }
+     }
+    }
+   },
+   "link": {
+    "language": "en-US",
+    "rel": [
+     "game",
+     "desktop",
+     "bets"
+    ],
+    "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34746035",
+    "text": "See More Live Odds",
+    "shortText": "Game",
+    "isExternal": true,
+    "isPremium": false,
+    "tracking": {
+     "campaign": "betting-integrations",
+     "tags": {
+      "league": "college-football",
+      "sport": "football",
+      "gameId": 401858483,
+      "betSide": "none",
+      "betType": "straight"
+     }
+    }
+   },
+   "header": {
+    "logo": {
+     "dark": "https://a.espncdn.com/i/espnbet/dark/espn-bet-square-off.svg",
+     "light": "https://a.espncdn.com/i/espnbet/espn-bet-square-off.svg",
+     "exclusivesLogoDark": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg",
+     "exclusivesLogoLight": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg"
+    },
+    "text": "Game Odds"
+   },
+   "footer": {
+    "disclaimer": "GAMBLING PROBLEM? CALL 1-800-GAMBLER or 1-800-MY-RESET, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY). Call 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD), 1-800-981-0023 (PR). 21+ and present in most states. (18+ DC/KY/NH/PR/WY). Void in ONT. Eligibility restrictions apply. Terms: draftkings.com/sportsbook. On behalf of Boot Hill Casino (KS). Pass-thru of per wager tax may apply in IL."
+   }
+  }
+ ],
+ "scoringPlays": [
+  {
+   "id": "40185848375",
+   "type": {
+    "id": "67",
+    "text": "Passing Touchdown",
+    "abbreviation": "TD"
+   },
+   "text": "J. Sayin pass to Je. Smith for 33 yds, for a TD (C. Hawkins KICK)",
+   "awayScore": 0,
+   "homeScore": 7,
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 587.0,
+    "displayValue": "9:47"
+   },
+   "team": {
+    "id": "194",
+    "uid": "s:20~l:23~t:194",
+    "displayName": "Ohio State Buckeyes",
+    "abbreviation": "OSU",
+    "links": [
+     {
+      "href": "https://www.espn.com/college-football/team/_/id/194/ohio-state-buckeyes",
+      "text": "Clubhouse"
+     },
+     {
+      "href": "https://www.espn.com/college-football/team/schedule/_/id/194",
+      "text": "Schedule"
+     }
+    ],
+    "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "default"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     },
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/194.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "dark"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     }
+    ]
+   },
+   "scoringType": {
+    "name": "touchdown",
+    "displayName": "Touchdown",
+    "abbreviation": "TD"
+   }
+  },
+  {
+   "id": "401858483151",
+   "type": {
+    "id": "59",
+    "text": "Field Goal Good",
+    "abbreviation": "FG"
+   },
+   "text": "S. O'Haire 39 yd FG GOOD",
+   "awayScore": 3,
+   "homeScore": 7,
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 235.0,
+    "displayValue": "3:55"
+   },
+   "team": {
+    "id": "120",
+    "uid": "s:20~l:23~t:120",
+    "displayName": "Maryland Terrapins",
+    "abbreviation": "MD",
+    "links": [
+     {
+      "href": "https://www.espn.com/college-football/team/_/id/120/maryland-terrapins",
+      "text": "Clubhouse"
+     },
+     {
+      "href": "https://www.espn.com/college-football/team/schedule/_/id/120",
+      "text": "Schedule"
+     }
+    ],
+    "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "default"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     },
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/120.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "dark"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     }
+    ]
+   },
+   "scoringType": {
+    "name": "field-goal",
+    "displayName": "Field Goal",
+    "abbreviation": "FG"
+   }
+  },
+  {
+   "id": "401858483163",
+   "type": {
+    "id": "67",
+    "text": "Passing Touchdown",
+    "abbreviation": "TD"
+   },
+   "text": "J. Sayin pass to N. Roberts for 68 yds, for a TD (C. Hawkins KICK)",
+   "awayScore": 3,
+   "homeScore": 14,
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 229.0,
+    "displayValue": "3:49"
+   },
+   "team": {
+    "id": "194",
+    "uid": "s:20~l:23~t:194",
+    "displayName": "Ohio State Buckeyes",
+    "abbreviation": "OSU",
+    "links": [
+     {
+      "href": "https://www.espn.com/college-football/team/_/id/194/ohio-state-buckeyes",
+      "text": "Clubhouse"
+     },
+     {
+      "href": "https://www.espn.com/college-football/team/schedule/_/id/194",
+      "text": "Schedule"
+     }
+    ],
+    "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+    "logos": [
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "default"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     },
+     {
+      "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/194.png",
+      "width": 500,
+      "height": 500,
+      "alt": "",
+      "rel": [
+       "full",
+       "dark"
+      ],
+      "lastUpdated": "2025-12-23T01:44Z"
+     }
+    ]
+   },
+   "scoringType": {
+    "name": "touchdown",
+    "displayName": "Touchdown",
+    "abbreviation": "TD"
+   }
+  }
+ ],
+ "winprobability": [
+  {
+   "homeWinPercentage": 0.986,
+   "tiePercentage": 0.0,
+   "playId": "4018584833"
+  },
+  {
+   "homeWinPercentage": 0.986,
+   "tiePercentage": 0.0,
+   "playId": "40185848314"
+  },
+  {
+   "homeWinPercentage": 0.9855,
+   "tiePercentage": 0.0,
+   "playId": "40185848318"
+  },
+  {
+   "homeWinPercentage": 0.9838,
+   "tiePercentage": 0.0,
+   "playId": "40185848323"
+  },
+  {
+   "homeWinPercentage": 0.9868,
+   "tiePercentage": 0.0,
+   "playId": "40185848327"
+  },
+  {
+   "homeWinPercentage": 0.9864,
+   "tiePercentage": 0.0,
+   "playId": "40185848331"
+  },
+  {
+   "homeWinPercentage": 0.9861,
+   "tiePercentage": 0.0,
+   "playId": "40185848335"
+  },
+  {
+   "homeWinPercentage": 0.9842,
+   "tiePercentage": 0.0,
+   "playId": "40185848340"
+  },
+  {
+   "homeWinPercentage": 0.9818,
+   "tiePercentage": 0.0,
+   "playId": "40185848343"
+  },
+  {
+   "homeWinPercentage": 0.9821,
+   "tiePercentage": 0.0,
+   "playId": "40185848347"
+  },
+  {
+   "homeWinPercentage": 0.9831,
+   "tiePercentage": 0.0,
+   "playId": "40185848351"
+  },
+  {
+   "homeWinPercentage": 0.9847,
+   "tiePercentage": 0.0,
+   "playId": "40185848355"
+  },
+  {
+   "homeWinPercentage": 0.986,
+   "tiePercentage": 0.0,
+   "playId": "40185848358"
+  },
+  {
+   "homeWinPercentage": 0.9864,
+   "tiePercentage": 0.0,
+   "playId": "40185848364"
+  },
+  {
+   "homeWinPercentage": 0.9858,
+   "tiePercentage": 0.0,
+   "playId": "40185848370"
+  },
+  {
+   "homeWinPercentage": 0.9906,
+   "tiePercentage": 0.0,
+   "playId": "40185848375"
+  },
+  {
+   "homeWinPercentage": 0.9916,
+   "tiePercentage": 0.0,
+   "playId": "40185848386"
+  },
+  {
+   "homeWinPercentage": 0.9905,
+   "tiePercentage": 0.0,
+   "playId": "40185848390"
+  },
+  {
+   "homeWinPercentage": 0.9909,
+   "tiePercentage": 0.0,
+   "playId": "40185848393"
+  },
+  {
+   "homeWinPercentage": 0.9903,
+   "tiePercentage": 0.0,
+   "playId": "40185848397"
+  },
+  {
+   "homeWinPercentage": 0.9915,
+   "tiePercentage": 0.0,
+   "playId": "401858483102"
+  },
+  {
+   "homeWinPercentage": 0.9911,
+   "tiePercentage": 0.0,
+   "playId": "401858483105"
+  },
+  {
+   "homeWinPercentage": 0.9908,
+   "tiePercentage": 0.0,
+   "playId": "401858483111"
+  },
+  {
+   "homeWinPercentage": 0.9902,
+   "tiePercentage": 0.0,
+   "playId": "401858483115"
+  },
+  {
+   "homeWinPercentage": 0.9894,
+   "tiePercentage": 0.0,
+   "playId": "401858483118"
+  },
+  {
+   "homeWinPercentage": 0.9865,
+   "tiePercentage": 0.0,
+   "playId": "401858483127"
+  },
+  {
+   "homeWinPercentage": 0.9864,
+   "tiePercentage": 0.0,
+   "playId": "401858483132"
+  },
+  {
+   "homeWinPercentage": 0.9849,
+   "tiePercentage": 0.0,
+   "playId": "401858483137"
+  },
+  {
+   "homeWinPercentage": 0.9857,
+   "tiePercentage": 0.0,
+   "playId": "401858483141"
+  },
+  {
+   "homeWinPercentage": 0.9868,
+   "tiePercentage": 0.0,
+   "playId": "401858483145"
+  },
+  {
+   "homeWinPercentage": 0.9884,
+   "tiePercentage": 0.0,
+   "playId": "401858483148"
+  },
+  {
+   "homeWinPercentage": 0.9859,
+   "tiePercentage": 0.0,
+   "playId": "401858483151"
+  },
+  {
+   "homeWinPercentage": 0.9864,
+   "tiePercentage": 0.0,
+   "playId": "401858483154"
+  },
+  {
+   "homeWinPercentage": 0.9859,
+   "tiePercentage": 0.0,
+   "playId": "401858483159"
+  },
+  {
+   "homeWinPercentage": 0.9925,
+   "tiePercentage": 0.0,
+   "playId": "401858483163"
+  },
+  {
+   "homeWinPercentage": 0.9924,
+   "tiePercentage": 0.0,
+   "playId": "401858483171"
+  },
+  {
+   "homeWinPercentage": 0.9925,
+   "tiePercentage": 0.0,
+   "playId": "401858483174"
+  },
+  {
+   "homeWinPercentage": 0.9927,
+   "tiePercentage": 0.0,
+   "playId": "401858483179"
+  },
+  {
+   "homeWinPercentage": 0.9915,
+   "tiePercentage": 0.0,
+   "playId": "401858483184"
+  },
+  {
+   "homeWinPercentage": 0.9916,
+   "tiePercentage": 0.0,
+   "playId": "401858483188"
+  }
+ ],
+ "drives": {
+  "current": {
+   "id": "40185848312",
+   "description": "3 plays, 24 yards, 0:00",
+   "team": {
+    "id": "120",
+    "abbreviation": "MD"
+   },
+   "start": {
+    "period": {
+     "type": "quarter",
+     "number": 1
+    },
+    "yardLine": 0,
+    "text": "OSU 0"
+   },
+   "timeElapsed": {
+    "displayValue": "0:00"
+   },
+   "yards": 24,
+   "isScore": false,
+   "offensivePlays": 3,
+   "plays": [
+    {
+     "id": "401858483171",
+     "text": "#49 M.Diomede kickoff 65 yards to the Maryla00 fair catch by #1 N.Abdul-Rahim Gladding at Maryla00",
+     "type": {
+      "id": "53",
+      "text": "Kickoff",
+      "abbreviation": "K"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 35,
+      "yardsToEndzone": 65,
+      "team": {
+       "id": "194"
+      }
+     },
+     "end": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 75,
+      "yardsToEndzone": 75,
+      "downDistanceText": "1st & 10 at MD 25",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "MD 25",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 0,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858483174",
+     "text": "Shotgun #7 M.Washington pass complete short left to #9 D.Fleming caught at Maryla28, for 4 yards to the Maryla29 (#6 D.Sanchez)",
+     "type": {
+      "id": "24",
+      "text": "Pass Reception",
+      "abbreviation": "REC"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 75,
+      "yardsToEndzone": 75,
+      "downDistanceText": "1st & 10 at MD 25",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "MD 25",
+      "team": {
+       "id": "120"
+      }
+     },
+     "end": {
+      "down": 2,
+      "distance": 6,
+      "yardLine": 71,
+      "yardsToEndzone": 71,
+      "downDistanceText": "2nd & 6 at MD 29",
+      "shortDownDistanceText": "2nd & 6",
+      "possessionText": "MD 29",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 4,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858483179",
+     "text": "Shotgun #7 M.Washington pass complete short right to #1 N.Abdul-Rahim Gladding caught at Maryla27, for 2 yards to the Maryla31 (#20 C.Johnson)",
+     "type": {
+      "id": "24",
+      "text": "Pass Reception",
+      "abbreviation": "REC"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 2,
+      "distance": 6,
+      "yardLine": 71,
+      "yardsToEndzone": 71,
+      "downDistanceText": "2nd & 6 at MD 29",
+      "shortDownDistanceText": "2nd & 6",
+      "possessionText": "MD 29",
+      "team": {
+       "id": "120"
+      }
+     },
+     "end": {
+      "down": 3,
+      "distance": 4,
+      "yardLine": 69,
+      "yardsToEndzone": 69,
+      "downDistanceText": "3rd & 4 at MD 31",
+      "shortDownDistanceText": "3rd & 4",
+      "possessionText": "MD 31",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 2,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858483184",
+     "text": "Shotgun #7 M.Washington pass incomplete short right to #2 K.Webb thrown to Maryla35 PENALTY OhioSt Roughing The Passer (#12 B.Atkinson) 15 yards from Maryla31 to Maryla46, 1ST DOWN. NO PLAY",
+     "type": {
+      "id": "8",
+      "text": "Penalty",
+      "abbreviation": "PEN"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 3,
+      "distance": 4,
+      "yardLine": 69,
+      "yardsToEndzone": 69,
+      "downDistanceText": "3rd & 4 at MD 31",
+      "shortDownDistanceText": "3rd & 4",
+      "possessionText": "MD 31",
+      "team": {
+       "id": "120"
+      }
+     },
+     "end": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 54,
+      "yardsToEndzone": 54,
+      "downDistanceText": "1st & 10 at MD 46",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "MD 46",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 15,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858483188",
+     "text": "Shotgun #0 D.Williams rush middle for 3 yards gain to the Maryla49 (#26 P.Pierce; #1 E.Little Jr.)",
+     "type": {
+      "id": "5",
+      "text": "Rush",
+      "abbreviation": "RUSH"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 54,
+      "yardsToEndzone": 54,
+      "downDistanceText": "1st & 10 at MD 46",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "MD 46",
+      "team": {
+       "id": "120"
+      }
+     },
+     "end": {
+      "down": 2,
+      "distance": 7,
+      "yardLine": 51,
+      "yardsToEndzone": 51,
+      "downDistanceText": "2nd & 7 at MD 49",
+      "shortDownDistanceText": "2nd & 7",
+      "possessionText": "MD 49",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 3,
+     "scoringPlay": false
+    }
+   ]
+  },
+  "previous": [
+   {
+    "id": "4018584832",
+    "description": "7 plays, 16 yards, 3:30",
+    "team": {
+     "id": "194",
+     "abbreviation": "OSU"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "14:50"
+     },
+     "yardLine": 32,
+     "text": "OSU 32"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "11:20"
+     },
+     "yardLine": 48,
+     "text": "OSU 48"
+    },
+    "timeElapsed": {
+     "displayValue": "3:30"
+    },
+    "yards": 16,
+    "isScore": false,
+    "offensivePlays": 7,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "4018584833",
+      "text": "#98 D.Leahy kickoff 49 yards to the OhioSt16 #88 M.LeBlanc return 16 yards to the OhioSt32 (#3 T.Reddick; #27 K.Carter)",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "14:50"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 65,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 32,
+       "yardsToEndzone": 68,
+       "downDistanceText": "1st & 10 at OSU 32",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 16,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848314",
+      "text": "Shotgun #24 J.Jackson rush middle for 5 yards gain to the OhioSt37 (#88 D.LeBlanc; #98 E.Thomas)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 32,
+       "yardsToEndzone": 68,
+       "downDistanceText": "1st & 10 at OSU 32",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 5,
+       "yardLine": 37,
+       "yardsToEndzone": 63,
+       "downDistanceText": "2nd & 5 at OSU 37",
+       "shortDownDistanceText": "2nd & 5",
+       "possessionText": "OSU 37",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 5,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848318",
+      "text": "No Huddle-Shotgun #10 J.Sayin pass complete short left to #86 M.Williams caught at OhioSt36, for 1 yard to the OhioSt38 (#11 S.Stewart), out of bounds",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 5,
+       "yardLine": 37,
+       "yardsToEndzone": 63,
+       "downDistanceText": "2nd & 5 at OSU 37",
+       "shortDownDistanceText": "2nd & 5",
+       "possessionText": "OSU 37",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 38,
+       "yardsToEndzone": 62,
+       "downDistanceText": "3rd & 4 at OSU 38",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "OSU 38",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 1,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848323",
+      "text": "Shotgun #10 J.Sayin rush left for 3 yards gain to the OhioSt41 (#98 E.Thomas)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 38,
+       "yardsToEndzone": 62,
+       "downDistanceText": "3rd & 4 at OSU 38",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "OSU 38",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 1,
+       "yardLine": 41,
+       "yardsToEndzone": 59,
+       "downDistanceText": "4th & 1 at OSU 41",
+       "shortDownDistanceText": "4th & 1",
+       "possessionText": "OSU 41",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848327",
+      "text": "No Huddle #10 J.Sayin rush middle for 2 yards gain to the OhioSt43 (#6 J.Scruggs; #88 D.LeBlanc), 1ST DOWN",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 1,
+       "yardLine": 41,
+       "yardsToEndzone": 59,
+       "downDistanceText": "4th & 1 at OSU 41",
+       "shortDownDistanceText": "4th & 1",
+       "possessionText": "OSU 41",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 43,
+       "yardsToEndzone": 57,
+       "downDistanceText": "1st & 10 at OSU 43",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 43",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848331",
+      "text": "Shotgun #24 J.Jackson rush right for 2 yards gain to the OhioSt45 (#1 D.Wingate; #11 S.Stewart)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 43,
+       "yardsToEndzone": 57,
+       "downDistanceText": "1st & 10 at OSU 43",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 43",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 8,
+       "yardLine": 45,
+       "yardsToEndzone": 55,
+       "downDistanceText": "2nd & 8 at OSU 45",
+       "shortDownDistanceText": "2nd & 8",
+       "possessionText": "OSU 45",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848335",
+      "text": "Shotgun #10 J.Sayin pass complete short right to #24 J.Jackson caught at OhioSt41, for 3 yards to the OhioSt48 (#11 S.Stewart; #32 C.Smith)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 8,
+       "yardLine": 45,
+       "yardsToEndzone": 55,
+       "downDistanceText": "2nd & 8 at OSU 45",
+       "shortDownDistanceText": "2nd & 8",
+       "possessionText": "OSU 45",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 5,
+       "yardLine": 48,
+       "yardsToEndzone": 52,
+       "downDistanceText": "3rd & 5 at OSU 48",
+       "shortDownDistanceText": "3rd & 5",
+       "possessionText": "OSU 48",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848340",
+      "text": "Shotgun #10 J.Sayin pass incomplete short right to #83 N.Roberts thrown to Maryla40",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 5,
+       "yardLine": 48,
+       "yardsToEndzone": 52,
+       "downDistanceText": "3rd & 5 at OSU 48",
+       "shortDownDistanceText": "3rd & 5",
+       "possessionText": "OSU 48",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 5,
+       "yardLine": 48,
+       "yardsToEndzone": 52,
+       "downDistanceText": "4th & 5 at OSU 48",
+       "shortDownDistanceText": "4th & 5",
+       "possessionText": "OSU 48",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848343",
+      "text": "#42 J.McGuire punt 52 yards to the Maryla00, Touchback",
+      "type": {
+       "id": "52",
+       "text": "Punt",
+       "abbreviation": "PUNT"
+      },
+      "clock": {
+       "displayValue": "11:20"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 5,
+       "yardLine": 48,
+       "yardsToEndzone": 52,
+       "downDistanceText": "4th & 5 at OSU 48",
+       "shortDownDistanceText": "4th & 5",
+       "possessionText": "OSU 48",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 10 at MD 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584833",
+    "description": "3 plays, 4 yards, 1:33",
+    "team": {
+     "id": "120",
+     "abbreviation": "MD"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "11:20"
+     },
+     "yardLine": 80,
+     "text": "MD 20"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "9:47"
+     },
+     "yardLine": 76,
+     "text": "MD 24"
+    },
+    "timeElapsed": {
+     "displayValue": "1:33"
+    },
+    "yards": 4,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "40185848347",
+      "text": "Shotgun #0 D.Williams rush right for 4 yards gain to the Maryla24 (#4 Q.Russaw)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "11:20"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 10 at MD 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "2nd & 6 at MD 24",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 4,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848351",
+      "text": "Shotgun #0 D.Williams rush right for 0 yards to the Maryla24 (#55 J.Walker; #26 P.Pierce)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "11:20"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "2nd & 6 at MD 24",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "3rd & 6 at MD 24",
+       "shortDownDistanceText": "3rd & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848355",
+      "text": "Shotgun #7 M.Washington pass incomplete short left to #13 C.Durr Jr. thrown to Maryla43",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "11:20"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "3rd & 6 at MD 24",
+       "shortDownDistanceText": "3rd & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "4th & 6 at MD 24",
+       "shortDownDistanceText": "4th & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848358",
+      "text": "#34 B.McFerson punt 43 yards to the OhioSt33 #7 P.Bell return 31 yards to the Maryla36 (#18 A.Moore)",
+      "type": {
+       "id": "14",
+       "text": "Punt Return"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "4th & 6 at MD 24",
+       "shortDownDistanceText": "4th & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 64,
+       "yardsToEndzone": 36,
+       "downDistanceText": "1st & 10 at MD 36",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 36",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 31,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584834",
+    "description": "2 plays, 28 yards, 1:07",
+    "team": {
+     "id": "194",
+     "abbreviation": "OSU"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "9:47"
+     },
+     "yardLine": 64,
+     "text": "MD 36"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "8:40"
+     },
+     "yardLine": 92,
+     "text": "MD 8"
+    },
+    "timeElapsed": {
+     "displayValue": "1:07"
+    },
+    "yards": 28,
+    "isScore": true,
+    "offensivePlays": 2,
+    "result": "TD",
+    "displayResult": "Touchdown",
+    "plays": [
+     {
+      "id": "40185848364",
+      "text": "Shotgun #25 B.Jackson rush middle for 6 yards gain to the Maryla30 (#44 J.Starlings)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 64,
+       "yardsToEndzone": 36,
+       "downDistanceText": "1st & 10 at MD 36",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 36",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 4,
+       "yardLine": 70,
+       "yardsToEndzone": 30,
+       "downDistanceText": "2nd & 4 at MD 30",
+       "shortDownDistanceText": "2nd & 4",
+       "possessionText": "MD 30",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 6,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848370",
+      "text": "Shotgun #10 J.Sayin pass complete short left to #25 B.Jackson caught at Maryla37, for 3 yards to the Maryla33 (#16 D.Joyner), out of bounds",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 64,
+       "yardsToEndzone": 36,
+       "downDistanceText": "1st & 10 at MD 36",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 36",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 67,
+       "yardsToEndzone": 33,
+       "downDistanceText": "2nd & 7 at MD 33",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "MD 33",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848375",
+      "text": "Shotgun #10 J.Sayin pass complete short right to #4 J.Smith caught at Maryla32, for 33 yards to the Maryla00 TOUCHDOWN, clock 08:40, 1ST DOWN PENALTY OhioSt False Start (#74 C.Lowe) 5 yards from Maryla03 to Maryla08. NO PLAY #96 C.Hawkins kick attempt good (H: #42 J.McGuire, LS: #55 D.Riggs)",
+      "type": {
+       "id": "67",
+       "text": "Passing Touchdown",
+       "abbreviation": "TD"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 67,
+       "yardsToEndzone": 33,
+       "downDistanceText": "2nd & 7 at MD 33",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "MD 33",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": 0,
+       "yardLine": 100,
+       "yardsToEndzone": 0,
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 33,
+      "scoringPlay": true,
+      "scoringType": {
+       "name": "touchdown",
+       "abbreviation": "TD"
+      }
+     },
+     {
+      "id": "40185848380",
+      "text": "PENALTY OhioSt False Start (#74 C.Lowe) 5 yards from Maryla03 to Maryla08. NO PLAY",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 0,
+       "distance": 3,
+       "yardLine": 97,
+       "yardsToEndzone": 3,
+       "downDistanceText": " & Goal at MD 3",
+       "shortDownDistanceText": " & Goal",
+       "possessionText": "MD 3",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 0,
+       "distance": 8,
+       "yardLine": 92,
+       "yardsToEndzone": 8,
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 5,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584836",
+    "description": "3 plays, -34 yards, 1:42",
+    "team": {
+     "id": "120",
+     "abbreviation": "MD"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "8:40"
+     },
+     "yardLine": 75,
+     "text": "MD 25"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "6:58"
+     },
+     "yardLine": 69,
+     "text": "MD 31"
+    },
+    "timeElapsed": {
+     "displayValue": "1:42"
+    },
+    "yards": -34,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "40185848386",
+      "text": "#49 M.Diomede kickoff 65 yards to the Maryla00, Touchback PENALTY Maryla Equipment Violation declined",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 0,
+       "distance": 0,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": 0,
+       "yardLine": 40,
+       "yardsToEndzone": 60,
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 70,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848390",
+      "text": "PENALTY Maryla False Start (#74 I.Wright) 5 yards from Maryla25 to Maryla20. NO PLAY",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 75,
+       "yardsToEndzone": 75,
+       "downDistanceText": "1st & 10 at MD 25",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 25",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 15,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 15 at MD 20",
+       "shortDownDistanceText": "1st & 15",
+       "possessionText": "MD 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 5,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848393",
+      "text": "Shotgun #0 D.Williams rush middle for 1 yard gain to the Maryla21 (#5 R.Pettijohn; #96 E.Houston)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 15,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 15 at MD 20",
+       "shortDownDistanceText": "1st & 15",
+       "possessionText": "MD 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 14,
+       "yardLine": 79,
+       "yardsToEndzone": 79,
+       "downDistanceText": "2nd & 14 at MD 21",
+       "shortDownDistanceText": "2nd & 14",
+       "possessionText": "MD 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 1,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848397",
+      "text": "Shotgun #7 M.Washington pass complete short middle to #2 K.Webb caught at Maryla30, for 10 yards to the Maryla31 (#1 E.Little Jr.)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 14,
+       "yardLine": 79,
+       "yardsToEndzone": 79,
+       "downDistanceText": "2nd & 14 at MD 21",
+       "shortDownDistanceText": "2nd & 14",
+       "possessionText": "MD 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "3rd & 4 at MD 31",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 10,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483102",
+      "text": "No Huddle-Shotgun #7 M.Washington pass incomplete short right to #0 D.Williams thrown to Maryla42 QB hurried by #2 K.Jackson Jr.",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "3rd & 4 at MD 31",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "4th & 4 at MD 31",
+       "shortDownDistanceText": "4th & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483105",
+      "text": "#34 B.McFerson punt 44 yards to the OhioSt25 #7 P.Bell return 6 yards to the OhioSt31 (#97 J.Parker; #32 C.Smith)",
+      "type": {
+       "id": "14",
+       "text": "Punt Return"
+      },
+      "clock": {
+       "displayValue": "6:58"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "4th & 4 at MD 31",
+       "shortDownDistanceText": "4th & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 31,
+       "yardsToEndzone": 69,
+       "downDistanceText": "1st & 10 at OSU 31",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 31",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 6,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584837",
+    "description": "3 plays, 1 yard, 0:34",
+    "team": {
+     "id": "194",
+     "abbreviation": "OSU"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "6:58"
+     },
+     "yardLine": 31,
+     "text": "OSU 31"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "6:24"
+     },
+     "yardLine": 32,
+     "text": "OSU 32"
+    },
+    "timeElapsed": {
+     "displayValue": "0:34"
+    },
+    "yards": 1,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "FUMBLE",
+    "displayResult": "Fumble",
+    "plays": [
+     {
+      "id": "401858483111",
+      "text": "Shotgun #25 B.Jackson rush right for 3 yards gain to the OhioSt34 (#97 J.Parker)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "6:58"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 31,
+       "yardsToEndzone": 69,
+       "downDistanceText": "1st & 10 at OSU 31",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 31",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 34,
+       "yardsToEndzone": 66,
+       "downDistanceText": "2nd & 7 at OSU 34",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "OSU 34",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483115",
+      "text": "No Huddle-Shotgun #10 J.Sayin pass incomplete short right to #11 B.Boyd thrown to OhioSt36 broken up by #4 J.Glasker",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "6:58"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 34,
+       "yardsToEndzone": 66,
+       "downDistanceText": "2nd & 7 at OSU 34",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "OSU 34",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 7,
+       "yardLine": 34,
+       "yardsToEndzone": 66,
+       "downDistanceText": "3rd & 7 at OSU 34",
+       "shortDownDistanceText": "3rd & 7",
+       "possessionText": "OSU 34",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483118",
+      "text": "Shotgun #10 J.Sayin sacked for loss of 2 yards to the OhioSt32 (#0 Z.Elee), fumble by #10 J.Sayin recovered by Maryla #33 M.Delhomme at OhioSt32, End Of Play",
+      "type": {
+       "id": "9",
+       "text": "Fumble Recovery (Own)"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 7,
+       "yardLine": 34,
+       "yardsToEndzone": 66,
+       "downDistanceText": "3rd & 7 at OSU 34",
+       "shortDownDistanceText": "3rd & 7",
+       "possessionText": "OSU 34",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 10,
+       "yardLine": 32,
+       "yardsToEndzone": 32,
+       "downDistanceText": "4th & 10 at OSU 32",
+       "shortDownDistanceText": "4th & 10",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584838",
+    "description": "7 plays, 11 yards, 2:29",
+    "team": {
+     "id": "120",
+     "abbreviation": "MD"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "6:24"
+     },
+     "yardLine": 32,
+     "text": "OSU 32"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "3:55"
+     },
+     "yardLine": 21,
+     "text": "OSU 21"
+    },
+    "timeElapsed": {
+     "displayValue": "2:29"
+    },
+    "yards": 11,
+    "isScore": true,
+    "offensivePlays": 7,
+    "result": "FG",
+    "displayResult": "Field Goal",
+    "plays": [
+     {
+      "id": "401858483127",
+      "text": "Shotgun #7 M.Washington pass complete short right to #13 C.Durr Jr. caught at OhioSt37, for 2 yards to the OhioSt30 (#4 Q.Russaw)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 32,
+       "yardsToEndzone": 32,
+       "downDistanceText": "1st & 10 at OSU 32",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 8,
+       "yardLine": 30,
+       "yardsToEndzone": 30,
+       "downDistanceText": "2nd & 8 at OSU 30",
+       "shortDownDistanceText": "2nd & 8",
+       "possessionText": "OSU 30",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483132",
+      "text": "No Huddle-Shotgun #7 M.Washington pass complete short right to #2 K.Webb caught at OhioSt26, for 4 yards to the OhioSt26 (#18 C.Calhoun)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 8,
+       "yardLine": 30,
+       "yardsToEndzone": 30,
+       "downDistanceText": "2nd & 8 at OSU 30",
+       "shortDownDistanceText": "2nd & 8",
+       "possessionText": "OSU 30",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 26,
+       "yardsToEndzone": 26,
+       "downDistanceText": "3rd & 4 at OSU 26",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "OSU 26",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 4,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483137",
+      "text": "No Huddle-Shotgun #1 N.Abdul-Rahim Gladding rush left for 6 yards gain to the OhioSt20 (#28 S.Jackson Jr.), 1ST DOWN",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 26,
+       "yardsToEndzone": 26,
+       "downDistanceText": "3rd & 4 at OSU 26",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "OSU 26",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 20,
+       "yardsToEndzone": 20,
+       "downDistanceText": "1st & 10 at OSU 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 6,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483141",
+      "text": "Shotgun #24 I.Howard rush middle for 1 yard loss to the OhioSt21 (#96 E.Houston; #2 K.Jackson Jr.)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 20,
+       "yardsToEndzone": 20,
+       "downDistanceText": "1st & 10 at OSU 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "2nd & 11 at OSU 21",
+       "shortDownDistanceText": "2nd & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": -1,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483145",
+      "text": "Shotgun #7 M.Washington pass incomplete short left to #2 K.Webb thrown to OhioSt15",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "2nd & 11 at OSU 21",
+       "shortDownDistanceText": "2nd & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "3rd & 11 at OSU 21",
+       "shortDownDistanceText": "3rd & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483148",
+      "text": "Shotgun #7 M.Washington pass incomplete deep right to #1 N.Abdul-Rahim Gladding thrown to OhioSt00",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "3rd & 11 at OSU 21",
+       "shortDownDistanceText": "3rd & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "4th & 11 at OSU 21",
+       "shortDownDistanceText": "4th & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483151",
+      "text": "#36 S.O'Haire field goal attempt from 39 yards GOOD (H: #34 B.McFerson, LS: #97 L.O'Hare), clock 03:55",
+      "type": {
+       "id": "59",
+       "text": "Field Goal Good",
+       "abbreviation": "FG"
+      },
+      "clock": {
+       "displayValue": "3:55"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "4th & 11 at OSU 21",
+       "shortDownDistanceText": "4th & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": -1,
+       "yardLine": 65,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 39,
+      "scoringPlay": true,
+      "scoringType": {
+       "name": "field-goal",
+       "abbreviation": "FG"
+      }
+     }
+    ]
+   },
+   {
+    "id": "40185848310",
+    "description": "2 plays, 71 yards, 0:46",
+    "team": {
+     "id": "194",
+     "abbreviation": "OSU"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "3:49"
+     },
+     "yardLine": 29,
+     "text": "OSU 29"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "yardLine": 97,
+     "text": "MD 3"
+    },
+    "timeElapsed": {
+     "displayValue": "0:46"
+    },
+    "yards": 71,
+    "isScore": true,
+    "offensivePlays": 2,
+    "result": "TD",
+    "displayResult": "Touchdown",
+    "plays": [
+     {
+      "id": "401858483154",
+      "text": "#98 D.Leahy kickoff 65 yards to the OhioSt00 #2 L.Bey return 29 yards to the OhioSt29 (#21 J.Jenkins)",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "3:49"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 65,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 29,
+       "yardsToEndzone": 71,
+       "downDistanceText": "1st & 10 at OSU 29",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 29",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 29,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483159",
+      "text": "Shotgun #24 J.Jackson rush right for 3 yards gain to the OhioSt32 (#11 S.Stewart; #3 T.Reddick)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "3:49"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 29,
+       "yardsToEndzone": 71,
+       "downDistanceText": "1st & 10 at OSU 29",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 29",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 32,
+       "yardsToEndzone": 68,
+       "downDistanceText": "2nd & 7 at OSU 32",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483163",
+      "text": "Shotgun #10 J.Sayin pass complete short middle to #83 N.Roberts caught at OhioSt50, for 68 yards to the Maryla00 TOUCHDOWN, clock 03:03, 1ST DOWN #96 C.Hawkins kick attempt good (H: #42 J.McGuire, LS: #55 D.Riggs)",
+      "type": {
+       "id": "67",
+       "text": "Passing Touchdown",
+       "abbreviation": "TD"
+      },
+      "clock": {
+       "displayValue": "3:49"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 32,
+       "yardsToEndzone": 68,
+       "downDistanceText": "2nd & 7 at OSU 32",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": 0,
+       "yardLine": 100,
+       "yardsToEndzone": 0,
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 68,
+      "scoringPlay": true,
+      "scoringType": {
+       "name": "touchdown",
+       "abbreviation": "TD"
+      }
+     }
+    ]
+   },
+   {
+    "id": "40185848312",
+    "description": "3 plays, 24 yards, 0:00",
+    "team": {
+     "id": "120",
+     "abbreviation": "MD"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "yardLine": 0,
+     "text": "OSU 0"
+    },
+    "timeElapsed": {
+     "displayValue": "0:00"
+    },
+    "yards": 24,
+    "isScore": false,
+    "offensivePlays": 3,
+    "plays": [
+     {
+      "id": "401858483171",
+      "text": "#49 M.Diomede kickoff 65 yards to the Maryla00 fair catch by #1 N.Abdul-Rahim Gladding at Maryla00",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 75,
+       "yardsToEndzone": 75,
+       "downDistanceText": "1st & 10 at MD 25",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 25",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483174",
+      "text": "Shotgun #7 M.Washington pass complete short left to #9 D.Fleming caught at Maryla28, for 4 yards to the Maryla29 (#6 D.Sanchez)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 75,
+       "yardsToEndzone": 75,
+       "downDistanceText": "1st & 10 at MD 25",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 25",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 71,
+       "yardsToEndzone": 71,
+       "downDistanceText": "2nd & 6 at MD 29",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "MD 29",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 4,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483179",
+      "text": "Shotgun #7 M.Washington pass complete short right to #1 N.Abdul-Rahim Gladding caught at Maryla27, for 2 yards to the Maryla31 (#20 C.Johnson)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 71,
+       "yardsToEndzone": 71,
+       "downDistanceText": "2nd & 6 at MD 29",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "MD 29",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "3rd & 4 at MD 31",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483184",
+      "text": "Shotgun #7 M.Washington pass incomplete short right to #2 K.Webb thrown to Maryla35 PENALTY OhioSt Roughing The Passer (#12 B.Atkinson) 15 yards from Maryla31 to Maryla46, 1ST DOWN. NO PLAY",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "3rd & 4 at MD 31",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 54,
+       "yardsToEndzone": 54,
+       "downDistanceText": "1st & 10 at MD 46",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 46",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 15,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483188",
+      "text": "Shotgun #0 D.Williams rush middle for 3 yards gain to the Maryla49 (#26 P.Pierce; #1 E.Little Jr.)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 54,
+       "yardsToEndzone": 54,
+       "downDistanceText": "1st & 10 at MD 46",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 46",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 51,
+       "yardsToEndzone": 51,
+       "downDistanceText": "2nd & 7 at MD 49",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "MD 49",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     }
+    ]
+   }
+  ]
+ }
+}
