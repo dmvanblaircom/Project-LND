@@ -92,3 +92,14 @@ with the scoreboard for both. Ohio State's Game header reads "Halftime" with
 "MD gets the ball" for the second half; Drive Tracker shows Maryland's
 end-of-half drive. New: #7 (Warn - scanner said Error for the pill text, not
 fan-visible). Repeats: #2 venues on Home. No Errors a fan would see.
+
+### 2237Z (6:37 PM ET) - Notre Dame in the 4th, Ohio State in the 3rd
+Notre Dame 58-7, 3:00 4th; Ohio State 31-10, 6:23 3rd - Home and Game agree
+with the scoreboard for both. Repeats: #5 ("#5 OHIO STATE" a few pixels from
+the clock on Home, and the "MD 44" ball-spot pill, both rated Error by the
+scanner, neither clipped or overlapping by eye) and #2 (venues). The scanner's
+"football shown while the scoreboard names no side" on Notre Dame's Game is
+not a bug: the summary has Stanford's drive ("1st & 10, STAN 25") before the
+scoreboard fills in possession, and the header follows the summary. No new
+items. The faster theScore-style alerts (#119) went live at 22:25Z, during
+this scan's window.
