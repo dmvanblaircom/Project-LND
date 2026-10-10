@@ -576,6 +576,29 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   s(2, 21, 3); await tick(db, e, KICK + 23 * 60e3); await tick(db, e, KICK + 24 * 60e3);
   eq([quiet, e.pushes.length], [0, 1], "no stale score or quarter after the gap; the next real score is announced"); }
 
+{ // Two scores taken back at once: everyone who got either is told (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), early = await browserSub(), late = await browserSub("fcm.googleapis.com");
+  await subscribe(db, e, { subscription: early.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK);
+  const s = (us, them) => { e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
+  s(0, 0); await tick(db, e, KICK + 30 * 60e3);
+  s(7, 0); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);     // the first touchdown: only "early" is signed up
+  await subscribe(db, e, { subscription: late.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK);
+  await subscribe(db, e, { subscription: early.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "off", final: true } }, KICK);   // "early" turns scores off
+  s(14, 0); await tick(db, e, KICK + 33 * 60e3); await tick(db, e, KICK + 34 * 60e3);   // the second: only "late"
+  e.pushes.length = 0;
+  s(0, 0); await tick(db, e, KICK + 35 * 60e3);                                          // both taken back
+  eq(e.pushes.map((p) => p.url === early.sub.endpoint ? "early" : "late").sort(), ["early", "late"], "14 to 0: the device that got only the first touchdown is told too"); }
+{ // A catch-up after an outage starts a new history: nothing from before it is "corrected" (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK);
+  const s = (us, them) => { e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
+  s(0, 0); await tick(db, e, KICK + 30 * 60e3);
+  s(7, 0); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);     // told 7
+  s(14, 0); await tick(db, e, KICK + 45 * 60e3);                                         // outage; caught up silently at 14
+  e.pushes.length = 0;
+  s(7, 0); await tick(db, e, KICK + 46 * 60e3);                                          // 14 taken back to 7
+  eq(e.pushes.length, 0, "a fan told 7, never told 14: no correction back to 7"); }
+
 { // First look mid-game (the Worker deployed at halftime): no backlog.
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK); e.pushes.length = 0;

@@ -519,11 +519,18 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
   const gap = st.seen && now - st.seen > LIMITS.liveLate;
   if (st.per && p > st.per && st.per <= 3) out.push({ event: "end:" + st.per, scores: st.ps, x: { period: 0 } });
   const b = st.base, moved = cur.us !== b.us || cur.them !== b.them;
-  if (gap) { next.base = cur; next.pend = null; next.last = null; }      // start again from what it is now
+  // start again from what it is now: nothing announced before the gap can
+  // be corrected after it (Codex, #116)
+  if (gap) { next.base = cur; next.pend = null; next.last = null; next.hist = { us: [], them: [] }; }
   else if (!moved) next.pend = null;
   else if (cur.us < b.us || cur.them < b.them) {
-    // the score being taken back is the one that last added to that side
-    const of = [cur.us < b.us && st.evUs, cur.them < b.them && st.evThem].filter(Boolean);
+    // every announced score on each side that the new score takes back: the
+    // devices that got any of them get the correction (Codex, #116)
+    const h = { us: ((st.hist || {}).us || []).slice(), them: ((st.hist || {}).them || []).slice() }, of = [];
+    for (const side of ["us", "them"]) {
+      while (h[side].length && h[side][h[side].length - 1][1] > cur[side]) of.push(h[side].pop()[0]);
+    }
+    next.hist = h;
     out.push({ event: "fix:" + (row.seq + 1), scores: cur, x: { lost: cur.us < b.us ? "us" : "them", ours: cur.us !== b.us, of } });
     next.base = cur; next.pend = null; next.last = null;
   } else {
@@ -539,8 +546,10 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
       else {
         out.push({ event: "score:" + (row.seq + 1), scores: cur, x: { scorer, label: label(pts), ours: du > 0 } });
         next.last = { kind: pts >= 6 ? "td" : "other", scorer, at: now };
-        if (du > 0) next.evUs = "score:" + (row.seq + 1);
-        if (dt > 0) next.evThem = "score:" + (row.seq + 1);
+        const h = { us: ((st.hist || {}).us || []).slice(), them: ((st.hist || {}).them || []).slice() };
+        if (du > 0) h.us.push(["score:" + (row.seq + 1), cur.us]);
+        if (dt > 0) h.them.push(["score:" + (row.seq + 1), cur.them]);
+        next.hist = h;
       }
       next.base = cur; next.pend = null;
     }
