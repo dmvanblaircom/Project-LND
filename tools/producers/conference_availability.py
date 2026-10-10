@@ -64,6 +64,7 @@ STATUSES = [
 ]
 NOT_LISTED = re.compile(r"^(available|exempt|-|)$", re.I)
 ORDER = ["Game Day", "Update 2", "Update 1", "Initial"]      # newest first
+RANK = {kind: len(ORDER) - i for i, kind in enumerate(ORDER)}  # Initial 1 ... Game Day 4
 # A published report lists the whole travel squad (about 110-120 players), the
 # available ones included. Far fewer rows is a partial or changed answer, not
 # a report that lists nobody - refuse it rather than clear every status.
@@ -197,9 +198,16 @@ def build(publish, archive, names, previous=None):
     season = {}
     for r in previous or []:
         if isinstance(r, dict) and r.get("kickoffDate"):
-            season[r["kickoffDate"]] = dict({k: r.get(k) for k in FIELDS}, current=False)
+            season[r["kickoffDate"]] = dict({k: r.get(k) for k in FIELDS}, current=r.get("current") is True)
     games = archive_games(archive, names)
-    season.update({day: from_archive(day, g) for day, g in games.items()})
+    for day, g in games.items():
+        # The archive lags the published report (it can read Update 1 while
+        # Update 2 is out): a report on file at least as new as the
+        # archive's for the same game stays (Codex, #118). Once its game day
+        # has passed, TeamOS stops it marking the roster whatever `current` says.
+        mine, theirs = season.get(day), from_archive(day, g)
+        if not (mine and RANK.get(mine.get("heading"), -1) >= RANK.get(theirs["heading"], -1)):
+            season[day] = theirs
     pub = published(publish, names)
     if pub:
         report, side, other = pub

@@ -11,6 +11,7 @@ copy of the repository with the network stood in for.
     python3 tools/conferenceavailcheck.py     (exit 1 on any failure)
 """
 import contextlib
+import copy
 import io
 import json
 import os
@@ -155,11 +156,23 @@ nobody, seen = ca.build(clean, FIXTURE["archive"], OSU)
 ok(nobody["kickoffDate"] == "2026-10-17" and nobody["players"] == [] and nobody["current"] is True,
    "published, listing nobody: a report that everyone is available")
 later, hist2 = ca.build({}, FIXTURE["archive"], OSU, seen)
-ok(later["kickoffDate"] == "2026-10-17" and later["players"] == [] and later["current"] is False,
+ok(later["kickoffDate"] == "2026-10-17" and later["players"] == [],
    "once it is no longer published, it stays the latest - the archive, which has no row for it, does not erase it")
 ok([x["kickoffDate"] for x in hist2] == ["2026-09-26", "2026-10-03", "2026-10-10", "2026-10-17"], "and the season keeps every game")
 ok(hist2[2]["heading"] == "Update 1" and hist2[2]["current"] is False,
-   "a game the archive covers is the archive's reading, not the copy on file")
+   "a game the archive covers, with nothing newer on file, is the archive's reading")
+
+print("the archive lags the published report (Codex, #118)")
+gap, gaphist = ca.build({}, FIXTURE["archive"], OSU, history)
+ok(gap["heading"] == "Update 2" and gap["current"] is True and gap["players"] == latest["players"],
+   "publish empty for a run before kickoff: Friday's Update 2 on file stays - not the archive's older Update 1")
+ok(gaphist[0]["heading"] == "Game Day" and gaphist[1]["heading"] == "Game Day", "past games are unchanged")
+caught = copy.deepcopy(FIXTURE["archive"])
+for row in caught["data"]:
+    if row["Team"] == "Ohio St." and row["Week"].startswith("Sat, 10 Oct"):
+        row["Update 2"], row["Game Day"] = row["Update 1"], "Out" if row["Update 1"] == "Out" else "Available"
+after, _ = ca.build({}, caught, OSU, history)
+ok(after["heading"] == "Game Day", "once the archive has the newer gameday report, it replaces the copy on file")
 
 for what, rows in (("missing", None), ("empty", []), ("cut short", "short")):
     partial = copy.deepcopy(FIXTURE["publish"])
