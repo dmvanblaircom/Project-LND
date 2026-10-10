@@ -73,9 +73,15 @@ TeamOS.roster = (function () {
   // Out means out of the game. Out for the first half is not: that player
   // still plays, so the chart and roster keep him (Big Ten reports, 2026).
   var OUT = /^out-(game|season)$/;
-  function outNames(report, chart) {
+  // `today` is the team's calendar day ("2026-10-11"). A report dated for a
+  // game day that has passed says who missed that game, not who will miss
+  // the next - even while it is still the newest on file, as after a failed
+  // fetch (Codex, #118). Reports with no game date (a school's notes) rely
+  // on the chart's game instead.
+  function outNames(report, chart, today) {
     var out = {};
     if (!report || !report.reported) return out;
+    if (today && report.kickoffDate && today > report.kickoffDate) return out;
     // A report its producer marks as not current - last game's, kept on
     // file through a bye or until this week's is filed - says who missed
     // that game, not who will miss the next (Codex, #118).
@@ -178,10 +184,10 @@ TeamOS.roster = (function () {
     return { game: game, preseason: pre, known: game != null || pre, battles: pre || game === 1 };
   }
 
-  function depth(chart, groups, report, hist) {
+  function depth(chart, groups, report, hist, today) {
     if (!chart || !chart.units) return null;
     var ph = phase(chart);
-    var all = everyone(groups), outs = outNames(report, chart);
+    var all = everyone(groups), outs = outNames(report, chart, today);
     var prev = previousChart(chart, hist), was = prev ? placesOf(prev) : null;
     function moved(u, s, lv, p) {
       if (!was) return null;
@@ -276,8 +282,8 @@ TeamOS.roster = (function () {
   // The roster with each player the report lists as out marked `out`, by the
   // same rule as the depth chart: the report for the chart's game, or the
   // report alone when the team has no chart. Copies; the groups are shared.
-  function withStatus(groups, report, chart) {
-    var outs = outNames(report, chart);
+  function withStatus(groups, report, chart, today) {
+    var outs = outNames(report, chart, today);
     var all = everyone(groups), byPlayer = [];
     (report && report.players || []).forEach(function (p) {
       if (!outs[fold(p.name)]) return;

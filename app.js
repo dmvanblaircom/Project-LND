@@ -533,11 +533,12 @@ function paintRoster(){
 function rosterModel(route, views){
   var view=views.some(function(v){ return v.id===route.view; }) ? route.view : views[0].id;
   function failed(k){ return !roHas(k) && !!roState(k).failed; }
+  var today=TeamOS.game.localDay(new Date(), TEAM.timeZone);   // a report's game day past: it marks nobody out
   return {
     views: views, view: view, unit: route.path[1] || null,
     hasDepth: !!rosterSnap("depth"),
-    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail, RO.histRaw) : null,
-    history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart) : null, query: RO.q,
+    depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail, RO.histRaw, today) : null,
+    history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart, today) : null, query: RO.q,
     notes: NOTES.model,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },

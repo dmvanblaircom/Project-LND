@@ -204,6 +204,15 @@ var lastGame = Object.assign({}, b1g, { current: false });
 eq([].concat.apply([], R.withStatus(b1gRoster, lastGame, null).map(function (g) { return g.players; })).filter(function (p) { return p.out; }).length, 0,
    "last game's report, kept on file until this week's (current: false), marks nobody out (Codex, #118)");
 eq(R.availability(lastGame, []).groups.length, 5, "but it is still shown, as that game's report");
+var dated = Object.assign({}, b1g, { current: true, kickoffDate: "2026-10-10" });
+function outOn(day) { return [].concat.apply([], R.withStatus(b1gRoster, dated, null, day).map(function (g) { return g.players; }))
+  .filter(function (p) { return p.out; }).map(function (p) { return p.name; }); }
+eq([outOn("2026-10-09"), outOn("2026-10-10"), outOn("2026-10-11"), outOn(undefined)],
+   [["Oscar Out"], ["Oscar Out"], [], ["Oscar Out"]],
+   "a current report marks the roster up to its game day, and nobody once that day has passed - even if it is still the newest on file (Codex, #118)");
+ok(R.depth(chart, groups, Object.assign({}, report, { kickoffDate: "2026-09-01" }), null, "2026-09-02").units.every(function (u) {
+  return u.slots.every(function (s) { return s.levels.every(function (l) { return l.players.every(function (p) { return !p.out; }); }); }); }),
+   "the depth chart applies the same rule when the report carries a game date");
 var osuReport = JSON.parse(read("data/ohio-state/availability.json"));
 var osuAv = R.availability(osuReport, []);
 ok(osuReport.team === "ohio-state" && osuAv.reported && osuAv.source.label === "BigTen.org",
