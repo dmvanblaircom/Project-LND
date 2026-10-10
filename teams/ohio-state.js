@@ -36,6 +36,16 @@ var TEAM_CONFIG = {
       namePattern:  /ohio st|buckeyes/i
     },
 
+    // The Big Ten's availability reports (four a week for conference games
+    // from 2026), published on BigTen.org through HD Intelligence's public
+    // report viewer. tools/producers/conference_availability.py reads the
+    // feed; `team` is the name the conference's reports use for this team.
+    official: {
+      availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+      availabilityReportLabel: "BigTen.org",
+      availabilityFeed: { provider: "hdintelligence", conference: "B10", sport: "Football", team: "Ohio St.", aliases: ["Ohio State"] }
+    },
+
     // Beat writers, read by the Action server-side (RSS sends no CORS
     // header). Each was confirmed from GitHub's network on 2026-10-02 and
     // approved by David (docs/engineering/ohio-state-sources.md): the
@@ -108,9 +118,10 @@ var TEAM_CONFIG = {
   // Kalshi markets above, going forward from 2026-10-02 - never back-filled;
   // the beat stories from sources.beatFeeds. Ohio State publishes no weekly
   // depth chart (a credited projection waits on permission, decision 0032);
-  // the Big Ten's availability reports come when their listing is found. A kind left out
-  // shows as unavailable, never as Notre Dame's (Phase 5B).
+  // availability is the Big Ten's own report (sources.official). A kind left
+  // out shows as unavailable, never as Notre Dame's (Phase 5B).
   snapshots: {
+    availability: { file: "data/ohio-state/availability.json", history: "data/ohio-state/availability-history.json", label: "BigTen.org" },
     oddsHistory: { file: "data/ohio-state/odds-history.json" },
     beatNews:    { file: "data/ohio-state/news.json" }
   }

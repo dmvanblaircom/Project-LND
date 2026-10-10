@@ -49,7 +49,10 @@ ok(!/espn|notre|irish|ohio|buckeye/i.test(src), "names no provider and no team")
 console.log("views follow what the team has");
 eq(R.views(nd.TEAM_CONFIG).map(function (v) { return v.id; }), ["depth", "roster", "availability"],
    "a team with a depth chart and an availability report: all three");
-eq(osu.TeamOS.roster.views(osu.TEAM_CONFIG).map(function (v) { return v.id; }), ["roster"],
+eq(osu.TeamOS.roster.views(osu.TEAM_CONFIG).map(function (v) { return v.id; }), ["roster", "availability"],
+   "a team with a conference availability report and no depth chart: no empty depth view");
+var bare = JSON.parse(JSON.stringify(osu.TEAM_CONFIG)); delete bare.snapshots.availability;
+eq(osu.TeamOS.roster.views(bare).map(function (v) { return v.id; }), ["roster"],
    "a team with neither: the roster alone - no empty views");
 
 console.log("the depth chart, joined to the real roster");
@@ -182,6 +185,39 @@ eq(av.groups.reduce(function (n, g) { return n + g.players.length; }, 0), rep.pl
 eq(R.availability({ reported: false, players: [] }, groups).reported, false, "no report is 'no report' - never 'everyone is fine'");
 eq(R.availability({ reported: true, players: [] }, groups).groups, [], "a report that lists nobody: no groups");
 eq(R.availability(null, groups), null, "no file, nothing");
+
+console.log("a conference report's statuses (the Big Ten's)");
+var b1g = { reported: true, game: "vs. Maryland", effectiveAt: "2026-10-09", players: [
+  { pos: "QB", no: "9", name: "Gus Gametime", status: "gtd" }, { pos: "LB", no: "3", name: "Hal Half", status: "out-half" },
+  { pos: "OL", no: "60", name: "Oscar Out", status: "out-game" }, { pos: "WR", no: "0", name: "Quinn Query", status: "questionable" },
+  { pos: "S", no: "1", name: "Dan Doubt", status: "doubtful" }] };
+var b1gAv = R.availability(b1g, []);
+eq(b1gAv.groups.map(function (g) { return g.label; }),
+   ["Out for the game", "Out for the first half", "Doubtful", "Game-time decision", "Questionable"],
+   "out for the first half and a game-time decision have their own groups, in order of severity");
+eq(b1gAv.groups.reduce(function (n, g) { return n + g.players.length; }, 0), 5, "every listed player, once - none dropped for an unfamiliar status");
+var b1gRoster = [{ players: [{ name: "Hal Half", jersey: "3" }, { name: "Oscar Out", jersey: "60" }, { name: "Gus Gametime", jersey: "9" }] }];
+eq([].concat.apply([], R.withStatus(b1gRoster, b1g, null).map(function (g) { return g.players; }))
+     .filter(function (p) { return p.out; }).map(function (p) { return p.name + "=" + p.out; }),
+   ["Oscar Out=out-game"], "only out for the game marks a player out: out for the first half still plays, a game-time decision may");
+var lastGame = Object.assign({}, b1g, { current: false });
+eq([].concat.apply([], R.withStatus(b1gRoster, lastGame, null).map(function (g) { return g.players; })).filter(function (p) { return p.out; }).length, 0,
+   "last game's report, kept on file until this week's (current: false), marks nobody out (Codex, #118)");
+eq(R.availability(lastGame, []).groups.length, 5, "but it is still shown, as that game's report");
+var dated = Object.assign({}, b1g, { current: true, kickoffDate: "2026-10-10" });
+function outOn(day) { return [].concat.apply([], R.withStatus(b1gRoster, dated, null, day).map(function (g) { return g.players; }))
+  .filter(function (p) { return p.out; }).map(function (p) { return p.name; }); }
+eq([outOn("2026-10-09"), outOn("2026-10-10"), outOn("2026-10-11"), outOn(undefined)],
+   [["Oscar Out"], ["Oscar Out"], [], ["Oscar Out"]],
+   "a current report marks the roster up to its game day, and nobody once that day has passed - even if it is still the newest on file (Codex, #118)");
+ok(R.depth(chart, groups, Object.assign({}, report, { kickoffDate: "2026-09-01" }), null, "2026-09-02").units.every(function (u) {
+  return u.slots.every(function (s) { return s.levels.every(function (l) { return l.players.every(function (p) { return !p.out; }); }); }); }),
+   "the depth chart applies the same rule when the report carries a game date");
+var osuReport = JSON.parse(read("data/ohio-state/availability.json"));
+var osuAv = R.availability(osuReport, []);
+ok(osuReport.team === "ohio-state" && osuAv.reported && osuAv.source.label === "BigTen.org",
+   "Ohio State's report on file is its own, credited to BigTen.org");
+eq(osuAv.groups.reduce(function (n, g) { return n + g.players.length; }, 0), osuReport.players.length, "every player on it, once");
 
 console.log("week by week");
 var hist = R.history(JSON.parse(read(G4.depthHistory)), JSON.parse(read(G4.availabilityHistory)));

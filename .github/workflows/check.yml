@@ -68,6 +68,8 @@ jobs:
         run: python3 tools/depthcheck.py
       - name: A failed game-notes fetch never costs the right availability report
         run: python3 tools/availabilitycheck.py
+      - name: A conference's availability report is read as the conference wrote it
+        run: python3 tools/conferenceavailcheck.py
       - name: The game notes' facts are read as written
         run: python3 tools/notescheck.py
       - name: The data refresh checks the depth chart when it should

@@ -165,10 +165,11 @@ eq(MT.sources.list(ND).map(function (x) { return x.name; }),
 eq(MT.sources.list(ND)[1].supplies, ["depth", "availability"], "the official site: depth chart and availability, once");
 var osuCtx = vm.createContext({});
 ["teams/ohio-state.js"].forEach(function (f) { vm.runInContext(read(f), osuCtx, { filename: f }); });
-eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern", "Kalshi", "CollegeFootballData", "Open-Meteo"],
-   "Ohio State is credited its beat feeds, and no official snapshot it does not have");
-eq(MT.sources.list(osuCtx.TEAM_CONFIG).filter(function (x) { return x.supplies.indexOf("depth") >= 0 || x.supplies.indexOf("availability") >= 0; }), [],
-   "nothing is credited for an Ohio State depth chart or availability report");
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "BigTen.org", "Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern", "Kalshi", "CollegeFootballData", "Open-Meteo"],
+   "Ohio State is credited its beat feeds and the Big Ten's report, and no official snapshot it does not have");
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).filter(function (x) { return x.supplies.indexOf("depth") >= 0 || x.supplies.indexOf("availability") >= 0; })
+     .map(function (x) { return [x.name, x.supplies.join()]; }), [["BigTen.org", "availability"]],
+   "the availability report is credited to BigTen.org; nothing is credited for an Ohio State depth chart");
 var abh = mhost(); MS.more.about(abh, { version: "2026-09-24v", sources: MT.sources.list(ND) });
 ok(!/project\s*lnd/i.test(abh.innerHTML + m.innerHTML + st.innerHTML + fbh.innerHTML), "no screen says Project LND (0022 #9)");
 ok(/not affiliated with, endorsed by or sponsored by/.test(abh.innerHTML) && /used only to\s+identify/.test(abh.innerHTML.replace(/" \+ "/g, "")),
@@ -199,6 +200,8 @@ vm.runInContext(read("suite/top25.js"), sctx, { filename: "suite/top25.js" });
 var calAt = function (iso) { return sctx.TeamOS.season.calendar(sctx.LEAGUE_CALENDAR, 2026, new Date(iso)); };
 var n1 = sctx.Suite.top25.calendarNote(calAt("2026-10-02T16:00:00Z"), false);
 // in the fan's own device time, with its zone - the same words a kickoff uses
+eq(["Anthony “Turbo” Rogers", "Leroy Roker III", "Texas A&M", ""].map(function (n) { return sctx.Suite.ui.initials(n); }),
+   ["AR", "LRI", "TA", "?"], "initials come from words that start with a letter: never a quote mark or an ampersand");
 var kick = function (iso) { return sctx.Suite.ui.kickoff(iso).full; };
 ok(n1.indexOf("First CFP rankings:</strong> " + kick("2026-11-03T19:00:00-05:00") + " on ESPN") >= 0, "before the first show: its day, time with zone, and network");
 ok(n1.indexOf("Selection Day:</strong> " + kick("2026-12-06T12:00:00-05:00") + " on ESPN. The 12-team playoff field, then every bowl matchup that afternoon.") >= 0,

@@ -39,8 +39,8 @@ print("teamconfig: which teams, which files")
 ok(teamconfig.teams() == ["notre-dame", "ohio-state"], "every configured team, and not the registry: %s" % teamconfig.teams())
 with_kind = {k: [t for t in teamconfig.teams() if teamconfig.snapshot(teamconfig.load(t), k)]
              for k in ("depth", "availability", "oddsHistory", "beatNews", "notes")}
-ok(with_kind == {"depth": ["notre-dame"], "availability": ["notre-dame"], "oddsHistory": ["notre-dame", "ohio-state"], "beatNews": ["notre-dame", "ohio-state"], "notes": ["notre-dame"]},
-   "the workflow's loops run for the teams that declare each kind - Ohio State's odds history and beat news too (W20): %s" % with_kind)
+ok(with_kind == {"depth": ["notre-dame"], "availability": ["notre-dame", "ohio-state"], "oddsHistory": ["notre-dame", "ohio-state"], "beatNews": ["notre-dame", "ohio-state"], "notes": ["notre-dame"]},
+   "the workflow's loops run for the teams that declare each kind - Ohio State's odds history, beat news and availability too (W20): %s" % with_kind)
 nd, osu = teamconfig.load("notre-dame"), teamconfig.load("ohio-state")
 ok(teamconfig.snapshot(nd, "beatNews")["file"] == "data/notre-dame/news.json", "a producer's file is the team's declaration")
 ok(teamconfig.snapshot(osu, "depth") is None, "a team without a source has no file to write")
