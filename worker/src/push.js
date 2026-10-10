@@ -653,7 +653,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     }
     n += 1;
     out.push({ event: "score:" + n, scores: c, x });
-    next.last = x.kind === "td" && !x.try ? { kind: "td", scorer, at: now } : { kind: "other", scorer, at: now };
+    next.last = x.kind === "td" && !x.try ? { kind: "td", scorer, at: now, score: c[scorer] } : { kind: "other", scorer, at: now };
     const h = hist();
     if (du > 0) h.us.push(["score:" + n, c.us]);
     if (dt > 0) h.them.push(["score:" + n, c.them]);
@@ -664,9 +664,12 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
   // A touchdown's try that missed moves no score: ESPN's play says so. It is
   // told first, whatever else moved meanwhile - a kickoff returned for a
   // score must not swallow it (Codex, #119).
-  if (!gap && awaitingTry(st, now) && cur[st.last.scorer] === b[st.last.scorer]) {
-    const side = st.last.scorer, pl = playFor(plays, side, b[side] - 6, b[side]);
-    const tr = pl && pl.type !== "FG" && pl[side] === b[side] ? tryOf(pl.text) : null;
+  // The touchdown's own play is found by its score, so a later score by
+  // either side cannot hide it (Codex, #119).
+  if (!gap && awaitingTry(st, now)) {
+    const side = st.last.scorer, at = st.last.score != null ? st.last.score : b[side];
+    const pl = (plays || []).filter(function (q) { return q.side === side && q[side] === at && q.type !== "FG"; }).pop();
+    const tr = pl ? tryOf(pl.text) : null;
     if (tr === "xpmiss" || tr === "2ptfail") {
       n += 1;
       out.push({ event: "score:" + n, scores: b, x: Object.assign({ scorer: side, ours: false, kind: tr }, playX(pl), { play: undefined }) });

@@ -755,6 +755,13 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
       for (const e of scoreStep(db4, "87", g, { period: 2, displayClock: "14:30" }, { us, them }, T0 + m * 60e3, false, list && sum(list))) h4.push(words(e.event, team, g, e.scores, e.x).title);
     eq(h4, ["Notre Dame TD (14:48 2nd)", "Notre Dame XP missed (14:48 2nd)", "Stanford TD (14:35 2nd)"], "a miss ESPN shows only after the other side scored again: still told, before that score"); }
 
+  { // ... or after Notre Dame itself scores again, a turnover and a field goal later (Codex, #119).
+    const db5 = dbOf(), h5 = [], pend6 = [pl(2, "J. Walton run for 97 yds, for a TD", 6)];
+    const fg = { team: { id: "87" }, homeScore: 9, awayScore: 0, period: { number: 2 }, clock: { displayValue: "13:10" }, scoringType: { abbreviation: "FG" }, text: "S. Porath 30 yd FG GOOD" };
+    for (const [m, us, list] of [[0, 0, null], [1, 6, pend6], [2, 6, pend6], [3, 9, [pl(2, null, 6), fg]], [4, 9, [pl(2, null, 6), fg]]])
+      for (const e of scoreStep(db5, "87", g, { period: 2, displayClock: "13:00" }, { us, them: 0 }, T0 + m * 60e3, false, list && sum(list))) h5.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h5, ["Notre Dame TD (14:48 2nd)", "Notre Dame XP missed (14:48 2nd)", "Notre Dame FG (13:10 2nd)"], "a miss ESPN shows only after the same side scored again: still told, first"); }
+
   // The other words
   const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
   eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),
