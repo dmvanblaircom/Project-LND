@@ -26,6 +26,7 @@ an opportunity, not a defect.
 | 1 | 16:02Z | Warn | Top 25 - Games @390, Ohio State's Team Style (Nunito Sans) | The scanner flags "15 Tennessee 4-1": the record is laid out 5.7px past the box of the name line that holds it. On screen it is not clipped and does not touch the column divider - a fan sees nothing wrong (scanner rated it Error; downgraded by eye). Fragile: a longer ranked name could push it into the divider. Proposed: let the name line wrap the record to its own line rather than overflow. | Open |
 | 2 | 16:02Z | Warn | Home - schedule preview @390, both teams | Long venue names are cut with an ellipsis on the "time · venue" line: "3:30 PM EDT · Notre Dame Stadium", "7:30 PM EDT · LaVell Edwards Stadium", "Memorial Stadium (Bloomin…", "Los Angeles Memorial Coliseum". Intended truncation, but the venue is the part a fan reads. Proposed: let the venue wrap to a second line. | Open |
 | 3 | 17:41Z | Warn | Top 25 - Games, live game cards at halftime | The possession football shows during halftime (Indiana, Missouri - the teams that receive to start the second half). Home and the Game header hide the football while play is paused between periods (2026-09-26 log #7). One rule everywhere: hide it on Top 25 at halftime and between quarters too. | Open |
+| 4 | 18:30Z | Idea | Top 25 - Games, last-play line | Penalty plays keep ESPN's raw shouting and run three lines: "3:04 A. Simmons pass incomplete short middle to C. Lee thrown to A&M40 PENALTY A&M Pass Interference 10 yards from A&M50 to A&M40. NO PLAY". The safe play-text rule (2026-09-26 #2/#4) could lower-case PENALTY / NO PLAY and shorten penalty plays to the penalty ("Penalty: A&M pass interference, 10 yards - no play"). | Open |
 
 ## Scans
 
@@ -50,3 +51,11 @@ Both teams still pregame and agreeing with the scoreboard. Four ranked noon
 games at halftime all read "Halftime" on Top 25 with ESPN's "gets the ball to
 start the second half" line; South Carolina-Florida live in the 2nd. New: #3
 (Warn). #1 and #2 seen again.
+
+### 1830Z (2:30 PM ET) - pregame; noon games in the 3rd
+Both teams still pregame, agreeing with the scoreboard. The between-quarters
+rule held on two live games: UCF-Oklahoma St and North Carolina-Pitt read
+"15:00 - 4th" with "End of 3rd quarter." - for North Carolina-Pitt ESPN's own
+status line still said "15:00 - 3rd" while its last play was the end of the
+3rd, and the app's reading (from the play) is the right one. New: #4 (Idea).
+#1-#3 seen again.
