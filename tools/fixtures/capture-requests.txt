@@ -100,3 +100,9 @@ schedule-194 scan-osu-1830
 rankings scan-1830
 401858481 scan-x1-1830
 401856716 scan-x2-1830
+scoreboard-20261010 scan-1920
+schedule-87 scan-nd-1920
+schedule-194 scan-osu-1920
+rankings scan-1920
+401858481 scan-x1-1920
+401856716 scan-x2-1920
