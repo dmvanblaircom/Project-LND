@@ -202,6 +202,7 @@ CASES = [
     ("an archive row's week unreadable", lambda r, a: a[0].update(Week="week 4")),
     ("an archive row's opponent removed", lambda r, a: (a[0].pop("Opponent"), a[0].pop("OpponentDisplay"))),
     ("an archive row's report columns renamed", lambda r, a: [a[0].pop(k) for k in ("Initial", "Update 1", "Update 2", "Game Day")]),
+    ("only the archive's Game Day column renamed", lambda r, a: [x.update(Gameday=x.pop("Game Day")) for x in a]),
 ]
 for what, edit in CASES:
     ok(broken(edit), "%s: refused, last good files kept" % what)

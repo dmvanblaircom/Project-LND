@@ -149,7 +149,7 @@ def archive_games(payload, names):
         # date, the opponent, and the report columns (Codex, #118).
         day = _date(row.get("Week"))
         game = str(row.get("OpponentDisplay") or row.get("Opponent") or "").strip()
-        if not day or not game or not any(k in row for k in ORDER):
+        if not day or not game or not all(k in row for k in ORDER):
             raise ValueError("an archive row for the team has no readable date, opponent or report columns")
         g = out.setdefault(day, {"game": game, "rows": []})
         g["rows"].append(row)
