@@ -29,6 +29,7 @@ an opportunity, not a defect.
 | 4 | 18:30Z | Idea | Top 25 - Games, last-play line | Penalty plays keep ESPN's raw shouting and run three lines: "3:04 A. Simmons pass incomplete short middle to C. Lee thrown to A&M40 PENALTY A&M Pass Interference 10 yards from A&M50 to A&M40. NO PLAY". The safe play-text rule (2026-09-26 #2/#4) could lower-case PENALTY / NO PLAY and shorten penalty plays to the penalty ("Penalty: A&M pass interference, 10 yards - no play"). | Open |
 | 5 | 20:59Z | Warn | Home - live hero @390, Ohio State | The scanner flags "#5 OHIO STATE" (and the Game header's "MD 49" pill) as drawn past their boxes. On screen neither is clipped or overlapping - not fan-visible (scanner rated Error; downgraded by eye). Fragile on Home: "#5 OHIO STATE" ends a few pixels from the clock; a two-digit rank ("#15 OHIO STATE") would touch it. Home should take the Game header's rule: swap both names to the abbreviation when either won't fit. | Open |
 | 6 | 20:59Z | Idea | Game - Drive Tracker, Ohio State | A drive in progress reads "3 plays, 24 yards, 0:00": ESPN has not filled in the drive's time yet. A fan reads 0:00 as no time used. Leave the time out until ESPN gives one. | Open |
+| 7 | 21:50Z | Warn | Game header at halftime, Ohio State @320 (and the "gets the ball" pill @390/320) | At halftime the header shows "MD gets the ball" (the second-half receiver) and the possession football beside the score. At 320 the football touches the last letter of "HALFTIME". The scanner also rates the pill's text as spilling its box (Error at 390 and 320); by eye it sits inside the pill, tight at 320 - not fan-visible, downgraded. Proposed: give the football its own space beside the status at 320 (or hide it at halftime, as #3 proposes for Top 25). | Open |
 
 ## Scans
 
@@ -84,3 +85,10 @@ plays, box) agree with the scoreboard for both, including possession (Stanford,
 Maryland) and down & distance. The scan-script fix worked: both live summaries
 captured, Notre Dame's Drive Tracker and last play show. New: #5 (Warn - scanner
 said Error, not fan-visible), #6 (Idea).
+
+### 2150Z (5:50 PM ET) - Notre Dame in the 3rd, Ohio State at halftime
+Notre Dame 44-0, 3:02 3rd; Ohio State 31-10 at halftime - Home and Game agree
+with the scoreboard for both. Ohio State's Game header reads "Halftime" with
+"MD gets the ball" for the second half; Drive Tracker shows Maryland's
+end-of-half drive. New: #7 (Warn - scanner said Error for the pill text, not
+fan-visible). Repeats: #2 venues on Home. No Errors a fan would see.
