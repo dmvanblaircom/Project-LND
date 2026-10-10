@@ -8,7 +8,8 @@
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
 import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
-import { validSubscription, validTeam, subscribe, unsubscribe, tick, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS } from "../worker/src/push.js";
+import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
+         words, playText, tryOf, scoringPlays, network, pickGame } from "../worker/src/push.js";
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
 import { SCHOOLS } from "../worker/src/schools.js";
@@ -184,6 +185,8 @@ async function browserSub(host) {
 }
 // RFC 8291 decryption, written out independently, so a pushed body is read
 // back the way a browser would read it.
+// An alert as the lock screen shows it: title, then body.
+const say = (m) => m.title + " | " + m.body;
 async function openPush(body, kp, authB64) {
   const b = new Uint8Array(body), salt = b.slice(0, 16), idlen = b[20], asPub = b.slice(21, 21 + idlen), sealed = b.slice(21 + idlen);
   const uaPub = new Uint8Array(await crypto.subtle.exportKey("raw", kp.publicKey));
@@ -209,6 +212,7 @@ function alertEnv(o) {
     FETCH: async (url, init) => {
       calls.push(url);
       if (/\/teams\/194\/schedule$/.test(url)) return e.down ? new Response("", { status: 503 }) : new Response(JSON.stringify(OSU_SCHEDULE), { status: 200 });
+      if (/\/summary\?event=\d+$/.test(url)) return e.summary ? new Response(JSON.stringify(typeof e.summary === "function" ? e.summary() : e.summary), { status: 200 }) : new Response("", { status: 503 });
       if (/\/competitions\/\d+\/status$/.test(url)) return e.status ? new Response(JSON.stringify(e.status), { status: 200 }) : new Response("", { status: 503 });
       const sc = /\/competitors\/(\d+)\/score$/.exec(url);
       if (sc) return e.scores[sc[1]] == null ? new Response("", { status: 404 }) : new Response(JSON.stringify({ value: e.scores[sc[1]] }), { status: 200 });
@@ -263,13 +267,13 @@ console.log("game alerts: a whole game, minute by minute (Ohio State at Iowa, Oc
   e.status = st("in", 1, "STATUS_IN_PROGRESS");
   log = await tick(db, e, KICK + 2 * 60e3);
   const k = e.pushes.length === 1 ? await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth) : {};
-  eq([k.title, k.body, k.url, k.tag], ["Ohio State", "Ohio State at Iowa has kicked off.", APP_URL + "#game", GAME + "-kickoff"], "kickoff, once, in the team's own words");
+  eq([k.title, k.body, k.url, k.tag], ["Kickoff: Ohio State at Iowa", "On CBS", APP_URL + "#game", GAME + "-kickoff"], "kickoff, once, in the team's own words, with the game's network from the schedule");
   await tick(db, e, KICK + 3 * 60e3); await tick(db, e, KICK + 40 * 60e3);
   ok(e.pushes.length === 1, "never twice, however many minutes pass");
   e.status = st("post", 4, "STATUS_FINAL", true); e.scores = { 194: 31, 2294: 17 };
   await tick(db, e, KICK + 3.4 * 3600e3);
   const f = e.pushes.length === 2 ? await openPush(e.pushes[1].init.body, b.kp, b.sub.keys.auth) : {};
-  eq(f.body, "Final: Ohio State 31, Iowa 17.", "the final, with ESPN's score for each side");
+  eq(say(f), "Final: Ohio State 31, Iowa 17 | Ohio State wins.", "the final, with ESPN's score for each side");
   e.calls.length = 0; await tick(db, e, KICK + 3.5 * 3600e3);
   ok(e.pushes.length === 2 && e.calls.length === 0, "after the final: nothing more is sent or asked"); }
 
@@ -281,12 +285,12 @@ console.log("game alerts: what a real game day throws at it");
   e.status = st("post", 4, "STATUS_FINAL", true); e.scores = {};
   await tick(db, e, KICK + 3.4 * 3600e3);
   const f = e.pushes.length === 1 ? await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth) : {};
-  eq(f.body, "Final: Ohio State at Iowa.", "a final ESPN gives no score for: no numbers, never 0-0"); }
+  eq(say(f), "Final: Ohio State at Iowa | ", "a final ESPN gives no score for: no numbers, never 0-0"); }
 { const db = dbOf(), e = alertEnv({ status: st("pre", 0, "STATUS_POSTPONED") }), b = await browserSub();
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" } }, KICK); e.pushes.length = 0;
   await tick(db, e, KICK - 5 * 60e3); await tick(db, e, KICK);
   const p = e.pushes.length === 1 ? await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth) : {};
-  eq([e.pushes.length, p.body], [1, "Ohio State at Iowa has been postponed."], "postponed: one push saying so, and no kickoff"); }
+  eq([e.pushes.length, say(p)], [1, "Postponed | Ohio State at Iowa has been postponed."], "postponed: one push saying so, and no kickoff"); }
 { const db = dbOf(), e = alertEnv({ status: st("in", 1, "STATUS_IN_PROGRESS") }), a = await browserSub(), c = await browserSub("fcm.googleapis.com");
   await subscribe(db, e, { subscription: a.sub, team: { id: "194", name: "Ohio State" } }, KICK);
   await subscribe(db, e, { subscription: c.sub, team: { id: "194", name: "Ohio State" } }, KICK); e.pushes.length = 0;
@@ -311,7 +315,7 @@ console.log("game alerts: what a real game day throws at it");
   db.run("INSERT INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", "194", GAME, "kickoff", KICK);
   const log = await tick(db, e, KICK + 3.4 * 3600e3);
   const f = e.pushes.length === 1 ? await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth) : {};
-  ok(/status from the schedule/.test(log.join(" ")) && f.body === "Final: Ohio State 38, Iowa 10.", "core API refused: the schedule's status and score stand in = " + f.body);
+  ok(/status from the schedule/.test(log.join(" ")) && f.title === "Final: Ohio State 38, Iowa 10", "core API refused: the schedule's status and score stand in = " + f.title);
   const r = report(db);
   ok(r.subscriptions[0].n === 1 && r.games[0].game.id === GAME && r.sent.some((x) => x.event === "final") && r.last && r.last.log.length,
      "the status report: counts, the watched game, what was sent, the last minute");
@@ -354,9 +358,9 @@ console.log("game alerts: Codex's review of PR #102");
   await subscribe(db, e, { subscription: iowa.sub, team: { id: "2294", name: "Iowa" } }, KICK); e.pushes.length = 0;
   await tick(db, e, KICK + 60e3);
   const got = {};
-  for (const p of e.pushes) got[p.url === osu.sub.endpoint ? "osu" : "iowa"] = (await openPush(p.init.body, p.url === osu.sub.endpoint ? osu.kp : iowa.kp,
-                                                       p.url === osu.sub.endpoint ? osu.sub.keys.auth : iowa.sub.keys.auth)).body;
-  eq([got.osu, got.iowa], ["Ohio State at Iowa has kicked off.", "Iowa vs. Ohio State has kicked off."], "Ohio State at Iowa, both followed: each side hears it in its own words"); }
+  for (const p of e.pushes) got[p.url === osu.sub.endpoint ? "osu" : "iowa"] = say(await openPush(p.init.body, p.url === osu.sub.endpoint ? osu.kp : iowa.kp,
+                                                       p.url === osu.sub.endpoint ? osu.sub.keys.auth : iowa.sub.keys.auth));
+  eq([got.osu, got.iowa], ["Kickoff: Ohio State at Iowa | On CBS", "Kickoff: Iowa vs. Ohio State | On CBS"], "Ohio State at Iowa, both followed: each side hears it in its own words"); }
 { // A sign-up cannot put its own words in other followers' alerts.
   const db = dbOf(), e = alertEnv({ status: st("in", 1, "STATUS_IN_PROGRESS") }), fan = await browserSub(), prank = await browserSub("fcm.googleapis.com");
   await subscribe(db, e, { subscription: fan.sub, team: { id: "194", name: "Ohio State" } }, KICK);
@@ -364,7 +368,7 @@ console.log("game alerts: Codex's review of PR #102");
   await tick(db, e, KICK + 60e3);
   const mine = e.pushes.filter((p) => p.url === fan.sub.endpoint)[0];
   const m = mine ? await openPush(mine.init.body, fan.kp, fan.sub.keys.auth) : {};
-  eq([m.title, m.body], ["Ohio State", "Ohio State at Iowa has kicked off."], "another sign-up's team name never reaches this fan's alert"); }
+  eq([m.title, m.body], ["Kickoff: Ohio State at Iowa", "On CBS"], "another sign-up's team name never reaches this fan's alert"); }
 
 console.log("game alerts, round 2: each fan's choice (notifications brief §2b)");
 { eq(validOptions(null), DEFAULTS, "a subscription from before round 2: kickoff, final and delays");
@@ -415,7 +419,7 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
     for (const p of e.pushes) {
       const who = Object.keys(fans).filter((k) => fans[k].sub.endpoint === p.url)[0];
       const m = await openPush(p.init.body, fans[who].kp, fans[who].sub.keys.auth);
-      heard[who].push(m.body + (m.renotify ? " [card " + m.tag.replace(/^\d+-/, "") + "]" : ""));
+      heard[who].push(say(m) + (m.renotify ? " [card " + m.tag.replace(/^\d+-/, "") + "]" : ""));
     }
   }
   const P = "STATUS_IN_PROGRESS";
@@ -423,14 +427,14 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   await at(4, 1, P, 726, 3, 0);                 // field goal (12:06) ...
   await at(5, 1, P, 700, 3, 0);                 // ... held a minute: announced
   await at(14, 1, P, 271, 9, 0);                // touchdown (4:31) ...
-  await at(15, 1, P, 260, 10, 0);               // ... and its extra point the next minute
-  await at(16, 1, P, 250, 10, 0);               // one alert: Touchdown, 10-0
+  await at(15, 1, P, 260, 10, 0);               // ... and its extra point the next minute: the touchdown held
+  await at(16, 1, P, 250, 10, 0);               // the touchdown (9-0) was told at 15, the kick now
   await at(24, 1, "STATUS_END_PERIOD", 0, 10, 0);
   await at(30, 2, P, 605, 10, 3);               // Iowa field goal (10:05)
   await at(31, 2, P, 600, 10, 3);
   await at(40, 2, P, 286, 16, 3);               // touchdown (4:46) announced at 16 ...
   await at(41, 2, P, 280, 16, 3);
-  await at(43, 2, P, 270, 17, 3);               // ... its extra point two minutes on: folded in
+  await at(43, 2, P, 270, 17, 3);               // ... its extra point two minutes on: its own alert
   await at(44, 2, P, 265, 17, 3);
   await at(46, 2, P, 201, 17, 9);               // Iowa touchdown (3:21) ...
   await at(47, 2, P, 190, 17, 9);               // ... announced at 17-9 ...
@@ -449,32 +453,38 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   await at(111, 5, P, null, 20, 20);
   await at(130, 5, "STATUS_FINAL", 0, 27, 20);
   eq(heard.every, [
-    "Ohio State at Iowa has kicked off.",
-    "Field goal, Ohio State. Ohio State 3, Iowa 0 · 1st 11:40 [card live]",
-    "Touchdown, Ohio State. Ohio State 10, Iowa 0 · 1st 4:10 [card live]",
-    "End of 1st: Ohio State 10, Iowa 0 [card live]",
-    "Field goal, Iowa. Ohio State 10, Iowa 3 · 2nd 10:00 [card live]",
-    "Touchdown, Ohio State. Ohio State 16, Iowa 3 · 2nd 4:40 [card live]",
-    "Touchdown, Iowa. Ohio State 17, Iowa 9 · 2nd 3:10 [card live]",
-    "Score corrected: Ohio State 17, Iowa 3 · 2nd 2:30 [card live]",
-    "Halftime: Ohio State 17, Iowa 3 [card live]",
-    "Field goal, Ohio State. Ohio State 20, Iowa 3 · 3rd 0:55 [card live]",
-    "End of 3rd: Ohio State 20, Iowa 3 [card live]",
-    "Iowa scores. Ohio State 20, Iowa 13 · 4th 4:35 [card live]",
-    "One-score game: Ohio State 20, Iowa 13 · 4th 4:35",
-    "Touchdown, Iowa. Ohio State 20, Iowa 20 · 4th 0:20 [card live]",
-    "Overtime: Ohio State 20, Iowa 20.",
-    "Final: Ohio State 27, Iowa 20."
-  ], "Everything: every score once, held a minute so a touchdown and its kick are one; the folded kick silent; the overturned score corrected; the quarters, halftime, a close finish only after the score that made it, overtime and the final");
+    "Kickoff: Ohio State at Iowa | On CBS",
+    "Ohio State FG (11:40 1st) | Ohio State 3, Iowa 0 [card live]",
+    "Ohio State TD (4:20 1st) | PAT pending.\nOhio State 9, Iowa 0 [card live]",
+    "Ohio State XP good (4:10 1st) | Ohio State 10, Iowa 0 [card live]",
+    "End of 1st | Ohio State 10, Iowa 0 [card live]",
+    "Iowa FG (10:00 2nd) | Ohio State 10, Iowa 3 [card live]",
+    "Ohio State TD (4:40 2nd) | PAT pending.\nOhio State 16, Iowa 3 [card live]",
+    "Ohio State XP good (4:25 2nd) | Ohio State 17, Iowa 3 [card live]",
+    "Iowa TD (3:10 2nd) | PAT pending.\nOhio State 17, Iowa 9 [card live]",
+    "Score corrected (2:30 2nd) | Ohio State 17, Iowa 3 [card live]",
+    "Halftime | Ohio State 17, Iowa 3 [card live]",
+    "Ohio State FG (0:55 3rd) | Ohio State 20, Iowa 3 [card live]",
+    "End of 3rd | Ohio State 20, Iowa 3 [card live]",
+    "Iowa scores (4:35 4th) | Ohio State 20, Iowa 13 [card live]",
+    "One-score game (4:35 4th) | Ohio State 20, Iowa 13",
+    "Iowa TD (0:20 4th) | XP good.\nOhio State 20, Iowa 20 [card live]",
+    "Overtime | Ohio State 20, Iowa 20",
+    "Ohio State TD (OT) | XP good.\nOhio State 27, Iowa 20 [card live]",
+    "Final: Ohio State 27, Iowa 20 | Ohio State wins."
+  ], "Everything: every score once, held a minute; a touchdown moved on by its kick is told then, and the kick is its own alert (David, Oct 10), even two minutes on; a touchdown and its kick first seen together are one alert that says the kick; the overturned score corrected; the quarters, halftime, a close finish only after the score that made it, overtime, the winning score first seen with the final, and the final. Without ESPN's summary, no play and the clock of the minute it was seen");
   eq(heard.mine, [
-    "Field goal, Ohio State. Ohio State 3, Iowa 0 · 1st 11:40 [card live]",
-    "Touchdown, Ohio State. Ohio State 10, Iowa 0 · 1st 4:10 [card live]",
-    "Touchdown, Ohio State. Ohio State 16, Iowa 3 · 2nd 4:40 [card live]",
-    "Field goal, Ohio State. Ohio State 20, Iowa 3 · 3rd 0:55 [card live]",
-    "Final: Ohio State 27, Iowa 20."
+    "Ohio State FG (11:40 1st) | Ohio State 3, Iowa 0 [card live]",
+    "Ohio State TD (4:20 1st) | PAT pending.\nOhio State 9, Iowa 0 [card live]",
+    "Ohio State XP good (4:10 1st) | Ohio State 10, Iowa 0 [card live]",
+    "Ohio State TD (4:40 2nd) | PAT pending.\nOhio State 16, Iowa 3 [card live]",
+    "Ohio State XP good (4:25 2nd) | Ohio State 17, Iowa 3 [card live]",
+    "Ohio State FG (0:55 3rd) | Ohio State 20, Iowa 3 [card live]",
+    "Ohio State TD (OT) | XP good.\nOhio State 27, Iowa 20 [card live]",
+    "Final: Ohio State 27, Iowa 20 | Ohio State wins."
   ], "My team's scores (and the final): only Ohio State's, and no correction of Iowa's");
-  eq(heard.half, ["Halftime: Ohio State 17, Iowa 3 [card live]"], "Halftime only: one alert at the half, not two");
-  eq(heard.old, ["Ohio State at Iowa has kicked off.", "Final: Ohio State 27, Iowa 20."], "a fan from before round 2: kickoff and final, exactly as Saturday's test expects"); }
+  eq(heard.half, ["Halftime | Ohio State 17, Iowa 3 [card live]"], "Halftime only: one alert at the half, not two");
+  eq(heard.old, ["Kickoff: Ohio State at Iowa | On CBS", "Final: Ohio State 27, Iowa 20 | Ohio State wins."], "a fan from before round 2: kickoff and final"); }
 
 { // Late is noise: a score its push service could not take for 5 minutes is dropped.
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
@@ -492,12 +502,12 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   const go = async (min, state, period, name, us, them) => {
     e.status = { period, clock: 555, displayClock: "9:15", type: { state, name } }; e.scores = { 194: us, 2294: them }; e.pushes.length = 0;
     await tick(db, e, KICK + min * 60e3);
-    for (const p of e.pushes) heard.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
+    for (const p of e.pushes) heard.push(say(await openPush(p.init.body, b.kp, b.sub.keys.auth)));
   };
   await go(-5, "pre", 0, "STATUS_DELAYED", 0, 0); await go(-4, "pre", 0, "STATUS_DELAYED", 0, 0);
   await go(1, "in", 1, "STATUS_IN_PROGRESS", 0, 0); await go(30, "in", 2, "STATUS_IN_PROGRESS", 7, 3); await go(31, "in", 2, "STATUS_DELAYED", 7, 3); await go(32, "in", 2, "STATUS_DELAYED", 7, 3);
   await go(50, "in", 2, "STATUS_IN_PROGRESS", 7, 3); await go(55, "in", 2, "STATUS_DELAYED", 7, 3); await go(56, "in", 2, "STATUS_DELAYED", 7, 3);
-  eq(heard, ["Ohio State at Iowa is delayed.", "Ohio State at Iowa has kicked off.", "Delay: Ohio State 7, Iowa 3 · 2nd 9:15", "Delay: Ohio State 7, Iowa 3 · 2nd 9:15"],
+  eq(heard, ["Delayed | Ohio State at Iowa is delayed.", "Kickoff: Ohio State at Iowa | On CBS", "Delay (9:15 2nd) | Ohio State 7, Iowa 3", "Delay (9:15 2nd) | Ohio State 7, Iowa 3"],
      "a new sign-up (delays on by default): a delay before kickoff (no kickoff alert until it starts), and each time play stops, even twice in one quarter (Codex, #116)"); }
 { // A row from before round 2: what it had, and no new kind (Codex, #116).
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
@@ -507,16 +517,16 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   await tick(db, e, KICK + 30 * 60e3);
   e.status = { period: 2, clock: 555, displayClock: "9:15", type: { state: "post", name: "STATUS_POSTPONED" } };
   await tick(db, e, KICK + 40 * 60e3);
-  const got = []; for (const p of e.pushes) got.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
-  eq(got, ["Ohio State at Iowa has been postponed."], "a round-1 fan: no in-game delay alert (a new kind starts off), still told of a postponement"); }
+  const got = []; for (const p of e.pushes) got.push(say(await openPush(p.init.body, b.kp, b.sub.keys.auth)));
+  eq(got, ["Postponed | Ohio State at Iowa has been postponed."], "a round-1 fan: no in-game delay alert (a new kind starts off), still told of a postponement"); }
 { // Both sides scored between two looks: a my-team fan still hears it (Codex, #116).
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "mine", kickoff: false } }, KICK); e.pushes.length = 0;
   const s = (us, them) => { e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
   s(7, 7); await tick(db, e, KICK + 30 * 60e3);
   s(14, 10); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);
-  const got = []; for (const p of e.pushes) got.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
-  eq(got, ["Score update. Ohio State 14, Iowa 10 · 2nd 10:00 [live]".replace(" [live]", "")], "both scored at once: My team's scores still gets it"); }
+  const got = []; for (const p of e.pushes) got.push(say(await openPush(p.init.body, b.kp, b.sub.keys.auth)));
+  eq(got, ["Score update (10:00 2nd) | Ohio State 14, Iowa 10"], "both scored at once: My team's scores still gets it"); }
 
 { // A correction goes only to the devices that got the score (Codex, #116).
   const db = dbOf(), e = alertEnv({}), got = await browserSub(), late = await browserSub(), stuck = await browserSub("fcm.googleapis.com");
@@ -543,8 +553,8 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   s("STATUS_END_PERIOD", 3, 0); await tick(db, e, KICK + 21 * 60e3);           // the field goal (flushed) fails; the quarter waits behind it
   const firstTry = e.pushes.length;
   e.push = 201; e.pushes.length = 0; await tick(db, e, KICK + 22 * 60e3);
-  for (const p of e.pushes) seen.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
-  eq([firstTry, seen], [1, ["Field goal, Ohio State. Ohio State 3, Iowa 0 · 1st 0:30", "End of 1st: Ohio State 3, Iowa 0"]],
+  for (const p of e.pushes) seen.push(say(await openPush(p.init.body, b.kp, b.sub.keys.auth)));
+  eq([firstTry, seen], [1, ["Ohio State FG (0:30 1st) | Ohio State 3, Iowa 0", "End of 1st | Ohio State 3, Iowa 0"]],
      "the field goal's push fails: the quarter is held, not sent ahead of it; the next minute both go, in order"); }
 { // A correction follows the score it takes back, side by side (Codex, #116).
   const db = dbOf(), e = alertEnv({}), mine = await browserSub();
@@ -555,8 +565,8 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   s(7, 3); await tick(db, e, KICK + 33 * 60e3); await tick(db, e, KICK + 34 * 60e3);   // their field goal: not this fan's
   e.pushes.length = 0;
   s(0, 3); await tick(db, e, KICK + 35 * 60e3);                                          // our touchdown overturned
-  const got = []; for (const p of e.pushes) got.push((await openPush(p.init.body, mine.kp, mine.sub.keys.auth)).body);
-  eq(got, ["Score corrected: Ohio State 0, Iowa 3 · 2nd 10:00"], "our earlier touchdown overturned after their field goal: the fan who got the touchdown gets the correction"); }
+  const got = []; for (const p of e.pushes) got.push(say(await openPush(p.init.body, mine.kp, mine.sub.keys.auth)));
+  eq(got, ["Score corrected (10:00 2nd) | Ohio State 0, Iowa 3"], "our earlier touchdown overturned after their field goal: the fan who got the touchdown gets the correction"); }
 
 { // A page from before round 2 sends no options: it keeps round 1, and never overwrites a saved choice (Codex, #116).
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
@@ -606,8 +616,8 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   s(0, 0); await tick(db, e, KICK + 30 * 60e3);
   s(0, 7); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);
   s(3, 0); for (let m = 33; m <= 35; m++) await tick(db, e, KICK + m * 60e3);
-  for (const p of e.pushes) heard.push((await openPush(p.init.body, mine.kp, mine.sub.keys.auth)).body);
-  eq(heard, ["Field goal, Ohio State. Ohio State 3, Iowa 0 · 2nd 10:00"], "a my-team fan still hears the field goal"); }
+  for (const p of e.pushes) heard.push(say(await openPush(p.init.body, mine.kp, mine.sub.keys.auth)));
+  eq(heard, ["Ohio State FG (10:00 2nd) | Ohio State 3, Iowa 0"], "a my-team fan still hears the field goal"); }
 { // 14, then 10, then 7: the second correction reaches those told 14 too (Codex, #116).
   const db = dbOf(), e = alertEnv({}), b = await browserSub(), heard = [];
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK);
@@ -616,8 +626,8 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   s(14, 0); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);
   s(10, 0); await tick(db, e, KICK + 33 * 60e3);
   s(7, 0); await tick(db, e, KICK + 34 * 60e3);
-  for (const p of e.pushes) heard.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
-  eq(heard.slice(2), ["Score corrected: Ohio State 10, Iowa 0 · 2nd 10:00", "Score corrected: Ohio State 7, Iowa 0 · 2nd 10:00"], "both corrections reach the fan"); }
+  for (const p of e.pushes) heard.push(say(await openPush(p.init.body, b.kp, b.sub.keys.auth)));
+  eq(heard.slice(2), ["Score corrected (10:00 2nd) | Ohio State 10, Iowa 0", "Score corrected (10:00 2nd) | Ohio State 7, Iowa 0"], "both corrections reach the fan"); }
 
 { // 14, then 10 (its push fails), then 7: the fan still hears the last word (Codex, #116).
   const db = dbOf(), e = alertEnv({}), b = await browserSub(), heard = [];
@@ -627,8 +637,8 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   s(14, 0); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);
   e.push = 503; s(10, 0); await tick(db, e, KICK + 33 * 60e3);
   e.push = 201; s(7, 0); await tick(db, e, KICK + 34 * 60e3);
-  for (const p of e.pushes) { try { heard.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body); } catch (x) {} }
-  ok(heard[heard.length - 1] === "Score corrected: Ohio State 7, Iowa 0 · 2nd 10:00", "the correction that could not go is replaced by the next, to the same fan (" + heard.slice(1).join(" | ") + ")"); }
+  for (const p of e.pushes) { try { heard.push(say(await openPush(p.init.body, b.kp, b.sub.keys.auth))); } catch (x) {} }
+  ok(heard[heard.length - 1] === "Score corrected (10:00 2nd) | Ohio State 7, Iowa 0", "the correction that could not go is replaced by the next, to the same fan (" + heard.slice(1).join(" | ") + ")"); }
 
 { // First look mid-game (the Worker deployed at halftime): no backlog.
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
@@ -645,6 +655,233 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   const first = scoreStep(db, "194", g, stt, { us: 7, them: 0 }, KICK + 120e3);
   const racing = scoreStep({ all: () => [stale], run: db.run }, "194", g, stt, { us: 7, them: 0 }, KICK + 120e3);
   ok(first.length === 1 && racing.length === 0, "the minute that loses the race announces nothing (compare-and-set on the score's sequence)"); }
+
+console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre Dame's real scoring plays");
+{ const ND = JSON.parse(readFileSync(new URL("./fixtures/espn-summary-nd-stanford-2026-10-10.json", import.meta.url), "utf8"));
+  const real = ND.scoringPlays.map((p) => p.text);
+  eq(real.map(playText), [
+    "N. James Jr. run for 2 yds, for a TD.", "CJ Carr pass to J. Greathouse for 3 yds, for a TD.", "J. Walton run for 97 yds, for a TD.",
+    "S. Porath 33 yd FG GOOD.", "N. James Jr. run for 31 yds, for a TD.", "CJ Carr pass to A. Williams for 70 yds, for a TD."
+  ], "the play: ESPN's line without its try, ending in a full stop");
+  eq(real.map(tryOf), ["xp", "xp", "xpmiss", null, "xp", "xp"], "the try, from its closing parentheses: KICK is good, PAT MISSED is missed, a field goal has none");
+  // the other dialect ESPN wrote on Saturday, and the two-point tries
+  eq(["LaNorris Sellers 1 Yd Run (Malik Orsan Kick)", "Jadan Baugh 2 Yd Run (Two-Point Pass Conversion Failed)",
+      "A. Back run for 3 yds, for a TD (C. Carr pass to D. Moore for Two-Point Conversion)", "A. Back run for 3 yds, for a TD (S. Porath KICK BLOCKED)",
+      "A. Back run for 3 yds, for a TD", "A. Back run for 3 yds, for a TD (penalty)"].map(tryOf),
+     ["xp", "2ptfail", "2pt", "xpmiss", null, null], "the other dialect, two-point tries, a block; no parentheses or unknown words: nothing (no alert rather than a wrong one)");
+  ok(playText("Patrick Durkin 21 Yd Field Goal  ") === "Patrick Durkin 21 Yd Field Goal." && playText("<script>x</script> 9 yd run") === "script x /script 9 yd run." &&
+     playText("(KICK)") === null && playText("A".repeat(300)).length <= 121, "plain text only, trimmed, cut short; nothing readable is nothing");
+  eq(network(ND.header.competitions[0].broadcasts), "NBC", "the network, from ESPN's broadcasts");
+  ok(network([{ media: { shortName: "<b>" } }]) === null && network(null) === null, "a network that is not a plain short name: none");
+  const g = { id: "401858257", comp: "401858257", home: true, network: "NBC", opponent: { id: "24", name: "Stanford" } };
+  const plays = scoringPlays(ND, "87", g);
+  eq(plays.map((p) => [p.side, p.us, p.them, p.type, p.period, p.clock]).slice(0, 4),
+     [["us", 7, 0, "TD", 1, "13:06"], ["us", 14, 0, "TD", 1, "2:55"], ["us", 20, 0, "TD", 2, "14:48"], ["us", 23, 0, "FG", 2, "12:27"]],
+     "each scoring play as ours and theirs (Notre Dame at home: home score is ours)");
+  ok(scoringPlays(null, "87", g) === null && scoringPlays({}, "87", g) === null, "no summary: null, and the alert goes without its play");
+
+  // A game minute by minute through scoreStep, ESPN's summary as it read at
+  // each look: before the kick (6-0, no try yet), and as it finally read.
+  const team = { id: "87", name: "Notre Dame" }, T0 = Date.parse("2026-10-10T19:37:00Z");
+  const sum = (list) => scoringPlays({ scoringPlays: list }, "87", g);
+  const pl = (i, text, home) => Object.assign({}, ND.scoringPlays[i], text == null ? {} : { text }, home == null ? {} : { homeScore: home });
+  const db = dbOf(), heard = [];
+  // The Worker looks every minute: the minutes between two looks here see
+  // the game as the last one left it.
+  let prev = null;
+  function look(m, period, clock, us, them, list) {
+    if (prev) for (let k = prev[0] + 1; k < m; k++) step(k, ...prev.slice(1));
+    step(m, period, clock, us, them, list); prev = [m, period, clock, us, them, list];
+  }
+  function step(m, period, clock, us, them, list) {
+    const out = scoreStep(db, "87", g, { period, displayClock: clock }, { us, them }, T0 + m * 60e3, false, list === undefined ? null : sum(list));
+    for (const e of out) { const w = words(e.event, team, g, e.scores, Object.assign({ period, clock }, e.x)); heard.push(w.title + " | " + w.body); }
+  }
+  look(0, 1, "15:00", 0, 0);
+  look(5, 1, "13:00", 6, 0, [pl(0, "N. James Jr. run for 2 yds, for a TD", 6)]);           // the touchdown, kick still to come
+  look(6, 1, "13:06", 7, 0, [pl(0)]);                                                       // the kick is in: the touchdown held
+  look(7, 1, "12:50", 7, 0, [pl(0)]);                                                       // the kick held
+  look(30, 1, "2:50", 14, 0, [pl(0), pl(1)]);                                               // touchdown and kick first seen together
+  look(31, 1, "2:45", 14, 0, [pl(0), pl(1)]);
+  look(40, 2, "14:40", 20, 0, [pl(0), pl(1), pl(2, "J. Walton run for 97 yds, for a TD")]);   // touchdown, try unknown
+  look(41, 2, "14:40", 20, 0, [pl(0), pl(1), pl(2, "J. Walton run for 97 yds, for a TD")]);   // held: told, PAT pending
+  look(42, 2, "14:48", 20, 0, [pl(0), pl(1), pl(2)]);                                       // ESPN: PAT MISSED, the score never moves
+  look(43, 2, "14:30", 20, 0, [pl(0), pl(1), pl(2)]);                                       // said once
+  look(50, 2, "12:20", 23, 0, [pl(0), pl(1), pl(2), pl(3)]);
+  look(51, 2, "12:15", 23, 0, [pl(0), pl(1), pl(2), pl(3)]);
+  eq(heard, [
+    "Notre Dame TD (13:06 1st) | N. James Jr. run for 2 yds, for a TD. PAT pending.\nNotre Dame 6, Stanford 0",
+    "Notre Dame XP good (13:06 1st) | Notre Dame 7, Stanford 0",
+    "Notre Dame TD (2:55 1st) | CJ Carr pass to J. Greathouse for 3 yds, for a TD. XP good.\nNotre Dame 14, Stanford 0",
+    "End of 1st | Notre Dame 14, Stanford 0",
+    "Notre Dame TD (14:48 2nd) | J. Walton run for 97 yds, for a TD. PAT pending.\nNotre Dame 20, Stanford 0",
+    "Notre Dame XP missed (14:48 2nd) | Notre Dame 20, Stanford 0",
+    "Notre Dame FG (12:27 2nd) | S. Porath 33 yd FG GOOD.\nNotre Dame 23, Stanford 0"
+  ], "theScore's shape on the real game: the touchdown and then its kick, each with the play's own clock; a touchdown seen with its kick says so; a missed kick is its own alert, from ESPN's words; a field goal with its line");
+
+  // Already missed when the touchdown is first told: one alert says so, and
+  // none follows. A two-point try good, from the score; one failed, from words.
+  const db2 = dbOf(), h2 = [];
+  let prev2 = null;
+  const step2 = (m, us, list) => { for (const e of scoreStep(db2, "87", g, { period: 3, displayClock: "9:00" }, { us, them: 0 }, T0 + m * 60e3, false, list && sum(list)))
+                                     { const w = words(e.event, team, g, e.scores, Object.assign({ period: 3, clock: "9:00" }, e.x)); h2.push(w.title + " | " + w.body); } };
+  const look2 = (m, us, list) => { if (prev2) for (let k = prev2[0] + 1; k < m; k++) step2(k, prev2[1], prev2[2]); step2(m, us, list); prev2 = [m, us, list]; };
+  look2(0, 0, null); look2(1, 6, [pl(2, null, 6)]); look2(2, 6, [pl(2, null, 6)]); look2(3, 6, [pl(2, null, 6)]);
+  look2(10, 12, [pl(2, null, 6), pl(4, "N. James Jr. run for 31 yds, for a TD", 12)]); look2(11, 14, [pl(2, null, 6), pl(4, "N. James Jr. run for 31 yds, for a TD (C. Carr pass to D. Moore for Two-Point Conversion)", 14)]);
+  look2(12, 14, [pl(2, null, 6), pl(4, "N. James Jr. run for 31 yds, for a TD (C. Carr pass to D. Moore for Two-Point Conversion)", 14)]);
+  look2(20, 20, [pl(5, "CJ Carr pass to A. Williams for 70 yds, for a TD", 20)]); look2(21, 20, [pl(5, "CJ Carr pass to A. Williams for 70 yds, for a TD", 20)]);
+  look2(22, 20, [pl(5, "CJ Carr pass to A. Williams for 70 yds, for a TD (Two-Point Pass Conversion Failed)", 20)]);
+  look2(40, 26, null); look2(41, 26, null); look2(50, 26, null);
+  eq(h2, [
+    "Notre Dame TD (14:48 2nd) | J. Walton run for 97 yds, for a TD. XP missed.\nNotre Dame 6, Stanford 0",
+    "Notre Dame TD (7:05 2nd) | N. James Jr. run for 31 yds, for a TD. PAT pending.\nNotre Dame 12, Stanford 0",
+    "Notre Dame 2-pt good (7:05 2nd) | Notre Dame 14, Stanford 0",
+    "Notre Dame TD (3:26 2nd) | CJ Carr pass to A. Williams for 70 yds, for a TD. PAT pending.\nNotre Dame 20, Stanford 0",
+    "Notre Dame 2-pt failed (3:26 2nd) | Notre Dame 20, Stanford 0",
+    "Notre Dame TD (9:00 3rd) | PAT pending.\nNotre Dame 26, Stanford 0"
+  ], "a kick already missed: one alert; two-point good from the score, failed from ESPN's words; no summary: the alert without its play, and no try alert guessed from silence");
+
+  { // Two points for Stanford while Notre Dame's try is out: not called a safety.
+    const db3 = dbOf(), h3 = [];
+    for (const [m, us, them] of [[0, 0, 0], [1, 6, 0], [2, 6, 0], [3, 6, 2], [4, 6, 2]])
+      for (const e of scoreStep(db3, "87", g, { period: 2, displayClock: "5:00" }, { us, them }, T0 + m * 60e3, false, null)) h3.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h3, ["Notre Dame TD", "Stanford scores"], "a defensive two-point return is not a safety"); }
+  { // ... nor when ESPN shows the failed try in the same look as the return (Codex, #119).
+    const dbr = dbOf(), hr = [], fail = [pl(2, "J. Walton run for 97 yds, for a TD (Two-Point Pass Conversion Failed)", 6)];
+    for (const [m, us, them, list] of [[0, 0, 0, null], [1, 6, 0, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]], [2, 6, 2, fail], [3, 6, 2, fail]])
+      for (const e of scoreStep(dbr, "87", g, { period: 2, displayClock: "5:00" }, { us, them }, T0 + m * 60e3, false, sum(list || []))) hr.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(hr, ["Notre Dame TD (14:48 2nd)", "Notre Dame 2-pt failed (14:48 2nd)", "Stanford scores"], "a failed try and its return in one look: the miss, then Stanford's two, not a safety"); }
+
+  { // The miss shows up only once Stanford has run the kickoff back: the miss is still told, first (Codex, #119).
+    const db4 = dbOf(), h4 = [], miss = [pl(2, null, 6)];
+    const kr = { team: { id: "24" }, homeScore: 6, awayScore: 7, period: { number: 2 }, clock: { displayValue: "14:35" }, scoringType: { abbreviation: "TD" },
+                 text: "B. Returner 95 yd kickoff return for a TD (E. Kicker KICK)" };
+    const seq = [[0, 0, 0, null], [1, 6, 0, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]], [2, 6, 0, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]],
+                 [3, 6, 7, miss.concat([kr])], [4, 6, 7, miss.concat([kr])]];
+    for (const [m, us, them, list] of seq)
+      for (const e of scoreStep(db4, "87", g, { period: 2, displayClock: "14:30" }, { us, them }, T0 + m * 60e3, false, list && sum(list))) h4.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h4, ["Notre Dame TD (14:48 2nd)", "Notre Dame XP missed (14:48 2nd)", "Stanford TD (14:35 2nd)"], "a miss ESPN shows only after the other side scored again: still told, before that score"); }
+
+  { // ... or after Notre Dame itself scores again, a turnover and a field goal later (Codex, #119).
+    const db5 = dbOf(), h5 = [], pend6 = [pl(2, "J. Walton run for 97 yds, for a TD", 6)];
+    const fg = { team: { id: "87" }, homeScore: 9, awayScore: 0, period: { number: 2 }, clock: { displayValue: "13:10" }, scoringType: { abbreviation: "FG" }, text: "S. Porath 30 yd FG GOOD" };
+    for (const [m, us, list] of [[0, 0, null], [1, 6, pend6], [2, 6, pend6], [3, 9, [pl(2, null, 6), fg]], [4, 9, [pl(2, null, 6), fg]]])
+      for (const e of scoreStep(db5, "87", g, { period: 2, displayClock: "13:00" }, { us, them: 0 }, T0 + m * 60e3, false, list && sum(list))) h5.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h5, ["Notre Dame TD (14:48 2nd)", "Notre Dame XP missed (14:48 2nd)", "Notre Dame FG (13:10 2nd)"], "a miss ESPN shows only after the same side scored again: still told, first"); }
+
+  { // A later score settles before ESPN shows the miss: the wait for the try goes on (Codex, #119).
+    const db6 = dbOf(), h6 = [], td = pl(2, "J. Walton run for 97 yds, for a TD", 6);
+    const sfg = { team: { id: "24" }, homeScore: 6, awayScore: 3, period: { number: 2 }, clock: { displayValue: "13:40" }, scoringType: { abbreviation: "FG" }, text: "E. Kicker 50 yd FG GOOD" };
+    for (const [m, us, them, list] of [[0, 0, 0, null], [1, 6, 0, [td]], [2, 6, 0, [td]], [3, 6, 3, [td, sfg]], [4, 6, 3, [td, sfg]], [5, 6, 3, [pl(2, null, 6), sfg]], [6, 6, 3, [pl(2, null, 6), sfg]]])
+      for (const e of scoreStep(db6, "87", g, { period: 2, displayClock: "13:00" }, { us, them }, T0 + m * 60e3, false, list && sum(list))) h6.push(words(e.event, team, g, e.scores, e.x).title + " | " + words(e.event, team, g, e.scores, e.x).body.split("\n").pop());
+    eq(h6, ["Notre Dame TD (14:48 2nd) | Notre Dame 6, Stanford 0", "Stanford FG (13:40 2nd) | Notre Dame 6, Stanford 3", "Notre Dame XP missed (14:48 2nd) | Notre Dame 6, Stanford 0"],
+       "a miss ESPN shows only after a later score was told: still told, once, with the score as the touchdown left it (Codex, #119)"); }
+  { // The kick seen as the quarter ends: the touchdown, then its kick, not one combined alert (Codex, #119).
+    const db7 = dbOf(), h7 = [];
+    for (const [m, us, flush] of [[0, 0, false], [1, 6, false], [2, 7, true]])
+      for (const e of scoreStep(db7, "87", g, { period: 1, displayClock: "0:00" }, { us, them: 0 }, T0 + m * 60e3, flush, sum([pl(0, m < 2 ? "N. James Jr. run for 2 yds, for a TD" : null, m < 2 ? 6 : 7)])))
+        h7.push(words(e.event, team, g, e.scores, e.x).title + " | " + words(e.event, team, g, e.scores, e.x).body);
+    eq(h7, ["Notre Dame TD (13:06 1st) | N. James Jr. run for 2 yds, for a TD. PAT pending.\nNotre Dame 6, Stanford 0", "Notre Dame XP good (13:06 1st) | Notre Dame 7, Stanford 0"],
+       "a touchdown and its kick seen across a quarter's end: two alerts, before the quarter's"); }
+
+  { // A touchdown pending its minute, then a field goal by the same side: two alerts, not one "scores" (Codex, #119).
+    const db8 = dbOf(), h8 = [];
+    for (const [m, us] of [[0, 0], [1, 6], [2, 9], [3, 9]])
+      for (const e of scoreStep(db8, "87", g, { period: 2, displayClock: "5:00" }, { us, them: 0 }, T0 + m * 60e3, false, null)) h8.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h8, ["Notre Dame TD", "Notre Dame FG"], "a pending score the game moved on from has held"); }
+
+  { // Stanford's earlier field goal taken back while Notre Dame's try is awaited: the wait goes on (Codex, #119).
+    const db9 = dbOf(), h9 = [], td = pl(2, "J. Walton run for 97 yds, for a TD", 6);
+    for (const [m, us, them, list] of [[0, 0, 3, null], [1, 6, 3, [td]], [2, 6, 3, [td]], [3, 6, 0, [td]], [4, 6, 0, [pl(2, null, 6)]]])
+      for (const e of scoreStep(db9, "87", g, { period: 2, displayClock: "13:00" }, { us, them }, T0 + m * 60e3, false, list && sum(list.map((q) => Object.assign({}, q, { awayScore: them }))))) h9.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h9, ["Notre Dame TD (14:48 2nd)", "Score corrected", "Notre Dame XP missed (14:48 2nd)"], "a correction of the other side's score does not end the wait for our try"); }
+
+  { // The touchdown overturned while ESPN still lists its missed kick: the correction alone (Codex, #119).
+    const dbo = dbOf(), ho = [], miss = [pl(2, null, 6)];
+    for (const [m, us, list] of [[0, 0, null], [1, 6, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]], [2, 0, miss]])
+      for (const e of scoreStep(dbo, "87", g, { period: 2, displayClock: "5:00" }, { us, them: 0 }, T0 + m * 60e3, false, sum(list || []))) ho.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(ho, ["Notre Dame TD (14:48 2nd)", "Score corrected"], "a touchdown taken back: no try alert for it, only the correction"); }
+
+  { // A safety for Notre Dame while its try is still out: a safety, not "2-pt good" (Codex, #119).
+    const dbs = dbOf(), hs = [], sf = { team: { id: "87" }, homeScore: 8, awayScore: 0, period: { number: 2 }, clock: { displayValue: "12:00" }, scoringType: { abbreviation: "SF" }, text: "Team safety" };
+    const td = pl(2, "J. Walton run for 97 yds, for a TD", 6);
+    for (const [m, us, list] of [[0, 0, null], [1, 6, [td]], [2, 8, [td, sf]]])
+      for (const e of scoreStep(dbs, "87", g, { period: 2, displayClock: "12:00" }, { us, them: 0 }, T0 + m * 60e3, false, sum(list || []))) hs.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(hs, ["Notre Dame TD (14:48 2nd)", "Notre Dame Safety (12:00 2nd)"], "ESPN's play says safety: told as one"); }
+
+  { // The score says the kick was good while the summary still says missed: the score wins, one alert (Codex, #119).
+    const dbk = dbOf(), hk = [], stale = [pl(2, null, 6)];
+    for (const [m, us, list] of [[0, 0, null], [1, 6, [pl(2, "J. Walton run for 97 yds, for a TD", 6)]], [2, 7, stale], [3, 7, stale], [4, 7, stale]])
+      for (const e of scoreStep(dbk, "87", g, { period: 2, displayClock: "12:00" }, { us, them: 0 }, T0 + m * 60e3, false, sum(list || []))) hk.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(hk, ["Notre Dame TD (14:48 2nd)", "Notre Dame XP good (14:48 2nd)"], "a kick the score shows good: no 'missed' from stale words"); }
+
+  // The other words
+  const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
+  eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),
+      w("final", { us: 49, them: 20 }, {}), w("final", { us: 17, them: 20 }, {}), w("close", { us: 20, them: 14 }, { period: 4, clock: "4:12" }), w("ot", { us: 20, them: 20 }, {}),
+      w("score:9", { us: 23, them: 3 }, { period: 2, clock: "4:12", scorer: "them", kind: "fg" })],
+     ["Kickoff: Notre Dame vs. Stanford | On NBC", "Kickoff: Notre Dame vs. Stanford | Underway now.", "Halftime | Notre Dame 37, Stanford 0", "End of 3rd | Notre Dame 44, Stanford 7",
+      "Final: Notre Dame 49, Stanford 20 | Notre Dame wins.", "Final: Notre Dame 17, Stanford 20 | Stanford wins.", "One-score game (4:12 4th) | Notre Dame 20, Stanford 14",
+      "Overtime | Notre Dame 20, Stanford 20", "Stanford FG (4:12 2nd) | Notre Dame 23, Stanford 3"],
+     "kickoff with its network, quarters, the final, a close finish, overtime, the other side's field goal");
+  eq(w("score:3", { us: 7, them: 0 }, { period: 1, clock: "13:06", scorer: "us", label: "Touchdown" }), "Notre Dame TD (13:06 1st) | Notre Dame 7, Stanford 0",
+     "an alert queued before this wording (a label, no kind) still reads right");
+  eq(pickGame({ events: [{ id: "1", date: "2026-10-10T19:30Z", competitions: [{ id: "1", status: { type: { state: "pre" } }, broadcasts: [{ media: { shortName: "NBC" } }],
+       competitors: [{ homeAway: "home", team: { id: "87" } }, { homeAway: "away", team: { id: "24", location: "Stanford" } }] }] }] }, "87", Date.parse("2026-10-10T19:00Z")).network,
+     "NBC", "the watched game keeps its network from the schedule"); }
+{ // Through the minute: the summary is read only when the score moved or a try is awaited.
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK); e.pushes.length = 0;
+  const go = async (m, us) => { e.status = { period: 1, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: 0 };
+                                e.calls.length = 0; await tick(db, e, KICK + m * 60e3); return e.calls.filter((u) => /\/summary\?event=/.test(u)).length; };
+  e.summary = { scoringPlays: [{ team: { id: "194" }, homeScore: 0, awayScore: 3, period: { number: 1 }, clock: { displayValue: "10:05" }, scoringType: { abbreviation: "FG" }, text: "J. Kicker 40 yd FG GOOD" }] };
+  const reads = [await go(1, 0), await go(2, 0), await go(3, 3), await go(4, 3), await go(5, 3)];
+  eq(reads, [0, 0, 1, 0, 0], "the summary: not while nothing changes; read when the score moves; its play confirms the field goal, told at once, and not read again");
+  const m = e.pushes.length === 1 ? say(await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth)) : e.pushes.length;
+  eq(m, "Ohio State FG (10:05 1st) | J. Kicker 40 yd FG GOOD.\nOhio State 3, Iowa 0", "Ohio State away at Iowa: ESPN's away score is ours, the play's clock in the title"); }
+
+{ // The try first seen with the final: told before the final, not left at "PAT pending" (Codex, #119).
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK); e.pushes.length = 0;
+  const go = async (m, state, us) => { e.status = { period: 4, clock: 0, displayClock: "0:00", type: { state, name: state === "post" ? "STATUS_FINAL" : "STATUS_IN_PROGRESS", completed: state === "post" } };
+                                       e.scores = { 194: us, 2294: 3 }; await tick(db, e, KICK + m * 60e3); };
+  await go(200, "in", 0); await go(201, "in", 6); await go(202, "in", 6); await go(203, "post", 7);
+  const got = []; for (const p of e.pushes) got.push(say(await openPush(p.init.body, b.kp, b.sub.keys.auth)));
+  eq(got, ["Ohio State TD (0:00 4th) | PAT pending.\nOhio State 6, Iowa 3", "Ohio State XP good (0:00 4th) | Ohio State 7, Iowa 3", "Final: Ohio State 7, Iowa 3 | Ohio State wins."],
+     "a touchdown as time runs out, its kick seen with the final: the kick, then the final"); }
+
+console.log("game alerts: faster (David, Oct 10): told on ESPN's play, three looks a minute");
+{ const ND = JSON.parse(readFileSync(new URL("./fixtures/espn-summary-nd-stanford-2026-10-10.json", import.meta.url), "utf8"));
+  const g = { id: "401858257", comp: "401858257", home: true, opponent: { id: "24", name: "Stanford" } }, T0 = Date.parse("2026-10-10T19:37:00Z");
+  const sum = (list) => scoringPlays({ scoringPlays: list }, "87", g);
+  const pl = (text, home) => Object.assign({}, ND.scoringPlays[0], { text, homeScore: home });
+  const db = dbOf(), when = [];
+  const look = (sec, us, list) => { for (const e of scoreStep(db, "87", g, { period: 1, displayClock: "13:00" }, { us, them: 0 }, T0 + sec * 1000, false, list && sum(list))) when.push(sec + "s " + e.x.kind); };
+  look(0, 0, null);
+  look(20, 6, [pl("N. James Jr. run for 2 yds, for a TD", 6)]);          // ESPN's play says 6-0: told at once
+  look(40, 7, [pl("N. James Jr. run for 2 yds, for a TD (S. Porath KICK)", 7)]);   // and the kick
+  look(60, 10, [pl("N. James Jr. run for 2 yds, for a TD (S. Porath KICK)", 7)]);  // no play at 10-0: held ...
+  look(80, 10, [pl("N. James Jr. run for 2 yds, for a TD (S. Porath KICK)", 7)]);  // ... a look later
+  eq(when, ["20s td", "40s xp", "80s fg"], "a score ESPN's own scoring play confirms is told at the look that sees it; one with no play holds a look"); }
+{ // minute(): three looks 20 seconds apart while a game is on; one when none is.
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK);
+  let t = KICK + 30 * 60e3; const looks = [], slept = [];
+  const clock = () => t, sleep = async (ms) => { slept.push(ms); t += ms; };
+  const base = e.FETCH; e.FETCH = async (url, init) => { if (/\/status$/.test(url)) looks.push((t - KICK) / 1000); return base(url, init); };
+  e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: 7, 2294: 0 };
+  await minute(db, e, clock, sleep);
+  eq([looks, slept], [[1800, 1820, 1840], [20000, 20000]], "a game on: three looks in the minute, 20 seconds apart");
+  // A push service failing for a while: tried once a minute, not once a look (Codex, #119).
+  e.push = 503; e.scores = { 194: 10, 2294: 0 };
+  e.FETCH = async (url, init) => { if (/\/status$/.test(url)) looks.push((t - KICK) / 1000); return base(url, init); };
+  for (let m = 31; m <= 34; m++) { t = KICK + m * 60e3; await minute(db, e, clock, sleep); }
+  const tries = db.all("SELECT event, tries, state FROM deliveries WHERE event LIKE 'score%'").map((r) => r.event + ":" + r.state + ":" + r.tries);
+  ok(tries.length === 1 && /:4$/.test(tries[0]), "a failing push service: one try a minute during the game, three looks or not (" + tries.join(",") + ")");
+  e.push = 201;
+  looks.length = 0; e.status = { period: 4, type: { state: "post", name: "STATUS_FINAL", completed: true } }; t = KICK + 4 * 3600e3;
+  await minute(db, e, clock, sleep);
+  ok(looks.length === 1 && LIMITS.looks === 3, "no game on: one look"); }
 
 console.log("game alerts: the routes and the minute");
 { const calls = [];

@@ -32,9 +32,14 @@
    Round 2 (§2b): each subscription carries its options (OPTIONS below; a
    subscription from before them has the round-1 set). While a game is on
    the team's score is read each minute too:
-   - a score is announced once it holds for a minute, so a touchdown and its
-     extra point a minute apart are one alert; an extra point or two-point
-     try right after the team's own touchdown is folded in silently;
+   - while a game is on the Worker looks three times a minute, 20 seconds
+     apart (minute(); David, 2026-10-10). A score is announced at once when
+     ESPN's own scoring play at exactly that score confirms it, otherwise
+     once it holds for a look; a touchdown that moves
+     on by its own try has held, so it is announced then, and the try is its
+     own alert (David, 2026-10-10): extra point or two-point good, from the
+     score; missed or failed, from ESPN's scoring play, only when its words
+     say so;
    - a score that goes down is one correction, to the fans who get scores;
    - each quarter's end, halftime, a close finish (within 8 points, 5:00 or
      less in the 4th) and overtime are sent once each;
@@ -43,8 +48,12 @@
    The score state moves only by compare-and-set on its sequence number, so
    two overlapping minutes can never both announce the same score.
 
-   The wording uses the name the app sent from its team config and ESPN's
-   place name for the opponent - never a provider's sentence. */
+   The wording (theScore's shape, David, 2026-10-10): what happened and when
+   in the title ("Notre Dame TD (13:06 1st)"), the play and the score in the
+   body. The names are the one the app sent from its team config and ESPN's
+   place name for the opponent; the play is ESPN's scoring-play line, read
+   from the game summary only when the score moves, cleaned to plain text
+   and cut short (playText). */
 
 const CORE = "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football";
 const SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football";
@@ -52,6 +61,7 @@ export const APP_URL = "https://dmvanblaircom.github.io/Project-LND/";
 const MIN = 60 * 1000;
 export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20 * MIN, window: 8 * 60 * MIN,
                         tries: 10, kickoffLate: 15 * MIN, liveLate: 5 * MIN, settle: 3 * MIN, fold: 5 * MIN,
+                        looks: 3, lookEvery: 20 * 1000,
                         closeClock: 300, closeMargin: 8 };
 
 // What a fan can choose (brief §2b). A subscription without options - every
@@ -208,9 +218,21 @@ export function pickGame(schedule, teamId, now) {
     if (!us || !them) continue;
     const g = { id: String(e.id), comp: String(c.id || e.id), at, home: us.homeAway === "home",
                 opponent: { id: String((them.team || {}).id || ""), name: (them.team || {}).location || (them.team || {}).shortDisplayName || "" } };
+    const tv = network(c.broadcasts);
+    if (tv) g.network = tv;
     if (!best || at < best.at) best = g;
   }
   return best;
+}
+
+// The game's first national TV network, as ESPN's schedule names it: a short
+// plain name or nothing.
+export function network(list) {
+  for (const b of list || []) {
+    const n = String(((b && b.media) || {}).shortName || "").trim();
+    if (/^[A-Za-z0-9][A-Za-z0-9 +&.!-]{0,23}$/.test(n)) return n;
+  }
+  return null;
 }
 
 // From the game's status (and, when final, the scores) to the events due.
@@ -238,35 +260,71 @@ export function ordinal(p) {
   if (p >= 5) return p === 5 ? "OT" : (p - 4) + "OT";
   return ["", "1st", "2nd", "3rd", "4th"][p] || "";
 }
+// ESPN's scoring-play line as an alert's sentence: plain text, without its
+// closing "(... KICK)" (the try is said in our own words), ending in a full
+// stop, and never longer than a lock screen shows.
+export function playText(t) {
+  let s = String(t || "").replace(/[\u0000-\u001f\u007f<>]/g, " ").replace(/\s*\([^()]*\)\s*$/, "").replace(/\s+/g, " ").trim();
+  if (!/[A-Za-z]/.test(s)) return null;
+  if (s.length > 120) s = s.slice(0, 119).replace(/[\s,;:]+\S*$/, "") + "\u2026";
+  return /[.!?\u2026]$/.test(s) ? s : s + ".";
+}
+// The try, from a scoring play's closing parentheses: "(S. Porath KICK)",
+// "(Malik Orsan Kick)", "(S. Porath PAT MISSED)", "(Two-Point Pass
+// Conversion Failed)". Anything else is null: no try alert rather than a
+// wrong one.
+export function tryOf(t) {
+  const m = /\(([^()]*)\)\s*$/.exec(String(t || ""));
+  if (!m) return null;
+  const s = m[1], bad = /\b(miss(ed)?|block(ed)?|fail(ed|s)?|no good|unsuccessful)\b/i.test(s);
+  if (/two[- ]?point|\b2[- ]?(pt|point)\b/i.test(s)) return bad ? "2ptfail" : "2pt";
+  if (/\b(kick|pat|extra point)\b/i.test(s)) return bad ? "xpmiss" : "xp";
+  return null;
+}
+const KIND = { td: "TD", fg: "FG", safety: "Safety", xp: "XP good", "2pt": "2-pt good", xpmiss: "XP missed", "2ptfail": "2-pt failed" };
+const TRY = { xp: "XP good.", "2pt": "2-pt good.", xpmiss: "XP missed.", "2ptfail": "2-pt failed." };
+// An alert from before this wording (a delivery still due when it shipped)
+// carries a label, not a kind.
+const LABEL = { "Touchdown": "td", "Field goal": "fg", "Safety": "safety", "Extra point": "xp" };
 export function words(ev, team, game, scores, x) {
   const vs = game.home ? " vs. " : " at ";
   const matchup = team.name + vs + game.opponent.name;
   x = x || {};
   const line = scores && typeof scores.us === "number" && typeof scores.them === "number"
     ? team.name + " " + scores.us + ", " + game.opponent.name + " " + scores.them : null;
-  const when = x.period ? " \u00b7 " + ordinal(x.period) + (x.clock && x.period <= 4 ? " " + x.clock : "") : "";
+  // "(13:06 1st)"; overtime has no clock
+  const when = x.period ? " (" + (x.clock && x.period <= 4 ? x.clock + " " : "") + ordinal(x.period) + ")" : "";
   if (/^score/.test(ev) && line) {
     const who = x.scorer === "us" ? team.name : x.scorer === "them" ? game.opponent.name : null;
-    return { title: team.name, body: (who ? (x.label ? x.label + ", " + who + ". " : who + " scores. ") : "Score update. ") + line + when };
+    const kind = x.kind || LABEL[x.label] || null;
+    if (!who) return { title: "Score update" + when, body: line };
+    if (!KIND[kind]) return { title: who + " scores" + when, body: line };
+    // The play, when ESPN's summary had it; a touchdown also says its try:
+    // in the score already, missed already, or still to come (its own
+    // alert follows).
+    const said = [];
+    if (kind === "td" || kind === "fg" || kind === "safety") {
+      if (x.play) said.push(x.play);
+      if (kind === "td" && x.kind) said.push(TRY[x.try] || "PAT pending.");
+    }
+    return { title: who + " " + KIND[kind] + when, body: (said.length ? said.join(" ") + "\n" : "") + line };
   }
-  if (/^fix/.test(ev) && line) return { title: team.name, body: "Score corrected: " + line + when };
+  if (/^fix/.test(ev) && line) return { title: "Score corrected" + when, body: line };
   if (/^end:/.test(ev) && line) {
     const p = Number(ev.slice(4));
-    return { title: team.name, body: (p === 2 ? "Halftime: " : "End of " + ordinal(p) + ": ") + line };
+    return { title: p === 2 ? "Halftime" : "End of " + ordinal(p), body: line };
   }
-  if (ev === "close" && line) return { title: team.name, body: "One-score game: " + line + when };
-  if (ev === "ot") return { title: team.name, body: "Overtime: " + (line || matchup) + "." };
-  if (/^delay/.test(ev)) return { title: team.name, body: x.period ? "Delay: " + (line || matchup) + when : matchup + " is delayed." };
-  if (ev === "kickoff") return { title: team.name, body: matchup + " has kicked off." };
+  if (ev === "close" && line) return { title: "One-score game" + when, body: line };
+  if (ev === "ot") return { title: "Overtime", body: line || matchup };
+  if (/^delay/.test(ev)) return x.period ? { title: "Delay" + when, body: line || matchup } : { title: "Delayed", body: matchup + " is delayed." };
+  if (ev === "kickoff") return { title: "Kickoff: " + matchup, body: game.network ? "On " + game.network : "Underway now." };
   if (ev === "final") {
     const us = scores && scores.us, them = scores && scores.them;
-    const body = typeof us === "number" && typeof them === "number"
-      ? "Final: " + team.name + " " + us + ", " + game.opponent.name + " " + them + "."
-      : "Final: " + matchup + ".";
-    return { title: team.name, body };
+    if (typeof us !== "number" || typeof them !== "number") return { title: "Final: " + matchup, body: "" };
+    return { title: "Final: " + line, body: us > them ? team.name + " wins." : them > us ? game.opponent.name + " wins." : "" };
   }
-  if (ev === "postponed") return { title: team.name, body: matchup + " has been postponed." };
-  if (ev === "canceled") return { title: team.name, body: matchup + " has been canceled." };
+  if (ev === "postponed") return { title: "Postponed", body: matchup + " has been postponed." };
+  if (ev === "canceled") return { title: "Canceled", body: matchup + " has been canceled." };
   return null;
 }
 
@@ -368,8 +426,11 @@ async function getJson(env, url) {
 }
 
 // One minute's work. Returns what it did, for the log and the tests.
-export async function tick(db, env, now) {
+// `quick`: a look between minutes (minute()) - new alerts go, retries wait
+// for the minute, so LIMITS.tries still spans ten minutes (Codex, #119).
+export async function tick(db, env, now, quick) {
   const log = [];
+  let live = false;
   const teams = db.all("SELECT DISTINCT team_id FROM subs");
   for (const t of teams) {
     const teamId = t.team_id;
@@ -384,20 +445,39 @@ export async function tick(db, env, now) {
                teamId, game ? JSON.stringify(game) : null, now);
       }
     }
-    if (game && now >= game.at - LIMITS.before) await detect(db, env, teamId, game, now, log);
+    if (game && now >= game.at - LIMITS.before) { if (await detect(db, env, teamId, game, now, log)) live = true; }
     else log.push(teamId + ": " + (game ? "waiting for " + new Date(game.at).toISOString() : "no game"));
-    await deliver(db, env, teamId, now, log);
+    await deliver(db, env, teamId, now, log, !quick);
   }
   db.run("INSERT INTO meta (k, v) VALUES ('last', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
          JSON.stringify({ at: new Date(now).toISOString(), log }));
+  log.live = live;
   return log;
+}
+
+// The cron's minute. While any followed game is on, it looks LIMITS.looks
+// times, LIMITS.lookEvery apart (20 seconds: David, 2026-10-10), since the
+// scheduler fires at most once a minute; otherwise once. Each look is a
+// whole tick, so the compare-and-set rules hold between them as between
+// minutes.
+export async function minute(db, env, clock, sleep) {
+  const start = clock();
+  let log = await tick(db, env, start);
+  const all = log.slice();
+  for (let i = 1; i < LIMITS.looks && log.live; i++) {
+    const wait = start + i * LIMITS.lookEvery - clock();
+    if (wait > 0) await sleep(wait);
+    log = await tick(db, env, clock(), true);
+    all.push.apply(all, log);
+  }
+  return all;
 }
 
 // What ESPN says of the team's game, and a delivery for each follower who
 // wants it of every event newly due.
 async function detect(db, env, teamId, game, now, log) {
   const sent = new Set(db.all("SELECT event FROM sent WHERE team_id = ? AND game_id = ?", teamId, game.id).map(function (r) { return r.event; }));
-  if (sent.has("final") || sent.has("canceled")) { log.push(teamId + ": done"); return; }
+  if (sent.has("final") || sent.has("canceled")) { log.push(teamId + ": done"); return false; }
   // ESPN's core API first (a few hundred bytes); if it does not answer this
   // network, the same status from the team's schedule on the site API,
   // which the Phase 0 probe showed does.
@@ -407,14 +487,24 @@ async function detect(db, env, teamId, game, now, log) {
     status = fromSchedule && fromSchedule.status;
     if (status) log.push(teamId + ": status from the schedule");
   }
-  if (!status) { log.push(teamId + ": status unavailable"); return; }
+  if (!status) { log.push(teamId + ": status unavailable"); return false; }
   const t = status.type || {}, x0 = { period: status.period || 0, clock: status.displayClock || null };
   // While the game is on, its score each minute (round 2): announced first,
   // so a quarter's alert never shows a score the fan has not had (§2b, 3).
+  // And once at the final, before it: a score still holding its minute, or
+  // a touchdown's try, is told rather than lost (Codex, #119).
   let cur = null, told = null;
-  if (t.state === "in") {
+  if (t.state === "in" || t.state === "post") {
     cur = await liveScores(env, teamId, game, fromSchedule);
-    if (cur) for (const e of scoreStep(db, teamId, game, status, cur, now, /END_PERIOD|HALFTIME/.test(t.name || "")))
+    // ESPN's scoring plays (the game summary, tens of kilobytes) only when
+    // the score has moved or a touchdown's try is still to be told.
+    let plays = null;
+    if (cur) {
+      const lr = db.all("SELECT st FROM live WHERE team_id = ? AND game_id = ?", teamId, game.id)[0], ls = lr ? JSON.parse(lr.st) : null;
+      if (ls && ls.base && (cur.us !== ls.base.us || cur.them !== ls.base.them || awaitingTry(ls, now)))
+        plays = scoringPlays(await getJson(env, SITE + "/summary?event=" + game.id), teamId, game);
+    }
+    if (cur) for (const e of scoreStep(db, teamId, game, status, cur, now, t.state === "post" || /END_PERIOD|HALFTIME/.test(t.name || ""), plays))
       emit(db, teamId, game, e.event, e.scores, Object.assign({}, x0, e.x), now, log, !!e.late);
     // The score the fans have been told: a close finish is judged on it, so
     // it never arrives before the score that made the game close.
@@ -440,6 +530,7 @@ async function detect(db, env, teamId, game, now, log) {
     else if (d.check) scores = told;
     emit(db, teamId, game, d.event, scores, d.ended ? {} : x0, now, log, d.late);
   }
+  return t.state === "in";
 }
 
 // Record an event for the team's game once, then a delivery for each
@@ -496,41 +587,149 @@ async function liveScores(env, teamId, game, fromSchedule) {
   return s.us == null || s.them == null ? null : s;
 }
 
-function label(pts) {
-  return pts >= 6 && pts <= 8 ? "Touchdown" : pts === 3 ? "Field goal" : pts === 2 ? "Safety" : pts === 1 ? "Extra point" : null;
+// The game summary's scoring plays, each as our side's and theirs: who
+// scored, the score after it, when, and its line. Anything unreadable is
+// left out; no summary is null.
+export function scoringPlays(summary, teamId, game) {
+  const list = summary && summary.scoringPlays;
+  if (!Array.isArray(list)) return null;
+  const out = [];
+  for (const p of list) {
+    const tid = String(((p && p.team) || {}).id || ""), h = Number(p && p.homeScore), a = Number(p && p.awayScore);
+    if (!isFinite(h) || !isFinite(a)) continue;
+    const side = tid === String(teamId) ? "us" : tid === game.opponent.id ? "them" : null;
+    if (!side) continue;
+    const per = Number(((p.period || {}).number)), clock = String(((p.clock || {}).displayValue) || "");
+    out.push({ side, us: game.home ? h : a, them: game.home ? a : h,
+               type: String(((p.scoringType || p.type || {}).abbreviation) || "").toUpperCase(),
+               period: isFinite(per) && per > 0 ? per : 0, clock: /^\d{1,2}:\d{2}$/.test(clock) ? clock : null,
+               text: String(p.text || "") });
+  }
+  return out;
+}
+// The play behind a side's score now: its last scoring play that put the
+// side above `from`, and not past `to` plus a try ESPN may already show.
+function playFor(plays, side, from, to) {
+  if (!plays) return null;
+  let hit = null;
+  for (const p of plays) if (p.side === side && p[side] > from && p[side] <= to + 2) hit = p;
+  return hit;
+}
+function playX(p) {
+  return p ? { play: playText(p.text), period: p.period || undefined, clock: p.clock || undefined } : {};
+}
+// A touchdown announced without its try, still waiting to hear it.
+// Kept apart from every other score: a later score by either side never
+// ends the wait (Codex, #119); only the try told, or LIMITS.fold, does.
+function awaitingTry(st, now) {
+  return !!(st && st.tryq && now - st.tryq.at <= LIMITS.fold);
+}
+function kindOf(pts, type) {
+  if (type === "TD" && pts >= 6 && pts <= 8) return "td";
+  if (type === "FG" && pts === 3) return "fg";
+  if (type === "SF" && pts === 2) return "safety";
+  return pts >= 6 && pts <= 8 ? "td" : pts === 3 ? "fg" : pts === 2 ? "safety" : pts === 1 ? "xp" : null;
 }
 
 // One minute of the score (round 2). The state moves only by compare-and-
 // set on seq; a minute that loses the race announces nothing, and the next
 // minute sees the state the winner left.
-//   base  the last score announced (or folded in, or first seen)
+//   base  the last score announced (or first seen)
 //   pend  a higher score waiting to hold for a minute (LIMITS.settle at most)
 //   per   the quarter last seen, and ps its last score - a quarter that ended
 //         between two looks still gets its alert, with its own score
-//   last  the last announcement, to fold an extra point into its touchdown
-export function scoreStep(db, teamId, game, status, cur, now, flush) {
+//   tryq  a touchdown told without its try: its side and score, waiting
+//         LIMITS.fold at most for the try, its own alert (David, 2026-10-10)
+//   hist  each side's announced scores, for a correction to find its fans
+// `plays` is the summary's scoring plays when read (scoringPlays), else null:
+// the alert is then told without the play.
+export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
   const row = db.all("SELECT seq, st FROM live WHERE team_id = ? AND game_id = ?", teamId, game.id)[0];
   const p = status.period || 0;
   if (!row) {
     // First look at this game in progress: what it is now is where alerts start.
     db.run("INSERT OR IGNORE INTO live (team_id, game_id, seq, st) VALUES (?, ?, 0, ?)", teamId, game.id,
-           JSON.stringify({ base: cur, pend: null, per: p, ps: cur, last: null, seen: now }));
+           JSON.stringify({ base: cur, pend: null, per: p, ps: cur, tryq: null, seen: now }));
     return [];
   }
   const st = JSON.parse(row.st), out = [], next = Object.assign({}, st, { per: Math.max(p, st.per || 0), ps: cur, seen: now });
+  let n = row.seq;
+  const hist = function () { return { us: ((next.hist || {}).us || []).slice(), them: ((next.hist || {}).them || []).slice() }; };
   // ESPN out of reach for longer than a live alert lives: what changed
   // meanwhile is caught up silently, not announced late (Codex, #116).
   const gap = st.seen && now - st.seen > LIMITS.liveLate;
   if (st.per && p > st.per && st.per <= 3) out.push({ event: "end:" + st.per, scores: st.ps, x: { period: 0 } });
+  // the touchdown whose try is out, or was just told missed (LIMITS.fold)
+  const tryBefore = awaitingTry(st, now) ? st.tryq : st.tried && now - st.tried.at <= LIMITS.fold ? st.tried : null;
+  // Announce a score from b to c: who, what, and the play behind it.
+  function announce(b, c) {
+    const du = c.us - b.us, dt = c.them - b.them;
+    const scorer = du > 0 && dt === 0 ? "us" : dt > 0 && du === 0 ? "them" : "both";
+    const pts = scorer === "us" ? du : scorer === "them" ? dt : 0;
+    const x = { scorer, ours: du > 0 };
+    if (scorer !== "both") {
+      // the try: one or two points straight onto the awaited touchdown
+      // - unless ESPN's own play for the new points is a safety or a field
+      // goal (Codex, #119)
+      const own = playFor(plays, scorer, b[scorer], c[scorer]);
+      const isTry = (pts === 1 || pts === 2) && awaitingTry(next, now) && next.tryq.side === scorer && b[scorer] === next.tryq.score &&
+                    !(own && own[scorer] === c[scorer] && (own.type === "SF" || own.type === "FG"));
+      if (isTry) {
+        x.kind = pts === 1 ? "xp" : "2pt";
+        Object.assign(x, playX(playFor(plays, scorer, b[scorer] - 6, b[scorer])), { play: undefined });
+      } else {
+        const pl = playFor(plays, scorer, b[scorer], c[scorer]);
+        x.kind = kindOf(pts, pl && pl.type);
+        // two points for the other side while a touchdown's try is out: a
+        // defensive return of the try unless ESPN calls it a safety
+        // (judged on the try as it stood before this look: one told missed
+        // in this same look still counts; Codex, #119)
+        if (pts === 2 && tryBefore && tryBefore.side !== scorer && !(pl && pl.type === "SF")) x.kind = null;
+        Object.assign(x, playX(pl));
+        if (x.kind === "td" && pts > 6) x.try = pts === 7 ? "xp" : "2pt";
+        // the summary already says the try missed: the touchdown says so
+        else if (x.kind === "td" && pl) { const tr = tryOf(pl.text); if (tr === "xpmiss" || tr === "2ptfail") x.try = tr; }
+      }
+    }
+    n += 1;
+    out.push({ event: "score:" + n, scores: c, x });
+    if (x.kind === "xp" || x.kind === "2pt") { if (next.tryq && next.tryq.side === scorer) next.tryq = null; }
+    if (x.kind === "td" && !x.try) next.tryq = { side: scorer, score: c[scorer], scores: { us: c.us, them: c.them }, at: now };
+    const h = hist();
+    if (du > 0) h.us.push(["score:" + n, c.us]);
+    if (dt > 0) h.them.push(["score:" + n, c.them]);
+    next.hist = h;
+    next.base = c;
+  }
   const b = st.base, moved = cur.us !== b.us || cur.them !== b.them;
+  // A touchdown's try that missed moves no score: ESPN's play says so. It is
+  // told first, whatever else moved meanwhile - a kickoff returned for a
+  // score must not swallow it (Codex, #119).
+  // The touchdown's own play is found by its score, so a later score by
+  // either side cannot hide it (Codex, #119).
+  // Not once the touchdown itself is taken back, and not when the score has
+  // just moved by a try's one or two: the score wins over words ESPN has
+  // not caught up (Codex, #119).
+  const dTry = st.tryq ? cur[st.tryq.side] - st.tryq.score : -1;
+  if (!gap && awaitingTry(st, now) && dTry >= 0 && dTry !== 1 && dTry !== 2) {
+    const side = st.tryq.side, at = st.tryq.score;
+    const pl = (plays || []).filter(function (q) { return q.side === side && q[side] === at && q.type !== "FG"; }).pop();
+    const tr = pl ? tryOf(pl.text) : null;
+    if (tr === "xpmiss" || tr === "2ptfail") {
+      n += 1;
+      // the score as the touchdown left it, to match the play's clock (Codex, #119)
+      out.push({ event: "score:" + n, scores: st.tryq.scores || b, x: Object.assign({ scorer: side, ours: false, kind: tr }, playX(pl), { play: undefined }) });
+      next.tryq = null; next.tried = { side, at: now };
+    }
+  }
   // start again from what it is now: nothing announced before the gap can
   // be corrected after it (Codex, #116)
-  if (gap) { next.base = cur; next.pend = null; next.last = null; next.hist = { us: [], them: [] }; }
+  if (gap) { next.base = cur; next.pend = null; next.tryq = null; next.hist = { us: [], them: [] }; }
   else if (!moved) next.pend = null;
   else if (cur.us < b.us || cur.them < b.them) {
     // every announced score on each side that the new score takes back: the
     // devices that got any of them get the correction (Codex, #116)
-    const h = { us: ((st.hist || {}).us || []).slice(), them: ((st.hist || {}).them || []).slice() }, of = [];
+    const h = hist(), of = [];
     // Only the side that went down is corrected now; a side that went up in
     // the same minute is left for the score rule to announce (Codex, #116).
     const fixed = { us: Math.min(cur.us, b.us), them: Math.min(cur.them, b.them) };
@@ -539,34 +738,38 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
       while (h[side].length && h[side][h[side].length - 1][1] > fixed[side]) { of.push(h[side].pop()[0]); popped = true; }
       // the correction itself stands in for what it took back, so a second
       // correction of the same score reaches the same devices (Codex, #116)
-      if (popped) h[side].push(["fix:" + (row.seq + 1), fixed[side]]);
+      if (popped) h[side].push(["fix:" + (n + 1), fixed[side]]);
     }
     next.hist = h;
-    out.push({ event: "fix:" + (row.seq + 1), scores: fixed, x: { lost: cur.us < b.us ? "us" : "them", ours: fixed.us !== b.us, of } });
-    next.base = fixed; next.pend = null; next.last = null;
+    n += 1;
+    out.push({ event: "fix:" + n, scores: fixed, x: { lost: cur.us < b.us ? "us" : "them", ours: fixed.us !== b.us, of } });
+    next.base = fixed; next.pend = null;
+    // the wait for a try ends only if this takes back its touchdown (Codex, #119)
+    if (next.tryq && fixed[next.tryq.side] < next.tryq.score) next.tryq = null;
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
-    if (!(held || flush || (st.pend && now - st.pend.at >= LIMITS.settle))) {
+    const pd = st.pend;
+    // ESPN's own scoring play at exactly this score confirms it: told now,
+    // without the minute's hold (David, 2026-10-10).
+    const sure = !!(plays && plays.some(function (q) { return q.us === cur.us && q.them === cur.them; }));
+    // A pending score that the game moved on from - its touchdown's own try,
+    // or anything more - has held: it is told now, and what came after waits
+    // its own minute (David, 2026-10-10; Codex, #119) - or, as a quarter
+    // ends, is told straight after it.
+    if (!held && pd && cur.us >= pd.us && cur.them >= pd.them) {
+      announce(b, { us: pd.us, them: pd.them });
+      if (flush || sure) { announce({ us: pd.us, them: pd.them }, cur); next.pend = null; }
+      else next.pend = { us: cur.us, them: cur.them, at: now };
+    } else if (!(held || flush || sure || (st.pend && now - st.pend.at >= LIMITS.settle))) {
       next.pend = { us: cur.us, them: cur.them, at: st.pend ? st.pend.at : now };
     } else {
-      const du = cur.us - b.us, dt = cur.them - b.them;
-      const scorer = du > 0 && dt === 0 ? "us" : dt > 0 && du === 0 ? "them" : "both";
-      const pts = scorer === "us" ? du : scorer === "them" ? dt : 0;
-      const fold = (pts === 1 || pts === 2) && st.last && st.last.kind === "td" && st.last.scorer === scorer && now - st.last.at <= LIMITS.fold;
-      if (fold) next.last = null;
-      else {
-        out.push({ event: "score:" + (row.seq + 1), scores: cur, x: { scorer, label: label(pts), ours: du > 0 } });
-        next.last = { kind: pts >= 6 ? "td" : "other", scorer, at: now };
-        const h = { us: ((st.hist || {}).us || []).slice(), them: ((st.hist || {}).them || []).slice() };
-        if (du > 0) h.us.push(["score:" + (row.seq + 1), cur.us]);
-        if (dt > 0) h.them.push(["score:" + (row.seq + 1), cur.them]);
-        next.hist = h;
-      }
-      next.base = cur; next.pend = null;
+      announce(b, cur);
+      next.pend = null;
     }
   }
-  const won = db.run("UPDATE live SET seq = seq + 1, st = ? WHERE team_id = ? AND game_id = ? AND seq = ?",
-                     JSON.stringify(next), teamId, game.id, row.seq).changes;
+  const won = n === row.seq
+    ? db.run("UPDATE live SET seq = seq + 1, st = ? WHERE team_id = ? AND game_id = ? AND seq = ?", JSON.stringify(next), teamId, game.id, row.seq).changes
+    : db.run("UPDATE live SET seq = ?, st = ? WHERE team_id = ? AND game_id = ? AND seq = ?", n, JSON.stringify(next), teamId, game.id, row.seq).changes;
   if (gap) out.forEach(function (e) { e.late = true; });
   return won ? out : [];
 }
@@ -576,7 +779,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
 // push service that takes it ends it; one that has dropped the subscription
 // removes it; anything else - a 429, a 5xx, no answer - is tried again the
 // next minute, up to LIMITS.tries, and a kickoff only while it is news.
-async function deliver(db, env, teamId, now, log) {
+async function deliver(db, env, teamId, now, log, retry) {
   const due = db.all("SELECT d.game_id, d.event, d.endpoint, d.tries, d.at, d.data, s.team_name, s.p256dh, s.auth" +
                      " FROM deliveries d JOIN subs s ON s.endpoint = d.endpoint AND s.team_id = d.team_id" +
                      " WHERE d.team_id = ? AND d.state = 'due' ORDER BY d.at, d.rowid", teamId);   // in the order they happened
@@ -595,6 +798,8 @@ async function deliver(db, env, teamId, now, log) {
       t.dropped++; continue;
     }
     if (held.has(d.endpoint)) { t.retry++; continue; }
+    // a retry only on the minute; this device's later alerts wait behind it
+    if (retry === false && d.tries > 0) { held.add(d.endpoint); t.retry++; continue; }
     // Claim it, so an overlapping run cannot send it too.
     if (!db.run("UPDATE deliveries SET state = 'sending' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ? AND state = 'due'", ...key).changes) continue;
     const x = JSON.parse(d.data), w = words(d.event, { id: teamId, name: d.team_name }, x.game, x.scores, x.x);
@@ -658,7 +863,7 @@ export class Alerts {
   async fetch(request) {
     const op = new URL(request.url).pathname.slice(1), now = Date.now();
     let out;
-    if (op === "tick") out = { status: 200, body: { log: await tick(this.db, this.env, now) } };
+    if (op === "tick") out = { status: 200, body: { log: await minute(this.db, this.env, Date.now, function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); }) } };
     else if (op === "status") out = { status: 200, body: report(this.db) };
     else if (op === "key") out = { status: 200, body: { key: vapidPublic(await vapidKey(this.db, this.env)) } };
     else if (op === "subscribe") out = await subscribe(this.db, this.env, await request.json(), now);

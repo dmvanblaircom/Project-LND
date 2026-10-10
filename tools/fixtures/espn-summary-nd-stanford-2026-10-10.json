@@ -1,0 +1,209 @@
+{
+ "_note": "ESPN game summary for Stanford at Notre Dame, 2026-10-10, 20:59Z (scan): header and scoring plays only, trimmed for the alerts check.",
+ "header": {
+  "id": "401858257",
+  "competitions": [
+   {
+    "id": "401858257",
+    "competitors": [
+     {
+      "homeAway": "home",
+      "team": {
+       "id": "87",
+       "location": "Notre Dame"
+      }
+     },
+     {
+      "homeAway": "away",
+      "team": {
+       "id": "24",
+       "location": "Stanford"
+      }
+     }
+    ],
+    "broadcasts": [
+     {
+      "type": {
+       "id": "1",
+       "shortName": "TV"
+      },
+      "market": {
+       "id": "1",
+       "type": "National"
+      },
+      "media": {
+       "shortName": "NBC"
+      },
+      "lang": "en",
+      "region": "us",
+      "isNational": true
+     }
+    ]
+   }
+  ]
+ },
+ "scoringPlays": [
+  {
+   "id": "40185825734",
+   "type": {
+    "id": "68",
+    "text": "Rushing Touchdown",
+    "abbreviation": "TD"
+   },
+   "text": "N. James Jr. run for 2 yds, for a TD (S. Porath KICK)",
+   "awayScore": 0,
+   "homeScore": 7,
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 786.0,
+    "displayValue": "13:06"
+   },
+   "scoringType": {
+    "name": "touchdown",
+    "displayName": "Touchdown",
+    "abbreviation": "TD"
+   },
+   "team": {
+    "id": "87",
+    "abbreviation": "ND"
+   }
+  },
+  {
+   "id": "401858257140",
+   "type": {
+    "id": "67",
+    "text": "Passing Touchdown",
+    "abbreviation": "TD"
+   },
+   "text": "CJ Carr pass to J. Greathouse for 3 yds, for a TD (S. Porath KICK)",
+   "awayScore": 0,
+   "homeScore": 14,
+   "period": {
+    "number": 1
+   },
+   "clock": {
+    "value": 175.0,
+    "displayValue": "2:55"
+   },
+   "scoringType": {
+    "name": "touchdown",
+    "displayName": "Touchdown",
+    "abbreviation": "TD"
+   },
+   "team": {
+    "id": "87",
+    "abbreviation": "ND"
+   }
+  },
+  {
+   "id": "401858257192",
+   "type": {
+    "id": "68",
+    "text": "Rushing Touchdown",
+    "abbreviation": "TD"
+   },
+   "text": "J. Walton run for 97 yds, for a TD (S. Porath PAT MISSED)",
+   "awayScore": 0,
+   "homeScore": 20,
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 888.0,
+    "displayValue": "14:48"
+   },
+   "scoringType": {
+    "name": "touchdown",
+    "displayName": "Touchdown",
+    "abbreviation": "TD"
+   },
+   "team": {
+    "id": "87",
+    "abbreviation": "ND"
+   }
+  },
+  {
+   "id": "401858257231",
+   "type": {
+    "id": "59",
+    "text": "Field Goal Good",
+    "abbreviation": "FG"
+   },
+   "text": "S. Porath 33 yd FG GOOD",
+   "awayScore": 0,
+   "homeScore": 23,
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 747.0,
+    "displayValue": "12:27"
+   },
+   "scoringType": {
+    "name": "field-goal",
+    "displayName": "Field Goal",
+    "abbreviation": "FG"
+   },
+   "team": {
+    "id": "87",
+    "abbreviation": "ND"
+   }
+  },
+  {
+   "id": "401858257287",
+   "type": {
+    "id": "68",
+    "text": "Rushing Touchdown",
+    "abbreviation": "TD"
+   },
+   "text": "N. James Jr. run for 31 yds, for a TD (S. Porath KICK)",
+   "awayScore": 0,
+   "homeScore": 30,
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 425.0,
+    "displayValue": "7:05"
+   },
+   "scoringType": {
+    "name": "touchdown",
+    "displayName": "Touchdown",
+    "abbreviation": "TD"
+   },
+   "team": {
+    "id": "87",
+    "abbreviation": "ND"
+   }
+  },
+  {
+   "id": "401858257328",
+   "type": {
+    "id": "67",
+    "text": "Passing Touchdown",
+    "abbreviation": "TD"
+   },
+   "text": "CJ Carr pass to A. Williams for 70 yds, for a TD (S. Porath KICK)",
+   "awayScore": 0,
+   "homeScore": 37,
+   "period": {
+    "number": 2
+   },
+   "clock": {
+    "value": 206.0,
+    "displayValue": "3:26"
+   },
+   "scoringType": {
+    "name": "touchdown",
+    "displayName": "Touchdown",
+    "abbreviation": "TD"
+   },
+   "team": {
+    "id": "87",
+    "abbreviation": "ND"
+   }
+  }
+ ]
+}
