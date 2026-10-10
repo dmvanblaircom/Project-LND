@@ -1,9 +1,10 @@
-# W19 (2026-10-03): the small ESPN endpoints game alerts would poll each
-# minute in a game window: a game's status and each team's score, plus the
-# team schedule the Worker reads hourly. Notre Dame at North Carolina kicks
-# off at 16:00Z; Ohio State at Iowa at 19:30Z.
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858250/competitions/401858250/status | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858250/competitions/401858250/competitors/87/score | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858473/competitions/401858473/status | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858473/competitions/401858473/competitors/194/score | .
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194/schedule | ^events\[[0-9]\]\.(id|date|competitions\[0\]\.(id|status\.type\.(state|name)|competitors\[[01]\]\.(team\.(id|location)|homeAway)))
+# Ohio State parity audit (2026-10-10): does Ohio State publish weekly game
+# notes (the source of Notre Dame's notes, availability and depth), and
+# where does BigTen.org list this season's availability reports?
+https://ohiostatebuckeyes.com/sports/football/schedule/ | notes|documents|\.pdf
+https://ohiostatebuckeyes.com/sports/football/schedule/2026 | notes|documents|\.pdf
+https://ohiostatebuckeyes.com/sports/football/ | notes|documents
+https://ohiostatebuckeyes.com/news/?sport=football | notes
+https://bigten.org/fb/ | availab|report
+https://bigten.org/news/ | availab
+https://bigten.org/api/media/file?where[filename][contains]=FB_Reporting | FB_Reporting|url|filename
