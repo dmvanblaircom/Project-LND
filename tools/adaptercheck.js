@@ -279,6 +279,45 @@ eq(lgs.filter(function (g) { return g.home.rank || g.away.rank; }).map(function 
    ["401858100","401858226","401858460"], "ranked games are the ones with a side rank");
 eq(TeamOS.espn.scoreboard(null, TEAM_CONFIG), [], "no payload -> empty list");
 
+console.log(" between quarters, as the fan reads them (David, Oct 9-10, Iowa State-BYU)");
+(function () {
+  function one(status, last, scores) {
+    var ev = JSON.parse(JSON.stringify(sbFixture.events.filter(function (e) {
+      return ((e.competitions[0].status || {}).type || {}).state === "in"; })[0] || sbFixture.events[0]));
+    ev.competitions[0].status = status;
+    ev.competitions[0].situation = last ? { lastPlay: { text: last } } : {};
+    if (scores) ev.competitions[0].competitors.forEach(function (c, i) { c.score = String(scores[i]); });
+    var g = TeamOS.espn.scoreboard({ events: [ev] }, TEAM_CONFIG)[0];
+    return [g.detail, g.period, g.clock, g.state];
+  }
+  var t = function (name, d) { return { state: "in", name: name, shortDetail: d }; };
+  eq(one({ period: 1, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 1st") }, "End of 1st quarter."), ["15:00 - 2nd", 2, "15:00", "in"],
+     "end of the 1st (ESPN's \"15:00 - 1st\"): 15:00 - 2nd");
+  eq(one({ period: 1, displayClock: "0:00", type: t("STATUS_END_PERIOD", "End of 1st") }, ""), ["15:00 - 2nd", 2, "15:00", "in"],
+     "end of the 1st (ESPN's end-of-period status): the same");
+  eq(one({ period: 2, displayClock: "0:00", type: t("STATUS_HALFTIME", "Halftime") }, "End of 2nd quarter."), ["Halftime", 2, "0:00", "in"],
+     "end of the 2nd: Halftime");
+  eq(one({ period: 2, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 2nd") }, "End of 2nd quarter."), ["Halftime", 2, "0:00", "in"],
+     "end of the 2nd with ESPN's clock reset: still Halftime, until the 3rd starts");
+  eq(one({ period: 3, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 3rd") }, "Kickoff to start the second half"), ["15:00 - 3rd", 3, "15:00", "in"],
+     "the 3rd under way: 15:00 - 3rd");
+  eq(one({ period: 3, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 3rd") }, "End of 3rd Quarter"), ["15:00 - 4th", 4, "15:00", "in"],
+     "end of the 3rd: 15:00 - 4th");
+  eq(one({ period: 4, displayClock: "0:00", type: t("STATUS_END_PERIOD", "End of 4th") }, "End of 4th quarter.", [24, 17]), ["Final", 4, "0:00", "post"],
+     "end of the 4th, 24-17: Final");
+  eq(one({ period: 4, displayClock: "0:00", type: t("STATUS_END_PERIOD", "End of 4th") }, "End of 4th quarter.", [17, 17]), ["End of 4th", 4, "0:00", "in"],
+     "end of the 4th, tied: not Final - overtime is next");
+  eq(one({ period: 1, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 1st") }, "J. Smith kickoff for 65 yds"), ["15:00 - 1st", 1, "15:00", "in"],
+     "the real start of the game stays 15:00 - 1st");
+  // The team's own game (schedule), ended at the 4th before ESPN calls it.
+  var sch = JSON.parse(read("tools/fixtures/espn-schedule-nd-oct08.json")), ev = sch.events[0];
+  var c0 = ev.competitions[0];
+  c0.status = { period: 4, displayClock: "0:00", type: { state: "in", name: "STATUS_END_PERIOD", shortDetail: "End of 4th" } };
+  c0.competitors.forEach(function (c) { c.score = { value: String(c.team.id) === "87" ? 31 : 20 }; delete c.winner; });
+  var fin = TeamOS.espn.schedule({ events: [ev] }, TeamOS.createTeam(TEAM_CONFIG.team), TEAM_CONFIG)[0];
+  eq([fin.state, fin.status, fin.detail, fin.won], ["post", "final", "Final", true], "the team's game ended 31-20 before ESPN sets a winner: Final, won (Codex, #117)");
+})();
+
 console.log("scoreboard(), a real week");
 var wk = TeamOS.espn.scoreboard(JSON.parse(read("tools/fixtures/espn-scoreboard-sep26.json")), TEAM_CONFIG);
 var rankedWk = wk.filter(function (g) { return g.home.rank || g.away.rank; });
