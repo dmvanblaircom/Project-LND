@@ -64,3 +64,14 @@ status line still said "15:00 - 3rd" while its last play was the end of the
 Both teams pregame and agreeing with the scoreboard; Notre Dame's Game
 countdown reads 0 days 0 hours 10 minutes. The noon ranked games are in the
 4th quarter and read right on Top 25. No new findings; #1-#4 as before.
+
+### 2008Z (4:08 PM ET) - Notre Dame live, 14-0, 2:24 1st; Ohio State pregame
+The first pass showed Notre Dame's Game screen as "Loading the game..." with no
+Drive Tracker: a scan gap, not an app defect - the scan asked for a team's game
+summary only when the previous scan's scoreboard said the game had started
+(19:20Z was pregame). Fixed in the scan script (it now asks once the kickoff
+time has passed), Notre Dame's summary captured and the scan re-run: Home, Game
+(390, 320, plays, box) agree with the scoreboard - 14-0, 2:24 1st, possession
+Stanford - no new findings. Ohio State pregame, kickoff 4:15 PM EDT. The
+kickoff and first touchdown alerts went out and were delivered (status probe,
+19:51Z).
