@@ -63,6 +63,9 @@ export function validOptions(o) {
   const out = {};
   for (const k of ["kickoff", "final", "delays", "quarters", "halftime", "close"]) out[k] = o[k] == null ? DEFAULTS[k] : o[k] === true;
   out.scoring = o.scoring == null ? DEFAULTS.scoring : (["off", "mine", "all"].indexOf(o.scoring) >= 0 ? o.scoring : null);
+  // A round-1 device keeps its postponed/canceled alerts while its new
+  // Delays switch starts off (the app sends this; Codex, #116).
+  if (o.outcomes === true) out.outcomes = true;
   return out.scoring == null ? null : out;
 }
 // A subscription from before round 2 keeps exactly what it had: kickoff,
@@ -442,8 +445,25 @@ function emit(db, teamId, game, ev, scores, x, now, log, late) {
   if (!db.run("INSERT OR IGNORE INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", teamId, game.id, ev, now).changes) return;
   if (late) { log.push(teamId + ": " + ev + " noticed late, not sent"); return; }
   const data = JSON.stringify({ game, scores, x });
+  // A correction goes only to the devices that got the score it corrects,
+  // whatever their choices are now; that score, if still waiting to go
+  // anywhere, never goes (brief §2b, 5; Codex, #116).
+  let only = null;
+  if (/^fix/.test(ev)) {
+    only = new Set();
+    if (x && x.of) {
+      db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'due'", teamId, game.id, x.of);
+      for (const r of db.all("SELECT endpoint FROM deliveries WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'done'", teamId, game.id, x.of)) only.add(r.endpoint);
+    }
+  }
   let n = 0;
   for (const s of db.all("SELECT endpoint, opts FROM subs WHERE team_id = ?", teamId)) {
+    if (only) {
+      if (!only.has(s.endpoint)) continue;
+      n += db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES (?, ?, ?, ?, 'due', 0, ?, ?)",
+                  teamId, game.id, ev, s.endpoint, now, data).changes;
+      continue;
+    }
     let o = null; try { o = s.opts ? validOptions(JSON.parse(s.opts)) : LEGACY; } catch (e) { o = null; }
     if (!wants(o || LEGACY, ev, x)) continue;
     n += db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES (?, ?, ?, ?, 'due', 0, ?, ?)",
@@ -494,7 +514,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
   const b = st.base, moved = cur.us !== b.us || cur.them !== b.them;
   if (!moved) next.pend = null;
   else if (cur.us < b.us || cur.them < b.them) {
-    out.push({ event: "fix:" + (row.seq + 1), scores: cur, x: { lost: cur.us < b.us ? "us" : "them", ours: cur.us !== b.us } });
+    out.push({ event: "fix:" + (row.seq + 1), scores: cur, x: { lost: cur.us < b.us ? "us" : "them", ours: cur.us !== b.us, of: st.lastEv || null } });
     next.base = cur; next.pend = null; next.last = null;
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
@@ -509,6 +529,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
       else {
         out.push({ event: "score:" + (row.seq + 1), scores: cur, x: { scorer, label: label(pts), ours: du > 0 } });
         next.last = { kind: pts >= 6 ? "td" : "other", scorer, at: now };
+        next.lastEv = "score:" + (row.seq + 1);
       }
       next.base = cur; next.pend = null;
     }

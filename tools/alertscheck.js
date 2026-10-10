@@ -29,6 +29,7 @@ var STUB = "(" + function () {
              toJSON: function () { return { endpoint: this.endpoint, keys: { p256dh: "B" + "A".repeat(86), auth: "C".repeat(22) } }; },
              unsubscribe: function () { sub = null; return Promise.resolve(true); } };
   }
+  try { if (localStorage.getItem("iw-alerts-notre-dame") === "1") sub = mk(); } catch (e) {}   // already on, from before
   window.PushManager = function () {};
   window.Notification = { permission: "granted", requestPermission: function () { return Promise.resolve("granted"); } };
   var pm = { getSubscription: function () { return Promise.resolve(sub); },
@@ -45,9 +46,10 @@ var STUB = "(" + function () {
   await new Promise(function (r) { server.listen(0, "127.0.0.1", r); });
   var base = "http://127.0.0.1:" + server.address().port;
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
-  async function open(width) {
+  async function open(width, before) {
     var ctx = await browser.newContext({ viewport: { width: width || 390, height: 844 }, serviceWorkers: "block" });
     var page = await ctx.newPage(), posts = [], slow = { ms: 0 };
+    if (before) await page.addInitScript(before);
     await page.addInitScript(STUB);
     await page.route("**/*", function (route) {
       var u = route.request().url();
@@ -55,7 +57,8 @@ var STUB = "(" + function () {
                                                                          body: JSON.stringify({ key: "B" + "A".repeat(86) }) });
       if (/workers\.dev\/v1\/push\/(subscribe|unsubscribe)/.test(u)) {
         var body = JSON.parse(route.request().postData() || "{}");
-        if (slow.ms && !/unsubscribe/.test(u)) return new Promise(function (r) { setTimeout(r, slow.ms); }).then(function () {
+        var wait = Array.isArray(slow.ms) ? slow.ms.shift() || 0 : slow.ms;
+        if (wait && !/unsubscribe/.test(u)) return new Promise(function (r) { setTimeout(r, wait); }).then(function () {
           posts.push({ path: "subscribe", options: body.options || null, at: Date.now() });
           return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ ok: true, confirmation: "updated" }) });
         });
@@ -138,6 +141,28 @@ var STUB = "(" + function () {
   ok(c.posts.length === 2 && c.posts[0].path === "subscribe" && last.path === "unsubscribe" && cs.on === "Off" && cs.note === "Game alerts are off.",
      "a save already on its way finishes first; then off, and off it stays (" + c.posts.map(function (p) { return p.path; }).join(", ") + ")");
   await c.ctx.close();
+
+  console.log("4c. Every save is waited for, not only the last (Codex, #116)");
+  var d = await open();
+  await d.page.click('#screenSettings [data-alerts="on"]'); await d.page.waitForTimeout(500);
+  d.slow.ms = [2600, 200]; d.posts.length = 0;                     // the first save the slower: answered after the second
+  await d.page.click('#screenSettings [data-alert-pick="everything"]'); await d.page.waitForTimeout(700);   // save 1 on its way
+  await d.page.click('#screenSettings [data-alert-pick="key"]'); await d.page.waitForTimeout(700);          // save 2 queued behind it
+  await d.page.click('#screenSettings [data-alerts="off"]'); await d.page.waitForTimeout(4500);
+  var dp = d.posts.map(function (p) { return p.path; });
+  ok(dp[dp.length - 1] === "unsubscribe" && dp.filter(function (x) { return x === "subscribe"; }).length <= 2 && (await state(d.page)).on === "Off",
+     "two saves, then Turn Off: the unsubscribe comes after every save (" + dp.join(", ") + ")");
+  await d.ctx.close();
+
+  console.log("4d. A device that turned alerts on before there were choices (Codex, #116)");
+  var L = await open(390, function () { try { localStorage.setItem("iw-alerts-notre-dame", "1"); } catch (e) {} });
+  var ls = await state(L.page);
+  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-quarters", "-halftime", "-close"]], "it shows what it has had: kickoff and final, the new in-game Delays off");
+  await L.page.click('#screenSettings input[name="alertScoring"][value="mine"]'); await L.page.waitForTimeout(900);
+  var lo = L.posts[L.posts.length - 1] && L.posts[L.posts.length - 1].options;
+  ok(lo && lo.delays === false && lo.outcomes === true && lo.scoring === "mine",
+     "its first change keeps Delays off and its postponement alerts (outcomes), and adds only what was chosen");
+  await L.ctx.close();
 
   console.log("5. 320 px");
   var n = await open(320);

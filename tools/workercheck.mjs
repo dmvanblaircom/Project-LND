@@ -510,6 +510,21 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   const got = []; for (const p of e.pushes) got.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
   eq(got, ["Score update. Ohio State 14, Iowa 10 · 2nd 10:00 [live]".replace(" [live]", "")], "both scored at once: My team's scores still gets it"); }
 
+{ // A correction goes only to the devices that got the score (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), got = await browserSub(), late = await browserSub(), stuck = await browserSub("fcm.googleapis.com");
+  for (const [b, o] of [[got, { scoring: "all", kickoff: false }], [late, { scoring: "off" }], [stuck, { scoring: "all", kickoff: false }]])
+    await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: o }, KICK);
+  const s = (us, them) => { e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
+  e.push = (url) => url === stuck.sub.endpoint ? 503 : 201;
+  s(7, 0); await tick(db, e, KICK + 30 * 60e3);
+  s(7, 7); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);     // Iowa TD announced; one device's push service is down
+  await subscribe(db, e, { subscription: late.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all" } }, KICK);   // scores turned on after it
+  e.pushes.length = 0; e.push = 201;
+  s(7, 0); await tick(db, e, KICK + 33 * 60e3);                                          // overturned
+  const to = e.pushes.map((p) => p.url === got.sub.endpoint ? "got" : p.url === late.sub.endpoint ? "late" : "stuck");
+  eq(to, ["got"], "the correction reaches only the device that had the touchdown; the one whose touchdown never arrived gets neither, and one that turned scores on since gets nothing to correct");
+  eq(validOptions({ outcomes: true, delays: false }).outcomes, true, "a round-1 device's postponement alerts survive its first change (outcomes)"); }
+
 { // First look mid-game (the Worker deployed at halftime): no backlog.
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
   await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "all", kickoff: false } }, KICK); e.pushes.length = 0;

@@ -1819,7 +1819,7 @@ Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); 
 // Settings (notifications brief §3). Whether this device turned them on for
 // this team, and its choice of alerts (round 2, §2b), are kept here; the
 // Worker keeps the subscription and a copy of the choice.
-var ALERTS={ busy:false, note:null, sync:null, saving:null };
+var ALERTS={ busy:false, note:null, sync:null, chain:Promise.resolve() };
 var ALERT_KEY="iw-alerts-"+TEAM.id, ALERT_OPTS_KEY="iw-alert-opts-"+TEAM.id;
 var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false };
 // Quick picks set the switches, then step aside (§2b): one shows as chosen
@@ -1832,7 +1832,13 @@ var ALERT_PICKS={
 function alertOpts(){
   var o={}, saved=null;
   try{ saved=JSON.parse(localStorage.getItem(ALERT_OPTS_KEY)||"null"); }catch(e){}
-  Object.keys(ALERT_DEFAULTS).forEach(function(k){ o[k]=saved && saved[k]!=null ? saved[k] : ALERT_DEFAULTS[k]; });
+  // Alerts turned on before there were choices: what that device has had
+  // all along - kickoff, final, and word of a postponement - with the new
+  // in-game Delays off until the fan turns them on (the noise rule; Codex,
+  // #116). `outcomes` keeps the postponement alerts it already had.
+  var base=!saved && alertsOnHere() ? Object.assign({}, ALERT_DEFAULTS, { delays:false, outcomes:true }) : ALERT_DEFAULTS;
+  Object.keys(ALERT_DEFAULTS).forEach(function(k){ o[k]=saved && saved[k]!=null ? saved[k] : base[k]; });
+  if((saved ? saved.outcomes : base.outcomes)===true) o.outcomes=true;
   if(["off","mine","all"].indexOf(o.scoring)<0) o.scoring="off";
   return o;
 }
@@ -1908,7 +1914,10 @@ function alertsTurnOn(){
     }).then(function(old){ return old || reg.pushManager.subscribe({ userVisibleOnly:true, applicationServerKey:key }); });
   }).then(function(sub){
     // Turning on with nothing chosen starts from the defaults again.
-    var o=alertOpts(); if(!alertsAnyOn(o)){ o=Object.assign({}, ALERT_DEFAULTS); saveAlertOpts(o); }
+    // Kept here now, so this device is never mistaken for one from before
+    // there were choices.
+    var o=alertOpts(); if(!alertsAnyOn(o)) o=Object.assign({}, ALERT_DEFAULTS);
+    saveAlertOpts(o);
     return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:o });
   }).then(function(r){
     if(r.status!==200) throw { why:"server" };
@@ -1926,7 +1935,7 @@ function alertsTurnOff(why){
   // finish first, so it can never sign the device up again after this
   // (Codex, #116).
   clearTimeout(ALERTS.sync); ALERTS.sync=null;
-  Promise.resolve(ALERTS.saving).catch(function(){}).then(function(){ return navigator.serviceWorker.ready; })
+  ALERTS.chain.catch(function(){}).then(function(){ return navigator.serviceWorker.ready; })
   .then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
     if(!sub) return { status:200 };
     return postEdge("/v1/push/unsubscribe", { endpoint:sub.endpoint, team:{ id:String(TEAM_CONFIG.sources.espn.teamId) } });
@@ -1958,12 +1967,17 @@ function alertsChoose(o){
   ALERTS.sync=setTimeout(function(){
     ALERTS.sync=null;
     if(ALERTS.busy || !alertsOnHere()) return;             // turned off meanwhile: nothing to save
-    var saving=ALERTS.saving=navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
-      if(!sub) throw new Error("gone");
-      return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:alertOpts() });
+    // One save at a time, in order, and Turn Off waits for all of them, so
+    // an older save can never arrive after the unsubscribe (Codex, #116).
+    var saving=ALERTS.chain=ALERTS.chain.catch(function(){}).then(function(){
+      if(ALERTS.busy || !alertsOnHere()) return { skipped:true };
+      return navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
+        if(!sub) throw new Error("gone");
+        return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:alertOpts() });
+      });
     });
-    saving.then(function(){ if(ALERTS.saving===saving) ALERTS.saving=null; }, function(){ if(ALERTS.saving===saving) ALERTS.saving=null; });
     saving.then(function(r){
+      if(r && r.skipped) return;
       if(ALERTS.busy || !alertsOnHere()) return;           // the fan has turned them off since: say nothing
       if(r.status!==200) throw new Error("server");
       ALERTS.note="Saved. "+alertsSummary(alertOpts()); paintMore(); say(ALERTS.note);
