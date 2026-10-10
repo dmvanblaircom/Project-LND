@@ -80,3 +80,7 @@ schedule-87 scan-nd-2111
 schedule-194 scan-osu-2111
 rankings scan-2111
 schedule-87 nd-oct08
+scoreboard-20261010 scan-1602
+schedule-87 scan-nd-1602
+schedule-194 scan-osu-1602
+rankings scan-1602
