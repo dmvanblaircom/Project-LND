@@ -15,6 +15,10 @@ the Ohio State game, so Phases 1-2 were built for **kickoff and final**:
 - **The app:** a provisional "Game Alerts" section in Settings, until
   Codex's design.
 
+**Oct 10:** David asked for theScore's wording and for the touchdown and
+its try as two alerts. Both are in §2b, "What each alert says"; the round-2
+rule that folded the extra point into its touchdown is gone.
+
 Follows: backlog W19 ("produce a bounded brief and service proposal
 first"), the product blueprint (notifications are the first new MVP
 pillar), the MVP validation framework ("notifications where the underlying
@@ -129,15 +133,51 @@ UPDATES
 
 ### What each alert says
 
-| Alert | Example | Sent when |
+Wording changed on 2026-10-10 (David, after comparing Saturday's alerts with
+theScore's): what happened and when goes in the title, the play and the
+score in the body. Examples are from Stanford at Notre Dame that day.
+
+| Alert | Title / body | Sent when |
 |---|---|---|
-| Score (every / my team) | "Touchdown, Notre Dame. ND 21, STAN 7 · 2nd 4:12" | ESPN's score changes |
-| End of quarter | "End of 1st: ND 14, STAN 7" | End of the 1st, 2nd and 3rd quarters (the 2nd is the halftime alert when Halftime is also on, edge case 1) |
-| Halftime | "Halftime: ND 21, STAN 10" | ESPN's status reads halftime |
-| Close finish | "One-score game: ND 24, STAN 20 · 4th 4:51" | Once, the first time it's within 8 points with 5:00 or less left in the 4th |
-| Overtime | "Overtime: ND 27, STAN 27" | When OT starts (part of Close finish) |
-| Kickoff time set | "Notre Dame vs. BYU: Sat, Oct 17, 7:30 PM on NBC" (in the fan's own time zone) | A TBA game gets its time, or a set time moves |
-| Delay / postponed / canceled | "Weather delay: ND 7, STAN 3 · 2nd 9:15" / "Postponed: Notre Dame vs. Stanford" | ESPN's status changes to it |
+| Touchdown | "Notre Dame TD (13:06 1st)" / "N. James Jr. run for 2 yds, for a TD. PAT pending." + "Notre Dame 6, Stanford 0" | ESPN's score changes and holds a minute, or moves on by its own try |
+| The try | "Notre Dame XP good (13:06 1st)" / "Notre Dame 7, Stanford 0"; also "2-pt good", "XP missed", "2-pt failed" | Its own alert after the touchdown (see below) |
+| Field goal, safety | "Notre Dame FG (12:27 2nd)" / "S. Porath 33 yd FG GOOD." + the score | ESPN's score changes |
+| Both sides, or no single play | "Stanford scores (4:35 4th)" / "Score update (10:00 2nd)" + the score | Two scores between two looks |
+| Correction | "Score corrected (2:30 2nd)" / the score | A score taken off the board |
+| End of quarter | "End of 1st" / "Notre Dame 14, Stanford 0" | End of the 1st, 2nd and 3rd quarters (the 2nd is the halftime alert when Halftime is also on, edge case 1) |
+| Halftime | "Halftime" / "Notre Dame 37, Stanford 0" | ESPN's status reads halftime |
+| Close finish | "One-score game (4:51 4th)" / "Notre Dame 24, Stanford 20" | Once, the first time it's within 8 points with 5:00 or less left in the 4th |
+| Overtime | "Overtime" / "Notre Dame 27, Stanford 27" | When OT starts (part of Close finish) |
+| Kickoff | "Kickoff: Notre Dame vs. Stanford" / "On NBC" ("Underway now." when ESPN names no network) | The game starts |
+| Final | "Final: Notre Dame 49, Stanford 20" / "Notre Dame wins." | ESPN's status is final |
+| Kickoff time set | "Notre Dame vs. BYU: Sat, Oct 17, 7:30 PM on NBC" (in the fan's own time zone) | A TBA game gets its time, or a set time moves (not built yet) |
+| Delay / postponed / canceled | "Delay (9:15 2nd)" / the score; "Postponed" / "Notre Dame vs. Stanford has been postponed." | ESPN's status changes to it |
+
+**The touchdown and its try are two alerts** (David, 2026-10-10; this
+replaces the round-2 rule that held a touchdown up to 5 minutes and folded
+its extra point in):
+
+- The touchdown goes as soon as its score holds a minute. A touchdown that
+  moves on by its own +1 or +2 has held: it goes then, and the try waits its
+  own minute.
+- **Good tries come from the score:** +1 is "XP good", +2 is "2-pt good".
+- **Missed or failed tries come from ESPN's words**, because the score does
+  not move: the scoring play's closing parentheses ("(S. Porath PAT
+  MISSED)", "(Two-Point Pass Conversion Failed)"). If the words are unclear,
+  no try alert is sent rather than a wrong one. The Worker listens for the
+  try for 5 minutes after the touchdown.
+- **Seen together:** when the touchdown and its try first show up in the same
+  look, one alert says both ("... for a TD. XP good."), rather than two
+  buzzes in the same second. Likewise a touchdown whose miss ESPN already
+  shows ("... XP missed.").
+- The try alert replaces the touchdown alert on the lock screen (edge
+  case 4), and the phone still buzzes.
+- The play line is ESPN's, from the game summary, read only when the score
+  moves or a try is awaited. It is cleaned to plain text and cut at 120
+  characters. Without the summary the alert goes without the play, with the
+  clock of the minute it was seen.
+- iOS adds "from Suite" under the title. That is the phone labelling a web
+  app's notification and cannot be removed.
 
 ### Edge cases, and what happens
 
@@ -153,8 +193,8 @@ UPDATES
    eight cards in a 52-0 game. The phone still buzzes each time. Kickoff,
    close finish and the final get their own cards.
 5. **An overturned touchdown:** one correction, only to devices that got
-   the original ("Correction: the Notre Dame touchdown was overturned. ND 14,
-   STAN 7"). Never a silent second alert.
+   the original ("Score corrected (2:30 2nd)" / "Notre Dame 14, Stanford 7").
+   Never a silent second alert.
 6. **Close finish fires once.** If the lead grows and the game tightens again,
    no second alert. Overtime is its own single alert. A blowout never sends
    one.
