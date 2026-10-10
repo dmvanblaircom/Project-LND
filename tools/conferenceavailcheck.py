@@ -144,6 +144,23 @@ ok(code not in (0, None) and files(tmp) == [], "an archive that says it did not 
 shutil.rmtree(tmp)
 
 import copy
+print("a week that lists nobody survives the archive (Codex, #118)")
+clean = copy.deepcopy(FIXTURE["publish"])
+r = clean["3130"]
+r["footer"]["date"], r["publishDate"] = "2026-10-17", "2026-10-16"
+for g in r["games"]:
+    for row in g["rows"]:
+        row["status"] = "Available"
+nobody, seen = ca.build(clean, FIXTURE["archive"], OSU)
+ok(nobody["kickoffDate"] == "2026-10-17" and nobody["players"] == [] and nobody["current"] is True,
+   "published, listing nobody: a report that everyone is available")
+later, hist2 = ca.build({}, FIXTURE["archive"], OSU, seen)
+ok(later["kickoffDate"] == "2026-10-17" and later["players"] == [] and later["current"] is False,
+   "once it is no longer published, it stays the latest - the archive, which has no row for it, does not erase it")
+ok([x["kickoffDate"] for x in hist2] == ["2026-09-26", "2026-10-03", "2026-10-10", "2026-10-17"], "and the season keeps every game")
+ok(hist2[2]["heading"] == "Update 1" and hist2[2]["current"] is False,
+   "a game the archive covers is the archive's reading, not the copy on file")
+
 for what, rows in (("missing", None), ("empty", []), ("cut short", "short")):
     partial = copy.deepcopy(FIXTURE["publish"])
     side = [g for g in partial["3130"]["games"] if g["teamName"] == "Ohio St."][0]

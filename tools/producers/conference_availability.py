@@ -174,11 +174,24 @@ def from_archive(day, g):
             "game": g["game"], "players": players, "current": False}
 
 
-def build(publish, archive, names):
+FIELDS = ("reported", "effectiveAt", "heading", "kickoffDate", "game", "players")
+
+
+def build(publish, archive, names, previous=None):
     """-> (latest report, every report this season, oldest first). Reports
-    carry the snapshot's fields; the producer stamps who and when."""
+    carry the snapshot's fields; the producer stamps who and when.
+
+    The archive lists only players who were listed, so a week that listed
+    nobody has no row in it. `previous` (the history on file) is the base,
+    so such a week, read once while it was published, is never lost when
+    the published report moves on (Codex, #118); the archive, then this
+    week's published report, replace what they cover."""
+    season = {}
+    for r in previous or []:
+        if isinstance(r, dict) and r.get("kickoffDate"):
+            season[r["kickoffDate"]] = dict({k: r.get(k) for k in FIELDS}, current=False)
     games = archive_games(archive, names)
-    season = {day: from_archive(day, g) for day, g in games.items()}
+    season.update({day: from_archive(day, g) for day, g in games.items()})
     pub = published(publish, names)
     if pub:
         report, side, other = pub
@@ -220,8 +233,10 @@ def main():
     if not isinstance(publish, dict) or not isinstance(archive, dict) or not archive.get("loaded", True):
         sys.exit("conference availability: an unexpected answer - leaving files alone")
 
+    AV, AHIST = snap["file"], snap.get("history")
+    old_av, old_hist = load(AV, None), (load(AHIST, None) if AHIST else None)
     try:
-        latest, history = build(publish, archive, names)
+        latest, history = build(publish, archive, names, (old_hist or {}).get("reports"))
     except ValueError as e:
         sys.exit("conference availability: %s - leaving files alone" % e)
     if latest is None:
@@ -232,8 +247,6 @@ def main():
     stamp = {"schema": 1, "team": args.team, "capability": "availability", "tier": "official",
              "sourceUrl": off.get("availabilityReportIndex"), "sourceLabel": off.get("availabilityReportLabel"),
              "pdf": None, "parser": PARSER, "fetchedAt": now}
-    AV, AHIST = snap["file"], snap.get("history")
-    old_av, old_hist = load(AV, None), (load(AHIST, None) if AHIST else None)
     # A report keeps the time it was first seen: a run that reads it again
     # changes nothing, so it commits nothing.
     seen = {(r.get("game"), r.get("heading"), r.get("effectiveAt")): r.get("fetchedAt")
