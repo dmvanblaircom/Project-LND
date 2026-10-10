@@ -47,7 +47,7 @@ var STUB = "(" + function () {
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
   async function open(width) {
     var ctx = await browser.newContext({ viewport: { width: width || 390, height: 844 }, serviceWorkers: "block" });
-    var page = await ctx.newPage(), posts = [];
+    var page = await ctx.newPage(), posts = [], slow = { ms: 0 };
     await page.addInitScript(STUB);
     await page.route("**/*", function (route) {
       var u = route.request().url();
@@ -55,7 +55,11 @@ var STUB = "(" + function () {
                                                                          body: JSON.stringify({ key: "B" + "A".repeat(86) }) });
       if (/workers\.dev\/v1\/push\/(subscribe|unsubscribe)/.test(u)) {
         var body = JSON.parse(route.request().postData() || "{}");
-        posts.push({ path: /unsubscribe/.test(u) ? "unsubscribe" : "subscribe", options: body.options || null });
+        if (slow.ms && !/unsubscribe/.test(u)) return new Promise(function (r) { setTimeout(r, slow.ms); }).then(function () {
+          posts.push({ path: "subscribe", options: body.options || null, at: Date.now() });
+          return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ ok: true, confirmation: "updated" }) });
+        });
+        posts.push({ path: /unsubscribe/.test(u) ? "unsubscribe" : "subscribe", options: body.options || null, at: Date.now() });
         return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
                                body: JSON.stringify(/unsubscribe/.test(u) ? { ok: true } : { ok: true, confirmation: posts.filter(function (p) { return p.path === "subscribe"; }).length === 1 ? "sent" : "updated" }) });
       }
@@ -66,7 +70,7 @@ var STUB = "(" + function () {
     await page.goto(base + "/?team=notre-dame#settings");
     await page.waitForFunction(function () { return !document.getElementById("launch"); }, null, { timeout: 9000 }).catch(function () {});
     await page.waitForTimeout(600);
-    return { ctx: ctx, page: page, posts: posts };
+    return { ctx: ctx, page: page, posts: posts, slow: slow };
   }
   function state(page) {
     return page.evaluate(function () {
@@ -119,6 +123,21 @@ var STUB = "(" + function () {
   await a.page.click('#screenSettings [data-alerts="on"]'); await a.page.waitForTimeout(500);
   eq(a.posts[a.posts.length - 1].options.kickoff && a.posts[a.posts.length - 1].options.final, true, "on again: from the defaults, not from nothing");
   await a.ctx.close();
+
+  console.log("4b. Turn Off right after a change (Codex, #116)");
+  var c = await open();
+  await c.page.click('#screenSettings [data-alerts="on"]'); await c.page.waitForTimeout(500);
+  await c.page.click('#screenSettings [data-alert-pick="everything"]');
+  await c.page.click('#screenSettings [data-alerts="off"]'); await c.page.waitForTimeout(1200);
+  eq(c.posts.map(function (p) { return p.path; }), ["subscribe", "unsubscribe"], "a choice not yet sent is dropped: off stays off");
+  await c.page.click('#screenSettings [data-alerts="on"]'); await c.page.waitForTimeout(500);
+  c.slow.ms = 900; c.posts.length = 0;
+  await c.page.click('#screenSettings [data-alert-pick="key"]'); await c.page.waitForTimeout(700);   // the save is on its way ...
+  await c.page.click('#screenSettings [data-alerts="off"]'); await c.page.waitForTimeout(1800);      // ... and Turn Off is tapped
+  var last = c.posts[c.posts.length - 1], cs = await state(c.page);
+  ok(c.posts.length === 2 && c.posts[0].path === "subscribe" && last.path === "unsubscribe" && cs.on === "Off" && cs.note === "Game alerts are off.",
+     "a save already on its way finishes first; then off, and off it stays (" + c.posts.map(function (p) { return p.path; }).join(", ") + ")");
+  await c.ctx.close();
 
   console.log("5. 320 px");
   var n = await open(320);

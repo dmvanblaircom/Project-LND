@@ -65,14 +65,22 @@ export function validOptions(o) {
   out.scoring = o.scoring == null ? DEFAULTS.scoring : (["off", "mine", "all"].indexOf(o.scoring) >= 0 ? o.scoring : null);
   return out.scoring == null ? null : out;
 }
+// A subscription from before round 2 keeps exactly what it had: kickoff,
+// final, and a postponed or canceled game. In-game delays are a new kind of
+// alert, and a new kind starts off for those already signed up (the noise
+// rule, §2; Codex, #116).
+export const LEGACY = Object.assign({}, DEFAULTS, { delays: false, outcomes: true });
 function anyOn(o) { return o.kickoff || o.final || o.delays || o.quarters || o.halftime || o.close || o.scoring !== "off"; }
 // Whether a follower with options `o` gets this event (`d` its details).
 export function wants(o, ev, d) {
   if (ev === "kickoff") return o.kickoff;
   if (ev === "final") return o.final;
-  if (ev === "postponed" || ev === "canceled" || /^delay/.test(ev)) return o.delays;
-  if (/^score/.test(ev)) return o.scoring === "all" || (o.scoring === "mine" && d && d.scorer === "us");
-  if (/^fix/.test(ev)) return o.scoring === "all" || (o.scoring === "mine" && d && d.lost === "us");
+  if (ev === "postponed" || ev === "canceled") return o.delays || !!o.outcomes;
+  if (/^delay/.test(ev)) return o.delays;
+  // "mine" is any alert in which the team's own score moved, including one
+  // where both sides scored between two looks (Codex, #116)
+  if (/^score/.test(ev)) return o.scoring === "all" || (o.scoring === "mine" && !!d && (d.scorer === "us" || !!d.ours));
+  if (/^fix/.test(ev)) return o.scoring === "all" || (o.scoring === "mine" && !!d && (d.lost === "us" || !!d.ours));
   if (ev === "end:2") return o.quarters || o.halftime;
   if (/^end:/.test(ev)) return o.quarters;
   if (ev === "close" || ev === "ot") return o.close;
@@ -208,10 +216,7 @@ export function due(game, status, sent) {
   const t = (status && status.type) || {}, name = t.name || "", out = [];
   if (/POSTPONED/.test(name) && !sent.has("postponed")) out.push({ event: "postponed" });
   else if (/CANCELED|CANCELLED/.test(name) && !sent.has("canceled")) out.push({ event: "canceled" });
-  else if (/DELAY|SUSPENDED/.test(name) && t.state !== "post") {
-    const k = "delay:" + (t.state === "pre" ? 0 : (status.period || 0));
-    if (!sent.has(k)) out.push({ event: k });
-  }
+  else if (/DELAY|SUSPENDED/.test(name) && t.state !== "post") out.push({ event: "delay", transition: true });
   if (t.state === "in") {
     const p = status.period || 0, clock = typeof status.clock === "number" ? status.clock : null;
     if (p >= 5 && !sent.has("ot")) out.push({ event: "ot" });
@@ -409,7 +414,19 @@ async function detect(db, env, teamId, game, now, log) {
     const row = db.all("SELECT st FROM live WHERE team_id = ? AND game_id = ?", teamId, game.id)[0];
     told = row ? JSON.parse(row.st).base : null;
   }
+  // A delay is an alert each time play stops, not once a game or a quarter
+  // (Codex, #116): the game's "delayed now" mark, moved by compare-and-set,
+  // numbers each one.
+  const dk = "dly:" + teamId + ":" + game.id, dw = db.all("SELECT v FROM meta WHERE k = ?", dk)[0];
+  const dly = dw ? JSON.parse(dw.v) : { on: false, n: 0 }, delayed = /DELAY|SUSPENDED/.test(t.name || "") && t.state !== "post";
+  if (dly.on !== delayed) {
+    const nv = JSON.stringify({ on: delayed, n: dly.n + (delayed ? 1 : 0) });
+    const moved = dw ? db.run("UPDATE meta SET v = ? WHERE k = ? AND v = ?", nv, dk, dw.v).changes
+                     : db.run("INSERT OR IGNORE INTO meta (k, v) VALUES (?, ?)", dk, nv).changes;
+    if (moved && delayed) emit(db, teamId, game, "delay:" + (dly.n + 1), cur, x0, now, log, false);
+  }
   for (const d of due(game, status, sent)) {
+    if (d.transition) continue;                          // handled just above
     if (d.check && !(told && Math.abs(told.us - told.them) <= LIMITS.closeMargin)) continue;   // not close (yet)
     let scores = cur;
     if (d.event === "final") scores = await finalScores(env, teamId, game, fromSchedule);
@@ -427,8 +444,8 @@ function emit(db, teamId, game, ev, scores, x, now, log, late) {
   const data = JSON.stringify({ game, scores, x });
   let n = 0;
   for (const s of db.all("SELECT endpoint, opts FROM subs WHERE team_id = ?", teamId)) {
-    let o = null; try { o = validOptions(s.opts ? JSON.parse(s.opts) : null); } catch (e) { o = null; }
-    if (!wants(o || DEFAULTS, ev, x)) continue;
+    let o = null; try { o = s.opts ? validOptions(JSON.parse(s.opts)) : LEGACY; } catch (e) { o = null; }
+    if (!wants(o || LEGACY, ev, x)) continue;
     n += db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES (?, ?, ?, ?, 'due', 0, ?, ?)",
                 teamId, game.id, ev, s.endpoint, now, data).changes;
   }
@@ -477,7 +494,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
   const b = st.base, moved = cur.us !== b.us || cur.them !== b.them;
   if (!moved) next.pend = null;
   else if (cur.us < b.us || cur.them < b.them) {
-    out.push({ event: "fix:" + (row.seq + 1), scores: cur, x: { lost: cur.us < b.us ? "us" : "them" } });
+    out.push({ event: "fix:" + (row.seq + 1), scores: cur, x: { lost: cur.us < b.us ? "us" : "them", ours: cur.us !== b.us } });
     next.base = cur; next.pend = null; next.last = null;
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
@@ -490,7 +507,7 @@ export function scoreStep(db, teamId, game, status, cur, now, flush) {
       const fold = (pts === 1 || pts === 2) && st.last && st.last.kind === "td" && st.last.scorer === scorer && now - st.last.at <= LIMITS.fold;
       if (fold) next.last = null;
       else {
-        out.push({ event: "score:" + (row.seq + 1), scores: cur, x: { scorer, label: label(pts) } });
+        out.push({ event: "score:" + (row.seq + 1), scores: cur, x: { scorer, label: label(pts), ours: du > 0 } });
         next.last = { kind: pts >= 6 ? "td" : "other", scorer, at: now };
       }
       next.base = cur; next.pend = null;

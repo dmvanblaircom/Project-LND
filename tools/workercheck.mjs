@@ -394,6 +394,7 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
     fans[k] = await browserSub();
     await subscribe(db, e, Object.assign({ subscription: fans[k].sub, team: { id: "194", name: "Ohio State" } }, opts[k] ? { options: opts[k] } : {}), KICK - 3600e3);
   }
+  db.run("UPDATE subs SET opts = NULL WHERE endpoint = ?", fans.old.sub.endpoint);    // a row the round-1 Worker wrote
   e.pushes.length = 0;
   const heard = { every: [], mine: [], half: [], old: [] };
   async function at(min, period, name, clock, us, them) {
@@ -487,8 +488,27 @@ console.log("game alerts, round 2: a whole game, minute by minute, four fans");
   };
   await go(-5, "pre", 0, "STATUS_DELAYED", 0, 0); await go(-4, "pre", 0, "STATUS_DELAYED", 0, 0);
   await go(1, "in", 1, "STATUS_IN_PROGRESS", 0, 0); await go(30, "in", 2, "STATUS_IN_PROGRESS", 7, 3); await go(31, "in", 2, "STATUS_DELAYED", 7, 3); await go(32, "in", 2, "STATUS_DELAYED", 7, 3);
-  eq(heard, ["Ohio State at Iowa is delayed.", "Ohio State at Iowa has kicked off.", "Delay: Ohio State 7, Iowa 3 · 2nd 9:15"],
-     "a delay before kickoff (no kickoff alert until it starts) and one in the 2nd: once each"); }
+  await go(50, "in", 2, "STATUS_IN_PROGRESS", 7, 3); await go(55, "in", 2, "STATUS_DELAYED", 7, 3); await go(56, "in", 2, "STATUS_DELAYED", 7, 3);
+  eq(heard, ["Ohio State at Iowa is delayed.", "Ohio State at Iowa has kicked off.", "Delay: Ohio State 7, Iowa 3 · 2nd 9:15", "Delay: Ohio State 7, Iowa 3 · 2nd 9:15"],
+     "a new sign-up (delays on by default): a delay before kickoff (no kickoff alert until it starts), and each time play stops, even twice in one quarter (Codex, #116)"); }
+{ // A row from before round 2: what it had, and no new kind (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" } }, KICK);
+  db.run("UPDATE subs SET opts = NULL"); e.pushes.length = 0;
+  e.status = { period: 2, clock: 555, displayClock: "9:15", type: { state: "in", name: "STATUS_DELAYED" } }; e.scores = { 194: 7, 2294: 3 };
+  await tick(db, e, KICK + 30 * 60e3);
+  e.status = { period: 2, clock: 555, displayClock: "9:15", type: { state: "post", name: "STATUS_POSTPONED" } };
+  await tick(db, e, KICK + 40 * 60e3);
+  const got = []; for (const p of e.pushes) got.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
+  eq(got, ["Ohio State at Iowa has been postponed."], "a round-1 fan: no in-game delay alert (a new kind starts off), still told of a postponement"); }
+{ // Both sides scored between two looks: a my-team fan still hears it (Codex, #116).
+  const db = dbOf(), e = alertEnv({}), b = await browserSub();
+  await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" }, options: { scoring: "mine", kickoff: false } }, KICK); e.pushes.length = 0;
+  const s = (us, them) => { e.status = { period: 2, clock: 600, displayClock: "10:00", type: { state: "in", name: "STATUS_IN_PROGRESS" } }; e.scores = { 194: us, 2294: them }; };
+  s(7, 7); await tick(db, e, KICK + 30 * 60e3);
+  s(14, 10); await tick(db, e, KICK + 31 * 60e3); await tick(db, e, KICK + 32 * 60e3);
+  const got = []; for (const p of e.pushes) got.push((await openPush(p.init.body, b.kp, b.sub.keys.auth)).body);
+  eq(got, ["Score update. Ohio State 14, Iowa 10 · 2nd 10:00 [live]".replace(" [live]", "")], "both scored at once: My team's scores still gets it"); }
 
 { // First look mid-game (the Worker deployed at halftime): no backlog.
   const db = dbOf(), e = alertEnv({}), b = await browserSub();
