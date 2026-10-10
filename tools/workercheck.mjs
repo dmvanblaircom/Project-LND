@@ -802,6 +802,13 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
       for (const e of scoreStep(dbo, "87", g, { period: 2, displayClock: "5:00" }, { us, them: 0 }, T0 + m * 60e3, false, sum(list || []))) ho.push(words(e.event, team, g, e.scores, e.x).title);
     eq(ho, ["Notre Dame TD (14:48 2nd)", "Score corrected"], "a touchdown taken back: no try alert for it, only the correction"); }
 
+  { // A safety for Notre Dame while its try is still out: a safety, not "2-pt good" (Codex, #119).
+    const dbs = dbOf(), hs = [], sf = { team: { id: "87" }, homeScore: 8, awayScore: 0, period: { number: 2 }, clock: { displayValue: "12:00" }, scoringType: { abbreviation: "SF" }, text: "Team safety" };
+    const td = pl(2, "J. Walton run for 97 yds, for a TD", 6);
+    for (const [m, us, list] of [[0, 0, null], [1, 6, [td]], [2, 8, [td, sf]]])
+      for (const e of scoreStep(dbs, "87", g, { period: 2, displayClock: "12:00" }, { us, them: 0 }, T0 + m * 60e3, false, sum(list || []))) hs.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(hs, ["Notre Dame TD (14:48 2nd)", "Notre Dame Safety (12:00 2nd)"], "ESPN's play says safety: told as one"); }
+
   // The other words
   const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
   eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),

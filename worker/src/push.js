@@ -669,7 +669,11 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     const x = { scorer, ours: du > 0 };
     if (scorer !== "both") {
       // the try: one or two points straight onto the awaited touchdown
-      const isTry = (pts === 1 || pts === 2) && awaitingTry(next, now) && next.tryq.side === scorer && b[scorer] === next.tryq.score;
+      // - unless ESPN's own play for the new points is a safety or a field
+      // goal (Codex, #119)
+      const own = playFor(plays, scorer, b[scorer], c[scorer]);
+      const isTry = (pts === 1 || pts === 2) && awaitingTry(next, now) && next.tryq.side === scorer && b[scorer] === next.tryq.score &&
+                    !(own && own[scorer] === c[scorer] && (own.type === "SF" || own.type === "FG"));
       if (isTry) {
         x.kind = pts === 1 ? "xp" : "2pt";
         Object.assign(x, playX(playFor(plays, scorer, b[scorer] - 6, b[scorer])), { play: undefined });
