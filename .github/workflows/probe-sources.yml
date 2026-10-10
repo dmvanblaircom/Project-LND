@@ -18,7 +18,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Probe
         run: python3 tools/probe_sources.py tools/probe-urls.txt
-      - name: Public embed in a browser (probe branch only)
+      - name: Public JSON shape (probe branch only)
         run: |
-          npm i --no-save playwright@1.48.2 >/dev/null 2>&1 && npx playwright install chromium >/dev/null 2>&1
-          node tools/probe/hdi.mjs
+          B=https://app.hdintelligence.com
+          for k in publish archive; do
+            curl -sS -X POST -H 'Content-Type: application/json' -A "Mozilla/5.0" "$B/api/get-$k-public" -d '{"sport":"Football","organization":"B10","conference":"B10"}' -o $k.json -w "$k HTTP %{http_code} %{size_download}\n"
+          done
+          python3 tools/probe/hdi_shape.py publish.json archive.json
