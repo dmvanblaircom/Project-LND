@@ -137,3 +137,11 @@ rankings scan-2237
 401858483 scan-osu-2237
 401856717 scan-x1-2237
 401856718 scan-x2-2237
+scoreboard-20261010 scan-2323
+schedule-87 scan-nd-2323
+schedule-194 scan-osu-2323
+rankings scan-2323
+401858257 scan-nd-2323
+401858483 scan-osu-2323
+401856717 scan-x1-2323
+401856718 scan-x2-2323
