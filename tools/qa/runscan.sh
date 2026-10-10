@@ -27,7 +27,10 @@ for e in j.get("events",[]):
     c=e["competitions"][0]; st=c["status"]["type"]["state"]
     ids={str(x.get("id") or x["team"]["id"]) for x in c["competitors"]}
     if ids & {"87","194"}:
-        if st in ("in","post"): out.append(e["id"]+" scan-"+("nd" if "87" in ids else "osu"))
+        # started by now, even if the last board still said pregame (Oct 10:
+        # a scan just after kickoff had no summary and showed "Loading the game")
+        started = st in ("in","post") or (e.get("date") or "9") <= __import__("datetime").datetime.utcnow().strftime("%Y-%m-%dT%H:%MZ")
+        if started: out.append(e["id"]+" scan-"+("nd" if "87" in ids else "osu"))
     elif st=="in" and any((x.get("curatedRank") or {}).get("current",99)<=25 for x in c["competitors"]):
         other.append(e["id"])
 for i,x in enumerate(other[:2]): out.append(x+" scan-x%d"%(i+1))
