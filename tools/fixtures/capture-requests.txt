@@ -88,3 +88,9 @@ scoreboard-20261010 scan-1652
 schedule-87 scan-nd-1652
 schedule-194 scan-osu-1652
 rankings scan-1652
+scoreboard-20261010 scan-1741
+schedule-87 scan-nd-1741
+schedule-194 scan-osu-1741
+rankings scan-1741
+401858481 scan-x1-1741
+401856716 scan-x2-1741
