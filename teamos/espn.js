@@ -311,7 +311,9 @@ TeamOS.espn = (function () {
       // which left the model unable to tell "0-0 in progress" from "no
       // score yet".
       us: scoreOf(us), them: scoreOf(them),
-      won: us?us.winner===true:null,
+      // a final read from the end of the 4th (quarterBreak) comes before
+      // ESPN sets a winner: the score says who won (Codex, #117)
+      won: us ? (qb && qb.state==="post" ? Number(scoreOf(us)) > Number(scoreOf(them)) : us.winner===true) : null,
       // The postseason (W16): a bowl or playoff game, and its stage.
       postseason: isPostseason(ev),
       stage: stageOf(comp)

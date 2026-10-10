@@ -309,6 +309,13 @@ console.log(" between quarters, as the fan reads them (David, Oct 9-10, Iowa Sta
      "end of the 4th, tied: not Final - overtime is next");
   eq(one({ period: 1, displayClock: "15:00", type: t("STATUS_IN_PROGRESS", "15:00 - 1st") }, "J. Smith kickoff for 65 yds"), ["15:00 - 1st", 1, "15:00", "in"],
      "the real start of the game stays 15:00 - 1st");
+  // The team's own game (schedule), ended at the 4th before ESPN calls it.
+  var sch = JSON.parse(read("tools/fixtures/espn-schedule-nd-oct08.json")), ev = sch.events[0];
+  var c0 = ev.competitions[0];
+  c0.status = { period: 4, displayClock: "0:00", type: { state: "in", name: "STATUS_END_PERIOD", shortDetail: "End of 4th" } };
+  c0.competitors.forEach(function (c) { c.score = { value: String(c.team.id) === "87" ? 31 : 20 }; delete c.winner; });
+  var fin = TeamOS.espn.schedule({ events: [ev] }, TeamOS.createTeam(TEAM_CONFIG.team), TEAM_CONFIG)[0];
+  eq([fin.state, fin.status, fin.detail, fin.won], ["post", "final", "Final", true], "the team's game ended 31-20 before ESPN sets a winner: Final, won (Codex, #117)");
 })();
 
 console.log("scoreboard(), a real week");
