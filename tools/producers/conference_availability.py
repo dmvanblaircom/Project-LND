@@ -151,10 +151,11 @@ def _date(s):
 def from_published(report, side, other, game_label):
     players = []
     for row in side.get("rows") or []:
-        # Every published row carries a status, "Available" included: one
-        # without is a changed answer, never a player who is fine.
-        if not isinstance(row, dict) or not str(row.get("status") or "").strip():
-            raise ValueError("a player row in this week's report has no status")
+        # Every published row carries a name and a status, "Available"
+        # included: a row without either is a changed answer, never a
+        # player who is fine or a nameless entry (Codex, #118).
+        if not isinstance(row, dict) or not all(str(row.get(k) or "").strip() for k in ("name", "status")):
+            raise ValueError("a player row in this week's report has no name or no status")
         key = status_key(row.get("status"))
         if key:
             players.append(dict(player(row.get("name")), status=key, detail=""))
@@ -174,6 +175,8 @@ def from_archive(day, g):
                 continue                      # not filed yet, or not filed at all
             kinds.add(kind)
             key = status_key(row.get(kind))
+            if key and not str(row.get("Player") or "").strip():
+                raise ValueError("a listed player in the archive has no name")
             if key:
                 players.append({"pos": "", "no": str(row.get("Number") or "").lstrip("#"),
                                 "name": str(row.get("Player") or "").strip(), "status": key, "detail": ""})

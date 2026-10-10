@@ -186,6 +186,24 @@ for what, rows in (("missing", None), ("empty", []), ("cut short", "short")):
        "a report whose player rows are %s is a partial answer, not 'nobody listed': nothing written (Codex, #118)" % what)
     shutil.rmtree(tmp)
 
+for what in ("removed", "blank"):
+    noname = copy.deepcopy(FIXTURE["publish"])
+    for g in noname["3130"]["games"]:
+        for row in g["rows"]:
+            if what == "removed":
+                del row["name"]
+            else:
+                row["name"] = " "
+    tmp, code, out = produce([noname, FIXTURE["archive"]])
+    ok(code not in (0, None) and files(tmp) == [], "rows whose player name is %s are refused (Codex, #118)" % what)
+    shutil.rmtree(tmp)
+anon = copy.deepcopy(FIXTURE["archive"])
+for row in anon["data"]:
+    row.pop("Player", None)
+tmp, code, out = produce([{}, anon])
+ok(code not in (0, None) and files(tmp) == [], "an archive whose listed players have no names is refused too")
+shutil.rmtree(tmp)
+
 for what, field in (("removed", None), ("renamed", "availability"), ("blank", "")):
     nostatus = copy.deepcopy(FIXTURE["publish"])
     for g in nostatus["3130"]["games"]:
