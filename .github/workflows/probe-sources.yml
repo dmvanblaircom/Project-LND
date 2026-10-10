@@ -20,13 +20,10 @@ jobs:
         run: python3 tools/probe_sources.py tools/probe-urls.txt
       - name: Raw contexts (probe branch only)
         run: |
-          curl -sSL -A "Mozilla/5.0" "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx" -o hub.html || true
-          grep -oiE '<iframe[^>]*>' hub.html | sed 's/&amp;/\&/g' | grep -vi 'display:none' | head
-          SRC=$(grep -oiE '<iframe[^>]*embedded-app[^>]*>' hub.html | grep -oiE 'src="[^"]*"' | head -1 | sed 's/^src="//;s/"$//;s/&amp;/\&/g')
-          echo "SRC=$SRC"
-          python3 -c "import sys,urllib.parse as u;q=u.parse_qs(u.urlparse(sys.argv[1]).query);print('decoded:',q.get('url',[sys.argv[1]])[0])" "$SRC" | tee dec.txt
-          U=$(sed 's/^decoded: //' dec.txt)
-          curl -sSL -A "Mozilla/5.0" "$U" -o app.html -w "app HTTP %{http_code} %{content_type} %{size_download}\n" || true
-          head -c 3000 app.html; echo
-          grep -oiE '(src|href)="[^"]+"' app.html | sort -u | head -40
-          grep -oiE '"[^"]*(api|\.json|graphql|\.pdf)[^"]*"' app.html | sort -u | head -40
+          B=https://app.hdintelligence.com
+          curl -sSL -A "Mozilla/5.0" "$B/?source=B10&sport=Football&conf=B10&type=archive" -o app.html
+          JS=$(grep -oE 'assets/index-[^"]+\.js' app.html | head -1); echo "JS=$JS"
+          curl -sSL -A "Mozilla/5.0" "$B/$JS" -o app.js; wc -c app.js
+          echo "--- base URLs"; grep -oE 'https?://[a-zA-Z0-9._-]+(/[a-zA-Z0-9._/-]*)?' app.js | grep -viE 'w3\.org|reactjs|github|mozilla|googleapis|descope\.com/(docs)|fb\.me|npm' | sort | uniq -c | sort -rn | head -40
+          echo "--- public/embed/archive contexts"; grep -oE '.{0,140}(isPublicEmbedRequest|public[A-Za-z]*Report|/public|archive|type===?"report").{0,200}' app.js | head -30
+          echo "--- fetch paths"; grep -oE '`[^`]{0,40}/(api|v1|public|reports?|archive)[^`]{0,120}`|"/(api|v1|public|reports?|archive)[^"]{0,120}"' app.js | sort -u | head -60
