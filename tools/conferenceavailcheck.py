@@ -173,5 +173,16 @@ for what, rows in (("missing", None), ("empty", []), ("cut short", "short")):
        "a report whose player rows are %s is a partial answer, not 'nobody listed': nothing written (Codex, #118)" % what)
     shutil.rmtree(tmp)
 
+for what, date in (("missing", None), ("unreadable", "Oct 10")):
+    nodate = copy.deepcopy(FIXTURE["publish"])
+    if date is None:
+        del nodate["3130"]["footer"]["date"]
+    else:
+        nodate["3130"]["footer"]["date"] = date
+    tmp, code, out = produce([nodate, FIXTURE["archive"]])
+    ok(code not in (0, None) and files(tmp) == [],
+       "a report whose game date is %s is refused: nothing could retire it after the game (Codex, #118)" % what)
+    shutil.rmtree(tmp)
+
 print("\n%s" % ("all passed" if not failures else "%d FAILED" % failures))
 sys.exit(1 if failures else 0)

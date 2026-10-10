@@ -33,7 +33,7 @@ Rules, each tested by tools/conferenceavailcheck.py:
     `current: false`, so it is shown as that game's report but never marks
     a player out on the roster (Codex, #118).
   * A failed fetch, a status no rule reads, or a report missing its player
-    rows changes nothing and exits non-zero: the last good files stay in
+    rows or its game date changes nothing and exits non-zero: the last good files stay in
     place and the failure is loud.
 """
 import argparse
@@ -111,6 +111,10 @@ def published(payload, names):
     if not found:
         return None
     found.sort(key=lambda x: x[0], reverse=True)
+    if not _date((found[0][1].get("footer") or {}).get("date")):
+        # The game's date is what retires the report once the game is played
+        # (TeamOS.roster); a report without one is not a report we can use.
+        raise ValueError("this week's report has no readable game date")
     rows = found[0][2].get("rows")
     if not isinstance(rows, list) or len(rows) < MIN_ROWS:
         raise ValueError("this week's report has %s player rows - not a whole report"
@@ -197,7 +201,7 @@ def build(publish, archive, names, previous=None):
         report, side, other = pub
         day = _date((report.get("footer") or {}).get("date"))
         label = games.get(day, {}).get("game") if day else None
-        season[day or ("~" + (report.get("publishDate") or ""))] = dict(from_published(report, side, other, label), current=True)
+        season[day] = dict(from_published(report, side, other, label), current=True)
     history = [season[k] for k in sorted(season)]
     return (history[-1] if history else None), history
 
