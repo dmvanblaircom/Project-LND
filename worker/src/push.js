@@ -701,7 +701,9 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
     next.hist = h;
     n += 1;
     out.push({ event: "fix:" + n, scores: fixed, x: { lost: cur.us < b.us ? "us" : "them", ours: fixed.us !== b.us, of } });
-    next.base = fixed; next.pend = null; next.tryq = null;
+    next.base = fixed; next.pend = null;
+    // the wait for a try ends only if this takes back its touchdown (Codex, #119)
+    if (next.tryq && fixed[next.tryq.side] < next.tryq.score) next.tryq = null;
   } else {
     const held = st.pend && st.pend.us === cur.us && st.pend.them === cur.them;
     const pd = st.pend;

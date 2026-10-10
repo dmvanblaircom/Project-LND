@@ -782,6 +782,12 @@ console.log("game alerts: theScore's shape (David, Oct 10), on Stanford at Notre
       for (const e of scoreStep(db8, "87", g, { period: 2, displayClock: "5:00" }, { us, them: 0 }, T0 + m * 60e3, false, null)) h8.push(words(e.event, team, g, e.scores, e.x).title);
     eq(h8, ["Notre Dame TD", "Notre Dame FG"], "a pending score the game moved on from has held"); }
 
+  { // Stanford's earlier field goal taken back while Notre Dame's try is awaited: the wait goes on (Codex, #119).
+    const db9 = dbOf(), h9 = [], td = pl(2, "J. Walton run for 97 yds, for a TD", 6);
+    for (const [m, us, them, list] of [[0, 0, 3, null], [1, 6, 3, [td]], [2, 6, 3, [td]], [3, 6, 0, [td]], [4, 6, 0, [pl(2, null, 6)]]])
+      for (const e of scoreStep(db9, "87", g, { period: 2, displayClock: "13:00" }, { us, them }, T0 + m * 60e3, false, list && sum(list.map((q) => Object.assign({}, q, { awayScore: them }))))) h9.push(words(e.event, team, g, e.scores, e.x).title);
+    eq(h9, ["Notre Dame TD (14:48 2nd)", "Score corrected", "Notre Dame XP missed (14:48 2nd)"], "a correction of the other side's score does not end the wait for our try"); }
+
   // The other words
   const w = (ev, sc, x, gm) => { const r = words(ev, team, gm || g, sc, x); return r.title + " | " + r.body; };
   eq([w("kickoff", null, {}), w("kickoff", null, {}, Object.assign({}, g, { network: undefined })), w("end:2", { us: 37, them: 0 }, {}), w("end:3", { us: 44, them: 7 }, {}),
