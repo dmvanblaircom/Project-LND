@@ -1,11 +1,7 @@
-# Big Ten availability reports, round 2 (2026-10-10): bigten.org is a
-# Sidearm site now (/documents/YYYY/M/D/*.pdf). Find the report's link from
-# the coverage of Ohio State's first report (Illinois, Sept.) and the
-# announcement.
-https://www.landgrantholyland.com/ohio-state-news/122448/ohio-state-football-availability-report-illinois-game | bigten|availability
-https://scarletandgame.com/ohio-state-s-first-big-ten-availability-report-shows-3-players-out-5-questionable-vs-illinois | bigten|availability
-https://www.espn.com/college-football/story/_/id/49755323/big-ten-release-4-player-availability-reports-per-week | bigten\.org|published|posted
-https://bigten.org/sports/fb/availability | availab|report|pdf
-https://bigten.org/fb/availability | availab|report|pdf
-https://bigten.org/sports/fb/availability-report | availab|report|pdf
-https://bigten.org/availability | availab|report|pdf
+# Big Ten availability reports, round 3 (2026-10-10): the conference's own
+# announcement and coverage that reproduces a 2026 report.
+https://bigten.org/news/2026/8/28/big-ten-announces-changes-to-football-availability-reporting-process.aspx | availab|report|\.pdf
+https://www.onthebanks.com/rutgers-football/56617/big-ten-availability-report-for-rutgers-vs-indiana | bigten|\.pdf|availab
+https://www.elevenwarriors.com/ohio-state-football/2026/09/164093/injury-report-phillip-daniels-zion-grady-james-smith-legend-bey-bennett-christian | bigten|\.pdf|availab
+https://www.dispatch.com/story/sports/college/football/2026/09/23/ohio-state-availability-report-te-bennett-christian-out-vs-illinois/91902368007/ | bigten|\.pdf|availab
+https://bigten.org/sports/fb/schedule | availab|\.pdf
