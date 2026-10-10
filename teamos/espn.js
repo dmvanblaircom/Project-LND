@@ -199,6 +199,30 @@ TeamOS.espn = (function () {
     return { status: status, hasStarted: started, period: period, clock: str(stat.displayClock) };
   }
 
+  // A quarter that has ended, as the fan should read it until the next
+  // play (David, Oct 9-10, Iowa State-BYU: ESPN kept "15:00 - 1st" after
+  // "End of 1st quarter."):
+  //   end of the 1st -> "15:00 - 2nd";  end of the 3rd -> "15:00 - 4th";
+  //   end of the 2nd -> "Halftime" until the 3rd starts;
+  //   end of the 4th -> "Final", when the score is not tied (a tie is
+  //   overtime: left as ESPN says).
+  // A quarter has ended when ESPN's status says so (END_PERIOD) or its last
+  // play is the quarter's end. A real start of a quarter ("15:00 - 1st" at
+  // kickoff) has neither, and is left as it is.
+  var ORD = ["", "1st", "2nd", "3rd", "4th"];
+  function quarterBreak(stat, lastText, a, b){
+    var t = (stat && stat.type) || {}, p = Number(stat && stat.period) || 0;
+    if (t.state !== "in" || p < 1 || p > 4 || /HALFTIME/i.test(String(t.name || ""))) return null;
+    var ended = /END_PERIOD/i.test(String(t.name || "")) ||
+                new RegExp("^\\s*end of (the )?" + ORD[p] + " quarter", "i").test(String(lastText || ""));
+    if (!ended) return null;
+    if (p === 1 || p === 3) return { period: p + 1, clock: "15:00", detail: "15:00 - " + ORD[p + 1] };
+    if (p === 2) return { period: 2, clock: "0:00", detail: "Halftime" };
+    var x = Number(a), y = Number(b);
+    if (a == null || b == null || a === "" || b === "" || isNaN(x) || isNaN(y) || x === y) return null;
+    return { period: 4, clock: "0:00", detail: "Final", state: "post", status: "final" };
+  }
+
   // A competitor's overall record, "3-0", from whichever shape the endpoint
   // uses: the schedule's record[] or the scoreboard's records[]. Absent is
   // null - an optional field the Suite leaves out (0022 #3).
@@ -252,6 +276,8 @@ TeamOS.espn = (function () {
       if(String(id)===teamId) us=c; else them=c; });
     var st=(comp.status&&comp.status.type)||(ev.status&&ev.status.type)||{};
     var gs=gameStatus(comp.status||ev.status);
+    var qb=quarterBreak(comp.status||ev.status, "", us&&us.score!=null?(us.score.value!=null?us.score.value:us.score):null,
+                        them&&them.score!=null?(them.score.value!=null?them.score.value:them.score):null);
     var oppLong = them&&them.team ? (them.team.displayName||them.team.shortDisplayName) : "";
     return {
       id:ev.id, date:ev.date, timeSet:timeIsSet(ev.date, comp),
@@ -271,8 +297,8 @@ TeamOS.espn = (function () {
       odds: odds(comp),
       series: seriesFor(config.series, oppLong),
       seriesKind: (seriesOf(config.series, oppLong)||{}).kind||null,
-      state: st.state||"pre", detail: st.shortDetail||"",
-      status: gs.status, hasStarted: gs.hasStarted, period: gs.period, clock: gs.clock,
+      state: (qb && qb.state) || st.state||"pre", detail: (qb && qb.detail) || st.shortDetail||"",
+      status: (qb && qb.status) || gs.status, hasStarted: gs.hasStarted, period: qb ? qb.period : gs.period, clock: qb ? qb.clock : gs.clock,
       // A postponed game's replacement date, { date, timeSet }, only when a
       // source states one trustworthily (decision 0022 #5). ESPN does not:
       // a postponed event keeps a date that may be the original or the new
@@ -363,13 +389,15 @@ TeamOS.espn = (function () {
     var gs=gameStatus(comp.status);
     var sit=comp.situation||{};
     var state=st.state||"pre";
+    var qb=quarterBreak(comp.status, pick(sit,["lastPlay","text"],""), home&&home.score, away&&away.score);
+    if(qb && qb.state) state=qb.state;
     return {
       id:      str(ev.id),
       date:    ev.date,
       timeSet: timeIsSet(ev.date, comp),
       state:   state,
-      status:  gs.status, hasStarted: gs.hasStarted, period: gs.period, clock: gs.clock,
-      detail:  str(st.shortDetail),
+      status:  (qb && qb.status) || gs.status, hasStarted: gs.hasStarted, period: qb ? qb.period : gs.period, clock: qb ? qb.clock : gs.clock,
+      detail:  qb ? qb.detail : str(st.shortDetail),
       venue:   comp.venue ? str(comp.venue.fullName) : "",
       net:     broadcast(comp),
       odds:    odds(comp),
