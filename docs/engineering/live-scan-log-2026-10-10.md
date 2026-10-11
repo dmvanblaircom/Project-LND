@@ -128,3 +128,8 @@ items; the evening scans continue on Top 25 and Home until 11:30 PM ET.
 - Notre Dame and Ohio State finals unchanged. Game @320 (Ohio State): Final hero and Box Score render; the header's "OHIO STATE" wraps to two lines at 320, the rule decision 0034 records.
 - Top 25: LSU-Kentucky and USC-Penn State in the 3rd, Kansas-Utah in the 2nd, Georgia-Alabama at halftime with the football on Georgia (#3, still open). Last-play lines and clocks agree with the scoreboard.
 - Scanner: only the home schedule venue ellipsis (#2). No new items.
+
+### 0230Z (10:30 PM ET) - both teams final; night ranked games in the 4th
+- Notre Dame and Ohio State finals unchanged.
+- Top 25: LSU-Kentucky, Georgia-Alabama and USC-Penn State in the 4th, Kansas-Utah in the 3rd; Boise State at Fresno State due 10:30 PM. Clocks, possession and last-play lines agree with the scoreboard; no halftime cards this pass.
+- Scanner: only the home schedule venue ellipsis (#2). No new items.
