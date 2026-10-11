@@ -5,6 +5,11 @@ name: Check the stylesheet
 
 on:
   push:
+    # The live scan and source probes push captured provider data to their
+    # own branches every few minutes on a Saturday; they hold no app change,
+    # and raw live data is not a fixture to gate on (16 failure emails,
+    # 2026-10-10). Their findings reach main through a PR, which runs here.
+    branches-ignore: ["scan/**", "probe/**"]
     paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", "worker/**", ".github/workflows/**"]
   # A pull request into main runs the release gate below before it can merge.
   pull_request:
