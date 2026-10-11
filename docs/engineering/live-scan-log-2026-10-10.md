@@ -123,3 +123,8 @@ items; the evening scans continue on Top 25 and Home until 11:30 PM ET.
 - Notre Dame Final 58-7 (6-0), Ohio State Final 45-16 (5-1). Home heroes, Game Recap, Top 25, schedule and roster render cleanly at 390 and 320.
 - Top 25 live cards: LSU-Kentucky at halftime, Georgia-Alabama, USC-Penn State and Kansas-Utah in the 2nd. The football still shows at halftime (Kentucky): #3, still open.
 - Scanner: only the home schedule venue ellipsis (#2). No new items.
+
+### 0144Z (9:44 PM ET) - both teams final; night ranked games live
+- Notre Dame and Ohio State finals unchanged. Game @320 (Ohio State): Final hero and Box Score render; the header's "OHIO STATE" wraps to two lines at 320, the rule decision 0034 records.
+- Top 25: LSU-Kentucky and USC-Penn State in the 3rd, Kansas-Utah in the 2nd, Georgia-Alabama at halftime with the football on Georgia (#3, still open). Last-play lines and clocks agree with the scoreboard.
+- Scanner: only the home schedule venue ellipsis (#2). No new items.
