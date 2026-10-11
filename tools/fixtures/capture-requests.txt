@@ -169,3 +169,11 @@ rankings scan-0144
 401858483 scan-osu-0144
 401856715 scan-x1-0144
 401856712 scan-x2-0144
+scoreboard-20261010 scan-0230
+schedule-87 scan-nd-0230
+schedule-194 scan-osu-0230
+rankings scan-0230
+401858257 scan-nd-0230
+401858483 scan-osu-0230
+401856715 scan-x1-0230
+401856712 scan-x2-0230
