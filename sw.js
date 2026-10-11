@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-11roster1";
+var VERSION = "suite-2026-10-11roster2";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -347,6 +347,16 @@ function dataKey(url) {
   return u.href;
 }
 
+// A copy kept before its address gained a `limit` still answers offline:
+// the roster asks for ?limit=200 since 2026-10-11, and a fan's last roster
+// was kept without it (Codex, #122).
+function legacyKey(key) {
+  var u = new URL(key);
+  if (!u.searchParams.has("limit")) return null;
+  u.searchParams.delete("limit");
+  return u.href;
+}
+
 function withHeader(res, name, value) {
   var h = new Headers(res.headers);
   h.set(name, value);
@@ -420,7 +430,9 @@ self.addEventListener("fetch", function (e) {
         }
         return res;
       }).catch(function () {
-        return caches.open(DATA).then(function (c) { return c.match(key); }).then(function (hit) {
+        return caches.open(DATA).then(function (c) {
+          return c.match(key).then(function (hit) { var old = legacyKey(key); return hit || (old ? c.match(old) : hit); });
+        }).then(function (hit) {
           if (!hit) throw new Error("offline and nothing cached for " + key);
           // when it was kept; "unknown" rather than a made-up time
           return withHeader(hit, "X-IW-Cached",
