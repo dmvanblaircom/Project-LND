@@ -133,3 +133,8 @@ items; the evening scans continue on Top 25 and Home until 11:30 PM ET.
 - Notre Dame and Ohio State finals unchanged.
 - Top 25: LSU-Kentucky, Georgia-Alabama and USC-Penn State in the 4th, Kansas-Utah in the 3rd; Boise State at Fresno State due 10:30 PM. Clocks, possession and last-play lines agree with the scoreboard; no halftime cards this pass.
 - Scanner: only the home schedule venue ellipsis (#2). No new items.
+
+### 0317Z (11:17 PM ET) - last scan; both teams final
+- Notre Dame Final 58-7 (6-0), Ohio State Final 45-16 (5-1), unchanged.
+- Top 25: Kansas-Utah in the 4th and Boise State-Fresno State in the 1st are live with clocks, possession and last plays that agree with the scoreboard; the rest of the slate is final (LSU-Kentucky in overtime).
+- Scanner: only the home schedule venue ellipsis (#2). No new items. Scanning ends here (the window closes at 11:30 PM ET).
