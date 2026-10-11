@@ -1,2 +1,2 @@
-# W19 live test (2026-10-10 19:51Z): did the kickoff alert go out?
+# W19 live test (2026-10-11 00:00Z): after the finals - finals sent once, nothing stuck; first night of the theScore-style alerts
 https://suite-api.dmvanblaircom.workers.dev/v1/push/status | kickoff|sent|deliver
