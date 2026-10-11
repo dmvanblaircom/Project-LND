@@ -153,6 +153,25 @@ function ok(cond, what) {
   ok(!sr.banner, "once the network answers, the warning is gone");
   await d.ctx.close();
 
+  console.log("4b. a copy kept before the roster's address gained ?limit=200 (Codex, #122)");
+  var d2 = await open();
+  await d2.page.goto(base + "/?team=notre-dame#home");
+  await d2.page.waitForTimeout(800);
+  await d2.page.evaluate(function (body) {
+    var threeDays = new Date(Date.now() - 3 * 864e5).toUTCString();
+    var old = TeamOS.espn.rosterUrl(TEAM_CONFIG).replace(/\?limit=\d+$/, "");
+    return caches.open("iw-data-test").then(function (cache) {
+      return cache.put(old, new Response(body, { headers: { "content-type": "application/json", date: threeDays } }));
+    });
+  }, fixture("espn-roster-nd-sep24.json").toString());
+  d2.st.mode = "fail";
+  await d2.page.evaluate(function () { location.hash = "#roster/roster"; });
+  await d2.page.reload();
+  await d2.page.waitForTimeout(1500);
+  var sd2 = await screen(d2.page);
+  ok(sd2.rows > 50 && /outdated/i.test(sd2.banner), "ESPN down: the roster kept under the old address is shown, called old (" + sd2.rows + " rows)");
+  await d2.ctx.close();
+
   console.log("5. what a view does not display does not warn on it");
   var e = await open();
   e.st.mode = "fail";                        // no roster at all, no copy

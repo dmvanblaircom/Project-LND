@@ -1241,8 +1241,12 @@ TeamOS.espn = (function () {
       });
       return { events: events };
     },
+    // ESPN's site roster stops at 100 athletes, alphabetically, unless asked
+    // for more: Notre Dame's ran out at Viliamu-Asa (2026-10-10, a fan in the
+    // stadium: Mark Zackery IV on the depth chart, not on the roster).
+    // 200 covers any FBS roster (Notre Dame 111, Ohio State 119 that day).
     rosterUrl: function(config){
-      return SITE+"/teams/"+config.sources.espn.teamId+"/roster";
+      return SITE+"/teams/"+config.sources.espn.teamId+"/roster?limit=200";
     },
     teamUrl: function(config){
       return SITE+"/teams/"+config.sources.espn.teamId;

@@ -546,9 +546,15 @@ function rosterModel(route, views){
   };
 }
 // The last good copy the worker kept, with when it was fetched.
+// A copy kept before the address gained its `limit` (the roster, 2026-10-11)
+// still counts (Codex, #122).
 function cachedCopy(url){
   if(typeof caches==="undefined") return Promise.reject(0);
   return caches.match(url).then(function(r){
+    if(r || !/[?&]limit=/.test(url)) return r;
+    var u=new URL(url, location.href); u.searchParams.delete("limit");
+    return caches.match(u.href);
+  }).then(function(r){
     if(!r) throw 0;
     var at=Date.parse(r.headers.get("X-IW-Stored")||r.headers.get("date")||"");
     return r.json().then(function(d){ return { data:d, at: isNaN(at) ? null : at }; });
