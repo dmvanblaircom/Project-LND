@@ -111,3 +111,10 @@ the Settings gear in production (#120, 22:57Z): it sits at the bar's right
 edge on both teams' screens, the team name on one line at 390. Repeats: #5
 ("#5 OHIO STATE" near the clock, scanner Error, not overlapping) and #2. No
 new items.
+
+### 0010Z (8:10 PM ET) - both teams final
+Notre Dame Final 58-7 (6-0), Ohio State Final 45-16 (5-1): both Homes show
+the final with the record moved on and Game Recap. Ohio State's next game
+reads "Time TBA" (ESPN has no time yet). Only repeats of #2 (venues). Game
+alerts: both finals sent once, all 34 deliveries done (W19, PR #121). No new
+items; the evening scans continue on Top 25 and Home until 11:30 PM ET.
