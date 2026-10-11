@@ -152,8 +152,8 @@ var PLEAK = /displayName|fullName|displayHeight|displayWeight|experience|birthPl
 
 console.log("rosterUrl / teamUrl");
 eq(TeamOS.espn.rosterUrl(TEAM_CONFIG),
-   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/87/roster",
-   "roster URL unchanged (SW cache key)");
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/87/roster?limit=200",
+   "roster URL: every athlete (ESPN stops at 100 without a limit); the worker's cache matches it across the query (ignoreSearch)");
 eq(TeamOS.espn.teamUrl(TEAM_CONFIG),
    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/87",
    "team URL unchanged (SW cache key)");

@@ -41,6 +41,7 @@ function boot(opts) {
       text: function () { return Promise.resolve(String(v)); },
       json: function () { try { return Promise.resolve(JSON.parse(v)); }
                           catch (e) { return Promise.reject(e); } },
+      blob: function () { return Promise.resolve(String(v)); },
       ok: true, clone: function () { return body(v, key); },
       headers: { get: function (n) { return /^x-iw-stored$/i.test(n) && key in stamps ? stamps[key] : null; } }
     };
@@ -92,6 +93,7 @@ function boot(opts) {
     Request: function (r, o) { this.url = typeof r === "string" ? r : r.url; this.opts = o; },
     Response: function (b, o) { var self_ = body(b); self_.init = o; return self_; },
     URL: URL,
+    Headers: function () { this.set = function () {}; },
     setTimeout: setTimeout,
     console: console
   };
@@ -303,6 +305,24 @@ w.fire("message", ND).then(function () {
   ]).then(function () {
     eq(w5.data(), [], "nothing is cached");
     eq(w5.deleted, [], "and nothing is deleted");
+  });
+}).then(function () {
+  // The roster's address gained ?limit=200 (2026-10-11): the copy kept under
+  // the old address still answers offline (Codex, #122).
+  console.log(" a data copy kept before its address gained a limit");
+  var ROSTER = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/87/roster";
+  var w6 = boot({ missing: [ROSTER + "?limit=200", "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?limit=400"] });
+  w6.store[w6.sandbox.DATA] = { [ROSTER]: "last week's roster" };
+  function offline(url) {
+    var answer = null;
+    (w6.listeners.fetch || []).forEach(function (fn) {
+      fn({ request: { url: url, method: "GET" }, respondWith: function (p) { answer = p; }, waitUntil: function () {} });
+    });
+    return answer.then(function (r) { return r.text(); }, function (e) { return "error: " + e.message; });
+  }
+  return Promise.all([offline(ROSTER + "?limit=200"), offline("https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?limit=400")]).then(function (got) {
+    eq(got[0], "last week's roster", "the roster's new address, offline, answers with the copy kept under the old one");
+    ok(/^error: offline and nothing cached/.test(got[1]), "an address with nothing kept under either form still says so");
   });
 }).then(function () {
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the worker caches one team at a time"));
