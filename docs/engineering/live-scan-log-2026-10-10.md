@@ -118,3 +118,8 @@ the final with the record moved on and Game Recap. Ohio State's next game
 reads "Time TBA" (ESPN has no time yet). Only repeats of #2 (venues). Game
 alerts: both finals sent once, all 34 deliveries done (W19, PR #121). No new
 items; the evening scans continue on Top 25 and Home until 11:30 PM ET.
+
+### 0057Z (8:57 PM ET) - both teams final; night ranked games live
+- Notre Dame Final 58-7 (6-0), Ohio State Final 45-16 (5-1). Home heroes, Game Recap, Top 25, schedule and roster render cleanly at 390 and 320.
+- Top 25 live cards: LSU-Kentucky at halftime, Georgia-Alabama, USC-Penn State and Kansas-Utah in the 2nd. The football still shows at halftime (Kentucky): #3, still open.
+- Scanner: only the home schedule venue ellipsis (#2). No new items.
