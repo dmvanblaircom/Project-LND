@@ -18,3 +18,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Probe
         run: python3 tools/probe_sources.py tools/probe-urls.txt
+      - name: Roster counts (probe branch only)
+        run: |
+          S=https://site.api.espn.com/apis/site/v2/sports/football/college-football
+          C=https://sports.core.api.espn.com/v2/sports/football/leagues/college-football
+          for u in "$S/teams/87/roster" "$S/teams/87/roster?limit=200" "$S/teams/87/roster?limit=500" "$S/teams/87/roster?enable=roster&limit=300" "$S/teams/194/roster" "$S/teams/194/roster?limit=200"; do
+            curl -sS --max-time 30 "$u" -o r.json
+            echo "$u -> $(jq '[.athletes[]?.items[]?] | length' r.json) athletes; last: $(jq -r '[.athletes[]?.items[]? | .lastName] | sort | .[-1]' r.json); has Zackery: $(jq '[.athletes[]?.items[]? | select(.lastName|test("Zackery"))] | length' r.json)"
+          done
+          for u in "$C/seasons/2026/teams/87/athletes?limit=200" ; do
+            curl -sS --max-time 30 "$u" -o c.json
+            echo "$u -> count $(jq '.count' c.json), items $(jq '.items|length' c.json), pageSize $(jq '.pageSize' c.json)"
+          done
