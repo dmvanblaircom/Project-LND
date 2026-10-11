@@ -153,3 +153,11 @@ rankings scan-0009
 401858257 scan-nd-0009
 401856717 scan-x1-0009
 401856713 scan-x2-0009
+scoreboard-20261010 scan-0057
+schedule-87 scan-nd-0057
+schedule-194 scan-osu-0057
+rankings scan-0057
+401858257 scan-nd-0057
+401858483 scan-osu-0057
+401856715 scan-x1-0057
+401856712 scan-x2-0057
