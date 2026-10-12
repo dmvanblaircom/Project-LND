@@ -1,7 +1,7 @@
 # Claude pickup: Wednesday October 14, noon ET
 
-**October 12 status correction (after original handoff was written):**
-PR #126 mobile fixes and PR #128 handoff/docs are merged. Current FPI integration is draft PR #130 (supersedes #127), while the offseason visual refinement is draft PR #131. Issue #30 is closed as withdrawn. Neither draft is release-approved. Follow the updated integration order below; the original preparation table is historical where it conflicts with this note.
+**Final October 12 pickup status (overrides original preparation notes):**
+PR #126 mobile fixes, #128 handoff, #130 FPI, #131 approved offseason visual prototype and #132 ledger correction are **merged**. Original FPI PR #127 is closed as superseded; issue #30 is closed as withdrawn. Do not rebuild any of them. FPI post-merge public-site/physical-iPhone verification is still open, and the offseason preview is **not** production season wiring. The original preparation table below is historical where it conflicts with this status.
 
 Prepared October 12 against main `b586ecd` and merged PRs through #125.
 David authorized Codex to keep building ready UI and the narrow integration
@@ -23,14 +23,14 @@ Read each PR's current checks; do not interpret the local counts as full CI
 or a physical iPhone pass. Claude should not rebuild these changes from the
 description or replace them with older mockups.
 
-### Integration order and shared files (updated October 12)
+### Integration order and shared files (updated after approvals)
 
-1. **Already merged:** #126 mobile-fit layout and #128 handoff/documentation. Do not rebuild or re-merge them.
-2. **FPI:** draft #130 is the current-main integration candidate, retaining mobile fixes and a fresh `sw.js` version. Inspect its full browser/CI results and obtain David's visual approval before merging. Original #127 is superseded.
-3. **Offseason:** draft #131 contains an isolated v2 Home visual preview and browser captures; its HTML is a review asset, not production wiring. Use the approved rendered direction with Claude's normalized season/load model.
-4. Start the first unfinished Claude-owned source/controller task below. Keep `app.js`, `app.css` and shared Suite modules single-owner while the UI branches are in review.
+1. **Already merged, don't rebuild:** mobile #126, handoff #128, FPI UI #130, approved offseason visual preview #131, and ledger #132.
+2. **Release follow-up:** verify the deployed FPI route and real iPhone/PWA behavior. Green PR CI does not establish deployed or physical-device success.
+3. **Offseason production:** approved S2/S4 visual reference is `docs/design/offseason-preview-v2.html`. Claude provides `TeamOS.season.phase`, season-matched last Game/opponent and distinct next-schedule load outcomes; Codex wires and tests the view and seasonal navigation. All illustrative sample content must be replaced.
+4. **Claude pickup:** start the first uncompleted, unblocked source/controller slice below. SP+ is not built or covered by the FPI merge. Do not touch the same `app.js`, `app.css` or Suite module concurrently with Codex.
 
-All original acceptance criteria and decisions below remain binding. A green CI result is not physical-iPhone or visual approval.
+Keep short reviewable PRs and all original source, correctness and responsive/device acceptance gates.
 
 ## 1. Fix unknown live-drive duration
 
@@ -187,7 +187,7 @@ Report built, tested, approved, merged and verified as separate states.
 David can give Claude this pickup instruction:
 
 > Read CLAUDE.md, docs/09_AI_OPERATING_SYSTEM.md and
-> docs/engineering/claude-handoff-2026-10-14.md. Inspect current main and draft PRs
+> docs/engineering/claude-handoff-2026-10-14.md. Inspect current main and merged PRs
 > #130/#131 before editing shared files. Continue the first uncompleted,
 > unblocked Claude-owned slice in that handoff; preserve Codex's UI and the
 > approved decisions. Keep each slice reviewable, finish its checks and hand
