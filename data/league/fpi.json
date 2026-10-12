@@ -6,8 +6,8 @@
  "sourceUrl": "https://www.espn.com/college-football/fpi",
  "season": 2026,
  "seasonType": 2,
- "week": 6,
- "weekText": "Week 6",
+ "week": 7,
+ "weekText": "Week 7",
  "sourceUpdated": "2026-10-12T08:00Z",
  "teams": [
   {
@@ -1253,5 +1253,5 @@
    "record": "1-5"
   }
  ],
- "fetchedAt": "2026-10-12T09:42Z"
+ "fetchedAt": "2026-10-12T11:07Z"
 }
