@@ -110,6 +110,8 @@ jobs:
           VISUAL_WIDTHS: "320,375,390,1280"
       # Roster's retry and freshness behaviour: a failed load never locks
       # itself out, and old data is never passed off as fresh.
+      # Review-only offseason Home v2 states and screenshots, not production season wiring.
+      - run: node tools/offseasonpreviewcheck.js
       - run: node tools/rosterflowcheck.js
       # A redraw never reloads a logo already showing: the hero's flicker
       # on first open and on every live tick (David, 2026-10-01).
