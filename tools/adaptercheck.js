@@ -459,7 +459,7 @@ fs.readdirSync(path.join(root, "tools/fixtures")).filter(function (f) { return /
 });
 function wordsOf(p) { return [p.text].concat(p.notes || []).join(" "); }
 var leftovers = everyPlay.filter(function (x) {
-  return /#\d|\(H:|LS:|\b[A-Za-z]+\d\d\b|^\(\d|clock \d|Shotgun|No Huddle|TOUCHDOWN|1ST DOWN|NO PLAY|PENALTY|End Of Play|QB hurried|\bYd\b/.test(wordsOf(x.shown));
+  return /#\d|\(H:|LS:|\b[A-Za-z]+\d\d\b|\b(?:the|at|from|to) [A-Z][A-Z&]* \d\d\b|^\(\d|clock \d|Shotgun|No Huddle|TOUCHDOWN|1ST DOWN|NO PLAY|PENALTY|End Of Play|QB hurried|\bYd\b|Original Play|nullified|\bto for\b/.test(wordsOf(x.shown));
 });
 ok(everyPlay.length > 500 && leftovers.length === 0, everyPlay.length + " real plays: no jersey number, spot code, holder or snapper, formation, repeated clock or shouting left" +
    (leftovers.length ? " - e.g. " + wordsOf(leftovers[0].shown) : ""));
@@ -473,6 +473,28 @@ var invented = everyPlay.filter(function (x) {
 ok(invented.length === 0, "every name and every number shown is one ESPN sent" + (invented.length ? " - not: " + wordsOf(invented[0].shown) : ""));
 ok(everyPlay.every(function (x) { return x.shown.text; }), "and no play is left without words");
 function shownFor(re) { var x = everyPlay.filter(function (y) { return re.test(y.espn); })[0]; return x ? x.shown : null; }
+// Live scan, 2026-10-10 (tools/fixtures/espn-summary-live-scan-oct10-plays.json,
+// real plays from that Saturday): what the stats crew writes on an
+// overturned call, a score taken back, spots with a space or an ampersand.
+function said(x) { return x ? [x.text, x.tags, x.notes] : null; }
+eq(said(shownFor(/Original Play: \(01:27\).*TOUCHDOWN/)), ["L. Sellers rush right for 2 yards", [], ["Overturned after review: runner was down by contact"]],
+   "an overturned touchdown: the play as it stands, no Touchdown tag, none of the original ruling's words");
+eq(said(shownFor(/Original Play: \(00:19\)/)), ["J. Mateer pass complete short left to I. Sategna III for 13 yards, out of bounds", ["1st down"], ["Overturned after review: pass completion"]],
+   "an overturned incompletion: the catch, its first down, the review on its own line");
+eq(said(shownFor(/TOUCHDOWN nullified by penalty, clock 05:17/)), ["D. Phillips Jr. rush left for 17 yards", ["No play"], ["Penalty on UGA: holding, 9 yards"]],
+   "a touchdown taken back by a penalty is not a touchdown");
+eq(said(shownFor(/from SC 29 to SC 34/)), ["Penalty on FLA: offside, 5 yards", ["No play"], []],
+   "a penalty whose spots have a space (\"SC 29\") reads as a penalty");
+eq(said(shownFor(/SC  UNS: Unsportsmanlike/)), ["T. Jones Jr. pass intercepted by J. Okoronkwo, returned for no gain", ["Turnover"], ["Penalty on SC: unsportsmanlike conduct, 15 yards"]],
+   "an interception returned for 0 yards, then a foul, double-spaced by the feed");
+eq(said(shownFor(/PENALTY A&M False Start \(#79 L\.Rogers\) 5 yards from Mizzou05/)), ["Penalty on A&M: false start, 5 yards", ["No play"], []],
+   "a team code with an ampersand");
+eq(said(shownFor(/A&M Personal Foul declined, TURNOVER/)), ["M. Reed pass incomplete deep middle to A. Bethel-Roman", ["Turnover on downs"], ["Penalty on A&M: personal foul, declined"]],
+   "a declined foul, then a turnover on downs");
+eq(said(shownFor(/PENALTY #30 M\.Gilbert kick attempt good/)), ["B. Russell rush middle for 9 yards", ["Touchdown"], ["M. Gilbert extra point good", "Penalty on TEN: offside, declined (on the try)"]],
+   "the extra point ESPN wrote three times is one note");
+eq(said(shownFor(/middle to  caught at Mizzou03/)), ["M. Reed pass complete short middle for 11 yards", ["No play"], ["Penalty on A&M: illegal touch-pass"]],
+   "a catch ESPN sent with no receiver reads without a gap, and its taken-back score is not one");
 var td = shownFor(/rush middle for 2 yards gain to the MSU00 TOUCHDOWN/);
 eq([td.text, td.tags, td.notes], ["N. James Jr. rush middle for 2 yards", ["Touchdown"], ["S. Porath extra point good"]],
    "a touchdown: the run, Touchdown, and the extra point on its own line - no holder, no long snapper");
