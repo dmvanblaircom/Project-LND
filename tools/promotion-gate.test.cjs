@@ -8,7 +8,7 @@ function cmd(dir,exe,args,env){
  return {status:r.status,output:(r.stdout||"")+(r.stderr||"")};
 }
 function git(dir,...args){const r=cmd(dir,"git",args);assert.equal(r.status,0,r.output);return r.output.trim();}
-function go(args,env){return cmd(work,process.execPath,[gate,...args],{SUITE_PROMOTION_ENABLED:"true",GITHUB_REF:"refs/heads/main",...env});}
+function go(args,env){return cmd(work,process.execPath,[gate,...args],{SUITE_PROMOTION_ENABLED:"true",GITHUB_REF:"refs/heads/main",GITHUB_OUTPUT:"",...env});}
 let passed=0;function ok(test,msg){assert.ok(test,msg);passed++;}
 try {
  git(root,"init","--bare",remote);
