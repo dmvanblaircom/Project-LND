@@ -19,6 +19,23 @@ the Ohio State game, so Phases 1-2 were built for **kickoff and final**:
 its try as two alerts. Both are in §2b, "What each alert says"; the round-2
 rule that folded the extra point into its touchdown is gone.
 
+**Oct 10, Phase 3 live result (both games, David's iPhone):** the alert
+status after the finals (00:00Z, probe branch `probe/alerts-live`) showed
+one subscription per team, Notre Dame's and Ohio State's.
+- **Kickoff and final, once each per team:** Notre Dame final 22:46Z,
+  Ohio State final 23:30Z. All 34 deliveries done; none still due, none
+  failed or dropped.
+- **Score, quarter and halftime alerts** went for both games all day (the
+  round-2 options).
+- **The faster, theScore-style alerts (#119) went live at 22:25Z,** during
+  both second halves. From then on alerts left at :05, :25 and :45 past the
+  minute (the three looks), and each touchdown and its kick went as two
+  alerts about 40 seconds apart (Ohio State 22:38/22:39, 22:47/22:48,
+  23:14/23:15; Notre Dame 22:33/22:34), as designed.
+- **Not measured here:** how far behind theScore each one landed - that
+  needs David's lock-screen times. Before #119, David measured about two
+  minutes behind theScore on Ohio State's 8:32 2nd-quarter touchdown.
+
 Follows: backlog W19 ("produce a bounded brief and service proposal
 first"), the product blueprint (notifications are the first new MVP
 pillar), the MVP validation framework ("notifications where the underlying
