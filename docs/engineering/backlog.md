@@ -1,7 +1,6 @@
 # Project LND: active delivery queue
 
-Reconciled October 12, 2026 against main `b586ecd` and the merged PRs through
-#125. David authorized Codex to continue ready work while Claude is unavailable
+Reconciled October 12, 2026 against main after merged PRs #126, #128 and #129. David authorized Codex to continue ready work while Claude is unavailable
 until **Wednesday October 14, noon America/New_York**. This is the current queue;
 the [prior queue](backlog-archive-2026-10-11.md) is historical, not instructions
 to rebuild completed work.
@@ -14,9 +13,8 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 
 | Item | Owner | Evidence | Remaining gate |
 |---|---|---|---|
-| Mobile layout follow-up | Codex | PR #126; Top 25 names/records, Home venue wrapping/name clearance, Game halftime receiver spacing; 100 local layout checks | Full CI, David's visual approval, merge and production verification |
-| FPI Rankings integration (W07, part of #29) | Codex | PR #127; existing producer/adapter connected; 66 browser assertions, including real worker fallback/reconnect | Full CI, visual approval, merge/version reconciliation with #126, production verification; SP+ still open |
-| Offseason orientation and handoff (W16) | Codex | docs/design/offseason-preview.html and offseason-ui-contract-2026-10-12.md | David reviews the S2/S4 presentation; this is not production wiring |
+| FPI Rankings integration (W07, part of #29) | Codex | Draft PR #130 replaces older PR #127; current-main integration with FPI loader and 66-check browser suite | CI and visual approval, merge, production verification; SP+ remains open |
+| Offseason orientation and handoff (W16) | Codex | Base preview merged in #128; v2 last-result refinement and screenshot checks in draft PR #131 | David reviews S2/S4 rendered states; no production season wiring yet |
 
 ## Ordered remaining implementation
 
@@ -48,13 +46,14 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 
 | Work | Merged evidence |
 |---|---|
+| Mobile Top 25 / Home / Game narrow-layout fixes | #126 (merged October 12) |
 | Core type, Ink/Pearl, Home/Game, Stats presentation and motion | #100, #104, #105, #106 |
 | Unified header; Settings gear; Full Schedule links | #76, #120, #72 |
 | Team Stats and Players season leaders | #82/#84, #92; presentation #104 |
 | Full-field Season Outlook | #109; targeted presentation review remains |
 | Game alerts and October 10 live delivery | #102/#103, #116, #119, #121; 34 completed deliveries, relative latency not measured after the speed fix |
 | OSU beat news/odds history and conference availability | #89, #118 |
-| FPI producer/model/scheduled refresh | #35, #53, #90; UI is PR #127, not main yet |
+| FPI producer/model/scheduled refresh | #35, #53, #90; UI is draft PR #130, not main yet |
 | Season phase model, source-supplied bowl labels, prospects foundations | #9, #94, #101; production offseason integration remains |
 | Battle/open-job framing limited to preseason/Game 1; OR retained | #39 |
 | Game notes and complete roster fetching | #114, #122 |
@@ -68,8 +67,7 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 ## Superseded instructions
 
 - W06's larger depth-change disclosure was withdrawn October 1. Preserve
-  compact changes, arrows, official OR and Week by week. Issue #30 should
-  close as withdrawn, not be built.
+  compact changes, arrows, official OR and Week by week. Issue #30 was closed as not planned on October 12; do not rebuild it.
 - Instrument Sans/Display with **Georgia**, not Instrument Serif (October 4/5).
   OSU Team Style uses Nunito Sans. ND retains Suite type.
 - Unified SUITE/team header stands; Settings is the header gear, with no
