@@ -173,6 +173,7 @@ function sourceKey(url){
   if(url===TeamOS.espn.scheduleUrl(TEAM_CONFIG)) return "schedule";
   if(/scoreboard/.test(url)) return "scoreboard";
   if(url===TeamOS.espn.rankingsUrl()) return "rankings";
+  if(url.split("?")[0]==="data/league/fpi.json") return "fpi";
   if(url===TeamOS.espn.rosterUrl(TEAM_CONFIG)) return "roster";
   var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability"),
       gn=TeamOS.snapshots.get(TEAM_CONFIG,"notes");
@@ -349,12 +350,41 @@ function venuePoint(g){
 // so the screen opens offline; those are never fed back into the live state.
 var T25={ polls:null, cachedGames:null, at:0, pollsFailed:false, gamesFailed:false };
 
+// W07: the existing producer and TeamOS adapter supply FPI. Only this
+// source's successful NETWORK response starts its 30-minute retry clock.
+// A saved copy can draw immediately, but stays due on re-entry/reconnect.
+var FPI={ raw:null, ok:0, p:null, tried:false, cached:false, failed:false };
+function fpiModel(){ return TeamOS.ratings.fpi(FPI.raw, TEAM_CONFIG, seasonYear()); }
+function loadFpi(force){
+  if(FPI.p) return FPI.p;
+  if(!force && FPI.ok && !FPI.failed && Date.now()-FPI.ok<30*60e3) return Promise.resolve({key:"fpi",outcome:"network"});
+  var url="data/league/fpi.json";
+  function usable(d){ var m=TeamOS.ratings.fpi(d, TEAM_CONFIG, seasonYear()); return m && m.ranks.length===25 && m.season!=null; }
+  if(!FPI.raw) cachedCopy(url).then(function(c){
+    if(!FPI.raw && usable(c.data)){ FPI.raw=c.data; FPI.cached=true; paintTop25(); }
+  }).catch(function(){});
+  FPI.tried=true;
+  FPI.p=fetchJSON(url).then(function(r){
+    if(!usable(r.data)) throw new Error("Unusable FPI snapshot");
+    FPI.raw=r.data; FPI.cached=!!r.cached; FPI.failed=false;
+    FPI.ok=r.cached ? 0 : Date.now();
+    noteSource(url,r.cached);
+    return {key:"fpi",outcome:r.cached ? "cached" : "network"};
+  }).catch(function(){ FPI.failed=true; return {key:"fpi",outcome:"failed"}; })
+    .then(function(result){ FPI.p=null; paintTop25(); return result; });
+  return FPI.p;
+}
+
 function top25Sources(){
   function s(key, maxAge){
     var x=SRC[key];
     return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, maxAgeMs:maxAge } : { key:key, missing:true };
   }
-  var view=Suite.nav.current().view;
+  var route=Suite.nav.current(), view=route.view;
+  if(view==="rankings" && route.path[1]==="fpi"){
+    var rating=fpiModel();
+    return [TeamOS.ratings.freshnessSource(rating,FPI.cached || FPI.failed || !!(rating && !rating.current))];
+  }
   return view==="rankings" ? [s("rankings", 8*24*HOUR)]
                            : [s("scoreboard", AUTO.liveElsewhere ? 10*60e3 : 12*HOUR)];
 }
@@ -368,6 +398,8 @@ function paintTop25(){
     view:   route.view==="rankings" ? "rankings" : "games",
     poll:   route.view==="rankings" ? (route.path[1]||null) : null,
     polls:  T25.polls,
+    ratingSources: [{key:"fpi",label:"FPI"}],
+    ratings: [fpiModel()].filter(Boolean), ratingsFailed: {fpi:FPI.failed},
     games:  SB.games || T25.cachedGames,
     pollsFailed: T25.pollsFailed, gamesFailed: T25.gamesFailed,
     heroId: hero ? hero.id : null,
@@ -379,6 +411,8 @@ function paintTop25(){
 }
 
 function loadTop25(){
+  var route=Suite.nav.current();
+  if(route.view==="rankings" && route.path[1]==="fpi") loadFpi();
   if(T25.polls==null) cachedJSON(TeamOS.espn.rankingsUrl()).then(function(d){
     if(T25.polls==null && d){ T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); paintTop25(); }
   }).catch(function(){});
@@ -1023,6 +1057,7 @@ window.addEventListener("online",  function(){
   [GV, SV].forEach(function(V){ if(V && V.previewFailed) V.at=0; });
   paintGame(); paintScheduleScreen();
   paintHome(); paintTop25(); paintRoster(); paintMore();
+  if(!$("screenTop25").hidden && Suite.nav.current().path[1]==="fpi") loadFpi();
   loadNews();                              // each source that failed, or came from the worker's copy, is asked again
   // Stats said it would load when the connection returned: it does - and
   // so does a season that came from the worker's copy, or one missing this
@@ -1660,6 +1695,7 @@ function refreshAll(silent){
   if(SB.data || SB.p) steps.push(getScoreboard(0).then(function(){ return { key:"scoreboard", outcome:outcomeOf("scoreboard") }; },
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
+  if(FPI.tried) steps.push(loadFpi(true));
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
   if(ST.us || ST.p || ST.failed) steps.push(loadStats(true).then(function(){ return { key:"stats", outcome: ST.outcome || "failed" }; }));
   if(PL.tables || PL.p || PL.failed) steps.push(loadPlayers(true).then(function(){ return { key:"players", outcome: PL.outcome || "failed" }; }));
