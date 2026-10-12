@@ -1,9 +1,9 @@
-# Ohio State game notes (parity audit follow-up, 2026-10-12): does Ohio State
-# publish weekly game notes, and where? The schedule's per-game pages, the
-# site's WordPress media library and posts, searched for notes PDFs.
-https://ohiostatebuckeyes.com/sports/football/schedule/ | game|notes|preview|recap|\.pdf
-https://ohiostatebuckeyes.com/wp-json/wp/v2/media?search=notes&per_page=30&orderby=date | source_url|title|date
-https://ohiostatebuckeyes.com/wp-json/wp/v2/media?search=game%20notes&per_page=30 | source_url|title|date
-https://ohiostatebuckeyes.com/wp-json/wp/v2/media?mime_type=application/pdf&per_page=40&orderby=date | source_url|title|date
-https://ohiostatebuckeyes.com/wp-json/wp/v2/posts?search=game%20notes&per_page=20 | link|title|date
-https://ohiostatebuckeyes.com/wp-json/wp/v2/posts?search=football%20notes&per_page=20 | link|title|date
+# Ohio State game notes, round 2 (2026-10-12): the per-game Game Center pages
+# (Maryland, Oct 10, and the next game), the gameday page, and the unlabeled
+# PDF the schedule page carries.
+https://ohiostatebuckeyes.com/game-center/22219 | notes|\.pdf|documents|release|preview
+https://ohiostatebuckeyes.com/game-center/22220 | notes|\.pdf|documents|release|preview
+https://ohiostatebuckeyes.com/game-center/22221 | notes|\.pdf|documents|release|preview
+https://ohiostatebuckeyes.com/feature/gameday-football | notes|\.pdf|documents|release
+https://ohiostatebuckeyes.com/documents/2026/10/10/46708.PDF
+https://ohiostatebuckeyes.com/sports/football/schedule/ | Other Notes|46708
