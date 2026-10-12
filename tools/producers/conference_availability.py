@@ -32,6 +32,9 @@ Rules, each tested by tools/conferenceavailcheck.py:
     the archive stands, so the file never goes back to "no report" - marked
     `current: false`, so it is shown as that game's report but never marks
     a player out on the roster (Codex, #118).
+  * HD Intelligence's "Report Pending" is a placeholder, not a filed report.
+    It is treated the same as no report published yet, so the archive/last good
+    report stands. Other unknown report types still fail loudly.
   * A failed fetch, a status no rule reads, or a report missing its player
     rows or its game date changes nothing and exits non-zero: the last good files stay in
     place and the failure is loud.
@@ -65,6 +68,7 @@ STATUSES = [
 NOT_LISTED = re.compile(r"^(available|exempt|-|)$", re.I)
 ORDER = ["Game Day", "Update 2", "Update 1", "Initial"]      # newest first
 RANK = {kind: len(ORDER) - i for i, kind in enumerate(ORDER)}  # Initial 1 ... Game Day 4
+PENDING = {"Report Pending"}  # HD Intelligence placeholder before the next report is filed
 # A published report lists the whole travel squad (about 110-120 players), the
 # available ones included. Far fewer rows is a partial or changed answer, not
 # a report that lists nobody - refuse it rather than clear every status.
@@ -115,8 +119,14 @@ def published(payload, names):
     if not found:
         return None
     found.sort(key=lambda x: x[0], reverse=True)
-    check_published(*found[0][1:])
-    return found[0][1:]
+    report, side, other = found[0][1:]
+    # The public viewer uses this normal placeholder between games/before the
+    # next filing. It carries team/game scaffolding but is not an availability
+    # report, so do not validate its report rows as though it were one.
+    if report.get("ReportType") in PENDING:
+        return None
+    check_published(report, side, other)
+    return report, side, other
 
 
 def check_published(report, side, other):
