@@ -1,6 +1,6 @@
 # Project LND: active delivery queue
 
-Reconciled October 12, 2026 after merged UI PRs #130 (FPI), #131 (offseason review), and #132 (handoff corrections). David authorized Codex to continue ready work while Claude is unavailable
+Reconciled October 12, 2026 after merged UI PRs #130 (FPI), #131 (offseason design prototype), and #132 (handoff corrections). David authorized Codex to continue ready work while Claude is unavailable
 until **Wednesday October 14, noon America/New_York**. This is the current queue;
 the [prior queue](backlog-archive-2026-10-11.md) is historical, not instructions
 to rebuild completed work.
@@ -14,7 +14,7 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 | Item | Status | Remaining |
 |---|---|---|
 | FPI Rankings (W07, part of #29) | Merged in #130, CI green, screenshot review approved; prior draft #127 closed as superseded | Verify deployed site and physical iPhone/Safari/PWA, then finish SP+ separately through Claude's approved CFBD/TeamOS source |
-| Offseason S2/S4 visual direction (W16) | Approved prototype and browser review landed in #131; illustrative content only | Claude supplies normalized season and next-schedule outcomes; Codex implements production views, seasonal nav and end-to-end tests |
+| Offseason S2/S4 visual direction (W16) | Approved product direction; prototype and passing browser renders landed in #131, illustrative content only. Final screenshot review is pending David's feedback | Claude supplies normalized season and next-schedule outcomes; Codex implements production views, seasonal nav and end-to-end tests after visual approval |
 | October 14 engineering handoff | Ledger correction merged in #132 | Read the updated handoff, not its historical prep table |
 
 **Important:** Merging FPI into `main` is confirmed; public Pages deployment and physical-device verification have not been verified in this ledger. The offseason visual prototype is not a shipped in-app feature.
