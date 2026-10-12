@@ -32,6 +32,8 @@ jobs:
         run: python3 tools/csscheck.py app.css
       - name: JavaScript parses
         run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js suite/*.js tools/*.js tools/lib/*.js; do node --check "$f"; done
+      - name: Suite code promotion: forward-only lineage and drift checks
+        run: node --check tools/promotion-gate.cjs && node tools/promotion-gate.test.cjs
       - name: The installed product is Suite, the same for every team
         run: node tools/identitycheck.js
       # Decision 0024 §11: TEMPORARY Suite identity assets are for the design
