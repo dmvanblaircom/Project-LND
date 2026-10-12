@@ -41,7 +41,7 @@ s=render("complete",{record:{text:"99-0",kind:"final",season:2025},ranking:{rank
 check(!/99-0/.test(s)&&!/#1/.test(s),"wrong-season record and rank suppressed");
 s=render("complete",{ranking:{rank:3,source:"AP",season:2026,final:false}});
 check(!/Final AP/.test(s)&&!/#3/.test(s),"no final rank without final edition");
-s=render("complete",{last:{state:"post",oppName:"No score",status:"final",us:null,them:null}});
+s=render("complete",{last:{state:"post",oppName:"No score",home:true,status:"final",us:null,them:null}});
 check(/vs No score/.test(s)&&/Final/.test(s)&&!/W 0–0/.test(s),"scoreless final never becomes zero");
 s=render("awaiting-postseason",{last:{state:"post",status:"final",us:0,them:7,oppName:"Zero Club",home:true}});
 check(/L 0–7/.test(s),"real zero score retained");
