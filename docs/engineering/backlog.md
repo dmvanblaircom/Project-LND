@@ -1,6 +1,6 @@
 # Project LND: active delivery queue
 
-Reconciled October 12, 2026 against main after merged PRs #126, #128 and #129. David authorized Codex to continue ready work while Claude is unavailable
+Reconciled October 12, 2026 after merged UI PRs #130 (FPI), #131 (offseason review), and #132 (handoff corrections). David authorized Codex to continue ready work while Claude is unavailable
 until **Wednesday October 14, noon America/New_York**. This is the current queue;
 the [prior queue](backlog-archive-2026-10-11.md) is historical, not instructions
 to rebuild completed work.
@@ -9,12 +9,15 @@ Start with [the October 14 handoff](claude-handoff-2026-10-14.md). It records
 ready branches, ownership, integration order and concrete acceptance checks.
 Main continues receiving data refreshes, so inspect it and open PRs before work.
 
-## Built for review, not yet shipped
+## UI delivery status after October 12 approvals
 
-| Item | Owner | Evidence | Remaining gate |
-|---|---|---|---|
-| FPI Rankings integration (W07, part of #29) | Codex | Draft PR #130 replaces older PR #127; current-main integration with FPI loader and 66-check browser suite | CI and visual approval, merge, production verification; SP+ remains open |
-| Offseason orientation and handoff (W16) | Codex | Base preview merged in #128; v2 last-result refinement and screenshot checks in draft PR #131 | David reviews S2/S4 rendered states; no production season wiring yet |
+| Item | Status | Remaining |
+|---|---|---|
+| FPI Rankings (W07, part of #29) | Merged in #130, CI green, screenshot review approved; prior draft #127 closed as superseded | Verify deployed site and physical iPhone/Safari/PWA, then finish SP+ separately through Claude's approved CFBD/TeamOS source |
+| Offseason S2/S4 visual direction (W16) | Approved prototype and browser review landed in #131; illustrative content only | Claude supplies normalized season and next-schedule outcomes; Codex implements production views, seasonal nav and end-to-end tests |
+| October 14 engineering handoff | Ledger correction merged in #132 | Read the updated handoff, not its historical prep table |
+
+**Important:** Merging FPI into `main` is confirmed; public Pages deployment and physical-device verification have not been verified in this ledger. The offseason visual prototype is not a shipped in-app feature.
 
 ## Ordered remaining implementation
 
@@ -53,7 +56,7 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 | Full-field Season Outlook | #109; targeted presentation review remains |
 | Game alerts and October 10 live delivery | #102/#103, #116, #119, #121; 34 completed deliveries, relative latency not measured after the speed fix |
 | OSU beat news/odds history and conference availability | #89, #118 |
-| FPI producer/model/scheduled refresh | #35, #53, #90; UI is draft PR #130, not main yet |
+| FPI producer/model/scheduled refresh and rankings presentation | #35, #53, #90; FPI UI merged in #130; source verification and physical device follow-up remain |
 | Season phase model, source-supplied bowl labels, prospects foundations | #9, #94, #101; production offseason integration remains |
 | Battle/open-job framing limited to preseason/Game 1; OR retained | #39 |
 | Game notes and complete roster fetching | #114, #122 |
