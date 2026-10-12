@@ -90,6 +90,13 @@ ok(only_archive["game"] == "vs. Maryland" and only_archive["heading"] == "Update
    "this week not published yet (a bye, early in the week): the archive's latest stands")
 ok(only_archive["current"] is False and all(r["current"] is False for r in history[:-1]) and latest["current"] is True,
    "only a published report is current: an archived one is that game's, never the next game's (Codex, #118)")
+pending = copy.deepcopy(FIXTURE["publish"])
+pending["3130"]["ReportType"] = "Report Pending"
+for g in pending["3130"]["games"]:
+    g["rows"] = []
+pending_latest, _ = ca.build(pending, FIXTURE["archive"], OSU)
+ok(pending_latest["heading"] == "Update 1" and pending_latest["current"] is False,
+   "Report Pending is the provider's no-report-yet placeholder: fall back to the archive without failing")
 
 
 def produce(answers, tmp=None):
@@ -136,6 +143,13 @@ first = open(os.path.join(tmp, "data", "ohio-state", "availability-history.json"
 _, code, again = produce([FIXTURE["publish"], FIXTURE["archive"]], tmp)
 ok(open(os.path.join(tmp, "data", "ohio-state", "availability-history.json")).read() == first and "nothing - no change" in again,
    "a second run on the same reports writes nothing, so commits nothing")
+pending = copy.deepcopy(FIXTURE["publish"])
+pending["3130"]["ReportType"] = "Report Pending"
+for g in pending["3130"]["games"]:
+    g["rows"] = []
+_, code, pending_out = produce([pending, FIXTURE["archive"]], tmp)
+ok(code == 0 and open(os.path.join(tmp, "data", "ohio-state", "availability-history.json")).read() == first,
+   "Report Pending after a good report is a successful no-op: the last good report stays")
 shutil.rmtree(tmp)
 
 tmp, code, out = produce([OSError("connection reset")])
