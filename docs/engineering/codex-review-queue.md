@@ -3,9 +3,9 @@
 Reconciled October 12. [backlog.md](backlog.md) is the current scope; the
 [Wednesday handoff](claude-handoff-2026-10-14.md) is the integration checklist.
 
-1. **Mobile fit:** PR #126 was merged October 12; preserve the approved halftime receiver and treat any later regression separately.
-2. **PR #130 FPI:** current-main review branch supersedes stale draft #127. Validate full CI and both teams/styles, source metadata and recovery; SP+ is still Claude's endpoint/model task.
-3. **Offseason:** review the merged original prototype plus draft PR #131 (`../design/offseason-preview-v2.html`) and `../design/offseason-ui-contract-2026-10-12.md`; implement only after visual approval and Claude's season/load model. Mid-November deadline remains.
+1. **FPI release follow-up:** #130 merged and its PR CI passed on both teams/styles, but physical iPhone/Safari/PWA and public deployment still need separate verification. Do not rebuild the FPI renderer. SP+ remains Claude's source/model work.
+2. **Offseason production UI:** #131 merged an approved isolated S2/S4 visual prototype (`../design/offseason-preview-v2.html`); integrate with Claude's validated season/load-state model, never with illustrative records. Mid-November deadline remains.
+3. **Preserve mobile fix:** #126 already merged; keep the approved halftime receiver and check any specific regression.
 4. **Working additions to refine:** Outlook board, Game Alerts Settings,
    recent game-note/captain/honors presentation and shared header gear.
    Inspect current captures before proposing changes.
