@@ -1,0 +1,93 @@
+# Controlled promotion. DISABLED until the repo flag is enabled.
+name: Promote Suite code
+on:
+  workflow_dispatch:
+    inputs:
+      destination:
+        description: "Advance code to Lab or Production"
+        type: choice
+        options:
+          - lab
+          - main
+        required: true
+      qa_evidence:
+        description: "Lab QA approval reference, required for Production"
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: suite-promotions
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    name: Pin and validate promotion
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      candidate: ${{ steps.pin.outputs.candidate }}
+      expected_target: ${{ steps.pin.outputs.expected_target }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Require QA evidence for Production
+        env:
+          DEST: ${{ inputs.destination }}
+          EVIDENCE: ${{ inputs.qa_evidence }}
+        run: |
+          if [ "$DEST" = main ] && [ -z "$EVIDENCE" ]; then
+            echo "::error::Production promotion needs a Lab UAT reference."
+            exit 1
+          fi
+      - id: pin
+        name: Pin immutable candidate
+        env:
+          SUITE_PROMOTION_ENABLED: ${{ vars.SUITE_PROMOTION_ENABLED }}
+        run: node tools/promotion-gate.cjs plan "${{ inputs.destination }}"
+
+  promote:
+    name: Approve and advance exact commit
+    needs: plan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    environment:
+      name: ${{ inputs.destination == 'main' && 'suite-production' || 'suite-lab' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Recheck refs and perform non-force fast-forward
+        env:
+          SUITE_PROMOTION_ENABLED: ${{ vars.SUITE_PROMOTION_ENABLED }}
+          CANDIDATE: ${{ needs.plan.outputs.candidate }}
+          OLD: ${{ needs.plan.outputs.expected_target }}
+          DEST: ${{ inputs.destination }}
+        run: node tools/promotion-gate.cjs apply "$DEST" "$CANDIDATE" "$OLD"
+      - name: Record audited promotion
+        env:
+          CANDIDATE: ${{ needs.plan.outputs.candidate }}
+          OLD: ${{ needs.plan.outputs.expected_target }}
+          DEST: ${{ inputs.destination }}
+          EVIDENCE: ${{ inputs.qa_evidence }}
+        run: |
+          {
+            echo "### Suite promotion"
+            echo "- Branch: $DEST"
+            echo "- Old SHA: $OLD"
+            echo "- Exact promoted SHA: $CANDIDATE"
+            echo "- QA evidence: $EVIDENCE"
+            echo "- Triggered by: $GITHUB_ACTOR"
+            echo "- Workflow run: $GITHUB_RUN_ID"
+            echo "- Deployment and smoke check must pass independently."
+          } >> "$GITHUB_STEP_SUMMARY"
