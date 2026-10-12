@@ -1,0 +1,46 @@
+== https://ohiostatebuckeyes.com/sports/football/schedule/  | game|notes|preview|recap|\.pdf
+  HTTP 200, text/html, 1955415 bytes
+  text: Get In The Game
+  text: Gameday Information
+  text: Other Notes
+  text: All Games
+  text: Home Games
+  text: Away Games
+  text: Conference Games
+  text: Non-conference Games
+  text: Game Center
+  text: No. 5 Buckeyes Extends Home Win Streak to 12 Games No. 5 Buckeyes Extends Home Win Streak to 12 Games Saturday, October 10
+  text: Football Gameday Information
+  title: 2026 Football Schedule | Ohio State
+  table rows: 0
+  markers: Subscribe, captcha
+  link: https://ohiostatebuckeyes.com/feature/gameday-football  [Gameday Information]
+  link: /documents/2026/10/10/Ohio_State_Season_Stats_26-27__4_.pdf  [Season Stats (PDF)]
+  link: /documents/2026/10/10/Ohio_State_Career_Stats_26-27__4_.pdf  [Career Stats (PDF)]
+  link: /game-center/22214  []
+  link: /game-center/22215  []
+  link: /game-center/22216  []
+  link: /game-center/22217  []
+  link: /game-center/22218  []
+  link: /game-center/22219  []
+  link: /game-center/22220  []
+  link: /game-center/22221  []
+  link: /game-center/22222  []
+  link: /game-center/22223  []
+  link: /game-center/22224  []
+  link: /game-center/22225  []
+  pdfs: 10
+    /documents/2026/10/10/Ohio_State_Career_Stats_26-27__4_.pdf
+    /documents/2026/10/10/Ohio_State_Season_Stats_26-27__4_.pdf
+    \u002Fdocuments\u002F2026\u002F10\u002F10\u002F46708.PDF
+    \u002Fdocuments\u002F2026\u002F10\u002F10\u002FOhio_State_Career_Stats_26-27__4_.pdf
+== https://ohiostatebuckeyes.com/wp-json/wp/v2/media?search=notes&per_page=30&orderby=date  | source_url|title|date
+  HTTP 404
+== https://ohiostatebuckeyes.com/wp-json/wp/v2/media?search=game%20notes&per_page=30  | source_url|title|date
+  HTTP 404
+== https://ohiostatebuckeyes.com/wp-json/wp/v2/media?mime_type=application/pdf&per_page=40&orderby=date  | source_url|title|date
+  HTTP 404
+== https://ohiostatebuckeyes.com/wp-json/wp/v2/posts?search=game%20notes&per_page=20  | link|title|date
+  HTTP 404
+== https://ohiostatebuckeyes.com/wp-json/wp/v2/posts?search=football%20notes&per_page=20  | link|title|date
+  HTTP 404
