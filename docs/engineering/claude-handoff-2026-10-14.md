@@ -1,7 +1,7 @@
 # Claude pickup: Wednesday October 14, noon ET
 
 **Final October 12 pickup status (overrides original preparation notes):**
-PR #126 mobile fixes, #128 handoff, #130 FPI, #131 approved offseason visual prototype and #132 ledger correction are **merged**. Original FPI PR #127 is closed as superseded; issue #30 is closed as withdrawn. Do not rebuild any of them. FPI post-merge public-site/physical-iPhone verification is still open, and the offseason preview is **not** production season wiring. The original preparation table below is historical where it conflicts with this status.
+PR #126 mobile fixes, #128 handoff, #130 FPI, #131 offseason v2 visual prototype (screen review pending) and #132 ledger correction are **merged**. Original FPI PR #127 is closed as superseded; issue #30 is closed as withdrawn. Do not rebuild any of them. FPI post-merge public-site/physical-iPhone verification is still open, and the offseason preview is **not** production season wiring. The original preparation table below is historical where it conflicts with this status.
 
 Prepared October 12 against main `b586ecd` and merged PRs through #125.
 David authorized Codex to keep building ready UI and the narrow integration
@@ -25,9 +25,9 @@ description or replace them with older mockups.
 
 ### Integration order and shared files (updated after approvals)
 
-1. **Already merged, don't rebuild:** mobile #126, handoff #128, FPI UI #130, approved offseason visual preview #131, and ledger #132.
+1. **Already merged, don't rebuild:** mobile #126, handoff #128, FPI UI #130, offseason visual preview #131, and ledger #132.
 2. **Release follow-up:** verify the deployed FPI route and real iPhone/PWA behavior. Green PR CI does not establish deployed or physical-device success.
-3. **Offseason production:** approved S2/S4 visual reference is `docs/design/offseason-preview-v2.html`. Claude provides `TeamOS.season.phase`, season-matched last Game/opponent and distinct next-schedule load outcomes; Codex wires and tests the view and seasonal navigation. All illustrative sample content must be replaced.
+3. **Offseason production:** S2/S4 visual review candidate is `docs/design/offseason-preview-v2.html`. Claude provides `TeamOS.season.phase`, season-matched last Game/opponent and distinct next-schedule load outcomes; Codex wires and tests the view and seasonal navigation. All illustrative sample content must be replaced.
 4. **Claude pickup:** start the first uncompleted, unblocked source/controller slice below. SP+ is not built or covered by the FPI merge. Do not touch the same `app.js`, `app.css` or Suite module concurrently with Codex.
 
 Keep short reviewable PRs and all original source, correctness and responsive/device acceptance gates.
