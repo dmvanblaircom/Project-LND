@@ -46,6 +46,16 @@ ChatGPT owns UX, UI and visual QA, and does not modify production code (David, 2
 
 David split implementation between two engineers on 2026-09-28 (`docs/engineering/backlog.md`): **Codex** (working from ChatGPT) owns design-file parity, presentation, motion and production UI code; **Claude Code** owns data, behavior, reliability and the tests underneath. One owner per change. What Claude Code has built that waits on Codex's eye is listed in `docs/engineering/codex-review-queue.md`.
 
+### Temporary delivery assignment, October 12–14
+
+David authorized Codex to continue ready work while Claude is unavailable until
+October 14 at noon America/New_York. Codex implements and tests UI plus narrow
+controller wiring for existing normalized models (FPI); stages concrete source,
+service and season-transition handoffs for Claude. The latest queue is
+`docs/engineering/claude-handoff-2026-10-14.md`. Existing PR, visual review and
+release controls remain; this does not authorize automated messages to Claude
+or a production merge without David's release approval.
+
 ### Claude Code — Engineering Partner
 
 Claude Code owns implementation inside the repository.

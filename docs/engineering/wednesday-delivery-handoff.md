@@ -1,3 +1,5 @@
+> Historical September 30 handoff. Superseded by [the October 14 handoff](claude-handoff-2026-10-14.md) and [current backlog](backlog.md). Do not execute the old queue below.
+
 # Wednesday delivery handoff: Claude engineering + Codex UI
 
 Start: Wednesday September 30, 2026, America/New_York.

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suite · Offseason design review</title>
+<link rel="stylesheet" href="../../app.css">
+<style>
+body{margin:0;background:#e3e6e6;color:var(--s-ink);font-family:var(--t-font-ui)}
+.review-tools{max-width:1050px;margin:auto;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:end}
+.review-tools h1{font-size:20px;margin:0}.review-tools p{font-size:13px;max-width:530px;margin:6px 0 0;line-height:1.5}
+.review-tools label{display:grid;gap:4px;font-size:13px;font-weight:600}.review-tools select{min-height:44px;border:1px solid #74808b;background:white;color:#111d35;border-radius:8px;padding:8px;font:inherit}
+.preview{width:100%;max-width:390px;margin:0 auto 32px;background:var(--s-page);box-shadow:0 12px 45px #111d3520;overflow:hidden}
+.preview-bar{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--s-chrome);color:white}
+.preview-bar img{width:119px;height:auto}.preview-team{padding-left:12px;border-left:1px solid #b8845a;font-family:var(--t-font-display);font-weight:700;line-height:1.1;text-transform:uppercase;font-size:18px;flex:1}
+.preview-gear{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;flex:none}
+.season-hero{background:linear-gradient(145deg,var(--t-deep),var(--t-abyss));color:var(--s-on-dark);padding:24px 18px}
+.season-eyebrow{color:var(--t-accent-text);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.season-hero h2{font-family:var(--t-font-display);font-size:30px;line-height:1.05;margin:8px 0 20px;text-transform:uppercase}
+.season-totals{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 20px}
+.season-totals > div + div{border-left:1px solid #ffffff35;padding-left:20px}
+.season-totals dt{font-size:12px;color:var(--s-on-dark-2);margin-top:5px}.season-totals dd{font-family:var(--t-font-display);font-size:48px;font-weight:700;line-height:1;margin:0}
+.season-result{display:flex;gap:12px;align-items:center;padding:15px 0;border-top:1px solid #ffffff30;border-bottom:1px solid #ffffff30}
+.season-result strong{font-family:var(--t-font-display);font-size:25px;white-space:nowrap}.season-result span{font-size:13px;line-height:1.5;color:var(--s-on-dark-2)}
+.season-next{padding-top:18px}.season-next h3{font-size:15px;margin:0 0 6px}.season-next p{font-size:14px;line-height:1.5;margin:0;color:var(--s-on-dark-2)}
+.preview-action{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;margin-top:18px;border:1px solid #ffffff55;border-radius:9px;background:transparent;color:var(--s-on-dark);font-family:var(--t-font-ui);font-size:14px;font-weight:600;cursor:pointer}
+.preview-body{padding:0 16px 20px}.preview-body h3{font-family:var(--s-font-editorial);font-size:23px;margin:23px 0 10px}
+.preview-news{background:white;border-radius:12px;padding:17px;border:1px solid var(--s-line)}
+.preview-news strong{font-family:var(--s-font-editorial);font-size:18px;line-height:1.35}.preview-news p{color:var(--s-muted);font-size:13px;line-height:1.45;margin:8px 0 0}
+.preview-section{margin-top:16px;padding:16px;border:1px solid var(--s-line);border-radius:12px;background:white}
+.preview-section h4{margin:0;font-family:var(--t-font-display);font-size:18px}.preview-section p{margin:6px 0 0;font-size:13px;color:var(--s-muted);line-height:1.5}
+.preview-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:12px 6px 16px;border-top:1px solid var(--s-line);background:white;gap:3px}
+.preview-nav span{font-size:12px;text-align:center;color:var(--s-muted);padding:10px 0;min-width:0}.preview-nav .selected{font-weight:700;color:var(--s-chrome);border-top:2px solid var(--s-chrome)}
+.preview-disclaimer{padding:8px 16px;background:#fff;color:#485563;font-size:11px;line-height:1.4;border-top:1px solid var(--s-line)}
+#reviewStatus{max-width:650px;min-height:28px;margin:0 auto 20px;text-align:center;padding:0 16px;font-size:13px}
+@media(max-width:390px){.review-tools{padding:16px;gap:12px}.preview{box-shadow:none}.season-totals dd{font-size:42px}.preview-bar img{width:108px}}
+</style>
+</head>
+<body>
+<div class="review-tools">
+  <div><h1>Offseason · Design review</h1><p>Proposed presentation of the approved states. All records, results and dates below are illustrative, not current sports data. This file is isolated from the app.</p></div>
+  <label>Team<select id="team"><option value="notre-dame">Notre Dame</option><option value="ohio-state">Ohio State</option></select></label>
+  <label>Style<select id="style"><option value="suite">Suite Style</option><option value="team">Team Style</option></select></label>
+  <label>State<select id="state"><option value="awaiting">S2 · Awaiting selection</option><option value="complete">S4 · Season complete</option><option value="failed">S4 · Next schedule failed</option></select></label>
+</div>
+<main class="preview" id="preview" aria-label="Offseason design preview"></main>
+<p id="reviewStatus" role="status"></p>
+<script src="../../teamos/team.js"></script><script src="../../teamos/identity.js"></script><script src="../../suite/ui.js"></script>
+<script>
+"use strict";
+var params=new URLSearchParams(location.search),slug=params.get("team")==="ohio-state"?"ohio-state":"notre-dame";
+document.getElementById("team").value=slug;
+document.getElementById("state").value=["awaiting","complete","failed"].includes(params.get("state"))?params.get("state"):"awaiting";
+document.getElementById("style").value=params.get("style")==="team"?"team":"suite";
+document.getElementById("team").onchange=function(){params.set("team",this.value);params.set("state",document.getElementById("state").value);params.set("style",document.getElementById("style").value);location.search=params.toString();};
+document.getElementById("state").onchange=render;document.getElementById("style").onchange=render;
+var script=document.createElement("script");script.src="../../teams/"+slug+".js";script.onload=render;document.head.appendChild(script);
+function render(){
+  var t=TeamOS.createTeam(TEAM_CONFIG.team),style=document.getElementById("style").value,state=document.getElementById("state").value;
+  var look=TeamOS.identity.create(style==="suite"?{identity:Suite.ui.STYLE}:TEAM_CONFIG,t),c=look.colors,r=document.documentElement.style;
+  [["font-ui",look.fonts.ui],["font-display",look.fonts.display],["deep",c.surfaceDeep],["abyss",c.surfaceAbyss],["accent-text",c.accentText]].forEach(function(x){r.setProperty("--t-"+x[0],x[1]);});
+  var awaiting=state==="awaiting",esc=Suite.ui.esc;
+  var next=awaiting?'<h3>Bowl and playoff selections</h3><p>Sunday, December 6 · Noon ET<br>Selection show on ESPN</p>'
+    :state==="failed"?'<h3>Next season</h3><p>The 2027 schedule couldn’t load. We’ll try again when the connection returns.</p>'
+    :'<h3>Next season</h3><p>The 2027 schedule is not available yet. The opener will appear here once it’s confirmed.</p>';
+  document.getElementById("preview").innerHTML='<header class="preview-bar"><img src="../../assets/suite/suite-wordmark-pearl.svg" alt="Suite"><span class="preview-team">'+esc(t.name)+'</span><svg class="preview-gear" viewBox="0 0 24 24" aria-label="Settings"><path d="m9 3 1-2h4l1 2 3 1 2-1 2 4-2 2v3l2 2-2 4-3-1-2 1-1 3h-4l-1-3-2-1-3 1-2-4 2-2V9L2 7l2-4 2 1Z"/><circle cx="12" cy="11" r="3"/></svg></header>'+
+    '<section class="season-hero"><p class="season-eyebrow">2026 '+(awaiting?'regular season':'season')+'</p><h2>'+(awaiting?'Regular season complete':'Season complete')+'</h2><dl class="season-totals"><div><dd>'+(awaiting?'11–1':'12–2')+'</dd><dt>'+(awaiting?'Regular-season record':'Final record')+'</dt></div><div><dd>#6</dd><dt>'+(awaiting?'CFP ranking':'Final AP ranking')+'</dt></div></dl>'+
+    '<div class="season-result"><strong>'+(awaiting?'W 31–17':'L 24–27')+'</strong><span>'+(awaiting?'Last result<br>Regular-season finale':'Last result<br>CFP quarterfinal')+'</span></div><div class="season-next">'+next+'</div><button class="preview-action" data-action="results">View season results <span aria-hidden="true">&nbsp;›</span></button></section>'+
+    '<div class="preview-body"><h3>Latest News</h3><article class="preview-news"><strong>'+(awaiting?'The postseason picture comes into focus':'The next chapter starts now')+'</strong><p>ESPN · Illustrative story</p></article>'+
+    (!awaiting?'<section class="preview-section"><h4>2027 recruiting class</h4><p>Committed recruits · ESPN</p><p>Meet the next class: player grades, positions and high schools.</p></section><section class="preview-section"><h4>ESPN draft board</h4><p>Follow your team’s prospects on ESPN’s overall and position boards.</p></section>':'')+'</div>'+
+    '<nav class="preview-nav" aria-label="Proposed primary navigation">'+(awaiting?['Home','Top 25','Game','Roster','More']:['Home','News','Schedule','Roster','More']).map(function(n,i){return '<span'+(!i?' class="selected"':'')+'>'+n+'</span>';}).join('')+'</nav><p class="preview-disclaimer">Design sample · All season figures are illustrative. S4 navigation shown after the national title game and before preseason navigation returns.</p>';
+  document.querySelector('[data-action="results"]').onclick=function(){document.getElementById("reviewStatus").textContent='Production action: open #schedule/results for the displayed season. This review file does not change the live app.';};
+}
+</script>
+</body></html>
