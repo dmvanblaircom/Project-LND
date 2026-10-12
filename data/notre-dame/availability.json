@@ -3,29 +3,29 @@
  "team": "notre-dame",
  "capability": "availability",
  "tier": "official",
- "game": "Stanford",
- "sourceUrl": "https://fightingirish.com/documents/da81c778-2bc8-4656-80a4-f12b2137b3c3.pdf",
+ "game": "at BYU",
+ "sourceUrl": "https://fightingirish.com/documents/7a3814af-2c2d-4bc2-b2c1-da09bc81218b.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/08/9tCZLKmf5oEhBWSnmuL6Jg37bMkO3h0QmpH0NzU1.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/12/2O1rQUnnJLzxiGRdPnsHyBGAY0RywJINBkXirCPq.pdf",
  "parser": 2,
- "fetchedAt": "2026-10-08T16:38:09.315615+00:00",
+ "fetchedAt": "2026-10-12T19:37:24.011037+00:00",
  "reported": true,
- "effectiveAt": "2026-10-08",
- "heading": "AVAILABILITY UPDATE (OCT. 8)",
+ "effectiveAt": "2026-10-12",
+ "heading": "AVAILABILITY UPDATE (OCT. 12)",
  "players": [
-  {
-   "no": "",
-   "pos": "OL",
-   "name": "Matty Augustine",
-   "status": "questionable",
-   "detail": "Right Foot"
-  },
   {
    "no": "",
    "pos": "CB",
    "name": "Leonard Moore",
    "status": "questionable",
    "detail": "Concussion"
+  },
+  {
+   "no": "",
+   "pos": "DL",
+   "name": "Jason Onye",
+   "status": "questionable",
+   "detail": "Left Ankle"
   },
   {
    "no": "",
@@ -57,20 +57,6 @@
   },
   {
    "no": "",
-   "pos": "DL",
-   "name": "Jason Onye",
-   "status": "out-game",
-   "detail": "Left Ankle"
-  },
-  {
-   "no": "",
-   "pos": "DB",
-   "name": "Chaz Smith",
-   "status": "out-game",
-   "detail": "Right Wrist"
-  },
-  {
-   "no": "",
    "pos": "OL",
    "name": "Chris Terek",
    "status": "out-game",
@@ -78,10 +64,10 @@
   },
   {
    "no": "",
-   "pos": "LB",
-   "name": "Kyngstonn Viliamu-Asa",
-   "status": "out-game",
-   "detail": "Left Thumb"
+   "pos": "DB",
+   "name": "Chaz Smith",
+   "status": "out-season",
+   "detail": "Left Knee"
   }
  ]
 }

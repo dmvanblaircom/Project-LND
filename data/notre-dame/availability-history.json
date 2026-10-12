@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-10-08T16:38:09.315615+00:00",
+ "updated": "2026-10-12T19:37:24.011037+00:00",
  "reports": [
   {
    "schema": 1,
@@ -508,6 +508,79 @@
      "name": "Kyngstonn Viliamu-Asa",
      "status": "out-game",
      "detail": "Left Thumb"
+    }
+   ]
+  },
+  {
+   "schema": 1,
+   "team": "notre-dame",
+   "capability": "availability",
+   "tier": "official",
+   "game": "at BYU",
+   "sourceUrl": "https://fightingirish.com/documents/7a3814af-2c2d-4bc2-b2c1-da09bc81218b.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/12/2O1rQUnnJLzxiGRdPnsHyBGAY0RywJINBkXirCPq.pdf",
+   "parser": 2,
+   "fetchedAt": "2026-10-12T19:37:24.011037+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-12",
+   "heading": "AVAILABILITY UPDATE (OCT. 12)",
+   "players": [
+    {
+     "no": "",
+     "pos": "CB",
+     "name": "Leonard Moore",
+     "status": "questionable",
+     "detail": "Concussion"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Jason Onye",
+     "status": "questionable",
+     "detail": "Left Ankle"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Christopher Burgess Jr.",
+     "status": "out-game",
+     "detail": "Left Tibia"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Tiki Hola",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Charles Jagusah",
+     "status": "out-game",
+     "detail": "Left Humerus"
+    },
+    {
+     "no": "",
+     "pos": "S",
+     "name": "Brauntae Johnson",
+     "status": "out-game",
+     "detail": "Left Foot"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Chris Terek",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "",
+     "pos": "DB",
+     "name": "Chaz Smith",
+     "status": "out-season",
+     "detail": "Left Knee"
     }
    ]
   }

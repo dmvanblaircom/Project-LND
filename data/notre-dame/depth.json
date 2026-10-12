@@ -3,11 +3,11 @@
  "team": "notre-dame",
  "capability": "depth",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/2e00e1d4-7af3-41d4-88ee-64a656f85cf0.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/8cb2896b-d35e-4f9a-a8dc-bd5a38b38f3c.pdf",
  "sourceLabel": "FightingIrish.com",
- "title": "DEPTH CHART - GAME 6 VS STANFORD",
- "game": "Stanford",
- "fetchedAt": "2026-10-05T17:38:03.127846+00:00",
+ "title": "DEPTH CHART - GAME 7 AT BYU",
+ "game": "at BYU",
+ "fetchedAt": "2026-10-12T19:37:24.011037+00:00",
  "units": [
   {
    "unit": "Defense",
@@ -428,10 +428,15 @@
        "level": 2,
        "players": [
         {
-         "no": "68",
-         "name": "Charlie Thom",
-         "cl": "Fr."
-        },
+         "no": "71",
+         "name": "Styles Prescod",
+         "cl": "Jr."
+        }
+       ]
+      },
+      {
+       "level": 3,
+       "players": [
         {
          "no": "65",
          "name": "Grayson McKeogh",
@@ -504,11 +509,16 @@
          "no": "75",
          "name": "Sullivan Absher",
          "cl": "Sr."
-        },
+        }
+       ]
+      },
+      {
+       "level": 2,
+       "players": [
         {
-         "no": "71",
-         "name": "Styles Prescod",
-         "cl": "Jr."
+         "no": "58",
+         "name": "Matty Augustine",
+         "cl": "So."
         }
        ]
       }
@@ -532,14 +542,19 @@
        "level": 2,
        "players": [
         {
+         "no": "71",
+         "name": "Styles Prescod",
+         "cl": "Jr."
+        }
+       ]
+      },
+      {
+       "level": 3,
+       "players": [
+        {
          "no": "78",
          "name": "Owen Strebig",
          "cl": "So."
-        },
-        {
-         "no": "68",
-         "name": "Charlie Thom",
-         "cl": "Fr."
         }
        ]
       }
@@ -734,13 +749,8 @@
        "players": [
         {
          "no": "1",
-         "name": "Jaden Greathouse",
-         "cl": "Sr."
-        },
-        {
-         "no": "22",
-         "name": "Aneyas Williams",
-         "cl": "Jr."
+         "name": "Dallas Golden",
+         "cl": "So."
         }
        ]
       }
@@ -937,36 +947,6 @@
   },
   {
    "unit": "Offense",
-   "label": "LT",
-   "ordinal": 1,
-   "level": 2,
-   "names": [
-    "Charlie Thom",
-    "Grayson McKeogh"
-   ]
-  },
-  {
-   "unit": "Offense",
-   "label": "RG",
-   "ordinal": 1,
-   "level": 1,
-   "names": [
-    "Sullivan Absher",
-    "Styles Prescod"
-   ]
-  },
-  {
-   "unit": "Offense",
-   "label": "RT",
-   "ordinal": 1,
-   "level": 2,
-   "names": [
-    "Owen Strebig",
-    "Charlie Thom"
-   ]
-  },
-  {
-   "unit": "Offense",
    "label": "TE",
    "ordinal": 1,
    "level": 1,
@@ -1028,16 +1008,6 @@
   },
   {
    "unit": "Special Teams",
-   "label": "PR",
-   "ordinal": 1,
-   "level": 2,
-   "names": [
-    "Jaden Greathouse",
-    "Aneyas Williams"
-   ]
-  },
-  {
-   "unit": "Special Teams",
    "label": "KR",
    "ordinal": 1,
    "level": 1,
@@ -1067,5 +1037,56 @@
    ]
   }
  ],
- "changes": []
+ "changes": [
+  {
+   "kind": "added",
+   "name": "Dallas Golden",
+   "text": "Dallas Golden now also listed at PR, second team"
+  },
+  {
+   "kind": "removed",
+   "name": "Jaden Greathouse",
+   "text": "Jaden Greathouse no longer listed at PR"
+  },
+  {
+   "kind": "added",
+   "name": "Styles Prescod",
+   "text": "Styles Prescod now also listed at LT, second team"
+  },
+  {
+   "kind": "added",
+   "name": "Styles Prescod",
+   "text": "Styles Prescod now also listed at RT, second team"
+  },
+  {
+   "kind": "removed",
+   "name": "Styles Prescod",
+   "text": "Styles Prescod no longer listed at RG"
+  },
+  {
+   "kind": "down",
+   "name": "Grayson McKeogh",
+   "text": "Grayson McKeogh drops to third team at LT"
+  },
+  {
+   "kind": "enters",
+   "name": "Matty Augustine",
+   "text": "Matty Augustine enters the depth chart at RG, second team"
+  },
+  {
+   "kind": "down",
+   "name": "Owen Strebig",
+   "text": "Owen Strebig drops to third team at RT"
+  },
+  {
+   "kind": "removed",
+   "name": "Aneyas Williams",
+   "text": "Aneyas Williams no longer listed at PR"
+  },
+  {
+   "kind": "leaves",
+   "name": "Charlie Thom",
+   "text": "Charlie Thom is off the depth chart"
+  }
+ ]
 }

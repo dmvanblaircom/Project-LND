@@ -3,13 +3,13 @@
  "team": "notre-dame",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/da81c778-2bc8-4656-80a4-f12b2137b3c3.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/7a3814af-2c2d-4bc2-b2c1-da09bc81218b.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/08/9tCZLKmf5oEhBWSnmuL6Jg37bMkO3h0QmpH0NzU1.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/12/2O1rQUnnJLzxiGRdPnsHyBGAY0RywJINBkXirCPq.pdf",
  "parser": 1,
- "fetchedAt": "2026-10-09T20:08:57.763953+00:00",
- "publishedAt": "2026-10-08",
- "game": "Stanford",
+ "fetchedAt": "2026-10-12T19:37:24.011037+00:00",
+ "publishedAt": "2026-10-12",
+ "game": "BYU",
  "pronounce": {
   "Khary Adams": "CAR-ee",
   "Matty Augustine": "August-EEN",
@@ -67,12 +67,7 @@
   "Robbie Wollan": "Wool-an",
   "Kedren Young": "KEY-dren"
  },
- "captains": [
-  "Drayk Bowen",
-  "CJ Carr",
-  "Jordan Faison",
-  "Adon Shuler"
- ],
+ "captains": [],
  "honors": {
   "Will Black": [
    "Shaun Alexander Freshman of the Year Award Watch List"
@@ -196,28 +191,32 @@
   ]
  },
  "glance": [
-  "Saturday afternoon will mark the 40th meeting between Notre Dame and Stanford. The series stands at a 25-14-0 Notre Dame advantage all-time.",
-  "The Irish are 3-1 against the Cardinal under Freeman.",
-  "The two teams last faced off at Notre Dame Stadium on October 12, 2024, when the Irish defeated the Cardinal 49-7.",
-  "The Irish are 21-4 against current ACC opponents under Dick Corbett Head Coach Marcus Freeman. Freeman has five wins against ACC opponents in every season he has coached at Notre Dame.",
-  "The two teams play for the Legends Trophy, which is a combination of Irish crystal and California redwood.",
-  "The Notre Dame Club of the San Francisco area first presented the trophy in 1989."
+  "Saturday evening will mark the 10th meeting between Notre Dame and BYU. The series stands at a 7-2 Notre Dame advantage all-time.",
+  "The Irish are 1-0 against the Cougars under Coach Marcus Freeman.",
+  "The two teams last faced off at the 2022 Shamrock Series in Las Vegas on October 8, 2022, when the Irish defeated the No. 16 Cougars 28-20.",
+  "Michael Mayer became the career receptions leader for a tight end against BYU in 2022, hauling in his record-breaking 141st reception on a 24-yard pass from Drew Pyne.",
+  "The 28-20 win over No. 16 BYU in the 2022 Shamrock Series marked the first ranked win in the Freeman Era. Since that game, Freeman has led the Irish to 16 ranked wins.",
+  "Notre Dame has won four consecutive games against BYU in 2005, 2012, 2013, and 2022."
  ],
  "numbers": [
+  {
+   "n": "1",
+   "text": "Boubacar Traore became the first Irish player since at least 1998 to record both a strip sack and an interception in the same game, accomplishing the feat against Stanford."
+  },
   {
    "n": "2",
    "text": "Drayk Bowen and Adon Shuler are the 28th and 29th players to be elected captain twice."
   },
   {
-   "n": "5",
-   "text": "Career games in which CJ Carr has recorded both a passing and rushing touchdown."
+   "n": "3",
+   "text": "Consecutive games with at least three touchdown passes for CJ Carr, who threw three against Stanford."
   },
   {
    "n": "5",
-   "text": "Luke Talich is the fifth NDFB player to have a reception, interception return and punt return for a touchdown in a career."
+   "text": "Luke Talich is the fifth NDFB player to have a receiving touchdown, an interception-return touchdown and a punt-return touchdown."
   },
   {
-   "n": "6",
+   "n": "7",
    "text": "Consecutive games in which Notre Dame has held its opponent below 100 rushing yards, dating back to the 2025 regular-season finale at Stanford."
   },
   {
@@ -225,44 +224,44 @@
    "text": "Career interceptions for Leonard Moore, most among all returning Irish defenders."
   },
   {
-   "n": "15",
+   "n": "14",
+   "text": "Takeaways by the Irish through six games, including seven interceptions and seven fumble recoveries."
+  },
+  {
+   "n": "16",
    "text": "Consecutive wins by double digits, dating back to Sept. 20, 2025."
   },
   {
-   "n": "15",
-   "text": "Seconds between Notre Dame touchdown passes in the first quarter at North Carolina."
+   "n": "27",
+   "text": "Consecutive games with a reception for Jordan Faison, tying Chris Brown (2013-15) for the second-longest streak in program history."
   },
   {
-   "n": "17",
-   "text": "Plays on Notre Dame’s 75-yard touchdown drive in the third quarter at North Carolina."
-  },
-  {
-   "n": "26",
-   "text": "Consecutive games with a reception for Jordan Faison, matching Chase Claypool’s 26-game streak in 2017-18."
-  },
-  {
-   "n": "28",
-   "text": "Career field goals for Spencer Porath (28-for-35, 80.0%), including a perfect 67-for-67 on extra points."
+   "n": "29",
+   "text": "Career field goals for Spencer Porath (29-for-36, 80.6%), who is 71-for-72 on career extra points."
   },
   {
    "n": "33",
    "text": "Non-offensive touchdowns scored by Notre Dame since the start of the 2021 season, the most in the FBS over that span."
   },
   {
-   "n": "37",
-   "text": "Career touchdown passes for CJ Carr, who matched his career high with four at North Carolina."
+   "n": "40",
+   "text": "Career touchdown passes for CJ Carr, tying Rick Mirer for eighth in Notre Dame history."
   },
   {
-   "n": "120",
-   "text": "Rushing yards for freshman Jonaz Walton at North Carolina, his first career 100-yard game."
+   "n": "70",
+   "text": "Yards on Aneyas Williams’ touchdown reception from CJ Carr against Stanford."
   },
   {
-   "n": "132",
-   "text": "Career-high receiving yards for Jordan Faison at North Carolina, on a career-best eight catches with two touchdowns."
+   "n": "97",
+   "text": "Yards on Jonaz Walton's first career touchdown, a second-quarter run against Stanford."
   },
   {
    "n": "170",
    "text": "Micah Gilbert finished the Michigan State game with 170 receiving yards, the most by an Irish player since November 4, 2017, when Chase Claypool recorded 180 receiving yards against Wake Forest."
+  },
+  {
+   "n": "181",
+   "text": "Rushing yards for Jonaz Walton against Stanford, the most in a game by a Notre Dame true freshman, surpassing Josh Adams’ 168 at Stanford in 2015."
   }
  ]
 }
