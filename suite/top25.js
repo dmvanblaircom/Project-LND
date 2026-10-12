@@ -67,8 +67,8 @@ Suite.top25 = (function () {
     var scored = g.state !== "pre";
     return '<span class="tg-side' + (scored && won === false ? " lost" : "") + '">' +
              ui.mark(s.providerId ? m.mark(s.providerId) : null, s.name, s.abbr, "plain") +
-             '<span class="tg-name">' + (s.rank ? '<span class="tg-rank">' + s.rank + "</span>" : "") + esc(s.name) +
-               (s.record ? '<span class="tg-rec">' + esc(s.record) + "</span>" : "") + "</span>" +
+             '<span class="tg-name">' + (s.rank ? '<span class="tg-rank">' + s.rank + "</span> " : "") + esc(s.name) +
+               (s.record ? ' <span class="tg-rec">' + esc(s.record) + "</span>" : "") + "</span>" +
              (scored ? '<span class="tg-score">' + (hasBall(g, s) ? ui.ball("tg-ball") : "") + esc(s.score == null ? "0" : s.score) + "</span>" : "") +
            "</span>";
   }

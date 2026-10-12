@@ -118,6 +118,8 @@ jobs:
       - run: node tools/flickercheck.js
       # All matchup edges, aligned Outlook bars, and news photo/logo fallbacks.
       - run: node tools/homegamecheck.js
+      # Oct 10 live-scan layout: long names, venues and halftime receiver.
+      - run: node tools/mobilefitcheck.js
       # Stats columns, enlarged text and complete keyboard-scrollable tables.
       - run: node tools/statslayoutcheck.js
       # A background refresh never drops a keyboard or VoiceOver user's focus.

@@ -369,7 +369,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gc-side.them .gc-line{flex-direction:row-reverse}
 .gc-side .mark{--mark:3.5rem}
 .gc-score{font-family:var(--t-font-display);font-weight:800;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
-.gc-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
+.gc-name{max-width:calc(100% - .5rem);margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
 .gc-rank{color:var(--t-accent-text)}
 /* Never an ellipsis: ui.fitNames tightens both names, then swaps both to
    the abbreviation, exactly as the Game header does. */
@@ -384,11 +384,10 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gc-clock{font-weight:800;font-size:1.7rem;line-height:1;font-variant-numeric:tabular-nums}
 .gc-mid.is-held .gc-clock{color:var(--s-on-dark-2)}     /* stopped where play stopped */
 .gc-rule{width:1px;height:2.6rem;background:rgba(255,255,255,.32)}
-/* The Game header's football: beside the score of the side with the ball,
-   toward the middle, so the score itself stays centred. */
-.gh-ball{position:absolute;top:50%;width:1.5rem;height:1.5rem;transform:translateY(-50%)}
-.gh-team.us .gh-ball{left:100%;margin-left:.3rem}
-.gh-team.them .gh-ball{right:100%;margin-right:.3rem}
+/* Score and football share a measured group; an absolutely positioned
+   ball used to intrude into HALFTIME at 320px in Ohio State's wider type. */
+.gh-ball{flex:none;width:1.1rem;height:1.1rem}
+.gh-team.them .gh-ball{order:-1}
 .gh-ball ellipse{fill:var(--s-football)}
 .gh-ball path{fill:none;stroke:var(--s-on-dark);stroke-width:1.2;stroke-linecap:round}
 .gc-ball{width:1.3rem;height:1.3rem;flex:none;align-self:flex-end;margin-bottom:.35rem}
@@ -453,7 +452,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .sched-main .site{min-width:0;padding:.22rem .45rem;font-size:.74rem}
 .sched-opp{min-width:0;overflow-wrap:break-word;font-weight:700;font-size:1.08rem;line-height:1.2;color:var(--s-ink)}
 .sched-meta,.sched-series{grid-column:1 / -1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:.88rem}
-.sched-meta{color:var(--s-muted)}
+.sched-meta{color:var(--s-muted);white-space:normal;text-overflow:clip;overflow-wrap:break-word}
 .sched-series{color:var(--t-accent-on-light)}
 .sched-side{justify-self:end}
 .net-pill{display:inline-block;padding:.2rem .55rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-pill);font-size:.8rem;font-weight:600;white-space:nowrap;color:var(--s-ink-2)}
@@ -522,7 +521,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gh-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr);align-items:center;gap:.4rem;margin-top:.5rem}
 .gh-team{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
 .gh-team .mark{--mark:3.4rem}
-.gh-score{position:relative;margin-top:.35rem;font-family:var(--t-font-display);font-weight:800;font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
+.gh-score{display:flex;align-items:center;gap:.3rem;margin-top:.35rem;font-family:var(--t-font-display);font-weight:800;font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
 .gh-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.02em;text-transform:uppercase}
 .gh-abbr,.fit-abbr .gh-full{display:none}
 .fit-abbr .gh-abbr{display:inline}
@@ -779,7 +778,7 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .tg-side .mark{--mark:1.9rem}
 .tg-name{min-width:0;font-weight:600;font-size:1rem;line-height:1.2;color:var(--s-ink)}
 .tg-rank{margin-right:.3rem;font-family:var(--t-font-display);font-weight:700;font-size:.9rem;color:var(--s-muted)}
-.tg-rec{margin-left:.4rem;white-space:nowrap;font-weight:400;font-size:.82rem;color:var(--s-muted)}
+.tg-rec{display:inline-block;white-space:nowrap;font-weight:400;font-size:.82rem;color:var(--s-muted)}
 .tg-score{min-width:1.8rem;text-align:right;font-family:var(--t-font-display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .tg-side.lost .tg-score,.tg-side.lost .tg-name{color:var(--s-muted)}
 .tg-status{grid-area:status;display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;min-width:5.6rem;padding-left:.75rem;border-left:1px solid var(--s-line);text-align:right}
@@ -1056,8 +1055,15 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   /* Home's schedule rows too: the site tag rides above the opponent, so a
      name never breaks mid-word beside the tag and the network (bug hunt,
      2026-10-02: "Wiscons/in", one letter a line at 320) */
-  .sched-row:not(.full) .sched-main{grid-template-columns:minmax(0,1fr)}
-  .sched-row:not(.full) .sched-main .site{justify-self:start}
+  .sched-row:not(.full) .sched-vis{grid-template-areas:"date site side chev" "date opp side chev" "date meta meta chev" "date series series chev";row-gap:.2rem}
+  .sched-row:not(.full) .sched-main{display:contents}
+  .sched-row:not(.full) .sched-date{grid-area:date}
+  .sched-row:not(.full) .site{grid-area:site;justify-self:start}
+  .sched-row:not(.full) .sched-opp{grid-area:opp}
+  .sched-row:not(.full) .sched-meta{grid-area:meta}
+  .sched-row:not(.full) .sched-series{grid-area:series}
+  .sched-row:not(.full) .sched-side{grid-area:side}
+  .sched-row:not(.full) .chev{grid-area:chev}
   /* the full schedule row: the site tag rides above the opponent, so the
      name keeps its room beside the kickoff, network and line */
   .sched-row.full{padding-left:.6rem;padding-right:.55rem}
@@ -1108,9 +1114,10 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
     grid-template-areas:"date site side chev" "date opp side chev" "date meta meta chev" "date series series chev"}
   .gc-extra,.gh-extra{display:none}
   .tg-row{padding:.65rem .7rem}
-  .tg-status{min-width:4.8rem;padding-left:.55rem}
-  /* the line gives its column back to the names and runs under the game */
-  .tg-body{grid-template-areas:"sides status" "odds odds" "last last";row-gap:.4rem}
+  .tg-status{min-width:0;padding-left:0;border-left:0;flex-direction:row;align-items:center;gap:.4rem;text-align:left}
+  /* At 320px the status uses a second row, leaving whole team names and
+     records beside the scores instead of an orphaned rank or clipped name. */
+  .tg-body{grid-template-areas:"sides sides" "status odds" "last last";row-gap:.5rem}
   .tg-odds{padding-left:0;border-left:0}
   .gh-team .mark{--mark:2.6rem}
   .gh-score{font-size:2.4rem}
