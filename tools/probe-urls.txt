@@ -1,9 +1,8 @@
-# Ohio State game notes, round 2 (2026-10-12): the per-game Game Center pages
-# (Maryland, Oct 10, and the next game), the gameday page, and the unlabeled
-# PDF the schedule page carries.
-https://ohiostatebuckeyes.com/game-center/22219 | notes|\.pdf|documents|release|preview
-https://ohiostatebuckeyes.com/game-center/22220 | notes|\.pdf|documents|release|preview
-https://ohiostatebuckeyes.com/game-center/22221 | notes|\.pdf|documents|release|preview
-https://ohiostatebuckeyes.com/feature/gameday-football | notes|\.pdf|documents|release
-https://ohiostatebuckeyes.com/documents/2026/10/10/46708.PDF
-https://ohiostatebuckeyes.com/sports/football/schedule/ | Other Notes|46708
+# Ohio State game notes, round 3 (2026-10-12): did any earlier game's page or
+# story carry notes? Older Game Centers, the football news list, site search.
+https://ohiostatebuckeyes.com/game-center/22214 | notes|release|documents/
+https://ohiostatebuckeyes.com/game-center/22216 | notes|release|documents/
+https://ohiostatebuckeyes.com/game-center/22218 | notes|release|documents/
+https://ohiostatebuckeyes.com/sports/football/news | notes|preview|week
+https://ohiostatebuckeyes.com/search?q=game%20notes | notes
+https://ohiostatebuckeyes.com/sports/football/schedule/2025 | notes|documents/
