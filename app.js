@@ -1127,15 +1127,24 @@ document.addEventListener("toggle", function(e){
   var d=e.target, at=d && d.matches && d.matches("details[data-key]") ? gameAt(d) : null;
   if(at) at.V.open[d.getAttribute("data-key")]=d.open;
 }, true);
-// The Leaders and Box Score team toggle.
+// The Leaders and Box Score team toggle. The card is redrawn under the
+// fan's finger, so the toggle they pressed keeps its place on screen and
+// its focus. Focus moves without scrolling: with the page's scroll padding,
+// a plain focus() scrolled a toggle near the bottom nav away (David,
+// 2026-10-10: "it jumped me back to the top").
 document.addEventListener("click", function(e){
   var b=e.target.closest ? e.target.closest("[data-side]") : null;
   var at=b ? gameAt(b) : null;
   if(!at) return;
+  var toggles=function(){ return [].slice.call(document.querySelectorAll(at.host+' [role="group"]')).filter(function(g){ return g.querySelector("[data-side]"); }); };
+  var i=toggles().indexOf(b.parentNode), top=b.getBoundingClientRect().top;
   at.V.side=b.getAttribute("data-side")==="them" ? "them" : "us";
   at.repaint();
-  var again=document.querySelector(at.host+' [data-side="'+at.V.side+'"]');
-  if(again) again.focus();
+  var g=toggles()[i], again=g && g.querySelector('[data-side="'+at.V.side+'"]');
+  if(!again) return;
+  again.focus({ preventScroll:true });
+  var dy=again.getBoundingClientRect().top-top;
+  if(dy) window.scrollBy(0, dy);
 });
 
 /* ---------- schedule ---------- */
