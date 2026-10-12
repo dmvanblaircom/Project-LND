@@ -3,7 +3,7 @@
 
    Two peer views, both routes:
      #top25                       Games: this week's games with a ranked side
-     #top25/rankings[/<poll>]     Rankings: CFP | AP | Coaches, all 25 rows
+     #top25/rankings[/<source>]   Rankings: CFP | AP | Coaches | FPI, all 25 rows
 
    The header - the SUITE bar with the selected team as quiet context, and
    the "Top 25" heading - is suite/nav.js's. This file draws the view strip
@@ -18,6 +18,8 @@
        model.calendar  TeamOS.season.calendar(): the next CFP rankings show and
                        Selection Day, from the league's published calendar
        model.polls     Poll[] | null (still loading)
+       model.ratingSources [{key,label}] - enabled predictive sources only
+       model.ratings   Rating[] from TeamOS; model.ratingsFailed keyed by source
        model.games     LeagueGame[] | null (still loading)
        model.gamesFailed, model.pollsFailed   no copy and the network failed
        model.heroId    the team's hero game - the one #game opens - or null
@@ -167,19 +169,20 @@ Suite.top25 = (function () {
   // ---- Rankings ----------------------------------------------------------------
 
   function pollKey(p) { return String(p.key || p.label || "").toLowerCase(); }
+  function sources(m) { return POLLS.concat(m.ratingSources || []); }
 
   // The poll on screen: the route's, else CFP once it is published, else AP
   // (README: AP leads until the committee releases the CFP rankings).
   function chosen(m) {
-    var have = {}; (m.polls || []).forEach(function (p) { have[pollKey(p)] = p; });
+    var have = {}; (m.polls || []).concat(m.ratings || []).forEach(function (p) { have[pollKey(p)] = p; });
     var want = String(m.poll || "").toLowerCase();
-    if (POLLS.some(function (x) { return x.key === want; })) return { key: want, poll: have[want] || null };
+    if (sources(m).some(function (x) { return x.key === want; })) return { key: want, poll: have[want] || null };
     var key = have.cfp ? "cfp" : have.ap ? "ap" : (m.polls && m.polls[0] ? pollKey(m.polls[0]) : "ap");
     return { key: key, poll: have[key] || null };
   }
 
-  function pollSeg(key) {
-    return '<nav class="seg-light poll-seg" aria-label="Poll">' + POLLS.map(function (x) {
+  function pollSeg(key, m) {
+    return '<nav class="seg-light poll-seg" aria-label="Ranking source">' + sources(m).map(function (x) {
       return '<a href="#top25/rankings/' + x.key + '"' + (x.key === key ? ' aria-current="page"' : "") + ">" + x.label + "</a>";
     }).join("") + "</nav>";
   }
@@ -213,11 +216,41 @@ Suite.top25 = (function () {
   }
 
   function rankings(m) {
-    if (m.polls == null) return pollSeg(chosen(m).key) + quiet(m.pollsFailed ? "The rankings didn’t load. They appear when the connection returns."
+    var c = chosen(m), rating = (m.ratingSources || []).filter(function (x) { return x.key === c.key; })[0];
+    if (rating) {
+      return pollSeg(c.key, m) + calendarNote(m.calendar, (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; })) +
+        (c.poll ? ratingTable(m, c.poll) : quiet(m.ratingsFailed && m.ratingsFailed[c.key]
+          ? rating.label + " didn’t load. Return to this view or use Refresh Data to try again."
+          : "Loading " + rating.label + "…"));
+    }
+    if (m.polls == null) return pollSeg(c.key, m) + quiet(m.pollsFailed ? "The rankings didn’t load. They appear when the connection returns."
                                                                              : "Loading the rankings…");
-    var c = chosen(m), hasCfp = (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; });
+    var hasCfp = (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; });
     var body = c.poll ? pollTable(m, c.poll) : c.key === "cfp" ? "" : quiet("This poll is not available right now.");
-    return pollSeg(c.key) + calendarNote(m.calendar, hasCfp) + body;
+    return pollSeg(c.key, m) + calendarNote(m.calendar, hasCfp) + body;
+  }
+
+  function ratingTable(m, p) {
+    var updated = p.updated ? new Date(p.updated) : null;
+    var source = p.sourceUrl && /^https:\/\//i.test(p.sourceUrl)
+      ? '<a href="' + esc(p.sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(p.name) + '<span class="sr-only"> (opens in a new tab)</span></a>' : esc(p.name);
+    var head = '<div class="rk-head"><h2 class="rk-title">' + esc(p.name) + '</h2>' +
+      (updated && !isNaN(updated) ? '<p class="rk-updated">Updated ' + esc(updated.toLocaleDateString([], {month:"short",day:"numeric",year:"numeric"})) + '</p>' : '') + '</div>';
+    var edition = '<p class="rk-method">Predictive rating · ' + esc(p.season) + ' season' + (p.asOf ? ' · ' + esc(p.asOf) : '') +
+      '. Rank change over ' + esc(p.changeWindow || 'the previous edition') + '.</p>';
+    var previous = p.current === false ? '<p class="rk-edition" role="note">Showing the ' + esc(p.season) + ' edition. This is not the current season’s rating.</p>' : '';
+    var mine = p.mine && !p.ranks.some(function (r) { return r.mine; })
+      ? '<p class="rk-outside">Your team: <strong>#' + esc(p.mine.rank) + ' ' + esc(p.mine.team) + '</strong> · Rating ' + esc(p.mine.rating.toFixed(1)) + '</p>' : '';
+    return '<section class="card rk-card">' + head + edition + previous +
+      '<table class="rk-table rk-ratings"><caption class="sr-only">' + esc(p.name + ', ' + p.season + ', predictive ratings. Change over ' + p.changeWindow) + '</caption>' +
+      '<thead><tr><th scope="col" class="rk-n">Rank</th><th scope="col" class="rk-team">Team</th><th scope="col" class="rk-value">Rating</th>' +
+      '<th scope="col" class="rk-trend">Change<span class="sr-only"> over ' + esc(p.changeWindow) + '</span></th></tr></thead><tbody>' +
+      p.ranks.map(function (r) {
+        return '<tr' + (r.mine ? ' class="mine"' : '') + '><td class="rk-n">' + esc(r.rank) + '</td><th scope="row" class="rk-team"><span class="rk-teamcell">' +
+          ui.mark(r.providerId ? m.mark(r.providerId) : null, r.team, r.abbr, 'plain') + '<span class="rk-name">' + esc(r.team) +
+          (r.mine ? '<span class="sr-only"> (selected team)</span>' : '') + (r.record ? '<span class="rk-rating-record">' + esc(r.record) + '</span>' : '') + '</span></span></th>' +
+          '<td class="rk-value">' + esc(r.rating.toFixed(1)) + '</td><td class="rk-trend">' + trend(r) + '</td></tr>';
+      }).join('') + '</tbody></table>' + mine + '<p class="rk-source">Source: ' + source + '</p></section>';
   }
 
   // What is coming from the committee (David, 2026-10-02; decision 0033):
