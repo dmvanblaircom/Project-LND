@@ -1,4 +1,7 @@
-# Suite environments: Production, Suite Lab and PR Previews
+# Suite environments: DEV, Lab (QA/UAT), Production and PR Previews
+
+**Promotion decision (David, October 12):** See [the authoritative code-promotion standard](code-promotion.md). All feature code flows `feature/* → dev → lab → main`, using automatic CI and manual promotion of the exact source SHA; feature previews are isolated review URLs, not a promoted environment. No direct PR merges or cherry-picks into Lab/Production once the environment cutover is activated. The older proposed `feature → lab → main` description below is superseded. Actual infrastructure remains pending.
+
 
 **Status:** Proposed architecture for product decision, 2026-10-12.
 **Reason:** Long-running W16 offseason and future Suite experiences must be
@@ -22,8 +25,9 @@ not substitutes for an installable, functioning preview.
 | Lane | Intended behavior | Branch | Hosting |
 |---|---|---|---|
 | **Production** | Current fan-facing Suite, no unapproved feature | `main` | Existing GitHub Pages, unchanged |
-| **Suite Lab** | Stable hands-on app combining unfinished approved work, on iPhone, safely retained for weeks/months | `lab` (new protected integration branch) | A separate Cloudflare Pages project, with `lab` set as that project's *production branch* only |
-| **PR Preview** | A working, isolated URL for each UI/data feature before Lab or production promotion | Short `feat/*`, `design/*`, `codex/*`, `preview/*` branch | Same Cloudflare Pages project, branch/PR preview URLs |
+| **Suite Lab** | Stable, private candidate for hands-on QA/UAT, without unapproved enabled features | `lab` (new protected branch) | Private Cloudflare Pages project, `lab` as that project's *production branch* only |
+| **DEV** | Integrate approved feature PRs and safely test upcoming code | `dev` (new protected integration branch) | Stable DEV Pages preview alias |
+| **Feature Preview** | Isolated live URL for code before merging into DEV | Short `feat/*`, `design/*`, `codex/*` branch | Cloudflare Pages PR preview URL |
 
 The Cloudflare Pages project's word **production branch** means the stable
 **Suite Lab** site, NOT Suite's fan-facing production. `main` stays on
@@ -86,13 +90,9 @@ not secure the project's root URL. Noindex isn't access control.
 - **PR Preview:** engineers push the feature branch; Pages automatically
   builds a working app URL and posts it to the PR. David can try the
   screen/interaction and check real responsive behavior.
-- **Suite Lab:** approved/interesting but unreleased features are integrated
-  via PR into `lab`. Keep the long-running environment available for
-  broader end-to-end validation and family/friend testers when authorized.
-- **Production:** deliberately promote reviewed, releasable code to
-  `main` through its existing CI and release approvals. Do not automatically
-  merge all Lab experiments to production. Use small promotable PRs or
-  explicit feature flags with a documented default-off policy.
+- **DEV:** feature branches merge into `dev` after green checks. Unfinished functionality remains disabled or preview-only.
+- **Suite Lab:** promote a single releasable DEV commit with the automated, fast-forward-only promotion workflow, not by PR merging into `lab`. Keep Lab fixed while David tests a candidate.
+- **Production:** only the exact currently accepted Lab commit may be promoted to `main` with the same automated, non-force fast-forward. No PR merges to `main` after activation. Environment-specific settings are external; code is identical.
 - UI parity and scenarios: ChatGPT/design + Codex. Backend and lab Worker:
   Claude. David: acceptance and production release decision. GitHub
   run/PR screenshots remain supporting evidence, not visual sign-off.
