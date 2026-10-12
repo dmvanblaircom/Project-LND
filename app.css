@@ -794,8 +794,8 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .tg-at,.lp-at{font-variant-numeric:tabular-nums;font-weight:700;color:var(--s-muted)}
 .tg-row .chev{width:1.1rem;height:1.1rem;margin-right:-.3rem}
 /* Rankings: all 25, a real table. */
-.poll-seg{margin-top:.9rem}
-.poll-seg a{display:flex;flex:1;align-items:center;justify-content:center;min-height:2.75rem;padding:.4rem .5rem;border-radius:8px;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;text-decoration:none}
+.poll-seg{margin-top:.9rem;flex-wrap:wrap}
+.poll-seg a{display:flex;flex:1 0 3.15rem;align-items:center;justify-content:center;min-height:2.75rem;padding:.4rem .5rem;border-radius:8px;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;text-decoration:none}
 .poll-seg a[aria-current="page"]{background:var(--s-surface);color:var(--t-surface);box-shadow:0 1px 3px rgba(15,27,45,.12)}
 .poll-seg a:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .rk-card{margin-top:.8rem;padding:.8rem .6rem .4rem}
@@ -803,6 +803,12 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .rk-title{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.3rem;color:var(--s-ink)}
 .rk-week{font-weight:600;color:var(--s-ink-2)}
 .rk-updated{margin:0;font-size:.85rem;color:var(--s-muted)}
+.rk-method,.rk-source,.rk-outside{margin:.25rem .4rem .7rem;font-size:.85rem;line-height:1.45;color:var(--s-muted)}
+.rk-source{margin-top:.8rem}
+.rk-source a{color:var(--t-accent-on-light);text-underline-offset:.2em}
+.rk-edition{margin:.3rem .4rem .7rem;padding:.55rem .65rem;border:1px solid var(--s-line);border-radius:var(--s-radius-ctl);font-size:.9rem;color:var(--s-ink-2);background:var(--s-inset)}
+.rk-rating-record{display:block;margin-top:.15rem;font-size:.82rem;font-weight:400;color:var(--s-muted)}
+.rk-value{width:3.5rem;font-weight:600;white-space:nowrap;color:var(--s-ink)}
 .rk-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .rk-table thead th{padding:.45rem .3rem;background:var(--s-inset);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted);text-align:center}
 .rk-table thead th.rk-team{text-align:left}

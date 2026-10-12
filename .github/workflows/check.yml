@@ -113,6 +113,8 @@ jobs:
       # Review-only offseason Home v2 states and screenshots, not production season wiring.
       - run: node tools/offseasonpreviewcheck.js
       - run: node tools/rosterflowcheck.js
+      # FPI routing, source-specific freshness and real service-worker recovery.
+      - run: node tools/ratingsflowcheck.js
       # A redraw never reloads a logo already showing: the hero's flicker
       # on first open and on every live tick (David, 2026-10-01).
       - run: node tools/flickercheck.js
