@@ -79,7 +79,7 @@ activating; do not treat a manually described rule as enforcement.
 
 | Field | Required value |
 |---|---|
-| Candidate | Full SHA identical in DEV, Lab and Production |
+| Candidate | Exact same approved commit must be contained in DEV and be the deployed head in Lab and Production at release time |
 | Functionality | Links/screens tested, team/style variants, failure/retry and recovery |
 | Quality | CI green, no broken existing flow, mobile/PWA/accessibility checks |
 | Decision | David: **Accepted for Production** or **Rejected to DEV** |
@@ -118,8 +118,7 @@ it is not silent movement of `main` backwards.
   the source that Production receives, excluding externally supplied
   environment-specific settings. Never assume the hosting output is
   identical solely because two branches have matching SHAs.
-- **Blocker 4:** retarget existing open work from `main` into the initial
-  DEV backlog at cutover, preserving all PR and review history.
+- **Blocker 4:** change CI pull-request targets to `dev` and require the same checks there; retarget existing open work from `main` into the initial DEV backlog at cutover, preserving PR and review history.
 
 **Cutover sequence:** decouple snapshot writes → provision private URLs
 and backend separation → initialize `dev` and `lab` from the same
