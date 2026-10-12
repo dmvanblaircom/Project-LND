@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   probe:
@@ -17,4 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Probe
-        run: python3 tools/probe_sources.py tools/probe-urls.txt
+        run: python3 tools/probe_sources.py tools/probe-urls.txt | tee probe-out.txt
+      # Probe branches only: keep the output on the branch, since job logs
+      # are not readable from the engineering container.
+      - name: Keep the output (probe branch only)
+        if: startsWith(github.ref, 'refs/heads/probe/')
+        run: |
+          mkdir -p tools/probe-out && mv probe-out.txt tools/probe-out/latest.txt
+          git config user.name "github-actions[bot]"; git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add tools/probe-out/latest.txt && git commit -qm "Probe output" && git push -q

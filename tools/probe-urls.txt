@@ -1,9 +1,9 @@
-# W19 (2026-10-03): the small ESPN endpoints game alerts would poll each
-# minute in a game window: a game's status and each team's score, plus the
-# team schedule the Worker reads hourly. Notre Dame at North Carolina kicks
-# off at 16:00Z; Ohio State at Iowa at 19:30Z.
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858250/competitions/401858250/status | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858250/competitions/401858250/competitors/87/score | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858473/competitions/401858473/status | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858473/competitions/401858473/competitors/194/score | .
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194/schedule | ^events\[[0-9]\]\.(id|date|competitions\[0\]\.(id|status\.type\.(state|name)|competitors\[[01]\]\.(team\.(id|location)|homeAway)))
+# Ohio State game notes (parity audit follow-up, 2026-10-12): does Ohio State
+# publish weekly game notes, and where? The schedule's per-game pages, the
+# site's WordPress media library and posts, searched for notes PDFs.
+https://ohiostatebuckeyes.com/sports/football/schedule/ | game|notes|preview|recap|\.pdf
+https://ohiostatebuckeyes.com/wp-json/wp/v2/media?search=notes&per_page=30&orderby=date | source_url|title|date
+https://ohiostatebuckeyes.com/wp-json/wp/v2/media?search=game%20notes&per_page=30 | source_url|title|date
+https://ohiostatebuckeyes.com/wp-json/wp/v2/media?mime_type=application/pdf&per_page=40&orderby=date | source_url|title|date
+https://ohiostatebuckeyes.com/wp-json/wp/v2/posts?search=game%20notes&per_page=20 | link|title|date
+https://ohiostatebuckeyes.com/wp-json/wp/v2/posts?search=football%20notes&per_page=20 | link|title|date
