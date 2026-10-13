@@ -1,5 +1,11 @@
 # Suite environment provisioning: implementation and cutover
 
+**Paused October 13 at David's request.** Environment setup is now part of
+Claude's October 14 handoff (PR #133); Codex continues other UI work. Preserve
+PR #135 and issue #136 without provisioning resources or enabling flags until
+David resumes environment work with Claude. Cloudflare's final Google login
+attempt returned “Unable to sign in”; no signed-in session was established.
+
 David authorized creation of private DEV, Lab (QA/UAT), and feature previews on
 October 12. PR #135 contains executable prerequisites. **Cloudflare resources,
 GitHub protected environments/rules, and DEV/Lab branches are not provisioned.
@@ -106,6 +112,8 @@ URLs, deployment manifests and access-test results in issue #136 after success.
   non-GET operations, and missing configuration; has no scheduler/store.
 - Browser checks cover DEV/Lab/preview, both teams, at 320 and 390 pixels:
   badge/revision visible, no edge/push requests, no errors or page overflow.
-- Existing production alert and Settings flow checks pass. Full CI is still
-  required before bootstrap merge. Physical iPhone and hosted access/deployment
+- Existing production alert and Settings flow checks pass. Both `css` and
+  `visual` jobs passed for code candidate `179a834` in PR CI run `38342913260`.
+  Recheck CI for any later revision before bootstrap merge. Physical iPhone
+  and hosted access/deployment
   verification remain pending because the environments do not yet exist.
