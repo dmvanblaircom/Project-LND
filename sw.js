@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-12fpi3";
+var VERSION = "suite-2026-10-13environments1";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -38,6 +38,7 @@ var DATA    = VERSION + "-data";
 // - and nothing that is not.
 var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
+  "./env-config.js", "./suite/environment.js",
   "./suite/ui.js", "./suite/nav.js", "./suite/schedule.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js", "./suite/stats.js", "./suite/outlook.js",
   "./teams/index.js",
   "./leagues/college-football.js", "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
@@ -336,7 +337,7 @@ function isData(url) {
   return /(^|\.)espn\.com$/.test(url.hostname)
       || /kalshi\.com$/.test(url.hostname)
       || /open-meteo\.com$/.test(url.hostname)
-      || /^suite-api\.[a-z0-9-]+\.workers\.dev$/.test(url.hostname);   // Suite's edge API (decision 0030)
+      || /^suite-api(?:-(?:lab|dev))?\.[a-z0-9-]+\.workers\.dev$/.test(url.hostname);   // Suite's isolated edge APIs
 }
 
 // The page busts its own cache with ?t=<now>. Strip that so the key is stable;

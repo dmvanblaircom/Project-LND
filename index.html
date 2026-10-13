@@ -37,6 +37,8 @@
 <meta name="twitter:title" content="Suite">
 <meta name="twitter:description" content="Your college football team, every day.">
 <meta name="twitter:image" content="https://dmvanblaircom.github.io/Project-LND/assets/suite/og-1200x630.png">
+<script src="env-config.js"></script>
+<script src="suite/environment.js"></script>
 <!-- Which team this page is, decided before anything else runs.
 
      Order: ?team= (so a link can carry it), then the last choice this browser
@@ -329,6 +331,7 @@ html[data-choosing] .launch,html[data-launched] .launch{display:none}
      context. The chooser shows the bar alone. -->
 <header class="app-bar on-dark" id="appBar">
   <img class="wordmark" src="assets/suite/suite-wordmark-pearl.svg" alt="Suite" width="662" height="132">
+  <span class="environment-badge" id="environmentBadge" hidden></span>
   <!-- The selected team. Not a control: Change Team lives in Settings
        (decision 0024 §6). -->
   <span class="bar-context" id="barContext" hidden>

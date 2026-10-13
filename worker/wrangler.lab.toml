@@ -1,0 +1,11 @@
+# Private nonproduction API. No cron, Durable Object, push, or refresh token.
+# Cloudflare Access must protect this origin before it is connected to a build.
+name = "suite-api-lab"
+main = "src/lab.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+SUITE_ENVIRONMENT = "lab"
+# Comma-separated exact origins, populated after Pages creates actual URLs.
+SUITE_ALLOWED_ORIGINS = ""

@@ -193,7 +193,14 @@ Suite.more = (function () {
         // keyboard focus the fan left on it
         '<button type="button" class="btn btn-secondary" data-refresh' + (m.refreshing ? ' aria-disabled="true"' : "") + ">Refresh Data</button></div>");
 
-    put(host, "settings", team + style + gameAlerts(m) + data);   // keeps the fan's focus (put)
+    var e = m.environment, build = "";
+    if (e && !e.production) build = group("environment", "Environment",
+      '<div class="st-row"><span class="st-k">Suite</span><span class="st-v">' + esc(e.label) + '</span></div>' +
+      '<div class="st-row"><span class="st-k">Build</span><span class="st-v">' + esc((e.commitSHA || "unversioned").slice(0, 12)) + '</span></div>' +
+      '<div class="st-row st-action"><span class="st-note">' +
+      (e.apiBase ? "Game alerts are disabled here. This build uses the test API."
+                 : "The test API is not connected. API features are unavailable; game alerts are disabled.") + '</span></div>');
+    put(host, "settings", team + style + gameAlerts(m) + data + build);   // keeps the fan's focus (put)
   }
 
   // Game alerts (W19; round 2 per the notifications brief §2b, David
@@ -233,7 +240,9 @@ Suite.more = (function () {
     var a = m.alerts;
     if (!a) return "";
     var name = m.team.name, body;
-    if (a.support === "install") {
+    if (a.support === "disabled") {
+      body = '<div class="st-row st-action"><span class="st-note">Game alerts are disabled in this test environment.</span></div>';
+    } else if (a.support === "install") {
       body = '<div class="st-row st-action"><span class="st-note">To get game alerts on iPhone or iPad, add Suite to your Home Screen, then turn them on here.</span></div>';
     } else if (a.support !== "ok") {
       body = '<div class="st-row st-action"><span class="st-note">This browser can\u2019t receive game alerts.</span></div>';

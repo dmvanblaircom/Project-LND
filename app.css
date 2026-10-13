@@ -146,6 +146,17 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
    the cap height the typed wordmark had, and the inset is pulled back into
    the gutter. */
 .wordmark{display:block;flex:none;height:min(1.6rem,25.6px);width:auto;margin:0 -.19rem}
+/* Nonproduction builds identify themselves on every screen, including chooser. */
+.environment-badge {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 3px 5px;
+  border: 1px solid #DCC49A;
+  border-radius: 4px;
+  color: #DCC49A;
+}
+
 .app-bar .spacer{flex:1}
 /* Nothing after it on a team screen: its gap would only cost the team's
    name width ("OHIO STATE" in Nunito Sans at 320px). The chooser adds its

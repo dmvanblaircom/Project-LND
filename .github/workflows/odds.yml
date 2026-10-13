@@ -45,9 +45,21 @@ concurrency:
 
 jobs:
   refresh:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Read the last independent snapshots (cutover only)
+        if: vars.SUITE_DATA_PIPELINE_ENABLED == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: data-live
+          path: .live-data
+      - name: Seed producers from the last published content
+        if: vars.SUITE_DATA_PIPELINE_ENABLED == 'true'
+        run: cp -a .live-data/data/. data/
 
       - name: Fetch from Kalshi
         id: kalshi
@@ -209,6 +221,7 @@ jobs:
           DEPTH: ${{ steps.depth.outcome }}
           CONFAV_PATHS: ${{ steps.confav.outputs.paths }}
           FPI: ${{ steps.fpi.outcome }}
+          SUITE_DATA_PIPELINE_ENABLED: ${{ vars.SUITE_DATA_PIPELINE_ENABLED }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -228,6 +241,10 @@ jobs:
           [ -n "$CONFAV_PATHS" ]   && add "conference availability" $CONFAV_PATHS
           [ "$FPI" = success ]     && add "FPI" 'data/league/fpi.json'
           if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
+          if [ "$SUITE_DATA_PIPELINE_ENABLED" = true ]; then
+            node tools/publish-snapshots.cjs .live-data
+            exit 0
+          fi
           git commit -q -m "Refresh team data: $moved"
           echo "committed: $moved"
           git push || { git pull --rebase -q origin main && git push; }

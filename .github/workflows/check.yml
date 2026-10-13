@@ -10,10 +10,10 @@ on:
     # and raw live data is not a fixture to gate on (16 failure emails,
     # 2026-10-10). Their findings reach main through a PR, which runs here.
     branches-ignore: ["scan/**", "probe/**"]
-    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", "worker/**", ".github/workflows/**"]
+    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "env-config.js", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", "worker/**", ".github/workflows/**"]
   # A pull request into main runs the release gate below before it can merge.
   pull_request:
-    branches: [main]
+    branches: [main, dev]
   workflow_dispatch:
 
 jobs:
@@ -32,8 +32,10 @@ jobs:
         run: python3 tools/csscheck.py app.css
       - name: JavaScript parses
         run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js suite/*.js tools/*.js tools/lib/*.js; do node --check "$f"; done
-      - name: Suite code promotion: forward-only lineage and drift checks
+      - name: "Suite code promotion: forward-only lineage and drift checks"
         run: node --check tools/promotion-gate.cjs && node tools/promotion-gate.test.cjs
+      - name: Environment packaging and production isolation
+        run: node tools/environmentcheck.cjs && node tools/deploymentcheck.cjs && node tools/labworkercheck.mjs && node tools/snapshotpublicationcheck.cjs
       - name: The installed product is Suite, the same for every team
         run: node tools/identitycheck.js
       # Decision 0024 §11: TEMPORARY Suite identity assets are for the design
@@ -110,6 +112,7 @@ jobs:
         env:
           ALLOW_PROVIDER_IMAGES: "1"
           VISUAL_WIDTHS: "320,375,390,1280"
+      - run: node tools/environmentflowcheck.js
       # Roster's retry and freshness behaviour: a failed load never locks
       # itself out, and old data is never passed off as fresh.
       # Review-only offseason Home v2 states and screenshots, not production season wiring.

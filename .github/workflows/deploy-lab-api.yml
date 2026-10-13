@@ -1,0 +1,55 @@
+# Provision only after Access, exact origins and separate secrets are ready.
+name: Deploy private Suite Lab API
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: suite-lab-api
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' && vars.SUITE_NONPROD_INFRA_ENABLED == 'true'
+    environment: suite-infrastructure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Require nonproduction credentials and actual hosting origins
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_NONPROD_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ORIGINS: ${{ vars.SUITE_LAB_ORIGINS }}
+          PROVIDER_KEY: ${{ secrets.CFBD_LAB_API_KEY }}
+        run: |
+          test -n "$TOKEN" && test -n "$ACCOUNT" && test -n "$ORIGINS" && test -n "$PROVIDER_KEY" || {
+            echo '::error::Nonproduction token, account, provider key and exact allowed origins are required.'; exit 1;
+          }
+      - run: node tools/labworkercheck.mjs
+      - name: Build registry and apply exact Lab origins
+        env:
+          ORIGINS: ${{ vars.SUITE_LAB_ORIGINS }}
+        run: |
+          node tools/build-worker-schools.js
+          python3 - <<'PY'
+          import os, json, re
+          origins = os.environ['ORIGINS'].split(',')
+          if any(not re.fullmatch(r'https://[a-z0-9.-]+', o.strip()) or o.strip() == 'https://dmvanblaircom.github.io' for o in origins):
+              raise SystemExit('Exact nonproduction HTTPS origins required')
+          p = 'worker/wrangler.lab.toml'
+          s = open(p).read().replace('SUITE_ALLOWED_ORIGINS = ""', 'SUITE_ALLOWED_ORIGINS = ' + json.dumps(','.join(o.strip() for o in origins)))
+          open(p, 'w').write(s)
+          PY
+      - name: Deploy isolated read-only API (no production credentials)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_NONPROD_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          command: deploy --config wrangler.lab.toml
+          # A separately provisioned Lab key; never CFBD_API_KEY, clock or VAPID.
+          secrets: CFBD_API_KEY
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_LAB_API_KEY }}

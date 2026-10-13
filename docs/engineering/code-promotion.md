@@ -67,9 +67,11 @@ workflow from Actions; do not run raw `git push` as a normal release.
 
 The workflow is **fail-closed until**
 `SUITE_PROMOTION_ENABLED=true` is configured after the cutover.
-It does **not** yet verify external Cloudflare/GitHub Pages deployment:
-those release jobs/checks must be connected and required as an additional
-gate before making the promotion workflow live. Enforce restricted
+The staged workflow now verifies source-branch CI, source deployment and
+asset hashes before approval/ref movement, then waits for the destination's
+exact SHA and verifies its served assets. These jobs require actual URLs,
+Access service authentication, external hosting and restricted credentials;
+they are not evidence that those resources exist yet. Enforce restricted
 branch-update credentials, GitHub branch rules and required Environment
 reviewers. If the GitHub account's plan does not support those rules for
 this repository visibility, use an appropriate alternative before
@@ -110,7 +112,10 @@ it is not silent movement of `main` backwards.
   the code sequence. Move dynamic `data/**` publication into a separate
   content/data delivery pipeline while keeping existing app URLs functional.
   Code ancestry is strict; data freshness and fixture values are
-  intentionally independent of the code release.
+  intentionally independent of the code release. The staged migration uses
+  `data-live` plus composed Pages artifacts, preserving `data/**` URLs. The
+  weekly `roster.yml` also writes generated shell files to main today; after
+  cutover its changes must arrive as CI-checked PRs into DEV.
 - **Blocker 2:** provision DEV/Lab branch URLs, Cloudflare Access (including
   the Lab project root), branch rules and a nonproduction API/Worker.
 - **Blocker 3:** implement reproducible asset builds, attach deployed SHA
@@ -141,6 +146,7 @@ There is no need for separate `release/*` branches, manual cherry-pick
 lists or three independent boards.
 
 See `docs/engineering/suite-lab-environments-proposal-2026-10-12.md`
-for hosting and network boundaries. This file is the authoritative
+for hosting and network boundaries. The executable cutover checklist and actual
+provisioning status are in `environment-provisioning-status-2026-10-13.md`. This file is the authoritative
 *code promotion* contract and supersedes the earlier proposed
 `feature → lab → main` shortcut.

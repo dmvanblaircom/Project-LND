@@ -25,6 +25,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: roster
@@ -32,9 +33,18 @@ concurrency:
 
 jobs:
   refresh:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ vars.SUITE_PROMOTION_ENABLED == 'true' && 'dev' || 'main' }}
+          token: ${{ secrets.SUITE_REGISTRY_TOKEN || github.token }}
+      - name: Require a registry PR identity after cutover
+        if: vars.SUITE_PROMOTION_ENABLED == 'true'
+        env:
+          TOKEN: ${{ secrets.SUITE_REGISTRY_TOKEN }}
+        run: test -n "$TOKEN" || { echo '::error::Registry updates must use a PR identity that triggers DEV checks.'; exit 1; }
 
       # The roster comes from the standings page. When ESPN challenges the
       # runner (HTTP 202), membership cannot refresh this week - but provider
@@ -142,6 +152,10 @@ jobs:
           node tools/choosercheck.js
 
       - name: Commit if anything changed
+        env:
+          CUTOVER: ${{ vars.SUITE_PROMOTION_ENABLED }}
+          GH_TOKEN: ${{ secrets.SUITE_REGISTRY_TOKEN || github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
           rm -rf standings.html standings.html.tmp sb
           if git diff --quiet -- teams/index.js; then
@@ -152,9 +166,17 @@ jobs:
           after=$(grep -c '{ id:' teams/index.js || true)
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ "$CUTOVER" = true ]; then
+            git switch -c "automation/registry-$GITHUB_RUN_ID"
+          fi
           git add teams/index.js worker/src/schools.js
           git commit -m "Refresh the team registry: ${before} -> ${after} programs"
-          git push
+          if [ "$CUTOVER" = true ]; then
+            git push -u origin "automation/registry-$GITHUB_RUN_ID"
+            gh pr create --base dev --head "automation/registry-$GITHUB_RUN_ID"               --title "Refresh the team registry: ${before} -> ${after} programs"               --body 'Updates the generated team registry and allowed Worker schools. Review and pass DEV CI before merging; normal DEV → Lab → Production promotion applies.'
+          else
+            git push
+          fi
 
       # ESPN challenges GitHub's runners on the standings page most weeks
       # (HTTP 202). FBS membership changes about once a year, so a blocked
