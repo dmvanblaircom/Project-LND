@@ -89,6 +89,10 @@ Claude Code is the Engineering Partner. It owns repository inspection, implement
 
 The repository is the shared source of truth. Decisions that matter after the current conversation belong in the repository rather than only in chat history.
 
+## Approved three-environment workflow (cutover pending)
+
+David approved a one-way `feature/* → dev → lab (QA/UAT) → main (Production)` code promotion contract on October 12. Read `docs/engineering/code-promotion.md`. **Do not start bypassing current release process until the data-writer migration, private Lab infrastructure, branch protections and promotion gate are active.** The existing branch strategy below documents the current production setup during the transition. Once cut over, feature PRs target `dev` only; Lab and main may advance only using exact-SHA promotion automation. Do not rebuild approved and merged features.
+
 ## Branch Strategy
 
 From the Suite release (2026-09-27), per David's decision of 2026-09-25:

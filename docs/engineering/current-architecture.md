@@ -73,3 +73,12 @@ Strategy). Rollback: `docs/engineering/rollback-runbook.md`.
 - `app.js` still owns several stores and timers (W10); the schedule now joins a request already out, like the scoreboard.
 - Ohio State lacks an official depth chart (W20; Ourlads permission pending). Its availability report is the Big Ten's (`tools/producers/conference_availability.py`).
 - Internal `iw-` names remain (C16), by decision.
+
+## Environment bootstrap in PR #135 (not deployed)
+
+Private DEV/Lab/feature builds and exact-SHA promotion are authorized but not
+provisioned. The implementation stages explicit build metadata, API isolation,
+a read-only Lab Worker, independent live-snapshot publication, a registry PR
+path, and source/destination deployment checks. See
+`environment-provisioning-status-2026-10-13.md`. Until coordinated activation,
+production uses the existing branch-source Pages and refresh writer.

@@ -1,0 +1,55 @@
+# Replaces branch-source Pages only at the controlled data-pipeline cutover.
+# Runtime URLs stay ./data/<team>/<kind>.json. Code and live content are separate.
+name: Deploy Suite production artifact
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Refresh team data]
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: suite-pages-artifact
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: vars.SUITE_DATA_PIPELINE_ENABLED == 'true' && (github.event_name == 'workflow_run' || github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/checkout@v4
+        with:
+          ref: data-live
+          path: .live-data
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the committed code with independent live snapshots
+        run: |
+          node tools/build-environment.cjs --environment production --branch main --out artifacts/pages-production --data-root .live-data --data-sha "$(git -C .live-data rev-parse HEAD)"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: artifacts/pages-production
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify the deployed revision and assets
+        env:
+          URL: ${{ steps.deployment.outputs.page_url }}
+        run: node tools/verify-deployment.cjs "$URL" production "$(git rev-parse HEAD)" artifacts/pages-production/build.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: suite-production-build-manifest
+          path: artifacts/pages-production/build.json

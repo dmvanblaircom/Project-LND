@@ -1,0 +1,157 @@
+# Controlled promotion. DISABLED until the repo flag is enabled.
+name: Promote Suite code
+on:
+  workflow_dispatch:
+    inputs:
+      destination:
+        description: "Advance code to Lab or Production"
+        type: choice
+        options:
+          - lab
+          - main
+        required: true
+      qa_evidence:
+        description: "Lab QA approval reference, required for Production"
+        type: string
+        required: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: suite-promotions
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    name: Pin and validate promotion
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      candidate: ${{ steps.pin.outputs.candidate }}
+      expected_target: ${{ steps.pin.outputs.expected_target }}
+      source_branch: ${{ steps.pin.outputs.source_branch }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Require completed hosting and data cutover
+        env:
+          DATA: ${{ vars.SUITE_DATA_PIPELINE_ENABLED }}
+          INFRA: ${{ vars.SUITE_NONPROD_INFRA_ENABLED }}
+          IDENTITY: ${{ secrets.SUITE_PROMOTION_TOKEN }}
+        run: |
+          test "$DATA" = true && test "$INFRA" = true && test -n "$IDENTITY" || {
+            echo '::error::Data isolation, private hosting and a restricted promotion identity are required.'; exit 1;
+          }
+      - name: Require QA evidence for Production
+        env:
+          DEST: ${{ inputs.destination }}
+          EVIDENCE: ${{ inputs.qa_evidence }}
+        run: |
+          if [ "$DEST" = main ] && [ -z "$EVIDENCE" ]; then
+            echo "::error::Production promotion needs a Lab UAT reference."
+            exit 1
+          fi
+      - id: pin
+        name: Pin immutable candidate
+        env:
+          SUITE_PROMOTION_ENABLED: ${{ vars.SUITE_PROMOTION_ENABLED }}
+        run: node tools/promotion-gate.cjs plan "${{ inputs.destination }}"
+      - name: Require successful CI for the exact source commit
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CANDIDATE: ${{ steps.pin.outputs.candidate }}
+          SOURCE: ${{ steps.pin.outputs.source_branch }}
+        run: node tools/verify-candidate-ci.cjs "$CANDIDATE" "$SOURCE"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pin.outputs.candidate }}
+          path: .candidate
+      - name: Build expected source artifact
+        working-directory: .candidate
+        env:
+          SOURCE: ${{ steps.pin.outputs.source_branch }}
+          API: ${{ vars.SUITE_NONPROD_API_BASE }}
+        run: node tools/build-environment.cjs --environment "$SOURCE" --branch "$SOURCE" --out artifacts/expected --api "$API"
+      - name: Verify the exact candidate is deployed in the source environment
+        env:
+          URL: ${{ inputs.destination == 'lab' && vars.SUITE_DEV_URL || vars.SUITE_LAB_URL }}
+          SOURCE: ${{ steps.pin.outputs.source_branch }}
+          CANDIDATE: ${{ steps.pin.outputs.candidate }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: node tools/verify-deployment.cjs "$URL" "$SOURCE" "$CANDIDATE" .candidate/artifacts/expected/build.json
+
+  promote:
+    name: Approve and advance exact commit
+    needs: plan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    environment:
+      name: ${{ inputs.destination == 'main' && 'suite-production' || 'suite-lab' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.SUITE_PROMOTION_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.plan.outputs.candidate }}
+          path: .candidate
+      - name: Build expected destination artifact
+        working-directory: .candidate
+        env:
+          DEST: ${{ inputs.destination }}
+          API: ${{ vars.SUITE_NONPROD_API_BASE }}
+        run: |
+          if [ "$DEST" = main ]; then
+            node tools/build-environment.cjs --environment production --branch main --out artifacts/expected
+          else
+            node tools/build-environment.cjs --environment lab --branch lab --out artifacts/expected --api "$API"
+          fi
+      - name: Recheck refs and perform non-force fast-forward
+        env:
+          SUITE_PROMOTION_ENABLED: ${{ vars.SUITE_PROMOTION_ENABLED }}
+          CANDIDATE: ${{ needs.plan.outputs.candidate }}
+          OLD: ${{ needs.plan.outputs.expected_target }}
+          DEST: ${{ inputs.destination }}
+        run: node tools/promotion-gate.cjs apply "$DEST" "$CANDIDATE" "$OLD"
+      - name: Verify destination deployment and all asset revisions
+        env:
+          URL: ${{ inputs.destination == 'main' && vars.SUITE_PRODUCTION_URL || vars.SUITE_LAB_URL }}
+          ENVIRONMENT: ${{ inputs.destination == 'main' && 'production' || 'lab' }}
+          CANDIDATE: ${{ needs.plan.outputs.candidate }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: node tools/wait-deployment.cjs "$URL" "$ENVIRONMENT" "$CANDIDATE" .candidate/artifacts/expected/build.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: suite-promotion-build-manifest
+          path: .candidate/artifacts/expected/build.json
+      - name: Record audited promotion
+        env:
+          CANDIDATE: ${{ needs.plan.outputs.candidate }}
+          OLD: ${{ needs.plan.outputs.expected_target }}
+          DEST: ${{ inputs.destination }}
+          EVIDENCE: ${{ inputs.qa_evidence }}
+        run: |
+          {
+            echo "### Suite promotion"
+            echo "- Branch: $DEST"
+            echo "- Old SHA: $OLD"
+            echo "- Exact promoted SHA: $CANDIDATE"
+            echo "- QA evidence: $EVIDENCE"
+            echo "- Triggered by: $GITHUB_ACTOR"
+            echo "- Workflow run: $GITHUB_RUN_ID"
+            echo "- Destination deployment and asset smoke checks passed."
+          } >> "$GITHUB_STEP_SUMMARY"

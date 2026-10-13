@@ -690,11 +690,12 @@ function pointsAllowedFor(key, ourGames){
 // answers with null figures); a failure resolves to null without being kept,
 // so the next preview asks again. Either way the row shows a dash for that
 // side, and the card stands.
-var EDGE="https://suite-api.dmvanblaircom.workers.dev";
+var ENVIRONMENT=Suite.environment || { apiBase:"", pushEnabled:false, production:false, label:"CONFIG ERROR" };
+var EDGE=ENVIRONMENT.apiBase;
 var YDS_ALLOWED={};               // school -> { rush, pass, ... } | null
 
 function yardsAllowedFor(school){
-  if(!school) return Promise.resolve(null);
+  if(!school || !EDGE) return Promise.resolve(null);
   if(YDS_ALLOWED.hasOwnProperty(school)) return Promise.resolve(YDS_ALLOWED[school]);
   return get(EDGE+TeamOS.cfbd.seasonPath(school, seasonYear()))
     .then(function(d){ var v=TeamOS.cfbd.yardsAllowed(d); YDS_ALLOWED[school]=v; return v; },
@@ -1744,7 +1745,7 @@ function paintMore(){
            mark:Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId), TEAM.name, TEAM.abbreviation) },
     changeHref: location.pathname+"?change", style: appStyle(),
     updatedAt: lastUpdated(), refreshing: MORE.refreshing, online: navigator.onLine!==false, result: MORE.result,
-    alerts: alertsModel() });
+    alerts: alertsModel(), environment: ENVIRONMENT });
   if(r.screen==="feedback") Suite.more.feedback(host, { href: feedbackHref(), address: FEEDBACK_TO });
   if(r.screen==="about") Suite.more.about(host, { version: MORE.version, sources: TeamOS.sources.list(TEAM_CONFIG) });
 }
@@ -1902,6 +1903,7 @@ function alertPick(o){
   })[0]||null;
 }
 function alertSupport(){
+  if(!ENVIRONMENT.pushEnabled) return "disabled";
   var ios=/iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
   var installed=navigator.standalone===true || (window.matchMedia && matchMedia("(display-mode: standalone)").matches);
   if(!("serviceWorker" in navigator) || !("PushManager" in window) || !("Notification" in window))
@@ -1941,6 +1943,7 @@ function sameKey(sub, key){
   return a.length===key.length && a.every(function(v,i){ return v===key[i]; });
 }
 function postEdge(path, body){
+  if(!ENVIRONMENT.pushEnabled || !EDGE) return Promise.reject(new Error("Game alerts are disabled in this environment"));
   return fetch(EDGE+path, { method:"POST", headers:{ "content-type":"application/json" }, body:JSON.stringify(body) })
     .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(b){ return { status:r.status, body:b }; }); });
 }
@@ -1951,6 +1954,7 @@ function alertsDone(note, on){
   if(btn && !$("screenSettings").hidden) btn.focus();
 }
 function alertsTurnOn(){
+  if(!ENVIRONMENT.pushEnabled) return;
   ALERTS.busy=true; ALERTS.note=null; paintMore();
   // First thing in the tap: iOS grants permission only from the tap itself.
   var asked=Notification.requestPermission();
