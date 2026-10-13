@@ -62,7 +62,7 @@ Suite.outlook = (function () {
     return '<li class="of-row' + (r.mine ? " mine" : "") + '"' + (r.mine ? ' aria-current="true"' : "") + ">" +
              '<span class="of-rank" aria-hidden="true">' + (i + 1) + "</span>" +
              '<span class="of-team">' + esc(r.team) + "</span>" +
-             '<span class="of-num"><span class="of-val">' + pct(r.value) + '<span class="pct">%</span></span>' + chg(r.change) + "</span>" +
+             '<span class="of-num"><span class="of-val">' + pct(r.value) + '<span class="pct">%</span></span><span class="of-change">' + chg(r.change) + "</span></span>" +
              '<span class="of-bar" aria-hidden="true"><span style="width:' + Math.max(0, Math.min(100, r.value)) + '%"></span></span>' +
            "</li>";
   }
@@ -72,7 +72,7 @@ Suite.outlook = (function () {
     var t = new Date(m.asOf);
     if (isNaN(t)) return "";
     return (m.stale ? "Saved prices, as of " : "As of ") +
-      t.toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + ". ";
+      t.toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + ".";
   }
 
   function boardHtml(m, v) {
@@ -82,12 +82,14 @@ Suite.outlook = (function () {
     var mine = at >= 0 ? rows[at] : null;
     return '<p class="ss-season">The chance the market gives each team to ' + esc(v.what) + ".</p>" +
       (mine
-        ? '<p class="of-you">' + esc(m.team.name) + ": <strong>" + pct(mine.value) + "%</strong>, " +
-          ordinal(at + 1) + " of " + rows.length + "</p>"
+        ? '<p class="of-you"><span class="of-context"><span class="of-name">' + esc(m.team.name) + '</span> <span class="of-place">' +
+          ordinal(at + 1) + " of " + rows.length + ' teams</span></span> <strong class="of-chance">' + pct(mine.value) + '<span class="pct">%</span></strong></p>'
         : '<p class="of-you">' + esc(m.team.name) + " isn’t priced in this market.</p>") +
+      '<p class="ss-note of-source">Market-implied odds · Kalshi' + (asOfLine(m) ? '<span class="of-asof">' + esc(asOfLine(m)) + '</span>' : "") + '</p>' +
       '<section class="card of-card" aria-labelledby="of-head"><h2 class="sr-only" id="of-head">' + esc(v.label) + " field</h2>" +
+        '<div class="of-cols" aria-hidden="true"><span class="of-label">Team</span><span class="of-num"><span>Chance</span><span>Δ pts</span></span></div>' +
         '<ol class="of-list">' + rows.map(rowHtml).join("") + "</ol></section>" +
-      '<p class="ss-note">' + esc(asOfLine(m)) + "Market-implied odds. Information only. Powered by Kalshi</p>";
+      '<p class="ss-note">Changes are in percentage points. Market-implied odds. Information only. Powered by Kalshi</p>';
   }
 
   function ordinal(n) {
