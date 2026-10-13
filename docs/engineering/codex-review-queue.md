@@ -16,9 +16,10 @@ Reconciled October 12. [backlog.md](backlog.md) is the current scope; the
 **October 13 ownership:** DEV/Lab provisioning is paused at David's request
 and handed to Claude (#135, #136); it does not block UI work. Draft #134 already
 contains the isolated offseason renderer, awaiting Claude's normalized
-controller inputs. Codex is finishing the existing, unpublished Game Alerts
-Settings presentation work on current main, preserving its preference and
-subscription behavior. No kickoff-time or dedupe service work moves into the
+controller inputs. Codex finished the existing Game Alerts Settings presentation in draft #137
+on current main, with local behavior, responsive and keyboard checks plus
+before/after captures. Full CI and visual/release approval remain; preserve
+its preference and subscription behavior. No kickoff-time or dedupe service work moves into the
 UI slice.
 
 Completed first passes removed from this queue: Home/Game #100, Stats #104,

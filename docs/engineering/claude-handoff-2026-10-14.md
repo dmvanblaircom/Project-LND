@@ -35,6 +35,15 @@ up the prepared implementation with David when environment work resumes.
   Preserve the approved DEV → Lab → Production contract; never merge an
   unreleased UI feature merely to make it viewable.
 
+**UI continued after the pause:** [draft PR #137](https://github.com/dmvanblaircom/Project-LND/pull/137)
+finishes Game Alerts Settings presentation: team/status header, visible quick
+picks, full-width scoring choices and responsive text. Existing behavior
+checks and local ND/OSU × both-style visual review pass; captures are in
+`docs/reviews/alerts-settings-2026-10-13.md` on that branch. Full CI and
+David's visual/release approval remain separate gates. Preserve its markup
+and CSS when adding kickoff-time or postseason alert options; no new alert
+semantics or backend changes are included.
+
 The already-built offseason renderer is separately staged in draft
 [PR #134](https://github.com/dmvanblaircom/Project-LND/pull/134), branch
 `feat/offseason-s2s4-presentation`. Read its
