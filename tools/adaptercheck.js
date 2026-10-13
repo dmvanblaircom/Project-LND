@@ -1152,7 +1152,11 @@ var idx = read("index.html").replace(/\r\n/g, "\n");
 var boot = (idx.match(/<script id="team-boot">([\s\S]*?)<\/script>/) || [])[1] || "";
 ok(!!boot, "carries the boot script that decides the team");
 var markup = idx.replace(/<script id="team-boot">[\s\S]*?<\/script>/, "");
-ok(!/<script src=/.test(markup), "and loads no script by name of its own");
+var infrastructureScripts = Array.from(markup.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/g)).map(function (m) { return m[1]; });
+eq(infrastructureScripts, ["env-config.js", "suite/environment.js"],
+   "only environment bootstrap is static; team and application scripts still come from team-boot");
+ok(idx.indexOf('src="suite/environment.js"') < idx.indexOf('<script id="team-boot">'),
+   "explicit environment is ready before team boot");
 ok(!/teams\/[a-z-]+\.js/.test(markup), "no team config is named in the markup");
 ok(!/<style id="team-boot">/.test(idx), "the static token blocks are gone, replaced by the replay");
 ok(!fs.existsSync(path.join(root, "buckeye.html")), "and buckeye.html is retired");
