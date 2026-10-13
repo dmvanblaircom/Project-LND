@@ -13,6 +13,14 @@ Reconciled October 12. [backlog.md](backlog.md) is the current scope; the
    token/header rewrite.
 6. **Release evidence:** pending-design-review item 4 and real iPhone checks.
 
+**October 13 ownership:** DEV/Lab provisioning is paused at David's request
+and handed to Claude (#135, #136); it does not block UI work. Draft #134 already
+contains the isolated offseason renderer, awaiting Claude's normalized
+controller inputs. Codex is finishing the existing, unpublished Game Alerts
+Settings presentation work on current main, preserving its preference and
+subscription behavior. No kickoff-time or dedupe service work moves into the
+UI slice.
+
 Completed first passes removed from this queue: Home/Game #100, Stats #104,
 motion #105, type/navigation #106. Repeat only to resolve a concrete remaining
 visual issue. W06 disclosure is withdrawn. W18 full-field board is implemented

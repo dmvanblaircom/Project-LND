@@ -19,6 +19,20 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 
 **Important:** Merging FPI into `main` is confirmed; public Pages deployment and physical-device verification have not been verified in this ledger. The offseason visual prototype is not a shipped in-app feature.
 
+## Paused environment setup — Claude handoff (October 13)
+
+David paused DEV/Lab/Production provisioning and moved it to
+[Claude's handoff](claude-handoff-2026-10-14.md#october-13-environment-setup-paused-claude-pickup).
+Draft #135 preserves the implementation; issue #136 tracks the cutover.
+Candidate `179a834` passed both PR CI jobs, but Cloudflare login failed and no
+environments, access policies, branch protections, new environment branches
+or URLs exist. All activation flags remain off. Keep it paused during UI
+work; Claude resumes with David. The current production release controls
+continue to apply.
+
+Offseason renderer draft #134 is built for controller integration; it is not
+wired into production. Reuse that renderer when Claude's inputs are ready.
+
 ## Ordered remaining implementation
 
 | Order | Item | Owner / remaining scope |

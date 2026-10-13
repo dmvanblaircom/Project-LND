@@ -3,6 +3,45 @@
 **Final October 12 pickup status (overrides original preparation notes):**
 PR #126 mobile fixes, #128 handoff, #130 FPI, #131 offseason v2 visual prototype (screen review pending) and #132 ledger correction are **merged**. Original FPI PR #127 is closed as superseded; issue #30 is closed as withdrawn. Do not rebuild any of them. FPI post-merge public-site/physical-iPhone verification is still open, and the offseason preview is **not** production season wiring. The original preparation table below is historical where it conflicts with this status.
 
+## October 13: environment setup paused; Claude pickup
+
+David paused environment provisioning on October 13 and moved it into this
+handoff so Codex can continue unblocked UI work. **Do not resume Cloudflare
+sign-in, create resources/branches, enable cutover flags, merge the bootstrap,
+or deploy an environment as part of the current UI work.** Claude should pick
+up the prepared implementation with David when environment work resumes.
+
+- **Saved work:** draft [PR #135](https://github.com/dmvanblaircom/Project-LND/pull/135),
+  branch `docs/suite-lab-env-plan-oct12`; cutover tracker
+  [issue #136](https://github.com/dmvanblaircom/Project-LND/issues/136).
+  Its code candidate `179a834148bac1d470e8ced9fa3bcf62e814fa81` passed both
+  `css` and `visual` jobs in [PR CI run 38342913260](https://github.com/dmvanblaircom/Project-LND/actions/runs/38342913260).
+- **Implemented, not activated:** explicit environment metadata and badges,
+  allowlisted builds/manifests, nonproduction API/push isolation, separate
+  read-only Lab Worker, staged snapshot/registry writer migrations, and
+  exact-SHA CI/deployment checks for forward-only promotion.
+- **Actual state:** no DEV/Lab hosting, branches, Cloudflare Access policies,
+  GitHub rules/review environments or live URLs were created. No cutover flag
+  was enabled; production was not changed by this setup work. The final
+  Cloudflare login returned “Unable to sign in”; no usable account session
+  was established.
+- **Pickup:** inspect current main and PR #135 before editing. Use
+  `docs/engineering/environment-provisioning-status-2026-10-13.md` and
+  `docs/engineering/code-promotion.md` **on PR #135's branch** for the detailed
+  sequence. Address both direct-main writers (`odds.yml` and `roster.yml`),
+  private root/preview/API access, restricted update identities, protected
+  approvals, identical baseline branches, deployed SHA/asset checks and
+  physical-iPhone PWA acceptance. Passing CI is not hosted or device approval.
+  Preserve the approved DEV → Lab → Production contract; never merge an
+  unreleased UI feature merely to make it viewable.
+
+The already-built offseason renderer is separately staged in draft
+[PR #134](https://github.com/dmvanblaircom/Project-LND/pull/134), branch
+`feat/offseason-s2s4-presentation`. Read its
+`docs/engineering/offseason-renderer-handoff-2026-10-12.md` before wiring the
+season controller. It remains disconnected from the live app and is not a
+shipped offseason feature. Reuse it rather than rebuilding the renderer.
+
 Prepared October 12 against main `b586ecd` and merged PRs through #125.
 David authorized Codex to keep building ready UI and the narrow integration
 of existing models while Claude was unavailable. This is a pickup contract,
@@ -188,7 +227,8 @@ David can give Claude this pickup instruction:
 
 > Read CLAUDE.md, docs/09_AI_OPERATING_SYSTEM.md and
 > docs/engineering/claude-handoff-2026-10-14.md. Inspect current main and merged PRs
-> #130/#131 before editing shared files. Continue the first uncompleted,
+> #130/#131 plus draft #134/#135 before editing shared files. Keep environment
+> setup paused until David resumes that work. Continue the first uncompleted,
 > unblocked Claude-owned slice in that handoff; preserve Codex's UI and the
 > approved decisions. Keep each slice reviewable, finish its checks and hand
 > off normalized inputs for Codex. Do not merge or deploy without my release
