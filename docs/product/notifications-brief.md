@@ -104,6 +104,13 @@ October 10 game needs. Gates: `tools/workercheck.mjs` replays a real game's
 scoring minute by minute for four kinds of fan; `tools/alertscheck.js`
 drives Settings in a browser.
 
+**October 13 UI refinement (David):** the master On/Off control is a native
+switch matching the individual alert switches. Quick picks remain shortcut
+buttons. Scoring remains a single native radio choice, using the same row,
+type, separators and right-side control alignment as the switch options.
+Only an explicit master-switch activation requests notification permission;
+request progress and failure must preserve the confirmed subscription state.
+
 ### The settings screen (Settings → Game Alerts, for the active team)
 
 ```

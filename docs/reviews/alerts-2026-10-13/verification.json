@@ -1,21 +1,6 @@
 {
   "results": [
     {
-      "label": "notre-dame-team-320",
-      "metrics": {
-        "overflow": false,
-        "small": [],
-        "fonts": [
-          "Instrument Sans",
-          "Instrument Display"
-        ]
-      },
-      "textChecked": 48,
-      "focusStops": 14,
-      "unassessed": 1,
-      "unverifiedFocus": []
-    },
-    {
       "label": "notre-dame-team-390",
       "metrics": {
         "overflow": false,
@@ -27,7 +12,33 @@
       }
     },
     {
+      "label": "notre-dame-team-320",
+      "metrics": {
+        "overflow": false,
+        "small": [],
+        "fonts": [
+          "Instrument Sans",
+          "Instrument Display"
+        ]
+      },
+      "textChecked": 46,
+      "focusStops": 14,
+      "unassessed": 1,
+      "unverifiedFocus": []
+    },
+    {
       "label": "notre-dame-team-1280",
+      "metrics": {
+        "overflow": false,
+        "small": [],
+        "fonts": [
+          "Instrument Sans",
+          "Instrument Display"
+        ]
+      }
+    },
+    {
+      "label": "notre-dame-suite-390",
       "metrics": {
         "overflow": false,
         "small": [],
@@ -47,21 +58,10 @@
           "Instrument Display"
         ]
       },
-      "textChecked": 48,
+      "textChecked": 46,
       "focusStops": 14,
       "unassessed": 1,
       "unverifiedFocus": []
-    },
-    {
-      "label": "notre-dame-suite-390",
-      "metrics": {
-        "overflow": false,
-        "small": [],
-        "fonts": [
-          "Instrument Sans",
-          "Instrument Display"
-        ]
-      }
     },
     {
       "label": "notre-dame-suite-1280",
@@ -75,21 +75,6 @@
       }
     },
     {
-      "label": "ohio-state-team-320",
-      "metrics": {
-        "overflow": false,
-        "small": [],
-        "fonts": [
-          "Nunito Sans",
-          "Instrument Sans"
-        ]
-      },
-      "textChecked": 48,
-      "focusStops": 14,
-      "unassessed": 1,
-      "unverifiedFocus": []
-    },
-    {
       "label": "ohio-state-team-390",
       "metrics": {
         "overflow": false,
@@ -99,6 +84,21 @@
           "Instrument Sans"
         ]
       }
+    },
+    {
+      "label": "ohio-state-team-320",
+      "metrics": {
+        "overflow": false,
+        "small": [],
+        "fonts": [
+          "Nunito Sans",
+          "Instrument Sans"
+        ]
+      },
+      "textChecked": 46,
+      "focusStops": 14,
+      "unassessed": 1,
+      "unverifiedFocus": []
     },
     {
       "label": "ohio-state-team-1280",
@@ -112,21 +112,6 @@
       }
     },
     {
-      "label": "ohio-state-suite-320",
-      "metrics": {
-        "overflow": false,
-        "small": [],
-        "fonts": [
-          "Instrument Sans",
-          "Instrument Display"
-        ]
-      },
-      "textChecked": 48,
-      "focusStops": 14,
-      "unassessed": 1,
-      "unverifiedFocus": []
-    },
-    {
       "label": "ohio-state-suite-390",
       "metrics": {
         "overflow": false,
@@ -136,6 +121,21 @@
           "Instrument Display"
         ]
       }
+    },
+    {
+      "label": "ohio-state-suite-320",
+      "metrics": {
+        "overflow": false,
+        "small": [],
+        "fonts": [
+          "Instrument Sans",
+          "Instrument Display"
+        ]
+      },
+      "textChecked": 46,
+      "focusStops": 14,
+      "unassessed": 1,
+      "unverifiedFocus": []
     },
     {
       "label": "ohio-state-suite-1280",

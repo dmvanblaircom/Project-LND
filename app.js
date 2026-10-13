@@ -1867,7 +1867,7 @@ Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); 
 
 /* ---------- Game alerts (W19) ---------- */
 // This team's alerts, pushed by the edge API (worker/src/push.js) to this
-// device. Nothing is asked of the browser until the fan taps Turn On in
+// device. Nothing is asked of the browser until the fan enables the master switch in
 // Settings (notifications brief §3). Whether this device turned them on for
 // this team, and its choice of alerts (round 2, §2b), are kept here; the
 // Worker keeps the subscription and a copy of the choice.
@@ -1975,7 +1975,7 @@ function alertsTurnOn(){
     if(r.status!==200) throw { why:"server" };
     alertsDone(r.body.confirmation==="sent" ? "Game alerts are on. A test alert is on its way."
              : r.body.confirmation==="updated" ? "Game alerts are on."
-             : "Game alerts are on, but the test alert didn’t go through. Try Turn Off, then Turn On.", true);
+             : "Game alerts are on, but the test alert didn’t go through. Try switching alerts off, then on.", true);
   }).catch(function(e){
     alertsDone(e && e.why==="denied" ? "Notifications weren’t allowed, so game alerts are off."
                                      : "Couldn’t turn on game alerts. Check your connection and try again.", false);
@@ -1998,10 +1998,13 @@ function alertsTurnOff(why){
     alertsDone("Couldn’t turn off game alerts. Check your connection and try again.", null);
   });
 }
-document.addEventListener("click", function(e){
-  var b=e.target.closest && e.target.closest("[data-alerts]");
-  if(!b || ALERTS.busy || alertSupport()!=="ok") return;
-  if(b.getAttribute("data-alerts")==="on") alertsTurnOn(); else alertsTurnOff();
+document.addEventListener("change", function(e){
+  var b=e.target;
+  if(!b || !b.matches || !b.matches("#screenSettings input[data-alerts]")) return;
+  // Keep the confirmed state while a request is pending. aria-disabled
+  // preserves focus, so a repeated tap must also restore the native switch.
+  if(ALERTS.busy || alertSupport()!=="ok"){ b.checked=alertsModel().on; return; }
+  if(b.checked) alertsTurnOn(); else alertsTurnOff();
 });
 function alertTeam(){ return { id:String(TEAM_CONFIG.sources.espn.teamId), name:TEAM.name }; }
 // A change of choice: kept here at once, sent to the Worker a moment later

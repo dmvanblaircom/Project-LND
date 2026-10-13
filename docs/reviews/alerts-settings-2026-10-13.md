@@ -1,60 +1,65 @@
-# Game Alerts Settings presentation review — October 13
+# Game Alerts Settings — revised October 13
 
-Resumes the unpublished October 12 UI refinement on main `011eab3`.
-Review candidate: PR #137 (`codex/alerts-settings-oct13`); not merged or
-production-verified. Environment work remains paused in #135/#136 and the
-Claude handoff #133.
+Review candidate: draft PR #137 (`codex/alerts-settings-oct13`). David asked
+for a master toggle and more consistent layout and UI properties after
+reviewing the first pass. This revision is not merged or deployed.
+Environment setup remains paused in #135/#136 and Claude handoff #133.
 
-## What changed
+## Revision
 
-The team, On/Off status and explicit action now share a compact overview.
-Quick picks have a visible heading and equal-width controls. Scoring keeps
-one native radio choice with full-width rows instead of wrapping chips.
-Group spacing and the Focus hint are clearer, and off switches have a visible
-track. Long alert labels can reflow at 200% text sizing.
+- The master uses the same native checkbox switch, track, thumb, colors and
+  focus ring as the individual alert options. Its team label and helper text
+  identify what it controls. The separate status pill and Turn On/Off button
+  are removed.
+- Master, option and scoring rows share label type, row padding, separators,
+  and a right-aligned control column. Scoring remains one native radio choice;
+  its three separate bordered boxes are removed.
+- Quick picks remain shortcut buttons, with a single shared size/radius,
+  selected fill and group label. All four groups use the same fieldset/legend
+  treatment. Helper text uses one size and line height; group gaps are tighter.
 
-Defaults, quick-pick membership, alert copy, permission requests, save/turn-off
-sequencing and subscription endpoints are unchanged. Kickoff-time alerts and
-both-teams deduplication remain Claude's service work. The service-worker
-version is `suite-2026-10-13alerts1` so installed clients receive the new shell.
-The existing Suite unit assertion now locates the sole semantic Turn On
-button without demanding an exact CSS-class string.
+The master requests permission only on explicit activation, including Space
+on the keyboard. It keeps the confirmed subscription state while work is
+pending, restores that state after repeated pending taps, and reports a failed
+change without falsely showing a successful toggle. Existing defaults,
+quick-pick membership, save/unsubscribe sequencing and backend routes remain.
+The recovery hint now refers to switching alerts off/on. New alert types,
+service deduplication and notification-delivery changes remain Claude's work.
 
-## Review captures
+## Actual browser captures
 
-These are the actual production renderer and CSS in a local browser with
-stubbed permission/subscription responses. No notification was sent to a fan.
-The before and after Notre Dame captures show the same Key moments selection.
-The team mark's normal fallback is used because external images are blocked;
-shipping local typefaces loaded, including Nunito Sans for Ohio State Team Style.
+Local production renderer/CSS with stubbed push responses: no real fan push.
+Shipping fonts loaded, including Nunito Sans for Ohio State Team Style;
+external team marks use the existing fallback. Both Notre Dame captures use
+Key moments, so the comparison isolates presentation.
 
-| Before — Notre Dame, Suite Style, 390px | After — same state |
+| Previous review, 390px | Revised controls, 390px |
 |---|---|
-| ![Before](alerts-2026-10-13/before.png) | ![After](alerts-2026-10-13/notre-dame-suite.png) |
+| ![Previous review](alerts-2026-10-13/previous-review.png) | ![Revised](alerts-2026-10-13/notre-dame-suite.png) |
 
 ![Ohio State Team Style at 320px](alerts-2026-10-13/ohio-state-team-320.png)
 
 ## Verification
 
-- `node tools/suitecheck.js`: renderer contracts pass, including supported,
-  off, on, busy, denied and install-first controls.
-- `node tools/alertscheck.js`: defaults, quick picks, custom choices, focus,
-  legacy preferences and in-flight-save/turn-off sequencing pass with a stubbed API.
-- `node tools/moreflowcheck.js`: Settings refresh/recovery and connection
-  behavior pass with recorded provider fixtures.
-- Rendered review: ND and OSU × Team and Suite styles × 320/390/1280px
-  (12 combinations). No page overflow; option rows, scoring labels, quick
-  picks and the explicit toggle have at least 44px height. At 320px,
-  200% text sizing preserves reflow and label content. Off, busy, denied,
-  install, unsupported and error states also fit at 320px.
-- The existing pixel auditor passed its self-test, then checked 48 text
-  elements and 14 keyboard-focus stops per team/style at 320px: no failures
-  or unverified focus rings. One existing text region per page was unassessed;
-  this is not a claim that every pixel was machine-verified.
-- `python3 tools/csscheck.py app.css`: 857 rules, zero dead or shadowed rules.
-  JS syntax, whitespace and committed `versioncheck origin/main` pass.
-- Machine-readable local review: [verification.json](alerts-2026-10-13/verification.json).
+- Existing Suite renderer checks pass for on/off/busy/unsupported/install and
+  denied states. The master has an explicit accessible name/description.
+- The alert browser suite passes its existing defaults, quick picks, custom
+  choices, legacy settings and in-flight-save/unsubscribe cases. New checks
+  cover keyboard activation, focus, no permission request on initial render,
+  repeated pending taps, failed unsubscribe/retry and denied permission.
+- Focus restoration, controller, boot and service-worker checks pass. The
+  service-worker version is `suite-2026-10-13alerts2`.
+- ND/OSU × Team/Suite styles × 320/390/1280px: 12 rendered combinations fit.
+  Row and quick-pick hit areas are at least 44px. At 320px, 200% text sizing
+  reflows without page overflow or clipped labels. Off, pending, denied,
+  install-first, unsupported and error states are included in the captures.
+- The existing pixel auditor passed its self-test, then checked 46 text
+  elements and 14 focus stops per team/style at 320px, with no failures or
+  unverified focus rings. One existing text region per page was unassessed.
+- CSS: 848 rules, zero dead or shadowed rules. JS syntax and whitespace pass;
+  the committed shell version advances from both main and the prior UI revision.
+- [Machine-readable review](alerts-2026-10-13/verification.json).
 
-Full GitHub CI is running on PR #137. David's visual approval and physical
-Safari/iPhone/PWA observation remain separate from desktop checks. The PR
-has not been merged or deployed.
+Full CI must pass on the revised PR head. David's visual approval and physical
+Safari/iPhone/PWA observation are separate from these desktop checks. The
+prior revision's results do not constitute approval of this revision.
