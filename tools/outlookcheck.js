@@ -95,7 +95,7 @@ function expected(slug, key) {
         title: (document.getElementById("screenHead") || {}).textContent || "",
         you: (h.querySelector(".of-you") || {}).textContent || "",
         quiet: (h.querySelector(".sec-quiet") || {}).textContent || "",
-        note: (h.querySelector(".ss-note") || {}).textContent || "",
+        note: [].map.call(h.querySelectorAll(".ss-note"), function (n) { return n.textContent; }).join(" "),
         rows: [].map.call(h.querySelectorAll(".of-row"), function (r) {
           return { team: r.querySelector(".of-team").textContent, val: r.querySelector(".of-val").textContent,
                    mine: r.classList.contains("mine") && r.getAttribute("aria-current") === "true" };
@@ -107,6 +107,32 @@ function expected(slug, key) {
   async function shot(page, name) {
     if (!process.env.SHOTS) return;
     await page.screenshot({ path: path.join(process.env.SHOTS, name + ".png"), fullPage: true });
+  }
+  async function layout(page, team) {
+    for (var style of ["team", "suite"]) for (var width of [320, 390, 1280]) {
+      await page.setViewportSize({ width: width, height: 844 });
+      await page.evaluate(function (style) { localStorage.setItem("suite-style", style); }, style);
+      await page.reload();
+      await page.waitForFunction(function () { return document.querySelectorAll("#screenOutlook .of-row").length > 20; });
+      for (var scale of (width === 320 ? [1, 2] : [1])) {
+        await page.evaluate(function (scale) { document.documentElement.style.fontSize = (16 * scale) + "px"; }, scale);
+        await page.evaluate(function () { return document.fonts.ready; });
+        var fit = await page.evaluate(function () {
+          var host = document.getElementById("screenOutlook");
+          var rows = [].slice.call(host.querySelectorAll(".of-row"));
+          var edges = rows.map(function (r) { return r.querySelector(".of-val").getBoundingClientRect().right; });
+          var clipped = [].slice.call(host.querySelectorAll(".of-team,.of-val,.of-change,.of-name")).filter(function (n) { return n.scrollWidth > n.clientWidth + 1; });
+          var source = host.querySelector(".of-source"), card = host.querySelector(".of-card");
+          return { overflow: document.documentElement.scrollWidth > innerWidth + 1, clipped: clipped.map(function (n) { return n.className + ": " + n.textContent; }),
+            aligned: Math.max.apply(null, edges) - Math.min.apply(null, edges) < 1,
+            sourceFirst: source.getBoundingClientRect().bottom <= card.getBoundingClientRect().top };
+        });
+        ok(!fit.overflow && !fit.clipped.length && fit.aligned && fit.sourceFirst,
+           team + " " + style + " " + width + "px " + scale + "x: full names, aligned chances and visible source (" + JSON.stringify(fit) + ")");
+      }
+    }
+    await page.evaluate(function () { document.documentElement.style.fontSize = ""; });
+    await page.setViewportSize({ width: 390, height: 844 });
   }
 
   // ---- 1. the way in and out -------------------------------------------------
@@ -163,6 +189,7 @@ function expected(slug, key) {
      "it lists the title market's " + wantT.rows.length + " teams, in order");
   ok(t.rows.filter(function (r) { return r.mine; }).length === 1, "the team's own row marked");
   await shot(a.page, "outlook-title-nd");
+  await layout(a.page, "Notre Dame");
   await a.page.goBack(); await a.page.waitForTimeout(400);
   await a.page.goBack(); await a.page.waitForTimeout(600);
   var back = await board(a.page);
@@ -216,6 +243,7 @@ function expected(slug, key) {
   ok(ob.rows.length === wantO.rows.length, "the same field (" + ob.rows.length + ")");
   ok(oMine.length === 1 && wantOMine && oMine[0].team === wantOMine.team, "with Ohio State's row marked (" + (oMine[0] || {}).team + ")");
   await shot(o.page, "outlook-playoff-osu");
+  await layout(o.page, "Ohio State");
   await o.ctx.close();
 
   await browser.close();
