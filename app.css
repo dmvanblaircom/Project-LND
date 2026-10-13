@@ -979,29 +979,40 @@ button.mo-row{width:100%;margin:0;border:0;background:none;font:inherit;text-ali
 .st-note{flex:1 1 12rem;font-size:.92rem;color:var(--s-muted)}
 /* Game alerts, round 2 (notifications brief §2b): quick picks, then the
    switches they set. Each row is a label the whole width, 44px at least. */
-.al-opts{padding:.2rem 1rem 1rem;border-top:1px solid var(--s-line)}
-.al-picks{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0 .4rem}
-.al-pick{min-height:2.75rem;padding:.4rem .9rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-pill);background:var(--s-surface);color:var(--s-ink);font:inherit;font-weight:600;cursor:pointer}
+/* A compact team/status header; turning alerts on remains an explicit tap. */
+.al-overview{padding:1rem}
+.al-summary{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem}
+.al-heading{display:flex;flex:1 1 8rem;flex-direction:column;align-items:flex-start;gap:.4rem;min-width:0}
+.al-team{font-size:1rem;font-weight:700;line-height:1.3;color:var(--s-ink)}
+.al-status{display:inline-flex;align-items:center;gap:.35rem;padding:.15rem .55rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-pill);font-size:.75rem;font-weight:600;line-height:1.4;color:var(--s-ink-2)}
+.al-status.is-on{background:var(--t-surface);border-color:var(--t-surface);color:var(--s-on-dark)}
+.al-status.is-on::before{content:"";width:.3rem;height:.3rem;border-radius:50%;background:currentColor}
+.al-toggle{flex:none;min-height:2.75rem;font-size:.9rem;padding:.55rem .8rem}
+.al-note{margin:.85rem 0 0;font-size:.9rem;line-height:1.5;color:var(--s-muted)}
+.al-opts{padding:1rem;border-top:1px solid var(--s-line)}
+.al-picks-title{margin:0 0 .55rem;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--s-muted)}
+.al-picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,4.7rem),1fr));gap:.35rem}
+.al-pick{min-height:2.9rem;min-width:0;padding:.45rem .35rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);background:var(--s-surface);color:var(--s-ink);font-family:inherit;font-size:.85rem;font-weight:600;line-height:1.25;cursor:pointer}
 .al-pick[aria-pressed="true"]{border-color:var(--t-surface);background:var(--t-surface);color:var(--s-on-dark)}
 .al-pick:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
-.al-set{margin:.9rem 0 0;padding:0;border:0;min-width:0}
-.al-legend{padding:0;margin-bottom:.2rem;font-family:var(--t-font-ui);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
-.al-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:2.75rem;padding:.35rem 0;cursor:pointer}
+.al-set{margin:1.35rem 0 0;padding:0;border:0;min-width:0}
+.al-legend{padding:0;margin-bottom:.5rem;font-family:var(--t-font-ui);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--s-muted)}
+.al-row{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:.9rem;min-height:3.25rem;padding:.7rem 0;cursor:pointer}
 .al-row + .al-row{border-top:1px solid var(--s-line)}
-.al-text{display:flex;flex-direction:column;gap:.15rem;min-width:0}
-.al-name{font-weight:600;color:var(--s-ink)}
-.al-sub{font-size:.88rem;color:var(--s-muted)}
-.al-switch{flex:none;appearance:none;-webkit-appearance:none;position:relative;width:3rem;height:1.75rem;margin:0;border-radius:999px;background:var(--s-line-strong);cursor:pointer;transition:background-color .15s}
+.al-text{display:flex;flex:1 1 9rem;flex-direction:column;gap:.3rem;min-width:0;padding:.2rem 0;overflow-wrap:anywhere}
+.al-name{font-weight:600;color:var(--s-ink);line-height:1.35}
+.al-sub{font-size:.88rem;line-height:1.45;color:var(--s-muted)}
+.al-switch{flex:none;appearance:none;-webkit-appearance:none;position:relative;width:3rem;height:1.75rem;margin:0;border-radius:999px;background:var(--s-ink-2);cursor:pointer;transition:background-color .15s}
 .al-switch::after{content:"";position:absolute;top:.2rem;left:.2rem;width:1.35rem;height:1.35rem;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3);transition:transform .15s}
 .al-switch:checked{background:var(--t-surface)}
 .al-switch:checked::after{transform:translateX(1.25rem)}
 .al-switch:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
-.al-seg{display:flex;flex-wrap:wrap;gap:.5rem;padding:.35rem 0}
-.al-choice{display:inline-flex;align-items:center;gap:.45rem;min-height:2.75rem;padding:.3rem .8rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);cursor:pointer;color:var(--s-ink)}
-.al-choice:has(input:checked){border-color:var(--t-surface);box-shadow:inset 0 0 0 1px var(--t-surface)}
-.al-choice input{width:1.15rem;height:1.15rem;margin:0;accent-color:var(--t-surface)}
+.al-seg{display:grid;gap:.45rem}
+.al-choice{display:flex;align-items:center;gap:.65rem;min-height:3rem;padding:.65rem .8rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);cursor:pointer;color:var(--s-ink);line-height:1.35}
+.al-choice:has(input:checked){border-color:var(--t-surface);box-shadow:inset 0 0 0 1px var(--t-surface);background:var(--s-page);font-weight:600}
+.al-choice input{flex:none;width:1.15rem;height:1.15rem;margin:0;accent-color:var(--t-surface)}
 .al-choice input:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
-.al-help{margin:.9rem 0 0;font-size:.88rem;color:var(--s-muted)}
+.al-help{margin:1.25rem 0 0;padding-top:.9rem;border-top:1px solid var(--s-line);font-size:.88rem;line-height:1.5;color:var(--s-muted)}
 @media (prefers-reduced-motion: reduce){.al-switch,.al-switch::after{transition:none}}
 /* Feedback and About. */
 .fb-card,.ab-card{padding:1.1rem 1.1rem 1.2rem}

@@ -217,7 +217,7 @@ Suite.more = (function () {
   }
   function alertOptions(a) {
     var o = a.opts;
-    return '<div class="al-opts">' +
+    return '<div class="al-opts"><p class="al-picks-title">Quick picks</p>' +
       '<div class="al-picks" role="group" aria-label="Quick picks">' + PICKS.map(function (p) {
         return '<button type="button" class="al-pick" data-alert-pick="' + p[0] + '" aria-pressed="' + (a.pick === p[0]) + '">' + esc(p[1]) + "</button>";
       }).join("") + "</div>" +
@@ -242,10 +242,9 @@ Suite.more = (function () {
     } else {
       var note = a.note || (a.on ? "Choose which " + name + " alerts this device gets."
                                  : "Notifications for " + name + " games: kickoff and the final to start, and scores, quarters and close finishes if you want them.");
-      body = '<div class="st-row"><span class="st-k">' + esc(name) + ' alerts</span><span class="st-v" data-st="alerts">' + (a.on ? "On" : "Off") + "</span></div>" +
-        '<div class="st-row st-action"><span class="st-note" data-st="alerts-note">' + esc(note) + "</span>" +
-        '<button type="button" class="btn btn-secondary" data-alerts="' + (a.on ? "off" : "on") + '"' + (a.busy ? ' aria-disabled="true"' : "") + ">" +
-        (a.busy ? (a.on ? "Turning Off\u2026" : "Turning On\u2026") : (a.on ? "Turn Off" : "Turn On")) + "</button></div>" +
+      body = '<div class="al-overview"><div class="al-summary"><div class="al-heading"><span class="al-team">' + esc(name) + ' alerts</span><span class="al-status' + (a.on ? ' is-on' : '') + '" data-st="alerts">' + (a.on ? "On" : "Off") + "</span></div>" +
+        '<button type="button" class="btn btn-secondary al-toggle" data-alerts="' + (a.on ? "off" : "on") + '"' + (a.busy ? ' aria-disabled="true"' : "") + ">" +
+        (a.busy ? (a.on ? "Turning Off\u2026" : "Turning On\u2026") : (a.on ? "Turn Off" : "Turn On")) + '</button></div><p class="al-note" data-st="alerts-note">' + esc(note) + "</p></div>" +
         (a.on && a.opts ? alertOptions(a) : "");
     }
     return group("alerts", "Game Alerts", body);

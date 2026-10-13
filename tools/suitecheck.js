@@ -125,7 +125,7 @@ function alertsHtml(alerts) {
 }
 var aOff = alertsHtml({ support: "ok", on: false, busy: false, denied: false, note: null });
 ok(/<h2 class="sec-title" id="st-alerts">Game Alerts<\/h2>/.test(aOff.sec) && /data-st="alerts">Off</.test(aOff.sec) &&
-   /<button type="button" class="btn btn-secondary" data-alerts="on">Turn On<\/button>/.test(aOff.sec),
+   (aOff.sec.match(/<button type="button"[^>]* data-alerts="on">Turn On<\/button>/g) || []).length === 1,
    "off: Game Alerts says Off, with one Turn On button");
 ok(/Notifications for Ohio State games: kickoff and the final to start/.test(aOff.sec) && !/al-opts/.test(aOff.sec),
    "it says what the alerts are, for this team; the choices wait until they are on");
