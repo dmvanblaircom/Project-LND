@@ -36,13 +36,23 @@ up the prepared implementation with David when environment work resumes.
   unreleased UI feature merely to make it viewable.
 
 **UI continued after the pause:** [draft PR #137](https://github.com/dmvanblaircom/Project-LND/pull/137)
-finishes Game Alerts Settings presentation: team/status header, visible quick
-picks, full-width scoring choices and responsive text. Existing behavior
-checks and local ND/OSU × both-style visual review pass; captures are in
-`docs/reviews/alerts-settings-2026-10-13.md` on that branch. Full CI and
-David's visual/release approval remain separate gates. Preserve its markup
-and CSS when adding kickoff-time or postseason alert options; no new alert
-semantics or backend changes are included.
+finishes Game Alerts Settings presentation. David's October 13 revision uses
+a matching master switch, consistent rows, aligned controls and tighter
+spacing; the separate status pill and boxed scoring choices are removed.
+Local behavior/visual checks and both PR CI jobs pass on head `7693f7a`.
+David's final visual/release approval remains. Captures are in
+`docs/reviews/alerts-settings-2026-10-13.md` on that branch. Preserve this
+markup and preference/subscription behavior when adding future alert types.
+
+[draft PR #138](https://github.com/dmvanblaircom/Project-LND/pull/138) refines
+the existing Outlook full field: fixed chance/change columns, a clearer team
+summary, source/timestamp above the list, and responsive row spacing.
+Local behavior/layout checks and 24 team/style/market/width captures pass;
+full PR CI was running when staged. Review
+`docs/reviews/outlook-ui-2026-10-13.md` on `codex/outlook-ui-oct13`.
+No market logic, sources or controller changes are included. Visual/release
+approval remains. Both #137 and #138 change `sw.js`; use a fresh shell version
+when combining them. The environment pause remains in force.
 
 The already-built offseason renderer is separately staged in draft
 [PR #134](https://github.com/dmvanblaircom/Project-LND/pull/134), branch

@@ -16,11 +16,15 @@ Reconciled October 12. [backlog.md](backlog.md) is the current scope; the
 **October 13 ownership:** DEV/Lab provisioning is paused at David's request
 and handed to Claude (#135, #136); it does not block UI work. Draft #134 already
 contains the isolated offseason renderer, awaiting Claude's normalized
-controller inputs. Codex finished the existing Game Alerts Settings presentation in draft #137
-on current main, with local behavior, responsive and keyboard checks plus
-before/after captures. Full CI and visual/release approval remain; preserve
-its preference and subscription behavior. No kickoff-time or dedupe service work moves into the
-UI slice.
+controller inputs. Game Alerts presentation is staged in #137, including
+David's matching-master-switch revision; local checks and full PR CI pass on
+`7693f7a`, with final visual/release approval pending. Outlook presentation is
+now staged in draft #138 with fixed columns, clearer team summary and source
+freshness above the field. Local checks and 24 captures pass; full PR CI was
+running when staged. Its review is `docs/reviews/outlook-ui-2026-10-13.md` on
+`codex/outlook-ui-oct13`. Review these candidates rather than rebuilding them.
+Both bump `sw.js`; retain a new version when integrating. No kickoff-time,
+dedupe or market-service work moves into the UI slice.
 
 Completed first passes removed from this queue: Home/Game #100, Stats #104,
 motion #105, type/navigation #106. Repeat only to resolve a concrete remaining
