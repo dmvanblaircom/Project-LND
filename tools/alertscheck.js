@@ -31,7 +31,12 @@ var STUB = "(" + function () {
   }
   try { if (localStorage.getItem("iw-alerts-notre-dame") === "1") sub = mk(); } catch (e) {}   // already on, from before
   window.PushManager = function () {};
-  window.Notification = { permission: "granted", requestPermission: function () { return Promise.resolve("granted"); } };
+  window.alertPermissionCalls = 0;
+  window.Notification = { permission: "granted", requestPermission: function () {
+    window.alertPermissionCalls++;
+    this.permission = window.alertPermissionResult || "granted";
+    return Promise.resolve(this.permission);
+  } };
   var pm = { getSubscription: function () { return Promise.resolve(sub); },
              subscribe: function () { sub = mk(); return Promise.resolve(sub); } };
   var reg = { pushManager: pm, active: {} };
@@ -48,7 +53,7 @@ var STUB = "(" + function () {
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
   async function open(width, before) {
     var ctx = await browser.newContext({ viewport: { width: width || 390, height: 844 }, serviceWorkers: "block" });
-    var page = await ctx.newPage(), posts = [], slow = { ms: 0 };
+    var page = await ctx.newPage(), posts = [], slow = { ms: 0, status: 200 };
     if (before) await page.addInitScript(before);
     await page.addInitScript(STUB);
     await page.route("**/*", function (route) {
@@ -60,10 +65,10 @@ var STUB = "(" + function () {
         var wait = Array.isArray(slow.ms) ? slow.ms.shift() || 0 : slow.ms;
         if (wait && !/unsubscribe/.test(u)) return new Promise(function (r) { setTimeout(r, wait); }).then(function () {
           posts.push({ path: "subscribe", options: body.options || null, at: Date.now() });
-          return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ ok: true, confirmation: "updated" }) });
+          return route.fulfill({ status: slow.status, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ ok: true, confirmation: "updated" }) });
         });
         posts.push({ path: /unsubscribe/.test(u) ? "unsubscribe" : "subscribe", options: body.options || null, at: Date.now() });
-        return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
+        return route.fulfill({ status: slow.status, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
                                body: JSON.stringify(/unsubscribe/.test(u) ? { ok: true } : { ok: true, confirmation: posts.filter(function (p) { return p.path === "subscribe"; }).length === 1 ? "sent" : "updated" }) });
       }
       if (u.startsWith(base)) return route.continue();
@@ -78,7 +83,7 @@ var STUB = "(" + function () {
   function state(page) {
     return page.evaluate(function () {
       var s = document.querySelector("#screenSettings");
-      return { on: (s.querySelector('[data-st="alerts"]') || {}).textContent,
+      return { on: (s.querySelector('[data-alerts]') || {}).checked ? "On" : "Off",
                note: (s.querySelector('[data-st="alerts-note"]') || {}).textContent,
                pressed: [].map.call(s.querySelectorAll('[data-alert-pick][aria-pressed="true"]'), function (b) { return b.getAttribute("data-alert-pick"); }),
                switches: [].map.call(s.querySelectorAll("[data-alert-opt]"), function (i) { return (i.checked ? "+" : "-") + i.getAttribute("data-alert-opt"); }),
@@ -175,6 +180,43 @@ var STUB = "(" + function () {
   ok(!wide, "nothing runs off the screen");
   await shot(n.page, "alerts-320");
   await n.ctx.close();
+
+  console.log("6. Native master switch: keyboard, pending taps and failed changes");
+  var master = await open(320);
+  eq(await master.page.evaluate(function () { return window.alertPermissionCalls; }), 0,
+     "opening Settings never asks for permission");
+  master.slow.ms = 900;
+  var control = master.page.getByRole("switch", { name: "Notre Dame alerts", exact: true });
+  await control.focus(); await control.press("Space");
+  await master.page.waitForTimeout(100);
+  ok(await control.getAttribute("aria-disabled") === "true" && !(await control.isChecked()),
+     "enabling keeps the confirmed off state and explains that it is pending");
+  // A real tap can reach an aria-disabled native input; bypass Playwright's
+  // enabled-state wait so this exercises the pending-state guard itself.
+  await control.click({ force: true });
+  ok(!(await control.isChecked()), "a repeated pending tap restores the confirmed state");
+  await master.page.waitForTimeout(1200);
+  ok(await control.isChecked() && master.posts.length === 1 &&
+     await master.page.evaluate(function () { return window.alertPermissionCalls === 1 && document.activeElement.name === "alert-master"; }),
+     "Space enables once; the switch reports on and keeps keyboard focus");
+  master.slow.status = 503;
+  await control.press("Space"); await master.page.waitForTimeout(400);
+  ok(await control.isChecked() && /Couldn’t turn off/.test((await state(master.page)).note),
+     "a failed unsubscribe stays visibly on and says why");
+  master.slow.status = 200;
+  await control.press("Space"); await master.page.waitForTimeout(400);
+  ok(!(await control.isChecked()) && (await state(master.page)).note === "Game alerts are off.",
+     "retrying by keyboard switches off successfully");
+  await master.ctx.close();
+
+  var denied = await open();
+  await denied.page.evaluate(function () { window.alertPermissionResult = "denied"; });
+  await denied.page.getByRole("switch", { name: "Notre Dame alerts", exact: true }).press("Space");
+  await denied.page.waitForTimeout(400);
+  ok(denied.posts.length === 0 && await denied.page.locator('[data-alerts]').count() === 0 &&
+     /Notifications are off for Suite/.test(await denied.page.locator('#screenSettings').innerText()),
+     "denied permission never subscribes or shows an enabled master switch");
+  await denied.ctx.close();
 
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the fan's choice of alerts, sent as chosen"));
