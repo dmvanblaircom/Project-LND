@@ -387,7 +387,7 @@ function loadRating(key, force){
     if(!x.raw && usable(c.data)){ x.raw=c.data; x.cached=true; paintTop25(); }
   }).catch(function(){});
   x.tried=true;
-  var url=x.url();
+  var url=x.url(), fell=false;
   x.p=fetchJSON(url).then(function(r){
     // Saved copies too: offline, last season's kept table still answers.
     // If it cannot, this season's answer stands: not published.
@@ -396,10 +396,21 @@ function loadRating(key, force){
       return fetchJSON(url).catch(function(){ url=x.url(); return r; });
     }
     return r;
+  }, function(e){
+    // This season failed outright - offline on the first visit after the
+    // rollover, with only last season's table saved (Codex, #142). That
+    // table, labelled as last season's, beats "didn't load". It counts as
+    // a saved copy: outdated, and this season is asked again on re-entry.
+    if(!x.earlier) throw e;
+    url=x.earlier(); fell=true;
+    return fetchJSON(url);
   }).then(function(r){
-    if(x.empty && x.empty(r.data)){ x.failed="unpublished"; return {key:key,outcome:"network"}; }
+    if(x.empty && x.empty(r.data)){
+      if(fell) throw new Error(x.label+" failed, and last season has none");
+      x.failed="unpublished"; return {key:key,outcome:"network"};
+    }
     if(!usable(r.data)) throw new Error("Unusable "+x.label+" answer");
-    x.raw=r.data; x.cached=saved(r); x.failed=false;
+    x.raw=r.data; x.cached=saved(r) || fell; x.failed=false;
     x.ok=x.cached ? 0 : Date.now();
     // An edge copy kept because CFBD failed counts from when the edge read it.
     noteSource(url, r.cached || (r.data.stale ? r.data.fetchedAt || "unknown" : null));

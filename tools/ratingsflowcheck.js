@@ -40,7 +40,7 @@ fs.mkdirSync(shots,{recursive:true});
       }
       if(/\/v1\/cfbd\/sp\?year=\d+$/.test(u)){
         var year=+/year=(\d+)/.exec(u)[1];st.spN++;st.spYears.push(year);
-        if(st.spMode==="fail")return route.abort();
+        if(st.spMode==="fail"||(st.spDown2026&&year===2026))return route.abort();
         if(st.spMode==="slow")await new Promise(function(r){st.spRelease=r;});
         var b=JSON.parse(JSON.stringify(st.sp[year]||{source:"cfbd-sp",year:year,fetchedAt:new Date().toISOString(),ranks:[]}));
         if(st.spMode==="stale")b.stale=true;
@@ -145,7 +145,10 @@ fs.mkdirSync(shots,{recursive:true});
        "this season not published: last season's table, said plainly");
     h.st.spMode="cached";await h.page.reload();await h.settled();var off=await screen(h);
     ok(off.rows===25&&/Showing the 2025 edition/.test(off.text)&&/outdated/.test(off.banner),"offline, saved copies only: last season's saved table, outdated - not 'unpublished' (Codex, #142)");
-    h.st.spMode="ok";h.st.sp[2025]={source:"cfbd-sp",year:2025,fetchedAt:new Date().toISOString(),ranks:[]};await h.page.reload();await h.settled();
+    h.st.spMode="ok";h.st.spDown2026=true;await h.page.reload();await h.settled();var roll=await screen(h);
+    ok(roll.rows===25&&/Showing the 2025 edition/.test(roll.text)&&/outdated/.test(roll.banner),"this season fails outright, last season's table answers: shown, labelled, outdated - not 'didn't load' (Codex, #142)");
+    h.st.spDown2026=false;
+    h.st.sp[2025]={source:"cfbd-sp",year:2025,fetchedAt:new Date().toISOString(),ranks:[]};await h.page.reload();await h.settled();
     ok(/SP\+ isn’t published for this season yet/.test((await screen(h)).text)&&!/didn’t load/.test((await screen(h)).text),"neither season published: said so, not called a failure");
     ok(!h.st.errors.length,"no page errors: "+h.st.errors.join("; "));await h.ctx.close();
     // Full worker cycle: install, store FPI, lose the network, reload, recover.
