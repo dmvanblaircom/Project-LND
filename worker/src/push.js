@@ -613,12 +613,15 @@ async function detect(db, env, teamId, game, now, log) {
 // The game event an alert is about, the same whichever of the game's two
 // teams noticed it: a score by the score it made, home first (with a missed
 // try's kind, since the score does not move), a correction by the score it
-// leaves; anything else by its own name (kickoff, end:2, delay:1, time:ISO).
-export function claimKey(ev, game, scores) {
+// leaves - each with the number of corrections so far (`fixes`), so a
+// scoreline that comes back after a correction (7-0, overturned to 0-0,
+// then 7-0 again) is a new event (Codex, #140); anything else by its own
+// name (kickoff, end:2, delay:1, time:ISO).
+export function claimKey(ev, game, scores, fixes) {
   const has = scores && typeof scores.us === "number" && typeof scores.them === "number";
   if (!has || !/^(score|fix)/.test(ev)) return ev;
   const home = game.home ? scores.us : scores.them, away = game.home ? scores.them : scores.us;
-  return (/^fix/.test(ev) ? "fix|" : "score|") + home + "-" + away;
+  return (/^fix/.test(ev) ? "fix|" : "score|") + home + "-" + away + "|" + (fixes || 0);
 }
 function claim(db, endpoint, game, key) {
   return db.run("INSERT OR IGNORE INTO claims (endpoint, game_id, ckey) VALUES (?, ?, ?)", endpoint, game.id, key).changes > 0;
@@ -627,7 +630,8 @@ function claim(db, endpoint, game, key) {
 // Record an event for the team's game once, then a delivery for each
 // follower whose options want it. Record first: if two runs overlap, only
 // the one that recorded goes on. A device following both teams in the game
-// gets it once: from the first team to queue it (claim()).
+// gets it once: from the first team to queue it (claim()). Only such a
+// device is ever held back by a claim.
 function emit(db, teamId, game, ev, scores, x, now, log, late) {
   if (!db.run("INSERT OR IGNORE INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", teamId, game.id, ev, now).changes) return;
   if (late) { log.push(teamId + ": " + ev + " noticed late, not sent"); return; }
@@ -648,18 +652,21 @@ function emit(db, teamId, game, ev, scores, x, now, log, late) {
     }
   }
   let n = 0, twice = 0;
-  const key = claimKey(ev, game, scores) + (x && (x.kind === "xpmiss" || x.kind === "2ptfail") ? "|" + x.kind : "");
+  const fixes = db.all("SELECT COUNT(*) AS n FROM sent WHERE team_id = ? AND game_id = ? AND event LIKE 'fix:%'", teamId, game.id)[0].n;
+  const key = claimKey(ev, game, scores, fixes) + (x && (x.kind === "xpmiss" || x.kind === "2ptfail") ? "|" + x.kind : "");
+  const both = new Set(game.opponent && game.opponent.id ? db.all("SELECT endpoint FROM subs WHERE team_id = ?", game.opponent.id).map(function (r) { return r.endpoint; }) : []);
+  const mine = function (endpoint) { return !both.has(endpoint) || claim(db, endpoint, game, key); };
   for (const s of db.all("SELECT endpoint, opts FROM subs WHERE team_id = ?", teamId)) {
     if (only) {
       if (!only.has(s.endpoint)) continue;
-      if (!claim(db, s.endpoint, game, key)) { twice++; continue; }
+      if (!mine(s.endpoint)) { twice++; continue; }
       n += db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES (?, ?, ?, ?, 'due', 0, ?, ?)",
                   teamId, game.id, ev, s.endpoint, now, data).changes;
       continue;
     }
     let o = null; try { o = s.opts ? validOptions(JSON.parse(s.opts)) : LEGACY; } catch (e) { o = null; }
     if (!wants(o || LEGACY, ev, x)) continue;
-    if (!claim(db, s.endpoint, game, key)) { twice++; continue; }
+    if (!mine(s.endpoint)) { twice++; continue; }
     n += db.run("INSERT OR IGNORE INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES (?, ?, ?, ?, 'due', 0, ?, ?)",
                 teamId, game.id, ev, s.endpoint, now, data).changes;
   }
@@ -888,9 +895,13 @@ async function deliver(db, env, teamId, now, log, retry) {
   for (const d of due) {
     const key = [teamId, d.game_id, d.event, d.endpoint];
     const t = tally[d.event] = tally[d.event] || { sent: 0, retry: 0, gone: 0, dropped: 0 };
+    // A kickoff time is no news once the game is on: once its kickoff has
+    // been seen, not at the listed time, which a start can trail (Codex,
+    // #140) - and never past LIMITS.window after it.
     const kickoffAt = /^time:/.test(d.event) ? Date.parse(d.event.slice(5)) : NaN;
-    if ((d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) || (live(d.event) && now - d.at > LIMITS.liveLate) ||
-        now >= kickoffAt) {                               // a kickoff time is no news once the game is on
+    const started = isFinite(kickoffAt) && (now - kickoffAt > LIMITS.window ||
+      db.all("SELECT 1 FROM sent WHERE game_id = ? AND event = 'kickoff'", d.game_id).length > 0);
+    if ((d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) || (live(d.event) && now - d.at > LIMITS.liveLate) || started) {
       db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", ...key);
       t.dropped++; continue;
     }
