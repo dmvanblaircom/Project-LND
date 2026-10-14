@@ -1022,6 +1022,24 @@ console.log("game alerts: one device following both teams in a game (brief §2b,
   const scored = (l) => l.filter((x) => /Ohio State (TD|scores)/.test(x)).length;
   eq([scored(heard.one), heard.one.filter((x) => /corrected/.test(x)).length], [2, 1], "one team's follower: the touchdown, its correction, and the touchdown again");
   eq([scored(heard.both), heard.both.filter((x) => /corrected/.test(x)).length], [2, 1], "a device following both teams: the same three, once each"); }
+{ // A device that starts following the opponent after a correction (Codex, #140): the next score once.
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/2294\/schedule$/.test(url) ? new Response(JSON.stringify(OSU_SCHEDULE), { status: 200 }) : base(url, init);
+  const d = await browserSub();
+  const all = { kickoff: false, final: false, delays: false, scoring: "all", quarters: false, halftime: false, close: false };
+  await subscribe(db, e, { subscription: d.sub, team: { id: "194", name: "Ohio State" }, options: all }, KICK - 3600e3);
+  e.pushes.length = 0;
+  let got = [];
+  for (let m = 1; m <= 50; m++) {
+    if (m === 32) await subscribe(db, e, { subscription: d.sub, team: { id: "2294", name: "Iowa" }, options: all }, KICK + m * 60e3);
+    const sc = m < 10 ? [0, 0] : m < 20 ? [7, 0] : m < 40 ? [0, 0] : [7, 0];
+    e.status = { period: 1, clock: 900 - m * 10, displayClock: "1:00", type: { state: "in", name: "STATUS_IN_PROGRESS", completed: false } };
+    e.scores = { 194: sc[0], 2294: sc[1] };
+    await tick(db, e, KICK + m * 60e3);
+    for (const p of e.pushes) if (p.url === d.sub.endpoint) got.push(say(await openPush(p.init.body, d.kp, d.sub.keys.auth)));
+    e.pushes.length = 0;
+  }
+  eq(got.filter((x) => /Ohio State (TD|scores)/.test(x)).length, 2, "following the opponent too after a correction: the next score still comes once: " + JSON.stringify(got)); }
 { // A kickoff moved earlier, noticed while the game is still "pre" after the new listed time (Codex, #140).
   const future = OSU_SCHEDULE.events.filter((ev) => Date.parse(ev.date) > KICK + 7 * 864e5 &&
     ((ev.competitions[0].status || {}).type || {}).state === "pre")[0];

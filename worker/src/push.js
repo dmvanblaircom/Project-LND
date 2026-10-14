@@ -532,7 +532,7 @@ function times(db, teamId, schedule, now, log) {
   // Each change is numbered for its game, so a time that comes back (7:00,
   // 8:00, 7:00 again) is news again (Codex, #140): "time:<ISO>#<n>".
   for (const c of r.out) {
-    const n = db.all("SELECT COUNT(*) AS n FROM sent WHERE team_id = ? AND game_id = ? AND event LIKE 'time:%'", teamId, c.game.id)[0].n;
+    const n = gameCount(db, c.game.id, "time:%");
     emit(db, teamId, c.game, c.event + "#" + (n + 1), null, c.x, now, log, false);
   }
 }
@@ -628,6 +628,13 @@ export function claimKey(ev, game, scores, fixes) {
   const home = game.home ? scores.us : scores.them, away = game.home ? scores.them : scores.us;
   return (/^fix/.test(ev) ? "fix|" : "score|") + home + "-" + away + "|" + (fixes || 0);
 }
+// How many of a kind of event the game has had, by whichever of its teams
+// has seen the most: the same for both teams' views, even when a device
+// starts following the second team partway through (Codex, #140).
+function gameCount(db, gameId, like) {
+  const r = db.all("SELECT MAX(n) AS n FROM (SELECT COUNT(*) AS n FROM sent WHERE game_id = ? AND event LIKE ? GROUP BY team_id)", gameId, like)[0];
+  return (r && r.n) || 0;
+}
 function claim(db, endpoint, game, key) {
   return db.run("INSERT OR IGNORE INTO claims (endpoint, game_id, ckey) VALUES (?, ?, ?)", endpoint, game.id, key).changes > 0;
 }
@@ -657,7 +664,7 @@ function emit(db, teamId, game, ev, scores, x, now, log, late) {
     }
   }
   let n = 0, twice = 0;
-  const fixes = db.all("SELECT COUNT(*) AS n FROM sent WHERE team_id = ? AND game_id = ? AND event LIKE 'fix:%'", teamId, game.id)[0].n;
+  const fixes = gameCount(db, game.id, "fix:%");
   const key = claimKey(ev, game, scores, fixes) + (x && (x.kind === "xpmiss" || x.kind === "2ptfail") ? "|" + x.kind : "");
   const both = new Set(game.opponent && game.opponent.id ? db.all("SELECT endpoint FROM subs WHERE team_id = ?", game.opponent.id).map(function (r) { return r.endpoint; }) : []);
   const mine = function (endpoint) { return !both.has(endpoint) || claim(db, endpoint, game, key); };
