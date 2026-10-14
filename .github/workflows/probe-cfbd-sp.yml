@@ -1,0 +1,15 @@
+name: Probe CFBD SP+ (names only)
+on:
+  push:
+    branches: [probe/cfbd-sp]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          YEAR: "2026"
+        run: python3 tools/cfbd_sp_probe.py
