@@ -1,0 +1,38 @@
+registry: 138 programs with a providerId
+
+== /ratings/sp year=2026
+  type list, 139 rows
+  headers: ['access-control-allow-origin', 'cf-cache-status', 'cf-ray', 'connection', 'content-length', 'content-type', 'cross-origin-opener-policy', 'cross-origin-resource-policy', 'date', 'etag', 'nel', 'origin-agent-cluster', 'referrer-policy', 'report-to', 'server', 'strict-transport-security', 'x-calllimit-remaining', 'x-content-type-options', 'x-dns-prefetch-control', 'x-download-options', 'x-frame-options', 'x-permitted-cross-domain-policies', 'x-xss-protection']
+  shape row 0: {"year": "int", "team": "str", "conference": "str", "rating": "float", "ranking": "int", "secondOrderWins": "NoneType", "sos": "NoneType", "offense": {"ranking": "int", "rating": "float", "success": "NoneType", "explosiveness": "NoneType", "rushing": "NoneType", "passing": "NoneType", "standardDowns": "NoneType", "passingDowns": "NoneType", "runRate": "NoneType", "pace": "NoneType"}, "defense": {"ranking": "int", "rating": "float", "success": "NoneType", "explosiveness": "NoneType", "rushing": "NoneType", "passing": "NoneType", "standardDowns": "NoneType", "passingDowns": "NoneType", "havoc": {"total": "NoneType", "frontSeven": "NoneType", "db": "NoneType"}}, "specialTeams": {"rating": "float"}}
+  keys (rows carrying): {'year': 139, 'team': 139, 'conference': 138, 'rating': 139, 'ranking': 139, 'secondOrderWins': 139, 'sos': 139, 'offense': 139, 'defense': 139, 'specialTeams': 139}
+  rows with numeric ranking: 138, numeric rating: 139
+  distinct rankings 121; min..max present: True; 1..25 all present: False
+  rows with null/absent ranking: 1 (their team field is a str: [True])
+  rows whose year != requested: 0
+  zero ratings: 0, negative ratings: 69
+  ranking ties (same ranking twice): 17
+  sorted by ranking already: True
+
+== /teams/fbs year=2026
+  138 rows; shape row 0: {"id": "int", "school": "str", "mascot": "str", "abbreviation": "str", "alternateNames": "list", "conference": "str", "division": "NoneType", "classification": "str", "color": "str", "alternateColor": "str", "logos": "list", "twitter": "str", "location": {"id": "int", "name": "str", "city": "str", "state": "str", "zip": "str", "countryCode": "str", "timezone": "str", "latitude": "float", "longitude": "float", "elevation": "str", "capacity": "int", "constructionYear": "int", "grass": "bool", "dome": "bool"}}
+  schools appearing twice: 0
+  ranked SP rows whose team matches a /teams/fbs school exactly: 138 of 138
+  top-25 SP rows matching a school exactly: 25 of 25
+  registry providerId == CFBD id with the same name: 138; same id, different name: 0; id not in CFBD FBS: 0
+  registry names where CFBD's name for that id differs: []
+  registry names whose id is not a CFBD FBS id: []
+  Notre Dame (87): CFBD id present True, same name True, in SP True
+  Ohio State (194): CFBD id present True, same name True, in SP True
+
+== /ratings/sp year=2025
+  type list, 137 rows
+  headers: ['access-control-allow-origin', 'cf-cache-status', 'cf-ray', 'connection', 'content-length', 'content-type', 'cross-origin-opener-policy', 'cross-origin-resource-policy', 'date', 'etag', 'nel', 'origin-agent-cluster', 'referrer-policy', 'report-to', 'server', 'strict-transport-security', 'x-calllimit-remaining', 'x-content-type-options', 'x-dns-prefetch-control', 'x-download-options', 'x-frame-options', 'x-permitted-cross-domain-policies', 'x-xss-protection']
+  shape row 0: {"year": "int", "team": "str", "conference": "str", "rating": "float", "ranking": "int", "secondOrderWins": "NoneType", "sos": "NoneType", "offense": {"ranking": "int", "rating": "float", "success": "NoneType", "explosiveness": "NoneType", "rushing": "NoneType", "passing": "NoneType", "standardDowns": "NoneType", "passingDowns": "NoneType", "runRate": "NoneType", "pace": "NoneType"}, "defense": {"ranking": "int", "rating": "float", "success": "NoneType", "explosiveness": "NoneType", "rushing": "NoneType", "passing": "NoneType", "standardDowns": "NoneType", "passingDowns": "NoneType", "havoc": {"total": "NoneType", "frontSeven": "NoneType", "db": "NoneType"}}, "specialTeams": {"rating": "float"}}
+  keys (rows carrying): {'year': 137, 'team': 137, 'conference': 136, 'rating': 137, 'ranking': 137, 'secondOrderWins': 137, 'sos': 137, 'offense': 137, 'defense': 137, 'specialTeams': 137}
+  rows with numeric ranking: 136, numeric rating: 137
+  distinct rankings 122; min..max present: True; 1..25 all present: False
+  rows with null/absent ranking: 1 (their team field is a str: [True])
+  rows whose year != requested: 0
+  zero ratings: 0, negative ratings: 61
+  ranking ties (same ranking twice): 14
+  sorted by ranking already: True
