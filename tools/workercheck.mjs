@@ -935,8 +935,11 @@ console.log("game alerts: kickoff time set or moved (brief §2b, edge case 12)")
   ev.date = MOVED; await tick(db, e, T0 + 183 * 60e3);
   const m2 = to(fans.on).length === 1 ? await openPush(to(fans.on)[0].init.body, fans.on.kp, fans.on.sub.keys.auth) : {};
   eq([m2.body, m2.kickoff], ["Kickoff time changed.", new Date(MOVED).toISOString()], "the time moves: one more alert, for the new time");
-  e.pushes.length = 0; ev.date = SET;
-  await tick(db, e, Date.parse(MOVED) - 2 * 3600e3);
+  e.pushes.length = 0; ev.date = SET; await tick(db, e, T0 + 244 * 60e3);
+  const m3 = to(fans.on).length === 1 ? await openPush(to(fans.on)[0].init.body, fans.on.kp, fans.on.sub.keys.auth) : {};
+  eq([m3.body, m3.kickoff], ["Kickoff time changed.", new Date(SET).toISOString()], "and back to a time already announced: news again (Codex, #140)");
+  e.pushes.length = 0; ev.date = MOVED;
+  await tick(db, e, Date.parse(SET) - 2 * 3600e3);
   ok(e.pushes.length === 0, "a move within 3 hours of kickoff is the delay alert's, not this one"); }
 
 console.log("game alerts: one device following both teams in a game (brief §2b, edge case 9)");

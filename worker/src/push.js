@@ -529,7 +529,12 @@ function times(db, teamId, schedule, now, log) {
   const moved = row ? db.run("UPDATE meta SET v = ? WHERE k = ? AND v = ?", v, k, row.v).changes
                     : db.run("INSERT OR IGNORE INTO meta (k, v) VALUES (?, ?)", k, v).changes;
   if (!moved) return;
-  for (const c of r.out) emit(db, teamId, c.game, c.event, null, c.x, now, log, false);
+  // Each change is numbered for its game, so a time that comes back (7:00,
+  // 8:00, 7:00 again) is news again (Codex, #140): "time:<ISO>#<n>".
+  for (const c of r.out) {
+    const n = db.all("SELECT COUNT(*) AS n FROM sent WHERE team_id = ? AND game_id = ? AND event LIKE 'time:%'", teamId, c.game.id)[0].n;
+    emit(db, teamId, c.game, c.event + "#" + (n + 1), null, c.x, now, log, false);
+  }
 }
 
 // The cron's minute. While any followed game is on, it looks LIMITS.looks
@@ -616,7 +621,7 @@ async function detect(db, env, teamId, game, now, log) {
 // leaves - each with the number of corrections so far (`fixes`), so a
 // scoreline that comes back after a correction (7-0, overturned to 0-0,
 // then 7-0 again) is a new event (Codex, #140); anything else by its own
-// name (kickoff, end:2, delay:1, time:ISO).
+// name (kickoff, end:2, delay:1, time:ISO#n).
 export function claimKey(ev, game, scores, fixes) {
   const has = scores && typeof scores.us === "number" && typeof scores.them === "number";
   if (!has || !/^(score|fix)/.test(ev)) return ev;
@@ -898,7 +903,7 @@ async function deliver(db, env, teamId, now, log, retry) {
     // A kickoff time is no news once the game is on: once its kickoff has
     // been seen, not at the listed time, which a start can trail (Codex,
     // #140) - and never past LIMITS.window after it.
-    const kickoffAt = /^time:/.test(d.event) ? Date.parse(d.event.slice(5)) : NaN;
+    const kickoffAt = /^time:/.test(d.event) ? Date.parse(d.event.slice(5).split("#")[0]) : NaN;
     const started = isFinite(kickoffAt) && (now - kickoffAt > LIMITS.window ||
       db.all("SELECT 1 FROM sent WHERE game_id = ? AND event = 'kickoff'", d.game_id).length > 0);
     if ((d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) || (live(d.event) && now - d.at > LIMITS.liveLate) || started) {
