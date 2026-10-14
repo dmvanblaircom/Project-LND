@@ -174,6 +174,7 @@ function sourceKey(url){
   if(/scoreboard/.test(url)) return "scoreboard";
   if(url===TeamOS.espn.rankingsUrl()) return "rankings";
   if(url.split("?")[0]==="data/league/fpi.json") return "fpi";
+  if(url.split("?")[0]===EDGE+"/v1/cfbd/sp") return "sp-plus";
   if(url===TeamOS.espn.rosterUrl(TEAM_CONFIG)) return "roster";
   var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability"),
       gn=TeamOS.snapshots.get(TEAM_CONFIG,"notes");
@@ -350,29 +351,56 @@ function venuePoint(g){
 // so the screen opens offline; those are never fed back into the live state.
 var T25={ polls:null, cachedGames:null, at:0, pollsFailed:false, gamesFailed:false };
 
-// W07: the existing producer and TeamOS adapter supply FPI. Only this
-// source's successful NETWORK response starts its 30-minute retry clock.
-// A saved copy can draw immediately, but stays due on re-entry/reconnect.
-var FPI={ raw:null, ok:0, p:null, tried:false, cached:false, failed:false };
-function fpiModel(){ return TeamOS.ratings.fpi(FPI.raw, TEAM_CONFIG, seasonYear()); }
-function loadFpi(force){
-  if(FPI.p) return FPI.p;
-  if(!force && FPI.ok && !FPI.failed && Date.now()-FPI.ok<30*60e3) return Promise.resolve({key:"fpi",outcome:"network"});
-  var url="data/league/fpi.json";
-  function usable(d){ var m=TeamOS.ratings.fpi(d, TEAM_CONFIG, seasonYear()); return m && m.ranks.length===25 && m.season!=null; }
-  if(!FPI.raw) cachedCopy(url).then(function(c){
-    if(!FPI.raw && usable(c.data)){ FPI.raw=c.data; FPI.cached=true; paintTop25(); }
+// W07: predictive ratings, one entry per source, each with its own load,
+// saved copy, retry clock and failure (handoff 2026-10-14): SP+ failing never
+// touches FPI, and neither changes the AP/CFP default. Only a source's
+// successful NETWORK response starts its 30-minute retry clock. A saved copy
+// can draw immediately, but stays due on re-entry/reconnect.
+//   FPI: the producer's snapshot (data/league/fpi.json).
+//   SP+: the edge API (GET /v1/cfbd/sp), the permitted top 25. If this season
+//        is not published, last season's table, which the screen labels.
+function spUrl(year){ return EDGE+"/v1/cfbd/sp?year="+year; }
+var RATINGS={
+  fpi: { label:"FPI", url:function(){ return "data/league/fpi.json"; },
+         model:function(d){ return TeamOS.ratings.fpi(d, TEAM_CONFIG, seasonYear()); },
+         whole:function(m){ return m.ranks.length===25; } },
+  "sp-plus": { label:"SP+", url:function(){ return spUrl(seasonYear()); },
+         model:function(d){ return TeamOS.ratings.spPlus(d, TEAM_CONFIG, seasonYear(), typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []); },
+         whole:function(m){ return m.ranks.length>=25 && m.ranks[0].rank===1; },
+         empty:function(d){ return !!d && d.source==="cfbd-sp" && Array.isArray(d.ranks) && !d.ranks.length; },
+         earlier:function(){ return spUrl(seasonYear()-1); } }
+};
+Object.keys(RATINGS).forEach(function(k){
+  var x=RATINGS[k]; x.raw=null; x.ok=0; x.p=null; x.tried=false; x.cached=false; x.failed=false;
+});
+function ratingKey(route){ route=route||Suite.nav.current(); return route.view==="rankings" && RATINGS[route.path[1]] ? route.path[1] : null; }
+function ratingModel(key){ var x=RATINGS[key]; return x.raw ? x.model(x.raw) : null; }
+function loadRating(key, force){
+  var x=RATINGS[key];
+  if(x.p) return x.p;
+  if(!force && x.ok && !x.failed && Date.now()-x.ok<30*60e3) return Promise.resolve({key:key,outcome:"network"});
+  function usable(d){ var m=x.model(d); return !!m && m.season!=null && x.whole(m); }
+  // The edge API marks a copy it kept because CFBD failed; the page's
+  // worker marks one it kept because the network did. Either is a saved copy.
+  function saved(r){ return !!(r.cached || (r.data && r.data.stale)); }
+  if(!x.raw) cachedCopy(x.url()).then(function(c){
+    if(!x.raw && usable(c.data)){ x.raw=c.data; x.cached=true; paintTop25(); }
   }).catch(function(){});
-  FPI.tried=true;
-  FPI.p=fetchJSON(url).then(function(r){
-    if(!usable(r.data)) throw new Error("Unusable FPI snapshot");
-    FPI.raw=r.data; FPI.cached=!!r.cached; FPI.failed=false;
-    FPI.ok=r.cached ? 0 : Date.now();
+  x.tried=true;
+  var url=x.url();
+  x.p=fetchJSON(url).then(function(r){
+    if(x.empty && x.earlier && x.empty(r.data) && !r.cached){ url=x.earlier(); return fetchJSON(url); }
+    return r;
+  }).then(function(r){
+    if(x.empty && x.empty(r.data)){ x.failed="unpublished"; return {key:key,outcome:"network"}; }
+    if(!usable(r.data)) throw new Error("Unusable "+x.label+" answer");
+    x.raw=r.data; x.cached=saved(r); x.failed=false;
+    x.ok=x.cached ? 0 : Date.now();
     noteSource(url,r.cached);
-    return {key:"fpi",outcome:r.cached ? "cached" : "network"};
-  }).catch(function(){ FPI.failed=true; return {key:"fpi",outcome:"failed"}; })
-    .then(function(result){ FPI.p=null; paintTop25(); return result; });
-  return FPI.p;
+    return {key:key,outcome:x.cached ? "cached" : "network"};
+  }).catch(function(){ x.failed=true; return {key:key,outcome:"failed"}; })
+    .then(function(result){ x.p=null; paintTop25(); return result; });
+  return x.p;
 }
 
 function top25Sources(){
@@ -381,9 +409,10 @@ function top25Sources(){
     return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, maxAgeMs:maxAge } : { key:key, missing:true };
   }
   var route=Suite.nav.current(), view=route.view;
-  if(view==="rankings" && route.path[1]==="fpi"){
-    var rating=fpiModel();
-    return [TeamOS.ratings.freshnessSource(rating,FPI.cached || FPI.failed || !!(rating && !rating.current))];
+  var rk=ratingKey(route);
+  if(rk){
+    var x=RATINGS[rk], rating=ratingModel(rk);
+    return [TeamOS.ratings.freshnessSource(rating, x.cached || x.failed===true || !!(rating && !rating.current), rk)];
   }
   return view==="rankings" ? [s("rankings", 8*24*HOUR)]
                            : [s("scoreboard", AUTO.liveElsewhere ? 10*60e3 : 12*HOUR)];
@@ -398,8 +427,9 @@ function paintTop25(){
     view:   route.view==="rankings" ? "rankings" : "games",
     poll:   route.view==="rankings" ? (route.path[1]||null) : null,
     polls:  T25.polls,
-    ratingSources: [{key:"fpi",label:"FPI"}],
-    ratings: [fpiModel()].filter(Boolean), ratingsFailed: {fpi:FPI.failed},
+    ratingSources: Object.keys(RATINGS).map(function(k){ return {key:k,label:RATINGS[k].label}; }),
+    ratings: Object.keys(RATINGS).map(ratingModel).filter(Boolean),
+    ratingsFailed: Object.keys(RATINGS).reduce(function(o,k){ o[k]=RATINGS[k].failed; return o; },{}),
     games:  SB.games || T25.cachedGames,
     pollsFailed: T25.pollsFailed, gamesFailed: T25.gamesFailed,
     heroId: hero ? hero.id : null,
@@ -412,7 +442,7 @@ function paintTop25(){
 
 function loadTop25(){
   var route=Suite.nav.current();
-  if(route.view==="rankings" && route.path[1]==="fpi") loadFpi();
+  if(ratingKey(route)) loadRating(ratingKey(route));
   if(T25.polls==null) cachedJSON(TeamOS.espn.rankingsUrl()).then(function(d){
     if(T25.polls==null && d){ T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); paintTop25(); }
   }).catch(function(){});
@@ -1057,7 +1087,7 @@ window.addEventListener("online",  function(){
   [GV, SV].forEach(function(V){ if(V && V.previewFailed) V.at=0; });
   paintGame(); paintScheduleScreen();
   paintHome(); paintTop25(); paintRoster(); paintMore();
-  if(!$("screenTop25").hidden && Suite.nav.current().path[1]==="fpi") loadFpi();
+  if(!$("screenTop25").hidden && ratingKey()) loadRating(ratingKey());
   loadNews();                              // each source that failed, or came from the worker's copy, is asked again
   // Stats said it would load when the connection returned: it does - and
   // so does a season that came from the worker's copy, or one missing this
@@ -1695,7 +1725,7 @@ function refreshAll(silent){
   if(SB.data || SB.p) steps.push(getScoreboard(0).then(function(){ return { key:"scoreboard", outcome:outcomeOf("scoreboard") }; },
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
-  if(FPI.tried) steps.push(loadFpi(true));
+  Object.keys(RATINGS).forEach(function(k){ if(RATINGS[k].tried) steps.push(loadRating(k,true)); });
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
   if(ST.us || ST.p || ST.failed) steps.push(loadStats(true).then(function(){ return { key:"stats", outcome: ST.outcome || "failed" }; }));
   if(PL.tables || PL.p || PL.failed) steps.push(loadPlayers(true).then(function(){ return { key:"players", outcome: PL.outcome || "failed" }; }));

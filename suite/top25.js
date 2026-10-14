@@ -3,7 +3,7 @@
 
    Two peer views, both routes:
      #top25                       Games: this week's games with a ranked side
-     #top25/rankings[/<source>]   Rankings: CFP | AP | Coaches | FPI, all 25 rows
+     #top25/rankings[/<source>]   Rankings: CFP | AP | Coaches | FPI | SP+, all 25 rows
 
    The header - the SUITE bar with the selected team as quiet context, and
    the "Top 25" heading - is suite/nav.js's. This file draws the view strip
@@ -19,7 +19,8 @@
                        Selection Day, from the league's published calendar
        model.polls     Poll[] | null (still loading)
        model.ratingSources [{key,label}] - enabled predictive sources only
-       model.ratings   Rating[] from TeamOS; model.ratingsFailed keyed by source
+       model.ratings   Rating[] from TeamOS; model.ratingsFailed keyed by source:
+                       true (failed) or "unpublished"
        model.games     LeagueGame[] | null (still loading)
        model.gamesFailed, model.pollsFailed   no copy and the network failed
        model.heroId    the team's hero game - the one #game opens - or null
@@ -219,7 +220,9 @@ Suite.top25 = (function () {
     var c = chosen(m), rating = (m.ratingSources || []).filter(function (x) { return x.key === c.key; })[0];
     if (rating) {
       return pollSeg(c.key, m) + calendarNote(m.calendar, (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; })) +
-        (c.poll ? ratingTable(m, c.poll) : quiet(m.ratingsFailed && m.ratingsFailed[c.key]
+        (c.poll ? ratingTable(m, c.poll) : quiet(m.ratingsFailed && m.ratingsFailed[c.key] === "unpublished"
+          ? rating.label + " isn’t published for this season yet."
+          : m.ratingsFailed && m.ratingsFailed[c.key]
           ? rating.label + " didn’t load. Return to this view or use Refresh Data to try again."
           : "Loading " + rating.label + "…"));
     }
@@ -230,26 +233,29 @@ Suite.top25 = (function () {
     return pollSeg(c.key, m) + calendarNote(m.calendar, hasCfp) + body;
   }
 
+  // A source with no change history (SP+) has no Change column at all:
+  // an empty column would read as "no team moved" (handoff 2026-10-14).
   function ratingTable(m, p) {
-    var updated = p.updated ? new Date(p.updated) : null;
+    var updated = p.updated ? new Date(p.updated) : null, moves = !!p.changeWindow;
+    var credit = esc(p.credit || p.name);
     var source = p.sourceUrl && /^https:\/\//i.test(p.sourceUrl)
-      ? '<a href="' + esc(p.sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(p.name) + '<span class="sr-only"> (opens in a new tab)</span></a>' : esc(p.name);
+      ? '<a href="' + esc(p.sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + credit + '<span class="sr-only"> (opens in a new tab)</span></a>' : credit;
     var head = '<div class="rk-head"><h2 class="rk-title">' + esc(p.name) + '</h2>' +
       (updated && !isNaN(updated) ? '<p class="rk-updated">Updated ' + esc(updated.toLocaleDateString([], {month:"short",day:"numeric",year:"numeric"})) + '</p>' : '') + '</div>';
     var edition = '<p class="rk-method">Predictive rating · ' + esc(p.season) + ' season' + (p.asOf ? ' · ' + esc(p.asOf) : '') +
-      '. Rank change over ' + esc(p.changeWindow || 'the previous edition') + '.</p>';
+      (moves ? '. Rank change over ' + esc(p.changeWindow) : '') + '.</p>';
     var previous = p.current === false ? '<p class="rk-edition" role="note">Showing the ' + esc(p.season) + ' edition. This is not the current season’s rating.</p>' : '';
     var mine = p.mine && !p.ranks.some(function (r) { return r.mine; })
       ? '<p class="rk-outside">Your team: <strong>#' + esc(p.mine.rank) + ' ' + esc(p.mine.team) + '</strong> · Rating ' + esc(p.mine.rating.toFixed(1)) + '</p>' : '';
     return '<section class="card rk-card">' + head + edition + previous +
-      '<table class="rk-table rk-ratings"><caption class="sr-only">' + esc(p.name + ', ' + p.season + ', predictive ratings. Change over ' + p.changeWindow) + '</caption>' +
+      '<table class="rk-table rk-ratings"><caption class="sr-only">' + esc(p.name + ', ' + p.season + ', predictive ratings' + (moves ? '. Change over ' + p.changeWindow : '')) + '</caption>' +
       '<thead><tr><th scope="col" class="rk-n">Rank</th><th scope="col" class="rk-team">Team</th><th scope="col" class="rk-value">Rating</th>' +
-      '<th scope="col" class="rk-trend">Change<span class="sr-only"> over ' + esc(p.changeWindow) + '</span></th></tr></thead><tbody>' +
+      (moves ? '<th scope="col" class="rk-trend">Change<span class="sr-only"> over ' + esc(p.changeWindow) + '</span></th>' : '') + '</tr></thead><tbody>' +
       p.ranks.map(function (r) {
         return '<tr' + (r.mine ? ' class="mine"' : '') + '><td class="rk-n">' + esc(r.rank) + '</td><th scope="row" class="rk-team"><span class="rk-teamcell">' +
           ui.mark(r.providerId ? m.mark(r.providerId) : null, r.team, r.abbr, 'plain') + '<span class="rk-name">' + esc(r.team) +
           (r.mine ? '<span class="sr-only"> (selected team)</span>' : '') + (r.record ? '<span class="rk-rating-record">' + esc(r.record) + '</span>' : '') + '</span></span></th>' +
-          '<td class="rk-value">' + esc(r.rating.toFixed(1)) + '</td><td class="rk-trend">' + trend(r) + '</td></tr>';
+          '<td class="rk-value">' + esc(r.rating.toFixed(1)) + '</td>' + (moves ? '<td class="rk-trend">' + trend(r) + '</td>' : '') + '</tr>';
       }).join('') + '</tbody></table>' + mine + '<p class="rk-source">Source: ' + source + '</p></section>';
   }
 
