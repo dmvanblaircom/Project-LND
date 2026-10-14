@@ -532,7 +532,7 @@ function times(db, teamId, schedule, now, log) {
   // Each change is numbered for its game, so a time that comes back (7:00,
   // 8:00, 7:00 again) is news again (Codex, #140): "time:<ISO>#<n>".
   for (const c of r.out) {
-    const n = gameCount(db, c.game.id, "time:%");
+    const n = db.all("SELECT COUNT(*) AS n FROM sent WHERE team_id = ? AND game_id = ? AND event LIKE 'time:%'", teamId, c.game.id)[0].n;
     emit(db, teamId, c.game, c.event + "#" + (n + 1), null, c.x, now, log, false);
   }
 }
@@ -618,15 +618,20 @@ async function detect(db, env, teamId, game, now, log) {
 // The game event an alert is about, the same whichever of the game's two
 // teams noticed it: a score by the score it made, home first (with a missed
 // try's kind, since the score does not move), a correction by the score it
-// leaves - each with the number of corrections so far (`fixes`), so a
+// leaves - each with the number of corrections so far (`rev`), so a
 // scoreline that comes back after a correction (7-0, overturned to 0-0,
-// then 7-0 again) is a new event (Codex, #140); anything else by its own
-// name (kickoff, end:2, delay:1, time:ISO#n).
-export function claimKey(ev, game, scores, fixes) {
+// then 7-0 again) is a new event (Codex, #140). A delay or a kickoff time,
+// which each team numbers itself, by its kind and the game's count of that
+// kind (`rev`, read after the team recorded it), so the two views agree
+// even when one began later. Anything else by its own name (kickoff,
+// final, end:2, close, ot).
+export function claimKey(ev, game, scores, rev) {
+  if (/^delay/.test(ev)) return "delay@" + (rev || 0);
+  if (/^time:/.test(ev)) return ev.split("#")[0] + "@" + (rev || 0);
   const has = scores && typeof scores.us === "number" && typeof scores.them === "number";
   if (!has || !/^(score|fix)/.test(ev)) return ev;
   const home = game.home ? scores.us : scores.them, away = game.home ? scores.them : scores.us;
-  return (/^fix/.test(ev) ? "fix|" : "score|") + home + "-" + away + "|" + (fixes || 0);
+  return (/^fix/.test(ev) ? "fix|" : "score|") + home + "-" + away + "|" + (rev || 0);
 }
 // How many of a kind of event the game has had, by whichever of its teams
 // has seen the most: the same for both teams' views, even when a device
@@ -642,8 +647,7 @@ function claim(db, endpoint, game, key) {
 // Record an event for the team's game once, then a delivery for each
 // follower whose options want it. Record first: if two runs overlap, only
 // the one that recorded goes on. A device following both teams in the game
-// gets it once: from the first team to queue it (claim()). Only such a
-// device is ever held back by a claim.
+// gets it once: from the first team to queue it (claim()).
 function emit(db, teamId, game, ev, scores, x, now, log, late) {
   if (!db.run("INSERT OR IGNORE INTO sent (team_id, game_id, event, at) VALUES (?, ?, ?, ?)", teamId, game.id, ev, now).changes) return;
   if (late) { log.push(teamId + ": " + ev + " noticed late, not sent"); return; }
@@ -664,10 +668,11 @@ function emit(db, teamId, game, ev, scores, x, now, log, late) {
     }
   }
   let n = 0, twice = 0;
-  const fixes = gameCount(db, game.id, "fix:%");
-  const key = claimKey(ev, game, scores, fixes) + (x && (x.kind === "xpmiss" || x.kind === "2ptfail") ? "|" + x.kind : "");
-  const both = new Set(game.opponent && game.opponent.id ? db.all("SELECT endpoint FROM subs WHERE team_id = ?", game.opponent.id).map(function (r) { return r.endpoint; }) : []);
-  const mine = function (endpoint) { return !both.has(endpoint) || claim(db, endpoint, game, key); };
+  const rev = gameCount(db, game.id, /^delay/.test(ev) ? "delay%" : /^time:/.test(ev) ? "time:%" : "fix:%");
+  const key = claimKey(ev, game, scores, rev) + (x && (x.kind === "xpmiss" || x.kind === "2ptfail") ? "|" + x.kind : "");
+  // Every delivery claims its event, so a device that adds the other team
+  // later is not told again what it has already been told (Codex, #140).
+  const mine = function (endpoint) { return claim(db, endpoint, game, key); };
   for (const s of db.all("SELECT endpoint, opts FROM subs WHERE team_id = ?", teamId)) {
     if (only) {
       if (!only.has(s.endpoint)) continue;
