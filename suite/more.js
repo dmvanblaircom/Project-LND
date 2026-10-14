@@ -200,8 +200,8 @@ Suite.more = (function () {
   // 2026-10-09): on or off for this team, and once on, the fan's choice of
   // alerts - quick picks that set the switches and step aside, one choice
   // for scoring, a switch for everything else. It says plainly when this
-  // device cannot get them, and why. The Turn On button is the only thing
-  // that ever asks the browser for permission.
+  // device cannot get them, and why. Enabling the master switch is the only
+  // action that asks the browser for permission.
   var PICKS = [["everything", "Everything"], ["key", "Key moments"], ["final", "Final only"]];
   var SWITCHES = {
     game: [["kickoff", "Kickoff"], ["final", "Final score"], ["delays", "Delays & postponements"]],
@@ -217,14 +217,14 @@ Suite.more = (function () {
   }
   function alertOptions(a) {
     var o = a.opts;
-    return '<div class="al-opts">' +
-      '<div class="al-picks" role="group" aria-label="Quick picks">' + PICKS.map(function (p) {
+    return '<div class="al-opts"><fieldset class="al-set"><legend class="al-legend">Quick picks</legend>' +
+      '<div class="al-picks">' + PICKS.map(function (p) {
         return '<button type="button" class="al-pick" data-alert-pick="' + p[0] + '" aria-pressed="' + (a.pick === p[0]) + '">' + esc(p[1]) + "</button>";
-      }).join("") + "</div>" +
+      }).join("") + "</div></fieldset>" +
       '<fieldset class="al-set"><legend class="al-legend">Game</legend>' + SWITCHES.game.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
       '<fieldset class="al-set"><legend class="al-legend">Scoring</legend><div class="al-seg">' + SCORING.map(function (c) {
-        return '<label class="al-choice"><input type="radio" name="alertScoring" value="' + c[0] + '"' + (o.scoring === c[0] ? " checked" : "") +
-               "><span>" + esc(c[1]) + "</span></label>";
+        return '<label class="al-row al-choice"><span class="al-text"><span class="al-name">' + esc(c[1]) + '</span></span>' +
+               '<input type="radio" name="alertScoring" value="' + c[0] + '"' + (o.scoring === c[0] ? " checked" : "") + "></label>";
       }).join("") + "</div></fieldset>" +
       '<fieldset class="al-set"><legend class="al-legend">Updates</legend>' + SWITCHES.updates.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
       '<p class="al-help">If alerts don\u2019t arrive, allow Suite in your Focus settings.</p></div>';
@@ -242,10 +242,12 @@ Suite.more = (function () {
     } else {
       var note = a.note || (a.on ? "Choose which " + name + " alerts this device gets."
                                  : "Notifications for " + name + " games: kickoff and the final to start, and scores, quarters and close finishes if you want them.");
-      body = '<div class="st-row"><span class="st-k">' + esc(name) + ' alerts</span><span class="st-v" data-st="alerts">' + (a.on ? "On" : "Off") + "</span></div>" +
-        '<div class="st-row st-action"><span class="st-note" data-st="alerts-note">' + esc(note) + "</span>" +
-        '<button type="button" class="btn btn-secondary" data-alerts="' + (a.on ? "off" : "on") + '"' + (a.busy ? ' aria-disabled="true"' : "") + ">" +
-        (a.busy ? (a.on ? "Turning Off\u2026" : "Turning On\u2026") : (a.on ? "Turn Off" : "Turn On")) + "</button></div>" +
+      if (a.busy) note = a.on ? "Turning alerts off…" : "Turning alerts on…";
+      body = '<div class="al-overview"><label class="al-row"><span class="al-text"><span class="al-name" id="al-master-name">' + esc(name) + ' alerts</span></span>' +
+        '<input type="checkbox" role="switch" class="al-switch" name="alert-master" data-alerts="' + (a.on ? "off" : "on") +
+        '" aria-labelledby="al-master-name" aria-describedby="al-note"' + (a.on ? " checked" : "") +
+        (a.busy ? ' aria-disabled="true" aria-busy="true"' : "") + '></label>' +
+        '<p class="al-note" id="al-note" data-st="alerts-note">' + esc(note) + "</p></div>" +
         (a.on && a.opts ? alertOptions(a) : "");
     }
     return group("alerts", "Game Alerts", body);
