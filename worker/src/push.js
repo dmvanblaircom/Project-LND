@@ -523,9 +523,15 @@ export async function tick(db, env, now, quick) {
 // Each read of the schedule: what changed in its kickoff times since the
 // last, recorded by compare-and-set so overlapping runs alert once.
 function times(db, teamId, schedule, now, log) {
+  // The record carries when it was read: one older than two schedule reads
+  // (no one followed the team for a while, or the Worker was down) is no
+  // baseline - the next read starts afresh, so a new follower is never told
+  // of a change made before they signed up (Codex, #140).
   const k = "ko:" + teamId, row = db.all("SELECT v FROM meta WHERE k = ?", k)[0];
-  const r = timeChanges(row ? JSON.parse(row.v) : null, kickoffs(schedule, teamId), now), v = JSON.stringify(r.next);
-  if (row && row.v === v) return;
+  let last = null;
+  try { last = row ? JSON.parse(row.v) : null; } catch (e) { last = null; }
+  const fresh = last && last.at && now - last.at <= 2 * LIMITS.scheduleEvery ? last.games : null;
+  const r = timeChanges(fresh, kickoffs(schedule, teamId), now), v = JSON.stringify({ at: now, games: r.next });
   const moved = row ? db.run("UPDATE meta SET v = ? WHERE k = ? AND v = ?", v, k, row.v).changes
                     : db.run("INSERT OR IGNORE INTO meta (k, v) VALUES (?, ?)", k, v).changes;
   if (!moved) return;

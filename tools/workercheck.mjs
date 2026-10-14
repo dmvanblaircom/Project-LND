@@ -941,6 +941,24 @@ console.log("game alerts: kickoff time set or moved (brief §2b, edge case 12)")
   e.pushes.length = 0; ev.date = MOVED;
   await tick(db, e, Date.parse(SET) - 2 * 3600e3);
   ok(e.pushes.length === 0, "a move within 3 hours of kickoff is the delay alert's, not this one"); }
+{ // No one follows the team for days; the time moves; a fan signs up (Codex, #140).
+  const future = OSU_SCHEDULE.events.filter((ev) => Date.parse(ev.date) > KICK + 7 * 864e5 &&
+    ((ev.competitions[0].status || {}).type || {}).state === "pre")[0];
+  const sched = JSON.parse(JSON.stringify(OSU_SCHEDULE)), ev = sched.events.filter((x) => x.id === future.id)[0];
+  ev.date = "2026-10-17T23:30Z"; ev.competitions[0].timeValid = true;
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/194\/schedule$/.test(url) ? new Response(JSON.stringify(sched), { status: 200 }) : base(url, init);
+  const o = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: true };
+  const T = Date.parse("2026-10-08T12:00:00Z"), first = await browserSub(), late = await browserSub();
+  await subscribe(db, e, { subscription: first.sub, team: { id: "194", name: "Ohio State" }, options: o }, T);
+  await tick(db, e, T);                                             // the kickoff times recorded
+  unsubscribe(db, { endpoint: first.sub.endpoint });               // then no one follows Ohio State ...
+  ev.date = "2026-10-17T20:00Z";                                    // ... while the time moves
+  await subscribe(db, e, { subscription: late.sub, team: { id: "194", name: "Ohio State" }, options: o }, T + 3 * 864e5);
+  e.pushes.length = 0; await tick(db, e, T + 3 * 864e5);
+  ok(e.pushes.length === 0, "a record left from before an unwatched gap is no baseline: a new follower is not told of an old change");
+  ev.date = "2026-10-17T19:00Z"; await tick(db, e, T + 3 * 864e5 + 61 * 60e3);
+  ok(e.pushes.length === 1, "and the next real move, read an hour later, is told"); }
 
 console.log("game alerts: one device following both teams in a game (brief §2b, edge case 9)");
 { eq([claimKey("score:3", { home: false }, { us: 3, them: 0 }), claimKey("score:1", { home: true }, { us: 0, them: 3 })], ["score|0-3|0", "score|0-3|0"],
@@ -1094,7 +1112,7 @@ console.log("game alerts: one device following both teams in a game (brief §2b,
   e.FETCH = async (url, init) => /\/teams\/194\/schedule$/.test(url) ? new Response(JSON.stringify(sched), { status: 200 }) : base(url, init);
   const f = await browserSub();
   await subscribe(db, e, { subscription: f.sub, team: { id: "194", name: "Ohio State" }, options: { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: true } }, NEW - 864e5);
-  await tick(db, e, NEW - 864e5); e.pushes.length = 0;
+  await tick(db, e, NEW - 864e5); await tick(db, e, NEW - 95 * 60e3); e.pushes.length = 0;   // read hourly, as the Worker does
   ev.date = new Date(NEW).toISOString();
   e.push = 500;                                         // the first try is refused ...
   await tick(db, e, NEW - 30 * 60e3);
