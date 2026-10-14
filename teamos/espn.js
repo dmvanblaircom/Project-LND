@@ -843,10 +843,25 @@ TeamOS.espn = (function () {
     var code=String(d.result||"").toUpperCase();
     return DRIVE_RESULT[code] || str(d.displayResult||d.result);
   }
+  // A drive's time. While a drive goes on, ESPN often reports "0:00" until
+  // its stats crew catches up ("3 plays, 24 yards, 0:00", Ohio State-
+  // Maryland, live scan 2026-10-10 #6) - even its plays' clocks stand
+  // still. A drive with no result yet, an offensive play run and no time
+  // has an unknown time, not a zero one: null, and its summary leaves the
+  // time out. A finished drive keeps ESPN's time, zero included. Nothing
+  // here makes a time up.
+  // A time ESPN did not send, or sent in another shape, is null too, and
+  // the summary is left as ESPN wrote it.
+  function unfilledTime(d){
+    var plays=typeof d.offensivePlays==="number" ? d.offensivePlays : +((/^(\d+) plays?\b/.exec(str(d.description))||[])[1]||0);
+    return /^0?0:00$/.test(str(pick(d,["timeElapsed","displayValue"],""))) && !d.result && !d.displayResult && plays>0;
+  }
   function driveOf(d, teamId, home, away, codes){
-    var tid=str(pick(d,["team","id"],""));
+    var tid=str(pick(d,["team","id"],"")), unfilled=unfilledTime(d), t=str(pick(d,["timeElapsed","displayValue"],""));
+    var time=!unfilled && /^\d{1,2}:\d\d$/.test(t) ? t : null, summary=str(d.description);
+    if(unfilled) summary=summary.replace(/,\s*0?0:00$/,"");
     return { id: str(d.id), side: tid===home.key ? "home" : tid===away.key ? "away" : null,
-             mine: tid===teamId, summary: str(d.description), result: driveResult(d),
+             mine: tid===teamId, summary: summary, time: time, result: driveResult(d),
              plays: (d.plays||[]).map(function(p){
                var pl=playOf(p, codes);
                pl.offense = !pl.start || !pl.start.teamId || pl.start.teamId===tid;
