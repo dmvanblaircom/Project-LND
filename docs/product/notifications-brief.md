@@ -100,7 +100,13 @@ should be considered for UX."* **Status: approved by David, 2026-10-09, as
 written, plus "Kickoff time set" (moved up from "Other alerts" below).**
 **Built October 9 for the October 10 games** (David: "Built tonight"),
 except Kickoff time set and the both-teams-in-one-game case, which no
-October 10 game needs. Gates: `tools/workercheck.mjs` replays a real game's
+October 10 game needs. **Both are built in the Worker as of October 14**
+(Claude, PR for `feat/alerts-timeset`): the `timeset` option (off by
+default and for every saved subscription), the kickoff-time rules of edge
+case 12, and one alert per device per game event (edge case 9). The
+Settings switch and its quick-pick membership follow Codex's Game Alerts
+Settings rework (#137); until then no app sends `timeset`, so nobody gets
+the alert. Gates: `tools/workercheck.mjs` replays a real game's
 scoring minute by minute for four kinds of fan; `tools/alertscheck.js`
 drives Settings in a browser.
 
@@ -174,7 +180,7 @@ score in the body. Examples are from Stanford at Notre Dame that day.
 | Overtime | "Overtime" / "Notre Dame 27, Stanford 27" | When OT starts (part of Close finish) |
 | Kickoff | "Kickoff: Notre Dame vs. Stanford" / "On NBC" ("Underway now." when ESPN names no network) | The game starts |
 | Final | "Final: Notre Dame 49, Stanford 20" / "Notre Dame wins." | ESPN's status is final |
-| Kickoff time set | "Notre Dame vs. BYU: Sat, Oct 17, 7:30 PM on NBC" (in the fan's own time zone) | A TBA game gets its time, or a set time moves (not built yet) |
+| Kickoff time set | "Notre Dame vs. BYU: Sat, Oct 17, 7:30 PM on NBC" (in the fan's own time zone) / "Kickoff time set." or "Kickoff time changed." | A TBA game gets its time, or a set time moves (Worker built Oct 14; Settings switch pending) |
 | Delay / postponed / canceled | "Delay (9:15 2nd)" / the score; "Postponed" / "Notre Dame vs. Stanford has been postponed." | ESPN's status changes to it |
 
 **Speed** (David, 2026-10-10, after Suite's touchdown alert arrived about two

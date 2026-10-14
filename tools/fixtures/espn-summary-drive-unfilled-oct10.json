@@ -1,0 +1,2915 @@
+{
+ "header": {
+  "id": "401858483",
+  "uid": "s:20~l:23~e:401858483",
+  "season": {
+   "year": 2026,
+   "current": true,
+   "type": 2
+  },
+  "timeValid": true,
+  "competitions": [
+   {
+    "id": "401858483",
+    "uid": "s:20~l:23~e:401858483~c:401858483",
+    "date": "2026-10-10T20:15Z",
+    "dateValid": true,
+    "neutralSite": false,
+    "conferenceCompetition": true,
+    "boxscoreAvailable": true,
+    "commentaryAvailable": false,
+    "liveAvailable": true,
+    "onWatchESPN": false,
+    "recent": true,
+    "wallclockAvailable": true,
+    "boxscoreSource": "full",
+    "playByPlaySource": "full",
+    "competitors": [
+     {
+      "id": "194",
+      "uid": "s:20~l:23~t:194",
+      "order": 0,
+      "homeAway": "home",
+      "team": {
+       "id": "194",
+       "guid": "2fc3b71f-8247-22a5-f6da-df3902cbb438",
+       "uid": "s:20~l:23~t:194",
+       "location": "Ohio State",
+       "name": "Buckeyes",
+       "nickname": "Ohio State",
+       "abbreviation": "OSU",
+       "displayName": "Ohio State Buckeyes",
+       "color": "ba0c2f",
+       "alternateColor": "a8adb4",
+       "logos": [
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "default"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/194.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "dark"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/primary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/2fc3b71f-8247-22a5-f6da-df3902cbb438/logos/secondary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        }
+       ],
+       "groups": {
+        "id": "5"
+       },
+       "links": [
+        {
+         "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+         ],
+         "href": "https://www.espn.com/college-football/team/_/id/194/ohio-state-buckeyes",
+         "text": "Clubhouse"
+        }
+       ]
+      },
+      "score": "14",
+      "linescores": [
+       {
+        "displayValue": "14"
+       }
+      ],
+      "record": [
+       {
+        "type": "total",
+        "summary": "4-1",
+        "displayValue": "4-1"
+       },
+       {
+        "type": "vsconf",
+        "summary": "2-0",
+        "displayValue": "2-0"
+       }
+      ],
+      "timeoutsUsed": 0,
+      "possession": false,
+      "rank": 5
+     },
+     {
+      "id": "120",
+      "uid": "s:20~l:23~t:120",
+      "order": 1,
+      "homeAway": "away",
+      "team": {
+       "id": "120",
+       "guid": "7dae6b2a-7a04-6d4d-6e35-a625805c6c0a",
+       "uid": "s:20~l:23~t:120",
+       "location": "Maryland",
+       "name": "Terrapins",
+       "nickname": "Maryland",
+       "abbreviation": "MD",
+       "displayName": "Maryland Terrapins",
+       "color": "ce1126",
+       "alternateColor": "ffffff",
+       "logos": [
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "default"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/120.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "dark"
+         ],
+         "lastUpdated": "2025-12-23T01:44Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_black"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/primary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_white"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_black"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/7dae6b2a-7a04-6d4d-6e35-a625805c6c0a/logos/secondary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_white"
+         ],
+         "lastUpdated": "2026-02-13T18:02Z"
+        }
+       ],
+       "groups": {
+        "id": "5"
+       },
+       "links": [
+        {
+         "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+         ],
+         "href": "https://www.espn.com/college-football/team/_/id/120/maryland-terrapins",
+         "text": "Clubhouse"
+        }
+       ]
+      },
+      "score": "3",
+      "linescores": [
+       {
+        "displayValue": "3"
+       }
+      ],
+      "record": [
+       {
+        "type": "total",
+        "summary": "2-3",
+        "displayValue": "2-3"
+       },
+       {
+        "type": "vsconf",
+        "summary": "0-2",
+        "displayValue": "0-2"
+       }
+      ],
+      "timeoutsUsed": 0,
+      "possession": true
+     }
+    ],
+    "status": {
+     "displayClock": "1:37",
+     "period": 1,
+     "type": {
+      "id": "2",
+      "name": "STATUS_IN_PROGRESS",
+      "state": "in",
+      "completed": false,
+      "description": "In Progress",
+      "detail": "1:37 - 1st Quarter",
+      "shortDetail": "1:37 - 1st",
+      "statusPrimary": "1:37",
+      "statusSecondary": "1st"
+     },
+     "displayPeriod": "1st"
+    },
+    "broadcasts": [
+     {
+      "type": {
+       "id": "1",
+       "shortName": "TV"
+      },
+      "market": {
+       "id": "1",
+       "type": "National"
+      },
+      "media": {
+       "shortName": "BTN"
+      },
+      "lang": "en",
+      "region": "us",
+      "isNational": true
+     }
+    ],
+    "groups": {
+     "id": "5",
+     "name": "Big Ten Conference",
+     "abbreviation": "big10",
+     "shortName": "Big Ten",
+     "midsizeName": "Big Ten"
+    },
+    "boxscoreMinutes": true
+   }
+  ],
+  "links": [
+   {
+    "rel": [
+     "live",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/game?gameId=401858483",
+    "text": "Gamecast",
+    "shortText": "Gamecast",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "boxscore",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/boxscore/_/gameId/401858483",
+    "text": "Box Score",
+    "shortText": "Box Score",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "pbp",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/playbyplay/_/gameId/401858483",
+    "text": "Play-by-Play",
+    "shortText": "Play-by-Play",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "teamstats",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/matchup?gameId=401858483",
+    "text": "Team Stats",
+    "shortText": "Team Stats",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "videos",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/video?gameId=401858483",
+    "text": "Videos",
+    "shortText": "Videos",
+    "isExternal": false,
+    "isPremium": false
+   }
+  ],
+  "week": 6,
+  "league": {
+   "id": "23",
+   "uid": "s:20~l:23",
+   "name": "NCAA - Football",
+   "abbreviation": "NCAAF",
+   "shortName": "NCAA Football",
+   "midsizeName": "NCAA Football",
+   "slug": "college-football",
+   "isTournament": false,
+   "links": [
+    {
+     "rel": [
+      "index",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/",
+     "text": "Index"
+    },
+    {
+     "rel": [
+      "index",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23",
+     "text": "Index"
+    },
+    {
+     "rel": [
+      "schedule",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/schedule",
+     "text": "Schedule"
+    },
+    {
+     "rel": [
+      "schedule",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=scores",
+     "text": "Schedule"
+    },
+    {
+     "rel": [
+      "standings",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/standings",
+     "text": "Standings"
+    },
+    {
+     "rel": [
+      "standings",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=standings",
+     "text": "Standings"
+    },
+    {
+     "rel": [
+      "rankings",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/rankings",
+     "text": "Rankings"
+    },
+    {
+     "rel": [
+      "rankings",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=rankings",
+     "text": "Rankings"
+    },
+    {
+     "rel": [
+      "scores",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/scoreboard",
+     "text": "Scores"
+    },
+    {
+     "rel": [
+      "scores",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=scores",
+     "text": "Scores"
+    },
+    {
+     "rel": [
+      "stats",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/stats",
+     "text": "Stats"
+    },
+    {
+     "rel": [
+      "stats",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=stats",
+     "text": "Stats"
+    },
+    {
+     "rel": [
+      "teams",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/teams",
+     "text": "Teams"
+    },
+    {
+     "rel": [
+      "odds",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/odds",
+     "text": "Odds"
+    },
+    {
+     "rel": [
+      "odds",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=odds",
+     "text": "Odds"
+    }
+   ],
+   "logos": [
+    {
+     "href": "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png",
+     "rel": [
+      "full",
+      "default"
+     ]
+    },
+    {
+     "href": "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png",
+     "rel": [
+      "full",
+      "dark"
+     ]
+    }
+   ]
+  }
+ },
+ "drives": {
+  "current": {
+   "id": "40185848312",
+   "description": "3 plays, 24 yards, 0:00",
+   "team": {
+    "id": "120",
+    "abbreviation": "MD"
+   },
+   "start": {
+    "period": {
+     "type": "quarter",
+     "number": 1
+    },
+    "yardLine": 0,
+    "text": "OSU 0"
+   },
+   "timeElapsed": {
+    "displayValue": "0:00"
+   },
+   "yards": 24,
+   "isScore": false,
+   "offensivePlays": 3,
+   "plays": [
+    {
+     "id": "401858483171",
+     "text": "#49 M.Diomede kickoff 65 yards to the Maryla00 fair catch by #1 N.Abdul-Rahim Gladding at Maryla00",
+     "type": {
+      "id": "53",
+      "text": "Kickoff",
+      "abbreviation": "K"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 35,
+      "yardsToEndzone": 65,
+      "team": {
+       "id": "194"
+      }
+     },
+     "end": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 75,
+      "yardsToEndzone": 75,
+      "downDistanceText": "1st & 10 at MD 25",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "MD 25",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 0,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858483174",
+     "text": "Shotgun #7 M.Washington pass complete short left to #9 D.Fleming caught at Maryla28, for 4 yards to the Maryla29 (#6 D.Sanchez)",
+     "type": {
+      "id": "24",
+      "text": "Pass Reception",
+      "abbreviation": "REC"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 75,
+      "yardsToEndzone": 75,
+      "downDistanceText": "1st & 10 at MD 25",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "MD 25",
+      "team": {
+       "id": "120"
+      }
+     },
+     "end": {
+      "down": 2,
+      "distance": 6,
+      "yardLine": 71,
+      "yardsToEndzone": 71,
+      "downDistanceText": "2nd & 6 at MD 29",
+      "shortDownDistanceText": "2nd & 6",
+      "possessionText": "MD 29",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 4,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858483179",
+     "text": "Shotgun #7 M.Washington pass complete short right to #1 N.Abdul-Rahim Gladding caught at Maryla27, for 2 yards to the Maryla31 (#20 C.Johnson)",
+     "type": {
+      "id": "24",
+      "text": "Pass Reception",
+      "abbreviation": "REC"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 2,
+      "distance": 6,
+      "yardLine": 71,
+      "yardsToEndzone": 71,
+      "downDistanceText": "2nd & 6 at MD 29",
+      "shortDownDistanceText": "2nd & 6",
+      "possessionText": "MD 29",
+      "team": {
+       "id": "120"
+      }
+     },
+     "end": {
+      "down": 3,
+      "distance": 4,
+      "yardLine": 69,
+      "yardsToEndzone": 69,
+      "downDistanceText": "3rd & 4 at MD 31",
+      "shortDownDistanceText": "3rd & 4",
+      "possessionText": "MD 31",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 2,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858483184",
+     "text": "Shotgun #7 M.Washington pass incomplete short right to #2 K.Webb thrown to Maryla35 PENALTY OhioSt Roughing The Passer (#12 B.Atkinson) 15 yards from Maryla31 to Maryla46, 1ST DOWN. NO PLAY",
+     "type": {
+      "id": "8",
+      "text": "Penalty",
+      "abbreviation": "PEN"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 3,
+      "distance": 4,
+      "yardLine": 69,
+      "yardsToEndzone": 69,
+      "downDistanceText": "3rd & 4 at MD 31",
+      "shortDownDistanceText": "3rd & 4",
+      "possessionText": "MD 31",
+      "team": {
+       "id": "120"
+      }
+     },
+     "end": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 54,
+      "yardsToEndzone": 54,
+      "downDistanceText": "1st & 10 at MD 46",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "MD 46",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 15,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858483188",
+     "text": "Shotgun #0 D.Williams rush middle for 3 yards gain to the Maryla49 (#26 P.Pierce; #1 E.Little Jr.)",
+     "type": {
+      "id": "5",
+      "text": "Rush",
+      "abbreviation": "RUSH"
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 54,
+      "yardsToEndzone": 54,
+      "downDistanceText": "1st & 10 at MD 46",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "MD 46",
+      "team": {
+       "id": "120"
+      }
+     },
+     "end": {
+      "down": 2,
+      "distance": 7,
+      "yardLine": 51,
+      "yardsToEndzone": 51,
+      "downDistanceText": "2nd & 7 at MD 49",
+      "shortDownDistanceText": "2nd & 7",
+      "possessionText": "MD 49",
+      "team": {
+       "id": "120"
+      }
+     },
+     "statYardage": 3,
+     "scoringPlay": false
+    }
+   ]
+  },
+  "previous": [
+   {
+    "id": "4018584832",
+    "description": "7 plays, 16 yards, 3:30",
+    "team": {
+     "id": "194",
+     "abbreviation": "OSU"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "14:50"
+     },
+     "yardLine": 32,
+     "text": "OSU 32"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "11:20"
+     },
+     "yardLine": 48,
+     "text": "OSU 48"
+    },
+    "timeElapsed": {
+     "displayValue": "3:30"
+    },
+    "yards": 16,
+    "isScore": false,
+    "offensivePlays": 7,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "4018584833",
+      "text": "#98 D.Leahy kickoff 49 yards to the OhioSt16 #88 M.LeBlanc return 16 yards to the OhioSt32 (#3 T.Reddick; #27 K.Carter)",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "14:50"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 65,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 32,
+       "yardsToEndzone": 68,
+       "downDistanceText": "1st & 10 at OSU 32",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 16,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848314",
+      "text": "Shotgun #24 J.Jackson rush middle for 5 yards gain to the OhioSt37 (#88 D.LeBlanc; #98 E.Thomas)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 32,
+       "yardsToEndzone": 68,
+       "downDistanceText": "1st & 10 at OSU 32",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 5,
+       "yardLine": 37,
+       "yardsToEndzone": 63,
+       "downDistanceText": "2nd & 5 at OSU 37",
+       "shortDownDistanceText": "2nd & 5",
+       "possessionText": "OSU 37",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 5,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848318",
+      "text": "No Huddle-Shotgun #10 J.Sayin pass complete short left to #86 M.Williams caught at OhioSt36, for 1 yard to the OhioSt38 (#11 S.Stewart), out of bounds",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 5,
+       "yardLine": 37,
+       "yardsToEndzone": 63,
+       "downDistanceText": "2nd & 5 at OSU 37",
+       "shortDownDistanceText": "2nd & 5",
+       "possessionText": "OSU 37",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 38,
+       "yardsToEndzone": 62,
+       "downDistanceText": "3rd & 4 at OSU 38",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "OSU 38",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 1,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848323",
+      "text": "Shotgun #10 J.Sayin rush left for 3 yards gain to the OhioSt41 (#98 E.Thomas)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 38,
+       "yardsToEndzone": 62,
+       "downDistanceText": "3rd & 4 at OSU 38",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "OSU 38",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 1,
+       "yardLine": 41,
+       "yardsToEndzone": 59,
+       "downDistanceText": "4th & 1 at OSU 41",
+       "shortDownDistanceText": "4th & 1",
+       "possessionText": "OSU 41",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848327",
+      "text": "No Huddle #10 J.Sayin rush middle for 2 yards gain to the OhioSt43 (#6 J.Scruggs; #88 D.LeBlanc), 1ST DOWN",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 1,
+       "yardLine": 41,
+       "yardsToEndzone": 59,
+       "downDistanceText": "4th & 1 at OSU 41",
+       "shortDownDistanceText": "4th & 1",
+       "possessionText": "OSU 41",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 43,
+       "yardsToEndzone": 57,
+       "downDistanceText": "1st & 10 at OSU 43",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 43",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848331",
+      "text": "Shotgun #24 J.Jackson rush right for 2 yards gain to the OhioSt45 (#1 D.Wingate; #11 S.Stewart)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 43,
+       "yardsToEndzone": 57,
+       "downDistanceText": "1st & 10 at OSU 43",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 43",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 8,
+       "yardLine": 45,
+       "yardsToEndzone": 55,
+       "downDistanceText": "2nd & 8 at OSU 45",
+       "shortDownDistanceText": "2nd & 8",
+       "possessionText": "OSU 45",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848335",
+      "text": "Shotgun #10 J.Sayin pass complete short right to #24 J.Jackson caught at OhioSt41, for 3 yards to the OhioSt48 (#11 S.Stewart; #32 C.Smith)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 8,
+       "yardLine": 45,
+       "yardsToEndzone": 55,
+       "downDistanceText": "2nd & 8 at OSU 45",
+       "shortDownDistanceText": "2nd & 8",
+       "possessionText": "OSU 45",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 5,
+       "yardLine": 48,
+       "yardsToEndzone": 52,
+       "downDistanceText": "3rd & 5 at OSU 48",
+       "shortDownDistanceText": "3rd & 5",
+       "possessionText": "OSU 48",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848340",
+      "text": "Shotgun #10 J.Sayin pass incomplete short right to #83 N.Roberts thrown to Maryla40",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "15:00"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 5,
+       "yardLine": 48,
+       "yardsToEndzone": 52,
+       "downDistanceText": "3rd & 5 at OSU 48",
+       "shortDownDistanceText": "3rd & 5",
+       "possessionText": "OSU 48",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 5,
+       "yardLine": 48,
+       "yardsToEndzone": 52,
+       "downDistanceText": "4th & 5 at OSU 48",
+       "shortDownDistanceText": "4th & 5",
+       "possessionText": "OSU 48",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848343",
+      "text": "#42 J.McGuire punt 52 yards to the Maryla00, Touchback",
+      "type": {
+       "id": "52",
+       "text": "Punt",
+       "abbreviation": "PUNT"
+      },
+      "clock": {
+       "displayValue": "11:20"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 5,
+       "yardLine": 48,
+       "yardsToEndzone": 52,
+       "downDistanceText": "4th & 5 at OSU 48",
+       "shortDownDistanceText": "4th & 5",
+       "possessionText": "OSU 48",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 10 at MD 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584833",
+    "description": "3 plays, 4 yards, 1:33",
+    "team": {
+     "id": "120",
+     "abbreviation": "MD"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "11:20"
+     },
+     "yardLine": 80,
+     "text": "MD 20"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "9:47"
+     },
+     "yardLine": 76,
+     "text": "MD 24"
+    },
+    "timeElapsed": {
+     "displayValue": "1:33"
+    },
+    "yards": 4,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "40185848347",
+      "text": "Shotgun #0 D.Williams rush right for 4 yards gain to the Maryla24 (#4 Q.Russaw)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "11:20"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 10 at MD 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "2nd & 6 at MD 24",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 4,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848351",
+      "text": "Shotgun #0 D.Williams rush right for 0 yards to the Maryla24 (#55 J.Walker; #26 P.Pierce)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "11:20"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "2nd & 6 at MD 24",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "3rd & 6 at MD 24",
+       "shortDownDistanceText": "3rd & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848355",
+      "text": "Shotgun #7 M.Washington pass incomplete short left to #13 C.Durr Jr. thrown to Maryla43",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "11:20"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "3rd & 6 at MD 24",
+       "shortDownDistanceText": "3rd & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "4th & 6 at MD 24",
+       "shortDownDistanceText": "4th & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848358",
+      "text": "#34 B.McFerson punt 43 yards to the OhioSt33 #7 P.Bell return 31 yards to the Maryla36 (#18 A.Moore)",
+      "type": {
+       "id": "14",
+       "text": "Punt Return"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 6,
+       "yardLine": 76,
+       "yardsToEndzone": 76,
+       "downDistanceText": "4th & 6 at MD 24",
+       "shortDownDistanceText": "4th & 6",
+       "possessionText": "MD 24",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 64,
+       "yardsToEndzone": 36,
+       "downDistanceText": "1st & 10 at MD 36",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 36",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 31,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584834",
+    "description": "2 plays, 28 yards, 1:07",
+    "team": {
+     "id": "194",
+     "abbreviation": "OSU"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "9:47"
+     },
+     "yardLine": 64,
+     "text": "MD 36"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "8:40"
+     },
+     "yardLine": 92,
+     "text": "MD 8"
+    },
+    "timeElapsed": {
+     "displayValue": "1:07"
+    },
+    "yards": 28,
+    "isScore": true,
+    "offensivePlays": 2,
+    "result": "TD",
+    "displayResult": "Touchdown",
+    "plays": [
+     {
+      "id": "40185848364",
+      "text": "Shotgun #25 B.Jackson rush middle for 6 yards gain to the Maryla30 (#44 J.Starlings)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 64,
+       "yardsToEndzone": 36,
+       "downDistanceText": "1st & 10 at MD 36",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 36",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 4,
+       "yardLine": 70,
+       "yardsToEndzone": 30,
+       "downDistanceText": "2nd & 4 at MD 30",
+       "shortDownDistanceText": "2nd & 4",
+       "possessionText": "MD 30",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 6,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848370",
+      "text": "Shotgun #10 J.Sayin pass complete short left to #25 B.Jackson caught at Maryla37, for 3 yards to the Maryla33 (#16 D.Joyner), out of bounds",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 64,
+       "yardsToEndzone": 36,
+       "downDistanceText": "1st & 10 at MD 36",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 36",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 67,
+       "yardsToEndzone": 33,
+       "downDistanceText": "2nd & 7 at MD 33",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "MD 33",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848375",
+      "text": "Shotgun #10 J.Sayin pass complete short right to #4 J.Smith caught at Maryla32, for 33 yards to the Maryla00 TOUCHDOWN, clock 08:40, 1ST DOWN PENALTY OhioSt False Start (#74 C.Lowe) 5 yards from Maryla03 to Maryla08. NO PLAY #96 C.Hawkins kick attempt good (H: #42 J.McGuire, LS: #55 D.Riggs)",
+      "type": {
+       "id": "67",
+       "text": "Passing Touchdown",
+       "abbreviation": "TD"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 67,
+       "yardsToEndzone": 33,
+       "downDistanceText": "2nd & 7 at MD 33",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "MD 33",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": 0,
+       "yardLine": 100,
+       "yardsToEndzone": 0,
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 33,
+      "scoringPlay": true,
+      "scoringType": {
+       "name": "touchdown",
+       "abbreviation": "TD"
+      }
+     },
+     {
+      "id": "40185848380",
+      "text": "PENALTY OhioSt False Start (#74 C.Lowe) 5 yards from Maryla03 to Maryla08. NO PLAY",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "9:47"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 0,
+       "distance": 3,
+       "yardLine": 97,
+       "yardsToEndzone": 3,
+       "downDistanceText": " & Goal at MD 3",
+       "shortDownDistanceText": " & Goal",
+       "possessionText": "MD 3",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 0,
+       "distance": 8,
+       "yardLine": 92,
+       "yardsToEndzone": 8,
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 5,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584836",
+    "description": "3 plays, -34 yards, 1:42",
+    "team": {
+     "id": "120",
+     "abbreviation": "MD"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "8:40"
+     },
+     "yardLine": 75,
+     "text": "MD 25"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "6:58"
+     },
+     "yardLine": 69,
+     "text": "MD 31"
+    },
+    "timeElapsed": {
+     "displayValue": "1:42"
+    },
+    "yards": -34,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "40185848386",
+      "text": "#49 M.Diomede kickoff 65 yards to the Maryla00, Touchback PENALTY Maryla Equipment Violation declined",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 0,
+       "distance": 0,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": 0,
+       "yardLine": 40,
+       "yardsToEndzone": 60,
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 70,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848390",
+      "text": "PENALTY Maryla False Start (#74 I.Wright) 5 yards from Maryla25 to Maryla20. NO PLAY",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 75,
+       "yardsToEndzone": 75,
+       "downDistanceText": "1st & 10 at MD 25",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 25",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 15,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 15 at MD 20",
+       "shortDownDistanceText": "1st & 15",
+       "possessionText": "MD 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 5,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848393",
+      "text": "Shotgun #0 D.Williams rush middle for 1 yard gain to the Maryla21 (#5 R.Pettijohn; #96 E.Houston)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 15,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 15 at MD 20",
+       "shortDownDistanceText": "1st & 15",
+       "possessionText": "MD 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 14,
+       "yardLine": 79,
+       "yardsToEndzone": 79,
+       "downDistanceText": "2nd & 14 at MD 21",
+       "shortDownDistanceText": "2nd & 14",
+       "possessionText": "MD 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 1,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185848397",
+      "text": "Shotgun #7 M.Washington pass complete short middle to #2 K.Webb caught at Maryla30, for 10 yards to the Maryla31 (#1 E.Little Jr.)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 14,
+       "yardLine": 79,
+       "yardsToEndzone": 79,
+       "downDistanceText": "2nd & 14 at MD 21",
+       "shortDownDistanceText": "2nd & 14",
+       "possessionText": "MD 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "3rd & 4 at MD 31",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 10,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483102",
+      "text": "No Huddle-Shotgun #7 M.Washington pass incomplete short right to #0 D.Williams thrown to Maryla42 QB hurried by #2 K.Jackson Jr.",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "8:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "3rd & 4 at MD 31",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "4th & 4 at MD 31",
+       "shortDownDistanceText": "4th & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483105",
+      "text": "#34 B.McFerson punt 44 yards to the OhioSt25 #7 P.Bell return 6 yards to the OhioSt31 (#97 J.Parker; #32 C.Smith)",
+      "type": {
+       "id": "14",
+       "text": "Punt Return"
+      },
+      "clock": {
+       "displayValue": "6:58"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "4th & 4 at MD 31",
+       "shortDownDistanceText": "4th & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 31,
+       "yardsToEndzone": 69,
+       "downDistanceText": "1st & 10 at OSU 31",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 31",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 6,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584837",
+    "description": "3 plays, 1 yard, 0:34",
+    "team": {
+     "id": "194",
+     "abbreviation": "OSU"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "6:58"
+     },
+     "yardLine": 31,
+     "text": "OSU 31"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "6:24"
+     },
+     "yardLine": 32,
+     "text": "OSU 32"
+    },
+    "timeElapsed": {
+     "displayValue": "0:34"
+    },
+    "yards": 1,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "FUMBLE",
+    "displayResult": "Fumble",
+    "plays": [
+     {
+      "id": "401858483111",
+      "text": "Shotgun #25 B.Jackson rush right for 3 yards gain to the OhioSt34 (#97 J.Parker)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "6:58"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 31,
+       "yardsToEndzone": 69,
+       "downDistanceText": "1st & 10 at OSU 31",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 31",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 34,
+       "yardsToEndzone": 66,
+       "downDistanceText": "2nd & 7 at OSU 34",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "OSU 34",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483115",
+      "text": "No Huddle-Shotgun #10 J.Sayin pass incomplete short right to #11 B.Boyd thrown to OhioSt36 broken up by #4 J.Glasker",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "6:58"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 34,
+       "yardsToEndzone": 66,
+       "downDistanceText": "2nd & 7 at OSU 34",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "OSU 34",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 7,
+       "yardLine": 34,
+       "yardsToEndzone": 66,
+       "downDistanceText": "3rd & 7 at OSU 34",
+       "shortDownDistanceText": "3rd & 7",
+       "possessionText": "OSU 34",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483118",
+      "text": "Shotgun #10 J.Sayin sacked for loss of 2 yards to the OhioSt32 (#0 Z.Elee), fumble by #10 J.Sayin recovered by Maryla #33 M.Delhomme at OhioSt32, End Of Play",
+      "type": {
+       "id": "9",
+       "text": "Fumble Recovery (Own)"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 7,
+       "yardLine": 34,
+       "yardsToEndzone": 66,
+       "downDistanceText": "3rd & 7 at OSU 34",
+       "shortDownDistanceText": "3rd & 7",
+       "possessionText": "OSU 34",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 10,
+       "yardLine": 32,
+       "yardsToEndzone": 32,
+       "downDistanceText": "4th & 10 at OSU 32",
+       "shortDownDistanceText": "4th & 10",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018584838",
+    "description": "7 plays, 11 yards, 2:29",
+    "team": {
+     "id": "120",
+     "abbreviation": "MD"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "6:24"
+     },
+     "yardLine": 32,
+     "text": "OSU 32"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "3:55"
+     },
+     "yardLine": 21,
+     "text": "OSU 21"
+    },
+    "timeElapsed": {
+     "displayValue": "2:29"
+    },
+    "yards": 11,
+    "isScore": true,
+    "offensivePlays": 7,
+    "result": "FG",
+    "displayResult": "Field Goal",
+    "plays": [
+     {
+      "id": "401858483127",
+      "text": "Shotgun #7 M.Washington pass complete short right to #13 C.Durr Jr. caught at OhioSt37, for 2 yards to the OhioSt30 (#4 Q.Russaw)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 32,
+       "yardsToEndzone": 32,
+       "downDistanceText": "1st & 10 at OSU 32",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 8,
+       "yardLine": 30,
+       "yardsToEndzone": 30,
+       "downDistanceText": "2nd & 8 at OSU 30",
+       "shortDownDistanceText": "2nd & 8",
+       "possessionText": "OSU 30",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483132",
+      "text": "No Huddle-Shotgun #7 M.Washington pass complete short right to #2 K.Webb caught at OhioSt26, for 4 yards to the OhioSt26 (#18 C.Calhoun)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 8,
+       "yardLine": 30,
+       "yardsToEndzone": 30,
+       "downDistanceText": "2nd & 8 at OSU 30",
+       "shortDownDistanceText": "2nd & 8",
+       "possessionText": "OSU 30",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 26,
+       "yardsToEndzone": 26,
+       "downDistanceText": "3rd & 4 at OSU 26",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "OSU 26",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 4,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483137",
+      "text": "No Huddle-Shotgun #1 N.Abdul-Rahim Gladding rush left for 6 yards gain to the OhioSt20 (#28 S.Jackson Jr.), 1ST DOWN",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 26,
+       "yardsToEndzone": 26,
+       "downDistanceText": "3rd & 4 at OSU 26",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "OSU 26",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 20,
+       "yardsToEndzone": 20,
+       "downDistanceText": "1st & 10 at OSU 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 6,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483141",
+      "text": "Shotgun #24 I.Howard rush middle for 1 yard loss to the OhioSt21 (#96 E.Houston; #2 K.Jackson Jr.)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 20,
+       "yardsToEndzone": 20,
+       "downDistanceText": "1st & 10 at OSU 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 20",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "2nd & 11 at OSU 21",
+       "shortDownDistanceText": "2nd & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": -1,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483145",
+      "text": "Shotgun #7 M.Washington pass incomplete short left to #2 K.Webb thrown to OhioSt15",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "2nd & 11 at OSU 21",
+       "shortDownDistanceText": "2nd & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "3rd & 11 at OSU 21",
+       "shortDownDistanceText": "3rd & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483148",
+      "text": "Shotgun #7 M.Washington pass incomplete deep right to #1 N.Abdul-Rahim Gladding thrown to OhioSt00",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "6:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "3rd & 11 at OSU 21",
+       "shortDownDistanceText": "3rd & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "4th & 11 at OSU 21",
+       "shortDownDistanceText": "4th & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483151",
+      "text": "#36 S.O'Haire field goal attempt from 39 yards GOOD (H: #34 B.McFerson, LS: #97 L.O'Hare), clock 03:55",
+      "type": {
+       "id": "59",
+       "text": "Field Goal Good",
+       "abbreviation": "FG"
+      },
+      "clock": {
+       "displayValue": "3:55"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 11,
+       "yardLine": 21,
+       "yardsToEndzone": 21,
+       "downDistanceText": "4th & 11 at OSU 21",
+       "shortDownDistanceText": "4th & 11",
+       "possessionText": "OSU 21",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": -1,
+       "yardLine": 65,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 39,
+      "scoringPlay": true,
+      "scoringType": {
+       "name": "field-goal",
+       "abbreviation": "FG"
+      }
+     }
+    ]
+   },
+   {
+    "id": "40185848310",
+    "description": "2 plays, 71 yards, 0:46",
+    "team": {
+     "id": "194",
+     "abbreviation": "OSU"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "3:49"
+     },
+     "yardLine": 29,
+     "text": "OSU 29"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "3:03"
+     },
+     "yardLine": 97,
+     "text": "MD 3"
+    },
+    "timeElapsed": {
+     "displayValue": "0:46"
+    },
+    "yards": 71,
+    "isScore": true,
+    "offensivePlays": 2,
+    "result": "TD",
+    "displayResult": "Touchdown",
+    "plays": [
+     {
+      "id": "401858483154",
+      "text": "#98 D.Leahy kickoff 65 yards to the OhioSt00 #2 L.Bey return 29 yards to the OhioSt29 (#21 J.Jenkins)",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "3:49"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 65,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 29,
+       "yardsToEndzone": 71,
+       "downDistanceText": "1st & 10 at OSU 29",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 29",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 29,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483159",
+      "text": "Shotgun #24 J.Jackson rush right for 3 yards gain to the OhioSt32 (#11 S.Stewart; #3 T.Reddick)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "3:49"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 29,
+       "yardsToEndzone": 71,
+       "downDistanceText": "1st & 10 at OSU 29",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "OSU 29",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 32,
+       "yardsToEndzone": 68,
+       "downDistanceText": "2nd & 7 at OSU 32",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483163",
+      "text": "Shotgun #10 J.Sayin pass complete short middle to #83 N.Roberts caught at OhioSt50, for 68 yards to the Maryla00 TOUCHDOWN, clock 03:03, 1ST DOWN #96 C.Hawkins kick attempt good (H: #42 J.McGuire, LS: #55 D.Riggs)",
+      "type": {
+       "id": "67",
+       "text": "Passing Touchdown",
+       "abbreviation": "TD"
+      },
+      "clock": {
+       "displayValue": "3:49"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 32,
+       "yardsToEndzone": 68,
+       "downDistanceText": "2nd & 7 at OSU 32",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "OSU 32",
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": 0,
+       "yardLine": 100,
+       "yardsToEndzone": 0,
+       "team": {
+        "id": "194"
+       }
+      },
+      "statYardage": 68,
+      "scoringPlay": true,
+      "scoringType": {
+       "name": "touchdown",
+       "abbreviation": "TD"
+      }
+     }
+    ]
+   },
+   {
+    "id": "40185848312",
+    "description": "3 plays, 24 yards, 0:00",
+    "team": {
+     "id": "120",
+     "abbreviation": "MD"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "yardLine": 0,
+     "text": "OSU 0"
+    },
+    "timeElapsed": {
+     "displayValue": "0:00"
+    },
+    "yards": 24,
+    "isScore": false,
+    "offensivePlays": 3,
+    "plays": [
+     {
+      "id": "401858483171",
+      "text": "#49 M.Diomede kickoff 65 yards to the Maryla00 fair catch by #1 N.Abdul-Rahim Gladding at Maryla00",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "194"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 75,
+       "yardsToEndzone": 75,
+       "downDistanceText": "1st & 10 at MD 25",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 25",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483174",
+      "text": "Shotgun #7 M.Washington pass complete short left to #9 D.Fleming caught at Maryla28, for 4 yards to the Maryla29 (#6 D.Sanchez)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 75,
+       "yardsToEndzone": 75,
+       "downDistanceText": "1st & 10 at MD 25",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 25",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 71,
+       "yardsToEndzone": 71,
+       "downDistanceText": "2nd & 6 at MD 29",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "MD 29",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 4,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483179",
+      "text": "Shotgun #7 M.Washington pass complete short right to #1 N.Abdul-Rahim Gladding caught at Maryla27, for 2 yards to the Maryla31 (#20 C.Johnson)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 71,
+       "yardsToEndzone": 71,
+       "downDistanceText": "2nd & 6 at MD 29",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "MD 29",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "3rd & 4 at MD 31",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483184",
+      "text": "Shotgun #7 M.Washington pass incomplete short right to #2 K.Webb thrown to Maryla35 PENALTY OhioSt Roughing The Passer (#12 B.Atkinson) 15 yards from Maryla31 to Maryla46, 1ST DOWN. NO PLAY",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 69,
+       "yardsToEndzone": 69,
+       "downDistanceText": "3rd & 4 at MD 31",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "MD 31",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 54,
+       "yardsToEndzone": 54,
+       "downDistanceText": "1st & 10 at MD 46",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 46",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 15,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858483188",
+      "text": "Shotgun #0 D.Williams rush middle for 3 yards gain to the Maryla49 (#26 P.Pierce; #1 E.Little Jr.)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "3:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 54,
+       "yardsToEndzone": 54,
+       "downDistanceText": "1st & 10 at MD 46",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "MD 46",
+       "team": {
+        "id": "120"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 51,
+       "yardsToEndzone": 51,
+       "downDistanceText": "2nd & 7 at MD 49",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "MD 49",
+       "team": {
+        "id": "120"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     }
+    ]
+   }
+  ]
+ }
+}

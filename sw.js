@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-13alerts2";
+var VERSION = "suite-2026-10-14settings";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -368,10 +368,19 @@ function withHeader(res, name, value) {
 // Game alerts (W19): the edge API pushes the alerts the fan chose for
 // their team (worker/src/push.js). Show it as sent - the Worker wrote the words
 // from TeamOS's names and ESPN's status - and open Suite when it is tapped.
+// A kickoff time set or moved arrives as ISO (the Worker never formats a
+// clock time): written here in this device's own time zone, decision 0022 -
+// "Notre Dame vs. BYU: Sat, Oct 17, 7:30 PM on NBC".
+function alertTitle(d) {
+  var t = d.title || "Suite", at = typeof d.kickoff === "string" ? new Date(d.kickoff) : null;
+  if (!at || isNaN(at.getTime())) return t;
+  var when = at.toLocaleString([], { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  return t + ": " + when + (typeof d.network === "string" && d.network ? " on " + d.network : "");
+}
 self.addEventListener("push", function (e) {
   var d = {};
   try { d = e.data ? e.data.json() : {}; } catch (err) { d = { body: e.data ? e.data.text() : "" }; }
-  e.waitUntil(self.registration.showNotification(d.title || "Suite", {
+  e.waitUntil(self.registration.showNotification(alertTitle(d), {
     body: d.body || "", tag: d.tag || undefined, icon: "assets/suite/icon-192.png",
     // a score replaces the last one on the lock screen, and still sounds
     renotify: !!(d.renotify && d.tag),
