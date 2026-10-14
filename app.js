@@ -396,7 +396,8 @@ function loadRating(key, force){
     if(!usable(r.data)) throw new Error("Unusable "+x.label+" answer");
     x.raw=r.data; x.cached=saved(r); x.failed=false;
     x.ok=x.cached ? 0 : Date.now();
-    noteSource(url,r.cached);
+    // An edge copy kept because CFBD failed counts from when the edge read it.
+    noteSource(url, r.cached || (r.data.stale ? r.data.fetchedAt || "unknown" : null));
     return {key:key,outcome:x.cached ? "cached" : "network"};
   }).catch(function(){ x.failed=true; return {key:key,outcome:"failed"}; })
     .then(function(result){ x.p=null; paintTop25(); return result; });
