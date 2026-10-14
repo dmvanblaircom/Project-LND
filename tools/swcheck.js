@@ -142,6 +142,24 @@ function alertsChecks() {
     var closed = false;
     return fireWith("notificationclick", { notification: { data: { url: msg.url }, close: function () { closed = true; } } }).then(function () {
       ok(closed && opened[0] === msg.url, "a tap closes it and opens Suite at the game");
+    }).then(function () {
+      // A kickoff time arrives as ISO; the phone writes it in its own zone (decision 0022).
+      shown.length = 0;
+      var ko = { title: "Ohio State at Indiana", body: "Kickoff time set.", kickoff: "2026-10-17T16:00:00.000Z", network: "FOX", tag: "401858484-time" };
+      return fireWith("push", { data: { json: function () { return ko; }, text: function () { return JSON.stringify(ko); } } });
+    }).then(function () {
+      var want = new Date("2026-10-17T16:00:00.000Z").toLocaleString([], { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+      eq([shown[0] && shown[0][0], shown[0] && shown[0][1].body], ["Ohio State at Indiana: " + want + " on FOX", "Kickoff time set."],
+         "a kickoff time is written in this device's own time zone, with its network");
+      shown.length = 0;
+      var bad = { title: "Ohio State at Indiana", body: "Kickoff time set.", kickoff: "soon" };
+      return fireWith("push", { data: { json: function () { return bad; }, text: function () { return JSON.stringify(bad); } } });
+    }).then(function () {
+      eq(shown[0] && shown[0][0], "Ohio State at Indiana", "an unreadable time: the title as sent, no time made up");
+      opened.length = 0;
+      return fireWith("notificationclick", { notification: { data: { url: msg.url }, close: function () { closed = true; } } });
+    }).then(function () {
+      ok(closed && opened[0] === msg.url, "a tap closes it and opens Suite at the game");
     });
   }).then(function () {
     opened.length = 0;

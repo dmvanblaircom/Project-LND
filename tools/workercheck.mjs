@@ -9,7 +9,7 @@
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
 import worker, { pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
-         words, playText, tryOf, scoringPlays, network, pickGame } from "../worker/src/push.js";
+         words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey } from "../worker/src/push.js";
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
 import { SCHOOLS } from "../worker/src/schools.js";
@@ -984,6 +984,248 @@ console.log("game alerts: faster (David, Oct 10): told on ESPN's play, three loo
   looks.length = 0; e.status = { period: 4, type: { state: "post", name: "STATUS_FINAL", completed: true } }; t = KICK + 4 * 3600e3;
   await minute(db, e, clock, sleep);
   ok(looks.length === 1 && LIMITS.looks === 3, "no game on: one look"); }
+
+console.log("game alerts: kickoff time set or moved (brief §2b, edge case 12)");
+{ const g = (id) => ({ id, comp: id, at: 0, home: true, opponent: { id: "1", name: "BYU" } });
+  const k = (id, iso, set, pre) => ({ game: g(id), iso, set, pre: pre !== false });
+  const T = Date.parse("2026-10-12T12:00:00Z"), A = "2026-10-17T23:30:00.000Z", B = "2026-10-17T19:30:00.000Z";
+  const first = timeChanges(null, [k("1", A, true), k("2", "2026-10-24T04:00:00.000Z", false)], T);
+  eq([first.out.length, first.next], [0, { 1: A, 2: null }], "the first look at a team only records: a time already set is not news");
+  eq(timeChanges({ 1: A }, [k("1", A, true), k("9", B, true)], T).out.length, 0, "a game seen for the first time is recorded, not announced");
+  const set = timeChanges({ 2: null }, [k("2", B, true)], T).out;
+  eq(set.map((x) => [x.event, x.x.set, x.x.kickoff]), [["time:" + B, true, B]], "a time-TBA game given its time: one alert, keyed by the new kickoff");
+  const moved = timeChanges({ 1: A }, [k("1", B, true)], T).out;
+  eq(moved.map((x) => [x.event, x.x.set]), [["time:" + B, false]], "a set time that moves: one alert for the new time");
+  eq(timeChanges({ 1: A }, [k("1", B, true)], Date.parse(A) - 2 * 3600e3).out.length, 0, "within 3 hours of the old kickoff it is a delay, not a new time");
+  eq(timeChanges({ 1: A }, [k("1", A, true)], T).out.length, 0, "the same time seen again: nothing");
+  eq(timeChanges({ 1: A }, [k("1", B, true, false)], T).out.length, 0, "a game under way or final: nothing");
+  const tba = timeChanges({ 1: A }, [k("1", "2026-10-17T04:00:00.000Z", false)], T);
+  eq([tba.out.length, tba.next[1]], [0, null], "a set time taken back to TBA: nothing sent, and its next time will be news");
+  eq(validOptions({}).timeset, false, "off by default");
+  eq(validOptions({ kickoff: true, final: true }).timeset, false, "and off for every subscription saved before it existed"); }
+{ // The real Ohio State schedule, with one future game's time changed between hourly reads.
+  const future = OSU_SCHEDULE.events.filter((ev) => Date.parse(ev.date) > KICK + 7 * 864e5 &&
+    ((ev.competitions[0].status || {}).type || {}).state === "pre")[0];
+  const sched = JSON.parse(JSON.stringify(OSU_SCHEDULE)), ev = sched.events.filter((x) => x.id === future.id)[0];
+  const TBA = "2026-10-17T04:00Z", SET = "2026-10-17T23:30Z", MOVED = "2026-10-17T16:00Z";
+  ev.date = TBA; ev.competitions[0].timeValid = false;
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/194\/schedule$/.test(url) ? (e.calls.push(url), new Response(JSON.stringify(sched), { status: 200 })) : base(url, init);
+  const fans = { on: await browserSub(), off: await browserSub(), old: await browserSub() };
+  const T0 = Date.parse("2026-10-11T12:00:00Z");
+  await subscribe(db, e, { subscription: fans.on.sub, team: { id: "194", name: "Ohio State" }, options: { kickoff: true, final: true, delays: true, scoring: "all", quarters: true, halftime: true, close: true, timeset: true } }, T0);
+  await subscribe(db, e, { subscription: fans.off.sub, team: { id: "194", name: "Ohio State" }, options: { kickoff: true, final: true, delays: true, scoring: "all", quarters: true, halftime: true, close: true } }, T0);
+  await subscribe(db, e, { subscription: fans.old.sub, team: { id: "194", name: "Ohio State" } }, T0);
+  e.pushes.length = 0;
+  await tick(db, e, T0);
+  ok(e.pushes.length === 0, "the first read records every kickoff and sends nothing");
+  ev.date = SET; ev.competitions[0].timeValid = true;
+  await tick(db, e, T0 + 30 * 60e3);
+  ok(e.pushes.length === 0, "the schedule is read hourly: nothing new between reads");
+  await tick(db, e, T0 + 61 * 60e3);
+  const to = (f) => e.pushes.filter((p) => p.url === f.sub.endpoint);
+  ok(to(fans.on).length === 1 && to(fans.off).length === 0 && to(fans.old).length === 0,
+     "the time is set: one alert, only to the fan who chose it (not to a choice saved without it, not to a round-1 device)");
+  const m = await openPush(to(fans.on)[0].init.body, fans.on.kp, fans.on.sub.keys.auth);
+  const opp = future.competitions[0].competitors.filter((c) => String(c.team.id) !== "194")[0];
+  const home = future.competitions[0].competitors.filter((c) => String(c.team.id) === "194")[0].homeAway === "home";
+  eq([m.title, m.body, m.kickoff, m.tag, m.url], ["Ohio State" + (home ? " vs. " : " at ") + (opp.team.location || opp.team.shortDisplayName), "Kickoff time set.",
+     new Date(SET).toISOString(), future.id + "-time", APP_URL + "#schedule/" + future.id], "it carries the new kickoff as ISO, opens that game, and has its own card");
+  ok(!/\d:\d\d|[AP]M\b/.test(m.title + m.body), "the Worker writes no clock time: the phone does, in its own time zone");
+  e.pushes.length = 0; await tick(db, e, T0 + 122 * 60e3);
+  ok(e.pushes.length === 0, "the same time read again: nothing");
+  ev.date = MOVED; await tick(db, e, T0 + 183 * 60e3);
+  const m2 = to(fans.on).length === 1 ? await openPush(to(fans.on)[0].init.body, fans.on.kp, fans.on.sub.keys.auth) : {};
+  eq([m2.body, m2.kickoff], ["Kickoff time changed.", new Date(MOVED).toISOString()], "the time moves: one more alert, for the new time");
+  e.pushes.length = 0; ev.date = SET; await tick(db, e, T0 + 244 * 60e3);
+  const m3 = to(fans.on).length === 1 ? await openPush(to(fans.on)[0].init.body, fans.on.kp, fans.on.sub.keys.auth) : {};
+  eq([m3.body, m3.kickoff], ["Kickoff time changed.", new Date(SET).toISOString()], "and back to a time already announced: news again (Codex, #140)");
+  e.pushes.length = 0; ev.date = MOVED;
+  await tick(db, e, Date.parse(SET) - 2 * 3600e3);
+  ok(e.pushes.length === 0, "a move within 3 hours of kickoff is the delay alert's, not this one"); }
+{ // No one follows the team for days; the time moves; a fan signs up (Codex, #140).
+  const future = OSU_SCHEDULE.events.filter((ev) => Date.parse(ev.date) > KICK + 7 * 864e5 &&
+    ((ev.competitions[0].status || {}).type || {}).state === "pre")[0];
+  const sched = JSON.parse(JSON.stringify(OSU_SCHEDULE)), ev = sched.events.filter((x) => x.id === future.id)[0];
+  ev.date = "2026-10-17T23:30Z"; ev.competitions[0].timeValid = true;
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/194\/schedule$/.test(url) ? new Response(JSON.stringify(sched), { status: 200 }) : base(url, init);
+  const o = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: true };
+  const T = Date.parse("2026-10-08T12:00:00Z"), first = await browserSub(), late = await browserSub();
+  await subscribe(db, e, { subscription: first.sub, team: { id: "194", name: "Ohio State" }, options: o }, T);
+  await tick(db, e, T);                                             // the kickoff times recorded
+  unsubscribe(db, { endpoint: first.sub.endpoint });               // then no one follows Ohio State ...
+  ev.date = "2026-10-17T20:00Z";                                    // ... while the time moves
+  await subscribe(db, e, { subscription: late.sub, team: { id: "194", name: "Ohio State" }, options: o }, T + 3 * 864e5);
+  e.pushes.length = 0; await tick(db, e, T + 3 * 864e5);
+  ok(e.pushes.length === 0, "a record left from before an unwatched gap is no baseline: a new follower is not told of an old change");
+  ev.date = "2026-10-17T19:00Z"; await tick(db, e, T + 3 * 864e5 + 61 * 60e3);
+  ok(e.pushes.length === 1, "and the next real move, read an hour later, is told"); }
+
+console.log("game alerts: one device following both teams in a game (brief §2b, edge case 9)");
+{ eq([claimKey("score:3", { home: false }, { us: 3, them: 0 }), claimKey("score:1", { home: true }, { us: 0, them: 3 })], ["score|0-3|0", "score|0-3|0"],
+     "a score is the same event whichever team saw it: by the score it made, home first, and the corrections before it");
+  ok(claimKey("score:5", { home: true }, { us: 7, them: 0 }, 1) !== claimKey("score:2", { home: true }, { us: 7, them: 0 }, 0),
+     "a scoreline that comes back after a correction is a new event (Codex, #140)");
+  eq([claimKey("kickoff", { home: true }, null), claimKey("final", { home: true }, null)], ["kickoff", "final"], "kickoff, final and the like by their own name");
+  eq([claimKey("time:2026-10-17T23:30:00.000Z#2", { home: true }, null, 2), claimKey("time:2026-10-17T23:30:00.000Z#1", { home: true }, null, 2),
+      claimKey("delay:2", { home: true }, null, 2), claimKey("delay:1", { home: true }, null, 2)],
+     ["time:2026-10-17T23:30:00.000Z@2", "time:2026-10-17T23:30:00.000Z@2", "delay@2", "delay@2"],
+     "a kickoff time or a delay by the game's count, not the number each team gave it (Codex, #140)");
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/2294\/schedule$/.test(url) ? new Response(JSON.stringify(OSU_SCHEDULE), { status: 200 }) : base(url, init);
+  const both = await browserSub(), osu = await browserSub(), iowa = await browserSub();
+  const all = { kickoff: true, final: true, delays: true, scoring: "all", quarters: false, halftime: false, close: false };
+  const OSU = { id: "194", name: "Ohio State" }, IOWA = { id: "2294", name: "Iowa" };
+  // different choices on the two teams: scores only through Iowa's
+  await subscribe(db, e, { subscription: both.sub, team: OSU, options: Object.assign({}, all, { scoring: "off" }) }, KICK - 3600e3);
+  await subscribe(db, e, { subscription: both.sub, team: IOWA, options: all }, KICK - 3600e3);
+  await subscribe(db, e, { subscription: osu.sub, team: OSU, options: all }, KICK - 3600e3);
+  await subscribe(db, e, { subscription: iowa.sub, team: IOWA, options: Object.assign({}, all, { scoring: "mine" }) }, KICK - 3600e3);
+  e.pushes.length = 0;
+  const heard = new Map([[both, []], [osu, []], [iowa, []]]);
+  async function hear() {
+    for (const p of e.pushes) {
+      if (p.url === both.sub.endpoint && e.refusedOne) { e.refusedOne = false; continue; }   // refused: never reached the phone
+      for (const [f, list] of heard) if (f.sub.endpoint === p.url) list.push(say(await openPush(p.init.body, f.kp, f.sub.keys.auth)));
+    }
+    e.pushes.length = 0;
+  }
+  let lastMin = null;
+  async function at(min, state, name, us, them, twice) {
+    // the minutes between are looked at too, nothing changed
+    if (lastMin != null) for (let m = lastMin + 1; m < min; m++) { await tick(db, e, KICK + m * 60e3); await hear(); }
+    lastMin = min;
+    e.status = { period: min < 15 ? 1 : 2, clock: 600, displayClock: "10:00", type: { state, name, completed: state === "post" } };
+    e.scores = { 194: us, 2294: them };
+    const lg = await tick(db, e, KICK + min * 60e3); if (twice) lg.push(...await tick(db, e, KICK + min * 60e3 + 1000));
+    await hear();
+  }
+  await at(1, "in", "STATUS_IN_PROGRESS", 0, 0, true);      // kickoff; the same minute looked at twice
+  // the device's first try at the Ohio State field goal is refused by its push service, then retried
+  e.push = (url) => url === both.sub.endpoint && !e.refused ? (e.refused = e.refusedOne = true, 500) : 201;
+  await at(20, "in", "STATUS_IN_PROGRESS", 3, 0);
+  await at(21, "in", "STATUS_IN_PROGRESS", 3, 0);
+  await at(22, "in", "STATUS_IN_PROGRESS", 3, 0);
+  // mid-game the device moves its scores to Ohio State's side
+  await subscribe(db, e, { subscription: both.sub, team: OSU, options: all }, KICK + 23 * 60e3);
+  await subscribe(db, e, { subscription: both.sub, team: IOWA, options: Object.assign({}, all, { scoring: "off" }) }, KICK + 23 * 60e3);
+  await at(30, "in", "STATUS_IN_PROGRESS", 3, 7);
+  await at(31, "in", "STATUS_IN_PROGRESS", 3, 7);
+  await at(90, "post", "STATUS_FINAL", 3, 7);
+  const count = (list) => list.reduce((m, x) => (m[x] = (m[x] || 0) + 1, m), {});
+  const b = heard.get(both);
+  ok(b.filter((x) => /^Kickoff/.test(x)).length === 1 && b.filter((x) => /^Final/.test(x)).length === 1,
+     "one kickoff and one final, though two teams it follows saw them, and the minute was looked at twice");
+  ok(b.filter((x) => / FG /.test(x)).length === 1, "the field goal once, through its Iowa choice, after a refused first try");
+  ok(b.filter((x) => / TD /.test(x)).length === 1, "after changing its choices mid-game, the touchdown once, through Ohio State");
+  ok(Object.values(count(b)).every((n) => n === 1), "no alert twice: " + JSON.stringify(b));
+  eq(heard.get(osu).length, b.length, "a second device following one team gets the same alerts, separately");
+  ok(heard.get(iowa).some((x) => /Iowa TD|Iowa scores/.test(x)) && !heard.get(iowa).some((x) => /Ohio State FG|Ohio State scores/.test(x)),
+     "and a third with its own choice (Iowa's scores only) gets just those"); }
+{ // 7-0, overturned to 0-0, then 7-0 again (Codex, #140): the second touchdown is news, for one team's
+  // follower and for a device following both.
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/2294\/schedule$/.test(url) ? new Response(JSON.stringify(OSU_SCHEDULE), { status: 200 }) : base(url, init);
+  const one = await browserSub(), both = await browserSub();
+  const all = { kickoff: false, final: false, delays: false, scoring: "all", quarters: false, halftime: false, close: false };
+  await subscribe(db, e, { subscription: one.sub, team: { id: "194", name: "Ohio State" }, options: all }, KICK - 3600e3);
+  await subscribe(db, e, { subscription: both.sub, team: { id: "194", name: "Ohio State" }, options: all }, KICK - 3600e3);
+  await subscribe(db, e, { subscription: both.sub, team: { id: "2294", name: "Iowa" }, options: all }, KICK - 3600e3);
+  e.pushes.length = 0;
+  const heard = { one: [], both: [] };
+  for (let m = 1; m <= 40; m++) {
+    const sc = m < 10 ? [0, 0] : m < 20 ? [7, 0] : m < 30 ? [0, 0] : [7, 0];
+    e.status = { period: 1, clock: 900 - m * 10, displayClock: "1:00", type: { state: "in", name: "STATUS_IN_PROGRESS", completed: false } };
+    e.scores = { 194: sc[0], 2294: sc[1] };
+    await tick(db, e, KICK + m * 60e3);
+    for (const p of e.pushes) for (const [k, f] of [["one", one], ["both", both]]) if (p.url === f.sub.endpoint) heard[k].push(say(await openPush(p.init.body, f.kp, f.sub.keys.auth)));
+    e.pushes.length = 0;
+  }
+  const scored = (l) => l.filter((x) => /Ohio State (TD|scores)/.test(x)).length;
+  eq([scored(heard.one), heard.one.filter((x) => /corrected/.test(x)).length], [2, 1], "one team's follower: the touchdown, its correction, and the touchdown again");
+  eq([scored(heard.both), heard.both.filter((x) => /corrected/.test(x)).length], [2, 1], "a device following both teams: the same three, once each"); }
+{ // A device that starts following the opponent after a correction (Codex, #140): the next score once.
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/2294\/schedule$/.test(url) ? new Response(JSON.stringify(OSU_SCHEDULE), { status: 200 }) : base(url, init);
+  const d = await browserSub();
+  const all = { kickoff: false, final: false, delays: false, scoring: "all", quarters: false, halftime: false, close: false };
+  await subscribe(db, e, { subscription: d.sub, team: { id: "194", name: "Ohio State" }, options: all }, KICK - 3600e3);
+  e.pushes.length = 0;
+  let got = [];
+  for (let m = 1; m <= 50; m++) {
+    if (m === 32) await subscribe(db, e, { subscription: d.sub, team: { id: "2294", name: "Iowa" }, options: all }, KICK + m * 60e3);
+    const sc = m < 10 ? [0, 0] : m < 20 ? [7, 0] : m < 40 ? [0, 0] : [7, 0];
+    e.status = { period: 1, clock: 900 - m * 10, displayClock: "1:00", type: { state: "in", name: "STATUS_IN_PROGRESS", completed: false } };
+    e.scores = { 194: sc[0], 2294: sc[1] };
+    await tick(db, e, KICK + m * 60e3);
+    for (const p of e.pushes) if (p.url === d.sub.endpoint) got.push(say(await openPush(p.init.body, d.kp, d.sub.keys.auth)));
+    e.pushes.length = 0;
+  }
+  eq(got.filter((x) => /Ohio State (TD|scores)/.test(x)).length, 2, "following the opponent too after a correction: the next score still comes once: " + JSON.stringify(got)); }
+{ // Codex, #140: a kickoff time both teams see change; a delay after a device added the opponent; a close
+  // finish already told before the device added the opponent. Each once.
+  const future = OSU_SCHEDULE.events.filter((ev) => Date.parse(ev.date) > KICK + 7 * 864e5 &&
+    ((ev.competitions[0].status || {}).type || {}).state === "pre")[0];
+  const sched = JSON.parse(JSON.stringify(OSU_SCHEDULE)), fe = sched.events.filter((x) => x.id === future.id)[0];
+  const oppId = String(future.competitions[0].competitors.filter((c) => String(c.team.id) !== "194")[0].team.id);
+  fe.date = "2026-10-17T04:00Z"; fe.competitions[0].timeValid = false;
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/(194|2294|\d+)\/schedule$/.test(url) ? new Response(JSON.stringify(sched), { status: 200 }) : base(url, init);
+  const d = await browserSub();
+  const opts = { kickoff: false, final: false, delays: true, scoring: "off", quarters: false, halftime: false, close: true, timeset: true };
+  await subscribe(db, e, { subscription: d.sub, team: { id: "194", name: "Ohio State" }, options: opts }, KICK - 5 * 864e5);
+  await subscribe(db, e, { subscription: d.sub, team: { id: oppId, name: "Opponent" }, options: opts }, KICK - 5 * 864e5);
+  e.pushes.length = 0;
+  await tick(db, e, KICK - 5 * 864e5);
+  fe.date = "2026-10-17T23:30Z"; fe.competitions[0].timeValid = true;
+  await tick(db, e, KICK - 5 * 864e5 + 61 * 60e3);
+  eq(e.pushes.filter((p) => p.url === d.sub.endpoint).length, 1, "a kickoff time both teams it follows see set: one alert, not one per team");
+  // The game (Ohio State at Iowa): followed through Ohio State only, a delay and a close finish; then Iowa too.
+  const d2 = await browserSub();
+  const g2 = { kickoff: false, final: false, delays: true, scoring: "off", quarters: false, halftime: false, close: true };
+  await subscribe(db, e, { subscription: d2.sub, team: { id: "194", name: "Ohio State" }, options: g2 }, KICK);
+  e.pushes.length = 0;
+  const got = [];
+  const look = async (m, name, clock, us, them) => {
+    e.status = { period: 4, clock, displayClock: "4:00", type: { state: "in", name, completed: false } };
+    e.scores = { 194: us, 2294: them };
+    await tick(db, e, KICK + m * 60e3);
+    for (const p of e.pushes) if (p.url === d2.sub.endpoint) got.push(say(await openPush(p.init.body, d2.kp, d2.sub.keys.auth)));
+    e.pushes.length = 0;
+  };
+  for (let m = 100; m <= 103; m++) await look(m, "STATUS_IN_PROGRESS", 600, 20, 17);
+  await look(104, "STATUS_DELAYED", 590, 20, 17);
+  await look(105, "STATUS_IN_PROGRESS", 590, 20, 17);              // the first delay clears
+  await look(106, "STATUS_IN_PROGRESS", 280, 20, 17);              // a one-score game under 5:00: close finish
+  await subscribe(db, e, { subscription: d2.sub, team: { id: "2294", name: "Iowa" }, options: g2 }, KICK + 107 * 60e3);
+  await look(107, "STATUS_IN_PROGRESS", 270, 20, 17);              // Iowa's first look: still close
+  await look(108, "STATUS_DELAYED", 260, 20, 17);                  // a second delay, seen by both
+  await look(109, "STATUS_IN_PROGRESS", 260, 20, 17);
+  eq([got.filter((x) => /^One-score/.test(x)).length, got.filter((x) => /^Delay/.test(x)).length], [1, 2],
+     "the close finish once, though the device added Iowa during it; each delay once: " + JSON.stringify(got)); }
+{ // A kickoff moved earlier, noticed while the game is still "pre" after the new listed time (Codex, #140).
+  const future = OSU_SCHEDULE.events.filter((ev) => Date.parse(ev.date) > KICK + 7 * 864e5 &&
+    ((ev.competitions[0].status || {}).type || {}).state === "pre")[0];
+  const sched = JSON.parse(JSON.stringify(OSU_SCHEDULE)), ev = sched.events.filter((x) => x.id === future.id)[0];
+  const OLD = Date.parse("2026-10-17T23:30:00Z"), NEW = Date.parse("2026-10-17T16:00:00Z");
+  ev.date = new Date(OLD).toISOString(); ev.competitions[0].timeValid = true;
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.FETCH = async (url, init) => /\/teams\/194\/schedule$/.test(url) ? new Response(JSON.stringify(sched), { status: 200 }) : base(url, init);
+  const f = await browserSub();
+  await subscribe(db, e, { subscription: f.sub, team: { id: "194", name: "Ohio State" }, options: { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: true } }, NEW - 864e5);
+  await tick(db, e, NEW - 864e5); await tick(db, e, NEW - 95 * 60e3); e.pushes.length = 0;   // read hourly, as the Worker does
+  ev.date = new Date(NEW).toISOString();
+  e.push = 500;                                         // the first try is refused ...
+  await tick(db, e, NEW - 30 * 60e3);
+  e.push = 201; e.pushes.length = 0;
+  await tick(db, e, NEW + 5 * 60e3);                    // ... and retried after the new listed time, the game not yet started
+  ok(e.pushes.length === 1, "an alert still due after the listed kickoff goes while the game has not started");
+  db.run("INSERT INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES ('194', ?, 'time:2026-10-17T16:30:00.000Z', ?, 'due', 1, ?, ?)",
+         future.id, f.sub.endpoint, NEW, JSON.stringify({ game: { id: future.id, home: true, opponent: { name: "X" } }, scores: null, x: { kickoff: "2026-10-17T16:30:00.000Z", set: false } }));
+  db.run("INSERT INTO sent (team_id, game_id, event, at) VALUES ('194', ?, 'kickoff', ?)", future.id, NEW + 10 * 60e3);
+  e.pushes.length = 0; await tick(db, e, NEW + 11 * 60e3);
+  ok(e.pushes.length === 0, "once its kickoff has been seen, a kickoff-time alert still waiting is dropped"); }
 
 console.log("game alerts: the routes and the minute");
 { const calls = [];
