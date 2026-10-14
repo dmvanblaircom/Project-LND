@@ -211,7 +211,18 @@ console.log("SP+: what may leave CFBD (Bill, Oct 1: the top 25 with ranks and ra
   ok(twice.get(SP_SCHOOLS[0]) === null, "a school listed twice names no one");
   ok(pickSp(spRows(2026), null, 2026).every((r) => r.id === null), "with no list at all, no ids");
   ok(wholeSp(ranks) && !wholeSp(ranks.slice(0, 24)) && !wholeSp(ranks.slice(1)), "whole: rank 1 and at least 25 rows");
-  eq(pickSp({ error: "x" }, ids, 2026), [], "a non-list payload gives nothing"); }
+  eq(pickSp({ error: "x" }, ids, 2026), [], "a non-list payload gives nothing");
+  // Codex (#142): a malformed row must not leave a table that only looks whole.
+  const tie25 = spRows(2026); tie25[25].rating = null;
+  eq(pickSp(tie25, ids, 2026), null, "a top-25 row without a rating: the whole table is refused, not the row dropped");
+  const noName = spRows(2026); noName[3].team = "";
+  eq(pickSp(noName, ids, 2026), null, "a top-25 row without a school: refused too");
+  const deep = spRows(2026); deep[28].rating = null;
+  ok(pickSp(deep, ids, 2026).length === 26, "a bad row past 25 is not the table's business");
+  ok(!wholeSp(ranks.filter((r, i) => i !== 3)), "a missing tied school leaves a gap (1, 2, 3, 5): not whole");
+  ok(!wholeSp(ranks.slice(0, 25).concat([Object.assign({}, ranks[25], { team: ranks[0].team })])), "a school twice: not whole");
+  ok(!wholeSp(ranks.map((r) => r.rank === 7 ? Object.assign({}, r, { rank: 8 }) : r)), "a skipped rank: not whole");
+  ok(!wholeSp(null), "nothing: not whole"); }
 
 console.log("SP+: the route");
 { const e = spEnv();
@@ -248,6 +259,12 @@ console.log("SP+: when CFBD fails or has nothing");
   ok(noTeams.r.status === 502, "SP+ but no FBS list to place its schools: a failure, not a table without identities");
   const firstRank = await get("/v1/cfbd/sp?year=2026", spEnv({ sp: (y) => spRows(y).filter((r) => r.ranking !== 1) }), SITE);
   ok(firstRank.r.status === 502, "a table with no #1 is not a top 25");
+  const cache2 = memoryCache();
+  await get("/v1/cfbd/sp?year=2026", spEnv({ cache: cache2 }), SITE);
+  const k2 = [...cache2.map.keys()].find((x) => /\/sp\?/.test(x)), o2 = JSON.parse(cache2.map.get(k2));
+  o2.fetchedAt = new Date(Date.now() - 13 * 3600e3).toISOString(); cache2.map.set(k2, JSON.stringify(o2));
+  const broken = await get("/v1/cfbd/sp?year=2026", spEnv({ cache: cache2, sp: (y) => { const r = spRows(y); r[25].rating = null; return r; } }), SITE);
+  ok(broken.body.stale === true && broken.body.ranks.length === 26, "a tied table missing a row never replaces the saved whole one (Codex, #142)");
   const empty = spEnv({ sp: () => [] });
   const unpub = await get("/v1/cfbd/sp?year=2026", empty, SITE);
   ok(unpub.r.status === 200 && Array.isArray(unpub.body.ranks) && unpub.body.ranks.length === 0 && !unpub.body.stale,

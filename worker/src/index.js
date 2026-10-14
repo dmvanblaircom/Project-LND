@@ -167,22 +167,31 @@ export function schoolIds(teams) {
 }
 
 // CFBD's /ratings/sp rows -> the permitted rows, by rank. Drops other
-// seasons, the unranked national-averages row, anything past 25, and a row
-// without a numeric rank and rating. A 0 or negative rating is a rating.
+// seasons, the unranked national-averages row and anything past 25. A 0 or
+// negative rating is a rating. A top-25 row of the season without a school
+// or a numeric rating makes the whole table null: dropping it would leave a
+// table that looks whole but is missing a team (Codex, #142).
 export function pickSp(rows, ids, year) {
   const out = [];
-  (Array.isArray(rows) ? rows : []).forEach(function (r) {
-    if (!r || Number(r.year) !== year || typeof r.team !== "string" || !r.team) return;
-    if (!Number.isInteger(r.ranking) || r.ranking < 1 || r.ranking > SP_TOP) return;
-    if (typeof r.rating !== "number" || !Number.isFinite(r.rating)) return;
+  for (const r of Array.isArray(rows) ? rows : []) {
+    if (!r || Number(r.year) !== year) continue;
+    if (!Number.isInteger(r.ranking) || r.ranking < 1 || r.ranking > SP_TOP) continue;
+    if (typeof r.team !== "string" || !r.team || typeof r.rating !== "number" || !Number.isFinite(r.rating)) return null;
     out.push({ rank: r.ranking, team: r.team, id: (ids && ids.get(r.team)) || null, rating: r.rating });
-  });
+  }
   return out.sort(function (a, b) { return a.rank - b.rank; });
 }
 
-// A whole top 25: rank 1 and at least 25 rows (ties only add rows).
+// A whole top 25: at least 25 rows (ties only add rows), each school once,
+// and ranks as a tie gives them - 1, 2, 3, 3, 5 - with none skipped.
 export function wholeSp(ranks) {
-  return ranks.length >= SP_TOP && ranks[0].rank === 1;
+  if (!Array.isArray(ranks) || ranks.length < SP_TOP) return false;
+  const seen = new Set();
+  return ranks.every(function (r, i) {
+    if (seen.has(r.team)) return false;
+    seen.add(r.team);
+    return r.rank === i + 1 || (i > 0 && r.rank === ranks[i - 1].rank);
+  });
 }
 
 async function cfbdJson(path, env) {
