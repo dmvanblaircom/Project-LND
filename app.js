@@ -389,7 +389,12 @@ function loadRating(key, force){
   x.tried=true;
   var url=x.url();
   x.p=fetchJSON(url).then(function(r){
-    if(x.empty && x.earlier && x.empty(r.data) && !r.cached){ url=x.earlier(); return fetchJSON(url); }
+    // Saved copies too: offline, last season's kept table still answers.
+    // If it cannot, this season's answer stands: not published.
+    if(x.empty && x.earlier && x.empty(r.data)){
+      url=x.earlier();
+      return fetchJSON(url).catch(function(){ url=x.url(); return r; });
+    }
     return r;
   }).then(function(r){
     if(x.empty && x.empty(r.data)){ x.failed="unpublished"; return {key:key,outcome:"network"}; }

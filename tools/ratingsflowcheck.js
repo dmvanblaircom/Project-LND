@@ -143,7 +143,9 @@ fs.mkdirSync(shots,{recursive:true});
     await h.page.reload();await h.settled();var past=await screen(h);
     ok(past.rows===25&&/Showing the 2025 edition/.test(past.text)&&/not the current season/.test(past.text)&&h.st.spYears.slice(-2).join()==="2026,2025",
        "this season not published: last season's table, said plainly");
-    h.st.sp[2025]={source:"cfbd-sp",year:2025,fetchedAt:new Date().toISOString(),ranks:[]};await h.page.reload();await h.settled();
+    h.st.spMode="cached";await h.page.reload();await h.settled();var off=await screen(h);
+    ok(off.rows===25&&/Showing the 2025 edition/.test(off.text)&&/outdated/.test(off.banner),"offline, saved copies only: last season's saved table, outdated - not 'unpublished' (Codex, #142)");
+    h.st.spMode="ok";h.st.sp[2025]={source:"cfbd-sp",year:2025,fetchedAt:new Date().toISOString(),ranks:[]};await h.page.reload();await h.settled();
     ok(/SP\+ isn’t published for this season yet/.test((await screen(h)).text)&&!/didn’t load/.test((await screen(h)).text),"neither season published: said so, not called a failure");
     ok(!h.st.errors.length,"no page errors: "+h.st.errors.join("; "));await h.ctx.close();
     // Full worker cycle: install, store FPI, lose the network, reload, recover.
