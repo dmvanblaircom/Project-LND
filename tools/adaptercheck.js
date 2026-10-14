@@ -406,6 +406,31 @@ eq(gdWis.drives.current, null, "a final game has no drive in progress");
 var d4 = gdWis.drives.list[3];
 eq([d4.mine, d4.side === "home" || d4.side === "away", d4.summary, d4.result], [true, true, "11 plays, 48 yards, 4:56", "Field Goal"],
    "a drive: whose, which side, the provider's summary, how it ended");
+
+// A drive's time (live scan 2026-10-10 #6, real captures from that day).
+console.log("a drive's time: unknown while ESPN has not filled it, never invented");
+var unf = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-drive-unfilled-oct10.json")), team, TEAM_CONFIG).drives;
+eq([unf.current.summary, unf.current.time, unf.current.result], ["3 plays, 24 yards", null, ""],
+   "Ohio State's drive in progress, sent as \"3 plays, 24 yards, 0:00\": plays and yards kept, the unfilled time left out");
+ok(unf.current.plays.length === 5 && unf.list.filter(function (x) { return x.id === unf.current.id; }).every(function (x) { return x.summary === "3 plays, 24 yards"; }),
+   "its plays stay, and the same drive in the list reads the same");
+var fil = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-drive-filled-oct10.json")), team, TEAM_CONFIG).drives;
+eq([fil.current.summary, fil.current.time], ["4 plays, 26 yards, 1:09", "1:09"], "a drive in progress whose time ESPN has filled keeps it");
+ok(unf.list.concat(fil.list).filter(function (x) { return x.result; }).every(function (x) { return /, \d{1,2}:\d\d$/.test(x.summary) && x.time; }),
+   "every finished drive keeps its time");
+function oneDrive(d) {
+  var s = JSON.parse(read("tools/fixtures/espn-summary-drive-filled-oct10.json"));
+  s.drives = { previous: [], current: Object.assign({ id: "9", team: s.drives.current.team, plays: [] }, d) };
+  return TeamOS.espn.gameDetail(s, team, TEAM_CONFIG).drives.current;
+}
+eq((function (x) { return [x.summary, x.time]; })(oneDrive({ description: "1 play, 0 yards, 0:00", timeElapsed: { displayValue: "0:00" }, offensivePlays: 1, result: "FUMBLE", displayResult: "Fumble" })),
+   ["1 play, 0 yards, 0:00", "0:00"], "a finished drive's zero is a real zero, kept");
+eq((function (x) { return [x.summary, x.time]; })(oneDrive({ description: "0 plays, 0 yards, 0:00", timeElapsed: { displayValue: "0:00" }, offensivePlays: 0 })),
+   ["0 plays, 0 yards, 0:00", "0:00"], "a drive just begun, no snap yet: its zero is real too");
+eq((function (x) { return [x.summary, x.time]; })(oneDrive({ description: "8 plays, 67 yards, 3:43" })),
+   ["8 plays, 67 yards, 3:43", null], "no time field: the summary as ESPN wrote it, and no time made up from it");
+eq((function (x) { return [x.summary, x.time]; })(oneDrive({ description: "3 plays, 24 yards, 0:00", timeElapsed: { displayValue: "soon" }, offensivePlays: 3 })),
+   ["3 plays, 24 yards, 0:00", null], "a malformed time is not a time, and does not trigger the rule");
 var p1 = d4.plays[1];
 eq([p1.start.fromOwn, p1.end.fromOwn, p1.start.short, p1.start.spot, p1.yards, p1.offense],
    [18, 33, "1st & 10", "ND 18", 15, true], "a play: spots from the offense's own goal line, down and distance, yards");
