@@ -85,10 +85,10 @@ Suite.home = (function () {
     // A final the source reports without a score says Final and nothing
     // else (B7): no 0-0, no winner.
     var showScore = st === "live" || st === "paused" || (st === "final" && TeamOS.game.scored(g));
-    // At halftime the football marks who gets the ball to start the second
-    // half (TeamOS.live.receives); otherwise who has it.
+    // Who has the ball. At halftime no one does: the pill under the score
+    // says who gets it to start the second half (David, 2026-10-14).
     var ball = (st === "live" || st === "paused") && g.situation &&
-               (TeamOS.game.halftime(g) ? g.situation.receives : g.situation.possession) === (us ? "us" : "them");
+               !TeamOS.game.halftime(g) && g.situation.possession === (us ? "us" : "them");
     return '<div class="gc-side ' + (us ? "us" : "them") + scoreTone(g, us) + '">' +
              '<div class="gc-line">' + mark +
                (showScore ? '<span class="gc-score">' + esc(score == null ? "0" : score) + "</span>" : "") +

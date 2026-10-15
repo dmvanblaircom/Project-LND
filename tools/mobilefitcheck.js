@@ -36,12 +36,12 @@ fs.mkdirSync(shots,{recursive:true});
           function rectText(el){var r=document.createRange();r.selectNodeContents(el);return r.getBoundingClientRect();}
           function inside(el){var r=rectText(el),b=el.getBoundingClientRect();return r.left>=b.left-.5&&r.right<=b.right+.5;}
           function hit(a,b){return a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;}
-          var ball=document.querySelector(".gh-ball"),clock=document.querySelector(".gh-clock"),venue=document.querySelector("#home .sched-meta");
+          var ball=document.querySelector("#game .gh-ball"),recv=document.querySelector("#game .gc-situation"),clock=document.querySelector(".gh-clock"),venue=document.querySelector("#home .sched-meta");
           return {
             "Top 25 names and records stay inside their column":[].every.call(document.querySelectorAll(".tg-name"),inside),
             "Home names and ranks fit their columns":[].every.call(document.querySelectorAll(".gc-name"),inside),
             "Home venue is fully readable":!!venue&&getComputedStyle(venue).textOverflow!=="ellipsis"&&venue.scrollWidth<=venue.clientWidth+1,
-            "Halftime receiver stays visible and clear of status":!!ball&&!!clock&&/Halftime/i.test(clock.textContent)&&!hit(ball.getBoundingClientRect(),rectText(clock)),
+            "Halftime: no football, and who gets the ball is said, clear of the status":!ball&&!!recv&&/gets the ball/.test(recv.textContent)&&!!clock&&/Halftime/i.test(clock.textContent)&&!hit(recv.getBoundingClientRect(),rectText(clock)),
             "No page overflow":document.documentElement.scrollWidth<=innerWidth+1
           };
         });
