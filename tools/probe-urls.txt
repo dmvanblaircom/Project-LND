@@ -1,8 +1,4 @@
-# Ohio State game notes, round 3 (2026-10-12): did any earlier game's page or
-# story carry notes? Older Game Centers, the football news list, site search.
-https://ohiostatebuckeyes.com/game-center/22214 | notes|release|documents/
-https://ohiostatebuckeyes.com/game-center/22216 | notes|release|documents/
-https://ohiostatebuckeyes.com/game-center/22218 | notes|release|documents/
-https://ohiostatebuckeyes.com/sports/football/news | notes|preview|week
-https://ohiostatebuckeyes.com/search?q=game%20notes | notes
-https://ohiostatebuckeyes.com/sports/football/schedule/2025 | notes|documents/
+# Ohio State game notes, round 4 (2026-10-15, Thursday of Indiana week): are
+# notes posted mid game week on the Game Center or the schedule page?
+https://ohiostatebuckeyes.com/game-center/22220 | notes|release|documents/
+https://ohiostatebuckeyes.com/sports/football/schedule/ | notes|release|documents/
