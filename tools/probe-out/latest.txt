@@ -1,47 +1,18 @@
-== https://ohiostatebuckeyes.com/game-center/22214  | notes|release|documents/
-  HTTP 200, text/html, 2321742 bytes
-  title: Football vs Ball State  on 9&#x2F;5&#x2F;2026 | Game Center | Ohio State
-  table rows: 13
-  markers: captcha
-  link: https://ohiostatebuckeyes.com/documents/2026/9/7/47814__1_.PDF  [PDF Box Score]
-  pdfs: 2
-    https://ohiostatebuckeyes.com/documents/2026/9/7/47814__1_.PDF
-    https:\u002F\u002Fohiostatebuckeyes.com\u002Fdocuments\u002F2026\u002F9\u002F7\u002F47814__1_.PDF
-== https://ohiostatebuckeyes.com/game-center/22216  | notes|release|documents/
-  HTTP 200, text/html, 2263699 bytes
-  title: Football vs Kent State  on 9&#x2F;19&#x2F;2026 | Game Center | Ohio State
-  table rows: 13
-  markers: captcha
-  link: https://ohiostatebuckeyes.com/documents/2026/9/22/47902__2_.PDF  [PDF Box Score]
-  pdfs: 2
-    https://ohiostatebuckeyes.com/documents/2026/9/22/47902__2_.PDF
-    https:\u002F\u002Fohiostatebuckeyes.com\u002Fdocuments\u002F2026\u002F9\u002F22\u002F47902__2_.PDF
-== https://ohiostatebuckeyes.com/game-center/22218  | notes|release|documents/
-  HTTP 200, text/html, 2264537 bytes
-  title: Football at Iowa on 10&#x2F;3&#x2F;2026 | Game Center | Ohio State
-  table rows: 13
-  markers: captcha
-  link: https://ohiostatebuckeyes.com/documents/2026/10/3/44398.PDF  [PDF Box Score]
-  pdfs: 2
-    https://ohiostatebuckeyes.com/documents/2026/10/3/44398.PDF
-    https:\u002F\u002Fohiostatebuckeyes.com\u002Fdocuments\u002F2026\u002F10\u002F3\u002F44398.PDF
-== https://ohiostatebuckeyes.com/sports/football/news  | notes|preview|week
-  HTTP 404
-== https://ohiostatebuckeyes.com/search?q=game%20notes  | notes
-  HTTP 200, text/html, 1702853 bytes
-  title: Ohio State
+== https://ohiostatebuckeyes.com/game-center/22220  | notes|release|documents/
+  HTTP 200, text/html, 1842370 bytes
+  title: Football at Indiana  on 10&#x2F;17&#x2F;2026 | Game Center | Ohio State
   table rows: 0
-  markers: captcha
-== https://ohiostatebuckeyes.com/sports/football/schedule/2025  | notes|documents/
-  HTTP 200, text/html, 1993508 bytes
+  markers: Subscribe, subscriber, captcha
+== https://ohiostatebuckeyes.com/sports/football/schedule/  | notes|release|documents/
+  HTTP 200, text/html, 1955373 bytes
   text: Other Notes
-  title: 2025 Football Schedule | Ohio State
+  title: 2026 Football Schedule | Ohio State
   table rows: 0
   markers: Subscribe, captcha
-  link: /documents/2026/10/10/Ohio_State_Season_Stats_26-27__4_.pdf  [Season Stats (PDF)]
-  link: /documents/2026/10/10/Ohio_State_Career_Stats_26-27__4_.pdf  [Career Stats (PDF)]
-  pdfs: 18
-    /documents/2026/10/10/Ohio_State_Career_Stats_26-27__4_.pdf
-    /documents/2026/10/10/Ohio_State_Season_Stats_26-27__4_.pdf
-    \u002Fdocuments\u002F2026\u002F10\u002F10\u002FOhio_State_Career_Stats_26-27__4_.pdf
-    \u002Fdocuments\u002F2026\u002F10\u002F10\u002FOhio_State_Season_Stats_26-27__4_.pdf
+  link: /documents/2026/10/12/2026_PDF_Season_Stats___13_.pdf  [Season Stats (PDF)]
+  link: /documents/2026/10/12/2026_Career_Stats__13_.pdf  [Career Stats (PDF)]
+  pdfs: 10
+    /documents/2026/10/12/2026_Career_Stats__13_.pdf
+    /documents/2026/10/12/2026_PDF_Season_Stats___13_.pdf
+    \u002Fdocuments\u002F2026\u002F10\u002F12\u002F2026_Career_Stats__13_.pdf
+    \u002Fdocuments\u002F2026\u002F10\u002F12\u002F2026_PDF_Season_Stats___13_.pdf
