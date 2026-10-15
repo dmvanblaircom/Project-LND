@@ -75,14 +75,16 @@ Suite.top25 = (function () {
 
   // The possession football, as on Home and Game (David, 2026-09-26): on
   // the side TeamOS.live says has the ball - between plays too - only while
-  // play is on, never in a delay or once it is over. At halftime it marks
-  // who gets the ball to start the second half (TeamOS.live.receives).
+  // play is on, never in a delay, at halftime or once it is over. At
+  // halftime no one has the ball: who gets it to start the second half
+  // (TeamOS.live.receives) is said in words instead (David, 2026-10-14).
+  function sideOf(g, p) { return p === "home" ? g.home : p === "away" ? g.away : null; }
   function ballSide(g) {
-    if (g.state !== "in" || g.status === "delayed" || g.status === "suspended") return null;
-    var p = TeamOS.game.halftime(g) ? TeamOS.live.receives(g) : TeamOS.live.withBall(g);
-    return p === "home" ? g.home : p === "away" ? g.away : null;
+    if (g.state !== "in" || g.status === "delayed" || g.status === "suspended" || TeamOS.game.halftime(g)) return null;
+    return sideOf(g, TeamOS.live.withBall(g));
   }
   function atHalf(g) { return g.state === "in" && TeamOS.game.halftime(g); }
+  function receiver(g) { return atHalf(g) ? sideOf(g, TeamOS.live.receives(g)) : null; }
   function hasBall(g, s) { return ballSide(g) === s; }
 
   function status(g) {
@@ -108,7 +110,7 @@ Suite.top25 = (function () {
     }
     return (g.state === "post" ? "Final. " : g.state === "in" ? "Live, " + g.detail + ". " : "") +
            spoken(a) + " " + (a.score || 0) + ", at " + spoken(h) + " " + (h.score || 0) + "." +
-           (ballSide(g) ? " " + ballSide(g).name + (atHalf(g) ? " gets the ball to start the second half." : " has the ball.") : "") +
+           (receiver(g) ? " " + receiver(g).name + " gets the ball to start the second half." : ballSide(g) ? " " + ballSide(g).name + " has the ball." : "") +
            (lastPlay(g) ? " Last play" + (lastAt(g) ? " at " + lastAt(g) : "") + ": " + lastPlay(g) : "");
   }
 
@@ -132,7 +134,7 @@ Suite.top25 = (function () {
                  '<span class="tg-sides">' + side(m, g.away, g, awayWon) + side(m, g.home, g, homeWon) + "</span>" +
                  '<span class="tg-status">' + status(g) + "</span>" + odds +
                  // At halftime, who gets the ball next says more than "End of 2nd quarter."
-                 (atHalf(g) && ballSide(g) ? '<span class="tg-last">' + esc(ballSide(g).name) + " gets the ball to start the second half</span>"
+                 (receiver(g) ? '<span class="tg-last">' + esc(receiver(g).name) + " gets the ball to start the second half</span>"
                   : lastPlay(g) ? '<span class="tg-last">' + (lastAt(g) ? '<span class="tg-at">' + esc(lastAt(g)) + "</span> " : "") + esc(lastPlay(g)) + "</span>" : "") +
                "</span>" +
                '<span class="sr-only">' + esc(summary(g)) + "</span>";

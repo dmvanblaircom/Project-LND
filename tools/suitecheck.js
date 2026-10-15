@@ -341,7 +341,7 @@ ok(/Halftime\. Notre Dame/.test(halfHead), "and a screen reader hears Halftime")
 var recvHead = headHtml(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
   situation: { short: "2nd & 10", spot: "PUR 28", possession: null, receives: "us" } }));
 ok(/class="gc-situation"><span>ND gets the ball<\/span>/.test(recvHead), "at halftime the pill says who gets the ball to start the second half");
-ok(/gh-team us[\s\S]*gh-ball[\s\S]*gh-team them/.test(recvHead) && (recvHead.match(/gh-ball/g) || []).length === 1, "and the football is on that side");
+ok(!/gh-ball/.test(recvHead), "and no football: no one has the ball at halftime (David, 2026-10-14)");
 ok(/Notre Dame gets the ball to start the second half\./.test(recvHead), "and a screen reader hears it");
 var liveHead = headHtml(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }));
 ok(/gc-situation"><span>2nd &amp; 10<\/span><span>PUR 28<\/span>/.test(liveHead), "a running game keeps its down & distance");
@@ -372,6 +372,15 @@ console.log("Final winner emphasis follows the score, including a team loss");
   });
 });
 ok(!/is-winner|is-loser/.test(homeHero(liveG)+headHtml(liveG)),"live scores get no final winner treatment");
+// Halftime on Home (David, 2026-10-14): no football - no one has the ball -
+// and the pill says who gets it to start the second half.
+var homeHalf = homeHero(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
+  situation: { short: "2nd & 10", spot: "PUR 28", possession: "us", receives: "them" } }));
+ok(!/gc-ball/.test(homeHalf), "Home at halftime: no football, even with a possession left over from the 2nd quarter");
+ok(/class="gc-situation"[^>]*><span>[^<]+ gets the ball<\/span>/.test(homeHalf) && /gets the ball to start the second half\./.test(homeHalf),
+   "Home at halftime: the pill and a screen reader say who gets the ball to start the second half");
+ok(/gc-ball/.test(homeHero(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }))),
+   "Home in play: the football is still there");
 [["Home", homeHero(noScoreFinal), "gc-score"], ["Game", headHtml(noScoreFinal), "gh-score"]].forEach(function (c) {
   ok(!new RegExp(c[2]).test(c[1]), c[0] + ": no score is drawn for either team");
   ok(/Final\. Notre Dame (at|versus) [^.]*Purdue\./.test(c[1]) && !/Notre Dame 0,/.test(c[1]),
