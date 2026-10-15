@@ -51,7 +51,7 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 | Full-field Season Outlook | #109; targeted presentation review remains |
 | Game alerts and October 10 live delivery | #102/#103, #116, #119, #121; 34 completed deliveries, relative latency not measured after the speed fix |
 | OSU beat news/odds history and conference availability | #89, #118 |
-| FPI producer/model/scheduled refresh | #35, #53, #90; UI is draft PR #130, not main yet |
+| FPI producer, model, scheduled refresh and Rankings UI | #35, #53, #90; UI #130 (Codex; replaced #127) |
 | Season phase model, source-supplied bowl labels, prospects foundations | #9, #94, #101; production offseason integration remains |
 | Battle/open-job framing limited to preseason/Game 1; OR retained | #39 |
 | Game notes and complete roster fetching | #114, #122 |
@@ -59,7 +59,6 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 | Kickoff time set/changed alerts and one delivery per device when it follows both teams | #140 (Worker edge-2026-10-14a); Settings switch is #143 |
 | Game Alerts Settings: master switch and unified rows | #137 (Codex) |
 | Halftime: no possession football; who gets the ball to start the second half stays | #141 (David, October 14) |
-| FPI in Rankings | #130 (Codex; replaced #127) |
 | Game team-toggle scroll stability | #123 |
 | Safe play text including overturned/no-play fixes | #78, #125; recheck the scan example before any new rewrite |
 | Refresh-clock setup, public-relay removal, source recovery fixes | #47, #46 and subsequent fixes including #58/#110 |
