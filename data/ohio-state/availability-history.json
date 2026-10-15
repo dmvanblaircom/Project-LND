@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-10-15T00:07:35.049800+00:00",
+ "updated": "2026-10-15T10:07:53.822606+00:00",
  "reports": [
   {
    "schema": 1,
@@ -265,12 +265,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-15T00:07:35.049800+00:00",
+   "fetchedAt": "2026-10-15T10:07:53.822606+00:00",
    "reported": true,
    "effectiveAt": "2026-10-14",
    "heading": "Initial",
    "kickoffDate": "2026-10-17",
-   "game": "Indiana",
+   "game": "at Indiana",
    "players": [
     {
      "pos": "S",
