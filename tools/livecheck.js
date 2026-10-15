@@ -242,9 +242,9 @@ function run(teamFile, teamLabel, ourName, oppName) {
   ok(ballOn(Object.assign({}, live, { detail: "Halftime", live: Object.assign({}, live.live, { possession: null }) })).n === 0,
      "none at halftime while the opening kickoff is unknown");
   var halfRow = ballOn(Object.assign({}, live, { detail: "Halftime", live: Object.assign({}, live.live, { possession: null, opening: "home" }) }));
-  ok(halfRow.away && !halfRow.home, "at halftime: on the team getting the ball to start the second half (Team B; Team A received the opening kickoff)");
+  ok(halfRow.n === 0, "at halftime no football: no one has the ball (David, 2026-10-14)");
   ok(/class="tg-last">Team B gets the ball to start the second half</.test(halfRow.html) && !/class="tg-last">[^<]*Pass complete/.test(halfRow.html),
-     "and said in place of the last play");
+     "who gets it to start the second half (Team B; Team A received the opening kickoff) is said in place of the last play");
   ok(/Team B gets the ball to start the second half\./.test(halfRow.html), "and to a screen reader");
   ok(ballOn(Object.assign({}, live, { status: "delayed" })).n === 0, "none in a delay");
   ok(ballOn(Object.assign({}, live, { state: "post", status: "final", detail: "Final" })).n === 0, "none once it is over");

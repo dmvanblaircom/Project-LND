@@ -75,8 +75,9 @@ Suite.game = (function () {
   function hasBall(m, us, st) {
     if (st !== "live" && st !== "paused") return false;
     var g = m.game, side = us ? "us" : "them";
-    // At halftime: who gets the ball to start the second half, or no one.
-    if (TeamOS.game.halftime(g)) return !!(g.situation && g.situation.receives === side);
+    // At halftime no one has the ball; the pill under the score says who
+    // gets it to start the second half (David, 2026-10-14).
+    if (TeamOS.game.halftime(g)) return false;
     if (g.situation && g.situation.possession) return g.situation.possession === side;
     var gd = m.detail || {};
     var mine = gd.home && gd.home.mine ? gd.home : gd.away && gd.away.mine ? gd.away : null;
