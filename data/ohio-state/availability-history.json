@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-10-15T10:07:53.822606+00:00",
+ "updated": "2026-10-16T00:07:52.023331+00:00",
  "reports": [
   {
    "schema": 1,
@@ -265,10 +265,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-15T10:07:53.822606+00:00",
+   "fetchedAt": "2026-10-16T00:07:52.023331+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-14",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-15",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-17",
    "game": "at Indiana",
    "players": [
@@ -315,20 +315,6 @@
      "detail": ""
     },
     {
-     "pos": "RB",
-     "no": "32",
-     "name": "Isaiah West",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "34",
-     "name": "Khary Wilder",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
      "pos": "OL",
      "no": "60",
      "name": "Jaxon Powell",
@@ -340,13 +326,6 @@
      "no": "67",
      "name": "Austin Siereveld",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "72",
-     "name": "Deontae Armstrong",
-     "status": "questionable",
      "detail": ""
     }
    ],
