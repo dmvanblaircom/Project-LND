@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-10-16T00:07:52.023331+00:00",
+ "updated": "2026-10-17T00:08:00.190889+00:00",
  "reports": [
   {
    "schema": 1,
@@ -265,10 +265,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-16T00:07:52.023331+00:00",
+   "fetchedAt": "2026-10-17T00:08:00.190889+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-15",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-16",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-17",
    "game": "at Indiana",
    "players": [
@@ -283,6 +283,13 @@
      "pos": "WR",
      "no": "11",
      "name": "Brock Boyd",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "21",
+     "name": "Brenten \"Inky\" Jones",
      "status": "questionable",
      "detail": ""
     },
@@ -290,7 +297,7 @@
      "pos": "RB",
      "no": "21",
      "name": "Anthony “Turbo” Rogers",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
