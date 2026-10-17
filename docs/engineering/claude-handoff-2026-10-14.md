@@ -1,7 +1,65 @@
 # Claude pickup: Wednesday October 14, noon ET
 
-**October 12 status correction (after original handoff was written):**
-PR #126 mobile fixes and PR #128 handoff/docs are merged. Current FPI integration is draft PR #130 (supersedes #127), while the offseason visual refinement is draft PR #131. Issue #30 is closed as withdrawn. Neither draft is release-approved. Follow the updated integration order below; the original preparation table is historical where it conflicts with this note.
+**Final October 12 pickup status (overrides original preparation notes):**
+PR #126 mobile fixes, #128 handoff, #130 FPI, #131 offseason v2 visual prototype (screen review pending) and #132 ledger correction are **merged**. Original FPI PR #127 is closed as superseded; issue #30 is closed as withdrawn. Do not rebuild any of them. FPI post-merge public-site/physical-iPhone verification is still open, and the offseason preview is **not** production season wiring. The original preparation table below is historical where it conflicts with this status.
+
+## October 13: environment setup paused; Claude pickup
+
+David paused environment provisioning on October 13 and moved it into this
+handoff so Codex can continue unblocked UI work. **Do not resume Cloudflare
+sign-in, create resources/branches, enable cutover flags, merge the bootstrap,
+or deploy an environment as part of the current UI work.** Claude should pick
+up the prepared implementation with David when environment work resumes.
+
+- **Saved work:** draft [PR #135](https://github.com/dmvanblaircom/Project-LND/pull/135),
+  branch `docs/suite-lab-env-plan-oct12`; cutover tracker
+  [issue #136](https://github.com/dmvanblaircom/Project-LND/issues/136).
+  Its code candidate `179a834148bac1d470e8ced9fa3bcf62e814fa81` passed both
+  `css` and `visual` jobs in [PR CI run 38342913260](https://github.com/dmvanblaircom/Project-LND/actions/runs/38342913260).
+- **Implemented, not activated:** explicit environment metadata and badges,
+  allowlisted builds/manifests, nonproduction API/push isolation, separate
+  read-only Lab Worker, staged snapshot/registry writer migrations, and
+  exact-SHA CI/deployment checks for forward-only promotion.
+- **Actual state:** no DEV/Lab hosting, branches, Cloudflare Access policies,
+  GitHub rules/review environments or live URLs were created. No cutover flag
+  was enabled; production was not changed by this setup work. The final
+  Cloudflare login returned “Unable to sign in”; no usable account session
+  was established.
+- **Pickup:** inspect current main and PR #135 before editing. Use
+  `docs/engineering/environment-provisioning-status-2026-10-13.md` and
+  `docs/engineering/code-promotion.md` **on PR #135's branch** for the detailed
+  sequence. Address both direct-main writers (`odds.yml` and `roster.yml`),
+  private root/preview/API access, restricted update identities, protected
+  approvals, identical baseline branches, deployed SHA/asset checks and
+  physical-iPhone PWA acceptance. Passing CI is not hosted or device approval.
+  Preserve the approved DEV → Lab → Production contract; never merge an
+  unreleased UI feature merely to make it viewable.
+
+**UI continued after the pause:** [draft PR #137](https://github.com/dmvanblaircom/Project-LND/pull/137)
+finishes Game Alerts Settings presentation. David's October 13 revision uses
+a matching master switch, consistent rows, aligned controls and tighter
+spacing; the separate status pill and boxed scoring choices are removed.
+Local behavior/visual checks and both PR CI jobs pass on head `7693f7a`.
+David's final visual/release approval remains. Captures are in
+`docs/reviews/alerts-settings-2026-10-13.md` on that branch. Preserve this
+markup and preference/subscription behavior when adding future alert types.
+
+[draft PR #138](https://github.com/dmvanblaircom/Project-LND/pull/138) refines
+the existing Outlook full field: fixed chance/change columns, a clearer team
+summary, source/timestamp above the list, and responsive row spacing.
+Local behavior/layout checks and 24 team/style/market/width captures pass;
+full PR CI was running when staged. Review
+`docs/reviews/outlook-ui-2026-10-13.md` on `codex/outlook-ui-oct13`.
+No market logic, sources or controller changes are included. Visual/release
+approval remains. Both #137 and #138 change `sw.js`; use a fresh shell version
+when combining them. The environment pause remains in force.
+
+The already-built offseason renderer is separately staged in draft
+[PR #134](https://github.com/dmvanblaircom/Project-LND/pull/134), branch
+`feat/offseason-s2s4-presentation`. Read its
+`docs/engineering/offseason-renderer-handoff-2026-10-12.md` before wiring the
+season controller. It remains disconnected from the live app and is not a
+shipped offseason feature. Reuse it rather than rebuilding the renderer.
 
 Prepared October 12 against main `b586ecd` and merged PRs through #125.
 David authorized Codex to keep building ready UI and the narrow integration
@@ -23,14 +81,14 @@ Read each PR's current checks; do not interpret the local counts as full CI
 or a physical iPhone pass. Claude should not rebuild these changes from the
 description or replace them with older mockups.
 
-### Integration order and shared files (updated October 12)
+### Integration order and shared files (updated after approvals)
 
-1. **Already merged:** #126 mobile-fit layout and #128 handoff/documentation. Do not rebuild or re-merge them.
-2. **FPI:** draft #130 is the current-main integration candidate, retaining mobile fixes and a fresh `sw.js` version. Inspect its full browser/CI results and obtain David's visual approval before merging. Original #127 is superseded.
-3. **Offseason:** draft #131 contains an isolated v2 Home visual preview and browser captures; its HTML is a review asset, not production wiring. Use the approved rendered direction with Claude's normalized season/load model.
-4. Start the first unfinished Claude-owned source/controller task below. Keep `app.js`, `app.css` and shared Suite modules single-owner while the UI branches are in review.
+1. **Already merged, don't rebuild:** mobile #126, handoff #128, FPI UI #130, offseason visual preview #131, and ledger #132.
+2. **Release follow-up:** verify the deployed FPI route and real iPhone/PWA behavior. Green PR CI does not establish deployed or physical-device success.
+3. **Offseason production:** S2/S4 visual review candidate is `docs/design/offseason-preview-v2.html`. Claude provides `TeamOS.season.phase`, season-matched last Game/opponent and distinct next-schedule load outcomes; Codex wires and tests the view and seasonal navigation. All illustrative sample content must be replaced.
+4. **Claude pickup:** start the first uncompleted, unblocked source/controller slice below. SP+ is not built or covered by the FPI merge. Do not touch the same `app.js`, `app.css` or Suite module concurrently with Codex.
 
-All original acceptance criteria and decisions below remain binding. A green CI result is not physical-iPhone or visual approval.
+Keep short reviewable PRs and all original source, correctness and responsive/device acceptance gates.
 
 ## 1. Fix unknown live-drive duration
 
@@ -187,8 +245,9 @@ Report built, tested, approved, merged and verified as separate states.
 David can give Claude this pickup instruction:
 
 > Read CLAUDE.md, docs/09_AI_OPERATING_SYSTEM.md and
-> docs/engineering/claude-handoff-2026-10-14.md. Inspect current main and draft PRs
-> #130/#131 before editing shared files. Continue the first uncompleted,
+> docs/engineering/claude-handoff-2026-10-14.md. Inspect current main and merged PRs
+> #130/#131 plus draft #134/#135 before editing shared files. Keep environment
+> setup paused until David resumes that work. Continue the first uncompleted,
 > unblocked Claude-owned slice in that handoff; preserve Codex's UI and the
 > approved decisions. Keep each slice reviewable, finish its checks and hand
 > off normalized inputs for Codex. Do not merge or deploy without my release
