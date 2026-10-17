@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-17T00:08:00.190889+00:00",
+ "fetchedAt": "2026-10-17T14:08:02.845690+00:00",
  "reported": true,
- "effectiveAt": "2026-10-16",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-17",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-17",
  "game": "at Indiana",
  "players": [
@@ -25,14 +25,14 @@
    "pos": "WR",
    "no": "11",
    "name": "Brock Boyd",
-   "status": "doubtful",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "21",
    "name": "Brenten \"Inky\" Jones",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
