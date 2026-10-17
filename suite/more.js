@@ -204,7 +204,8 @@ Suite.more = (function () {
   // action that asks the browser for permission.
   var PICKS = [["everything", "Everything"], ["key", "Key moments"], ["final", "Final only"]];
   var SWITCHES = {
-    game: [["kickoff", "Kickoff"], ["final", "Final score"], ["delays", "Delays & postponements"]],
+    game: [["kickoff", "Kickoff"], ["final", "Final score"], ["delays", "Delays & postponements"],
+           ["timeset", "Kickoff time set", "When a TBA game gets its time, or a set time moves"]],
     updates: [["quarters", "End of each quarter"], ["halftime", "Halftime score"],
               ["close", "Close finish", "One alert when it\u2019s a one-score game late in the 4th, and if it goes to overtime"]]
   };
