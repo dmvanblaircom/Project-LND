@@ -55,6 +55,8 @@
    from the game summary only when the score moves, cleaned to plain text
    and cut short (playText). */
 
+import { RANKINGS_SHOWS } from "./calendar.js";
+
 const CORE = "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football";
 const SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football";
 export const APP_URL = "https://dmvanblaircom.github.io/Project-LND/";
@@ -62,19 +64,21 @@ const MIN = 60 * 1000;
 export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20 * MIN, window: 8 * 60 * MIN,
                         tries: 10, kickoffLate: 15 * MIN, liveLate: 5 * MIN, settle: 3 * MIN, fold: 5 * MIN,
                         looks: 3, lookEvery: 20 * 1000,
-                        closeClock: 300, closeMargin: 8, timeMoved: 3 * 60 * MIN };
+                        closeClock: 300, closeMargin: 8, timeMoved: 3 * 60 * MIN,
+                        cfpWindow: 12 * 60 * MIN, cfpEvery: 5 * MIN, cfpFresh: 12 * 60 * MIN };
 
 // What a fan can choose (brief §2b). A subscription without options - every
 // one made before round 2 - has the round-1 set: kickoff, final and delays.
 // "timeset" (a game's kickoff time set or moved, §2b 12) is off by default
 // and for every subscription saved before it existed: a new kind of alert
 // is never switched on for anyone already signed up (the noise rule, §2).
-export const DEFAULTS = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false };
+// "cfp" (the CFP rankings are out, brief §1 postseason events) is opt-in too.
+export const DEFAULTS = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false };
 export function validOptions(o) {
   if (o == null) return Object.assign({}, DEFAULTS);
   if (typeof o !== "object") return null;
   const out = {};
-  for (const k of ["kickoff", "final", "delays", "quarters", "halftime", "close", "timeset"]) out[k] = o[k] == null ? DEFAULTS[k] : o[k] === true;
+  for (const k of ["kickoff", "final", "delays", "quarters", "halftime", "close", "timeset", "cfp"]) out[k] = o[k] == null ? DEFAULTS[k] : o[k] === true;
   out.scoring = o.scoring == null ? DEFAULTS.scoring : (["off", "mine", "all"].indexOf(o.scoring) >= 0 ? o.scoring : null);
   // A round-1 device keeps its postponed/canceled alerts while its new
   // Delays switch starts off (the app sends this; Codex, #116).
@@ -86,7 +90,7 @@ export function validOptions(o) {
 // alert, and a new kind starts off for those already signed up (the noise
 // rule, §2; Codex, #116).
 export const LEGACY = Object.assign({}, DEFAULTS, { delays: false, outcomes: true });
-function anyOn(o) { return o.kickoff || o.final || o.delays || o.quarters || o.halftime || o.close || o.timeset || o.scoring !== "off"; }
+function anyOn(o) { return o.kickoff || o.final || o.delays || o.quarters || o.halftime || o.close || o.timeset || o.cfp || o.scoring !== "off"; }
 // Whether a follower with options `o` gets this event (`d` its details).
 export function wants(o, ev, d) {
   if (ev === "kickoff") return o.kickoff;
@@ -101,6 +105,7 @@ export function wants(o, ev, d) {
   if (/^end:/.test(ev)) return o.quarters;
   if (ev === "close" || ev === "ot") return o.close;
   if (/^time:/.test(ev)) return !!o.timeset;
+  if (/^cfp:/.test(ev)) return !!o.cfp;
   return false;
 }
 // Events that are news only for minutes, and share the game's one card.
@@ -342,6 +347,9 @@ const TRY = { xp: "XP good.", "2pt": "2-pt good.", xpmiss: "XP missed.", "2ptfai
 // carries a label, not a kind.
 const LABEL = { "Touchdown": "td", "Field goal": "fg", "Safety": "safety", "Extra point": "xp" };
 export function words(ev, team, game, scores, x) {
+  // The committee's rankings: about the season, not a game (brief §1).
+  if (/^cfp:/.test(ev)) return { title: "CFP rankings",
+    body: "The CFP rankings are out: " + team.name + (x && x.rank ? " is No. " + x.rank + "." : " is not in the top 25.") };
   const vs = game.home ? " vs. " : " at ";
   const matchup = team.name + vs + game.opponent.name;
   x = x || {};
@@ -489,6 +497,67 @@ async function getJson(env, url) {
   } catch (e) { return null; }
 }
 
+// ---- the CFP rankings (postseason events, brief §1; David, 2026-10-02) ------
+// The committee releases its rankings during each Tuesday show the league
+// published (worker/src/calendar.js, from leagues/). ESPN's rankings feed -
+// the one the app's Top 25 reads - carries them as the poll of type "cfp",
+// with the week it belongs to and the day it was released (real capture:
+// tools/fixtures/espn-rankings-cfp-20260114.json). So the Worker asks ESPN
+// only during a show's window, and only every few minutes, and a release
+// counts only when it is dated the show's own day: last week's, still in the
+// feed before the show, is never news, and a re-publish of the same week is
+// the same release (its id).
+
+// The show whose window `now` is in, or null.
+export function cfpShow(now, shows) {
+  return (shows || RANKINGS_SHOWS).filter(function (s) {
+    const t = Date.parse(s.start);
+    return now >= t && now < t + LIMITS.cfpWindow;
+  })[0] || null;
+}
+
+// ESPN's rankings payload -> this show's CFP release, or null: a whole 25,
+// dated the show's day (the start's own date: the calendar writes it in
+// Eastern time, the day the show airs). { id, week, ranks: [{ rank, id }] }
+export function cfpRelease(feed, show) {
+  const p = ((feed && feed.rankings) || []).filter(function (r) { return r && r.type === "cfp"; })[0];
+  if (!p || !Array.isArray(p.ranks) || p.ranks.length < 25 || !show) return null;
+  const day = String(show.start).slice(0, 10);
+  if (String(p.date || "").slice(0, 10) !== day) return null;
+  const week = p.occurrence && Number.isInteger(p.occurrence.number) ? p.occurrence.number : null;
+  const season = (p.season && Number(p.season.year)) || show.season;
+  const ranks = [];
+  for (const r of p.ranks) {
+    if (!r || !Number.isInteger(r.current) || !r.team || r.team.id == null) return null;
+    ranks.push({ rank: r.current, id: String(r.team.id) });
+  }
+  return { id: season + "-" + (week != null ? "w" + week : day), week: week, ranks: ranks };
+}
+
+// At most every LIMITS.cfpEvery, during a show's window, until that show's
+// release has been found.
+async function cfpLook(db, env, now, log, shows) {
+  const show = cfpShow(now, shows);
+  if (!show) return null;
+  const row = db.all("SELECT v FROM meta WHERE k = 'cfp'")[0];
+  let st = null;
+  try { st = row ? JSON.parse(row.v) : null; } catch (e) { st = null; }
+  if (st && st.show === show.start && (st.found || now - st.at < LIMITS.cfpEvery)) return null;
+  const release = cfpRelease(await getJson(env, SITE + "/rankings"), show);
+  db.run("INSERT INTO meta (k, v) VALUES ('cfp', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
+         JSON.stringify({ show: show.start, at: now, found: !!release }));
+  log.push("cfp: " + (release ? "release " + release.id : "not out yet"));
+  return release;
+}
+
+// The release for one team: its rank, or none in the top 25. One "game" per
+// team and release, so a device that follows two teams hears about each.
+function cfpEmit(db, teamId, release, now, log) {
+  const r = release.ranks.filter(function (x) { return x.id === String(teamId); })[0];
+  emit(db, teamId, { id: "cfp-" + release.id + "-" + teamId }, "cfp:" + release.id, null,
+       { rank: r ? r.rank : null, week: release.week }, now, log, false);
+}
+
 // One minute's work. Returns what it did, for the log and the tests.
 // `quick`: a look between minutes (minute()) - new alerts go, retries wait
 // for the minute, so LIMITS.tries still spans ten minutes (Codex, #119).
@@ -496,8 +565,10 @@ export async function tick(db, env, now, quick) {
   const log = [];
   let live = false;
   const teams = db.all("SELECT DISTINCT team_id FROM subs");
+  const cfp = teams.length ? await cfpLook(db, env, now, log, env.SHOWS) : null;
   for (const t of teams) {
     const teamId = t.team_id;
+    if (cfp) cfpEmit(db, teamId, cfp, now, log);
     let row = db.all("SELECT game, checked FROM games WHERE team_id = ?", teamId)[0];
     let game = row && row.game ? JSON.parse(row.game) : null;
     const stale = !row || now - row.checked > LIMITS.scheduleEvery || (game && now - game.at > LIMITS.window);
@@ -924,7 +995,9 @@ async function deliver(db, env, teamId, now, log, retry) {
     const kickoffAt = /^time:/.test(d.event) ? Date.parse(d.event.slice(5).split("#")[0]) : NaN;
     const started = isFinite(kickoffAt) && (now - kickoffAt > LIMITS.window ||
       db.all("SELECT 1 FROM sent WHERE game_id = ? AND event = 'kickoff'", d.game_id).length > 0);
-    if ((d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) || (live(d.event) && now - d.at > LIMITS.liveLate) || started) {
+    // The rankings are the night's news; by the next day they are not.
+    const stale = /^cfp:/.test(d.event) && now - d.at > LIMITS.cfpFresh;
+    if ((d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) || (live(d.event) && now - d.at > LIMITS.liveLate) || started || stale) {
       db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", ...key);
       t.dropped++; continue;
     }
@@ -939,7 +1012,8 @@ async function deliver(db, env, teamId, now, log, retry) {
     // screen (one card per game, §2b 4); the phone still sounds each time.
     // A new kickoff time replaces the last one's card; it opens that game.
     const tag = live(d.event) ? d.game_id + "-live" : d.game_id + "-" + (isFinite(kickoffAt) ? "time" : d.event);
-    const msg = { title: w.title, body: w.body, url: APP_URL + (isFinite(kickoffAt) ? "#schedule/" + d.game_id : "#game"), tag, renotify: live(d.event) };
+    const where = isFinite(kickoffAt) ? "#schedule/" + d.game_id : /^cfp:/.test(d.event) ? "#top25/rankings/cfp" : "#game";
+    const msg = { title: w.title, body: w.body, url: APP_URL + where, tag, renotify: live(d.event) };
     if (w.kickoff) { msg.kickoff = w.kickoff; if (w.network) msg.network = w.network; }
     const code = await sendPush(env, jwk, { endpoint: d.endpoint, p256dh: d.p256dh, auth: d.auth }, msg, now);
     let state;

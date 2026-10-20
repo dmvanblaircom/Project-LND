@@ -75,6 +75,18 @@ the outcomes from the same feeds the screens use:
 | **Team's postseason set** | On | "[Team] is in the College Football Playoff: No. [seed] vs. [opponent], [date]." / "[Team] will play [opponent] in the [bowl], [date]." | When the team's playoff or bowl game appears, Selection Day |
 | **No postseason** | Off | "[Team]'s season is complete: no bowl this year." | Only once selection is known (TeamOS.season.phase `not-selected`), never inferred from an empty feed |
 
+**CFP rankings released: built October 20** (Claude, PR for
+`feat/alerts-cfp`). The Worker reads ESPN's rankings feed, the one Top 25
+already uses, only during each show's window from the league calendar
+(`worker/src/calendar.js`, generated from `leagues/`). It counts the
+committee's poll only when the poll is dated the show's own day, and sends
+one alert per release, keyed by season and week. Settings → Game Alerts →
+**Season → CFP rankings**: off by default and for saved choices; only the
+Everything pick includes it. The alert opens Top 25 → Rankings → CFP.
+Tested on the real feed from Selection Day 2025
+(`tools/fixtures/espn-rankings-cfp-20260114.json`). The other three
+postseason events follow.
+
 **"Default" means the switch's position when a fan first turns alerts on,
 never a new kind of push switched on for fans already subscribed** (the
 noise rule, §3). A fan who turned on kickoff and final gets nothing else

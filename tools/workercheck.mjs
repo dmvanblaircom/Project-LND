@@ -9,7 +9,8 @@
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
 import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
-         words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey } from "../worker/src/push.js";
+         words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease } from "../worker/src/push.js";
+import { RANKINGS_SHOWS } from "../worker/src/calendar.js";
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
 import { SCHOOLS } from "../worker/src/schools.js";
@@ -1154,6 +1155,102 @@ console.log("game alerts: the routes and the minute");
   calls.length = 0; const refreshEnv = Object.assign({}, env2, { REFRESH_CLOCK_TOKEN: "" });
   await worker.scheduled({ cron: "7,37 * * * *" }, refreshEnv, { waitUntil: (p) => { waited = p; } });
   ok(await waited === "no-token" && calls.length === 0, "the refresh clock's cron still starts the refresh, not alerts"); }
+
+console.log("game alerts: the CFP rankings are out (postseason events, brief §1)");
+{ // The real feed on Selection Day 2025 (tools/fixtures/espn-rankings-cfp-20260114.json):
+  // the committee's poll dated 2025-12-07, Week 16; Ohio State No. 2, Notre Dame No. 11.
+  const FEED = JSON.parse(readFileSync(new URL("./fixtures/espn-rankings-cfp-20260114.json", import.meta.url), "utf8"));
+  const SHOW = { season: 2025, n: 6, start: "2025-12-07T12:00:00-05:00", end: "2025-12-07T15:00:00-05:00" };
+  const AT = Date.parse(SHOW.start);
+
+  eq(RANKINGS_SHOWS.map((x) => x.start.slice(0, 10)), ["2026-11-03", "2026-11-10", "2026-11-17", "2026-11-24", "2026-12-01"],
+     "the Worker knows the five 2026 shows, from the league calendar");
+  { const { execFileSync } = await import("node:child_process");
+    let inStep = true; try { execFileSync("node", [new URL("./build-worker-calendar.js", import.meta.url).pathname, "--check"], { stdio: "ignore" }); } catch (err) { inStep = false; }
+    ok(inStep, "and worker/src/calendar.js is in step with leagues/college-football.js"); }
+  const first = Date.parse("2026-11-03T19:00:00-05:00");
+  ok(cfpShow(first - 60e3) === null && cfpShow(first + 60e3).n === 1 && cfpShow(first + 11 * 3600e3).n === 1 && cfpShow(first + 13 * 3600e3) === null,
+     "it looks only from the show's start to 12 hours after");
+  ok(cfpShow(Date.parse("2026-10-20T23:00:00Z")) === null, "and today, in October, not at all");
+
+  const rel = cfpRelease(FEED, SHOW);
+  ok(rel && rel.id === "2025-w16" && rel.ranks.length === 25, "the real feed: this show's release, keyed by its season and week (" + (rel && rel.id) + ")");
+  eq([rel.ranks.find((r) => r.id === "194").rank, rel.ranks.find((r) => r.id === "87").rank], [2, 11], "Ohio State No. 2, Notre Dame No. 11");
+  ok(cfpRelease(FEED, Object.assign({}, SHOW, { start: "2025-12-14T12:00:00-05:00" })) === null,
+     "a release dated another day is not this show's: last week's, still in the feed before the show, is never news");
+  const short = JSON.parse(JSON.stringify(FEED)); short.rankings.find((r) => r.type === "cfp").ranks.length = 10;
+  ok(cfpRelease(short, SHOW) === null, "fewer than 25: not a release");
+  const bad = JSON.parse(JSON.stringify(FEED)); bad.rankings.find((r) => r.type === "cfp").ranks[4].current = null;
+  ok(cfpRelease(bad, SHOW) === null, "a rank it cannot read: not a release, rather than a wrong number");
+  ok(cfpRelease({ rankings: FEED.rankings.filter((r) => r.type !== "cfp") }, SHOW) === null && cfpRelease(null, SHOW) === null, "no committee poll: nothing");
+  eq(validOptions({}).cfp, false, "opt-in: off by default");
+  eq(validOptions({ kickoff: true, final: true, timeset: true }).cfp, false, "and off for every choice saved before it existed");
+
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  let feed = FEED, looks = 0;
+  e.SHOWS = [SHOW];
+  e.FETCH = async (url, init) => {
+    if (/\/rankings$/.test(url)) { looks++; return new Response(JSON.stringify(feed), { status: 200 }); }
+    if (/\/teams\/(87|99)\/schedule$/.test(url)) return new Response("", { status: 503 });
+    return base(url, init);
+  };
+  const on = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: true };
+  const off = Object.assign({}, on, { cfp: false });
+  const f = { nd: await browserSub(), ndOff: await browserSub(), osu: await browserSub(), both: await browserSub(), lsu: await browserSub(), old: await browserSub() };
+  const T0 = AT - 864e5;
+  await subscribe(db, e, { subscription: f.nd.sub, team: { id: "87", name: "Notre Dame" }, options: on }, T0);
+  await subscribe(db, e, { subscription: f.ndOff.sub, team: { id: "87", name: "Notre Dame" }, options: off }, T0);
+  await subscribe(db, e, { subscription: f.osu.sub, team: { id: "194", name: "Ohio State" }, options: on }, T0);
+  await subscribe(db, e, { subscription: f.both.sub, team: { id: "87", name: "Notre Dame" }, options: on }, T0);
+  await subscribe(db, e, { subscription: f.both.sub, team: { id: "194", name: "Ohio State" }, options: on }, T0);
+  await subscribe(db, e, { subscription: f.lsu.sub, team: { id: "99", name: "LSU" }, options: on }, T0);
+  await subscribe(db, e, { subscription: f.old.sub, team: { id: "87", name: "Notre Dame" } }, T0);
+  e.pushes.length = 0;
+  await tick(db, e, AT - 3600e3);
+  ok(looks === 0 && e.pushes.length === 0, "before the show: the rankings are not even asked for");
+
+  const before = JSON.parse(JSON.stringify(FEED)); before.rankings.find((r) => r.type === "cfp").date = "2025-11-30T08:00Z";
+  feed = before;
+  await tick(db, e, AT + 60e3);
+  ok(looks === 1 && e.pushes.length === 0, "the show is on, last week's release still in the feed: nothing");
+  await tick(db, e, AT + 2 * 60e3);
+  ok(looks === 1, "asked again only after " + LIMITS.cfpEvery / 60e3 + " minutes, not every minute");
+  feed = FEED;
+  await tick(db, e, AT + 7 * 60e3);
+  const to = (x) => e.pushes.filter((p) => p.url === x.sub.endpoint);
+  const open = async (x, i) => openPush(to(x)[i || 0].init.body, x.kp, x.sub.keys.auth);
+  ok(looks === 2 && to(f.nd).length === 1 && to(f.osu).length === 1 && to(f.lsu).length === 1,
+     "the release appears: one alert to each fan who chose it");
+  ok(to(f.ndOff).length === 0 && to(f.old).length === 0, "none to a choice without it, or to a device from before there were choices");
+  const nd = await open(f.nd), osu = await open(f.osu), lsu = await open(f.lsu);
+  eq([nd.title, nd.body, nd.url], ["CFP rankings", "The CFP rankings are out: Notre Dame is No. 11.", APP_URL + "#top25/rankings/cfp"],
+     "the approved words, opening the CFP rankings");
+  eq(osu.body, "The CFP rankings are out: Ohio State is No. 2.", "each team its own rank");
+  eq(lsu.body, "The CFP rankings are out: LSU is not in the top 25.", "a team outside the 25 is told so, not left out");
+  ok(to(f.both).length === 2, "a device that follows both teams gets two alerts, one per team (" + to(f.both).length + ")");
+  const both = to(f.both).length === 2 ? await Promise.all([open(f.both, 0), open(f.both, 1)]) : [];
+  eq(both.map((m) => m.body).sort(), ["The CFP rankings are out: Notre Dame is No. 11.", "The CFP rankings are out: Ohio State is No. 2."],
+     "a device that follows both teams hears where each stands");
+
+  e.pushes.length = 0;
+  const again = JSON.parse(JSON.stringify(FEED)); again.rankings.find((r) => r.type === "cfp").lastUpdated = "2025-12-07T23:59Z";
+  feed = again;
+  await tick(db, e, AT + 20 * 60e3);
+  await tick(db, e, AT + 40 * 60e3);
+  ok(looks === 2 && e.pushes.length === 0, "once the release is found, the night is done: no more asking, no repeat when ESPN re-publishes");
+  await tick(db, e, AT + 13 * 3600e3);
+  ok(looks === 2 && e.pushes.length === 0, "and after the window, nothing");
+
+  const db2 = dbOf(), e2 = alertEnv({ push: 503 });
+  e2.SHOWS = [SHOW]; const b2 = e2.FETCH;
+  e2.FETCH = async (url, init) => /\/rankings$/.test(url) ? new Response(JSON.stringify(FEED), { status: 200 })
+                                 : /\/teams\/87\/schedule$/.test(url) ? new Response("", { status: 503 }) : b2(url, init);
+  const late = await browserSub();
+  await subscribe(db2, e2, { subscription: late.sub, team: { id: "87", name: "Notre Dame" }, options: on }, T0);
+  await tick(db2, e2, AT + 60e3);
+  e2.push = 201; e2.pushes.length = 0;
+  await tick(db2, e2, AT + 60e3 + LIMITS.cfpFresh + 60e3);
+  ok(e2.pushes.length === 0, "a rankings alert still undelivered the next day is dropped: it is no longer news"); }
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the edge API answers only what a screen shows"));
 process.exit(failures ? 1 : 0);
