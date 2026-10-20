@@ -1,0 +1,387 @@
+{
+ "_comment": "Real ESPN payload, captured 2026-10-20T20:40Z by capture-fixture.yml from https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390, kept whole.",
+ "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390?lang=en&region=us",
+ "id": "2390",
+ "guid": "2b3657a5-caae-31a2-899a-0d09df0f7bed",
+ "uid": "s:20~l:23~t:2390",
+ "alternateIds": {
+  "sdr": "6626"
+ },
+ "slug": "miami-hurricanes",
+ "location": "Miami",
+ "name": "Hurricanes",
+ "nickname": "Miami",
+ "abbreviation": "MIA",
+ "displayName": "Miami Hurricanes",
+ "shortDisplayName": "Miami",
+ "color": "f47423",
+ "alternateColor": "035131",
+ "isActive": true,
+ "isAllStar": false,
+ "logos": [
+  {
+   "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+   "width": 500,
+   "height": 500,
+   "alt": "",
+   "rel": [
+    "full",
+    "default"
+   ],
+   "lastUpdated": "2025-12-19T22:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2390.png",
+   "width": 500,
+   "height": 500,
+   "alt": "",
+   "rel": [
+    "full",
+    "dark"
+   ],
+   "lastUpdated": "2025-12-19T22:35Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/primary_logo_on_white_color.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "primary_logo_on_white_color"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/primary_logo_on_black_color.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "primary_logo_on_black_color"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/primary_logo_on_primary_color.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "primary_logo_on_primary_color"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/primary_logo_on_secondary_color.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "primary_logo_on_secondary_color"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/primary_logo_black.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "primary_logo_black"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/primary_logo_white.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "primary_logo_white"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/secondary_logo_on_white_color.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "secondary_logo_on_white_color"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/secondary_logo_on_black_color.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "secondary_logo_on_black_color"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/secondary_logo_on_primary_color.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "secondary_logo_on_primary_color"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/secondary_logo_on_secondary_color.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "secondary_logo_on_secondary_color"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/secondary_logo_black.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "secondary_logo_black"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  },
+  {
+   "href": "https://a.espncdn.com/guid/2b3657a5-caae-31a2-899a-0d09df0f7bed/logos/secondary_logo_white.png",
+   "width": 4096,
+   "height": 4096,
+   "alt": "",
+   "rel": [
+    "full",
+    "secondary_logo_white"
+   ],
+   "lastUpdated": "2026-07-23T17:33Z"
+  }
+ ],
+ "record": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/teams/2390/record?lang=en&region=us"
+ },
+ "oddsRecords": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/0/teams/2390/odds-records?lang=en&region=us"
+ },
+ "athletes": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390/athletes?lang=en&region=us"
+ },
+ "venue": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/venues/3948?lang=en&region=us",
+  "id": "3948",
+  "guid": "b4c5fbb6-281e-3621-9ac8-0682b1554f8b",
+  "fullName": "Hard Rock Stadium",
+  "address": {
+   "city": "Miami Gardens",
+   "state": "FL",
+   "zipCode": "33056",
+   "country": "USA"
+  },
+  "grass": true,
+  "indoor": false,
+  "images": [
+   {
+    "href": "https://a.espncdn.com/i/venues/college-football/day/interior/3948.jpg",
+    "width": 2000,
+    "height": 1125,
+    "alt": "",
+    "rel": [
+     "full",
+     "day",
+     "interior"
+    ]
+   }
+  ]
+ },
+ "groups": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/groups/1?lang=en&region=us"
+ },
+ "ranks": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390/ranks?lang=en&region=us"
+ },
+ "statistics": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/teams/2390/statistics?lang=en&region=us"
+ },
+ "leaders": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/teams/2390/leaders?lang=en&region=us"
+ },
+ "links": [
+  {
+   "language": "en-US",
+   "rel": [
+    "clubhouse",
+    "desktop",
+    "team"
+   ],
+   "href": "https://www.espn.com/college-football/team/_/id/2390/miami-hurricanes",
+   "text": "Clubhouse",
+   "shortText": "Clubhouse",
+   "isExternal": false,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "clubhouse",
+    "mobile",
+    "team"
+   ],
+   "href": "https://www.espn.com/college-football/team/_/id/2390/miami-hurricanes",
+   "text": "Clubhouse",
+   "shortText": "Clubhouse",
+   "isExternal": false,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "roster",
+    "desktop",
+    "team"
+   ],
+   "href": "https://www.espn.com/college-football/team/roster/_/id/2390",
+   "text": "Roster",
+   "shortText": "Roster",
+   "isExternal": false,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "roster",
+    "sportscenter",
+    "app",
+    "team"
+   ],
+   "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23~t:2390&section=roster",
+   "text": "Roster",
+   "shortText": "Roster",
+   "isExternal": false,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "stats",
+    "desktop",
+    "team"
+   ],
+   "href": "https://www.espn.com/college-football/team/stats/_/id/2390",
+   "text": "Statistics",
+   "shortText": "Statistics",
+   "isExternal": false,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "stats",
+    "sportscenter",
+    "app",
+    "team"
+   ],
+   "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23~t:2390&section=stats",
+   "text": "Statistics",
+   "shortText": "Statistics",
+   "isExternal": false,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "schedule",
+    "desktop",
+    "team"
+   ],
+   "href": "https://www.espn.com/college-football/team/schedule/_/id/2390",
+   "text": "Schedule",
+   "shortText": "Schedule",
+   "isExternal": false,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "schedule",
+    "sportscenter",
+    "app",
+    "team"
+   ],
+   "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23~t:2390&section=scores",
+   "text": "Schedule",
+   "shortText": "Schedule",
+   "isExternal": false,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "tickets",
+    "desktop",
+    "team"
+   ],
+   "href": "https://www.vividseats.com/miami-hurricanes-football-tickets--sports-ncaa-football/performer/534?wsUser=717",
+   "text": "Tickets",
+   "shortText": "Tickets",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "awards",
+    "desktop",
+    "team"
+   ],
+   "href": "https://www.espn.com/college-football/awards/_/team/2390",
+   "text": "Awards",
+   "shortText": "Awards",
+   "isExternal": false,
+   "isPremium": false
+  }
+ ],
+ "injuries": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390/injuries?lang=en&region=us"
+ },
+ "notes": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/teams/2390/notes?lang=en&region=us"
+ },
+ "againstTheSpreadRecords": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/teams/2390/ats?lang=en&region=us"
+ },
+ "awards": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390/awards?lang=en&region=us"
+ },
+ "franchise": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/franchises/2390?lang=en&region=us"
+ },
+ "projection": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390/projection?lang=en&region=us"
+ },
+ "events": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390/events?lang=en&region=us"
+ },
+ "coaches": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390/coaches?lang=en&region=us"
+ },
+ "college": {
+  "$ref": "http://sports.core.api.espn.com/v2/colleges/2390?lang=en&region=us"
+ }
+}
