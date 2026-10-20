@@ -20,11 +20,18 @@ jobs:
           set +e
           mkdir -p tools/probe-out
           out=tools/probe-out/launchcheck.txt
-          { echo "runner: $(lsb_release -ds 2>/dev/null) $(nproc) cpus"; npx playwright --version; } > $out
-          for i in 1 2 3 4 5 6; do
-            echo "== run $i" >> $out
-            if node tools/launchcheck.js > run.txt 2>&1; then echo "exit 0" >> $out; else echo "exit $?" >> $out; fi
-            grep -E "FAIL|ms\)|Error|at " run.txt | head -40 >> $out || true
+          echo "runner: $(lsb_release -ds 2>/dev/null) $(nproc) cpus; date $(date -u +%FT%TZ)" > $out
+          # The visual job's steps before launchcheck, in order, as CI runs them.
+          npm run test:visual > /dev/null 2>&1; echo "test:visual exit $?" >> $out
+          for t in offseasonpreviewcheck rosterflowcheck ratingsflowcheck flickercheck homegamecheck mobilefitcheck statslayoutcheck focuscheck togglecheck; do
+            node tools/$t.js > /dev/null 2>&1; echo "$t exit $?" >> $out
           done
-          git config user.name probe && git config user.email probe@users.noreply.github.com
-          git add tools/probe-out && git commit -m "Probe output" && git push
+          echo "== files the earlier checks changed:" >> $out; git status --porcelain | grep -v probe-out | head -20 >> $out
+          echo "== processes still running:" >> $out; ps -eo pid,etimes,comm | grep -Ei "chrom|node|python|http" | grep -v grep | head -20 >> $out
+          for i in 1 2 3; do
+            echo "== launchcheck run $i" >> $out
+            if node tools/launchcheck.js > run.txt 2>&1; then echo "exit 0" >> $out; else echo "exit $?" >> $out; fi
+            grep -vE "^  ok " run.txt | head -40 >> $out
+            grep -E "ms\)" run.txt >> $out
+          done
+          git add tools/probe-out && git -c user.name=probe -c user.email=probe@users.noreply.github.com commit -m "Probe output" && git push
