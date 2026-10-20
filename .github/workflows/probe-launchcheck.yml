@@ -30,8 +30,9 @@ jobs:
           echo "== processes still running:" >> $out; ps -eo pid,etimes,comm | grep -Ei "chrom|node|python|http" | grep -v grep | head -20 >> $out
           for i in 1 2 3 4 5 6; do
             echo "== launchcheck run $i" >> $out
-            if node tools/launchcheck.js > run.txt 2>&1; then echo "exit 0" >> $out; else echo "exit $?" >> $out; fi
-            grep -vE "^  ok " run.txt | head -40 >> $out
-            grep -E "ms\)" run.txt >> $out
+            if LAUNCH_DEBUG=1 node tools/launchcheck.js > run.txt 2>&1; then echo "exit 0" >> $out; else echo "exit $?" >> $out; fi
+            grep -E "FAIL" run.txt >> $out
+            # the new-version scenario's timeline: events and the cover's opacity, ms clock
+            awk '/a new version found on this open/{f=1} /the chooser/{f=0} f' run.txt | grep -E "L[EF]\|" | head -80 >> $out
           done
           git add tools/probe-out && git -c user.name=probe -c user.email=probe@users.noreply.github.com commit -m "Probe output" && git push
