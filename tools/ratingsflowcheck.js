@@ -19,6 +19,16 @@ function spBody(year){
 }
 function fixture(n){return fs.readFileSync(path.join(root,"tools/fixtures",n));}
 function ok(value,label){assert(value,label);checks.push(label);}
+// Check the painted labels too: a row of fitting boxes can still clip Coaches.
+async function sourceRow(page){return page.evaluate(function(){
+  var links=[].slice.call(document.querySelectorAll(".poll-seg a")),top=links.length?links[0].getBoundingClientRect().top:0;
+  return links.map(function(a){return a.textContent;}).join("|")==="CFP|AP|Coaches|FPI|SP+"&&
+    document.documentElement.scrollWidth<=innerWidth+1&&links.every(function(a){
+      var r=a.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(a);var text=range.getBoundingClientRect();
+      return Math.abs(r.top-top)<1&&r.left>=0&&r.right<=innerWidth&&r.height>=44&&
+        text.left>=r.left&&text.right<=r.right&&text.top>=r.top&&text.bottom<=r.bottom;
+    });
+});}
 fs.mkdirSync(shots,{recursive:true});
 (async function(){
   await new Promise(function(r){server.listen(0,"127.0.0.1",r);});
@@ -96,10 +106,10 @@ fs.mkdirSync(shots,{recursive:true});
     f.st.payload=JSON.parse(JSON.stringify(snap));f.st.payload.season=2025;f.st.payload.teams[0].rating=0;f.st.payload.teams[1].rating=-1.5;
     await f.refresh();var old=await screen(f);ok(/not the current season/.test(old.text)&&/2025/.test(old.text),"old season is explicitly identified");
     ok(await f.page.locator('.rk-value').allTextContents().then(function(x){return x.includes("0.0")&&x.includes("-1.5");}),"zero and negative ratings remain real values");
-    // The prepared selector accepts a fifth normalized source, without a fake production SP+ tab.
+    // Direct-render regression, alongside the real SP+ route below.
     await f.page.setViewportSize({width:320,height:844});
     await f.page.evaluate(function(){Suite.top25.paint(document.getElementById("screenTop25"),{view:"rankings",poll:"sp-plus",polls:[],ratingSources:[{key:"fpi",label:"FPI"},{key:"sp-plus",label:"SP+"}],ratings:[],ratingsFailed:{"sp-plus":true},mark:function(){return "";}});});
-    ok(await f.page.evaluate(function(){return document.querySelectorAll(".poll-seg a").length===5&&[].every.call(document.querySelectorAll(".poll-seg a"),function(a){var r=a.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.height>=44;});}),"five future source choices fit at 320 with 44px targets");
+    ok(await sourceRow(f.page),"five future source choices fit on one row at 320 with 44px targets and full labels");
     await f.ctx.close();
     // SP+ (handoff 2026-10-14, slice 4): its own source, beside FPI.
     for(var spTeam of ["notre-dame","ohio-state"]){
@@ -114,12 +124,30 @@ fs.mkdirSync(shots,{recursive:true});
       var src=await p.page.locator(".rk-source").innerText(),href=await p.page.locator(".rk-source a").getAttribute("href");
       ok(/SP\+/.test(src)&&/CFBD/.test(src)&&/^https:\/\//.test(href),spTeam+": credited to SP+ and CFBD ("+src.trim()+")");
       ok(p.st.n===0&&p.st.spYears.join()==="2026",spTeam+": asks the edge API for this season's SP+ only, and never loads FPI for it");
-      await p.page.setViewportSize({width:320,height:844});await p.page.evaluate(function(){return document.fonts.ready;});
-      ok(await p.page.evaluate(function(){var t=document.querySelector(".rk-ratings"),c=t.closest(".rk-card"),a=[].slice.call(document.querySelectorAll(".poll-seg a"));
-        return document.documentElement.scrollWidth<=innerWidth+1&&t.getBoundingClientRect().right<=c.getBoundingClientRect().right&&a.length===5&&a.every(function(x){var r=x.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.height>=44;});}),
-        spTeam+" 320: table and five source choices fit, 44px targets");
-      var sa=await audit.auditText(p.page,"SP+ "+spTeam);ok(!sa.failures.length,"SP+ contrast "+spTeam+" "+JSON.stringify(sa.failures.slice(0,3)));
-      await p.page.evaluate(function(){scrollTo(0,0);});await p.page.screenshot({path:path.join(shots,spTeam+"-sp-plus-320.png")});
+      for(var spStyle of ["team","suite"]){
+        await p.page.evaluate(function(style){localStorage.setItem("suite-style",style);},spStyle);await p.page.reload();await p.settled();
+        for(var spWidth of [320,375,390,768,1280]){
+          await p.page.setViewportSize({width:spWidth,height:844});await p.page.evaluate(function(){return document.fonts.ready;});
+          var label="SP+ "+spTeam+" "+spStyle+" "+spWidth;
+          ok(await sourceRow(p.page),label+": five source choices fit on one row, 44px targets and full labels");
+          ok(await p.page.evaluate(function(){var t=document.querySelector(".rk-ratings");return t.getBoundingClientRect().right<=t.closest(".rk-card").getBoundingClientRect().right;}),label+": table fits");
+          var sa=await audit.auditText(p.page,label);ok(!sa.failures.length,label+" contrast "+JSON.stringify(sa.failures.slice(0,3)));
+          if(spWidth===320){
+            var focus=await audit.auditFocus(p.page,label);ok(!focus.failures.length,label+" keyboard focus "+JSON.stringify(focus.failures.slice(0,3)));
+            await p.page.evaluate(function(){if(document.activeElement)document.activeElement.blur();});
+          }
+          if(spWidth===320||spWidth===390){await p.page.evaluate(function(){scrollTo(0,0);});await p.page.screenshot({path:path.join(shots,spTeam+"-"+spStyle+"-sp-plus-"+spWidth+".png")});}
+        }
+      }
+      await p.page.setViewportSize({width:320,height:844});
+      await p.page.locator('.poll-seg a[href="#top25/rankings/ap"]').click();
+      await p.page.waitForFunction(function(){return location.hash==="#top25/rankings/ap"&&document.querySelector('.poll-seg [aria-current="page"]').textContent==="AP";});
+      ok(await sourceRow(p.page),spTeam+": AP also keeps the five sources on one row at 320");
+      if(spTeam==="notre-dame"){await p.page.evaluate(function(){scrollTo(0,0);});await p.page.screenshot({path:path.join(shots,spTeam+"-suite-ap-320.png")});}
+      await p.page.goBack();await p.page.waitForTimeout(200);
+      ok((await screen(p)).selected==="SP+",spTeam+": Back restores SP+ after following the AP link");
+      await p.page.goForward();await p.page.waitForTimeout(200);
+      ok((await screen(p)).selected==="AP",spTeam+": Forward restores AP");
       ok(!p.st.errors.length,"no page errors: "+p.st.errors.join("; "));await p.ctx.close();
     }
     var g=await open({sp:true,spMode:"fail"});await g.settled();
