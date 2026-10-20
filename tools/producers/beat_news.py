@@ -10,6 +10,12 @@ list in the workflow. When a declared feed stops answering - sites move them
 and says so as a workflow warning naming the URL to put in the config. A
 source that cannot be found is skipped and named; the others still publish.
 
+Only the team's football (David, 2026-10-20). Team sites' feeds carry every
+sport, and On3's mix in national stories: a story is dropped when its title,
+address or the feed's own categories name another sport - unless they also
+say football - and a source may name the paths its team's stories live under
+(`paths` in beatFeeds), so anything outside them is not the team's.
+
 The file is the team's declaration too (snapshots.beatNews.file, in
 data/<team id>/), stamped with the team it belongs to. It is written only when
 the stories changed: a fresh timestamp on an identical list made every run
@@ -25,7 +31,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -38,6 +44,18 @@ PER_SOURCE = 15     # no one outlet fills the list (David, 2026-09-24)
 COMMON_PATHS = ("feed/", "feed", "rss", "rss/", "rss.xml", "feed.xml", "index.xml", "rss/current.xml", "atom.xml")
 ATOM = "{http://www.w3.org/2005/Atom}"
 FEED_TYPES = ("application/rss+xml", "application/atom+xml", "application/xml", "text/xml")
+
+# The league's other sports, by the words a headline, address or category
+# uses for them. Per league, because what is "another sport" depends on whose
+# news this is. Words that also read as football ("track", "diving") are left
+# out on purpose: a story is dropped only on a plain name of another sport.
+OTHER_SPORTS = {
+    "college-football": re.compile(
+        r"\b(wbb|mbb|basketball|hoops|final four|march madness|hockey|frozen four|volleyball|soccer|"
+        r"baseball|softball|lacrosse|wrestling|swimming|golf|tennis|rowing|fencing|gymnastics|"
+        r"cross[- ]country|track and field|track & field)\b", re.I),
+}
+OWN_SPORT = {"college-football": re.compile(r"\bfootball\b", re.I)}
 
 
 # ---- pure: text in, data out (tools/newscheck.py tests these) -------------
@@ -146,7 +164,8 @@ def parse_feed(raw, source, source_logo=None):
             items.append({"title": t, "link": link, "source": source,
                           "summary": _text(it.find("description"))[:600],
                           "image": article_image(it, link), "sourceLogo": logo,
-                          "published": d.isoformat() if d else None})
+                          "published": d.isoformat() if d else None,
+                          "categories": [_text(c) for c in it.findall("category") if _text(c)]})
     for en in root.iter(ATOM + "entry"):
         t = _text(en.find(ATOM + "title"))
         ln = next((n for n in en.findall(ATOM + "link") if n.get("rel", "alternate") == "alternate"), None)
@@ -156,7 +175,8 @@ def parse_feed(raw, source, source_logo=None):
             items.append({"title": t, "link": link, "source": source,
                           "summary": (_text(en.find(ATOM + "summary")) or _text(en.find(ATOM + "content")))[:600],
                           "image": article_image(en, link), "sourceLogo": logo,
-                          "published": d.isoformat() if d else None})
+                          "published": d.isoformat() if d else None,
+                          "categories": [c.get("term") or _text(c) for c in en.findall(ATOM + "category") if c.get("term") or _text(c)]})
     return items
 
 
@@ -184,6 +204,48 @@ def discover(html, base):
         if u not in out:
             out.append(u)
     return out
+
+
+def path_of(link):
+    return urlsplit(link).path.lower()
+
+
+def off_topic(item, league, paths=None):
+    """-> why a story is not the team's football, or None to keep it.
+
+    Another sport named in the title, the address or the feed's categories
+    drops it, unless one of them also says football (a two-sport recruit is
+    still a football story). The summary is not read: it mentions other
+    teams and sports in passing. `paths`: the source's own sections for this
+    team; an address outside them is someone else's story."""
+    if paths and not any(path_of(item["link"]).startswith(p.lower()) for p in paths):
+        return "outside " + ", ".join(paths)
+    other, own = OTHER_SPORTS.get(league), OWN_SPORT.get(league)
+    if not other:
+        return None
+    said = [item["title"], path_of(item["link"]).replace("-", " ").replace("/", " ")] + list(item.get("categories") or [])
+    hit = next((m.group(0) for m in (other.search(x) for x in said) if m), None)
+    if hit and not (own and any(own.search(x) for x in said)):
+        return "another sport (%s)" % hit
+    return None
+
+
+def league_of(config):
+    """The team's league, where its config declares it (team.league)."""
+    return ((config or {}).get("team") or {}).get("league")
+
+
+def keep_football(items, league, paths=None):
+    """-> (kept, dropped [(title, why)]). Categories are only for deciding:
+    they are not written to the file."""
+    kept, dropped = [], []
+    for it in items:
+        why = off_topic(it, league, paths)
+        if why:
+            dropped.append((it["title"], why))
+        else:
+            kept.append({k: v for k, v in it.items() if k != "categories"})
+    return kept, dropped
 
 
 def merge(items, keep=KEEP, per_source=PER_SOURCE):
@@ -300,7 +362,11 @@ def main():
             moved.append(src["name"])
             print("::warning::%s: declared feed failed (%s); found %s - put it in teams/%s.js"
                   % (src["name"], note, url, args.team))
-        print("  %s: %d items%s" % (src["name"], len(got), "" if not note else " (from " + url + ")"))
+        got, dropped = keep_football(got, league_of(config), src.get("paths"))
+        print("  %s: %d items%s%s" % (src["name"], len(got), "" if not note else " (from " + url + ")",
+                                      "; left out %d not the team's football" % len(dropped) if dropped else ""))
+        for t, why in dropped[:8]:
+            print("      - %s: %s" % (why, t[:90]))
         items += got
     if dead:
         print("::warning::no feed found for %s" % ", ".join(dead))

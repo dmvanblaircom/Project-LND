@@ -102,5 +102,60 @@ ok(sum(1 for i in mixed if i["source"] == "Quiet") == 5, "so a quieter outlet's 
 many = [dict(rss[0], title="s%d-%d" % (s, n), source="S%d" % s) for s in range(6) for n in range(20)]
 ok(len(bn.merge(many)) == bn.KEEP, "capped at %d overall" % bn.KEEP)
 
+print("only the team's football (David, 2026-10-20)")
+ND = "/teams/notre-dame-fighting-irish/"
+def story(title, link, cats=None):
+    return {"title": title, "link": link, "source": "S", "published": None, "categories": cats or []}
+# Real headlines and addresses from the October 20 snapshots.
+drop = [
+    story("Notre Dame WBB debuts at No. 13 in AP poll with a killer schedule to test that ranking",
+          "https://on3.com/teams/notre-dame-fighting-irish/news/notre-dame-wbb-debuts-no-13-ap-poll-with-a-killer-schedule/"),
+    story("Ava Watson: Ohio State women’s basketball 2026-27 player preview",
+          "https://www.landgrantholyland.com/ohio-state-womens-basketball/12345/ava-watson-preview"),
+    story("Ohio State basketball players reveal reasons behind the number they wear",
+          "https://on3.com/teams/ohio-state-buckeyes/news/ohio-state-basketball-players-numbers/"),
+    story("Irish open the season Friday", "https://a.example/irish-open-the-season", ["Hockey"]),
+]
+for it in drop:
+    ok(bn.off_topic(it, "college-football") is not None, "another sport is left out: " + it["title"][:60])
+keep = [
+    story("Block of the Week: Notre Dame vs. BYU", "https://on3.com/teams/notre-dame-fighting-irish/news/block-of-the-week-notre-dame-vs-byu/"),
+    story("Notre Dame slides back a bit in both the AP Top 25 and the Coaches Poll",
+          "https://www.onefootdown.com/notre-dame-fighting-irish-football/86123/notre-dame-slides-back"),
+    story("Four-star two-sport star picks Notre Dame football over basketball offers", "https://a.example/two-sport-commit"),
+    story("Irish open the season Friday", "https://a.example/basketball-and-football-weekend", ["Football", "Basketball"]),
+    story("Notre Dame's defense is diving into film after BYU", "https://a.example/defense-film"),
+    story("Irish back on track after the bye", "https://a.example/back-on-track"),
+]
+for it in keep:
+    ok(bn.off_topic(it, "college-football") is None, "football stays: " + it["title"][:60])
+national = [
+    story("Women's College Basketball Rankings: Preseason AP Poll Top 25 released", "https://on3.com/news/womens-college-basketball-rankings-preseason/"),
+    story("ESPN shakes up SP+ Top 25 Power Rankings after Week 7 college football slate", "https://on3.com/news/espn-shakes-up-sp-top-25/"),
+    story("College Football Rankings: Joel Klatt names Top-10 teams after Week 7", "https://on3.com/news/college-football-rankings-joel-klatt/"),
+    story("Intel: Shake-up among the favorites for elite ATH Kamieon Compton-Nero", "https://on3.com/rivals/news/intel-shake-up/"),
+]
+for it in national:
+    ok(bn.off_topic(it, "college-football", [ND]) is not None, "On3 national, outside the team's section, is left out: " + it["title"][:50])
+ok(bn.off_topic(keep[0], "college-football", [ND]) is None, "and the team's own On3 story stays")
+ok(bn.off_topic(keep[1], "college-football") is None and bn.off_topic(national[1], "college-football") is None,
+   "a source without paths is not held to any (only On3 declares them)")
+ok(bn.off_topic(drop[0], "some-other-league") is None, "a league without a sport list leaves the sport alone")
+kept, dropped = bn.keep_football(drop + keep, "college-football")
+ok(len(kept) == len(keep) and len(dropped) == len(drop) and all("categories" not in i for i in kept),
+   "keep_football splits them, and categories are not written to the file")
+import teamconfig  # noqa: E402
+for team in ("notre-dame", "ohio-state"):
+    conf = teamconfig.load(team)
+    lg = bn.league_of(conf)
+    ok(lg in bn.OTHER_SPORTS, "%s's league (%s) has a sport list, so the filter is on in the real run" % (team, lg))
+    on3 = [f for f in conf["sources"]["beatFeeds"] if "on3.com" in f["feed"]]
+    ok(len(on3) == 1 and on3[0].get("paths") == ["/teams/%s/" % on3[0]["feed"].split("/teams/")[1].split("/")[0]],
+       "%s's On3 feed keeps only its own team section" % team)
+CATS = RSS.replace(b"</pubDate></item>", b"</pubDate><category>Basketball</category><category><![CDATA[WBB]]></category></item>", 1)
+ok(bn.parse_feed(CATS, "Site A")[0]["categories"] == ["Basketball", "WBB"], "RSS categories are read")
+ACATS = ATOM.replace(b"<updated>", b'<category term="Hockey"/><updated>')
+ok(bn.parse_feed(ACATS, "Site B")[0]["categories"] == ["Hockey"], "Atom category terms too")
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "the producer reads feeds and finds moved ones"))
 sys.exit(1 if failures else 0)
