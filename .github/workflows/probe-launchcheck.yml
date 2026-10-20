@@ -33,6 +33,6 @@ jobs:
             if LAUNCH_DEBUG=1 node tools/launchcheck.js > run.txt 2>&1; then echo "exit 0" >> $out; else echo "exit $?" >> $out; fi
             grep -E "FAIL" run.txt >> $out
             # the new-version scenario's timeline: events and the cover's opacity, ms clock
-            awk '/a new version found on this open/{f=1} /the chooser/{f=0} f' run.txt | grep -E "L[EF]\|" | head -80 >> $out
+            awk '/a new version found on this open/{f=1} /the chooser/{f=0} f' run.txt | grep -E "LE\||LF\|[a-z0-9]+\|(1.00|0.97|0.00)" >> $out
           done
           git add tools/probe-out && git -c user.name=probe -c user.email=probe@users.noreply.github.com commit -m "Probe output" && git push

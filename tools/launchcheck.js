@@ -225,8 +225,23 @@ function fixture(url) {
     await page.addInitScript(function () {
       var doc = Math.random().toString(36).slice(2, 7), t0 = Date.now(), prev = "";
       if (navigator.serviceWorker) {
-        navigator.serviceWorker.addEventListener("controllerchange", function () { console.log("LE|" + doc + "|controllerchange"); });
-        navigator.serviceWorker.getRegistration().then(function (r) { if (r) r.addEventListener("updatefound", function () { console.log("LE|" + doc + "|updatefound"); }); });
+        var T = function () { return Math.round(performance.now()); };
+        navigator.serviceWorker.addEventListener("controllerchange", function () { console.log("LE|" + doc + "|controllerchange@" + T()); });
+        navigator.serviceWorker.getRegistration().then(function (r) { if (r) r.addEventListener("updatefound", function () {
+          console.log("LE|" + doc + "|updatefound@" + T());
+          var w = r.installing; if (w) w.addEventListener("statechange", function () { console.log("LE|" + doc + "|state:" + w.state + "@" + T()); });
+        }); });
+        var up = ServiceWorkerRegistration.prototype.update;
+        ServiceWorkerRegistration.prototype.update = function () {
+          var self = this; console.log("LE|" + doc + "|update-called@" + T());
+          var p = up.apply(this, arguments);
+          p.then(function () { console.log("LE|" + doc + "|update-resolved installing=" + !!self.installing + " waiting=" + !!self.waiting + "@" + T()); },
+                 function (e) { console.log("LE|" + doc + "|update-rejected " + e + "@" + T()); });
+          return p;
+        };
+        var reg0 = navigator.serviceWorker.register;
+        navigator.serviceWorker.register = function () { console.log("LE|" + doc + "|register@" + T()); return reg0.apply(this, arguments); };
+        var t0p = T(); console.log("LE|" + doc + "|doc-start@" + t0p);
       }
       (function f() {
         var l = document.getElementById("launch"), cs = l && getComputedStyle(l);
