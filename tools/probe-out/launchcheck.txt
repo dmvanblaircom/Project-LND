@@ -1,4 +1,4 @@
-runner: Ubuntu 24.04.5 LTS 4 cpus; date 2026-10-20T18:32:29Z
+runner: Ubuntu 24.04.5 LTS 4 cpus; date 2026-10-20T18:59:07Z
 test:visual exit 0
 offseasonpreviewcheck exit 0
 rosterflowcheck exit 0
@@ -12,125 +12,505 @@ togglecheck exit 0
 == files the earlier checks changed:
 ?? package-lock.json
 == processes still running:
-    888     663 python3
-   1225     662 python3
+    871     624 python3
+   1276     623 python3
 == launchcheck run 1
 exit 0
-a normal first open
-a late answer holds it
-a slow network
-app.js never runs
-an update's reload
-a reload uses the first document's actual saved clock
-a clock that moved back
-a new version found on this open
-the chooser
-
-the launch screen plays, waits for a complete screen, and never outstays it
-  ok   it plays its animation, then lifts (2680 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3982 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6047 ms)
-  ok   its own style lifts it (7072 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1521ms), not from the start
-  ok   a saved start in the future is ignored: it lifts on its own clock (2660 ms)
+    62727 LF|xi6u4|1.00
+    62915 LE|xi6u4|controllerchange
+    65365 LF|xi6u4|0.97
+    65382 LF|xi6u4|0.91
+    65399 LF|xi6u4|0.83
+    65415 LF|xi6u4|0.73
+    65432 LF|xi6u4|0.62
+    65449 LF|xi6u4|0.52
+    65465 LF|xi6u4|0.42
+    65482 LF|xi6u4|0.35
+    65499 LF|xi6u4|0.28
+    65515 LF|xi6u4|0.22
+    65532 LF|xi6u4|0.17
+    65549 LF|xi6u4|0.14
+    65565 LF|xi6u4|0.10
+    65582 LF|xi6u4|0.08
+    65599 LF|xi6u4|0.05
+    65615 LF|xi6u4|0.04
+    65632 LF|xi6u4|0.02
+    65649 LF|xi6u4|0.01
+    65682 LF|xi6u4|0.00
+    65874 LF|6j98s|1.00
+    65927 LE|6j98s|updatefound
+    66044 LE|6j98s|controllerchange
+    67067 LF|3hw7g|1.00
+    68515 LF|3hw7g|0.97
+    68532 LF|3hw7g|0.91
+    68549 LF|3hw7g|0.83
+    68565 LF|3hw7g|0.73
+    68582 LF|3hw7g|0.62
+    68598 LF|3hw7g|0.52
+    68615 LF|3hw7g|0.42
+    68632 LF|3hw7g|0.35
+    68648 LF|3hw7g|0.28
+    68665 LF|3hw7g|0.22
+    68682 LF|3hw7g|0.17
+    68698 LF|3hw7g|0.14
+    68715 LF|3hw7g|0.10
+    68732 LF|3hw7g|0.08
+    68748 LF|3hw7g|0.05
+    68765 LF|3hw7g|0.04
+    68782 LF|3hw7g|0.02
+    68798 LF|3hw7g|0.01
+    68832 LF|3hw7g|0.00
+    69970 LF|9fdmf|1.00
+    70168 LE|9fdmf|controllerchange
+    72615 LF|9fdmf|0.97
+    72632 LF|9fdmf|0.91
+    72648 LF|9fdmf|0.83
+    72665 LF|9fdmf|0.73
+    72682 LF|9fdmf|0.62
+    72698 LF|9fdmf|0.52
+    72715 LF|9fdmf|0.42
+    72732 LF|9fdmf|0.35
+    72748 LF|9fdmf|0.28
+    72765 LF|9fdmf|0.22
+    72782 LF|9fdmf|0.18
+    72798 LF|9fdmf|0.14
+    72815 LF|9fdmf|0.10
+    72832 LF|9fdmf|0.08
+    72848 LF|9fdmf|0.05
+    72865 LF|9fdmf|0.04
+    72882 LF|9fdmf|0.02
+    72898 LF|9fdmf|0.01
+    72932 LF|9fdmf|0.00
+    73117 LF|dgjkc|1.00
+    73178 LE|dgjkc|updatefound
+    83165 LF|dgjkc|0.97
+    83181 LF|dgjkc|0.91
+    83198 LF|dgjkc|0.83
+    83215 LF|dgjkc|0.73
+    83231 LF|dgjkc|0.62
+    83248 LF|dgjkc|0.52
+    83265 LF|dgjkc|0.42
+    83281 LF|dgjkc|0.35
+    83298 LF|dgjkc|0.28
+    83314 LF|dgjkc|0.22
+    83331 LF|dgjkc|0.17
+    83348 LF|dgjkc|0.14
+    83365 LF|dgjkc|0.10
 == launchcheck run 2
 exit 1
-a normal first open
-a late answer holds it
-a slow network
-app.js never runs
-an update's reload
-a reload uses the first document's actual saved clock
-a clock that moved back
-a new version found on this open
-  FAIL the launch holds over the page until that reload: it never starts to lift (1.00,0.97,0.91,0.83,0.73,0.62,0.52,0.42,0.35,0.28,0.22,0.17,0.14,0.10,0.08,0.05,0.04,0.02,0.01,0.00)
-  FAIL the reloaded page carries the same launch on and lifts it once
-the chooser
-
-2 check(s) FAILED
-  ok   it plays its animation, then lifts (2664 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3973 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6076 ms)
-  ok   its own style lifts it (7086 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1521ms), not from the start
-  ok   a saved start in the future is ignored: it lifts on its own clock (2667 ms)
+  FAIL a slow update check holds the launch too: no lift before the reload (2 documents; 1.00,0.97,0.91,0.83,0.73,0.62,0.52,0.42,0.35,0.28,0.22,0.18,0.14,0.10,0.08,0.05,0.04,0.02,0.01,0.00)
+1 check(s) FAILED
+    36582 LF|j81ed|1.00
+    36760 LE|j81ed|controllerchange
+    42596 LF|j81ed|0.97
+    42612 LF|j81ed|0.91
+    42628 LF|j81ed|0.83
+    42645 LF|j81ed|0.73
+    42662 LF|j81ed|0.62
+    42678 LF|j81ed|0.52
+    42696 LF|j81ed|0.42
+    42712 LF|j81ed|0.35
+    42729 LF|j81ed|0.28
+    42745 LF|j81ed|0.22
+    42762 LF|j81ed|0.18
+    42779 LF|j81ed|0.14
+    42795 LF|j81ed|0.10
+    42812 LF|j81ed|0.08
+    42828 LF|j81ed|0.05
+    42845 LF|j81ed|0.04
+    42862 LF|j81ed|0.02
+    42879 LF|j81ed|0.01
+    42912 LF|j81ed|0.00
+    43099 LF|itr9m|1.00
+    43164 LE|itr9m|updatefound
+    43861 LE|itr9m|controllerchange
+    44885 LF|f6fbc|1.00
+    45745 LF|f6fbc|0.97
+    45762 LF|f6fbc|0.91
+    45778 LF|f6fbc|0.83
+    45795 LF|f6fbc|0.73
+    45812 LF|f6fbc|0.62
+    45829 LF|f6fbc|0.52
+    45845 LF|f6fbc|0.42
+    45862 LF|f6fbc|0.35
+    45878 LF|f6fbc|0.28
+    45895 LF|f6fbc|0.22
+    45912 LF|f6fbc|0.17
+    45929 LF|f6fbc|0.14
+    45945 LF|f6fbc|0.10
+    45962 LF|f6fbc|0.08
+    45979 LF|f6fbc|0.05
+    45995 LF|f6fbc|0.04
+    46012 LF|f6fbc|0.02
+    46029 LF|f6fbc|0.01
+    46062 LF|f6fbc|0.00
+    47247 LF|xcxk7|1.00
+    47436 LE|xcxk7|controllerchange
+    53279 LF|xcxk7|0.97
+    53295 LF|xcxk7|0.91
+    53311 LF|xcxk7|0.83
+    53328 LF|xcxk7|0.73
+    53345 LF|xcxk7|0.62
+    53362 LF|xcxk7|0.52
+    53378 LF|xcxk7|0.42
+    53395 LF|xcxk7|0.35
+    53411 LF|xcxk7|0.28
+    53428 LF|xcxk7|0.22
+    53445 LF|xcxk7|0.18
+    53461 LF|xcxk7|0.14
+    53478 LF|xcxk7|0.10
+    53495 LF|xcxk7|0.08
+    53511 LF|xcxk7|0.05
+    53528 LF|xcxk7|0.04
+    53545 LF|xcxk7|0.02
+    53561 LF|xcxk7|0.01
+    53595 LF|xcxk7|0.00
+    53786 LF|zfw1u|1.00
+    53841 LE|zfw1u|updatefound
+    63811 LF|zfw1u|0.97
+    63827 LF|zfw1u|0.91
+    63844 LF|zfw1u|0.83
+    63861 LF|zfw1u|0.73
+    63877 LF|zfw1u|0.62
+    63894 LF|zfw1u|0.52
+    63911 LF|zfw1u|0.42
+    63927 LF|zfw1u|0.35
+    63944 LF|zfw1u|0.28
+    63961 LF|zfw1u|0.22
+    63978 LF|zfw1u|0.17
+    63994 LF|zfw1u|0.14
+    64011 LF|zfw1u|0.10
 == launchcheck run 3
 exit 1
-a normal first open
-a late answer holds it
-a slow network
-app.js never runs
-an update's reload
-a reload uses the first document's actual saved clock
-a clock that moved back
-a new version found on this open
   FAIL the launch holds over the page until that reload: it never starts to lift (1.00,0.97,0.91,0.83,0.73,0.62,0.52,0.42,0.35,0.28,0.22,0.17,0.14,0.10,0.08,0.05,0.04,0.02,0.01,0.00)
   FAIL the reloaded page carries the same launch on and lifts it once
-the chooser
-
 2 check(s) FAILED
-  ok   it plays its animation, then lifts (2675 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (4225 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6082 ms)
-  ok   its own style lifts it (7077 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1522ms), not from the start
-  ok   a saved start in the future is ignored: it lifts on its own clock (2644 ms)
+    39181 LF|7lv78|1.00
+    39376 LE|7lv78|controllerchange
+    45208 LF|7lv78|0.97
+    45224 LF|7lv78|0.91
+    45241 LF|7lv78|0.83
+    45258 LF|7lv78|0.73
+    45274 LF|7lv78|0.62
+    45291 LF|7lv78|0.52
+    45308 LF|7lv78|0.42
+    45324 LF|7lv78|0.35
+    45341 LF|7lv78|0.28
+    45358 LF|7lv78|0.22
+    45374 LF|7lv78|0.17
+    45391 LF|7lv78|0.14
+    45408 LF|7lv78|0.10
+    45424 LF|7lv78|0.08
+    45441 LF|7lv78|0.05
+    45458 LF|7lv78|0.04
+    45474 LF|7lv78|0.02
+    45491 LF|7lv78|0.01
+    45524 LF|7lv78|0.00
+    45711 LF|36ntz|1.00
+    45757 LE|36ntz|updatefound
+    55741 LF|36ntz|0.97
+    55757 LF|36ntz|0.91
+    55774 LF|36ntz|0.83
+    55790 LF|36ntz|0.73
+    55807 LF|36ntz|0.62
+    55824 LF|36ntz|0.52
+    55841 LF|36ntz|0.42
+    55857 LF|36ntz|0.35
+    55874 LF|36ntz|0.28
+    55891 LF|36ntz|0.22
+    55907 LF|36ntz|0.17
+    55924 LF|36ntz|0.14
+    55940 LF|36ntz|0.10
+    55957 LF|36ntz|0.08
+    55974 LF|36ntz|0.05
+    55991 LF|36ntz|0.04
+    56007 LF|36ntz|0.02
+    56024 LF|36ntz|0.01
+    56057 LF|36ntz|0.00
+    75852 LE|36ntz|controllerchange
+    76876 LF|f0mou|0.00
+    77816 LF|mtn8j|1.00
+    78007 LE|mtn8j|controllerchange
+    80457 LF|mtn8j|0.97
+    80473 LF|mtn8j|0.91
+    80489 LF|mtn8j|0.83
+    80506 LF|mtn8j|0.73
+    80523 LF|mtn8j|0.62
+    80540 LF|mtn8j|0.52
+    80556 LF|mtn8j|0.42
+    80573 LF|mtn8j|0.35
+    80590 LF|mtn8j|0.28
+    80606 LF|mtn8j|0.22
+    80623 LF|mtn8j|0.17
+    80640 LF|mtn8j|0.14
+    80656 LF|mtn8j|0.10
+    80673 LF|mtn8j|0.08
+    80690 LF|mtn8j|0.05
+    80706 LF|mtn8j|0.04
+    80723 LF|mtn8j|0.02
+    80740 LF|mtn8j|0.01
+    80773 LF|mtn8j|0.00
+    80959 LF|v2o0v|1.00
+    81002 LE|v2o0v|updatefound
+    90973 LF|v2o0v|0.97
+    90989 LF|v2o0v|0.91
+    91006 LF|v2o0v|0.83
+    91022 LF|v2o0v|0.73
+    91039 LF|v2o0v|0.62
+    91056 LF|v2o0v|0.52
+    91072 LF|v2o0v|0.42
+    91089 LF|v2o0v|0.35
+    91106 LF|v2o0v|0.28
+    91122 LF|v2o0v|0.22
+    91139 LF|v2o0v|0.17
+    91156 LF|v2o0v|0.14
+    91172 LF|v2o0v|0.10
 == launchcheck run 4
 exit 1
-a normal first open
-a late answer holds it
-a slow network
-app.js never runs
-an update's reload
-a reload uses the first document's actual saved clock
-a clock that moved back
-a new version found on this open
   FAIL the launch holds over the page until that reload: it never starts to lift (1.00,0.97,0.91,0.83,0.73,0.62,0.52,0.42,0.35,0.28,0.22,0.17,0.14,0.10,0.08,0.05,0.04,0.02,0.01,0.00)
   FAIL the reloaded page carries the same launch on and lifts it once
-the chooser
-
 2 check(s) FAILED
-  ok   it plays its animation, then lifts (2681 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3982 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6092 ms)
-  ok   its own style lifts it (7072 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1521ms), not from the start
-  ok   a saved start in the future is ignored: it lifts on its own clock (2689 ms)
+    40912 LF|rm056|1.00
+    41091 LE|rm056|controllerchange
+    46938 LF|rm056|0.97
+    46954 LF|rm056|0.91
+    46970 LF|rm056|0.83
+    46987 LF|rm056|0.73
+    47004 LF|rm056|0.62
+    47020 LF|rm056|0.52
+    47037 LF|rm056|0.42
+    47054 LF|rm056|0.35
+    47070 LF|rm056|0.28
+    47087 LF|rm056|0.22
+    47104 LF|rm056|0.17
+    47120 LF|rm056|0.14
+    47137 LF|rm056|0.10
+    47153 LF|rm056|0.08
+    47170 LF|rm056|0.05
+    47187 LF|rm056|0.04
+    47204 LF|rm056|0.02
+    47220 LF|rm056|0.01
+    47254 LF|rm056|0.00
+    47449 LF|gbgpy|1.00
+    47515 LE|gbgpy|updatefound
+    57487 LF|gbgpy|0.97
+    57503 LF|gbgpy|0.91
+    57520 LF|gbgpy|0.83
+    57536 LF|gbgpy|0.73
+    57553 LF|gbgpy|0.62
+    57570 LF|gbgpy|0.52
+    57586 LF|gbgpy|0.42
+    57603 LF|gbgpy|0.35
+    57620 LF|gbgpy|0.28
+    57636 LF|gbgpy|0.22
+    57653 LF|gbgpy|0.17
+    57670 LF|gbgpy|0.14
+    57686 LF|gbgpy|0.10
+    57703 LF|gbgpy|0.08
+    57720 LF|gbgpy|0.05
+    57737 LF|gbgpy|0.04
+    57753 LF|gbgpy|0.02
+    57770 LF|gbgpy|0.01
+    57803 LF|gbgpy|0.00
+    77581 LE|gbgpy|controllerchange
+    78638 LF|jjvwx|0.00
+    79586 LF|yq8qv|1.00
+    79774 LE|yq8qv|controllerchange
+    85619 LF|yq8qv|0.97
+    85635 LF|yq8qv|0.91
+    85652 LF|yq8qv|0.83
+    85669 LF|yq8qv|0.73
+    85685 LF|yq8qv|0.62
+    85702 LF|yq8qv|0.52
+    85719 LF|yq8qv|0.42
+    85735 LF|yq8qv|0.35
+    85752 LF|yq8qv|0.28
+    85769 LF|yq8qv|0.22
+    85785 LF|yq8qv|0.17
+    85802 LF|yq8qv|0.14
+    85819 LF|yq8qv|0.10
+    85835 LF|yq8qv|0.08
+    85852 LF|yq8qv|0.05
+    85869 LF|yq8qv|0.04
+    85885 LF|yq8qv|0.02
+    85902 LF|yq8qv|0.01
+    85935 LF|yq8qv|0.00
+    86123 LF|levfm|1.00
+    86181 LE|levfm|updatefound
+    96152 LF|levfm|0.97
+    96168 LF|levfm|0.91
+    96185 LF|levfm|0.83
+    96202 LF|levfm|0.73
+    96218 LF|levfm|0.62
+    96235 LF|levfm|0.52
+    96252 LF|levfm|0.42
+    96268 LF|levfm|0.35
+    96285 LF|levfm|0.28
+    96302 LF|levfm|0.22
+    96318 LF|levfm|0.17
+    96335 LF|levfm|0.14
+    96352 LF|levfm|0.10
 == launchcheck run 5
 exit 0
-a normal first open
-a late answer holds it
-a slow network
-app.js never runs
-an update's reload
-a reload uses the first document's actual saved clock
-a clock that moved back
-a new version found on this open
-the chooser
-
-the launch screen plays, waits for a complete screen, and never outstays it
-  ok   it plays its animation, then lifts (2704 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3977 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6071 ms)
-  ok   its own style lifts it (7072 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1521ms), not from the start
-  ok   a saved start in the future is ignored: it lifts on its own clock (2677 ms)
+    48779 LF|oim4t|1.00
+    48947 LE|oim4t|controllerchange
+    54800 LF|oim4t|0.97
+    54816 LF|oim4t|0.91
+    54833 LF|oim4t|0.83
+    54849 LF|oim4t|0.73
+    54866 LF|oim4t|0.62
+    54883 LF|oim4t|0.52
+    54899 LF|oim4t|0.42
+    54916 LF|oim4t|0.35
+    54933 LF|oim4t|0.28
+    54949 LF|oim4t|0.22
+    54966 LF|oim4t|0.18
+    54983 LF|oim4t|0.14
+    55000 LF|oim4t|0.10
+    55016 LF|oim4t|0.08
+    55033 LF|oim4t|0.05
+    55050 LF|oim4t|0.04
+    55066 LF|oim4t|0.02
+    55083 LF|oim4t|0.01
+    55116 LF|oim4t|0.00
+    55304 LF|48cxb|1.00
+    55358 LE|48cxb|updatefound
+    56049 LE|48cxb|controllerchange
+    57070 LF|z24hz|1.00
+    57933 LF|z24hz|0.97
+    57949 LF|z24hz|0.91
+    57966 LF|z24hz|0.83
+    57983 LF|z24hz|0.73
+    57999 LF|z24hz|0.62
+    58016 LF|z24hz|0.52
+    58033 LF|z24hz|0.42
+    58049 LF|z24hz|0.35
+    58066 LF|z24hz|0.28
+    58082 LF|z24hz|0.22
+    58099 LF|z24hz|0.17
+    58116 LF|z24hz|0.14
+    58132 LF|z24hz|0.10
+    58149 LF|z24hz|0.08
+    58166 LF|z24hz|0.05
+    58182 LF|z24hz|0.04
+    58199 LF|z24hz|0.02
+    58216 LF|z24hz|0.01
+    58249 LF|z24hz|0.00
+    59438 LF|yoeji|1.00
+    59614 LE|yoeji|controllerchange
+    65466 LF|yoeji|0.97
+    65482 LF|yoeji|0.91
+    65499 LF|yoeji|0.83
+    65515 LF|yoeji|0.73
+    65532 LF|yoeji|0.62
+    65549 LF|yoeji|0.52
+    65565 LF|yoeji|0.42
+    65582 LF|yoeji|0.35
+    65599 LF|yoeji|0.28
+    65615 LF|yoeji|0.22
+    65632 LF|yoeji|0.18
+    65649 LF|yoeji|0.14
+    65665 LF|yoeji|0.10
+    65682 LF|yoeji|0.08
+    65699 LF|yoeji|0.05
+    65715 LF|yoeji|0.04
+    65732 LF|yoeji|0.02
+    65749 LF|yoeji|0.01
+    65782 LF|yoeji|0.00
+    65972 LF|eiufc|1.00
+    66022 LE|eiufc|updatefound
+    75999 LF|eiufc|0.97
+    76015 LF|eiufc|0.91
+    76032 LF|eiufc|0.83
+    76048 LF|eiufc|0.73
+    76065 LF|eiufc|0.62
+    76082 LF|eiufc|0.52
+    76098 LF|eiufc|0.42
+    76115 LF|eiufc|0.35
+    76132 LF|eiufc|0.28
+    76148 LF|eiufc|0.22
+    76165 LF|eiufc|0.17
+    76182 LF|eiufc|0.14
+    76198 LF|eiufc|0.10
 == launchcheck run 6
 exit 0
-a normal first open
-a late answer holds it
-a slow network
-app.js never runs
-an update's reload
-a reload uses the first document's actual saved clock
-a clock that moved back
-a new version found on this open
-the chooser
-
-the launch screen plays, waits for a complete screen, and never outstays it
-  ok   it plays its animation, then lifts (2692 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3984 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6085 ms)
-  ok   its own style lifts it (7068 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1521ms), not from the start
-  ok   a saved start in the future is ignored: it lifts on its own clock (2665 ms)
+    33895 LF|c68s7|1.00
+    34105 LE|c68s7|controllerchange
+    39930 LF|c68s7|0.97
+    39946 LF|c68s7|0.91
+    39962 LF|c68s7|0.83
+    39979 LF|c68s7|0.73
+    39996 LF|c68s7|0.62
+    40012 LF|c68s7|0.52
+    40029 LF|c68s7|0.42
+    40046 LF|c68s7|0.35
+    40062 LF|c68s7|0.28
+    40079 LF|c68s7|0.22
+    40096 LF|c68s7|0.18
+    40112 LF|c68s7|0.14
+    40129 LF|c68s7|0.10
+    40146 LF|c68s7|0.08
+    40162 LF|c68s7|0.05
+    40179 LF|c68s7|0.04
+    40196 LF|c68s7|0.02
+    40212 LF|c68s7|0.01
+    40246 LF|c68s7|0.00
+    40431 LF|4hwjy|1.00
+    40479 LE|4hwjy|updatefound
+    41177 LE|4hwjy|controllerchange
+    42198 LF|y2cmu|1.00
+    43046 LF|y2cmu|0.97
+    43063 LF|y2cmu|0.91
+    43079 LF|y2cmu|0.83
+    43096 LF|y2cmu|0.73
+    43112 LF|y2cmu|0.62
+    43129 LF|y2cmu|0.52
+    43146 LF|y2cmu|0.42
+    43162 LF|y2cmu|0.35
+    43179 LF|y2cmu|0.28
+    43196 LF|y2cmu|0.22
+    43212 LF|y2cmu|0.17
+    43229 LF|y2cmu|0.14
+    43246 LF|y2cmu|0.10
+    43262 LF|y2cmu|0.08
+    43279 LF|y2cmu|0.05
+    43296 LF|y2cmu|0.04
+    43312 LF|y2cmu|0.02
+    43329 LF|y2cmu|0.01
+    43362 LF|y2cmu|0.00
+    44535 LF|wobpu|1.00
+    44734 LE|wobpu|controllerchange
+    50579 LF|wobpu|0.97
+    50595 LF|wobpu|0.91
+    50612 LF|wobpu|0.83
+    50629 LF|wobpu|0.73
+    50645 LF|wobpu|0.62
+    50662 LF|wobpu|0.52
+    50679 LF|wobpu|0.42
+    50695 LF|wobpu|0.35
+    50712 LF|wobpu|0.28
+    50729 LF|wobpu|0.22
+    50745 LF|wobpu|0.17
+    50762 LF|wobpu|0.14
+    50779 LF|wobpu|0.10
+    50795 LF|wobpu|0.08
+    50812 LF|wobpu|0.05
+    50829 LF|wobpu|0.04
+    50845 LF|wobpu|0.02
+    50862 LF|wobpu|0.01
+    50895 LF|wobpu|0.00
+    51084 LF|ijox9|1.00
+    51135 LE|ijox9|updatefound
+    61112 LF|ijox9|0.97
+    61128 LF|ijox9|0.91
+    61145 LF|ijox9|0.83
+    61162 LF|ijox9|0.73
+    61178 LF|ijox9|0.62
+    61195 LF|ijox9|0.52
+    61212 LF|ijox9|0.42
+    61228 LF|ijox9|0.35
+    61245 LF|ijox9|0.28
+    61262 LF|ijox9|0.22
+    61278 LF|ijox9|0.17
+    61295 LF|ijox9|0.14
+    61312 LF|ijox9|0.10
