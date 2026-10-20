@@ -1,17 +1,8 @@
-core week 11: 6 polls: ['21', '1', '2', '20', '11', '12']
-   CFP: keys=['$ref', 'availability', 'date', 'droppedOut', 'headline', 'id', 'lastUpdated', 'name', 'occurrence', 'others', 'ranks', 'season', 'shortHeadline', 'shortName', 'type'] name=Playoff Committee Rankings type=cfp occ={"number": 11, "type": "week", "last": false, "value": "11", "displayValue": "Week 11"} date=2025-11-04T08:00Z lastUpdated=2025-11-05T04:16Z ranks=25
-   first: {"current": 1, "previous": 0, "points": 0.0, "firstPlaceVotes": 0, "trend": "+25", "record": {"summary": "8-0", "stats": [{"name": "wins", "displayName": "Wins", "shortDisplayName": "W", "description": "Wins", "abbreviation": "W", "type": "wins", "value": 8.0, "displayValue": "8"}, {"name": "losses", "displayName": "Losses", "shortDisplayName": "L", "description": "Losses", "abbreviation": "L", "t
-core week 12: 6 polls: ['21', '1', '2', '20', '11', '12']
-   CFP: keys=['$ref', 'availability', 'date', 'droppedOut', 'headline', 'id', 'lastUpdated', 'name', 'occurrence', 'others', 'ranks', 'season', 'shortHeadline', 'shortName', 'type'] name=Playoff Committee Rankings type=cfp occ={"number": 12, "type": "week", "last": false, "value": "12", "displayValue": "Week 12"} date=2025-11-11T08:00Z lastUpdated=2025-11-12T03:14Z ranks=25
-   first: {"current": 1, "previous": 1, "points": 0.0, "firstPlaceVotes": 0, "trend": "-", "record": {"summary": "9-0", "stats": [{"name": "wins", "displayName": "Wins", "shortDisplayName": "W", "description": "Wins", "abbreviation": "W", "type": "wins", "value": 9.0, "displayValue": "9"}, {"name": "losses", "displayName": "Losses", "shortDisplayName": "L", "description": "Losses", "abbreviation": "L", "typ
-core week 15: 3 polls: ['21', '1', '2']
-   CFP: keys=['$ref', 'availability', 'date', 'droppedOut', 'headline', 'id', 'lastUpdated', 'name', 'occurrence', 'others', 'ranks', 'season', 'shortHeadline', 'shortName', 'type'] name=Playoff Committee Rankings type=cfp occ={"number": 15, "type": "week", "last": false, "value": "15", "displayValue": "Week 15"} date=2025-12-02T08:00Z lastUpdated=2025-12-03T03:11Z ranks=25
-   first: {"current": 1, "previous": 1, "points": 0.0, "firstPlaceVotes": 0, "trend": "-", "record": {"summary": "12-0", "stats": [{"name": "wins", "displayName": "Wins", "shortDisplayName": "W", "description": "Wins", "abbreviation": "W", "type": "wins", "value": 12.0, "displayValue": "12"}, {"name": "losses", "displayName": "Losses", "shortDisplayName": "L", "description": "Losses", "abbreviation": "L", "
-wayback 20251105: ('20260114120207', '200')
-wayback 20251105 failed: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
-wayback 20251112: ('20260114120207', '200')
-wayback 20251112 failed: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
-wayback 20251119: ('20260114120207', '200')
-wayback 20251119 failed: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
-wayback 20251203: ('20260114120207', '200')
-wayback 20251203 failed: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+wayback 20260114: ('20260114120207', '200')
+   cfp/CFP Rankings ranks=25 occ=Week 16 date=2025-12-07T08:00Z lastUpdated=2025-12-07T21:14Z
+   tournament/CFP Seedings ranks=12 occ=Week 16 date=2025-12-07T08:00Z lastUpdated=2026-01-09T07:31Z
+   ap/AP Poll ranks=25 occ=Week 16 date=2025-12-07T08:00Z lastUpdated=2025-12-07T19:07Z
+   usa/AFCA Coaches Poll ranks=25 occ=Week 16 date=2025-12-07T08:00Z lastUpdated=2025-12-07T19:58Z
+   CFP keys: ['$ref', 'availability', 'date', 'droppedOut', 'firstOccurrence', 'headline', 'id', 'lastUpdated', 'name', 'occurrence', 'others', 'ranks', 'season', 'shortHeadline', 'shortName', 'showConferences', 'showSeeds', 'type']
+   occurrence: {"number": 16, "type": "week", "last": false, "value": "16", "displayValue": "Week 16"}
+   first: {"current": 1, "previous": 2, "points": 0.0, "firstPlaceVotes": 0, "trend": "+1", "team": {"id": "84", "uid": "s:20~l:23~t:84", "location": "Indiana", "name": "Hoosiers", "nickname": "Indiana", "abbreviation": "IU", "color": "970310", "logos": [{"href": "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png", "width": 500, "height": 500, "alt": "", "rel": ["full", "default"], "lastUpdated": "2025-12-2
