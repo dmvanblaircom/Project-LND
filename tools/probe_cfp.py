@@ -1,28 +1,44 @@
 #!/usr/bin/env python3
-"""Which ESPN rankings URL returns a filled CFP poll for a past week, and
-what it looks like (for the CFP-rankings alert, postseason slice 1)."""
+"""Last season's CFP rankings, as real payloads: ESPN's core API (past weeks)
+and archived copies of the site API feed the app and Worker read."""
 import json, urllib.request
-API = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings"
 UA = {"user-agent": "Mozilla/5.0"}
-best = None
-for q in ["?season=2025&week=11", "?season=2025&week=14", "?seasons=2025&weeks=11",
-          "?dates=2025&week=11", "?season=2025&seasontype=2&week=11", "?season=2025&week=15&seasontype=2", ""]:
+def get(u):
+    return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30))
+SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings"
+CORE = "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/weeks/%d/rankings"
+for wk in (11, 12, 15):
     try:
-        d = json.load(urllib.request.urlopen(urllib.request.Request(API + q, headers=UA), timeout=20))
+        lst = get(CORE % wk)
+        refs = [i.get("$ref") for i in lst.get("items", [])]
+        print("core week %d: %d polls: %s" % (wk, len(refs), [r.split("/rankings/")[1].split("?")[0] for r in refs]))
+        for r in refs:
+            p = get(r)
+            if "playoff" in (p.get("name", "") + p.get("shortName", "")).lower() or p.get("type") == "cfp":
+                print("   CFP: keys=%s name=%s type=%s occ=%s date=%s lastUpdated=%s ranks=%d" % (sorted(p.keys()), p.get("name"), p.get("type"),
+                      json.dumps(p.get("occurrence"))[:200], p.get("date"), p.get("lastUpdated"), len(p.get("ranks") or [])))
+                print("   first: %s" % json.dumps((p.get("ranks") or [{}])[0])[:400])
+                if wk == 11: json.dump(p, open("tools/fixtures/espn-core-cfp-2025-w11.json", "w"), indent=1)
     except Exception as e:
-        print("%-40s failed: %s" % (q or "(current)", e)); continue
-    rows = []
-    for r in d.get("rankings", []):
-        rows.append("%s/%s ranks=%d occ=%s date=%s lastUpdated=%s" % (r.get("type"), r.get("shortName"), len(r.get("ranks") or []),
-                    (r.get("occurrence") or {}).get("displayValue"), r.get("date"), r.get("lastUpdated")))
-    print("%-40s %s" % (q or "(current)", "; ".join(rows)))
-    for r in d.get("rankings", []):
-        if r.get("type") == "cfp" and r.get("ranks") and q:
-            if not best:
-                best = (q, d)
-                print("   CFP keys: %s; first rank: %s" % (sorted(r.keys()), json.dumps(r["ranks"][0])[:400]))
-                print("   occurrence: %s" % json.dumps(r.get("occurrence"))[:300])
-                print("   top level keys: %s" % sorted(d.keys()))
-if best:
-    json.dump(best[1], open("tools/fixtures/espn-rankings-cfp-2025.json", "w"), indent=1)
-    print("saved tools/fixtures/espn-rankings-cfp-2025.json from", best[0])
+        print("core week %d failed: %s" % (wk, e))
+saved = False
+for ts in ("20251105", "20251112", "20251119", "20251203"):
+    try:
+        a = get("https://archive.org/wayback/available?url=%s&timestamp=%s" % (SITE.replace("https://", ""), ts))
+        snap = (a.get("archived_snapshots") or {}).get("closest")
+        print("wayback %s: %s" % (ts, snap and (snap.get("timestamp"), snap.get("status"))))
+        if snap and snap.get("available"):
+            raw = snap["url"].replace("/http", "id_/http", 1)
+            d = get(raw)
+            for r in d.get("rankings", []):
+                print("   %s/%s ranks=%d occ=%s date=%s lastUpdated=%s" % (r.get("type"), r.get("shortName"), len(r.get("ranks") or []),
+                      (r.get("occurrence") or {}).get("displayValue"), r.get("date"), r.get("lastUpdated")))
+            cfp = [r for r in d.get("rankings", []) if r.get("type") == "cfp" and r.get("ranks")]
+            if cfp and not saved:
+                print("   CFP keys: %s" % sorted(cfp[0].keys()))
+                print("   occurrence: %s" % json.dumps(cfp[0].get("occurrence"))[:300])
+                print("   first: %s" % json.dumps(cfp[0]["ranks"][0])[:400])
+                json.dump(d, open("tools/fixtures/espn-rankings-cfp-%s.json" % snap["timestamp"][:8], "w"), indent=1)
+                saved = True
+    except Exception as e:
+        print("wayback %s failed: %s" % (ts, e))
