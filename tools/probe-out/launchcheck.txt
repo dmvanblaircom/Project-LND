@@ -1,62 +1,75 @@
-runner: Ubuntu 24.04.5 LTS 4 cpus
-Version 1.55.0
-== run 1
+runner: Ubuntu 24.04.5 LTS 4 cpus; date 2026-10-20T18:11:47Z
+test:visual exit 0
+offseasonpreviewcheck exit 0
+rosterflowcheck exit 0
+ratingsflowcheck exit 0
+flickercheck exit 0
+homegamecheck exit 0
+mobilefitcheck exit 0
+statslayoutcheck exit 0
+focuscheck exit 0
+togglecheck exit 0
+== files the earlier checks changed:
+?? package-lock.json
+== processes still running:
+    835     578 python3
+   1191     577 python3
+== launchcheck run 1
 exit 0
-  ok   it plays its animation, then lifts (2709 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3981 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6072 ms)
-  ok   its own style lifts it (7098 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1529ms), not from the start
+a normal first open
+a late answer holds it
+a slow network
+app.js never runs
+an update's reload
+a reload uses the first document's actual saved clock
 a clock that moved back
-  ok   a saved start in the future is ignored: it lifts on its own clock (2687 ms)
-  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
-== run 2
+a new version found on this open
+the chooser
+
+the launch screen plays, waits for a complete screen, and never outstays it
+  ok   it plays its animation, then lifts (2686 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (3978 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6074 ms)
+  ok   its own style lifts it (7058 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1519ms), not from the start
+  ok   a saved start in the future is ignored: it lifts on its own clock (2661 ms)
+== launchcheck run 2
 exit 0
-  ok   it plays its animation, then lifts (2723 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (4009 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6064 ms)
-  ok   its own style lifts it (7073 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1527ms), not from the start
+a normal first open
+a late answer holds it
+a slow network
+app.js never runs
+an update's reload
+a reload uses the first document's actual saved clock
 a clock that moved back
-  ok   a saved start in the future is ignored: it lifts on its own clock (2700 ms)
-  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
-== run 3
-exit 0
-  ok   it plays its animation, then lifts (2710 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3961 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6068 ms)
-  ok   its own style lifts it (7089 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1527ms), not from the start
+a new version found on this open
+the chooser
+
+the launch screen plays, waits for a complete screen, and never outstays it
+  ok   it plays its animation, then lifts (2658 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (3967 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6063 ms)
+  ok   its own style lifts it (7051 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1519ms), not from the start
+  ok   a saved start in the future is ignored: it lifts on its own clock (2652 ms)
+== launchcheck run 3
+exit 1
+a normal first open
+a late answer holds it
+a slow network
+app.js never runs
+an update's reload
+a reload uses the first document's actual saved clock
 a clock that moved back
-  ok   a saved start in the future is ignored: it lifts on its own clock (2694 ms)
-  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
-== run 4
-exit 0
-  ok   it plays its animation, then lifts (2723 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3994 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6058 ms)
-  ok   its own style lifts it (7079 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1526ms), not from the start
-a clock that moved back
-  ok   a saved start in the future is ignored: it lifts on its own clock (2687 ms)
-  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
-== run 5
-exit 0
-  ok   it plays its animation, then lifts (2734 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (4003 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6067 ms)
-  ok   its own style lifts it (7069 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1528ms), not from the start
-a clock that moved back
-  ok   a saved start in the future is ignored: it lifts on its own clock (2709 ms)
-  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
-== run 6
-exit 0
-  ok   it plays its animation, then lifts (2735 ms)
-  ok   news after 3.5s: it waits, and lifts with the stories there (3975 ms)
-  ok   never more than 6 seconds, whatever is still on its way (6053 ms)
-  ok   its own style lifts it (7090 ms): it can never trap a fan
-  ok   carries the animation on from where it was (-1527ms), not from the start
-a clock that moved back
-  ok   a saved start in the future is ignored: it lifts on its own clock (2665 ms)
-  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
+a new version found on this open
+  FAIL the launch holds over the page until that reload: it never starts to lift (1.00,0.97,0.91,0.83,0.73,0.62,0.52,0.42,0.35,0.28,0.22,0.18,0.14,0.10,0.08,0.05,0.04,0.02,0.01,0.00)
+  FAIL the reloaded page carries the same launch on and lifts it once
+the chooser
+
+2 check(s) FAILED
+  ok   it plays its animation, then lifts (2659 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (3973 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6070 ms)
+  ok   its own style lifts it (7056 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1517ms), not from the start
+  ok   a saved start in the future is ignored: it lifts on its own clock (2641 ms)
