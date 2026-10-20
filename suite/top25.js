@@ -3,7 +3,9 @@
 
    Two peer views, both routes:
      #top25                       Games: this week's games with a ranked side
-     #top25/rankings[/<source>]   Rankings: CFP | AP | Coaches | FPI | SP+, all 25 rows
+     #top25/games/<event id>      ...with one game open in a sheet over them
+     #top25/rankings[/<source>[/<week>]]   Rankings: CFP | AP | Coaches | FPI | SP+, all 25
+                                  rows, any kept week (model.weeks, model.week)
 
    The header - the SUITE bar with the selected team as quiet context, and
    the "Top 25" heading - is suite/nav.js's. This file draws the view strip
@@ -139,11 +141,12 @@ Suite.top25 = (function () {
                   : lastPlay(g) ? '<span class="tg-last">' + (lastAt(g) ? '<span class="tg-at">' + esc(lastAt(g)) + "</span> " : "") + esc(lastPlay(g)) + "</span>" : "") +
                "</span>" +
                '<span class="sr-only">' + esc(summary(g)) + "</span>";
-    // Only the game #game would open is a way in; the rest are information.
-    var open = g.mine && m.heroId && g.id === m.heroId;
+    // Every row is a way in (David, 2026-10-20): the team's own game - the
+    // one #game opens - to Game, every other game to its sheet.
+    var game = g.mine && m.heroId && g.id === m.heroId;
     return '<li class="tg' + (g.mine ? " mine" : "") + (g.state === "in" ? " is-live" : "") + '" data-ev="' + esc(g.id) + '">' +
-             (open ? '<a class="tg-row" href="#game">' + body + '<span class="sr-only"> Open Game.</span>' + CHEVRON + "</a>"
-                   : '<div class="tg-row">' + body + "</div>") +
+             (game ? '<a class="tg-row" href="#game">' + body + '<span class="sr-only"> Open Game.</span>' + CHEVRON + "</a>"
+                   : '<a class="tg-row" href="#top25/games/' + esc(g.id) + '">' + body + '<span class="sr-only"> Open details.</span>' + CHEVRON + "</a>") +
            "</li>";
   }
 
@@ -184,6 +187,23 @@ Suite.top25 = (function () {
     return { key: key, poll: have[key] || null };
   }
 
+  // The week shown (David, 2026-10-20): every kept week, newest first and
+  // newest by default, as a native select - one compact control, any number
+  // of weeks. Picking one moves the route (#top25/rankings/<source>/<week>;
+  // app.js listens), the newest back to the plain route. Not drawn with only
+  // one week to choose from.
+  function weekPick(m, key) {
+    var w = m.weeks || [];
+    if (w.length < 2) return "";
+    return '<div class="rk-weekpick"><label for="rkWeek">Week</label><select id="rkWeek" data-week data-source="' + esc(key) + '">' +
+      w.map(function (x, i) {
+        var d = x.date ? new Date(x.date) : null;
+        var day = d && !isNaN(d) ? " · " + d.toLocaleDateString([], { month: "short", day: "numeric" }) : "";
+        return '<option value="' + esc(i === 0 ? "" : x.id) + '"' + (x.id === m.week ? " selected" : "") + ">" +
+               esc(x.label + day + (i === 0 ? " (latest)" : "")) + "</option>";
+      }).join("") + "</select></div>";
+  }
+
   function pollSeg(key, m) {
     return '<nav class="seg-light poll-seg" aria-label="Ranking source">' + sources(m).map(function (x) {
       return '<a href="#top25/rankings/' + x.key + '"' + (x.key === key ? ' aria-current="page"' : "") + ">" + x.label + "</a>";
@@ -221,18 +241,18 @@ Suite.top25 = (function () {
   function rankings(m) {
     var c = chosen(m), rating = (m.ratingSources || []).filter(function (x) { return x.key === c.key; })[0];
     if (rating) {
-      return pollSeg(c.key, m) + calendarNote(m.calendar, (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; })) +
+      return pollSeg(c.key, m) + weekPick(m, c.key) + calendarNote(m.calendar, (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; })) +
         (c.poll ? ratingTable(m, c.poll) : quiet(m.ratingsFailed && m.ratingsFailed[c.key] === "unpublished"
           ? rating.label + " isn’t published for this season yet."
           : m.ratingsFailed && m.ratingsFailed[c.key]
           ? rating.label + " didn’t load. Return to this view or use Refresh Data to try again."
           : "Loading " + rating.label + "…"));
     }
-    if (m.polls == null) return pollSeg(c.key, m) + quiet(m.pollsFailed ? "The rankings didn’t load. They appear when the connection returns."
+    if (m.polls == null) return pollSeg(c.key, m) + weekPick(m, c.key) + quiet(m.pollsFailed ? "The rankings didn’t load. They appear when the connection returns."
                                                                              : "Loading the rankings…");
     var hasCfp = (m.polls || []).some(function (p) { return pollKey(p) === "cfp"; });
     var body = c.poll ? pollTable(m, c.poll) : c.key === "cfp" ? "" : quiet("This poll is not available right now.");
-    return pollSeg(c.key, m) + calendarNote(m.calendar, hasCfp) + body;
+    return pollSeg(c.key, m) + weekPick(m, c.key) + calendarNote(m.calendar, hasCfp) + body;
   }
 
   // A source with no change history (SP+) has no Change column at all:
@@ -285,6 +305,127 @@ Suite.top25 = (function () {
     return '<div class="rk-note" role="note">' + lines.map(function (l) { return "<p>" + l + "</p>"; }).join("") + "</div>";
   }
 
+  // ---- One game, in a sheet ----------------------------------------------------
+  // #top25/games/<event id> (David, 2026-10-20: a sheet, every row). It lifts
+  // over the list rather than replacing it, so the board is one Back away,
+  // and it carries a fixed few things - never the whole Game screen:
+  //   before kickoff  when, where, on what, and the line (the list's own facts)
+  //   live            score by quarter, who has the ball and where, win
+  //                   probability, the last three plays, the leaders
+  //   final           score by quarter and the leaders
+  // Everything but the list's facts comes from the game's summary, which
+  // app.js fetches only while the sheet is open.
+  //   model.game    the LeagueGame from the board, or null (an old link)
+  //   model.detail  TeamOS GameDetail, or null while it loads
+  //   model.failed  the summary did not load
+  var SHEET_LEADERS = ["Passing", "Rushing", "Receiving"];
+  function pct(x) { return Math.round(x * 100) + "%"; }
+
+  function sheetSection(title, body) {
+    return '<section class="sh-sec"><h3 class="sh-h">' + esc(title) + "</h3>" + body + "</section>";
+  }
+  function sheetLinescore(gd, g) {
+    var ls = gd && gd.linescore;
+    if (!ls) return "";
+    var a = ls.away || [], h = ls.home || [], n = Math.max(4, a.length, h.length);
+    var head = '<tr><th scope="col"><span class="sr-only">Team</span></th>';
+    for (var i = 0; i < n; i++) head += '<th scope="col">' + (i < 4 ? i + 1 : i === 4 ? "OT" : (i - 3) + "OT") + "</th>";
+    head += '<th scope="col">T</th></tr>';
+    function row(side, list) {
+      var r = '<tr><th scope="row">' + esc(side.abbr || side.name) + "</th>";
+      for (var i = 0; i < n; i++) r += "<td>" + esc(list[i] != null && list[i] !== "" ? list[i] : "–") + "</td>";
+      return r + '<td class="t">' + esc(side.score == null ? "–" : side.score) + "</td></tr>";
+    }
+    return sheetSection("Score by quarter", '<table class="ls"><thead>' + head + "</thead><tbody>" +
+      row(g.away, a) + row(g.home, h) + "</tbody></table>");
+  }
+  function sheetSituation(gd, g) {
+    if (g.state !== "in") return "";
+    var lines = [];
+    var r = receiver(g), b = ballSide(g);
+    if (r) lines.push(esc(r.name) + " gets the ball to start the second half");
+    else if (b) lines.push(ui.ball("sh-ball") + esc(b.name) + (g.live && g.live.downDistance ? " · " + esc(g.live.downDistance) : ""));
+    var wp = gd && gd.winProb && typeof gd.winProb.homePct === "number" ? gd.winProb.homePct : null;
+    if (wp != null) lines.push("Win probability: " + esc(g.away.abbr || g.away.name) + " " + pct(1 - wp) + " · " + esc(g.home.abbr || g.home.name) + " " + pct(wp));
+    return lines.length ? sheetSection("Right now", '<ul class="sh-lines">' + lines.map(function (l) { return "<li>" + l + "</li>"; }).join("") + "</ul>") : "";
+  }
+  // The newest plays first, each with its quarter and clock.
+  function sheetPlays(gd, g) {
+    if (g.state !== "in" || !gd || !gd.drives) return "";
+    var all = [];
+    gd.drives.list.forEach(function (d) { d.plays.forEach(function (p) { if (p.text) all.push(p); }); });
+    var last = all.slice(-3).reverse();
+    if (!last.length) return "";
+    return sheetSection("Last plays", '<ol class="sh-plays">' + last.map(function (p) {
+      var at = [p.period ? ui.period(p.period) : "", p.clock].filter(Boolean).join(" ");
+      return "<li>" + (at ? '<span class="sh-at">' + esc(at) + "</span>" : "") + '<span class="sh-play">' + esc(p.text) + "</span></li>";
+    }).join("") + "</ol>");
+  }
+  function sheetLeaders(gd, g) {
+    var ld = gd && gd.leaders;
+    if (!ld) return "";
+    function one(list, cat) { return (list || []).filter(function (r) { return r.category === cat; })[0] || null; }
+    var rows = SHEET_LEADERS.map(function (cat) {
+      var a = one(ld.away, cat), h = one(ld.home, cat);
+      if (!a && !h) return "";
+      function cell(side, r) {
+        return r ? '<span class="sh-ld-who"><span class="sh-ld-team">' + esc(side.abbr || side.name) + "</span> " + esc(r.name) + '</span><span class="sh-ld-line">' + esc(r.line) + "</span>" : "";
+      }
+      return '<li><span class="sh-ld-cat">' + esc(cat) + "</span>" + cell(g.away, a) + cell(g.home, h) + "</li>";
+    }).join("");
+    return rows ? sheetSection("Leaders", '<ul class="sh-ld">' + rows + "</ul>") : "";
+  }
+  function sheetBefore(g) {
+    var ko = ui.kickoff(g.date, g.timeSet), facts = [["Kickoff", ko.full]];
+    if (g.net) facts.push(["TV", g.net]);
+    if (g.odds && (g.odds.line || g.odds.total != null))
+      facts.push(["Line", [g.odds.line, g.odds.total != null ? "O/U " + g.odds.total : ""].filter(Boolean).join(" · ")]);
+    if (g.venue) facts.push(["Venue", g.venue]);
+    return sheetSection("Game info", '<dl class="sh-facts">' + facts.map(function (f) {
+      return "<dt>" + esc(f[0]) + "</dt><dd>" + esc(f[1]) + "</dd>";
+    }).join("") + "</dl>");
+  }
+
+  function sheetHtml(m) {
+    var g = m.game;
+    if (!g) return '<p class="sec-quiet">' + (m.failed ? "This game didn’t load." : "Loading the game…") + "</p>";
+    var as = Number(g.away.score), hs = Number(g.home.score), fin = g.state === "post" && !isNaN(as) && !isNaN(hs) && as !== hs;
+    var head = '<div class="sh-score" aria-hidden="true"><span class="tg-sides">' + side(m, g.away, g, fin ? as > hs : null) + side(m, g.home, g, fin ? hs > as : null) +
+               '</span><span class="tg-status">' + status(g) + "</span></div>" + '<p class="sr-only">' + esc(summary(g)) + "</p>";
+    var body;
+    if (g.state === "pre") body = sheetBefore(g);
+    else {
+      var more = sheetSituation(m.detail, g) + sheetLinescore(m.detail, g) + sheetPlays(m.detail, g) + sheetLeaders(m.detail, g);
+      body = m.detail ? (more || '<p class="sec-quiet">No details published for this game yet.</p>')
+           : sheetSituation(null, g) + '<p class="sec-quiet">' + (m.failed ? "The box score didn’t load. It is asked for again while this is open." : "Loading the box score…") + "</p>";
+    }
+    return head + body;
+  }
+
+  // The sheet's frame is drawn once per opening; only its body is refilled,
+  // so focus and scroll inside it hold while a live game updates.
+  var lastSheet = null;
+  function sheet(host, m) {
+    if (!host) return;
+    if (!m) { host.hidden = true; host.innerHTML = ""; lastSheet = null; return; }
+    var g = m.game;
+    var title = g ? g.away.name + " at " + g.home.name : "Game";
+    if (!host.querySelector(".sh")) {
+      host.innerHTML = '<div class="sh-scrim" data-close></div>' +
+        '<section class="sh" role="dialog" aria-modal="true" aria-labelledby="shTitle" data-no-swipe data-no-pull>' +
+          '<div class="sh-top"><h2 class="sh-title" id="shTitle" tabindex="-1"></h2>' +
+          '<button type="button" class="sh-close" data-close aria-label="Close">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
+          '<div class="sh-body"></div></section>';
+      lastSheet = null;
+    }
+    host.hidden = false;
+    var t = host.querySelector(".sh-title");
+    if (t.textContent !== title) t.textContent = title;
+    var html = sheetHtml(m);
+    if (html !== lastSheet) { ui.fill(host.querySelector(".sh-body"), html); lastSheet = html; }
+  }
+
   // ---- mount -------------------------------------------------------------------
 
   function paint(host, m) {
@@ -301,5 +442,5 @@ Suite.top25 = (function () {
     });
   }
 
-  return { paint: paint, chosenPoll: function (m) { return chosen(m).key; }, calendarNote: calendarNote };
+  return { paint: paint, sheet: sheet, chosenPoll: function (m) { return chosen(m).key; }, calendarNote: calendarNote };
 })();
