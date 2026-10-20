@@ -217,7 +217,7 @@ function liftedMarker(on){
   try{ if(on) sessionStorage.setItem("suite-launch-lifted", String(Date.now())); else sessionStorage.removeItem("suite-launch-lifted"); }catch(e){}
 }
 function watchUpdate(reg){
-  if(!reg || !navigator.serviceWorker.controller) return;
+  if(!reg || !navigator.serviceWorker.controller) return function(){};
   // An activated worker reloads this page; if that never comes, the launch's
   // own cap still lifts it. One update can install twice (the browser's own
   // check racing ours), and the first then turns redundant on being replaced,
@@ -234,6 +234,7 @@ function watchUpdate(reg){
   }
   track(reg.installing || reg.waiting);
   if(reg.addEventListener) reg.addEventListener("updatefound", function(){ track(reg.installing); });
+  return track;
 }
 if("serviceWorker" in navigator){
   var registerWorker=function(){
@@ -246,8 +247,15 @@ if("serviceWorker" in navigator){
     if(checking) CHECKING=true;
     function checked(){ CHECKING=false; if(!UPDATING) liftedMarker(false); }
     navigator.serviceWorker.register("sw.js").then(function(reg){
-      watchUpdate(reg);
-      if(checking && reg && reg.update) reg.update().catch(function(){}).then(checked);
+      var track=watchUpdate(reg);
+      // update() resolves before the browser fires updatefound for the
+      // worker it found (Chrome, every time), so the new worker is tracked
+      // from the registration first: otherwise, between the check ending
+      // and that event, nothing holds the launch and it can lift under the
+      // reload to come (CI, 2026-10-20: the launch faded, then reloaded).
+      if(checking && reg && reg.update) reg.update().catch(function(){}).then(function(){
+        track(reg.installing || reg.waiting); checked();
+      });
       else checked();
       return navigator.serviceWorker.ready;
     }).then(tellWorkerOurTeam).catch(function(){ checked(); });
