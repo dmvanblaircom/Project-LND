@@ -1920,14 +1920,15 @@ Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); 
 // Worker keeps the subscription and a copy of the choice.
 var ALERTS={ busy:false, note:null, sync:null, chain:Promise.resolve() };
 var ALERT_KEY="iw-alerts-"+TEAM.id, ALERT_OPTS_KEY="iw-alert-opts-"+TEAM.id;
-var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false };
+var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false };
 // Quick picks set the switches, then step aside (§2b): one shows as chosen
 // only while every switch matches it. Final only keeps delays, because a
-// postponed game has no final.
+// postponed game has no final. Kickoff time set is about the schedule, not
+// the game: only Everything includes it (notifications brief §2b, 12).
 var ALERT_PICKS={
-  everything:{ kickoff:true, final:true, delays:true, scoring:"all", quarters:true, halftime:true, close:true },
-  key:{ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:true, close:true },
-  final:{ kickoff:false, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false } };
+  everything:{ kickoff:true, final:true, delays:true, scoring:"all", quarters:true, halftime:true, close:true, timeset:true },
+  key:{ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:true, close:true, timeset:false },
+  final:{ kickoff:false, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false } };
 function alertOpts(){
   var o={}, saved=null;
   try{ saved=JSON.parse(localStorage.getItem(ALERT_OPTS_KEY)||"null"); }catch(e){}
@@ -1942,7 +1943,7 @@ function alertOpts(){
   return o;
 }
 function saveAlertOpts(o){ try{ localStorage.setItem(ALERT_OPTS_KEY, JSON.stringify(o)); }catch(e){} }
-function alertsAnyOn(o){ return o.kickoff||o.final||o.delays||o.quarters||o.halftime||o.close||o.scoring!=="off"; }
+function alertsAnyOn(o){ return o.kickoff||o.final||o.delays||o.quarters||o.halftime||o.close||o.timeset||o.scoring!=="off"; }
 function alertPick(o){
   return Object.keys(ALERT_PICKS).filter(function(k){
     var p=ALERT_PICKS[k]; return Object.keys(p).every(function(x){ return p[x]===o[x]; });
@@ -2090,7 +2091,7 @@ function alertsChoose(o){
   }, 600);
 }
 function alertsSummary(o){
-  var n=["kickoff","final","delays","quarters","halftime","close"].filter(function(k){ return o[k]; }).length+(o.scoring!=="off"?1:0);
+  var n=["kickoff","final","delays","quarters","halftime","close","timeset"].filter(function(k){ return o[k]; }).length+(o.scoring!=="off"?1:0);
   return n+(n===1?" kind of alert":" kinds of alerts")+" on.";
 }
 document.addEventListener("change", function(e){

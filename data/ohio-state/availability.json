@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-15T10:07:53.822606+00:00",
+ "fetchedAt": "2026-10-17T14:08:02.845690+00:00",
  "reported": true,
- "effectiveAt": "2026-10-14",
- "heading": "Initial",
+ "effectiveAt": "2026-10-17",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-17",
  "game": "at Indiana",
  "players": [
@@ -25,14 +25,21 @@
    "pos": "WR",
    "no": "11",
    "name": "Brock Boyd",
-   "status": "questionable",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "21",
+   "name": "Brenten \"Inky\" Jones",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "21",
    "name": "Anthony “Turbo” Rogers",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -57,20 +64,6 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "32",
-   "name": "Isaiah West",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "34",
-   "name": "Khary Wilder",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "60",
    "name": "Jaxon Powell",
@@ -82,13 +75,6 @@
    "no": "67",
    "name": "Austin Siereveld",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "72",
-   "name": "Deontae Armstrong",
-   "status": "questionable",
    "detail": ""
   }
  ],
