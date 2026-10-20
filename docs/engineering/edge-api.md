@@ -8,7 +8,7 @@ keys server-side, fetches, caches, and returns only what a screen shows.
 - Deploy: `.github/workflows/worker.yml`, on every change to `worker/` (or
   to the registry) on main, or from the Actions tab. Until the secrets below exist it stops
   green with a notice.
-- Routes: `GET /v1/health`; `GET /v1/cfbd/season?team=&year=` (CFBD season
+- Routes: `GET /v1/health`; `GET /v1/cfbd/sp?year=` (SP+, below); `GET /v1/cfbd/season?team=&year=` (CFBD season
   stats for one team, only the fields in `CFBD_FIELDS`: `games`,
   `rushingYardsOpponent`, `netPassingYardsOpponent`, for W15's yards
   allowed. The names come from a real response, read with *Probe CFBD
@@ -74,3 +74,32 @@ None of these values ever goes in the repository.
   edge API*.
 - **The refresh clock** runs on this Worker (`docs/engineering/data-refresh-clock.md`).
 - **Game alerts** (W19) run on this Worker. Kalshi stays on GitHub Actions.
+
+## SP+ (`GET /v1/cfbd/sp?year=`, 2026-10-14)
+
+Bill's permission (Oct 1): the SP+ top 25 with ranks and ratings, credited
+to SP+ and CFBD (`rankings-sources.md`). The route answers exactly that:
+`{ source: "cfbd-sp", year, fetchedAt, ranks: [{ rank, team, id, rating }] }`,
+the rows ranked 25 or better (a tie can add a row). Nothing else of CFBD's
+table leaves the Worker.
+
+- **Identity.** CFBD's SP+ rows name a school and carry no id. The Worker
+  joins each school, by exact name, to CFBD's `/teams/fbs` list, whose ids
+  are ESPN's. *Probe CFBD SP+* (`tools/cfbd_sp_probe.py`, 2026-10-14, names
+  and counts only) found all 138 registry programs under the same id and
+  name, and all 25 top-25 schools in the list. A school it cannot place
+  keeps `id: null`. The app accepts an id only when the registry lists it
+  under the same name (`TeamOS.ratings.spPlus`).
+- **Time.** CFBD publishes no edition time, so the answer has none:
+  `fetchedAt` is when the Worker read it. There is no change history, so
+  the screen has no Change column.
+- **Cache and failure.** SP+ is fresh for 12 hours and the FBS list for a
+  week (kept 60 days). When CFBD fails, or sends a table that is not a
+  whole top 25, the last whole table is served with `stale: true`. With
+  nothing saved, the answer is 502. An empty list from CFBD means "not
+  published for that season" and is answered as `ranks: []`.
+- **Allowance.** About two CFBD calls a day for SP+, plus one a week for
+  the FBS list.
+- Tested by `tools/workercheck.mjs` (SP+ sections). Checked after every
+  deploy by the *SP+ answers through it* step in `worker.yml`, which prints
+  counts and key names only.

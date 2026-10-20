@@ -7,7 +7,7 @@
    fails, and never passes CFBD's raw payload or errors through.
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
-import worker, { pickSeason, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
+import worker, { pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
          words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease } from "../worker/src/push.js";
 import { RANKINGS_SHOWS } from "../worker/src/calendar.js";
@@ -161,6 +161,125 @@ console.log("bad requests");
   ok(post.status === 405, "anything but GET: 405");
   const pre = await worker.fetch(new Request("https://suite-api.example/v1/cfbd/season", { method: "OPTIONS", headers: { origin: SITE } }), e, null);
   ok(pre.status === 204 && pre.headers.get("access-control-allow-origin") === SITE, "the browser's preflight is answered for Suite"); }
+
+// ---- SP+ (handoff 2026-10-14, slice 4) -----------------------------------------
+// Made-up figures in CFBD's shape (the probe of 2026-10-14 read the shape, never
+// the values): no CFBD data lives in this repository. 30 ranked schools with a
+// tie at 3 and at 25, the unranked national-averages row CFBD adds, a school
+// CFBD's FBS list does not have, and a row from another season.
+const SP_SCHOOLS = SCHOOLS.slice(0, 30);
+function spRows(year) {
+  const rows = SP_SCHOOLS.map((team, i) => {
+    const rank = i < 3 ? i + 1 : i === 3 ? 3 : i < 25 ? i + 1 : i === 25 ? 25 : i + 1;
+    return { year, team, conference: "Somewhere", rating: 30 - i * 1.5, ranking: rank, secondOrderWins: null, sos: null,
+             offense: { ranking: i + 1, rating: 40 }, defense: { ranking: i + 1, rating: 10 }, specialTeams: { rating: 0.5 } };
+  });
+  rows[5].team = "Nowhere Tech";          // not in CFBD's FBS list
+  rows[7].rating = 0; rows[8].rating = -2.5;
+  rows.push({ year, team: "nationalAverages", rating: 0.1, ranking: null, offense: {}, defense: {}, specialTeams: {} });
+  rows.push(Object.assign({}, rows[0], { year: year - 1, team: SP_SCHOOLS[29], ranking: 1 }));
+  return rows;
+}
+function fbs(year) {
+  return SP_SCHOOLS.map((school, i) => ({ id: 1000 + i, school, mascot: "M", abbreviation: "X", conference: "Somewhere",
+    logos: ["https://example/logo.png"], location: { city: "C" } }));
+}
+function spEnv(opts) {
+  opts = opts || {};
+  const calls = [];
+  return { calls, NOW: () => Date.parse("2026-10-14T12:00:00Z"), CACHE: opts.cache || memoryCache(), CFBD_API_KEY: "key" in opts ? opts.key : "test-key",
+    FETCH: async (url, init) => { calls.push({ url, init });
+      const sp = /\/ratings\/sp\?/.test(url), year = Number(/year=(\d+)/.exec(url)[1]);
+      if (opts.down || (sp && opts.spDown) || (!sp && opts.teamsDown)) throw new Error("network");
+      if (sp && opts.spStatus) return new Response("upstream says no: " + "x".repeat(50), { status: opts.spStatus });
+      const body = sp ? (opts.sp ? opts.sp(year) : spRows(year)) : (opts.teams ? opts.teams(year) : fbs(year));
+      return new Response(JSON.stringify(body), { status: 200, headers: { "content-type": "application/json" } }); } };
+}
+
+console.log("SP+: what may leave CFBD (Bill, Oct 1: the top 25 with ranks and ratings)");
+{ const ids = schoolIds(fbs(2026)), ranks = pickSp(spRows(2026), ids, 2026);
+  ok(SP_TOP === 25 && ranks.every((r) => r.rank >= 1 && r.rank <= 25), "only ranks 1 to 25");
+  eq(ranks.length, 26, "every row ranked 25 or better, ties included (two ties: 26 rows)");
+  ok(ranks.every((r) => JSON.stringify(Object.keys(r)) === JSON.stringify(["rank", "team", "id", "rating"])), "each with rank, school, id and rating - nothing else");
+  ok(!ranks.some((r) => r.team === "nationalAverages"), "CFBD's unranked national-averages row is dropped");
+  ok(!ranks.some((r) => r.team === SP_SCHOOLS[29]), "a row from another season is dropped");
+  ok(ranks.every((r, i) => !i || r.rank >= ranks[i - 1].rank), "in rank order");
+  ok(ranks.filter((r) => r.rank === 3).length === 2 && ranks.filter((r) => r.rank === 25).length === 2, "a tie keeps both schools at the shared rank");
+  ok(ranks.some((r) => r.rating === 0) && ranks.some((r) => r.rating === -2.5), "a 0 and a negative rating are ratings");
+  ok(ranks.find((r) => r.team === SP_SCHOOLS[0]).id === "1000", "a school is joined to CFBD's id for it, as a string");
+  ok(ranks.find((r) => r.team === "Nowhere Tech").id === null, "a school CFBD's FBS list does not have keeps no id - never a guess");
+  const twice = schoolIds(fbs(2026).concat([{ id: 77, school: SP_SCHOOLS[0] }]));
+  ok(twice.get(SP_SCHOOLS[0]) === null, "a school listed twice names no one");
+  ok(pickSp(spRows(2026), null, 2026).every((r) => r.id === null), "with no list at all, no ids");
+  ok(wholeSp(ranks) && !wholeSp(ranks.slice(0, 24)) && !wholeSp(ranks.slice(1)), "whole: rank 1 and at least 25 rows");
+  eq(pickSp({ error: "x" }, ids, 2026), [], "a non-list payload gives nothing");
+  // Codex (#142): a malformed row must not leave a table that only looks whole.
+  const tie25 = spRows(2026); tie25[25].rating = null;
+  eq(pickSp(tie25, ids, 2026), null, "a top-25 row without a rating: the whole table is refused, not the row dropped");
+  const noName = spRows(2026); noName[3].team = "";
+  eq(pickSp(noName, ids, 2026), null, "a top-25 row without a school: refused too");
+  const deep = spRows(2026); deep[28].rating = null;
+  ok(pickSp(deep, ids, 2026).length === 26, "a bad row past 25 is not the table's business");
+  ok(!wholeSp(ranks.filter((r, i) => i !== 3)), "a missing tied school leaves a gap (1, 2, 3, 5): not whole");
+  ok(!wholeSp(ranks.slice(0, 25).concat([Object.assign({}, ranks[25], { team: ranks[0].team })])), "a school twice: not whole");
+  ok(!wholeSp(ranks.map((r) => r.rank === 7 ? Object.assign({}, r, { rank: 8 }) : r)), "a skipped rank: not whole");
+  ok(!wholeSp(null), "nothing: not whole"); }
+
+console.log("SP+: the route");
+{ const e = spEnv();
+  const { r, body } = await get("/v1/cfbd/sp?year=2026", e, SITE);
+  ok(r.status === 200 && body.source === "cfbd-sp" && body.year === 2026 && body.ranks.length === 26, "answers with the season's top 25");
+  ok(JSON.stringify(Object.keys(body).sort()) === JSON.stringify(["fetchedAt", "ranks", "source", "year"]), "and nothing else: no edition time CFBD never gave");
+  const text = JSON.stringify(body);
+  ok(!/offense|defense|specialTeams|conference|secondOrderWins|sos|logos|mascot|nationalAverages/.test(text), "never CFBD's other fields, its averages row or its team list");
+  ok(e.calls.length === 2 && /\/ratings\/sp\?year=2026$/.test(e.calls[0].url) && /\/teams\/fbs\?year=2026$/.test(e.calls[1].url),
+     "asks CFBD for the season's SP+ and its FBS list");
+  ok(e.calls.every((c) => c.init.headers.authorization === "Bearer test-key") && !text.includes("test-key"), "the key goes to CFBD, server-side, and never back");
+  ok(r.headers.get("access-control-allow-origin") === SITE, "Suite's origin may read it");
+  await get("/v1/cfbd/sp?year=2026", e, SITE);
+  ok(e.calls.length === 2, "a second request within the fresh window is served from the cache");
+  const k = [...e.CACHE.map.keys()].find((x) => /\/sp\?/.test(x)), aged = JSON.parse(e.CACHE.map.get(k));
+  aged.fetchedAt = new Date(Date.now() - 13 * 3600e3).toISOString(); e.CACHE.map.set(k, JSON.stringify(aged));
+  await get("/v1/cfbd/sp?year=2026", e, SITE);
+  ok(e.calls.length === 3 && /ratings\/sp/.test(e.calls[2].url), "after 12 hours SP+ is asked again - and the FBS list, kept for a week, is not"); }
+
+console.log("SP+: when CFBD fails or has nothing");
+{ const cache = memoryCache();
+  await get("/v1/cfbd/sp?year=2026", spEnv({ cache }), SITE);
+  const k = [...cache.map.keys()].find((x) => /\/sp\?/.test(x)), old = JSON.parse(cache.map.get(k));
+  old.fetchedAt = new Date(Date.now() - 13 * 3600e3).toISOString(); cache.map.set(k, JSON.stringify(old));
+  const down = await get("/v1/cfbd/sp?year=2026", spEnv({ cache, spDown: true }), SITE);
+  ok(down.r.status === 200 && down.body.stale === true && down.body.ranks.length === 26 && down.body.fetchedAt === old.fetchedAt,
+     "past the fresh window and CFBD down: the saved table, marked stale, with its own time");
+  const part = await get("/v1/cfbd/sp?year=2026", spEnv({ cache, sp: (y) => spRows(y).slice(0, 20) }), SITE);
+  ok(part.body.stale === true && part.body.ranks.length === 26, "a partial table never replaces the saved whole one");
+  const none = await get("/v1/cfbd/sp?year=2026", spEnv({ spStatus: 500 }), SITE);
+  ok(none.r.status === 502 && !JSON.stringify(none.body).includes("upstream") && none.r.headers.get("cache-control") === "no-store",
+     "nothing saved and CFBD failing: a plain error, never CFBD's body, never cached");
+  const noTeams = await get("/v1/cfbd/sp?year=2026", spEnv({ teamsDown: true }), SITE);
+  ok(noTeams.r.status === 502, "SP+ but no FBS list to place its schools: a failure, not a table without identities");
+  const firstRank = await get("/v1/cfbd/sp?year=2026", spEnv({ sp: (y) => spRows(y).filter((r) => r.ranking !== 1) }), SITE);
+  ok(firstRank.r.status === 502, "a table with no #1 is not a top 25");
+  const cache2 = memoryCache();
+  await get("/v1/cfbd/sp?year=2026", spEnv({ cache: cache2 }), SITE);
+  const k2 = [...cache2.map.keys()].find((x) => /\/sp\?/.test(x)), o2 = JSON.parse(cache2.map.get(k2));
+  o2.fetchedAt = new Date(Date.now() - 13 * 3600e3).toISOString(); cache2.map.set(k2, JSON.stringify(o2));
+  const broken = await get("/v1/cfbd/sp?year=2026", spEnv({ cache: cache2, sp: (y) => { const r = spRows(y); r[25].rating = null; return r; } }), SITE);
+  ok(broken.body.stale === true && broken.body.ranks.length === 26, "a tied table missing a row never replaces the saved whole one (Codex, #142)");
+  const empty = spEnv({ sp: () => [] });
+  const unpub = await get("/v1/cfbd/sp?year=2026", empty, SITE);
+  ok(unpub.r.status === 200 && Array.isArray(unpub.body.ranks) && unpub.body.ranks.length === 0 && !unpub.body.stale,
+     "CFBD's empty list: not published for that season - an answer, not an error");
+  ok(empty.calls.length === 1, "and the FBS list is not spent on it"); }
+
+console.log("SP+: bad requests");
+{ const e = spEnv();
+  ok((await get("/v1/cfbd/sp", e)).r.status === 400, "no year: 400");
+  ok((await get("/v1/cfbd/sp?year=2024", e)).r.status === 400, "a season before last: 400");
+  ok((await get("/v1/cfbd/sp?year=2027", e)).r.status === 400, "a season not yet played: 400");
+  ok((await get("/v1/cfbd/sp?year=2025", e)).r.status === 200, "last season is answered");
+  ok((await get("/v1/cfbd/sp?year=2026", spEnv({ key: "" }))).r.status === 503, "no key configured: 503");
+  ok(e.calls.every((c) => /year=2025/.test(c.url)), "and only the answered season reached CFBD"); }
 
 // ---- game alerts (W19, worker/src/push.js) -----------------------------------
 function eq(a, b, what) {

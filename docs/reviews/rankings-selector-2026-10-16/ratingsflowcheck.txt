@@ -1,0 +1,167 @@
+notre-dame: 25 ranks, FPI selected, correct team highlighted
+notre-dame: rating identified, source edition fresh
+notre-dame: source attribution links to the source
+notre-dame team 320: table fits
+FPI contrast notre-dameteam320 []
+notre-dame team 375: table fits
+FPI contrast notre-dameteam375 []
+notre-dame team 390: table fits
+FPI contrast notre-dameteam390 []
+notre-dame team 768: table fits
+FPI contrast notre-dameteam768 []
+notre-dame team 1280: table fits
+FPI contrast notre-dameteam1280 []
+notre-dame suite 320: table fits
+FPI contrast notre-damesuite320 []
+notre-dame suite 375: table fits
+FPI contrast notre-damesuite375 []
+notre-dame suite 390: table fits
+FPI contrast notre-damesuite390 []
+notre-dame suite 768: table fits
+FPI contrast notre-damesuite768 []
+notre-dame suite 1280: table fits
+FPI contrast notre-damesuite1280 []
+explicit AP still works
+Back restores prior ranking source
+no page errors:
+ohio-state: 25 ranks, FPI selected, correct team highlighted
+ohio-state: rating identified, source edition fresh
+ohio-state: source attribution links to the source
+ohio-state team 320: table fits
+FPI contrast ohio-stateteam320 []
+ohio-state team 375: table fits
+FPI contrast ohio-stateteam375 []
+ohio-state team 390: table fits
+FPI contrast ohio-stateteam390 []
+ohio-state team 768: table fits
+FPI contrast ohio-stateteam768 []
+ohio-state team 1280: table fits
+FPI contrast ohio-stateteam1280 []
+ohio-state suite 320: table fits
+FPI contrast ohio-statesuite320 []
+ohio-state suite 375: table fits
+FPI contrast ohio-statesuite375 []
+ohio-state suite 390: table fits
+FPI contrast ohio-statesuite390 []
+ohio-state suite 768: table fits
+FPI contrast ohio-statesuite768 []
+ohio-state suite 1280: table fits
+FPI contrast ohio-statesuite1280 []
+explicit AP still works
+Back restores prior ranking source
+no page errors:
+first failure says failed, never not published
+in-flight retry is joined, not duplicated
+re-entry retry recovers
+success starts the retry clock
+bad JSON preserves the last edition with a warning
+reconnect replaces saved data and clears the warning
+partial snapshot does not replace the valid table
+failed FPI does not warn on AP
+old season is explicitly identified
+zero and negative ratings remain real values
+five future source choices fit on one row at 320 with 44px targets and full labels
+notre-dame: SP+ selected, 25 ranks, Notre Dame highlighted
+notre-dame: no Change column - SP+ has no history to show
+notre-dame: and nothing claims a change or its absence
+notre-dame: this season, no edition date CFBD never gave, fresh
+notre-dame: credited to SP+ and CFBD (Source: SP+ and CollegeFootballData (CFBD)
+(opens in a new tab))
+notre-dame: asks the edge API for this season's SP+ only, and never loads FPI for it
+SP+ notre-dame team 320: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame team 320: table fits
+SP+ notre-dame team 320 contrast []
+SP+ notre-dame team 320 keyboard focus []
+SP+ notre-dame team 375: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame team 375: table fits
+SP+ notre-dame team 375 contrast []
+SP+ notre-dame team 390: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame team 390: table fits
+SP+ notre-dame team 390 contrast []
+SP+ notre-dame team 768: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame team 768: table fits
+SP+ notre-dame team 768 contrast []
+SP+ notre-dame team 1280: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame team 1280: table fits
+SP+ notre-dame team 1280 contrast []
+SP+ notre-dame suite 320: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame suite 320: table fits
+SP+ notre-dame suite 320 contrast []
+SP+ notre-dame suite 320 keyboard focus []
+SP+ notre-dame suite 375: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame suite 375: table fits
+SP+ notre-dame suite 375 contrast []
+SP+ notre-dame suite 390: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame suite 390: table fits
+SP+ notre-dame suite 390 contrast []
+SP+ notre-dame suite 768: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame suite 768: table fits
+SP+ notre-dame suite 768 contrast []
+SP+ notre-dame suite 1280: five source choices fit on one row, 44px targets and full labels
+SP+ notre-dame suite 1280: table fits
+SP+ notre-dame suite 1280 contrast []
+notre-dame: AP also keeps the five sources on one row at 320
+notre-dame: Back restores SP+ after following the AP link
+notre-dame: Forward restores AP
+no page errors:
+ohio-state: SP+ selected, 25 ranks, Ohio State highlighted
+ohio-state: no Change column - SP+ has no history to show
+ohio-state: and nothing claims a change or its absence
+ohio-state: this season, no edition date CFBD never gave, fresh
+ohio-state: credited to SP+ and CFBD (Source: SP+ and CollegeFootballData (CFBD)
+(opens in a new tab))
+ohio-state: asks the edge API for this season's SP+ only, and never loads FPI for it
+SP+ ohio-state team 320: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state team 320: table fits
+SP+ ohio-state team 320 contrast []
+SP+ ohio-state team 320 keyboard focus []
+SP+ ohio-state team 375: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state team 375: table fits
+SP+ ohio-state team 375 contrast []
+SP+ ohio-state team 390: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state team 390: table fits
+SP+ ohio-state team 390 contrast []
+SP+ ohio-state team 768: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state team 768: table fits
+SP+ ohio-state team 768 contrast []
+SP+ ohio-state team 1280: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state team 1280: table fits
+SP+ ohio-state team 1280 contrast []
+SP+ ohio-state suite 320: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state suite 320: table fits
+SP+ ohio-state suite 320 contrast []
+SP+ ohio-state suite 320 keyboard focus []
+SP+ ohio-state suite 375: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state suite 375: table fits
+SP+ ohio-state suite 375 contrast []
+SP+ ohio-state suite 390: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state suite 390: table fits
+SP+ ohio-state suite 390 contrast []
+SP+ ohio-state suite 768: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state suite 768: table fits
+SP+ ohio-state suite 768 contrast []
+SP+ ohio-state suite 1280: five source choices fit on one row, 44px targets and full labels
+SP+ ohio-state suite 1280: table fits
+SP+ ohio-state suite 1280 contrast []
+ohio-state: AP also keeps the five sources on one row at 320
+ohio-state: Back restores SP+ after following the AP link
+ohio-state: Forward restores AP
+no page errors:
+SP+ first failure says it didn't load
+failed SP+ leaves FPI whole and unwarned
+and the default stays AP, unwarned
+an SP+ request in flight is joined, not repeated
+re-entry after a failure recovers
+success starts SP+'s own retry clock
+the edge API's kept copy (CFBD down) shows once as outdated
+reconnect fetches SP+ again and clears the warning
+the page worker's saved copy (HTTP 200, X-IW-Cached) is outdated too
+a partial table never replaces the whole one
+this season not published: last season's table, said plainly
+offline, saved copies only: last season's saved table, outdated - not 'unpublished' (Codex, #142)
+this season fails outright, last season's table answers: shown, labelled, outdated - not 'didn't load' (Codex, #142)
+neither season published: said so, not called a failure
+no page errors:
+real service worker's HTTP 200 fallback remains visibly stale
+cached HTTP 200 does not start success timer
+real worker recovery refreshes FPI without reloading
