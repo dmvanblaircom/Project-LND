@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Last season's CFP rankings, as real payloads: ESPN's core API (past weeks)
 and archived copies of the site API feed the app and Worker read."""
-import json, urllib.request
+import gzip, json, urllib.request
 UA = {"user-agent": "Mozilla/5.0"}
 def get(u):
-    return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30))
+    raw = urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30).read()
+    if raw[:2] == b"\x1f\x8b":
+        raw = gzip.decompress(raw)
+    return json.loads(raw)
 SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings"
 CORE = "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/weeks/%d/rankings"
-for wk in (11, 12, 15):
+for wk in ():
     try:
         lst = get(CORE % wk)
         refs = [i.get("$ref") for i in lst.get("items", [])]
@@ -22,7 +25,7 @@ for wk in (11, 12, 15):
     except Exception as e:
         print("core week %d failed: %s" % (wk, e))
 saved = False
-for ts in ("20251105", "20251112", "20251119", "20251203"):
+for ts in ("20260114",):
     try:
         a = get("https://archive.org/wayback/available?url=%s&timestamp=%s" % (SITE.replace("https://", ""), ts))
         snap = (a.get("archived_snapshots") or {}).get("closest")
