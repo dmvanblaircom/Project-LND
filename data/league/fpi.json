@@ -8,7 +8,7 @@
  "seasonType": 2,
  "week": 8,
  "weekText": "Week 8",
- "sourceUpdated": "2026-10-19T08:00Z",
+ "sourceUpdated": "2026-10-20T08:00Z",
  "teams": [
   {
    "espnId": "194",
@@ -16,7 +16,7 @@
    "abbr": "OSU",
    "rank": 1,
    "rating": 28.2,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -25,7 +25,7 @@
    "abbr": "ND",
    "rank": 2,
    "rating": 27.9,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -34,7 +34,7 @@
    "abbr": "UGA",
    "rank": 3,
    "rating": 26.7,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -52,7 +52,7 @@
    "abbr": "IU",
    "rank": 5,
    "rating": 25.4,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -61,7 +61,7 @@
    "abbr": "ALA",
    "rank": 6,
    "rating": 24.2,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -70,7 +70,7 @@
    "abbr": "TEX",
    "rank": 7,
    "rating": 23.6,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -88,7 +88,7 @@
    "abbr": "TTU",
    "rank": 9,
    "rating": 19.4,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "6-0"
   },
   {
@@ -97,7 +97,7 @@
    "abbr": "ORE",
    "rank": 10,
    "rating": 19.0,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -106,7 +106,7 @@
    "abbr": "MISS",
    "rank": 11,
    "rating": 18.8,
-   "rankChange": 4,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -115,7 +115,7 @@
    "abbr": "TENN",
    "rank": 12,
    "rating": 18.1,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -124,7 +124,7 @@
    "abbr": "UTAH",
    "rank": 13,
    "rating": 17.4,
-   "rankChange": -3,
+   "rankChange": 0,
    "record": "6-0"
   },
   {
@@ -142,7 +142,7 @@
    "abbr": "NEB",
    "rank": 15,
    "rating": 17.1,
-   "rankChange": -3,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -151,7 +151,7 @@
    "abbr": "WAKE",
    "rank": 16,
    "rating": 15.4,
-   "rankChange": 6,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -160,7 +160,7 @@
    "abbr": "USC",
    "rank": 17,
    "rating": 14.9,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -178,7 +178,7 @@
    "abbr": "FLA",
    "rank": 19,
    "rating": 14.3,
-   "rankChange": 6,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -187,7 +187,7 @@
    "abbr": "TA&M",
    "rank": 20,
    "rating": 13.5,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -196,7 +196,7 @@
    "abbr": "AUB",
    "rank": 21,
    "rating": 13.4,
-   "rankChange": 10,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -205,7 +205,7 @@
    "abbr": "OU",
    "rank": 22,
    "rating": 13.3,
-   "rankChange": -6,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -214,7 +214,7 @@
    "abbr": "LOU",
    "rank": 23,
    "rating": 13.3,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -223,7 +223,7 @@
    "abbr": "NU",
    "rank": 24,
    "rating": 13.1,
-   "rankChange": -4,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -232,7 +232,7 @@
    "abbr": "IOWA",
    "rank": 25,
    "rating": 13.1,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -241,7 +241,7 @@
    "abbr": "UK",
    "rank": 26,
    "rating": 12.7,
-   "rankChange": 4,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -250,7 +250,7 @@
    "abbr": "MIZ",
    "rank": 27,
    "rating": 12.3,
-   "rankChange": -10,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -259,7 +259,7 @@
    "abbr": "PSU",
    "rank": 28,
    "rating": 11.7,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -268,7 +268,7 @@
    "abbr": "SC",
    "rank": 29,
    "rating": 11.6,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -277,7 +277,7 @@
    "abbr": "BOIS",
    "rank": 30,
    "rating": 11.4,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -286,7 +286,7 @@
    "abbr": "UCLA",
    "rank": 31,
    "rating": 11.0,
-   "rankChange": 5,
+   "rankChange": 0,
    "record": "6-0"
   },
   {
@@ -295,7 +295,7 @@
    "abbr": "MICH",
    "rank": 32,
    "rating": 10.9,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -304,7 +304,7 @@
    "abbr": "ARIZ",
    "rank": 33,
    "rating": 10.5,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -313,7 +313,7 @@
    "abbr": "BAY",
    "rank": 34,
    "rating": 10.0,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -322,7 +322,7 @@
    "abbr": "SMU",
    "rank": 35,
    "rating": 9.8,
-   "rankChange": 5,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -331,7 +331,7 @@
    "abbr": "FSU",
    "rank": 36,
    "rating": 9.6,
-   "rankChange": 5,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -340,7 +340,7 @@
    "abbr": "PITT",
    "rank": 37,
    "rating": 9.2,
-   "rankChange": -5,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -349,7 +349,7 @@
    "abbr": "MSST",
    "rank": 38,
    "rating": 9.1,
-   "rankChange": -11,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -358,7 +358,7 @@
    "abbr": "WIS",
    "rank": 39,
    "rating": 9.0,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -367,7 +367,7 @@
    "abbr": "OKST",
    "rank": 40,
    "rating": 9.0,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -376,7 +376,7 @@
    "abbr": "UNC",
    "rank": 41,
    "rating": 8.7,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -385,7 +385,7 @@
    "abbr": "TCU",
    "rank": 42,
    "rating": 8.6,
-   "rankChange": 5,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -394,7 +394,7 @@
    "abbr": "UNM",
    "rank": 43,
    "rating": 7.8,
-   "rankChange": -5,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -403,7 +403,7 @@
    "abbr": "DUKE",
    "rank": 44,
    "rating": 7.8,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -412,7 +412,7 @@
    "abbr": "KSU",
    "rank": 45,
    "rating": 7.6,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -421,7 +421,7 @@
    "abbr": "JMU",
    "rank": 46,
    "rating": 7.0,
-   "rankChange": 5,
+   "rankChange": 0,
    "record": "7-0"
   },
   {
@@ -430,7 +430,7 @@
    "abbr": "VT",
    "rank": 47,
    "rating": 6.6,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -439,7 +439,7 @@
    "abbr": "CLEM",
    "rank": 48,
    "rating": 6.5,
-   "rankChange": -3,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -457,7 +457,7 @@
    "abbr": "UVA",
    "rank": 50,
    "rating": 5.6,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -466,7 +466,7 @@
    "abbr": "UCF",
    "rank": 51,
    "rating": 5.2,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -475,7 +475,7 @@
    "abbr": "WASH",
    "rank": 52,
    "rating": 4.7,
-   "rankChange": 5,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -493,7 +493,7 @@
    "abbr": "ISU",
    "rank": 54,
    "rating": 4.3,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -502,7 +502,7 @@
    "abbr": "KU",
    "rank": 55,
    "rating": 3.7,
-   "rankChange": -3,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -520,7 +520,7 @@
    "abbr": "MEM",
    "rank": 57,
    "rating": 3.0,
-   "rankChange": -3,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -529,7 +529,7 @@
    "abbr": "ARK",
    "rank": 58,
    "rating": 2.2,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -547,7 +547,7 @@
    "abbr": "PUR",
    "rank": 60,
    "rating": 1.9,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -556,7 +556,7 @@
    "abbr": "MSU",
    "rank": 61,
    "rating": 1.7,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "2-5"
   },
   {
@@ -565,7 +565,7 @@
    "abbr": "NCSU",
    "rank": 62,
    "rating": 1.1,
-   "rankChange": 4,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -574,7 +574,7 @@
    "abbr": "COLO",
    "rank": 63,
    "rating": 1.0,
-   "rankChange": 8,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -583,7 +583,7 @@
    "abbr": "LIB",
    "rank": 64,
    "rating": 0.7,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -592,7 +592,7 @@
    "abbr": "SYR",
    "rank": 65,
    "rating": 0.5,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -601,7 +601,7 @@
    "abbr": "VAN",
    "rank": 66,
    "rating": 0.5,
-   "rankChange": -4,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -610,7 +610,7 @@
    "abbr": "WVU",
    "rank": 67,
    "rating": 0.4,
-   "rankChange": 5,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -619,7 +619,7 @@
    "abbr": "GT",
    "rank": 68,
    "rating": 0.3,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -628,7 +628,7 @@
    "abbr": "ARMY",
    "rank": 69,
    "rating": -0.0,
-   "rankChange": 10,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -637,7 +637,7 @@
    "abbr": "TXST",
    "rank": 70,
    "rating": -0.1,
-   "rankChange": 10,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -646,7 +646,7 @@
    "abbr": "NDSU",
    "rank": 71,
    "rating": -0.2,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -655,7 +655,7 @@
    "abbr": "MINN",
    "rank": 72,
    "rating": -0.2,
-   "rankChange": -4,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -664,7 +664,7 @@
    "abbr": "FRES",
    "rank": 73,
    "rating": -0.7,
-   "rankChange": -9,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -673,7 +673,7 @@
    "abbr": "TULN",
    "rank": 74,
    "rating": -1.2,
-   "rankChange": 7,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -682,7 +682,7 @@
    "abbr": "ASU",
    "rank": 75,
    "rating": -1.3,
-   "rankChange": -5,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -691,7 +691,7 @@
    "abbr": "UL",
    "rank": 76,
    "rating": -1.8,
-   "rankChange": 10,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -700,7 +700,7 @@
    "abbr": "UTSA",
    "rank": 77,
    "rating": -1.9,
-   "rankChange": -3,
+   "rankChange": 0,
    "record": "6-1"
   },
   {
@@ -709,7 +709,7 @@
    "abbr": "UNLV",
    "rank": 78,
    "rating": -2.1,
-   "rankChange": -5,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -718,7 +718,7 @@
    "abbr": "AFA",
    "rank": 79,
    "rating": -2.1,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "5-1"
   },
   {
@@ -727,7 +727,7 @@
    "abbr": "USF",
    "rank": 80,
    "rating": -2.2,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -736,7 +736,7 @@
    "abbr": "WMU",
    "rank": 81,
    "rating": -2.5,
-   "rankChange": -5,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -745,7 +745,7 @@
    "abbr": "BC",
    "rank": 82,
    "rating": -2.6,
-   "rankChange": 9,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -754,7 +754,7 @@
    "abbr": "RUTG",
    "rank": 83,
    "rating": -3.1,
-   "rankChange": 4,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -763,7 +763,7 @@
    "abbr": "TOL",
    "rank": 84,
    "rating": -3.4,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -772,7 +772,7 @@
    "abbr": "MD",
    "rank": 85,
    "rating": -3.6,
-   "rankChange": -8,
+   "rankChange": 0,
    "record": "2-5"
   },
   {
@@ -781,7 +781,7 @@
    "abbr": "TLSA",
    "rank": 86,
    "rating": -3.7,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -790,7 +790,7 @@
    "abbr": "LT",
    "rank": 87,
    "rating": -3.7,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -799,7 +799,7 @@
    "abbr": "CAL",
    "rank": 88,
    "rating": -3.9,
-   "rankChange": -13,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -808,7 +808,7 @@
    "abbr": "GASO",
    "rank": 89,
    "rating": -4.6,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -817,7 +817,7 @@
    "abbr": "ECU",
    "rank": 90,
    "rating": -5.2,
-   "rankChange": -6,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -826,7 +826,7 @@
    "abbr": "NAVY",
    "rank": 91,
    "rating": -5.5,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -835,7 +835,7 @@
    "abbr": "GAST",
    "rank": 92,
    "rating": -5.9,
-   "rankChange": -9,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -844,7 +844,7 @@
    "abbr": "CONN",
    "rank": 93,
    "rating": -6.0,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -853,7 +853,7 @@
    "abbr": "USA",
    "rank": 94,
    "rating": -6.8,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -862,7 +862,7 @@
    "abbr": "OHIO",
    "rank": 95,
    "rating": -7.1,
-   "rankChange": 8,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -871,7 +871,7 @@
    "abbr": "USU",
    "rank": 96,
    "rating": -7.6,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -880,7 +880,7 @@
    "abbr": "JXST",
    "rank": 97,
    "rating": -8.3,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "5-2"
   },
   {
@@ -889,7 +889,7 @@
    "abbr": "NEV",
    "rank": 98,
    "rating": -8.4,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -898,7 +898,7 @@
    "abbr": "ARST",
    "rank": 99,
    "rating": -8.5,
-   "rankChange": 7,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -907,7 +907,7 @@
    "abbr": "SDSU",
    "rank": 100,
    "rating": -8.8,
-   "rankChange": 9,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -916,7 +916,7 @@
    "abbr": "APP",
    "rank": 101,
    "rating": -8.9,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -934,7 +934,7 @@
    "abbr": "FIU",
    "rank": 103,
    "rating": -9.2,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -943,7 +943,7 @@
    "abbr": "TEM",
    "rank": 104,
    "rating": -9.3,
-   "rankChange": -8,
+   "rankChange": 0,
    "record": "2-5"
   },
   {
@@ -952,7 +952,7 @@
    "abbr": "TROY",
    "rank": 105,
    "rating": -9.6,
-   "rankChange": -11,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -961,7 +961,7 @@
    "abbr": "M-OH",
    "rank": 106,
    "rating": -9.8,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -970,7 +970,7 @@
    "abbr": "FAU",
    "rank": 107,
    "rating": -10.1,
-   "rankChange": -9,
+   "rankChange": 0,
    "record": "4-2"
   },
   {
@@ -979,7 +979,7 @@
    "abbr": "STAN",
    "rank": 108,
    "rating": -11.4,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -988,7 +988,7 @@
    "abbr": "KENN",
    "rank": 109,
    "rating": -11.4,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "1-5"
   },
   {
@@ -997,7 +997,7 @@
    "abbr": "WKU",
    "rank": 110,
    "rating": -11.9,
-   "rankChange": 6,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -1006,7 +1006,7 @@
    "abbr": "HAW",
    "rank": 111,
    "rating": -12.3,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "1-6"
   },
   {
@@ -1015,7 +1015,7 @@
    "abbr": "SJSU",
    "rank": 112,
    "rating": -12.5,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -1024,7 +1024,7 @@
    "abbr": "CSU",
    "rank": 113,
    "rating": -12.6,
-   "rankChange": -8,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -1033,7 +1033,7 @@
    "abbr": "BUFF",
    "rank": 114,
    "rating": -12.9,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -1042,7 +1042,7 @@
    "abbr": "CCU",
    "rank": 115,
    "rating": -13.1,
-   "rankChange": -4,
+   "rankChange": 0,
    "record": "2-5"
   },
   {
@@ -1051,7 +1051,7 @@
    "abbr": "NMSU",
    "rank": 116,
    "rating": -13.2,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -1060,7 +1060,7 @@
    "abbr": "UAB",
    "rank": 117,
    "rating": -13.8,
-   "rankChange": 7,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -1069,7 +1069,7 @@
    "abbr": "MASS",
    "rank": 118,
    "rating": -13.8,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -1078,7 +1078,7 @@
    "abbr": "ODU",
    "rank": 119,
    "rating": -14.0,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "2-5"
   },
   {
@@ -1087,7 +1087,7 @@
    "abbr": "DEL",
    "rank": 120,
    "rating": -14.1,
-   "rankChange": -8,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -1096,7 +1096,7 @@
    "abbr": "CMU",
    "rank": 121,
    "rating": -14.3,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "3-4"
   },
   {
@@ -1105,7 +1105,7 @@
    "abbr": "USM",
    "rank": 122,
    "rating": -14.7,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "1-5"
   },
   {
@@ -1114,7 +1114,7 @@
    "abbr": "MOST",
    "rank": 123,
    "rating": -14.7,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "2-4"
   },
   {
@@ -1123,7 +1123,7 @@
    "abbr": "RICE",
    "rank": 124,
    "rating": -15.4,
-   "rankChange": -6,
+   "rankChange": 0,
    "record": "1-6"
   },
   {
@@ -1132,7 +1132,7 @@
    "abbr": "WYO",
    "rank": 125,
    "rating": -15.4,
-   "rankChange": 2,
+   "rankChange": 0,
    "record": "4-3"
   },
   {
@@ -1141,7 +1141,7 @@
    "abbr": "MRSH",
    "rank": 126,
    "rating": -16.5,
-   "rankChange": 3,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -1150,7 +1150,7 @@
    "abbr": "SHSU",
    "rank": 127,
    "rating": -16.7,
-   "rankChange": -5,
+   "rankChange": 0,
    "record": "1-5"
   },
   {
@@ -1159,7 +1159,7 @@
    "abbr": "EMU",
    "rank": 128,
    "rating": -16.7,
-   "rankChange": -3,
+   "rankChange": 0,
    "record": "4-4"
   },
   {
@@ -1168,7 +1168,7 @@
    "abbr": "BGSU",
    "rank": 129,
    "rating": -17.7,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "2-5"
   },
   {
@@ -1177,7 +1177,7 @@
    "abbr": "MTSU",
    "rank": 130,
    "rating": -18.3,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "3-3"
   },
   {
@@ -1186,7 +1186,7 @@
    "abbr": "NIU",
    "rank": 131,
    "rating": -20.1,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "0-6"
   },
   {
@@ -1195,7 +1195,7 @@
    "abbr": "BALL",
    "rank": 132,
    "rating": -21.1,
-   "rankChange": 1,
+   "rankChange": 0,
    "record": "2-5"
   },
   {
@@ -1204,7 +1204,7 @@
    "abbr": "CLT",
    "rank": 133,
    "rating": -21.9,
-   "rankChange": 4,
+   "rankChange": 0,
    "record": "1-6"
   },
   {
@@ -1213,7 +1213,7 @@
    "abbr": "AKR",
    "rank": 134,
    "rating": -22.1,
-   "rankChange": -2,
+   "rankChange": 0,
    "record": "1-6"
   },
   {
@@ -1222,7 +1222,7 @@
    "abbr": "KENT",
    "rank": 135,
    "rating": -22.3,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "2-5"
   },
   {
@@ -1231,7 +1231,7 @@
    "abbr": "UTEP",
    "rank": 136,
    "rating": -24.4,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "1-6"
   },
   {
@@ -1240,7 +1240,7 @@
    "abbr": "ULM",
    "rank": 137,
    "rating": -26.3,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "0-6"
   },
   {
@@ -1253,5 +1253,5 @@
    "record": "1-6"
   }
  ],
- "fetchedAt": "2026-10-20T10:07Z"
+ "fetchedAt": "2026-10-20T10:37Z"
 }
