@@ -1,0 +1,482 @@
+[
+  {
+    "team": "notre-dame",
+    "style": "team",
+    "width": 320,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      236.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 50.953125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": -48.0,
+    "unchangedGeometry": false
+  },
+  {
+    "team": "notre-dame",
+    "style": "team",
+    "width": 375,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 62.703125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "notre-dame",
+    "style": "team",
+    "width": 390,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 65.25,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "notre-dame",
+    "style": "team",
+    "width": 768,
+    "beforeTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "afterTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "minimumTargetWidth": 113.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "notre-dame",
+    "style": "team",
+    "width": 1280,
+    "beforeTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "afterTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "minimumTargetWidth": 113.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "notre-dame",
+    "style": "suite",
+    "width": 320,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      236.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 50.953125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": -48.0,
+    "unchangedGeometry": false
+  },
+  {
+    "team": "notre-dame",
+    "style": "suite",
+    "width": 375,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 62.703125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "notre-dame",
+    "style": "suite",
+    "width": 390,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 65.25,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "notre-dame",
+    "style": "suite",
+    "width": 768,
+    "beforeTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "afterTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "minimumTargetWidth": 113.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "notre-dame",
+    "style": "suite",
+    "width": 1280,
+    "beforeTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "afterTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "minimumTargetWidth": 113.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "ohio-state",
+    "style": "team",
+    "width": 320,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      236.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 48.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": -48.0,
+    "unchangedGeometry": false
+  },
+  {
+    "team": "ohio-state",
+    "style": "team",
+    "width": 375,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 59.953125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "ohio-state",
+    "style": "team",
+    "width": 390,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 62.5,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "ohio-state",
+    "style": "team",
+    "width": 768,
+    "beforeTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "afterTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "minimumTargetWidth": 113.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "ohio-state",
+    "style": "team",
+    "width": 1280,
+    "beforeTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "afterTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "minimumTargetWidth": 113.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "ohio-state",
+    "style": "suite",
+    "width": 320,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      236.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 50.953125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": -48.0,
+    "unchangedGeometry": false
+  },
+  {
+    "team": "ohio-state",
+    "style": "suite",
+    "width": 375,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 62.703125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "ohio-state",
+    "style": "suite",
+    "width": 390,
+    "beforeTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "afterTops": [
+      188.625,
+      188.625,
+      188.625,
+      188.625,
+      188.625
+    ],
+    "minimumTargetWidth": 65.25,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "ohio-state",
+    "style": "suite",
+    "width": 768,
+    "beforeTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "afterTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "minimumTargetWidth": 113.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  },
+  {
+    "team": "ohio-state",
+    "style": "suite",
+    "width": 1280,
+    "beforeTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "afterTops": [
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875,
+      199.21875
+    ],
+    "minimumTargetWidth": 113.203125,
+    "minimumTargetHeight": 44,
+    "oneRowWithFullLabels": true,
+    "cardMovedBy": 0.0,
+    "unchangedGeometry": true
+  }
+]

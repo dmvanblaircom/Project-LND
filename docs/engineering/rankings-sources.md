@@ -47,7 +47,23 @@ runner) with `tools/probe_sources.py` via `.github/workflows/probe-sources.yml`.
 
 ## SP+: approved, through CFBD and the edge API (was blocked until Oct 1)
 
-Current state: buildable. The top 25 with ranks and ratings, through the edge API, credited to SP+ and CFBD (Bill, Oct 1; see the last entry). The history below is why ESPN is not the source.
+Current state: **built (2026-10-14)**, live once its pull request merges. The top 25 with ranks and ratings, through the edge API, credited to SP+ and CFBD (Bill, Oct 1; see the last entry). The history below is why ESPN is not the source.
+
+- **Route:** `GET <edge>/v1/cfbd/sp?year=` (worker/src/index.js; `edge-api.md`
+  has the identity join, cache and failure rules). Only rank, school, id
+  and rating, for rows ranked 25 or better.
+- **TeamOS model:** `TeamOS.ratings.spPlus(body, TEAM_CONFIG, season,
+  TEAM_REGISTRY)`. It is Poll-shaped like FPI (`key: "sp-plus"`). It has no
+  record and no change (`changeWindow: null`), and no edition time
+  (`updated: null`; `fetchedAt` is only when it was read). `mine` is set
+  only within the top 25. An id is kept only when the registry lists it
+  under the same school name. Tested by `tools/ratingscheck.js`.
+- **Screen:** `#top25/rankings/sp-plus`, a fifth source after FPI. It has
+  its own load, saved copy, retry clock and failure in app.js (`RATINGS`).
+  There is no Change column, and the source line credits SP+ and
+  CollegeFootballData. If this season is not published, last season's
+  table is shown and labelled. If neither is published, the screen says
+  so. Tested in the browser by `tools/ratingsflowcheck.js`.
 
 
 - (History) The ESPN SP+ table is an article
