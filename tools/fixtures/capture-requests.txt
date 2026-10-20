@@ -80,10 +80,11 @@ schedule-87 nd-oct08
 corerank-2026-2-8 polls-2026-w8
 corerank-2026-2-8-1 ap-2026-w8
 corerank-2026-2-8-2 coaches-2026-w8
-corerank-2026-2-1-1 ap-2026-w1
+corerank-2026-1-1-1 ap-2026-pre
 coreweeks-2026-2 weeks-2026-2
 coreweeks-2026-1 weeks-2026-1
 corerank-2025-2-16-21 cfp-2025-w16
 corerank-2025-3-1-1 ap-2025-post
 coreweeks-2025-3 weeks-2025-3
 fbsteams 2026
+corerank-2026-2-2-1 ap-2026-w2

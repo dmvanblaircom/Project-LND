@@ -182,7 +182,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/espn-fpi-*.json tools/fixtures/espn-teamstats-*.json tools/fixtures/espn-leaders-*.json tools/fixtures/espn-athletestats-*.json tools/fixtures/espn-sitestats-*.json tools/fixtures/espn-recruits-*.json tools/fixtures/espn-draftboard-*.json tools/fixtures/espn-draftrounds-*.json tools/fixtures/espn-nflteams-*.json tools/fixtures/img
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/espn-fpi-*.json tools/fixtures/espn-teamstats-*.json tools/fixtures/espn-leaders-*.json tools/fixtures/espn-athletestats-*.json tools/fixtures/espn-sitestats-*.json tools/fixtures/espn-recruits-*.json tools/fixtures/espn-draftboard-*.json tools/fixtures/espn-draftrounds-*.json tools/fixtures/espn-nflteams-*.json tools/fixtures/espn-corerank-*.json tools/fixtures/espn-coreweeks-*.json tools/fixtures/espn-fbsteams-*.json tools/fixtures/img
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
           git commit -m "Capture ESPN fixtures"
           git pull --rebase -q && git push
