@@ -28,7 +28,7 @@ jobs:
           done
           echo "== files the earlier checks changed:" >> $out; git status --porcelain | grep -v probe-out | head -20 >> $out
           echo "== processes still running:" >> $out; ps -eo pid,etimes,comm | grep -Ei "chrom|node|python|http" | grep -v grep | head -20 >> $out
-          for i in 1 2 3; do
+          for i in 1 2 3 4 5 6; do
             echo "== launchcheck run $i" >> $out
             if node tools/launchcheck.js > run.txt 2>&1; then echo "exit 0" >> $out; else echo "exit $?" >> $out; fi
             grep -vE "^  ok " run.txt | head -40 >> $out
