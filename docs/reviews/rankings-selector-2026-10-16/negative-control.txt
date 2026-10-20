@@ -1,0 +1,26 @@
+Base: feat/sp-plus at 6c5ec19a88fd3034a5f8bb48680d17af535a6ac5
+Production CSS, renderer, controller and service worker unchanged.
+
+Full ratingsflowcheck with the strengthened assertion (exit 1):
+AssertionError [ERR_ASSERTION]: five future source choices fit on one row at 320 with 44px targets and full labels
+    at ok (/workspace/scratch/e2e730f6ca6a/suite-rankings-selector-320/tools/ratingsflowcheck.js:21:26)
+    at /workspace/scratch/e2e730f6ca6a/suite-rankings-selector-320/tools/ratingsflowcheck.js:112:5 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Isolated real-route assertion from the same harness, Ohio State Team Style (exit 1):
+AssertionError [ERR_ASSERTION]: SP+ ohio-state team 320: five source choices fit on one row, 44px targets and full labels
+    at ok (/tmp/rankings-selector-negative-real.js:21:26)
+    at /tmp/rankings-selector-negative-real.js:77:5 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

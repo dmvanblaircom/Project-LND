@@ -10,6 +10,8 @@
      GET /v1/cfbd/season?team=&year=        CFBD season stats for one team,
                                             only the fields in CFBD_FIELDS; a school in
                                             the registry, this season or last
+     GET /v1/cfbd/sp?year=                  the SP+ top 25: rank, school, rating
+                                            and the school's id - nothing else
      GET /v1/probe/espn                     can this Worker reach ESPN's live
                                             scoreboard? Status, time, game
                                             count only (W19 Phase 0)
@@ -37,7 +39,7 @@ import { Alerts } from "./push.js";
 // because Cloudflare finds it in the main module.
 export { Alerts };
 
-export const VERSION = "edge-2026-10-14a";
+export const VERSION = "edge-2026-10-14sp";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
@@ -130,6 +132,129 @@ async function cfbdSeason(url, env, origin, ctx) {
   const put = cache.put(key, new Response(JSON.stringify(body), {
     headers: { "content-type": "application/json", "cache-control": "max-age=" + KEEP_SECONDS } }));
   if (ctx && ctx.waitUntil) ctx.waitUntil(put); else await put;
+  return json(body, 200, origin);
+}
+
+// SP+ (W07, issue #29; handoff 2026-10-14, slice 4). Bill's permission
+// (Oct 1): "displaying the SP+ top 25 with ranks and ratings ... credited to
+// SP+ and CFBD". So the answer is exactly that: the rows ranked 25 or better
+// (a tie can make it a row or two more), each with rank, school, rating and
+// the school's id. No offense, defense, conference or the rest of the table.
+//
+// CFBD's SP+ rows name a school but carry no id. CFBD's FBS team list gives
+// each school's id, which is ESPN's: the probe of 2026-10-14
+// (tools/cfbd_sp_probe.py) found all 138 registry programs under the same id
+// and name, and all 25 top-25 schools in the list. The join is exact; a
+// school it cannot place keeps id null, never a guess. The app checks the id
+// against the registry again (TeamOS.ratings.spPlus).
+//
+// CFBD says nothing about when an edition was published, so neither does
+// this: `fetchedAt` is when the Worker read it, nothing more.
+export const SP_TOP = 25;
+const SP_FRESH = 12 * 3600;              // SP+ moves once a week
+const TEAMS_FRESH = 7 * 24 * 3600;       // the FBS list moves once a year
+const TEAMS_KEEP = 60 * 24 * 3600;
+
+// CFBD's FBS list -> school -> id (a string). A school listed twice names
+// no one.
+export function schoolIds(teams) {
+  const ids = new Map();
+  (Array.isArray(teams) ? teams : []).forEach(function (t) {
+    if (!t || typeof t.school !== "string" || !Number.isInteger(t.id)) return;
+    ids.set(t.school, ids.has(t.school) ? null : String(t.id));
+  });
+  return ids;
+}
+
+// CFBD's /ratings/sp rows -> the permitted rows, by rank. Drops other
+// seasons, the unranked national-averages row and anything past 25. A 0 or
+// negative rating is a rating. A top-25 row of the season without a school
+// or a numeric rating makes the whole table null: dropping it would leave a
+// table that looks whole but is missing a team (Codex, #142).
+export function pickSp(rows, ids, year) {
+  const out = [];
+  for (const r of Array.isArray(rows) ? rows : []) {
+    if (!r || Number(r.year) !== year) continue;
+    if (!Number.isInteger(r.ranking) || r.ranking < 1 || r.ranking > SP_TOP) continue;
+    if (typeof r.team !== "string" || !r.team || typeof r.rating !== "number" || !Number.isFinite(r.rating)) return null;
+    out.push({ rank: r.ranking, team: r.team, id: (ids && ids.get(r.team)) || null, rating: r.rating });
+  }
+  return out.sort(function (a, b) { return a.rank - b.rank; });
+}
+
+// A whole top 25: at least 25 rows (ties only add rows), each school once,
+// and ranks as a tie gives them - 1, 2, 3, 3, 5 - with none skipped.
+export function wholeSp(ranks) {
+  if (!Array.isArray(ranks) || ranks.length < SP_TOP) return false;
+  const seen = new Set();
+  return ranks.every(function (r, i) {
+    if (seen.has(r.team)) return false;
+    seen.add(r.team);
+    return r.rank === i + 1 || (i > 0 && r.rank === ranks[i - 1].rank);
+  });
+}
+
+async function cfbdJson(path, env) {
+  try {
+    const r = await (env.FETCH || fetch)(CFBD + path, {
+      headers: { "authorization": "Bearer " + env.CFBD_API_KEY, "accept": "application/json" }
+    });
+    return r.ok ? await r.json() : null;
+  } catch (e) { return null; }
+}
+
+async function held(cache, key) {
+  const r = await cache.match(key);
+  return r ? r.json() : null;
+}
+
+function keep(cache, key, body, seconds, ctx) {
+  const put = cache.put(key, new Response(JSON.stringify(body), {
+    headers: { "content-type": "application/json", "cache-control": "max-age=" + seconds } }));
+  if (ctx && ctx.waitUntil) ctx.waitUntil(put); else return put;
+}
+
+async function fbsIds(year, env, cache, ctx) {
+  const key = new Request("https://edge.cache/v1/cfbd/teams-fbs?year=" + year);
+  const old = await held(cache, key);
+  if (old && Date.now() - Date.parse(old.fetchedAt) < TEAMS_FRESH * 1000) return schoolIds(old.teams);
+  const teams = await cfbdJson("/teams/fbs?year=" + year, env);
+  if (!Array.isArray(teams) || !teams.length) return old ? schoolIds(old.teams) : null;
+  // Only what the join needs is kept.
+  const slim = teams.map(function (t) { return { id: t && t.id, school: t && t.school }; });
+  await keep(cache, key, { fetchedAt: new Date().toISOString(), teams: slim }, TEAMS_KEEP, ctx);
+  return schoolIds(slim);
+}
+
+async function cfbdSp(url, env, origin, ctx) {
+  const year = Number(url.searchParams.get("year"));
+  if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
+  const now = new Date(env.NOW ? env.NOW() : Date.now()).getUTCFullYear();
+  if (year !== now && year !== now - 1) return fail(400, "only this season or last", origin);
+  if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
+
+  const cache = env.CACHE || caches.default;
+  const key = new Request("https://edge.cache/v1/cfbd/sp?year=" + year + "&top=" + SP_TOP);
+  const heldBody = await held(cache, key);
+  if (heldBody && Date.now() - Date.parse(heldBody.fetchedAt) < SP_FRESH * 1000) return json(heldBody, 200, origin);
+
+  // CFBD's empty list is "not published for that season" - an answer. A
+  // table that is there but not a whole top 25, or whose schools cannot be
+  // placed, is a failure like no answer at all.
+  const rows = await cfbdJson("/ratings/sp?year=" + year, env);
+  let ranks = null;
+  if (Array.isArray(rows) && !rows.length) ranks = [];
+  else if (Array.isArray(rows)) {
+    const ids = await fbsIds(year, env, cache, ctx);
+    const picked = ids ? pickSp(rows, ids, year) : [];
+    if (wholeSp(picked)) ranks = picked;
+  }
+  if (!ranks) {
+    if (heldBody) return json(Object.assign({}, heldBody, { stale: true }), 200, origin);
+    return fail(502, "CFBD could not be reached", origin);
+  }
+  const body = { source: "cfbd-sp", year: year, fetchedAt: new Date().toISOString(), ranks: ranks };
+  await keep(cache, key, body, KEEP_SECONDS, ctx);
   return json(body, 200, origin);
 }
 
@@ -231,6 +356,7 @@ export default {
     if (url.pathname === "/v1/health") return json({ ok: true, version: VERSION, clock: !!(env && env.REFRESH_CLOCK_TOKEN) },
                                                    200, origin, { "cache-control": "no-store" });
     if (url.pathname === "/v1/cfbd/season") return cfbdSeason(url, env || {}, origin, ctx);
+    if (url.pathname === "/v1/cfbd/sp") return cfbdSp(url, env || {}, origin, ctx);
     if (url.pathname === "/v1/probe/espn") return json(await probeEspn(env || {}, request.cf && request.cf.colo), 200, origin,
                                                        { "cache-control": "no-store" });
     return fail(404, "no such route", origin);
