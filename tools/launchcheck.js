@@ -48,7 +48,15 @@ function fixture(url) {
   var server = serve(root);
   await new Promise(function (r) { server.listen(0, "127.0.0.1", r); });
   var base = "http://127.0.0.1:" + server.address().port;
-  var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
+  // No real network: every outside request is either answered by a route
+  // below or fails at once. A worker's own requests are routed on some runs
+  // and not others, and the ones that were not went to the real ESPN, Kalshi
+  // and weather services from the runner. One that hung kept the old worker
+  // busy, and the browser does not activate a new worker while the old one
+  // still has a request out: the update's reload came 26 seconds late and
+  // the launch lifted at its 10-second limit (probe, CI, 2026-10-20).
+  var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined,
+    args: ["--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1, EXCLUDE localhost"] });
 
   // opts: delay (ms) for the providers' answers, newsDelay for news alone,
   // noApp to make app.js fail to load, startedAgo to resume a launch begun
@@ -193,13 +201,12 @@ function fixture(url) {
     fs.cpSync(root, dir, { recursive: true, filter: function (f) { return !/[\\/](\.git|node_modules)$/.test(f); } });
     var srv = serve(dir);
     // Both holds are at the server, which every client goes through - the
-    // page, the browser's update check and the worker's own install alike.
+    // page, the browser's update check and the worker's own install alike;
     // Playwright routes a worker's requests on some runs and not others, so a
-    // hold there applied only sometimes; and a file the page also asks for
-    // (its worker refreshes each shell file it serves) is fetched twice at
-    // once, and the browser makes the second fetch wait on the first. A held
-    // app.css made the install take twice its hold, and a 350 ms hold on
-    // every shell file, when it applied, 30 seconds (CI, Oct 2026).
+    // hold there applied only sometimes. And on a file only the install asks
+    // for: the old worker refreshes each shell file the page loads, so a held
+    // app.css was fetched twice at once and the install's copy waited on the
+    // page's - an 11-second hold made a 22-second install.
     var handle = srv.listeners("request")[0], held = 0;
     srv.removeAllListeners("request");
     srv.on("request", function (req, res) {
