@@ -65,7 +65,7 @@ export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20
                         tries: 10, kickoffLate: 15 * MIN, liveLate: 5 * MIN, settle: 3 * MIN, fold: 5 * MIN,
                         looks: 3, lookEvery: 20 * 1000,
                         closeClock: 300, closeMargin: 8, timeMoved: 3 * 60 * MIN,
-                        cfpWindow: 12 * 60 * MIN, cfpEvery: 5 * MIN, cfpFresh: 12 * 60 * MIN };
+                        cfpWindow: 12 * 60 * MIN, cfpEvery: 5 * MIN, cfpFresh: 12 * 60 * MIN, cfpWait: 10 * 1000 };
 
 // What a fan can choose (brief §2b). A subscription without options - every
 // one made before round 2 - has the round-1 set: kickoff, final and delays.
@@ -490,9 +490,11 @@ export function scheduleGame(schedule, id) {
   return { status: c.status, scores };
 }
 
-async function getJson(env, url) {
+async function getJson(env, url, ms) {
   try {
-    const r = await (env.FETCH || fetch)(url, { headers: { accept: "application/json" } });
+    const init = { headers: { accept: "application/json" } };
+    if (ms && typeof AbortSignal !== "undefined" && AbortSignal.timeout) init.signal = AbortSignal.timeout(ms);
+    const r = await (env.FETCH || fetch)(url, init);
     return r.ok ? await r.json() : null;
   } catch (e) { return null; }
 }
@@ -543,7 +545,7 @@ async function cfpLook(db, env, now, log, shows) {
   let st = null;
   try { st = row ? JSON.parse(row.v) : null; } catch (e) { st = null; }
   if (st && st.show === show.start && (st.found || now - st.at < LIMITS.cfpEvery)) return null;
-  const release = cfpRelease(await getJson(env, SITE + "/rankings"), show);
+  const release = cfpRelease(await getJson(env, SITE + "/rankings", LIMITS.cfpWait), show);
   db.run("INSERT INTO meta (k, v) VALUES ('cfp', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
          JSON.stringify({ show: show.start, at: now, found: !!release }));
   log.push("cfp: " + (release ? "release " + release.id : "not out yet"));
@@ -565,10 +567,8 @@ export async function tick(db, env, now, quick) {
   const log = [];
   let live = false;
   const teams = db.all("SELECT DISTINCT team_id FROM subs");
-  const cfp = teams.length ? await cfpLook(db, env, now, log, env.SHOWS) : null;
   for (const t of teams) {
     const teamId = t.team_id;
-    if (cfp) cfpEmit(db, teamId, cfp, now, log);
     let row = db.all("SELECT game, checked FROM games WHERE team_id = ?", teamId)[0];
     let game = row && row.game ? JSON.parse(row.game) : null;
     const stale = !row || now - row.checked > LIMITS.scheduleEvery || (game && now - game.at > LIMITS.window);
@@ -585,6 +585,11 @@ export async function tick(db, env, now, quick) {
     else log.push(teamId + ": " + (game ? "waiting for " + new Date(game.at).toISOString() : "no game"));
     await deliver(db, env, teamId, now, log, !quick);
   }
+  // The rankings come after every game's work, and their request has its
+  // own limit: a slow rankings feed on a Tuesday night must never hold up a
+  // kickoff or a score (Codex, #147).
+  const cfp = teams.length ? await cfpLook(db, env, now, log, env.SHOWS) : null;
+  if (cfp) for (const t of teams) { cfpEmit(db, t.team_id, cfp, now, log); await deliver(db, env, t.team_id, now, log, !quick); }
   db.run("INSERT INTO meta (k, v) VALUES ('last', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
          JSON.stringify({ at: new Date(now).toISOString(), log }));
   log.live = live;

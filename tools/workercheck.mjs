@@ -1241,6 +1241,23 @@ console.log("game alerts: the CFP rankings are out (postseason events, brief §1
   await tick(db, e, AT + 13 * 3600e3);
   ok(looks === 2 && e.pushes.length === 0, "and after the window, nothing");
 
+  { // Codex, #147: a rankings feed that hangs on a Tuesday night with a game on.
+    const db3 = dbOf(), e3 = alertEnv({ status: st("in", 1, "STATUS_IN_PROGRESS") }), b3 = e3.FETCH;
+    e3.SHOWS = [{ season: 2026, n: 9, start: new Date(KICK - 60e3).toISOString(), end: new Date(KICK + 3600e3).toISOString() }];
+    let asked = 0;
+    e3.FETCH = (url, init) => /\/rankings$/.test(url)
+      ? (asked++, new Promise((res, rej) => { if (init && init.signal) init.signal.addEventListener("abort", () => rej(new Error("aborted"))); }))
+      : b3(url, init);
+    const fan = await browserSub();
+    await subscribe(db3, e3, { subscription: fan.sub, team: { id: "194", name: "Ohio State" }, options: Object.assign({}, on, { cfp: true }) }, KICK - 864e5);
+    e3.pushes.length = 0;
+    const wait = LIMITS.cfpWait; LIMITS.cfpWait = 200;
+    const done = await Promise.race([tick(db3, e3, KICK + 60e3).then(() => true), new Promise((r) => setTimeout(() => r(false), 5000))]);
+    LIMITS.cfpWait = wait;
+    const kicked = e3.pushes.filter((p) => p.url === fan.sub.endpoint).length;
+    ok(asked === 1 && done && kicked === 1, "a rankings feed that hangs: the kickoff alert still goes, and the minute still ends (" + kicked + " sent)");
+  }
+
   const db2 = dbOf(), e2 = alertEnv({ push: 503 });
   e2.SHOWS = [SHOW]; const b2 = e2.FETCH;
   e2.FETCH = async (url, init) => /\/rankings$/.test(url) ? new Response(JSON.stringify(FEED), { status: 200 })
