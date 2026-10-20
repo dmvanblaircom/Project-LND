@@ -207,7 +207,11 @@ def discover(html, base):
 
 
 def path_of(link):
-    return urlsplit(link).path.lower()
+    """The address's path, or None when it does not parse (`https://[bad`)."""
+    try:
+        return urlsplit(link).path.lower()
+    except ValueError:
+        return None
 
 
 def off_topic(item, league, paths=None):
@@ -218,12 +222,15 @@ def off_topic(item, league, paths=None):
     still a football story). The summary is not read: it mentions other
     teams and sports in passing. `paths`: the source's own sections for this
     team; an address outside them is someone else's story."""
-    if paths and not any(path_of(item["link"]).startswith(p.lower()) for p in paths):
+    path = path_of(item["link"])
+    if path is None:
+        return "an address that does not parse"
+    if paths and not any(path.startswith(p.lower()) for p in paths):
         return "outside " + ", ".join(paths)
     other, own = OTHER_SPORTS.get(league), OWN_SPORT.get(league)
     if not other:
         return None
-    said = [item["title"], path_of(item["link"]).replace("-", " ").replace("/", " ")] + list(item.get("categories") or [])
+    said = [item["title"], path.replace("-", " ").replace("/", " ")] + list(item.get("categories") or [])
     hit = next((m.group(0) for m in (other.search(x) for x in said) if m), None)
     if hit and not (own and any(own.search(x) for x in said)):
         return "another sport (%s)" % hit

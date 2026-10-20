@@ -141,6 +141,10 @@ ok(bn.off_topic(keep[0], "college-football", [ND]) is None, "and the team's own 
 ok(bn.off_topic(keep[1], "college-football") is None and bn.off_topic(national[1], "college-football") is None,
    "a source without paths is not held to any (only On3 declares them)")
 ok(bn.off_topic(drop[0], "some-other-league") is None, "a league without a sport list leaves the sport alone")
+bad = story("Irish practice report", "https://[bad")
+ok(bn.off_topic(bad, "college-football") is not None and bn.off_topic(bad, "college-football", [ND]) is not None,
+   "an address that does not parse is left out, never stops the run (Codex, #146)")
+ok(len(bn.keep_football([bad] + keep, "college-football")[0]) == len(keep), "and the rest of the feed still publishes")
 kept, dropped = bn.keep_football(drop + keep, "college-football")
 ok(len(kept) == len(keep) and len(dropped) == len(drop) and all("categories" not in i for i in kept),
    "keep_football splits them, and categories are not written to the file")
