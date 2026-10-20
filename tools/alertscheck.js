@@ -97,10 +97,10 @@ var STUB = "(" + function () {
   console.log("1. Turn On");
   await a.page.click('#screenSettings [data-alerts="on"]'); await a.page.waitForTimeout(500);
   var s1 = await state(a.page);
-  eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false }],
-     "Turn On sends the defaults: kickoff, final and delays");
+  eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false }],
+     "Turn On sends the defaults: kickoff, final and delays - Kickoff time set off");
   ok(s1.on === "On" && /test alert is on its way/.test(s1.note), "On, and the test alert is promised");
-  eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-quarters", "-halftime", "-close"], "off"], "the choices show, set to the defaults");
+  eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-timeset", "-quarters", "-halftime", "-close"], "off"], "the choices show, set to the defaults");
   await shot(a.page, "alerts-on");
 
   console.log("2. A quick pick");
@@ -112,6 +112,18 @@ var STUB = "(" + function () {
   eq(a.posts.slice(1).map(function (p) { return p.options && p.options.scoring + (p.options.halftime ? "+half" : "") + (p.options.quarters ? "+q" : ""); }),
      ["off+half"], "two taps in a row: one request, with the last choice (Key moments)");
   ok(/^Saved\./.test(s2b.note) && /^Saved\./.test(s2b.live), "and it says Saved., aloud too");
+  // Kickoff time set (brief §2b, 12): only Everything includes it.
+  ok(s2.switches.indexOf("+timeset") >= 0, "Everything includes Kickoff time set");
+  ok(s2b.switches.indexOf("-timeset") >= 0 && a.posts[a.posts.length - 1].options.timeset === false, "Key moments leaves it off, and says so to the Worker");
+  await a.page.click('#screenSettings [data-alert-opt="timeset"]'); await a.page.waitForTimeout(900);
+  var sT = await state(a.page);
+  ok(sT.switches.indexOf("+timeset") >= 0 && a.posts[a.posts.length - 1].options.timeset === true && !sT.pressed.length,
+     "Kickoff time set by hand: on, sent, and the pick steps aside");
+  var tsRow = await a.page.evaluate(function () { var i = document.querySelector('[data-alert-opt="timeset"]'), r = i.closest(".al-row"), f = i.closest("fieldset");
+    return { name: r.querySelector(".al-name").textContent, sub: (r.querySelector(".al-sub") || {}).textContent, set: f.querySelector("legend").textContent }; });
+  eq([tsRow.set, tsRow.name, tsRow.sub], ["Game", "Kickoff time set", "When a TBA game gets its time, or a set time moves"], "in Game, as the brief lays it out");
+  await a.page.click('#screenSettings [data-alert-opt="timeset"]'); await a.page.waitForTimeout(900);
+  await a.page.click('#screenSettings [data-alert-pick="key"]'); await a.page.waitForTimeout(900);
   await shot(a.page, "alerts-key");
 
   console.log("3. A switch by hand");
@@ -162,7 +174,7 @@ var STUB = "(" + function () {
   console.log("4d. A device that turned alerts on before there were choices (Codex, #116)");
   var L = await open(390, function () { try { localStorage.setItem("iw-alerts-notre-dame", "1"); } catch (e) {} });
   var ls = await state(L.page);
-  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-quarters", "-halftime", "-close"]], "it shows what it has had: kickoff and final, the new in-game Delays off");
+  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-timeset", "-quarters", "-halftime", "-close"]], "it shows what it has had: kickoff and final, the new in-game Delays off");
   await L.page.click('#screenSettings input[name="alertScoring"][value="mine"]'); await L.page.waitForTimeout(900);
   var lo = L.posts[L.posts.length - 1] && L.posts[L.posts.length - 1].options;
   ok(lo && lo.delays === false && lo.outcomes === true && lo.scoring === "mine",
