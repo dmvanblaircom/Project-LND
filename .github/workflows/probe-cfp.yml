@@ -13,6 +13,7 @@ jobs:
       - shell: bash
         run: |
           set +e
+          mkdir -p tools/probe-out
           python3 tools/probe_cfp.py > tools/probe-out/cfp.txt 2>&1
           git add tools/probe-out tools/fixtures
           git -c user.name=probe -c user.email=probe@users.noreply.github.com commit -m "Probe output" && git push
