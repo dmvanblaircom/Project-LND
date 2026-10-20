@@ -208,6 +208,7 @@ function fixture(url) {
       // reload's navigation) is the double-install issue, not this case.
       var wait = !slow ? 0 : checkDelay && !held && /\/sw\.js(\?|$)/.test(req.url) ? (held = checkDelay)
                : install && /\/chooser\.js(\?|$)/.test(req.url) ? install : 0;
+      if (process.env.LAUNCH_DEBUG && slow) console.log("    " + Date.now() % 100000 + " SRV " + req.url + (wait ? " held " + wait : ""));
       if (wait) setTimeout(function () { handle(req, res); }, wait); else handle(req, res);
     });
     await new Promise(function (r) { srv.listen(0, "127.0.0.1", r); });

@@ -28,11 +28,12 @@ jobs:
           done
           echo "== files the earlier checks changed:" >> $out; git status --porcelain | grep -v probe-out | head -20 >> $out
           echo "== processes still running:" >> $out; ps -eo pid,etimes,comm | grep -Ei "chrom|node|python|http" | grep -v grep | head -20 >> $out
-          for i in 1 2 3 4 5 6; do
+          for i in 1 2 3 4; do
             echo "== launchcheck run $i" >> $out
             if LAUNCH_DEBUG=1 node tools/launchcheck.js > run.txt 2>&1; then echo "exit 0" >> $out; else echo "exit $?" >> $out; fi
             grep -E "FAIL" run.txt >> $out
+            if grep -q FAIL run.txt; then echo "== full output of failing run $i" >> $out; cat run.txt >> $out; fi
             # the new-version scenario's timeline: events and the cover's opacity, ms clock
-            awk '/a new version found on this open/{f=1} /the chooser/{f=0} f' run.txt | grep -E "LE\||LF\|[a-z0-9]+\|(1.00|0.97|0.00)" >> $out
+            awk '/a new version found on this open/{f=1} /the chooser/{f=0} f' run.txt | grep -E "LE\||SRV|LF\|[a-z0-9]+\|(1.00|0.97|0.00)" >> $out
           done
           git add tools/probe-out && git -c user.name=probe -c user.email=probe@users.noreply.github.com commit -m "Probe output" && git push
