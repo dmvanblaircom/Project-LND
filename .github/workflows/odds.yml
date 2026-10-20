@@ -113,6 +113,19 @@ jobs:
           [ "$M" -lt 7 ] && Y=$((Y - 1))
           python3 tools/producers/fpi.py --season "$Y"
 
+      # Every week's AP, Coaches and CFP top 25, and FPI as it stood each
+      # week, kept for Top 25's week selector (David, 2026-10-20). ESPN's
+      # rankings feed answers only the current week; its core API keeps them
+      # all. The first run fills the season; later ones read only the newest
+      # weeks, and a broken week never replaces a kept one.
+      - name: Keep this season's rankings, week by week
+        id: rankhistory
+        continue-on-error: true      # a refused week must never block the odds
+        run: |
+          Y=$(date -u +%Y); M=$(date -u +%-m)
+          [ "$M" -lt 7 ] && Y=$((Y - 1))
+          python3 tools/producers/rankings_history.py --season "$Y"
+
       # Every team that declares an odds history (backlog C2): its price, read
       # from the league-wide markets by its own Kalshi declaration.
       - name: Append each team's price to its season history
@@ -209,6 +222,7 @@ jobs:
           DEPTH: ${{ steps.depth.outcome }}
           CONFAV_PATHS: ${{ steps.confav.outputs.paths }}
           FPI: ${{ steps.fpi.outcome }}
+          RANKS: ${{ steps.rankhistory.outcome }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -227,6 +241,7 @@ jobs:
           # only the files of the teams whose conference report was read
           [ -n "$CONFAV_PATHS" ]   && add "conference availability" $CONFAV_PATHS
           [ "$FPI" = success ]     && add "FPI" 'data/league/fpi.json'
+          [ "$RANKS" = success ]   && add "rankings by week" 'data/league/rankings-*.json' 'data/league/fpi-history-*.json'
           if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
           git commit -q -m "Refresh team data: $moved"
           echo "committed: $moved"
@@ -264,7 +279,8 @@ jobs:
           for s in "kalshi:${{ steps.kalshi.outcome }}" "odds:${{ steps.odds.outcome }}" \
                    "odds history:${{ steps.oddshistory.outcome }}" "news:${{ steps.news.outcome }}" \
                    "depth chart:${{ steps.depth.outcome }}" \
-                   "conference availability:${{ steps.confav.outcome }}"; do
+                   "conference availability:${{ steps.confav.outcome }}" \
+                   "rankings by week:${{ steps.rankhistory.outcome }}"; do
             [ "${s##*:}" = failure ] && failed="${failed:+$failed, }${s%:*}"
           done
           if [ -n "$failed" ]; then echo "::error::failed: $failed"; exit 1; fi

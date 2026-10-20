@@ -793,11 +793,61 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 /* The snap's game clock, lifted out of the play text: a time, not words. */
 .tg-at,.lp-at{font-variant-numeric:tabular-nums;font-weight:700;color:var(--s-muted)}
 .tg-row .chev{width:1.1rem;height:1.1rem;margin-right:-.3rem}
+/* One game in a sheet (#top25/games/<id>; David, 2026-10-20): it rises over
+   the board from the bottom on a phone and sits centred on a wide screen,
+   above the nav, and scrolls inside itself; the page under it holds still. */
+html.sheet-open,html.sheet-open body{overflow:hidden}
+#sheetHost{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-end;justify-content:center}
+#sheetHost[hidden]{display:none}
+.sh-scrim{position:absolute;inset:0;background:rgba(15,27,45,.45)}
+.sh{position:relative;display:flex;flex-direction:column;width:100%;max-width:34rem;max-height:min(88vh,88dvh);
+  background:var(--s-surface);border-radius:var(--s-radius-card) var(--s-radius-card) 0 0;box-shadow:var(--s-shadow-raise);
+  padding-bottom:env(safe-area-inset-bottom,0px);animation:sh-rise .22s ease-out}
+@keyframes sh-rise{from{transform:translateY(32px)}to{transform:none}}
+@media (min-width:48rem){
+  #sheetHost{align-items:center}
+  .sh{border-radius:var(--s-radius-card);max-height:min(80vh,80dvh)}
+}
+@media (prefers-reduced-motion:reduce){.sh{animation:none}}
+.sh-top{display:flex;align-items:center;gap:.5rem;padding:.6rem .5rem .4rem 1rem;border-bottom:1px solid var(--s-line)}
+.sh-title{flex:1;min-width:0;margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;line-height:1.25;color:var(--s-ink)}
+.sh-title:focus{outline:none}
+.sh-close{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border:0;border-radius:50%;background:none;color:var(--s-ink-2);cursor:pointer}
+.sh-close svg{width:1.3rem;height:1.3rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.sh-close:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
+.sh-body{overflow-y:auto;overscroll-behavior:contain;padding:.75rem 1rem 1rem}
+.sh-score{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"sides status";align-items:center;column-gap:.75rem;padding-bottom:.75rem}
+.sh-sec{padding-top:.75rem;border-top:1px solid var(--s-line);margin-top:.25rem}
+.sh-h{margin:0 0 .45rem;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.sh-lines,.sh-plays,.sh-ld{list-style:none;margin:0 0 .5rem;padding:0}
+.sh-lines li{display:flex;align-items:center;gap:.4rem;padding:.2rem 0;font-weight:600;color:var(--s-ink)}
+.sh-ball{width:1.1rem;height:1.1rem}
+.sh-plays li{display:grid;grid-template-columns:4.6rem minmax(0,1fr);column-gap:.5rem;padding:.4rem 0;font-size:.92rem;line-height:1.4}
+.sh-plays li + li{border-top:1px solid var(--s-line)}
+.sh-at{font-variant-numeric:tabular-nums;font-weight:700;color:var(--s-muted)}
+.sh-play{color:var(--s-ink)}
+.sh-ld li{display:grid;grid-template-columns:5.4rem minmax(0,1fr);column-gap:.6rem;padding:.45rem 0}
+.sh-ld li + li{border-top:1px solid var(--s-line)}
+.sh-ld-cat{grid-row:span 4;font-size:.88rem;color:var(--s-muted)}
+.sh-ld-who{font-weight:700;color:var(--s-ink)}
+.sh-ld-team{font-weight:600;font-size:.82rem;color:var(--s-muted)}
+.sh-ld-line{margin-bottom:.15rem;font-size:.88rem;color:var(--s-ink-2)}
+.sh-facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.35rem .9rem;margin:0 0 .5rem}
+.sh-facts dt{font-size:.88rem;color:var(--s-muted)}
+.sh-facts dd{margin:0;font-weight:600;color:var(--s-ink)}
 /* Rankings: all 25, a real table. */
 .poll-seg{margin-top:.9rem;flex-wrap:wrap}
 .poll-seg a{display:flex;flex:1 0 3.15rem;align-items:center;justify-content:center;min-height:2.75rem;padding:.4rem .5rem;border-radius:8px;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;text-decoration:none}
 .poll-seg a[aria-current="page"]{background:var(--s-surface);color:var(--t-surface);box-shadow:0 1px 3px rgba(15,27,45,.12)}
 .poll-seg a:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
+/* The week shown: a native select, so any number of weeks is one control and
+   the phone's own picker opens. 44px tall, the label beside it. */
+.rk-weekpick{display:flex;align-items:center;gap:.6rem;margin-top:.6rem}
+.rk-weekpick label{font-size:.9rem;font-weight:600;color:var(--s-ink-2)}
+.rk-weekpick select{flex:1;min-width:0;max-width:20rem;min-height:2.75rem;padding:.4rem 2rem .4rem .7rem;border:1px solid var(--s-line-strong);border-radius:var(--s-radius-ctl);
+  background:var(--s-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%23485563' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right .6rem center/1.1rem;
+  color:var(--s-ink);font:inherit;font-weight:600;-webkit-appearance:none;appearance:none}
+.rk-weekpick select:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
 /* Five sources at 320px: keep the type and 44px targets, and leave Coaches
    its intrinsic width (including the wider team font). */
 @media(max-width:359px){

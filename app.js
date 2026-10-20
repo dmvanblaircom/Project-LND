@@ -428,6 +428,76 @@ function loadRating(key, force){
   return x.p;
 }
 
+// Earlier weeks (David, 2026-10-20: "keep them per week ... default to the
+// current/most updated set ... don't lose the old ones"). The kept polls and
+// the list of kept FPI weeks are one small file, read on entering Rankings;
+// FPI's earlier tables are their own file, read only once an earlier FPI week
+// is picked. The current week is always the live source's - the feed's poll,
+// fpi.json - never a kept copy of it. SP+ keeps no weeks: it has no picker.
+var WEEKS={ polls:null, fpiIndex:null, fpi:null, fpiFailed:false, p:null, fp:null, refocus:false };
+function loadWeeks(){
+  if(WEEKS.polls || WEEKS.p) return;
+  WEEKS.p=fetchJSON("data/league/rankings-"+seasonYear()+".json").then(function(r){
+    WEEKS.polls=TeamOS.espn.rankingsHistory(r.data, TEAM_CONFIG);
+    WEEKS.fpiIndex=r.data && Array.isArray(r.data.fpi) ? r.data.fpi : [];
+  }).catch(function(){}).then(function(){ WEEKS.p=null; paintTop25(); });
+}
+function loadFpiWeeks(){
+  if(WEEKS.fpi || WEEKS.fp) return;
+  WEEKS.fp=fetchJSON("data/league/fpi-history-"+seasonYear()+".json").then(function(r){
+    WEEKS.fpi=(r.data && Array.isArray(r.data.weeks)) ? r.data.weeks : []; WEEKS.fpiFailed=false;
+  }).catch(function(){ WEEKS.fpiFailed=true; }).then(function(){ WEEKS.fp=null; paintTop25(); });
+}
+function dayOf(iso){ return String(iso||"").slice(0,10); }
+// One source's weeks, oldest first: the kept ones, and the current one from
+// the live source - in its kept week's place when it is that week (same
+// release day or same name), else after them. `current` marks it.
+function weekList(key){
+  var list=[];
+  if(key==="fpi"){
+    var cur=RATINGS.fpi.raw;
+    list=(WEEKS.fpiIndex||[]).map(function(w){ return { id:w.id, label:w.label, date:w.updated }; });
+    if(cur && cur.season===seasonYear() && cur.week){
+      var id=cur.seasonType===1 ? "pre" : cur.seasonType===3 ? "final" : "w"+cur.week;
+      list=list.filter(function(w){ return w.id!==id; });
+      list.push({ id:id, label:cur.weekText||"Week "+cur.week, date:cur.sourceUpdated, current:true });
+    }
+  } else if(!RATINGS[key]){
+    var live=(T25.polls||[]).filter(function(p){ return String(p.key).toLowerCase()===key; })[0]||null;
+    list=((WEEKS.polls && WEEKS.polls[key])||[]).map(function(w){ return { id:w.id, label:w.label, date:w.date, poll:w.poll }; });
+    if(live){
+      var same=list.filter(function(w){ return (live.released && dayOf(w.date)===dayOf(live.released)) || (live.asOf && w.label===live.asOf); })[0];
+      if(same){ same.poll=live; same.current=true; }
+      else list.push({ id:"latest", label:live.asOf||"Latest", date:live.released||live.updated, poll:live, current:true });
+    }
+  }
+  return list.sort(function(a,b){ return String(a.date).localeCompare(String(b.date)); });
+}
+// The week the route asks for, put in the model in the current one's place.
+// Until the current week is known there is no list: the newest kept week
+// is not "latest" while the live one is still on its way.
+function pickWeek(m, route){
+  var key=Suite.top25.chosenPoll(m), weeks=weekList(key), want=route.path[2]||null;
+  if(!weeks.some(function(w){ return w.current; })) weeks=[];
+  var pick=weeks.filter(function(w){ return w.id===want; })[0] || weeks[weeks.length-1] || null;
+  // A week that is not kept, once the kept ones are known, is a dead
+  // address: replaced, never left active (decision 0024 §15).
+  if(want && weeks.length && pick && pick.id!==want && WEEKS.polls && !WEEKS.p)
+    setTimeout(function(){ Suite.nav.replace("top25", ["rankings", key]); }, 0);
+  m.weeks=weeks.slice().reverse().map(function(w){ return { id:w.id, label:w.label, date:w.date }; });
+  m.week=pick ? pick.id : null;
+  if(!pick || pick.current) return;
+  if(key==="fpi"){
+    var kept=(WEEKS.fpi||[]).filter(function(w){ return w.id===pick.id; })[0];
+    m.ratings=m.ratings.filter(function(r){ return r.key!=="fpi"; });
+    if(kept){ var r=TeamOS.ratings.fpi(kept.snapshot, TEAM_CONFIG, seasonYear()); if(r) m.ratings.push(r); }
+    else if(WEEKS.fpiFailed){ m.ratingsFailed=Object.assign({}, m.ratingsFailed, { fpi:true }); }
+    else loadFpiWeeks();
+  } else {
+    m.polls=(m.polls||[]).filter(function(p){ return String(p.key).toLowerCase()!==key; }).concat([pick.poll]);
+  }
+}
+
 function top25Sources(){
   function s(key, maxAge){
     var x=SRC[key];
@@ -444,11 +514,12 @@ function top25Sources(){
 }
 
 function paintTop25(){
+  if(SHEET.id) paintSheet();
   var host=$("screenTop25");
   if(!host || host.hidden) return;
   var route=Suite.nav.current(), now=new Date();
   var hero=S.games ? TeamOS.game.hero(S.games, now, TEAM.timeZone).game : null;
-  Suite.top25.paint(host, {
+  var m={
     view:   route.view==="rankings" ? "rankings" : "games",
     poll:   route.view==="rankings" ? (route.path[1]||null) : null,
     polls:  T25.polls,
@@ -462,11 +533,87 @@ function paintTop25(){
     fresh:  TeamOS.freshness.summary(top25Sources(), { now:now, online: navigator.onLine!==false }),
     calendar: TeamOS.season.calendar(window.LEAGUE_CALENDAR, seasonYear(), now),
     now:    now
-  });
+  };
+  if(m.view==="rankings") pickWeek(m, route);
+  Suite.top25.paint(host, m);
+  // A week picked from the list: the list is drawn anew, so focus goes back to it.
+  if(WEEKS.refocus && $("rkWeek")){ WEEKS.refocus=false; $("rkWeek").focus({ preventScroll:true }); }
 }
+
+// One Top 25 game in a sheet (suite/top25.js; David, 2026-10-20):
+// #top25/games/<event id>. Its summary is fetched only while it is open -
+// before kickoff the board's own facts are all it shows, so nothing is
+// fetched - and again every 30 seconds while the game is live. It sits
+// outside the page (#sheetHost), so the page under it is inert: focus and a
+// screen reader stay in the sheet. Close, Escape or the dimmed page goes
+// Back when the board opened it, and replaces the address when a link did.
+var SHEET={ id:null, detail:{}, failed:{}, timer:null, fromBoard:false, lastRoute:null };
+function sheetId(route){
+  return route && route.screen==="top25" && route.view==="games" && /^[0-9]+$/.test(route.path[1]||"") ? route.path[1] : null;
+}
+function sheetGame(id){
+  return (SB.games||T25.cachedGames||[]).filter(function(g){ return String(g.id)===String(id); })[0]||null;
+}
+function loadSheet(id){
+  var g=sheetGame(id);
+  if(g && g.state==="pre") return;
+  summaryFor(id, !!g && g.state==="in").then(function(raw){
+    SHEET.detail[id]=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG); SHEET.failed[id]=false;
+  }, function(){ SHEET.failed[id]=true; }).then(paintSheet);
+}
+function sheetHost(){
+  var h=$("sheetHost");
+  if(!h){
+    h=document.createElement("div"); h.id="sheetHost"; h.hidden=true;
+    h.addEventListener("click", function(e){ if(e.target.closest && e.target.closest("[data-close]")) closeSheet(); });
+    document.body.appendChild(h);
+  }
+  return h;
+}
+function paintSheet(){
+  var id=SHEET.id;
+  Suite.top25.sheet(sheetHost(), id ? { game:sheetGame(id), detail:SHEET.detail[id]||null, failed:!!SHEET.failed[id],
+                                       mark:function(pid){ return TeamOS.espn.mark(pid, false); } } : null);
+}
+function closeSheet(){
+  if(!SHEET.id) return;
+  if(SHEET.fromBoard) history.back(); else Suite.nav.replace("top25", ["games"]);
+}
+function syncSheet(route){
+  var id=sheetId(route), was=SHEET.id, prev=SHEET.lastRoute;
+  SHEET.lastRoute=route;
+  if(id===was) return;
+  clearInterval(SHEET.timer); SHEET.timer=null;
+  SHEET.id=id;
+  ["appBar","main","navbar"].forEach(function(k){ var el=$(k); if(el){ if(id) el.setAttribute("inert",""); else el.removeAttribute("inert"); } });
+  document.documentElement.classList.toggle("sheet-open", !!id);
+  if(id){
+    SHEET.fromBoard=!!prev && prev.screen==="top25" && prev.view==="games" && !sheetId(prev);
+    paintSheet(); loadSheet(id);
+    var t=document.querySelector("#sheetHost .sh-title"); if(t) t.focus({ preventScroll:true });
+    SHEET.timer=setInterval(function(){
+      var g=sheetGame(id);
+      if(!document.hidden && g && g.state==="in") loadSheet(id);
+    }, 30000);
+  } else {
+    paintSheet();
+    // Back on the board: focus returns to the row that opened it.
+    var row=was && document.querySelector('#screenTop25 a[href="#top25/games/'+was+'"]');
+    if(row && route && route.screen==="top25") row.focus({ preventScroll:true });
+  }
+}
+document.addEventListener("keydown", function(e){ if(SHEET.id && e.key==="Escape") closeSheet(); });
+// The week picker (suite/top25.js): a week is a route, so Back walks the weeks.
+document.addEventListener("change", function(e){
+  var s=e.target && e.target.closest && e.target.closest("#screenTop25 select[data-week]");
+  if(!s) return;
+  WEEKS.refocus=true;
+  Suite.nav.go("top25", ["rankings", s.getAttribute("data-source")].concat(s.value ? [s.value] : []));
+});
 
 function loadTop25(){
   var route=Suite.nav.current();
+  if(route.view==="rankings") loadWeeks();
   if(ratingKey(route)) loadRating(ratingKey(route));
   if(T25.polls==null) cachedJSON(TeamOS.espn.rankingsUrl()).then(function(d){
     if(T25.polls==null && d){ T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); paintTop25(); }
@@ -1347,7 +1494,7 @@ function showScreen(route){
   if(roster){ paintRoster(); loadRosterScreen(); }
   UI.tab=name;
 }
-Suite.nav.on(function(route){ showScreen(route); });
+Suite.nav.on(function(route){ showScreen(route); syncSheet(route); });
 // A first load that failed is asked again when the fan opens a screen that
 // needs it, so the failure message is never the last word while online.
 Suite.nav.on(function(route){

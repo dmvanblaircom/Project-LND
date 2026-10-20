@@ -333,7 +333,7 @@ wk.forEach(function (g) { ok(!LGLEAK.test(JSON.stringify(Object.assign({}, g, { 
 
 // ---- rankings ----
 var rkFixture = JSON.parse(read("tools/fixtures/espn-rankings.json"));
-var POLL = ["key","label","name","asOf","updated","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
+var POLL = ["key","label","name","asOf","updated","released","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
 var POLLLEAK = /rankings|occurrence|recordSummary|shortName|headline|nickname|location|current|espn/i;
 
 console.log("rankings()");
@@ -368,6 +368,26 @@ var fla = rap.ranks.filter(function (r) { return r.team === "Florida"; })[0];
 eq([fla.previous, fla.isNew, fla.change], [null, true, null], "new this week: no change is invented from ESPN's own trend text");
 eq(rap.ranks.filter(function (r) { return r.abbr === "MSST"; })[0].team, "Mississippi St", "the feed's short name, not the long one");
 real.forEach(function (p) { ok(!POLLLEAK.test(JSON.stringify(p)), "real " + p.key + " carries no ESPN keys"); });
+
+// Kept weeks (David, 2026-10-20): data/league/rankings-<season>.json, made of
+// the real preseason and week 2 AP polls, read as the same Poll the feed gives.
+console.log("rankingsHistory(), kept weeks");
+var hist = TeamOS.espn.rankingsHistory(JSON.parse(read("tools/fixtures/rankings-2026-sample.json")), TEAM_CONFIG);
+eq(Object.keys(hist), ["ap", "coaches", "cfp"], "one list per poll");
+eq(hist.ap.map(function (w) { return [w.id, w.label]; }), [["pre", "Preseason"], ["w2", "Week 2"]], "AP: preseason then week 2, oldest first, by the route's ids");
+hist.ap.forEach(function (w) {
+  eq(Object.keys(w), ["id", "label", "date", "poll"], w.id + " is a Week");
+  eq(Object.keys(w.poll), POLL, w.id + " has exactly the documented Poll fields");
+  w.poll.ranks.forEach(function (r) { eq(Object.keys(r), RANK, w.id + " #" + r.rank + " has exactly the documented rank fields"); });
+  ok(!POLLLEAK.test(JSON.stringify(w)), w.id + " carries no ESPN keys");
+});
+var hw2 = hist.ap[1].poll;
+eq([hw2.key, hw2.label, hw2.asOf, hw2.ranks.length], ["AP", "AP", "Week 2", 25], "week 2: the AP poll, 25 ranked");
+eq(hw2.ranks.filter(function (r) { return r.mine; }).map(function (r) { return [r.rank, r.team, r.providerId, r.previous, r.change]; }),
+   [[3, "Notre Dame", "87", 4, 1]], "the team, once: #3, up one from #4");
+eq(hist.ap[0].poll.ranks.some(function (r) { return r.isNew || r.change != null; }), false, "the preseason poll: nothing new, nothing moved");
+eq([hist.coaches, TeamOS.espn.rankingsHistory({}, TEAM_CONFIG), TeamOS.espn.rankingsHistory(null, TEAM_CONFIG)], [[], null, null],
+   "a poll with no kept week is empty; a file that is not a kept season is null");
 
 // ---- game center ----
 var GD = ["state","detail","home","away","lastPlay","winProb","linescore","teamStats","leaders","box","scoring","drives"];
@@ -775,7 +795,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonSelected","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
+   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonSelected","postseasonUrl","rankings","rankingsHistory","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
    "exactly the documented functions");
 
 console.log("mark");

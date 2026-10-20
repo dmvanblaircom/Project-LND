@@ -140,6 +140,9 @@ function collectTextInPage() {
     if (el.checkVisibility && !el.checkVisibility({ contentVisibilityAuto: true, visibilityProperty: true })) continue;
     var shut = el.closest("details:not([open])");
     if (shut && !el.closest("summary")) continue;
+    // The page under a modal sheet is inert and dimmed: nothing there can be
+    // read or reached until the sheet closes (Top 25's game sheet).
+    if (el.closest("[inert]")) continue;
     // A program's fallback initials sit under its logo (suite/ui.js mark()).
     // Once the logo has loaded it covers them - the page hides them on the
     // load event, but a capture can land after the logo is painted and before
