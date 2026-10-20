@@ -99,12 +99,15 @@ var TEAM_CONFIG = {
     // (tools/producers/beat_news.py), because RSS sites send no CORS header.
     // `site` is where the producer looks for the feed when `feed` stops
     // answering, so a moved feed is found and named in the run's log.
+    // Stories about another sport are left out by the producer; `paths` keeps
+    // only the stories filed under this team's section of a site whose feed
+    // also carries its national stories (On3; David, 2026-10-20).
     beatFeeds: [
       { name: "One Foot Down",       feed: "https://www.onefootdown.com/rss/current.xml",   site: "https://www.onefootdown.com/", logo: "https://platform.sbnation.com/wp-content/uploads/sites/2/team-logos/logo-onefootdown.png?w=180" },
       { name: "Slap the Sign",       feed: "https://slapthesign.com/feed/",                 site: "https://slapthesign.com/", logo: "https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/favicon_2-7584840191d9f13dce826391650b7201.ico" },
       { name: "UHND",                feed: "https://www.uhnd.com/feed/",                    site: "https://www.uhnd.com/" },
       { name: "NDNation",            feed: "https://ndnation.com/feed",                     site: "https://ndnation.com/", logo: "https://ndnation.com/wp-content/uploads/2018/05/cropped-ndn-192x192.png" },
-      { name: "Blue & Gold",         feed: "https://www.on3.com/teams/notre-dame-fighting-irish/feed/", site: "https://www.on3.com/teams/notre-dame-fighting-irish/", logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
+      { name: "Blue & Gold",         feed: "https://www.on3.com/teams/notre-dame-fighting-irish/feed/", site: "https://www.on3.com/teams/notre-dame-fighting-irish/", paths: ["/teams/notre-dame-fighting-irish/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
       { name: "Notre Dame On SI",    feed: "https://www.si.com/college/notredame/feed",     site: "https://www.si.com/college/notredame", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
     ]
   },
