@@ -76,4 +76,5 @@ draftboard-2026-40 2026-final
 draftrounds-2026 2026
 nflteams 2026-oct3
 schedule-87 nd-oct08
+# the 2025 postseason, as season type 3, week 1 (a date range is refused)
 postboard-2025 postboard-2025
