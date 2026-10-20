@@ -1,0 +1,1089 @@
+{
+ "_comment": "Real ESPN payload, captured 2026-10-20T20:29Z by capture-fixture.yml from https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/weeks/16/rankings/21, kept whole.",
+ "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/weeks/16/rankings/21?lang=en&region=us",
+ "id": "21",
+ "name": "Playoff Committee Rankings",
+ "shortName": "CFP Rankings",
+ "type": "cfp",
+ "occurrence": {
+  "number": 16,
+  "type": "week",
+  "last": false,
+  "value": "16",
+  "displayValue": "Week 16"
+ },
+ "date": "2025-12-07T08:00Z",
+ "headline": "2025 NCAA Football Rankings - CFP Rankings Week 16",
+ "shortHeadline": "2025 CFP Rankings: Week 16",
+ "season": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025?lang=en&region=us",
+  "year": 2025,
+  "startDate": "2025-02-01T08:00Z",
+  "endDate": "2026-01-21T07:59Z",
+  "displayName": "2025",
+  "type": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2?lang=en&region=us",
+   "id": "2",
+   "type": 2,
+   "name": "Regular Season",
+   "abbreviation": "reg",
+   "year": 2025,
+   "startDate": "2025-08-23T07:00Z",
+   "endDate": "2025-12-13T07:59Z",
+   "hasGroups": false,
+   "hasStandings": true,
+   "hasLegs": false,
+   "groups": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/groups?lang=en&region=us"
+   },
+   "weeks": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/weeks?lang=en&region=us"
+   },
+   "leaders": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/leaders?lang=en&region=us"
+   },
+   "slug": "regular-season"
+  },
+  "types": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types?lang=en&region=us",
+   "count": 4,
+   "pageIndex": 1,
+   "pageSize": 4,
+   "pageCount": 1,
+   "items": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/1?lang=en&region=us",
+     "id": "1",
+     "type": 1,
+     "name": "Preseason",
+     "abbreviation": "pre",
+     "year": 2025,
+     "startDate": "2025-02-01T08:00Z",
+     "endDate": "2025-08-23T06:59Z",
+     "hasGroups": false,
+     "hasStandings": false,
+     "hasLegs": false,
+     "groups": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/1/groups?lang=en&region=us"
+     },
+     "weeks": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/1/weeks?lang=en&region=us"
+     },
+     "slug": "preseason"
+    },
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2?lang=en&region=us",
+     "id": "2",
+     "type": 2,
+     "name": "Regular Season",
+     "abbreviation": "reg",
+     "year": 2025,
+     "startDate": "2025-08-23T07:00Z",
+     "endDate": "2025-12-13T07:59Z",
+     "hasGroups": false,
+     "hasStandings": true,
+     "hasLegs": false,
+     "groups": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/groups?lang=en&region=us"
+     },
+     "weeks": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/weeks?lang=en&region=us"
+     },
+     "leaders": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/leaders?lang=en&region=us"
+     },
+     "slug": "regular-season"
+    },
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/3?lang=en&region=us",
+     "id": "3",
+     "type": 3,
+     "name": "Postseason",
+     "abbreviation": "post",
+     "year": 2025,
+     "startDate": "2025-12-13T08:00Z",
+     "endDate": "2026-01-21T07:59Z",
+     "hasGroups": false,
+     "hasStandings": true,
+     "hasLegs": false,
+     "groups": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/3/groups?lang=en&region=us"
+     },
+     "weeks": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/3/weeks?lang=en&region=us"
+     },
+     "leaders": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/3/leaders?lang=en&region=us"
+     },
+     "slug": "post-season"
+    },
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/4?lang=en&region=us",
+     "id": "4",
+     "type": 4,
+     "name": "Off Season",
+     "abbreviation": "off",
+     "year": 2025,
+     "startDate": "2026-01-21T08:00Z",
+     "endDate": "2026-02-01T07:59Z",
+     "hasGroups": false,
+     "hasStandings": false,
+     "hasLegs": false,
+     "groups": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/4/groups?lang=en&region=us"
+     },
+     "weeks": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/4/weeks?lang=en&region=us"
+     },
+     "slug": "off-season"
+    }
+   ]
+  },
+  "rankings": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/rankings?lang=en&region=us"
+  },
+  "athletes": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/athletes?lang=en&region=us"
+  },
+  "awards": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/awards?lang=en&region=us"
+  },
+  "futures": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/futures?lang=en&region=us"
+  },
+  "leaders": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/types/2/leaders?lang=en&region=us"
+  }
+ },
+ "lastUpdated": "2025-12-07T21:14Z",
+ "ranks": [
+  {
+   "current": 1,
+   "previous": 2,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "+1",
+   "record": {
+    "summary": "13-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 13.0,
+      "displayValue": "13"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/84?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 2,
+   "previous": 1,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-1",
+   "record": {
+    "summary": "12-1",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 12.0,
+      "displayValue": "12"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 1.0,
+      "displayValue": "1"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/194?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 3,
+   "previous": 3,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "12-1",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 12.0,
+      "displayValue": "12"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 1.0,
+      "displayValue": "1"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/61?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 4,
+   "previous": 4,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "12-1",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 12.0,
+      "displayValue": "12"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 1.0,
+      "displayValue": "1"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/2641?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 5,
+   "previous": 5,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "11-1",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 11.0,
+      "displayValue": "11"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 1.0,
+      "displayValue": "1"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/2483?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 6,
+   "previous": 6,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "11-1",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 11.0,
+      "displayValue": "11"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 1.0,
+      "displayValue": "1"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/145?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 7,
+   "previous": 7,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "11-1",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 11.0,
+      "displayValue": "11"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 1.0,
+      "displayValue": "1"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/245?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 8,
+   "previous": 8,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "10-2",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 10.0,
+      "displayValue": "10"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 2.0,
+      "displayValue": "2"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/201?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 9,
+   "previous": 9,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "10-3",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 10.0,
+      "displayValue": "10"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 3.0,
+      "displayValue": "3"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/333?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 10,
+   "previous": 12,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "+2",
+   "record": {
+    "summary": "10-2",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 10.0,
+      "displayValue": "10"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 2.0,
+      "displayValue": "2"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/2390?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 11,
+   "previous": 10,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-1",
+   "record": {
+    "summary": "10-2",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 10.0,
+      "displayValue": "10"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 2.0,
+      "displayValue": "2"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/87?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 12,
+   "previous": 11,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-1",
+   "record": {
+    "summary": "11-2",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 11.0,
+      "displayValue": "11"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 2.0,
+      "displayValue": "2"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/252?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 13,
+   "previous": 13,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "9-3",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 9.0,
+      "displayValue": "9"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 3.0,
+      "displayValue": "3"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/251?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 14,
+   "previous": 14,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "10-2",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 10.0,
+      "displayValue": "10"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 2.0,
+      "displayValue": "2"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/238?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 15,
+   "previous": 15,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "10-2",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 10.0,
+      "displayValue": "10"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 2.0,
+      "displayValue": "2"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/254?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 16,
+   "previous": 16,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "9-3",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 9.0,
+      "displayValue": "9"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 3.0,
+      "displayValue": "3"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/30?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 17,
+   "previous": 18,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "+1",
+   "record": {
+    "summary": "9-3",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 9.0,
+      "displayValue": "9"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 3.0,
+      "displayValue": "3"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/12?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 18,
+   "previous": 19,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "+1",
+   "record": {
+    "summary": "9-3",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 9.0,
+      "displayValue": "9"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 3.0,
+      "displayValue": "3"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/130?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 19,
+   "previous": 17,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-2",
+   "record": {
+    "summary": "10-3",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 10.0,
+      "displayValue": "10"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 3.0,
+      "displayValue": "3"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/258?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 20,
+   "previous": 20,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "11-2",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 11.0,
+      "displayValue": "11"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 2.0,
+      "displayValue": "2"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/2655?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 21,
+   "previous": 21,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "9-3",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 9.0,
+      "displayValue": "9"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 3.0,
+      "displayValue": "3"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/248?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 22,
+   "previous": 22,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "9-3",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 9.0,
+      "displayValue": "9"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 3.0,
+      "displayValue": "3"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/59?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 23,
+   "previous": 23,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "8-4",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 8.0,
+      "displayValue": "8"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 4.0,
+      "displayValue": "4"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/2294?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 24,
+   "previous": 25,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "+1",
+   "record": {
+    "summary": "12-1",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 12.0,
+      "displayValue": "12"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 1.0,
+      "displayValue": "1"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/256?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  },
+  {
+   "current": 25,
+   "previous": 24,
+   "points": 0.0,
+   "firstPlaceVotes": 0,
+   "trend": "-1",
+   "record": {
+    "summary": "11-2",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 11.0,
+      "displayValue": "11"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 2.0,
+      "displayValue": "2"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/249?lang=en&region=us"
+   },
+   "date": "2025-12-07T08:00Z",
+   "lastUpdated": "2025-12-07T21:14Z"
+  }
+ ],
+ "others": [],
+ "droppedOut": [],
+ "availability": {}
+}
