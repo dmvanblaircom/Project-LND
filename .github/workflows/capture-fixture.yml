@@ -62,6 +62,7 @@ jobs:
             # "sitestats-<id> <name>"         a team's statistics, site API (W27 candidate)
             # "postschedule-<id>-<YYYY> <name>"  a team's postseason, notes kept (W16)
             # "bowls-<YYYYMMDD> <name>"       one postseason day's FBS games, notes kept (W16)
+            # "postboard-<YYYY> <name>"       a season's whole FBS postseason (Dec 1 - Jan 31), notes kept
             # "recruits-<id>-<YYYY> <name>"   a team's recruiting class, each recruit's record (W16)
             # "draftboard-<YYYY>-<n> <name>"  an NFL draft's first n prospects, each record (W16)
             # "draftrounds-<YYYY> <name>"     an NFL draft's rounds and picks, kept whole (W16)
@@ -96,6 +97,11 @@ jobs:
               # a team's postseason, with each game's notes: the bowl or round name (W16)
               out="tools/fixtures/espn-schedule-$name.json"; kind=postseason
               url="$API/teams/${BASH_REMATCH[1]}/schedule?season=${BASH_REMATCH[2]}&seasontype=3"
+            elif [[ "$ev" =~ ^postboard-([0-9]{4})$ ]]; then
+              # the league's postseason over a date range: the alerts Worker's
+              # "is selection known" and "is the team in" (postseason alerts)
+              out="tools/fixtures/espn-scoreboard-$name.json"; kind=postseason
+              url="$API/scoreboard?groups=80&limit=400&seasontype=3&dates=${BASH_REMATCH[1]}1201-$((${BASH_REMATCH[1]} + 1))0131"
             elif [[ "$ev" =~ ^bowls-([0-9]{8})$ ]]; then
               # one postseason day's FBS games, with their notes (W16)
               out="tools/fixtures/espn-scoreboard-$name.json"; kind=postseason
