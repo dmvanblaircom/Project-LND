@@ -207,7 +207,9 @@ Suite.more = (function () {
     game: [["kickoff", "Kickoff"], ["final", "Final score"], ["delays", "Delays & postponements"],
            ["timeset", "Kickoff time set", "When a TBA game gets its time, or a set time moves"]],
     updates: [["quarters", "End of each quarter"], ["halftime", "Halftime score"],
-              ["close", "Close finish", "One alert when it\u2019s a one-score game late in the 4th, and if it goes to overtime"]]
+              ["close", "Close finish", "One alert when it\u2019s a one-score game late in the 4th, and if it goes to overtime"]],
+    // About the season, not a game (brief §1 postseason events).
+    season: [["cfp", "CFP rankings", "After each Tuesday rankings show, where your team stands"]]
   };
   var SCORING = [["off", "Off"], ["mine", "My team\u2019s scores"], ["all", "Every score"]];
   function alertSwitch(o, sw) {
@@ -228,6 +230,7 @@ Suite.more = (function () {
                '<input type="radio" name="alertScoring" value="' + c[0] + '"' + (o.scoring === c[0] ? " checked" : "") + "></label>";
       }).join("") + "</div></fieldset>" +
       '<fieldset class="al-set"><legend class="al-legend">Updates</legend>' + SWITCHES.updates.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
+      '<fieldset class="al-set"><legend class="al-legend">Season</legend>' + SWITCHES.season.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
       '<p class="al-help">If alerts don\u2019t arrive, allow Suite in your Focus settings.</p></div>';
   }
   function gameAlerts(m) {

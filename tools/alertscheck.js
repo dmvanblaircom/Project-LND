@@ -97,10 +97,10 @@ var STUB = "(" + function () {
   console.log("1. Turn On");
   await a.page.click('#screenSettings [data-alerts="on"]'); await a.page.waitForTimeout(500);
   var s1 = await state(a.page);
-  eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false }],
+  eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false }],
      "Turn On sends the defaults: kickoff, final and delays - Kickoff time set off");
   ok(s1.on === "On" && /test alert is on its way/.test(s1.note), "On, and the test alert is promised");
-  eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-timeset", "-quarters", "-halftime", "-close"], "off"], "the choices show, set to the defaults");
+  eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp"], "off"], "the choices show, set to the defaults");
   await shot(a.page, "alerts-on");
 
   console.log("2. A quick pick");
@@ -114,7 +114,19 @@ var STUB = "(" + function () {
   ok(/^Saved\./.test(s2b.note) && /^Saved\./.test(s2b.live), "and it says Saved., aloud too");
   // Kickoff time set (brief §2b, 12): only Everything includes it.
   ok(s2.switches.indexOf("+timeset") >= 0, "Everything includes Kickoff time set");
+  ok(s2.switches.indexOf("+cfp") >= 0, "and the CFP rankings");
   ok(s2b.switches.indexOf("-timeset") >= 0 && a.posts[a.posts.length - 1].options.timeset === false, "Key moments leaves it off, and says so to the Worker");
+  ok(s2b.switches.indexOf("-cfp") >= 0 && a.posts[a.posts.length - 1].options.cfp === false, "Key moments leaves the CFP rankings off too");
+  var cfpRow = await a.page.evaluate(function () { var i = document.querySelector('[data-alert-opt="cfp"]'), r = i.closest(".al-row"), f = i.closest("fieldset");
+    return { name: r.querySelector(".al-name").textContent, sub: (r.querySelector(".al-sub") || {}).textContent, set: f.querySelector("legend").textContent,
+             label: i.getAttribute("role") === "switch" && r.tagName === "LABEL" }; });
+  eq([cfpRow.set, cfpRow.name, cfpRow.sub, cfpRow.label], ["Season", "CFP rankings", "After each Tuesday rankings show, where your team stands", true],
+     "CFP rankings: its own Season group, a labelled switch like the rest");
+  await a.page.click('#screenSettings [data-alert-opt="cfp"]'); await a.page.waitForTimeout(900);
+  var sC = await state(a.page);
+  ok(sC.switches.indexOf("+cfp") >= 0 && a.posts[a.posts.length - 1].options.cfp === true && !sC.pressed.length,
+     "CFP rankings by hand: on, sent to the Worker, and the pick steps aside");
+  await a.page.click('#screenSettings [data-alert-opt="cfp"]'); await a.page.waitForTimeout(900);
   await a.page.click('#screenSettings [data-alert-opt="timeset"]'); await a.page.waitForTimeout(900);
   var sT = await state(a.page);
   ok(sT.switches.indexOf("+timeset") >= 0 && a.posts[a.posts.length - 1].options.timeset === true && !sT.pressed.length,
@@ -174,7 +186,7 @@ var STUB = "(" + function () {
   console.log("4d. A device that turned alerts on before there were choices (Codex, #116)");
   var L = await open(390, function () { try { localStorage.setItem("iw-alerts-notre-dame", "1"); } catch (e) {} });
   var ls = await state(L.page);
-  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-timeset", "-quarters", "-halftime", "-close"]], "it shows what it has had: kickoff and final, the new in-game Delays off");
+  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp"]], "it shows what it has had: kickoff and final, the new in-game Delays off");
   await L.page.click('#screenSettings input[name="alertScoring"][value="mine"]'); await L.page.waitForTimeout(900);
   var lo = L.posts[L.posts.length - 1] && L.posts[L.posts.length - 1].options;
   ok(lo && lo.delays === false && lo.outcomes === true && lo.scoring === "mine",

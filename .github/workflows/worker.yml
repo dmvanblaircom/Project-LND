@@ -12,7 +12,8 @@ name: Deploy the edge API
 on:
   push:
     branches: [main]
-    paths: ["worker/**", ".github/workflows/worker.yml", "teams/index.js", "tools/build-worker-schools.js"]
+    paths: ["worker/**", ".github/workflows/worker.yml", "teams/index.js", "tools/build-worker-schools.js",
+            "leagues/college-football.js", "tools/build-worker-calendar.js"]
   workflow_dispatch:
 
 permissions:
@@ -48,6 +49,10 @@ jobs:
       - name: The school list follows the registry
         if: steps.ready.outputs.ok == 'true'
         run: node tools/build-worker-schools.js
+      # The CFP rankings shows, from the league's calendar as it is now.
+      - name: The rankings shows follow the league calendar
+        if: steps.ready.outputs.ok == 'true'
+        run: node tools/build-worker-calendar.js
       - name: The edge API passes its checks
         if: steps.ready.outputs.ok == 'true'
         run: node tools/workercheck.mjs
