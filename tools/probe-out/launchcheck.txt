@@ -1,0 +1,62 @@
+runner: Ubuntu 24.04.5 LTS 4 cpus
+Version 1.55.0
+== run 1
+exit 0
+  ok   it plays its animation, then lifts (2709 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (3981 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6072 ms)
+  ok   its own style lifts it (7098 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1529ms), not from the start
+a clock that moved back
+  ok   a saved start in the future is ignored: it lifts on its own clock (2687 ms)
+  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
+== run 2
+exit 0
+  ok   it plays its animation, then lifts (2723 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (4009 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6064 ms)
+  ok   its own style lifts it (7073 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1527ms), not from the start
+a clock that moved back
+  ok   a saved start in the future is ignored: it lifts on its own clock (2700 ms)
+  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
+== run 3
+exit 0
+  ok   it plays its animation, then lifts (2710 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (3961 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6068 ms)
+  ok   its own style lifts it (7089 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1527ms), not from the start
+a clock that moved back
+  ok   a saved start in the future is ignored: it lifts on its own clock (2694 ms)
+  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
+== run 4
+exit 0
+  ok   it plays its animation, then lifts (2723 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (3994 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6058 ms)
+  ok   its own style lifts it (7079 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1526ms), not from the start
+a clock that moved back
+  ok   a saved start in the future is ignored: it lifts on its own clock (2687 ms)
+  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
+== run 5
+exit 0
+  ok   it plays its animation, then lifts (2734 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (4003 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6067 ms)
+  ok   its own style lifts it (7069 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1528ms), not from the start
+a clock that moved back
+  ok   a saved start in the future is ignored: it lifts on its own clock (2709 ms)
+  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
+== run 6
+exit 0
+  ok   it plays its animation, then lifts (2735 ms)
+  ok   news after 3.5s: it waits, and lifts with the stories there (3975 ms)
+  ok   never more than 6 seconds, whatever is still on its way (6053 ms)
+  ok   its own style lifts it (7090 ms): it can never trap a fan
+  ok   carries the animation on from where it was (-1527ms), not from the start
+a clock that moved back
+  ok   a saved start in the future is ignored: it lifts on its own clock (2665 ms)
+  ok   the launch holds over the page until that reload: it never starts to lift (1.00)
