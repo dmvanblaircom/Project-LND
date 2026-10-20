@@ -88,3 +88,4 @@ corerank-2025-3-1-1 ap-2025-post
 coreweeks-2025-3 weeks-2025-3
 fbsteams 2026
 corerank-2026-2-2-1 ap-2026-w2
+coreteam-2026-2390 miami-2026
