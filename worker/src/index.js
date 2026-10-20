@@ -39,7 +39,7 @@ import { Alerts } from "./push.js";
 // because Cloudflare finds it in the main module.
 export { Alerts };
 
-export const VERSION = "edge-2026-10-14sp";
+export const VERSION = "edge-2026-10-20cfp";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
