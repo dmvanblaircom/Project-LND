@@ -1503,7 +1503,9 @@ console.log("game alerts: Selection Day, the postseason set, a game declined, no
   await tick(db, e, S0 + 70 * 60e3);
   ok(to(f.lsu).length === 1 && to(f.lsuNoNo).length === 1 && to(f.lsuLate).length === 0,
      "gone on two reads in a row: withdrawn, to each device told it was set - not to one that never heard of it");
-  eq((await open(f.lsu)).body, "LSU will not play in the Kinder's Texas Bowl.", "in plain words");
+  const off = await open(f.lsu);
+  eq([off.body, off.url], ["LSU will not play in the Kinder's Texas Bowl.", APP_URL + "#schedule"],
+     "in plain words, opening the schedule - not a game no longer on it (Codex, #152)");
   await tick(db, e, S0 + 80 * 60e3);
   ok(to(f.lsu).length === 1, "withdrawn once");
 
@@ -1523,6 +1525,18 @@ console.log("game alerts: Selection Day, the postseason set, a game declined, no
   eq((await open(f.lsu)).body, "LSU's season is complete: no bowl this year.", "the brief's words");
   await tick(db, e, S1 + 16 * 3600e3);
   ok(to(f.lsu).length === 1, "once");
+
+  // The next season (Codex, #152): Notre Dame played its 2024 playoff games;
+  // in 2025 it is on no postseason game, and its fan who chose it is told -
+  // last year's games never stand in for this year's.
+  { const B25 = fx("espn-scoreboard-postboard-2025.json");
+    const SEL25 = { season: 2025, start: "2025-12-07T12:00:00-05:00", end: "2025-12-07T15:00:00-05:00", on: "ESPN" };
+    const E1 = Date.parse(SEL25.end);
+    e.SELECTION = [SEL25]; ndPost = { events: [] }; board = B25; e.pushes.length = 0;
+    for (let i = 0; i < 4; i++) await tick(db, e, E1 + 13 * 3600e3 + i * 61 * 60e3);
+    ok(to(f.nd).length === 1, "2025: Notre Dame, on no postseason game, is told its season is complete (" + to(f.nd).length + ")");
+    eq((await open(f.nd)).body, "Notre Dame's season is complete: no bowl this year.", "the brief's words");
+    e.SELECTION = [SEL]; }
 
   // A failed read never counts as an empty one.
   const db2 = dbOf(), e2 = alertEnv({}); e2.SELECTION = [SEL]; e2.FETCH = e.FETCH;

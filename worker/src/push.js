@@ -671,16 +671,19 @@ export function selectionFor(now, days) {
   })[0] || null;
 }
 
-// What the Worker has seen of a team's postseason: the games it said were
-// set ({ id: { stage, opp, iso } }), how many reads in a row each has been
-// missing from, and how many reads in a row found none at all.
-function postState(db, teamId) {
-  const row = db.all("SELECT v FROM meta WHERE k = ?", "post:" + teamId)[0];
+// What the Worker has seen of a team's postseason in one season: the games
+// it said were set ({ id: { stage, opp, iso } }), how many reads in a row
+// each has been missing from, and how many reads in a row found none at all.
+// Kept per season, so last year's bowl never stands in for this year's
+// (Codex, #152).
+function postKey(teamId, season) { return "post:" + season + ":" + teamId; }
+function postState(db, teamId, season) {
+  const row = db.all("SELECT v FROM meta WHERE k = ?", postKey(teamId, season))[0];
   const st = row ? JSON.parse(row.v) : null;
   return st && st.games ? st : { games: {}, missing: {}, empty: 0, at: 0 };
 }
-function savePost(db, teamId, st) {
-  db.run("INSERT INTO meta (k, v) VALUES (?, ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v", "post:" + teamId, JSON.stringify(st));
+function savePost(db, teamId, season, st) {
+  db.run("INSERT INTO meta (k, v) VALUES (?, ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v", postKey(teamId, season), JSON.stringify(st));
 }
 
 // One read of the team's postseason schedule (`post`, null when it failed):
@@ -691,7 +694,7 @@ function savePost(db, teamId, st) {
 export function postSeen(db, teamId, post, sel, now, log) {
   if (!post || !Array.isArray(post.events)) return 0;
   let added = 0;
-  const st = postState(db, teamId), games = postGames(post, teamId);
+  const st = postState(db, teamId, sel.season), games = postGames(post, teamId);
   st.at = now;
   st.empty = games.length ? 0 : (st.empty || 0) + 1;
   for (const g of games) {
@@ -712,7 +715,7 @@ export function postSeen(db, teamId, post, sel, now, log) {
     g.off = true;
     emit(db, teamId, { id: id }, "postoff:" + id, null, { stage: g.stage, opp: g.opp }, now, log, false);
   }
-  savePost(db, teamId, st);
+  savePost(db, teamId, sel.season, st);
   return added;
 }
 
@@ -739,7 +742,7 @@ async function noPostLook(db, env, teamId, sel, now, log) {
   const end = Date.parse(sel.end || sel.start);
   if (now < end + LIMITS.noPostAfter || now > end + LIMITS.noPostUntil) return;
   if (db.all("SELECT 1 FROM sent WHERE team_id = ? AND event = ?", teamId, "nopost:" + sel.season).length) return;
-  const st = postState(db, teamId);
+  const st = postState(db, teamId, sel.season);
   if (st.empty < 2 || Object.keys(st.games).some(function (id) { return !st.games[id].off; })) return;
   const row = db.all("SELECT v FROM meta WHERE k = 'postboard'")[0], b = row ? JSON.parse(row.v) : null;
   let set = b && b.season === sel.season ? b.set : null;
@@ -788,7 +791,7 @@ export async function tick(db, env, now, quick) {
     }
     // A game named between the hourly reads: the next minute reads both
     // schedules, so the game alerts watch it from then.
-    if (sel && !readPost && postFast(now, sel) && now - postState(db, teamId).at >= LIMITS.postEvery &&
+    if (sel && !readPost && postFast(now, sel) && now - postState(db, teamId, sel.season).at >= LIMITS.postEvery &&
         postSeen(db, teamId, await getJson(env, SITE + "/teams/" + teamId + "/schedule?seasontype=3"), sel, now, log))
       db.run("UPDATE games SET checked = 0 WHERE team_id = ?", teamId);
     if (sel) {
@@ -1244,7 +1247,9 @@ async function deliver(db, env, teamId, now, log, retry) {
     // screen (one card per game, §2b 4); the phone still sounds each time.
     // A new kickoff time replaces the last one's card; it opens that game.
     const tag = live(d.event) ? d.game_id + "-live" : d.game_id + "-" + (isFinite(kickoffAt) ? "time" : d.event);
-    const where = isFinite(kickoffAt) || /^post(off)?:/.test(d.event) ? "#schedule/" + d.game_id
+    // A withdrawn game is no longer on the schedule: its alert opens the
+    // schedule itself, not a game that is not there (Codex, #152).
+    const where = isFinite(kickoffAt) || /^post:/.test(d.event) ? "#schedule/" + d.game_id : /^postoff:/.test(d.event) ? "#schedule"
                 : /^(cfp|sel):/.test(d.event) ? "#top25/rankings/cfp" : /^nopost:/.test(d.event) ? "#home" : "#game";
     const msg = { title: w.title, body: w.body, url: APP_URL + where, tag, renotify: live(d.event) };
     if (w.kickoff) { msg.kickoff = w.kickoff; if (w.network) msg.network = w.network; }
