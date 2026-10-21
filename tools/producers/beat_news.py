@@ -217,11 +217,14 @@ def path_of(link):
 def off_topic(item, league, paths=None):
     """-> why a story is not the team's football, or None to keep it.
 
-    Another sport named in the title, the address or the feed's categories
-    drops it, unless one of them also says football (a two-sport recruit is
-    still a football story). The summary is not read: it mentions other
-    teams and sports in passing. `paths`: the source's own sections for this
-    team; an address outside them is someone else's story."""
+    Another sport named in the title or the address drops it, unless the
+    title or address also says football (a two-sport recruit is still a
+    football story). The feed's categories decide only when neither names a
+    sport: an outlet that files everything under "Football" does not rescue
+    "Notre Dame WBB debuts at No. 13" (it reached the Oct 20 refresh). The
+    summary is not read: it mentions other teams and sports in passing.
+    `paths`: the source's own sections for this team; an address outside
+    them is someone else's story."""
     path = path_of(item["link"])
     if path is None:
         return "an address that does not parse"
@@ -230,10 +233,20 @@ def off_topic(item, league, paths=None):
     other, own = OTHER_SPORTS.get(league), OWN_SPORT.get(league)
     if not other:
         return None
-    said = [item["title"], path.replace("-", " ").replace("/", " ")] + list(item.get("categories") or [])
-    hit = next((m.group(0) for m in (other.search(x) for x in said) if m), None)
-    if hit and not (own and any(own.search(x) for x in said)):
-        return "another sport (%s)" % hit
+    def first(texts):
+        return next((m.group(0) for m in (other.search(x) for x in texts) if m), None)
+
+    def football(texts):
+        return bool(own) and any(own.search(x) for x in texts)
+
+    said = [item["title"], path.replace("-", " ").replace("/", " ")]
+    cats = list(item.get("categories") or [])
+    hit = first(said)
+    if hit:
+        return None if football(said) else "another sport (%s)" % hit
+    hit = first(cats)
+    if hit and not football(said + cats):
+        return "another sport (%s, by category)" % hit
     return None
 
 

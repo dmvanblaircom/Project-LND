@@ -83,3 +83,22 @@ Current state: **built (2026-10-14)**, live once its pull request merges. The to
   displaying the SP+ top 25 with ranks and ratings as you described,
   credited to SP+ and CFBD." SP+ is buildable: the top 25 with ranks and
   ratings, through the edge API, credited to SP+ and CFBD.
+
+## Earlier weeks: the week picker (David, 2026-10-20)
+
+Top 25 → Rankings has a week picker for each source. It defaults to the newest week, and every earlier week stays available. The data:
+
+- **AP, Coaches, CFP.** ESPN's site `rankings` endpoint answers only the current week, and it ignores season and week parameters. ESPN's core API keeps every released week:
+  - `seasons/<Y>/types/<T>/weeks/<N>/rankings` lists the polls released that week (AP 1, Coaches 2, CFP 21).
+  - `.../rankings/<id>` is one poll.
+  - Season type 1 is the preseason poll, type 2 the regular season's weeks, type 3 the final poll. The core API answers 404 for regular-season week 1.
+  - Ranked teams are links only (`teams/<id>`). Each one's name is read once from its core-API record; the site API's FBS team list is incomplete (Miami, No. 1 in week 8, is missing from it).
+- **The producer.** `tools/producers/rankings_history.py`, run by the refresh workflow, keeps `data/league/rankings-<Y>.json`.
+  - The first run fills the season so far.
+  - Later runs read only the newest weeks, plus the latest kept one, which ESPN can still correct.
+  - A week that is not a complete top 25 is refused and never replaces a kept one.
+- **FPI.** It publishes no history, so `fpi.json` is kept once per FPI week from the week this began, in `data/league/fpi-history-<Y>.json`. The rankings file carries only the list of those weeks, so the picker can be drawn without fetching the tables.
+- **SP+.** CFBD's SP+ is season-level only and is read through the edge API. No weeks are kept, so there is no picker.
+- **The app.** The current week always comes from the live source (the feed's poll, `fpi.json`), never from a kept copy. A kept week is shown only when its address asks for it: `#top25/rankings/<source>/<pre|wN|final>`.
+
+Fixtures: `tools/fixtures/espn-corerank-*.json`, `espn-coreweeks-*.json`, `espn-coreteam-*.json` (real), and `rankings-2026-sample.json`, `fpi-history-2026-sample.json` (built from them). Checks: `tools/rankingshistorycheck.py`, `tools/weekscheck.js`.

@@ -1,0 +1,3559 @@
+{
+ "schema": 1,
+ "source": "espn-core",
+ "season": 2026,
+ "polls": {
+  "ap": [
+   {
+    "id": "pre",
+    "type": 1,
+    "week": 1,
+    "label": "Preseason",
+    "name": "AP Top 25",
+    "date": "2026-08-17T07:00Z",
+    "updated": "2026-08-17T19:26Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": null,
+      "id": "194",
+      "record": "0-0",
+      "points": 1672.0,
+      "firstPlace": 40
+     },
+     {
+      "rank": 2,
+      "previous": null,
+      "id": "2483",
+      "record": "0-0",
+      "points": 1597.0,
+      "firstPlace": 14
+     },
+     {
+      "rank": 3,
+      "previous": null,
+      "id": "61",
+      "record": "0-0",
+      "points": 1513.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 4,
+      "previous": null,
+      "id": "87",
+      "record": "0-0",
+      "points": 1510.0,
+      "firstPlace": 6
+     },
+     {
+      "rank": 5,
+      "previous": null,
+      "id": "251",
+      "record": "0-0",
+      "points": 1483.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 6,
+      "previous": null,
+      "id": "84",
+      "record": "0-0",
+      "points": 1440.0,
+      "firstPlace": 8
+     },
+     {
+      "rank": 7,
+      "previous": null,
+      "id": "2390",
+      "record": "0-0",
+      "points": 1379.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 8,
+      "previous": null,
+      "id": "245",
+      "record": "0-0",
+      "points": 1131.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": null,
+      "id": "145",
+      "record": "0-0",
+      "points": 1102.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": null,
+      "id": "201",
+      "record": "0-0",
+      "points": 1047.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": null,
+      "id": "99",
+      "record": "0-0",
+      "points": 988.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": null,
+      "id": "2641",
+      "record": "0-0",
+      "points": 983.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": null,
+      "id": "333",
+      "record": "0-0",
+      "points": 904.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": null,
+      "id": "30",
+      "record": "0-0",
+      "points": 839.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": null,
+      "id": "252",
+      "record": "0-0",
+      "points": 839.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": null,
+      "id": "130",
+      "record": "0-0",
+      "points": 718.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": null,
+      "id": "264",
+      "record": "0-0",
+      "points": 501.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": null,
+      "id": "213",
+      "record": "0-0",
+      "points": 482.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": null,
+      "id": "2567",
+      "record": "0-0",
+      "points": 434.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": null,
+      "id": "2633",
+      "record": "0-0",
+      "points": 394.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": null,
+      "id": "254",
+      "record": "0-0",
+      "points": 304.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": null,
+      "id": "2294",
+      "record": "0-0",
+      "points": 260.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": null,
+      "id": "248",
+      "record": "0-0",
+      "points": 252.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": null,
+      "id": "97",
+      "record": "0-0",
+      "points": 194.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": null,
+      "id": "142",
+      "record": "0-0",
+      "points": 117.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w2",
+    "type": 2,
+    "week": 2,
+    "label": "Week 2",
+    "name": "AP Top 25",
+    "date": "2026-09-08T07:00Z",
+    "updated": "2026-09-08T21:18Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "194",
+      "record": "1-0",
+      "points": 1684.0,
+      "firstPlace": 46
+     },
+     {
+      "rank": 2,
+      "previous": 3,
+      "id": "61",
+      "record": "1-0",
+      "points": 1532.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 3,
+      "previous": 4,
+      "id": "87",
+      "record": "1-0",
+      "points": 1512.0,
+      "firstPlace": 4
+     },
+     {
+      "rank": 4,
+      "previous": 5,
+      "id": "251",
+      "record": "1-0",
+      "points": 1462.0,
+      "firstPlace": 2
+     },
+     {
+      "rank": 5,
+      "previous": 6,
+      "id": "84",
+      "record": "1-0",
+      "points": 1428.0,
+      "firstPlace": 8
+     },
+     {
+      "rank": 6,
+      "previous": 2,
+      "id": "2483",
+      "record": "1-0",
+      "points": 1422.0,
+      "firstPlace": 3
+     },
+     {
+      "rank": 7,
+      "previous": 7,
+      "id": "2390",
+      "record": "1-0",
+      "points": 1405.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 8,
+      "previous": 11,
+      "id": "99",
+      "record": "1-0",
+      "points": 1315.0,
+      "firstPlace": 5
+     },
+     {
+      "rank": 9,
+      "previous": 9,
+      "id": "145",
+      "record": "1-0",
+      "points": 1154.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 8,
+      "id": "245",
+      "record": "1-0",
+      "points": 1079.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 10,
+      "id": "201",
+      "record": "1-0",
+      "points": 1039.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 13,
+      "id": "333",
+      "record": "1-0",
+      "points": 910.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 12,
+      "id": "2641",
+      "record": "1-0",
+      "points": 900.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 14,
+      "id": "30",
+      "record": "2-0",
+      "points": 861.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 14,
+      "id": "252",
+      "record": "1-0",
+      "points": 840.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 18,
+      "id": "213",
+      "record": "1-0",
+      "points": 621.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 19,
+      "id": "2567",
+      "record": "1-0",
+      "points": 501.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 20,
+      "id": "2633",
+      "record": "1-0",
+      "points": 491.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 17,
+      "id": "264",
+      "record": "1-0",
+      "points": 489.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 21,
+      "id": "254",
+      "record": "1-0",
+      "points": 381.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 22,
+      "id": "2294",
+      "record": "1-0",
+      "points": 369.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 23,
+      "id": "248",
+      "record": "1-0",
+      "points": 214.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 25,
+      "id": "142",
+      "record": "1-0",
+      "points": 182.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 24,
+      "id": "97",
+      "record": "0-1",
+      "points": 163.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 0,
+      "id": "258",
+      "record": "1-0",
+      "points": 89.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w3",
+    "type": 2,
+    "week": 3,
+    "label": "Week 3",
+    "name": "AP Top 25",
+    "date": "2026-09-13T07:00Z",
+    "updated": "2026-09-13T21:19Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 4,
+      "id": "251",
+      "record": "2-0",
+      "points": 1678.0,
+      "firstPlace": 56
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "61",
+      "record": "2-0",
+      "points": 1551.0,
+      "firstPlace": 3
+     },
+     {
+      "rank": 3,
+      "previous": 3,
+      "id": "87",
+      "record": "2-0",
+      "points": 1531.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 4,
+      "previous": 5,
+      "id": "84",
+      "record": "2-0",
+      "points": 1466.0,
+      "firstPlace": 3
+     },
+     {
+      "rank": 5,
+      "previous": 7,
+      "id": "2390",
+      "record": "2-0",
+      "points": 1452.0,
+      "firstPlace": 4
+     },
+     {
+      "rank": 6,
+      "previous": 1,
+      "id": "194",
+      "record": "1-1",
+      "points": 1407.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 8,
+      "id": "99",
+      "record": "2-0",
+      "points": 1334.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 8,
+      "previous": 9,
+      "id": "145",
+      "record": "2-0",
+      "points": 1216.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 10,
+      "id": "245",
+      "record": "2-0",
+      "points": 1165.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 12,
+      "id": "333",
+      "record": "2-0",
+      "points": 1068.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 15,
+      "id": "252",
+      "record": "2-0",
+      "points": 966.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 14,
+      "id": "30",
+      "record": "3-0",
+      "points": 944.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 13,
+      "id": "2641",
+      "record": "2-0",
+      "points": 910.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 16,
+      "id": "213",
+      "record": "2-0",
+      "points": 692.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 18,
+      "id": "2633",
+      "record": "2-0",
+      "points": 676.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 17,
+      "id": "2567",
+      "record": "2-0",
+      "points": 636.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 20,
+      "id": "254",
+      "record": "2-0",
+      "points": 558.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 21,
+      "id": "2294",
+      "record": "2-0",
+      "points": 391.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 0,
+      "id": "130",
+      "record": "2-0",
+      "points": 382.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 23,
+      "id": "142",
+      "record": "2-0",
+      "points": 344.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 6,
+      "id": "2483",
+      "record": "1-1",
+      "points": 324.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 22,
+      "id": "248",
+      "record": "2-0",
+      "points": 292.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 24,
+      "id": "97",
+      "record": "1-1",
+      "points": 244.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 11,
+      "id": "201",
+      "record": "1-1",
+      "points": 222.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 25,
+      "id": "258",
+      "record": "2-0",
+      "points": 182.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w4",
+    "type": 2,
+    "week": 4,
+    "label": "Week 4",
+    "name": "AP Top 25",
+    "date": "2026-09-20T07:00Z",
+    "updated": "2026-09-20T21:19Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "251",
+      "record": "3-0",
+      "points": 1706.0,
+      "firstPlace": 58
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "61",
+      "record": "3-0",
+      "points": 1580.0,
+      "firstPlace": 3
+     },
+     {
+      "rank": 3,
+      "previous": 3,
+      "id": "87",
+      "record": "3-0",
+      "points": 1517.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 4,
+      "previous": 8,
+      "id": "145",
+      "record": "3-0",
+      "points": 1488.0,
+      "firstPlace": 3
+     },
+     {
+      "rank": 5,
+      "previous": 4,
+      "id": "84",
+      "record": "3-0",
+      "points": 1467.0,
+      "firstPlace": 4
+     },
+     {
+      "rank": 6,
+      "previous": 5,
+      "id": "2390",
+      "record": "3-0",
+      "points": 1445.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 7,
+      "previous": 6,
+      "id": "194",
+      "record": "2-1",
+      "points": 1415.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 10,
+      "id": "333",
+      "record": "3-0",
+      "points": 1182.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 11,
+      "id": "252",
+      "record": "3-0",
+      "points": 1090.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 7,
+      "id": "99",
+      "record": "2-1",
+      "points": 1078.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 13,
+      "id": "2641",
+      "record": "3-0",
+      "points": 1067.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 12,
+      "id": "30",
+      "record": "4-0",
+      "points": 907.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 14,
+      "id": "213",
+      "record": "3-0",
+      "points": 850.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 15,
+      "id": "2633",
+      "record": "3-0",
+      "points": 826.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 17,
+      "id": "254",
+      "record": "3-0",
+      "points": 752.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 23,
+      "id": "97",
+      "record": "2-1",
+      "points": 692.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 18,
+      "id": "2294",
+      "record": "3-0",
+      "points": 561.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 19,
+      "id": "130",
+      "record": "3-0",
+      "points": 432.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 20,
+      "id": "142",
+      "record": "3-0",
+      "points": 369.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 21,
+      "id": "2483",
+      "record": "2-1",
+      "points": 364.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 0,
+      "id": "57",
+      "record": "3-0",
+      "points": 269.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 16,
+      "id": "2567",
+      "record": "2-1",
+      "points": 212.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 9,
+      "id": "245",
+      "record": "2-1",
+      "points": 202.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 0,
+      "id": "344",
+      "record": "3-0",
+      "points": 179.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 22,
+      "id": "248",
+      "record": "2-1",
+      "points": 127.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w5",
+    "type": 2,
+    "week": 5,
+    "label": "Week 5",
+    "name": "AP Top 25",
+    "date": "2026-09-27T07:00Z",
+    "updated": "2026-09-27T21:32Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "251",
+      "record": "4-0",
+      "points": 1737.0,
+      "firstPlace": 62
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "61",
+      "record": "4-0",
+      "points": 1646.0,
+      "firstPlace": 6
+     },
+     {
+      "rank": 3,
+      "previous": 3,
+      "id": "87",
+      "record": "4-0",
+      "points": 1581.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 4,
+      "previous": 6,
+      "id": "2390",
+      "record": "4-0",
+      "points": 1501.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 5,
+      "previous": 7,
+      "id": "194",
+      "record": "3-1",
+      "points": 1465.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 6,
+      "previous": 5,
+      "id": "84",
+      "record": "4-0",
+      "points": 1408.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 7,
+      "previous": 8,
+      "id": "333",
+      "record": "4-0",
+      "points": 1305.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 21,
+      "id": "57",
+      "record": "4-0",
+      "points": 1272.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 4,
+      "id": "145",
+      "record": "3-1",
+      "points": 1089.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 9,
+      "id": "252",
+      "record": "3-0",
+      "points": 1078.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 10,
+      "id": "99",
+      "record": "3-1",
+      "points": 1073.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 11,
+      "id": "2641",
+      "record": "4-0",
+      "points": 1053.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 15,
+      "id": "254",
+      "record": "4-0",
+      "points": 903.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 17,
+      "id": "2294",
+      "record": "4-0",
+      "points": 856.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 20,
+      "id": "2483",
+      "record": "3-1",
+      "points": 725.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 24,
+      "id": "344",
+      "record": "4-0",
+      "points": 715.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 14,
+      "id": "2633",
+      "record": "3-1",
+      "points": 663.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 12,
+      "id": "30",
+      "record": "4-1",
+      "points": 410.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 0,
+      "id": "197",
+      "record": "3-1",
+      "points": 345.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 25,
+      "id": "248",
+      "record": "3-1",
+      "points": 278.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 22,
+      "id": "2567",
+      "record": "3-1",
+      "points": 246.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 0,
+      "id": "68",
+      "record": "3-1",
+      "points": 221.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 0,
+      "id": "26",
+      "record": "4-0",
+      "points": 218.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 0,
+      "id": "96",
+      "record": "3-1",
+      "points": 150.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 19,
+      "id": "142",
+      "record": "3-1",
+      "points": 118.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w6",
+    "type": 2,
+    "week": 6,
+    "label": "Week 6",
+    "name": "AP Top 25",
+    "date": "2026-10-04T07:00Z",
+    "updated": "2026-10-04T21:10Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "251",
+      "record": "4-0",
+      "points": 1737.0,
+      "firstPlace": 61
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "61",
+      "record": "5-0",
+      "points": 1647.0,
+      "firstPlace": 6
+     },
+     {
+      "rank": 3,
+      "previous": 3,
+      "id": "87",
+      "record": "5-0",
+      "points": 1532.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 4,
+      "previous": 4,
+      "id": "2390",
+      "record": "5-0",
+      "points": 1524.0,
+      "firstPlace": 2
+     },
+     {
+      "rank": 5,
+      "previous": 5,
+      "id": "194",
+      "record": "4-1",
+      "points": 1490.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 6,
+      "previous": 7,
+      "id": "333",
+      "record": "5-0",
+      "points": 1460.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 6,
+      "id": "84",
+      "record": "5-0",
+      "points": 1380.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 8,
+      "previous": 10,
+      "id": "252",
+      "record": "4-0",
+      "points": 1144.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 9,
+      "id": "145",
+      "record": "3-1",
+      "points": 1095.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 11,
+      "id": "99",
+      "record": "4-1",
+      "points": 1087.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 12,
+      "id": "2641",
+      "record": "5-0",
+      "points": 1062.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 13,
+      "id": "254",
+      "record": "4-0",
+      "points": 996.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 15,
+      "id": "2483",
+      "record": "3-1",
+      "points": 831.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 25,
+      "id": "142",
+      "record": "4-1",
+      "points": 755.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 17,
+      "id": "2633",
+      "record": "4-1",
+      "points": 746.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 8,
+      "id": "57",
+      "record": "4-1",
+      "points": 691.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 16,
+      "id": "344",
+      "record": "4-1",
+      "points": 487.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 19,
+      "id": "197",
+      "record": "3-1",
+      "points": 477.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 18,
+      "id": "30",
+      "record": "5-1",
+      "points": 439.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 14,
+      "id": "2294",
+      "record": "4-1",
+      "points": 367.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 23,
+      "id": "26",
+      "record": "4-0",
+      "points": 287.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 20,
+      "id": "248",
+      "record": "4-1",
+      "points": 279.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 22,
+      "id": "68",
+      "record": "4-1",
+      "points": 271.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 21,
+      "id": "2567",
+      "record": "4-1",
+      "points": 167.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 0,
+      "id": "221",
+      "record": "5-0",
+      "points": 162.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w7",
+    "type": 2,
+    "week": 7,
+    "label": "Week 7",
+    "name": "AP Top 25",
+    "date": "2026-10-11T07:00Z",
+    "updated": "2026-10-11T21:07Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 2,
+      "id": "61",
+      "record": "6-0",
+      "points": 1745.0,
+      "firstPlace": 66
+     },
+     {
+      "rank": 2,
+      "previous": 3,
+      "id": "87",
+      "record": "6-0",
+      "points": 1630.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 3,
+      "previous": 4,
+      "id": "2390",
+      "record": "5-0",
+      "points": 1594.0,
+      "firstPlace": 2
+     },
+     {
+      "rank": 4,
+      "previous": 5,
+      "id": "194",
+      "record": "5-1",
+      "points": 1508.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 5,
+      "previous": 7,
+      "id": "84",
+      "record": "6-0",
+      "points": 1461.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 6,
+      "previous": 6,
+      "id": "333",
+      "record": "5-1",
+      "points": 1372.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 1,
+      "id": "251",
+      "record": "4-1",
+      "points": 1371.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 8,
+      "id": "252",
+      "record": "5-0",
+      "points": 1237.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 9,
+      "id": "145",
+      "record": "4-1",
+      "points": 1135.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 11,
+      "id": "2641",
+      "record": "5-0",
+      "points": 1132.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 12,
+      "id": "254",
+      "record": "5-0",
+      "points": 1073.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 21,
+      "id": "26",
+      "record": "5-0",
+      "points": 951.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 14,
+      "id": "142",
+      "record": "5-1",
+      "points": 882.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 15,
+      "id": "2633",
+      "record": "5-1",
+      "points": 706.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 0,
+      "id": "96",
+      "record": "5-1",
+      "points": 655.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 17,
+      "id": "344",
+      "record": "4-1",
+      "points": 650.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 20,
+      "id": "2294",
+      "record": "5-1",
+      "points": 621.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 18,
+      "id": "197",
+      "record": "4-1",
+      "points": 604.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 19,
+      "id": "30",
+      "record": "6-1",
+      "points": 505.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 22,
+      "id": "248",
+      "record": "5-1",
+      "points": 380.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 0,
+      "id": "154",
+      "record": "5-1",
+      "points": 326.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 10,
+      "id": "99",
+      "record": "4-2",
+      "points": 274.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 23,
+      "id": "68",
+      "record": "5-1",
+      "points": 268.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 24,
+      "id": "2567",
+      "record": "4-1",
+      "points": 142.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 0,
+      "id": "77",
+      "record": "4-1",
+      "points": 112.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w8",
+    "type": 2,
+    "week": 8,
+    "label": "Week 8",
+    "name": "AP Top 25",
+    "date": "2026-10-18T07:00Z",
+    "updated": "2026-10-18T21:15Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 3,
+      "id": "2390",
+      "record": "6-0",
+      "points": 1697.0,
+      "firstPlace": 40
+     },
+     {
+      "rank": 2,
+      "previous": 8,
+      "id": "252",
+      "record": "6-0",
+      "points": 1675.0,
+      "firstPlace": 20
+     },
+     {
+      "rank": 3,
+      "previous": 4,
+      "id": "194",
+      "record": "6-1",
+      "points": 1649.0,
+      "firstPlace": 9
+     },
+     {
+      "rank": 4,
+      "previous": 2,
+      "id": "87",
+      "record": "6-1",
+      "points": 1395.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 5,
+      "previous": 1,
+      "id": "61",
+      "record": "6-1",
+      "points": 1382.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 6,
+      "previous": 5,
+      "id": "84",
+      "record": "6-1",
+      "points": 1370.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 9,
+      "id": "145",
+      "record": "5-1",
+      "points": 1360.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 10,
+      "id": "2641",
+      "record": "6-0",
+      "points": 1336.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 9,
+      "previous": 12,
+      "id": "26",
+      "record": "6-0",
+      "points": 1159.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 11,
+      "id": "254",
+      "record": "6-0",
+      "points": 1153.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 14,
+      "id": "2633",
+      "record": "6-1",
+      "points": 1151.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 15,
+      "id": "96",
+      "record": "6-1",
+      "points": 932.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 6,
+      "id": "333",
+      "record": "5-2",
+      "points": 870.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 20,
+      "id": "248",
+      "record": "6-1",
+      "points": 785.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 17,
+      "id": "2294",
+      "record": "5-1",
+      "points": 747.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 19,
+      "id": "30",
+      "record": "6-1",
+      "points": 592.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 21,
+      "id": "154",
+      "record": "6-1",
+      "points": 574.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 22,
+      "id": "99",
+      "record": "5-2",
+      "points": 529.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 7,
+      "id": "251",
+      "record": "4-2",
+      "points": 440.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 0,
+      "id": "57",
+      "record": "5-2",
+      "points": 355.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 23,
+      "id": "68",
+      "record": "5-1",
+      "points": 295.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 13,
+      "id": "142",
+      "record": "5-2",
+      "points": 290.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 24,
+      "id": "2567",
+      "record": "5-1",
+      "points": 265.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 25,
+      "id": "77",
+      "record": "5-1",
+      "points": 254.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 0,
+      "id": "12",
+      "record": "5-1",
+      "points": 136.0,
+      "firstPlace": 0
+     }
+    ]
+   }
+  ],
+  "coaches": [
+   {
+    "id": "pre",
+    "type": 1,
+    "week": 1,
+    "label": "Preseason",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-08-04T07:00Z",
+    "updated": "2026-08-04T19:21Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": null,
+      "id": "194",
+      "record": "0-0",
+      "points": 1741.0,
+      "firstPlace": 38
+     },
+     {
+      "rank": 2,
+      "previous": null,
+      "id": "2483",
+      "record": "0-0",
+      "points": 1637.0,
+      "firstPlace": 6
+     },
+     {
+      "rank": 3,
+      "previous": null,
+      "id": "61",
+      "record": "0-0",
+      "points": 1591.0,
+      "firstPlace": 7
+     },
+     {
+      "rank": 4,
+      "previous": null,
+      "id": "251",
+      "record": "0-0",
+      "points": 1544.0,
+      "firstPlace": 2
+     },
+     {
+      "rank": 5,
+      "previous": null,
+      "id": "87",
+      "record": "0-0",
+      "points": 1524.0,
+      "firstPlace": 5
+     },
+     {
+      "rank": 6,
+      "previous": null,
+      "id": "84",
+      "record": "0-0",
+      "points": 1522.0,
+      "firstPlace": 14
+     },
+     {
+      "rank": 7,
+      "previous": null,
+      "id": "2390",
+      "record": "0-0",
+      "points": 1409.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": null,
+      "id": "245",
+      "record": "0-0",
+      "points": 1174.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": null,
+      "id": "201",
+      "record": "0-0",
+      "points": 1104.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": null,
+      "id": "145",
+      "record": "0-0",
+      "points": 1096.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": null,
+      "id": "333",
+      "record": "0-0",
+      "points": 1050.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": null,
+      "id": "2641",
+      "record": "0-0",
+      "points": 1034.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": null,
+      "id": "99",
+      "record": "0-0",
+      "points": 951.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": null,
+      "id": "30",
+      "record": "0-0",
+      "points": 838.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": null,
+      "id": "252",
+      "record": "0-0",
+      "points": 781.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": null,
+      "id": "130",
+      "record": "0-0",
+      "points": 719.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": null,
+      "id": "213",
+      "record": "0-0",
+      "points": 463.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": null,
+      "id": "2633",
+      "record": "0-0",
+      "points": 428.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": null,
+      "id": "264",
+      "record": "0-0",
+      "points": 406.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": null,
+      "id": "2567",
+      "record": "0-0",
+      "points": 378.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": null,
+      "id": "254",
+      "record": "0-0",
+      "points": 313.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": null,
+      "id": "2294",
+      "record": "0-0",
+      "points": 291.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": null,
+      "id": "228",
+      "record": "0-0",
+      "points": 235.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": null,
+      "id": "248",
+      "record": "0-0",
+      "points": 194.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": null,
+      "id": "142",
+      "record": "0-0",
+      "points": 158.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w2",
+    "type": 2,
+    "week": 2,
+    "label": "Week 2",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-09-08T07:00Z",
+    "updated": "2026-09-08T21:54Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "194",
+      "record": "1-0",
+      "points": 1801.0,
+      "firstPlace": 50
+     },
+     {
+      "rank": 2,
+      "previous": 3,
+      "id": "61",
+      "record": "1-0",
+      "points": 1672.0,
+      "firstPlace": 7
+     },
+     {
+      "rank": 3,
+      "previous": 4,
+      "id": "251",
+      "record": "1-0",
+      "points": 1600.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 4,
+      "previous": 5,
+      "id": "87",
+      "record": "1-0",
+      "points": 1558.0,
+      "firstPlace": 4
+     },
+     {
+      "rank": 5,
+      "previous": 6,
+      "id": "84",
+      "record": "1-0",
+      "points": 1537.0,
+      "firstPlace": 11
+     },
+     {
+      "rank": 6,
+      "previous": 2,
+      "id": "2483",
+      "record": "1-0",
+      "points": 1524.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 7,
+      "previous": 7,
+      "id": "2390",
+      "record": "1-0",
+      "points": 1477.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 13,
+      "id": "99",
+      "record": "1-0",
+      "points": 1279.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 8,
+      "id": "245",
+      "record": "1-0",
+      "points": 1204.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 9,
+      "id": "201",
+      "record": "1-0",
+      "points": 1184.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 10,
+      "id": "145",
+      "record": "1-0",
+      "points": 1141.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 11,
+      "id": "333",
+      "record": "1-0",
+      "points": 1059.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 12,
+      "id": "2641",
+      "record": "1-0",
+      "points": 955.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 14,
+      "id": "30",
+      "record": "2-0",
+      "points": 919.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 15,
+      "id": "252",
+      "record": "1-0",
+      "points": 838.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 17,
+      "id": "213",
+      "record": "1-0",
+      "points": 612.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 20,
+      "id": "2567",
+      "record": "1-0",
+      "points": 517.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 18,
+      "id": "2633",
+      "record": "1-0",
+      "points": 513.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 19,
+      "id": "264",
+      "record": "1-0",
+      "points": 432.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 21,
+      "id": "254",
+      "record": "1-0",
+      "points": 415.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 22,
+      "id": "2294",
+      "record": "1-0",
+      "points": 411.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 24,
+      "id": "248",
+      "record": "1-0",
+      "points": 236.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 25,
+      "id": "142",
+      "record": "1-0",
+      "points": 231.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 16,
+      "id": "130",
+      "record": "1-0",
+      "points": 164.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 0,
+      "id": "57",
+      "record": "1-0",
+      "points": 157.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 0,
+      "id": "258",
+      "record": "1-0",
+      "points": 157.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w3",
+    "type": 2,
+    "week": 3,
+    "label": "Week 3",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-09-13T07:00Z",
+    "updated": "2026-09-13T19:56Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 3,
+      "id": "251",
+      "record": "2-0",
+      "points": 1804.0,
+      "firstPlace": 42
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "61",
+      "record": "2-0",
+      "points": 1732.0,
+      "firstPlace": 15
+     },
+     {
+      "rank": 3,
+      "previous": 4,
+      "id": "87",
+      "record": "2-0",
+      "points": 1639.0,
+      "firstPlace": 4
+     },
+     {
+      "rank": 4,
+      "previous": 5,
+      "id": "84",
+      "record": "2-0",
+      "points": 1611.0,
+      "firstPlace": 10
+     },
+     {
+      "rank": 5,
+      "previous": 7,
+      "id": "2390",
+      "record": "2-0",
+      "points": 1549.0,
+      "firstPlace": 2
+     },
+     {
+      "rank": 6,
+      "previous": 1,
+      "id": "194",
+      "record": "1-1",
+      "points": 1480.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 8,
+      "id": "99",
+      "record": "2-0",
+      "points": 1405.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 8,
+      "previous": 9,
+      "id": "245",
+      "record": "2-0",
+      "points": 1311.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 11,
+      "id": "145",
+      "record": "2-0",
+      "points": 1228.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 12,
+      "id": "333",
+      "record": "2-0",
+      "points": 1206.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 14,
+      "id": "30",
+      "record": "3-0",
+      "points": 1023.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 13,
+      "id": "2641",
+      "record": "2-0",
+      "points": 977.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 15,
+      "id": "252",
+      "record": "2-0",
+      "points": 975.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 18,
+      "id": "2633",
+      "record": "2-0",
+      "points": 679.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 16,
+      "id": "213",
+      "record": "2-0",
+      "points": 676.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 17,
+      "id": "2567",
+      "record": "2-0",
+      "points": 605.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 20,
+      "id": "254",
+      "record": "2-0",
+      "points": 590.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 6,
+      "id": "2483",
+      "record": "1-1",
+      "points": 564.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 24,
+      "id": "130",
+      "record": "2-0",
+      "points": 426.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 21,
+      "id": "2294",
+      "record": "2-0",
+      "points": 423.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 10,
+      "id": "201",
+      "record": "1-1",
+      "points": 395.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 23,
+      "id": "142",
+      "record": "2-0",
+      "points": 340.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 22,
+      "id": "248",
+      "record": "2-0",
+      "points": 290.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 19,
+      "id": "264",
+      "record": "2-0",
+      "points": 268.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 25,
+      "id": "258",
+      "record": "2-0",
+      "points": 249.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w4",
+    "type": 2,
+    "week": 4,
+    "label": "Week 4",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-09-20T07:00Z",
+    "updated": "2026-09-20T20:53Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "251",
+      "record": "3-0",
+      "points": 1807.0,
+      "firstPlace": 46
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "61",
+      "record": "3-0",
+      "points": 1742.0,
+      "firstPlace": 16
+     },
+     {
+      "rank": 3,
+      "previous": 3,
+      "id": "87",
+      "record": "3-0",
+      "points": 1636.0,
+      "firstPlace": 2
+     },
+     {
+      "rank": 4,
+      "previous": 4,
+      "id": "84",
+      "record": "3-0",
+      "points": 1613.0,
+      "firstPlace": 9
+     },
+     {
+      "rank": 5,
+      "previous": 5,
+      "id": "2390",
+      "record": "3-0",
+      "points": 1552.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 6,
+      "previous": 9,
+      "id": "145",
+      "record": "3-0",
+      "points": 1501.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 6,
+      "id": "194",
+      "record": "2-1",
+      "points": 1473.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 10,
+      "id": "333",
+      "record": "3-0",
+      "points": 1309.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 13,
+      "id": "252",
+      "record": "3-0",
+      "points": 1089.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 12,
+      "id": "2641",
+      "record": "3-0",
+      "points": 1079.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 7,
+      "id": "99",
+      "record": "2-1",
+      "points": 1067.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 11,
+      "id": "30",
+      "record": "4-0",
+      "points": 1057.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 14,
+      "id": "2633",
+      "record": "3-0",
+      "points": 833.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 15,
+      "id": "213",
+      "record": "3-0",
+      "points": 814.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 17,
+      "id": "254",
+      "record": "3-0",
+      "points": 743.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 18,
+      "id": "2483",
+      "record": "2-1",
+      "points": 594.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 20,
+      "id": "2294",
+      "record": "3-0",
+      "points": 580.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 19,
+      "id": "130",
+      "record": "3-0",
+      "points": 545.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 0,
+      "id": "97",
+      "record": "2-1",
+      "points": 519.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 8,
+      "id": "245",
+      "record": "2-1",
+      "points": 447.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 22,
+      "id": "142",
+      "record": "3-0",
+      "points": 382.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 0,
+      "id": "57",
+      "record": "3-0",
+      "points": 370.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 24,
+      "id": "264",
+      "record": "3-0",
+      "points": 251.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 21,
+      "id": "201",
+      "record": "2-1",
+      "points": 213.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 16,
+      "id": "2567",
+      "record": "2-1",
+      "points": 162.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w5",
+    "type": 2,
+    "week": 5,
+    "label": "Week 5",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-09-27T07:00Z",
+    "updated": "2026-09-27T20:16Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "251",
+      "record": "4-0",
+      "points": 1779.0,
+      "firstPlace": 45
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "61",
+      "record": "4-0",
+      "points": 1735.0,
+      "firstPlace": 17
+     },
+     {
+      "rank": 3,
+      "previous": 3,
+      "id": "87",
+      "record": "4-0",
+      "points": 1641.0,
+      "firstPlace": 3
+     },
+     {
+      "rank": 4,
+      "previous": 5,
+      "id": "2390",
+      "record": "4-0",
+      "points": 1569.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 5,
+      "previous": 4,
+      "id": "84",
+      "record": "4-0",
+      "points": 1554.0,
+      "firstPlace": 8
+     },
+     {
+      "rank": 6,
+      "previous": 7,
+      "id": "194",
+      "record": "3-1",
+      "points": 1463.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 8,
+      "id": "333",
+      "record": "4-0",
+      "points": 1399.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 22,
+      "id": "57",
+      "record": "4-0",
+      "points": 1214.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 9,
+      "id": "252",
+      "record": "3-0",
+      "points": 1166.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 10,
+      "id": "2641",
+      "record": "4-0",
+      "points": 1108.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 11,
+      "id": "99",
+      "record": "3-1",
+      "points": 1097.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 6,
+      "id": "145",
+      "record": "3-1",
+      "points": 1021.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 15,
+      "id": "254",
+      "record": "4-0",
+      "points": 917.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 17,
+      "id": "2294",
+      "record": "4-0",
+      "points": 887.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 16,
+      "id": "2483",
+      "record": "3-1",
+      "points": 866.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 0,
+      "id": "344",
+      "record": "4-0",
+      "points": 658.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 13,
+      "id": "2633",
+      "record": "3-1",
+      "points": 648.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 12,
+      "id": "30",
+      "record": "4-1",
+      "points": 511.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 25,
+      "id": "2567",
+      "record": "3-1",
+      "points": 327.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 0,
+      "id": "248",
+      "record": "3-1",
+      "points": 301.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 0,
+      "id": "150",
+      "record": "4-0",
+      "points": 230.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 14,
+      "id": "213",
+      "record": "3-1",
+      "points": 207.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 0,
+      "id": "26",
+      "record": "4-0",
+      "points": 183.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 18,
+      "id": "130",
+      "record": "3-1",
+      "points": 166.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 21,
+      "id": "142",
+      "record": "3-1",
+      "points": 152.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w6",
+    "type": 2,
+    "week": 6,
+    "label": "Week 6",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-10-04T07:00Z",
+    "updated": "2026-10-04T20:08Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "251",
+      "record": "4-0",
+      "points": 1806.0,
+      "firstPlace": 45
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "61",
+      "record": "5-0",
+      "points": 1760.0,
+      "firstPlace": 20
+     },
+     {
+      "rank": 3,
+      "previous": 3,
+      "id": "87",
+      "record": "5-0",
+      "points": 1630.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 4,
+      "previous": 4,
+      "id": "2390",
+      "record": "5-0",
+      "points": 1622.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 5,
+      "previous": 5,
+      "id": "84",
+      "record": "5-0",
+      "points": 1556.0,
+      "firstPlace": 8
+     },
+     {
+      "rank": 6,
+      "previous": 6,
+      "id": "194",
+      "record": "4-1",
+      "points": 1514.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 7,
+      "id": "333",
+      "record": "5-0",
+      "points": 1483.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 9,
+      "id": "252",
+      "record": "4-0",
+      "points": 1214.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 10,
+      "id": "2641",
+      "record": "5-0",
+      "points": 1169.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 11,
+      "id": "99",
+      "record": "4-1",
+      "points": 1136.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 12,
+      "id": "145",
+      "record": "3-1",
+      "points": 1059.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 13,
+      "id": "254",
+      "record": "4-0",
+      "points": 1015.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 15,
+      "id": "2483",
+      "record": "3-1",
+      "points": 948.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 17,
+      "id": "2633",
+      "record": "4-1",
+      "points": 768.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 8,
+      "id": "57",
+      "record": "4-1",
+      "points": 672.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 25,
+      "id": "142",
+      "record": "4-1",
+      "points": 646.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 18,
+      "id": "30",
+      "record": "5-1",
+      "points": 643.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 14,
+      "id": "2294",
+      "record": "4-1",
+      "points": 457.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 20,
+      "id": "248",
+      "record": "4-1",
+      "points": 391.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 16,
+      "id": "344",
+      "record": "4-1",
+      "points": 355.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 19,
+      "id": "2567",
+      "record": "4-1",
+      "points": 354.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 23,
+      "id": "26",
+      "record": "4-0",
+      "points": 318.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 21,
+      "id": "150",
+      "record": "4-0",
+      "points": 274.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 0,
+      "id": "221",
+      "record": "5-0",
+      "points": 242.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 0,
+      "id": "96",
+      "record": "4-1",
+      "points": 210.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w7",
+    "type": 2,
+    "week": 7,
+    "label": "Week 7",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-10-11T07:00Z",
+    "updated": "2026-10-11T19:58Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 2,
+      "id": "61",
+      "record": "6-0",
+      "points": 1832.0,
+      "firstPlace": 60
+     },
+     {
+      "rank": 2,
+      "previous": 3,
+      "id": "87",
+      "record": "6-0",
+      "points": 1713.0,
+      "firstPlace": 3
+     },
+     {
+      "rank": 3,
+      "previous": 4,
+      "id": "2390",
+      "record": "5-0",
+      "points": 1688.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 4,
+      "previous": 5,
+      "id": "84",
+      "record": "6-0",
+      "points": 1633.0,
+      "firstPlace": 9
+     },
+     {
+      "rank": 5,
+      "previous": 6,
+      "id": "194",
+      "record": "5-1",
+      "points": 1565.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 6,
+      "previous": 1,
+      "id": "251",
+      "record": "4-1",
+      "points": 1369.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 7,
+      "id": "333",
+      "record": "5-1",
+      "points": 1358.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 8,
+      "id": "252",
+      "record": "5-0",
+      "points": 1355.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 9,
+      "id": "2641",
+      "record": "5-0",
+      "points": 1240.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 11,
+      "id": "145",
+      "record": "4-1",
+      "points": 1180.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 12,
+      "id": "254",
+      "record": "5-0",
+      "points": 1109.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 22,
+      "id": "26",
+      "record": "5-0",
+      "points": 912.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 16,
+      "id": "142",
+      "record": "5-1",
+      "points": 863.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 14,
+      "id": "2633",
+      "record": "5-1",
+      "points": 837.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 17,
+      "id": "30",
+      "record": "6-1",
+      "points": 758.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 18,
+      "id": "2294",
+      "record": "5-1",
+      "points": 729.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 25,
+      "id": "96",
+      "record": "5-1",
+      "points": 667.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 19,
+      "id": "248",
+      "record": "5-1",
+      "points": 520.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 20,
+      "id": "344",
+      "record": "4-1",
+      "points": 463.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 0,
+      "id": "197",
+      "record": "4-1",
+      "points": 403.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 10,
+      "id": "99",
+      "record": "4-2",
+      "points": 361.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 21,
+      "id": "2567",
+      "record": "4-1",
+      "points": 330.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 0,
+      "id": "154",
+      "record": "5-1",
+      "points": 229.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 0,
+      "id": "68",
+      "record": "5-1",
+      "points": 205.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 13,
+      "id": "2483",
+      "record": "3-2",
+      "points": 200.0,
+      "firstPlace": 0
+     }
+    ]
+   },
+   {
+    "id": "w8",
+    "type": 2,
+    "week": 8,
+    "label": "Week 8",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-10-18T07:00Z",
+    "updated": "2026-10-18T20:00Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 3,
+      "id": "2390",
+      "record": "6-0",
+      "points": 1791.0,
+      "firstPlace": 50
+     },
+     {
+      "rank": 2,
+      "previous": 5,
+      "id": "194",
+      "record": "6-1",
+      "points": 1725.0,
+      "firstPlace": 13
+     },
+     {
+      "rank": 3,
+      "previous": 8,
+      "id": "252",
+      "record": "6-0",
+      "points": 1698.0,
+      "firstPlace": 10
+     },
+     {
+      "rank": 4,
+      "previous": 1,
+      "id": "61",
+      "record": "6-1",
+      "points": 1469.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 5,
+      "previous": 9,
+      "id": "2641",
+      "record": "6-0",
+      "points": 1414.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 6,
+      "previous": 4,
+      "id": "84",
+      "record": "6-1",
+      "points": 1378.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 10,
+      "id": "145",
+      "record": "5-1",
+      "points": 1371.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 2,
+      "id": "87",
+      "record": "6-1",
+      "points": 1332.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 11,
+      "id": "254",
+      "record": "6-0",
+      "points": 1222.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 12,
+      "id": "26",
+      "record": "6-0",
+      "points": 1206.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 14,
+      "id": "2633",
+      "record": "6-1",
+      "points": 1193.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 17,
+      "id": "96",
+      "record": "6-1",
+      "points": 979.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 7,
+      "id": "333",
+      "record": "5-2",
+      "points": 813.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 16,
+      "id": "2294",
+      "record": "5-1",
+      "points": 807.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 15,
+      "id": "30",
+      "record": "6-1",
+      "points": 796.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 18,
+      "id": "248",
+      "record": "6-1",
+      "points": 730.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 21,
+      "id": "99",
+      "record": "5-2",
+      "points": 569.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 6,
+      "id": "251",
+      "record": "4-2",
+      "points": 520.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 23,
+      "id": "154",
+      "record": "6-1",
+      "points": 514.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 22,
+      "id": "2567",
+      "record": "5-1",
+      "points": 458.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 13,
+      "id": "142",
+      "record": "5-2",
+      "points": 274.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 24,
+      "id": "68",
+      "record": "5-1",
+      "points": 266.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 0,
+      "id": "77",
+      "record": "5-1",
+      "points": 256.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 0,
+      "id": "57",
+      "record": "5-2",
+      "points": 250.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 25,
+      "id": "2483",
+      "record": "4-2",
+      "points": 189.0,
+      "firstPlace": 0
+     }
+    ]
+   }
+  ],
+  "cfp": []
+ },
+ "fpi": [
+  {
+   "id": "w8",
+   "type": 2,
+   "week": 8,
+   "label": "Week 8",
+   "updated": "2026-10-20T08:00Z"
+  }
+ ],
+ "teams": {
+  "12": {
+   "name": "Arizona",
+   "abbr": "ARIZ"
+  },
+  "26": {
+   "name": "UCLA",
+   "abbr": "UCLA"
+  },
+  "30": {
+   "name": "USC",
+   "abbr": "USC"
+  },
+  "57": {
+   "name": "Florida",
+   "abbr": "FLA"
+  },
+  "61": {
+   "name": "Georgia",
+   "abbr": "UGA"
+  },
+  "68": {
+   "name": "Boise St",
+   "abbr": "BOIS"
+  },
+  "77": {
+   "name": "Northwestern",
+   "abbr": "NU"
+  },
+  "84": {
+   "name": "Indiana",
+   "abbr": "IU"
+  },
+  "87": {
+   "name": "Notre Dame",
+   "abbr": "ND"
+  },
+  "96": {
+   "name": "Kentucky",
+   "abbr": "UK"
+  },
+  "97": {
+   "name": "Louisville",
+   "abbr": "LOU"
+  },
+  "99": {
+   "name": "LSU",
+   "abbr": "LSU"
+  },
+  "130": {
+   "name": "Michigan",
+   "abbr": "MICH"
+  },
+  "142": {
+   "name": "Missouri",
+   "abbr": "MIZ"
+  },
+  "145": {
+   "name": "Ole Miss",
+   "abbr": "MISS"
+  },
+  "150": {
+   "name": "Duke",
+   "abbr": "DUKE"
+  },
+  "154": {
+   "name": "Wake Forest",
+   "abbr": "WAKE"
+  },
+  "194": {
+   "name": "Ohio State",
+   "abbr": "OSU"
+  },
+  "197": {
+   "name": "Oklahoma St",
+   "abbr": "OKST"
+  },
+  "201": {
+   "name": "Oklahoma",
+   "abbr": "OU"
+  },
+  "213": {
+   "name": "Penn State",
+   "abbr": "PSU"
+  },
+  "221": {
+   "name": "Pitt",
+   "abbr": "PITT"
+  },
+  "228": {
+   "name": "Clemson",
+   "abbr": "CLEM"
+  },
+  "245": {
+   "name": "Texas A&M",
+   "abbr": "TA&M"
+  },
+  "248": {
+   "name": "Houston",
+   "abbr": "HOU"
+  },
+  "251": {
+   "name": "Texas",
+   "abbr": "TEX"
+  },
+  "252": {
+   "name": "BYU",
+   "abbr": "BYU"
+  },
+  "254": {
+   "name": "Utah",
+   "abbr": "UTAH"
+  },
+  "258": {
+   "name": "Virginia",
+   "abbr": "UVA"
+  },
+  "264": {
+   "name": "Washington",
+   "abbr": "WASH"
+  },
+  "333": {
+   "name": "Alabama",
+   "abbr": "ALA"
+  },
+  "344": {
+   "name": "Mississippi St",
+   "abbr": "MSST"
+  },
+  "2294": {
+   "name": "Iowa",
+   "abbr": "IOWA"
+  },
+  "2390": {
+   "name": "Miami",
+   "abbr": "MIA"
+  },
+  "2483": {
+   "name": "Oregon",
+   "abbr": "ORE"
+  },
+  "2567": {
+   "name": "SMU",
+   "abbr": "SMU"
+  },
+  "2633": {
+   "name": "Tennessee",
+   "abbr": "TENN"
+  },
+  "2641": {
+   "name": "Texas Tech",
+   "abbr": "TTU"
+  }
+ }
+}
