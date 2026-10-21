@@ -83,18 +83,22 @@ function boot(opts) {
       keys: function () { return Promise.resolve(Object.keys(store)); },
       delete: function (n) { deleted.push([n, "*"]); delete store[n]; return Promise.resolve(true); }
     },
-    fetch: function (req) {
+    fetch: function (req, init) {
       var url = typeof req === "string" ? req : req.url;
       fetched.push(url);
+      if (opts.fetch) return opts.fetch(url, init);
       if (missing.indexOf(url) !== -1) return Promise.reject(new Error("404"));
       if (opts.bodies && url in opts.bodies) return Promise.resolve(body(opts.bodies[url]));
       return Promise.resolve(body("x"));
     },
     Request: function (r, o) { this.url = typeof r === "string" ? r : r.url; this.opts = o; },
-    Response: function (b, o) { var self_ = body(b); self_.init = o; return self_; },
+    Response: function (b, o) { var self_ = body(b); self_.init = o; self_.cachedAt = o && o.headers && o.headers.values && o.headers.values["X-IW-Cached"]; return self_; },
     URL: URL,
-    Headers: function () { this.set = function () {}; },
-    setTimeout: setTimeout,
+    Headers: function () { var h = this; h.values = {}; this.set = function (n, v) { h.values[n] = v; }; },
+    AbortController: AbortController,
+    // A test can run the worker's clock faster than real time.
+    setTimeout: function (fn, ms) { return setTimeout(fn, (ms || 0) / (opts.speed || 1)); },
+    clearTimeout: clearTimeout,
     console: console
   };
   sandbox.self.self = sandbox.self;
@@ -119,6 +123,51 @@ function boot(opts) {
            installs: function () { return settle("install").then(function () { return "installed"; }, function (e) { return "failed: " + e.message; }); },
            shell: function () { return Object.keys(store[sandbox.SHELL] || {}).sort(); },
            data:  function () { return Object.keys(store[sandbox.DATA]  || {}).sort(); } };
+}
+
+// A data request the network leaves hanging is answered from the last good
+// copy after DATA_WAIT, and dropped (David, 2026-10-20): a worker busy with
+// it held back an update's activation. With no copy, the network is waited on.
+function dataWaitChecks() {
+  console.log("a hung data request");
+  var URLX = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard";
+  function hang(log) {
+    return function (url, init) {
+      return new Promise(function (resolve, reject) {
+        log.push("start");
+        if (init && init.signal) init.signal.addEventListener("abort", function () { log.push("aborted"); reject(new Error("aborted")); });
+        if (log.answerAfter != null) setTimeout(function () { resolve({ ok: true, status: 200, clone: function () { return this; },
+          headers: { get: function () { return null; } }, blob: function () { return Promise.resolve("fresh"); }, text: function () { return Promise.resolve("fresh"); }, fresh: true }); }, log.answerAfter);
+      });
+    };
+  }
+  function ask(w) {
+    var answer = null;
+    w.listeners.fetch.forEach(function (fn) {
+      fn({ request: { url: URLX, method: "GET" }, respondWith: function (p) { answer = p; }, waitUntil: function () {} });
+    });
+    return answer;
+  }
+  function after(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  var log1 = [], w1 = boot({ fetch: hang(log1), speed: 100 });   // 8 s -> 80 ms
+  var log2 = [], w2 = boot({ fetch: hang(log2), speed: 100 });
+  var log3 = [], w3 = boot({ fetch: hang(log3), speed: 100 });
+  log2.answerAfter = 200;                                        // answers "at 20 s", nothing kept
+  log3.answerAfter = 20;                                         // answers "at 2 s"
+  var put = function (w) { return w.sandbox.caches.open(w.sandbox.DATA).then(function (c) { return c.put(URLX, { text: function () { return Promise.resolve("kept"); } }); }); };
+  return Promise.all([put(w1), put(w3)]).then(function () {
+    ok(typeof w1.sandbox.DATA_WAIT === "number" && w1.sandbox.DATA_WAIT === 8000, "the wait is 8 seconds");
+    var a1 = ask(w1), a2 = ask(w2), a3 = ask(w3), got1 = null, got2 = null, got3 = null;
+    a1.then(function (r) { got1 = r; }); a2.then(function (r) { got2 = r; }); a3.then(function (r) { got3 = r; });
+    return after(150).then(function () {
+      ok(got1 && got1.cachedAt && log1.indexOf("aborted") > -1, "no answer by then: the kept copy, marked as one, and the request dropped");
+      ok(got2 === null, "nothing kept: still waiting on the network, not failing");
+      ok(got3 && got3.fresh && log3.indexOf("aborted") === -1, "a network that answers in time is the answer, never aborted");
+      return after(150);
+    }).then(function () {
+      ok(got2 && got2.fresh, "and the slow network's answer arrives when it comes");
+    });
+  });
 }
 
 // Game alerts (W19): a push is shown as the edge API wrote it, and a tap
@@ -345,6 +394,8 @@ w.fire("message", ND).then(function () {
 }).then(function () {
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the worker caches one team at a time"));
   return alertsChecks();
+}).then(function () {
+  return dataWaitChecks();
 }).then(function () {
   process.exit(failures ? 1 : 0);
 }).catch(function (e) {
