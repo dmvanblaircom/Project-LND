@@ -1264,7 +1264,7 @@ function offseasonModel(now){
     league:window.LEAGUE_CALENDAR,next:OFFSEASON.nextOutcome,now:now});
   if(Suite.nav && Suite.nav.setSeasonNav){
     var apFinal=(T25.polls||[]).some(function(p){
-      return /\\bap\\b|associated press/i.test((p.key||"")+" "+(p.label||p.name||"")) && p.final===true;
+      return /\\bap\\b|associated press/i.test((p.key||"")+" "+(p.label||p.name||"")) && p.last===true;
     });
     var top25=!model || (model.phase.state==="complete" && !apFinal);
     var opener=model && model.phase.opener;
