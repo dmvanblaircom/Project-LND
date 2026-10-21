@@ -1,9 +1,12 @@
-# W19 (2026-10-03): the small ESPN endpoints game alerts would poll each
-# minute in a game window: a game's status and each team's score, plus the
-# team schedule the Worker reads hourly. Notre Dame at North Carolina kicks
-# off at 16:00Z; Ohio State at Iowa at 19:30Z.
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858250/competitions/401858250/status | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858250/competitions/401858250/competitors/87/score | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858473/competitions/401858473/status | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858473/competitions/401858473/competitors/194/score | .
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194/schedule | ^events\[[0-9]\]\.(id|date|competitions\[0\]\.(id|status\.type\.(state|name)|competitors\[[01]\]\.(team\.(id|location)|homeAway)))
+# Season-matched markets (2026-10-21): which Kalshi events exist for the
+# last, current and next college football seasons, and when each closes.
+https://api.elections.kalshi.com/trade-api/v2/events/KXNCAAF-26?with_nested_markets=false | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/events/KXNCAAF-27?with_nested_markets=false | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/events/KXNCAAF-28?with_nested_markets=false | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/events/KXNCAAFPLAYOFF-25?with_nested_markets=false | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/events/KXNCAAFPLAYOFF-26?with_nested_markets=false | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/events/KXNCAAFPLAYOFF-27?with_nested_markets=false | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/events?series_ticker=KXNCAAF&limit=20 | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/events?series_ticker=KXNCAAFPLAYOFF&limit=20 | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/markets?event_ticker=KXNCAAF-26&limit=3 | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
+https://api.elections.kalshi.com/trade-api/v2/markets?event_ticker=KXNCAAFPLAYOFF-25&limit=3 | ^(event\.(event_ticker|title|sub_title|strike_date|strike_period)|events\[[0-9]+\]\.(event_ticker|title|sub_title|strike_date)|markets\[0\]\.(status|close_time|expiration_time|yes_sub_title|last_price)|cursor)
