@@ -170,6 +170,8 @@ function outcomeOf(key){ var x=SRC[key]; return x && x.cached ? "cached" : "netw
 // carries X-IW-Cached - the time it was stored - and counts as cached.
 var SRC={};
 function sourceKey(url){
+  if(/schedule\\?[^#]*season=/.test(url)) return "offseasonNext";
+  if(/scoreboard/.test(url) && /seasontype=3/.test(url) && /week=1/.test(url)) return "postseasonBoard";
   if(url===TeamOS.espn.scheduleUrl(TEAM_CONFIG)) return "schedule";
   if(/scoreboard/.test(url)) return "scoreboard";
   if(url===TeamOS.espn.rankingsUrl()) return "rankings";
@@ -1216,11 +1218,70 @@ function homeSources(heroLive){
   if(heroLive) list.push(s("scoreboard",false,10*60e3));
   return list;
 }
+/* W16 after-season inputs. The renderer is deliberately fed only TeamOS's
+   normalized current/next season, ESPN's postseason selection board, and the
+   rankings feed already used by Top 25. */
+var OFFSEASON={ next:null, nextSeason:null, nextOutcome:"unknown", nextAskedAt:0,
+  selected:{}, selectedAt:{}, boardPending:{}, nextPending:false };
+function loadOffseasonNext(year){
+  if(OFFSEASON.nextPending || (OFFSEASON.nextSeason===year &&
+      OFFSEASON.nextOutcome!=="failed" && Date.now()-OFFSEASON.nextAskedAt<60*60e3)) return;
+  OFFSEASON.nextPending=true; OFFSEASON.nextSeason=year;
+  OFFSEASON.nextOutcome="loading"; OFFSEASON.nextAskedAt=Date.now();
+  var url=TeamOS.espn.scheduleUrl(TEAM_CONFIG,year);
+  get(url,hasEvents).then(function(d){
+    OFFSEASON.next=TeamOS.espn.schedule(d,TEAM,TEAM_CONFIG);
+    OFFSEASON.nextOutcome=(SRC.offseasonNext&&SRC.offseasonNext.cached)?"retained":(OFFSEASON.next.length?"ready":"empty");
+  }).catch(function(){
+    OFFSEASON.nextOutcome="failed";
+  }).then(function(){
+    OFFSEASON.nextPending=false; paintHome();
+  });
+}
+function loadOffseasonSelection(year){
+  if(OFFSEASON.boardPending[year] || (OFFSEASON.selectedAt[year] &&
+      Date.now()-OFFSEASON.selectedAt[year]<60*60e3)) return;
+  OFFSEASON.boardPending[year]=true;
+  get(TeamOS.espn.postseasonBoardUrl(year),hasEvents).then(function(d){
+    OFFSEASON.selected[year]=TeamOS.espn.postseasonSelected(d);
+    OFFSEASON.selectedAt[year]=Date.now();
+  }).catch(function(){
+    // Unknown is not the same as an unselected team. Retry on a later paint.
+    delete OFFSEASON.selectedAt[year];
+  }).then(function(){
+    OFFSEASON.boardPending[year]=false; paintHome();
+  });
+}
+function offseasonModel(now){
+  if(!S.games || !S.games.length) return null;
+  var phase=TeamOS.season.phase({games:S.games,
+    next:OFFSEASON.nextSeason===seasonYear()+1?OFFSEASON.next:null,
+    selected:OFFSEASON.selected[seasonYear()],now:now});
+  if(phase.askNext && phase.nextSeason!=null) loadOffseasonNext(phase.nextSeason);
+  if(phase.state==="awaiting-postseason") loadOffseasonSelection(phase.season);
+  if(T25.polls==null && !T25.p) loadRankings();
+  var model=TeamOS.season.offseason({phase:phase,polls:T25.polls,
+    league:window.LEAGUE_CALENDAR,next:OFFSEASON.nextOutcome,now:now});
+  if(Suite.nav && Suite.nav.setSeasonNav){
+    var apFinal=(T25.polls||[]).some(function(p){
+      return (p.key==="ap" || /associated press/i.test(p.label||p.name||"")) && p.final===true;
+    });
+    var top25=!model || (model.phase.state==="complete" && !apFinal);
+    var opener=model && model.phase.opener;
+    var gameBack=!!(opener && Date.parse(opener.date)>=now.getTime() &&
+      Date.parse(opener.date)-now.getTime()<=14*24*60*60e3);
+    Suite.nav.setSeasonNav({top25:top25,game:!model||gameBack});
+    var route=Suite.nav.current();
+    if(route && route.screen==="more") paintMore();
+  }
+  return model;
+}
 function paintHome(){
   var host=$("screenHome");
   if(!host || host.hidden || !S.games) { if(host && !host.hidden && !S.games) paintHomeLoading(host); return; }
   var now=new Date();
   var h=TeamOS.game.hero(S.games, now, TEAM.timeZone), g=h.game;
+  var offseason=offseasonModel(now);
   // Our rank and record now, from the team feed, when the game's own
   // competitor entry does not carry them.
   if(g && HOME.status){
@@ -1238,6 +1299,7 @@ function paintHome(){
     art:{ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true),
           atmosphere: g ? TeamOS.game.atmosphere(g, zone) : null },
     hero:{ game:g, reason:h.reason, weather:wx },
+    offseason: offseason,
     heroId: g ? g.id : null,
     news: HOME.news,
     schedule: TeamOS.game.schedulePreview(S.games, now, TEAM.timeZone),
