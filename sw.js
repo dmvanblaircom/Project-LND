@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-21season2";
+var VERSION = "suite-2026-10-21season3";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -357,6 +357,27 @@ function legacyKey(key) {
   return u.href;
 }
 
+// A data request the network has not answered in DATA_WAIT ms is answered
+// from the last good copy, when there is one, and the request is dropped.
+// Waiting on it kept this worker busy, and the browser does not activate an
+// update while the worker it replaces still has a request out: an update
+// found on open sat behind one hung request, the launch lifted at its own
+// limit and the update's reload came under the fan (launchcheck probe,
+// 2026-10-20). The copy says it is one (X-IW-Cached), so the page shows its
+// age and asks again. With no copy kept the network is waited on as before.
+var DATA_WAIT = 8000;
+
+// The last good copy of a data file, marked with when it was kept
+// ("unknown" rather than a made-up time), or null.
+function kept(key) {
+  return caches.open(DATA).then(function (c) {
+    return c.match(key).then(function (hit) { var old = legacyKey(key); return hit || (old ? c.match(old) : hit); });
+  }).then(function (hit) {
+    if (!hit) return null;
+    return withHeader(hit, "X-IW-Cached", hit.headers.get("X-IW-Stored") || hit.headers.get("date") || "unknown");
+  });
+}
+
 function withHeader(res, name, value) {
   var h = new Headers(res.headers);
   h.set(name, value);
@@ -428,26 +449,36 @@ self.addEventListener("fetch", function (e) {
   }
 
   if (isData(url)) {
-    // network-first, last good copy as the fallback
+    // network-first, last good copy as the fallback - and as the answer to a
+    // network that has not replied in DATA_WAIT (below)
     var key = dataKey(url);
-    e.respondWith(
-      fetch(e.request).then(function (res) {
-        if (res && res.ok) {
-          e.waitUntil(withHeader(res.clone(), "X-IW-Stored", new Date().toUTCString()).then(function (copy) {
-            return caches.open(DATA).then(function (c) { return c.put(key, copy); });
-          }).catch(function () {}));
-        }
-        return res;
-      }).catch(function () {
-        return caches.open(DATA).then(function (c) {
-          return c.match(key).then(function (hit) { var old = legacyKey(key); return hit || (old ? c.match(old) : hit); });
-        }).then(function (hit) {
-          if (!hit) throw new Error("offline and nothing cached for " + key);
-          // when it was kept; "unknown" rather than a made-up time
-          return withHeader(hit, "X-IW-Cached",
-            hit.headers.get("X-IW-Stored") || hit.headers.get("date") || "unknown");
-        });
-      })
-    );
+    var ctl = typeof AbortController === "function" ? new AbortController() : null;
+    var answered = false, timer;
+    var net = fetch(e.request, ctl ? { signal: ctl.signal } : undefined).then(function (res) {
+      // Answered: the wait stands down, so it never aborts a body still on its way.
+      answered = true; clearTimeout(timer);
+      if (res && res.ok) {
+        e.waitUntil(withHeader(res.clone(), "X-IW-Stored", new Date().toUTCString()).then(function (copy) {
+          return caches.open(DATA).then(function (c) { return c.put(key, copy); });
+        }).catch(function () {}));
+      }
+      return res;
+    });
+    net.catch(function () { answered = true; clearTimeout(timer); });
+    var slow = new Promise(function (resolve) {
+      timer = setTimeout(function () {
+        kept(key).then(function (copy) {
+          if (!copy || answered) return;       // nothing better, or no longer needed: the network's answer stands
+          if (ctl) ctl.abort();
+          resolve(copy);
+        }).catch(function () {});
+      }, DATA_WAIT);
+    });
+    e.respondWith(Promise.race([net, slow]).catch(function () {
+      return kept(key).then(function (copy) {
+        if (!copy) throw new Error("offline and nothing cached for " + key);
+        return copy;
+      });
+    }));
   }
 });

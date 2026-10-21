@@ -97,10 +97,11 @@ var STUB = "(" + function () {
   console.log("1. Turn On");
   await a.page.click('#screenSettings [data-alerts="on"]'); await a.page.waitForTimeout(500);
   var s1 = await state(a.page);
-  eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false }],
-     "Turn On sends the defaults: kickoff, final and delays - Kickoff time set off");
+  eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false,
+                                                          selection: true, postseason: true, nopost: false }],
+     "Turn On sends the defaults: kickoff, final and delays - Kickoff time set off; Selection Day and the postseason set on (brief §1)");
   ok(s1.on === "On" && /test alert is on its way/.test(s1.note), "On, and the test alert is promised");
-  eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp"], "off"], "the choices show, set to the defaults");
+  eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp", "+selection", "+postseason", "-nopost"], "off"], "the choices show, set to the defaults");
   await shot(a.page, "alerts-on");
 
   console.log("2. A quick pick");
@@ -147,7 +148,7 @@ var STUB = "(" + function () {
 
   console.log("4. Everything off");
   await a.page.click('#screenSettings input[name="alertScoring"][value="off"]');
-  for (var k of ["kickoff", "final", "delays", "halftime", "close"]) await a.page.click('#screenSettings [data-alert-opt="' + k + '"]');
+  for (var k of ["kickoff", "final", "delays", "halftime", "close", "selection", "postseason"]) await a.page.click('#screenSettings [data-alert-opt="' + k + '"]');
   await a.page.waitForTimeout(700);
   var s4 = await state(a.page);
   ok(s4.on === "Off" && /No alerts selected, so Game Alerts are off/.test(s4.note) && a.posts[a.posts.length - 1].path === "unsubscribe",
@@ -186,7 +187,7 @@ var STUB = "(" + function () {
   console.log("4d. A device that turned alerts on before there were choices (Codex, #116)");
   var L = await open(390, function () { try { localStorage.setItem("iw-alerts-notre-dame", "1"); } catch (e) {} });
   var ls = await state(L.page);
-  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp"]], "it shows what it has had: kickoff and final, the new in-game Delays off");
+  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp", "-selection", "-postseason", "-nopost"]], "it shows what it has had: kickoff and final, the new in-game Delays off, and none of the postseason events");
   await L.page.click('#screenSettings input[name="alertScoring"][value="mine"]'); await L.page.waitForTimeout(900);
   var lo = L.posts[L.posts.length - 1] && L.posts[L.posts.length - 1].options;
   ok(lo && lo.delays === false && lo.outcomes === true && lo.scoring === "mine",
@@ -195,6 +196,16 @@ var STUB = "(" + function () {
   var lo2 = L.posts[L.posts.length - 1].options;
   ok(lo2.delays === false && !lo2.outcomes, "and Delays & postponements turned off by hand means postponements too (Codex, #116)");
   await L.ctx.close();
+
+  console.log("4e. A choice saved before the postseason events existed (David, 2026-10-20)");
+  var P = await open(390, function () { try { localStorage.setItem("iw-alerts-notre-dame", "1");
+    localStorage.setItem("iw-alert-opts-notre-dame", JSON.stringify({ kickoff: true, final: true, delays: true, scoring: "all", quarters: false, halftime: true, close: true, timeset: false, cfp: true })); } catch (e) {} });
+  var ps = await state(P.page);
+  eq(ps.switches.slice(-4), ["+cfp", "-selection", "-postseason", "-nopost"], "its choices stand; the new kinds start off, never switched on for a fan already signed up");
+  await P.page.click('#screenSettings [data-alert-opt="postseason"]'); await P.page.waitForTimeout(900);
+  var po = P.posts[P.posts.length - 1] && P.posts[P.posts.length - 1].options;
+  ok(po && po.postseason === true && po.selection === false && po.nopost === false && po.cfp === true, "turning one on sends just that one with the rest as they were");
+  await P.ctx.close();
 
   console.log("5. 320 px");
   var n = await open(320);

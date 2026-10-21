@@ -209,7 +209,10 @@ Suite.more = (function () {
     updates: [["quarters", "End of each quarter"], ["halftime", "Halftime score"],
               ["close", "Close finish", "One alert when it\u2019s a one-score game late in the 4th, and if it goes to overtime"]],
     // About the season, not a game (brief §1 postseason events).
-    season: [["cfp", "CFP rankings", "After each Tuesday rankings show, where your team stands"]]
+    season: [["cfp", "CFP rankings", "After each Tuesday rankings show, where your team stands"],
+             ["selection", "Selection Day", "The morning the playoff field and bowls are named"],
+             ["postseason", "Bowl or playoff set", "When your team's postseason game is named, or called off"],
+             ["nopost", "No postseason", "Once the field is set, if your team's season is over"]]
   };
   var SCORING = [["off", "Off"], ["mine", "My team\u2019s scores"], ["all", "Every score"]];
   function alertSwitch(o, sw) {

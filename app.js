@@ -2075,16 +2075,25 @@ Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); 
 // Worker keeps the subscription and a copy of the choice.
 var ALERTS={ busy:false, note:null, sync:null, chain:Promise.resolve() };
 var ALERT_KEY="iw-alerts-"+TEAM.id, ALERT_OPTS_KEY="iw-alert-opts-"+TEAM.id;
-var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false, cfp:false };
+var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false, cfp:false,
+                     selection:true, postseason:true, nopost:false };
+// Kinds of alert added after a fan may already have chosen: a choice saved
+// before one existed has it off until the fan turns it on (the noise rule,
+// brief §3), whatever a fan choosing now starts with. The postseason events
+// (brief §1; David, 2026-10-20) - the Worker reads a missing one as off too.
+var ALERTS_ADDED_LATER={ selection:true, postseason:true, nopost:true };
 // Quick picks set the switches, then step aside (§2b): one shows as chosen
 // only while every switch matches it. Final only keeps delays, because a
 // postponed game has no final. Kickoff time set is about the schedule, not
 // the game: only Everything includes it (notifications brief §2b, 12). So
 // are the CFP rankings, about the season (brief §1 postseason events).
 var ALERT_PICKS={
-  everything:{ kickoff:true, final:true, delays:true, scoring:"all", quarters:true, halftime:true, close:true, timeset:true, cfp:true },
-  key:{ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:true, close:true, timeset:false, cfp:false },
-  final:{ kickoff:false, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false, cfp:false } };
+  everything:{ kickoff:true, final:true, delays:true, scoring:"all", quarters:true, halftime:true, close:true, timeset:true, cfp:true,
+               selection:true, postseason:true, nopost:true },
+  key:{ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:true, close:true, timeset:false, cfp:false,
+        selection:true, postseason:true, nopost:false },
+  final:{ kickoff:false, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false, cfp:false,
+          selection:false, postseason:false, nopost:false } };
 function alertOpts(){
   var o={}, saved=null;
   try{ saved=JSON.parse(localStorage.getItem(ALERT_OPTS_KEY)||"null"); }catch(e){}
@@ -2093,13 +2102,16 @@ function alertOpts(){
   // in-game Delays off until the fan turns them on (the noise rule; Codex,
   // #116). `outcomes` keeps the postponement alerts it already had.
   var base=!saved && alertsOnHere() ? Object.assign({}, ALERT_DEFAULTS, { delays:false, outcomes:true }) : ALERT_DEFAULTS;
-  Object.keys(ALERT_DEFAULTS).forEach(function(k){ o[k]=saved && saved[k]!=null ? saved[k] : base[k]; });
+  var chosenBefore=!!saved || alertsOnHere();
+  Object.keys(ALERT_DEFAULTS).forEach(function(k){
+    o[k]=saved && saved[k]!=null ? saved[k] : chosenBefore && ALERTS_ADDED_LATER[k] ? false : base[k];
+  });
   if((saved ? saved.outcomes : base.outcomes)===true) o.outcomes=true;
   if(["off","mine","all"].indexOf(o.scoring)<0) o.scoring="off";
   return o;
 }
 function saveAlertOpts(o){ try{ localStorage.setItem(ALERT_OPTS_KEY, JSON.stringify(o)); }catch(e){} }
-function alertsAnyOn(o){ return o.kickoff||o.final||o.delays||o.quarters||o.halftime||o.close||o.timeset||o.cfp||o.scoring!=="off"; }
+function alertsAnyOn(o){ return o.kickoff||o.final||o.delays||o.quarters||o.halftime||o.close||o.timeset||o.cfp||o.selection||o.postseason||o.nopost||o.scoring!=="off"; }
 function alertPick(o){
   return Object.keys(ALERT_PICKS).filter(function(k){
     var p=ALERT_PICKS[k]; return Object.keys(p).every(function(x){ return p[x]===o[x]; });
@@ -2247,7 +2259,7 @@ function alertsChoose(o){
   }, 600);
 }
 function alertsSummary(o){
-  var n=["kickoff","final","delays","quarters","halftime","close","timeset","cfp"].filter(function(k){ return o[k]; }).length+(o.scoring!=="off"?1:0);
+  var n=["kickoff","final","delays","quarters","halftime","close","timeset","cfp","selection","postseason","nopost"].filter(function(k){ return o[k]; }).length+(o.scoring!=="off"?1:0);
   return n+(n===1?" kind of alert":" kinds of alerts")+" on.";
 }
 document.addEventListener("change", function(e){

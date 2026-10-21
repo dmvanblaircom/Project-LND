@@ -1502,6 +1502,10 @@ eq(TeamOS.espn.postseasonSelected(tbd), false, "the same games listed before sel
 eq(TeamOS.espn.postseasonSelected({ events: [] }), false, "nothing listed: not selected");
 eq(TeamOS.espn.postseasonBoardUrl(2026), "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&limit=400&seasontype=3&week=1&dates=2026",
    "the league's postseason board, as ESPN answers it");
+// 2025: ESPN wrote the first round "College Football Playoff First Round Game"
+// (tools/fixtures/espn-scoreboard-postboard-2025.json); the same rule reads it.
+var board25 = JSON.parse(read("tools/fixtures/espn-scoreboard-postboard-2025.json"));
+eq(TeamOS.espn.postseasonSelected(board25), true, "the 2025 postseason, its first round written \"First Round Game\": selected");
 eq(TeamOS.espn.postseasonSelected(null), null, "no answer: not known");
 
 console.log("TeamOS.season.phase (W16): where the season stands, never inferred");

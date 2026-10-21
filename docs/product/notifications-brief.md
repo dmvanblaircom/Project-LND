@@ -84,8 +84,30 @@ one alert per release, keyed by season and week. Settings → Game Alerts →
 **Season → CFP rankings**: off by default and for saved choices; only the
 Everything pick includes it. The alert opens Top 25 → Rankings → CFP.
 Tested on the real feed from Selection Day 2025
-(`tools/fixtures/espn-rankings-cfp-20260114.json`). The other three
-postseason events follow.
+(`tools/fixtures/espn-rankings-cfp-20260114.json`).
+
+**The other three: built October 21** (Claude, PR for `feat/alerts-postseason`).
+Settings → Game Alerts → **Season** has a switch for each.
+
+- **Selection Day reminder.** Sent once, in the three hours before the show (Dec 6, 2026: from 9 AM ET). It reads "Selection Day: [day, time] on ESPN" in the phone's own time zone, and opens Top 25 → Rankings → CFP.
+- **Team's postseason set.** Sent when the team's playoff or bowl game is listed with a real opponent.
+  - It reads the team's postseason schedule (season type 3), hourly through the postseason and every five minutes from the show to the next morning.
+  - The words: "[Team] is in the College Football Playoff: the No. [seed] seed hosts/plays No. [seed] [opponent] in the First Round", "[Team] plays No. [n] [opponent] in the CFP Quarterfinal at the [bowl]", or "[Team] will play [opponent] in the [bowl]".
+  - The game's time is in the title only once ESPN has set it. The seed is ESPN's rank on the playoff game, which is the seed (Notre Dame 2024: 7).
+  - It opens the game.
+- **Declined or withdrawn (David, 2026-10-20: Notre Dame declined its 2025 bowl).** If a game the team was announced for is no longer listed before kickoff, on two reads in a row so one bad answer never sends it, the fans told it was set hear "[Team] will not play in the [bowl]". Fans who never got the first alert get nothing.
+- **No postseason.** Sent once, between the morning after Selection Day and a week later, and only when all of these hold:
+  - the league's postseason board shows the field set (a First Round game with two real teams, `TeamOS.espn.postseasonSelected`'s rule);
+  - the team has no game left to play;
+  - two reads in a row found no postseason game.
+
+  A schedule that fails to load never counts. A team that declined a bowl (Notre Dame 2025: on no postseason game at all) gets it too, and "no bowl this year" is true either way.
+- **Bowl and playoff games now get game alerts.** The Worker reads the team's postseason schedule beside the regular one through the postseason, so kickoff, scores and final alert for a bowl or playoff game like any other. Before this the Worker read the regular season only.
+- **Defaults.**
+  - Selection Day and the postseason set start on for a fan turning alerts on now; No postseason is opt-in.
+  - All three start off for every choice saved before they existed, in the app and in the Worker.
+  - Everything includes all three; Key moments the first two; Final only none.
+- **2025's wording.** ESPN wrote the 2025 first round as "College Football Playoff First Round Game". TeamOS and the Worker read it now (`tools/fixtures/espn-scoreboard-postboard-2025.json`); before, a 2025-style first round read as no playoff game at all.
 
 **"Default" means the switch's position when a fan first turns alerts on,
 never a new kind of push switched on for fans already subscribed** (the
