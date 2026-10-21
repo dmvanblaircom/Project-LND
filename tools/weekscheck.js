@@ -33,7 +33,8 @@ fs.mkdirSync(shots, { recursive: true });
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
   async function open(hash, opts) {
     opts = opts || {};
-    var ctx = await browser.newContext({ viewport: { width: opts.width || 390, height: 844 }, timezoneId: "America/New_York", serviceWorkers: "block" });
+    var ctx = await browser.newContext(Object.assign({ viewport: { width: opts.width || 390, height: 844 }, timezoneId: "America/New_York", serviceWorkers: "block" },
+                                                     opts.touch ? { isMobile: true, hasTouch: true } : {}));
     var page = await ctx.newPage(), st = { weeks: 0, fpiWeeks: 0, spWeek: [], errors: [] };
     await page.clock.setSystemTime(new Date("2026-10-20T16:00:00Z"));
     page.on("pageerror", function (e) { st.errors.push(String(e)); });
@@ -145,6 +146,22 @@ fs.mkdirSync(shots, { recursive: true });
       if (w === 320) await d.page.screenshot({ path: path.join(shots, "ap-pre-320.png") });
     }
     await d.ctx.close();
+
+    // A phone (David, 2026-10-21): picking a week closes the picker. Focus is
+    // not put back on it - focusing a select on a touch screen opens it again.
+    var t = await open("#top25/rankings/ap", { touch: true });
+    ok(await t.page.evaluate(function () { return matchMedia("(pointer: coarse)").matches; }), "the phone check runs with a touch screen's pointer");
+    var focusCalls = await t.page.evaluate(function () {
+      window.__focused = 0; var f = HTMLSelectElement.prototype.focus;
+      HTMLSelectElement.prototype.focus = function () { window.__focused++; return f.apply(this, arguments); };
+      return 0;
+    });
+    await t.page.selectOption("#rkWeek", "w2"); await t.page.waitForTimeout(300);
+    s = await state(t.page);
+    var touched = await t.page.evaluate(function () { return { focused: window.__focused, active: document.activeElement && document.activeElement.id }; });
+    ok(s.hash === "#top25/rankings/ap/w2" && /Week 2/.test(s.title) && touched.focused === 0 && touched.active !== "rkWeek",
+       "on a phone, picking week 2 shows it and leaves the picker closed: it is never focused again (" + JSON.stringify(touched) + ")");
+    await t.ctx.close();
 
     // Before the first kept week (or with the file unreachable): the live poll, no picker.
     var n = await open("#top25/rankings/ap", { noWeeks: true });

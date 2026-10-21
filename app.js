@@ -630,7 +630,12 @@ document.addEventListener("keydown", function(e){ if(SHEET.id && e.key==="Escape
 document.addEventListener("change", function(e){
   var s=e.target && e.target.closest && e.target.closest("#screenTop25 select[data-week]");
   if(!s) return;
-  WEEKS.refocus=true;
+  // A keyboard keeps its place: focus goes back to the redrawn picker, so the
+  // next arrow press moves another week. A touch screen does not get it back:
+  // focusing a select there opens it again (David, 2026-10-21: "the picker
+  // remains open. It should select that week and close").
+  WEEKS.refocus=!(window.matchMedia && matchMedia("(pointer: coarse)").matches);
+  if(!WEEKS.refocus) s.blur();
   Suite.nav.go("top25", ["rankings", s.getAttribute("data-source")].concat(s.value ? [s.value] : []));
 });
 
