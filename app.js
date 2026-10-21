@@ -1225,6 +1225,7 @@ var OFFSEASON={ next:null, nextSeason:null, nextOutcome:"unknown", nextAskedAt:0
   selected:{}, selectedAt:{}, boardAskedAt:{}, boardPending:{}, nextPending:false };
 function loadOffseasonNext(year){
   if(OFFSEASON.nextPending || (OFFSEASON.nextSeason===year && Date.now()-OFFSEASON.nextAskedAt<60*60e3)) return;
+  if(OFFSEASON.nextSeason!==year) OFFSEASON.next=null;
   OFFSEASON.nextPending=true; OFFSEASON.nextSeason=year;
   OFFSEASON.nextOutcome="loading"; OFFSEASON.nextAskedAt=Date.now();
   var url=TeamOS.espn.scheduleUrl(TEAM_CONFIG,year);
