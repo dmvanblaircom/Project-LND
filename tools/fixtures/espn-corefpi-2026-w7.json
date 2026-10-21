@@ -1,0 +1,4563 @@
+{
+ "_comment": "Real ESPN payload, captured 2026-10-21T12:56Z by capture-fixture.yml from https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/weeks/7/powerindex?limit=200, kept whole. | trimmed to the fields rankings_history.py reads: team, lastUpdated, season, predictives fpi/fpirank/numwins/numlosses/numties/rankchange7days",
+ "count": 138,
+ "pageIndex": 1,
+ "pageSize": 200,
+ "pageCount": 1,
+ "items": [
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/194?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 28.237
+    },
+    {
+     "name": "fpirank",
+     "value": 1.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/87?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 27.858
+    },
+    {
+     "name": "fpirank",
+     "value": 2.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/61?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 26.68
+    },
+    {
+     "name": "fpirank",
+     "value": 3.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 26.503
+    },
+    {
+     "name": "fpirank",
+     "value": 4.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 0.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/84?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 25.357
+    },
+    {
+     "name": "fpirank",
+     "value": 5.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/333?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 24.21
+    },
+    {
+     "name": "fpirank",
+     "value": 6.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/251?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 23.637
+    },
+    {
+     "name": "fpirank",
+     "value": 7.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/99?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 22.965
+    },
+    {
+     "name": "fpirank",
+     "value": 8.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2641?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 19.374
+    },
+    {
+     "name": "fpirank",
+     "value": 9.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 0.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2483?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 19.04
+    },
+    {
+     "name": "fpirank",
+     "value": 10.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/145?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 18.757
+    },
+    {
+     "name": "fpirank",
+     "value": 11.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2633?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 18.052
+    },
+    {
+     "name": "fpirank",
+     "value": 12.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/254?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 17.421
+    },
+    {
+     "name": "fpirank",
+     "value": 13.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 0.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/252?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 17.359
+    },
+    {
+     "name": "fpirank",
+     "value": 14.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 0.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/158?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 17.137
+    },
+    {
+     "name": "fpirank",
+     "value": 15.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/154?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 15.351
+    },
+    {
+     "name": "fpirank",
+     "value": 16.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 6.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/30?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 14.948
+    },
+    {
+     "name": "fpirank",
+     "value": 17.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/248?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 14.765
+    },
+    {
+     "name": "fpirank",
+     "value": 18.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/57?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 14.335
+    },
+    {
+     "name": "fpirank",
+     "value": 19.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 6.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/245?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 13.505
+    },
+    {
+     "name": "fpirank",
+     "value": 20.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 13.426
+    },
+    {
+     "name": "fpirank",
+     "value": 21.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 10.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/201?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 13.348
+    },
+    {
+     "name": "fpirank",
+     "value": 22.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -6.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/97?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 13.344
+    },
+    {
+     "name": "fpirank",
+     "value": 23.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/77?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 13.079
+    },
+    {
+     "name": "fpirank",
+     "value": 24.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2294?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 13.068
+    },
+    {
+     "name": "fpirank",
+     "value": 25.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/96?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 12.74
+    },
+    {
+     "name": "fpirank",
+     "value": 26.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/142?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 12.266
+    },
+    {
+     "name": "fpirank",
+     "value": 27.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -10.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/213?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 11.725
+    },
+    {
+     "name": "fpirank",
+     "value": 28.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2579?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 11.629
+    },
+    {
+     "name": "fpirank",
+     "value": 29.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/68?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 11.356
+    },
+    {
+     "name": "fpirank",
+     "value": 30.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/26?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 10.982
+    },
+    {
+     "name": "fpirank",
+     "value": 31.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 0.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/130?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 10.897
+    },
+    {
+     "name": "fpirank",
+     "value": 32.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/12?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 10.495
+    },
+    {
+     "name": "fpirank",
+     "value": 33.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/239?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 9.965
+    },
+    {
+     "name": "fpirank",
+     "value": 34.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2567?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 9.805
+    },
+    {
+     "name": "fpirank",
+     "value": 35.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/52?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 9.585
+    },
+    {
+     "name": "fpirank",
+     "value": 36.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/221?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 9.228
+    },
+    {
+     "name": "fpirank",
+     "value": 37.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/344?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 9.077
+    },
+    {
+     "name": "fpirank",
+     "value": 38.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -11.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/275?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 9.011
+    },
+    {
+     "name": "fpirank",
+     "value": 39.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/197?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 8.952
+    },
+    {
+     "name": "fpirank",
+     "value": 40.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/153?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 8.68
+    },
+    {
+     "name": "fpirank",
+     "value": 41.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2628?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 8.607
+    },
+    {
+     "name": "fpirank",
+     "value": 42.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/167?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 7.84
+    },
+    {
+     "name": "fpirank",
+     "value": 43.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/150?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 7.762
+    },
+    {
+     "name": "fpirank",
+     "value": 44.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2306?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 7.617
+    },
+    {
+     "name": "fpirank",
+     "value": 45.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/256?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 6.976
+    },
+    {
+     "name": "fpirank",
+     "value": 46.0
+    },
+    {
+     "name": "numwins",
+     "value": 7.0
+    },
+    {
+     "name": "numlosses",
+     "value": 0.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/259?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 6.59
+    },
+    {
+     "name": "fpirank",
+     "value": 47.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/228?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 6.459
+    },
+    {
+     "name": "fpirank",
+     "value": 48.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/204?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 5.99
+    },
+    {
+     "name": "fpirank",
+     "value": 49.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/258?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 5.645
+    },
+    {
+     "name": "fpirank",
+     "value": 50.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2116?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 5.194
+    },
+    {
+     "name": "fpirank",
+     "value": 51.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/264?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 4.711
+    },
+    {
+     "name": "fpirank",
+     "value": 52.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/356?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 4.367
+    },
+    {
+     "name": "fpirank",
+     "value": 53.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/66?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 4.276
+    },
+    {
+     "name": "fpirank",
+     "value": 54.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2305?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 3.727
+    },
+    {
+     "name": "fpirank",
+     "value": 55.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2132?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 3.511
+    },
+    {
+     "name": "fpirank",
+     "value": 56.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/235?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 2.954
+    },
+    {
+     "name": "fpirank",
+     "value": 57.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/8?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 2.157
+    },
+    {
+     "name": "fpirank",
+     "value": 58.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/249?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 2.126
+    },
+    {
+     "name": "fpirank",
+     "value": 59.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2509?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 1.865
+    },
+    {
+     "name": "fpirank",
+     "value": 60.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/127?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 1.669
+    },
+    {
+     "name": "fpirank",
+     "value": 61.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/152?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 1.125
+    },
+    {
+     "name": "fpirank",
+     "value": 62.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/38?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 0.965
+    },
+    {
+     "name": "fpirank",
+     "value": 63.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 8.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2335?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 0.689
+    },
+    {
+     "name": "fpirank",
+     "value": 64.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/183?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 0.526
+    },
+    {
+     "name": "fpirank",
+     "value": 65.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/238?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 0.452
+    },
+    {
+     "name": "fpirank",
+     "value": 66.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/277?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 0.358
+    },
+    {
+     "name": "fpirank",
+     "value": 67.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/59?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": 0.337
+    },
+    {
+     "name": "fpirank",
+     "value": 68.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/349?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -0.043
+    },
+    {
+     "name": "fpirank",
+     "value": 69.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 10.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/326?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -0.139
+    },
+    {
+     "name": "fpirank",
+     "value": 70.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 10.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2449?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -0.206
+    },
+    {
+     "name": "fpirank",
+     "value": 71.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/135?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -0.247
+    },
+    {
+     "name": "fpirank",
+     "value": 72.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/278?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -0.671
+    },
+    {
+     "name": "fpirank",
+     "value": 73.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -9.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2655?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -1.156
+    },
+    {
+     "name": "fpirank",
+     "value": 74.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 7.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/9?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -1.291
+    },
+    {
+     "name": "fpirank",
+     "value": 75.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/309?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -1.798
+    },
+    {
+     "name": "fpirank",
+     "value": 76.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 10.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2636?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -1.872
+    },
+    {
+     "name": "fpirank",
+     "value": 77.0
+    },
+    {
+     "name": "numwins",
+     "value": 6.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2439?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -2.108
+    },
+    {
+     "name": "fpirank",
+     "value": 78.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2005?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -2.141
+    },
+    {
+     "name": "fpirank",
+     "value": 79.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 1.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/58?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -2.179
+    },
+    {
+     "name": "fpirank",
+     "value": 80.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2711?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -2.483
+    },
+    {
+     "name": "fpirank",
+     "value": 81.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/103?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -2.615
+    },
+    {
+     "name": "fpirank",
+     "value": 82.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 9.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/164?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -3.062
+    },
+    {
+     "name": "fpirank",
+     "value": 83.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2649?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -3.414
+    },
+    {
+     "name": "fpirank",
+     "value": 84.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/120?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -3.649
+    },
+    {
+     "name": "fpirank",
+     "value": 85.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -8.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/202?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -3.667
+    },
+    {
+     "name": "fpirank",
+     "value": 86.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2348?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -3.683
+    },
+    {
+     "name": "fpirank",
+     "value": 87.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/25?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -3.946
+    },
+    {
+     "name": "fpirank",
+     "value": 88.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -13.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/290?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -4.637
+    },
+    {
+     "name": "fpirank",
+     "value": 89.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/151?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -5.244
+    },
+    {
+     "name": "fpirank",
+     "value": 90.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -6.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2426?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -5.509
+    },
+    {
+     "name": "fpirank",
+     "value": 91.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2247?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -5.867
+    },
+    {
+     "name": "fpirank",
+     "value": 92.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -9.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/41?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -5.999
+    },
+    {
+     "name": "fpirank",
+     "value": 93.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/6?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -6.821
+    },
+    {
+     "name": "fpirank",
+     "value": 94.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/195?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -7.085
+    },
+    {
+     "name": "fpirank",
+     "value": 95.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 8.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/328?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -7.623
+    },
+    {
+     "name": "fpirank",
+     "value": 96.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/55?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -8.35
+    },
+    {
+     "name": "fpirank",
+     "value": 97.0
+    },
+    {
+     "name": "numwins",
+     "value": 5.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2440?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -8.409
+    },
+    {
+     "name": "fpirank",
+     "value": 98.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2032?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -8.535
+    },
+    {
+     "name": "fpirank",
+     "value": 99.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 7.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/21?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -8.849
+    },
+    {
+     "name": "fpirank",
+     "value": 100.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 9.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2026?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -8.908
+    },
+    {
+     "name": "fpirank",
+     "value": 101.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/265?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -8.979
+    },
+    {
+     "name": "fpirank",
+     "value": 102.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2229?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -9.152
+    },
+    {
+     "name": "fpirank",
+     "value": 103.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/218?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -9.297
+    },
+    {
+     "name": "fpirank",
+     "value": 104.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -8.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2653?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -9.566
+    },
+    {
+     "name": "fpirank",
+     "value": 105.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -11.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/193?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -9.83
+    },
+    {
+     "name": "fpirank",
+     "value": 106.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2226?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -10.1
+    },
+    {
+     "name": "fpirank",
+     "value": 107.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 2.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -9.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/24?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -11.375
+    },
+    {
+     "name": "fpirank",
+     "value": 108.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/338?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -11.406
+    },
+    {
+     "name": "fpirank",
+     "value": 109.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/98?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -11.915
+    },
+    {
+     "name": "fpirank",
+     "value": 110.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 6.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/62?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -12.256
+    },
+    {
+     "name": "fpirank",
+     "value": 111.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/23?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -12.517
+    },
+    {
+     "name": "fpirank",
+     "value": 112.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/36?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -12.59
+    },
+    {
+     "name": "fpirank",
+     "value": 113.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -8.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2084?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -12.876
+    },
+    {
+     "name": "fpirank",
+     "value": 114.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/324?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -13.063
+    },
+    {
+     "name": "fpirank",
+     "value": 115.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/166?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -13.172
+    },
+    {
+     "name": "fpirank",
+     "value": 116.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/5?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -13.787
+    },
+    {
+     "name": "fpirank",
+     "value": 117.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 7.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/113?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -13.841
+    },
+    {
+     "name": "fpirank",
+     "value": 118.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/295?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -14.021
+    },
+    {
+     "name": "fpirank",
+     "value": 119.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/48?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -14.074
+    },
+    {
+     "name": "fpirank",
+     "value": 120.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -8.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2117?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -14.289
+    },
+    {
+     "name": "fpirank",
+     "value": 121.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2572?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -14.674
+    },
+    {
+     "name": "fpirank",
+     "value": 122.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2623?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -14.74
+    },
+    {
+     "name": "fpirank",
+     "value": 123.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/242?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -15.391
+    },
+    {
+     "name": "fpirank",
+     "value": 124.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -6.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2751?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -15.429
+    },
+    {
+     "name": "fpirank",
+     "value": 125.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/276?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -16.466
+    },
+    {
+     "name": "fpirank",
+     "value": 126.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2534?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -16.672
+    },
+    {
+     "name": "fpirank",
+     "value": 127.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -5.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2199?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -16.706
+    },
+    {
+     "name": "fpirank",
+     "value": 128.0
+    },
+    {
+     "name": "numwins",
+     "value": 4.0
+    },
+    {
+     "name": "numlosses",
+     "value": 4.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -3.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/189?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -17.657
+    },
+    {
+     "name": "fpirank",
+     "value": 129.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2393?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -18.275
+    },
+    {
+     "name": "fpirank",
+     "value": 130.0
+    },
+    {
+     "name": "numwins",
+     "value": 3.0
+    },
+    {
+     "name": "numlosses",
+     "value": 3.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2459?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -20.063
+    },
+    {
+     "name": "fpirank",
+     "value": 131.0
+    },
+    {
+     "name": "numwins",
+     "value": 0.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2050?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -21.084
+    },
+    {
+     "name": "fpirank",
+     "value": 132.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2429?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -21.918
+    },
+    {
+     "name": "fpirank",
+     "value": 133.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 4.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2006?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -22.111
+    },
+    {
+     "name": "fpirank",
+     "value": 134.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -2.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2309?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -22.334
+    },
+    {
+     "name": "fpirank",
+     "value": 135.0
+    },
+    {
+     "name": "numwins",
+     "value": 2.0
+    },
+    {
+     "name": "numlosses",
+     "value": 5.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2638?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -24.418
+    },
+    {
+     "name": "fpirank",
+     "value": 136.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2433?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -26.276
+    },
+    {
+     "name": "fpirank",
+     "value": 137.0
+    },
+    {
+     "name": "numwins",
+     "value": 0.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": -1.0
+    }
+   ]
+  },
+  {
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/16?lang=en&region=us"
+   },
+   "season": 2026,
+   "lastUpdated": "2026-10-18T08:00Z",
+   "predictives": [
+    {
+     "name": "fpi",
+     "value": -32.438
+    },
+    {
+     "name": "fpirank",
+     "value": 138.0
+    },
+    {
+     "name": "numwins",
+     "value": 1.0
+    },
+    {
+     "name": "numlosses",
+     "value": 6.0
+    },
+    {
+     "name": "numties",
+     "value": 0.0
+    },
+    {
+     "name": "rankchange7days",
+     "value": 0.0
+    }
+   ]
+  }
+ ]
+}
