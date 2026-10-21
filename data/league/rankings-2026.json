@@ -3395,6 +3395,48 @@
  },
  "fpi": [
   {
+   "id": "w2",
+   "type": 2,
+   "week": 2,
+   "label": "Week 2",
+   "updated": "2026-09-07T08:00Z"
+  },
+  {
+   "id": "w3",
+   "type": 2,
+   "week": 3,
+   "label": "Week 3",
+   "updated": "2026-09-13T08:00Z"
+  },
+  {
+   "id": "w4",
+   "type": 2,
+   "week": 4,
+   "label": "Week 4",
+   "updated": "2026-09-20T08:00Z"
+  },
+  {
+   "id": "w5",
+   "type": 2,
+   "week": 5,
+   "label": "Week 5",
+   "updated": "2026-09-27T08:00Z"
+  },
+  {
+   "id": "w6",
+   "type": 2,
+   "week": 6,
+   "label": "Week 6",
+   "updated": "2026-10-04T08:00Z"
+  },
+  {
+   "id": "w7",
+   "type": 2,
+   "week": 7,
+   "label": "Week 7",
+   "updated": "2026-10-11T08:00Z"
+  },
+  {
    "id": "w8",
    "type": 2,
    "week": 8,
