@@ -463,6 +463,9 @@ TeamOS.espn = (function () {
       updated: r.lastUpdated||r.date ? str(r.lastUpdated||r.date) : null,
       // the week it was released for, ISO: how a kept week is matched to it
       released: r.date ? str(r.date) : null,
+      // ESPN's own mark on a poll's last edition of the season (the AP's
+      // "Final Rankings", after the title game)
+      last: !!(r.occurrence && r.occurrence.last===true),
       ranks: (r.ranks||[]).map(function(x){
         var t=x.team||{};
         return {
@@ -1426,6 +1429,7 @@ TeamOS.espn = (function () {
           return { id: str(w.id), label: str(w.label), date: w.date ? str(w.date) : null, poll: {
             key: k[1], label: k[1], name: str(w.name||k[1]), asOf: str(w.label),
             updated: w.updated||w.date ? str(w.updated||w.date) : null, released: w.date ? str(w.date) : null,
+            last: w.id==="final",
             ranks: w.ranks.map(function(r){
               var t=teams[r.id]||{}, prev=typeof r.previous==="number" ? r.previous : null;
               return { rank: r.rank, team: str(t.name||""), abbr: t.abbr ? str(t.abbr) : null, providerId: str(r.id),

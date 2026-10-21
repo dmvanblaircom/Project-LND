@@ -333,7 +333,7 @@ wk.forEach(function (g) { ok(!LGLEAK.test(JSON.stringify(Object.assign({}, g, { 
 
 // ---- rankings ----
 var rkFixture = JSON.parse(read("tools/fixtures/espn-rankings.json"));
-var POLL = ["key","label","name","asOf","updated","released","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
+var POLL = ["key","label","name","asOf","updated","released","last","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
 var POLLLEAK = /rankings|occurrence|recordSummary|shortName|headline|nickname|location|current|espn/i;
 
 console.log("rankings()");
@@ -1616,8 +1616,12 @@ eq(OFF({ phase: over, polls: CFPFEED, league: LG25, now: D("2025-12-20T12:00:00Z
 var apOnly = CFPFEED.filter(function (q) { return q.key === "AP"; });
 var apr = OFF({ phase: over, polls: apOnly, league: LG25, now: D("2025-12-20T12:00:00Z") }).ranking;
 ok(apr && apr.source === "AP" && apr.final === false, "before the committee publishes, the AP's - and an AP poll in December is not the final one");
-var apJan = apOnly.map(function (q) { return Object.assign({}, q, { released: "2026-01-21T08:00Z" }); });
-eq(OFF({ phase: over, polls: apJan, league: LG25, now: D("2026-01-25T12:00:00Z") }).ranking.final, true, "the AP poll released in January, after the title game: final");
+var apJan = apOnly.map(function (q) { return Object.assign({}, q, { released: "2026-01-12T08:00Z" }); });
+eq(OFF({ phase: over, polls: apJan, league: LG25, now: D("2026-01-13T12:00:00Z") }).ranking.final, false,
+   "an AP poll released in January before the title game: not final (Codex, #153)");
+var apFinal = apOnly.map(function (q) { return Object.assign({}, q, { released: "2026-01-20T08:00Z", last: true }); });
+eq(OFF({ phase: over, polls: apFinal, league: LG25, now: D("2026-01-25T12:00:00Z") }).ranking.final, true,
+   "the AP poll ESPN marks as its last (\"Final Rankings\"): final");
 var later = Object.assign({}, over, { season: 2026, nextSeason: 2027 });
 ok(!("ranking" in OFF({ phase: later, polls: CFPFEED, league: LG25 })), "a poll from another season is never shown as this season's");
 var unranked = CFPFEED.map(function (q) { return Object.assign({}, q, { ranks: q.ranks.filter(function (r) { return !r.mine; }) }); });

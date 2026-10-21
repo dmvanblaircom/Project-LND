@@ -222,10 +222,10 @@ TeamOS.season = (function () {
      the AP's; only the team's own rank, only a poll released inside the
      season (August to January), and only when the team is in it. It is
      "final" only as the last edition: the committee's Selection Day release,
-     or the AP poll released in January, after the title game. A declined or
+     or the AP poll ESPN marks as its last (its "Final Rankings", after the
+     title game) - never a January date alone (Codex, #153). A declined or
      missing bowl needs nothing here: the phase is already "complete"
      (ended "not-selected") once selection is known. Pure, like the rest. */
-  var FINAL_AP_FROM = function (season) { return Date.UTC(season + 1, 0, 1); };
   function inSeason(iso, season) {
     var t = Date.parse(iso || "");
     return isFinite(t) && t >= Date.UTC(season, 6, 1) && t < Date.UTC(season + 1, 1, 1);
@@ -242,7 +242,7 @@ TeamOS.season = (function () {
     var mine = p ? (p.ranks || []).filter(function (r) { return r.mine; })[0] : null;
     if (!mine || typeof mine.rank !== "number") return null;
     var at = String(p.released || p.updated).slice(0, 10), sel = selectionDay(league, season);
-    var final = src === "CFP" ? !!sel && at >= sel : Date.parse(p.released || p.updated) >= FINAL_AP_FROM(season);
+    var final = src === "CFP" ? !!sel && at >= sel : p.last === true;
     return { rank: mine.rank, source: src, season: season, final: final };
   }
   function offseason(o) {

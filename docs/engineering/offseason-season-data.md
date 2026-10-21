@@ -33,7 +33,7 @@ Notes on the fields:
 - **`ranking`** is the committee's (CFP) once it has published this season, else the AP's. It counts only:
   - the team's own row;
   - a poll released inside the season (August to January).
-- **`ranking.final`** is true only for the last edition: the committee's Selection Day release, or the AP poll released in January, after the title game. S4 shows a ranking only when `final` is true, as the handoff requires.
+- **`ranking.final`** is true only for the last edition: the committee's Selection Day release, or the AP poll ESPN marks as its last edition (its "Final Rankings", after the title game). A January date alone is never enough. S4 shows a ranking only when `final` is true, as the handoff requires.
 - **`ended`** says what ended the season: `lost`, `bowl`, `champion`, `not-selected` or `calendar` (from `phase`). A declined bowl reads as `not-selected`. In Notre Dame 2025, ESPN lists the team on no postseason game, so once selection is known the season is `complete`. It never sits in "awaiting postseason" past Selection Day.
 
 ## What the controller loads
@@ -58,7 +58,7 @@ Read the board only after `phase` reaches `awaiting-postseason`, and no more tha
   - waiting on the postseason at 10-2, CFP No. 11, not final;
   - after selection, complete, `not-selected` (it declined its bowl), with the Selection Day release as its final ranking.
 - **Other cases:**
-  - AP before the committee publishes, final only in January;
+  - AP before the committee publishes, final only as ESPN's "Final Rankings" (a January poll before the title game is not);
   - a poll from another season never shown;
   - an unranked team and a missing record left out;
   - `null` in season and in the postseason;
