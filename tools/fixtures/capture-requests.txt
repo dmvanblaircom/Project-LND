@@ -89,3 +89,5 @@ coreweeks-2025-3 weeks-2025-3
 fbsteams 2026
 corerank-2026-2-2-1 ap-2026-w2
 coreteam-2026-2390 miami-2026
+# the 2025 postseason, as season type 3, week 1 (a date range is refused)
+postboard-2025 postboard-2025

@@ -248,7 +248,9 @@ TeamOS.espn = (function () {
   //   bowl      the bowl it is played in or as, when there is one
   //   last      no game can follow it this season: a bowl, or the title game
   // null when ESPN carries no note.
-  var PLAYOFF_ROUND=/^College Football Playoff (First Round|Quarterfinal|Semifinal|National Championship)(?: at the (.+))?$/i;
+  // ESPN wrote 2025's first round as "College Football Playoff First Round Game"
+  // (tools/fixtures/espn-scoreboard-postboard-2025.json).
+  var PLAYOFF_ROUND=/^College Football Playoff (First Round|Quarterfinal|Semifinal|National Championship)(?: Game)?(?: at the (.+))?$/i;
   var ROUND_NAME={ "first round":"First Round", quarterfinal:"Quarterfinal", semifinal:"Semifinal", "national championship":"National Championship" };
   function stageOf(comp){
     var h=((comp&&comp.notes)||[]).map(function(n){ return n && n.headline ? String(n.headline) : ""; }).filter(Boolean)[0];

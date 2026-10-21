@@ -1500,6 +1500,10 @@ var tbd = JSON.parse(JSON.stringify(bowls));
 tbd.events.forEach(function (ev) { ev.competitions[0].competitors.forEach(function (c) { c.team = { id: "-2", displayName: "TBD" }; }); });
 eq(TeamOS.espn.postseasonSelected(tbd), false, "the same games listed before selection, teams to be determined: not selected");
 eq(TeamOS.espn.postseasonSelected({ events: [] }), false, "nothing listed: not selected");
+// 2025: ESPN wrote the first round "College Football Playoff First Round Game"
+// (tools/fixtures/espn-scoreboard-postboard-2025.json); the same rule reads it.
+var board25 = JSON.parse(read("tools/fixtures/espn-scoreboard-postboard-2025.json"));
+eq(TeamOS.espn.postseasonSelected(board25), true, "the 2025 postseason, its first round written \"First Round Game\": selected");
 eq(TeamOS.espn.postseasonSelected(null), null, "no answer: not known");
 
 console.log("TeamOS.season.phase (W16): where the season stands, never inferred");
