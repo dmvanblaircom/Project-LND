@@ -125,6 +125,9 @@ var TEAM_CONFIG = {
   snapshots: {
     availability: { file: "data/ohio-state/availability.json", history: "data/ohio-state/availability-history.json", label: "BigTen.org" },
     oddsHistory: { file: "data/ohio-state/odds-history.json" },
-    beatNews:    { file: "data/ohio-state/news.json" }
+    beatNews:    { file: "data/ohio-state/news.json" },
+    // The team's recruiting class, from ESPN (tools/producers/prospects.py;
+    // David chose ESPN, 2026-10-03), refreshed once a day.
+    recruits:    { file: "data/ohio-state/recruits.json", label: "ESPN recruiting" }
   }
 };
