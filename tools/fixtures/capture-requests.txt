@@ -97,3 +97,10 @@ corefpi-2026-2-3 2026-w3
 corefpi-2026-2-6 2026-w6
 fpiweek-2026-3 2026-w3
 fpiweek-2026-6 2026-w6
+corefpi-2026-1-1 2026-pre
+corefpi-2026-2-1 2026-w1
+corefpi-2026-2-2 2026-w2
+corefpi-2026-2-7 2026-w7
+corefpi-2026-2-8 2026-w8
+corefpi-2025-3-1 2025-post
+corefpi-2025-2-15 2025-w15
