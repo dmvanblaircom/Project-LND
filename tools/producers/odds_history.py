@@ -65,10 +65,18 @@ def append(hist, point, now):
     last = pts[-1] if pts else None
 
     def moved(k):
-        return last is None or last.get(k) is None or point[k] is None or abs(last[k] - point[k]) >= 0.5
+        # A market missing from both reads has not moved (Season Outlook
+        # hides one between seasons); one appearing or vanishing has.
+        if last is None:
+            return True
+        if last.get(k) is None or point[k] is None:
+            return (last.get(k) is None) != (point[k] is None)
+        return abs(last[k] - point[k]) >= 0.5
     stale = last is None or (now - datetime.strptime(last["t"], "%Y-%m-%dT%H:%MZ")
                              .replace(tzinfo=timezone.utc)).total_seconds() > 6 * 3600
-    if not (moved("title") or moved("playoff") or stale):
+    switched = last is not None and any(last.get(k + "Event") != point.get(k + "Event")
+                                       for k in ("title", "playoff") if k + "Event" in point)
+    if not (moved("title") or moved("playoff") or stale or switched):
         return None
     return (pts + [point])[-KEEP:]
 
@@ -87,7 +95,11 @@ def main():
     now = datetime.now(timezone.utc)
     point = {"t": now.strftime("%Y-%m-%dT%H:%MZ")}
     for k, f in LEAGUE.items():
-        point[k] = team_price(json.load(open(teamconfig.path(f))).get("markets", []), kalshi)
+        d = json.load(open(teamconfig.path(f)))
+        point[k] = team_price(d.get("markets", []), kalshi)
+        # Which event the price is from (tools/producers/markets.py): a new
+        # season's prices never read as a move in the last one's.
+        point[k + "Event"] = d.get("event")
     if point["title"] is None and point["playoff"] is None:
         print("  no %s market found; history unchanged" % args.team)
         return
