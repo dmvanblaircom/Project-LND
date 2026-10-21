@@ -1259,9 +1259,9 @@ function offseasonModel(now){
     selected:OFFSEASON.selected[seasonYear()],now:now});
   if(phase.askNext && phase.nextSeason!=null) loadOffseasonNext(phase.nextSeason);
   if(phase.state==="awaiting-postseason") loadOffseasonSelection(phase.season);
-  if(T25.polls==null && !T25.p) loadRankings();
   var model=TeamOS.season.offseason({phase:phase,polls:T25.polls,
     league:window.LEAGUE_CALENDAR,next:OFFSEASON.nextOutcome,now:now});
+  if(model && T25.polls==null && !T25.p) loadRankings();
   if(Suite.nav && Suite.nav.setSeasonNav){
     var apFinal=(T25.polls||[]).some(function(p){
       return /\\bap\\b|associated press/i.test((p.key||"")+" "+(p.label||p.name||"")) && p.last===true;
