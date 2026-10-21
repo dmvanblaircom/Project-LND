@@ -1,9 +1,12 @@
 # W16: Home presentation and seasonal navigation (updated October 20)
 
-**Status:** Draft #134, refreshed on October 20 main. Presentation is wired
-into Home behind an optional model; the production controller does not yet
-supply that model or activate seasonal navigation. **Not live or complete W16.**
-David approved the original and v2 rendered references on October 12.
+**Status (October 21):** The approved presentation from #134 is wired to the
+TeamOS after-season model in draft PR #159. The controller now supplies the
+normalized current-season games, next-season schedule outcome, postseason
+selection result, rankings, and league calendar, and applies seasonal navigation.
+The feature is not live until the PR merges. Full visual CI and the final S2/S4
+review remain release gates. David approved the original and v2 rendered
+references on October 12.
 This work translates the approved card into source-agnostic presentation,
 without preempting Claude's season logic or hard-coding fictional results.
 
@@ -68,11 +71,15 @@ filled with a fictitious score or ranking.
   the title game, restore preseason tabs at the approved triggers, and keep
   saved routes. Do not derive navigation solely from the team's phase.
 
-**Remaining integration step:** `app.js` prepares `m.offseason` after Claude
-lands the W16 source/state contracts. The module already loads before Home
-and belongs to the service-worker shell. Without the model, the existing
-Home hero and section order remain unchanged. S1/S3 retain their current
-hero; S5 requires the confirmed opener in the existing `m.hero.game`.
+**Controller wiring in PR #159:** `app.js` now prepares `m.offseason` from
+`TeamOS.season.phase()` and `TeamOS.season.offseason()`. The next-season schedule
+is requested only after the current season ends; the whole postseason board is
+read only while selection is pending and retried no more than hourly. An unknown
+board response is not treated as a negative selection. The existing Home hero
+remains unchanged when the model is null, and S5 reuses the confirmed opener
+in `m.hero.game`. The service worker caches the renderer under a fresh version.
+Remaining release gates are the full visual CI run, browser review of S2/S4 and
+season transitions, offline/retry/rollover verification, and a physical iPhone test.
 
 Call `Suite.nav.setSeasonNav({top25: boolean, game: boolean})` with the
 league-calendar result, then repaint `Suite.more.menu` if More is open.
