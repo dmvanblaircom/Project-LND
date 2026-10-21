@@ -135,4 +135,9 @@ jobs:
               print("not published for %s" % d.get("year")); sys.exit(0)
           if keys != ["id", "rank", "rating", "team"] or len(ok) != len(r) or len(r) < 25 or r[0]["rank"] != 1:
               sys.exit("::error::not the permitted top 25 shape")
-          print("a whole top 25, permitted fields only")'
+          print("a whole top 25, permitted fields only")
+          # The kept weeks (src/sp.js): their ids and how many - not values.
+          w = d.get("weeks")
+          if not isinstance(w, list):
+              sys.exit("::error::no kept weeks in the answer")
+          print("this table is kept as %s; %d week(s) kept" % (d.get("week"), len(w)))'

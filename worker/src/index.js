@@ -11,7 +11,9 @@
                                             only the fields in CFBD_FIELDS; a school in
                                             the registry, this season or last
      GET /v1/cfbd/sp?year=                  the SP+ top 25: rank, school, rating
-                                            and the school's id - nothing else
+                                            and the school's id - nothing else -
+                                            and the weeks kept (./sp.js)
+     GET /v1/cfbd/sp/week?year=&id=         one kept week of SP+, the same rows
      GET /v1/probe/espn                     can this Worker reach ESPN's live
                                             scoreboard? Status, time, game
                                             count only (W19 Phase 0)
@@ -24,7 +26,9 @@
    minutes it starts the repository's "Refresh team data" workflow with
    source=clock - the job cron-job.org was meant to do (W02, decision 0030).
    GitHub's own scheduler runs that workflow only every few hours. And every
-   minute, game alerts look at the followed teams' games (./push.js).
+   minute, game alerts look at the followed teams' games (./push.js). The
+   half-hourly clock also reads SP+ when no read has kept a table for 12
+   hours, so each week is kept even if no fan opens SP+ (./sp.js).
 
    Every answer is JSON with `source`, `fetchedAt` and, when it is a cached
    copy served because the provider failed, `stale: true`. Errors say what
@@ -34,12 +38,14 @@
 
 import { SCHOOLS } from "./schools.js";
 import { Alerts } from "./push.js";
+import { Ratings } from "./sp.js";
 
-// The Durable Object that holds game alerts (wrangler.toml); exported here
-// because Cloudflare finds it in the main module.
-export { Alerts };
+// The Durable Objects that hold game alerts and SP+'s kept weeks
+// (wrangler.toml); exported here because Cloudflare finds them in the main
+// module.
+export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-10-21post";
+export const VERSION = "edge-2026-10-21spweeks";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
@@ -226,17 +232,77 @@ async function fbsIds(year, env, cache, ctx) {
   return schoolIds(slim);
 }
 
+// SP+'s kept weeks live in one Durable Object (./sp.js).
+function ratingsStore(env) {
+  return env && env.RATINGS ? env.RATINGS.get(env.RATINGS.idFromName("ratings")) : null;
+}
+
+// The weeks kept, added to an answer: `week` is the kept edition this table
+// is (null until it is filed), `weeks` every kept edition without its table.
+// A table just read from CFBD is filed first. A store that cannot answer
+// leaves both off: the current table still stands.
+async function withWeeks(body, env, read) {
+  const store = ratingsStore(env);
+  if (!store || !Array.isArray(body.ranks) || !body.ranks.length) return body;
+  try {
+    const r = await store.fetch("https://ratings/" + (read ? "keep" : "which"),
+                                { method: "POST", body: JSON.stringify({ year: body.year, ranks: body.ranks }) });
+    if (!r.ok) return body;
+    const k = await r.json();
+    return Object.assign({}, body, { week: k.id || null, weeks: Array.isArray(k.weeks) ? k.weeks : [] });
+  } catch (e) { return body; }
+}
+
+function spYearOk(year, env) {
+  const now = new Date(env.NOW ? env.NOW() : Date.now()).getUTCFullYear();
+  return year === now || year === now - 1;
+}
+
+const WEEK_ID = /^[a-z0-9-]{1,24}$/;
+
+// One kept week: the same four fields a row has, and when it was first seen.
+async function cfbdSpWeek(url, env, origin) {
+  const year = Number(url.searchParams.get("year")), id = url.searchParams.get("id") || "";
+  if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
+  if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
+  if (!WEEK_ID.test(id)) return fail(400, "week is required", origin);
+  const store = ratingsStore(env);
+  if (!store) return fail(503, "no weeks are kept", origin);
+  try {
+    const r = await store.fetch("https://ratings/week?year=" + year + "&id=" + encodeURIComponent(id));
+    if (r.status === 404) return fail(404, "that week is not kept", origin);
+    if (!r.ok) return fail(502, "the kept weeks could not be read", origin);
+    const w = await r.json();
+    return json({ source: "cfbd-sp", year: year, fetchedAt: w.seen, week: w.id, label: w.label, ranks: w.ranks }, 200, origin,
+                { "cache-control": "max-age=3600" });
+  } catch (e) { return fail(502, "the kept weeks could not be read", origin); }
+}
+
+// The clock's read (wrangler.toml): only when no table has been kept for
+// SP_DUE, and only through the route's own read, so it spends CFBD's
+// allowance no faster than a fan would. August to January is the season.
+export async function spClock(env, ctx) {
+  const store = ratingsStore(env);
+  if (!store || !env.CFBD_API_KEY) return;
+  const d = new Date(env.NOW ? env.NOW() : Date.now());
+  const year = d.getUTCMonth() >= 6 ? d.getUTCFullYear() : d.getUTCFullYear() - 1;
+  try {
+    const r = await store.fetch("https://ratings/due?year=" + year);
+    if (!r.ok || !(await r.json()).due) return;
+    await cfbdSp(new URL("https://edge/v1/cfbd/sp?year=" + year), env, null, ctx);
+  } catch (e) { /* the next half hour tries again */ }
+}
+
 async function cfbdSp(url, env, origin, ctx) {
   const year = Number(url.searchParams.get("year"));
   if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
-  const now = new Date(env.NOW ? env.NOW() : Date.now()).getUTCFullYear();
-  if (year !== now && year !== now - 1) return fail(400, "only this season or last", origin);
+  if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
   if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
 
   const cache = env.CACHE || caches.default;
   const key = new Request("https://edge.cache/v1/cfbd/sp?year=" + year + "&top=" + SP_TOP);
   const heldBody = await held(cache, key);
-  if (heldBody && Date.now() - Date.parse(heldBody.fetchedAt) < SP_FRESH * 1000) return json(heldBody, 200, origin);
+  if (heldBody && Date.now() - Date.parse(heldBody.fetchedAt) < SP_FRESH * 1000) return json(await withWeeks(heldBody, env, false), 200, origin);
 
   // CFBD's empty list is "not published for that season" - an answer. A
   // table that is there but not a whole top 25, or whose schools cannot be
@@ -250,12 +316,12 @@ async function cfbdSp(url, env, origin, ctx) {
     if (wholeSp(picked)) ranks = picked;
   }
   if (!ranks) {
-    if (heldBody) return json(Object.assign({}, heldBody, { stale: true }), 200, origin);
+    if (heldBody) return json(await withWeeks(Object.assign({}, heldBody, { stale: true }), env, false), 200, origin);
     return fail(502, "CFBD could not be reached", origin);
   }
   const body = { source: "cfbd-sp", year: year, fetchedAt: new Date().toISOString(), ranks: ranks };
   await keep(cache, key, body, KEEP_SECONDS, ctx);
-  return json(body, 200, origin);
+  return json(await withWeeks(body, env, true), 200, origin);
 }
 
 // The refresh clock. Starts the data refresh through GitHub's API with a
@@ -336,7 +402,7 @@ export default {
                       .then(function (b) { if (b.log && b.log.length) console.log("alerts: " + b.log.join("; ")); })
                       .catch(function () { console.log("alerts: the tick failed"); })
                   : Promise.resolve();
-    } else done = startRefresh(env || {});
+    } else done = Promise.all([startRefresh(env || {}), spClock(env || {}, ctx)]).then(function (r) { return r[0]; });
     if (ctx && ctx.waitUntil) ctx.waitUntil(done); else await done;
   },
 
@@ -357,6 +423,7 @@ export default {
                                                    200, origin, { "cache-control": "no-store" });
     if (url.pathname === "/v1/cfbd/season") return cfbdSeason(url, env || {}, origin, ctx);
     if (url.pathname === "/v1/cfbd/sp") return cfbdSp(url, env || {}, origin, ctx);
+    if (url.pathname === "/v1/cfbd/sp/week") return cfbdSpWeek(url, env || {}, origin);
     if (url.pathname === "/v1/probe/espn") return json(await probeEspn(env || {}, request.cf && request.cf.colo), 200, origin,
                                                        { "cache-control": "no-store" });
     return fail(404, "no such route", origin);

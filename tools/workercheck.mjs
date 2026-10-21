@@ -7,7 +7,8 @@
    fails, and never passes CFBD's raw payload or errors through.
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
-import worker, { pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
+import worker, { pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts, Ratings, spClock } from "../worker/src/index.js";
+import { migrateSp, keepSp, spWeeks, spWeek, spIdOf, spDue, weekOf, SP_DUE, SP_KEEP_MAX } from "../worker/src/sp.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
          words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease,
          stageOf, postGames, fieldSet, selectionFor } from "../worker/src/push.js";
@@ -1558,6 +1559,93 @@ console.log("game alerts: Selection Day, the postseason set, a game declined, no
   for (let i = 0; i < 6; i++) await tick(db2, e2, S1 + 13 * 3600e3 + i * 61 * 60e3);
   ok(e2.pushes.filter((p) => p.url === g.sub.endpoint && !/sel/.test(p.init.body)).length === 0, "a postseason schedule that fails to load: never 'no postseason'");
 }
+
+console.log("SP+ week by week (David, 2026-10-21): kept in the Worker, never as a file");
+{ const sq = fakeSql(), db = { exec: (q) => sq.exec(q), all: (q, ...b) => sq.exec(q, ...b).toArray(), run: (q, ...b) => { sq.exec(q, ...b); } };
+  migrateSp(db);
+  const D = (iso) => Date.parse(iso), W = (n) => ({ id: "w" + n, label: "Week " + n });
+  const ids = schoolIds(fbs(2026)), t1 = pickSp(spRows(2026), ids, 2026);
+  const t2 = t1.map((r, i) => i === 0 ? Object.assign({}, r, { rating: r.rating + 1 }) : r);
+  const t3 = t1.map((r, i) => i === 1 ? Object.assign({}, r, { rating: r.rating - 1 }) : r);
+  const t4 = t1.map((r, i) => i === 2 ? Object.assign({}, r, { rating: r.rating + 2 }) : r);
+  eq([weekOf({ season: { year: 2026, type: 2 }, week: { number: 8 } }, 2026), weekOf({ season: { year: 2026, type: 1 } }, 2026),
+      weekOf({ season: { year: 2026, type: 3 } }, 2026), weekOf({ season: { year: 2027, type: 1 } }, 2026),
+      weekOf({ season: { year: 2025, type: 2 }, week: { number: 3 } }, 2026), weekOf({ season: { year: 2026, type: 2 } }, 2026), weekOf(null, 2026)],
+     [W(8), { id: "pre", label: "Preseason" }, { id: "final", label: "Final" }, { id: "final", label: "Final" }, null, null, null],
+     "the week is ESPN's: Week N, Preseason, Final (a scoreboard already on next season: Final); anything else unknown");
+  eq(keepSp(db, 2026, t1, D("2026-10-20T15:00:00Z"), W(8)), "w8", "the first table is filed under ESPN's week");
+  eq(keepSp(db, 2026, t1, D("2026-10-21T03:00:00Z"), W(9)), "w8", "the same table read again is the same edition, whatever the week now");
+  eq(spWeeks(db, 2026).length, 1, "and is not kept twice");
+  ok(!spDue(db, 2026, D("2026-10-21T03:00:00Z") + SP_DUE - 1) && spDue(db, 2026, D("2026-10-21T03:00:00Z") + SP_DUE), "the clock reads SP+ again only after 12 hours without a read");
+  eq(keepSp(db, 2026, t2, D("2026-10-21T04:00:00Z"), W(8)), "w8-2026-10-21", "a different table the next day, ESPN still on that week: a second edition, by its day");
+  const sq2 = fakeSql(), db2 = { exec: (q) => sq2.exec(q), all: (q, ...b) => sq2.exec(q, ...b).toArray(), run: (q, ...b) => { sq2.exec(q, ...b); } };
+  migrateSp(db2);
+  keepSp(db2, 2026, t1, D("2026-10-20T15:00:00Z"), W(8));
+  eq(keepSp(db2, 2026, t2, D("2026-10-20T19:00:00Z"), W(8)), "w8", "a different table the same day corrects that day's edition");
+  ok(spWeeks(db2, 2026).length === 1 && spWeek(db2, 2026, "w8").ranks[0].rating === t2[0].rating, "in place: one edition, the corrected table");
+  eq(keepSp(db2, 2026, t3, D("2026-10-27T15:00:00Z"), W(9)), "w9", "a new table on a later day is the next week's edition");
+  eq(keepSp(db2, 2026, t4, D("2026-10-29T15:00:00Z"), W(9)), "w9-2026-10-29", "SP+ moving twice in one week keeps both, the second by its day");
+  ok(spWeek(db2, 2026, "w8").ranks[0].rating === t2[0].rating && spWeek(db2, 2026, "w9").ranks[1].rating === t3[1].rating,
+     "nothing kept is ever replaced by a later week");
+  eq(spWeeks(db2, 2026).map((w) => w.id), ["w8", "w9", "w9-2026-10-29"], "the weeks, oldest first");
+  eq(keepSp(db2, 2026, t1, D("2026-11-03T15:00:00Z"), null), null, "ESPN unable to say the week: the table waits, unfiled");
+  ok(spWeeks(db2, 2026).length === 3 && spDue(db2, 2026, D("2026-11-03T15:01:00Z")), "nothing filed, and the clock tries again next half hour");
+  eq(keepSp(db2, 2026, t1, D("2026-11-03T15:30:00Z"), W(10)), "w10", "the next read files it");
+  eq(spIdOf(db2, 2026, t1), "w10", "a table being served is matched to its edition");
+  eq(spIdOf(db2, 2026, t2), null, "one that is not the newest is not claimed");
+  eq(spWeeks(db2, 2025), [], "each season its own");
+  const sq3 = fakeSql(), db3 = { exec: (q) => sq3.exec(q), all: (q, ...b) => sq3.exec(q, ...b).toArray(), run: (q, ...b) => { sq3.exec(q, ...b); } };
+  migrateSp(db3);
+  for (let i = 0; i < SP_KEEP_MAX + 2; i++) keepSp(db3, 2026, t1.map((r, j) => j ? r : Object.assign({}, r, { rating: i })), D("2026-08-01T12:00:00Z") + i * 864e5, W(i + 1));
+  eq(spWeeks(db3, 2026).length, SP_KEEP_MAX, "a feed gone wrong cannot grow the store without end"); }
+
+console.log("SP+ week by week: the routes and the clock");
+{ const espnSeen = [];
+  function store(boardWeek) {
+    const dEnv = { FETCH: async (url) => { espnSeen.push(url);
+      if (boardWeek === null) return new Response("no", { status: 503 });
+      return new Response(JSON.stringify({ season: { year: 2026, type: 2 }, week: { number: boardWeek } }), { status: 200 }); } };
+    const obj = new Ratings({ storage: { sql: fakeSql() } }, dEnv);
+    return { idFromName: () => "ratings", get: () => ({ fetch: (u, init) => obj.fetch(new Request(u, init)) }) };
+  }
+  const e = Object.assign(spEnv(), { RATINGS: store(8) });
+  const { r, body } = await get("/v1/cfbd/sp?year=2026", e, SITE);
+  ok(r.status === 200 && body.week === "w8" && body.weeks.length === 1 && body.weeks[0].id === "w8" && body.weeks[0].label === "Week 8",
+     "the table read is filed under ESPN's week, and the answer says which week it is and which weeks are kept");
+  ok(JSON.stringify(Object.keys(body).sort()) === JSON.stringify(["fetchedAt", "ranks", "source", "week", "weeks", "year"]) &&
+     JSON.stringify(Object.keys(body.weeks[0])) === JSON.stringify(["id", "label", "seen"]), "nothing more: the kept weeks without their tables");
+  ok(espnSeen.length === 1 && /\/scoreboard$/.test(espnSeen[0]), "ESPN's scoreboard is asked the week once, when a new table is filed");
+  const again = await get("/v1/cfbd/sp?year=2026", e, SITE);
+  ok(again.body.week === "w8" && espnSeen.length === 1 && e.calls.length === 2, "a cached answer is matched to its week, asking neither CFBD nor ESPN");
+  const wk = await get("/v1/cfbd/sp/week?year=2026&id=w8", e, SITE);
+  ok(wk.r.status === 200 && wk.body.source === "cfbd-sp" && wk.body.week === "w8" && wk.body.label === "Week 8" && wk.body.fetchedAt === body.weeks[0].seen &&
+     JSON.stringify(wk.body.ranks) === JSON.stringify(body.ranks), "a kept week: its table as it was shown, and when it was first seen");
+  ok(wk.body.ranks.every((x) => JSON.stringify(Object.keys(x)) === JSON.stringify(["rank", "team", "id", "rating"])) && !/offense|defense|conference|nationalAverages/.test(JSON.stringify(wk.body)),
+     "kept as shown: rank, school, id and rating - nothing more of CFBD's table");
+  ok(wk.r.headers.get("access-control-allow-origin") === SITE, "Suite's origin may read it");
+  eq([(await get("/v1/cfbd/sp/week?year=2026&id=w3", e, SITE)).r.status, (await get("/v1/cfbd/sp/week?year=2026&id=../x", e, SITE)).r.status,
+      (await get("/v1/cfbd/sp/week?year=2023&id=w8", e, SITE)).r.status, (await get("/v1/cfbd/sp/week?year=2026&id=w8", spEnv(), SITE)).r.status],
+     [404, 400, 400, 503], "a week not kept: 404; a malformed week or another season: 400; no store: 503");
+  const blind = Object.assign(spEnv(), { RATINGS: store(null) });
+  const b = await get("/v1/cfbd/sp?year=2026", blind, SITE);
+  ok(b.r.status === 200 && b.body.week === null && b.body.weeks.length === 0 && b.body.ranks.length === 26, "ESPN unable to say the week: the table is served, not yet filed");
+  const broken = Object.assign(spEnv(), { RATINGS: { idFromName: () => "x", get: () => ({ fetch: async () => { throw new Error("down"); } }) } });
+  const bk = await get("/v1/cfbd/sp?year=2026", broken, SITE);
+  ok(bk.r.status === 200 && bk.body.ranks.length === 26 && !("weeks" in bk.body), "the store down: the current table still stands, without weeks");
+
+  // The clock: a read only when no table has been kept for 12 hours.
+  const c = Object.assign(spEnv(), { RATINGS: store(8) });
+  await spClock(c, null);
+  ok(c.calls.filter((x) => /ratings\/sp/.test(x.url)).length === 1, "nothing kept yet: the clock reads SP+ once");
+  await spClock(c, null);
+  ok(c.calls.filter((x) => /ratings\/sp/.test(x.url)).length === 1, "just kept: the next half hour does not");
+  ok((await get("/v1/cfbd/sp/week?year=2026&id=w8", c, SITE)).r.status === 200, "and the week it read is kept, with no fan having opened SP+");
+  const nokey = Object.assign(spEnv({ key: "" }), { RATINGS: store(8) });
+  await spClock(nokey, null);
+  ok(nokey.calls.length === 0, "no CFBD key: the clock asks nothing");
+  const jan = Object.assign(spEnv(), { RATINGS: store(8), NOW: () => Date.parse("2027-01-15T12:00:00Z") });
+  await spClock(jan, null);
+  ok(jan.calls.some((x) => /ratings\/sp\?year=2026$/.test(x.url)), "in January the clock keeps last season's final table"); }
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the edge API answers only what a screen shows"));
 process.exit(failures ? 1 : 0);
