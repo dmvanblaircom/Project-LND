@@ -333,7 +333,7 @@ wk.forEach(function (g) { ok(!LGLEAK.test(JSON.stringify(Object.assign({}, g, { 
 
 // ---- rankings ----
 var rkFixture = JSON.parse(read("tools/fixtures/espn-rankings.json"));
-var POLL = ["key","label","name","asOf","updated","released","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
+var POLL = ["key","label","name","asOf","updated","released","last","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
 var POLLLEAK = /rankings|occurrence|recordSummary|shortName|headline|nickname|location|current|espn/i;
 
 console.log("rankings()");
@@ -723,7 +723,7 @@ ok(!/\bfetch\s*\(/.test(seasonSrc), "does not call fetch()");
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(seasonSrc), "does not touch the DOM or browser storage");
 ok(!/espn|kalshi|open-meteo/i.test(uncomment(seasonSrc)), "names no provider");
 ok(!/notre|irish|ohio|buckeye/i.test(uncomment(seasonSrc)), "names no team");
-eq(Object.keys(TeamOS.season).sort(), ["calendar","gamesCounted","phase","pointsAllowedPerGame","pointsPerGame"],
+eq(Object.keys(TeamOS.season).sort(), ["calendar","gamesCounted","offseason","phase","pointsAllowedPerGame","pointsPerGame"],
    "exactly the documented functions");
 
 var season = [ { state:"post", us:"56", them:"13" },
@@ -795,7 +795,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonSelected","postseasonUrl","rankings","rankingsHistory","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
+   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonBoardUrl","postseasonSelected","postseasonUrl","rankings","rankingsHistory","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
    "exactly the documented functions");
 
 console.log("mark");
@@ -1500,6 +1500,8 @@ var tbd = JSON.parse(JSON.stringify(bowls));
 tbd.events.forEach(function (ev) { ev.competitions[0].competitors.forEach(function (c) { c.team = { id: "-2", displayName: "TBD" }; }); });
 eq(TeamOS.espn.postseasonSelected(tbd), false, "the same games listed before selection, teams to be determined: not selected");
 eq(TeamOS.espn.postseasonSelected({ events: [] }), false, "nothing listed: not selected");
+eq(TeamOS.espn.postseasonBoardUrl(2026), "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&limit=400&seasontype=3&week=1&dates=2026",
+   "the league's postseason board, as ESPN answers it");
 // 2025: ESPN wrote the first round "College Football Playoff First Round Game"
 // (tools/fixtures/espn-scoreboard-postboard-2025.json); the same rule reads it.
 var board25 = JSON.parse(read("tools/fixtures/espn-scoreboard-postboard-2025.json"));
@@ -1590,6 +1592,50 @@ ok(!/notre|irish|ohio|buckeye/i.test(calSrc), "the league calendar names no team
 
 var seasonSrc = uncomment(read("teamos/season.js"));
 ok(!/espn|kalshi|notre|irish|ohio|buckeye|\bfetch\s*\(|\b(document|window)\b/i.test(seasonSrc), "teamos/season.js names no provider and no team, and fetches nothing");
+
+console.log("TeamOS.season.offseason (W16): the after-season Home model, as Codex's renderer asks");
+var OFF = TeamOS.season.offseason;
+// Real: Notre Dame's 2025 season and ESPN's rankings feed of January 2026,
+// which still carried the committee's Selection Day release (Dec 7: Notre
+// Dame No. 11). Notre Dame declined its bowl, so its postseason is empty.
+var CFPFEED = TeamOS.espn.rankings(JSON.parse(read("tools/fixtures/espn-rankings-cfp-20260114.json")), TEAM_CONFIG);
+var LG25 = { seasons: { "2025": [{ kind: "selection", start: "2025-12-07T12:00:00-05:00", end: "2025-12-07T15:00:00-05:00", on: "ESPN" }] } };
+var waiting = P({ games: ndRegOnly, now: D("2025-12-01T12:00:00Z") });
+var before = CFPFEED.map(function (q) { return Object.assign({}, q, { released: "2025-11-30T08:00Z" }); });
+var s2 = OFF({ phase: waiting, polls: before, league: LG25, next: "loading", now: D("2025-12-01T12:00:00Z") });
+eq(Object.keys(s2), ["phase", "record", "ranking", "last", "calendar", "nextSchedule"], "S2: the fields the handoff names, in its order");
+eq(s2.phase, { state: "awaiting-postseason", season: 2025, nextSeason: 2026, opener: null, ended: null }, "S2: waiting on the postseason, 2025, next season 2026");
+eq(s2.record, { text: waiting.record, season: 2025, kind: "regular" }, "the record as ESPN printed it on the last game, the regular season's");
+eq(s2.ranking, { rank: 11, source: "CFP", season: 2025, final: false }, "the committee's rank, not yet its final edition");
+eq([s2.last.id, s2.nextSchedule], [waiting.last.id, { outcome: "loading", opener: null }], "the last game played; next season's schedule still loading");
+var over = P({ games: nd25, selected: true, now: D("2025-12-20T12:00:00Z") });
+var s4 = OFF({ phase: over, polls: CFPFEED, league: LG25, next: "empty", now: D("2025-12-20T12:00:00Z") });
+eq([s4.phase.state, s4.phase.ended, s4.record.kind], ["complete", "not-selected", "final"],
+   "S4: Notre Dame 2025 - declined its bowl, no postseason game: complete once selection is known");
+eq(s4.ranking, { rank: 11, source: "CFP", season: 2025, final: true }, "the Selection Day release: the final edition S4 may show");
+eq(s4.nextSchedule, { outcome: "empty", opener: null }, "next season asked and empty, said as such");
+eq(OFF({ phase: over, polls: CFPFEED, league: { seasons: {} }, next: "empty", now: D("2025-12-20T12:00:00Z") }).ranking.final, false,
+   "no Selection Day in the calendar: never called final");
+eq(OFF({ phase: over, polls: CFPFEED, league: LG25, now: D("2025-12-20T12:00:00Z") }).nextSchedule.outcome, "unknown", "no word on next season: unknown");
+var apOnly = CFPFEED.filter(function (q) { return q.key === "AP"; });
+var apr = OFF({ phase: over, polls: apOnly, league: LG25, now: D("2025-12-20T12:00:00Z") }).ranking;
+ok(apr && apr.source === "AP" && apr.final === false, "before the committee publishes, the AP's - and an AP poll in December is not the final one");
+var apJan = apOnly.map(function (q) { return Object.assign({}, q, { released: "2026-01-12T08:00Z" }); });
+eq(OFF({ phase: over, polls: apJan, league: LG25, now: D("2026-01-13T12:00:00Z") }).ranking.final, false,
+   "an AP poll released in January before the title game: not final (Codex, #153)");
+var apFinal = apOnly.map(function (q) { return Object.assign({}, q, { released: "2026-01-20T08:00Z", last: true }); });
+eq(OFF({ phase: over, polls: apFinal, league: LG25, now: D("2026-01-25T12:00:00Z") }).ranking.final, true,
+   "the AP poll ESPN marks as its last (\"Final Rankings\"): final");
+var later = Object.assign({}, over, { season: 2026, nextSeason: 2027 });
+ok(!("ranking" in OFF({ phase: later, polls: CFPFEED, league: LG25 })), "a poll from another season is never shown as this season's");
+var unranked = CFPFEED.map(function (q) { return Object.assign({}, q, { ranks: q.ranks.filter(function (r) { return !r.mine; }) }); });
+ok(!("ranking" in OFF({ phase: over, polls: unranked, league: LG25 })), "a team outside the 25: no ranking, nothing invented");
+ok(!("record" in OFF({ phase: Object.assign({}, over, { record: null }), league: LG25 })), "no record printed: none given");
+eq([OFF({ phase: P({ games: nd26, now: D("2026-10-02T12:00:00Z") }) }), OFF({ phase: { state: "postseason", season: 2025 } }), OFF({}), OFF(null)],
+   [null, null, null, null], "in season, in the postseason, or nothing known: no model - Home shows the game");
+var s5 = OFF({ phase: Object.assign({}, over, { state: "next-published", opener: { id: "x" } }), league: LG25, next: "retained" });
+eq([s5.phase.state, s5.phase.opener.id, s5.nextSchedule], ["complete", "x", { outcome: "retained", opener: { id: "x" } }],
+   "next season's opener listed (S5): complete with the opener, so the renderer steps aside for the Game hero");
 
 // ---- Stats, Players (W27 Phase 2): the season leaders, named ----
 console.log("Stats: the Players view's model");

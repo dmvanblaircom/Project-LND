@@ -193,6 +193,75 @@ TeamOS.season = (function () {
     };
   }
 
+  /* ---------- the after-season Home model (W16) ----------
+
+     What Suite.offseason.hero (Codex's renderer, docs/engineering/
+     offseason-renderer-handoff-2026-10-12.md) draws while the season waits
+     on the postseason (S2) or is over (S4), in exactly the shape that
+     handoff asks for; null in every other phase - in season, in the
+     postseason, or with nothing to say. A season whose next opener is
+     listed (S5) is "complete" with that opener, and the renderer steps aside
+     for the Game hero.
+
+       Input:  { phase     TeamOS.season.phase() output
+                 polls     Poll[] from the live rankings feed
+                           (TeamOS.espn.rankings), or null
+                 league    the league's calendar (LEAGUE_CALENDAR)
+                 next      the next season's schedule request:
+                           "loading" | "empty" | "failed" | "retained" | "unknown"
+                 now }
+       Output: { phase    { state: "awaiting-postseason" | "complete",
+                            season, nextSeason, opener, ended }
+                 record   { text, season, kind: "regular" | "final" }   when known
+                 ranking  { rank, source: "CFP" | "AP", season, final } when ranked
+                 last     the last game played (a Game)                when any
+                 calendar TeamOS.season.calendar() for the season
+                 nextSchedule { outcome, opener } }
+
+     The ranking is the committee's when it has published this season, else
+     the AP's; only the team's own rank, only a poll released inside the
+     season (August to January), and only when the team is in it. It is
+     "final" only as the last edition: the committee's Selection Day release,
+     or the AP poll ESPN marks as its last (its "Final Rankings", after the
+     title game) - never a January date alone (Codex, #153). A declined or
+     missing bowl needs nothing here: the phase is already "complete"
+     (ended "not-selected") once selection is known. Pure, like the rest. */
+  function inSeason(iso, season) {
+    var t = Date.parse(iso || "");
+    return isFinite(t) && t >= Date.UTC(season, 6, 1) && t < Date.UTC(season + 1, 1, 1);
+  }
+  function selectionDay(league, season) {
+    var events = (league && league.seasons && league.seasons[String(season)]) || [];
+    var sel = events.filter(function (e) { return e.kind === "selection"; })[0];
+    return sel ? String(sel.start).slice(0, 10) : null;
+  }
+  function ranking(polls, season, league) {
+    var by = {};
+    (polls || []).forEach(function (p) { var k = String(p.key || p.label || "").toUpperCase(); if (inSeason(p.released || p.updated, season)) by[k] = p; });
+    var src = by.CFP ? "CFP" : by.AP ? "AP" : null, p = src ? by[src] : null;
+    var mine = p ? (p.ranks || []).filter(function (r) { return r.mine; })[0] : null;
+    if (!mine || typeof mine.rank !== "number") return null;
+    var at = String(p.released || p.updated).slice(0, 10), sel = selectionDay(league, season);
+    var final = src === "CFP" ? !!sel && at >= sel : p.last === true;
+    return { rank: mine.rank, source: src, season: season, final: final };
+  }
+  function offseason(o) {
+    o = o || {};
+    var p = o.phase;
+    if (!p || p.season == null || ["awaiting-postseason", "complete", "next-published"].indexOf(p.state) < 0) return null;
+    var over = p.state !== "awaiting-postseason";
+    var out = { phase: { state: over ? "complete" : "awaiting-postseason", season: p.season, nextSeason: p.nextSeason,
+                         opener: p.opener || null, ended: p.ended || null } };
+    if (p.record) out.record = { text: p.record, season: p.season, kind: over ? "final" : "regular" };
+    var r = ranking(o.polls, p.season, o.league);
+    if (r) out.ranking = r;
+    if (p.last) out.last = p.last;
+    out.calendar = calendar(o.league, p.season, o.now == null ? new Date() : o.now);
+    var known = ["loading", "empty", "failed", "retained", "unknown"];
+    out.nextSchedule = { outcome: known.indexOf(o.next) > -1 ? o.next : "unknown", opener: p.opener || null };
+    return out;
+  }
+
   return {
     calendar: calendar,
 
@@ -210,6 +279,7 @@ TeamOS.season = (function () {
     // say "through 3 games" rather than implying a full season.
     gamesCounted: function (games) { return completed(games).length; },
 
-    phase: phase
+    phase: phase,
+    offseason: offseason
   };
 })();
