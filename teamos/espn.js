@@ -1246,14 +1246,14 @@ TeamOS.espn = (function () {
   // begin. Bowl and CFP games never arrive with the regular season
   // (real payloads, 2026-09-25), so a season is two requests, joined below.
   var REGULAR=2, POSTSEASON=3;
-  function teamSchedule(teamId, type){ return SITE+"/teams/"+teamId+"/schedule?seasontype="+type; }
+  function teamSchedule(teamId, type, season){ return SITE+"/teams/"+teamId+"/schedule?seasontype="+type+(season==null?"":"&season="+encodeURIComponent(season)); }
 
   return {
     // The URLs app.js fetches. The service worker's data cache and the
     // page's cache-first paint are keyed on them, so a change of shape costs
     // every fan their offline copy once (app.js bridges the last change).
-    scheduleUrl: function(config){
-      return teamSchedule(config.sources.espn.teamId, REGULAR);
+    scheduleUrl: function(config, season){
+      return teamSchedule(config.sources.espn.teamId, REGULAR, season);
     },
     postseasonUrl: function(config){
       return teamSchedule(config.sources.espn.teamId, POSTSEASON);
