@@ -1345,6 +1345,10 @@ function loadHomeWeather(g){
 }
 // The connection changes what an open screen says (catch-up review 1.3).
 window.addEventListener("online",  function(){
+  if(typeof OFFSEASON!=="undefined"){
+    OFFSEASON.nextAskedAt=0;
+    Object.keys(OFFSEASON.boardAskedAt||{}).forEach(function(y){ OFFSEASON.boardAskedAt[y]=0; });
+  }
   retrySchedule();
   // A Matchup card that failed offline is asked for again now.
   [GV, SV].forEach(function(V){ if(V && V.previewFailed) V.at=0; });
