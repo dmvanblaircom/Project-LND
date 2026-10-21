@@ -1493,6 +1493,18 @@ console.log("game alerts: Selection Day, the postseason set, a game declined, no
     ndPost = keep;
   }
 
+  // Still listed, but ESPN's notes for it gone or worded another way (Codex,
+  // #152): the game is not withdrawn, however many reads.
+  e.pushes.length = 0;
+  lsuPost = JSON.parse(JSON.stringify(LSU_BOWL));
+  for (const ev of lsuPost.events) for (const c of ev.competitions || []) c.notes = [];
+  for (let i = 0; i < 3; i++) {                                          // three reads, one a minute
+    db.run("UPDATE games SET checked = 0 WHERE team_id = '99'");
+    await tick(db, e, S0 + 52 * 60e3 + i * 60e3);
+  }
+  ok(e.pushes.length === 0, "a game still listed without notes it can read: never withdrawn");
+  lsuPost = LSU_BOWL;
+
   // LSU leaves its bowl (David: Notre Dame declined its 2025 bowl). One read
   // without it is not enough; a failed read is never a missing game.
   await subscribe(db, e, { subscription: f.lsuLate.sub, team: { id: "99", name: "LSU" }, options: all }, S0 + 55 * 60e3);

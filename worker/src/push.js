@@ -695,8 +695,17 @@ export function postSeen(db, teamId, post, sel, now, log) {
   if (!post || !Array.isArray(post.events)) return 0;
   let added = 0;
   const st = postState(db, teamId, sel.season), games = postGames(post, teamId);
+  // Every game ESPN lists for the team, read or not: one whose notes are
+  // missing or worded in a way stageOf does not know is still listed, so it is
+  // never withdrawn and never counts as "no postseason" (Codex, #152). Only
+  // the games read in full are announced.
+  const listed = new Set();
+  for (const e of post.events) {
+    const c = e && e.competitions && e.competitions[0];
+    if (c && (c.competitors || []).some(function (x) { return String((x.team || {}).id) === String(teamId); })) listed.add(String(e.id));
+  }
   st.at = now;
-  st.empty = games.length ? 0 : (st.empty || 0) + 1;
+  st.empty = listed.size ? 0 : (st.empty || 0) + 1;
   for (const g of games) {
     st.missing[g.id] = 0;
     if (st.games[g.id]) continue;
@@ -706,7 +715,6 @@ export function postSeen(db, teamId, post, sel, now, log) {
     emit(db, teamId, { id: g.id }, "post:" + g.id, null,
          { stage: g.stage, opp: g.opp, oppRank: g.oppRank, usRank: g.usRank, home: g.home, at: g.iso, timeSet: g.timeSet, net: g.net }, now, log, false);
   }
-  const listed = new Set(games.map(function (g) { return g.id; }));
   for (const id of Object.keys(st.games)) {
     const g = st.games[id];
     if (listed.has(id) || g.off || Date.parse(g.iso) <= now) continue;
