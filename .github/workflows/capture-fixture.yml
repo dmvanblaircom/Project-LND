@@ -146,6 +146,17 @@ jobs:
               kind=raw; out="tools/fixtures/espn-corerank-$name.json"
               url="https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/${BASH_REMATCH[1]}/types/${BASH_REMATCH[2]}/weeks/${BASH_REMATCH[3]}/rankings"
               [ -n "${BASH_REMATCH[5]}" ] && url="$url/${BASH_REMATCH[5]}"
+            elif [[ "$ev" =~ ^corefpi-([0-9]{4})(-([0-9])-([0-9]+))?$ ]]; then
+              # FPI as ESPN's core API keeps it: the season, or one week of it
+              # (probe: are earlier FPI weeks kept, as the polls are?)
+              kind=raw; out="tools/fixtures/espn-corefpi-$name.json"
+              url="https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/${BASH_REMATCH[1]}"
+              [ -n "${BASH_REMATCH[2]}" ] && url="$url/types/${BASH_REMATCH[3]}/weeks/${BASH_REMATCH[4]}"
+              url="$url/powerindex?limit=200"
+            elif [[ "$ev" =~ ^fpiweek-([0-9]{4})-([0-9]+)$ ]]; then
+              # the FPI feed the app reads, asked for an earlier week
+              kind=raw; out="tools/fixtures/espn-fpiweek-$name.json"
+              url="https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=${BASH_REMATCH[1]}&week=${BASH_REMATCH[2]}&limit=200"
             elif [[ "$ev" =~ ^coreweeks-([0-9]{4})-([0-9])$ ]]; then
               kind=raw; out="tools/fixtures/espn-coreweeks-$name.json"
               url="https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/${BASH_REMATCH[1]}/types/${BASH_REMATCH[2]}/weeks?limit=30"
@@ -192,7 +203,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/espn-fpi-*.json tools/fixtures/espn-teamstats-*.json tools/fixtures/espn-leaders-*.json tools/fixtures/espn-athletestats-*.json tools/fixtures/espn-sitestats-*.json tools/fixtures/espn-recruits-*.json tools/fixtures/espn-draftboard-*.json tools/fixtures/espn-draftrounds-*.json tools/fixtures/espn-nflteams-*.json tools/fixtures/espn-corerank-*.json tools/fixtures/espn-coreweeks-*.json tools/fixtures/espn-fbsteams-*.json tools/fixtures/espn-coreteam-*.json tools/fixtures/img
+          git add tools/fixtures/espn-summary-*.json tools/fixtures/espn-rankings-*.json tools/fixtures/espn-scoreboard-*.json tools/fixtures/espn-schedule-*.json tools/fixtures/espn-roster-*.json tools/fixtures/espn-news-*.json tools/fixtures/espn-fpi-*.json tools/fixtures/espn-teamstats-*.json tools/fixtures/espn-leaders-*.json tools/fixtures/espn-athletestats-*.json tools/fixtures/espn-sitestats-*.json tools/fixtures/espn-recruits-*.json tools/fixtures/espn-draftboard-*.json tools/fixtures/espn-draftrounds-*.json tools/fixtures/espn-nflteams-*.json tools/fixtures/espn-corerank-*.json tools/fixtures/espn-coreweeks-*.json tools/fixtures/espn-fbsteams-*.json tools/fixtures/espn-coreteam-*.json tools/fixtures/espn-corefpi-*.json tools/fixtures/espn-fpiweek-*.json tools/fixtures/img
           git diff --cached --quiet && { echo "no new fixtures"; exit 0; }
           git commit -m "Capture ESPN fixtures"
           git pull --rebase -q && git push

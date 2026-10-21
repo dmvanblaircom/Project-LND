@@ -91,3 +91,9 @@ corerank-2026-2-2-1 ap-2026-w2
 coreteam-2026-2390 miami-2026
 # the 2025 postseason, as season type 3, week 1 (a date range is refused)
 postboard-2025 postboard-2025
+# FPI by week (David, 2026-10-21: can earlier FPI weeks be filled in?)
+corefpi-2026 season-2026
+corefpi-2026-2-3 2026-w3
+corefpi-2026-2-6 2026-w6
+fpiweek-2026-3 2026-w3
+fpiweek-2026-6 2026-w6
