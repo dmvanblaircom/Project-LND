@@ -49,4 +49,10 @@ s=render("complete",{last:{state:"post",status:"final",us:12,them:14,oppName:'<i
 check(!/<img|<script/.test(s)&&/&lt;img/.test(s),"opponent and ranking escaped");
 s=render("complete",{record:null,ranking:null,last:null,nextSchedule:{outcome:"failed"}});
 check(!/<dd>/.test(s)&&!/os-result"/.test(s)&&/couldn’t load/.test(s),"partial data renders without made-up figures");
+s=render("awaiting-postseason",{calendar:{selection:{start:"2026-12-06T17:00:00Z",on:"ESPN",live:true}}});
+check(/On now/.test(s)&&/ESPN/.test(s),"selection show uses normalized live state");
+s=render("awaiting-postseason",{ranking:{rank:3,source:"AP",season:2026}});
+check(!/AP ranking/.test(s)&&!/#3/.test(s),"S2 waits for CFP rather than substituting a poll");
+s=render("complete",{nextSchedule:{outcome:"retained",opener:{oppName:"Next Team",date:"2027-09-03T18:00:00Z",timeSet:false}}});
+check(/Time TBD/.test(s)&&!/\d:\d\d/.test(s),"unknown kickoff never renders a provider placeholder time");
 console.log(checks+" offline season-render assertions passed");

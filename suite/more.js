@@ -90,7 +90,16 @@ Suite.more = (function () {
   // sheet, or the link copied), so it is a button, and says what it did in
   // the status line under the list.
   function menu(host) {
-    put(host, "menu", '<ul class="mo-list card" aria-label="More">' + MENU.map(function (x) {
+    var items = MENU.slice();
+    // Saved destinations remain reachable when seasonal primary tabs change.
+    // The controller repaints More after setSeasonNav, as on route entry.
+    if (Suite.nav && Suite.nav.hasPrimary) {
+      if (!Suite.nav.hasPrimary("top25")) items.splice(2, 0,
+        { id: "stats", href: "#top25/rankings", title: "Top 25", sub: "Rankings and national games" });
+      if (!Suite.nav.hasPrimary("game")) items.splice(2, 0,
+        { id: "schedule", href: "#game", title: "Game", sub: "Your team's game details and recap" });
+    }
+    put(host, "menu", '<ul class="mo-list card" aria-label="More">' + items.map(function (x) {
       var inner = '<span class="mo-badge">' + ICONS[x.id] + "</span>" +
                   '<span class="mo-text"><span class="mo-title">' + esc(x.title) + "</span>" +
                   '<span class="mo-sub">' + esc(x.sub) + "</span></span>";
@@ -200,13 +209,16 @@ Suite.more = (function () {
   // 2026-10-09): on or off for this team, and once on, the fan's choice of
   // alerts - quick picks that set the switches and step aside, one choice
   // for scoring, a switch for everything else. It says plainly when this
-  // device cannot get them, and why. The Turn On button is the only thing
-  // that ever asks the browser for permission.
+  // device cannot get them, and why. Enabling the master switch is the only
+  // action that asks the browser for permission.
   var PICKS = [["everything", "Everything"], ["key", "Key moments"], ["final", "Final only"]];
   var SWITCHES = {
-    game: [["kickoff", "Kickoff"], ["final", "Final score"], ["delays", "Delays & postponements"]],
+    game: [["kickoff", "Kickoff"], ["final", "Final score"], ["delays", "Delays & postponements"],
+           ["timeset", "Kickoff time set", "When a TBA game gets its time, or a set time moves"]],
     updates: [["quarters", "End of each quarter"], ["halftime", "Halftime score"],
-              ["close", "Close finish", "One alert when it\u2019s a one-score game late in the 4th, and if it goes to overtime"]]
+              ["close", "Close finish", "One alert when it\u2019s a one-score game late in the 4th, and if it goes to overtime"]],
+    // About the season, not a game (brief §1 postseason events).
+    season: [["cfp", "CFP rankings", "After each Tuesday rankings show, where your team stands"]]
   };
   var SCORING = [["off", "Off"], ["mine", "My team\u2019s scores"], ["all", "Every score"]];
   function alertSwitch(o, sw) {
@@ -217,16 +229,17 @@ Suite.more = (function () {
   }
   function alertOptions(a) {
     var o = a.opts;
-    return '<div class="al-opts">' +
-      '<div class="al-picks" role="group" aria-label="Quick picks">' + PICKS.map(function (p) {
+    return '<div class="al-opts"><fieldset class="al-set"><legend class="al-legend">Quick picks</legend>' +
+      '<div class="al-picks">' + PICKS.map(function (p) {
         return '<button type="button" class="al-pick" data-alert-pick="' + p[0] + '" aria-pressed="' + (a.pick === p[0]) + '">' + esc(p[1]) + "</button>";
-      }).join("") + "</div>" +
+      }).join("") + "</div></fieldset>" +
       '<fieldset class="al-set"><legend class="al-legend">Game</legend>' + SWITCHES.game.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
       '<fieldset class="al-set"><legend class="al-legend">Scoring</legend><div class="al-seg">' + SCORING.map(function (c) {
-        return '<label class="al-choice"><input type="radio" name="alertScoring" value="' + c[0] + '"' + (o.scoring === c[0] ? " checked" : "") +
-               "><span>" + esc(c[1]) + "</span></label>";
+        return '<label class="al-row al-choice"><span class="al-text"><span class="al-name">' + esc(c[1]) + '</span></span>' +
+               '<input type="radio" name="alertScoring" value="' + c[0] + '"' + (o.scoring === c[0] ? " checked" : "") + "></label>";
       }).join("") + "</div></fieldset>" +
       '<fieldset class="al-set"><legend class="al-legend">Updates</legend>' + SWITCHES.updates.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
+      '<fieldset class="al-set"><legend class="al-legend">Season</legend>' + SWITCHES.season.map(function (sw) { return alertSwitch(o, sw); }).join("") + "</fieldset>" +
       '<p class="al-help">If alerts don\u2019t arrive, allow Suite in your Focus settings.</p></div>';
   }
   function gameAlerts(m) {
@@ -242,10 +255,12 @@ Suite.more = (function () {
     } else {
       var note = a.note || (a.on ? "Choose which " + name + " alerts this device gets."
                                  : "Notifications for " + name + " games: kickoff and the final to start, and scores, quarters and close finishes if you want them.");
-      body = '<div class="st-row"><span class="st-k">' + esc(name) + ' alerts</span><span class="st-v" data-st="alerts">' + (a.on ? "On" : "Off") + "</span></div>" +
-        '<div class="st-row st-action"><span class="st-note" data-st="alerts-note">' + esc(note) + "</span>" +
-        '<button type="button" class="btn btn-secondary" data-alerts="' + (a.on ? "off" : "on") + '"' + (a.busy ? ' aria-disabled="true"' : "") + ">" +
-        (a.busy ? (a.on ? "Turning Off\u2026" : "Turning On\u2026") : (a.on ? "Turn Off" : "Turn On")) + "</button></div>" +
+      if (a.busy) note = a.on ? "Turning alerts off…" : "Turning alerts on…";
+      body = '<div class="al-overview"><label class="al-row"><span class="al-text"><span class="al-name" id="al-master-name">' + esc(name) + ' alerts</span></span>' +
+        '<input type="checkbox" role="switch" class="al-switch" name="alert-master" data-alerts="' + (a.on ? "off" : "on") +
+        '" aria-labelledby="al-master-name" aria-describedby="al-note"' + (a.on ? " checked" : "") +
+        (a.busy ? ' aria-disabled="true" aria-busy="true"' : "") + '></label>' +
+        '<p class="al-note" id="al-note" data-st="alerts-note">' + esc(note) + "</p></div>" +
         (a.on && a.opts ? alertOptions(a) : "");
     }
     return group("alerts", "Game Alerts", body);

@@ -14,6 +14,7 @@
      team JSON                           ->  TeamOS.espn.teamStatus()  ->  { rank, record }
      scoreboard JSON + TEAM_CONFIG       ->  TeamOS.espn.scoreboard()  ->  LeagueGame[]
      rankings JSON + TEAM_CONFIG         ->  TeamOS.espn.rankings()    ->  Poll[]
+     kept weeks + TEAM_CONFIG            ->  TeamOS.espn.rankingsHistory() -> { ap, coaches, cfp: Week[] }
      summary JSON + Team + TEAM_CONFIG   ->  TeamOS.espn.gameDetail()  ->  GameDetail
      season stats JSON                   ->  TeamOS.espn.seasonStats() ->  SeasonStat[]
      news JSON                           ->  TeamOS.espn.news()        ->  NewsItem[]
@@ -458,6 +459,8 @@ TeamOS.espn = (function () {
       asOf:  r.occurrence ? str(r.occurrence.displayValue) : "",
       // when the poll was last published, ISO; null when the feed has no date
       updated: r.lastUpdated||r.date ? str(r.lastUpdated||r.date) : null,
+      // the week it was released for, ISO: how a kept week is matched to it
+      released: r.date ? str(r.date) : null,
       ranks: (r.ranks||[]).map(function(x){
         var t=x.team||{};
         return {
@@ -843,10 +846,25 @@ TeamOS.espn = (function () {
     var code=String(d.result||"").toUpperCase();
     return DRIVE_RESULT[code] || str(d.displayResult||d.result);
   }
+  // A drive's time. While a drive goes on, ESPN often reports "0:00" until
+  // its stats crew catches up ("3 plays, 24 yards, 0:00", Ohio State-
+  // Maryland, live scan 2026-10-10 #6) - even its plays' clocks stand
+  // still. A drive with no result yet, an offensive play run and no time
+  // has an unknown time, not a zero one: null, and its summary leaves the
+  // time out. A finished drive keeps ESPN's time, zero included. Nothing
+  // here makes a time up.
+  // A time ESPN did not send, or sent in another shape, is null too, and
+  // the summary is left as ESPN wrote it.
+  function unfilledTime(d){
+    var plays=typeof d.offensivePlays==="number" ? d.offensivePlays : +((/^(\d+) plays?\b/.exec(str(d.description))||[])[1]||0);
+    return /^0?0:00$/.test(str(pick(d,["timeElapsed","displayValue"],""))) && !d.result && !d.displayResult && plays>0;
+  }
   function driveOf(d, teamId, home, away, codes){
-    var tid=str(pick(d,["team","id"],""));
+    var tid=str(pick(d,["team","id"],"")), unfilled=unfilledTime(d), t=str(pick(d,["timeElapsed","displayValue"],""));
+    var time=!unfilled && /^\d{1,2}:\d\d$/.test(t) ? t : null, summary=str(d.description);
+    if(unfilled) summary=summary.replace(/,\s*0?0:00$/,"");
     return { id: str(d.id), side: tid===home.key ? "home" : tid===away.key ? "away" : null,
-             mine: tid===teamId, summary: str(d.description), result: driveResult(d),
+             mine: tid===teamId, summary: summary, time: time, result: driveResult(d),
              plays: (d.plays||[]).map(function(p){
                var pl=playOf(p, codes);
                pl.offense = !pl.start || !pl.start.teamId || pl.start.teamId===tid;
@@ -1384,6 +1402,31 @@ TeamOS.espn = (function () {
         .sort(function(a,b){ return pollOrder(a)-pollOrder(b); })
         .filter(function(r){ var k=pollLabel(r); if(seen[k]) return false; seen[k]=1; return true; })
         .map(function(r){ return poll(r, config); });
+    },
+
+    // This season's polls, week by week (data/league/rankings-<season>.json,
+    // kept by tools/producers/rankings_history.py from ESPN's core API) ->
+    // { ap, coaches, cfp: Week[] }, oldest first. A Week is { id, label,
+    // date, poll }: id is the route's ("pre", "w8", "final") and poll is the
+    // same Poll the current feed gives, so one table draws either. Null for
+    // a file that is not a kept season.
+    rankingsHistory: function(json, config){
+      if(!json || typeof json.polls!=="object" || !json.polls) return null;
+      var teamId=config.sources.espn.teamId, teams=json.teams||{}, out={};
+      [["ap","AP"],["coaches","Coaches"],["cfp","CFP"]].forEach(function(k){
+        out[k[0]]=(json.polls[k[0]]||[]).filter(function(w){ return w && w.id && Array.isArray(w.ranks) && w.ranks.length; }).map(function(w){
+          return { id: str(w.id), label: str(w.label), date: w.date ? str(w.date) : null, poll: {
+            key: k[1], label: k[1], name: str(w.name||k[1]), asOf: str(w.label),
+            updated: w.updated||w.date ? str(w.updated||w.date) : null, released: w.date ? str(w.date) : null,
+            ranks: w.ranks.map(function(r){
+              var t=teams[r.id]||{}, prev=typeof r.previous==="number" ? r.previous : null;
+              return { rank: r.rank, team: str(t.name||""), abbr: t.abbr ? str(t.abbr) : null, providerId: str(r.id),
+                       record: str(r.record), previous: prev>0 ? prev : null, isNew: prev===0,
+                       change: prev>0 ? prev-r.rank : null, mine: String(r.id)===teamId };
+            }) } };
+        });
+      });
+      return out;
     },
 
     // ESPN's game summary -> GameDetail (docs/03_DOMAIN_MODEL.md).

@@ -124,18 +124,22 @@ function alertsHtml(alerts) {
   return { all: h.innerHTML, sec: sec ? sec[0] : "" };
 }
 var aOff = alertsHtml({ support: "ok", on: false, busy: false, denied: false, note: null });
-ok(/<h2 class="sec-title" id="st-alerts">Game Alerts<\/h2>/.test(aOff.sec) && /data-st="alerts">Off</.test(aOff.sec) &&
-   /<button type="button" class="btn btn-secondary" data-alerts="on">Turn On<\/button>/.test(aOff.sec),
-   "off: Game Alerts says Off, with one Turn On button");
+var masterOff = /<input[^>]*name="alert-master"[^>]*>/.exec(aOff.sec);
+ok(/<h2 class="sec-title" id="st-alerts">Game Alerts<\/h2>/.test(aOff.sec) && masterOff &&
+   /type="checkbox" role="switch"/.test(masterOff[0]) && !/ checked/.test(masterOff[0]) &&
+   /aria-labelledby="al-master-name" aria-describedby="al-note"/.test(masterOff[0]) &&
+   /id="al-master-name">Ohio State alerts</.test(aOff.sec),
+   "off: one unchecked native master switch, named for the team and described by its note");
 ok(/Notifications for Ohio State games: kickoff and the final to start/.test(aOff.sec) && !/al-opts/.test(aOff.sec),
    "it says what the alerts are, for this team; the choices wait until they are on");
 ok(aOff.all.indexOf('id="st-appearance"') < aOff.all.indexOf('id="st-alerts"') && aOff.all.indexOf('id="st-alerts"') < aOff.all.indexOf('id="st-data"'),
    "between Appearance and Data");
 var aOn = alertsHtml({ support: "ok", on: true, busy: false, denied: false, note: "Game alerts are on. A test alert is on its way." });
-ok(/data-st="alerts">On</.test(aOn.sec) && /data-alerts="off">Turn Off</.test(aOn.sec) && /A test alert is on its way\./.test(aOn.sec),
-   "on: On, Turn Off, and what the last tap did");
-ok(/aria-disabled="true">Turning On…</.test(alertsHtml({ support: "ok", on: false, busy: true, denied: false }).sec),
-   "while it works: Turning On…, still focusable (aria-disabled)");
+ok(/<input[^>]*name="alert-master"[^>]* checked/.test(aOn.sec) && /A test alert is on its way\./.test(aOn.sec),
+   "on: checked master switch and what the last tap did");
+var aBusy = alertsHtml({ support: "ok", on: false, busy: true, denied: false }).sec;
+ok(/aria-disabled="true" aria-busy="true"/.test(aBusy) && /Turning alerts on…/.test(aBusy) && !/ disabled[ >]/.test(aBusy),
+   "while it works: pending state explained, master stays focusable");
 // Round 2 (notifications brief §2b): once on, the choices - quick picks,
 // scoring as one choice, a switch for everything else, and the Focus hint.
 var OPTS = { kickoff: true, final: true, delays: true, scoring: "mine", quarters: false, halftime: true, close: true };
@@ -146,7 +150,7 @@ ok(/data-alert-pick="key" aria-pressed="true"/.test(alertsHtml({ support: "ok", 
 eq((aCh.sec.match(/name="alertScoring" value="(\w+)"( checked)?/g) || []).map(function (x) { return /checked/.test(x) ? "*" + x.split('"')[3] : x.split('"')[3]; }),
    ["off", "*mine", "all"], "scoring: one choice of three, My team's scores chosen");
 eq((aCh.sec.match(/role="switch" class="al-switch" name="alert-(\w+)" data-alert-opt="\w+"( checked)?/g) || []).map(function (x) { return (/checked/.test(x) ? "+" : "-") + /alert-(\w+)/.exec(x)[1]; }),
-   ["+kickoff", "+final", "+delays", "-quarters", "+halftime", "+close"], "a switch for each of the rest, set from the choice");
+   ["+kickoff", "+final", "+delays", "-timeset", "-quarters", "+halftime", "+close", "-cfp"], "a switch for each of the rest, set from the choice");
 ok(/one-score game late in the 4th, and if it goes to overtime/.test(aCh.sec) && /allow Suite in your Focus settings/.test(aCh.sec), "close finish explained; the Focus hint (§2b, 11)");
 ok(/<label class="al-row">[\s\S]*?<input type="checkbox" role="switch"/.test(aCh.sec) && /<legend class="al-legend">Scoring<\/legend>/.test(aCh.sec),
    "each switch is labelled by its row; each group has a legend");
@@ -337,7 +341,7 @@ ok(/Halftime\. Notre Dame/.test(halfHead), "and a screen reader hears Halftime")
 var recvHead = headHtml(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
   situation: { short: "2nd & 10", spot: "PUR 28", possession: null, receives: "us" } }));
 ok(/class="gc-situation"><span>ND gets the ball<\/span>/.test(recvHead), "at halftime the pill says who gets the ball to start the second half");
-ok(/gh-team us[\s\S]*gh-ball[\s\S]*gh-team them/.test(recvHead) && (recvHead.match(/gh-ball/g) || []).length === 1, "and the football is on that side");
+ok(!/gh-ball/.test(recvHead), "and no football: no one has the ball at halftime (David, 2026-10-14)");
 ok(/Notre Dame gets the ball to start the second half\./.test(recvHead), "and a screen reader hears it");
 var liveHead = headHtml(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }));
 ok(/gc-situation"><span>2nd &amp; 10<\/span><span>PUR 28<\/span>/.test(liveHead), "a running game keeps its down & distance");
@@ -368,6 +372,15 @@ console.log("Final winner emphasis follows the score, including a team loss");
   });
 });
 ok(!/is-winner|is-loser/.test(homeHero(liveG)+headHtml(liveG)),"live scores get no final winner treatment");
+// Halftime on Home (David, 2026-10-14): no football - no one has the ball -
+// and the pill says who gets it to start the second half.
+var homeHalf = homeHero(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
+  situation: { short: "2nd & 10", spot: "PUR 28", possession: "us", receives: "them" } }));
+ok(!/gc-ball/.test(homeHalf), "Home at halftime: no football, even with a possession left over from the 2nd quarter");
+ok(/class="gc-situation"[^>]*><span>[^<]+ gets the ball<\/span>/.test(homeHalf) && /gets the ball to start the second half\./.test(homeHalf),
+   "Home at halftime: the pill and a screen reader say who gets the ball to start the second half");
+ok(/gc-ball/.test(homeHero(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }))),
+   "Home in play: the football is still there");
 [["Home", homeHero(noScoreFinal), "gc-score"], ["Game", headHtml(noScoreFinal), "gh-score"]].forEach(function (c) {
   ok(!new RegExp(c[2]).test(c[1]), c[0] + ": no score is drawn for either team");
   ok(/Final\. Notre Dame (at|versus) [^.]*Purdue\./.test(c[1]) && !/Notre Dame 0,/.test(c[1]),

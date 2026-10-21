@@ -333,7 +333,7 @@ wk.forEach(function (g) { ok(!LGLEAK.test(JSON.stringify(Object.assign({}, g, { 
 
 // ---- rankings ----
 var rkFixture = JSON.parse(read("tools/fixtures/espn-rankings.json"));
-var POLL = ["key","label","name","asOf","updated","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
+var POLL = ["key","label","name","asOf","updated","released","ranks"], RANK = ["rank","team","abbr","providerId","record","previous","isNew","change","mine"];
 var POLLLEAK = /rankings|occurrence|recordSummary|shortName|headline|nickname|location|current|espn/i;
 
 console.log("rankings()");
@@ -368,6 +368,26 @@ var fla = rap.ranks.filter(function (r) { return r.team === "Florida"; })[0];
 eq([fla.previous, fla.isNew, fla.change], [null, true, null], "new this week: no change is invented from ESPN's own trend text");
 eq(rap.ranks.filter(function (r) { return r.abbr === "MSST"; })[0].team, "Mississippi St", "the feed's short name, not the long one");
 real.forEach(function (p) { ok(!POLLLEAK.test(JSON.stringify(p)), "real " + p.key + " carries no ESPN keys"); });
+
+// Kept weeks (David, 2026-10-20): data/league/rankings-<season>.json, made of
+// the real preseason and week 2 AP polls, read as the same Poll the feed gives.
+console.log("rankingsHistory(), kept weeks");
+var hist = TeamOS.espn.rankingsHistory(JSON.parse(read("tools/fixtures/rankings-2026-sample.json")), TEAM_CONFIG);
+eq(Object.keys(hist), ["ap", "coaches", "cfp"], "one list per poll");
+eq(hist.ap.map(function (w) { return [w.id, w.label]; }), [["pre", "Preseason"], ["w2", "Week 2"]], "AP: preseason then week 2, oldest first, by the route's ids");
+hist.ap.forEach(function (w) {
+  eq(Object.keys(w), ["id", "label", "date", "poll"], w.id + " is a Week");
+  eq(Object.keys(w.poll), POLL, w.id + " has exactly the documented Poll fields");
+  w.poll.ranks.forEach(function (r) { eq(Object.keys(r), RANK, w.id + " #" + r.rank + " has exactly the documented rank fields"); });
+  ok(!POLLLEAK.test(JSON.stringify(w)), w.id + " carries no ESPN keys");
+});
+var hw2 = hist.ap[1].poll;
+eq([hw2.key, hw2.label, hw2.asOf, hw2.ranks.length], ["AP", "AP", "Week 2", 25], "week 2: the AP poll, 25 ranked");
+eq(hw2.ranks.filter(function (r) { return r.mine; }).map(function (r) { return [r.rank, r.team, r.providerId, r.previous, r.change]; }),
+   [[3, "Notre Dame", "87", 4, 1]], "the team, once: #3, up one from #4");
+eq(hist.ap[0].poll.ranks.some(function (r) { return r.isNew || r.change != null; }), false, "the preseason poll: nothing new, nothing moved");
+eq([hist.coaches, TeamOS.espn.rankingsHistory({}, TEAM_CONFIG), TeamOS.espn.rankingsHistory(null, TEAM_CONFIG)], [[], null, null],
+   "a poll with no kept week is empty; a file that is not a kept season is null");
 
 // ---- game center ----
 var GD = ["state","detail","home","away","lastPlay","winProb","linescore","teamStats","leaders","box","scoring","drives"];
@@ -406,6 +426,31 @@ eq(gdWis.drives.current, null, "a final game has no drive in progress");
 var d4 = gdWis.drives.list[3];
 eq([d4.mine, d4.side === "home" || d4.side === "away", d4.summary, d4.result], [true, true, "11 plays, 48 yards, 4:56", "Field Goal"],
    "a drive: whose, which side, the provider's summary, how it ended");
+
+// A drive's time (live scan 2026-10-10 #6, real captures from that day).
+console.log("a drive's time: unknown while ESPN has not filled it, never invented");
+var unf = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-drive-unfilled-oct10.json")), team, TEAM_CONFIG).drives;
+eq([unf.current.summary, unf.current.time, unf.current.result], ["3 plays, 24 yards", null, ""],
+   "Ohio State's drive in progress, sent as \"3 plays, 24 yards, 0:00\": plays and yards kept, the unfilled time left out");
+ok(unf.current.plays.length === 5 && unf.list.filter(function (x) { return x.id === unf.current.id; }).every(function (x) { return x.summary === "3 plays, 24 yards"; }),
+   "its plays stay, and the same drive in the list reads the same");
+var fil = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-drive-filled-oct10.json")), team, TEAM_CONFIG).drives;
+eq([fil.current.summary, fil.current.time], ["4 plays, 26 yards, 1:09", "1:09"], "a drive in progress whose time ESPN has filled keeps it");
+ok(unf.list.concat(fil.list).filter(function (x) { return x.result; }).every(function (x) { return /, \d{1,2}:\d\d$/.test(x.summary) && x.time; }),
+   "every finished drive keeps its time");
+function oneDrive(d) {
+  var s = JSON.parse(read("tools/fixtures/espn-summary-drive-filled-oct10.json"));
+  s.drives = { previous: [], current: Object.assign({ id: "9", team: s.drives.current.team, plays: [] }, d) };
+  return TeamOS.espn.gameDetail(s, team, TEAM_CONFIG).drives.current;
+}
+eq((function (x) { return [x.summary, x.time]; })(oneDrive({ description: "1 play, 0 yards, 0:00", timeElapsed: { displayValue: "0:00" }, offensivePlays: 1, result: "FUMBLE", displayResult: "Fumble" })),
+   ["1 play, 0 yards, 0:00", "0:00"], "a finished drive's zero is a real zero, kept");
+eq((function (x) { return [x.summary, x.time]; })(oneDrive({ description: "0 plays, 0 yards, 0:00", timeElapsed: { displayValue: "0:00" }, offensivePlays: 0 })),
+   ["0 plays, 0 yards, 0:00", "0:00"], "a drive just begun, no snap yet: its zero is real too");
+eq((function (x) { return [x.summary, x.time]; })(oneDrive({ description: "8 plays, 67 yards, 3:43" })),
+   ["8 plays, 67 yards, 3:43", null], "no time field: the summary as ESPN wrote it, and no time made up from it");
+eq((function (x) { return [x.summary, x.time]; })(oneDrive({ description: "3 plays, 24 yards, 0:00", timeElapsed: { displayValue: "soon" }, offensivePlays: 3 })),
+   ["3 plays, 24 yards, 0:00", null], "a malformed time is not a time, and does not trigger the rule");
 var p1 = d4.plays[1];
 eq([p1.start.fromOwn, p1.end.fromOwn, p1.start.short, p1.start.spot, p1.yards, p1.offense],
    [18, 33, "1st & 10", "ND 18", 15, true], "a play: spots from the offense's own goal line, down and distance, yards");
@@ -750,7 +795,7 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonSelected","postseasonUrl","rankings","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
+   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonSelected","postseasonUrl","rankings","rankingsHistory","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
    "exactly the documented functions");
 
 console.log("mark");

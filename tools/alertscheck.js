@@ -31,7 +31,12 @@ var STUB = "(" + function () {
   }
   try { if (localStorage.getItem("iw-alerts-notre-dame") === "1") sub = mk(); } catch (e) {}   // already on, from before
   window.PushManager = function () {};
-  window.Notification = { permission: "granted", requestPermission: function () { return Promise.resolve("granted"); } };
+  window.alertPermissionCalls = 0;
+  window.Notification = { permission: "granted", requestPermission: function () {
+    window.alertPermissionCalls++;
+    this.permission = window.alertPermissionResult || "granted";
+    return Promise.resolve(this.permission);
+  } };
   var pm = { getSubscription: function () { return Promise.resolve(sub); },
              subscribe: function () { sub = mk(); return Promise.resolve(sub); } };
   var reg = { pushManager: pm, active: {} };
@@ -48,7 +53,7 @@ var STUB = "(" + function () {
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
   async function open(width, before) {
     var ctx = await browser.newContext({ viewport: { width: width || 390, height: 844 }, serviceWorkers: "block" });
-    var page = await ctx.newPage(), posts = [], slow = { ms: 0 };
+    var page = await ctx.newPage(), posts = [], slow = { ms: 0, status: 200 };
     if (before) await page.addInitScript(before);
     await page.addInitScript(STUB);
     await page.route("**/*", function (route) {
@@ -60,10 +65,10 @@ var STUB = "(" + function () {
         var wait = Array.isArray(slow.ms) ? slow.ms.shift() || 0 : slow.ms;
         if (wait && !/unsubscribe/.test(u)) return new Promise(function (r) { setTimeout(r, wait); }).then(function () {
           posts.push({ path: "subscribe", options: body.options || null, at: Date.now() });
-          return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ ok: true, confirmation: "updated" }) });
+          return route.fulfill({ status: slow.status, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ ok: true, confirmation: "updated" }) });
         });
         posts.push({ path: /unsubscribe/.test(u) ? "unsubscribe" : "subscribe", options: body.options || null, at: Date.now() });
-        return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
+        return route.fulfill({ status: slow.status, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
                                body: JSON.stringify(/unsubscribe/.test(u) ? { ok: true } : { ok: true, confirmation: posts.filter(function (p) { return p.path === "subscribe"; }).length === 1 ? "sent" : "updated" }) });
       }
       if (u.startsWith(base)) return route.continue();
@@ -78,7 +83,7 @@ var STUB = "(" + function () {
   function state(page) {
     return page.evaluate(function () {
       var s = document.querySelector("#screenSettings");
-      return { on: (s.querySelector('[data-st="alerts"]') || {}).textContent,
+      return { on: (s.querySelector('[data-alerts]') || {}).checked ? "On" : "Off",
                note: (s.querySelector('[data-st="alerts-note"]') || {}).textContent,
                pressed: [].map.call(s.querySelectorAll('[data-alert-pick][aria-pressed="true"]'), function (b) { return b.getAttribute("data-alert-pick"); }),
                switches: [].map.call(s.querySelectorAll("[data-alert-opt]"), function (i) { return (i.checked ? "+" : "-") + i.getAttribute("data-alert-opt"); }),
@@ -92,10 +97,10 @@ var STUB = "(" + function () {
   console.log("1. Turn On");
   await a.page.click('#screenSettings [data-alerts="on"]'); await a.page.waitForTimeout(500);
   var s1 = await state(a.page);
-  eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false }],
-     "Turn On sends the defaults: kickoff, final and delays");
+  eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false }],
+     "Turn On sends the defaults: kickoff, final and delays - Kickoff time set off");
   ok(s1.on === "On" && /test alert is on its way/.test(s1.note), "On, and the test alert is promised");
-  eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-quarters", "-halftime", "-close"], "off"], "the choices show, set to the defaults");
+  eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp"], "off"], "the choices show, set to the defaults");
   await shot(a.page, "alerts-on");
 
   console.log("2. A quick pick");
@@ -107,6 +112,30 @@ var STUB = "(" + function () {
   eq(a.posts.slice(1).map(function (p) { return p.options && p.options.scoring + (p.options.halftime ? "+half" : "") + (p.options.quarters ? "+q" : ""); }),
      ["off+half"], "two taps in a row: one request, with the last choice (Key moments)");
   ok(/^Saved\./.test(s2b.note) && /^Saved\./.test(s2b.live), "and it says Saved., aloud too");
+  // Kickoff time set (brief §2b, 12): only Everything includes it.
+  ok(s2.switches.indexOf("+timeset") >= 0, "Everything includes Kickoff time set");
+  ok(s2.switches.indexOf("+cfp") >= 0, "and the CFP rankings");
+  ok(s2b.switches.indexOf("-timeset") >= 0 && a.posts[a.posts.length - 1].options.timeset === false, "Key moments leaves it off, and says so to the Worker");
+  ok(s2b.switches.indexOf("-cfp") >= 0 && a.posts[a.posts.length - 1].options.cfp === false, "Key moments leaves the CFP rankings off too");
+  var cfpRow = await a.page.evaluate(function () { var i = document.querySelector('[data-alert-opt="cfp"]'), r = i.closest(".al-row"), f = i.closest("fieldset");
+    return { name: r.querySelector(".al-name").textContent, sub: (r.querySelector(".al-sub") || {}).textContent, set: f.querySelector("legend").textContent,
+             label: i.getAttribute("role") === "switch" && r.tagName === "LABEL" }; });
+  eq([cfpRow.set, cfpRow.name, cfpRow.sub, cfpRow.label], ["Season", "CFP rankings", "After each Tuesday rankings show, where your team stands", true],
+     "CFP rankings: its own Season group, a labelled switch like the rest");
+  await a.page.click('#screenSettings [data-alert-opt="cfp"]'); await a.page.waitForTimeout(900);
+  var sC = await state(a.page);
+  ok(sC.switches.indexOf("+cfp") >= 0 && a.posts[a.posts.length - 1].options.cfp === true && !sC.pressed.length,
+     "CFP rankings by hand: on, sent to the Worker, and the pick steps aside");
+  await a.page.click('#screenSettings [data-alert-opt="cfp"]'); await a.page.waitForTimeout(900);
+  await a.page.click('#screenSettings [data-alert-opt="timeset"]'); await a.page.waitForTimeout(900);
+  var sT = await state(a.page);
+  ok(sT.switches.indexOf("+timeset") >= 0 && a.posts[a.posts.length - 1].options.timeset === true && !sT.pressed.length,
+     "Kickoff time set by hand: on, sent, and the pick steps aside");
+  var tsRow = await a.page.evaluate(function () { var i = document.querySelector('[data-alert-opt="timeset"]'), r = i.closest(".al-row"), f = i.closest("fieldset");
+    return { name: r.querySelector(".al-name").textContent, sub: (r.querySelector(".al-sub") || {}).textContent, set: f.querySelector("legend").textContent }; });
+  eq([tsRow.set, tsRow.name, tsRow.sub], ["Game", "Kickoff time set", "When a TBA game gets its time, or a set time moves"], "in Game, as the brief lays it out");
+  await a.page.click('#screenSettings [data-alert-opt="timeset"]'); await a.page.waitForTimeout(900);
+  await a.page.click('#screenSettings [data-alert-pick="key"]'); await a.page.waitForTimeout(900);
   await shot(a.page, "alerts-key");
 
   console.log("3. A switch by hand");
@@ -157,7 +186,7 @@ var STUB = "(" + function () {
   console.log("4d. A device that turned alerts on before there were choices (Codex, #116)");
   var L = await open(390, function () { try { localStorage.setItem("iw-alerts-notre-dame", "1"); } catch (e) {} });
   var ls = await state(L.page);
-  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-quarters", "-halftime", "-close"]], "it shows what it has had: kickoff and final, the new in-game Delays off");
+  eq([ls.on, ls.switches], ["On", ["+kickoff", "+final", "-delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp"]], "it shows what it has had: kickoff and final, the new in-game Delays off");
   await L.page.click('#screenSettings input[name="alertScoring"][value="mine"]'); await L.page.waitForTimeout(900);
   var lo = L.posts[L.posts.length - 1] && L.posts[L.posts.length - 1].options;
   ok(lo && lo.delays === false && lo.outcomes === true && lo.scoring === "mine",
@@ -175,6 +204,43 @@ var STUB = "(" + function () {
   ok(!wide, "nothing runs off the screen");
   await shot(n.page, "alerts-320");
   await n.ctx.close();
+
+  console.log("6. Native master switch: keyboard, pending taps and failed changes");
+  var master = await open(320);
+  eq(await master.page.evaluate(function () { return window.alertPermissionCalls; }), 0,
+     "opening Settings never asks for permission");
+  master.slow.ms = 900;
+  var control = master.page.getByRole("switch", { name: "Notre Dame alerts", exact: true });
+  await control.focus(); await control.press("Space");
+  await master.page.waitForTimeout(100);
+  ok(await control.getAttribute("aria-disabled") === "true" && !(await control.isChecked()),
+     "enabling keeps the confirmed off state and explains that it is pending");
+  // A real tap can reach an aria-disabled native input; bypass Playwright's
+  // enabled-state wait so this exercises the pending-state guard itself.
+  await control.click({ force: true });
+  ok(!(await control.isChecked()), "a repeated pending tap restores the confirmed state");
+  await master.page.waitForTimeout(1200);
+  ok(await control.isChecked() && master.posts.length === 1 &&
+     await master.page.evaluate(function () { return window.alertPermissionCalls === 1 && document.activeElement.name === "alert-master"; }),
+     "Space enables once; the switch reports on and keeps keyboard focus");
+  master.slow.status = 503;
+  await control.press("Space"); await master.page.waitForTimeout(400);
+  ok(await control.isChecked() && /Couldn’t turn off/.test((await state(master.page)).note),
+     "a failed unsubscribe stays visibly on and says why");
+  master.slow.status = 200;
+  await control.press("Space"); await master.page.waitForTimeout(400);
+  ok(!(await control.isChecked()) && (await state(master.page)).note === "Game alerts are off.",
+     "retrying by keyboard switches off successfully");
+  await master.ctx.close();
+
+  var denied = await open();
+  await denied.page.evaluate(function () { window.alertPermissionResult = "denied"; });
+  await denied.page.getByRole("switch", { name: "Notre Dame alerts", exact: true }).press("Space");
+  await denied.page.waitForTimeout(400);
+  ok(denied.posts.length === 0 && await denied.page.locator('[data-alerts]').count() === 0 &&
+     /Notifications are off for Suite/.test(await denied.page.locator('#screenSettings').innerText()),
+     "denied permission never subscribes or shows an enabled master switch");
+  await denied.ctx.close();
 
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the fan's choice of alerts, sent as chosen"));

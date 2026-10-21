@@ -7,27 +7,13 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-10T18:37:27.493391+00:00",
+ "fetchedAt": "2026-10-17T14:08:02.845690+00:00",
  "reported": true,
- "effectiveAt": "2026-10-10",
+ "effectiveAt": "2026-10-17",
  "heading": "Game Day",
- "kickoffDate": "2026-10-10",
- "game": "vs. Maryland",
+ "kickoffDate": "2026-10-17",
+ "game": "at Indiana",
  "players": [
-  {
-   "pos": "WR",
-   "no": "0",
-   "name": "Brandon Inniss",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "3",
-   "name": "Devin McCuin",
-   "status": "gtd",
-   "detail": ""
-  },
   {
    "pos": "S",
    "no": "10",
@@ -36,10 +22,17 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "14",
-   "name": "Christian Alliegro",
-   "status": "out-game",
+   "pos": "WR",
+   "no": "11",
+   "name": "Brock Boyd",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "21",
+   "name": "Brenten \"Inky\" Jones",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -50,10 +43,10 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "25",
-   "name": "Jay Timmons",
-   "status": "gtd",
+   "pos": "RB",
+   "no": "24",
+   "name": "Ja’Kobi Jackson",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -64,9 +57,9 @@
    "detail": ""
   },
   {
-   "pos": "DE",
-   "no": "34",
-   "name": "Khary Wilder",
+   "pos": "S",
+   "no": "30",
+   "name": "Khmari Bing",
    "status": "out-game",
    "detail": ""
   },
@@ -81,20 +74,6 @@
    "pos": "OL",
    "no": "67",
    "name": "Austin Siereveld",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "70",
-   "name": "Phillip Daniels",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "73",
-   "name": "Vasean Washington",
    "status": "out-game",
    "detail": ""
   }

@@ -12,7 +12,8 @@ name: Deploy the edge API
 on:
   push:
     branches: [main]
-    paths: ["worker/**", ".github/workflows/worker.yml", "teams/index.js", "tools/build-worker-schools.js"]
+    paths: ["worker/**", ".github/workflows/worker.yml", "teams/index.js", "tools/build-worker-schools.js",
+            "leagues/college-football.js", "tools/build-worker-calendar.js"]
   workflow_dispatch:
 
 permissions:
@@ -48,6 +49,10 @@ jobs:
       - name: The school list follows the registry
         if: steps.ready.outputs.ok == 'true'
         run: node tools/build-worker-schools.js
+      # The CFP rankings shows, from the league's calendar as it is now.
+      - name: The rankings shows follow the league calendar
+        if: steps.ready.outputs.ok == 'true'
+        run: node tools/build-worker-calendar.js
       - name: The edge API passes its checks
         if: steps.ready.outputs.ok == 'true'
         run: node tools/workercheck.mjs
@@ -108,3 +113,26 @@ jobs:
               sys.exit("::error::missing or non-numeric: %s" % sorted(missing))
           print("all three fields present and numeric")'
 
+      # The SP+ route end to end (handoff 2026-10-14, slice 4): counts and
+      # shapes only - never a school, rank or rating, for the same reason.
+      - name: SP+ answers through it
+        if: steps.ready.outputs.ok == 'true'
+        env:
+          URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          [ -n "$URL" ] || exit 0
+          year=$(date -u +%Y); [ "$(date -u +%-m)" -lt 7 ] && year=$((year-1))
+          curl -sS --retry 3 "$URL/v1/cfbd/sp?year=$year" | python3 -c '
+          import json, sys
+          d = json.load(sys.stdin)
+          if "error" in d:
+              sys.exit("::error::the SP+ route answered an error: " + d["error"])
+          r = d.get("ranks") or []
+          keys = sorted({k for x in r for k in x})
+          ok = [x for x in r if isinstance(x.get("rank"), int) and 1 <= x["rank"] <= 25 and isinstance(x.get("rating"), (int, float))]
+          print("source=%s stale=%s rows=%d keys=%s with an id=%d" % (d.get("source"), d.get("stale", False), len(r), keys, sum(1 for x in r if x.get("id"))))
+          if not r:
+              print("not published for %s" % d.get("year")); sys.exit(0)
+          if keys != ["id", "rank", "rating", "team"] or len(ok) != len(r) or len(r) < 25 or r[0]["rank"] != 1:
+              sys.exit("::error::not the permitted top 25 shape")
+          print("a whole top 25, permitted fields only")'

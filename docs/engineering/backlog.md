@@ -1,30 +1,28 @@
 # Project LND: active delivery queue
 
-Reconciled October 12, 2026 against main after merged PRs #126, #128 and #129. David authorized Codex to continue ready work while Claude is unavailable
-until **Wednesday October 14, noon America/New_York**. This is the current queue;
+Reconciled October 20, 2026 against current main after SP+ #142 (including
+the narrow selector #145), kickoff Settings #143, CFP alerts #147, ranking
+weeks/game sheets #149 and football-news filters #146/#150 merged. This is the current queue;
 the [prior queue](backlog-archive-2026-10-11.md) is historical, not instructions
 to rebuild completed work.
 
-Start with [the October 14 handoff](claude-handoff-2026-10-14.md). It records
-ready branches, ownership, integration order and concrete acceptance checks.
+Start with the [offseason UI handoff](offseason-renderer-handoff-2026-10-12.md).
+The [October 14 handoff](claude-handoff-2026-10-14.md) records earlier decisions;
+its pending-PR statuses are historical.
 Main continues receiving data refreshes, so inspect it and open PRs before work.
 
 ## Built for review, not yet shipped
 
 | Item | Owner | Evidence | Remaining gate |
 |---|---|---|---|
-| FPI Rankings integration (W07, part of #29) | Codex | Draft PR #130 replaces older PR #127; current-main integration with FPI loader and 66-check browser suite | CI and visual approval, merge, production verification; SP+ remains open |
-| Offseason orientation and handoff (W16) | Codex | Base preview merged in #128; v2 last-result refinement and screenshot checks in draft PR #131 | David reviews S2/S4 rendered states; no production season wiring yet |
+| Offseason Home and seasonal navigation (W16) | Codex / Claude | David approved S2/S4 October 12. Draft #134 now includes the loaded renderer, optional Home model, News-first ordering for S4/S5, independent primary-nav flags and saved Game/Top 25 links in More; full Home review fixture | Claude supplies verified season/load/calendar models, next-season fetch, prospects and season-matched markets; actual transition/offline/rollover checks, visual/release review. Not live or complete W16. |
 
 ## Ordered remaining implementation
 
 | Order | Item | Owner / remaining scope |
 |---|---|---|
-| 1 | Unknown drive duration (Oct 10 scan #6) | Claude: normalize the unfinished drive's unfilled duration from provider evidence; Codex displays omission. Never strip every legitimate zero by text replacement. |
-| 2 | Notifications follow-ups (W19) | Claude: kickoff time first set/changed; one delivery when a device follows both teams in a game. Codex: refine working Settings controls. Existing delivery, scoring, quarters, halftime, final and delays are built. |
 | 3 | Offseason and rollover (W16), due mid-November | Claude: next-season fetch, production state wiring, source outcomes, recruiting/draft refresh and season-matched markets. Codex: approved S2/S4 screens, prospect presentation and seasonal nav. Existing season/prospect models and postseason fetching are built. |
-| 4 | SP+ (remaining W07, #29) | Claude: permitted CFBD edge endpoint and pure TeamOS model. Codex: fifth source integration/presentation on #127's interface. Permission is recorded; do not restart blocked ESPN article scraping. |
-| 5 | Postseason notifications (W19) | Claude: CFP released, Selection Day, team postseason set and authoritative no-postseason outcome. Codex: controls/copy. Advance calendar-sensitive slices before the relevant event. |
+| 5 | Postseason notifications (W19) | CFP-released alerts and controls shipped in #147. Claude: Selection Day, team postseason set and authoritative no-postseason outcome. Codex: remaining controls/copy. Advance calendar-sensitive slices before the relevant event. |
 | 6 | Photography (W13) and targeted visual finish (W14) | Codex: deployable Home/Game imagery, focal points/crops, responsive fallback; review Outlook, alert Settings and recent notes/badges. No broad brand reset. |
 | 7 | Ohio State remainder (W20) | Claude: conference-only availability freshness expectations; depth chart only after Ourlads permission. Codex: team parity. News, history and Big Ten availability already ship. |
 | 8 | Historical Stats (W27 phase 3) | Claude: verify past-season sources/caching and athlete identity. Codex: season selection and career pages. Current Team and Players views already ship. |
@@ -53,10 +51,19 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 | Full-field Season Outlook | #109; targeted presentation review remains |
 | Game alerts and October 10 live delivery | #102/#103, #116, #119, #121; 34 completed deliveries, relative latency not measured after the speed fix |
 | OSU beat news/odds history and conference availability | #89, #118 |
-| FPI producer/model/scheduled refresh | #35, #53, #90; UI is draft PR #130, not main yet |
+| FPI producer, model, scheduled refresh and Rankings UI | #35, #53, #90; UI #130 (Codex; replaced #127) |
+| SP+ Rankings and one-row five-source selector at 320px | #142, including #145; October 20 merge c46d0fb passed Pages, Worker and production verification. Fresh local ratingsflowcheck: 165 checks. |
+| Kickoff time set switch in Game Alerts Settings | #143; merged October 20 |
+| CFP-released alerts and Season preference | #147; merged October 20 |
+| Ranking-week selection and national game-detail sheets | #149; merged October 20 |
+| Team football-only news and category rescue correction | #146, #150; merged October 20 |
 | Season phase model, source-supplied bowl labels, prospects foundations | #9, #94, #101; production offseason integration remains |
 | Battle/open-job framing limited to preseason/Game 1; OR retained | #39 |
 | Game notes and complete roster fetching | #114, #122 |
+| Unknown live-drive duration (Oct 10 scan #6) | #139 |
+| Kickoff time set/changed alerts and one delivery per device when it follows both teams | #140 (Worker edge-2026-10-14a); Settings switch is #143 |
+| Game Alerts Settings: master switch and unified rows | #137 (Codex) |
+| Halftime: no possession football; who gets the ball to start the second half stays | #141 (David, October 14) |
 | Game team-toggle scroll stability | #123 |
 | Safe play text including overturned/no-play fixes | #78, #125; recheck the scan example before any new rewrite |
 | Refresh-clock setup, public-relay removal, source recovery fixes | #47, #46 and subsequent fixes including #58/#110 |
@@ -72,14 +79,21 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
   OSU Team Style uses Nunito Sans. ND retains Suite type.
 - Unified SUITE/team header stands; Settings is the header gear, with no
   selected bottom tab while open (0031, 0034).
-- Keep the halftime receiver football and explanatory text: explicitly
-  approved in #23. Oct 10 scan #3 is a false-positive recommendation; #7's
-  layout collision is a separate issue addressed in #126.
+- The halftime receiver football approved in #23 is gone: David, October
+  14, "Drop the football but keep the 'gets the ball' line" (#141). The
+  "X gets the ball to start the second half" text stays on Top 25, the Game
+  header and Home.
 - The edge API and push service already exist. Do not commission a backend
   proposal or replace SQLite Durable Objects with a new database by default.
 
 ## External and conditional follow-ups
 
+- **Ohio State game notes are not published publicly.** Four probes (October
+  11–15, `probe/osu-notes`) found no weekly notes on ohiostatebuckeyes.com:
+  every Game Center carries only a box score, and the schedule page links
+  only season and career stats PDFs, even on the Thursday of Indiana week.
+  The notes features (pronunciation, captains, series card, By the Numbers,
+  milestone countdown) stay Notre Dame-only unless David names another source.
 - Ourlads permission for OSU depth remains external. No projected chart on
   assumed permission; official OR designations stay as supplied.
 - January live provider verification for polls/markets remains dated; use

@@ -96,8 +96,54 @@ Suite.nav = (function () {
   var listeners = [];
   var last = null;
   var slide = null;                       // "next" | "prev": the view a swipe just asked for
+  var primary = ["home", "top25", "game", "roster", "more"];
+  var primaryNodes = {};
+  var gameState = null;
 
   function $(id) { return document.getElementById(id); }
+
+  function hasPrimary(screen) { return primary.indexOf(screen) > -1; }
+
+  // The controller supplies league-calendar decisions independently of the
+  // team's phase: Top 25 lasts through the title game; Game may return
+  // before the preseason poll. No dates or phase inference belong here.
+  // Omitted flags safely restore the current in-season destinations.
+  function setSeasonNav(model) {
+    model = model || {};
+    var nav = $("navbar");
+    if (!nav) return;
+    var next = ["home", model.top25 === false ? "news" : "top25",
+                model.game === false ? "schedule" : "game", "roster", "more"];
+    if (next.join("|") === primary.join("|")) return;
+    [].slice.call(nav.querySelectorAll(".nav-item[data-screen]")).forEach(function (a) {
+      primaryNodes[a.getAttribute("data-screen")] = a;
+    });
+    var icons = {
+      news: '<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M7 8.5h10M7 12h4M7 15.5h4"/><rect x="13" y="11.5" width="4" height="4.5" rx=".6"/>',
+      schedule: '<rect x="3.5" y="5.5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3.5v4M16 3.5v4M7.5 13.5h.01M12 13.5h.01M16.5 13.5h.01M7.5 17h.01M12 17h.01"/>'
+    };
+    next.forEach(function (screen, i) {
+      var node = primaryNodes[screen];
+      if (!node && icons[screen]) {
+        node = document.createElement("a");
+        node.className = "nav-item";
+        node.setAttribute("data-screen", screen);
+        node.href = screen === "schedule" ? "#schedule/results" : "#news";
+        node.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+          icons[screen] + "</svg><span>" + SCREENS[screen].title + "</span>";
+        primaryNodes[screen] = node;
+      }
+      var old = nav.children[i];
+      if (node && old !== node) {
+        var focused = old && old.contains(document.activeElement);
+        nav.replaceChild(node, old);
+        if (focused) node.focus({ preventScroll: true });
+      }
+    });
+    primary = next;
+    paint(current());
+    setGameState(gameState);
+  }
 
   function viewIds(screen) {
     var v = SCREENS[screen] && SCREENS[screen].views;
@@ -187,7 +233,8 @@ Suite.nav = (function () {
 
     // The nav: one current item - the screen's own, or for a secondary
     // destination the primary item that owns it (decision 0028).
-    var selected = def.owner || route.screen;
+    var selected = hasPrimary(route.screen) ? route.screen : def.owner ||
+      (route.screen === "game" || route.screen === "top25" ? "more" : route.screen);
     [].slice.call(document.querySelectorAll(".nav-item[data-screen]")).forEach(function (a) {
       if (a.getAttribute("data-screen") === selected) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
@@ -381,7 +428,8 @@ Suite.nav = (function () {
   // GAME_STATES. TeamOS decides which from the game's normalized status and
   // whether play has begun; this only draws and announces it.
   function setGameState(state) {
-    var s = GAME_STATES[state] || null;
+    gameState = state;
+    var s = hasPrimary("game") && GAME_STATES[state] || null;
     var nav = $("navbar"), note = $("navLive");
     if (nav) {
       nav.classList.toggle("game-raised", !!(s && s.raised));
@@ -404,5 +452,6 @@ Suite.nav = (function () {
 
   return { SCREENS: SCREENS, parse: parse, current: current, href: href, go: go,
            replace: replace, setViews: setViews, on: on, start: start,
-           setGameState: setGameState, title: title, pull: pull };
+           setGameState: setGameState, setSeasonNav: setSeasonNav, hasPrimary: hasPrimary,
+           title: title, pull: pull };
 })();

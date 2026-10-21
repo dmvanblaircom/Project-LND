@@ -48,7 +48,15 @@ function fixture(url) {
   var server = serve(root);
   await new Promise(function (r) { server.listen(0, "127.0.0.1", r); });
   var base = "http://127.0.0.1:" + server.address().port;
-  var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
+  // No real network: every outside request is either answered by a route
+  // below or fails at once. A worker's own requests are routed on some runs
+  // and not others, and the ones that were not went to the real ESPN, Kalshi
+  // and weather services from the runner. One that hung kept the old worker
+  // busy, and the browser does not activate a new worker while the old one
+  // still has a request out: the update's reload came 26 seconds late and
+  // the launch lifted at its 10-second limit (probe, CI, 2026-10-20).
+  var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined,
+    args: ["--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1, EXCLUDE localhost"] });
 
   // opts: delay (ms) for the providers' answers, newsDelay for news alone,
   // noApp to make app.js fail to load, startedAgo to resume a launch begun
@@ -182,20 +190,23 @@ function fixture(url) {
   await resumed.ctx.close();
 
   // A real update: a copy of the site, opened once so its worker installs,
-  // then given a new VERSION and opened again. The new worker's shell
-  // downloads slowly, as on a phone. Every frame of every document is logged.
-  // shellDelay: each shell file the new worker fetches; checkDelay: sw.js
-  // itself (the update check); stall: app.css alone held this long, so the
-  // install takes that long whatever the browser fetches in parallel.
-  async function updateOpen(shellDelay, checkDelay, stall) {
+  // then given a new VERSION and opened again. Every frame of every
+  // document is logged.
+  // install: how long the new worker's install takes - chooser.js, which
+  // the install fetches and a team's page never does, held this long;
+  // checkDelay: sw.js itself (the update check).
+  async function updateOpen(install, checkDelay) {
     var os = require("os");
     var dir = fs.mkdtempSync(path.join(os.tmpdir(), "launch-upd-"));
     fs.cpSync(root, dir, { recursive: true, filter: function (f) { return !/[\\/](\.git|node_modules)$/.test(f); } });
     var srv = serve(dir);
-    // sw.js and app.css are held at the server, which every client goes
-    // through - the page, the browser's update check and the worker's own
-    // install alike. Playwright does not route a worker's requests on every
-    // build (CI's did not), so a hold there never applied.
+    // Both holds are at the server, which every client goes through - the
+    // page, the browser's update check and the worker's own install alike;
+    // Playwright routes a worker's requests on some runs and not others, so a
+    // hold there applied only sometimes. And on a file only the install asks
+    // for: the old worker refreshes each shell file the page loads, so a held
+    // app.css was fetched twice at once and the install's copy waited on the
+    // page's - an 11-second hold made a 22-second install.
     var handle = srv.listeners("request")[0], held = 0;
     srv.removeAllListeners("request");
     srv.on("request", function (req, res) {
@@ -203,7 +214,7 @@ function fixture(url) {
       // test. A second check of the same version (the browser's own, on the
       // reload's navigation) is the double-install issue, not this case.
       var wait = !slow ? 0 : checkDelay && !held && /\/sw\.js(\?|$)/.test(req.url) ? (held = checkDelay)
-               : stall && /\/app\.css(\?|$)/.test(req.url) ? stall : 0;
+               : install && /\/chooser\.js(\?|$)/.test(req.url) ? install : 0;
       if (wait) setTimeout(function () { handle(req, res); }, wait); else handle(req, res);
     });
     await new Promise(function (r) { srv.listen(0, "127.0.0.1", r); });
@@ -211,10 +222,7 @@ function fixture(url) {
     var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "allow" });
     await ctx.route("**/*", async function (route) {
       var req = route.request(), u = req.url();
-      if (u.startsWith(b2)) {
-        if (slow && req.serviceWorker && req.serviceWorker() && !/\/data\//.test(u)) await new Promise(function (r) { setTimeout(r, shellDelay); });
-        return route.continue();
-      }
+      if (u.startsWith(b2)) return route.continue();
       var body = fixture(u);
       if (body) { await new Promise(function (r) { setTimeout(r, 150); }); return route.fulfill({ status: 200, contentType: "application/json", body: body }); }
       if (/teamlogos|espncdn/.test(u)) return route.fulfill({ status: 200, contentType: "image/png", body: LOGO });
@@ -268,22 +276,22 @@ function fixture(url) {
   await fut.ctx.close();
 
   console.log("a new version found on this open");
-  var u1 = await updateOpen(350);
+  // Its install takes 4 seconds: longer than the launch's own 2.6, inside
+  // its 10-second wait for an update.
+  var u1 = await updateOpen(4000);
   var first = u1.of(u1.docs[0]), last = u1.of(u1.docs[u1.docs.length - 1]);
   ok(u1.docs.length === 2, "the worker reloads the page once (" + u1.docs.length + " documents)");
   ok(first.length && first.every(function (c) { return c === "1.00"; }), "the launch holds over the page until that reload: it never starts to lift (" + first.join(",") + ")");
   ok(last[0] === "1.00" && last[last.length - 1] === "0.00", "the reloaded page carries the same launch on and lifts it once");
-  // One essential shell file held 11 seconds: the install outlasts the
-  // 10-second wait however many files the browser fetches at once (a CI
-  // runner fetches more in parallel than this box).
-  var u2 = await updateOpen(150, 0, 11000);
+  // An install of 11 seconds outlasts that wait.
+  var u2 = await updateOpen(11000);
   var slowLast = u2.of(u2.docs[u2.docs.length - 1]);
   ok(u2.docs.length === 2 && slowLast.every(function (c) { return c === "0.00"; }),
      "an install slower than its 10-second wait: it lifts once, and the reload does not play it again (" + u2.docs.length + " documents; " + slowLast.join(",") + ")");
 
   // The update check alone is slow: sw.js takes 4 seconds to answer, longer
   // than the launch's own 2.6 (Codex review, #80). The check holds it.
-  var u3 = await updateOpen(150, 4000);
+  var u3 = await updateOpen(0, 4000);
   var u3first = u3.of(u3.docs[0]);
   ok(u3.docs.length === 2 && u3first.every(function (c) { return c === "1.00"; }),
      "a slow update check holds the launch too: no lift before the reload (" + u3.docs.length + " documents; " + u3first.join(",") + ")");

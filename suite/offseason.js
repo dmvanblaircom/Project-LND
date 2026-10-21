@@ -13,7 +13,8 @@
                     opener: normalized Game|null}
    }) -> markup. Other phase states return "" and retain existing Game hero.
    Never pass fixture values, assumed ranks or an unverified opener.
-   App wiring intentionally remains Claude/Codex's separate W16 handoff. */
+   Suite.home accepts this as m.offseason; the controller's source/state
+   wiring remains Claude's W16 handoff. */
 var Suite = Suite || {};
 Suite.offseason = (function(){
   "use strict";
@@ -29,6 +30,7 @@ Suite.offseason = (function(){
   function ranking(m,phase){
     var r=m.ranking,rank=r&&number(r.rank);
     if(!r||r.season!==phase.season||!r.source||rank===null||rank<=0||rank%1!==0)return null;
+    if(phase.state==="awaiting-postseason"&&r.source!=="CFP")return null;
     if(phase.state==="complete"&&r.final!==true)return null;
     return {value:"#"+rank,label:(phase.state==="complete"?"Final ":"")+String(r.source)+" ranking"};
   }
@@ -46,16 +48,17 @@ Suite.offseason = (function(){
       '<div class="os-result-details"><span>Last result</span><b>'+esc(where+" "+g.oppName)+'</b>'+
       (stage?'<span>'+esc(stage)+'</span>':"")+'</div></div>';
   }
-  function localDate(raw){
+  function localDate(raw,timeSet){
     if(!raw||!isFinite(Date.parse(raw)))return "";
     var d=new Date(raw);
+    if(timeSet===false)return d.toLocaleDateString([], {weekday:"long",month:"long",day:"numeric"})+" · Time TBD";
     return d.toLocaleString([], {weekday:"long",month:"long",day:"numeric",hour:"numeric",minute:"2-digit",timeZoneName:"short"});
   }
   function whatsNext(m,phase){
     if(phase.state==="awaiting-postseason"){
       var sel=m.calendar&&m.calendar.selection;
       return '<div class="os-next"><h3>Bowl and playoff selections</h3>'+
-        (sel&&localDate(sel.start)?'<p>'+esc(localDate(sel.start))+(sel.on?' · '+esc(sel.on):"")+'</p>':
+        (sel&&localDate(sel.start)?'<p>'+(sel.live?"On now":esc(localDate(sel.start)))+(sel.on?' · '+esc(sel.on):"")+'</p>':
         '<p>Selection details will appear when confirmed.</p>')+'</div>';
     }
     var next=safeSeason(phase.nextSeason),label=next?next+" schedule":"next season's schedule";
@@ -63,7 +66,7 @@ Suite.offseason = (function(){
     var text="";
     if(op&&op.oppName&&(o==="retained"||o==="ready")){
       // A retained opener may be shown with a separate freshness warning.
-      var date=localDate(op.date);
+      var date=localDate(op.date,op.timeSet);
       text=(op.home||op.neutral?"vs ":"at ")+op.oppName+(date?" · "+date:" · Time TBD");
     } else if(o==="loading")text="Checking the "+label+"…";
     else if(o==="failed")text="The "+label+" couldn’t load. We’ll try again when the connection returns.";

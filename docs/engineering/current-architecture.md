@@ -1,6 +1,7 @@
 # Current architecture (as built)
 
-**FACT**, reconciled against main through PR #125 on 2026-10-12. Update this file in
+**FACT**, base map reconciled through PR #125; ratings, alerts and offseason
+presentation entries updated October 20 against main through #149/#150. Update this file in
 the same PR as any change that makes it wrong. For the target design see
 `docs/02_PROJECT_LND_ARCHITECTURE.md`; for the pre-refactor baseline,
 `docs/01_CURRENT_IRISH_WATCH_ARCHITECTURE.md` (historical).
@@ -25,8 +26,8 @@ External sources ──► adapters (teamos/espn.js, cfbd.js, markets.js, weathe
 | `teams/<team>.js` | One team's configuration: identity, colors, provider ids, official sources, Kalshi match, beat feeds (`docs/04_TEAM_CONFIG.md`). |
 | `teams/index.js` | The program registry, regenerated weekly by `roster.yml` (decisions 0014, 0017). |
 | `chooser.js` | The no-team-yet page (decision 0016); never loads `app.js`. |
-| `teamos/*.js` | Domain rules every surface shares: game status/lifecycle/hero (`game.js`), live state (`live.js`), roster and depth chart (`roster.js`), Season Outlook (`outlook.js`), freshness (`freshness.js`), program milestones (`milestones.js`), the week's game notes (`notes.js`), identity, registry, snapshots, sources, season figures. `ratings.js` (FPI for Top 25 → Rankings) is tested and its snapshot scheduled; app integration is staged in PR #127, not on main yet. `prospects.js` (ESPN recruiting class and draft board, W16) remains unloaded until the offseason integration is built. Provider adapters: `espn.js`, `cfbd.js`, `markets.js` (Kalshi), `weather.js` (Open-Meteo forecast and geocoding). |
-| `suite/*.js` | Screens: Home, Game, Top 25, Schedule, Roster, More, News, Settings, Stats and Outlook; `nav.js` routes and paints the one header every screen wears (decision 0031), with Settings as the header gear (0034), plus the swipe between a screen's views, and pull to refresh; `ui.js` shared pieces. Draw what TeamOS decided. |
+| `teamos/*.js` | Domain rules every surface shares: game status/lifecycle/hero (`game.js`), live state (`live.js`), roster and depth chart (`roster.js`), Season Outlook (`outlook.js`), freshness (`freshness.js`), program milestones (`milestones.js`), the week's game notes (`notes.js`), identity, registry, snapshots, sources, season figures. `ratings.js` supplies FPI (#130) and SP+ (#142) for Top 25 Rankings; both are integrated. FPI is a scheduled snapshot, SP+ comes through the edge API. `prospects.js` (ESPN recruiting class and draft board, W16) remains unloaded until the offseason integration is built. Provider adapters: `espn.js`, `cfbd.js`, `markets.js` (Kalshi), `weather.js` (Open-Meteo forecast and geocoding). |
+| `suite/*.js` | Screens: Home, Game, Top 25, Schedule, Roster, More, News, Settings, Stats and Outlook; `nav.js` routes and paints the one header every screen wears (decision 0031), with Settings as the header gear (0034), plus the swipe between a screen's views, and pull to refresh; `ui.js` shared pieces. `offseason.js` is loaded and cached; Home accepts an optional season model and nav accepts independent Top 25/Game flags, but app.js does not activate either yet (draft #134). Top 25 has week selection and game-detail sheets (#149). Draw what TeamOS decided. |
 | `app.js` | The controller: fetches, cache-first paint, polling, per-source freshness, and the one manual refresh that Refresh Data and a pull down both run. Lifts the launch screen onto a finished first screen. Names no team and reads no provider field. |
 | `app.css` | One stylesheet; team color comes from identity tokens. |
 | `sw.js` | Service worker. Precaches the essential shell (everything but PNG/SVG artwork: if any of it fails, the install fails and the working version stays; artwork that fails to cache does not block it) and one team's files at a time (decision 0015); stale-while-revalidate for the shell, network-first with cached fallback for data. An update carries the fan's data over, minus copies kept over 30 days. `VERSION` must change with any shell file (`tools/versioncheck.js`; CI runs it only after merge, see `check.yml` below). |
@@ -39,13 +40,13 @@ Three paths, chosen by how fresh the data must be and what its terms allow:
 |---|---|---|
 | **Browser → provider** | ESPN scores, schedule, scoreboard, game summary, rankings, news, roster; Open-Meteo weather and geocoding | Must be current; no key; CORS permitted. |
 | **GitHub Action → committed snapshot** (`data/<team>/`, `data/league/`) | Kalshi odds and odds history, official depth chart, availability report (school game notes, or the conference's report feed) and game-notes facts, beat news; FPI (`tools/producers/fpi.py`), scheduled in every 30-minute refresh since October 2, writing only new source editions | Changes over hours or days; Kalshi sends no CORS header; official PDFs need parsing. Runs from `odds.yml` (decision 0020 cadence). |
-| **Browser → Suite's edge API → provider** (`worker/`, `https://suite-api.dmvanblaircom.workers.dev`) | CollegeFootballData season figures (Matchup yards allowed) | Needs a key kept server-side, and CFBD's terms allow display but not publishing its data as files (decision 0030). |
+| **Browser → Suite's edge API → provider** (`worker/`, `https://suite-api.dmvanblaircom.workers.dev`) | CollegeFootballData season figures (Matchup yards allowed) and limited SP+ Top 25 ratings | Needs a key kept server-side, and CFBD's terms allow display but not publishing its data as files (decision 0030). |
 
 The edge Worker also runs the refresh clock and game-alert delivery. Web Push
 uses VAPID with a SQLite Durable Object subscription/delivery store. A minute
 cron looks three times per minute during followed live games; no D1/FCM
 replacement is required. `worker/src/push.js` owns event/delivery rules;
-Settings exposes the working preferences and `sw.js` receives notifications.
+Settings exposes the working preferences, including kickoff-time changes (#143) and CFP-released alerts (#147), and `sw.js` receives notifications.
 
 Snapshots are owned by declaration (decision 0008): a team that declares no
 source for a kind shows that kind as unavailable, never another team's data.
@@ -69,6 +70,8 @@ commits only, after all checks pass; then Pages deploys and
 Strategy). Rollback: `docs/engineering/rollback-runbook.md`.
 
 ## Known gaps (tracked in `docs/engineering/backlog.md`)
+
+- W16 offseason presentation hooks exist, but verified season/load/calendar inputs, next-season fetching, prospects, season-matched markets and production activation remain with the controller/source work. Do not treat the review fixture as live functionality.
 
 - `app.js` still owns several stores and timers (W10); the schedule now joins a request already out, like the scoreboard.
 - Ohio State lacks an official depth chart (W20; Ourlads permission pending). Its availability report is the Big Ten's (`tools/producers/conference_availability.py`).

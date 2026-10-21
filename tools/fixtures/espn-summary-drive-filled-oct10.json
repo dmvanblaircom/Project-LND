@@ -1,0 +1,2856 @@
+{
+ "header": {
+  "id": "401858257",
+  "uid": "s:20~l:23~e:401858257",
+  "season": {
+   "year": 2026,
+   "current": true,
+   "type": 2
+  },
+  "timeValid": true,
+  "competitions": [
+   {
+    "id": "401858257",
+    "uid": "s:20~l:23~e:401858257~c:401858257",
+    "date": "2026-10-10T19:30Z",
+    "dateValid": true,
+    "neutralSite": false,
+    "conferenceCompetition": false,
+    "boxscoreAvailable": true,
+    "commentaryAvailable": false,
+    "liveAvailable": true,
+    "onWatchESPN": false,
+    "recent": true,
+    "wallclockAvailable": true,
+    "boxscoreSource": "full",
+    "playByPlaySource": "full",
+    "competitors": [
+     {
+      "id": "87",
+      "uid": "s:20~l:23~t:87",
+      "order": 0,
+      "homeAway": "home",
+      "team": {
+       "id": "87",
+       "guid": "ebc2999c-2ff4-8435-ca46-9641e9f9ea10",
+       "uid": "s:20~l:23~t:87",
+       "location": "Notre Dame",
+       "name": "Fighting Irish",
+       "nickname": "Notre Dame",
+       "abbreviation": "ND",
+       "displayName": "Notre Dame Fighting Irish",
+       "color": "062340",
+       "alternateColor": "c99700",
+       "logos": [
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "default"
+         ],
+         "lastUpdated": "2025-12-19T22:33Z"
+        },
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "dark"
+         ],
+         "lastUpdated": "2025-12-19T22:35Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/primary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/primary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/primary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/primary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/primary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/primary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/secondary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/secondary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/secondary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/secondary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/secondary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/ebc2999c-2ff4-8435-ca46-9641e9f9ea10/logos/secondary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:37Z"
+        }
+       ],
+       "groups": {
+        "id": "18"
+       },
+       "links": [
+        {
+         "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+         ],
+         "href": "https://www.espn.com/college-football/team/_/id/87/notre-dame-fighting-irish",
+         "text": "Clubhouse"
+        }
+       ]
+      },
+      "score": "14",
+      "linescores": [
+       {
+        "displayValue": "14"
+       }
+      ],
+      "record": [
+       {
+        "type": "total",
+        "summary": "5-0",
+        "displayValue": "5-0"
+       },
+       {
+        "type": "vsconf",
+        "summary": "0-0",
+        "displayValue": "0-0"
+       }
+      ],
+      "timeoutsUsed": 0,
+      "possession": false,
+      "rank": 3
+     },
+     {
+      "id": "24",
+      "uid": "s:20~l:23~t:24",
+      "order": 1,
+      "homeAway": "away",
+      "team": {
+       "id": "24",
+       "guid": "f74a44c4-7492-7a6e-34fe-ab14da6d7f2a",
+       "uid": "s:20~l:23~t:24",
+       "location": "Stanford",
+       "name": "Cardinal",
+       "nickname": "Stanford",
+       "abbreviation": "STAN",
+       "displayName": "Stanford Cardinal",
+       "color": "8c1515",
+       "alternateColor": "ffffff",
+       "logos": [
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/24.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "default"
+         ],
+         "lastUpdated": "2025-12-19T22:33Z"
+        },
+        {
+         "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/24.png",
+         "width": 500,
+         "height": 500,
+         "alt": "",
+         "rel": [
+          "full",
+          "dark"
+         ],
+         "lastUpdated": "2025-12-19T22:35Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/primary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/primary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/primary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/primary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/primary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/primary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "primary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/secondary_logo_on_white_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_white_color"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/secondary_logo_on_black_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_black_color"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/secondary_logo_on_primary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_primary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/secondary_logo_on_secondary_color.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_on_secondary_color"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/secondary_logo_black.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_black"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        },
+        {
+         "href": "https://a.espncdn.com/guid/f74a44c4-7492-7a6e-34fe-ab14da6d7f2a/logos/secondary_logo_white.png",
+         "width": 4096,
+         "height": 4096,
+         "alt": "",
+         "rel": [
+          "full",
+          "secondary_logo_white"
+         ],
+         "lastUpdated": "2026-07-23T17:43Z"
+        }
+       ],
+       "groups": {
+        "id": "1"
+       },
+       "links": [
+        {
+         "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+         ],
+         "href": "https://www.espn.com/college-football/team/_/id/24/stanford-cardinal",
+         "text": "Clubhouse"
+        }
+       ]
+      },
+      "score": "0",
+      "linescores": [
+       {
+        "displayValue": "0"
+       }
+      ],
+      "record": [
+       {
+        "type": "total",
+        "summary": "2-3",
+        "displayValue": "2-3"
+       },
+       {
+        "type": "vsconf",
+        "summary": "1-3",
+        "displayValue": "1-3"
+       }
+      ],
+      "timeoutsUsed": 0,
+      "possession": true
+     }
+    ],
+    "status": {
+     "displayClock": "1:40",
+     "period": 1,
+     "type": {
+      "id": "2",
+      "name": "STATUS_IN_PROGRESS",
+      "state": "in",
+      "completed": false,
+      "description": "In Progress",
+      "detail": "1:40 - 1st Quarter",
+      "shortDetail": "1:40 - 1st",
+      "statusPrimary": "1:40",
+      "statusSecondary": "1st"
+     },
+     "displayPeriod": "1st"
+    },
+    "broadcasts": [
+     {
+      "type": {
+       "id": "1",
+       "shortName": "TV"
+      },
+      "market": {
+       "id": "1",
+       "type": "National"
+      },
+      "media": {
+       "shortName": "NBC"
+      },
+      "lang": "en",
+      "region": "us",
+      "isNational": true
+     }
+    ],
+    "boxscoreMinutes": true
+   }
+  ],
+  "links": [
+   {
+    "rel": [
+     "live",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/game?gameId=401858257",
+    "text": "Gamecast",
+    "shortText": "Gamecast",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "boxscore",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/boxscore/_/gameId/401858257",
+    "text": "Box Score",
+    "shortText": "Box Score",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "pbp",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/playbyplay/_/gameId/401858257",
+    "text": "Play-by-Play",
+    "shortText": "Play-by-Play",
+    "isExternal": false,
+    "isPremium": false
+   },
+   {
+    "rel": [
+     "teamstats",
+     "desktop",
+     "event"
+    ],
+    "href": "https://www.espn.com/college-football/matchup?gameId=401858257",
+    "text": "Team Stats",
+    "shortText": "Team Stats",
+    "isExternal": false,
+    "isPremium": false
+   }
+  ],
+  "week": 6,
+  "league": {
+   "id": "23",
+   "uid": "s:20~l:23",
+   "name": "NCAA - Football",
+   "abbreviation": "NCAAF",
+   "shortName": "NCAA Football",
+   "midsizeName": "NCAA Football",
+   "slug": "college-football",
+   "isTournament": false,
+   "links": [
+    {
+     "rel": [
+      "index",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/",
+     "text": "Index"
+    },
+    {
+     "rel": [
+      "index",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23",
+     "text": "Index"
+    },
+    {
+     "rel": [
+      "schedule",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/schedule",
+     "text": "Schedule"
+    },
+    {
+     "rel": [
+      "schedule",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=scores",
+     "text": "Schedule"
+    },
+    {
+     "rel": [
+      "standings",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/standings",
+     "text": "Standings"
+    },
+    {
+     "rel": [
+      "standings",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=standings",
+     "text": "Standings"
+    },
+    {
+     "rel": [
+      "rankings",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/rankings",
+     "text": "Rankings"
+    },
+    {
+     "rel": [
+      "rankings",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=rankings",
+     "text": "Rankings"
+    },
+    {
+     "rel": [
+      "scores",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/scoreboard",
+     "text": "Scores"
+    },
+    {
+     "rel": [
+      "scores",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=scores",
+     "text": "Scores"
+    },
+    {
+     "rel": [
+      "stats",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/stats",
+     "text": "Stats"
+    },
+    {
+     "rel": [
+      "stats",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=stats",
+     "text": "Stats"
+    },
+    {
+     "rel": [
+      "teams",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/teams",
+     "text": "Teams"
+    },
+    {
+     "rel": [
+      "odds",
+      "desktop",
+      "league"
+     ],
+     "href": "https://www.espn.com/college-football/odds",
+     "text": "Odds"
+    },
+    {
+     "rel": [
+      "odds",
+      "sportscenter",
+      "app",
+      "league"
+     ],
+     "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:23&section=odds",
+     "text": "Odds"
+    }
+   ],
+   "logos": [
+    {
+     "href": "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png",
+     "rel": [
+      "full",
+      "default"
+     ]
+    },
+    {
+     "href": "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png",
+     "rel": [
+      "full",
+      "dark"
+     ]
+    }
+   ]
+  }
+ },
+ "drives": {
+  "current": {
+   "id": "40185825710",
+   "description": "4 plays, 26 yards, 1:09",
+   "team": {
+    "id": "24",
+    "abbreviation": "STAN"
+   },
+   "start": {
+    "period": {
+     "type": "quarter",
+     "number": 1
+    },
+    "yardLine": 73,
+    "text": "STAN 27"
+   },
+   "timeElapsed": {
+    "displayValue": "1:09"
+   },
+   "yards": 26,
+   "isScore": false,
+   "offensivePlays": 4,
+   "plays": [
+    {
+     "id": "401858257148",
+     "text": "(02:55) #36 M.Drescher kickoff 65 yards to the STAN00 #5 C.Davis Jr. return 27 yards to the STAN27, out of bounds at STAN27",
+     "type": {
+      "id": "53",
+      "text": "Kickoff",
+      "abbreviation": "K"
+     },
+     "clock": {
+      "displayValue": "2:49"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 35,
+      "yardsToEndzone": 65,
+      "team": {
+       "id": "87"
+      }
+     },
+     "end": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 73,
+      "yardsToEndzone": 73,
+      "downDistanceText": "1st & 10 at STAN 27",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "STAN 27",
+      "team": {
+       "id": "24"
+      }
+     },
+     "statYardage": 27,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858257154",
+     "text": "(02:49) Shotgun #8 D.Warren pass complete short left to #4 J.Onovughe caught at STAN31, for 10 yards to the STAN37 (#28 L.Talich), 1ST DOWN",
+     "type": {
+      "id": "24",
+      "text": "Pass Reception",
+      "abbreviation": "REC"
+     },
+     "clock": {
+      "displayValue": "2:39"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 73,
+      "yardsToEndzone": 73,
+      "downDistanceText": "1st & 10 at STAN 27",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "STAN 27",
+      "team": {
+       "id": "24"
+      }
+     },
+     "end": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 63,
+      "yardsToEndzone": 63,
+      "downDistanceText": "1st & 10 at STAN 37",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "STAN 37",
+      "team": {
+       "id": "24"
+      }
+     },
+     "statYardage": 10,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858257159",
+     "text": "(02:26) No Huddle-Shotgun #20 M.Ford rush middle for 6 yards gain to the STAN43 (#28 L.Talich)",
+     "type": {
+      "id": "5",
+      "text": "Rush",
+      "abbreviation": "RUSH"
+     },
+     "clock": {
+      "displayValue": "2:24"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 63,
+      "yardsToEndzone": 63,
+      "downDistanceText": "1st & 10 at STAN 37",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "STAN 37",
+      "team": {
+       "id": "24"
+      }
+     },
+     "end": {
+      "down": 2,
+      "distance": 4,
+      "yardLine": 57,
+      "yardsToEndzone": 57,
+      "downDistanceText": "2nd & 4 at STAN 43",
+      "shortDownDistanceText": "2nd & 4",
+      "possessionText": "STAN 43",
+      "team": {
+       "id": "24"
+      }
+     },
+     "statYardage": 6,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858257163",
+     "text": "(01:54) No Huddle-Shotgun #8 D.Warren pass incomplete short left to #0 C.High thrown to UND38 broken up by #12 J.Sanders QB hurried by #44 R.Dunham PENALTY UND Holding (#2 D.McKinney) 10 yards from STAN43 to UND47, 1ST DOWN. NO PLAY",
+     "type": {
+      "id": "8",
+      "text": "Penalty",
+      "abbreviation": "PEN"
+     },
+     "clock": {
+      "displayValue": "1:54"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 2,
+      "distance": 4,
+      "yardLine": 57,
+      "yardsToEndzone": 57,
+      "downDistanceText": "2nd & 4 at STAN 43",
+      "shortDownDistanceText": "2nd & 4",
+      "possessionText": "STAN 43",
+      "team": {
+       "id": "24"
+      }
+     },
+     "end": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 47,
+      "yardsToEndzone": 47,
+      "downDistanceText": "1st & 10 at ND 47",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "ND 47",
+      "team": {
+       "id": "24"
+      }
+     },
+     "statYardage": 10,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858257167",
+     "text": "(01:50) No Huddle-Shotgun #8 D.Warren pass incomplete short right to #84 C.Holt thrown to UND45 QB hurried by #5 B.Traore",
+     "type": {
+      "id": "3",
+      "text": "Pass Incompletion"
+     },
+     "clock": {
+      "displayValue": "1:46"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 1,
+      "distance": 10,
+      "yardLine": 47,
+      "yardsToEndzone": 47,
+      "downDistanceText": "1st & 10 at ND 47",
+      "shortDownDistanceText": "1st & 10",
+      "possessionText": "ND 47",
+      "team": {
+       "id": "24"
+      }
+     },
+     "end": {
+      "down": 2,
+      "distance": 10,
+      "yardLine": 47,
+      "yardsToEndzone": 47,
+      "downDistanceText": "2nd & 10 at ND 47",
+      "shortDownDistanceText": "2nd & 10",
+      "possessionText": "ND 47",
+      "team": {
+       "id": "24"
+      }
+     },
+     "statYardage": 0,
+     "scoringPlay": false
+    },
+    {
+     "id": "401858257170",
+     "text": "(01:44) No Huddle #20 M.Ford rush middle for 0 yards to the UND47 (#88 A.Mukam)",
+     "type": {
+      "id": "5",
+      "text": "Rush",
+      "abbreviation": "RUSH"
+     },
+     "clock": {
+      "displayValue": "1:40"
+     },
+     "period": {
+      "number": 1
+     },
+     "start": {
+      "down": 2,
+      "distance": 10,
+      "yardLine": 47,
+      "yardsToEndzone": 47,
+      "downDistanceText": "2nd & 10 at ND 47",
+      "shortDownDistanceText": "2nd & 10",
+      "possessionText": "ND 47",
+      "team": {
+       "id": "24"
+      }
+     },
+     "end": {
+      "down": 3,
+      "distance": 10,
+      "yardLine": 47,
+      "yardsToEndzone": 53,
+      "downDistanceText": "3rd & 10 at ND 47",
+      "shortDownDistanceText": "3rd & 10",
+      "possessionText": "ND 47",
+      "team": {
+       "id": "24"
+      }
+     },
+     "statYardage": 0,
+     "scoringPlay": false
+    }
+   ]
+  },
+  "previous": [
+   {
+    "id": "4018582572",
+    "description": "1 play, -2 yards, 0:06",
+    "team": {
+     "id": "24",
+     "abbreviation": "STAN"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "14:54"
+     },
+     "yardLine": 0,
+     "text": "ND 0"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "14:48"
+     },
+     "yardLine": 82,
+     "text": "STAN 18"
+    },
+    "timeElapsed": {
+     "displayValue": "0:06"
+    },
+    "yards": -2,
+    "isScore": false,
+    "offensivePlays": 1,
+    "result": "FUMBLE",
+    "displayResult": "Fumble",
+    "plays": [
+     {
+      "id": "4018582573",
+      "text": "(15:00) #36 M.Drescher kickoff 59 yards to the STAN06 #5 C.Davis Jr. return 14 yards to the STAN20 (#10 L.Thomas)",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "14:54"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 10 at STAN 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 20",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 14,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825714",
+      "text": "(14:52) Shotgun #8 D.Warren sacked for loss of 2 yards to the STAN18 (#5 B.Traore), fumble by #8 D.Warren recovered by UND #4 J.Ausberry at STAN18, End Of Play",
+      "type": {
+       "id": "9",
+       "text": "Fumble Recovery (Own)"
+      },
+      "clock": {
+       "displayValue": "14:48"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 80,
+       "yardsToEndzone": 80,
+       "downDistanceText": "1st & 10 at STAN 20",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 20",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 10,
+       "yardLine": 82,
+       "yardsToEndzone": 18,
+       "downDistanceText": "2nd & 10 at STAN 18",
+       "shortDownDistanceText": "2nd & 10",
+       "possessionText": "STAN 18",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": -2,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018582573",
+    "description": "4 plays, 18 yards, 1:42",
+    "team": {
+     "id": "87",
+     "abbreviation": "ND"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "14:42"
+     },
+     "yardLine": 82,
+     "text": "STAN 18"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "13:06"
+     },
+     "yardLine": 97,
+     "text": "STAN 3"
+    },
+    "timeElapsed": {
+     "displayValue": "1:42"
+    },
+    "yards": 18,
+    "isScore": true,
+    "offensivePlays": 4,
+    "result": "TD",
+    "displayResult": "Touchdown",
+    "plays": [
+     {
+      "id": "40185825721",
+      "text": "(14:48) Shotgun #2 N.James Jr. rush left for 3 yards gain to the STAN15 (#0 J.Galvan)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "14:42"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 82,
+       "yardsToEndzone": 18,
+       "downDistanceText": "1st & 10 at STAN 18",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 18",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 85,
+       "yardsToEndzone": 15,
+       "downDistanceText": "2nd & 7 at STAN 15",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "STAN 15",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825725",
+      "text": "(14:15) No Huddle-Shotgun #13 C.Carr pass complete short left to #14 M.Gilbert caught at STAN08, for 10 yards to the STAN05 (#4 L.Bryant; #0 J.Galvan), 1ST DOWN",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "14:07"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 85,
+       "yardsToEndzone": 15,
+       "downDistanceText": "2nd & 7 at STAN 15",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "STAN 15",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 5,
+       "yardLine": 95,
+       "yardsToEndzone": 5,
+       "downDistanceText": "1st & Goal at STAN 5",
+       "shortDownDistanceText": "1st & Goal",
+       "possessionText": "STAN 5",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 10,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825730",
+      "text": "(13:40) No Huddle-Shotgun #2 N.James Jr. rush middle for 3 yards gain to the STAN02 (#10 S.Mattingly)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "13:35"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 5,
+       "yardLine": 95,
+       "yardsToEndzone": 5,
+       "downDistanceText": "1st & Goal at STAN 5",
+       "shortDownDistanceText": "1st & Goal",
+       "possessionText": "STAN 5",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 2,
+       "yardLine": 98,
+       "yardsToEndzone": 2,
+       "downDistanceText": "2nd & Goal at STAN 2",
+       "shortDownDistanceText": "2nd & Goal",
+       "possessionText": "STAN 2",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825734",
+      "text": "(13:07) No Huddle-Shotgun #2 N.James Jr. rush right for 2 yards gain to the STAN00 TOUCHDOWN, clock 13:06 #35 S.Porath kick attempt good (H: #39 J.Scaife, LS: #96 J.Vinci)",
+      "type": {
+       "id": "68",
+       "text": "Rushing Touchdown",
+       "abbreviation": "TD"
+      },
+      "clock": {
+       "displayValue": "13:06"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 2,
+       "yardLine": 98,
+       "yardsToEndzone": 2,
+       "downDistanceText": "2nd & Goal at STAN 2",
+       "shortDownDistanceText": "2nd & Goal",
+       "possessionText": "STAN 2",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": 0,
+       "yardLine": 100,
+       "yardsToEndzone": 0,
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": true,
+      "scoringType": {
+       "name": "touchdown",
+       "abbreviation": "TD"
+      }
+     },
+     {
+      "id": "40185825743",
+      "text": "Timeout Notre Dame, clock 13:06",
+      "type": {
+       "id": "21",
+       "text": "Timeout",
+       "abbreviation": "TO"
+      },
+      "clock": {
+       "displayValue": "13:06"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 0,
+       "distance": 3,
+       "yardLine": 97,
+       "yardsToEndzone": 3,
+       "downDistanceText": " & Goal at STAN 3",
+       "shortDownDistanceText": " & Goal",
+       "possessionText": "STAN 3",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 0,
+       "distance": 3,
+       "yardLine": 97,
+       "yardsToEndzone": 3,
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018582575",
+    "description": "3 plays, 4 yards, 0:52",
+    "team": {
+     "id": "24",
+     "abbreviation": "STAN"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "12:59"
+     },
+     "yardLine": 81,
+     "text": "STAN 19"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "12:07"
+     },
+     "yardLine": 77,
+     "text": "STAN 23"
+    },
+    "timeElapsed": {
+     "displayValue": "0:52"
+    },
+    "yards": 4,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "40185825741",
+      "text": "(13:06) #36 M.Drescher kickoff 64 yards to the STAN01 #5 C.Davis Jr. return 18 yards to the STAN19 (#10 L.Thomas)",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "12:59"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 81,
+       "yardsToEndzone": 81,
+       "downDistanceText": "1st & 10 at STAN 19",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 19",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 18,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825747",
+      "text": "(12:59) Shotgun #20 M.Ford rush middle for 4 yards gain to the STAN23 (#34 D.Bowen)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "12:54"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 81,
+       "yardsToEndzone": 81,
+       "downDistanceText": "1st & 10 at STAN 19",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 19",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "2nd & 6 at STAN 23",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 4,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825751",
+      "text": "(12:21) No Huddle-Shotgun #8 D.Warren pass incomplete short right to #23 N.Brown thrown to STAN25",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "12:18"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 6,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "2nd & 6 at STAN 23",
+       "shortDownDistanceText": "2nd & 6",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 6,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "3rd & 6 at STAN 23",
+       "shortDownDistanceText": "3rd & 6",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825754",
+      "text": "(12:18) No Huddle-Shotgun #8 D.Warren pass incomplete short middle to #23 N.Brown thrown to STAN28 broken up by #12 J.Sanders",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "12:14"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 6,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "3rd & 6 at STAN 23",
+       "shortDownDistanceText": "3rd & 6",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 6,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "4th & 6 at STAN 23",
+       "shortDownDistanceText": "4th & 6",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825757",
+      "text": "(12:12) #37 A.Flintoft punt 35 yards to the UND42 fair catch by #6 J.Faison at UND42",
+      "type": {
+       "id": "52",
+       "text": "Punt",
+       "abbreviation": "PUNT"
+      },
+      "clock": {
+       "displayValue": "12:07"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 6,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "4th & 6 at STAN 23",
+       "shortDownDistanceText": "4th & 6",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 42,
+       "yardsToEndzone": 58,
+       "downDistanceText": "1st & 10 at ND 42",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "ND 42",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825763",
+      "text": "Timeout Stanford, clock 12:07",
+      "type": {
+       "id": "21",
+       "text": "Timeout",
+       "abbreviation": "TO"
+      },
+      "clock": {
+       "displayValue": "12:07"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 6,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "4th & 6 at STAN 23",
+       "shortDownDistanceText": "4th & 6",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 0,
+       "distance": 6,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018582576",
+    "description": "3 plays, 0 yards, 0:24",
+    "team": {
+     "id": "87",
+     "abbreviation": "ND"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "12:01"
+     },
+     "yardLine": 42,
+     "text": "ND 42"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "11:43"
+     },
+     "yardLine": 42,
+     "text": "ND 42"
+    },
+    "timeElapsed": {
+     "displayValue": "0:24"
+    },
+    "yards": 0,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "40185825761",
+      "text": "(12:07) Shotgun #13 C.Carr pass incomplete deep right to #14 M.Gilbert thrown to STAN27 broken up by #14 D.Pollard",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "12:01"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 42,
+       "yardsToEndzone": 58,
+       "downDistanceText": "1st & 10 at ND 42",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "ND 42",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 10,
+       "yardLine": 42,
+       "yardsToEndzone": 58,
+       "downDistanceText": "2nd & 10 at ND 42",
+       "shortDownDistanceText": "2nd & 10",
+       "possessionText": "ND 42",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825765",
+      "text": "(12:01) No Huddle-Shotgun #13 C.Carr pass incomplete short middle to #1 J.Greathouse thrown to UND44 broken up by #10 S.Mattingly",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "11:55"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 10,
+       "yardLine": 42,
+       "yardsToEndzone": 58,
+       "downDistanceText": "2nd & 10 at ND 42",
+       "shortDownDistanceText": "2nd & 10",
+       "possessionText": "ND 42",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 10,
+       "yardLine": 42,
+       "yardsToEndzone": 58,
+       "downDistanceText": "3rd & 10 at ND 42",
+       "shortDownDistanceText": "3rd & 10",
+       "possessionText": "ND 42",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825768",
+      "text": "(11:55) No Huddle-Shotgun #13 C.Carr pass incomplete short right to #2 N.James Jr. thrown to UND44",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "11:50"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 10,
+       "yardLine": 42,
+       "yardsToEndzone": 58,
+       "downDistanceText": "3rd & 10 at ND 42",
+       "shortDownDistanceText": "3rd & 10",
+       "possessionText": "ND 42",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 10,
+       "yardLine": 42,
+       "yardsToEndzone": 58,
+       "downDistanceText": "4th & 10 at ND 42",
+       "shortDownDistanceText": "4th & 10",
+       "possessionText": "ND 42",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825771",
+      "text": "(11:50) #39 J.Scaife punt 44 yards to the STAN14 fair catch by #13 L.Thorpe at STAN14",
+      "type": {
+       "id": "52",
+       "text": "Punt",
+       "abbreviation": "PUNT"
+      },
+      "clock": {
+       "displayValue": "11:43"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 10,
+       "yardLine": 42,
+       "yardsToEndzone": 58,
+       "downDistanceText": "4th & 10 at ND 42",
+       "shortDownDistanceText": "4th & 10",
+       "possessionText": "ND 42",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 86,
+       "yardsToEndzone": 86,
+       "downDistanceText": "1st & 10 at STAN 14",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 14",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018582577",
+    "description": "3 plays, 9 yards, 2:02",
+    "team": {
+     "id": "24",
+     "abbreviation": "STAN"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "11:34"
+     },
+     "yardLine": 86,
+     "text": "STAN 14"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "9:41"
+     },
+     "yardLine": 77,
+     "text": "STAN 23"
+    },
+    "timeElapsed": {
+     "displayValue": "2:02"
+    },
+    "yards": 9,
+    "isScore": false,
+    "offensivePlays": 3,
+    "result": "PUNT",
+    "displayResult": "Punt",
+    "plays": [
+     {
+      "id": "40185825775",
+      "text": "(11:43) Shotgun #8 D.Warren pass complete short right to #23 N.Brown caught at STAN12, for 3 yards to the STAN17 (#2 D.McKinney)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "11:34"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 86,
+       "yardsToEndzone": 86,
+       "downDistanceText": "1st & 10 at STAN 14",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 14",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 83,
+       "yardsToEndzone": 83,
+       "downDistanceText": "2nd & 7 at STAN 17",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "STAN 17",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825780",
+      "text": "(11:05) No Huddle-Shotgun #20 M.Ford rush middle for 2 yards gain to the STAN19 (#10 L.Thomas)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "11:01"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 83,
+       "yardsToEndzone": 83,
+       "downDistanceText": "2nd & 7 at STAN 17",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "STAN 17",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 5,
+       "yardLine": 81,
+       "yardsToEndzone": 81,
+       "downDistanceText": "3rd & 5 at STAN 19",
+       "shortDownDistanceText": "3rd & 5",
+       "possessionText": "STAN 19",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 2,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825784",
+      "text": "(10:28) No Huddle-Shotgun #8 D.Warren rush left for 4 yards gain to the STAN23 (#2 D.McKinney), out of bounds",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "10:13"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 5,
+       "yardLine": 81,
+       "yardsToEndzone": 81,
+       "downDistanceText": "3rd & 5 at STAN 19",
+       "shortDownDistanceText": "3rd & 5",
+       "possessionText": "STAN 19",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 4,
+       "distance": 1,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "4th & 1 at STAN 23",
+       "shortDownDistanceText": "4th & 1",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 4,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825788",
+      "text": "(09:47) #37 A.Flintoft punt 47 yards to the UND30 fair catch by #6 J.Faison at UND30",
+      "type": {
+       "id": "52",
+       "text": "Punt",
+       "abbreviation": "PUNT"
+      },
+      "clock": {
+       "displayValue": "9:41"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 4,
+       "distance": 1,
+       "yardLine": 77,
+       "yardsToEndzone": 77,
+       "downDistanceText": "4th & 1 at STAN 23",
+       "shortDownDistanceText": "4th & 1",
+       "possessionText": "STAN 23",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 30,
+       "yardsToEndzone": 70,
+       "downDistanceText": "1st & 10 at ND 30",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "ND 30",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "4018582578",
+    "description": "12 plays, 70 yards, 6:46",
+    "team": {
+     "id": "87",
+     "abbreviation": "ND"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "9:37"
+     },
+     "yardLine": 30,
+     "text": "ND 30"
+    },
+    "end": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "clock": {
+      "displayValue": "2:55"
+     },
+     "yardLine": 97,
+     "text": "STAN 3"
+    },
+    "timeElapsed": {
+     "displayValue": "6:46"
+    },
+    "yards": 70,
+    "isScore": true,
+    "offensivePlays": 12,
+    "result": "TD",
+    "displayResult": "Touchdown",
+    "plays": [
+     {
+      "id": "40185825792",
+      "text": "(09:41) Shotgun #22 A.Williams rush middle for 5 yards gain to the UND35 (#5 J.Green)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "9:37"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 30,
+       "yardsToEndzone": 70,
+       "downDistanceText": "1st & 10 at ND 30",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "ND 30",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 5,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "downDistanceText": "2nd & 5 at ND 35",
+       "shortDownDistanceText": "2nd & 5",
+       "possessionText": "ND 35",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 5,
+      "scoringPlay": false
+     },
+     {
+      "id": "40185825796",
+      "text": "(09:08) No Huddle-Shotgun #22 A.Williams rush left for 1 yard gain to the UND36 (#0 J.Galvan)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "9:03"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 5,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "downDistanceText": "2nd & 5 at ND 35",
+       "shortDownDistanceText": "2nd & 5",
+       "possessionText": "ND 35",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 36,
+       "yardsToEndzone": 64,
+       "downDistanceText": "3rd & 4 at ND 36",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "ND 36",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 1,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257100",
+      "text": "(08:32) No Huddle-Shotgun #13 C.Carr rush middle for 9 yards gain to the UND45 (#49 G.Kaminski), 1ST DOWN",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "8:17"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 4,
+       "yardLine": 36,
+       "yardsToEndzone": 64,
+       "downDistanceText": "3rd & 4 at ND 36",
+       "shortDownDistanceText": "3rd & 4",
+       "possessionText": "ND 36",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 45,
+       "yardsToEndzone": 55,
+       "downDistanceText": "1st & 10 at ND 45",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "ND 45",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 9,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257105",
+      "text": "(07:57) No Huddle-Shotgun #22 A.Williams rush middle for 0 yards to the UND45 (#10 S.Mattingly; #44 E.Cooper)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "7:51"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 45,
+       "yardsToEndzone": 55,
+       "downDistanceText": "1st & 10 at ND 45",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "ND 45",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 10,
+       "yardLine": 45,
+       "yardsToEndzone": 55,
+       "downDistanceText": "2nd & 10 at ND 45",
+       "shortDownDistanceText": "2nd & 10",
+       "possessionText": "ND 45",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257109",
+      "text": "(07:21) No Huddle-Shotgun #13 C.Carr pass complete short right to #1 J.Greathouse caught at UND50, for 11 yards to the STAN44 (#4 L.Bryant), out of bounds, 1ST DOWN",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "7:10"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 10,
+       "yardLine": 45,
+       "yardsToEndzone": 55,
+       "downDistanceText": "2nd & 10 at ND 45",
+       "shortDownDistanceText": "2nd & 10",
+       "possessionText": "ND 45",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 56,
+       "yardsToEndzone": 44,
+       "downDistanceText": "1st & 10 at STAN 44",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 44",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 11,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257114",
+      "text": "(06:46) No Huddle-Shotgun #22 A.Williams rush middle for 1 yard loss to the STAN45 (#10 S.Mattingly)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "6:42"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 56,
+       "yardsToEndzone": 44,
+       "downDistanceText": "1st & 10 at STAN 44",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 44",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 11,
+       "yardLine": 55,
+       "yardsToEndzone": 45,
+       "downDistanceText": "2nd & 11 at STAN 45",
+       "shortDownDistanceText": "2nd & 11",
+       "possessionText": "STAN 45",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": -1,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257118",
+      "text": "(06:10) No Huddle-Shotgun #22 A.Williams rush middle for 5 yards gain to the STAN40 (#5 J.Green; #0 J.Galvan)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "6:04"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 11,
+       "yardLine": 55,
+       "yardsToEndzone": 45,
+       "downDistanceText": "2nd & 11 at STAN 45",
+       "shortDownDistanceText": "2nd & 11",
+       "possessionText": "STAN 45",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 6,
+       "yardLine": 60,
+       "yardsToEndzone": 40,
+       "downDistanceText": "3rd & 6 at STAN 40",
+       "shortDownDistanceText": "3rd & 6",
+       "possessionText": "STAN 40",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 5,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257122",
+      "text": "(05:34) No Huddle-Shotgun #22 A.Williams rush left for 9 yards gain to the STAN31 (#10 S.Mattingly), 1ST DOWN",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "5:28"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 3,
+       "distance": 6,
+       "yardLine": 60,
+       "yardsToEndzone": 40,
+       "downDistanceText": "3rd & 6 at STAN 40",
+       "shortDownDistanceText": "3rd & 6",
+       "possessionText": "STAN 40",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 69,
+       "yardsToEndzone": 31,
+       "downDistanceText": "1st & 10 at STAN 31",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 31",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 9,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257126",
+      "text": "(04:57) No Huddle-Shotgun #13 C.Carr pass complete short left to #6 J.Faison caught at STAN32, for 3 yards to the STAN28 (#5 J.Green; #0 J.Galvan)",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "4:51"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 69,
+       "yardsToEndzone": 31,
+       "downDistanceText": "1st & 10 at STAN 31",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 31",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 72,
+       "yardsToEndzone": 28,
+       "downDistanceText": "2nd & 7 at STAN 28",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "STAN 28",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257131",
+      "text": "(04:21) No Huddle-Shotgun #13 C.Carr pass complete short right to #1 J.Greathouse caught at STAN12, for 16 yards to the STAN12, out of bounds at STAN12, 1ST DOWN",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "4:04"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 7,
+       "yardLine": 72,
+       "yardsToEndzone": 28,
+       "downDistanceText": "2nd & 7 at STAN 28",
+       "shortDownDistanceText": "2nd & 7",
+       "possessionText": "STAN 28",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 88,
+       "yardsToEndzone": 12,
+       "downDistanceText": "1st & 10 at STAN 12",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 12",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 16,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257136",
+      "text": "(03:41) No Huddle-Shotgun #22 A.Williams rush middle for 9 yards gain to the STAN03 (#0 J.Galvan)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "3:35"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 88,
+       "yardsToEndzone": 12,
+       "downDistanceText": "1st & 10 at STAN 12",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 12",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 1,
+       "yardLine": 97,
+       "yardsToEndzone": 3,
+       "downDistanceText": "2nd & 1 at STAN 3",
+       "shortDownDistanceText": "2nd & 1",
+       "possessionText": "STAN 3",
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 9,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257140",
+      "text": "(02:56) No Huddle-Shotgun #13 C.Carr pass complete short right to #1 J.Greathouse caught at STAN00, for 3 yards to the STAN00 TOUCHDOWN, clock 02:55, 1ST DOWN #35 S.Porath kick attempt good (H: #39 J.Scaife, LS: #96 J.Vinci)",
+      "type": {
+       "id": "67",
+       "text": "Passing Touchdown",
+       "abbreviation": "TD"
+      },
+      "clock": {
+       "displayValue": "2:55"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 1,
+       "yardLine": 97,
+       "yardsToEndzone": 3,
+       "downDistanceText": "2nd & 1 at STAN 3",
+       "shortDownDistanceText": "2nd & 1",
+       "possessionText": "STAN 3",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": -1,
+       "distance": 0,
+       "yardLine": 100,
+       "yardsToEndzone": 0,
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 3,
+      "scoringPlay": true,
+      "scoringType": {
+       "name": "touchdown",
+       "abbreviation": "TD"
+      }
+     },
+     {
+      "id": "401858257150",
+      "text": "Timeout Notre Dame, clock 02:55",
+      "type": {
+       "id": "21",
+       "text": "Timeout",
+       "abbreviation": "TO"
+      },
+      "clock": {
+       "displayValue": "2:55"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 0,
+       "distance": 3,
+       "yardLine": 97,
+       "yardsToEndzone": 3,
+       "downDistanceText": " & Goal at STAN 3",
+       "shortDownDistanceText": " & Goal",
+       "possessionText": "STAN 3",
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 0,
+       "distance": 3,
+       "yardLine": 97,
+       "yardsToEndzone": 3,
+       "team": {
+        "id": "87"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   },
+   {
+    "id": "40185825710",
+    "description": "4 plays, 26 yards, 1:09",
+    "team": {
+     "id": "24",
+     "abbreviation": "STAN"
+    },
+    "start": {
+     "period": {
+      "type": "quarter",
+      "number": 1
+     },
+     "yardLine": 73,
+     "text": "STAN 27"
+    },
+    "timeElapsed": {
+     "displayValue": "1:09"
+    },
+    "yards": 26,
+    "isScore": false,
+    "offensivePlays": 4,
+    "plays": [
+     {
+      "id": "401858257148",
+      "text": "(02:55) #36 M.Drescher kickoff 65 yards to the STAN00 #5 C.Davis Jr. return 27 yards to the STAN27, out of bounds at STAN27",
+      "type": {
+       "id": "53",
+       "text": "Kickoff",
+       "abbreviation": "K"
+      },
+      "clock": {
+       "displayValue": "2:49"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 35,
+       "yardsToEndzone": 65,
+       "team": {
+        "id": "87"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 73,
+       "yardsToEndzone": 73,
+       "downDistanceText": "1st & 10 at STAN 27",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 27",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 27,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257154",
+      "text": "(02:49) Shotgun #8 D.Warren pass complete short left to #4 J.Onovughe caught at STAN31, for 10 yards to the STAN37 (#28 L.Talich), 1ST DOWN",
+      "type": {
+       "id": "24",
+       "text": "Pass Reception",
+       "abbreviation": "REC"
+      },
+      "clock": {
+       "displayValue": "2:39"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 73,
+       "yardsToEndzone": 73,
+       "downDistanceText": "1st & 10 at STAN 27",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 27",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 63,
+       "yardsToEndzone": 63,
+       "downDistanceText": "1st & 10 at STAN 37",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 37",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 10,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257159",
+      "text": "(02:26) No Huddle-Shotgun #20 M.Ford rush middle for 6 yards gain to the STAN43 (#28 L.Talich)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "2:24"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 63,
+       "yardsToEndzone": 63,
+       "downDistanceText": "1st & 10 at STAN 37",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "STAN 37",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 4,
+       "yardLine": 57,
+       "yardsToEndzone": 57,
+       "downDistanceText": "2nd & 4 at STAN 43",
+       "shortDownDistanceText": "2nd & 4",
+       "possessionText": "STAN 43",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 6,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257163",
+      "text": "(01:54) No Huddle-Shotgun #8 D.Warren pass incomplete short left to #0 C.High thrown to UND38 broken up by #12 J.Sanders QB hurried by #44 R.Dunham PENALTY UND Holding (#2 D.McKinney) 10 yards from STAN43 to UND47, 1ST DOWN. NO PLAY",
+      "type": {
+       "id": "8",
+       "text": "Penalty",
+       "abbreviation": "PEN"
+      },
+      "clock": {
+       "displayValue": "1:54"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 4,
+       "yardLine": 57,
+       "yardsToEndzone": 57,
+       "downDistanceText": "2nd & 4 at STAN 43",
+       "shortDownDistanceText": "2nd & 4",
+       "possessionText": "STAN 43",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 47,
+       "yardsToEndzone": 47,
+       "downDistanceText": "1st & 10 at ND 47",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "ND 47",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 10,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257167",
+      "text": "(01:50) No Huddle-Shotgun #8 D.Warren pass incomplete short right to #84 C.Holt thrown to UND45 QB hurried by #5 B.Traore",
+      "type": {
+       "id": "3",
+       "text": "Pass Incompletion"
+      },
+      "clock": {
+       "displayValue": "1:46"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 1,
+       "distance": 10,
+       "yardLine": 47,
+       "yardsToEndzone": 47,
+       "downDistanceText": "1st & 10 at ND 47",
+       "shortDownDistanceText": "1st & 10",
+       "possessionText": "ND 47",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 2,
+       "distance": 10,
+       "yardLine": 47,
+       "yardsToEndzone": 47,
+       "downDistanceText": "2nd & 10 at ND 47",
+       "shortDownDistanceText": "2nd & 10",
+       "possessionText": "ND 47",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     },
+     {
+      "id": "401858257170",
+      "text": "(01:44) No Huddle #20 M.Ford rush middle for 0 yards to the UND47 (#88 A.Mukam)",
+      "type": {
+       "id": "5",
+       "text": "Rush",
+       "abbreviation": "RUSH"
+      },
+      "clock": {
+       "displayValue": "1:40"
+      },
+      "period": {
+       "number": 1
+      },
+      "start": {
+       "down": 2,
+       "distance": 10,
+       "yardLine": 47,
+       "yardsToEndzone": 47,
+       "downDistanceText": "2nd & 10 at ND 47",
+       "shortDownDistanceText": "2nd & 10",
+       "possessionText": "ND 47",
+       "team": {
+        "id": "24"
+       }
+      },
+      "end": {
+       "down": 3,
+       "distance": 10,
+       "yardLine": 47,
+       "yardsToEndzone": 53,
+       "downDistanceText": "3rd & 10 at ND 47",
+       "shortDownDistanceText": "3rd & 10",
+       "possessionText": "ND 47",
+       "team": {
+        "id": "24"
+       }
+      },
+      "statYardage": 0,
+      "scoringPlay": false
+     }
+    ]
+   }
+  ]
+ }
+}

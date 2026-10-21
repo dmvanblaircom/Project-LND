@@ -174,6 +174,7 @@ function sourceKey(url){
   if(/scoreboard/.test(url)) return "scoreboard";
   if(url===TeamOS.espn.rankingsUrl()) return "rankings";
   if(url.split("?")[0]==="data/league/fpi.json") return "fpi";
+  if(url.split("?")[0]===EDGE+"/v1/cfbd/sp") return "sp-plus";
   if(url===TeamOS.espn.rosterUrl(TEAM_CONFIG)) return "roster";
   var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability"),
       gn=TeamOS.snapshots.get(TEAM_CONFIG,"notes");
@@ -216,7 +217,7 @@ function liftedMarker(on){
   try{ if(on) sessionStorage.setItem("suite-launch-lifted", String(Date.now())); else sessionStorage.removeItem("suite-launch-lifted"); }catch(e){}
 }
 function watchUpdate(reg){
-  if(!reg || !navigator.serviceWorker.controller) return;
+  if(!reg || !navigator.serviceWorker.controller) return function(){};
   // An activated worker reloads this page; if that never comes, the launch's
   // own cap still lifts it. One update can install twice (the browser's own
   // check racing ours), and the first then turns redundant on being replaced,
@@ -233,6 +234,7 @@ function watchUpdate(reg){
   }
   track(reg.installing || reg.waiting);
   if(reg.addEventListener) reg.addEventListener("updatefound", function(){ track(reg.installing); });
+  return track;
 }
 if("serviceWorker" in navigator){
   var registerWorker=function(){
@@ -245,8 +247,15 @@ if("serviceWorker" in navigator){
     if(checking) CHECKING=true;
     function checked(){ CHECKING=false; if(!UPDATING) liftedMarker(false); }
     navigator.serviceWorker.register("sw.js").then(function(reg){
-      watchUpdate(reg);
-      if(checking && reg && reg.update) reg.update().catch(function(){}).then(checked);
+      var track=watchUpdate(reg);
+      // update() resolves before the browser fires updatefound for the
+      // worker it found (Chrome, every time), so the new worker is tracked
+      // from the registration first: otherwise, between the check ending
+      // and that event, nothing holds the launch and it can lift under the
+      // reload to come (CI, 2026-10-20: the launch faded, then reloaded).
+      if(checking && reg && reg.update) reg.update().catch(function(){}).then(function(){
+        track(reg.installing || reg.waiting); checked();
+      });
       else checked();
       return navigator.serviceWorker.ready;
     }).then(tellWorkerOurTeam).catch(function(){ checked(); });
@@ -350,29 +359,143 @@ function venuePoint(g){
 // so the screen opens offline; those are never fed back into the live state.
 var T25={ polls:null, cachedGames:null, at:0, pollsFailed:false, gamesFailed:false };
 
-// W07: the existing producer and TeamOS adapter supply FPI. Only this
-// source's successful NETWORK response starts its 30-minute retry clock.
-// A saved copy can draw immediately, but stays due on re-entry/reconnect.
-var FPI={ raw:null, ok:0, p:null, tried:false, cached:false, failed:false };
-function fpiModel(){ return TeamOS.ratings.fpi(FPI.raw, TEAM_CONFIG, seasonYear()); }
-function loadFpi(force){
-  if(FPI.p) return FPI.p;
-  if(!force && FPI.ok && !FPI.failed && Date.now()-FPI.ok<30*60e3) return Promise.resolve({key:"fpi",outcome:"network"});
-  var url="data/league/fpi.json";
-  function usable(d){ var m=TeamOS.ratings.fpi(d, TEAM_CONFIG, seasonYear()); return m && m.ranks.length===25 && m.season!=null; }
-  if(!FPI.raw) cachedCopy(url).then(function(c){
-    if(!FPI.raw && usable(c.data)){ FPI.raw=c.data; FPI.cached=true; paintTop25(); }
+// W07: predictive ratings, one entry per source, each with its own load,
+// saved copy, retry clock and failure (handoff 2026-10-14): SP+ failing never
+// touches FPI, and neither changes the AP/CFP default. Only a source's
+// successful NETWORK response starts its 30-minute retry clock. A saved copy
+// can draw immediately, but stays due on re-entry/reconnect.
+//   FPI: the producer's snapshot (data/league/fpi.json).
+//   SP+: the edge API (GET /v1/cfbd/sp), the permitted top 25. If this season
+//        is not published, last season's table, which the screen labels.
+function spUrl(year){ return EDGE+"/v1/cfbd/sp?year="+year; }
+var RATINGS={
+  fpi: { label:"FPI", url:function(){ return "data/league/fpi.json"; },
+         model:function(d){ return TeamOS.ratings.fpi(d, TEAM_CONFIG, seasonYear()); },
+         whole:function(m){ return m.ranks.length===25; } },
+  "sp-plus": { label:"SP+", url:function(){ return spUrl(seasonYear()); },
+         model:function(d){ return TeamOS.ratings.spPlus(d, TEAM_CONFIG, seasonYear(), typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []); },
+         whole:function(m){ return m.ranks.length>=25 && m.ranks[0].rank===1; },
+         empty:function(d){ return !!d && d.source==="cfbd-sp" && Array.isArray(d.ranks) && !d.ranks.length; },
+         earlier:function(){ return spUrl(seasonYear()-1); } }
+};
+Object.keys(RATINGS).forEach(function(k){
+  var x=RATINGS[k]; x.raw=null; x.ok=0; x.p=null; x.tried=false; x.cached=false; x.failed=false;
+});
+function ratingKey(route){ route=route||Suite.nav.current(); return route.view==="rankings" && RATINGS[route.path[1]] ? route.path[1] : null; }
+function ratingModel(key){ var x=RATINGS[key]; return x.raw ? x.model(x.raw) : null; }
+function loadRating(key, force){
+  var x=RATINGS[key];
+  if(x.p) return x.p;
+  if(!force && x.ok && !x.failed && Date.now()-x.ok<30*60e3) return Promise.resolve({key:key,outcome:"network"});
+  function usable(d){ var m=x.model(d); return !!m && m.season!=null && x.whole(m); }
+  // The edge API marks a copy it kept because CFBD failed; the page's
+  // worker marks one it kept because the network did. Either is a saved copy.
+  function saved(r){ return !!(r.cached || (r.data && r.data.stale)); }
+  if(!x.raw) cachedCopy(x.url()).then(function(c){
+    if(!x.raw && usable(c.data)){ x.raw=c.data; x.cached=true; paintTop25(); }
   }).catch(function(){});
-  FPI.tried=true;
-  FPI.p=fetchJSON(url).then(function(r){
-    if(!usable(r.data)) throw new Error("Unusable FPI snapshot");
-    FPI.raw=r.data; FPI.cached=!!r.cached; FPI.failed=false;
-    FPI.ok=r.cached ? 0 : Date.now();
-    noteSource(url,r.cached);
-    return {key:"fpi",outcome:r.cached ? "cached" : "network"};
-  }).catch(function(){ FPI.failed=true; return {key:"fpi",outcome:"failed"}; })
-    .then(function(result){ FPI.p=null; paintTop25(); return result; });
-  return FPI.p;
+  x.tried=true;
+  var url=x.url(), fell=false;
+  x.p=fetchJSON(url).then(function(r){
+    // Saved copies too: offline, last season's kept table still answers.
+    // If it cannot, this season's answer stands: not published.
+    if(x.empty && x.earlier && x.empty(r.data)){
+      url=x.earlier();
+      return fetchJSON(url).catch(function(){ url=x.url(); return r; });
+    }
+    return r;
+  }, function(e){
+    // This season failed outright - offline on the first visit after the
+    // rollover, with only last season's table saved (Codex, #142). That
+    // table, labelled as last season's, beats "didn't load". It counts as
+    // a saved copy: outdated, and this season is asked again on re-entry.
+    if(!x.earlier) throw e;
+    url=x.earlier(); fell=true;
+    return fetchJSON(url);
+  }).then(function(r){
+    if(x.empty && x.empty(r.data)){
+      if(fell) throw new Error(x.label+" failed, and last season has none");
+      x.failed="unpublished"; return {key:key,outcome:"network"};
+    }
+    if(!usable(r.data)) throw new Error("Unusable "+x.label+" answer");
+    x.raw=r.data; x.cached=saved(r) || fell; x.failed=false;
+    x.ok=x.cached ? 0 : Date.now();
+    // An edge copy kept because CFBD failed counts from when the edge read it.
+    noteSource(url, r.cached || (r.data.stale ? r.data.fetchedAt || "unknown" : null));
+    return {key:key,outcome:x.cached ? "cached" : "network"};
+  }).catch(function(){ x.failed=true; return {key:key,outcome:"failed"}; })
+    .then(function(result){ x.p=null; paintTop25(); return result; });
+  return x.p;
+}
+
+// Earlier weeks (David, 2026-10-20: "keep them per week ... default to the
+// current/most updated set ... don't lose the old ones"). The kept polls and
+// the list of kept FPI weeks are one small file, read on entering Rankings;
+// FPI's earlier tables are their own file, read only once an earlier FPI week
+// is picked. The current week is always the live source's - the feed's poll,
+// fpi.json - never a kept copy of it. SP+ keeps no weeks: it has no picker.
+var WEEKS={ polls:null, fpiIndex:null, fpi:null, fpiFailed:false, p:null, fp:null, refocus:false };
+function loadWeeks(){
+  if(WEEKS.polls || WEEKS.p) return;
+  WEEKS.p=fetchJSON("data/league/rankings-"+seasonYear()+".json").then(function(r){
+    WEEKS.polls=TeamOS.espn.rankingsHistory(r.data, TEAM_CONFIG);
+    WEEKS.fpiIndex=r.data && Array.isArray(r.data.fpi) ? r.data.fpi : [];
+  }).catch(function(){}).then(function(){ WEEKS.p=null; paintTop25(); });
+}
+function loadFpiWeeks(){
+  if(WEEKS.fpi || WEEKS.fp) return;
+  WEEKS.fp=fetchJSON("data/league/fpi-history-"+seasonYear()+".json").then(function(r){
+    WEEKS.fpi=(r.data && Array.isArray(r.data.weeks)) ? r.data.weeks : []; WEEKS.fpiFailed=false;
+  }).catch(function(){ WEEKS.fpiFailed=true; }).then(function(){ WEEKS.fp=null; paintTop25(); });
+}
+function dayOf(iso){ return String(iso||"").slice(0,10); }
+// One source's weeks, oldest first: the kept ones, and the current one from
+// the live source - in its kept week's place when it is that week (same
+// release day or same name), else after them. `current` marks it.
+function weekList(key){
+  var list=[];
+  if(key==="fpi"){
+    var cur=RATINGS.fpi.raw;
+    list=(WEEKS.fpiIndex||[]).map(function(w){ return { id:w.id, label:w.label, date:w.updated }; });
+    if(cur && cur.season===seasonYear() && cur.week){
+      var id=cur.seasonType===1 ? "pre" : cur.seasonType===3 ? "final" : "w"+cur.week;
+      list=list.filter(function(w){ return w.id!==id; });
+      list.push({ id:id, label:cur.weekText||"Week "+cur.week, date:cur.sourceUpdated, current:true });
+    }
+  } else if(!RATINGS[key]){
+    var live=(T25.polls||[]).filter(function(p){ return String(p.key).toLowerCase()===key; })[0]||null;
+    list=((WEEKS.polls && WEEKS.polls[key])||[]).map(function(w){ return { id:w.id, label:w.label, date:w.date, poll:w.poll }; });
+    if(live){
+      var same=list.filter(function(w){ return (live.released && dayOf(w.date)===dayOf(live.released)) || (live.asOf && w.label===live.asOf); })[0];
+      if(same){ same.poll=live; same.current=true; }
+      else list.push({ id:"latest", label:live.asOf||"Latest", date:live.released||live.updated, poll:live, current:true });
+    }
+  }
+  return list.sort(function(a,b){ return String(a.date).localeCompare(String(b.date)); });
+}
+// The week the route asks for, put in the model in the current one's place.
+// Until the current week is known there is no list: the newest kept week
+// is not "latest" while the live one is still on its way.
+function pickWeek(m, route){
+  var key=Suite.top25.chosenPoll(m), weeks=weekList(key), want=route.path[2]||null;
+  if(!weeks.some(function(w){ return w.current; })) weeks=[];
+  var pick=weeks.filter(function(w){ return w.id===want; })[0] || weeks[weeks.length-1] || null;
+  // A week that is not kept, once the kept ones are known, is a dead
+  // address: replaced, never left active (decision 0024 §15).
+  if(want && weeks.length && pick && pick.id!==want && WEEKS.polls && !WEEKS.p)
+    setTimeout(function(){ Suite.nav.replace("top25", ["rankings", key]); }, 0);
+  m.weeks=weeks.slice().reverse().map(function(w){ return { id:w.id, label:w.label, date:w.date }; });
+  m.week=pick ? pick.id : null;
+  if(!pick || pick.current) return;
+  if(key==="fpi"){
+    var kept=(WEEKS.fpi||[]).filter(function(w){ return w.id===pick.id; })[0];
+    m.ratings=m.ratings.filter(function(r){ return r.key!=="fpi"; });
+    if(kept){ var r=TeamOS.ratings.fpi(kept.snapshot, TEAM_CONFIG, seasonYear()); if(r) m.ratings.push(r); }
+    else if(WEEKS.fpiFailed){ m.ratingsFailed=Object.assign({}, m.ratingsFailed, { fpi:true }); }
+    else loadFpiWeeks();
+  } else {
+    m.polls=(m.polls||[]).filter(function(p){ return String(p.key).toLowerCase()!==key; }).concat([pick.poll]);
+  }
 }
 
 function top25Sources(){
@@ -381,25 +504,28 @@ function top25Sources(){
     return x ? { key:key, fetchedAt:x.fetchedAt, cached:x.cached, maxAgeMs:maxAge } : { key:key, missing:true };
   }
   var route=Suite.nav.current(), view=route.view;
-  if(view==="rankings" && route.path[1]==="fpi"){
-    var rating=fpiModel();
-    return [TeamOS.ratings.freshnessSource(rating,FPI.cached || FPI.failed || !!(rating && !rating.current))];
+  var rk=ratingKey(route);
+  if(rk){
+    var x=RATINGS[rk], rating=ratingModel(rk);
+    return [TeamOS.ratings.freshnessSource(rating, x.cached || x.failed===true || !!(rating && !rating.current), rk)];
   }
   return view==="rankings" ? [s("rankings", 8*24*HOUR)]
                            : [s("scoreboard", AUTO.liveElsewhere ? 10*60e3 : 12*HOUR)];
 }
 
 function paintTop25(){
+  if(SHEET.id) paintSheet();
   var host=$("screenTop25");
   if(!host || host.hidden) return;
   var route=Suite.nav.current(), now=new Date();
   var hero=S.games ? TeamOS.game.hero(S.games, now, TEAM.timeZone).game : null;
-  Suite.top25.paint(host, {
+  var m={
     view:   route.view==="rankings" ? "rankings" : "games",
     poll:   route.view==="rankings" ? (route.path[1]||null) : null,
     polls:  T25.polls,
-    ratingSources: [{key:"fpi",label:"FPI"}],
-    ratings: [fpiModel()].filter(Boolean), ratingsFailed: {fpi:FPI.failed},
+    ratingSources: Object.keys(RATINGS).map(function(k){ return {key:k,label:RATINGS[k].label}; }),
+    ratings: Object.keys(RATINGS).map(ratingModel).filter(Boolean),
+    ratingsFailed: Object.keys(RATINGS).reduce(function(o,k){ o[k]=RATINGS[k].failed; return o; },{}),
     games:  SB.games || T25.cachedGames,
     pollsFailed: T25.pollsFailed, gamesFailed: T25.gamesFailed,
     heroId: hero ? hero.id : null,
@@ -407,12 +533,88 @@ function paintTop25(){
     fresh:  TeamOS.freshness.summary(top25Sources(), { now:now, online: navigator.onLine!==false }),
     calendar: TeamOS.season.calendar(window.LEAGUE_CALENDAR, seasonYear(), now),
     now:    now
-  });
+  };
+  if(m.view==="rankings") pickWeek(m, route);
+  Suite.top25.paint(host, m);
+  // A week picked from the list: the list is drawn anew, so focus goes back to it.
+  if(WEEKS.refocus && $("rkWeek")){ WEEKS.refocus=false; $("rkWeek").focus({ preventScroll:true }); }
 }
+
+// One Top 25 game in a sheet (suite/top25.js; David, 2026-10-20):
+// #top25/games/<event id>. Its summary is fetched only while it is open -
+// before kickoff the board's own facts are all it shows, so nothing is
+// fetched - and again every 30 seconds while the game is live. It sits
+// outside the page (#sheetHost), so the page under it is inert: focus and a
+// screen reader stay in the sheet. Close, Escape or the dimmed page goes
+// Back when the board opened it, and replaces the address when a link did.
+var SHEET={ id:null, detail:{}, failed:{}, timer:null, fromBoard:false, lastRoute:null };
+function sheetId(route){
+  return route && route.screen==="top25" && route.view==="games" && /^[0-9]+$/.test(route.path[1]||"") ? route.path[1] : null;
+}
+function sheetGame(id){
+  return (SB.games||T25.cachedGames||[]).filter(function(g){ return String(g.id)===String(id); })[0]||null;
+}
+function loadSheet(id){
+  var g=sheetGame(id);
+  if(g && g.state==="pre") return;
+  summaryFor(id, !!g && g.state==="in").then(function(raw){
+    SHEET.detail[id]=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG); SHEET.failed[id]=false;
+  }, function(){ SHEET.failed[id]=true; }).then(paintSheet);
+}
+function sheetHost(){
+  var h=$("sheetHost");
+  if(!h){
+    h=document.createElement("div"); h.id="sheetHost"; h.hidden=true;
+    h.addEventListener("click", function(e){ if(e.target.closest && e.target.closest("[data-close]")) closeSheet(); });
+    document.body.appendChild(h);
+  }
+  return h;
+}
+function paintSheet(){
+  var id=SHEET.id;
+  Suite.top25.sheet(sheetHost(), id ? { game:sheetGame(id), detail:SHEET.detail[id]||null, failed:!!SHEET.failed[id],
+                                       mark:function(pid){ return TeamOS.espn.mark(pid, false); } } : null);
+}
+function closeSheet(){
+  if(!SHEET.id) return;
+  if(SHEET.fromBoard) history.back(); else Suite.nav.replace("top25", ["games"]);
+}
+function syncSheet(route){
+  var id=sheetId(route), was=SHEET.id, prev=SHEET.lastRoute;
+  SHEET.lastRoute=route;
+  if(id===was) return;
+  clearInterval(SHEET.timer); SHEET.timer=null;
+  SHEET.id=id;
+  ["appBar","main","navbar"].forEach(function(k){ var el=$(k); if(el){ if(id) el.setAttribute("inert",""); else el.removeAttribute("inert"); } });
+  document.documentElement.classList.toggle("sheet-open", !!id);
+  if(id){
+    SHEET.fromBoard=!!prev && prev.screen==="top25" && prev.view==="games" && !sheetId(prev);
+    paintSheet(); loadSheet(id);
+    var t=document.querySelector("#sheetHost .sh-title"); if(t) t.focus({ preventScroll:true });
+    SHEET.timer=setInterval(function(){
+      var g=sheetGame(id);
+      if(!document.hidden && g && g.state==="in") loadSheet(id);
+    }, 30000);
+  } else {
+    paintSheet();
+    // Back on the board: focus returns to the row that opened it.
+    var row=was && document.querySelector('#screenTop25 a[href="#top25/games/'+was+'"]');
+    if(row && route && route.screen==="top25") row.focus({ preventScroll:true });
+  }
+}
+document.addEventListener("keydown", function(e){ if(SHEET.id && e.key==="Escape") closeSheet(); });
+// The week picker (suite/top25.js): a week is a route, so Back walks the weeks.
+document.addEventListener("change", function(e){
+  var s=e.target && e.target.closest && e.target.closest("#screenTop25 select[data-week]");
+  if(!s) return;
+  WEEKS.refocus=true;
+  Suite.nav.go("top25", ["rankings", s.getAttribute("data-source")].concat(s.value ? [s.value] : []));
+});
 
 function loadTop25(){
   var route=Suite.nav.current();
-  if(route.view==="rankings" && route.path[1]==="fpi") loadFpi();
+  if(route.view==="rankings") loadWeeks();
+  if(ratingKey(route)) loadRating(ratingKey(route));
   if(T25.polls==null) cachedJSON(TeamOS.espn.rankingsUrl()).then(function(d){
     if(T25.polls==null && d){ T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); paintTop25(); }
   }).catch(function(){});
@@ -1057,7 +1259,7 @@ window.addEventListener("online",  function(){
   [GV, SV].forEach(function(V){ if(V && V.previewFailed) V.at=0; });
   paintGame(); paintScheduleScreen();
   paintHome(); paintTop25(); paintRoster(); paintMore();
-  if(!$("screenTop25").hidden && Suite.nav.current().path[1]==="fpi") loadFpi();
+  if(!$("screenTop25").hidden && ratingKey()) loadRating(ratingKey());
   loadNews();                              // each source that failed, or came from the worker's copy, is asked again
   // Stats said it would load when the connection returned: it does - and
   // so does a season that came from the worker's copy, or one missing this
@@ -1292,7 +1494,7 @@ function showScreen(route){
   if(roster){ paintRoster(); loadRosterScreen(); }
   UI.tab=name;
 }
-Suite.nav.on(function(route){ showScreen(route); });
+Suite.nav.on(function(route){ showScreen(route); syncSheet(route); });
 // A first load that failed is asked again when the fan opens a screen that
 // needs it, so the failure message is never the last word while online.
 Suite.nav.on(function(route){
@@ -1695,7 +1897,7 @@ function refreshAll(silent){
   if(SB.data || SB.p) steps.push(getScoreboard(0).then(function(){ return { key:"scoreboard", outcome:outcomeOf("scoreboard") }; },
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));
   if(T25.polls || T25.p) steps.push(loadRankings());
-  if(FPI.tried) steps.push(loadFpi(true));
+  Object.keys(RATINGS).forEach(function(k){ if(RATINGS[k].tried) steps.push(loadRating(k,true)); });
   if(Object.keys(RO.s).some(function(k){ return RO.s[k].tried; })) steps.push(loadRosterScreen(true));
   if(ST.us || ST.p || ST.failed) steps.push(loadStats(true).then(function(){ return { key:"stats", outcome: ST.outcome || "failed" }; }));
   if(PL.tables || PL.p || PL.failed) steps.push(loadPlayers(true).then(function(){ return { key:"players", outcome: PL.outcome || "failed" }; }));
@@ -1867,20 +2069,22 @@ Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); 
 
 /* ---------- Game alerts (W19) ---------- */
 // This team's alerts, pushed by the edge API (worker/src/push.js) to this
-// device. Nothing is asked of the browser until the fan taps Turn On in
+// device. Nothing is asked of the browser until the fan enables the master switch in
 // Settings (notifications brief §3). Whether this device turned them on for
 // this team, and its choice of alerts (round 2, §2b), are kept here; the
 // Worker keeps the subscription and a copy of the choice.
 var ALERTS={ busy:false, note:null, sync:null, chain:Promise.resolve() };
 var ALERT_KEY="iw-alerts-"+TEAM.id, ALERT_OPTS_KEY="iw-alert-opts-"+TEAM.id;
-var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false };
+var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false, cfp:false };
 // Quick picks set the switches, then step aside (§2b): one shows as chosen
 // only while every switch matches it. Final only keeps delays, because a
-// postponed game has no final.
+// postponed game has no final. Kickoff time set is about the schedule, not
+// the game: only Everything includes it (notifications brief §2b, 12). So
+// are the CFP rankings, about the season (brief §1 postseason events).
 var ALERT_PICKS={
-  everything:{ kickoff:true, final:true, delays:true, scoring:"all", quarters:true, halftime:true, close:true },
-  key:{ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:true, close:true },
-  final:{ kickoff:false, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false } };
+  everything:{ kickoff:true, final:true, delays:true, scoring:"all", quarters:true, halftime:true, close:true, timeset:true, cfp:true },
+  key:{ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:true, close:true, timeset:false, cfp:false },
+  final:{ kickoff:false, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false, cfp:false } };
 function alertOpts(){
   var o={}, saved=null;
   try{ saved=JSON.parse(localStorage.getItem(ALERT_OPTS_KEY)||"null"); }catch(e){}
@@ -1895,7 +2099,7 @@ function alertOpts(){
   return o;
 }
 function saveAlertOpts(o){ try{ localStorage.setItem(ALERT_OPTS_KEY, JSON.stringify(o)); }catch(e){} }
-function alertsAnyOn(o){ return o.kickoff||o.final||o.delays||o.quarters||o.halftime||o.close||o.scoring!=="off"; }
+function alertsAnyOn(o){ return o.kickoff||o.final||o.delays||o.quarters||o.halftime||o.close||o.timeset||o.cfp||o.scoring!=="off"; }
 function alertPick(o){
   return Object.keys(ALERT_PICKS).filter(function(k){
     var p=ALERT_PICKS[k]; return Object.keys(p).every(function(x){ return p[x]===o[x]; });
@@ -1975,7 +2179,7 @@ function alertsTurnOn(){
     if(r.status!==200) throw { why:"server" };
     alertsDone(r.body.confirmation==="sent" ? "Game alerts are on. A test alert is on its way."
              : r.body.confirmation==="updated" ? "Game alerts are on."
-             : "Game alerts are on, but the test alert didn’t go through. Try Turn Off, then Turn On.", true);
+             : "Game alerts are on, but the test alert didn’t go through. Try switching alerts off, then on.", true);
   }).catch(function(e){
     alertsDone(e && e.why==="denied" ? "Notifications weren’t allowed, so game alerts are off."
                                      : "Couldn’t turn on game alerts. Check your connection and try again.", false);
@@ -1998,10 +2202,13 @@ function alertsTurnOff(why){
     alertsDone("Couldn’t turn off game alerts. Check your connection and try again.", null);
   });
 }
-document.addEventListener("click", function(e){
-  var b=e.target.closest && e.target.closest("[data-alerts]");
-  if(!b || ALERTS.busy || alertSupport()!=="ok") return;
-  if(b.getAttribute("data-alerts")==="on") alertsTurnOn(); else alertsTurnOff();
+document.addEventListener("change", function(e){
+  var b=e.target;
+  if(!b || !b.matches || !b.matches("#screenSettings input[data-alerts]")) return;
+  // Keep the confirmed state while a request is pending. aria-disabled
+  // preserves focus, so a repeated tap must also restore the native switch.
+  if(ALERTS.busy || alertSupport()!=="ok"){ b.checked=alertsModel().on; return; }
+  if(b.checked) alertsTurnOn(); else alertsTurnOff();
 });
 function alertTeam(){ return { id:String(TEAM_CONFIG.sources.espn.teamId), name:TEAM.name }; }
 // A change of choice: kept here at once, sent to the Worker a moment later
@@ -2040,7 +2247,7 @@ function alertsChoose(o){
   }, 600);
 }
 function alertsSummary(o){
-  var n=["kickoff","final","delays","quarters","halftime","close"].filter(function(k){ return o[k]; }).length+(o.scoring!=="off"?1:0);
+  var n=["kickoff","final","delays","quarters","halftime","close","timeset","cfp"].filter(function(k){ return o[k]; }).length+(o.scoring!=="off"?1:0);
   return n+(n===1?" kind of alert":" kinds of alerts")+" on.";
 }
 document.addEventListener("change", function(e){

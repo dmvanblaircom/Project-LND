@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-10-10T18:37:27.493391+00:00",
+ "updated": "2026-10-17T14:08:02.845690+00:00",
  "reports": [
   {
    "schema": 1,
@@ -250,6 +250,88 @@
      "pos": "OL",
      "no": "73",
      "name": "Vasean Washington",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "ohio-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-17T14:08:02.845690+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Indiana",
+   "players": [
+    {
+     "pos": "S",
+     "no": "10",
+     "name": "Leroy Roker III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Brock Boyd",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "21",
+     "name": "Brenten \"Inky\" Jones",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Anthony “Turbo” Rogers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Ja’Kobi Jackson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "30",
+     "name": "Amari Valerio-Hudson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "30",
+     "name": "Khmari Bing",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Jaxon Powell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "Austin Siereveld",
      "status": "out-game",
      "detail": ""
     }

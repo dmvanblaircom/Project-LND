@@ -1,0 +1,2019 @@
+{
+ "_comment": "Real ESPN payload, captured 2026-10-20T20:29Z by capture-fixture.yml from https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/weeks/1/rankings/1, kept whole.",
+ "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/weeks/1/rankings/1?lang=en&region=us",
+ "id": "1",
+ "name": "AP Top 25",
+ "shortName": "AP Poll",
+ "type": "ap",
+ "occurrence": {
+  "number": 1,
+  "type": "week",
+  "last": false,
+  "value": "1",
+  "displayValue": "Preseason"
+ },
+ "date": "2026-08-17T07:00Z",
+ "headline": "2026 NCAA Football Rankings - AP Poll Preseason",
+ "shortHeadline": "2026 AP Poll: Preseason",
+ "season": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026?lang=en&region=us",
+  "year": 2026,
+  "startDate": "2026-02-01T08:00Z",
+  "endDate": "2027-01-28T07:59Z",
+  "displayName": "2026",
+  "type": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1?lang=en&region=us",
+   "id": "1",
+   "type": 1,
+   "name": "Preseason",
+   "abbreviation": "pre",
+   "year": 2026,
+   "startDate": "2026-02-01T08:00Z",
+   "endDate": "2026-08-22T06:59Z",
+   "hasGroups": false,
+   "hasStandings": false,
+   "hasLegs": false,
+   "groups": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/groups?lang=en&region=us"
+   },
+   "weeks": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/weeks?lang=en&region=us"
+   },
+   "slug": "preseason"
+  },
+  "types": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types?lang=en&region=us",
+   "count": 4,
+   "pageIndex": 1,
+   "pageSize": 4,
+   "pageCount": 1,
+   "items": [
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1?lang=en&region=us",
+     "id": "1",
+     "type": 1,
+     "name": "Preseason",
+     "abbreviation": "pre",
+     "year": 2026,
+     "startDate": "2026-02-01T08:00Z",
+     "endDate": "2026-08-22T06:59Z",
+     "hasGroups": false,
+     "hasStandings": false,
+     "hasLegs": false,
+     "groups": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/groups?lang=en&region=us"
+     },
+     "weeks": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/weeks?lang=en&region=us"
+     },
+     "slug": "preseason"
+    },
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2?lang=en&region=us",
+     "id": "2",
+     "type": 2,
+     "name": "Regular Season",
+     "abbreviation": "reg",
+     "year": 2026,
+     "startDate": "2026-08-22T07:00Z",
+     "endDate": "2026-12-13T07:59Z",
+     "hasGroups": false,
+     "hasStandings": true,
+     "hasLegs": false,
+     "groups": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/groups?lang=en&region=us"
+     },
+     "week": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/weeks/8?lang=en&region=us",
+      "number": 8,
+      "startDate": "2026-10-19T07:00Z",
+      "endDate": "2026-10-26T06:59Z",
+      "text": "Week 8",
+      "rankings": {
+       "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/weeks/8/rankings?lang=en&region=us"
+      }
+     },
+     "weeks": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/weeks?lang=en&region=us"
+     },
+     "leaders": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/leaders?lang=en&region=us"
+     },
+     "slug": "regular-season"
+    },
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/3?lang=en&region=us",
+     "id": "3",
+     "type": 3,
+     "name": "Postseason",
+     "abbreviation": "post",
+     "year": 2026,
+     "startDate": "2026-12-13T08:00Z",
+     "endDate": "2027-01-28T07:59Z",
+     "hasGroups": false,
+     "hasStandings": true,
+     "hasLegs": false,
+     "groups": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/3/groups?lang=en&region=us"
+     },
+     "weeks": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/3/weeks?lang=en&region=us"
+     },
+     "leaders": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/3/leaders?lang=en&region=us"
+     },
+     "slug": "post-season"
+    },
+    {
+     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/4?lang=en&region=us",
+     "id": "4",
+     "type": 4,
+     "name": "Off Season",
+     "abbreviation": "off",
+     "year": 2026,
+     "startDate": "2027-01-28T08:00Z",
+     "endDate": "2027-02-01T07:59Z",
+     "hasGroups": false,
+     "hasStandings": false,
+     "hasLegs": false,
+     "groups": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/4/groups?lang=en&region=us"
+     },
+     "weeks": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/4/weeks?lang=en&region=us"
+     },
+     "slug": "off-season"
+    }
+   ]
+  },
+  "rankings": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/rankings?lang=en&region=us"
+  },
+  "athletes": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/athletes?lang=en&region=us"
+  },
+  "futures": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/futures?lang=en&region=us"
+  },
+  "leaders": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/3/leaders?lang=en&region=us"
+  }
+ },
+ "lastUpdated": "2026-08-17T19:26Z",
+ "ranks": [
+  {
+   "current": 1,
+   "previous": 0,
+   "points": 1672.0,
+   "firstPlaceVotes": 40,
+   "trend": "-1",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/194?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 2,
+   "previous": 0,
+   "points": 1597.0,
+   "firstPlaceVotes": 14,
+   "trend": "-2",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2483?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 3,
+   "previous": 0,
+   "points": 1513.0,
+   "firstPlaceVotes": 0,
+   "trend": "-3",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/61?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 4,
+   "previous": 0,
+   "points": 1510.0,
+   "firstPlaceVotes": 6,
+   "trend": "-4",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/87?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 5,
+   "previous": 0,
+   "points": 1483.0,
+   "firstPlaceVotes": 0,
+   "trend": "-5",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/251?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 6,
+   "previous": 0,
+   "points": 1440.0,
+   "firstPlaceVotes": 8,
+   "trend": "-6",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/84?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 7,
+   "previous": 0,
+   "points": 1379.0,
+   "firstPlaceVotes": 1,
+   "trend": "-7",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2390?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 8,
+   "previous": 0,
+   "points": 1131.0,
+   "firstPlaceVotes": 0,
+   "trend": "-8",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/245?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 9,
+   "previous": 0,
+   "points": 1102.0,
+   "firstPlaceVotes": 0,
+   "trend": "-9",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/145?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 10,
+   "previous": 0,
+   "points": 1047.0,
+   "firstPlaceVotes": 0,
+   "trend": "-10",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/201?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 11,
+   "previous": 0,
+   "points": 988.0,
+   "firstPlaceVotes": 0,
+   "trend": "-11",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/99?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 12,
+   "previous": 0,
+   "points": 983.0,
+   "firstPlaceVotes": 0,
+   "trend": "-12",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2641?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 13,
+   "previous": 0,
+   "points": 904.0,
+   "firstPlaceVotes": 0,
+   "trend": "-13",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/333?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 14,
+   "previous": 0,
+   "points": 839.0,
+   "firstPlaceVotes": 0,
+   "trend": "-14",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/30?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 14,
+   "previous": 0,
+   "points": 839.0,
+   "firstPlaceVotes": 0,
+   "trend": "-14",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/252?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 16,
+   "previous": 0,
+   "points": 718.0,
+   "firstPlaceVotes": 0,
+   "trend": "-16",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/130?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 17,
+   "previous": 0,
+   "points": 501.0,
+   "firstPlaceVotes": 0,
+   "trend": "-17",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/264?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 18,
+   "previous": 0,
+   "points": 482.0,
+   "firstPlaceVotes": 0,
+   "trend": "-18",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/213?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 19,
+   "previous": 0,
+   "points": 434.0,
+   "firstPlaceVotes": 0,
+   "trend": "-19",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2567?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 20,
+   "previous": 0,
+   "points": 394.0,
+   "firstPlaceVotes": 0,
+   "trend": "-20",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2633?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 21,
+   "previous": 0,
+   "points": 304.0,
+   "firstPlaceVotes": 0,
+   "trend": "-21",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/254?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 22,
+   "previous": 0,
+   "points": 260.0,
+   "firstPlaceVotes": 0,
+   "trend": "-22",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2294?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 23,
+   "previous": 0,
+   "points": 252.0,
+   "firstPlaceVotes": 0,
+   "trend": "-23",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/248?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 24,
+   "previous": 0,
+   "points": 194.0,
+   "firstPlaceVotes": 0,
+   "trend": "-24",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/97?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 25,
+   "previous": 0,
+   "points": 117.0,
+   "firstPlaceVotes": 0,
+   "trend": "-25",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/142?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  }
+ ],
+ "others": [
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 112.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/228?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 51.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/57?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 43.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/68?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 32.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/12?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 11.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2628?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 10.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2579?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 10.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2426?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 9.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/356?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 8.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/238?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 8.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/197?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 7.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/221?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 6.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/259?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 5.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/135?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 4.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2439?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 4.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/309?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 4.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/167?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 4.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/59?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 3.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/256?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 3.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 2.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/235?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 2.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/25?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 1.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2711?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 1.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2655?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 1.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/2335?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  },
+  {
+   "current": 0,
+   "previous": 0,
+   "points": 1.0,
+   "firstPlaceVotes": 0,
+   "trend": "-",
+   "record": {
+    "summary": "0-0",
+    "stats": [
+     {
+      "name": "wins",
+      "displayName": "Wins",
+      "shortDisplayName": "W",
+      "description": "Wins",
+      "abbreviation": "W",
+      "type": "wins",
+      "value": 0.0,
+      "displayValue": "0"
+     },
+     {
+      "name": "losses",
+      "displayName": "Losses",
+      "shortDisplayName": "L",
+      "description": "Losses",
+      "abbreviation": "L",
+      "type": "losses",
+      "value": 0.0,
+      "displayValue": "0"
+     }
+    ]
+   },
+   "team": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/258?lang=en&region=us"
+   },
+   "date": "2026-08-17T07:00Z",
+   "lastUpdated": "2026-08-17T19:26Z"
+  }
+ ],
+ "droppedOut": [],
+ "availability": {}
+}

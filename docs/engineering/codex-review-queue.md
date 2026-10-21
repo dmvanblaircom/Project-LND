@@ -1,11 +1,13 @@
 # Codex review and UI queue
 
-Reconciled October 12. [backlog.md](backlog.md) is the current scope; the
-[Wednesday handoff](claude-handoff-2026-10-14.md) is the integration checklist.
+Reconciled October 20 against main through ranking weeks/game sheets #149,
+football-news #150, CFP alerts #147, SP+ #142 and kickoff Settings #143.
+[backlog.md](backlog.md) is the current scope; the
+[offseason handoff](offseason-renderer-handoff-2026-10-12.md) is the active UI integration checklist.
 
-1. **Mobile fit:** PR #126 was merged October 12; preserve the approved halftime receiver and treat any later regression separately.
-2. **PR #130 FPI:** current-main review branch supersedes stale draft #127. Validate full CI and both teams/styles, source metadata and recovery; SP+ is still Claude's endpoint/model task.
-3. **Offseason:** review the merged original prototype plus draft PR #131 (`../design/offseason-preview-v2.html`) and `../design/offseason-ui-contract-2026-10-12.md`; implement only after visual approval and Claude's season/load model. Mid-November deadline remains.
+1. **Offseason:** David approved the S2/S4 direction October 12. Draft #134 now loads the production renderer, accepts optional Home season data, moves News below the S4/S5 hero and exposes independent seasonal nav flags. Review `../design/offseason-home-review.html`. Claude still owns verified source/load state and activation in app.js, plus prospects and season-matched markets. Mid-November deadline remains.
+2. **Rankings completed:** FPI #130 and SP+ #142 have merged. #145 keeps all five source choices on one row at 320px. Pages, Worker and production verification passed for SP+ merge c46d0fb; fresh local ratingsflowcheck passed 165 checks October 20. Do not rebuild the selector or reopen the declined year-scope finding.
+3. **Mobile fit completed:** #126 plus subsequent fixes. Preserve the halftime receiver text; the football was removed in #141 by David's later decision.
 4. **Working additions to refine:** Outlook board, Game Alerts Settings,
    recent game-note/captain/honors presentation and shared header gear.
    Inspect current captures before proposing changes.

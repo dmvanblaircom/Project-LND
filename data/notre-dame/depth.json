@@ -3,11 +3,11 @@
  "team": "notre-dame",
  "capability": "depth",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/8cb2896b-d35e-4f9a-a8dc-bd5a38b38f3c.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/06137107-c9b9-4296-82a8-30086655bb4d.pdf",
  "sourceLabel": "FightingIrish.com",
  "title": "DEPTH CHART - GAME 7 AT BYU",
  "game": "at BYU",
- "fetchedAt": "2026-10-12T19:37:24.011037+00:00",
+ "fetchedAt": "2026-10-15T17:37:53.936604+00:00",
  "units": [
   {
    "unit": "Defense",
@@ -247,8 +247,8 @@
        "level": 2,
        "players": [
         {
-         "no": "24",
-         "name": "Mark Zackery IV",
+         "no": "12",
+         "name": "Jayden Sanders",
          "cl": "So."
         }
        ]
@@ -325,9 +325,9 @@
        "level": 2,
        "players": [
         {
-         "no": "12",
-         "name": "Jayden Sanders",
-         "cl": "So."
+         "no": "13",
+         "name": "Ayden Pouncey",
+         "cl": "Fr."
         }
        ]
       }
@@ -1044,6 +1044,21 @@
    "text": "Dallas Golden now also listed at PR, second team"
   },
   {
+   "kind": "added",
+   "name": "Jayden Sanders",
+   "text": "Jayden Sanders now also listed at CB 1, second team"
+  },
+  {
+   "kind": "removed",
+   "name": "Jayden Sanders",
+   "text": "Jayden Sanders no longer listed at CB 2"
+  },
+  {
+   "kind": "enters",
+   "name": "Ayden Pouncey",
+   "text": "Ayden Pouncey enters the depth chart at CB 2, second team"
+  },
+  {
    "kind": "removed",
    "name": "Jaden Greathouse",
    "text": "Jaden Greathouse no longer listed at PR"
@@ -1082,6 +1097,11 @@
    "kind": "removed",
    "name": "Aneyas Williams",
    "text": "Aneyas Williams no longer listed at PR"
+  },
+  {
+   "kind": "leaves",
+   "name": "Mark Zackery IV",
+   "text": "Mark Zackery IV is off the depth chart"
   },
   {
    "kind": "leaves",
