@@ -150,7 +150,7 @@ ok(/data-alert-pick="key" aria-pressed="true"/.test(alertsHtml({ support: "ok", 
 eq((aCh.sec.match(/name="alertScoring" value="(\w+)"( checked)?/g) || []).map(function (x) { return /checked/.test(x) ? "*" + x.split('"')[3] : x.split('"')[3]; }),
    ["off", "*mine", "all"], "scoring: one choice of three, My team's scores chosen");
 eq((aCh.sec.match(/role="switch" class="al-switch" name="alert-(\w+)" data-alert-opt="\w+"( checked)?/g) || []).map(function (x) { return (/checked/.test(x) ? "+" : "-") + /alert-(\w+)/.exec(x)[1]; }),
-   ["+kickoff", "+final", "+delays", "-timeset", "-quarters", "+halftime", "+close", "-cfp"], "a switch for each of the rest, set from the choice");
+   ["+kickoff", "+final", "+delays", "-timeset", "-quarters", "+halftime", "+close", "-cfp", "-selection", "-postseason", "-nopost"], "a switch for each of the rest, set from the choice");
 ok(/one-score game late in the 4th, and if it goes to overtime/.test(aCh.sec) && /allow Suite in your Focus settings/.test(aCh.sec), "close finish explained; the Focus hint (§2b, 11)");
 ok(/<label class="al-row">[\s\S]*?<input type="checkbox" role="switch"/.test(aCh.sec) && /<legend class="al-legend">Scoring<\/legend>/.test(aCh.sec),
    "each switch is labelled by its row; each group has a legend");

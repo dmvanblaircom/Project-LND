@@ -1485,6 +1485,13 @@ console.log("game alerts: Selection Day, the postseason set, a game declined, no
   eq(JSON.parse(db.all("SELECT game FROM games WHERE team_id = '87'")[0].game || "{}").id, "401677179", "and from the next minute the game alerts watch the playoff game");
   await tick(db, e, S0 + 50 * 60e3);
   ok(to(f.nd).length === 1 && to(f.lsu).length === 1, "each game is announced once");
+  { // A postseason read that fails at the hourly read: the playoff game stays watched.
+    const keep = ndPost; ndPost = 503;
+    db.run("UPDATE games SET checked = 0 WHERE team_id = '87'");
+    await tick(db, e, S0 + 51 * 60e3);
+    eq(JSON.parse(db.all("SELECT game FROM games WHERE team_id = '87'")[0].game || "{}").id, "401677179", "a failed postseason read never drops the game being watched");
+    ndPost = keep;
+  }
 
   // LSU leaves its bowl (David: Notre Dame declined its 2025 bowl). One read
   // without it is not enough; a failed read is never a missing game.

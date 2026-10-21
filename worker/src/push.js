@@ -772,8 +772,11 @@ export async function tick(db, env, now, quick) {
     let readPost = false;
     if (stale) {
       const schedule = await getJson(env, SITE + "/teams/" + teamId + "/schedule");
-      if (schedule) {
-        const post = sel ? await getJson(env, SITE + "/teams/" + teamId + "/schedule?seasontype=3") : null;
+      const post = schedule && sel ? await getJson(env, SITE + "/teams/" + teamId + "/schedule?seasontype=3") : null;
+      // In the postseason a failed postseason read leaves what is watched as
+      // it was, and is tried again next minute: a bowl never drops out of
+      // view because one read failed before its kickoff.
+      if (schedule && (!sel || post)) {
         if (sel) { postSeen(db, teamId, post, sel, now, log); readPost = true; }
         const both = post && Array.isArray(post.events) ? { events: (schedule.events || []).concat(post.events) } : schedule;
         times(db, teamId, both, now, log);
