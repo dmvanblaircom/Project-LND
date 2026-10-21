@@ -248,7 +248,9 @@ TeamOS.espn = (function () {
   //   bowl      the bowl it is played in or as, when there is one
   //   last      no game can follow it this season: a bowl, or the title game
   // null when ESPN carries no note.
-  var PLAYOFF_ROUND=/^College Football Playoff (First Round|Quarterfinal|Semifinal|National Championship)(?: at the (.+))?$/i;
+  // ESPN wrote 2025's first round as "College Football Playoff First Round Game"
+  // (tools/fixtures/espn-scoreboard-postboard-2025.json).
+  var PLAYOFF_ROUND=/^College Football Playoff (First Round|Quarterfinal|Semifinal|National Championship)(?: Game)?(?: at the (.+))?$/i;
   var ROUND_NAME={ "first round":"First Round", quarterfinal:"Quarterfinal", semifinal:"Semifinal", "national championship":"National Championship" };
   function stageOf(comp){
     var h=((comp&&comp.notes)||[]).map(function(n){ return n && n.headline ? String(n.headline) : ""; }).filter(Boolean)[0];
@@ -1287,6 +1289,12 @@ TeamOS.espn = (function () {
     },
     scoreboardUrl: function(){
       return SITE+"/scoreboard?groups="+LEAGUE_GROUP+"&limit=400";
+    },
+    // The league's whole postseason for a season - every bowl and playoff
+    // game - for postseasonSelected(). ESPN answers this as season type 3,
+    // week 1; it refuses a date range (capture-fixture.yml, 2026-10-21).
+    postseasonBoardUrl: function(season){
+      return SITE+"/scoreboard?groups="+LEAGUE_GROUP+"&limit=400&seasontype="+POSTSEASON+"&week=1&dates="+season;
     },
     summaryUrl: function(gameId){
       return SITE+"/summary?event="+gameId;
