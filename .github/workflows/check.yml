@@ -91,6 +91,8 @@ jobs:
         run: python3 tools/rankingshistorycheck.py
       - name: The edge API answers only what a screen shows
         run: node tools/workercheck.mjs
+      - name: W16 verified offseason season-card rendering
+        run: node tools/offseasonrendercheck.js
       - name: A shell change bumps the worker version
         if: github.event_name == 'push'
         run: node tools/versioncheck.js "${{ github.event.before }}"
@@ -114,6 +116,10 @@ jobs:
       # itself out, and old data is never passed off as fresh.
       # Review-only offseason Home v2 states and screenshots, not production season wiring.
       - run: node tools/offseasonpreviewcheck.js
+      # Actual S2/S4 component and production CSS, both teams/styles.
+      - run: node tools/offseasoncomponentcheck.js
+      # Home composition and seasonal navigation, including saved routes/focus.
+      - run: node tools/offseasonhomecheck.js
       - run: node tools/rosterflowcheck.js
       # FPI routing, source-specific freshness and real service-worker recovery.
       - run: node tools/ratingsflowcheck.js
