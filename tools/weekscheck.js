@@ -31,6 +31,8 @@ fs.mkdirSync(shots, { recursive: true });
         st.weeks++;
         return opts.noWeeks ? route.fulfill({ status: 404, body: "" }) : route.fulfill({ status: 200, contentType: "application/json", body: fixture("rankings-2026-sample.json") });
       }
+      // FPI as it stood on Oct 20 (week 8), not the file the refresh moves.
+      if (/\/data\/league\/fpi\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: fixture("fpi-2026-w8-sample.json") });
       if (/\/data\/league\/fpi-history-2026\.json/.test(u)) { st.fpiWeeks++; return route.fulfill({ status: 200, contentType: "application/json", body: fixture("fpi-history-2026-sample.json") }); }
       if (u.startsWith(base)) return route.continue();
       var body = /\/rankings/.test(u) ? fixture("espn-rankings-sep20.json") : /\/scoreboard\?/.test(u) ? fixture("espn-scoreboard-sep26.json")
