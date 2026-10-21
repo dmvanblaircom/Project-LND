@@ -1,33 +1,32 @@
 # Project LND: active delivery queue
 
-Reconciled October 12, 2026 against main after merged PRs #126, #128 and #129; updated October 15 after #137, #139, #140 and #141 merged. David authorized Codex to continue ready work while Claude is unavailable
-until **Wednesday October 14, noon America/New_York**. This is the current queue;
+Reconciled October 21, 2026 against main after #142–#154 merged and were
+production-verified (the last, #153, at 859f8ff). This is the current queue;
 the [prior queue](backlog-archive-2026-10-11.md) is historical, not instructions
 to rebuild completed work.
 
-Start with [the October 14 handoff](claude-handoff-2026-10-14.md). It records
-ready branches, ownership, integration order and concrete acceptance checks.
-Main continues receiving data refreshes, so inspect it and open PRs before work.
+The ownership split in [the October 14 handoff](claude-handoff-2026-10-14.md)
+still holds. Main continues receiving data refreshes, so inspect it and open
+PRs before work.
 
 ## Built for review, not yet shipped
 
 | Item | Owner | Evidence | Remaining gate |
 |---|---|---|---|
-| SP+ in Rankings (rest of W07, #29) | Claude | PR #142: edge route `/v1/cfbd/sp`, `TeamOS.ratings.spPlus`, a fifth rating source with its own load state, no Change column; workercheck, ratingscheck, 99-check ratingsflowcheck; four Codex findings resolved (one declined, with David) | David's visual OK on the 320px selector (SP+ wraps to its own row), merge, Worker deploy, production verification; then close #29 |
-| Kickoff time set switch (W19) | Claude | PR #143: fourth Game row in Settings, off by default and for saved choices, Everything pick only; alertscheck | CI and review, merge, production verification |
-| Offseason orientation and handoff (W16) | Codex | Base preview merged in #128; v2 last-result refinement and screenshot checks in draft PR #131 | David reviews S2/S4 rendered states; no production season wiring yet |
+| Offseason Home and seasonal navigation (W16) | Codex | PR #134 (open): the approved S2/S4 Home cards and seasonal navigation. The season data it needs is merged: `TeamOS.season.offseason` (#153), contract in [offseason-season-data.md](offseason-season-data.md) | Codex wires the model into Home; David reviews the S2/S4 rendered states; merge, production verification |
 
 ## Ordered remaining implementation
 
 | Order | Item | Owner / remaining scope |
 |---|---|---|
-| 3 | Offseason and rollover (W16), due mid-November | Claude: next-season fetch, production state wiring, source outcomes, recruiting/draft refresh and season-matched markets. Codex: approved S2/S4 screens, prospect presentation and seasonal nav. Existing season/prospect models and postseason fetching are built. |
-| 5 | Postseason notifications (W19) | Claude: CFP released, Selection Day, team postseason set and authoritative no-postseason outcome. Codex: controls/copy. Advance calendar-sensitive slices before the relevant event. |
-| 6 | Photography (W13) and targeted visual finish (W14) | Codex: deployable Home/Game imagery, focal points/crops, responsive fallback; review Outlook, alert Settings and recent notes/badges. No broad brand reset. |
-| 7 | Ohio State remainder (W20) | Claude: conference-only availability freshness expectations; depth chart only after Ourlads permission. Codex: team parity. News, history and Big Ten availability already ship. |
-| 8 | Historical Stats (W27 phase 3) | Claude: verify past-season sources/caching and athlete identity. Codex: season selection and career pages. Current Team and Players views already ship. |
-| 9 | Bounded reliability (W10) | Claude: repeated same-version worker install; simplify source/refresh ownership only where useful. Preserve existing recovery and negative controls. |
-| 10 | Release evidence (W09) | Codex/Claude: resolve pending-design-review item 4 against current outage/upgrade evidence. David: physical iPhone/Safari/PWA observations. Do not mark a device pass from desktop CI. |
+| 1 | Offseason and rollover (W16), due mid-November | Codex: PR #134, wiring `TeamOS.season.offseason` into Home, prospect presentation. Claude: recruiting/draft refresh and season-matched markets. The season data contract (#153), season/prospect models and postseason fetching are built. |
+| 2 | Postseason notifications (W19): first live runs | Claude: watch the first CFP release (November 3, 7 PM ET), the weekly releases through December 1 and Selection Day (December 6, noon ET), and fix from what the real payloads show. Built in #147 and #152. |
+| 3 | SP+ week by week | Claude: keep SP+ each week as AP, Coaches and FPI are, so Top 25's week picker covers it. |
+| 4 | Photography (W13) and targeted visual finish (W14) | Codex: deployable Home/Game imagery, focal points/crops, responsive fallback; review Outlook, alert Settings and recent notes/badges. No broad brand reset. |
+| 5 | Ohio State remainder (W20) | Claude: conference-only availability freshness expectations; depth chart only after Ourlads permission. Codex: team parity. News, history and Big Ten availability already ship. |
+| 6 | Historical Stats (W27 phase 3) | Claude: verify past-season sources/caching and athlete identity. Codex: season selection and career pages. Current Team and Players views already ship. |
+| 7 | Bounded reliability (W10) | Claude: repeated same-version worker install; simplify source/refresh ownership only where useful. Preserve existing recovery and negative controls. |
+| 8 | Release evidence (W09) | Codex/Claude: resolve pending-design-review item 4 against current outage/upgrade evidence. David: physical iPhone/Safari/PWA observations. Do not mark a device pass from desktop CI. |
 
 ## Later product-scoped work
 
@@ -44,6 +43,13 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 
 | Work | Merged evidence |
 |---|---|
+| Postseason alerts: CFP rankings released; Selection Day, postseason game set, withdrawn (a declined bowl), no postseason | #147, #152 (Worker edge-2026-10-21post); kinds added later start off for existing subscribers |
+| Offseason season data for the after-season Home | #153: `TeamOS.season.offseason`, ESPN's own final-poll mark for the AP; [contract](offseason-season-data.md) |
+| Top 25 week picker (every kept week of AP, Coaches, CFP and FPI) and the game sheet on every row | #149; the visual check reads sample weeks, #154 |
+| SP+ in Rankings | #142 (edge `/v1/cfbd/sp`); 320px selector #145 (Codex) |
+| Data requests fall back to the kept copy after 8 seconds | #151 |
+| News: football only; On3 by team path only | #146, #150 |
+| Launch check: no real network for the test browser | #148 |
 | Mobile Top 25 / Home / Game narrow-layout fixes | #126 (merged October 12) |
 | Core type, Ink/Pearl, Home/Game, Stats presentation and motion | #100, #104, #105, #106 |
 | Unified header; Settings gear; Full Schedule links | #76, #120, #72 |
@@ -56,7 +62,7 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
 | Battle/open-job framing limited to preseason/Game 1; OR retained | #39 |
 | Game notes and complete roster fetching | #114, #122 |
 | Unknown live-drive duration (Oct 10 scan #6) | #139 |
-| Kickoff time set/changed alerts and one delivery per device when it follows both teams | #140 (Worker edge-2026-10-14a); Settings switch is #143 |
+| Kickoff time set/changed alerts and one delivery per device when it follows both teams | #140 (Worker edge-2026-10-14a); Settings switch #143 |
 | Game Alerts Settings: master switch and unified rows | #137 (Codex) |
 | Halftime: no possession football; who gets the ball to start the second half stays | #141 (David, October 14) |
 | Game team-toggle scroll stability | #123 |
@@ -101,6 +107,11 @@ Main continues receiving data refreshes, so inspect it and open PRs before work.
   wider promotion. No new licensing outreach is authorized by this queue.
 - Physical iPhone checks, the old shared-link Safari launch observation and
   measured push latency need David's observations; do not assume completion.
+- CI once reported the Top 25 table 2px wider than its card at Ohio State
+  320px on real Week 8 data (#154). It did not reproduce locally; recheck
+  only if it recurs.
+- Codex's review credits ran out on October 21: the last commits of #152
+  and #153 were not re-reviewed by Codex.
 - Internal iw- identifiers and optional old Cloudflare GitHub App cleanup
   are not fan-facing build blockers. More teams/sports and transfer sources
   stay discovery, not unlimited implementation scope.
