@@ -137,4 +137,57 @@ ok(len(f2) == 1 and f2[0]["snapshot"]["sourceUpdated"] == "2026-10-21T08:00Z", "
 ok([w["id"] for w in f3] == ["w8", "w9"], "a new FPI week is added beside the kept ones")
 ok(rh.keep_fpi({"weeks": f3}, dict(snap, season=2025), 2026) == f3, "last season's FPI never lands in this season's history")
 
+# ---- FPI's earlier weeks, from the core API (probe, 2026-10-21) ----------
+OCT20 = fixture("fpi-2026-w8-sample.json")            # fpi.json as kept on Oct 20: "Week 8"
+CORE6, CORE7 = fixture("espn-corefpi-2026-w6.json"), fixture("espn-corefpi-2026-w7.json")
+NAMES = {t["espnId"]: {"name": t["name"], "abbr": t["abbr"]} for t in OCT20["teams"]}
+w8 = rh.core_fpi(CORE7, 2026, 8, NAMES)
+def bare(rows):
+    return [{k: v for k, v in r.items() if k != "rankChange"} for r in rows]
+ok(bare(w8["teams"]) == bare(OCT20["teams"]) and w8["week"] == 8 and w8["weekText"] == "Week 8",
+   "core week 7 is the app's Week 8: all 138 rows - rank, rating, record, name - as fpi.json kept them on Oct 20")
+# The feed's 7-day change read 0 for every team on Oct 20; the core API keeps
+# the week's own (Ohio State up 2): ESPN's figure either way, the core's kept.
+ok(all(isinstance(r["rankChange"], int) for r in w8["teams"]) and [r for r in w8["teams"] if r["espnId"] == "194"][0]["rankChange"] == 2,
+   "each backfilled row keeps ESPN's 7-day rank change for that week")
+w7 = rh.core_fpi(CORE6, 2026, 7, NAMES)
+nd = [t for t in w7["teams"] if t["espnId"] == "87"][0]
+ok(w7["sourceUpdated"] == "2026-10-11T08:00Z" and nd["rank"] == 1 and nd["record"] == "6-0",
+   "core week 6, as Week 7: updated Oct 11, Notre Dame No. 1 at 6-0")
+try:
+    rh.core_fpi(dict(CORE6, items=CORE6["items"][:100]), 2026, 7, NAMES); short_ok = False
+except rh.Refused:
+    short_ok = True
+ok(short_ok, "a partial FPI table is refused")
+try:
+    rh.core_fpi(CORE6, 2025, 7, NAMES); season_ok = False
+except rh.Refused:
+    season_ok = True
+ok(season_ok, "another season's table is refused")
+
+asked, flog = [], []
+def core_fetch(url):
+    asked.append(url)
+    if url.endswith("/types/2/weeks/6/powerindex?limit=200"):
+        return CORE6
+    raise urllib.error.HTTPError(url, 404, "not kept", None, None)
+cur = dict(OCT20, sourceUpdated="2026-10-21T08:00Z")
+kept8 = rh.keep_fpi({}, cur, 2026)
+filled = rh.fill_fpi(kept8, cur, 2026, core_fetch, flog.append)
+ok([w["id"] for w in filled] == ["w7", "w8"] and filled[0]["snapshot"]["sourceUpdated"] == "2026-10-11T08:00Z" and filled[1] == kept8[0],
+   "the weeks before the current one are filled in; the current week stays fpi.json's own")
+ok(sorted(u.split("/weeks/")[1].split("/")[0] for u in asked) == ["1", "2", "3", "4", "5", "6"],
+   "Weeks 2 to 7 asked for, as core weeks 1 to 6 - no preseason FPI exists to ask for")
+ok(any("fpi w2: ESPN answered 404" in l for l in flog), "a week ESPN does not answer is said, and skipped")
+asked2 = []
+again = rh.fill_fpi(filled, cur, 2026, lambda u: asked2.append(u) or CORE7, flog.append)
+ok([w for w in again if w["id"] == "w7"][0] == filled[0] and [w for w in again if w["id"] == "w8"][0] == filled[1] and
+   len([u for u in asked2 if "/weeks/6/" in u or "/weeks/7/" in u]) == 0,
+   "a week already kept is never asked for or replaced")
+ok(rh.fill_fpi([], dict(cur, season=2025), 2026, core_fetch) == [] and rh.fill_fpi([], dict(cur, seasonType=3), 2026, core_fetch) == [],
+   "nothing filled from another season's or a postseason snapshot")
+def down(url):
+    raise urllib.error.URLError("offline")
+ok(rh.fill_fpi(kept8, cur, 2026, down, flog.append) == kept8, "ESPN unreachable: what is kept stands, the rest wait")
+
 print("\n%d checks: every released week kept, complete and named; nothing kept is ever lost" % checks)

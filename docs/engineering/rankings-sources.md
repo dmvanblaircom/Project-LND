@@ -97,8 +97,13 @@ Top 25 → Rankings has a week picker for each source. It defaults to the newest
   - The first run fills the season so far.
   - Later runs read only the newest weeks, plus the latest kept one, which ESPN can still correct.
   - A week that is not a complete top 25 is refused and never replaces a kept one.
-- **FPI.** It publishes no history, so `fpi.json` is kept once per FPI week from the week this began, in `data/league/fpi-history-<Y>.json`. The rankings file carries only the list of those weeks, so the picker can be drawn without fetching the tables.
+- **FPI.** `fpi.json` is kept once per FPI week in `data/league/fpi-history-<Y>.json`. The rankings file carries only the list of those weeks, so the picker can be drawn without fetching the tables.
+  - **Earlier weeks are filled in (David, 2026-10-21)** from ESPN's core API, which keeps FPI by week: `seasons/<Y>/types/2/weeks/<k>/powerindex`.
+  - Its week *k* is FPI after week *k*'s games: the table the app's feed calls "Week *k*+1", going into that week. The probe of Oct 21 matched core week 7 to the kept Oct 20 "Week 8" on all 138 teams' rank, rating and record.
+  - The 7-day rank change differs: the feed read 0 for every team on Oct 20, and the core API keeps the week's own change. Backfilled weeks keep the core figure.
+  - The core API has no preseason FPI (season type 1 answers an empty list), so Week 1 cannot be filled.
+  - A week already kept is never replaced; a partial or other-season table is refused. Names and abbreviations come from `fpi.json`'s own rows.
 - **SP+.** CFBD's SP+ is season-level only and is read through the edge API. No weeks are kept, so there is no picker.
 - **The app.** The current week always comes from the live source (the feed's poll, `fpi.json`), never from a kept copy. A kept week is shown only when its address asks for it: `#top25/rankings/<source>/<pre|wN|final>`.
 
-Fixtures: `tools/fixtures/espn-corerank-*.json`, `espn-coreweeks-*.json`, `espn-coreteam-*.json` (real), and `rankings-2026-sample.json`, `fpi-history-2026-sample.json` (built from them). Checks: `tools/rankingshistorycheck.py`, `tools/weekscheck.js`.
+Fixtures: `tools/fixtures/espn-corerank-*.json`, `espn-coreweeks-*.json`, `espn-coreteam-*.json` (real), and `rankings-2026-sample.json`, `fpi-history-2026-sample.json` (built from them), `espn-corefpi-2026-w6.json` and `-w7.json` (real, trimmed to the fields read) and `fpi-2026-w8-sample.json` (`fpi.json` as kept on Oct 20). Checks: `tools/rankingshistorycheck.py`, `tools/weekscheck.js`.
