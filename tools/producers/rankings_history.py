@@ -14,9 +14,14 @@ from ESPN's core API, which keeps them all, and stored:
           points and first-place votes ESPN gives. A first run fills the whole
           season so far; later runs read only the weeks not yet kept and the
           latest kept one, which ESPN can still correct.
-  fpi     data/league/fpi.json as it stood at each of its weeks, from the week
-          this began: FPI publishes no history, so none can be filled in. Its
-          own file: a whole table a week, read only for an earlier FPI week.
+  fpi     data/league/fpi.json as it stood at each of its weeks. Earlier
+          weeks are filled in from ESPN's core API, which keeps FPI by week
+          (probe, 2026-10-21): its week k is FPI after week k's games - the
+          table the app's feed calls "Week k+1", going into that week (core
+          week 7 matched the kept Oct 20 "Week 8" on all 138 teams). There is
+          no preseason FPI to fill. A week already kept is never replaced.
+          Its own file: a whole table a week, read only for an earlier FPI
+          week.
   teams   the name and abbreviation of every team ranked, by ESPN id, read
           once each from the core API.
 
@@ -216,6 +221,77 @@ def collect(season, kept, fetch, log=print):
     return {k: order(v) for k, v in polls.items()}, teams
 
 
+FPI_MIN_TEAMS = 120          # as tools/producers/fpi.py: fewer is a partial table
+
+
+def core_fpi(payload, season, week, names):
+    """One core-API FPI week -> the snapshot fpi.json would have been, as the
+    app's week `week` (core week week-1), or Refused. `names` maps an ESPN id
+    to {name, abbr} (fpi.json's own rows)."""
+    if not isinstance(payload, dict) or not isinstance(payload.get("items"), list):
+        raise Refused("no items")
+    rows, seen, updated = [], set(), None
+    for it in payload["items"]:
+        tid = team_id((it.get("team") or {}).get("$ref"))
+        if not tid or tid in seen:
+            raise Refused("a row without a team, or a team twice")
+        if it.get("season") != season:
+            raise Refused("season %s, expected %s" % (it.get("season"), season))
+        seen.add(tid)
+        p = {q.get("name"): q.get("value") for q in it.get("predictives") or [] if isinstance(q, dict)}
+        rank, rating = p.get("fpirank"), p.get("fpi")
+        if not isinstance(rank, (int, float)) or not isinstance(rating, (int, float)) or rank != int(rank) or rank < 1:
+            raise Refused("team %s has no usable rank or rating" % tid)
+        w, l, t = p.get("numwins"), p.get("numlosses"), p.get("numties")
+        change = p.get("rankchange7days")
+        n = names.get(tid) or {}
+        rows.append({
+            "espnId": tid, "name": n.get("name"), "abbr": n.get("abbr"),
+            "rank": int(rank), "rating": round(rating, 1),
+            "rankChange": int(change) if isinstance(change, (int, float)) else None,
+            "record": ("%d-%d" % (w, l) + ("-%d" % t if t else "")) if isinstance(w, (int, float)) and isinstance(l, (int, float)) else None,
+        })
+        updated = updated or it.get("lastUpdated")
+    if len(rows) < FPI_MIN_TEAMS:
+        raise Refused("only %d teams (a partial table)" % len(rows))
+    rows.sort(key=lambda r: (r["rank"], r["espnId"]))
+    return {"schema": 1, "source": "fpi", "label": "ESPN FPI", "kind": "predictive rating",
+            "sourceUrl": "https://www.espn.com/college-football/fpi", "season": season, "seasonType": 2,
+            "week": week, "weekText": "Week %d" % week, "sourceUpdated": updated, "teams": rows}
+
+
+def fill_fpi(fpi, snapshot, season, fetch, log=print):
+    """The regular-season FPI weeks before the current one that are not kept,
+    from the core API. Weeks already kept stay as they are."""
+    if not isinstance(snapshot, dict) or snapshot.get("season") != season or snapshot.get("seasonType") != 2:
+        return fpi
+    current = snapshot.get("week")
+    if not isinstance(current, int):
+        return fpi
+    have = {w.get("id") for w in fpi}
+    names = {t["espnId"]: {"name": t.get("name"), "abbr": t.get("abbr")} for t in snapshot.get("teams") or [] if t.get("espnId")}
+    out = list(fpi)
+    for week in range(2, current):                       # no preseason FPI to fill
+        wid = week_id(2, week)
+        if wid in have:
+            continue
+        url = "%s/seasons/%d/types/2/weeks/%d/powerindex?limit=200" % (CORE, season, week - 1)
+        try:
+            snap = core_fpi(fetch(url), season, week, names)
+        except Refused as e:
+            log("refused fpi %s: %s" % (wid, e))
+            continue
+        except urllib.error.HTTPError as e:
+            log("fpi %s: ESPN answered %d" % (wid, e.code))
+            continue
+        except (urllib.error.URLError, OSError, ValueError) as e:
+            log("fpi %s: ESPN could not be read (%s); the rest wait for the next run" % (wid, type(e).__name__))
+            break
+        out.append({"id": wid, "type": 2, "week": week, "label": "Week %d" % week, "snapshot": snap})
+        log("fpi %s filled in (updated %s)" % (wid, snap["sourceUpdated"]))
+    return order(out)
+
+
 def keep_fpi(kept, snapshot, season):
     """FPI as it stands, kept once per FPI week of this season."""
     fpi = list(kept.get("weeks") or [])
@@ -233,7 +309,8 @@ def main():
     ap.add_argument("--season", type=int, required=True)
     a = ap.parse_args()
     path, fpi_path = out_path(a.season), out_path(a.season, "fpi-history")
-    fpi = keep_fpi(read(fpi_path), read(os.path.join(ROOT, "data", "league", "fpi.json")), a.season)
+    snapshot = read(os.path.join(ROOT, "data", "league", "fpi.json"))
+    fpi = fill_fpi(keep_fpi(read(fpi_path), snapshot, a.season), snapshot, a.season, fetch_json)
     write(fpi_path, {"schema": 1, "source": "fpi", "season": a.season, "weeks": fpi},
           "fpi history %d (%d weeks)" % (a.season, len(fpi)))
     polls, teams = collect(a.season, read(path), fetch_json)
