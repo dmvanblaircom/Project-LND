@@ -39,7 +39,7 @@ Three paths, chosen by how fresh the data must be and what its terms allow:
 |---|---|---|
 | **Browser → provider** | ESPN scores, schedule, scoreboard, game summary, rankings, news, roster; Open-Meteo weather and geocoding | Must be current; no key; CORS permitted. |
 | **GitHub Action → committed snapshot** (`data/<team>/`, `data/league/`) | Kalshi odds and odds history, official depth chart, availability report (school game notes, or the conference's report feed) and game-notes facts, beat news; FPI (`tools/producers/fpi.py`), scheduled in every 30-minute refresh since October 2, writing only new source editions | Changes over hours or days; Kalshi sends no CORS header; official PDFs need parsing. Runs from `odds.yml` (decision 0020 cadence). |
-| **Browser → Suite's edge API → provider** (`worker/`, `https://suite-api.dmvanblaircom.workers.dev`) | CollegeFootballData season figures (Matchup yards allowed) | Needs a key kept server-side, and CFBD's terms allow display but not publishing its data as files (decision 0030). |
+| **Browser → Suite's edge API → provider** (`worker/`, `https://suite-api.dmvanblaircom.workers.dev`) | CollegeFootballData season figures (Matchup yards allowed); SP+ and its kept weeks (a second SQLite Durable Object, `worker/src/sp.js`) | Needs a key kept server-side, and CFBD's terms allow display but not publishing its data as files (decision 0030). |
 
 The edge Worker also runs the refresh clock and game-alert delivery. Web Push
 uses VAPID with a SQLite Durable Object subscription/delivery store. A minute

@@ -84,8 +84,9 @@ TeamOS.ratings = (function () {
   // lists that id under the same school name. Anything else - an id the
   // registry does not know, or knows by another name - stays unidentified:
   // no mark, never the active team, rather than borrowing someone's.
-  // CFBD gives no edition time and no history: updated and changeWindow
-  // are null. An empty table (not published for that season) is null.
+  // CFBD gives no edition time: updated and changeWindow are null. A week
+  // the edge API kept carries its label ("Week 8"), shown as asOf. An empty
+  // table (not published for that season) is null.
   function spPlus(body, config, season, registry) {
     if (!body || body.source !== "cfbd-sp" || !Array.isArray(body.ranks) || num(body.year) == null) return null;
     var teamId = str(config && config.sources && config.sources.espn && config.sources.espn.teamId);
@@ -102,7 +103,7 @@ TeamOS.ratings = (function () {
     return {
       key: "sp-plus", label: "SP+", name: "SP+", kind: "rating",
       season: body.year, current: season == null || body.year === season,
-      asOf: "", updated: null, fetchedAt: body.fetchedAt || null,
+      asOf: typeof body.label === "string" ? body.label : "", updated: null, fetchedAt: body.fetchedAt || null,
       sourceUrl: "https://collegefootballdata.com/", credit: "SP+ and CollegeFootballData (CFBD)",
       changeWindow: null,
       total: rows.length,

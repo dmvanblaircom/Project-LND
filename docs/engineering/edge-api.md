@@ -8,7 +8,7 @@ keys server-side, fetches, caches, and returns only what a screen shows.
 - Deploy: `.github/workflows/worker.yml`, on every change to `worker/` (or
   to the registry) on main, or from the Actions tab. Until the secrets below exist it stops
   green with a notice.
-- Routes: `GET /v1/health`; `GET /v1/cfbd/sp?year=` (SP+, below); `GET /v1/cfbd/season?team=&year=` (CFBD season
+- Routes: `GET /v1/health`; `GET /v1/cfbd/sp?year=` and `GET /v1/cfbd/sp/week?year=&id=` (SP+, below); `GET /v1/cfbd/season?team=&year=` (CFBD season
   stats for one team, only the fields in `CFBD_FIELDS`: `games`,
   `rushingYardsOpponent`, `netPassingYardsOpponent`, for W15's yards
   allowed. The names come from a real response, read with *Probe CFBD
@@ -100,6 +100,29 @@ table leaves the Worker.
   published for that season" and is answered as `ranks: []`.
 - **Allowance.** About two CFBD calls a day for SP+, plus one a week for
   the FBS list.
+- **Weeks kept (David, 2026-10-21).** CFBD publishes only the current
+  table, so earlier weeks exist only if they are kept as they appear. They
+  are kept in the Worker's own Durable Object (`Ratings`, `src/sp.js`,
+  binding `RATINGS`, migration `v2`), never as a file in the repository:
+  CFBD's condition is that its data is shown, not published as reusable
+  JSON (decision 0012). Each kept table holds the same four fields per row.
+  - An edition is a table that differs from the last one read. It is
+    filed under the football week ESPN's scoreboard names when it is first
+    seen (`pre`, `wN`, `final`). A different table later the same day
+    corrects that day's edition. A second edition in one ESPN week is kept
+    as `wN-YYYY-MM-DD`. If ESPN cannot say the week, the table waits and is
+    filed on a later read. Nothing kept is replaced by a later week; at
+    most 40 editions a season.
+  - `GET /v1/cfbd/sp` adds `week` (the edition this table is, or `null`
+    until filed) and `weeks` (`[{ id, label, seen }]`, oldest first, no
+    tables). A store that cannot answer leaves both off; the table stands.
+  - `GET /v1/cfbd/sp/week?year=&id=` answers one kept edition:
+    `{ source, year, fetchedAt (when first seen), week, label, ranks }`.
+    404 for a week not kept, 400 for a malformed id or another season, 503
+    with no store.
+  - The half-hourly clock reads SP+ through the route itself when no table
+    has been kept for 12 hours, so a week is kept even if no fan opens SP+.
+    In January it keeps last season's final table.
 - Tested by `tools/workercheck.mjs` (SP+ sections). Checked after every
   deploy by the *SP+ answers through it* step in `worker.yml`, which prints
-  counts and key names only.
+  counts, key names and week ids only.

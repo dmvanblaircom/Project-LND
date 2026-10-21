@@ -117,6 +117,9 @@ eq(sp.ranks.length, 25, "every row the edge API sent (ranks 1-25, with a tie at 
 ok(sp.ranks.filter(function (r) { return r.rank === 3; }).length === 2, "tied schools share their rank");
 ok(sp.current && sp.season === 2026, "this season's table");
 ok(sp.updated === null && sp.fetchedAt === body.fetchedAt && sp.asOf === "", "no edition time CFBD never gave: updated null, fetchedAt only when it was read");
+var kept = R.spPlus(Object.assign({}, body, { week: "w7", label: "Week 7", fetchedAt: "2026-10-13T15:00:00Z" }), nd.TEAM_CONFIG, 2026, REG);
+ok(kept.asOf === "Week 7" && kept.fetchedAt === "2026-10-13T15:00:00Z" && kept.updated === null && kept.ranks.length === sp.ranks.length,
+   "a week the edge API kept: its label as the edition, first seen as its time, the same rows");
 ok(sp.changeWindow === null && sp.ranks.every(function (r) { return r.change === null; }), "no change history: changeWindow null, every change null - never 0");
 ok(/SP\+/.test(sp.credit) && /CFBD/.test(sp.credit) && /^https:\/\//.test(sp.sourceUrl), "credited to SP+ and CFBD, with a link");
 ok(sp.ranks.every(function (r) { return r.record === "" && !("votes" in r); }), "no record and no poll fields");

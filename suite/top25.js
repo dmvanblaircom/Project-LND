@@ -192,12 +192,17 @@ Suite.top25 = (function () {
   // of weeks. Picking one moves the route (#top25/rankings/<source>/<week>;
   // app.js listens), the newest back to the plain route. Not drawn with only
   // one week to choose from.
+  // Each week by its name alone (David, 2026-10-21: "just say week 7");
+  // the date only tells apart two weeks of the same name (SP+ moving twice
+  // in one week).
   function weekPick(m, key) {
     var w = m.weeks || [];
     if (w.length < 2) return "";
+    var named = {};
+    w.forEach(function (x) { named[x.label] = (named[x.label] || 0) + 1; });
     return '<div class="rk-weekpick"><label for="rkWeek">Week</label><select id="rkWeek" data-week data-source="' + esc(key) + '">' +
       w.map(function (x, i) {
-        var d = x.date ? new Date(x.date) : null;
+        var d = named[x.label] > 1 && x.date ? new Date(x.date) : null;
         var day = d && !isNaN(d) ? " · " + d.toLocaleDateString([], { month: "short", day: "numeric" }) : "";
         return '<option value="' + esc(i === 0 ? "" : x.id) + '"' + (x.id === m.week ? " selected" : "") + ">" +
                esc(x.label + day + (i === 0 ? " (latest)" : "")) + "</option>";

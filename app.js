@@ -433,8 +433,10 @@ function loadRating(key, force){
 // the list of kept FPI weeks are one small file, read on entering Rankings;
 // FPI's earlier tables are their own file, read only once an earlier FPI week
 // is picked. The current week is always the live source's - the feed's poll,
-// fpi.json - never a kept copy of it. SP+ keeps no weeks: it has no picker.
-var WEEKS={ polls:null, fpiIndex:null, fpi:null, fpiFailed:false, p:null, fp:null, refocus:false };
+// fpi.json - never a kept copy of it. SP+'s weeks are kept by the edge API
+// (CFBD's data is shown, never published as a file): its answer lists them,
+// and an earlier one is read from it only once that week is picked.
+var WEEKS={ polls:null, fpiIndex:null, fpi:null, fpiFailed:false, p:null, fp:null, refocus:false, sp:{}, spFailed:{}, spP:{} };
 function loadWeeks(){
   if(WEEKS.polls || WEEKS.p) return;
   WEEKS.p=fetchJSON("data/league/rankings-"+seasonYear()+".json").then(function(r){
@@ -447,6 +449,13 @@ function loadFpiWeeks(){
   WEEKS.fp=fetchJSON("data/league/fpi-history-"+seasonYear()+".json").then(function(r){
     WEEKS.fpi=(r.data && Array.isArray(r.data.weeks)) ? r.data.weeks : []; WEEKS.fpiFailed=false;
   }).catch(function(){ WEEKS.fpiFailed=true; }).then(function(){ WEEKS.fp=null; paintTop25(); });
+}
+function loadSpWeek(id){
+  if(WEEKS.spP[id]) return;
+  WEEKS.spP[id]=fetchJSON(EDGE+"/v1/cfbd/sp/week?year="+seasonYear()+"&id="+encodeURIComponent(id)).then(function(r){
+    if(r.data && r.data.source==="cfbd-sp" && Array.isArray(r.data.ranks) && r.data.ranks.length) WEEKS.sp[id]=r.data;
+    else WEEKS.spFailed[id]=true;
+  }).catch(function(){ WEEKS.spFailed[id]=true; }).then(function(){ delete WEEKS.spP[id]; paintTop25(); });
 }
 function dayOf(iso){ return String(iso||"").slice(0,10); }
 // One source's weeks, oldest first: the kept ones, and the current one from
@@ -461,6 +470,14 @@ function weekList(key){
       var id=cur.seasonType===1 ? "pre" : cur.seasonType===3 ? "final" : "w"+cur.week;
       list=list.filter(function(w){ return w.id!==id; });
       list.push({ id:id, label:cur.weekText||"Week "+cur.week, date:cur.sourceUpdated, current:true });
+    }
+  } else if(key==="sp-plus"){
+    // This season's kept weeks, the one on screen marked current; a table
+    // the edge has not filed yet is the latest, after them.
+    var sp=RATINGS["sp-plus"].raw;
+    if(sp && sp.year===seasonYear() && Array.isArray(sp.weeks)){
+      list=sp.weeks.map(function(w){ return { id:w.id, label:w.label, date:w.seen, current:!!sp.week && w.id===sp.week }; });
+      if(!list.some(function(w){ return w.current; })) list.push({ id:"latest", label:"Latest", date:sp.fetchedAt, current:true });
     }
   } else if(!RATINGS[key]){
     var live=(T25.polls||[]).filter(function(p){ return String(p.key).toLowerCase()===key; })[0]||null;
@@ -487,7 +504,13 @@ function pickWeek(m, route){
   m.weeks=weeks.slice().reverse().map(function(w){ return { id:w.id, label:w.label, date:w.date }; });
   m.week=pick ? pick.id : null;
   if(!pick || pick.current) return;
-  if(key==="fpi"){
+  if(key==="sp-plus"){
+    var got=WEEKS.sp[pick.id];
+    m.ratings=m.ratings.filter(function(r){ return r.key!=="sp-plus"; });
+    if(got){ var s=RATINGS["sp-plus"].model(got); if(s) m.ratings.push(s); }
+    else if(WEEKS.spFailed[pick.id]){ m.ratingsFailed=Object.assign({}, m.ratingsFailed, { "sp-plus":true }); }
+    else loadSpWeek(pick.id);
+  } else if(key==="fpi"){
     var kept=(WEEKS.fpi||[]).filter(function(w){ return w.id===pick.id; })[0];
     m.ratings=m.ratings.filter(function(r){ return r.key!=="fpi"; });
     if(kept){ var r=TeamOS.ratings.fpi(kept.snapshot, TEAM_CONFIG, seasonYear()); if(r) m.ratings.push(r); }
@@ -607,7 +630,12 @@ document.addEventListener("keydown", function(e){ if(SHEET.id && e.key==="Escape
 document.addEventListener("change", function(e){
   var s=e.target && e.target.closest && e.target.closest("#screenTop25 select[data-week]");
   if(!s) return;
-  WEEKS.refocus=true;
+  // A keyboard keeps its place: focus goes back to the redrawn picker, so the
+  // next arrow press moves another week. A touch screen does not get it back:
+  // focusing a select there opens it again (David, 2026-10-21: "the picker
+  // remains open. It should select that week and close").
+  WEEKS.refocus=!(window.matchMedia && matchMedia("(pointer: coarse)").matches);
+  if(!WEEKS.refocus) s.blur();
   Suite.nav.go("top25", ["rankings", s.getAttribute("data-source")].concat(s.value ? [s.value] : []));
 });
 

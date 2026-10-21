@@ -19,6 +19,17 @@ crons = ["7,37 * * * *", "* * * * *"]
 name = "ALERTS"
 class_name = "Alerts"
 
+# SP+'s kept weeks: one Durable Object with SQLite (src/sp.js). CFBD's data
+# is shown, never published as a file (decision 0012), so its weeks are kept
+# here and not in the repository.
+[[durable_objects.bindings]]
+name = "RATINGS"
+class_name = "Ratings"
+
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["Alerts"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["Ratings"]
