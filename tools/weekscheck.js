@@ -23,7 +23,8 @@ function spTable(first) {
   REG.forEach(function (t) { id[t.name] = t.providerId; });
   return names.slice(0, 25).map(function (n, i) { return { rank: i + 1, team: n, id: id[n], rating: Math.round((28 - i * 1.7) * 10) / 10 }; });
 }
-var SP_WEEKS = [{ id: "w7", label: "Week 7", seen: "2026-10-13T15:00:00Z" }, { id: "w8", label: "Week 8", seen: "2026-10-20T15:00:00Z" }];
+var SP_WEEKS = [{ id: "w7", label: "Week 7", seen: "2026-10-13T15:00:00Z" }, { id: "w7-2026-10-15", label: "Week 7", seen: "2026-10-15T15:00:00Z" },
+                { id: "w8", label: "Week 8", seen: "2026-10-20T15:00:00Z" }];
 
 fs.mkdirSync(shots, { recursive: true });
 (async function () {
@@ -79,8 +80,8 @@ fs.mkdirSync(shots, { recursive: true });
   }
   try {
     var o = await open("#top25/rankings/ap"), s = await state(o.page);
-    ok(s.picker && s.options.length === 3 && /^Week 4 · Sep 20 \(latest\)$/.test(s.options[0]) && /^Week 2 · Sep 8$/.test(s.options[1]) && /^Preseason · Aug 17$/.test(s.options[2]),
-       "AP: every kept week and the live one, newest first, the newest marked latest (" + s.options.join(" | ") + ")");
+    ok(s.picker && s.options.length === 3 && /^Week 4 \(latest\)$/.test(s.options[0]) && /^Week 2$/.test(s.options[1]) && /^Preseason$/.test(s.options[2]),
+       "AP: every kept week and the live one, newest first, the newest marked latest, each by its name alone - no date (" + s.options.join(" | ") + ")");
     ok(s.value === "" && /Week 4/.test(s.title), "the newest - the live feed's - is shown by default");
     await o.page.screenshot({ path: path.join(shots, "ap-latest-390.png") });
 
@@ -105,7 +106,7 @@ fs.mkdirSync(shots, { recursive: true });
     await o.page.click('.poll-seg a[href="#top25/rankings/fpi"]');
     await o.page.waitForFunction(function () { return document.getElementById("rkWeek"); }, null, { timeout: 8000 });
     s = await state(o.page);
-    ok(s.options.length === 2 && /^Week 8 · Oct 20 \(latest\)$/.test(s.options[0]) && /^Week 7 · Oct 13$/.test(s.options[1]) && s.first.indexOf("Ohio State") === 0,
+    ok(s.options.length === 2 && /^Week 8 \(latest\)$/.test(s.options[0]) && /^Week 7$/.test(s.options[1]) && s.first.indexOf("Ohio State") === 0,
        "FPI: today's table by default, with the kept week 7 offered (" + s.options.join(" | ") + ")");
     ok(o.st.fpiWeeks === 0, "FPI's earlier tables still not read before one is picked");
     await o.page.selectOption("#rkWeek", "w7");
@@ -115,8 +116,9 @@ fs.mkdirSync(shots, { recursive: true });
     await o.page.click('.poll-seg a[href="#top25/rankings/sp-plus"]');
     await o.page.waitForFunction(function () { return document.getElementById("rkWeek"); }, null, { timeout: 8000 });
     s = await state(o.page);
-    ok(s.options.length === 2 && /^Week 8 · Oct 20 \(latest\)$/.test(s.options[0]) && /^Week 7 · Oct 13$/.test(s.options[1]) && s.first.indexOf("Ohio State") === 0,
-       "SP+: the weeks the edge API kept, the current one by default (" + s.options.join(" | ") + ")");
+    ok(s.options.length === 3 && /^Week 8 \(latest\)$/.test(s.options[0]) && /^Week 7 · Oct 15$/.test(s.options[1]) && /^Week 7 · Oct 13$/.test(s.options[2]) &&
+       s.first.indexOf("Ohio State") === 0,
+       "SP+: the weeks the edge API kept, the current one by default; two of one name told apart by their day (" + s.options.join(" | ") + ")");
     ok(o.st.spWeek.length === 0, "SP+'s earlier weeks are not read before one is picked");
     await o.page.selectOption("#rkWeek", "w7");
     await o.page.waitForFunction(function () { var f = document.querySelector("#screenTop25 .rk-table tbody .rk-name"); return f && /Notre Dame/.test(f.textContent); }, null, { timeout: 8000 });
