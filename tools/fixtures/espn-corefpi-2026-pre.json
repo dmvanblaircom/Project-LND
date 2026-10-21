@@ -1,0 +1,8 @@
+{
+ "_comment": "Real ESPN payload, captured 2026-10-21T12:56Z by capture-fixture.yml from https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/weeks/1/powerindex?limit=200, kept whole.",
+ "count": 0,
+ "pageIndex": 0,
+ "pageSize": 25,
+ "pageCount": 0,
+ "items": []
+}
