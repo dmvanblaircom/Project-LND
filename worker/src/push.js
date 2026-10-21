@@ -55,7 +55,7 @@
    from the game summary only when the score moves, cleaned to plain text
    and cut short (playText). */
 
-import { RANKINGS_SHOWS } from "./calendar.js";
+import { RANKINGS_SHOWS, SELECTION_DAYS } from "./calendar.js";
 
 const CORE = "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football";
 const SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football";
@@ -65,7 +65,9 @@ export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20
                         tries: 10, kickoffLate: 15 * MIN, liveLate: 5 * MIN, settle: 3 * MIN, fold: 5 * MIN,
                         looks: 3, lookEvery: 20 * 1000,
                         closeClock: 300, closeMargin: 8, timeMoved: 3 * 60 * MIN,
-                        cfpWindow: 12 * 60 * MIN, cfpEvery: 5 * MIN, cfpFresh: 12 * 60 * MIN, cfpWait: 10 * 1000 };
+                        cfpWindow: 12 * 60 * MIN, cfpEvery: 5 * MIN, cfpFresh: 12 * 60 * MIN, cfpWait: 10 * 1000,
+                        selRemind: 3 * 60 * MIN, postFrom: 7 * 24 * 60 * MIN, postFast: 12 * 60 * MIN, postEvery: 5 * MIN,
+                        noPostAfter: 12 * 60 * MIN, noPostUntil: 7 * 24 * 60 * MIN, boardEvery: 60 * MIN };
 
 // What a fan can choose (brief §2b). A subscription without options - every
 // one made before round 2 - has the round-1 set: kickoff, final and delays.
@@ -73,12 +75,19 @@ export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20
 // and for every subscription saved before it existed: a new kind of alert
 // is never switched on for anyone already signed up (the noise rule, §2).
 // "cfp" (the CFP rankings are out, brief §1 postseason events) is opt-in too.
-export const DEFAULTS = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false };
+// The other postseason events (David, 2026-10-20): "selection" (the Selection
+// Day reminder) and "postseason" (the team's playoff or bowl game is set) are
+// on in the app's own defaults for a fan choosing now, but a choice saved
+// before they existed - which does not name them - has them off, so here
+// they default off; "nopost" (no postseason) is opt-in.
+export const DEFAULTS = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false,
+                          selection: false, postseason: false, nopost: false };
+const SWITCHES = ["kickoff", "final", "delays", "quarters", "halftime", "close", "timeset", "cfp", "selection", "postseason", "nopost"];
 export function validOptions(o) {
   if (o == null) return Object.assign({}, DEFAULTS);
   if (typeof o !== "object") return null;
   const out = {};
-  for (const k of ["kickoff", "final", "delays", "quarters", "halftime", "close", "timeset", "cfp"]) out[k] = o[k] == null ? DEFAULTS[k] : o[k] === true;
+  for (const k of SWITCHES) out[k] = o[k] == null ? DEFAULTS[k] : o[k] === true;
   out.scoring = o.scoring == null ? DEFAULTS.scoring : (["off", "mine", "all"].indexOf(o.scoring) >= 0 ? o.scoring : null);
   // A round-1 device keeps its postponed/canceled alerts while its new
   // Delays switch starts off (the app sends this; Codex, #116).
@@ -90,7 +99,7 @@ export function validOptions(o) {
 // alert, and a new kind starts off for those already signed up (the noise
 // rule, §2; Codex, #116).
 export const LEGACY = Object.assign({}, DEFAULTS, { delays: false, outcomes: true });
-function anyOn(o) { return o.kickoff || o.final || o.delays || o.quarters || o.halftime || o.close || o.timeset || o.cfp || o.scoring !== "off"; }
+function anyOn(o) { return SWITCHES.some(function (k) { return !!o[k]; }) || o.scoring !== "off"; }
 // Whether a follower with options `o` gets this event (`d` its details).
 export function wants(o, ev, d) {
   if (ev === "kickoff") return o.kickoff;
@@ -106,6 +115,9 @@ export function wants(o, ev, d) {
   if (ev === "close" || ev === "ot") return o.close;
   if (/^time:/.test(ev)) return !!o.timeset;
   if (/^cfp:/.test(ev)) return !!o.cfp;
+  if (/^sel:/.test(ev)) return !!o.selection;
+  if (/^post(off)?:/.test(ev)) return !!o.postseason;
+  if (/^nopost:/.test(ev)) return !!o.nopost;
   return false;
 }
 // Events that are news only for minutes, and share the game's one card.
@@ -350,6 +362,35 @@ export function words(ev, team, game, scores, x) {
   // The committee's rankings: about the season, not a game (brief §1).
   if (/^cfp:/.test(ev)) return { title: "CFP rankings",
     body: "The CFP rankings are out: " + team.name + (x && x.rank ? " is No. " + x.rank + "." : " is not in the top 25.") };
+  // The rest of the postseason (brief §1). The time rides in the title,
+  // written by the phone in its own time zone (sw.js), and only when ESPN
+  // has set it; a bowl's or round's name is ESPN's own words.
+  if (/^sel:/.test(ev)) return { title: "Selection Day", kickoff: x && x.at, network: x && x.on,
+    body: "The 12-team playoff field is revealed today, then every bowl matchup that afternoon." };
+  if (/^nopost:/.test(ev)) return { title: "Season complete", body: team.name + "'s season is complete: no bowl this year." };
+  // A game announced, then gone from the team's schedule before it was
+  // played: a bowl declined or left (David, 2026-10-20).
+  if (/^postoff:/.test(ev)) {
+    const st = (x && x.stage) || {};
+    const what = st.kind === "playoff" ? "the CFP " + st.round : st.bowl ? "the " + st.bowl : null;
+    return what ? { title: st.kind === "playoff" ? "College Football Playoff" : "Bowl game", body: team.name + " will not play in " + what + "." } : null;
+  }
+  if (/^post:/.test(ev)) {
+    if (!x || !x.opp) return null;
+    const st = x.stage || {}, opp = (x.oppRank ? "No. " + x.oppRank + " " : "") + x.opp;
+    const out = { kickoff: x.timeSet ? x.at : null, network: x.net || null };
+    if (st.kind === "playoff") {
+      out.title = "College Football Playoff";
+      out.body = st.round === "First Round"
+        ? team.name + " is in the College Football Playoff: " + (x.usRank ? "the No. " + x.usRank + " seed " : "") +
+          (x.home ? "hosts " : "plays ") + opp + " in the First Round."
+        : team.name + " plays " + opp + " in the CFP " + st.round + (st.bowl ? " at the " + st.bowl : "") + ".";
+    } else if (st.kind === "bowl") {
+      out.title = "Bowl game";
+      out.body = team.name + " will play " + opp + " in the " + st.bowl + ".";
+    } else return null;
+    return out;
+  }
   const vs = game.home ? " vs. " : " at ";
   const matchup = team.name + vs + game.opponent.name;
   x = x || {};
@@ -560,6 +601,157 @@ function cfpEmit(db, teamId, release, now, log) {
        { rank: r ? r.rank : null, week: release.week }, now, log, false);
 }
 
+// ---- the rest of the postseason (brief §1; David, 2026-10-02 and 10-20) ---
+// Selection Day's reminder, the team's playoff or bowl game set, a game it
+// will not play after all, and no postseason. Dates are the league's
+// published calendar (SELECTION_DAYS, generated from leagues/); outcomes are
+// the team's own postseason schedule on ESPN's site API (season type 3) and
+// the league's postseason board - the feeds the app reads.
+
+// A game's stage from ESPN's note - the only place a bowl's or a playoff
+// round's name is carried. The same reading as TeamOS (teamos/espn.js
+// stageOf), which this Worker cannot load: the round, the bowl as ESPN
+// names it (sponsor kept), and kind playoff | bowl | other.
+// ESPN wrote 2025's first round as "College Football Playoff First Round Game".
+const PLAYOFF_ROUND = /^College Football Playoff (First Round|Quarterfinal|Semifinal|National Championship)(?: Game)?(?: at the (.+))?$/i;
+const ROUND_NAME = { "first round": "First Round", quarterfinal: "Quarterfinal", semifinal: "Semifinal", "national championship": "National Championship" };
+export function stageOf(comp) {
+  const h = ((comp && comp.notes) || []).map(function (n) { return n && n.headline ? String(n.headline) : ""; }).filter(Boolean)[0];
+  if (!h) return null;
+  const t = h.replace(/\s+-\s+Rescheduled\b.*$/i, "").replace(/\s+Presented by\b.*$/i, "").trim();
+  const m = PLAYOFF_ROUND.exec(t);
+  if (m) return { kind: "playoff", round: ROUND_NAME[m[1].toLowerCase()], bowl: m[2] || null };
+  if (/\bBowl\b/i.test(t)) return { kind: "bowl", round: null, bowl: t };
+  return { kind: "other", round: null, bowl: null };
+}
+// A side that is a real team, not a placeholder listed before selection.
+function realTeam(c) {
+  const t = (c && c.team) || {};
+  return /^[0-9]+$/.test(String(t.id || "")) && !/\bTBD\b|to be (determined|announced)/i.test(t.displayName || t.name || t.location || "");
+}
+// The team's postseason games with a real opponent and a playoff or bowl
+// stage, from its season-type-3 schedule: what the "set" alert says. In a
+// playoff game ESPN's rank is the seed (Notre Dame 2024: rank 7, seed 7,
+// CFP No. 5 - tools/fixtures/espn-schedule-nd-2024-post-notes.json).
+export function postGames(schedule, teamId) {
+  const out = [];
+  for (const e of (schedule && schedule.events) || []) {
+    const c = e && e.competitions && e.competitions[0]; if (!c) continue;
+    const at = Date.parse(e.date); if (!isFinite(at)) continue;
+    const us = (c.competitors || []).filter(function (x) { return String((x.team || {}).id) === String(teamId); })[0];
+    const them = (c.competitors || []).filter(function (x) { return String((x.team || {}).id) !== String(teamId); })[0];
+    const stage = stageOf(c);
+    if (!us || !them || !realTeam(them) || !stage || stage.kind === "other") continue;
+    const rank = function (x) { const r = x.curatedRank && x.curatedRank.current; return r && r < 26 ? r : null; };
+    out.push({ id: String(e.id), at, iso: new Date(at).toISOString(), timeSet: timeIsSet(e.date, c), home: us.homeAway === "home",
+               state: (((c.status || {}).type) || {}).state || "pre", stage,
+               opp: (them.team || {}).location || (them.team || {}).shortDisplayName || "",
+               oppRank: stage.kind === "playoff" ? rank(them) : null, usRank: stage.kind === "playoff" ? rank(us) : null,
+               net: network(c.broadcasts) });
+  }
+  return out.sort(function (a, b) { return a.at - b.at; });
+}
+// The league's postseason board -> whether the field is set: a playoff First
+// Round game with two real teams (TeamOS.espn.postseasonSelected's rule).
+// Bowls are announced the same afternoon. null when the board says nothing.
+export function fieldSet(board) {
+  const evs = board && board.events;
+  if (!Array.isArray(evs)) return null;
+  return evs.some(function (e) {
+    const c = (e.competitions && e.competitions[0]) || {}, st = stageOf(c), cs = c.competitors || [];
+    return !!st && st.round === "First Round" && cs.length === 2 && cs.every(realTeam);
+  });
+}
+// This season's Selection Day, from the league calendar: the one whose
+// postseason `now` falls in (a week before it through January), or null.
+export function selectionFor(now, days) {
+  return (days || SELECTION_DAYS).filter(function (d) {
+    const t = Date.parse(d.start);
+    return now >= t - LIMITS.postFrom && now < Date.UTC(d.season + 1, 1, 1);
+  })[0] || null;
+}
+
+// What the Worker has seen of a team's postseason: the games it said were
+// set ({ id: { stage, opp, iso } }), how many reads in a row each has been
+// missing from, and how many reads in a row found none at all.
+function postState(db, teamId) {
+  const row = db.all("SELECT v FROM meta WHERE k = ?", "post:" + teamId)[0];
+  const st = row ? JSON.parse(row.v) : null;
+  return st && st.games ? st : { games: {}, missing: {}, empty: 0, at: 0 };
+}
+function savePost(db, teamId, st) {
+  db.run("INSERT INTO meta (k, v) VALUES (?, ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v", "post:" + teamId, JSON.stringify(st));
+}
+
+// One read of the team's postseason schedule (`post`, null when it failed):
+// a game newly set is announced; one announced that is no longer listed -
+// a bowl the team declined or left, two reads in a row so one bad answer
+// never sends it - is withdrawn (David, 2026-10-20: Notre Dame declined its
+// 2025 bowl). Nothing is ever inferred from a failed read.
+export function postSeen(db, teamId, post, sel, now, log) {
+  if (!post || !Array.isArray(post.events)) return 0;
+  let added = 0;
+  const st = postState(db, teamId), games = postGames(post, teamId);
+  st.at = now;
+  st.empty = games.length ? 0 : (st.empty || 0) + 1;
+  for (const g of games) {
+    st.missing[g.id] = 0;
+    if (st.games[g.id]) continue;
+    st.games[g.id] = { stage: g.stage, opp: g.opp, iso: g.iso };
+    added++;
+    if (g.state !== "pre") continue;                    // set and already played: not news
+    emit(db, teamId, { id: g.id }, "post:" + g.id, null,
+         { stage: g.stage, opp: g.opp, oppRank: g.oppRank, usRank: g.usRank, home: g.home, at: g.iso, timeSet: g.timeSet, net: g.net }, now, log, false);
+  }
+  const listed = new Set(games.map(function (g) { return g.id; }));
+  for (const id of Object.keys(st.games)) {
+    const g = st.games[id];
+    if (listed.has(id) || g.off || Date.parse(g.iso) <= now) continue;
+    st.missing[id] = (st.missing[id] || 0) + 1;
+    if (st.missing[id] < 2) continue;
+    g.off = true;
+    emit(db, teamId, { id: id }, "postoff:" + id, null, { stage: g.stage, opp: g.opp }, now, log, false);
+  }
+  savePost(db, teamId, st);
+  return added;
+}
+
+// When to read the postseason schedule apart from the hourly read: every few
+// minutes from Selection Day's show to the evening after, when the field and
+// the bowls are named.
+function postFast(now, sel) {
+  const start = Date.parse(sel.start), end = Date.parse(sel.end || sel.start);
+  return now >= start && now < end + LIMITS.postFast;
+}
+
+// Selection Day's reminder: once, in the morning before the show.
+function selEmit(db, teamId, sel, now, log) {
+  const t = Date.parse(sel.start);
+  if (!(now >= t - LIMITS.selRemind && now < t)) return;
+  emit(db, teamId, { id: "sel-" + sel.season }, "sel:" + sel.season, null, { at: new Date(t).toISOString(), on: sel.on }, now, log, false);
+}
+
+// No postseason: once the league's field is set (its board says so) and the
+// team has no game left to play (its caller's rule) and no postseason game
+// listed on two reads in a row - never from an empty or failed feed alone. Sent within a
+// week of Selection Day, so a Worker started later never sends old news.
+async function noPostLook(db, env, teamId, sel, now, log) {
+  const end = Date.parse(sel.end || sel.start);
+  if (now < end + LIMITS.noPostAfter || now > end + LIMITS.noPostUntil) return;
+  if (db.all("SELECT 1 FROM sent WHERE team_id = ? AND event = ?", teamId, "nopost:" + sel.season).length) return;
+  const st = postState(db, teamId);
+  if (st.empty < 2 || Object.keys(st.games).some(function (id) { return !st.games[id].off; })) return;
+  const row = db.all("SELECT v FROM meta WHERE k = 'postboard'")[0], b = row ? JSON.parse(row.v) : null;
+  let set = b && b.season === sel.season ? b.set : null;
+  if (set !== true && (!b || b.season !== sel.season || now - b.at >= LIMITS.boardEvery)) {
+    set = fieldSet(await getJson(env, SITE + "/scoreboard?groups=80&limit=400&seasontype=3&week=1&dates=" + sel.season, LIMITS.cfpWait));
+    db.run("INSERT INTO meta (k, v) VALUES ('postboard', ?) ON CONFLICT (k) DO UPDATE SET v = excluded.v",
+           JSON.stringify({ season: sel.season, at: now, set: set === true }));
+  }
+  if (set !== true) return;
+  emit(db, teamId, { id: "nopost-" + sel.season + "-" + teamId }, "nopost:" + sel.season, null, {}, now, log, false);
+}
+
 // One minute's work. Returns what it did, for the log and the tests.
 // `quick`: a look between minutes (minute()) - new alerts go, retries wait
 // for the minute, so LIMITS.tries still spans ten minutes (Codex, #119).
@@ -572,14 +764,34 @@ export async function tick(db, env, now, quick) {
     let row = db.all("SELECT game, checked FROM games WHERE team_id = ?", teamId)[0];
     let game = row && row.game ? JSON.parse(row.game) : null;
     const stale = !row || now - row.checked > LIMITS.scheduleEvery || (game && now - game.at > LIMITS.window);
+    // In the postseason the team's bowl or playoff games are a separate
+    // schedule (season type 3): read with the regular one, so their kickoffs
+    // and finals alert like any game's, and every few minutes on Selection
+    // Day, when they are named.
+    const sel = selectionFor(now, env.SELECTION);
+    let readPost = false;
     if (stale) {
       const schedule = await getJson(env, SITE + "/teams/" + teamId + "/schedule");
       if (schedule) {
-        times(db, teamId, schedule, now, log);
-        game = pickGame(schedule, teamId, now);
+        const post = sel ? await getJson(env, SITE + "/teams/" + teamId + "/schedule?seasontype=3") : null;
+        if (sel) { postSeen(db, teamId, post, sel, now, log); readPost = true; }
+        const both = post && Array.isArray(post.events) ? { events: (schedule.events || []).concat(post.events) } : schedule;
+        times(db, teamId, both, now, log);
+        game = pickGame(both, teamId, now);
         db.run("INSERT INTO games (team_id, game, checked) VALUES (?, ?, ?) ON CONFLICT (team_id) DO UPDATE SET game = excluded.game, checked = excluded.checked",
                teamId, game ? JSON.stringify(game) : null, now);
+        row = { game: game ? JSON.stringify(game) : null, checked: now };
       }
+    }
+    // A game named between the hourly reads: the next minute reads both
+    // schedules, so the game alerts watch it from then.
+    if (sel && !readPost && postFast(now, sel) && now - postState(db, teamId).at >= LIMITS.postEvery &&
+        postSeen(db, teamId, await getJson(env, SITE + "/teams/" + teamId + "/schedule?seasontype=3"), sel, now, log))
+      db.run("UPDATE games SET checked = 0 WHERE team_id = ?", teamId);
+    if (sel) {
+      selEmit(db, teamId, sel, now, log);
+      // only from a schedule read: no game left to play, regular or post
+      if (row && !game) await noPostLook(db, env, teamId, sel, now, log);
     }
     if (game && now >= game.at - LIMITS.before) { if (await detect(db, env, teamId, game, now, log)) live = true; }
     else log.push(teamId + ": " + (game ? "waiting for " + new Date(game.at).toISOString() : "no game"));
@@ -748,6 +960,14 @@ function emit(db, teamId, game, ev, scores, x, now, log, late) {
       for (const r of db.all("SELECT endpoint FROM deliveries WHERE team_id = ? AND game_id = ? AND event = ? AND state IN " + states, teamId, game.id, of)) only.add(r.endpoint);
       db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'due'", teamId, game.id, of);
     }
+  }
+  // A game withdrawn goes only to the devices told it was set; if that word
+  // has not gone yet, it never goes (David, 2026-10-20).
+  if (/^postoff:/.test(ev)) {
+    only = new Set();
+    const of = "post:" + ev.slice(8);
+    for (const r of db.all("SELECT endpoint FROM deliveries WHERE team_id = ? AND game_id = ? AND event = ? AND state = 'done'", teamId, game.id, of)) only.add(r.endpoint);
+    db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND state IN ('due', 'sending')", teamId, game.id, of);
   }
   let n = 0, twice = 0;
   const rev = gameCount(db, game.id, /^delay/.test(ev) ? "delay%" : /^time:/.test(ev) ? "time:%" : "fix:%");
@@ -1001,7 +1221,11 @@ async function deliver(db, env, teamId, now, log, retry) {
     const started = isFinite(kickoffAt) && (now - kickoffAt > LIMITS.window ||
       db.all("SELECT 1 FROM sent WHERE game_id = ? AND event = 'kickoff'", d.game_id).length > 0);
     // The rankings are the night's news; by the next day they are not.
-    const stale = /^cfp:/.test(d.event) && now - d.at > LIMITS.cfpFresh;
+    // Selection Day's reminder is no news once the show has begun, nor a
+    // game's being set once it has kicked off.
+    const x0 = /^(sel|post):/.test(d.event) ? (JSON.parse(d.data).x || {}) : null;
+    const stale = (/^cfp:/.test(d.event) && now - d.at > LIMITS.cfpFresh) ||
+                  (!!x0 && isFinite(Date.parse(x0.at)) && now >= Date.parse(x0.at));
     if ((d.event === "kickoff" && now - d.at > LIMITS.kickoffLate) || (live(d.event) && now - d.at > LIMITS.liveLate) || started || stale) {
       db.run("UPDATE deliveries SET state = 'expired' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", ...key);
       t.dropped++; continue;
@@ -1017,7 +1241,8 @@ async function deliver(db, env, teamId, now, log, retry) {
     // screen (one card per game, §2b 4); the phone still sounds each time.
     // A new kickoff time replaces the last one's card; it opens that game.
     const tag = live(d.event) ? d.game_id + "-live" : d.game_id + "-" + (isFinite(kickoffAt) ? "time" : d.event);
-    const where = isFinite(kickoffAt) ? "#schedule/" + d.game_id : /^cfp:/.test(d.event) ? "#top25/rankings/cfp" : "#game";
+    const where = isFinite(kickoffAt) || /^post(off)?:/.test(d.event) ? "#schedule/" + d.game_id
+                : /^(cfp|sel):/.test(d.event) ? "#top25/rankings/cfp" : /^nopost:/.test(d.event) ? "#home" : "#game";
     const msg = { title: w.title, body: w.body, url: APP_URL + where, tag, renotify: live(d.event) };
     if (w.kickoff) { msg.kickoff = w.kickoff; if (w.network) msg.network = w.network; }
     const code = await sendPush(env, jwk, { endpoint: d.endpoint, p256dh: d.p256dh, auth: d.auth }, msg, now);

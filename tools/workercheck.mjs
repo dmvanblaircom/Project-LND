@@ -9,8 +9,9 @@
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
 import worker, { pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts } from "../worker/src/index.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
-         words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease } from "../worker/src/push.js";
-import { RANKINGS_SHOWS } from "../worker/src/calendar.js";
+         words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease,
+         stageOf, postGames, fieldSet, selectionFor } from "../worker/src/push.js";
+import { RANKINGS_SHOWS, SELECTION_DAYS } from "../worker/src/calendar.js";
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
 import { SCHOOLS } from "../worker/src/schools.js";
@@ -1387,6 +1388,143 @@ console.log("game alerts: the CFP rankings are out (postseason events, brief §1
   e2.push = 201; e2.pushes.length = 0;
   await tick(db2, e2, AT + 60e3 + LIMITS.cfpFresh + 60e3);
   ok(e2.pushes.length === 0, "a rankings alert still undelivered the next day is dropped: it is no longer news"); }
+
+console.log("game alerts: Selection Day, the postseason set, a game declined, no postseason (brief §1)");
+{ // Real payloads: Notre Dame's 2024 postseason (tools/fixtures/espn-schedule-nd-2024-post-notes.json)
+  // and the league's 2024 postseason board (espn-scoreboard-postseason-2024.json).
+  const fx = (n) => JSON.parse(readFileSync(new URL("./fixtures/" + n, import.meta.url), "utf8"));
+  const ND_POST = fx("espn-schedule-nd-2024-post-notes.json"), BOARD = fx("espn-scoreboard-postseason-2024.json");
+  // As it stood on Selection Day: every game still to play.
+  const pre = (sch) => { const c = JSON.parse(JSON.stringify(sch)); for (const e of c.events) { const cc = e.competitions[0]; cc.status = { type: { state: "pre", name: "STATUS_SCHEDULED" } }; for (const x of cc.competitors) delete x.score; } return c; };
+  const SEL = { season: 2024, start: "2024-12-08T12:00:00-05:00", end: "2024-12-08T15:00:00-05:00", on: "ESPN" };
+  const S0 = Date.parse(SEL.start), S1 = Date.parse(SEL.end);
+
+  eq(SELECTION_DAYS.map((d) => [d.season, d.start, d.on]), [[2026, "2026-12-06T12:00:00-05:00", "ESPN"]], "Selection Day comes from the league calendar");
+  ok(selectionFor(Date.parse("2026-10-20T12:00:00Z")) === null && selectionFor(Date.parse("2026-11-30T12:00:00Z")).season === 2026 &&
+     selectionFor(Date.parse("2027-01-31T12:00:00Z")).season === 2026 && selectionFor(Date.parse("2027-02-01T12:00:00Z")) === null,
+     "the postseason runs from the week before Selection Day through January; nothing in October");
+  eq(stageOf(ND_POST.events[1].competitions[0]), { kind: "playoff", round: "Quarterfinal", bowl: "Allstate Sugar Bowl" }, "a round and its bowl, as ESPN names them, the reschedule note dropped");
+  eq(stageOf(BOARD.events.find((e) => e.id === "401677183").competitions[0]).bowl, "Rose Bowl", "a sponsor's 'Presented by' dropped");
+  const games = postGames(pre(ND_POST), "87");
+  eq(games.map((g) => [g.id, g.stage.round, g.opp, g.usRank, g.oppRank, g.home]),
+     [["401677179", "First Round", "Indiana", 7, 10, true], ["401677184", "Quarterfinal", "Georgia", 7, 2, false],
+      ["401677189", "Semifinal", "Penn State", 7, 6, false], ["401677192", "National Championship", "Ohio State", 7, 8, true]],
+     "Notre Dame 2024: each game's round, opponent and seeds");
+  ok(fieldSet(BOARD) === true, "the 2024 board: the field is set (a First Round game with two real teams)");
+  const B25 = fx("espn-scoreboard-postboard-2025.json");
+  ok(fieldSet(B25) === true && stageOf(B25.events.find((x) => /First Round Game/.test((x.competitions[0].notes[0] || {}).headline)).competitions[0]).round === "First Round",
+     "2025: the first round written \"First Round Game\" is still the first round, and the field is set");
+  ok(!B25.events.some((x) => x.competitions[0].competitors.some((c) => String(c.team.id) === "87")),
+     "and Notre Dame, which declined its bowl, is on no 2025 postseason game: what 'no postseason' reads");
+  const tbd = JSON.parse(JSON.stringify(BOARD));
+  for (const e of tbd.events) for (const c of e.competitions[0].competitors) if ((e.competitions[0].notes || []).some((n) => /First Round/.test(n.headline))) { c.team.id = "-1"; c.team.displayName = "TBD"; }
+  ok(fieldSet(tbd) === false && fieldSet(null) === null && fieldSet({}) === null, "placeholders only: not set; no board: unknown, never 'not set'");
+
+  const fr = games[0], qf = games[1];
+  const W = (ev, x, name) => words(ev, { id: "87", name: name || "Notre Dame" }, {}, null, x);
+  const fw = W("post:" + fr.id, { stage: fr.stage, opp: fr.opp, oppRank: fr.oppRank, usRank: fr.usRank, home: true, at: fr.iso, timeSet: true, net: "ABC" });
+  eq([fw.title, fw.body, fw.kickoff, fw.network], ["College Football Playoff", "Notre Dame is in the College Football Playoff: the No. 7 seed hosts No. 10 Indiana in the First Round.", fr.iso, "ABC"],
+     "in the playoff: seed, opponent, round; the time in the title, written by the phone");
+  eq(W("post:" + qf.id, { stage: qf.stage, opp: qf.opp, oppRank: 2, home: false, at: qf.iso, timeSet: false }).body,
+     "Notre Dame plays No. 2 Georgia in the CFP Quarterfinal at the Allstate Sugar Bowl.", "a later round names the bowl it is played in");
+  ok(!W("post:x", { stage: fr.stage, opp: "Indiana", at: fr.iso, timeSet: false }).kickoff, "a time ESPN has not set is never promised");
+  const BOWL = { stage: { kind: "bowl", round: null, bowl: "Kinder's Texas Bowl" }, opp: "Baylor", at: "2024-12-31T20:30Z", timeSet: true };
+  eq(W("post:1", BOWL, "LSU").body, "LSU will play Baylor in the Kinder's Texas Bowl.", "a bowl: the brief's words, the bowl as ESPN names it");
+  eq([W("postoff:1", BOWL, "LSU").title, W("postoff:1", BOWL, "LSU").body], ["Bowl game", "LSU will not play in the Kinder's Texas Bowl."], "a bowl declined or left");
+  eq(W("nopost:2024", {}).body, "Notre Dame's season is complete: no bowl this year.", "no postseason");
+  const sw = W("sel:2024", { at: new Date(S0).toISOString(), on: "ESPN" });
+  eq([sw.title, sw.kickoff, sw.network], ["Selection Day", new Date(S0).toISOString(), "ESPN"], "Selection Day: the show's time and network ride in the title");
+  eq([validOptions({}).selection, validOptions({}).postseason, validOptions({}).nopost, validOptions(null).postseason], [false, false, false, false],
+     "a choice saved before they existed has all three off (the app turns two on for a fan choosing now)");
+
+  // The Worker, minute by minute, around Selection Day 2024.
+  const db = dbOf(), e = alertEnv({}), base = e.FETCH;
+  e.SELECTION = [SEL];
+  let ndPost = { events: [] }, lsuPost = { events: [] }, board = tbd, boardLooks = 0;
+  const LSU_BOWL = pre({ events: [BOARD.events.find((x) => x.id === "401677104")] });
+  e.FETCH = async (url, init) => {
+    if (/\/teams\/(87|99)\/schedule$/.test(url)) return new Response(JSON.stringify({ events: [] }), { status: 200 });
+    if (/\/teams\/87\/schedule\?seasontype=3$/.test(url)) return ndPost === 503 ? new Response("", { status: 503 }) : new Response(JSON.stringify(ndPost), { status: 200 });
+    if (/\/teams\/99\/schedule\?seasontype=3$/.test(url)) return new Response(JSON.stringify(lsuPost), { status: 200 });
+    if (/\/scoreboard\?.*seasontype=3/.test(url)) { boardLooks++; return new Response(JSON.stringify(board), { status: 200 }); }
+    return base(url, init);
+  };
+  const all = { kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false,
+                selection: true, postseason: true, nopost: true };
+  const f = { nd: await browserSub(), ndOld: await browserSub(), lsu: await browserSub(), lsuLate: await browserSub(), lsuNoNo: await browserSub() };
+  const T0 = S0 - 30 * 864e5;
+  await subscribe(db, e, { subscription: f.nd.sub, team: { id: "87", name: "Notre Dame" }, options: all }, T0);
+  await subscribe(db, e, { subscription: f.ndOld.sub, team: { id: "87", name: "Notre Dame" }, options: { kickoff: true, final: true, delays: true } }, T0);
+  await subscribe(db, e, { subscription: f.lsu.sub, team: { id: "99", name: "LSU" }, options: all }, T0);
+  await subscribe(db, e, { subscription: f.lsuNoNo.sub, team: { id: "99", name: "LSU" }, options: Object.assign({}, all, { nopost: false }) }, T0);
+  e.pushes.length = 0;
+  const to = (x) => e.pushes.filter((p) => p.url === x.sub.endpoint);
+  const open = async (x, i) => openPush(to(x)[i == null ? to(x).length - 1 : i].init.body, x.kp, x.sub.keys.auth);
+
+  await tick(db, e, S0 - 4 * 3600e3);
+  ok(e.pushes.length === 0, "the night before: nothing");
+  await tick(db, e, S0 - 2 * 3600e3);
+  ok(to(f.nd).length === 1 && to(f.lsu).length === 1 && to(f.ndOld).length === 0, "the morning of: the reminder to each fan who chose it, none to a choice from before it existed");
+  const r = await open(f.nd);
+  eq([r.title, r.kickoff, r.network, r.url], ["Selection Day", new Date(S0).toISOString(), "ESPN", APP_URL + "#top25/rankings/cfp"], "the reminder: the show's time, opening the CFP rankings");
+  await tick(db, e, S0 - 3600e3);
+  ok(to(f.nd).length === 1, "once");
+
+  e.pushes.length = 0;
+  await tick(db, e, S0 + 30 * 60e3);
+  ok(e.pushes.length === 0, "the show is on, nothing listed yet: nothing");
+  ndPost = pre(ND_POST); ndPost.events = ndPost.events.slice(0, 1);                 // the First Round, named at selection
+  lsuPost = LSU_BOWL;
+  await tick(db, e, S0 + 40 * 60e3);
+  ok(to(f.nd).length === 1 && to(f.ndOld).length === 0 && to(f.lsu).length === 1, "named minutes later: each team's game, read every few minutes on Selection Day");
+  const nm = await open(f.nd), lm = await open(f.lsu);
+  eq([nm.body, nm.url], ["Notre Dame is in the College Football Playoff: the No. 7 seed hosts No. 10 Indiana in the First Round.", APP_URL + "#schedule/401677179"],
+     "Notre Dame: the First Round, opening that game");
+  eq(lm.body, "LSU will play Baylor in the Kinder's Texas Bowl.", "LSU: its bowl");
+  await tick(db, e, S0 + 41 * 60e3);
+  eq(JSON.parse(db.all("SELECT game FROM games WHERE team_id = '87'")[0].game || "{}").id, "401677179", "and from the next minute the game alerts watch the playoff game");
+  await tick(db, e, S0 + 50 * 60e3);
+  ok(to(f.nd).length === 1 && to(f.lsu).length === 1, "each game is announced once");
+
+  // LSU leaves its bowl (David: Notre Dame declined its 2025 bowl). One read
+  // without it is not enough; a failed read is never a missing game.
+  await subscribe(db, e, { subscription: f.lsuLate.sub, team: { id: "99", name: "LSU" }, options: all }, S0 + 55 * 60e3);
+  e.pushes.length = 0;
+  lsuPost = { events: [] };
+  await tick(db, e, S0 + 60 * 60e3);
+  ok(e.pushes.length === 0, "gone from one read: nothing yet");
+  await tick(db, e, S0 + 70 * 60e3);
+  ok(to(f.lsu).length === 1 && to(f.lsuNoNo).length === 1 && to(f.lsuLate).length === 0,
+     "gone on two reads in a row: withdrawn, to each device told it was set - not to one that never heard of it");
+  eq((await open(f.lsu)).body, "LSU will not play in the Kinder's Texas Bowl.", "in plain words");
+  await tick(db, e, S0 + 80 * 60e3);
+  ok(to(f.lsu).length === 1, "withdrawn once");
+
+  // No postseason: only once the league's field is set, the team has nothing
+  // left to play, and two reads found no game - and never before the evening after.
+  e.pushes.length = 0;
+  await tick(db, e, S1 + 11 * 3600e3);
+  ok(e.pushes.length === 0 && boardLooks === 0, "before the evening after Selection Day: not even asked");
+  await tick(db, e, S1 + 13 * 3600e3);
+  ok(e.pushes.length === 0 && boardLooks === 1, "the board shows placeholders only: not yet");
+  board = BOARD;
+  await tick(db, e, S1 + 13 * 3600e3 + 30 * 60e3);
+  ok(boardLooks === 1, "the board is asked at most hourly");
+  await tick(db, e, S1 + 14 * 3600e3 + 60e3);
+  ok(to(f.lsu).length === 1 && to(f.lsuNoNo).length === 0 && to(f.nd).length === 0,
+     "the field is set: LSU's fan who chose it hears its season is over; not one who did not, nor Notre Dame's, still playing");
+  eq((await open(f.lsu)).body, "LSU's season is complete: no bowl this year.", "the brief's words");
+  await tick(db, e, S1 + 16 * 3600e3);
+  ok(to(f.lsu).length === 1, "once");
+
+  // A failed read never counts as an empty one.
+  const db2 = dbOf(), e2 = alertEnv({}); e2.SELECTION = [SEL]; e2.FETCH = e.FETCH;
+  const g = await browserSub();
+  await subscribe(db2, e2, { subscription: g.sub, team: { id: "87", name: "Notre Dame" }, options: all }, T0);
+  ndPost = 503; board = BOARD;
+  for (let i = 0; i < 6; i++) await tick(db2, e2, S1 + 13 * 3600e3 + i * 61 * 60e3);
+  ok(e2.pushes.filter((p) => p.url === g.sub.endpoint && !/sel/.test(p.init.body)).length === 0, "a postseason schedule that fails to load: never 'no postseason'");
+}
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the edge API answers only what a screen shows"));
 process.exit(failures ? 1 : 0);
