@@ -115,6 +115,11 @@ drop = [
     story("Ohio State basketball players reveal reasons behind the number they wear",
           "https://on3.com/teams/ohio-state-buckeyes/news/ohio-state-basketball-players-numbers/"),
     story("Irish open the season Friday", "https://a.example/irish-open-the-season", ["Hockey"]),
+    # An outlet's "Football" category does not rescue a title that names
+    # another sport: this one reached the Oct 20 refresh that way.
+    story("Notre Dame WBB debuts at No. 13 in AP poll with a killer schedule to test that ranking",
+          "https://on3.com/teams/notre-dame-fighting-irish/news/notre-dame-wbb-debuts-no-13-ap-poll-with-a-killer-schedule/",
+          ["Football", "Notre Dame"]),
 ]
 for it in drop:
     ok(bn.off_topic(it, "college-football") is not None, "another sport is left out: " + it["title"][:60])
@@ -126,6 +131,7 @@ keep = [
     story("Irish open the season Friday", "https://a.example/basketball-and-football-weekend", ["Football", "Basketball"]),
     story("Notre Dame's defense is diving into film after BYU", "https://a.example/defense-film"),
     story("Irish back on track after the bye", "https://a.example/back-on-track"),
+    story("Irish back on the practice field", "https://a.example/practice", ["Football", "Basketball"]),
 ]
 for it in keep:
     ok(bn.off_topic(it, "college-football") is None, "football stays: " + it["title"][:60])

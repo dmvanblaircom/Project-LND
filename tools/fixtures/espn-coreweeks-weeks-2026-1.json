@@ -1,0 +1,12 @@
+{
+ "_comment": "Real ESPN payload, captured 2026-10-20T20:29Z by capture-fixture.yml from https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/weeks?limit=30, kept whole.",
+ "count": 1,
+ "pageIndex": 1,
+ "pageSize": 30,
+ "pageCount": 1,
+ "items": [
+  {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/1/weeks/1?lang=en&region=us"
+  }
+ ]
+}
