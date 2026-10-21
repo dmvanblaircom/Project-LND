@@ -53,6 +53,11 @@ function fixture(name) { return fs.readFileSync(path.join(root, "tools", "fixtur
 var server = serve(root);
 
 function responseFor(url) {
+  // The kept rankings weeks: the sample (preseason and week 2), not the file
+  // the refresh grows each week - which would put a later week than the Sep
+  // 20 polls on top and break the one story the renders tell.
+  if (/\/data\/league\/rankings-\d+\.json/.test(url)) return fs.readFileSync(path.join(root, "tools", "fixtures", "rankings-2026-sample.json"));
+  if (/\/data\/league\/fpi-history-\d+\.json/.test(url)) return fs.readFileSync(path.join(root, "tools", "fixtures", "fpi-history-2026-sample.json"));
   // The postseason: a real empty answer, as ESPN gives in September.
   if (/\/schedule\?seasontype=3/.test(url)) return fs.readFileSync(path.join(root, "tools", "fixtures", "espn-schedule-nd-2025-post.json"));
   if (/\/schedule(?:\?|$)/.test(url)) return fixture("schedule");
@@ -752,13 +757,16 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           var cur = document.querySelector('#screenTop25 .view-tabs a[aria-current="page"]');
           var poll = document.querySelector('#screenTop25 .poll-seg a[aria-current="page"]');
           var seg = document.querySelector("#screenTop25 .poll-seg"), note = document.querySelector("#screenTop25 .rk-note");
+          // the week picker, when there are weeks to pick, belongs to the selector
+          var under = seg && seg.nextElementSibling && seg.nextElementSibling.classList.contains("rk-weekpick") ? seg.nextElementSibling : seg;
           var tbl = document.querySelector("#screenTop25 .rk-table");
           var rows = document.querySelectorAll("#screenTop25 .rk-table tbody tr");
           return { view: Suite.nav.current().view, hash: location.hash, pressed: cur ? cur.textContent.trim().toLowerCase() : null,
                    shown: !!document.querySelector("#screenTop25 .rk-table"), poll: poll ? poll.textContent.trim() : null,
                    rows: rows.length, mine: document.querySelectorAll("#screenTop25 .rk-table tr.mine").length,
                    // the pre-CFP notice sits right under the selector, above the table
-                   note: note ? (seg.nextElementSibling === note && !!(note.compareDocumentPosition(tbl) & 4)) : null,
+                   note: note ? (under.nextElementSibling === note && !!(note.compareDocumentPosition(tbl) & 4)) : null,
+                   picker: !!document.getElementById("rkWeek"),
                    over: (function () {
                      var t = document.querySelector("#screenTop25 .rk-table"), c = t && t.closest(".rk-card");
                      if (!t) return 0;
@@ -777,6 +785,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         if (t25r.note !== true) fail(who, "behaviour", ".rk-note", "before the CFP is published its notice is " +
           (t25r.note === null ? "missing" : "not directly under the poll selector, above the table"));
         if (t25r.over > 1) fail(who, "layout", ".rk-table", "the rankings table is " + t25r.over + "px wider than its card");
+        if (!t25r.picker) fail(who, "behaviour", "#rkWeek", "with earlier weeks kept, the week picker is missing");
         var bogus = await page.evaluate(function () {
           var before = history.length;
           location.hash = "#top25/bogus";
