@@ -170,7 +170,7 @@ function outcomeOf(key){ var x=SRC[key]; return x && x.cached ? "cached" : "netw
 // carries X-IW-Cached - the time it was stored - and counts as cached.
 var SRC={};
 function sourceKey(url){
-  if(/schedule\\?[^#]*season=/.test(url)) return "offseasonNext";
+  if(/schedule\?[^#]*season=/.test(url)) return "offseasonNext";
   if(/scoreboard/.test(url) && /seasontype=3/.test(url) && /week=1/.test(url)) return "postseasonBoard";
   if(url===TeamOS.espn.scheduleUrl(TEAM_CONFIG)) return "schedule";
   if(/scoreboard/.test(url)) return "scoreboard";
@@ -663,7 +663,7 @@ function loadRankings(){
     T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); T25.at=Date.now(); T25.pollsFailed=false;
     return { key:"rankings", outcome:outcomeOf("rankings") };
   }).catch(function(){ T25.pollsFailed=true; return { key:"rankings", outcome:"failed" }; })
-    .then(function(r){ T25.p=null; paintTop25(); return r; });
+    .then(function(r){ T25.p=null; paintTop25(); paintHome(); return r; });
   return T25.p;
 }
 
@@ -1222,10 +1222,9 @@ function homeSources(heroLive){
    normalized current/next season, ESPN's postseason selection board, and the
    rankings feed already used by Top 25. */
 var OFFSEASON={ next:null, nextSeason:null, nextOutcome:"unknown", nextAskedAt:0,
-  selected:{}, selectedAt:{}, boardPending:{}, nextPending:false };
+  selected:{}, selectedAt:{}, boardAskedAt:{}, boardPending:{}, nextPending:false };
 function loadOffseasonNext(year){
-  if(OFFSEASON.nextPending || (OFFSEASON.nextSeason===year &&
-      OFFSEASON.nextOutcome!=="failed" && Date.now()-OFFSEASON.nextAskedAt<60*60e3)) return;
+  if(OFFSEASON.nextPending || (OFFSEASON.nextSeason===year && Date.now()-OFFSEASON.nextAskedAt<60*60e3)) return;
   OFFSEASON.nextPending=true; OFFSEASON.nextSeason=year;
   OFFSEASON.nextOutcome="loading"; OFFSEASON.nextAskedAt=Date.now();
   var url=TeamOS.espn.scheduleUrl(TEAM_CONFIG,year);
@@ -1239,15 +1238,16 @@ function loadOffseasonNext(year){
   });
 }
 function loadOffseasonSelection(year){
-  if(OFFSEASON.boardPending[year] || (OFFSEASON.selectedAt[year] &&
-      Date.now()-OFFSEASON.selectedAt[year]<60*60e3)) return;
+  if(OFFSEASON.boardPending[year] || (OFFSEASON.boardAskedAt[year] &&
+      Date.now()-OFFSEASON.boardAskedAt[year]<60*60e3)) return;
+  OFFSEASON.boardAskedAt[year]=Date.now();
   OFFSEASON.boardPending[year]=true;
   get(TeamOS.espn.postseasonBoardUrl(year),hasEvents).then(function(d){
     OFFSEASON.selected[year]=TeamOS.espn.postseasonSelected(d);
     OFFSEASON.selectedAt[year]=Date.now();
   }).catch(function(){
     // Unknown is not the same as an unselected team. Retry on a later paint.
-    delete OFFSEASON.selectedAt[year];
+    OFFSEASON.selectedAt[year]=0;
   }).then(function(){
     OFFSEASON.boardPending[year]=false; paintHome();
   });
@@ -1264,7 +1264,7 @@ function offseasonModel(now){
     league:window.LEAGUE_CALENDAR,next:OFFSEASON.nextOutcome,now:now});
   if(Suite.nav && Suite.nav.setSeasonNav){
     var apFinal=(T25.polls||[]).some(function(p){
-      return (p.key==="ap" || /associated press/i.test(p.label||p.name||"")) && p.final===true;
+      return /\\bap\\b|associated press/i.test((p.key||"")+" "+(p.label||p.name||"")) && p.final===true;
     });
     var top25=!model || (model.phase.state==="complete" && !apFinal);
     var opener=model && model.phase.opener;
