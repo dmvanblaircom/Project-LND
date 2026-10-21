@@ -104,7 +104,7 @@ fs.mkdirSync(shots, { recursive: true });
     ok(o.st.weeks === 1 && o.st.fpiWeeks === 0, "the kept weeks are read once; FPI's earlier tables not at all yet");
 
     await o.page.click('.poll-seg a[href="#top25/rankings/fpi"]');
-    await o.page.waitForFunction(function () { return document.getElementById("rkWeek"); }, null, { timeout: 8000 });
+    await o.page.waitForFunction(function () { return document.querySelector('#rkWeek[data-source="fpi"]'); }, null, { timeout: 8000 });
     s = await state(o.page);
     ok(s.options.length === 2 && /^Week 8 \(latest\)$/.test(s.options[0]) && /^Week 7$/.test(s.options[1]) && s.first.indexOf("Ohio State") === 0,
        "FPI: today's table by default, with the kept week 7 offered (" + s.options.join(" | ") + ")");
@@ -114,7 +114,8 @@ fs.mkdirSync(shots, { recursive: true });
     s = await state(o.page);
     ok(s.hash === "#top25/rankings/fpi/w7" && o.st.fpiWeeks === 1, "picking FPI week 7 reads the kept tables once and shows that week (No. 1 Notre Dame)");
     await o.page.click('.poll-seg a[href="#top25/rankings/sp-plus"]');
-    await o.page.waitForFunction(function () { return document.getElementById("rkWeek"); }, null, { timeout: 8000 });
+    // FPI's picker is still on screen until SP+ is drawn: wait for SP+'s own.
+    await o.page.waitForFunction(function () { return document.querySelector('#rkWeek[data-source="sp-plus"]'); }, null, { timeout: 8000 });
     s = await state(o.page);
     ok(s.options.length === 3 && /^Week 8 \(latest\)$/.test(s.options[0]) && /^Week 7 · Oct 15$/.test(s.options[1]) && /^Week 7 · Oct 13$/.test(s.options[2]) &&
        s.first.indexOf("Ohio State") === 0,
