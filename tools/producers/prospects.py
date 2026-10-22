@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 """ESPN's recruiting classes and NFL draft board, as snapshots (W16).
 
+    python3 tools/producers/prospects.py recruits --team notre-dame
+        the team's ESPN id and file from its config (snapshots.recruits)
     python3 tools/producers/prospects.py recruits --team-id 87 --out data/notre-dame/recruits.json
     python3 tools/producers/prospects.py draft --out data/league/draft.json [--year 2027]
     ... [--from-file captured.json]   (a capture_core.py fixture instead of fetching)
+    python3 tools/producers/prospects.py due --last .cadence/prospects
+        exit 0 when a refresh is due (once a day), 3 when not
+
+The refresh workflow runs both once a day (`due`): a class and a board move
+over days, and each read fetches every record on its own.
 
 David chose ESPN for both on 2026-10-03 (offseason proposal §7, rows 4 and
 6; docs/engineering/offseason-sources.md). Each is a core-API list of $ref
@@ -196,6 +203,33 @@ def normalize_board(payload, year, rounds=None, nfl_teams=None):
 
 # --- run --------------------------------------------------------------------
 
+# Once a day is enough: commitments and the board move over days, and a read
+# fetches every record. A run a few minutes early still counts.
+EVERY_HOURS = 20
+
+
+def due(last, now):
+    """Whether a refresh is due: no record of the last one, an unreadable
+    one, or one at least EVERY_HOURS old. When in doubt, refresh."""
+    try:
+        with open(last, encoding="utf-8") as f:
+            then = datetime.strptime(f.read().strip(), "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except (OSError, ValueError):
+        return True
+    return (now - then).total_seconds() >= EVERY_HOURS * 3600
+
+
+def keeps_class(previous, snap):
+    """A class that comes back empty when the kept one had recruits is not
+    believed: a recruiting class does not vanish between two days."""
+    if snap["recruits"] or not previous:
+        return
+    # An empty answer names no class year at all: that is no new class either.
+    same = snap.get("classYear") is None or previous.get("classYear") in (None, snap.get("classYear"))
+    if previous.get("recruits") and same:
+        raise Refused("no committed recruits, where %d were kept" % len(previous["recruits"]))
+
+
 def write(out, snap, what):
     previous = None
     if os.path.exists(out):
@@ -217,12 +251,31 @@ def write(out, snap, what):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("kind", choices=["recruits", "draft"])
+    ap.add_argument("kind", choices=["recruits", "draft", "due"])
+    ap.add_argument("--team", help="recruits: a team id; its ESPN id and file come from its config")
     ap.add_argument("--team-id", help="recruits: the team's ESPN id")
+    ap.add_argument("--last", help="due: the file holding the last refresh's time")
     ap.add_argument("--year", type=int, help="draft: default the next draft")
     ap.add_argument("--from-file", help="a capture_core.py fixture instead of fetching")
-    ap.add_argument("--out", required=True)
+    ap.add_argument("--out")
     args = ap.parse_args()
+    if args.kind == "due":
+        if not args.last:
+            ap.error("due needs --last")
+        is_due = due(args.last, datetime.now(timezone.utc))
+        print("  recruiting and draft %s" % ("due" if is_due else "not due: refreshed within %d hours" % EVERY_HOURS))
+        sys.exit(0 if is_due else 3)
+    if args.team:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import teamconfig
+        config = teamconfig.load(args.team)
+        decl = teamconfig.snapshot(config, "recruits")
+        if not decl:
+            ap.error("%s declares no recruits snapshot" % args.team)
+        args.team_id = args.team_id or str(((config.get("sources") or {}).get("espn") or {}).get("teamId") or "")
+        args.out = args.out or teamconfig.path(decl["file"])
+    if not args.out:
+        ap.error("--out is required")
     try:
         if args.kind == "recruits":
             if not args.team_id:
@@ -230,6 +283,11 @@ def main():
             payload = (json.load(open(args.from_file, encoding="utf-8")) if args.from_file
                        else _follow("%s/teams/%s/recruits?limit=100" % (CFB, args.team_id)))
             snap = normalize_class(payload, args.team_id)
+            try:
+                kept = json.load(open(args.out, encoding="utf-8"))
+            except (OSError, ValueError):
+                kept = None     # nothing kept yet, or a kept file that cannot be read
+            keeps_class(kept, snap)
             what = "%s class of %s: %d recruits" % (args.team_id, snap["classYear"], len(snap["recruits"]))
         else:
             year = args.year or default_year(datetime.now(timezone.utc))

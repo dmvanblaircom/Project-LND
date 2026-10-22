@@ -89,6 +89,8 @@ jobs:
         run: python3 tools/fpicheck.py
       - name: Every released poll week is kept whole, and nothing kept is lost
         run: python3 tools/rankingshistorycheck.py
+      - name: Recruiting and draft refresh
+        run: python3 tools/prospectsrefreshcheck.py
       - name: The edge API answers only what a screen shows
         run: node tools/workercheck.mjs
       - name: A shell change bumps the worker version

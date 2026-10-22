@@ -120,7 +120,7 @@ It never infers. An empty postseason means "not selected" only once selection is
 
 ### RecruitClass and DraftClass
 
-`TeamOS.prospects` (W16, `teamos/prospects.js`). Both come from ESPN, which David chose on 2026-10-03. `tools/producers/prospects.py` writes the snapshots: `data/<team>/recruits.json` and `data/league/draft.json`. Neither is scheduled or loaded yet; the screens come with the offseason designs.
+`TeamOS.prospects` (W16, `teamos/prospects.js`). Both come from ESPN, which David chose on 2026-10-03. `tools/producers/prospects.py` writes the snapshots: each team's `recruits.json` where its config declares `snapshots.recruits` (both teams), and `data/league/draft.json`. The refresh workflow runs it once a day, or on a run started by hand (`prospects.py due`). A class that comes back empty where the kept one had recruits is refused, and the kept one stays. Nothing loads them yet; the screens come with the offseason designs (Codex).
 
 - **`recruits(snap, config)`:** `{ label, sourceUrl, classYear, fetchedAt, total, recruits }`.
   - Each recruit is `{ name, position, highSchool, hometown, grade, rank, positionRank, stateRank, status }`, best grade first.
