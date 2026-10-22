@@ -49,38 +49,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # The league's Kalshi markets for the season they belong to (W16):
+      # this season's while any is open, next season's once Kalshi lists it,
+      # neither until then - never last season's. The events are the league's
+      # rule (LEAGUE_MARKETS in leagues/college-football.js), not this file's.
+      # Kalshi unreachable leaves the last files as they were.
       - name: Fetch from Kalshi
         id: kalshi
         continue-on-error: true
-        run: |
-          set -uo pipefail
-          BASE="https://api.elections.kalshi.com/trade-api/v2"
-          UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
-
-          grab () {   # grab <url> <outfile>
-            for attempt in 1 2 3 4 5; do
-              code=$(curl -sS -w '%{http_code}' -o "$2.tmp" \
-                     -H "accept: application/json" -H "user-agent: $UA" "$1" || echo 000)
-              if [ "$code" = "200" ]; then
-                mv "$2.tmp" "$2"
-                echo "  $2 <- HTTP 200 ($(wc -c <"$2") bytes)"
-                return 0
-              fi
-              echo "  attempt $attempt for $2 got HTTP $code: $(head -c 160 "$2.tmp")"
-              sleep $((attempt * 10))
-            done
-            echo "::error::gave up on $2"
-            return 1
-          }
-
-          # Each market on its own: one that cannot be had keeps its last good
-          # file (grab only replaces a file on a 200), and the other is still
-          # committed. The step fails only when neither came back.
-          mkdir -p data/league
-          got=0
-          grab "$BASE/markets?event_ticker=KXNCAAF-27&limit=200&status=open"        data/league/odds-title.json   && got=$((got+1))
-          grab "$BASE/markets?event_ticker=KXNCAAFPLAYOFF-26&limit=200&status=open" data/league/odds-playoff.json && got=$((got+1))
-          [ "$got" -gt 0 ] || exit 1
+        run: python3 tools/producers/markets.py
 
       - name: Refuse to commit anything that is not market data
         id: odds

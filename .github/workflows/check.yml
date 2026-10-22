@@ -91,6 +91,8 @@ jobs:
         run: python3 tools/rankingshistorycheck.py
       - name: Recruiting and draft refresh
         run: python3 tools/prospectsrefreshcheck.py
+      - name: One season's markets at a time, never last season's
+        run: python3 tools/marketscheck.py
       - name: The edge API answers only what a screen shows
         run: node tools/workercheck.mjs
       - name: A shell change bumps the worker version
