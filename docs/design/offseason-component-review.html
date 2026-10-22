@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suite offseason production component review</title><link rel="stylesheet" href="../../app.css">
+<style>
+body{margin:0;background:#e3e6e6;color:var(--s-ink);font-family:var(--t-font-ui)}
+.review-controls{max-width:940px;margin:0 auto;padding:14px;font-size:13px}
+.review-controls select{min-height:44px;margin:0 8px 8px 4px;padding:5px;border-radius:8px}
+.stage{max-width:390px;min-height:600px;margin:0 auto 32px;background:var(--s-page);overflow:hidden}
+.stage-bar{display:flex;align-items:center;gap:12px;padding:15px;background:var(--s-chrome);color:#fff}
+.stage-bar img{width:110px}.stage-name{padding-left:12px;border-left:1px solid #b8845a;font-family:var(--t-font-display);font-weight:700;text-transform:uppercase}
+#hero{padding:0 var(--gutter)}.below{margin:0;padding:20px 16px;background:var(--s-page)}
+.below h2{font-family:var(--s-font-editorial);font-size:23px}
+.disclaimer{padding:12px;font-size:12px;line-height:1.5}
+</style></head><body>
+<div class="review-controls"><strong>Approved S2/S4 component • illustrative data only</strong>
+<label>Team<select id="team"><option value="notre-dame">Notre Dame</option><option value="ohio-state">Ohio State</option></select></label>
+<label>Style<select id="style"><option value="suite">Suite</option><option value="team">Team</option></select></label>
+<label>State<select id="state"><option value="awaiting">Awaiting selection</option><option value="complete">Season complete</option><option value="failed">Schedule failed</option></select></label></div>
+<div class="stage"><header class="stage-bar"><img src="../../assets/suite/suite-wordmark-pearl.svg" alt="Suite"><span class="stage-name" id="teamLabel"></span></header>
+<main id="hero"></main><section class="below"><h2>Latest News</h2><p>Illustrative content omitted from this component-only review.</p></section>
+<p class="disclaimer">Review-only fixture. No real scores, records, postseason selections or schedule claims.</p></div>
+<script src="../../teamos/team.js"></script><script src="../../teamos/identity.js"></script><script src="../../suite/ui.js"></script><script src="../../suite/offseason.js"></script>
+<script>
+"use strict";
+var q=new URLSearchParams(location.search),slug=q.get("team")==="ohio-state"?"ohio-state":"notre-dame";
+document.getElementById("team").value=slug;
+document.getElementById("state").value=["awaiting","complete","failed"].includes(q.get("state"))?q.get("state"):"awaiting";
+document.getElementById("style").value=q.get("style")==="team"?"team":"suite";
+document.getElementById("team").onchange=function(){q.set("team",this.value);q.set("style",document.getElementById("style").value);q.set("state",document.getElementById("state").value);location.search=q.toString();};
+document.getElementById("style").onchange=render;document.getElementById("state").onchange=render;
+var tscript=document.createElement("script");tscript.src="../../teams/"+slug+".js";tscript.onload=render;document.head.appendChild(tscript);
+function render(){
+ var team=TeamOS.createTeam(TEAM_CONFIG.team),style=document.getElementById("style").value,state=document.getElementById("state").value;
+ var identity=TeamOS.identity.create(style==="suite"?{identity:Suite.ui.STYLE}:TEAM_CONFIG,team),root=document.documentElement.style;
+ [["font-ui",identity.fonts.ui],["font-display",identity.fonts.display],["deep",identity.colors.surfaceDeep],["abyss",identity.colors.surfaceAbyss],["accent-text",identity.colors.accentText]].forEach(function(x){root.setProperty("--t-"+x[0],x[1]);});
+ document.getElementById("teamLabel").textContent=team.name;
+ var awaiting=state==="awaiting", failed=state==="failed";
+ document.getElementById("hero").innerHTML=Suite.offseason.hero({
+  phase:{state:awaiting?"awaiting-postseason":"complete",season:2026,nextSeason:2027,opener:null},
+  record:{text:awaiting?"11-1":"12-2",season:2026,kind:awaiting?"regular":"final"},
+  ranking:{rank:6,source:awaiting?"CFP":"AP",season:2026,final:!awaiting},
+  last:awaiting?{status:"final",state:"post",us:31,them:17,oppName:"Sample State University",home:true,stage:{name:"Regular-season finale"}}:
+    {status:"final",state:"post",us:24,them:27,oppName:"Sample State University",home:true,stage:{name:"CFP Quarterfinal"}},
+  calendar:{selection:{start:"2026-12-06T17:00:00Z",on:"ESPN"}},
+  nextSchedule:{outcome:failed?"failed":"empty"}
+ });
+}
+</script></body></html>

@@ -21,6 +21,8 @@
        model.numbers   [{ n, text }] | null - By the Numbers from the week's
                        game notes, for the hero game only
        model.fresh     TeamOS.freshness.summary() output
+       model.offseason Optional Suite.offseason model from the controller;
+                       absent keeps the existing in-season presentation.
 
    Each section is redrawn only when its markup changed, so a 30-second live
    refresh never throws away the fan's focus or scroll inside a section that
@@ -180,6 +182,8 @@ Suite.home = (function () {
   }
 
   function heroHtml(m) {
+    var seasonHero = Suite.offseason && Suite.offseason.hero(m.offseason);
+    if (seasonHero) return seasonHero;
     var team = m.team, h = m.hero || {}, g = h.game, st = cardState(g, h.reason);
     var ko = g ? ui.kickoff(g.date, g.timeSet) : null;
     var id = '<div class="hh-id">' +
@@ -335,6 +339,7 @@ Suite.home = (function () {
   // ---- mount -----------------------------------------------------------------
 
   var SECTIONS = ["fresh", "hero", "milestone", "numbers", "news", "schedule", "outlook"];
+  var OFFSEASON_SECTIONS = ["fresh", "hero", "news", "milestone", "numbers", "schedule", "outlook"];
 
   function paint(host, m) {
     if (!host) return;
@@ -345,7 +350,21 @@ Suite.home = (function () {
           : '<section class="home-sec home-' + k + '" data-home="' + k + '"></section>';
       }).join("");
       last = {};
+      host._suiteHomeOrder = SECTIONS.join("|");
     }
+    // S4/S5 put News directly below the hero. Move the existing wrappers,
+    // keeping story images, horizontal scroll and unchanged focused links.
+    var phase = m.offseason && m.offseason.phase;
+    var order = phase && phase.state === "complete" ? OFFSEASON_SECTIONS : SECTIONS;
+    if (host._suiteHomeOrder !== order.join("|")) order.forEach(function (k, i) {
+      var el = host.querySelector('[data-home="' + k + '"]');
+      if (host.children[i] !== el) {
+        var active = document.activeElement, focused = el.contains(active);
+        host.insertBefore(el, host.children[i] || null);
+        if (focused) active.focus({ preventScroll: true });
+      }
+    });
+    host._suiteHomeOrder = order.join("|");
     var html = {
       fresh: ui.freshBanner(m.fresh),
       hero: heroHtml(m),

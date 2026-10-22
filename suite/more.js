@@ -90,7 +90,16 @@ Suite.more = (function () {
   // sheet, or the link copied), so it is a button, and says what it did in
   // the status line under the list.
   function menu(host) {
-    put(host, "menu", '<ul class="mo-list card" aria-label="More">' + MENU.map(function (x) {
+    var items = MENU.slice();
+    // Saved destinations remain reachable when seasonal primary tabs change.
+    // The controller repaints More after setSeasonNav, as on route entry.
+    if (Suite.nav && Suite.nav.hasPrimary) {
+      if (!Suite.nav.hasPrimary("top25")) items.splice(2, 0,
+        { id: "stats", href: "#top25/rankings", title: "Top 25", sub: "Rankings and national games" });
+      if (!Suite.nav.hasPrimary("game")) items.splice(2, 0,
+        { id: "schedule", href: "#game", title: "Game", sub: "Your team's game details and recap" });
+    }
+    put(host, "menu", '<ul class="mo-list card" aria-label="More">' + items.map(function (x) {
       var inner = '<span class="mo-badge">' + ICONS[x.id] + "</span>" +
                   '<span class="mo-text"><span class="mo-title">' + esc(x.title) + "</span>" +
                   '<span class="mo-sub">' + esc(x.sub) + "</span></span>";

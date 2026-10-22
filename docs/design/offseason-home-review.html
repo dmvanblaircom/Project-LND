@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Offseason Home integration review — illustrative data</title>
+<link rel="stylesheet" href="../../app.css">
+<style>
+.review-controls{max-width:66rem;margin:auto;padding:1rem var(--gutter);font-size:.875rem;background:var(--s-surface)}
+.review-controls strong{display:block;margin-bottom:.5rem}
+.review-controls label{display:inline-flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin-right:.75rem}
+.review-controls select{max-width:100%;min-height:44px;margin-bottom:.5rem}
+.review-note{padding:1rem 0;color:var(--s-muted);font-size:.875rem}
+</style></head><body>
+<div class="review-controls"><strong>Offseason Home review · illustrative data only</strong>
+<label>Team <select id="reviewTeam"><option value="notre-dame">Notre Dame</option><option value="ohio-state">Ohio State</option></select></label>
+<label>Style <select id="reviewStyle"><option value="suite">Suite</option><option value="team">Team</option></select></label>
+<label>State <select id="reviewState"><option value="awaiting">Awaiting selection</option><option value="complete">Season complete</option><option value="failed">Schedule failed</option><option value="opener">Confirmed opener, time TBD</option><option value="in-season">In-season baseline</option></select></label>
+<p>No live season claims. This page uses the actual Home, More and navigation modules. Other destinations show route names for review only.</p></div>
+<main class="page-main" id="main" tabindex="-1"><h1 id="screenHead" tabindex="-1" class="sr-only"></h1>
+<div id="home"></div><div id="more" hidden></div><p id="destination" class="review-note" hidden></p></main>
+<p class="sr-only" id="live" role="status" aria-live="polite"></p>
+<script src="../../teamos/team.js"></script><script src="../../teamos/identity.js"></script><script src="../../teamos/game.js"></script>
+<script src="../../suite/ui.js"></script><script src="../../suite/nav.js"></script><script src="../../suite/schedule.js"></script>
+<script src="../../suite/offseason.js"></script><script src="../../suite/home.js"></script><script src="../../suite/more.js"></script>
+<script>
+"use strict";
+var q=new URLSearchParams(location.search),slug=q.get("team")==="ohio-state"?"ohio-state":"notre-dame";
+var byId=function(id){return document.getElementById(id);};
+byId("reviewTeam").value=slug;
+byId("reviewStyle").value=q.get("style")==="team"?"team":"suite";
+if(["awaiting","complete","failed","opener","in-season"].includes(q.get("state")))byId("reviewState").value=q.get("state");
+byId("reviewTeam").onchange=function(){q.set("team",this.value);q.set("style",byId("reviewStyle").value);q.set("state",byId("reviewState").value);location.search=q.toString();};
+byId("reviewStyle").onchange=render;byId("reviewState").onchange=render;
+var homeModel;
+function showRoute(route){
+ byId("home").hidden=route.screen!=="home";byId("more").hidden=route.screen!=="more";
+ byId("destination").hidden=["home","more"].includes(route.screen);
+ byId("destination").textContent="Review destination: "+Suite.nav.href(route.screen,route.path)+". Live content is outside this presentation fixture.";
+ if(route.screen==="more")Suite.more.menu(byId("more"));
+}
+function render(){
+ var team=TeamOS.createTeam(TEAM_CONFIG.team),style=byId("reviewStyle").value,state=byId("reviewState").value;
+ var look=TeamOS.identity.create(style==="suite"?{identity:Suite.ui.STYLE}:TEAM_CONFIG,team),c=look.colors,r=document.documentElement.style;
+ [["accent",c.accent],["accent-rgb",c.accentRgb],["accent-text",c.accentText],["accent-on-light",c.accentOnLight],
+ ["accent-ink",c.accentInk],["accent-soft",c.accentSoft],["accent-tint",c.accentTint],["accent-tint-soft",c.accentTintSoft],["focus",c.focus],
+ ["surface",c.surface],["surface-rgb",c.surfaceRgb],["deep",c.surfaceDeep],["deep-rgb",c.surfaceDeepRgb],["abyss",c.surfaceAbyss],
+ ["abyss-rgb",c.surfaceAbyssRgb],["raise",c.surfaceRaise],["raise-rgb",c.surfaceRaiseRgb],["font-ui",look.fonts.ui],["font-display",look.fonts.display]]
+ .forEach(function(x){r.setProperty("--t-"+x[0],x[1]);});
+ document.documentElement.dataset.style=style;document.documentElement.dataset.team=slug;
+ byId("barTeam").textContent=team.name;byId("barMark").innerHTML=Suite.ui.mark("",team.name,team.abbreviation,"bare");
+ var awaiting=state==="awaiting",baseline=state==="in-season";
+ var game={id:"900001",status:"scheduled",state:"pre",date:"2027-09-04T16:00:00Z",timeSet:false,home:true,oppName:"Sample State University",oppAbbr:"SSU"};
+ homeModel={team:{name:team.name,abbr:team.abbreviation,markUrl:""},art:{name:team.name,abbr:team.abbreviation},oppMark:function(){return "";},
+ hero:{game:game},schedule:[],outlook:[],fresh:null,numbers:[{n:"12",text:"Illustrative game-note figure to verify section ordering"}],
+ news:[{title:"A look ahead to the next chapter",source:"Sample publisher",link:"#news",image:"",sourceLogo:""}]};
+ if(!baseline)homeModel.offseason={
+  phase:{state:awaiting?"awaiting-postseason":"complete",season:2026,nextSeason:2027,opener:state==="opener"?game:null},
+  record:{text:awaiting?"11-1":"12-2",season:2026,kind:awaiting?"regular":"final"},
+  ranking:{rank:6,source:awaiting?"CFP":"AP",season:2026,final:!awaiting},
+  last:{status:"final",state:"post",us:awaiting?31:24,them:awaiting?17:27,home:true,oppName:"Sample State University",stage:{name:awaiting?"Regular-season finale":"CFP Quarterfinal"}},
+  calendar:{selection:{start:"2026-12-06T17:00:00Z",on:"ESPN"}},
+  nextSchedule:{outcome:state==="failed"?"failed":"empty"}
+ };
+ Suite.home.paint(byId("home"),homeModel);
+ // These flags are illustrative controller input, never a rule inferred by Suite.
+ Suite.nav.setSeasonNav({top25:awaiting||baseline,game:awaiting||baseline});
+ Suite.more.menu(byId("more"));showRoute(Suite.nav.current());
+}
+// Import the shipping shell's header and nav, without running its boot or
+// controller. This keeps the review on real product markup and local fonts.
+Promise.all([
+ fetch("../../index.html").then(function(r){return r.text();}),
+ new Promise(function(resolve,reject){var s=document.createElement("script");s.src="../../teams/"+slug+".js";s.onload=resolve;s.onerror=reject;document.head.appendChild(s);})
+]).then(function(values){
+ var doc=new DOMParser().parseFromString(values[0],"text/html"),header=doc.getElementById("appBar"),nav=doc.getElementById("navbar");
+ header.querySelector(".wordmark").src="../../assets/suite/suite-wordmark-pearl.svg";
+ document.body.insertBefore(header,byId("main"));document.body.appendChild(nav);
+ Suite.nav.on(showRoute);Suite.nav.start();render();window.reviewReady=true;
+}).catch(function(e){byId("destination").hidden=false;byId("destination").textContent="Review could not load: "+e.message;throw e;});
+</script></body></html>
