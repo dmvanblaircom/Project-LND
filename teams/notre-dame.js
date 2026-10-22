@@ -204,6 +204,9 @@ var TEAM_CONFIG = {
     // This week's facts from the same game notes: pronunciations, captains,
     // honors, the series and By the Numbers (tools/producers/gamenotes.py).
     notes:       { file: "data/notre-dame/notes.json", label: "FightingIrish.com" },
-    beatNews:    { file: "data/notre-dame/news.json" }
+    beatNews:    { file: "data/notre-dame/news.json" },
+    // The team's recruiting class, from ESPN (tools/producers/prospects.py;
+    // David chose ESPN, 2026-10-03), refreshed once a day.
+    recruits:    { file: "data/notre-dame/recruits.json", label: "ESPN recruiting" }
   }
 };
