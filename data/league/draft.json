@@ -1,0 +1,562 @@
+{
+ "schema": 1,
+ "source": "espn-draft",
+ "label": "ESPN draft board",
+ "sourceUrl": "https://www.espn.com/nfl/draft/",
+ "year": 2027,
+ "listed": 55,
+ "drafted": 0,
+ "prospects": [
+  {
+   "id": "4582818",
+   "name": "Jeremiah Smith",
+   "position": "WR",
+   "collegeId": "194",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 1,
+   "pick": null
+  },
+  {
+   "id": "4582819",
+   "name": "Leonard Moore",
+   "position": "CB",
+   "collegeId": "87",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 2,
+   "pick": null
+  },
+  {
+   "id": "4582822",
+   "name": "Dylan Stewart",
+   "position": "EDGE",
+   "collegeId": "2579",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 3,
+   "pick": null
+  },
+  {
+   "id": "4582820",
+   "name": "Colin Simmons",
+   "position": "EDGE",
+   "collegeId": "251",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 4,
+   "pick": null
+  },
+  {
+   "id": "4582835",
+   "name": "Chris Cole",
+   "position": "LB",
+   "collegeId": "61",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 5,
+   "pick": null
+  },
+  {
+   "id": "4582825",
+   "name": "Charlie Becker",
+   "position": "WR",
+   "collegeId": "84",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 6,
+   "pick": null
+  },
+  {
+   "id": "4582830",
+   "name": "Ashton Hampton",
+   "position": "CB",
+   "collegeId": "228",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 7,
+   "pick": null
+  },
+  {
+   "id": "4582828",
+   "name": "Drew Mestemaker",
+   "position": "QB",
+   "collegeId": "197",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 8,
+   "pick": null
+  },
+  {
+   "id": "4582821",
+   "name": "Will Echoles",
+   "position": "DT",
+   "collegeId": "145",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 9,
+   "pick": null
+  },
+  {
+   "id": "4582836",
+   "name": "Ellis Robinson IV",
+   "position": "CB",
+   "collegeId": "61",
+   "grade": null,
+   "positionRank": 3,
+   "overall": 10,
+   "pick": null
+  },
+  {
+   "id": "4582868",
+   "name": "Xavier Gilliam",
+   "position": "DT",
+   "collegeId": "2633",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 11,
+   "pick": null
+  },
+  {
+   "id": "4582823",
+   "name": "Jordan Seaton",
+   "position": "OT",
+   "collegeId": "99",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 12,
+   "pick": null
+  },
+  {
+   "id": "4582832",
+   "name": "Greg Johnson",
+   "position": "OG",
+   "collegeId": "135",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 13,
+   "pick": null
+  },
+  {
+   "id": "4582869",
+   "name": "Zereoue Williams",
+   "position": "OT",
+   "collegeId": "254",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 14,
+   "pick": null
+  },
+  {
+   "id": "4582833",
+   "name": "Trinidad Chambliss",
+   "position": "QB",
+   "collegeId": "145",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 15,
+   "pick": null
+  },
+  {
+   "id": "4582827",
+   "name": "Jadan Baugh",
+   "position": "RB",
+   "collegeId": "57",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 16,
+   "pick": null
+  },
+  {
+   "id": "4582831",
+   "name": "Darian Mensah",
+   "position": "QB",
+   "collegeId": "2390",
+   "grade": null,
+   "positionRank": 3,
+   "overall": 17,
+   "pick": null
+  },
+  {
+   "id": "4582844",
+   "name": "Nick Marsh",
+   "position": "WR",
+   "collegeId": "84",
+   "grade": null,
+   "positionRank": 3,
+   "overall": 18,
+   "pick": null
+  },
+  {
+   "id": "4582824",
+   "name": "Yhonzae Pierre",
+   "position": "EDGE",
+   "collegeId": "333",
+   "grade": null,
+   "positionRank": 3,
+   "overall": 19,
+   "pick": null
+  },
+  {
+   "id": "4582870",
+   "name": "Lance Heard",
+   "position": "OT",
+   "collegeId": "96",
+   "grade": null,
+   "positionRank": 3,
+   "overall": 20,
+   "pick": null
+  },
+  {
+   "id": "4582839",
+   "name": "CJ Carr",
+   "position": "QB",
+   "collegeId": "87",
+   "grade": null,
+   "positionRank": 4,
+   "overall": 21,
+   "pick": null
+  },
+  {
+   "id": "4582850",
+   "name": "Kelley Jones",
+   "position": "CB",
+   "collegeId": "344",
+   "grade": null,
+   "positionRank": 4,
+   "overall": 22,
+   "pick": null
+  },
+  {
+   "id": "4582838",
+   "name": "Jamari Johnson",
+   "position": "TE",
+   "collegeId": "2483",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 23,
+   "pick": null
+  },
+  {
+   "id": "4582871",
+   "name": "Austin Simmons",
+   "position": "QB",
+   "collegeId": "142",
+   "grade": null,
+   "positionRank": 5,
+   "overall": 24,
+   "pick": null
+  },
+  {
+   "id": "4582841",
+   "name": "KJ Bolden",
+   "position": "S",
+   "collegeId": "61",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 25,
+   "pick": null
+  },
+  {
+   "id": "4582853",
+   "name": "Devan Thompkins",
+   "position": "EDGE",
+   "collegeId": "333",
+   "grade": null,
+   "positionRank": 4,
+   "overall": 26,
+   "pick": null
+  },
+  {
+   "id": "4582860",
+   "name": "Jaylen McClain",
+   "position": "S",
+   "collegeId": "194",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 27,
+   "pick": null
+  },
+  {
+   "id": "4582855",
+   "name": "KJ Duff",
+   "position": "WR",
+   "collegeId": "164",
+   "grade": null,
+   "positionRank": 4,
+   "overall": 28,
+   "pick": null
+  },
+  {
+   "id": "4582829",
+   "name": "Cam Coleman",
+   "position": "WR",
+   "collegeId": "251",
+   "grade": null,
+   "positionRank": 5,
+   "overall": 29,
+   "pick": null
+  },
+  {
+   "id": "4582826",
+   "name": "Trevor Goosby",
+   "position": "OT",
+   "collegeId": "251",
+   "grade": null,
+   "positionRank": 4,
+   "overall": 30,
+   "pick": null
+  },
+  {
+   "id": "4582843",
+   "name": "Brauntae Johnson",
+   "position": "S",
+   "collegeId": "87",
+   "grade": null,
+   "positionRank": 3,
+   "overall": 31,
+   "pick": null
+  },
+  {
+   "id": "4582856",
+   "name": "David Stone",
+   "position": "DT",
+   "collegeId": "201",
+   "grade": null,
+   "positionRank": 3,
+   "overall": 32,
+   "pick": null
+  },
+  {
+   "id": "4582849",
+   "name": "Justin Scott",
+   "position": "DT",
+   "collegeId": "2390",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 32,
+   "pick": null
+  },
+  {
+   "id": "4582840",
+   "name": "Trey'Dez Green",
+   "position": "TE",
+   "collegeId": "99",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 33,
+   "pick": null
+  },
+  {
+   "id": "4582842",
+   "name": "Trevor Lauck",
+   "position": "OT",
+   "collegeId": "2294",
+   "grade": null,
+   "positionRank": 5,
+   "overall": 34,
+   "pick": null
+  },
+  {
+   "id": "4582847",
+   "name": "Kingston Lopa",
+   "position": "S",
+   "collegeId": "25",
+   "grade": null,
+   "positionRank": 4,
+   "overall": 35,
+   "pick": null
+  },
+  {
+   "id": "4582846",
+   "name": "Deuce Alexander",
+   "position": "WR",
+   "collegeId": "145",
+   "grade": null,
+   "positionRank": 6,
+   "overall": 36,
+   "pick": null
+  },
+  {
+   "id": "4582837",
+   "name": "Dante Moore",
+   "position": "QB",
+   "collegeId": "2483",
+   "grade": null,
+   "positionRank": 6,
+   "overall": 37,
+   "pick": null
+  },
+  {
+   "id": "4582848",
+   "name": "Kade Pieper",
+   "position": "C",
+   "collegeId": "2294",
+   "grade": null,
+   "positionRank": 1,
+   "overall": 38,
+   "pick": null
+  },
+  {
+   "id": "4582845",
+   "name": "Kewan Lacy",
+   "position": "RB",
+   "collegeId": "145",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 39,
+   "pick": null
+  },
+  {
+   "id": "4582852",
+   "name": "A'Mauri Washington",
+   "position": "DT",
+   "collegeId": "2483",
+   "grade": null,
+   "positionRank": 4,
+   "overall": 40,
+   "pick": null
+  },
+  {
+   "id": "4582857",
+   "name": "Samson Okunlola",
+   "position": "OT",
+   "collegeId": "2390",
+   "grade": null,
+   "positionRank": 4,
+   "overall": 40,
+   "pick": null
+  },
+  {
+   "id": "4582864",
+   "name": "Boubacar Traore",
+   "position": "EDGE",
+   "collegeId": "87",
+   "grade": null,
+   "positionRank": 5,
+   "overall": 41,
+   "pick": null
+  },
+  {
+   "id": "4582872",
+   "name": "Jelani McDonald",
+   "position": "S",
+   "collegeId": "251",
+   "grade": null,
+   "positionRank": 5,
+   "overall": 42,
+   "pick": null
+  },
+  {
+   "id": "4582851",
+   "name": "Ryan Coleman-Williams",
+   "position": "WR",
+   "collegeId": "333",
+   "grade": null,
+   "positionRank": 7,
+   "overall": 43,
+   "pick": null
+  },
+  {
+   "id": "4582861",
+   "name": "Carter Smith",
+   "position": "OG",
+   "collegeId": "84",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 44,
+   "pick": null
+  },
+  {
+   "id": "4582854",
+   "name": "Zabien Brown",
+   "position": "CB",
+   "collegeId": "333",
+   "grade": null,
+   "positionRank": 5,
+   "overall": 44,
+   "pick": null
+  },
+  {
+   "id": "4582865",
+   "name": "Kyngstonn Viliamu-Asa",
+   "position": "LB",
+   "collegeId": "87",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 45,
+   "pick": null
+  },
+  {
+   "id": "4582862",
+   "name": "Melvin Siani",
+   "position": "OT",
+   "collegeId": "251",
+   "grade": null,
+   "positionRank": 5,
+   "overall": 45,
+   "pick": null
+  },
+  {
+   "id": "4582863",
+   "name": "Reed Harris",
+   "position": "WR",
+   "collegeId": "9",
+   "grade": null,
+   "positionRank": 8,
+   "overall": 46,
+   "pick": null
+  },
+  {
+   "id": "4582873",
+   "name": "Luke Reynolds",
+   "position": "TE",
+   "collegeId": "259",
+   "grade": null,
+   "positionRank": 3,
+   "overall": 47,
+   "pick": null
+  },
+  {
+   "id": "4582858",
+   "name": "Clev Lubin",
+   "position": "EDGE",
+   "collegeId": "97",
+   "grade": null,
+   "positionRank": 6,
+   "overall": 48,
+   "pick": null
+  },
+  {
+   "id": "4582859",
+   "name": "Ahmad Moten Sr.",
+   "position": "DT",
+   "collegeId": "2390",
+   "grade": null,
+   "positionRank": 5,
+   "overall": 49,
+   "pick": null
+  },
+  {
+   "id": "4582866",
+   "name": "Anthonie Knapp",
+   "position": "OG",
+   "collegeId": "87",
+   "grade": null,
+   "positionRank": 2,
+   "overall": 50,
+   "pick": null
+  },
+  {
+   "id": "4582867",
+   "name": "Jide Abasiri",
+   "position": "EDGE",
+   "collegeId": "30",
+   "grade": null,
+   "positionRank": 7,
+   "overall": 50,
+   "pick": null
+  }
+ ],
+ "fetchedAt": "2026-10-22T21:38Z"
+}
