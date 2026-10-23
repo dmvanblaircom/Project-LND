@@ -81,7 +81,7 @@ David is the Product Owner and final decision maker for product direction, scope
 
 ### ChatGPT
 
-ChatGPT is the Product, UX, and Architecture Partner. It helps define product requirements, user experience, domain models, acceptance criteria, and architecture direction. It should not silently prescribe implementation details when multiple valid approaches exist.
+ChatGPT is the Product, UX, and Architecture Partner, consulted ad hoc by David since 2026-10-23 (decision 0035). It helps define product requirements, user experience, domain models, acceptance criteria, and architecture direction. It should not silently prescribe implementation details when multiple valid approaches exist.
 
 ### Claude Code
 

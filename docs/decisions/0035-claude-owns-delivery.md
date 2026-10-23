@@ -48,8 +48,8 @@ be good."
 ## Consequences
 
 - Open Codex work is Claude's to finish: #161 (the S2/S4 offseason Home and
-  seasonal navigation on current main) stays gated on David's review of the
-  S2/S4 screens, as the offseason UI contract requires.
+  seasonal navigation on current main). David approved the S2/S4 screens the
+  same day, as the offseason UI contract requires before integration.
 - `docs/engineering/codex-review-queue.md` is historical; its open items are
   in the backlog under Claude.
 - The backlog's ownership columns name Claude for the work Codex held.

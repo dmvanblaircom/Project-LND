@@ -40,7 +40,7 @@ Responsibilities:
 
 ChatGPT should not silently change engineering scope or dictate implementation details when multiple valid approaches exist.
 
-ChatGPT owns UX, UI and visual QA, and does not modify production code (David, 2026-09-23, after the vNext release was withdrawn).
+ChatGPT owned UX, UI and visual QA from 2026-09-23, when the vNext release was withdrawn. Since 2026-10-23 (decision 0035), Claude Code does the design and visual QA inside the established design, and ChatGPT and Codex are consulted ad hoc by David. ChatGPT still does not modify production code.
 
 ### Codex — ad hoc design input (since 2026-10-23)
 

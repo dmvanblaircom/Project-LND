@@ -14,13 +14,13 @@ PRs before work.
 
 | Item | Owner | Evidence | Remaining gate |
 |---|---|---|---|
-| Offseason Home and seasonal navigation (W16) | Claude (from Codex, decision 0035) | PR #161 (draft; replaces #134, closed): the S2/S4 Home cards and seasonal navigation. The season data it needs is merged: `TeamOS.season.offseason` (#153), contract in [offseason-season-data.md](offseason-season-data.md) | David reviews the concrete S2/S4 preview first ([offseason UI contract](../design/offseason-ui-contract-2026-10-12.md), *Acceptance before production integration*); then Codex wires the model into Home; merge, production verification |
+| Offseason Home and seasonal navigation (W16) | Claude (from Codex, decision 0035) | PR #161 (draft; replaces #134, closed): the S2/S4 Home cards and seasonal navigation. The season data it needs is merged: `TeamOS.season.offseason` (#153), contract in [offseason-season-data.md](offseason-season-data.md) | David approved the S2/S4 preview on 2026-10-23 ([offseason UI contract](../design/offseason-ui-contract-2026-10-12.md), *Acceptance before production integration*); Claude finishes the wiring on current main; merge, production verification |
 
 ## Ordered remaining implementation
 
 | Order | Item | Owner / remaining scope |
 |---|---|---|
-| 1 | Offseason and rollover (W16), due mid-November | Claude: after David's S2/S4 review, finish PR #161 (wiring `TeamOS.season.offseason` into Home) and the prospect presentation. Recruiting/draft refresh (#158) and season-matched markets (#160) are done. The season data contract (#153), season/prospect models and postseason fetching are built. |
+| 1 | Offseason and rollover (W16), due mid-November | Claude: S2/S4 approved (2026-10-23); finish PR #161 (wiring `TeamOS.season.offseason` into Home) and the prospect presentation. Recruiting/draft refresh (#158) and season-matched markets (#160) are done. The season data contract (#153), season/prospect models and postseason fetching are built. |
 | 2 | Postseason notifications (W19): first live runs | Claude: watch the first CFP release (November 3, 7 PM ET), the weekly releases through December 1 and Selection Day (December 6, noon ET), and fix from what the real payloads show. Built in #147 and #152. |
 | 3 | Photography (W13) and targeted visual finish (W14) | Claude: deployable Home/Game imagery, focal points/crops, responsive fallback; review Outlook, alert Settings and recent notes/badges. No broad brand reset. |
 | 4 | Ohio State remainder (W20) | Claude: conference-only availability freshness expectations; depth chart only after Ourlads permission. Claude: team parity. News, history and Big Ten availability already ship. |
