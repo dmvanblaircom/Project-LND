@@ -170,6 +170,8 @@ function outcomeOf(key){ var x=SRC[key]; return x && x.cached ? "cached" : "netw
 // carries X-IW-Cached - the time it was stored - and counts as cached.
 var SRC={};
 function sourceKey(url){
+  if(/schedule\?[^#]*season=/.test(url)) return "offseasonNext";
+  if(/scoreboard/.test(url) && /seasontype=3/.test(url) && /week=1/.test(url)) return "postseasonBoard";
   if(url===TeamOS.espn.scheduleUrl(TEAM_CONFIG)) return "schedule";
   if(/scoreboard/.test(url)) return "scoreboard";
   if(url===TeamOS.espn.rankingsUrl()) return "rankings";
@@ -661,7 +663,7 @@ function loadRankings(){
     T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); T25.at=Date.now(); T25.pollsFailed=false;
     return { key:"rankings", outcome:outcomeOf("rankings") };
   }).catch(function(){ T25.pollsFailed=true; return { key:"rankings", outcome:"failed" }; })
-    .then(function(r){ T25.p=null; paintTop25(); return r; });
+    .then(function(r){ T25.p=null; paintTop25(); paintHome(); return r; });
   return T25.p;
 }
 
@@ -1216,10 +1218,79 @@ function homeSources(heroLive){
   if(heroLive) list.push(s("scoreboard",false,10*60e3));
   return list;
 }
+/* W16 after-season inputs. The renderer is deliberately fed only TeamOS's
+   normalized current/next season, ESPN's postseason selection board, and the
+   rankings feed already used by Top 25. */
+var OFFSEASON={ next:null, nextSeason:null, nextOutcome:"unknown", nextAskedAt:0,
+  selected:{}, selectedAt:{}, boardAskedAt:{}, boardPending:{}, nextPending:false };
+function loadOffseasonNext(year){
+  if(OFFSEASON.nextPending || (OFFSEASON.nextSeason===year && Date.now()-OFFSEASON.nextAskedAt<60*60e3)) return;
+  if(OFFSEASON.nextSeason!==year) OFFSEASON.next=null;
+  OFFSEASON.nextPending=true; OFFSEASON.nextSeason=year;
+  OFFSEASON.nextOutcome="loading"; OFFSEASON.nextAskedAt=Date.now();
+  var url=TeamOS.espn.scheduleUrl(TEAM_CONFIG,year);
+  get(url,hasEvents).then(function(d){
+    OFFSEASON.next=TeamOS.espn.schedule(d,TEAM,TEAM_CONFIG);
+    OFFSEASON.nextOutcome=(SRC.offseasonNext&&SRC.offseasonNext.cached)?"retained":(OFFSEASON.next.length?"ready":"empty");
+  }).catch(function(){
+    OFFSEASON.nextOutcome="failed";
+  }).then(function(){
+    OFFSEASON.nextPending=false; paintHome();
+  });
+}
+function loadOffseasonSelection(year){
+  if(OFFSEASON.boardPending[year] || (OFFSEASON.boardAskedAt[year] &&
+      Date.now()-OFFSEASON.boardAskedAt[year]<60*60e3)) return;
+  OFFSEASON.boardAskedAt[year]=Date.now();
+  OFFSEASON.boardPending[year]=true;
+  get(TeamOS.espn.postseasonBoardUrl(year),hasEvents).then(function(d){
+    OFFSEASON.selected[year]=TeamOS.espn.postseasonSelected(d);
+    OFFSEASON.selectedAt[year]=Date.now();
+  }).catch(function(){
+    // Unknown is not the same as an unselected team. Retry on a later paint.
+    OFFSEASON.selectedAt[year]=0;
+  }).then(function(){
+    OFFSEASON.boardPending[year]=false; paintHome();
+  });
+}
+function offseasonModel(now){
+  if(!S.games || !S.games.length) return null;
+  var phase=TeamOS.season.phase({games:S.games,
+    next:OFFSEASON.nextSeason===seasonYear()+1?OFFSEASON.next:null,
+    selected:OFFSEASON.selected[seasonYear()],now:now});
+  if(phase.askNext && phase.nextSeason!=null) loadOffseasonNext(phase.nextSeason);
+  if(phase.state==="awaiting-postseason") loadOffseasonSelection(phase.season);
+  var model=TeamOS.season.offseason({phase:phase,polls:T25.polls,
+    league:window.LEAGUE_CALENDAR,next:OFFSEASON.nextOutcome,now:now});
+  // The nav needs the rankings feed whenever the offseason can be on: from
+  // a season card through August, when the preseason poll ends it.
+  if((model || now.getMonth()<8) && T25.polls==null && !T25.p) loadRankings();
+  if(Suite.nav && Suite.nav.setSeasonNav){
+    // The nav follows the league's calendar, not this team or the season
+    // year (offseason UI contract, "Seasonal navigation"): Top 25 and Game
+    // stay through the title game, so the offseason nav starts with the
+    // final AP poll - ESPN's own last-edition mark - and ends with the next
+    // preseason poll, which is not marked last. Game comes back no later
+    // than 14 days before a confirmed opener.
+    var off=(T25.polls||[]).some(function(p){
+      return String(p.key||"").toLowerCase()==="ap" && p.last===true;
+    });
+    var opener=(model && model.phase.opener) || S.next;
+    var gameBack=!!(opener && Date.parse(opener.date)>=now.getTime() &&
+      Date.parse(opener.date)-now.getTime()<=14*24*60*60e3);
+    Suite.nav.setSeasonNav({top25:!off,game:!off||gameBack});
+    var route=Suite.nav.current();
+    if(route && route.screen==="more") paintMore();
+  }
+  return model;
+}
 function paintHome(){
-  var host=$("screenHome");
+  var host=$("screenHome"), now=new Date();
+  // The season decides the nav on every screen, not only Home: a fan who
+  // opens a saved Schedule or News address in the offseason gets the
+  // offseason nav at once (Codex, #161).
+  var offseason=S.games ? offseasonModel(now) : null;
   if(!host || host.hidden || !S.games) { if(host && !host.hidden && !S.games) paintHomeLoading(host); return; }
-  var now=new Date();
   var h=TeamOS.game.hero(S.games, now, TEAM.timeZone), g=h.game;
   // Our rank and record now, from the team feed, when the game's own
   // competitor entry does not carry them.
@@ -1238,6 +1309,7 @@ function paintHome(){
     art:{ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true),
           atmosphere: g ? TeamOS.game.atmosphere(g, zone) : null },
     hero:{ game:g, reason:h.reason, weather:wx },
+    offseason: offseason,
     heroId: g ? g.id : null,
     news: HOME.news,
     schedule: TeamOS.game.schedulePreview(S.games, now, TEAM.timeZone),
@@ -1282,6 +1354,10 @@ function loadHomeWeather(g){
 }
 // The connection changes what an open screen says (catch-up review 1.3).
 window.addEventListener("online",  function(){
+  if(typeof OFFSEASON!=="undefined"){
+    OFFSEASON.nextAskedAt=0;
+    Object.keys(OFFSEASON.boardAskedAt||{}).forEach(function(y){ OFFSEASON.boardAskedAt[y]=0; });
+  }
   retrySchedule();
   // A Matchup card that failed offline is asked for again now.
   [GV, SV].forEach(function(V){ if(V && V.previewFailed) V.at=0; });
