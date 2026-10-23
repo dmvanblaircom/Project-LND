@@ -1262,27 +1262,36 @@ function offseasonModel(now){
   if(phase.state==="awaiting-postseason") loadOffseasonSelection(phase.season);
   var model=TeamOS.season.offseason({phase:phase,polls:T25.polls,
     league:window.LEAGUE_CALENDAR,next:OFFSEASON.nextOutcome,now:now});
-  if(model && T25.polls==null && !T25.p) loadRankings();
+  // The nav needs the rankings feed whenever the offseason can be on: from
+  // a season card through August, when the preseason poll ends it.
+  if((model || now.getMonth()<8) && T25.polls==null && !T25.p) loadRankings();
   if(Suite.nav && Suite.nav.setSeasonNav){
-    var apFinal=(T25.polls||[]).some(function(p){
-      return /\\bap\\b|associated press/i.test((p.key||"")+" "+(p.label||p.name||"")) && p.last===true;
+    // The nav follows the league's calendar, not this team or the season
+    // year (offseason UI contract, "Seasonal navigation"): Top 25 and Game
+    // stay through the title game, so the offseason nav starts with the
+    // final AP poll - ESPN's own last-edition mark - and ends with the next
+    // preseason poll, which is not marked last. Game comes back no later
+    // than 14 days before a confirmed opener.
+    var off=(T25.polls||[]).some(function(p){
+      return String(p.key||"").toLowerCase()==="ap" && p.last===true;
     });
-    var top25=!model || (model.phase.state==="complete" && !apFinal);
-    var opener=model && model.phase.opener;
+    var opener=(model && model.phase.opener) || S.next;
     var gameBack=!!(opener && Date.parse(opener.date)>=now.getTime() &&
       Date.parse(opener.date)-now.getTime()<=14*24*60*60e3);
-    Suite.nav.setSeasonNav({top25:top25,game:!model||gameBack});
+    Suite.nav.setSeasonNav({top25:!off,game:!off||gameBack});
     var route=Suite.nav.current();
     if(route && route.screen==="more") paintMore();
   }
   return model;
 }
 function paintHome(){
-  var host=$("screenHome");
+  var host=$("screenHome"), now=new Date();
+  // The season decides the nav on every screen, not only Home: a fan who
+  // opens a saved Schedule or News address in the offseason gets the
+  // offseason nav at once (Codex, #161).
+  var offseason=S.games ? offseasonModel(now) : null;
   if(!host || host.hidden || !S.games) { if(host && !host.hidden && !S.games) paintHomeLoading(host); return; }
-  var now=new Date();
   var h=TeamOS.game.hero(S.games, now, TEAM.timeZone), g=h.game;
-  var offseason=offseasonModel(now);
   // Our rank and record now, from the team feed, when the game's own
   // competitor entry does not carry them.
   if(g && HOME.status){

@@ -124,6 +124,8 @@ jobs:
       - run: node tools/offseasoncomponentcheck.js
       # Home composition and seasonal navigation, including saved routes/focus.
       - run: node tools/offseasonhomecheck.js
+      # The real app's seasonal nav: the league's calendar, on every screen.
+      - run: node tools/offseasonnavcheck.js
       - run: node tools/rosterflowcheck.js
       # FPI routing, source-specific freshness and real service-worker recovery.
       - run: node tools/ratingsflowcheck.js
