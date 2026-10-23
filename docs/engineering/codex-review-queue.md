@@ -1,5 +1,7 @@
 # Codex review and UI queue
 
+> **Historical (2026-10-23).** Claude Code owns this work now (decision 0035). The open items are in [backlog.md](backlog.md) under Claude; nothing here waits on Codex.
+
 Reconciled October 12. [backlog.md](backlog.md) is the current scope; the
 [Wednesday handoff](claude-handoff-2026-10-14.md) is the integration checklist.
 

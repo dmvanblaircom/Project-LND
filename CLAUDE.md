@@ -85,7 +85,11 @@ ChatGPT is the Product, UX, and Architecture Partner. It helps define product re
 
 ### Claude Code
 
-Claude Code is the Engineering Partner. It owns repository inspection, implementation, refactoring, testing, debugging, and technical documentation. It should not silently invent product requirements or make unresolved product decisions.
+Claude Code is the Engineering Partner, and since 2026-10-23 the main developer and designer (decision 0035). It owns repository inspection, implementation, refactoring, testing, debugging, technical documentation, and production UI and design, including `app.js`, `app.css` and `suite/`. Design work stays inside the established design (decisions 0022 and 0024 and their amendments, the screens as built, and the contracts in `docs/design/`); a new visual direction is David's call. It should not silently invent product requirements or make unresolved product decisions.
+
+### Codex
+
+Consulted ad hoc by David for design questions (decision 0035). Nothing waits on Codex.
 
 The repository is the shared source of truth. Decisions that matter after the current conversation belong in the repository rather than only in chat history.
 
