@@ -1,7 +1,8 @@
 # Project LND: active delivery queue
 
 Reconciled October 21, 2026 against main after #142–#154 merged and were
-production-verified (the last, #153, at 859f8ff). This is the current queue;
+production-verified (the last, #153, at 859f8ff); updated October 23 after
+#155–#160, and for decision 0035 (Claude owns development and design). This is the current queue;
 the [prior queue](backlog-archive-2026-10-11.md) is historical, not instructions
 to rebuild completed work.
 
@@ -13,20 +14,19 @@ PRs before work.
 
 | Item | Owner | Evidence | Remaining gate |
 |---|---|---|---|
-| Offseason Home and seasonal navigation (W16) | Codex | PR #134 (open): the S2/S4 Home cards and seasonal navigation. The season data it needs is merged: `TeamOS.season.offseason` (#153), contract in [offseason-season-data.md](offseason-season-data.md) | David reviews the concrete S2/S4 preview first ([offseason UI contract](../design/offseason-ui-contract-2026-10-12.md), *Acceptance before production integration*); then Codex wires the model into Home; merge, production verification |
+| Offseason Home and seasonal navigation (W16) | Claude (from Codex, decision 0035) | PR #161 (draft; replaces #134, closed): the S2/S4 Home cards and seasonal navigation. The season data it needs is merged: `TeamOS.season.offseason` (#153), contract in [offseason-season-data.md](offseason-season-data.md) | David approved the S2/S4 preview on 2026-10-23 ([offseason UI contract](../design/offseason-ui-contract-2026-10-12.md), *Acceptance before production integration*); Claude finishes the wiring on current main; merge, production verification |
 
 ## Ordered remaining implementation
 
 | Order | Item | Owner / remaining scope |
 |---|---|---|
-| 1 | Offseason and rollover (W16), due mid-November | Codex: after David's S2/S4 review, PR #134 wiring `TeamOS.season.offseason` into Home, prospect presentation. Claude: recruiting/draft refresh and season-matched markets. The season data contract (#153), season/prospect models and postseason fetching are built. |
+| 1 | Offseason and rollover (W16), due mid-November | Claude: S2/S4 approved (2026-10-23); finish PR #161 (wiring `TeamOS.season.offseason` into Home) and the prospect presentation. Recruiting/draft refresh (#158) and season-matched markets (#160) are done. The season data contract (#153), season/prospect models and postseason fetching are built. |
 | 2 | Postseason notifications (W19): first live runs | Claude: watch the first CFP release (November 3, 7 PM ET), the weekly releases through December 1 and Selection Day (December 6, noon ET), and fix from what the real payloads show. Built in #147 and #152. |
-| 3 | SP+ week by week | Claude: keep SP+ each week as AP, Coaches and FPI are, so Top 25's week picker covers it. |
-| 4 | Photography (W13) and targeted visual finish (W14) | Codex: deployable Home/Game imagery, focal points/crops, responsive fallback; review Outlook, alert Settings and recent notes/badges. No broad brand reset. |
-| 5 | Ohio State remainder (W20) | Claude: conference-only availability freshness expectations; depth chart only after Ourlads permission. Codex: team parity. News, history and Big Ten availability already ship. |
-| 6 | Historical Stats (W27 phase 3) | Claude: verify past-season sources/caching and athlete identity. Codex: season selection and career pages. Current Team and Players views already ship. |
-| 7 | Bounded reliability (W10) | Claude: repeated same-version worker install; simplify source/refresh ownership only where useful. Preserve existing recovery and negative controls. |
-| 8 | Release evidence (W09) | Codex/Claude: resolve pending-design-review item 4 against current outage/upgrade evidence. David: physical iPhone/Safari/PWA observations. Do not mark a device pass from desktop CI. |
+| 3 | Photography (W13) and targeted visual finish (W14) | Claude: deployable Home/Game imagery, focal points/crops, responsive fallback; review Outlook, alert Settings and recent notes/badges. No broad brand reset. |
+| 4 | Ohio State remainder (W20) | Claude: conference-only availability freshness expectations; depth chart only after Ourlads permission. Claude: team parity. News, history and Big Ten availability already ship. |
+| 5 | Historical Stats (W27 phase 3) | Claude: verify past-season sources/caching and athlete identity. Claude: season selection and career pages. Current Team and Players views already ship. |
+| 6 | Bounded reliability (W10) | Claude: repeated same-version worker install; simplify source/refresh ownership only where useful. Preserve existing recovery and negative controls. |
+| 7 | Release evidence (W09) | Claude: resolve pending-design-review item 4 against current outage/upgrade evidence. David: physical iPhone/Safari/PWA observations. Do not mark a device pass from desktop CI. |
 
 ## Later product-scoped work
 
@@ -43,6 +43,9 @@ PRs before work.
 
 | Work | Merged evidence |
 |---|---|
+| SP+ week by week (kept by the edge API, never a file) and FPI weeks filled in from ESPN's core API | #156, #157 |
+| Recruiting classes and the draft board, refreshed daily | #158 |
+| Season Outlook: one season's Kalshi markets at a time, never last season's | #160 |
 | Postseason alerts: CFP rankings released; Selection Day, postseason game set, withdrawn (a declined bowl), no postseason | #147, #152 (Worker edge-2026-10-21post); kinds added later start off for existing subscribers |
 | Offseason season data for the after-season Home | #153: `TeamOS.season.offseason`, ESPN's own final-poll mark for the AP; [contract](offseason-season-data.md) |
 | Top 25 week picker (every kept week of AP, Coaches, CFP and FPI) and the game sheet on every row | #149; the visual check reads sample weeks, #154 |
@@ -119,9 +122,9 @@ PRs before work.
 ## Delivery contract
 
 One owner per slice, short branch and PR, preserve TeamOS/Suite boundaries.
-Codex implements production UI and the narrow runtime wiring required for
-already-built models. Claude retains source/service/season/polling ownership.
-No concurrent edits to shared app.js/app.css/suite modules without a handoff.
+Claude owns implementation and design, inside the established design
+(decision 0035); Codex is consulted ad hoc by David for design questions, and
+nothing waits on it.
 Required checks, concrete visual review and David's release approval precede
 merge. A source blocker blocks its item only. Update this queue after accepted
 merges; built, tested, approved, merged and production-verified are distinct.
