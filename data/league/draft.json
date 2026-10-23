@@ -4,7 +4,7 @@
  "label": "ESPN draft board",
  "sourceUrl": "https://www.espn.com/nfl/draft/",
  "year": 2027,
- "listed": 55,
+ "listed": 50,
  "drafted": 0,
  "prospects": [
   {
@@ -328,16 +328,6 @@
    "pick": null
   },
   {
-   "id": "4582849",
-   "name": "Justin Scott",
-   "position": "DT",
-   "collegeId": "2390",
-   "grade": null,
-   "positionRank": 2,
-   "overall": 32,
-   "pick": null
-  },
-  {
    "id": "4582840",
    "name": "Trey'Dez Green",
    "position": "TE",
@@ -418,16 +408,6 @@
    "pick": null
   },
   {
-   "id": "4582857",
-   "name": "Samson Okunlola",
-   "position": "OT",
-   "collegeId": "2390",
-   "grade": null,
-   "positionRank": 4,
-   "overall": 40,
-   "pick": null
-  },
-  {
    "id": "4582864",
    "name": "Boubacar Traore",
    "position": "EDGE",
@@ -458,16 +438,6 @@
    "pick": null
   },
   {
-   "id": "4582861",
-   "name": "Carter Smith",
-   "position": "OG",
-   "collegeId": "84",
-   "grade": null,
-   "positionRank": 2,
-   "overall": 44,
-   "pick": null
-  },
-  {
    "id": "4582854",
    "name": "Zabien Brown",
    "position": "CB",
@@ -484,16 +454,6 @@
    "collegeId": "87",
    "grade": null,
    "positionRank": 2,
-   "overall": 45,
-   "pick": null
-  },
-  {
-   "id": "4582862",
-   "name": "Melvin Siani",
-   "position": "OT",
-   "collegeId": "251",
-   "grade": null,
-   "positionRank": 5,
    "overall": 45,
    "pick": null
   },
@@ -546,17 +506,7 @@
    "positionRank": 2,
    "overall": 50,
    "pick": null
-  },
-  {
-   "id": "4582867",
-   "name": "Jide Abasiri",
-   "position": "EDGE",
-   "collegeId": "30",
-   "grade": null,
-   "positionRank": 7,
-   "overall": 50,
-   "pick": null
   }
  ],
- "fetchedAt": "2026-10-22T21:38Z"
+ "fetchedAt": "2026-10-23T07:08Z"
 }
