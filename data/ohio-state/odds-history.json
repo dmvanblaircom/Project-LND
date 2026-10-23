@@ -1,6 +1,6 @@
 {
 "team": "ohio-state",
-"updated": "2026-10-22T20:07Z",
+"updated": "2026-10-23T19:37Z",
 "points": [
 {
 "t": "2026-10-02T13:24Z",
@@ -1331,6 +1331,60 @@
 "t": "2026-10-22T20:07Z",
 "title": 12.5,
 "playoff": 78.0
+},
+{
+"t": "2026-10-22T21:37Z",
+"title": 12.5,
+"playoff": 77.5
+},
+{
+"t": "2026-10-22T22:05Z",
+"title": 12.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 77.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-22T23:07Z",
+"title": 12.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 77.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-22T23:37Z",
+"title": 12.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 77.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-23T03:37Z",
+"title": 12.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 76.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-23T09:37Z",
+"title": 12.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 76.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-23T14:07Z",
+"title": 12.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 76.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-23T19:37Z",
+"title": 12.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 75.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
 }

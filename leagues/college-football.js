@@ -39,3 +39,23 @@ var LEAGUE_CALENDAR = {
     ]
   }
 };
+
+/* The league's Kalshi markets, by season (W16: season-matched markets).
+   Kalshi names one event a season in each series: its ticker is the series,
+   a dash and the two-digit year - for the title, the year the title game is
+   played (2026 season: KXNCAAF-27, "2026-27"); for the playoff field, the
+   season's own year (KXNCAAFPLAYOFF-26). Read from Kalshi's own listing on
+   2026-10-21 (tools/probe_sources.py): KXNCAAF-26 and -27, KXNCAAFPLAYOFF-25
+   and -26 exist; -28 and -27 are not listed yet.
+
+   tools/producers/markets.py shows this season's event while it has open
+   markets, then next season's as soon as Kalshi lists it, and neither until
+   then - never last season's (offseason proposal, decision 5).
+
+   series    Kalshi's series ticker
+   offset    the event's year minus the season's */
+var LEAGUE_MARKETS = {
+  league: "college-football",
+  title:   { series: "KXNCAAF",        offset: 1 },
+  playoff: { series: "KXNCAAFPLAYOFF", offset: 0 }
+};
