@@ -1,7 +1,16 @@
 {
  "team": "notre-dame",
- "updated": "2026-10-23T00:51:48.949622+00:00",
+ "updated": "2026-10-23T01:07:49.335978+00:00",
  "items": [
+  {
+   "title": "Notre\u00a0Dame-Miami\u00a0game\u00a0visitor\u00a0list\u00a0grows\u00a0with\u00a0two\u00a0new\u00a0names",
+   "link": "https://on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-recruiting-two-first-time-visitors-added-miami-game/",
+   "source": "Blue & Gold",
+   "summary": "Two rising 2028 recruits have scheduled unofficial visits to Notre Dame for the Miami game, adding to what could be the biggest recruiting weekend of the Marcus Freeman era.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/22153418/Notre-Dame-Marcus-Freeman-hookly-6.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-23T01:00:00+00:00"
+  },
   {
    "title": "Lucky Charms: Notre Dame football recruiting tidbits",
    "link": "https://on3.com/teams/notre-dame-fighting-irish/news/lucky-charms-notre-dame-football-recruiting-tidbits-6/",
@@ -228,15 +237,6 @@
    "published": "2026-10-21T13:00:00+00:00"
   },
   {
-   "title": "Distinguishing Notre Dame's real flaws from overreactions after loss at BYU",
-   "link": "https://on3.com/teams/notre-dame-fighting-irish/news/distinguishing-notre-dames-real-flaws-from-overreactions-after-loss-at-byu/",
-   "source": "Blue & Gold",
-   "summary": "Which criticisms of Notre Dame following a loss to BYU are fair and which ones are unwarranted for this Irish team",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/21011849/Site-AFI.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-21T12:00:00+00:00"
-  },
-  {
    "title": "Notre Dame Fails On The Big Stage In BYU Loss",
    "link": "https://www.si.com/college/notredame/football/notre-dame-failed-on-big-stage-in-byu-loss?utm_source=RSS",
    "source": "Notre Dame On SI",
@@ -370,15 +370,6 @@
    "image": "https://platform.onefootdown.com/wp-content/uploads/sites/118/2026/10/gettyimages-2300233298.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": "https://platform.sbnation.com/wp-content/uploads/sites/2/team-logos/logo-onefootdown.png?w=180",
    "published": "2026-10-19T02:48:15+00:00"
-  },
-  {
-   "title": "Notre Dame Football Stats: Week 7 Review of Loss to BYU",
-   "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/86118/notre-dame-football-stats-week-7-review-of-loss-to-byu",
-   "source": "One Foot Down",
-   "summary": "The Big Picture Notre Dame football came up short in its first major test of the 2026-27 season.&#160;&#160;The team is now 6-1 coming out of Week 7 following a 24-28 loss to the BYU Cougars that came down to the final second(s). BYU found the end zone first on an 11-play, 75-yard drive and closed [&#8230;]",
-   "image": "https://platform.onefootdown.com/wp-content/uploads/sites/118/2026/10/gettyimages-2300244141.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": "https://platform.sbnation.com/wp-content/uploads/sites/2/team-logos/logo-onefootdown.png?w=180",
-   "published": "2026-10-18T23:20:04+00:00"
   },
   {
    "title": "Notre Dame benefits from a lack of truly great teams to keep its march to the CFP alive",
@@ -541,6 +532,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1804,h_1014,x_0,y_4/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/irish_breakdown/01m5129pxvvv8t8xhnxn.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-16T01:00:19+00:00"
+  },
+  {
+   "title": "Top 10 Matchup Notre Dame vs BYU Is What Makes College Football So Special",
+   "link": "https://www.si.com/college/notredame/football/notre-dame-byu-makes-college-football-special?utm_source=RSS",
+   "source": "Notre Dame On SI",
+   "summary": "Games like this can't happen in the NFL. The intersection of religion and football can only exist in the college game, where culture is king",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_5989,h_3368,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/irish_breakdown/01m4x84rpn8qrsnyse8j.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-15T07:13:24+00:00"
   }
  ]
 }
