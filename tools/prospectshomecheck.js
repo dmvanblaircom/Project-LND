@@ -80,7 +80,7 @@ function rankings() {
       }
       if (new RegExp("/teams/" + T.id + "/schedule\\?seasontype=2&season=2026").test(u)) body = '{"events":[]}';
       else if (new RegExp("/teams/" + T.id + "/schedule\\?seasontype=3").test(u)) body = fixture(T.post);
-      else if (new RegExp("/teams/" + T.id + "/schedule").test(u)) body = fixture(T.reg);
+      else if (new RegExp("/teams/" + T.id + "/schedule").test(u)) body = fixture(o.reg || T.reg);
       else if (/\/scoreboard\?.*seasontype=3/.test(u)) body = o.unset ? '{"events":[]}' : fixture("espn-scoreboard-postboard-2025.json");
       else if (/\/scoreboard\?/.test(u)) body = '{"events":[]}';
       else if (/\/rankings/.test(u)) body = rankings();
@@ -88,8 +88,9 @@ function rankings() {
       if (body) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: body });
       return route.abort();
     });
-    await page.goto(base + "/?team=" + o.team + "#home");
-    await page.waitForFunction(function () { return !document.getElementById("launch") && document.querySelector("#screenHome [data-home]"); }, null, { timeout: 15000 });
+    await page.goto(base + "/?team=" + o.team + (o.hash || "#home"));
+    await page.waitForFunction(function (sel) { return !document.getElementById("launch") && document.querySelector(sel); },
+                               o.hash ? "#screenRoster [data-ro]" : "#screenHome [data-home]", { timeout: 15000 });
     // The app keeps its state private: wait for the prospect reads it makes
     // (or, in season, for the schedule and a settled paint).
     var t0 = Date.now();
@@ -141,7 +142,7 @@ function rankings() {
       var r0 = T.recruits.recruits[0];
       ok(h.recruiting.figs[0] === r0.grade + "grade", team + ": the grade leads, labeled");
       var want = r0.grade >= 90 ? 5 : r0.grade >= 80 ? 4 : 3;
-      ok(h.recruiting.stars[0] === want + "-star, ESPN|ESPN|" + "\u2605".repeat(5), team + ": " + want + " stars out of five, credited to ESPN (" + h.recruiting.stars[0] + ")");
+      ok(h.recruiting.stars[0] === want + "-star, ESPN|ESPN|" + "\u2605".repeat(want) + "\u2606".repeat(5 - want), team + ": " + want + " stars out of five, credited to ESPN (" + h.recruiting.stars[0] + ")");
       ok(await a.page.evaluate(function () {
         return [].every.call(document.querySelectorAll("#screenHome .pr-stars"), function (n) {
           return n.querySelector(".pr-star").getAttribute("aria-hidden") === "true" && n.querySelector(".pr-by").getAttribute("aria-hidden") === "true";
@@ -199,6 +200,63 @@ function rankings() {
       await d.page.screenshot({ path: path.join(shots, team + "-390-drafted.png"), fullPage: true });
       await d.ctx.close();
     }
+
+    console.log("Roster's Prospects view, all year");
+    // Mid-season: the real 2026 schedules as ESPN showed them on Oct 2
+    // (four games played). Home stays the in-season Home, and Roster's
+    // Prospects view shows the class and the board.
+    var OCT = "2026-10-02T16:00:00Z", MID = { "notre-dame": "espn-schedule-nd-2026-reg.json", "ohio-state": "espn-schedule-osu-2026.json" };
+    function roster(page) {
+      return page.evaluate(function () {
+        var host = document.getElementById("screenRoster"), body = host.querySelector('[data-ro="body"]');
+        var ids = [].map.call(document.querySelectorAll("[id]"), function (e) { return e.id; });
+        return { tabs: [].map.call(host.querySelectorAll(".view-tabs a"), function (a) { return a.textContent + (a.getAttribute("aria-current") ? "*" : ""); }).join("|"),
+                 text: body.innerText.replace(/\s+/g, " ").trim(),
+                 cards: body.querySelectorAll(".card.pr").length,
+                 heads: [].map.call(body.querySelectorAll(".sec-title"), function (h) { return h.textContent; }).join("|"),
+                 dupes: ids.filter(function (id, i) { return ids.indexOf(id) !== i; }) };
+      });
+    }
+    for (var rteam of ["notre-dame", "ohio-state"]) {
+      var RT = TEAMS[rteam];
+      var r = await open({ team: rteam, now: OCT, reg: MID[rteam], hash: "#roster/prospects", recruits: RT.recruits, draft: SNAP.board, expectAsk: true });
+      var ro = await roster(r.page);
+      ok(/Prospects\*$/.test(ro.tabs), rteam + " in season: Prospects is a Roster view, selected (" + ro.tabs + ")");
+      ok(ro.cards === 2 && ro.heads === "Recruiting|NFL Draft", rteam + " in season: the class, then the draft board");
+      ok(ro.text.indexOf(RT.recruits.recruits.length + " commitments in the 2027 class") > -1 && ro.text.indexOf("ESPN") > -1, rteam + " in season: the same cards as the offseason Home, credited to ESPN");
+      ok(!ro.dupes.length, rteam + ": Home's and Roster's headings keep their own ids (" + ro.dupes.join(",") + ")");
+      ok(r.errors.length === 0, rteam + " Roster: no page errors (" + r.errors.join(" | ") + ")");
+      await r.page.screenshot({ path: path.join(shots, rteam + "-390-roster-prospects.png"), fullPage: true });
+      await r.ctx.close();
+      for (var rstyle of ["team", "suite"]) {
+        var n = await open({ team: rteam, now: OCT, reg: MID[rteam], style: rstyle, width: 320, hash: "#roster/prospects", recruits: RT.recruits, draft: SNAP.board, expectAsk: true });
+        var nb = await n.page.evaluate(function () {
+          var bad = [], strip = document.querySelector("#screenRoster .view-tabs");
+          if (document.documentElement.scrollWidth > window.innerWidth) bad.push("page");
+          if (strip && strip.scrollWidth > strip.clientWidth + 1) bad.push("view tabs");
+          document.querySelectorAll("#screenRoster .pr").forEach(function (el) { if (el.scrollWidth > el.clientWidth + 1) bad.push("card"); });
+          return bad;
+        });
+        ok(!nb.length, rteam + " " + rstyle + " 320px: the views and the cards fit (" + nb.join(", ") + ")");
+        await n.page.screenshot({ path: path.join(shots, rteam + "-320-" + rstyle + "-roster-prospects.png") });
+        await n.ctx.close();
+      }
+    }
+    var hs = await open({ team: "notre-dame", now: OCT, reg: MID["notre-dame"], recruits: SNAP.nd, draft: SNAP.board });
+    h = await home(hs.page);
+    ok(h.recruiting.hidden && h.draft.hidden && !hs.asked.recruits, "in season, Home is unchanged: no cards, nothing read until Prospects is opened");
+    await hs.ctx.close();
+    var rf = await open({ team: "notre-dame", now: OCT, reg: MID["notre-dame"], reg: MID[rteam], hash: "#roster/prospects", recruits: 503, draft: 503, expectAsk: true });
+    ro = await roster(rf.page);
+    ok(ro.cards === 0 && /The recruiting class didn.t load\./.test(ro.text) && /ESPN.s draft board didn.t load\./.test(ro.text),
+       "both reads failed: Prospects says so, never a blank view");
+    await rf.ctx.close();
+    var nobody = JSON.parse(JSON.stringify(SNAP.board));
+    nobody.prospects = nobody.prospects.filter(function (p) { return p.collegeId !== "87"; });
+    var rn = await open({ team: "notre-dame", now: OCT, reg: MID["notre-dame"], reg: MID[rteam], hash: "#roster/prospects", recruits: SNAP.nd, draft: nobody, expectAsk: true });
+    ro = await roster(rn.page);
+    ok(ro.cards === 1 && /None of the team.s players are on ESPN.s 2027 draft board\./.test(ro.text), "no players on the board: the class, and a line saying so");
+    await rn.ctx.close();
 
     console.log("what is left out");
     // S2: Notre Dame's regular season over, the field not set (ESPN's

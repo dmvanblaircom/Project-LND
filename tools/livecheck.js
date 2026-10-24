@@ -39,7 +39,7 @@ function makeContext(teamFile) {
     .forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
   ctx.document = { addEventListener: function () {}, fonts: null };
   ctx.window = { addEventListener: function () {} };
-  ["suite/ui.js", "suite/schedule.js", "suite/home.js", "suite/top25.js", "suite/game.js"].forEach(function (f) {
+  ["suite/ui.js", "suite/schedule.js", "suite/prospects.js", "suite/home.js", "suite/top25.js", "suite/game.js"].forEach(function (f) {
     vm.runInContext(read(f), ctx, { filename: f });
   });
   vm.runInContext([

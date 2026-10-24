@@ -79,7 +79,7 @@ function fixture(url) {
   function hash(page) { return page.evaluate(function () { return location.hash; }); }
   async function settle(page) { await page.waitForTimeout(250); }
 
-  console.log("Roster: Depth Chart, Roster, Availability");
+  console.log("Roster: Depth Chart, Roster, Availability, Prospects");
   var r = await open("#roster/depth");
   var p = r.page;
   await drag(p, 300, 500, 150, 510); await settle(p);
@@ -87,11 +87,13 @@ function fixture(url) {
   await drag(p, 300, 500, 150, 505); await settle(p);
   ok(await hash(p) === "#roster/availability", "swipe left again: Availability");
   await drag(p, 300, 500, 150, 500); await settle(p);
-  ok(await hash(p) === "#roster/availability", "swipe left on the last view: stays");
+  ok(await hash(p) === "#roster/prospects", "and again: Prospects");
+  await drag(p, 300, 500, 150, 495); await settle(p);
+  ok(await hash(p) === "#roster/prospects", "swipe left on the last view: stays");
   await drag(p, 120, 500, 290, 500); await settle(p);
-  ok(await hash(p) === "#roster/roster", "swipe right: the previous view");
+  ok(await hash(p) === "#roster/availability", "swipe right: the previous view");
   await p.goBack(); await settle(p);
-  ok(await hash(p) === "#roster/availability", "Back walks it like a tap");
+  ok(await hash(p) === "#roster/prospects", "Back walks it like a tap");
 
   console.log("what is not a swipe");
   // from the middle view, where a swipe either way would move

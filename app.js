@@ -787,6 +787,7 @@ function rosterFreshSources(view){
   // heights, hometowns and photos to it
   var want = view==="depth" ? [["depth",false],["roster",true]]
            : view==="availability" ? [["availability",false],["roster",true]]
+           : view==="prospects" ? []                // ESPN's own dates, on each card
            : [["roster",false]];
   return want.filter(function(w){ return by[w[0]]; }).map(function(w){ return roSource(by[w[0]], w[1]); });
 }
@@ -794,7 +795,9 @@ function paintRoster(){
   var host=$("screenRoster");
   if(!host || host.hidden) return;
   var route=Suite.nav.current(), views=TeamOS.roster.views(TEAM_CONFIG);
-  Suite.roster.paint(host, rosterModel(route, views));
+  var m=rosterModel(route, views);
+  if(m.view==="prospects") loadProspects();
+  Suite.roster.paint(host, m);
 }
 function rosterModel(route, views){
   var view=views.some(function(v){ return v.id===route.view; }) ? route.view : views[0].id;
@@ -807,6 +810,7 @@ function rosterModel(route, views){
     history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart, today) : null, query: RO.q,
     notes: NOTES.model,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
+    prospects: { recruits:PROSPECTS.recruits, draft:PROSPECTS.draft, loaded:PROSPECTS.loaded },
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
     fresh: TeamOS.freshness.summary(rosterFreshSources(view), { now:new Date(), online: navigator.onLine!==false })
   };
@@ -1328,9 +1332,10 @@ function paintHome(){
   if(g) loadHomeWeather(g);
 }
 // The recruiting class and the draft board (offseason proposal §7, rows 4
-// and 6), read once the season is complete and then at most hourly. The
-// producer refreshes both daily; a failed read keeps what was shown.
-var PROSPECTS={ recruits:null, draft:null, askedAt:0, pending:false };
+// and 6), read for Home once the season is complete and for Roster's
+// Prospects view all year, then at most hourly. The producer refreshes both
+// daily; a failed read keeps what was shown.
+var PROSPECTS={ recruits:null, draft:null, askedAt:0, pending:false, loaded:false };
 function loadProspects(){
   if(PROSPECTS.pending || Date.now()-PROSPECTS.askedAt<60*60e3) return;
   PROSPECTS.pending=true; PROSPECTS.askedAt=Date.now();
@@ -1338,7 +1343,7 @@ function loadProspects(){
   Promise.all([
     snap ? get(snap.file+t).then(function(d){ PROSPECTS.recruits=TeamOS.prospects.recruits(roOurs(d), TEAM_CONFIG); }, function(){}) : null,
     get("data/league/draft.json"+t).then(function(d){ PROSPECTS.draft=TeamOS.prospects.draft(d, TEAM_CONFIG); }, function(){})
-  ]).then(function(){ PROSPECTS.pending=false; paintHome(); });
+  ]).then(function(){ PROSPECTS.pending=false; PROSPECTS.loaded=true; paintHome(); paintRoster(); });
 }
 function paintHomeLoading(host){
   var want=SC.failed ? "failed" : "1";
