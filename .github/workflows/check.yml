@@ -126,6 +126,8 @@ jobs:
       - run: node tools/offseasonhomecheck.js
       # The real app's seasonal nav: the league's calendar, on every screen.
       - run: node tools/offseasonnavcheck.js
+      # Recruiting and the NFL draft on the offseason Home: both teams, both styles.
+      - run: node tools/prospectshomecheck.js
       - run: node tools/rosterflowcheck.js
       # FPI routing, source-specific freshness and real service-worker recovery.
       - run: node tools/ratingsflowcheck.js
