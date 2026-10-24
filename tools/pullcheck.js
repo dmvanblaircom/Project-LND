@@ -105,11 +105,15 @@ var FILE = { post: "espn-schedule-nd-2025-post.json", schedule: "espn-schedule.j
   await drag(p, [195], down(320, 470));
   await p.waitForTimeout(80);
   ok(/is-refreshing/.test(await indicator(p) || ""), "the indicator turns while the refresh runs");
-  await p.waitForTimeout(1300);
+  await p.waitForTimeout(800);
   var after = snap(h.counts);
   ok(more(after, before, "schedule") === 1 && more(after, before, "news") === 1 && more(after, before, "team") === 1,
      "the team's schedule, status and news are asked for again, once each");
-  ok(!/is-refreshing|is-pulling/.test(await indicator(p) || ""), "and the indicator goes when it has settled");
+  ok(/is-complete/.test(await indicator(p) || ""), "completion stays visible after the refresh settles");
+  ok(await p.evaluate(function () { return document.querySelector("#pullRefresh .pull-label").textContent; }) === "Updated",
+     "the indicator gives a clear success state");
+  await p.waitForTimeout(1000);
+  ok(!/is-refreshing|is-pulling|is-complete/.test(await indicator(p) || ""), "the completion state clears after a short pause");
   ok(await p.evaluate(function () { return document.getElementById("pullRefresh").getAttribute("aria-hidden") === "true"; }),
      "the indicator is hidden from assistive technology");
   ok(/^Data refreshed\.$/.test(await p.evaluate(function () { return document.getElementById("live").textContent; })),
@@ -146,7 +150,7 @@ var FILE = { post: "espn-schedule-nd-2025-post.json", schedule: "espn-schedule.j
   // would wait for the button to stop being redrawn, i.e. for it to finish)
   ok(await p.evaluate(function () { var b = document.querySelector("#screenSettings [data-refresh]"); b.click(); return document.getElementById("pullRefresh").className; }).then(function (c) { return /is-refreshing/.test(c); }),
      "(Refresh Data pressed while the pull's refresh is under way)");
-  await p.waitForTimeout(1500);
+  await p.waitForTimeout(1900);
   ok(more(snap(h.counts), before, "schedule") === 1, "a second pull, and Refresh Data pressed meanwhile, join it: one request");
   await h.ctx.close();
 
@@ -172,9 +176,14 @@ var FILE = { post: "espn-schedule-nd-2025-post.json", schedule: "espn-schedule.j
   await gs.page.waitForTimeout(900);
   ok(more(snap(gs.counts), before, "schedule") === 1 && /is-refreshing/.test(await indicator(gs.page) || ""),
      "the rest has answered, the summary has not: still refreshing");
-  await gs.page.waitForTimeout(1500);
-  ok(!/is-refreshing/.test(await indicator(gs.page) || "") && /^Data refreshed\.$/.test(await gs.page.evaluate(function () { return document.getElementById("live").textContent; })),
-     "done, and said so, only once the summary is in");
+  // The completion state shows for a short pause once the summary is in,
+  // then clears: look for it while it is up, not at a fixed time after.
+  await gs.page.waitForFunction(function () { var p = document.getElementById("pullRefresh"); return p && /is-complete/.test(p.className); }, null, { timeout: 3000 }).catch(function () {});
+  ok(!/is-refreshing/.test(await indicator(gs.page) || "") && /is-complete/.test(await indicator(gs.page) || "") &&
+     /^Data refreshed\.$/.test(await gs.page.evaluate(function () { return document.getElementById("live").textContent; })),
+     "done, with a visible completion state, only once the summary is in");
+  await gs.page.waitForTimeout(1200);
+  ok(!/is-complete/.test(await indicator(gs.page) || ""), "and the completion state clears after its pause");
   gs.ctl.delays.summary = 0; gs.ctl.fail.summary = true;
   await drag(gs.page, [195], down(320, 470)); await gs.page.waitForTimeout(1200);
   ok(/^Some data refreshed\./.test(await gs.page.evaluate(function () { return document.getElementById("live").textContent; })),
