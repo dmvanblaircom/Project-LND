@@ -359,7 +359,7 @@ Suite.nav = (function () {
      region, and Settings' button is the way in for anyone not pulling.
      onRefresh returns a promise; the browser's own pull-to-reload is turned
      off in app.css so the page is not reloaded under it. */
-  var PULL_ARM = 64, PULL_MAX = 96, PULL_RATIO = 2;
+  var PULL_ARM = 64, PULL_MAX = 96, PULL_RATIO = 2, PULL_MIN_SPIN = 650, PULL_RESULT_MS = 900;
   function scrolledInside(el, stop) {
     for (; el && el !== stop && el.nodeType === 1; el = el.parentNode) {
       if (/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName) || el.isContentEditable) return true;
@@ -368,7 +368,7 @@ Suite.nav = (function () {
     return false;
   }
   function pull(onRefresh) {
-    var main = $("main"), start = null, busy = false, dist = 0, ind = null;
+    var main = $("main"), start = null, busy = false, dist = 0, ind = null, hideTimer = null;
     if (!main || typeof onRefresh !== "function") return;
     function indicator() {
       if (ind) return ind;
@@ -376,12 +376,18 @@ Suite.nav = (function () {
       ind.className = "pull";
       ind.id = "pullRefresh";
       ind.setAttribute("aria-hidden", "true");
-      ind.innerHTML = '<span class="pull-mark"></span>';
+      ind.innerHTML = '<span class="pull-mark"></span><span class="pull-label"></span>';
       document.body.appendChild(ind);
       return ind;
     }
+    function clearResultTimer() {
+      if (hideTimer !== null) { clearTimeout(hideTimer); hideTimer = null; }
+    }
     function show(d, armed) {
+      clearResultTimer();
       var el = indicator();
+      el.classList.remove("is-complete", "is-partial", "is-failed");
+      el.querySelector(".pull-label").textContent = "";
       el.style.top = Math.max(0, main.getBoundingClientRect().top) + "px";
       el.style.setProperty("--pull", String(Math.min(1, d / PULL_ARM)));
       el.style.transform = "translate(-50%," + Math.round(d * 0.6) + "px)";
@@ -389,9 +395,26 @@ Suite.nav = (function () {
       el.classList.add("is-pulling");
     }
     function hide() {
+      clearResultTimer();
       if (!ind) return;
-      ind.classList.remove("is-pulling", "is-armed", "is-refreshing");
+      ind.classList.remove("is-pulling", "is-armed", "is-refreshing", "is-complete", "is-partial", "is-failed");
       ind.style.transform = "";
+      ind.querySelector(".pull-label").textContent = "";
+    }
+    function finish(result) {
+      var el = indicator();
+      var say = result && typeof result.say === "string" ? result.say : "";
+      var partial = /^Some data refreshed\./.test(say);
+      var failed = /^Couldn.t refresh\./.test(say);
+      el.classList.remove("is-refreshing", "is-pulling", "is-armed");
+      el.classList.add("is-complete");
+      if (partial) el.classList.add("is-partial");
+      if (failed) el.classList.add("is-failed");
+      el.querySelector(".pull-label").textContent = failed ? "Couldn't update" : partial ? "Partly updated" : "Updated";
+      el.style.transform = "translate(-50%," + Math.round(PULL_ARM * 0.6) + "px)";
+      busy = false;
+      clearResultTimer();
+      hideTimer = setTimeout(hide, PULL_RESULT_MS);
     }
     main.addEventListener("touchstart", function (e) {
       start = null; dist = 0;
@@ -411,15 +434,21 @@ Suite.nav = (function () {
       var go = dist >= PULL_ARM;
       start = null; dist = 0;
       if (!go) { hide(); return; }
+      clearResultTimer();
       busy = true;
-      var el = indicator();
-      el.classList.remove("is-pulling");
+      var el = indicator(), startedAt = Date.now();
+      el.classList.remove("is-pulling", "is-armed", "is-complete", "is-partial", "is-failed");
       el.classList.add("is-refreshing");
+      el.querySelector(".pull-label").textContent = "Refreshing…";
+      el.style.top = Math.max(0, main.getBoundingClientRect().top) + "px";
       el.style.transform = "translate(-50%," + Math.round(PULL_ARM * 0.6) + "px)";
-      var done = function () { busy = false; hide(); };
       var p;
-      try { p = onRefresh(); } catch (err) { p = null; }
-      Promise.resolve(p).then(done, done);
+      try { p = onRefresh(); } catch (err) { p = Promise.reject(err); }
+      Promise.resolve(p).then(function (result) {
+        setTimeout(function () { finish(result); }, Math.max(0, PULL_MIN_SPIN - (Date.now() - startedAt)));
+      }, function () {
+        setTimeout(function () { finish({ say: "Couldn't refresh." }); }, Math.max(0, PULL_MIN_SPIN - (Date.now() - startedAt)));
+      });
     }, { passive: true });
     main.addEventListener("touchcancel", function () { start = null; dist = 0; if (!busy) hide(); }, { passive: true });
   }
