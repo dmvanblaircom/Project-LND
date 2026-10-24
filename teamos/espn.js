@@ -561,9 +561,22 @@ TeamOS.espn = (function () {
       if(!top) return;
       var nm=pick(top,["athlete","shortName"],null)||pick(top,["athlete","displayName"],"");
       if(!nm) return;
-      out.push({ category:leaderCategory(cat), name:nm, line:str(top.displayValue) });
+      var c=leaderCategory(cat), line=str(top.displayValue);
+      out.push(Object.assign({ category:c, name:nm, line:line }, leaderYards(c, top.value, line)));
     });
     return out;
+  }
+  // A passer's, runner's or receiver's yards, apart from the rest of ESPN's
+  // line ("21/27, 272 YDS, 3 TD" -> 272 and "21/27, 3 TD"), so a view can
+  // lead with the number. The yards are the line's own "N YDS"; where ESPN
+  // also sends its value and the two disagree, yards is null and rest is the
+  // line as ESPN wrote it.
+  function leaderYards(category, value, line){
+    var m=/(^|,\s*)(-?\d+) YDS\b(,\s*)?/i.exec(line);
+    if(!m || !/^(Passing|Rushing|Receiving)$/.test(category)) return { yards:null, rest:line };
+    var y=+m[2];
+    if(typeof value==="number" && isFinite(value) && Math.round(value)!==y) return { yards:null, rest:line };
+    return { yards:y, rest:(line.slice(0, m.index) + (m[1] && m[3] ? ", " : "") + line.slice(m.index + m[0].length)).replace(/^,\s*|,\s*$/g,"") };
   }
   // ESPN's boxscore.players holds the complete per-player lines that
   // `leaders` only samples. Each category carries its own labels.

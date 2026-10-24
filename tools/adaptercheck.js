@@ -574,7 +574,8 @@ eq([purPre.home.school, purPre.away.school].sort(), ["Notre Dame", "Purdue"],
    "each side's school, as ESPN lists it, for the CollegeFootballData lookup (a capture without it says \"\", never a guess)");
 eq([gdPre.lastPlay, gdPre.winProb, gdPre.linescore, gdPre.box, gdPre.scoring], [null, null, null, null, null], "no play, win prob, linescore, box or scoring before kickoff");
 eq(gdPre.teamStats, null, "pregame per-game stat names match no Team-stats row -> null");
-eq(gdPre.leaders.home[0], { category:"Passing", name:"C. Carr", line:"35/49, 492 YDS, 6 TD" }, "season leaders still render pregame");
+eq(gdPre.leaders.home[0], { category:"Passing", name:"C. Carr", line:"35/49, 492 YDS, 6 TD", yards:492, rest:"35/49, 6 TD" },
+   "season leaders still render pregame, the line's yards apart from the rest of it");
 eq(gdPre.leaders.away.length, 5, "five leader categories per side");
 
 console.log("gameDetail() - live");
@@ -607,7 +608,19 @@ var wisBox = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary
 ok(wisBox.home.concat(wisBox.away).some(function (t) { return t.key === "kickReturns" && t.label === "Kick Returns"; }) &&
    wisBox.home.concat(wisBox.away).some(function (t) { return t.key === "defensive" && t.label === "Defense"; }),
    "a real game's categories read as words: Kick Returns, Defense");
-eq(gdPost.leaders.away[4], { category:"Tackles", name:"M. Posa", line:"15" }, "leader category names are mapped, not ESPN's");
+eq(gdPost.leaders.away[4], { category:"Tackles", name:"M. Posa", line:"15", yards:null, rest:"15" }, "leader category names are mapped, not ESPN's; tackles have no yards");
+(function () {
+  var osu = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-osu-ill-live.json")), team, TEAM_CONFIG).leaders;
+  var p = (osu.home || []).concat(osu.away || []).filter(function (r) { return r.category === "Passing" && r.name === "J. Sayin"; })[0];
+  eq(p && [p.yards, p.rest], [272, "21/27, 3 TD"], "where ESPN also sends its value (272), it agrees with the line's yards");
+})();
+(function () {
+  var all = [gdPre, gdLive, gdPost].map(function (g) { return (g.leaders.home || []).concat(g.leaders.away || []); }).reduce(function (a, b) { return a.concat(b); }, []);
+  var yardage = all.filter(function (r) { return /^(Passing|Rushing|Receiving)$/.test(r.category); });
+  ok(yardage.length && yardage.every(function (r) { return r.yards == null ? r.rest === r.line : new RegExp("\\b" + r.yards + " YDS\\b", "i").test(r.line) && !new RegExp("\\b" + r.yards + " YDS\\b", "i").test(r.rest); }) &&
+     yardage.every(function (r) { return r.yards != null; }),
+     "every yardage leader's yards are ESPN's own number from its line, and the rest is the line without it (" + yardage.length + " leaders)");
+})();
 eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).state, "post", "an empty payload is treated as final (no polling)");
 eq(TeamOS.espn.gameDetail({}, team, TEAM_CONFIG).home, { key:"", name:"TBA", school:"", abbreviation:"", record:"", score:null, mine:false, possession:false, colors:{ primary:null, alt:null } }, "an empty side");
 

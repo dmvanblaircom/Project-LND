@@ -325,48 +325,107 @@ Suite.top25 = (function () {
   //   model.failed  the summary did not load
   var SHEET_LEADERS = ["Passing", "Rushing", "Receiving"];
   function pct(x) { return Math.round(x * 100) + "%"; }
+  function sideMark(m, s) { return '<span class="sh-mark">' + ui.mark(s.providerId ? m.mark(s.providerId) : null, s.name, s.abbr, "plain") + "</span>"; }
+  function abbr(s) { return s.abbr || s.name; }
 
-  function sheetSection(title, body) {
-    return '<section class="sh-sec"><h3 class="sh-h">' + esc(title) + "</h3>" + body + "</section>";
+  // Each section is a card on the sheet's page colour, so what it holds
+  // reads as one thing and the sections stand apart (David, 2026-10-24:
+  // the sheet's text "blends together").
+  function sheetSection(title, body, cls) {
+    return '<section class="sh-sec card' + (cls ? " " + cls : "") + '"><h3 class="sh-h">' + esc(title) + "</h3>" + body + "</section>";
   }
   function sheetLinescore(gd, g) {
     var ls = gd && gd.linescore;
     if (!ls) return "";
     var a = ls.away || [], h = ls.home || [], n = Math.max(4, a.length, h.length);
+    // the quarter being played, while the game is on
+    var cur = g.state === "in" && g.period ? g.period - 1 : -1;
+    var as = Number(g.away.score), hs = Number(g.home.score), lead = isNaN(as) || isNaN(hs) || as === hs ? null : as > hs ? "away" : "home";
     var head = '<tr><th scope="col"><span class="sr-only">Team</span></th>';
-    for (var i = 0; i < n; i++) head += '<th scope="col">' + (i < 4 ? i + 1 : i === 4 ? "OT" : (i - 3) + "OT") + "</th>";
+    for (var i = 0; i < n; i++) head += '<th scope="col"' + (i === cur ? ' class="cur"' : "") + ">" + (i < 4 ? i + 1 : i === 4 ? "OT" : (i - 3) + "OT") + "</th>";
     head += '<th scope="col">T</th></tr>';
-    function row(side, list) {
-      var r = '<tr><th scope="row">' + esc(side.abbr || side.name) + "</th>";
-      for (var i = 0; i < n; i++) r += "<td>" + esc(list[i] != null && list[i] !== "" ? list[i] : "–") + "</td>";
-      return r + '<td class="t">' + esc(side.score == null ? "–" : side.score) + "</td></tr>";
+    function row(key, side, list) {
+      var r = '<tr><th scope="row">' + esc(abbr(side)) + "</th>";
+      for (var i = 0; i < n; i++) r += "<td" + (i === cur ? ' class="cur"' : "") + ">" + esc(list[i] != null && list[i] !== "" ? list[i] : "–") + "</td>";
+      return r + '<td class="t' + (lead && lead !== key ? " trail" : "") + '">' + esc(side.score == null ? "–" : side.score) + "</td></tr>";
     }
     return sheetSection("Score by quarter", '<table class="ls"><thead>' + head + "</thead><tbody>" +
-      row(g.away, a) + row(g.home, h) + "</tbody></table>");
+      row("away", g.away, a) + row("home", g.home, h) + "</tbody></table>");
   }
-  function sheetSituation(gd, g) {
-    if (g.state !== "in") return "";
-    var lines = [];
-    var r = receiver(g), b = ballSide(g);
-    if (r) lines.push(esc(r.name) + " gets the ball to start the second half");
-    else if (b) lines.push(ui.ball("sh-ball") + esc(b.name) + (g.live && g.live.downDistance ? " · " + esc(g.live.downDistance) : ""));
+
+  // Where the ball is, on a field that runs left to right for the offense
+  // (as Game's drive card does): the line of scrimmage and the line to gain,
+  // from the current drive's last snap. Nothing when the drive does not say.
+  function sheetField(gd, g, b) {
+    var d = gd && gd.drives && gd.drives.current;
+    var key = b === g.home ? "home" : b === g.away ? "away" : null;
+    if (!d || !key || d.side !== key || d.result) return "";
+    var snaps = (d.plays || []).filter(function (p) { return p.offense && p.start && p.start.fromOwn != null; });
+    if (!snaps.length) return "";
+    var lastP = snaps[snaps.length - 1];
+    var kept = lastP.end && lastP.end.fromOwn != null && (!lastP.end.teamId || lastP.end.teamId === lastP.start.teamId);
+    var los = kept ? lastP.end.fromOwn : lastP.start.fromOwn;
+    var first = kept && lastP.end.distance ? Math.min(100, los + lastP.end.distance) : null;
+    var them = b === g.home ? g.away : g.home;
+    return '<div class="sh-field" aria-hidden="true">' +
+      '<span class="sh-ez">' + esc(abbr(b)) + "</span>" +
+      '<span class="sh-turf">' +
+        (first != null && first < 100 ? '<span class="sh-first" style="left:' + first + '%"></span>' : "") +
+        '<span class="sh-los" style="left:' + los + '%"></span></span>' +
+      '<span class="sh-ez">' + esc(abbr(them)) + "</span></div>";
+  }
+
+  // Win probability as a split bar: each team's share in its own colour,
+  // where ESPN publishes one that is not the other's; else quiet greys.
+  function sheetWinProb(m, gd, g) {
     var wp = gd && gd.winProb && typeof gd.winProb.homePct === "number" ? gd.winProb.homePct : null;
-    if (wp != null) lines.push("Win probability: " + esc(g.away.abbr || g.away.name) + " " + pct(1 - wp) + " · " + esc(g.home.abbr || g.home.name) + " " + pct(wp));
-    return lines.length ? sheetSection("Right now", '<ul class="sh-lines">' + lines.map(function (l) { return "<li>" + l + "</li>"; }).join("") + "</ul>") : "";
+    if (wp == null) return "";
+    function col(side) { var c = gd[side] && gd[side].colors; return c && c.primary ? c.primary : null; }
+    var ca = col("away"), ch = col("home");
+    if (!ca || !ch || ca === ch) { ca = "var(--s-ink-2)"; ch = "var(--s-line-strong)"; }
+    var aw = Math.round((1 - wp) * 100), hw = 100 - aw;
+    return '<div class="sh-wp"><p class="sh-sub">Win probability</p>' +
+      '<p class="sh-wp-row"><span class="sh-wp-side">' + sideMark(m, g.away) + esc(abbr(g.away)) + ' <b>' + aw + '%</b></span>' +
+      '<span class="sh-wp-side"><b>' + hw + "%</b> " + esc(abbr(g.home)) + sideMark(m, g.home) + "</span></p>" +
+      '<span class="sh-wp-bar" aria-hidden="true"><span style="width:' + aw + "%;background:" + ca + '"></span><span style="background:' + ch + '"></span></span></div>';
   }
-  // The newest plays first, each with its quarter and clock.
+
+  function sheetSituation(m, gd, g) {
+    if (g.state !== "in") return "";
+    var r = receiver(g), b = ballSide(g), out = "";
+    if (r) out += '<p class="sh-poss">' + sideMark(m, r) + "<span>" + esc(r.name) + " gets the ball to start the second half</span></p>";
+    else if (b) {
+      var lv = g.live || {}, dd = lv.short && lv.spot ? [lv.short, lv.spot] : [lv.downDistance, ""];
+      out += '<p class="sh-poss">' + sideMark(m, b) + "<span>" + esc(b.name) + " has the ball</span></p>" +
+             (dd[0] ? '<p class="sh-dd">' + esc(dd[0]) + (dd[1] ? ' <span class="sh-spot">at ' + esc(dd[1]) + "</span>" : "") + "</p>" : "") +
+             sheetField(gd, g, b);
+    }
+    out += sheetWinProb(m, gd, g);
+    return out ? sheetSection("Right now", out, "sh-now") : "";
+  }
+
+  // The newest plays first, each with its quarter and clock, the yards it
+  // gained and what it was (a score, a turnover). The newest is marked.
+  var TAG_KIND = { "Touchdown": "score", "Turnover": "turnover", "Turnover on downs": "turnover", "No play": "void", "1st down": "first" };
   function sheetPlays(gd, g) {
     if (g.state !== "in" || !gd || !gd.drives) return "";
     var all = [];
     gd.drives.list.forEach(function (d) { d.plays.forEach(function (p) { if (p.text) all.push(p); }); });
     var last = all.slice(-3).reverse();
     if (!last.length) return "";
-    return sheetSection("Last plays", '<ol class="sh-plays">' + last.map(function (p) {
+    return sheetSection("Last plays", '<ol class="sh-plays">' + last.map(function (p, i) {
       var at = [p.period ? ui.period(p.period) : "", p.clock].filter(Boolean).join(" ");
-      return "<li>" + (at ? '<span class="sh-at">' + esc(at) + "</span>" : "") + '<span class="sh-play">' + esc(p.text) + "</span></li>";
+      var gain = p.snap !== false && typeof p.yards === "number" && !(p.tags || []).some(function (t) { return /No play/.test(t); })
+        ? '<span class="sh-gain' + (p.yards > 0 ? " up" : p.yards < 0 ? " loss" : "") + '">' + (p.yards > 0 ? "+" : p.yards < 0 ? "−" : "") + Math.abs(p.yards) + '<span class="sr-only"> yards</span></span>' : "";
+      var tags = (p.tags || []).map(function (t) { return '<span class="pl-tag ' + (TAG_KIND[t] || "") + '">' + esc(t) + "</span>"; }).join("");
+      return "<li" + (i === 0 ? ' class="is-new"' : "") + ">" + (at ? '<span class="sh-at">' + esc(at) + "</span>" : "") +
+             '<span class="sh-play">' + esc(p.text) + (tags ? " " + tags : "") + "</span>" + gain + "</li>";
     }).join("") + "</ol>");
   }
-  function sheetLeaders(gd, g) {
+
+  // One row per category, the two teams side by side: the yards large, the
+  // rest of ESPN's line under the name.
+  function sheetLeaders(m, gd, g) {
     var ld = gd && gd.leaders;
     if (!ld) return "";
     function one(list, cat) { return (list || []).filter(function (r) { return r.category === cat; })[0] || null; }
@@ -374,11 +433,17 @@ Suite.top25 = (function () {
       var a = one(ld.away, cat), h = one(ld.home, cat);
       if (!a && !h) return "";
       function cell(side, r) {
-        return r ? '<span class="sh-ld-who"><span class="sh-ld-team">' + esc(side.abbr || side.name) + "</span> " + esc(r.name) + '</span><span class="sh-ld-line">' + esc(r.line) + "</span>" : "";
+        if (!r) return '<span class="sh-ld-cell"></span>';
+        return '<span class="sh-ld-cell"><span class="sr-only">' + esc(abbr(side)) + " </span>" +
+          '<span class="sh-ld-who">' + esc(r.name) + "</span>" +
+          (r.yards != null ? '<span class="sh-ld-n">' + esc(r.yards) + '<span class="sh-ld-u"> yds</span></span>' : "") +
+          (r.rest ? '<span class="sh-ld-line">' + esc(r.rest) + "</span>" : "") + "</span>";
       }
       return '<li><span class="sh-ld-cat">' + esc(cat) + "</span>" + cell(g.away, a) + cell(g.home, h) + "</li>";
     }).join("");
-    return rows ? sheetSection("Leaders", '<ul class="sh-ld">' + rows + "</ul>") : "";
+    if (!rows) return "";
+    return sheetSection("Leaders", '<div class="sh-ld-head" aria-hidden="true"><span>' + sideMark(m, g.away) + esc(abbr(g.away)) + "</span><span>" +
+      sideMark(m, g.home) + esc(abbr(g.home)) + '</span></div><ul class="sh-ld">' + rows + "</ul>");
   }
   function sheetBefore(g) {
     var ko = ui.kickoff(g.date, g.timeSet), facts = [["Kickoff", ko.full]];
@@ -395,14 +460,14 @@ Suite.top25 = (function () {
     var g = m.game;
     if (!g) return '<p class="sec-quiet">' + (m.failed ? "This game didn’t load." : "Loading the game…") + "</p>";
     var as = Number(g.away.score), hs = Number(g.home.score), fin = g.state === "post" && !isNaN(as) && !isNaN(hs) && as !== hs;
-    var head = '<div class="sh-score" aria-hidden="true"><span class="tg-sides">' + side(m, g.away, g, fin ? as > hs : null) + side(m, g.home, g, fin ? hs > as : null) +
+    var head = '<div class="sh-score card" aria-hidden="true"><span class="tg-sides">' + side(m, g.away, g, fin ? as > hs : null) + side(m, g.home, g, fin ? hs > as : null) +
                '</span><span class="tg-status">' + status(g) + "</span></div>" + '<p class="sr-only">' + esc(summary(g)) + "</p>";
     var body;
     if (g.state === "pre") body = sheetBefore(g);
     else {
-      var more = sheetSituation(m.detail, g) + sheetLinescore(m.detail, g) + sheetPlays(m.detail, g) + sheetLeaders(m.detail, g);
+      var more = sheetSituation(m, m.detail, g) + sheetLinescore(m.detail, g) + sheetPlays(m.detail, g) + sheetLeaders(m, m.detail, g);
       body = m.detail ? (more || '<p class="sec-quiet">No details published for this game yet.</p>')
-           : sheetSituation(null, g) + '<p class="sec-quiet">' + (m.failed ? "The box score didn’t load. It is asked for again while this is open." : "Loading the box score…") + "</p>";
+           : sheetSituation(m, null, g) + '<p class="sec-quiet">' + (m.failed ? "The box score didn’t load. It is asked for again while this is open." : "Loading the box score…") + "</p>";
     }
     return head + body;
   }

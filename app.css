@@ -815,23 +815,57 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .sh-close{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border:0;border-radius:50%;background:none;color:var(--s-ink-2);cursor:pointer}
 .sh-close svg{width:1.3rem;height:1.3rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
 .sh-close:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
-.sh-body{overflow-y:auto;overscroll-behavior:contain;padding:.75rem 1rem 1rem}
-.sh-score{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"sides status";align-items:center;column-gap:.75rem;padding-bottom:.75rem}
-.sh-sec{padding-top:.75rem;border-top:1px solid var(--s-line);margin-top:.25rem}
-.sh-h{margin:0 0 .45rem;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
-.sh-lines,.sh-plays,.sh-ld{list-style:none;margin:0 0 .5rem;padding:0}
-.sh-lines li{display:flex;align-items:center;gap:.4rem;padding:.2rem 0;font-weight:600;color:var(--s-ink)}
-.sh-ball{width:1.1rem;height:1.1rem}
-.sh-plays li{display:grid;grid-template-columns:4.6rem minmax(0,1fr);column-gap:.5rem;padding:.4rem 0;font-size:.92rem;line-height:1.4}
+.sh-body{overflow-y:auto;overscroll-behavior:contain;padding:.75rem .75rem 1rem;background:var(--s-page)}
+/* each section a card on the page colour (David, 2026-10-24) */
+.sh-score{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"sides status";align-items:center;column-gap:.75rem;padding:.75rem .9rem}
+.sh-sec{margin-top:.6rem;padding:.8rem .9rem .85rem}
+.sh-h{margin:0 0 .5rem;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.sh-plays,.sh-ld{list-style:none;margin:0;padding:0}
+.sh-mark .mark{--mark:1.6rem}
+/* right now: who has the ball, the down large, the field, win probability */
+.sh-poss{display:flex;align-items:center;gap:.5rem;margin:0;font-weight:600;color:var(--s-ink)}
+.sh-dd{margin:.4rem 0 0;font-family:var(--t-font-display);font-weight:800;font-size:1.65rem;line-height:1.1;color:var(--s-ink)}
+.sh-spot{font-size:1.1rem;font-weight:700;color:var(--s-ink-2)}
+.sh-field{display:grid;grid-template-columns:2.6rem minmax(0,1fr) 2.6rem;height:2.1rem;margin-top:.7rem;border-radius:8px;overflow:hidden;background:#2E6A35}
+.sh-ez{display:flex;align-items:center;justify-content:center;overflow:hidden;background:#22502A;color:#FFFFFF;font-family:var(--t-font-display);font-weight:700;font-size:.72rem;letter-spacing:.04em}
+.sh-turf{position:relative;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),rgba(255,255,255,.3) calc(10% - 1px) 10%)}
+.sh-los,.sh-first{position:absolute;top:0;bottom:0;width:4px;margin-left:-2px}
+.sh-los{background:#FFFFFF}
+.sh-first{background:var(--t-accent)}
+.sh-wp{margin-top:.85rem}
+.sh-h + .sh-wp{margin-top:0}
+.sh-sub{margin:0 0 .3rem;font-size:.82rem;font-weight:600;color:var(--s-muted)}
+.sh-wp-row{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin:0 0 .4rem;font-weight:700;color:var(--s-ink-2)}
+.sh-wp-side{display:flex;align-items:center;gap:.4rem}
+.sh-wp-side b{font-family:var(--t-font-display);font-weight:800;font-size:1.4rem;color:var(--s-ink)}
+.sh-wp-bar{display:flex;gap:2px;height:.55rem;overflow:hidden;border-radius:var(--s-radius-pill)}
+.sh-wp-bar span{display:block;height:100%}
+.sh-wp-bar span + span{flex:1}
+/* score by quarter: the quarter being played, the trailing total quieter */
+.sh-sec .ls th.cur,.sh-sec .ls td.cur{background:var(--s-inset)}
+.sh-sec .ls thead th.cur{color:var(--s-ink)}
+.sh-sec .ls .t.trail{color:var(--s-ink-2)}
+/* last plays: the newest marked, the yards it made at the end */
+.sh-plays li{position:relative;display:grid;grid-template-columns:4.4rem minmax(0,1fr) auto;column-gap:.6rem;padding:.5rem 0;font-size:.92rem;line-height:1.4}
 .sh-plays li + li{border-top:1px solid var(--s-line)}
+.sh-plays li.is-new::before{content:"";position:absolute;left:-.9rem;top:.5rem;bottom:.5rem;width:3px;border-radius:0 3px 3px 0;background:var(--t-accent-on-light)}
 .sh-at{font-variant-numeric:tabular-nums;font-weight:700;color:var(--s-muted)}
-.sh-play{color:var(--s-ink)}
-.sh-ld li{display:grid;grid-template-columns:5.4rem minmax(0,1fr);column-gap:.6rem;padding:.45rem 0}
+.sh-plays li.is-new .sh-at{color:var(--s-ink)}
+.sh-play{min-width:0;color:var(--s-ink)}
+.sh-gain{font-family:var(--t-font-display);font-weight:800;font-size:1.05rem;line-height:1.3;font-variant-numeric:tabular-nums;color:var(--s-ink-2)}
+.sh-gain.up{color:var(--s-win)}
+.sh-gain.loss{color:var(--s-loss)}
+/* leaders: the two teams side by side, the yards large */
+.sh-ld-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:.9rem;padding-bottom:.45rem;border-bottom:1px solid var(--s-line)}
+.sh-ld-head span{display:flex;align-items:center;gap:.4rem;min-width:0;font-weight:700;color:var(--s-ink)}
+.sh-ld li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:.9rem;padding:.6rem 0}
 .sh-ld li + li{border-top:1px solid var(--s-line)}
-.sh-ld-cat{grid-row:span 4;font-size:.88rem;color:var(--s-muted)}
-.sh-ld-who{font-weight:700;color:var(--s-ink)}
-.sh-ld-team{font-weight:600;font-size:.82rem;color:var(--s-muted)}
-.sh-ld-line{margin-bottom:.15rem;font-size:.88rem;color:var(--s-ink-2)}
+.sh-ld-cat{grid-column:1 / -1;margin-bottom:.2rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.sh-ld-cell{display:flex;flex-direction:column;min-width:0}
+.sh-ld-who{font-weight:700;color:var(--s-ink);overflow-wrap:anywhere}
+.sh-ld-n{font-family:var(--t-font-display);font-weight:800;font-size:1.5rem;line-height:1.15;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.sh-ld-u{font-size:.8rem;font-weight:700;color:var(--s-ink-2)}
+.sh-ld-line{font-size:.85rem;color:var(--s-ink-2)}
 .sh-facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.35rem .9rem;margin:0 0 .5rem}
 .sh-facts dt{font-size:.88rem;color:var(--s-muted)}
 .sh-facts dd{margin:0;font-weight:600;color:var(--s-ink)}
@@ -1176,6 +1210,10 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   /* At 320px the status uses a second row, leaving whole team names and
      records beside the scores instead of an orphaned rank or clipped name. */
   .tg-body{grid-template-areas:"sides sides" "status odds" "last last";row-gap:.5rem}
+  /* the sheet's score card does the same: its card padding leaves no room
+     for the status beside a long name ("Tennessee" ran into its score) */
+  .sh-score{grid-template-columns:minmax(0,1fr);grid-template-areas:"sides" "status";row-gap:.5rem}
+  .sh-body{padding:.6rem .5rem .9rem}
   .tg-odds{padding-left:0;border-left:0}
   .gh-team .mark{--mark:2.6rem}
   .gh-score{font-size:2.4rem}
