@@ -357,11 +357,19 @@ Suite.home = (function () {
   }
 
   // One person: the labeled figure that leads (a grade, a rank, a pick),
-  // the name, then a line or two of what ESPN gives.
-  function person(fig, label, name, lines) {
+  // the name, any star ratings, then a line or two of what ESPN gives.
+  function person(fig, label, name, lines, ratings) {
     return "<li>" + (fig != null ? '<span class="pr-fig"><span class="bn-n">' + esc(fig) + '</span><span class="pr-l">' + esc(label) + "</span></span>" : "<span></span>") +
-      '<span class="pr-who"><span class="pr-name">' + esc(name) + "</span>" +
+      '<span class="pr-who"><span class="pr-name">' + esc(name) + "</span>" + (ratings || []).map(stars).join("") +
       lines.filter(Boolean).map(function (l) { return '<span class="pr-meta">' + esc(l) + "</span>"; }).join("") + "</span></li>";
+  }
+
+  // Stars out of five, always with who gave them (David, 2026-10-24).
+  function stars(r) {
+    var n = Math.max(0, Math.min(5, r.stars));
+    return '<span class="pr-stars"><span class="pr-star" aria-hidden="true">' + new Array(n + 1).join("\u2605") +
+      '<span class="pr-star-off">' + new Array(6 - n).join("\u2605") + "</span></span>" +
+      '<span class="pr-by" aria-hidden="true">' + esc(r.by) + '</span><span class="sr-only">' + n + "-star, " + esc(r.by) + "</span></span>";
   }
 
   // Five, and the rest one tap away - but never a tap for a single row.
@@ -396,7 +404,7 @@ Suite.home = (function () {
           [r.position, r.highSchool, r.hometown].filter(Boolean).join(" \u00b7 "),
           [r.rank ? "No. " + r.rank + " overall" : "", rankAt(r.positionRank, r.position),
            r.stateRank ? "No. " + r.stateRank + " in state" : ""].filter(Boolean).join(" \u00b7 ")
-        ]);
+        ], r.ratings);
       }), c);
   }
 

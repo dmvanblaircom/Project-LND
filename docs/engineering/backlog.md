@@ -20,7 +20,7 @@ PRs before work.
 
 | Order | Item | Owner / remaining scope |
 |---|---|---|
-| 1 | Offseason and rollover (W16), due mid-November | Claude: S2/S4 approved (2026-10-23) and live (#161). Recruiting and NFL Draft cards on the S4/S5 Home, under News: built for David's visual review (branch `home-prospects`, `tools/prospectshomecheck.js`). Recruiting/draft refresh (#158) and season-matched markets (#160) are done. |
+| 1 | Offseason and rollover (W16), due mid-November | Claude: S2/S4 (#161) and the Recruiting and NFL Draft cards (#163) are live. ESPN's stars, credited to ESPN, on each recruit (David, 2026-10-24). 247Sports/On3 stars wait on their permission (David sends the requests); a projected NFL team waits on a usable mock-draft source (none today; David's §7 row 6 rule stands until then). |
 | 2 | Postseason notifications (W19): first live runs | Claude: watch the first CFP release (November 3, 7 PM ET), the weekly releases through December 1 and Selection Day (December 6, noon ET), and fix from what the real payloads show. Built in #147 and #152. |
 | 3 | Photography (W13) and targeted visual finish (W14) | Claude: deployable Home/Game imagery, focal points/crops, responsive fallback; review Outlook, alert Settings and recent notes/badges. No broad brand reset. |
 | 4 | Ohio State remainder (W20) | Claude: conference-only availability freshness expectations; depth chart only after Ourlads permission. Claude: team parity. News, history and Big Ten availability already ship. |

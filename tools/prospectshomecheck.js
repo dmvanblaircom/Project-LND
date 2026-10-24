@@ -104,6 +104,7 @@ function rankings() {
         var el = host.querySelector('[data-home="' + k + '"]');
         return { hidden: !el || el.hidden, text: el ? el.innerText.replace(/\s+/g, " ").trim() : "",
                  names: el ? [].map.call(el.querySelectorAll(".pr-name"), function (n) { return n.textContent; }) : [],
+                 stars: el ? [].map.call(el.querySelectorAll(".pr-stars"), function (n) { return n.querySelector(".sr-only").textContent + "|" + n.querySelector(".pr-by").textContent + "|" + n.querySelector(".pr-star").textContent; }) : [],
                  metas: el ? [].map.call(el.querySelectorAll(".pr-meta"), function (n) { return n.textContent; }) : [],
                  figs: el ? [].map.call(el.querySelectorAll(".pr-fig"), function (n) { return n.textContent; }) : [],
                  more: el && el.querySelector("details summary") ? el.querySelector("details summary").textContent : null,
@@ -139,6 +140,15 @@ function rankings() {
       ok(h.recruiting.more === "Show " + (T.recruits.recruits.length - 5) + " more", team + ": five shown, the rest one tap away");
       var r0 = T.recruits.recruits[0];
       ok(h.recruiting.figs[0] === r0.grade + "grade", team + ": the grade leads, labeled");
+      var want = r0.grade >= 90 ? 5 : r0.grade >= 80 ? 4 : 3;
+      ok(h.recruiting.stars[0] === want + "-star, ESPN|ESPN|" + "\u2605".repeat(5), team + ": " + want + " stars out of five, credited to ESPN (" + h.recruiting.stars[0] + ")");
+      ok(await a.page.evaluate(function () {
+        return [].every.call(document.querySelectorAll("#screenHome .pr-stars"), function (n) {
+          return n.querySelector(".pr-star").getAttribute("aria-hidden") === "true" && n.querySelector(".pr-by").getAttribute("aria-hidden") === "true";
+        });
+      }), team + ": screen readers hear the stars and their source once (\"4-star, ESPN\"), not the glyphs or the label again (Codex, #164)");
+      var starless = T.recruits.recruits.filter(function (r) { return r.grade == null || r.grade < 50; }).length;
+      ok(h.recruiting.stars.length === T.recruits.recruits.length - starless, team + ": stars on every graded recruit" + (starless ? ", none under ESPN's scale (" + starless + ")" : ""));
       ok(h.recruiting.text.indexOf(r0.highSchool) > -1 && h.recruiting.text.indexOf(r0.city + ", " + r0.state) > -1, team + ": high school and hometown");
       var unranked = T.recruits.recruits.filter(function (r) { return r.rank == null; }).length;
       ok(unranked > 0 && h.recruiting.metas.filter(function (m) { return / overall/.test(m); }).length === T.recruits.recruits.length - unranked,
