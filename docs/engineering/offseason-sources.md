@@ -47,5 +47,5 @@ probes print what a source returns and store nothing.
 2. **D4 (recruiting): ESPN's recruiting API covers the core need without a license:** the class, each recruit's grade and ranks, position and high school.
    - The commitment and the team are in the data. A team's class is the recruits whose matching `schools[]` entry (the one with the recruit's own status, not "Undecided") points at its team id.
    - Before building, capture recruits as fixtures, a verbal and a signed one, so the adapter is tested on real records.
-   - 247Sports and On3 would add their composite and industry rankings. Those need permission, so the emails are drafted for David (not sent).
+   - 247Sports and On3 would add their composite and industry rankings. Those need permission. David sent both requests on 2026-10-24 (to support@247sports.com and info@on3.com, the only addresses that could be found; neither is a confirmed licensing contact). No answer yet.
 3. **Hold any email to ESPN.** Asking ESPN for permission raises the whole app's use of ESPN, not just recruiting. That is the launch-or-monetization question David has already deferred.
