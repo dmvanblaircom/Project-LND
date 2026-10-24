@@ -17,7 +17,7 @@ fs.mkdirSync(shots,{recursive:true});
       await page.route("**/*",function(r){return r.request().url().startsWith(base)?r.continue():r.abort();});
       await page.goto(base+"/tools/fixtures/espn-news.json");
       await page.setContent('<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="'+base+'/app.css"></head><body><main class="page-main"><div id="home"></div><div id="game"></div><div id="top"></div></main></body></html>');
-      for(var f of ["teams/"+team+".js","teamos/team.js","teamos/identity.js","teamos/espn.js","teamos/game.js","teamos/live.js","suite/ui.js","suite/schedule.js","suite/home.js","suite/game.js","suite/top25.js"])
+      for(var f of ["teams/"+team+".js","teamos/team.js","teamos/identity.js","teamos/espn.js","teamos/game.js","teamos/live.js","suite/ui.js","suite/schedule.js","suite/prospects.js", "suite/home.js","suite/game.js","suite/top25.js"])
         await page.addScriptTag({url:base+"/"+f});
       for(var style of ["team","suite"])for(var width of [320,375,390,768,1280]){
         await page.setViewportSize({width:width,height:1000});

@@ -43,7 +43,7 @@ var ctx = vm.createContext({ console: console, Intl: Intl, Date: Date });
   .forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 ctx.document = { addEventListener: function () {}, fonts: null };
 ctx.window = { addEventListener: function () {} };
-["suite/ui.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
+["suite/ui.js", "suite/prospects.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 vm.runInContext(lift("withDerived"), ctx, { filename: "withDerived" });
 
 // A pregame game, painted the way app.js paints Game before kickoff.

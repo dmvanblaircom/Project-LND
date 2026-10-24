@@ -142,7 +142,7 @@ function rankings() {
       var r0 = T.recruits.recruits[0];
       ok(h.recruiting.figs[0] === r0.grade + "grade", team + ": the grade leads, labeled");
       var want = r0.grade >= 90 ? 5 : r0.grade >= 80 ? 4 : 3;
-      ok(h.recruiting.stars[0] === want + "-star, ESPN|ESPN|" + "\u2605".repeat(5), team + ": " + want + " stars out of five, credited to ESPN (" + h.recruiting.stars[0] + ")");
+      ok(h.recruiting.stars[0] === want + "-star, ESPN|ESPN|" + "\u2605".repeat(want) + "\u2606".repeat(5 - want), team + ": " + want + " stars out of five, credited to ESPN (" + h.recruiting.stars[0] + ")");
       ok(await a.page.evaluate(function () {
         return [].every.call(document.querySelectorAll("#screenHome .pr-stars"), function (n) {
           return n.querySelector(".pr-star").getAttribute("aria-hidden") === "true" && n.querySelector(".pr-by").getAttribute("aria-hidden") === "true";

@@ -30,7 +30,7 @@ var TEAM = TeamOS.createTeam(CFG.team);
 
 console.log("postponed dates on Home (decision 0022 #5)");
 var hctx = vm.createContext({ Date: Date, document: { addEventListener: function () {} } });
-["suite/ui.js", "suite/home.js"].forEach(function (f) { vm.runInContext(read(f), hctx, { filename: f }); });
+["suite/ui.js", "suite/prospects.js", "suite/home.js"].forEach(function (f) { vm.runInContext(read(f), hctx, { filename: f }); });
 var H = hctx.Suite.home;
 eq(H.newDate({ status: "postponed", newDate: null }), "New date to be announced", "no replacement date: to be announced");
 ok(/^New date: .+ \u00B7 .*\d:\d\d/.test(H.newDate({ newDate: { date: "2026-10-10T19:30:00Z", timeSet: true } })),
@@ -45,7 +45,7 @@ eq(H.newDate({ newDate: { date: "not a date" } }), "New date to be announced", "
 // shows every player, and the fan's own choice outlives the live refresh.
 console.log("Box Score");
 var sctx = vm.createContext({ console: console, Intl: Intl, Date: Date, TeamOS: TeamOS, document: { addEventListener: function () {} } });
-["suite/ui.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), sctx, { filename: f }); });
+["suite/ui.js", "suite/prospects.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), sctx, { filename: f }); });
 function host() {
   var parts = {};
   return { innerHTML: "", parts: parts,
