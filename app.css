@@ -1314,6 +1314,23 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .ms-next{display:block;margin-top:.15rem;font-size:.95rem;font-weight:400;color:var(--s-ink-2)}
 .ms-src{margin:.6rem 0 0;font-size:.85rem;color:var(--s-muted)}
 
+/* ---- Recruiting and the NFL draft on Home (S4/S5) ------------------------
+   The milestone's count, then By the Numbers' rows: each figure labeled
+   (grade, overall, pick), the name, ESPN's details under it. */
+.pr{padding:1rem 1rem .85rem}
+.pr .ms-count{flex-wrap:wrap}
+.pr .ms-l{min-width:0}
+.pr-sum{margin:.35rem 0 0;font-size:.95rem;color:var(--s-ink-2)}
+.pr > .pr-list{margin-top:.5rem;border-top:1px solid var(--s-line)}
+.pr-list li{align-items:start}
+.pr-fig{display:flex;flex-direction:column;align-items:flex-end;gap:.15rem}
+.pr-l{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--s-muted)}
+.pr-who{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.pr-name{font-weight:700;color:var(--s-ink);overflow-wrap:anywhere}
+.pr-meta{font-size:.9rem;line-height:1.4;color:var(--s-ink-2);overflow-wrap:anywhere}
+.pr-src{margin:.6rem 0 0;font-size:.85rem;color:var(--s-muted)}
+.pr-src a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+
 /* ---- The week's game notes (David, 2026-10-09) --------------------------
    By the Numbers on Home and Game: the number large, the fact beside it.
    The series card's facts, the roster's captain mark, pronunciation and

@@ -2,7 +2,8 @@
    0022, 0023, 0024).
 
    Order: Hero, a program milestone when one is near, Latest News, Schedule,
-   Season Outlook. No Current Game card.
+   Season Outlook. No Current Game card. Once the season is complete (S4/S5):
+   Hero, Latest News, Recruiting, NFL Draft, then the rest.
 
    This file only draws. Every decision it shows was made in TeamOS - which
    game is the hero and why, what state it is in, which three schedule rows,
@@ -23,6 +24,10 @@
        model.fresh     TeamOS.freshness.summary() output
        model.offseason Optional Suite.offseason model from the controller;
                        absent keeps the existing in-season presentation.
+       model.recruits  TeamOS.prospects.recruits() output, or null
+       model.draft     TeamOS.prospects.draft() output, or null - the
+                       controller passes both only once the season is
+                       complete (S4/S5), where they follow News.
 
    Each section is redrawn only when its markup changed, so a 30-second live
    refresh never throws away the fan's focus or scroll inside a section that
@@ -336,10 +341,88 @@ Suite.home = (function () {
       }).join("") + "</ul></div>";
   }
 
+  // ---- recruiting and the draft (offseason proposal §7, rows 4 and 6) -------
+  // Both are ESPN's and say so, by the label the snapshot carries. A rank, a
+  // grade or a pick ESPN does not give is left out, never filled in; the
+  // board's order is ESPN's ranking, never called a projected pick.
+
+  var PROSPECTS_SHOWN = 5;
+
+  function credit(c) {
+    var t = Date.parse(c.fetchedAt), label = esc(c.label);
+    return '<p class="pr-src">' +
+      (c.sourceUrl ? '<a href="' + esc(c.sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + label +
+                     '<span class="sr-only"> (opens in a new tab)</span></a>' : label) +
+      (isNaN(t) ? "" : " \u00b7 Updated " + esc(new Date(t).toLocaleDateString([], { month: "short", day: "numeric" }))) + "</p>";
+  }
+
+  // One person: the labeled figure that leads (a grade, a rank, a pick),
+  // the name, then a line or two of what ESPN gives.
+  function person(fig, label, name, lines) {
+    return "<li>" + (fig != null ? '<span class="pr-fig"><span class="bn-n">' + esc(fig) + '</span><span class="pr-l">' + esc(label) + "</span></span>" : "<span></span>") +
+      '<span class="pr-who"><span class="pr-name">' + esc(name) + "</span>" +
+      lines.filter(Boolean).map(function (l) { return '<span class="pr-meta">' + esc(l) + "</span>"; }).join("") + "</span></li>";
+  }
+
+  // Five, and the rest one tap away - but never a tap for a single row.
+  function people(rows, item) {
+    var cut = rows.length > PROSPECTS_SHOWN + 1 ? PROSPECTS_SHOWN : rows.length, more = rows.slice(cut);
+    return '<ul class="bn-list pr-list">' + rows.slice(0, cut).map(item).join("") + "</ul>" +
+      (more.length ? '<details class="bn-more"><summary>Show ' + more.length + " more</summary>" +
+                     '<ul class="bn-list pr-list">' + more.map(item).join("") + "</ul></details>" : "");
+  }
+
+  function prospectCard(id, title, n, words, extra, body, c) {
+    return '<div class="sec-head"><h2 class="sec-title" id="' + id + '">' + title + "</h2></div>" +
+      '<div class="card pr" role="group" aria-labelledby="' + id + '">' +
+        '<p class="ms-count"><span class="ms-n">' + n + '</span><span class="ms-l">' + esc(words) + "</span></p>" +
+        (extra ? '<p class="pr-sum">' + esc(extra) + "</p>" : "") + body + credit(c) +
+      "</div>";
+  }
+
+  function rankAt(n, position) { return n && position ? "No. " + n + " " + position : ""; }
+
+  function recruitingHtml(c) {
+    if (!c || !c.recruits || !c.recruits.length) return "";
+    // ESPN's status words, counted only when the class is not all one of them.
+    var by = {};
+    c.recruits.forEach(function (r) { if (r.status) by[r.status] = (by[r.status] || 0) + 1; });
+    var kinds = Object.keys(by);
+    var mix = kinds.length > 1 ? kinds.map(function (k) { return by[k] + " " + k; }).join(" \u00b7 ") : "";
+    return prospectCard("recHead", "Recruiting", c.total,
+      (c.total === 1 ? "commitment" : "commitments") + (c.classYear != null ? " in the " + c.classYear + " class" : ""), mix,
+      people(c.recruits, function (r) {
+        return person(r.grade, "grade", r.name, [
+          [r.position, r.highSchool, r.hometown].filter(Boolean).join(" \u00b7 "),
+          [r.rank ? "No. " + r.rank + " overall" : "", rankAt(r.positionRank, r.position),
+           r.stateRank ? "No. " + r.stateRank + " in state" : ""].filter(Boolean).join(" \u00b7 ")
+        ]);
+      }), c);
+  }
+
+  function draftHtml(d) {
+    if (!d || !d.prospects || !d.prospects.length) return "";
+    var picked = d.prospects.filter(function (p) { return p.pick; }).length;
+    var year = d.year != null ? d.year + " " : "";
+    var words = d.phase === "drafted"
+      ? "drafted in " + (d.year != null ? d.year : "the draft") + ", of " + d.total + " on ESPN\u2019s board"
+      : "on ESPN\u2019s " + year + "draft board";
+    return prospectCard("draftHead", "NFL Draft", d.phase === "drafted" ? picked : d.total, words, "",
+      people(d.prospects, function (p) {
+        var k = p.pick;
+        return person(k ? k.overall : p.overall, k ? "pick" : "overall", p.name, [
+          k ? ["Round " + k.round + (k.pick ? ", Pick " + k.pick : ""), k.team].filter(Boolean).join(" \u00b7 ") : "",
+          [rankAt(p.positionRank, p.position) || p.position, p.grade ? "ESPN grade " + p.grade : ""].filter(Boolean).join(" \u00b7 ")
+        ]);
+      }), d);
+  }
+
   // ---- mount -----------------------------------------------------------------
 
-  var SECTIONS = ["fresh", "hero", "milestone", "numbers", "news", "schedule", "outlook"];
-  var OFFSEASON_SECTIONS = ["fresh", "hero", "news", "milestone", "numbers", "schedule", "outlook"];
+  // Recruiting and the draft are drawn only in S4/S5; in season their
+  // wrappers stay last and hidden.
+  var SECTIONS = ["fresh", "hero", "milestone", "numbers", "news", "schedule", "outlook", "recruiting", "draft"];
+  var OFFSEASON_SECTIONS = ["fresh", "hero", "news", "recruiting", "draft", "milestone", "numbers", "schedule", "outlook"];
 
   function paint(host, m) {
     if (!host) return;
@@ -372,7 +455,9 @@ Suite.home = (function () {
       numbers: numbersHtml(m.numbers),
       news: newsHtml(m.news, m.team),
       schedule: scheduleHtml(m.schedule, m.heroId),
-      outlook: outlookHtml(m.outlook)
+      outlook: outlookHtml(m.outlook),
+      recruiting: recruitingHtml(m.recruits),
+      draft: draftHtml(m.draft)
     };
     SECTIONS.forEach(function (k) {
       if (last[k] === html[k]) return;

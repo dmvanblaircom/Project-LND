@@ -64,9 +64,10 @@ filled with a fictitious score or ranking.
   **failed**, **retained** and **confirmed opener** from the next-season
   schedule request. `phase.opener` indicates S5 and the renderer returns
   nothing; the current Game hero is reused for S5.
-- S4/S5 news now moves immediately under the hero. The actual Home controller
-  still needs to render news, recruiting/draft and season-matched markets
-  from the approved sources. This component does not implement those sections.
+- S4/S5 news now moves immediately under the hero. Recruiting and NFL Draft
+  follow it (October 24): `suite/home.js` draws `TeamOS.prospects` output,
+  which app.js reads only once the season is complete. Season-matched
+  markets come from the odds producer (#160). This component draws none of them.
 - Seasonal nav accepts controller-supplied booleans; keep Top 25 through
   the title game, restore preseason tabs at the approved triggers, and keep
   saved routes. Do not derive navigation solely from the team's phase.

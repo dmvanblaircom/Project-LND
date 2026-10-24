@@ -1302,6 +1302,8 @@ function paintHome(){
   var wx = g && HOME.weatherFor===g.id ? HOME.weather : null;
   var zone = (wx && wx.zone) || TeamOS.game.venueZone(g||{}, TEAM.timeZone);
   var espnId=TEAM_CONFIG.sources.espn.teamId;
+  var complete=!!(offseason && offseason.phase.state==="complete");
+  if(complete) loadProspects();
   Suite.home.paint(host, {
     team:{ name:TEAM.name, nick:TEAM_NICK, tagline:ID.tagline, abbr:TEAM.abbreviation,
            markUrl:TeamOS.espn.mark(espnId, true) },
@@ -1312,6 +1314,8 @@ function paintHome(){
     offseason: offseason,
     heroId: g ? g.id : null,
     news: HOME.news,
+    recruits: complete ? PROSPECTS.recruits : null,
+    draft: complete ? PROSPECTS.draft : null,
     schedule: TeamOS.game.schedulePreview(S.games, now, TEAM.timeZone),
     outlook: TeamOS.outlook.metrics(HOME.markets),
     // the next round number of all-time wins, when one is near (W: 1,000th)
@@ -1322,6 +1326,19 @@ function paintHome(){
                                     { now:now, online: navigator.onLine!==false })
   });
   if(g) loadHomeWeather(g);
+}
+// The recruiting class and the draft board (offseason proposal §7, rows 4
+// and 6), read once the season is complete and then at most hourly. The
+// producer refreshes both daily; a failed read keeps what was shown.
+var PROSPECTS={ recruits:null, draft:null, askedAt:0, pending:false };
+function loadProspects(){
+  if(PROSPECTS.pending || Date.now()-PROSPECTS.askedAt<60*60e3) return;
+  PROSPECTS.pending=true; PROSPECTS.askedAt=Date.now();
+  var snap=TeamOS.snapshots.get(TEAM_CONFIG,"recruits"), t="?t="+Date.now();
+  Promise.all([
+    snap ? get(snap.file+t).then(function(d){ PROSPECTS.recruits=TeamOS.prospects.recruits(roOurs(d), TEAM_CONFIG); }, function(){}) : null,
+    get("data/league/draft.json"+t).then(function(d){ PROSPECTS.draft=TeamOS.prospects.draft(d, TEAM_CONFIG); }, function(){})
+  ]).then(function(){ PROSPECTS.pending=false; paintHome(); });
 }
 function paintHomeLoading(host){
   var want=SC.failed ? "failed" : "1";
@@ -1356,6 +1373,7 @@ function loadHomeWeather(g){
 window.addEventListener("online",  function(){
   if(typeof OFFSEASON!=="undefined"){
     OFFSEASON.nextAskedAt=0;
+    PROSPECTS.askedAt=0;
     Object.keys(OFFSEASON.boardAskedAt||{}).forEach(function(y){ OFFSEASON.boardAskedAt[y]=0; });
   }
   retrySchedule();
