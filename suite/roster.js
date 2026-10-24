@@ -4,8 +4,9 @@
    Under the SUITE bar and the Roster title, peer views that follow what the team has
    (TeamOS.roster.views): Depth Chart | Roster | Availability for a team with
    an official depth chart and availability report, Roster alone for one
-   without. Routes: #roster/depth[/<unit>], #roster/roster[/<unit>],
-   #roster/availability.
+   without, and Prospects for a team with a recruiting class. Routes:
+   #roster/depth[/<unit>], #roster/roster[/<unit>], #roster/availability,
+   #roster/prospects.
 
    Depth Chart: the official chart's title and source, what moved since last
    week, an Offense | Defense | Special Teams control that stays in reach,
@@ -30,6 +31,8 @@
        model.query     the roster search, as typed
        model.notes     TeamOS.notes.model() | null - pronunciations, captains
                        and honors from the week's official game notes
+       model.prospects { recruits, draft, loaded } - TeamOS.prospects output;
+                       loaded once the first read has answered or failed
        model.failed    { depth, roster, avail } - no copy and the network failed
        model.fresh     TeamOS.freshness.summary() output                     */
 
@@ -55,7 +58,7 @@ Suite.roster = (function () {
 
   function strip(m) {
     if (!m.views || m.views.length < 2) return "";
-    var href = { depth: "#roster/depth", roster: "#roster/roster", availability: "#roster/availability" };
+    var href = { depth: "#roster/depth", roster: "#roster/roster", availability: "#roster/availability", prospects: "#roster/prospects" };
     return '<nav class="game-tabs view-tabs" aria-label="Roster views">' + m.views.map(function (v) {
       return '<a href="' + (href[v.id] || "#roster/" + v.id) + '"' + (v.id === m.view ? ' aria-current="page"' : "") + ">" + esc(v.label) + "</a>";
     }).join("") + "</nav>";
@@ -257,6 +260,19 @@ Suite.roster = (function () {
     }).join("");
   }
 
+  // The recruiting class, then the team's players on the NFL draft board
+  // (Suite.prospects, the cards Home shows after the season). Each says why
+  // when it has nothing to show.
+  function prospectsView(m) {
+    var p = m.prospects || {};
+    if (!p.loaded) return quiet("Loading recruiting and the draft board\u2026");
+    var c = p.recruits, d = p.draft;
+    return (Suite.prospects.recruiting(c, "ro") ||
+            quiet(c ? "No commitments" + (c.classYear != null ? " in the " + c.classYear + " class" : "") + " yet." : "The recruiting class didn\u2019t load.")) +
+           (Suite.prospects.draft(d, "ro") ||
+            quiet(d ? "None of the team\u2019s players are on ESPN\u2019s " + (d.year != null ? d.year + " " : "") + "draft board." : "ESPN\u2019s draft board didn\u2019t load."));
+  }
+
   function paint(host, m) {
     if (!host) return;
     if (!host.querySelector("[data-ro]")) {
@@ -267,7 +283,8 @@ Suite.roster = (function () {
         '<div data-ro="strip"></div><div data-ro="body" class="ro-body"></div>';
       last = {};
     }
-    var body = m.view === "roster" ? rosterView(m) : m.view === "availability" ? availView(m) : depthView(m);
+    var body = m.view === "roster" ? rosterView(m) : m.view === "availability" ? availView(m) :
+               m.view === "prospects" ? prospectsView(m) : depthView(m);
     var html = { fresh: ui.freshBanner(m.fresh), strip: strip(m), body: body };
     ["fresh", "strip", "body"].forEach(function (k) {
       if (last[k] === html[k]) return;

@@ -47,13 +47,13 @@ ok(!/\bfetch\s*\(|\b(document|window|localStorage)\b/.test(src), "pure: no fetch
 ok(!/espn|notre|irish|ohio|buckeye/i.test(src), "names no provider and no team");
 
 console.log("views follow what the team has");
-eq(R.views(nd.TEAM_CONFIG).map(function (v) { return v.id; }), ["depth", "roster", "availability"],
-   "a team with a depth chart and an availability report: all three");
-eq(osu.TeamOS.roster.views(osu.TEAM_CONFIG).map(function (v) { return v.id; }), ["roster", "availability"],
+eq(R.views(nd.TEAM_CONFIG).map(function (v) { return v.id; }), ["depth", "roster", "availability", "prospects"],
+   "a team with a depth chart, an availability report and a recruiting class: all four");
+eq(osu.TeamOS.roster.views(osu.TEAM_CONFIG).map(function (v) { return v.id; }), ["roster", "availability", "prospects"],
    "a team with a conference availability report and no depth chart: no empty depth view");
-var bare = JSON.parse(JSON.stringify(osu.TEAM_CONFIG)); delete bare.snapshots.availability;
+var bare = JSON.parse(JSON.stringify(osu.TEAM_CONFIG)); delete bare.snapshots.availability; delete bare.snapshots.recruits;
 eq(osu.TeamOS.roster.views(bare).map(function (v) { return v.id; }), ["roster"],
-   "a team with neither: the roster alone - no empty views");
+   "a team with none of them: the roster alone - no empty views");
 
 console.log("the depth chart, joined to the real roster");
 var chart = JSON.parse(read(G4.depth));

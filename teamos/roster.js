@@ -34,6 +34,9 @@ TeamOS.roster = (function () {
     if (get && get(config, "depth")) out.push({ id: "depth", label: "Depth Chart" });
     out.push({ id: "roster", label: "Roster" });
     if (get && get(config, "availability")) out.push({ id: "availability", label: "Availability" });
+    // Who is coming and who may leave: the team's recruiting class and its
+    // players on the NFL draft board, all year (David, 2026-10-24).
+    if (get && get(config, "recruits")) out.push({ id: "prospects", label: "Prospects" });
     return out;
   }
 
