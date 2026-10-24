@@ -110,6 +110,10 @@ var FILE = { post: "espn-schedule-nd-2025-post.json", schedule: "espn-schedule.j
   ok(more(after, before, "schedule") === 1 && more(after, before, "news") === 1 && more(after, before, "team") === 1,
      "the team's schedule, status and news are asked for again, once each");
   ok(/is-complete/.test(await indicator(p) || ""), "completion stays visible after the refresh settles");
+  // The mark turns with the pull; done, it stands upright, so the check
+  // reads as a check, not on its side (David, 2026-10-24).
+  ok(await p.evaluate(function () { return getComputedStyle(document.querySelector("#pullRefresh .pull-mark")).transform; }) === "none",
+     "the completion mark is upright, not turned with the pull");
   ok(await p.evaluate(function () { return document.querySelector("#pullRefresh .pull-label").textContent; }) === "Updated",
      "the indicator gives a clear success state");
   await p.waitForTimeout(1000);
