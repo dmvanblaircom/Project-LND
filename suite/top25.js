@@ -436,7 +436,7 @@ Suite.top25 = (function () {
         if (!r) return '<span class="sh-ld-cell"></span>';
         return '<span class="sh-ld-cell"><span class="sr-only">' + esc(abbr(side)) + " </span>" +
           '<span class="sh-ld-who">' + esc(r.name) + "</span>" +
-          (r.yards != null ? '<span class="sh-ld-n">' + esc(r.yards) + '<span class="sh-ld-u"> yds</span></span>' : "") +
+          (r.yards != null ? '<span class="sh-ld-n">' + esc(r.yards.toLocaleString("en-US")) + '<span class="sh-ld-u"> yds</span></span>' : "") +
           (r.rest ? '<span class="sh-ld-line">' + esc(r.rest) + "</span>" : "") + "</span>";
       }
       return '<li><span class="sh-ld-cat">' + esc(cat) + "</span>" + cell(g.away, a) + cell(g.home, h) + "</li>";

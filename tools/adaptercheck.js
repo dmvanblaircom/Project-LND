@@ -613,6 +613,9 @@ eq(gdPost.leaders.away[4], { category:"Tackles", name:"M. Posa", line:"15", yard
   var osu = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-osu-ill-live.json")), team, TEAM_CONFIG).leaders;
   var p = (osu.home || []).concat(osu.away || []).filter(function (r) { return r.category === "Passing" && r.name === "J. Sayin"; })[0];
   eq(p && [p.yards, p.rest], [272, "21/27, 3 TD"], "where ESPN also sends its value (272), it agrees with the line's yards");
+  var pur = TeamOS.espn.gameDetail(JSON.parse(read("tools/fixtures/espn-summary-pur-pre.json")), team, TEAM_CONFIG).leaders;
+  var b = (pur.home || []).concat(pur.away || []).filter(function (r) { return r.category === "Passing" && r.name === "R. Browne"; })[0];
+  eq(b && [b.yards, b.rest], [1024, "74/101, 7 TD, 1 INT"], "a season's \"1,024 YDS\" is 1024, not 24 (Codex, #169)");
 })();
 (function () {
   var all = [gdPre, gdLive, gdPost].map(function (g) { return (g.leaders.home || []).concat(g.leaders.away || []); }).reduce(function (a, b) { return a.concat(b); }, []);
