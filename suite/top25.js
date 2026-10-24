@@ -369,7 +369,7 @@ Suite.top25 = (function () {
     var them = b === g.home ? g.away : g.home;
     return '<div class="sh-field" aria-hidden="true">' +
       '<span class="sh-ez">' + esc(abbr(b)) + "</span>" +
-      '<span class="sh-turf">' +
+      '<span class="sh-turf"><span class="sh-fifty"></span>' +
         (first != null && first < 100 ? '<span class="sh-first" style="left:' + first + '%"></span>' : "") +
         '<span class="sh-los" style="left:' + los + '%"></span></span>' +
       '<span class="sh-ez">' + esc(abbr(them)) + "</span></div>";

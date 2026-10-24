@@ -826,9 +826,13 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .sh-poss{display:flex;align-items:center;gap:.5rem;margin:0;font-weight:600;color:var(--s-ink)}
 .sh-dd{margin:.4rem 0 0;font-family:var(--t-font-display);font-weight:800;font-size:1.65rem;line-height:1.1;color:var(--s-ink)}
 .sh-spot{font-size:1.1rem;font-weight:700;color:var(--s-ink-2)}
-.sh-field{display:grid;grid-template-columns:2.6rem minmax(0,1fr) 2.6rem;height:2.1rem;margin-top:.7rem;border-radius:8px;overflow:hidden;background:#2E6A35}
+.sh-field{display:grid;grid-template-columns:2.6rem minmax(0,1fr) 2.6rem;height:2.4rem;margin-top:.7rem;border-radius:8px;overflow:hidden;background:#2E6A35}
 .sh-ez{display:flex;align-items:center;justify-content:center;overflow:hidden;background:#22502A;color:#FFFFFF;font-family:var(--t-font-display);font-weight:700;font-size:.72rem;letter-spacing:.04em}
-.sh-turf{position:relative;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),rgba(255,255,255,.3) calc(10% - 1px) 10%)}
+/* grass striping every 10 yards (David, 2026-10-24), the Game field's turf
+   and a lighter shade that still reads at this size; midfield marked */
+.sh-turf{position:relative;background:repeating-linear-gradient(90deg,#2E6A35 0 10%,#3B7D42 10% 20%)}
+.sh-fifty{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:rgba(255,255,255,.7)}
+.sh-fifty::after{content:"50";position:absolute;left:50%;bottom:2px;transform:translateX(-50%);padding:0 .15rem;border-radius:3px;background:#2E6A35;color:#FFFFFF;font-family:var(--t-font-display);font-weight:800;font-size:.62rem;line-height:1.1;letter-spacing:.02em}
 .sh-los,.sh-first{position:absolute;top:0;bottom:0;width:4px;margin-left:-2px}
 .sh-los{background:#FFFFFF}
 .sh-first{background:var(--t-accent)}
