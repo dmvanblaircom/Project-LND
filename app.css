@@ -1228,7 +1228,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .pull.is-refreshing,.pull.is-complete{width:auto;min-width:2.25rem}
 .pull.is-refreshing .pull-label,.pull.is-complete .pull-label{display:inline}
 .pull.is-refreshing .pull-mark{animation:pull-turn .8s linear infinite}
-.pull.is-complete .pull-mark{border-color:var(--s-win);position:relative;animation:none}
+.pull.is-complete .pull-mark{border-color:var(--s-win);position:relative;animation:none;transform:none}
 .pull.is-complete .pull-mark:after{content:"";position:absolute;left:2px;top:2px;width:6px;height:3px;border-left:2px solid var(--s-win);border-bottom:2px solid var(--s-win);transform:rotate(-45deg)}
 .pull.is-partial .pull-mark{border-color:var(--t-accent-on-light)}
 .pull.is-partial .pull-mark:after{border-color:var(--t-accent-on-light)}
