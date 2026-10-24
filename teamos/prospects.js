@@ -10,7 +10,8 @@
      RecruitClass = { label, sourceUrl, classYear, fetchedAt, total,
                       recruits: [Recruit] }   best grade first
      Recruit      = { name, position, highSchool, hometown, grade,
-                      rank, positionRank, stateRank, status }
+                      rank, positionRank, stateRank, status, ratings }
+     ratings      = [{ by, stars }]   who gave the stars, and how many
 
      DraftClass   = { label, sourceUrl, year, fetchedAt, phase, total,
                       prospects: [Prospect] }
@@ -23,6 +24,11 @@
      pick, and none is invented from the rank. grade is null until ESPN
      publishes one.
    - A rank, a grade or a pick that ESPN does not give is null, never 0.
+   - Stars: ESPN's feed has its grade, not its stars, so they are read off
+     ESPN's own published scale (90-100 five, 80-89 four, 70-79 three, 60-69
+     two, 50-59 one; David, 2026-10-24) and credited to ESPN. A grade under
+     50, or none, has no stars. Another service's stars would be its own
+     entry, never a conversion of ESPN's grade.
    - null when there is no usable snapshot, or the snapshot is another
      team's: "not published" and "couldn't load" are the app's to tell
      apart, not this file's.
@@ -36,6 +42,11 @@ TeamOS.prospects = (function () {
 
   function pos(v) { return typeof v === "number" && isFinite(v) && v > 0 ? v : null; }
   function str(v) { return v == null ? "" : String(v); }
+  function espnStars(grade) {
+    var g = pos(grade);
+    if (g == null || g < 50) return [];
+    return [{ by: "ESPN", stars: g >= 90 ? 5 : g >= 80 ? 4 : g >= 70 ? 3 : g >= 60 ? 2 : 1 }];
+  }
   function teamId(config) { return str(config && config.sources && config.sources.espn && config.sources.espn.teamId); }
 
   function recruits(snap, config) {
@@ -47,7 +58,8 @@ TeamOS.prospects = (function () {
         highSchool: r.highSchool ? str(r.highSchool) : null,
         hometown: [r.city, r.state].filter(Boolean).join(", ") || null,
         grade: pos(r.grade), rank: pos(r.rank), positionRank: pos(r.positionRank), stateRank: pos(r.stateRank),
-        status: r.status ? str(r.status) : null
+        status: r.status ? str(r.status) : null,
+        ratings: espnStars(r.grade)
       };
     });
     return {
