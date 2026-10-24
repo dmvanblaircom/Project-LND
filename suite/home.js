@@ -369,7 +369,7 @@ Suite.home = (function () {
     var n = Math.max(0, Math.min(5, r.stars));
     return '<span class="pr-stars"><span class="pr-star" aria-hidden="true">' + new Array(n + 1).join("\u2605") +
       '<span class="pr-star-off">' + new Array(6 - n).join("\u2605") + "</span></span>" +
-      '<span class="pr-by">' + esc(r.by) + '</span><span class="sr-only">' + n + "-star, " + esc(r.by) + "</span></span>";
+      '<span class="pr-by" aria-hidden="true">' + esc(r.by) + '</span><span class="sr-only">' + n + "-star, " + esc(r.by) + "</span></span>";
   }
 
   // Five, and the rest one tap away - but never a tap for a single row.
