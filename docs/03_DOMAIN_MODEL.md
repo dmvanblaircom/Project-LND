@@ -120,10 +120,11 @@ It never infers. An empty postseason means "not selected" only once selection is
 
 ### RecruitClass and DraftClass
 
-`TeamOS.prospects` (W16, `teamos/prospects.js`). Both come from ESPN, which David chose on 2026-10-03. `tools/producers/prospects.py` writes the snapshots: each team's `recruits.json` where its config declares `snapshots.recruits` (both teams), and `data/league/draft.json`. The refresh workflow runs it once a day, or on a run started by hand (`prospects.py due`). A class that comes back empty where the kept one had recruits is refused, and the kept one stays. Nothing loads them yet; the screens come with the offseason designs (Codex).
+`TeamOS.prospects` (W16, `teamos/prospects.js`). Both come from ESPN, which David chose on 2026-10-03. `tools/producers/prospects.py` writes the snapshots: each team's `recruits.json` where its config declares `snapshots.recruits` (both teams), and `data/league/draft.json`. The refresh workflow runs it once a day, or on a run started by hand (`prospects.py due`). A class that comes back empty where the kept one had recruits is refused, and the kept one stays. Home shows both once the season is complete (#163).
 
 - **`recruits(snap, config)`:** `{ label, sourceUrl, classYear, fetchedAt, total, recruits }`.
-  - Each recruit is `{ name, position, highSchool, hometown, grade, rank, positionRank, stateRank, status }`, best grade first.
+  - Each recruit is `{ name, position, highSchool, hometown, grade, rank, positionRank, stateRank, status, ratings }`, best grade first.
+  - `ratings` is `[{ by, stars }]`: who gave the stars, and how many. ESPN's feed carries its grade but not its stars, so ESPN's entry is read off ESPN's published scale (90-100 five stars, 80-89 four, 70-79 three, 60-69 two, 50-59 one; David, 2026-10-24). A grade under 50 has none. Another service (247Sports, On3) would add its own entry only with its permission, never converted from ESPN's grade.
   - A recruit is in the class only when his committed school is this team: the one `schools[]` entry whose status matches his own. A school appearing in his list of candidate schools means nothing.
 - **`draft(snap, config)`:** `{ label, sourceUrl, year, fetchedAt, phase, total, prospects }`, the team's players by ESPN college id.
   - Each prospect is `{ name, position, positionRank, overall, grade, pick }`, and `pick` is `{ round, pick, overall, team }` or `null`.

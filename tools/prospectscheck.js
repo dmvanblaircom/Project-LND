@@ -107,6 +107,11 @@ var c = P.recruits(nd27, ND);
 eq([c.classYear, c.total, c.label], [2027, 23, "ESPN recruiting"], "Notre Dame's class, credited to ESPN");
 eq([c.recruits[0].name, c.recruits[0].hometown, c.recruits[0].highSchool], ["Albert Simien", "Lake Charles, LA", "Sam Houston High School"],
    "name, hometown and high school");
+eq(c.recruits[0].ratings, [{ by: "ESPN", stars: 4 }], "an 88 is four stars on ESPN's scale, credited to ESPN");
+var star = function (g) { return P.recruits({ source: "espn-recruiting", teamId: "87", recruits: [{ name: "X", grade: g }] }, ND).recruits[0].ratings; };
+eq([90, 89, 80, 79, 70, 69, 60, 59, 50].map(function (g) { return star(g)[0].stars; }), [5, 4, 4, 3, 3, 2, 2, 1, 1],
+   "ESPN's published bands: 90-100 five, 80-89 four, 70-79 three, 60-69 two, 50-59 one");
+eq([star(49), star(null), star(0)], [[], [], []], "under 50, or no grade: no stars, none invented");
 eq(P.recruits(nd27, OSU), null, "Ohio State never shows Notre Dame's class");
 eq(P.recruits(osu27, OSU).total, 19, "Ohio State shows its own");
 eq(P.recruits(null, ND), null, "no snapshot: null");
