@@ -96,6 +96,8 @@ fs.mkdirSync(shots, { recursive: true });
     ok(/Texas at Tennessee/.test(s.text) && /Right now/i.test(s.text) && /Win probability/.test(s.text) && /Last plays/i.test(s.text) && s.plays === 3 && /Leaders/i.test(s.text),
        "live: who has the ball, win probability, score by quarter, the last three plays and the leaders");
     ok(!/Team stats|Drive|Box score/i.test(s.text), "and nothing else: no team stats, drives or box score");
+    ok((await o.page.evaluate(function () { return [].map.call(document.querySelectorAll("#sheetHost .sh-h"), function (h) { return h.textContent; }).join("|"); }))
+       === "Right now|Last plays|Score by quarter|Leaders", "in that order: last plays before the score by quarter (David, 2026-10-24)");
     ok(o.st.summaries.length === 1 && o.st.summaries[0] === LIVE, "its summary is fetched once, on opening");
     for (var w of [320, 390, 768, 1280]) {
       await o.page.setViewportSize({ width: w, height: 844 }); await o.page.waitForTimeout(120);
@@ -105,6 +107,15 @@ fs.mkdirSync(shots, { recursive: true });
       var a = await audit.auditText(o.page, "sheet live " + w); ok(!a.failures.length, "live sheet contrast at " + w + " " + JSON.stringify(a.failures.slice(0, 3)));
     }
     await o.page.setViewportSize({ width: 390, height: 844 });
+    // The 50's label stays readable when a line sits on midfield (David's
+    // iPhone, 2026-10-24: a line to gain at the 49 covered it).
+    ok(await o.page.evaluate(function () {
+      var n = document.querySelector("#sheetHost .sh-fifty-n");
+      if (!n) return false;
+      document.querySelectorAll("#sheetHost .sh-first, #sheetHost .sh-los").forEach(function (l) { l.style.left = "50%"; });
+      var r = n.getBoundingClientRect();
+      return document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2) === n;
+    }), "the field's 50 reads on top of a line at midfield");
     await o.page.keyboard.press("Escape"); await o.page.waitForTimeout(250);
     s = await sheetState(o.page);
     ok(!s.open && s.hash === "#top25" && !s.inert && !s.lock, "Escape closes it, back to the board's own address");
