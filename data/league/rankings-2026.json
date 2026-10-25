@@ -3389,6 +3389,217 @@
       "firstPlace": 0
      }
     ]
+   },
+   {
+    "id": "w9",
+    "type": 2,
+    "week": 9,
+    "label": "Week 9",
+    "name": "AFCA Coaches Poll",
+    "date": "2026-10-25T07:00Z",
+    "updated": "2026-10-25T19:44Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "2390",
+      "record": "7-0",
+      "points": 1839.0,
+      "firstPlace": 67
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "194",
+      "record": "6-1",
+      "points": 1767.0,
+      "firstPlace": 6
+     },
+     {
+      "rank": 3,
+      "previous": 4,
+      "id": "61",
+      "record": "6-1",
+      "points": 1646.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 4,
+      "previous": 6,
+      "id": "84",
+      "record": "7-1",
+      "points": 1578.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 5,
+      "previous": 9,
+      "id": "254",
+      "record": "7-0",
+      "points": 1459.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 6,
+      "previous": 8,
+      "id": "87",
+      "record": "6-1",
+      "points": 1452.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 10,
+      "id": "26",
+      "record": "7-0",
+      "points": 1446.0,
+      "firstPlace": 1
+     },
+     {
+      "rank": 8,
+      "previous": 12,
+      "id": "96",
+      "record": "7-1",
+      "points": 1318.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 3,
+      "id": "252",
+      "record": "6-1",
+      "points": 1244.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 13,
+      "id": "333",
+      "record": "6-2",
+      "points": 1092.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 18,
+      "id": "251",
+      "record": "5-2",
+      "points": 1002.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 7,
+      "id": "145",
+      "record": "5-2",
+      "points": 941.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 17,
+      "id": "99",
+      "record": "6-2",
+      "points": 895.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 5,
+      "id": "2641",
+      "record": "6-1",
+      "points": 864.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 19,
+      "id": "154",
+      "record": "6-1",
+      "points": 749.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 20,
+      "id": "2567",
+      "record": "6-1",
+      "points": 690.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 11,
+      "id": "2633",
+      "record": "6-2",
+      "points": 650.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 23,
+      "id": "77",
+      "record": "6-1",
+      "points": 545.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 16,
+      "id": "248",
+      "record": "6-2",
+      "points": 435.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 24,
+      "id": "57",
+      "record": "5-2",
+      "points": 417.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 0,
+      "id": "12",
+      "record": "6-1",
+      "points": 399.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 22,
+      "id": "68",
+      "record": "6-1",
+      "points": 396.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 21,
+      "id": "142",
+      "record": "5-2",
+      "points": 376.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 14,
+      "id": "2294",
+      "record": "5-2",
+      "points": 225.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 15,
+      "id": "30",
+      "record": "6-2",
+      "points": 132.0,
+      "firstPlace": 0
+     }
+    ]
    }
   ],
   "cfp": []
