@@ -832,7 +832,7 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
    and a lighter shade that still reads at this size; midfield marked */
 .sh-turf{position:relative;background:repeating-linear-gradient(90deg,#2E6A35 0 10%,#3B7D42 10% 20%)}
 .sh-fifty{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:rgba(255,255,255,.7)}
-.sh-fifty::after{content:"50";position:absolute;left:50%;bottom:2px;transform:translateX(-50%);padding:0 .15rem;border-radius:3px;background:#2E6A35;color:#FFFFFF;font-family:var(--t-font-display);font-weight:800;font-size:.62rem;line-height:1.1;letter-spacing:.02em}
+.sh-fifty-n{position:absolute;left:50%;bottom:2px;transform:translateX(-50%);padding:0 .15rem;border-radius:3px;background:#2E6A35;color:#FFFFFF;font-family:var(--t-font-display);font-weight:800;font-size:.62rem;line-height:1.1;letter-spacing:.02em}
 .sh-los,.sh-first{position:absolute;top:0;bottom:0;width:4px;margin-left:-2px}
 .sh-los{background:#FFFFFF}
 .sh-first{background:var(--t-accent)}

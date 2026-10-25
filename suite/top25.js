@@ -371,7 +371,10 @@ Suite.top25 = (function () {
       '<span class="sh-ez">' + esc(abbr(b)) + "</span>" +
       '<span class="sh-turf"><span class="sh-fifty"></span>' +
         (first != null && first < 100 ? '<span class="sh-first" style="left:' + first + '%"></span>' : "") +
-        '<span class="sh-los" style="left:' + los + '%"></span></span>' +
+        '<span class="sh-los" style="left:' + los + '%"></span>' +
+        // last, so the lines pass behind it and it always reads (David,
+        // 2026-10-24: a line to gain at the 49 covered it)
+        '<span class="sh-fifty-n">50</span></span>' +
       '<span class="sh-ez">' + esc(abbr(them)) + "</span></div>";
   }
 
