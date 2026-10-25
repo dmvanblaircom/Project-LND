@@ -136,7 +136,16 @@ function fixture(url) {
   ok(/^visible\//.test(await a.page.evaluate(function () { return window.__first; })), "up on the first paint, before any script runs");
   ok(await a.page.evaluate(function () { var l = document.getElementById("launch"); return l.getAttribute("aria-hidden") === "true" && !!l.querySelector("svg .launch-l"); }),
      "the wordmark is drawn inline, letter by letter, and hidden from assistive technology");
+  // The page beneath is the launch's navy while it is up: a strip iOS leaves
+  // uncovered on a cold start shows navy, never white (David, 2026-10-25).
+  function under(page) {
+    return page.evaluate(function () { return [getComputedStyle(document.documentElement).backgroundColor, getComputedStyle(document.body).backgroundColor].join(" / "); });
+  }
+  var NAVY = "rgb(17, 29, 53)", beneath = await under(a.page);
+  ok(beneath === NAVY + " / " + NAVY, "while it is up, the page beneath it is its navy, to the screen's foot (" + beneath + ")");
   var t = await liftedAt(a, 8000), done = await complete(a.page);
+  var after = await under(a.page);
+  ok(after.indexOf(NAVY) < 0, "from the lift on, the page has its own colours (" + after + ")");
   ok(t != null && t >= 2600 && t < 4000, "it plays its animation, then lifts (" + t + " ms)");
   ok(await a.page.evaluate(function () { return getComputedStyle(document.querySelector("#launch .launch-mark")).transform === "none"; }),
      "the approved exit fades without enlarging the wordmark");
@@ -301,6 +310,8 @@ function fixture(url) {
   await f.page.waitForTimeout(300);
   ok(await f.page.evaluate(function () { var l = document.getElementById("launch"); return !l || getComputedStyle(l).display === "none"; }),
      "no launch screen over the team chooser");
+  ok((await f.page.evaluate(function () { return getComputedStyle(document.documentElement).backgroundColor; })) !== "rgb(17, 29, 53)",
+     "and the chooser's page keeps its own colours");
   await f.ctx.close();
 
   await browser.close(); server.close();

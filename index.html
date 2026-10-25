@@ -277,6 +277,13 @@
   animation:launch-rule .6s cubic-bezier(.3,.7,.2,1) forwards;animation-delay:calc(var(--launch-t,0ms) + 850ms)}
 .launch.done{opacity:0;visibility:hidden;pointer-events:none}
 html[data-choosing] .launch,html[data-launched] .launch{display:none}
+/* The page under the launch is the launch's own navy while it is up. On a
+   cold start iOS can lay a home-screen web app out a moment short of the
+   screen's foot, and what shows in that strip is the page's background -
+   white, a glitchy flash under the wordmark (David's iPhone, 2026-10-25).
+   From the lift on, the page has its own colours again. */
+html:not([data-launched]):not([data-choosing]):has(#launch:not(.done)),
+html:not([data-launched]):not([data-choosing]):has(#launch:not(.done)) body{background:#111D35}
 @keyframes launch-l{to{opacity:1;transform:none}}
 @keyframes launch-rule{to{transform:scaleX(1)}}
 @keyframes launch-out{to{opacity:0;visibility:hidden;pointer-events:none}}
