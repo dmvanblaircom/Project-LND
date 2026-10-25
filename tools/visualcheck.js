@@ -270,6 +270,8 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           return document.querySelectorAll("#screenHome .sched-row").length > 0;
         }, null, { timeout: 10000 });
         await page.waitForTimeout(300);
+        // measured as a fan sees it: under the launch the page is its navy
+        await launchGone(page);
 
         var who = team + " " + width + "px";
 
