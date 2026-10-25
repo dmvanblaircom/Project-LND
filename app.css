@@ -804,9 +804,17 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
   background:var(--s-surface);border-radius:var(--s-radius-card) var(--s-radius-card) 0 0;box-shadow:var(--s-shadow-raise);
   padding-bottom:env(safe-area-inset-bottom,0px);animation:sh-rise .22s ease-out}
 @keyframes sh-rise{from{transform:translateY(32px)}to{transform:none}}
+.sh.tall{height:min(88vh,88dvh)}
+/* A logo the device already has lands within a frame or two of the sheet
+   opening; its initials wait that long before showing, so they never flash
+   ahead of it. A logo that is slow or missing still shows them. */
+.sh .mark:has(img) .initials{animation:mark-wait .15s step-end}
+@keyframes mark-wait{from{visibility:hidden}}
+.sh.tall .sh-body{flex:1 1 auto}
 @media (min-width:48rem){
   #sheetHost{align-items:center}
   .sh{border-radius:var(--s-radius-card);max-height:min(80vh,80dvh)}
+  .sh.tall{height:min(80vh,80dvh)}
 }
 @media (prefers-reduced-motion:reduce){.sh{animation:none}}
 .sh-top{display:flex;align-items:center;gap:.5rem;padding:.6rem .5rem .4rem 1rem;border-bottom:1px solid var(--s-line)}
