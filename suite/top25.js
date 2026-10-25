@@ -69,7 +69,7 @@ Suite.top25 = (function () {
   function side(m, s, g, won) {
     var scored = g.state !== "pre";
     return '<span class="tg-side' + (scored && won === false ? " lost" : "") + '">' +
-             ui.mark(s.providerId ? m.mark(s.providerId) : null, s.name, s.abbr, "plain") +
+             ui.mark(s.providerId ? m.mark(s.providerId) : null, s.name, s.abbr, "plain", m.eager) +
              '<span class="tg-name">' + (s.rank ? '<span class="tg-rank">' + s.rank + "</span> " : "") + esc(s.name) +
                (s.record ? ' <span class="tg-rec">' + esc(s.record) + "</span>" : "") + "</span>" +
              (scored ? '<span class="tg-score">' + (hasBall(g, s) ? ui.ball("tg-ball") : "") + esc(s.score == null ? "0" : s.score) + "</span>" : "") +
@@ -326,7 +326,7 @@ Suite.top25 = (function () {
   //   model.failed  the summary did not load
   var SHEET_LEADERS = ["Passing", "Rushing", "Receiving"];
   function pct(x) { return Math.round(x * 100) + "%"; }
-  function sideMark(m, s) { return '<span class="sh-mark">' + ui.mark(s.providerId ? m.mark(s.providerId) : null, s.name, s.abbr, "plain") + "</span>"; }
+  function sideMark(m, s) { return '<span class="sh-mark">' + ui.mark(s.providerId ? m.mark(s.providerId) : null, s.name, s.abbr, "plain", m.eager) + "</span>"; }
   function abbr(s) { return s.abbr || s.name; }
 
   // Each section is a card on the sheet's page colour, so what it holds
@@ -498,7 +498,12 @@ Suite.top25 = (function () {
     host.hidden = false;
     var t = host.querySelector(".sh-title");
     if (t.textContent !== title) t.textContent = title;
-    var html = sheetHtml(m);
+    // Once a game has kicked off its box score is coming, so the sheet opens
+    // at its full height and fills in place - never short, then a jump to
+    // tall when the box score lands (David's iPhone, 2026-10-25). Before
+    // kickoff it has all it shows already, and fits it.
+    host.querySelector(".sh").classList.toggle("tall", !!g && g.state !== "pre");
+    var html = sheetHtml(Object.assign({}, m, { eager: true }));
     if (html !== lastSheet) { ui.fill(host.querySelector(".sh-body"), html); lastSheet = html; }
   }
 

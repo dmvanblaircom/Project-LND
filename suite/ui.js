@@ -31,10 +31,12 @@ Suite.ui = (function () {
      A logo that fails is removed, so what shows is the fallback - never a
      broken-image glyph. The mark is decoration: the program's name is always
      in text next to it, so the image carries no alt text of its own. */
-  function mark(url, name, abbr, cls) {
+  function mark(url, name, abbr, cls, eager) {
+    // eager: a mark that shows the moment its view opens (a sheet), where a
+    // lazy one waits on the browser and shows initials meanwhile
     return '<span class="mark ' + esc(cls || "plain") + '" aria-hidden="true">' +
              '<span class="initials">' + esc(initials(name, abbr)) + "</span>" +
-             (url ? '<img src="' + esc(url) + '" alt="" loading="lazy" decoding="async" data-mark>' : "") +
+             (url ? '<img src="' + esc(url) + '"' + (eager ? "" : ' loading="lazy"') + ' alt="" decoding="async" data-mark>' : "") +
            "</span>";
   }
 
