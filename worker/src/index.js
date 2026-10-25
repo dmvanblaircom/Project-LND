@@ -45,7 +45,7 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-10-25review";
+export const VERSION = "edge-2026-10-25win1000";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];

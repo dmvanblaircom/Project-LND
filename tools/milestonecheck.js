@@ -17,6 +17,9 @@
 
    Usage: node tools/milestonecheck.js     (exit 1 on failure) */
 "use strict";
+// A hundredth win is held through a Sunday on the fan's own calendar: these
+// checks read it as a fan in Eastern time would.
+process.env.TZ = "America/New_York";
 var fs = require("fs"), path = require("path"), vm = require("vm");
 var root = path.join(__dirname, "..");
 function read(p) { return fs.readFileSync(path.join(root, p), "utf8"); }
@@ -63,7 +66,15 @@ var g3 = games(); result(byOpp(g3, /stanford/i), 35, 14); result(byOpp(g3, /byu/
 // (no game falls within BYU's week, so a later result is written in early)
 var navy = M.wins(nd.TEAM_CONFIG, g3, 2026, new Date("2026-10-20T12:00:00Z"));
 eq(navy && [navy.phase, navy.target, navy.wins], ["reached", 1000, 1001], "another win inside that week does not take the week away");
-eq(M.wins(nd.TEAM_CONFIG, g2, 2026, new Date("2026-10-26T12:00:00Z")), null, "eight days on, nothing: 1,100 is far off");
+eq(M.wins(nd.TEAM_CONFIG, g2, 2026, new Date("2026-10-25T23:00:00Z")) && M.wins(nd.TEAM_CONFIG, g2, 2026, new Date("2026-10-25T23:00:00Z")).phase, "reached",
+   "and through the Sunday after next weekend's games (David, 2026-10-25)");
+eq(M.wins(nd.TEAM_CONFIG, g2, 2026, new Date("2026-10-26T12:00:00Z")), null, "the Monday after: nothing, 1,100 is far off");
+// Navy, Saturday Oct. 31 at noon: never down before Miami's kickoff a week on
+var gn = games(); result(byOpp(gn, /stanford/i), 35, 14); result(byOpp(gn, /byu/i), 20, 27); result(byOpp(gn, /navy/i), 34, 17);
+function phaseAt(iso) { var r = M.wins(nd.TEAM_CONFIG, gn, 2026, new Date(iso)); return r && r.phase + " " + r.target + " " + r.game.oppName; }
+eq([phaseAt("2026-11-07T23:00:00Z"), phaseAt("2026-11-08T00:30:00Z"), phaseAt("2026-11-09T04:59:00Z"), phaseAt("2026-11-09T05:01:00Z")],
+   ["reached 1000 Navy", "reached 1000 Navy", "reached 1000 Navy", null],
+   "a 1,000th win over Navy holds through Miami's kickoff and Sunday, Nov. 8, to midnight; gone that Monday");
 var lost = games(); result(byOpp(lost, /stanford/i), 14, 21);
 var ll = M.wins(nd.TEAM_CONFIG, lost, 2026, new Date("2026-10-11T12:00:00Z"));
 eq(ll && [ll.wins, ll.losses, ll.toGo, ll.game.oppName], [998, 343, 2, "BYU"], "a loss: the count holds, still two to go");
@@ -88,7 +99,7 @@ console.log("2b. what the card says of the game that could make it");
     " oppLabel: function (g) { return (g.oppRank ? '#' + g.oppRank + ' ' : '') + g.oppName; }," +
     " kickoff: function () { return { day: 'Sat, Oct 17' }; } }, esc = ui.esc;", h);
   var src = read("suite/home.js");
-  vm.runInContext(src.slice(src.indexOf("  var WORDS"), src.indexOf("  // ---- mount")) + "\n;this.mh = milestoneHtml;", h);
+  vm.runInContext(src.slice(src.indexOf("  var WORDS"), src.indexOf("  // ---- mount")) + "\n;this.mh = milestoneHtml; this.al = alertLine;", h);
   function say(status, started) {
     var g = { home: false, oppName: "BYU", oppRank: 8, date: "2026-10-17T23:30Z", status: status, hasStarted: started };
     return h.mh({ phase: "countdown", target: 1000, toGo: 1, wins: 999, losses: 342, ties: 42, source: "x", game: g }, { name: "T" })
@@ -98,6 +109,12 @@ console.log("2b. what the card says of the game that could make it");
   ok(/on the line: at #8 BYU, Sat, Oct 17/.test(say("delayed", false)), "a weather delay before kickoff is still upcoming, not 'now' (Codex, #112)");
   ok(/on the line now, at #8 BYU/.test(say("live", true)), "under way: on the line now");
   ok(/on the line now/.test(say("delayed", true)), "and a delay after kickoff is still now");
+  // the final alert's line, for this device's service worker
+  var T = { name: "Notre Dame" }, G = { id: "401859185" };
+  eq([h.al({ phase: "countdown", target: 1000, toGo: 1, game: G }, T), h.al({ phase: "reached", target: 1000, toGo: 0, game: G }, T),
+      h.al({ phase: "countdown", target: 1000, toGo: 2, game: G }, T), h.al({ phase: "countdown", target: 1000, toGo: 1, game: null }, T), h.al(null, T)],
+     ["Notre Dame\u2019s 1,000th win.", "Notre Dame\u2019s 1,000th win.", null, null, null],
+     "the final alert's line: for the game that can make it, and still once it has (the app can see the final first); none otherwise");
 })();
 
 console.log("3. Home");
@@ -107,14 +124,15 @@ console.log("3. Home");
   await new Promise(function (r) { server.listen(0, "127.0.0.1", r); });
   var base = "http://127.0.0.1:" + server.address().port;
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
-  async function home(slug, schedule) {
-    var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  async function home(slug, schedule, opts) {
+    opts = opts || {};
+    var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, timezoneId: "America/New_York", serviceWorkers: opts.sw ? "allow" : "block" });
     var page = await ctx.newPage();
-    await page.clock.setSystemTime(AT);
-    await page.route("**/*", function (route) {
+    await page.clock.setSystemTime(opts.at || AT);
+    await ctx.route("**/*", function (route) {
       var u = route.request().url();
       if (u.startsWith(base)) return route.continue();
-      if (/\/schedule\?seasontype=2/.test(u) || /\/schedule$/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read(schedule) });
+      if (/\/schedule\?seasontype=2/.test(u) || /\/schedule$/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: opts.body || read(schedule) });
       return route.abort();
     });
     await page.goto(base + "/?team=" + slug + "#home");
@@ -124,8 +142,16 @@ console.log("3. Home");
     var r = await page.evaluate(function () {
       var s = document.querySelector('#screenHome [data-home="milestone"]');
       var order = [].map.call(document.querySelectorAll("#screenHome [data-home]"), function (e) { return e.getAttribute("data-home"); });
-      return { shown: !!s && !s.hidden, text: s ? s.innerText.replace(/\s+/g, " ").trim() : "", order: order };
+      var made = document.querySelector("#screenHome .gamecard .gc-milestone");
+      return { shown: !!s && !s.hidden, text: s ? s.innerText.replace(/\s+/g, " ").trim() : "", order: order,
+               hero: (document.querySelector("#screenHome .gamecard") || {}).innerText || "", made: made ? made.textContent : null };
     });
+    if (opts.sw) {
+      // what the page told this device's service worker, for the final alert
+      r.told = await page.waitForFunction(function () {
+        return caches.open("suite-milestone").then(function (c) { return c.match("./__milestone"); }).then(function (x) { return x ? x.text() : null; });
+      }, null, { timeout: 15000 }).then(function (j) { return j.jsonValue(); }, function () { return null; });
+    }
     await ctx.close();
     return r;
   }
@@ -135,6 +161,27 @@ console.log("3. Home");
   ok(/Next: vs (#\d+ )?Stanford/.test(h.text), "and names the next game");
   ok(/All-time record 998-342-42/.test(h.text) && /official count, Notre Dame game notes/i.test(h.text), "with the official record and where it comes from");
   ok(h.order.indexOf("milestone") === h.order.indexOf("hero") + 1, "right under the hero");
+  // Navy week, from the real Oct. 8 schedule with the results since written
+  // in: a win over Stanford, a loss at BYU - 999 - then Navy.
+  function navyWeek(navy) {
+    var d = JSON.parse(read(FIX));
+    d.events.forEach(function (e) {
+      var c = e.competitions[0], s = { "401858257": [35, 14], "401856809": [20, 27], "401859185": navy }[e.id];
+      if (!s) return;
+      c.status = { clock: 0, displayClock: "0:00", period: 4, type: { id: "3", name: "STATUS_FINAL", state: "post", completed: true, description: "Final", detail: "Final", shortDetail: "Final" } };
+      c.competitors.forEach(function (x) { var us = x.team.id === "87", v = us ? s[0] : s[1]; x.score = { value: v, displayValue: String(v) }; x.winner = us ? s[0] > s[1] : s[1] > s[0]; });
+    });
+    return JSON.stringify(d);
+  }
+  var wk = await home("notre-dame", FIX, { body: navyWeek(null), at: new Date("2026-10-30T16:00:00Z"), sw: true });
+  ok(/Win No\. 1,000 is on the line: vs Navy/.test(wk.text), "Navy week: win No. 1,000 is on the line against Navy (" + wk.text + ")");
+  eq(wk.told && JSON.parse(wk.told), { game: "401859185", line: "Notre Dame\u2019s 1,000th win." },
+     "and the page has told this device's service worker the game and the line for its final alert");
+  var won = await home("notre-dame", FIX, { body: navyWeek([34, 17]), at: new Date("2026-10-31T20:00:00Z") });
+  ok(/Final/i.test(won.hero) && won.made === "Notre Dame\u2019s 1,000th win", "a win: the scoreboard's final says it (" + won.made + ")");
+  ok(/^1,000 Wins/.test(won.text), "and the card says 1,000 Wins");
+  var lost = await home("notre-dame", FIX, { body: navyWeek([17, 20]), at: new Date("2026-10-31T20:00:00Z") });
+  ok(/Final/i.test(lost.hero) && lost.made === null && /on the line: vs (#\d+ )?Miami/.test(lost.text), "a loss: the final as ever, and Miami is next");
   var o = await home("ohio-state", "tools/fixtures/espn-schedule-osu-2026.json");
   ok(!o.shown, "Ohio State: no card");
   await browser.close(); server.close();

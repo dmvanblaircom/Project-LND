@@ -190,6 +190,8 @@ Suite.home = (function () {
     return '<a class="btn btn-primary gc-cta" href="#game">' + text + CHEVRON + "</a>";
   }
 
+  function made(ms, g) { return !!(ms && ms.phase === "reached" && ms.game && g && String(ms.game.id) === String(g.id)); }
+
   function heroHtml(m) {
     var seasonHero = Suite.offseason && Suite.offseason.hero(m.offseason);
     if (seasonHero) return seasonHero;
@@ -226,6 +228,9 @@ Suite.home = (function () {
                  '<div class="gc-matchup">' + side(team, g, true, st, m) + middle(g, st) + side(team, g, false, st, m) + "</div>" +
                "</div>" +
                situation +
+               // the final that made a program milestone says so, for as
+               // long as the milestone card holds it
+               (st === "final" && made(m.milestone, g) ? '<p class="gc-milestone">' + esc(hundredth(m.milestone, team)) + "</p>" : "") +
                (g.series && st !== "final" ? '<p class="gc-series">' + esc(g.series) + "</p>" : "") +
                tertiary(g, st, h.weather) +
                cta(st) +
@@ -301,6 +306,9 @@ Suite.home = (function () {
 
   var WORDS = ["", "One", "Two", "Three"];
   function n(v) { return Number(v).toLocaleString("en-US"); }
+  // "Notre Dame's 1,000th win": said the same way on the card, the
+  // scoreboard and the final alert (David, 2026-10-25)
+  function hundredth(ms, team) { return team.name + "\u2019s " + n(ms.target) + "th win"; }
   function where(g) { return (g.home || g.neutral ? "vs " : "at ") + ui.oppLabel(g); }
 
   function milestoneHtml(ms, team) {
@@ -309,7 +317,7 @@ Suite.home = (function () {
     var title = reached ? n(ms.target) + " Wins" : "Road to " + n(ms.target);
     var line;
     if (reached) {
-      line = esc(team.name) + "\u2019s " + n(ms.target) + "th win" +
+      line = esc(hundredth(ms, team)) +
              (g ? ": " + esc((g.us != null ? g.us + "-" + g.them + " " : "") + where(g)) + ", " + esc(ui.kickoff(g.date, g.timeSet).day) : "") + ".";
     } else if (ms.toGo === 1) {
       // under way as TeamOS says: a delay before kickoff is still upcoming
@@ -328,6 +336,13 @@ Suite.home = (function () {
         '<p class="ms-src">All-time record ' + esc(n(ms.wins) + "-" + n(ms.losses) + "-" + n(ms.ties)) +
           (ms.source ? " \u00b7 official count, " + esc(ms.source) : "") + "</p>" +
       "</div>";
+  }
+
+  // The final alert's line for the game that can make a milestone, or made
+  // it (the app can see the final before the alert comes): null otherwise.
+  function alertLine(ms, team) {
+    var one = ms && ms.game && ms.game.id && (ms.phase === "reached" || (ms.phase === "countdown" && ms.toGo === 1));
+    return one ? hundredth(ms, team) + "." : null;
   }
 
   // ---- By the Numbers (David, 2026-10-09) -------------------------------------
@@ -397,5 +412,5 @@ Suite.home = (function () {
     });
   }
 
-  return { paint: paint, cardState: cardState, newDate: newDate, scoreTone: scoreTone };
+  return { paint: paint, cardState: cardState, newDate: newDate, scoreTone: scoreTone, alertLine: alertLine };
 })();
