@@ -105,7 +105,11 @@ Suite.home = (function () {
              // sides when either will not fit - never an ellipsis.
              '<p class="gc-name">' + (rank ? '<span class="gc-rank">#' + rank + "</span> " : "") +
                '<span class="gc-full">' + esc(name) + '</span><span class="gc-abbr">' + esc((us ? team.abbr : g.oppAbbr) || name) + "</span></p>" +
-             (record ? '<p class="gc-record">' + esc(record) + "</p>" : "") +
+             (record ? '<p class="gc-record">' + esc(record) + "</p>"
+                     // the other side's record line, kept empty, so the two
+                     // marks sit on one line (David, 2026-10-25: Navy, with no
+                     // record, sat lower than Notre Dame)
+                     : (us ? g.oppRecord : g.usRecord) ? '<p class="gc-record" aria-hidden="true">\u00a0</p>' : "") +
            "</div>";
   }
 

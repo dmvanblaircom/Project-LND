@@ -16,7 +16,7 @@ fs.mkdirSync(shots,{recursive:true});
       var page=await browser.newPage({timezoneId:"America/New_York"});
       await page.route("**/*",function(r){return r.request().url().startsWith(base)?r.continue():r.abort();});
       await page.goto(base+"/tools/fixtures/espn-news.json");
-      await page.setContent('<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="'+base+'/app.css"></head><body><main class="page-main"><div id="home"></div><div id="game"></div><div id="top"></div></main></body></html>');
+      await page.setContent('<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="'+base+'/app.css"></head><body><main class="page-main"><div id="home"></div><div id="home2"></div><div id="game"></div><div id="top"></div></main></body></html>');
       for(var f of ["teams/"+team+".js","teamos/team.js","teamos/identity.js","teamos/espn.js","teamos/game.js","teamos/live.js","suite/ui.js","suite/schedule.js","suite/prospects.js", "suite/home.js","suite/game.js","suite/top25.js"])
         await page.addScriptTag({url:base+"/"+f});
       for(var style of ["team","suite"])for(var width of [320,375,390,768,1280]){
@@ -26,6 +26,9 @@ fs.mkdirSync(shots,{recursive:true});
           [["accent",c.accent],["accent-text",c.accentText],["accent-on-light",c.accentOnLight],["accent-tint-soft",c.accentTintSoft],["surface",c.surface],["surface-rgb",c.surfaceRgb],["abyss",c.surfaceAbyss],["abyss-rgb",c.surfaceAbyssRgb],["deep",c.surfaceDeep],["deep-rgb",c.surfaceDeepRgb],["font-ui",look.fonts.ui],["font-display",look.fonts.display]].forEach(function(x){s.setProperty("--t-"+x[0],x[1]);});
           var team={name:t.name,abbr:t.abbreviation,markUrl:""},g={id:"fit",status:"live",state:"in",home:true,date:"2026-10-10T20:15:00Z",oppName:"Maryland",oppAbbr:"MD",usRank:15,usRecord:"4-1",oppRecord:"3-2",us:31,them:10,period:2,clock:"1:37",situation:{possession:"them",short:"1st & 10",spot:"MD 49"}};
           Suite.home.paint(document.getElementById("home"),{team:team,oppMark:function(){return "";},art:{},hero:{game:g},news:[],outlook:[],fresh:null,schedule:[Object.assign({},g,{status:"scheduled",state:"pre",venue:"Los Angeles Memorial Coliseum",oppName:"Southern California",oppAbbr:"USC",net:"NBC"})]});
+          // Upcoming, the opponent with no record (Navy, David's iPhone 2026-10-25)
+          var next=Object.assign({},g,{id:"next",status:"scheduled",state:"pre",timeSet:true,date:"2026-10-31T16:00:00Z",oppName:"Navy",oppAbbr:"NAVY",oppRecord:null,us:null,them:null,situation:null});
+          Suite.home.paint(document.getElementById("home2"),{team:team,oppMark:function(){return "";},art:{},hero:{game:next},news:[],outlook:[],fresh:null,schedule:[]});
           var half=Object.assign({},g,{clock:"0:00",detail:"Halftime",situation:{receives:"them"}});
           Suite.game.paint(document.getElementById("game"),{team:team,oppMark:function(){return "";},game:half,detail:null,lifecycle:TeamOS.game.lifecycle(half),view:"details",side:"us",open:{},now:new Date("2026-10-10T21:50:00Z")});
           Suite.top25.paint(document.getElementById("top"),{view:"games",games:[{id:"ranked",date:g.date,state:"in",status:"live",detail:"3:15 · 2nd",home:{name:"Tennessee",abbr:"TENN",rank:15,record:"4-1",score:21},away:{name:"South Carolina",abbr:"SC",rank:22,record:"4-1",score:14},live:{}}],mark:function(){return "";},now:new Date(g.date)});
@@ -42,6 +45,7 @@ fs.mkdirSync(shots,{recursive:true});
             "Home names and ranks fit their columns":[].every.call(document.querySelectorAll(".gc-name"),inside),
             "Home venue is fully readable":!!venue&&getComputedStyle(venue).textOverflow!=="ellipsis"&&venue.scrollWidth<=venue.clientWidth+1,
             "Halftime: no football, and who gets the ball is said, clear of the status":!ball&&!!recv&&/gets the ball/.test(recv.textContent)&&!!clock&&/Halftime/i.test(clock.textContent)&&!hit(recv.getBoundingClientRect(),rectText(clock)),
+            "Home marks sit on one line when only one side has a record":(function(){var m=document.querySelectorAll("#home2 .gc-side .mark");return m.length===2&&Math.abs(m[0].getBoundingClientRect().top-m[1].getBoundingClientRect().top)<=1;})(),
             "No page overflow":document.documentElement.scrollWidth<=innerWidth+1
           };
         });
