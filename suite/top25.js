@@ -409,18 +409,19 @@ Suite.top25 = (function () {
 
   // The newest plays first, each with its quarter and clock, the yards it
   // gained and what it was (a score, a turnover). The newest is marked.
-  var TAG_KIND = { "Touchdown": "score", "Turnover": "turnover", "Turnover on downs": "turnover", "No play": "void", "1st down": "first" };
+  // Only snaps: a timeout or the end of a quarter is not one of the last
+  // plays (code review, 2026-10-25).
   function sheetPlays(gd, g) {
     if (g.state !== "in" || !gd || !gd.drives) return "";
     var all = [];
-    gd.drives.list.forEach(function (d) { d.plays.forEach(function (p) { if (p.text) all.push(p); }); });
+    gd.drives.list.forEach(function (d) { d.plays.forEach(function (p) { if (p.text && p.snap !== false) all.push(p); }); });
     var last = all.slice(-3).reverse();
     if (!last.length) return "";
     return sheetSection("Last plays", '<ol class="sh-plays">' + last.map(function (p, i) {
       var at = [p.period ? ui.period(p.period) : "", p.clock].filter(Boolean).join(" ");
       var gain = p.snap !== false && typeof p.yards === "number" && !(p.tags || []).some(function (t) { return /No play/.test(t); })
         ? '<span class="sh-gain' + (p.yards > 0 ? " up" : p.yards < 0 ? " loss" : "") + '">' + (p.yards > 0 ? "+" : p.yards < 0 ? "−" : "") + Math.abs(p.yards) + '<span class="sr-only"> yards</span></span>' : "";
-      var tags = (p.tags || []).map(function (t) { return '<span class="pl-tag ' + (TAG_KIND[t] || "") + '">' + esc(t) + "</span>"; }).join("");
+      var tags = ui.playTags(p.tags);
       return "<li" + (i === 0 ? ' class="is-new"' : "") + ">" + (at ? '<span class="sh-at">' + esc(at) + "</span>" : "") +
              '<span class="sh-play">' + esc(p.text) + (tags ? " " + tags : "") + "</span>" + gain + "</li>";
     }).join("") + "</ol>");

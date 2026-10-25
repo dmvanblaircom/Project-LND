@@ -281,7 +281,13 @@ console.log("SP+: bad requests");
   ok((await get("/v1/cfbd/sp?year=2027", e)).r.status === 400, "a season not yet played: 400");
   ok((await get("/v1/cfbd/sp?year=2025", e)).r.status === 200, "last season is answered");
   ok((await get("/v1/cfbd/sp?year=2026", spEnv({ key: "" }))).r.status === 503, "no key configured: 503");
-  ok(e.calls.every((c) => /year=2025/.test(c.url)), "and only the answered season reached CFBD"); }
+  ok(e.calls.every((c) => /year=2025/.test(c.url)), "and only the answered season reached CFBD");
+  // In March the app's season is last year's; its "earlier" season is the
+  // one before that (code review, 2026-10-25).
+  const march = spEnv(); march.NOW = () => Date.parse("2027-03-10T12:00:00Z");
+  eq([(await get("/v1/cfbd/sp?year=2026", march)).r.status, (await get("/v1/cfbd/sp?year=2025", march)).r.status,
+      (await get("/v1/cfbd/sp?year=2027", march)).r.status, (await get("/v1/cfbd/sp?year=2024", march)).r.status],
+     [200, 200, 400, 400], "in March: the app's season (2026) and the one before it (2025), as its seasonYear counts them"); }
 
 // ---- game alerts (W19, worker/src/push.js) -----------------------------------
 function eq(a, b, what) {
@@ -1245,7 +1251,18 @@ console.log("game alerts: one device following both teams in a game (brief §2b,
          future.id, f.sub.endpoint, NEW, JSON.stringify({ game: { id: future.id, home: true, opponent: { name: "X" } }, scores: null, x: { kickoff: "2026-10-17T16:30:00.000Z", set: false } }));
   db.run("INSERT INTO sent (team_id, game_id, event, at) VALUES ('194', ?, 'kickoff', ?)", future.id, NEW + 10 * 60e3);
   e.pushes.length = 0; await tick(db, e, NEW + 11 * 60e3);
-  ok(e.pushes.length === 0, "once its kickoff has been seen, a kickoff-time alert still waiting is dropped"); }
+  ok(e.pushes.length === 0, "once its kickoff has been seen, a kickoff-time alert still waiting is dropped");
+  // A claim cut off mid-send (the object restarted between the claim and its
+  // result) is sent again after LIMITS.stuck; a fresh claim is left to its
+  // run (code review, 2026-10-25).
+  const T = NEW + 20 * 60e3, row = (game, claimed) => db.run(
+    "INSERT INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data, claimed) VALUES ('194', ?, 'time:2026-10-24T16:30:00.000Z', ?, 'sending', 0, ?, ?, ?)",
+    game, f.sub.endpoint, T - 60 * 60e3, JSON.stringify({ game: { id: game, home: true, opponent: { name: "X" } }, scores: null, x: { kickoff: "2026-10-24T16:30:00.000Z", set: true } }), claimed);
+  row("g-cut", T - 10 * 60e3); row("g-old", null); row("g-now", T - 30e3);
+  e.pushes.length = 0; await tick(db, e, T);
+  const st = (g) => db.all("SELECT state, tries FROM deliveries WHERE game_id = ?", g)[0];
+  eq([st("g-cut").state, st("g-cut").tries, st("g-old").state, st("g-now").state, e.pushes.length], ["done", 2, "done", "sending", 2],
+     "a send cut off mid-run is sent again, counted as a try; one claimed just now is left to the run that holds it"); }
 
 console.log("game alerts: the routes and the minute");
 { const calls = [];

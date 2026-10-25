@@ -25,7 +25,14 @@ board.events.forEach(function (e) {
 // The team's own games have their summaries fetched by Home and Game; only
 // another board game's summary is the sheet's.
 var OTHERS = board.events.map(function (e) { return e.id; }).filter(function (id) { return id !== HERO; });
-var SUMMARY = { live: fixture("espn-summary-pur-live.json"), post: fixture("espn-summary-post.json") };
+// The live summary ends, as a real game often does, with a timeout after its
+// last snap: it is not one of the last plays (code review, 2026-10-25).
+var liveSum = JSON.parse(fixture("espn-summary-pur-live.json"));
+// (ESPN lists the drive under way in both current and previous: both copies.)
+var timeout = { id: "401858467999", text: "Timeout PURDUE, clock 05:04", type: { id: "21", text: "Timeout" }, clock: { displayValue: "5:04" }, period: { number: 1 } };
+[liveSum.drives.current].concat(liveSum.drives.previous.filter(function (d) { return d.id === liveSum.drives.current.id; }))
+  .forEach(function (d) { d.plays.push(timeout); });
+var SUMMARY = { live: JSON.stringify(liveSum), post: fixture("espn-summary-post.json") };
 
 fs.mkdirSync(shots, { recursive: true });
 (async function () {
@@ -94,10 +101,12 @@ fs.mkdirSync(shots, { recursive: true });
     ok(s.open && s.hash === "#top25/games/" + LIVE, "a tap opens the sheet, at its own address");
     ok(s.focusIn && s.inert && s.lock, "focus goes into the sheet; the page under it is inert and holds still");
     ok(/Texas at Tennessee/.test(s.text) && /Right now/i.test(s.text) && /Win probability/.test(s.text) && /Last plays/i.test(s.text) && s.plays === 3 && /Leaders/i.test(s.text),
-       "live: who has the ball, win probability, score by quarter, the last three plays and the leaders");
+       "live: who has the ball, win probability, the last three plays, score by quarter and the leaders");
     ok(!/Team stats|Drive|Box score/i.test(s.text), "and nothing else: no team stats, drives or box score");
     ok((await o.page.evaluate(function () { return [].map.call(document.querySelectorAll("#sheetHost .sh-h"), function (h) { return h.textContent; }).join("|"); }))
        === "Right now|Last plays|Score by quarter|Leaders", "in that order: last plays before the score by quarter (David, 2026-10-24)");
+    ok(!/Timeout/.test(await o.page.evaluate(function () { return document.querySelector("#sheetHost .sh-plays").innerText; })),
+       "the last plays are snaps: a timeout after the last one is not among them");
     ok(o.st.summaries.length === 1 && o.st.summaries[0] === LIVE, "its summary is fetched once, on opening");
     for (var w of [320, 390, 768, 1280]) {
       await o.page.setViewportSize({ width: w, height: 844 }); await o.page.waitForTimeout(120);

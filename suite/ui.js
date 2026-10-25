@@ -273,6 +273,13 @@ Suite.ui = (function () {
         (photo && logo && photo !== logo ? ' data-fallback-src="' + esc(logo) + '"' : "") + ">" : "") + "</span>";
   }
 
+  // A play's tags (TeamOS cleans ESPN's words) as pills, the same on Game
+  // and in Top 25's sheet: a score, a turnover, a void play, a first down.
+  var TAG_KIND = { "Touchdown": "score", "Turnover": "turnover", "Turnover on downs": "turnover", "No play": "void", "1st down": "first" };
+  function playTags(tags) {
+    return (tags || []).map(function (t) { return '<span class="pl-tag ' + (TAG_KIND[t] || "") + '">' + esc(t) + "</span>"; }).join("");
+  }
+
   return { ball: ball, esc: esc, initials: initials, mark: mark, art: art, ago: ago, kickoff: kickoff, freshBanner: freshBanner, newsImage: newsImage,
-           fitNames: fitNames, fitText: fitText, fitLabels: fitLabels, STYLE: STYLE, fill: fill, period: period, oppLabel: oppLabel };
+           fitNames: fitNames, fitText: fitText, fitLabels: fitLabels, STYLE: STYLE, fill: fill, period: period, oppLabel: oppLabel, playTags: playTags };
 })();

@@ -45,7 +45,7 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-10-21spweeks";
+export const VERSION = "edge-2026-10-25review";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
@@ -253,9 +253,13 @@ async function withWeeks(body, env, read) {
   } catch (e) { return body; }
 }
 
+// This season or the one before it, as the app counts seasons (its
+// seasonYear): from January to June the season is last year's, so its "last
+// season" is two calendar years back (code review, 2026-10-25).
 function spYearOk(year, env) {
-  const now = new Date(env.NOW ? env.NOW() : Date.now()).getUTCFullYear();
-  return year === now || year === now - 1;
+  const d = new Date(env.NOW ? env.NOW() : Date.now());
+  const season = d.getUTCMonth() < 6 ? d.getUTCFullYear() - 1 : d.getUTCFullYear();
+  return year === season || year === season - 1;
 }
 
 const WEEK_ID = /^[a-z0-9-]{1,24}$/;

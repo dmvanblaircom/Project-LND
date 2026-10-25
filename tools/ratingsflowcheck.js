@@ -45,6 +45,7 @@ fs.mkdirSync(shots,{recursive:true});
       if(u.startsWith(base+"/data/league/fpi.json")){
         st.n++;
         if(st.mode==="fail")return route.abort();
+        if(st.mode==="503")return route.fulfill({status:503,contentType:"text/html",body:"<h1>Service unavailable</h1>"});
         if(st.mode==="slow")await new Promise(function(r){st.release=r;});
         return route.fulfill({status:200,contentType:"application/json",headers:st.mode==="cached"?{"X-IW-Cached":"2026-10-01T12:00:00Z"}:{},body:st.mode==="malformed"?'{"teams":[':JSON.stringify(st.payload)});
       }
@@ -187,6 +188,12 @@ fs.mkdirSync(shots,{recursive:true});
     w.st.mode="fail";await w.page.reload();await w.settled();var kept=await screen(w),before=w.st.n;
     ok(kept.rows===25&&/outdated/.test(kept.banner),"real service worker's HTTP 200 fallback remains visibly stale");
     await w.go("#home");await w.go("#top25/rankings/fpi");await w.settled();ok(w.st.n===before+1,"cached HTTP 200 does not start success timer");
+    // An error page in place of the data (a 503 at a crowded stadium) is no
+    // answer either: the kept copy, outdated (code review, 2026-10-25).
+    w.st.mode="503";await w.page.reload();await w.settled();var err=await screen(w);
+    ok(err.rows===25&&/outdated/.test(err.banner),"the network answers 503: the kept copy, visibly outdated - not 'didn't load'");
+    var via=await w.page.evaluate(function(){return fetch("data/league/fpi.json",{cache:"no-store"}).then(function(r){return r.status+" "+(r.headers.get("X-IW-Cached")?"kept":"fresh");});});
+    ok(via==="200 kept","and the worker itself answers a 503 with its kept copy, marked kept ("+via+"), for every screen that reads through it");
     w.st.mode="ok";w.st.payload.teams[0].rating=31.2;
     await w.ctx.setOffline(true);await w.page.waitForTimeout(150);await w.ctx.setOffline(false);await w.page.waitForTimeout(600);
     ok(!(await screen(w)).banner&&/31.2/.test((await screen(w)).text),"real worker recovery refreshes FPI without reloading");

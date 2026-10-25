@@ -67,7 +67,10 @@ export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20
                         closeClock: 300, closeMargin: 8, timeMoved: 3 * 60 * MIN,
                         cfpWindow: 12 * 60 * MIN, cfpEvery: 5 * MIN, cfpFresh: 12 * 60 * MIN, cfpWait: 10 * 1000,
                         selRemind: 3 * 60 * MIN, postFrom: 7 * 24 * 60 * MIN, postFast: 12 * 60 * MIN, postEvery: 5 * MIN,
-                        noPostAfter: 12 * 60 * MIN, noPostUntil: 7 * 24 * 60 * MIN, boardEvery: 60 * MIN };
+                        noPostAfter: 12 * 60 * MIN, noPostUntil: 7 * 24 * 60 * MIN, boardEvery: 60 * MIN,
+                        // a claimed alert whose run never finished (the object
+                        // restarted mid-send) is due again after this
+                        stuck: 5 * MIN };
 
 // What a fan can choose (brief §2b). A subscription without options - every
 // one made before round 2 - has the round-1 set: kickoff, final and delays.
@@ -231,9 +234,8 @@ export function pickGame(schedule, teamId, now) {
   for (const e of events) {
     const c = e && e.competitions && e.competitions[0]; if (!c) continue;
     const at = Date.parse(e.date); if (!isFinite(at)) continue;
-    const st = (((c.status || {}).type) || {}).state;
-    if (st === "post" && now - at > LIMITS.window) continue;
-    if (st !== "post" && now - at > LIMITS.window) continue;     // stuck in "pre" long after: not ours to watch
+    // past its window: a final already sent, or a game stuck in "pre" long after
+    if (now - at > LIMITS.window) continue;
     const us = (c.competitors || []).filter(function (x) { return String((x.team || {}).id) === teamId; })[0];
     const them = (c.competitors || []).filter(function (x) { return String((x.team || {}).id) !== teamId; })[0];
     if (!us || !them) continue;
@@ -457,6 +459,9 @@ export function migrate(db) {
   // settle, the quarter and its score, the last announcement - moved only
   // by compare-and-set on seq.
   try { db.exec("ALTER TABLE subs ADD COLUMN opts TEXT"); } catch (e) { /* already there */ }
+  // When a delivery was claimed for sending, so one a restart cut off can be
+  // found and sent again (code review, 2026-10-25).
+  try { db.exec("ALTER TABLE deliveries ADD COLUMN claimed INTEGER"); } catch (e) { /* already there */ }
   db.exec("CREATE TABLE IF NOT EXISTS live (team_id TEXT NOT NULL, game_id TEXT NOT NULL, seq INTEGER NOT NULL, st TEXT NOT NULL," +
           " PRIMARY KEY (team_id, game_id))");
   db.exec("CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT NOT NULL)");
@@ -1215,6 +1220,11 @@ export function scoreStep(db, teamId, game, status, cur, now, flush, plays) {
 // removes it; anything else - a 429, a 5xx, no answer - is tried again the
 // next minute, up to LIMITS.tries, and a kickoff only while it is news.
 async function deliver(db, env, teamId, now, log, retry) {
+  // A claim older than LIMITS.stuck was cut off before its result was
+  // written: it is due again, as a try, so it is neither lost nor retried
+  // without end. One claimed before claims were timed has no time: also cut off.
+  db.run("UPDATE deliveries SET state = 'due', tries = tries + 1 WHERE team_id = ? AND state = 'sending' AND (claimed IS NULL OR claimed < ?)",
+         teamId, now - LIMITS.stuck);
   const due = db.all("SELECT d.game_id, d.event, d.endpoint, d.tries, d.at, d.data, s.team_name, s.p256dh, s.auth" +
                      " FROM deliveries d JOIN subs s ON s.endpoint = d.endpoint AND s.team_id = d.team_id" +
                      " WHERE d.team_id = ? AND d.state = 'due' ORDER BY d.at, d.rowid", teamId);   // in the order they happened
@@ -1248,7 +1258,7 @@ async function deliver(db, env, teamId, now, log, retry) {
     // a retry only on the minute; this device's later alerts wait behind it
     if (retry === false && d.tries > 0) { held.add(d.endpoint); t.retry++; continue; }
     // Claim it, so an overlapping run cannot send it too.
-    if (!db.run("UPDATE deliveries SET state = 'sending' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ? AND state = 'due'", ...key).changes) continue;
+    if (!db.run("UPDATE deliveries SET state = 'sending', claimed = ? WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ? AND state = 'due'", now, ...key).changes) continue;
     const x = JSON.parse(d.data), w = words(d.event, { id: teamId, name: d.team_name }, x.game, x.scores, x.x);
     if (!w) { db.run("UPDATE deliveries SET state = 'failed' WHERE team_id = ? AND game_id = ? AND event = ? AND endpoint = ?", ...key); t.dropped++; continue; }
     // Score, quarter and halftime alerts replace one another on the lock

@@ -442,10 +442,7 @@ Suite.game = (function () {
   // does not carry is a plain row, as before.
   // One play, for a fan (TeamOS cleans ESPN's words): where it started and
   // when, what happened, how it ended, and what happened around it.
-  var TAG_KIND = { "Touchdown": "score", "Turnover": "turnover", "Turnover on downs": "turnover", "No play": "void", "1st down": "first" };
-  function playTags(tags) {
-    return (tags || []).map(function (t) { return '<span class="pl-tag ' + (TAG_KIND[t] || "") + '">' + esc(t) + "</span>"; }).join("");
-  }
+  var playTags = ui.playTags;
   // "C. Carr" never breaks between the initial and the name.
   function keepNames(t) { return esc(t).replace(/\b([A-Z]\.) (?=[A-Z])/g, "$1\u00a0"); }
   function playNotes(notes) {

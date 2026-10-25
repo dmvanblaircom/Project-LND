@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-25heroalign";
+var VERSION = "suite-2026-10-25review3";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -461,8 +461,12 @@ self.addEventListener("fetch", function (e) {
         e.waitUntil(withHeader(res.clone(), "X-IW-Stored", new Date().toUTCString()).then(function (copy) {
           return caches.open(DATA).then(function (c) { return c.put(key, copy); });
         }).catch(function () {}));
+        return res;
       }
-      return res;
+      // An error answer (a 503, a rate limit) is no fresher than nothing: the
+      // last good copy, marked as kept, when there is one; else the error
+      // itself, so the page can say so (code review, 2026-10-25).
+      return kept(key).then(function (copy) { return copy || res; }, function () { return res; });
     });
     net.catch(function () { answered = true; clearTimeout(timer); });
     var slow = new Promise(function (resolve) {
