@@ -130,6 +130,8 @@ jobs:
       - run: node tools/prospectshomecheck.js
       # Home's weather: its own game's and moment's, never the last game's or a forecast as "now".
       - run: node tools/weathercheck.js
+      # Every team's mark at one perceived size, capped, and left alone when it cannot be read.
+      - run: node tools/markfitcheck.js
       - run: node tools/rosterflowcheck.js
       # FPI routing, source-specific freshness and real service-worker recovery.
       - run: node tools/ratingsflowcheck.js

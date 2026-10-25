@@ -77,13 +77,14 @@ Suite.top25 = (function () {
   }
 
   // The possession football, as on Home and Game (David, 2026-09-26): on
-  // the side TeamOS.live says has the ball - between plays too - only while
-  // play is on, never in a delay, at halftime or once it is over. At
+  // the side TeamOS.live says has the ball - between plays too - while the
+  // game is on, a delay included (David, 2026-10-25: who had the ball when
+  // play stopped still has it); never at halftime or once it is over. At
   // halftime no one has the ball: who gets it to start the second half
   // (TeamOS.live.receives) is said in words instead (David, 2026-10-14).
   function sideOf(g, p) { return p === "home" ? g.home : p === "away" ? g.away : null; }
   function ballSide(g) {
-    if (g.state !== "in" || g.status === "delayed" || g.status === "suspended" || TeamOS.game.halftime(g)) return null;
+    if (g.state !== "in" || TeamOS.game.halftime(g)) return null;
     return sideOf(g, TeamOS.live.withBall(g));
   }
   function atHalf(g) { return g.state === "in" && TeamOS.game.halftime(g); }
