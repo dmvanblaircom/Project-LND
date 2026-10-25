@@ -25,7 +25,7 @@ Potential experiences include:
 
 One Suite renders every configured team; Irish Watch is Notre Dame's. Its destinations (decisions 0022, 0023, 0028), each drawn by a file in `suite/`:
 
-- Home - the hero game, a program milestone while one is near (Road to 1,000: all-time wins, from `TeamOS.milestones`), By the Numbers in game week (three of the program's weekly figures from its game notes, `TeamOS.notes`), Season Outlook (and its full field, `#outlook`: every team the Playoff and National Title markets price), the schedule preview, news
+- Home - the hero game, a program milestone while one is near (Road to 1,000: all-time wins, from `TeamOS.milestones`; once reached it holds through the Sunday after the next weekend's games, the scoreboard's final says it, and the final alert adds it on the fan's device, from the line the page gives the service worker), By the Numbers in game week (three of the program's weekly figures from its game notes, `TeamOS.notes`), Season Outlook (and its full field, `#outlook`: every team the Playoff and National Title markets price), the schedule preview, news
 - Top 25 - Games and Rankings (national content, with the team as quiet context)
 - Game - the hero game through its lifecycle: preview, live, final. Before kickoff, from the week's game notes when the team has them: the series card (the all-time series, the last meeting, the trophy's story) and By the Numbers, each naming its source
 - Roster - Depth Chart, Roster and Availability, as the team has them; from the game notes, a captain's C, how to say a name, and a player's honors

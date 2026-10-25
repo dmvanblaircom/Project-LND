@@ -7,8 +7,10 @@
      Milestone = { phase, target, wins, losses, ties, toGo, game, source, asOf }
        phase   "countdown"  within REACH wins of the next hundred; game is the
                             next one to play (null when none is scheduled)
-               "reached"    the win that made the hundred, for HOLD_DAYS after
-                            it; game is that win
+               "reached"    the win that made the hundred, through the end of
+                            the first Sunday at least HOLD_DAYS after it (the
+                            fan's own day: past the next weekend's games -
+                            David, 2026-10-25); game is that win
        wins, losses, ties   the official all-time record as of now: the record
                             the team's own notes give ENTERING the season,
                             plus this season's finals
@@ -23,7 +25,7 @@
    - Only a final with both scores counts, its result read from them. A game
      in progress counts when it ends, never before.
    - null when the team declares no record, when no hundred is within reach,
-     or when the last one was reached more than HOLD_DAYS ago.
+     or when the last one's hold has ended.
 
    Pure: no fetch, no DOM. Names no team. */
 
@@ -36,6 +38,13 @@ TeamOS.milestones = (function () {
 
   function int(v) { return typeof v === "number" && isFinite(v) && v >= 0 ? Math.floor(v) : null; }
   function time(g) { var t = Date.parse(g && g.date); return isNaN(t) ? 0 : t; }
+  // The end of the first Sunday at least HOLD_DAYS after t, on this device's
+  // calendar: a Saturday's hundredth win stays up through the next weekend,
+  // never coming down hours before that Saturday's kickoff.
+  function holdEnds(t) {
+    var d = new Date(t + HOLD_DAYS * 864e5);
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + (7 - d.getDay()) % 7 + 1).getTime();
+  }
 
   function wins(config, games, season, now) {
     var r = config && config.history && config.history.record;
@@ -58,7 +67,7 @@ TeamOS.milestones = (function () {
     var base = { wins: w, losses: l, ties: t, source: r.source || null, asOf: r.asOf || null };
     var nowT = now && typeof now.getTime === "function" ? now.getTime() : Date.now();
     // The week after the hundredth win belongs to it, whatever comes next.
-    if (reachedBy && nowT - time(reachedBy) <= HOLD_DAYS * 864e5) {
+    if (reachedBy && nowT < holdEnds(time(reachedBy))) {
       return Object.assign(base, { phase: "reached", target: reachedAt, toGo: 0, game: reachedBy });
     }
     var target = (Math.floor(w / STEP) + 1) * STEP, toGo = target - w;
