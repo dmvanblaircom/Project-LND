@@ -66,7 +66,16 @@ fs.mkdirSync(shots, { recursive: true });
                inert: ["appBar", "main", "navbar"].every(function (k) { return document.getElementById(k).hasAttribute("inert"); }),
                lock: document.documentElement.classList.contains("sheet-open"),
                plays: sh ? sh.querySelectorAll(".sh-plays li").length : 0,
-               fits: !sh || (document.documentElement.scrollWidth <= innerWidth + 1 && sh.getBoundingClientRect().right <= innerWidth + 1 && sh.scrollWidth <= sh.clientWidth + 1) };
+               fits: !sh || (document.documentElement.scrollWidth <= innerWidth + 1 && sh.getBoundingClientRect().right <= innerWidth + 1 && sh.scrollWidth <= sh.clientWidth + 1),
+               // a team's name never runs into its own score (320px, 2026-10-24)
+               clear: !sh || [].every.call(sh.querySelectorAll(".sh-score .tg-side"), function (s) {
+                 var n = s.querySelector(".tg-name"), sc = s.querySelector(".tg-score");
+                 if (!n || !sc) return true;
+                 // the text itself, which can spill past its box
+                 var r = document.createRange(); r.selectNodeContents(n);
+                 var box = sc.getBoundingClientRect();
+                 return [].every.call(r.getClientRects(), function (t) { return t.right <= box.left + 1 || t.bottom <= box.top + 1 || t.top >= box.bottom - 1; });
+               }) };
     });
   }
   try {
@@ -90,7 +99,8 @@ fs.mkdirSync(shots, { recursive: true });
     ok(o.st.summaries.length === 1 && o.st.summaries[0] === LIVE, "its summary is fetched once, on opening");
     for (var w of [320, 390, 768, 1280]) {
       await o.page.setViewportSize({ width: w, height: 844 }); await o.page.waitForTimeout(120);
-      ok((await sheetState(o.page)).fits, "live sheet fits at " + w + "px");
+      var fs_ = await sheetState(o.page);
+      ok(fs_.fits && fs_.clear, "live sheet fits at " + w + "px, every name clear of its score");
       if (w === 320 || w === 390 || w === 1280) await o.page.screenshot({ path: path.join(shots, "live-" + w + ".png") });
       var a = await audit.auditText(o.page, "sheet live " + w); ok(!a.failures.length, "live sheet contrast at " + w + " " + JSON.stringify(a.failures.slice(0, 3)));
     }
