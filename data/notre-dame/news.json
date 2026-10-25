@@ -1,6 +1,6 @@
 {
  "team": "notre-dame",
- "updated": "2026-10-25T19:07:48.177508+00:00",
+ "updated": "2026-10-25T19:37:47.264360+00:00",
  "items": [
   {
    "title": "Time for Plan B",
@@ -273,15 +273,6 @@
    "published": "2026-10-22T12:44:24+00:00"
   },
   {
-   "title": "Newsstand: Notre Dame DE Boubacar Traore, LG Anthonie Knapp named On3 midseason All-Americans",
-   "link": "https://on3.com/teams/notre-dame-fighting-irish/news/newsstand-notre-dame-de-boubacar-traore-lg-anthonie-knapp-named-on3-midseason-all-americans/",
-   "source": "Blue & Gold",
-   "summary": "On3 named two Notre Dame stars midseason All-Americans, thought one preseason All-American was conspicuously absent from the list.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/21202804/traore-knapp.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-22T12:19:59+00:00"
-  },
-  {
    "title": "Notre Dame Football Midseason Grades: Offense",
    "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/86219/notre-dame-football-midseason-grades-offense",
    "source": "One Foot Down",
@@ -541,6 +532,15 @@
    "image": "https://ndnation.com/wp-content/uploads/2026/10/dmp260912182_ruatnd.jpg",
    "sourceLogo": "https://ndnation.com/wp-content/uploads/2018/05/cropped-ndn-192x192.png",
    "published": "2026-10-16T01:49:24+00:00"
+  },
+  {
+   "title": "Matchups: Notre Dame Football Set for a Baptismal Affair at BYU",
+   "link": "https://www.uhnd.com/football/2026/10/13/matchups-notre-dame-football-set-for-a-baptismal-affair-at-byu/",
+   "source": "UHND",
+   "summary": "Notre Dame\u2019s discipline, run defense, and pass protection set the tone entering its first ranked test of the season in Provo.\n<p><a href=\"https://www.uhnd.com/football/2026/10/13/matchups-notre-dame-football-set-for-a-baptismal-affair-at-byu/\" rel=\"nofollow\">Source</a></p>",
+   "image": "https://www.uhnd.com/wp-content/uploads/2026/09/bryce-young-hero-16x9-1.jpg",
+   "sourceLogo": null,
+   "published": "2026-10-13T04:00:00+00:00"
   }
  ]
 }
