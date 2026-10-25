@@ -1271,6 +1271,9 @@ async function deliver(db, env, teamId, now, log, retry) {
                 : /^(cfp|sel):/.test(d.event) ? "#top25/rankings/cfp" : /^nopost:/.test(d.event) ? "#home" : "#game";
     const msg = { title: w.title, body: w.body, url: APP_URL + where, tag, renotify: live(d.event) };
     if (w.kickoff) { msg.kickoff = w.kickoff; if (w.network) msg.network = w.network; }
+    // A final says whether the team won: the phone adds a program milestone
+    // the game made (the 1,000th win), which only the app knows.
+    if (d.event === "final" && x.scores && typeof x.scores.us === "number" && typeof x.scores.them === "number") msg.won = x.scores.us > x.scores.them;
     const code = await sendPush(env, jwk, { endpoint: d.endpoint, p256dh: d.p256dh, auth: d.auth }, msg, now);
     let state;
     if (code >= 200 && code < 300) { state = "done"; t.sent++; }

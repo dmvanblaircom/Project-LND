@@ -286,10 +286,27 @@ function tellWorkerOurTeam(){
   try{ sw.postMessage(teamCacheManifest()); }catch(e){}
 }
 
+// The final alert's milestone line (David, 2026-10-25: the 1,000th win in
+// the final alert). The alert server knows no team's record, so the page
+// tells this device's service worker which game makes the milestone and the
+// line its final adds when it is a win; null clears it.
+// (undefined until Home has worked it out: a page that never painted Home
+// has nothing to say, and must not clear what an earlier one said)
+var MILESTONE_TOLD=null, MILESTONE_LAST;
+function tellWorkerMilestone(ms){
+  MILESTONE_LAST=ms;
+  var sw=("serviceWorker" in navigator) && navigator.serviceWorker.controller;
+  var line=Suite.home.alertLine(ms, TEAM), say={ type:"milestone", game: line ? String(ms.game.id) : null, line: line };
+  var key=JSON.stringify(say);
+  if(!sw || key===MILESTONE_TOLD) return;
+  try{ sw.postMessage(say); MILESTONE_TOLD=key; }catch(e){}
+}
+
 // A worker taking control after an update has not been told anything yet.
 if("serviceWorker" in navigator){
   navigator.serviceWorker.addEventListener("controllerchange", function(){
     tellWorkerOurTeam();
+    MILESTONE_TOLD=null; if(MILESTONE_LAST!==undefined) tellWorkerMilestone(MILESTONE_LAST);
   });
 }
 // Walk the routes until one returns usable market data. A relay that is up but
@@ -1313,6 +1330,8 @@ function paintHome(){
   var espnId=TEAM_CONFIG.sources.espn.teamId;
   var complete=!!(offseason && offseason.phase.state==="complete");
   if(complete) loadProspects();
+  var milestone=TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now);
+  tellWorkerMilestone(milestone);
   Suite.home.paint(host, {
     team:{ name:TEAM.name, nick:TEAM_NICK, tagline:ID.tagline, abbr:TEAM.abbreviation,
            markUrl:TeamOS.espn.mark(espnId, true) },
@@ -1328,7 +1347,7 @@ function paintHome(){
     schedule: TeamOS.game.schedulePreview(S.games, now, TEAM.timeZone),
     outlook: TeamOS.outlook.metrics(HOME.markets),
     // the next round number of all-time wins, when one is near (W: 1,000th)
-    milestone: S.games ? TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now) : null,
+    milestone: milestone,
     // By the Numbers, while the notes are this week's game's
     numbers: (TeamOS.notes.forGame(NOTES.model, g) || {}).numbers || null,
     fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),

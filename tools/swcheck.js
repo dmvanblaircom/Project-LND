@@ -226,6 +226,33 @@ function alertsChecks() {
     return fireWith("push", { data: null });
   }).then(function () {
     ok(shown.length === 1 && shown[0][0] === "Suite", "an empty push still shows (browsers require it), titled Suite");
+  }).then(function () {
+    // The 1,000th win (David, 2026-10-25): the page tells this worker which
+    // game makes it; that game's final adds the line, a win only.
+    return w.fire("message", { type: "milestone", game: "401859185", line: "Notre Dame\u2019s 1,000th win." });
+  }).then(function () {
+    function push(m) { return fireWith("push", { data: { json: function () { return m; }, text: function () { return JSON.stringify(m); } } }); }
+    var fin = function (tag, won) { return { title: "Final: Notre Dame 34, Navy 17", body: "Notre Dame wins.", tag: tag, won: won }; };
+    shown.length = 0;
+    return push(fin("401859185-final", true))
+      .then(function () { return push(fin("401859185-final", false)); })
+      .then(function () { return push(fin("401858291-final", true)); })
+      .then(function () { return push({ title: "Notre Dame scores", body: "Touchdown.", tag: "401859185-live", won: true }); })
+      .then(function () { return push({ title: "Final: Notre Dame 34, Navy 17", body: "Notre Dame wins.", tag: "401859185-final" }); })
+      .then(function () {
+        eq(shown.map(function (s) { return s[1].body; }), ["Notre Dame wins. Notre Dame\u2019s 1,000th win.", "Notre Dame wins.", "Notre Dame wins.", "Touchdown.", "Notre Dame wins."],
+           "the final of the game that makes it, won, says the 1,000th win; a loss, another game, a score and an older alert server's final do not");
+        // an update in between: the next version's worker clears the old
+        // versions' caches, and keeps this
+        w.store["suite-2000-01-01a-shell"] = {};
+        return w.fire("activate").then(function () {
+          ok(!w.store["suite-2000-01-01a-shell"] && w.store["suite-milestone"] && w.store["suite-milestone"]["./__milestone"] &&
+             !w.deleted.some(function (d) { return d[0] === "suite-milestone"; }), "an update clears the old versions' caches and keeps it");
+          return w.fire("message", { type: "milestone", game: null, line: null });
+        });
+      })
+      .then(function () { shown.length = 0; return push(fin("401859185-final", true)); })
+      .then(function () { eq(shown[0] && shown[0][1].body, "Notre Dame wins.", "told there is none: the final is as sent"); });
   });
 }
 

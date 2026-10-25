@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-25marks";
+var VERSION = "suite-2026-10-25win1000";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -298,6 +298,11 @@ self.addEventListener("message", function (e) {
     if (e.ports && e.ports[0]) e.ports[0].postMessage({ version: VERSION });
     return;
   }
+  if (msg && msg.type === "milestone") {
+    var kept = keepMilestone(msg);
+    if (e.waitUntil) e.waitUntil(kept);
+    return;
+  }
   if (!msg || msg.type !== "team") return;
   var done = adoptTeam(msg);
   if (e.waitUntil) e.waitUntil(done);
@@ -398,14 +403,38 @@ function alertTitle(d) {
   var when = at.toLocaleString([], { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   return t + ": " + when + (typeof d.network === "string" && d.network ? " on " + d.network : "");
 }
+// A program milestone the next game can make - the 1,000th win (David,
+// 2026-10-25). The alert server knows no team's record; the page says which
+// game makes it and the line its final adds when the team wins. Kept outside
+// this version's caches, so an update carries it.
+var MILESTONE_CACHE = "suite-milestone", MILESTONE_KEY = "./__milestone";
+function keepMilestone(msg) {
+  return caches.open(MILESTONE_CACHE).then(function (c) {
+    if (!msg.game || typeof msg.line !== "string" || !msg.line) return c.delete(MILESTONE_KEY);
+    return c.put(MILESTONE_KEY, new Response(JSON.stringify({ game: String(msg.game), line: msg.line }),
+                                             { headers: { "Content-Type": "application/json" } }));
+  }).catch(function () {});
+}
+// The line for this alert: only a final, only a win, only that game.
+function milestoneLine(d) {
+  var m = /^(\d+)-final$/.exec(d.tag || "");
+  if (!m || d.won !== true) return Promise.resolve(null);
+  return caches.open(MILESTONE_CACHE)
+    .then(function (c) { return c.match(MILESTONE_KEY); })
+    .then(function (hit) { return hit ? hit.json() : null; })
+    .then(function (x) { return x && x.game === m[1] && typeof x.line === "string" ? x.line : null; })
+    .catch(function () { return null; });
+}
 self.addEventListener("push", function (e) {
   var d = {};
   try { d = e.data ? e.data.json() : {}; } catch (err) { d = { body: e.data ? e.data.text() : "" }; }
-  e.waitUntil(self.registration.showNotification(alertTitle(d), {
-    body: d.body || "", tag: d.tag || undefined, icon: "assets/suite/icon-192.png",
-    // a score replaces the last one on the lock screen, and still sounds
-    renotify: !!(d.renotify && d.tag),
-    data: { url: d.url || "" }
+  e.waitUntil(milestoneLine(d).then(function (line) {
+    return self.registration.showNotification(alertTitle(d), {
+      body: line ? (d.body ? d.body + " " : "") + line : d.body || "", tag: d.tag || undefined, icon: "assets/suite/icon-192.png",
+      // a score replaces the last one on the lock screen, and still sounds
+      renotify: !!(d.renotify && d.tag),
+      data: { url: d.url || "" }
+    });
   }));
 });
 self.addEventListener("notificationclick", function (e) {

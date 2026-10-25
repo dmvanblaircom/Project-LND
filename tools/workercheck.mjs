@@ -402,6 +402,7 @@ console.log("game alerts: a whole game, minute by minute (Ohio State at Iowa, Oc
   await tick(db, e, KICK + 3.4 * 3600e3);
   const f = e.pushes.length === 2 ? await openPush(e.pushes[1].init.body, b.kp, b.sub.keys.auth) : {};
   eq(say(f), "Final: Ohio State 31, Iowa 17 | Ohio State wins.", "the final, with ESPN's score for each side");
+  eq([f.won, "won" in k], [true, false], "the final says the team won, for the phone to add a milestone the game made; other alerts say nothing of it");
   e.calls.length = 0; await tick(db, e, KICK + 3.5 * 3600e3);
   ok(e.pushes.length === 2 && e.calls.length === 0, "after the final: nothing more is sent or asked"); }
 
