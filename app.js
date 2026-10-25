@@ -29,8 +29,11 @@ KALSHI_ROUTES.push(function(path){
   if(!f) throw new Error("no snapshot for this path");
   return f + "?t=" + Date.now();
 });
-var TITLE_EVENT   = "KXNCAAF-27";          // national championship winner
-var PLAYOFF_EVENT = "KXNCAAFPLAYOFF-26";   // playoff qualifiers
+// Which series each snapshot holds, from the league's rules; which season of
+// it is the refresh's choice (tools/producers/markets.py, #160), so no season
+// ticker is written here (code review, 2026-10-25).
+var TITLE_EVENT   = LEAGUE_MARKETS.title.series + "-";     // national championship winner
+var PLAYOFF_EVENT = LEAGUE_MARKETS.playoff.series + "-";   // playoff qualifiers
 
 // The season as every screen reads it, and the next game. Whether any of it
 // is old is per source (SRC, noteSource) - each screen says so itself.
@@ -38,7 +41,7 @@ var PLAYOFF_EVENT = "KXNCAAFPLAYOFF-26";   // playoff qualifiers
 // carries none), re-attached each time the schedule is rebuilt.
 var S = { games:null, next:null, oddsTried:null, p:null, odds:{} };
 // What Home shows beyond the schedule: normalized data only (suite/home.js).
-var HOME = { news:null, markets:{}, weather:null, weatherFor:null, weatherAt:0, status:null };
+var HOME = { news:null, markets:{}, weather:null, weatherFor:null, weatherKey:null, weatherAt:0, status:null };
 function $(id){ return document.getElementById(id); }
 function say(msg){ $("live").textContent = msg; }
 
@@ -1303,6 +1306,8 @@ function paintHome(){
     if(g.usRank==null && HOME.status.rank) g.usRank=HOME.status.rank;
     if(!g.usRecord && HOME.status.record) g.usRecord=HOME.status.record;
   }
+  // asked first: a new game or kickoff clears the last answer for this paint
+  if(g) loadHomeWeather(g);
   var wx = g && HOME.weatherFor===g.id ? HOME.weather : null;
   var zone = (wx && wx.zone) || TeamOS.game.venueZone(g||{}, TEAM.timeZone);
   var espnId=TEAM_CONFIG.sources.espn.teamId;
@@ -1329,7 +1334,6 @@ function paintHome(){
     fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),
                                     { now:now, online: navigator.onLine!==false })
   });
-  if(g) loadHomeWeather(g);
 }
 // The recruiting class and the draft board (offseason proposal §7, rows 4
 // and 6), read for Home once the season is complete and for Roster's
@@ -1366,13 +1370,21 @@ function loadHomeWeather(g){
   if(!g.timeSet && !live) return;
   if(!live && (ms<-3*HOUR || ms>16*24*HOUR)) return;
   if(g.status==="final" || g.status==="canceled" || g.status==="postponed") return;
-  if(HOME.weatherFor===g.id && Date.now()-HOME.weatherAt<30*60e3) return;
-  HOME.weatherFor=g.id; HOME.weatherAt=Date.now();
+  // A forecast and the conditions once under way are different answers: a
+  // new game, or kickoff, asks again and shows nothing until it answers -
+  // never one game's weather under another, nor a forecast as "now"; and an
+  // answer that comes back after either has changed is dropped (code
+  // review, 2026-10-25).
+  var key=g.id+(live?":now":":kickoff");
+  if(HOME.weatherKey===key && Date.now()-HOME.weatherAt<30*60e3) return;
+  if(HOME.weatherKey!==key) HOME.weather=null;
+  HOME.weatherFor=g.id; HOME.weatherKey=key; HOME.weatherAt=Date.now();
   venuePoint(g).then(function(pt){ return get(TeamOS.weather.url(pt.lat, pt.lon)); })
     .then(function(d){
+      if(HOME.weatherKey!==key) return;
       HOME.weather = live ? TeamOS.weather.current(d) : TeamOS.weather.at(d, g.date);
       paintHome(); paintGame();
-    }).catch(function(){ HOME.weather=null; });
+    }).catch(function(){ if(HOME.weatherKey===key) HOME.weather=null; });
 }
 // The connection changes what an open screen says (catch-up review 1.3).
 window.addEventListener("online",  function(){
@@ -1437,8 +1449,9 @@ function paintGame(){
   var g=heroGame();
   if(g && GV.id!==g.id) GV=gameState(g.id);
   var lc=TeamOS.game.lifecycle(g), route=Suite.nav.current();
+  if(g) loadHomeWeather(g);                  // before the model reads it, as on Home
   Suite.game.paint(host, gameModel(GV, g, lc, route.view, "#game"));
-  if(g){ loadGameDetail(GV, g, lc, paintGame); loadHomeWeather(g); }
+  if(g) loadGameDetail(GV, g, lc, paintGame);
 }
 // A game's summary: every 25 seconds while it is under way, every five
 // minutes otherwise, never two requests at once. While one is out, V.p is

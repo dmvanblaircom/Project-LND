@@ -128,6 +128,8 @@ jobs:
       - run: node tools/offseasonnavcheck.js
       # Recruiting and the NFL draft on the offseason Home: both teams, both styles.
       - run: node tools/prospectshomecheck.js
+      # Home's weather: its own game's and moment's, never the last game's or a forecast as "now".
+      - run: node tools/weathercheck.js
       - run: node tools/rosterflowcheck.js
       # FPI routing, source-specific freshness and real service-worker recovery.
       - run: node tools/ratingsflowcheck.js
