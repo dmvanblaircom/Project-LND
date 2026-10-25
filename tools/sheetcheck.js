@@ -96,6 +96,8 @@ fs.mkdirSync(shots, { recursive: true });
     ok(/Texas at Tennessee/.test(s.text) && /Right now/i.test(s.text) && /Win probability/.test(s.text) && /Last plays/i.test(s.text) && s.plays === 3 && /Leaders/i.test(s.text),
        "live: who has the ball, win probability, score by quarter, the last three plays and the leaders");
     ok(!/Team stats|Drive|Box score/i.test(s.text), "and nothing else: no team stats, drives or box score");
+    ok((await o.page.evaluate(function () { return [].map.call(document.querySelectorAll("#sheetHost .sh-h"), function (h) { return h.textContent; }).join("|"); }))
+       === "Right now|Last plays|Score by quarter|Leaders", "in that order: last plays before the score by quarter (David, 2026-10-24)");
     ok(o.st.summaries.length === 1 && o.st.summaries[0] === LIVE, "its summary is fetched once, on opening");
     for (var w of [320, 390, 768, 1280]) {
       await o.page.setViewportSize({ width: w, height: 844 }); await o.page.waitForTimeout(120);

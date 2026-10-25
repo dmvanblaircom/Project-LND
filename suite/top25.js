@@ -315,8 +315,8 @@ Suite.top25 = (function () {
   // over the list rather than replacing it, so the board is one Back away,
   // and it carries a fixed few things - never the whole Game screen:
   //   before kickoff  when, where, on what, and the line (the list's own facts)
-  //   live            score by quarter, who has the ball and where, win
-  //                   probability, the last three plays, the leaders
+  //   live            who has the ball and where, win probability, the
+  //                   last three plays, score by quarter, the leaders
   //   final           score by quarter and the leaders
   // Everything but the list's facts comes from the game's summary, which
   // app.js fetches only while the sheet is open.
@@ -468,7 +468,8 @@ Suite.top25 = (function () {
     var body;
     if (g.state === "pre") body = sheetBefore(g);
     else {
-      var more = sheetSituation(m, m.detail, g) + sheetLinescore(m.detail, g) + sheetPlays(m.detail, g) + sheetLeaders(m, m.detail, g);
+      // last plays before the score by quarter (David, 2026-10-24)
+      var more = sheetSituation(m, m.detail, g) + sheetPlays(m.detail, g) + sheetLinescore(m.detail, g) + sheetLeaders(m, m.detail, g);
       body = m.detail ? (more || '<p class="sec-quiet">No details published for this game yet.</p>')
            : sheetSituation(m, null, g) + '<p class="sec-quiet">' + (m.failed ? "The box score didn’t load. It is asked for again while this is open." : "Loading the box score…") + "</p>";
     }
