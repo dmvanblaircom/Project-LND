@@ -18,10 +18,7 @@ on:
 
 jobs:
   css:
-    # Pinned: ubuntu-latest moved to 26.04 on 2026-10-25, where Playwright
-    # 1.55 cannot install Chromium ("does not support chromium on
-    # ubuntu26.04-x64"). Move with a Playwright upgrade.
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
@@ -104,10 +101,7 @@ jobs:
         if: github.event_name == 'push'
         run: node tools/versioncheck.js "${{ github.event.before }}"
   visual:
-    # Pinned: ubuntu-latest moved to 26.04 on 2026-10-25, where Playwright
-    # 1.55 cannot install Chromium ("does not support chromium on
-    # ubuntu26.04-x64"). Move with a Playwright upgrade.
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
