@@ -118,10 +118,66 @@ Suite.ui = (function () {
     var box = img.parentNode;
     if (e.type === "load" && img.naturalWidth > 0) {
       if (box) box.classList.add("loaded");
+      fitMark(img);
     } else if (img.parentNode) {
       img.parentNode.removeChild(img);
     }
   }
+  /* Every team's mark at one size (David, 2026-10-25: "logo sizes should be
+     the same size"). ESPN draws each mark's longest side at 92% of its square,
+     so a wide, solid mark (Notre Dame) reads far bigger than a tall, thin one
+     (Navy). Each mark is measured once - the box its drawing fills and the
+     ink it carries, on a small canvas - and scaled to one perceived size: the
+     geometric mean of the box's side and the ink's, at the median of 24 real
+     ESPN marks (probe, 2026-10-25). Never so far that it spills: a bare mark
+     to 1.3x ESPN's size, one inside a circle to 1.15x. A mark that cannot be
+     read (its host sends no CORS) keeps ESPN's size. */
+  var FIT_TARGET = 0.718, FIT_N = 100, FIT_KEY = "suite-markfit:1:", fits = {};
+  function measureMark(url, done) {
+    var im = new Image();
+    im.crossOrigin = "anonymous";
+    im.onload = function () {
+      try {
+        var c = document.createElement("canvas"); c.width = c.height = FIT_N;
+        var cx = c.getContext("2d"); cx.drawImage(im, 0, 0, FIT_N, FIT_N);
+        var d = cx.getImageData(0, 0, FIT_N, FIT_N).data, ink = 0, x0 = FIT_N, y0 = FIT_N, x1 = -1, y1 = -1;
+        for (var i = 0; i < FIT_N * FIT_N; i++) {
+          var a = d[i * 4 + 3]; ink += a;
+          if (a > 16) { var x = i % FIT_N, y = (i / FIT_N) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+        }
+        if (x1 < 0) return done(null);
+        var w = (x1 - x0 + 1) / FIT_N, h = (y1 - y0 + 1) / FIT_N, inkFrac = ink / 255 / (FIT_N * FIT_N);
+        done({ p: Math.sqrt(Math.sqrt(w * h) * Math.sqrt(inkFrac)), side: Math.max(w, h) });
+      } catch (err) { done(null); }          // a canvas the host would not let us read
+    };
+    im.onerror = function () { done(null); };
+    im.src = url;
+  }
+  function applyFit(img, f) {
+    var box = img.parentNode;
+    if (!f || !box) return;
+    var cap = box.classList && box.classList.contains("bare") ? 1.3 : 1.15;
+    var s = Math.max(0.8, Math.min(FIT_TARGET / f.p, cap * 0.92 / f.side));
+    img.style.transform = Math.abs(s - 1) < 0.01 ? "" : "scale(" + s.toFixed(3) + ")";
+  }
+  // One measurement per mark: every copy that loads while it is out waits
+  // for it, and the answer is kept on the device.
+  var waiting = {};
+  function fitMark(img) {
+    var url = img.getAttribute("src");
+    if (!url) return;
+    if (fits[url] !== undefined) return applyFit(img, fits[url]);
+    if (waiting[url]) return waiting[url].push(img);
+    try { var kept = localStorage.getItem(FIT_KEY + url); if (kept) { fits[url] = JSON.parse(kept); return applyFit(img, fits[url]); } } catch (err) { /* no storage */ }
+    waiting[url] = [img];
+    measureMark(url, function (f) {
+      fits[url] = f;
+      if (f) { try { localStorage.setItem(FIT_KEY + url, JSON.stringify(f)); } catch (err) { /* full or blocked */ } }
+      waiting[url].forEach(function (el) { applyFit(el, f); });
+      delete waiting[url];
+    });
+  }
+
   document.addEventListener("load", settle, true);
   document.addEventListener("error", settle, true);
 

@@ -246,7 +246,8 @@ function run(teamFile, teamLabel, ourName, oppName) {
   ok(/class="tg-last">Team B gets the ball to start the second half</.test(halfRow.html) && !/class="tg-last">[^<]*Pass complete/.test(halfRow.html),
      "who gets it to start the second half (Team B; Team A received the opening kickoff) is said in place of the last play");
   ok(/Team B gets the ball to start the second half\./.test(halfRow.html), "and to a screen reader");
-  ok(ballOn(Object.assign({}, live, { status: "delayed" })).n === 0, "none in a delay");
+  var held = ballOn(Object.assign({}, live, { status: "delayed" }));
+  ok(held.away && !held.home && held.n === 1, "in a delay, still on the side that had it when play stopped, as on Home and Game (David, 2026-10-25)");
   ok(ballOn(Object.assign({}, live, { state: "post", status: "final", detail: "Final" })).n === 0, "none once it is over");
 
 }
