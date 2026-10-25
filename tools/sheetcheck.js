@@ -33,6 +33,7 @@ var timeout = { id: "401858467999", text: "Timeout PURDUE, clock 05:04", type: {
 [liveSum.drives.current].concat(liveSum.drives.previous.filter(function (d) { return d.id === liveSum.drives.current.id; }))
   .forEach(function (d) { d.plays.push(timeout); });
 var SUMMARY = { live: JSON.stringify(liveSum), post: fixture("espn-summary-post.json") };
+var LOGO = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==", "base64");
 
 fs.mkdirSync(shots, { recursive: true });
 (async function () {
@@ -42,7 +43,7 @@ fs.mkdirSync(shots, { recursive: true });
   async function open(hash, opts) {
     opts = opts || {};
     var ctx = await browser.newContext({ viewport: { width: opts.width || 390, height: 844 }, timezoneId: "America/New_York", serviceWorkers: "block" });
-    var page = await ctx.newPage(), st = { summaries: [], errors: [], failSummary: !!opts.failSummary };
+    var page = await ctx.newPage(), st = { summaries: [], errors: [], failSummary: !!opts.failSummary, hold: !!opts.hold, held: [] };
     await page.clock.setSystemTime(new Date("2026-09-26T17:30:00Z"));
     page.on("pageerror", function (e) { st.errors.push(String(e)); });
     await ctx.route("**/*", function (route) {
@@ -52,9 +53,14 @@ fs.mkdirSync(shots, { recursive: true });
       if (m) {
         if (OTHERS.indexOf(m[1]) > -1) st.summaries.push(m[1]);
         if (st.failSummary) return route.abort();
-        return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
-                               body: m[1] === FINAL ? SUMMARY.post : SUMMARY.live });
+        var answer = function () { return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
+                                                          body: m[1] === FINAL ? SUMMARY.post : SUMMARY.live }); };
+        if (st.hold) return st.held.push(answer);
+        return answer();
       }
+      // a logo, in ESPN's place, when asked for (otherwise none: initials)
+      if (opts.logos && /teamlogos\/ncaa\/500(?:-dark)?\/\d+\.png/.test(u))
+        return route.fulfill({ status: 200, contentType: "image/png", headers: { "access-control-allow-origin": "*", "cache-control": "max-age=86400" }, body: LOGO });
       var body = /\/scoreboard\?/.test(u) ? JSON.stringify(board) : /\/rankings/.test(u) ? fixture("espn-rankings-sep20.json")
                : /\/teams\/87\/schedule/.test(u) ? fixture("espn-schedule-nd-sep24.json") : null;
       if (body) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: body });
@@ -165,6 +171,44 @@ fs.mkdirSync(shots, { recursive: true });
     await d.page.click("#sheetHost .sh-close"); await d.page.waitForTimeout(250);
     ok(!(await sheetState(d.page)).open && (await d.page.evaluate(function () { return location.hash; })) === "#top25/games", "a sheet opened by a link closes onto the board");
     await d.ctx.close();
+
+    // Opening holds still (David's iPhone, 2026-10-25: the sheet opened short
+    // with "Loading the box score…" and initials for logos, then jumped tall
+    // when the box score came, its logos last). The box score is held back
+    // here, so what shows meanwhile is what a slow network shows.
+    var q = await open("#top25", { logos: true, hold: true });
+    var rowSel = '#screenTop25 a[href="#top25/games/' + FINAL + '"]';
+    await q.page.$eval(rowSel, function (a) { a.scrollIntoView({ block: "center" }); });
+    await q.page.waitForFunction(function (sel) { var a = document.querySelector(sel); return a && a.querySelectorAll(".mark.loaded").length === 2; }, rowSel, { timeout: 8000 });
+    var first = await q.page.evaluate(function (ev) {
+      return new Promise(function (done) {
+        // runs after the app's own handler: what the sheet shows on its first frame
+        window.addEventListener("hashchange", function seen() {
+          window.removeEventListener("hashchange", seen);
+          var ini = document.querySelectorAll("#sheetHost .sh-score .mark .initials");
+          done({ marks: ini.length, shown: [].filter.call(ini, function (i) { var c = getComputedStyle(i); return c.display !== "none" && c.visibility !== "hidden"; }).length,
+                 lazy: document.querySelectorAll('#sheetHost img[loading="lazy"]').length });
+        });
+        location.hash = "#top25/games/" + ev;
+      });
+    }, FINAL);
+    ok(first.marks === 2 && first.shown === 0, "on the sheet's first frame no team shows initials ahead of its logo (" + first.shown + " of " + first.marks + " shown)");
+    ok(first.lazy === 0, "none of the sheet's logos waits on lazy loading");
+    ok(await q.page.waitForFunction(function () { return document.querySelectorAll("#sheetHost .sh-score .mark.loaded").length === 2; }, null, { timeout: 1000 }).then(function () { return true; }, function () { return false; }),
+       "and the logos the board already showed are in at once");
+    function height() { return q.page.evaluate(function () { return document.querySelector("#sheetHost .sh").getBoundingClientRect().height; }); }
+    await q.page.waitForTimeout(250);
+    var loading = await height(), loadingText = (await sheetState(q.page)).text;
+    await q.page.screenshot({ path: path.join(shots, "loading-390.png") });
+    ok(/Loading the box score/.test(loadingText), "while the box score loads, the sheet says so");
+    q.st.held.splice(0).forEach(function (f) { f(); });
+    await q.page.waitForFunction(function () { return /Score by quarter/i.test((document.querySelector("#sheetHost .sh") || {}).innerText || ""); }, null, { timeout: 8000 });
+    var loaded = await height();
+    ok(Math.abs(loading - loaded) < 1 && loading > 844 * 0.85, "a game under way or over opens at full height and fills in place: no jump (" + Math.round(loading) + " then " + Math.round(loaded) + "px)");
+    await q.page.keyboard.press("Escape"); await q.page.waitForTimeout(200);
+    await q.page.click('#screenTop25 a[href="#top25/games/' + PRE + '"]'); await q.page.waitForTimeout(300);
+    ok(await height() < 844 * 0.8, "before kickoff it has everything already, and fits it (" + Math.round(await height()) + "px)");
+    await q.ctx.close();
 
     // The summary fails: the board's facts stay, and it says so.
     var f = await open("#top25", { failSummary: true });
