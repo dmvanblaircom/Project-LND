@@ -78,14 +78,17 @@ function ok(cond, what) {
   // The older version's caches, as its worker left them; no worker of ours
   // is registered yet, so arriving is exactly an update's arrival.
   await pb.goto(base + "/manifest.json");
-  await pb.evaluate(async function () {
+  // Stored a day before the run: the worker drops a copy older than 30 days,
+  // so a fixed date here turned this check red once it was 30 days old.
+  var STORED = new Date(Date.now() - 864e5).toUTCString();
+  await pb.evaluate(async function (STORED) {
     var s = await caches.open("iw-2000-01-01a-shell");
     await s.put("./__team", new Response(JSON.stringify({ team: "notre-dame", data: ["depth.json"] }), { headers: { "Content-Type": "application/json" } }));
     await s.put("./index.html", new Response("<title>Old</title>"));
     await s.put("https://fonts.gstatic.com/s/barlow/v1/probe.woff2", new Response("font"));
     var d = await caches.open("iw-2000-01-01a-data");
-    await d.put(location.origin + "/schedule-probe.json", new Response("{\"old\":true}", { headers: { "X-IW-Stored": "Fri, 25 Sep 2026 10:00:00 GMT" } }));
-  });
+    await d.put(location.origin + "/schedule-probe.json", new Response("{\"old\":true}", { headers: { "X-IW-Stored": STORED } }));
+  }, STORED);
   b.docs.length = 0; requests.length = 0;
   await pb.goto(base + "/?team=notre-dame#home");
   await pb.waitForFunction(function () { return navigator.serviceWorker.controller; }, null, { timeout: 20000 });
@@ -98,7 +101,7 @@ function ok(cond, what) {
   ok(s.keys.indexOf(VERSION + "-shell") > -1 && s.keys.indexOf(VERSION + "-data") > -1, "this version's caches are there");
   ok(s.team, "the fan's team config was precached from the old team mark");
   ok(s.mark && s.mark.team === "notre-dame", "and the team mark carried over");
-  ok(s.carried && s.carried.body === "{\"old\":true}" && s.carried.stored === "Fri, 25 Sep 2026 10:00:00 GMT",
+  ok(s.carried && s.carried.body === "{\"old\":true}" && s.carried.stored === STORED,
      "the old data copy was carried over with its stored time");
   var font = await pb.evaluate(async function (v) { return !!(await (await caches.open(v + "-shell")).match("https://fonts.gstatic.com/s/barlow/v1/probe.woff2")); }, VERSION);
   ok(font, "and the old font files");
