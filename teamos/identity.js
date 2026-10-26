@@ -1,7 +1,7 @@
 /* TeamOS - team identity.
 
    What the Suite needs in order to *present* a team inside it: the team's
-   colours and type, its tagline and its labels. Phase 5A showed that every ESPN-fed surface
+   colours and type and its labels. Phase 5A showed that every ESPN-fed surface
    rendered a second team from configuration alone while the page still
    called itself Irish Watch in Notre Dame navy and gold - because identity
    was authored into index.html, manifest.json and app.css rather than
@@ -151,9 +151,6 @@ TeamOS.identity = (function () {
 
     var id = {
       programLabel: str(i, "programLabel", "identity."),
-      // A tagline is a team thing, not a product thing. Most teams have none,
-      // and the Suite renders correctly without one.
-      tagline:  i.tagline == null ? null : str(i, "tagline", "identity."),
       // The News tab's section rule. It named a city in CSS until the
       // Ohio State proof found it (phase-6 report), which is exactly the
       // kind of copy that has to be the team's, not the stylesheet's.
