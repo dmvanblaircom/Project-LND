@@ -181,6 +181,34 @@ jobs:
           echo "paths=$paths" >> "$GITHUB_OUTPUT"
           exit $fail
 
+      # A team's game notes from its official media index, for a team whose
+      # depth-chart index does not carry them (Ohio State's Media Center;
+      # David, 2026-10-26). The index is looked at every three hours, and the
+      # notes PDF read only when a new week's is posted (or the reading
+      # changed): tools/producers/official_notes.py.
+      - name: Official game notes from a media index
+        id: notes
+        continue-on-error: true
+        env:
+          BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
+        run: |
+          pip install --quiet beautifulsoup4 pypdf
+          mkdir -p .cadence
+          fail=0; paths=""
+          for t in $(python3 tools/producers/teamconfig.py --with notes); do
+            grep -q "notesIndex" "teams/$t.js" || continue
+            echo "== $t"
+            stamp=".cadence/notes-$t"
+            if [ "$BY_HAND" != true ] && [ -f "$stamp" ] && [ $(( $(date +%s) - $(date -d "$(cat "$stamp")" +%s) )) -lt 10800 ]; then
+              echo "  looked under three hours ago"; continue
+            fi
+            if python3 tools/producers/official_notes.py --team "$t"; then
+              date -u +%Y-%m-%dT%H:%M:%SZ > "$stamp"; paths="$paths data/$t/notes.json"
+            else fail=1; fi
+          done
+          echo "paths=$paths" >> "$GITHUB_OUTPUT"
+          exit $fail
+
       # Each team's recruiting class and the NFL draft board, from ESPN (W16:
       # the after-season Home's recruiting and draft cards). Once a day - a
       # class and a board move over days, and each read fetches every record -
@@ -227,6 +255,7 @@ jobs:
           FPI: ${{ steps.fpi.outcome }}
           RANKS: ${{ steps.rankhistory.outcome }}
           PROSPECTS: ${{ steps.prospects.outputs.ran }}
+          NOTES_PATHS: ${{ steps.notes.outputs.paths }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -234,7 +263,9 @@ jobs:
           add () {   # add <label> <pathspec...>
             label=$1; shift
             git add -A -- "$@" 2>/dev/null || true
-            if ! git diff --staged --quiet -- "$@"; then moved="${moved:+$moved, }$label"; fi
+            if ! git diff --staged --quiet -- "$@"; then
+              case ", $moved, " in *", $label, "*) ;; *) moved="${moved:+$moved, }$label" ;; esac
+            fi
           }
           [ "$ODDS" = success ]    && add "odds" 'data/league/odds-*.json'
           [ "$HISTORY" = success ] && add "odds history" 'data/*/odds-history.json'
@@ -242,6 +273,8 @@ jobs:
           [ "$DEPTH" = success ]   && add "depth chart" 'data/*/depth.json' 'data/*/depth-history.json'
           [ "$DEPTH" = success ]   && add "availability" 'data/*/availability.json' 'data/*/availability-history.json'
           [ "$DEPTH" = success ]   && add "game notes" 'data/*/notes.json'
+          # a media index's notes: only the teams whose notes were read
+          [ -n "$NOTES_PATHS" ]    && add "game notes" $NOTES_PATHS
           # only the files of the teams whose conference report was read
           [ -n "$CONFAV_PATHS" ]   && add "conference availability" $CONFAV_PATHS
           [ "$FPI" = success ]     && add "FPI" 'data/league/fpi.json'
@@ -287,6 +320,7 @@ jobs:
                    "odds history:${{ steps.oddshistory.outcome }}" "news:${{ steps.news.outcome }}" \
                    "depth chart:${{ steps.depth.outcome }}" \
                    "conference availability:${{ steps.confav.outcome }}" \
+                   "game notes:${{ steps.notes.outcome }}" \
                    "rankings by week:${{ steps.rankhistory.outcome }}" \
                    "recruiting and draft:${{ steps.prospects.outcome }}"; do
             [ "${s##*:}" = failure ] && failed="${failed:+$failed, }${s%:*}"

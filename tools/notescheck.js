@@ -12,8 +12,10 @@
         card and By the Numbers, each naming its source; Roster's captain
         mark, pronunciation and honors; the depth chart's captain marks.
         Nothing at 320 px runs off the screen.
-     3. Notes written for another game, and Ohio State (declares none):
-        none of it.
+     3. Notes written for another game: none of it.
+     4. Ohio State, from its own real snapshot (the notes for Game 7 at
+        Indiana, read by the same parser): the same three screens (David,
+        2026-10-26).
 
    tools/notescheck.py holds the parser that writes the snapshot.
 
@@ -67,7 +69,7 @@ console.log("2-3. on screen");
   async function open(slug, opts) {
     var ctx = await browser.newContext({ viewport: { width: opts.width || 390, height: 844 }, serviceWorkers: "block" });
     var page = await ctx.newPage();
-    await page.clock.setSystemTime(AT);
+    await page.clock.setSystemTime(opts.at || AT);
     await page.route("**/*", function (route) {
       var u = route.request().url();
       if (/\/data\/notre-dame\/notes\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: opts.notes || read(SNAP),
@@ -75,7 +77,8 @@ console.log("2-3. on screen");
       if (/\/data\/notre-dame\/depth\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/nd-depth-g4.json") });
       if (u.startsWith(base)) return route.continue();
       if (/\/teams\/87\/roster/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/espn-roster-nd-oct02.json") });
-      if (/\/schedule(\?|$)/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read(opts.schedule || "tools/fixtures/espn-schedule-nd-oct08.json") });
+      if (/\/teams\/194\/roster/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/espn-roster-osu-oct02.json") });
+      if (/\/schedule(\?|$)/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: opts.scheduleBody || read(opts.schedule || "tools/fixtures/espn-schedule-nd-oct08.json") });
       return route.abort();
     });
     await page.goto(base + "/?team=" + slug + "#home");
@@ -187,11 +190,46 @@ console.log("2-3. on screen");
   eq(await unreached({ cached: "Thu, 08 Oct 2026 12:00:00 GMT" }), base0 + 1, "the worker's kept copy of the notes is not called a refresh");
   eq(await unreached({ notes: JSON.stringify(Object.assign({}, snap, { team: "ohio-state" })) }), base0 + 1, "nor is another team's file");
 
-  // ---- Ohio State ----
-  var o = await open("ohio-state", { schedule: "tools/fixtures/espn-schedule-osu-2026.json" });
-  var oh = await o.page.evaluate(function () { var s = document.querySelector('#screenHome [data-home="numbers"]'); return !s || s.hidden; });
-  ok(oh, "Ohio State declares no notes: none of it");
+  // ---- Ohio State, the week of Indiana: its own snapshot, served as committed ----
+  var o = await open("ohio-state", { schedule: "tools/fixtures/espn-schedule-osu-2026.json", at: new Date("2026-10-15T16:00:00Z") });
+  var oh = await o.page.evaluate(function () {
+    var s = document.querySelector('#screenHome [data-home="numbers"]');
+    return { shown: !!s && !s.hidden, text: s ? s.innerText.replace(/\s+/g, " ") : "" };
+  });
+  await shot(o.page, "notes-osu-home");
+  ok(oh.shown && /99-100/.test(oh.text) && /\.870/.test(oh.text), "Ohio State, Home: By the Numbers from its notes (" + oh.text.slice(0, 80) + "...)");
+  await go(o.page, "#game");
+  var og = await o.page.evaluate(function () {
+    var s = document.querySelector("#screenGame .gcard-series");
+    return { text: s ? s.innerText.replace(/\s+/g, " ") : "", facts: document.querySelectorAll("#screenGame .gcard-series .gn-facts li").length,
+             src: [].map.call(document.querySelectorAll("#screenGame .gn-src a"), function (x) { return x.href; }) };
+  });
+  await shot(o.page, "notes-osu-game");
+  ok(og.facts === 2 && /80-13-5 against the Hoosiers/.test(og.text), "Game: the series card, the series bullets only (" + og.facts + " facts)");
+  ok(og.src.length >= 1 && og.src.every(function (h) { return /^https:\/\/ohiostatebuckeyes\.com\/documents\//.test(h); }), "naming its source and linking the notes");
+  await go(o.page, "#roster/roster");
+  var orr = await o.page.evaluate(function () {
+    var rows = [].slice.call(document.querySelectorAll("#screenRoster .ro-row.roster"));
+    function row(name) { return rows.filter(function (r) { return (r.querySelector(".ro-name") || {}).textContent.indexOf(name) === 0; })[0]; }
+    var s = row("Austin Siereveld"), j = row("Jeremiah Smith");
+    return { capts: document.querySelectorAll("#screenRoster .ro-row.roster .ro-capt").length,
+             sSay: s ? (s.querySelector(".ro-say") || {}).textContent : null, jCapt: !!(j && j.querySelector(".ro-capt[title=Captain]")),
+             said: document.querySelectorAll("#screenRoster .ro-say").length, hon: document.querySelectorAll("#screenRoster details.ro-honors, #screenRoster .ro-honor").length };
+  });
+  await shot(o.page, "notes-osu-roster");
+  ok(orr.sSay === "Say SIR-uh-veld", "Roster: Austin Siereveld, Say SIR-uh-veld (" + orr.sSay + ")");
+  ok(orr.jCapt && orr.capts >= 6, "the captains marked (" + orr.capts + ")");
+  ok(orr.said >= 20 && orr.hon >= 10, "pronunciations and honors across the roster (" + orr.said + ", " + orr.hon + ")");
   await o.ctx.close();
+  // and once Indiana is final, its series and numbers are last week's: gone
+  var after = JSON.parse(read("tools/fixtures/espn-schedule-osu-2026.json"));
+  after.events.forEach(function (e) { if (e.id !== "401858488") return; var c = e.competitions[0];
+    c.status = { clock: 0, displayClock: "0:00", period: 4, type: { id: "3", name: "STATUS_FINAL", state: "post", completed: true, description: "Final", detail: "Final", shortDetail: "Final" } };
+    c.competitors.forEach(function (x) { x.score = { value: x.team.id === "194" ? 19 : 15, displayValue: x.team.id === "194" ? "19" : "15" }; x.winner = x.team.id === "194"; }); });
+  var o2 = await open("ohio-state", { scheduleBody: JSON.stringify(after), at: new Date("2026-10-20T16:00:00Z") });
+  ok(await o2.page.evaluate(function () { var s = document.querySelector('#screenHome [data-home="numbers"]'); return !s || s.hidden; }),
+     "after the Indiana final (19-15): Indiana's numbers are gone until the next notes");
+  await o2.ctx.close();
 
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the week's notes, where a fan looks, and only for their game"));
