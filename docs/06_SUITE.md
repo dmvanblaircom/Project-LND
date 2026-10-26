@@ -57,7 +57,7 @@ Suite inherits team identity from TeamOS: `app.js` reads one object, `TeamOS.ide
 
 - Colours - as a **fill** (`accent`) and, separately, as legible **text** (`accentText`, `accentOnLight`)
 - Typography - the team's UI and display stacks
-- Terminology - the program label and the team's tagline (none for a team without one)
+- Terminology - the program label
 - Team-specific capabilities - through `TeamOS.snapshots`
 
 The installed product - its name, icons, manifest and share card - is Suite's and the same for every team (decision 0024 section 11). A fan can choose Suite Style instead of Team Style in Settings (decision 0026): Suite's own colours and type for every team, with the team's name, mark and tagline unchanged.

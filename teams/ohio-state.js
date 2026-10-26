@@ -84,9 +84,6 @@ var TEAM_CONFIG = {
   identity: {
     programLabel: "OHIO STATE FOOTBALL",
 
-    // No tagline: "Leave No Doubt." is Notre Dame's, not the platform's.
-    tagline: null,
-
     colors: {
       accent:         "#BA0C2F",   // BUX scarlet
       accentText:     "#EFF1F2",   // BUX gray-light-80, 16.77:1 on the page
