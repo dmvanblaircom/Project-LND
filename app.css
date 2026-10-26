@@ -352,7 +352,6 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .hh-id p{margin:0}
 .hh-school{font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.24em;text-transform:uppercase;color:var(--t-accent-text)}
 .hh-nick{font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.2rem,10.5vw,3rem);line-height:.95;letter-spacing:.005em;text-transform:uppercase}
-.hh-tagline{margin-top:.3rem !important;font-size:1.2rem;color:var(--s-on-dark-2)}
 
 .gamecard{margin-top:.85rem;padding:.95rem 1rem 1rem;border:1px solid rgba(255,255,255,.16);border-radius:var(--s-radius-card);background:rgba(var(--t-abyss-rgb),.66);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .gamecard p{margin:0}

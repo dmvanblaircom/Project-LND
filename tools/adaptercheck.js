@@ -944,7 +944,7 @@ eq(ndId.programLabel, "NOTRE DAME FOOTBALL", "program label");
 ["productName", "title", "description", "shareTitle", "shareDescription", "manifest", "assets"].forEach(function (k) {
   ok(ndId[k] === undefined, "no identity." + k + ": the installed product is Suite's (decision 0024)");
 });
-eq(ndId.tagline, "Leave No Doubt.", "the team tagline (decision 0023)");
+ok(!("tagline" in ndId), "no team tagline: one line to keep for every team, not wanted (David, 2026-10-26)");
 eq(ndId.colors.accent, "#C99700", "accent");
 eq(ndId.colors.accentText, "#C99700", "accent text is the same gold, because it passes");
 eq(ndId.colors.accentOnLight, "#876500", "on the Suite's light surfaces the gold darkens to a passing text tone");
@@ -953,7 +953,7 @@ eq(ndId.colors.surfaceRgb, "12,35,64", "surface channels");
 
 console.log(" ohio-state identity");
 eq(osuId.programLabel, "OHIO STATE FOOTBALL", "program label");
-eq(osuId.tagline, null, "no tagline: Leave No Doubt. belongs to Notre Dame");
+ok(!("tagline" in osuId), "no team tagline");
 eq(osuId.colors.accent, "#BA0C2F", "BUX scarlet");
 eq(osuId.colors.accentText, "#EFF1F2", "accent TEXT is BUX gray-light, not a lightened scarlet");
 ok(osuId.colors.accentText !== osuId.colors.accent, "a team whose accent cannot carry text says so explicitly");
