@@ -92,12 +92,14 @@ PRs before work.
 
 ## External and conditional follow-ups
 
-- **Ohio State game notes are not published publicly.** Four probes (October
-  11–15, `probe/osu-notes`) found no weekly notes on ohiostatebuckeyes.com:
-  every Game Center carries only a box score, and the schedule page links
-  only season and career stats PDFs, even on the Thursday of Indiana week.
-  The notes features (pronunciation, captains, series card, By the Numbers,
-  milestone countdown) stay Notre Dame-only unless David names another source.
+- **Ohio State game notes are published, on the Media Center page.** The
+  October 11–15 probes (`probe/osu-notes`) looked at the Game Centers and the
+  schedule page and found none; the 2026 Ohio State Football Media Center
+  (ohiostatebuckeyes.com) links each week's "Ohio State Notes" PDF (probe of
+  2026-10-26, `probe-osu-media`). They carry By the Numbers, the series,
+  captains, a pronunciation guide and the all-time record; no depth chart.
+  Ohio State's Road to 1,000 uses the record (from 2026-10-26); the notes
+  reader is in progress (David, 2026-10-26).
 - Ourlads permission for OSU depth remains external. No projected chart on
   assumed permission; official OR designations stay as supplied.
 - January live provider verification for polls/markets remains dated; use

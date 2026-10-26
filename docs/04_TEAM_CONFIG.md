@@ -44,7 +44,7 @@ var TEAM_CONFIG = {
   // (played for; Game shows the trophy mark), "rivalry" (a name, nothing to
   // win: The Game) or "event" (a branded game: the Shamrock Series).
   series: [ { match: /purdue/i, name: "Shillelagh Trophy", kind: "trophy" } /* ... */ ],
-  history: { record: { season: 2026, wins: 993, losses: 342, ties: 42, source: "Notre Dame game notes", asOf: "2026-10-05" } },
+  history: { record: { season: 2026, wins: 993, losses: 343, ties: 42, source: "Notre Dame’s game notes", asOf: "2026-10-26" } },
 
   // The team's own pages.
   links: { roster: { url: "...", label: "..." } },

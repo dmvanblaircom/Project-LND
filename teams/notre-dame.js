@@ -129,15 +129,20 @@ var TEAM_CONFIG = {
     { match: /northwestern/i,               name: "Lost Shillelagh",           kind: "trophy" }
   ],
 
-  // The official all-time record ENTERING this season. The Oct. 5, 2026
-  // game notes give 998-342-42 through a 5-0 start, so 993-342-42 entering
-  // 2026: the program's own count (the asterisk there is the NCAA-vacated
-  // wins, which the official count leaves out). Replace it with next
-  // season's entering record when that season's first notes publish; until
-  // then the countdown shows nothing rather than a guess (TeamOS.milestones).
+  // The all-time record ENTERING this season, as the program's own game
+  // notes count it. The Navy notes (Oct. 26, 2026) give 999-344-42 after a
+  // 6-1 start, so 993-343-42 entering 2026. (The Oct. 5 and Oct. 15 notes
+  // printed 342 losses in that line while their home, road and neutral
+  // splits add to one more; the Navy notes' line and splits agree.) The
+  // notes asterisk the record without saying why in their text: the NCAA
+  // vacated 21 wins from 2012-13, and the program's count - the one that
+  // makes Navy its 1,000th - appears to include them, so the card says whose
+  // count it is rather than calling it official (David, 2026-10-26). Replace
+  // it with next season's entering record when that season's first notes
+  // publish; until then the countdown shows nothing (TeamOS.milestones).
   history: {
-    record: { season: 2026, wins: 993, losses: 342, ties: 42,
-              source: "Notre Dame game notes", asOf: "2026-10-05" }
+    record: { season: 2026, wins: 993, losses: 343, ties: 42,
+              source: "Notre Dame’s game notes", asOf: "2026-10-26" }
   },
 
   // The team's own pages, where the app points readers for the official word.

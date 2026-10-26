@@ -4,8 +4,9 @@
 
      1. TeamOS.milestones over the real Notre Dame schedule (captured
         2026-10-08): the record entering the season (the team's config) plus
-        the season's finals is 998-342-42, the very number the Oct. 5 game
-        notes print - two from 1,000, next Stanford.
+        the season's finals is 998-343-42 (the Oct. 5 notes' record line
+        said 342; their splits add to 343) - two from 1,000, next Stanford;
+        and the real 6-1 season gives the Navy notes' own 999-344-42.
      2. Each turn of the season, from that real schedule with the next
         results written in: a win (999, on the line at BYU), the 1,000th
         (reached, held a week, then gone), a loss (the count holds), a game
@@ -46,7 +47,7 @@ function result(g, us, them) { g.status = "final"; g.state = "post"; g.us = Stri
 
 console.log("1. the real schedule, through Oct. 3");
 var real = M.wins(nd.TEAM_CONFIG, games(), 2026, AT);
-eq(real && [real.wins, real.losses, real.ties], [998, 342, 42], "the official record now: the game notes' own 998-342-42");
+eq(real && [real.wins, real.losses, real.ties], [998, 343, 42], "the record through Oct. 3: 998-343-42 (the Oct. 5 notes' line said 342; its splits add to 343)");
 eq(real && [real.phase, real.target, real.toGo], ["countdown", 1000, 2], "two from 1,000");
 eq(real && real.game && real.game.oppName, "Stanford", "and the next game is Stanford");
 
@@ -78,13 +79,17 @@ eq([phaseAt("2026-11-07T23:00:00Z"), phaseAt("2026-11-08T00:30:00Z"), phaseAt("2
    "a 1,000th win over Navy holds through Miami's kickoff and Sunday, Nov. 8, to midnight; gone that Monday");
 var lost = games(); result(byOpp(lost, /stanford/i), 14, 21);
 var ll = M.wins(nd.TEAM_CONFIG, lost, 2026, new Date("2026-10-11T12:00:00Z"));
-eq(ll && [ll.wins, ll.losses, ll.toGo, ll.game.oppName], [998, 343, 2, "BYU"], "a loss: the count holds, still two to go");
+eq(ll && [ll.wins, ll.losses, ll.toGo, ll.game.oppName], [998, 344, 2, "BYU"], "a loss: the count holds, still two to go");
 var noflag = games(); var sf = byOpp(noflag, /stanford/i); result(sf, 31, 17); sf.won = false;
 var nf = M.wins(nd.TEAM_CONFIG, noflag, 2026, new Date("2026-10-11T12:00:00Z"));
-eq(nf && [nf.wins, nf.losses], [999, 342], "a 31-17 final whose winner flag is missing still counts as a win: read from the scores (Codex, #112)");
+eq(nf && [nf.wins, nf.losses], [999, 343], "a 31-17 final whose winner flag is missing still counts as a win: read from the scores (Codex, #112)");
 var bare = games(); var st = byOpp(bare, /stanford/i); st.status = "final"; st.us = null; st.them = null; st.won = false;
 var bb = M.wins(nd.TEAM_CONFIG, bare, 2026, AT);
-eq(bb && [bb.wins, bb.losses], [998, 342], "a final without a score is no result: neither a win nor a loss");
+eq(bb && [bb.wins, bb.losses], [998, 343], "a final without a score is no result: neither a win nor a loss");
+// What happened: Stanford won 58-7, BYU lost 28-24 - and the Navy notes (Oct. 26) print 999-344-42
+var gr = games(); result(byOpp(gr, /stanford/i), 58, 7); result(byOpp(gr, /byu/i), 24, 28);
+var nw = M.wins(nd.TEAM_CONFIG, gr, 2026, new Date("2026-10-26T12:00:00Z"));
+eq(nw && [nw.wins, nw.losses, nw.ties, nw.toGo, nw.game.oppName], [999, 344, 42, 1, "Navy"], "the real season, 6-1: 999-344-42, as the Navy notes print it - and Navy is No. 1,000");
 eq(M.wins(nd.TEAM_CONFIG, games(), 2027, AT), null, "another season: nothing, never a stale count");
 eq(M.wins({ history: {} }, games(), 2026, AT), null, "a team with no record: nothing");
 
@@ -104,7 +109,7 @@ var og = osuGames();
 var o2 = OM.wins(osu.TEAM_CONFIG, og, 2026, new Date("2026-11-02T12:00:00Z"));
 eq(o2 && [o2.phase, o2.target, o2.wins, o2.toGo, o2.game && o2.game.oppName], ["countdown", 1000, 997, 3, "Oregon"],
    "wins over Iowa, Maryland, Indiana and USC: 997, three from 1,000, Oregon next");
-eq(o2 && o2.source, "Ohio State game notes", "the official count, and where it comes from");
+eq(o2 && o2.source, "Ohio State\u2019s game notes", "the program's own count, and whose it is");
 ok(!/notre|irish|\b87\b/i.test(read("teamos/milestones.js").replace(/\/\*[\s\S]*?\*\//g, "")), "milestones.js names no team");
 
 console.log("2b. what the card says of the game that could make it");
@@ -176,7 +181,7 @@ console.log("3. Home");
   ok(h.shown, "Notre Dame: the card shows (" + h.text + ")");
   ok(/Road to 1,000/.test(h.text) && /\b998\b/.test(h.text) && /Two from 1,000/.test(h.text), "it reads Road to 1,000, 998 all-time wins, two from 1,000");
   ok(/Next: vs (#\d+ )?Stanford/.test(h.text), "and names the next game");
-  ok(/All-time record 998-342-42/.test(h.text) && /official count, Notre Dame game notes/i.test(h.text), "with the official record and where it comes from");
+  ok(/All-time record 998-343-42/.test(h.text) && /· per Notre Dame’s game notes/.test(h.text), "with the record and whose count it is (David, 2026-10-26: never \"official\")");
   ok(h.order.indexOf("milestone") === h.order.indexOf("hero") + 1, "right under the hero");
   // Navy week, from the real Oct. 8 schedule with the results since written
   // in: a win over Stanford, a loss at BYU - 999 - then Navy.
@@ -214,9 +219,9 @@ console.log("3. Home");
   })();
   var o3 = await home("ohio-state", "tools/fixtures/espn-schedule-osu-2026.json", { body: osuBody, at: new Date("2026-11-02T16:00:00Z") });
   ok(o3.shown && /Road to 1,000/.test(o3.text) && /\b997\b/.test(o3.text) && /Three from 1,000/.test(o3.text) && /Next: vs (#\d+ )?Oregon/.test(o3.text) &&
-     /All-time record 997-338-53/.test(o3.text) && /official count, Ohio State game notes/i.test(o3.text),
-     "Ohio State after USC: the card shows - 997, three from 1,000, Oregon next, the official record (" + o3.text + ")");
+     /All-time record 997-338-53/.test(o3.text) && /· per Ohio State’s game notes/.test(o3.text),
+     "Ohio State after USC: the card shows - 997, three from 1,000, Oregon next, the record and whose count (" + o3.text + ")");
   await browser.close(); server.close();
-  console.log("\n" + (failures ? failures + " check(s) FAILED" : "the road to 1,000 is the official count, and only that"));
+  console.log("\n" + (failures ? failures + " check(s) FAILED" : "the road to 1,000 is the program's own count, said as its own"));
   process.exit(failures ? 1 : 0);
 })().catch(function (e) { console.error(e); process.exit(1); });

@@ -72,15 +72,17 @@ var TEAM_CONFIG = {
     { match: /^michigan( wolverines)?$/i, name: "The Game",       kind: "rivalry" }
   ],
 
-  // The official all-time record ENTERING this season, as the season's first
-  // game notes give it (Ball State, Sept. 4, 2026: "All-Time Record 990-337-53
+  // The all-time record ENTERING this season, as the program's own game
+  // notes count it (Ball State, Sept. 4, 2026: "All-Time Record 990-337-53
   // (136th season)"; the Indiana notes' 995-338-53 after a 5-1 start agree).
-  // TeamOS.milestones adds the season's results: the Road to 1,000 (David,
-  // 2026-10-26). Replace it with next season's entering record when that
-  // season's first notes publish; until then the countdown shows nothing.
+  // The notes do not say how the NCAA-vacated 2010 season is counted, so the
+  // card says whose count it is (David, 2026-10-26). TeamOS.milestones adds
+  // the season's results: the Road to 1,000. Replace it with next season's
+  // entering record when that season's first notes publish; until then the
+  // countdown shows nothing.
   history: {
     record: { season: 2026, wins: 990, losses: 337, ties: 53,
-              source: "Ohio State game notes", asOf: "2026-09-04" }
+              source: "Ohio State’s game notes", asOf: "2026-09-04" }
   },
 
   links: {
