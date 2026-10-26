@@ -20,8 +20,8 @@
               as its own game notes give it; TeamOS.milestones adds the
               season's results (the countdown to a round number of wins).
      links    the team's own pages, for the official word.
-     identity how the team is presented inside Suite: colours, type, tagline
-              and labels. Read through TeamOS.identity.
+     identity how the team is presented inside Suite: colours, type and
+              labels. Read through TeamOS.identity.
      snapshots
               the team-data files the Action writes for this team, by
               kind. A team that has no source for a kind leaves it out and
@@ -150,16 +150,11 @@ var TEAM_CONFIG = {
     roster: { url: "https://fightingirish.com/sports/football/roster", label: "fightingirish.com" }
   },
 
-  // How this team is presented inside Suite: its colours, type, tagline and
-  // labels. Read through TeamOS.identity, applied by paintIdentity() in
+  // How this team is presented inside Suite: its colours, type and labels. Read through TeamOS.identity, applied by paintIdentity() in
   // app.js. The installed product - its name, icons, manifest and share
   // card - is Suite's and is not declared here (decision 0024 §11).
   identity: {
     programLabel: "NOTRE DAME FOOTBALL",
-
-    // The team's tagline. A team thing, not Suite copy: a team without one
-    // says null and the Suite leaves the line out.
-    tagline: "Leave No Doubt.",
 
     // Notre Dame Athletics navy and gold - the values fightingirish.com
     // uses. accent is the fill; accentText is the same gold because it

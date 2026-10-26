@@ -334,11 +334,11 @@ fs.readdirSync(path.join(root, "teams")).filter(function (f) {
   var c = vm.createContext({});
   vm.runInContext(read("teams/" + f), c, { filename: f });
   var id = (c.TEAM_CONFIG && c.TEAM_CONFIG.identity) || {};
-  [id.productName, id.programLabel, id.tagline].forEach(function (w) {
+  [id.productName, id.programLabel].forEach(function (w) {
     if (w && shell.indexOf(w) !== -1) claimed.push(w + " (" + f + ")");
   });
 });
-eq(claimed, [], "names no program and no team's product, label or tagline");
+eq(claimed, [], "names no program and no team's product or label");
 ok((regCtx.TEAM_REGISTRY || []).length > 100, "checked against the full roster, not a sample");
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the page knows which team it is"));

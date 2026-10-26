@@ -12,7 +12,7 @@
    payload, or names a team.
 
      Suite.home.paint(host, model)
-       model.team      { name, nick, tagline, abbr, markUrl, oppMark(id) }
+       model.team      { name, nick, abbr, markUrl, oppMark(id) }
        model.art       { photo?, name, abbr, markUrl, atmosphere }
        model.hero      { game, reason, weather }   game is a normalized Game
        model.news      NewsItem[] | null (still loading)
@@ -200,7 +200,6 @@ Suite.home = (function () {
     var id = '<div class="hh-id">' +
                '<p class="hh-school">' + esc(team.name) + "</p>" +
                (team.nick ? '<p class="hh-nick">' + esc(team.nick) + "</p>" : "") +
-               (team.tagline ? '<p class="hh-tagline">' + esc(team.tagline) + "</p>" : "") +
              "</div>";
     var card = "";
     if (g) {

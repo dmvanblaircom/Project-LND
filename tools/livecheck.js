@@ -55,7 +55,7 @@ function makeContext(teamFile) {
     // Home, as paintHome() in app.js hands it over, for one game at one moment
     'function heroOf(g, now){',
     '  var h=TeamOS.game.hero([g], now, TEAM.timeZone), host=stubHost("data-home");',
-    '  Suite.home.paint(host, { team:{ name:TEAM.name, nick:"", tagline:null, abbr:TEAM.abbreviation, markUrl:null },',
+    '  Suite.home.paint(host, { team:{ name:TEAM.name, nick:"", abbr:TEAM.abbreviation, markUrl:null },',
     '    oppMark:function(){ return null; }, art:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:null, atmosphere:null },',
     '    hero:{ game:h.game, reason:h.reason, weather:null }, heroId:h.game ? h.game.id : null,',
     '    news:[], schedule:[], outlook:TeamOS.outlook.metrics({}), fresh:null });',

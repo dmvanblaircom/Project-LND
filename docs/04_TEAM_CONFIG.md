@@ -49,13 +49,12 @@ var TEAM_CONFIG = {
   // The team's own pages.
   links: { roster: { url: "...", label: "..." } },
 
-  // How the team is presented inside Suite: colours, type, tagline, labels.
+  // How the team is presented inside Suite: colours, type, labels.
   // Read through TeamOS.identity (decision 0009). The installed product -
   // its name, icons, manifest and share card - is Suite's, not the team's
   // (decision 0024 section 11).
   identity: {
     programLabel: "NOTRE DAME FOOTBALL",
-    tagline: "Leave No Doubt.",               // null for a team without one
     colors: { accent: "#C99700", accentText: "#C99700", accentOnLight: "#876500", /* ...nine more */ },
     fonts:  { ui: "...", display: "..." }
   },
@@ -86,7 +85,7 @@ The real files are `teams/notre-dame.js` and `teams/ohio-state.js` (which declar
 - `history.record` — the program's official all-time record entering a season, from its own game notes; `TeamOS.milestones` adds the season's results for the countdown to a round number of wins (the 1,000th). A record for another season shows nothing; it is replaced when the next season's first notes publish
 - `links` — the team's official pages
 - `snapshots` — which of the Action-written team-data files this team has (the depth chart is a capability; the beat feed is a content source; the odds history is team-scoped) and where they are. `notes` is the week's facts from the team's official game notes (pronunciations, captains, honors, the series, By the Numbers), written by the same producer that reads the depth chart and availability from those notes; a team that declares none shows none of it
-- `identity` — how the team is presented inside Suite: colours, type, tagline, program label
+- `identity` — how the team is presented inside Suite: colours, type, program label. No tagline: removed 2026-10-26 (decision 0023, amended)
 
 `identity.colors` separates the **fill** (`accent`) from accent-coloured **text**
 (`accentText`), because a team's crest colour is not always legible on a dark page:

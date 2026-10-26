@@ -45,6 +45,9 @@ the source of truth.
 **Team data.**
 - One configurable `tagline` per team: Notre Dame's is "Leave No Doubt."; a
   team may have none. "PLAY LIKE A CHAMPION TODAY®" is not used.
+  *(Amended by David, 2026-10-26: no team has a tagline. It is a line of
+  upkeep for every team the Suite carries, and not wanted; the field and
+  Home's hero line are removed. Project LND keeps its name.)*
 - Each team declares an `accentOnLight` text color. Its surface colour must
   pass as heading ink on the Suite's light surfaces. TeamOS enforces both.
 

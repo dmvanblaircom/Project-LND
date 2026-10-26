@@ -84,7 +84,7 @@ function paintIdentity(){
 // The fan's choice, not the team's: stored on its own, outside every team's
 // keys, so it holds across team changes. Team Style (the default) lets this
 // team's colours and type lead; Suite Style uses Suite's own for every team.
-// Only the stylesheet's tokens change - the team's name, mark, tagline and
+// Only the stylesheet's tokens change - the team's name, mark and
 // photography are who the team is, not a style, and stay.
 var STYLE_KEY="suite-style";
 var SUITE_ID=TeamOS.identity.create({ identity: Suite.ui.STYLE }, TEAM);
@@ -1333,7 +1333,7 @@ function paintHome(){
   var milestone=TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now);
   tellWorkerMilestone(milestone);
   Suite.home.paint(host, {
-    team:{ name:TEAM.name, nick:TEAM_NICK, tagline:ID.tagline, abbr:TEAM.abbreviation,
+    team:{ name:TEAM.name, nick:TEAM_NICK, abbr:TEAM.abbreviation,
            markUrl:TeamOS.espn.mark(espnId, true) },
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
     art:{ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true),
