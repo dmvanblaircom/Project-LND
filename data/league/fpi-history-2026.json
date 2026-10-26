@@ -7590,7 +7590,7 @@
     "seasonType": 2,
     "week": 8,
     "weekText": "Week 8",
-    "sourceUpdated": "2026-10-25T08:00Z",
+    "sourceUpdated": "2026-10-26T08:00Z",
     "teams": [
      {
       "espnId": "194",
@@ -8835,7 +8835,7 @@
       "record": "1-7"
      }
     ],
-    "fetchedAt": "2026-10-25T09:07Z"
+    "fetchedAt": "2026-10-26T09:07Z"
    }
   }
  ]
