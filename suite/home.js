@@ -333,7 +333,9 @@ Suite.home = (function () {
         '<p class="ms-line">' + line + "</p>" +
         // the program's own count, entering the season, plus its results since
         '<p class="ms-src">All-time record ' + esc(n(ms.wins) + "-" + n(ms.losses) + "-" + n(ms.ties)) +
-          (ms.source ? " \u00b7 official count, " + esc(ms.source) : "") + "</p>" +
+          // whose count it is, never "official": the NCAA's can differ
+          // (vacated wins; David, 2026-10-26)
+          (ms.source ? " \u00b7 per " + esc(ms.source) : "") + "</p>" +
       "</div>";
   }
 
