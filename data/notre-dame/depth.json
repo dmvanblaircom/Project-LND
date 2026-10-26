@@ -3,11 +3,11 @@
  "team": "notre-dame",
  "capability": "depth",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/06137107-c9b9-4296-82a8-30086655bb4d.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/d8263def-9bd3-487e-9661-36b97cd3c43d.pdf",
  "sourceLabel": "FightingIrish.com",
- "title": "DEPTH CHART - GAME 7 AT BYU",
- "game": "at BYU",
- "fetchedAt": "2026-10-15T17:37:53.936604+00:00",
+ "title": "DEPTH CHART - GAME 8 VS NAVY",
+ "game": "vs. Navy",
+ "fetchedAt": "2026-10-26T17:37:50.868936+00:00",
  "units": [
   {
    "unit": "Defense",
@@ -99,16 +99,6 @@
         {
          "no": "7",
          "name": "Francis Brewu",
-         "cl": "Jr."
-        }
-       ]
-      },
-      {
-       "level": 2,
-       "players": [
-        {
-         "no": "59",
-         "name": "Sean Sevillano Jr.",
          "cl": "Jr."
         }
        ]
@@ -247,8 +237,8 @@
        "level": 2,
        "players": [
         {
-         "no": "12",
-         "name": "Jayden Sanders",
+         "no": "24",
+         "name": "Mark Zackery IV",
          "cl": "So."
         }
        ]
@@ -315,9 +305,9 @@
        "level": 1,
        "players": [
         {
-         "no": "2",
-         "name": "DJ McKinney",
-         "cl": "5th"
+         "no": "12",
+         "name": "Jayden Sanders",
+         "cl": "So."
         }
        ]
       },
@@ -1040,73 +1030,28 @@
  "changes": [
   {
    "kind": "added",
-   "name": "Dallas Golden",
-   "text": "Dallas Golden now also listed at PR, second team"
-  },
-  {
-   "kind": "added",
    "name": "Jayden Sanders",
-   "text": "Jayden Sanders now also listed at CB 1, second team"
+   "text": "Jayden Sanders now also listed at CB 2, first team"
   },
   {
    "kind": "removed",
    "name": "Jayden Sanders",
-   "text": "Jayden Sanders no longer listed at CB 2"
+   "text": "Jayden Sanders no longer listed at CB 1"
   },
   {
    "kind": "enters",
-   "name": "Ayden Pouncey",
-   "text": "Ayden Pouncey enters the depth chart at CB 2, second team"
-  },
-  {
-   "kind": "removed",
-   "name": "Jaden Greathouse",
-   "text": "Jaden Greathouse no longer listed at PR"
-  },
-  {
-   "kind": "added",
-   "name": "Styles Prescod",
-   "text": "Styles Prescod now also listed at LT, second team"
-  },
-  {
-   "kind": "added",
-   "name": "Styles Prescod",
-   "text": "Styles Prescod now also listed at RT, second team"
-  },
-  {
-   "kind": "removed",
-   "name": "Styles Prescod",
-   "text": "Styles Prescod no longer listed at RG"
-  },
-  {
-   "kind": "down",
-   "name": "Grayson McKeogh",
-   "text": "Grayson McKeogh drops to third team at LT"
-  },
-  {
-   "kind": "enters",
-   "name": "Matty Augustine",
-   "text": "Matty Augustine enters the depth chart at RG, second team"
-  },
-  {
-   "kind": "down",
-   "name": "Owen Strebig",
-   "text": "Owen Strebig drops to third team at RT"
-  },
-  {
-   "kind": "removed",
-   "name": "Aneyas Williams",
-   "text": "Aneyas Williams no longer listed at PR"
-  },
-  {
-   "kind": "leaves",
    "name": "Mark Zackery IV",
-   "text": "Mark Zackery IV is off the depth chart"
+   "text": "Mark Zackery IV enters the depth chart at CB 1, second team"
   },
   {
    "kind": "leaves",
-   "name": "Charlie Thom",
-   "text": "Charlie Thom is off the depth chart"
+   "name": "Sean Sevillano Jr.",
+   "text": "Sean Sevillano Jr. is off the depth chart"
+  },
+  {
+   "kind": "leaves",
+   "name": "DJ McKinney",
+   "text": "DJ McKinney is off the depth chart"
   }
  ]
 }

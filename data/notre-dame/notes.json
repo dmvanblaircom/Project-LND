@@ -3,13 +3,13 @@
  "team": "notre-dame",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/ea95b759-eb4e-410a-a9e8-e7e1ba31ba74.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/879c5d7a-ec83-4c8b-b34e-27e1af4f72da.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/15/pWnqIwrQOvzj3BhrYKwWoJbu5jiRxavW0h0FsG15.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/26/HfJtbIGZqOIRbFR6CXtdWNt4EwiF9j6Gt6MVoF59.pdf",
  "parser": 1,
- "fetchedAt": "2026-10-15T17:37:53.936604+00:00",
- "publishedAt": "2026-10-15",
- "game": "BYU",
+ "fetchedAt": "2026-10-26T17:37:50.868936+00:00",
+ "publishedAt": "2026-10-26",
+ "game": "Navy",
  "pronounce": {
   "Khary Adams": "CAR-ee",
   "Matty Augustine": "August-EEN",
@@ -87,6 +87,7 @@
    "Manning Award Star of the Week (Oct. 5)",
    "Maxwell Award Watch List",
    "Phil Steele Preseason All-America Fourth Team",
+   "Pony Express Award Watch List",
    "Senior Bowl Top 300",
    "Shriners Children’s East-West Shrine Bowl 1000",
    "Walter Camp Player of the Year Award Watch List"
@@ -95,11 +96,15 @@
    "College Football Comeback Player of the Year Pre-Season Watch List",
    "Rimington Trophy Watch List"
   ],
+  "Jordan Faison": [
+   "Pony Express Award Watch List"
+  ],
   "Devin Fitzgerald": [
    "Hispanic College Football Player of the Year Award Watch List"
   ],
   "Jaden Greathouse": [
    "College Football Comeback Player of the Year Pre-Season Watch List",
+   "Comeback Player of the Week (Oct. 20)",
    "Earl Campbell Tyler Rose Award Watch List"
   ],
   "Charles Jagusah": [
@@ -116,8 +121,9 @@
    "CBS Sports Preseason All-America First Team",
    "ESPN Preseason All-America First Team",
    "Lombardi Award Watch List",
-   "Lombardi Award Midseason Watch List (Oct. 13)",
+   "Lombardi Award Midseason Watch List",
    "On3 Preseason All-America Second Team",
+   "On3 Midseason All-America Second Team",
    "Outland Trophy Watch List",
    "Pro Football Network Preseason All-America First Team",
    "Shriners Children’s East-West Shrine Bowl 1000",
@@ -134,21 +140,27 @@
    "Allstate Wuerffel Trophy Watch List",
    "Allstate Wuerffel Trophy Semifinalist",
    "Associated Press Preseason All-America First Team",
+   "Associated Press Midseason All-America First Team",
    "Bronko Nagurski Trophy Watch List",
    "CBS Sports Preseason All-America First Team",
    "Chuck Bednarik Award Watch List",
    "ESPN Preseason All-America First Team",
+   "Jason Witten Collegiate Man of the Year Award Semifinalist",
    "Lott IMPACT Trophy Watch List",
+   "Lott IMPACT Trophy Quarterfinalist",
    "Maxwell Award Watch List",
    "On3 Preseason All-America First Team",
    "Paycom Jim Thorpe Award Watch List",
    "Phil Steele Preseason All-America First Team",
    "Phil Steele Preseason Defensive Player of the Year",
+   "Pony Express Award Watch List",
    "Pro Football Network Preseason All-America First Team",
    "Senior Bowl Top 300",
    "Shriners Children’s East-West Shrine Bowl 1000",
    "Sporting News Preseason All-America First Team",
+   "Sporting News Midseason All-America Team",
    "The Athletic Preseason All-America First Team",
+   "The Athletic Midseason All-America First Team",
    "USA TODAY Sports Preseason All-America First Team",
    "Walter Camp Player of the Year Award Watch List",
    "Walter Camp Preseason All-America First Team"
@@ -163,9 +175,11 @@
    "William V. Campbell Trophy Nominee"
   ],
   "Boubacar Traore": [
+   "Associated Press Midseason All-America Second Team",
    "Bronko Nagurski Trophy Watch List",
    "Chuck Bednarik Award Watch List",
    "College Football Comeback Player of the Year Pre-Season Watch List",
+   "On3 Midseason All-America First Team",
    "Phil Steele Preseason All-America Third Team",
    "Senior Bowl Top 300"
   ],
@@ -176,7 +190,7 @@
    "CBS Sports Preseason All-America Second Team",
    "College Football Comeback Player of the Year Pre-Season Watch List",
    "Lombardi Award Watch List",
-   "Lombardi Award Midseason Watch List (Oct. 13)",
+   "Lombardi Award Midseason Watch List",
    "Lott IMPACT Trophy Watch List",
    "On3 Preseason All-America Second Team",
    "Shriners Children’s East-West Shrine Bowl 1000",
@@ -184,18 +198,30 @@
   ],
   "Jonaz Walton": [
    "Paul Hornung Award Weekly Honor Roll (Oct. 6)",
-   "Shaun Alexander Freshman of the Week (Oct. 13)"
+   "Shaun Alexander Award Freshman of the Week (Oct. 13)",
+   "On3 Midseason True Freshman All-America Team"
+  ],
+  "Aneyas Williams": [
+   "Paul Hornung Award Weekly Honor Roll (Sept. 9)"
+  ],
+  "Kedren Young": [
+   "College Football Comeback Player of the Year Pre-Season Watch List",
+   "Notre Dame Offensive Line Joe Moore Award Midseason Honor Roll"
   ]
  },
  "glance": [
-  "Saturday evening will mark the 10th meeting between Notre Dame and BYU. The series stands at a 7-2 Notre Dame advantage all-time.",
-  "The Irish are 1-0 against the Cougars under Coach Marcus Freeman.",
-  "The two teams last faced off at the 2022 Shamrock Series in Las Vegas on October 8, 2022, when the Irish defeated the No. 16 Cougars 28-20.",
-  "Michael Mayer became the career receptions leader for a tight end against BYU in 2022, hauling in his record-breaking 141st reception on a 24-yard pass from Drew Pyne.",
-  "The 28-20 win over No. 16 BYU in the 2022 Shamrock Series marked the first ranked win in the Freeman Era. Since that game, Freeman has led the Irish to 16 ranked wins.",
-  "Notre Dame has won four consecutive games against BYU in 2005, 2012, 2013, and 2022."
+  "Saturday afternoon in New England will mark the 99th Notre Dame-Navy meeting. The series stands with an 84-13-1 Notre Dame advantage all-time.",
+  "It is the fourth meeting between Marcus Freeman and Brian Newberry as head coaches. Under Freeman, the Irish are 4-0 against the Midshipmen overall and 3-0 against Newberry-led Navy squads.",
+  "The Irish and Midshipmen met a season ago; it was the first true home game at Notre Dame Stadium against Navy in the Freeman Era. No. 10 Notre Dame won 49-10.",
+  "The last time the two teams met at a neutral site, it was a clash of top 25 opponents; No. 12 Notre Dame claimed a 51-14 win at MetLife Stadium over No. 24 Navy on October 26, 2024.",
+  "The Irish are 142-23-5 against American Athletic Conference opponents all-time.",
+  "Notre Dame is 6-0 against AAC members under Freeman."
  ],
  "numbers": [
+  {
+   "n": "0",
+   "text": "Points opponents have scored off Notre Dame turnovers this season."
+  },
   {
    "n": "1",
    "text": "Boubacar Traore became the first Irish player since at least 1998 to record both a strip sack and an interception in the same game, accomplishing the feat against Stanford."
@@ -205,36 +231,28 @@
    "text": "Drayk Bowen and Adon Shuler are the 28th and 29th players to be elected captain twice."
   },
   {
-   "n": "3",
-   "text": "Consecutive games with at least three touchdown passes for CJ Carr, who threw three against Stanford."
-  },
-  {
    "n": "5",
    "text": "Luke Talich is the fifth NDFB player to have a receiving touchdown, an interception-return touchdown and a punt-return touchdown."
-  },
-  {
-   "n": "7",
-   "text": "Consecutive games in which Notre Dame has held its opponent below 100 rushing yards, dating back to the 2025 regular-season finale at Stanford."
   },
   {
    "n": "7",
    "text": "Career interceptions for Leonard Moore, most among all returning Irish defenders."
   },
   {
-   "n": "14",
-   "text": "Takeaways by the Irish through six games, including seven interceptions and seven fumble recoveries."
+   "n": "8",
+   "text": "Career-high receptions for Jaden Greathouse at BYU, totaling 125 receiving yards."
   },
   {
    "n": "16",
-   "text": "Consecutive wins by double digits, dating back to Sept. 20, 2025."
+   "text": "Takeaways by the Irish through seven games, including eight interceptions and eight fumble recoveries."
   },
   {
-   "n": "27",
-   "text": "Consecutive games with a reception for Jordan Faison, tying Chris Brown (2013-15) for the second-longest streak in program history."
+   "n": "28",
+   "text": "Consecutive games with a reception for Jordan Faison."
   },
   {
-   "n": "29",
-   "text": "Career field goals for Spencer Porath (29-for-36, 80.6%), who is 71-for-72 on career extra points."
+   "n": "32",
+   "text": "Career field goals for Spencer Porath (32-for-39, 82.1%), who is 72-for-73 on career extra points."
   },
   {
    "n": "33",

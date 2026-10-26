@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-10-15T17:37:53.936604+00:00",
+ "updated": "2026-10-26T17:37:50.868936+00:00",
  "reports": [
   {
    "schema": 1,
@@ -588,6 +588,93 @@
      "name": "Chaz Smith",
      "status": "out-season",
      "detail": "Left Knee"
+    }
+   ]
+  },
+  {
+   "schema": 1,
+   "team": "notre-dame",
+   "capability": "availability",
+   "tier": "official",
+   "game": "vs. Navy",
+   "sourceUrl": "https://fightingirish.com/documents/879c5d7a-ec83-4c8b-b34e-27e1af4f72da.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/26/HfJtbIGZqOIRbFR6CXtdWNt4EwiF9j6Gt6MVoF59.pdf",
+   "parser": 2,
+   "fetchedAt": "2026-10-26T17:37:50.868936+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-26",
+   "heading": "AVAILABILITY UPDATE (OCT. 26)",
+   "players": [
+    {
+     "no": "",
+     "pos": "TE",
+     "name": "Cooper Flanagan",
+     "status": "questionable",
+     "detail": "Left Hamstring"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Loghan Thomas",
+     "status": "questionable",
+     "detail": "Right Shoulder"
+    },
+    {
+     "no": "",
+     "pos": "LB",
+     "name": "Kyngstonn Viliamu-Asa",
+     "status": "questionable",
+     "detail": "Left Thumb"
+    },
+    {
+     "no": "",
+     "pos": "CB",
+     "name": "Mark Zackery IV",
+     "status": "questionable",
+     "detail": "Concussion"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Christopher Burgess Jr.",
+     "status": "out-game",
+     "detail": "Left Tibia"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Tiki Hola",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Charles Jagusah",
+     "status": "out-game",
+     "detail": "Left Humerus"
+    },
+    {
+     "no": "",
+     "pos": "S",
+     "name": "Brauntae Johnson",
+     "status": "out-game",
+     "detail": "Left Foot"
+    },
+    {
+     "no": "",
+     "pos": "CB",
+     "name": "DJ McKinney",
+     "status": "out-game",
+     "detail": "Right Ankle"
+    },
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Chris Terek",
+     "status": "out-game",
+     "detail": "Right Knee"
     }
    ]
   }
