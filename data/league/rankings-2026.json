@@ -3864,6 +3864,13 @@
    "week": 8,
    "label": "Week 8",
    "updated": "2026-10-26T08:00Z"
+  },
+  {
+   "id": "w9",
+   "type": 2,
+   "week": 9,
+   "label": "Week 9",
+   "updated": "2026-10-26T08:00Z"
   }
  ],
  "teams": {
