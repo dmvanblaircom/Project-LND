@@ -72,6 +72,17 @@ var TEAM_CONFIG = {
     { match: /^michigan( wolverines)?$/i, name: "The Game",       kind: "rivalry" }
   ],
 
+  // The official all-time record ENTERING this season, as the season's first
+  // game notes give it (Ball State, Sept. 4, 2026: "All-Time Record 990-337-53
+  // (136th season)"; the Indiana notes' 995-338-53 after a 5-1 start agree).
+  // TeamOS.milestones adds the season's results: the Road to 1,000 (David,
+  // 2026-10-26). Replace it with next season's entering record when that
+  // season's first notes publish; until then the countdown shows nothing.
+  history: {
+    record: { season: 2026, wins: 990, losses: 337, ties: 53,
+              source: "Ohio State game notes", asOf: "2026-09-04" }
+  },
+
   links: {
     roster: { url: "https://ohiostatebuckeyes.com/sports/football/roster", label: "ohiostatebuckeyes.com" }
   },

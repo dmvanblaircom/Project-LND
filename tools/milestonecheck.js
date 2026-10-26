@@ -10,8 +10,9 @@
         results written in: a win (999, on the line at BYU), the 1,000th
         (reached, held a week, then gone), a loss (the count holds), a game
         in progress or a final without a score (not counted), another
-        season's record (nothing, never a stale count), Ohio State (declares
-        no record: nothing).
+        season's record (nothing, never a stale count).
+     2c. Ohio State, from its own real schedule and its notes' official
+        990-337-53 entering 2026: the same countdown, from config alone.
      3. Home in a real browser: the card under the hero says so, and a team
         without a milestone has no card.
 
@@ -86,8 +87,24 @@ var bb = M.wins(nd.TEAM_CONFIG, bare, 2026, AT);
 eq(bb && [bb.wins, bb.losses], [998, 342], "a final without a score is no result: neither a win nor a loss");
 eq(M.wins(nd.TEAM_CONFIG, games(), 2027, AT), null, "another season: nothing, never a stale count");
 eq(M.wins({ history: {} }, games(), 2026, AT), null, "a team with no record: nothing");
-var osu = load("teams/ohio-state.js");
-eq(osu.TeamOS.milestones.wins(osu.TEAM_CONFIG, games(), 2026, AT), null, "Ohio State declares no record: nothing");
+
+console.log("2c. Ohio State (David, 2026-10-26: the Road to 1,000 for Ohio State too)");
+var osu = load("teams/ohio-state.js"), OM = osu.TeamOS.milestones;
+var osuTeam = osu.TeamOS.createTeam(osu.TEAM_CONFIG.team);
+function osuGames() { return osu.TeamOS.espn.schedule(JSON.parse(read("tools/fixtures/espn-schedule-osu-2026.json")), osuTeam, osu.TEAM_CONFIG); }
+// the real schedule, captured with Ball State, Texas, Kent State and Illinois final
+var o1 = OM.wins(osu.TEAM_CONFIG, osuGames(), 2026, new Date("2026-09-30T12:00:00Z"));
+// (the same, with the target brought within reach, to read the count itself)
+var o1all = (function () { var c = JSON.parse(JSON.stringify(osu.TEAM_CONFIG)); if (!c.history || !c.history.record) return null;
+  c.history.record.wins += 7; return OM.wins(c, osuGames(), 2026, new Date("2026-09-30T12:00:00Z")); })();
+eq(o1, null, "through Illinois (W, L to Texas, W, W): 993, seven from 1,000 - nothing yet");
+eq(o1all && [o1all.wins - 7, o1all.losses, o1all.ties], [993, 338, 53], "and the count is 993-338-53, as the notes' own arithmetic gives (995-338-53 after Iowa and Maryland)");
+var og = osuGames();
+[/iowa/i, /maryland/i, /indiana/i, /usc|southern cal/i].forEach(function (re, i) { result(byOpp(og, re), 30 + i, 10); });
+var o2 = OM.wins(osu.TEAM_CONFIG, og, 2026, new Date("2026-11-02T12:00:00Z"));
+eq(o2 && [o2.phase, o2.target, o2.wins, o2.toGo, o2.game && o2.game.oppName], ["countdown", 1000, 997, 3, "Oregon"],
+   "wins over Iowa, Maryland, Indiana and USC: 997, three from 1,000, Oregon next");
+eq(o2 && o2.source, "Ohio State game notes", "the official count, and where it comes from");
 ok(!/notre|irish|\b87\b/i.test(read("teamos/milestones.js").replace(/\/\*[\s\S]*?\*\//g, "")), "milestones.js names no team");
 
 console.log("2b. what the card says of the game that could make it");
@@ -183,7 +200,22 @@ console.log("3. Home");
   var lost = await home("notre-dame", FIX, { body: navyWeek([17, 20]), at: new Date("2026-10-31T20:00:00Z") });
   ok(/Final/i.test(lost.hero) && lost.made === null && /on the line: vs (#\d+ )?Miami/.test(lost.text), "a loss: the final as ever, and Miami is next");
   var o = await home("ohio-state", "tools/fixtures/espn-schedule-osu-2026.json");
-  ok(!o.shown, "Ohio State: no card");
+  ok(!o.shown, "Ohio State seven from 1,000: no card yet");
+  // Ohio State after USC, results written into its real schedule
+  var osuBody = (function () {
+    var d = JSON.parse(read("tools/fixtures/espn-schedule-osu-2026.json"));
+    d.events.forEach(function (e) {
+      if (["401858473", "401858483", "401858488", "401858509"].indexOf(e.id) < 0) return;
+      var c = e.competitions[0];
+      c.status = { clock: 0, displayClock: "0:00", period: 4, type: { id: "3", name: "STATUS_FINAL", state: "post", completed: true, description: "Final", detail: "Final", shortDetail: "Final" } };
+      c.competitors.forEach(function (x) { var us = x.team.id === "194", v = us ? 31 : 17; x.score = { value: v, displayValue: String(v) }; x.winner = us; });
+    });
+    return JSON.stringify(d);
+  })();
+  var o3 = await home("ohio-state", "tools/fixtures/espn-schedule-osu-2026.json", { body: osuBody, at: new Date("2026-11-02T16:00:00Z") });
+  ok(o3.shown && /Road to 1,000/.test(o3.text) && /\b997\b/.test(o3.text) && /Three from 1,000/.test(o3.text) && /Next: vs (#\d+ )?Oregon/.test(o3.text) &&
+     /All-time record 997-338-53/.test(o3.text) && /official count, Ohio State game notes/i.test(o3.text),
+     "Ohio State after USC: the card shows - 997, three from 1,000, Oregon next, the official record (" + o3.text + ")");
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the road to 1,000 is the official count, and only that"));
   process.exit(failures ? 1 : 0);
