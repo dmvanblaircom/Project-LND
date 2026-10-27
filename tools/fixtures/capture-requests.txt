@@ -91,3 +91,12 @@ corerank-2026-2-2-1 ap-2026-w2
 coreteam-2026-2390 miami-2026
 # the 2025 postseason, as season type 3, week 1 (a date range is refused)
 postboard-2025 postboard-2025
+# 2026-10-27: the four new teams' schedules and news, for their review renders
+schedule-84 iu-2026
+schedule-135 minn-2026
+schedule-2449 ndsu-2026
+schedule-252 byu-2026
+news-84 iu-oct27
+news-135 minn-oct27
+news-2449 ndsu-oct27
+news-252 byu-oct27
