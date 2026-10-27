@@ -143,6 +143,19 @@ function fixture(url) {
   }
   var NAVY = "rgb(17, 29, 53)", beneath = await under(a.page);
   ok(beneath === NAVY + " / " + NAVY, "while it is up, the page beneath it is its navy, to the screen's foot (" + beneath + ")");
+  // Below the screen's foot, where iOS can leave a strip uncovered, the nav
+  // paints its own colour (white) - the launch must cover it there too
+  // (David's iPhone, 2026-10-27).
+  var foot = await a.page.evaluate(function () {
+    var l = document.getElementById("launch"), n = document.querySelector(".navbar");
+    var la = getComputedStyle(l, "::after"), na = n && getComputedStyle(n, "::after");
+    return { content: la.content, pos: la.position, top: parseFloat(la.top), h: parseFloat(la.height), box: l.getBoundingClientRect().height,
+             bg: la.backgroundColor, launchBg: getComputedStyle(l).backgroundColor,
+             navH: na ? parseFloat(na.height) : 0, navTop: na ? na.position : "", above: +getComputedStyle(l).zIndex > +getComputedStyle(n).zIndex };
+  });
+  ok(foot.content !== "none" && foot.pos === "absolute" && foot.top >= foot.box - 1 && foot.h >= foot.navH && foot.navH > 0,
+     "it reaches past the screen's foot as far as the nav's own extension does (" + foot.h + "px from " + foot.top + "px; the nav's " + foot.navH + "px)");
+  ok(foot.bg === foot.launchBg && foot.above, "in its navy, and over the nav's white (" + foot.bg + ")");
   var t = await liftedAt(a, 8000), done = await complete(a.page);
   var after = await under(a.page);
   ok(after.indexOf(NAVY) < 0, "from the lift on, the page has its own colours (" + after + ")");
