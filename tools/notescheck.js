@@ -14,8 +14,8 @@
         Nothing at 320 px runs off the screen.
      3. Notes written for another game: none of it.
      4. Ohio State, from its own real snapshot (the notes for Game 7 at
-        Indiana, read by the same parser): the same three screens (David,
-        2026-10-26).
+        Indiana, read by the same parser; tools/fixtures/osu-notes-g7.json):
+        the same three screens (David, 2026-10-26).
 
    tools/notescheck.py holds the parser that writes the snapshot.
 
@@ -72,6 +72,9 @@ console.log("2-3. on screen");
     await page.clock.setSystemTime(opts.at || AT);
     await page.route("**/*", function (route) {
       var u = route.request().url();
+      // Ohio State's snapshot as it was read for Indiana week, pinned: the live
+      // file moves on every week (the USC notes replaced it on 2026-10-27)
+      if (/\/data\/ohio-state\/notes\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/osu-notes-g7.json") });
       if (/\/data\/notre-dame\/notes\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: opts.notes || read(SNAP),
                                                                      headers: opts.cached ? { "X-IW-Cached": opts.cached } : {} });
       if (/\/data\/notre-dame\/depth\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/nd-depth-g4.json") });
@@ -190,7 +193,7 @@ console.log("2-3. on screen");
   eq(await unreached({ cached: "Thu, 08 Oct 2026 12:00:00 GMT" }), base0 + 1, "the worker's kept copy of the notes is not called a refresh");
   eq(await unreached({ notes: JSON.stringify(Object.assign({}, snap, { team: "ohio-state" })) }), base0 + 1, "nor is another team's file");
 
-  // ---- Ohio State, the week of Indiana: its own snapshot, served as committed ----
+  // ---- Ohio State, the week of Indiana: its own snapshot (the Indiana notes, pinned) ----
   var o = await open("ohio-state", { schedule: "tools/fixtures/espn-schedule-osu-2026.json", at: new Date("2026-10-15T16:00:00Z") });
   var oh = await o.page.evaluate(function () {
     var s = document.querySelector('#screenHome [data-home="numbers"]');
