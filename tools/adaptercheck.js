@@ -1054,7 +1054,8 @@ ok(!/notre|irish|ohio|buckeye|south bend|columbus/i.test(cssRules),
    "no team and no home town named in any selector or value");
 ok(!/--gold|--navy/.test(css), "no team-flavoured variable name survives (--gold holding scarlet reads as a lie)");
 ok(!/:before{content:"[^"]*[A-Z]{2,}[^"]*"}/.test(cssRules), "no section label is written into the stylesheet");
-ok(!/'Barlow|'Grenze/.test(cssRules), "type comes from the team's stacks, not from the rules");
+ok(!/'Barlow|'Grenze/.test(cssRules.replace(/@font-face\{[^}]*\}/g, "")),
+   "type comes from the team's stacks, not from the rules (a face's own @font-face aside: Barlow is Rutgers' since Phase 1)");
 
 // ---- a team without a provider's data does not see that surface ----
 // Kalshi prices the championship contenders, not all of FBS. A team it takes

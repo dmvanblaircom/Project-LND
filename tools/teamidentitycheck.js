@@ -54,7 +54,7 @@ teams.forEach(function (f) {
     var files = declared[first] || [];
     var owned = SUITE.indexOf(first) !== -1 ||
       (files.length && files.every(function (u) { return fs.existsSync(path.join(root, u)); }) &&
-       fs.existsSync(path.join(root, path.dirname(files[0]), "OFL.txt")));
+       ["OFL.txt", "LICENSE.txt"].some(function (l) { return fs.existsSync(path.join(root, path.dirname(files[0]), l)); }));
     ok(owned, k + " face '" + first + "' is the Suite's, or self-hosted with its licence (" + files.length + " file(s))");
   });
   var label = cfg.identity.programLabel;
