@@ -1,9 +1,16 @@
-# 2026-10-27, Phase 1: brand colours and type from the schools' own brand pages.
-https://www.washington.edu/brand/colors/ | #[0-9A-Fa-f]{6}|Husky Purple|Gold
-https://www.washington.edu/brand/typography/ | [Tt]ypeface|[Ff]ont|Encode|Uncial|Open Sans
-https://brand.umich.edu/design-resources/typography/ | [Tt]ypeface|[Ff]ont|Montserrat|Victors|Roboto|Inter
-https://ucomm.unl.edu/brand/templates-assets/typography | [Tt]ypeface|[Ff]ont|Sans|Serif
-https://brand.uiowa.edu/fonts | Antonio|Roboto|Zilla|Slab|[Tt]ypeface
-https://communications.rutgers.edu/identity/brand-guidelines/typography | [Tt]ypeface|[Ff]ont|Sans|Serif
-https://marcom.purdue.edu/our-brand/visual-identity | [Ff]ont|United|Acumin|substitute|#[0-9A-Fa-f]{6}
-https://brand.psu.edu/design-toolkit/design-essentials | #[0-9A-Fa-f]{6}|Navy|Beaver Blue
+# 2026-10-27, Phase 1: each home city's coordinates (Open-Meteo, the weather source), to check the venue coordinates against.
+https://geocoding-api.open-meteo.com/v1/search?name=Champaign&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Iowa%20City&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=College%20Park&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Ann%20Arbor&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=East%20Lansing&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Lincoln&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Evanston&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Eugene&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=State%20College&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=West%20Lafayette&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Piscataway&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Pasadena&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Los%20Angeles&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Seattle&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+https://geocoding-api.open-meteo.com/v1/search?name=Madison&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
