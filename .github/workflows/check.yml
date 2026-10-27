@@ -89,13 +89,19 @@ jobs:
       matrix:
         ids: ${{ fromJSON(needs.plan.outputs.browser) }}
     name: browser (${{ strategy.job-index }})
+    # Playwright's own image: the browser and its system libraries are
+    # already in it. Installing them per job took 18 seconds to 10 minutes,
+    # whatever the mirrors were doing (#186's first run), and the slowest
+    # job sets the wait. Its version is package.json's Playwright.
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - run: npm install
-      - run: npx playwright install --with-deps chromium
       - name: Browser checks
         env:
           IDS: ${{ toJSON(matrix.ids) }}
@@ -110,13 +116,15 @@ jobs:
       matrix:
         width: ${{ fromJSON(needs.plan.outputs.visual) }}
     name: visual (${{ matrix.width }})
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - run: npm install
-      - run: npx playwright install --with-deps chromium
       # The runner can reach the provider's image CDN, so CI's screenshots show
       # real team marks and player headshots; the gate also fails every
       # headshot on purpose and checks the initials fallback shows instead.

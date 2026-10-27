@@ -26,6 +26,10 @@ ok(sel.CHECKS.every(function (c) { return c.id === "syntax" || fs.existsSync(pat
 var wf = fs.readFileSync(path.join(root, ".github", "workflows", "check.yml"), "utf8");
 ok(!/node tools\/[a-z]+check\.|python3 tools\/[a-z]+check\./.test(wf), "check.yml names no check itself: they all come from the list");
 ok(sel.CHECKS.every(function (c) { return ["unit", "browser", "visual"].indexOf(c.kind) !== -1; }), "each is a unit, browser or visual check");
+var pkg = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8")), pw = (pkg.devDependencies || {}).playwright || (pkg.dependencies || {}).playwright;
+var images = (wf.match(/mcr\.microsoft\.com\/playwright:v([0-9.]+)-/g) || []).map(function (m) { return m.replace(/^.*:v|-$/g, ""); });
+ok(images.length === 2 && images.every(function (v) { return v === pw; }),
+   "the browser and visual jobs run Playwright's own image at package.json's version, " + pw + " (" + images.join(", ") + ")");
 
 console.log("what a change runs");
 var d = pick(["docs/engineering/backlog.md", "data/notre-dame/news.json", "README.md"]);
