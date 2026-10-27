@@ -1,16 +1,15 @@
-# 2026-10-27, Phase 1: each home city's coordinates (Open-Meteo, the weather source), to check the venue coordinates against.
-https://geocoding-api.open-meteo.com/v1/search?name=Champaign&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Iowa%20City&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=College%20Park&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Ann%20Arbor&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=East%20Lansing&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Lincoln&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Evanston&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Eugene&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=State%20College&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=West%20Lafayette&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Piscataway&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Pasadena&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Los%20Angeles&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Seattle&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
-https://geocoding-api.open-meteo.com/v1/search?name=Madison&count=5&country=US | ^results\[[0-4]\]\.(name|admin1|latitude|longitude) = 
+# 2026-10-27: four new teams (David: Indiana, Minnesota, North Dakota State,
+# BYU). Each one's ESPN name, colors and home venue, as ESPN spells them.
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|groups\.id|franchise\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449/schedule | ^events\[[0-9]+\]\.(name|date|competitions\[0\]\.venue\.fullName) = 
+# The defending national champion (David, 2026-10-27): which postseason game
+# is the title game, as ESPN labels it.
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | National Championship|Playoff
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | ^events\[45\]\.(id|date|name|status\.type\.(completed|state)|competitions\[0\]\.(notes\[0\]\.headline|competitors\[[01]\]\.(winner|score|homeAway|team\.(id|location|displayName|shortDisplayName|abbreviation)))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2026&groups=80&limit=300 | National Championship
