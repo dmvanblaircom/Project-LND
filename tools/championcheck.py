@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """The defending national champion's producer (tools/producers/champion.py),
-against ESPN's postseason scoreboards as they were read on 2026-10-27
-(tools/fixtures/espn-postseason-titles.json). No network.
+against ESPN's postseason scoreboards: the whole 2025 postseason
+(tools/fixtures/espn-scoreboard-postboard-2025.json) and the keys read on
+2026-10-27 (tools/fixtures/espn-postseason-titles.json). No network.
 
     python3 tools/championcheck.py      (exit 1 on failure)
 """
@@ -35,6 +36,9 @@ ok(g and g["opponent"] == {"id": "2390", "name": "Miami"} and g["score"] == {"wi
    "who they beat, and the score, the winner's first (%s)" % (g and g["score"]))
 ok(g and g["label"] == "College Football Playoff National Championship" and g["game"] == "401769076",
    "the game's own name without its sponsor, and its id (%s)" % (g and g["label"]))
+whole = json.load(open(os.path.join(HERE, "fixtures", "espn-scoreboard-postboard-2025.json")))
+gw = champion.title_game(whole)
+ok(gw == g, "the whole 2025 postseason as ESPN sent it (%d games, every round): the same title game" % len(whole.get("events", [])))
 ok(champion.title_game(FX["2026"]) is None, "2026: a title game still to be played names no champion")
 semi = {"events": [FX["2025"]["events"][0]]}
 ok(champion.title_game(semi) is None, "a semifinal is not the title game, whatever its teams")
