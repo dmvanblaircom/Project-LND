@@ -176,6 +176,9 @@ jobs:
       # The defending national champions' banner on Home: whoever won the
       # last title game, from the league's file (David, 2026-10-27).
       - run: node tools/championcheck.js
+      # Your Teams (decision 0036): stars in the chooser, and one tap between
+      # the fan's teams from the header.
+      - run: node tools/favoritescheck.js
       # Game alerts in Settings (round 2): Turn On sends the defaults, quick
       # picks and switches send the fan's choice, all off is alerts off.
       - run: node tools/alertscheck.js

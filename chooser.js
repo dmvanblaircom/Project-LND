@@ -252,16 +252,45 @@
 
   var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7"/></svg>';
 
-  // A program you can open: a control, full width, with somewhere to go.
-  function openable(t) {
-    return '<li data-group="open"' + searchAttrs(t) + '>' +
-           '<button type="button" class="pick" data-team="' + esc(t.id) + '">' +
+  // A program you can open: a control, full width, with somewhere to go,
+  // and beside it a star that makes it one of the fan's teams (David,
+  // 2026-10-27). The star is its own button: a press on it never opens the
+  // team, and a screen reader hears it as a toggle with the team's name.
+  var STAR = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.5l6-.8z"/></svg>';
+  function star(t) {
+    var on = favs.has(t.id);
+    return '<button type="button" class="fav" data-fav="' + esc(t.id) + '" aria-pressed="' + on + '" ' +
+           'aria-label="Favorite ' + esc(t.name) + '">' + STAR + "</button>";
+  }
+  function row(t) {
+    return '<button type="button" class="pick" data-team="' + esc(t.id) + '">' +
              markFor(t) +
              '<span class="pick-main">' +
                '<span class="pick-name">' + esc(t.name) + "</span>" +
                '<span class="pick-nick">' + esc(subline(t)) + "</span>" +
              "</span>" + CHEVRON +
-           "</button></li>";
+           "</button>" + star(t);
+  }
+  function openable(t) {
+    return '<li data-group="open"' + searchAttrs(t) + ">" + row(t) + "</li>";
+  }
+
+  // The fan's teams, starred, at the top - in the order they were starred.
+  // Not searched: a search looks through every program once, below, so it
+  // never shows a team twice. Only teams that can still be opened.
+  var favs = (typeof Suite !== "undefined" && Suite.favorites) || { has: function () { return false; }, list: function () { return []; }, toggle: function () { return false; } };
+  function yourTeams() {
+    return favs.list().map(function (id) { return REG.get(id); })
+      .filter(function (t) { return t && t.available; })
+      .map(function (t) { return "<li>" + row(t) + "</li>"; }).join("");
+  }
+  function paintYourTeams(host) {
+    var block = host.querySelector("#yourTeams"), list = block && block.querySelector("ul");
+    if (!block) return;
+    var html = yourTeams();
+    list.innerHTML = html;
+    block.setAttribute("data-empty", html ? "0" : "1");
+    block.hidden = !html || block.getAttribute("data-searching") === "1";
   }
 
   // Coming Soon opens on the first PREVIEW programs, alphabetical by name -
@@ -344,6 +373,9 @@
         b.hidden = left === 0;
       });
       if (none) none.hidden = shown !== 0;
+      // The fan's teams step aside while a search runs.
+      var mine = host.querySelector("#yourTeams");
+      if (mine) { mine.setAttribute("data-searching", hits ? "1" : "0"); mine.hidden = !!hits || mine.getAttribute("data-empty") === "1"; }
       // The expander belongs to the resting list; a search has no preview.
       if (more) more.hidden = !!hits;
       if (count) {
@@ -405,6 +437,8 @@
     }
 
     if (open.length) {
+      html += '<div id="yourTeams" data-empty="1" hidden><h2 class="eyebrow" id="yourHead">Your Teams</h2>' +
+              '<ul class="chooser-list" aria-labelledby="yourHead"></ul></div>';
       html += '<h2 class="eyebrow" id="availHead" data-group="open">Available Teams</h2>' +
               '<ul class="chooser-list" data-group="open" aria-labelledby="availHead">' +
               open.map(openable).join("") + "</ul>";
@@ -477,9 +511,20 @@
     }
 
     host.addEventListener("click", function (e) {
+      var f = e.target.closest ? e.target.closest(".fav[data-fav]") : null;
+      if (f) {
+        var id = f.getAttribute("data-fav"), on = favs.toggle(id), keep = f.closest("#yourTeams") ? null : f;
+        [].slice.call(host.querySelectorAll('.fav[data-fav="' + id + '"]')).forEach(function (b) { b.setAttribute("aria-pressed", String(on)); });
+        paintYourTeams(host);
+        // Unstarred from Your Teams, the row is gone: focus goes to the same
+        // team's star in the full list, so the keyboard keeps its place.
+        if (!keep) { var again = host.querySelector('#availHead ~ .chooser-list .fav[data-fav="' + id + '"]'); if (again) again.focus(); }
+        return;
+      }
       var btn = e.target.closest ? e.target.closest(".pick[data-team]") : null;
       if (btn) choose(btn.getAttribute("data-team"));
     });
+    paintYourTeams(host);
 
     fitPlaceholder(document.getElementById("teamSearch"));
     wire(host);
