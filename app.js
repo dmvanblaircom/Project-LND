@@ -242,13 +242,23 @@ function watchUpdate(reg){
   return track;
 }
 // The worker's reload, done by the page itself (sw.js reloadWindows), so it
-// comes in as a page swap. To this same address it would only move to the
-// #screen, so it carries a one-time "swap" mark, which index.html takes off.
+// comes in as a page swap. It waits until that worker is active: a
+// navigation during its activation would be checked against the old one and
+// install it twice. An ask that arrives after the worker stopped waiting for
+// the answer is left alone - the worker reloads this page itself. To this
+// same address it would only move to the #screen, so it carries a one-time
+// "swap" mark, which index.html takes off.
 if("serviceWorker" in navigator) navigator.serviceWorker.addEventListener("message", function(e){
   if(!e.data || e.data.type!=="reload") return;
+  if(e.data.at && e.data.within && Date.now()-e.data.at > e.data.within-300) return;
   if(e.ports && e.ports[0]) e.ports[0].postMessage({ ok:true });
-  var u=new URL(location.href); u.searchParams.set("swap", String(Date.now()));
-  location.replace(u.href);
+  var w=e.source;
+  function go(){ var u=new URL(location.href); u.searchParams.set("swap", String(Date.now())); location.replace(u.href); }
+  if(!w || !w.addEventListener || w.state==="activated") { go(); return; }
+  w.addEventListener("statechange", function once(){
+    if(w.state!=="activated") return;
+    w.removeEventListener("statechange", once); go();
+  });
 });
 if("serviceWorker" in navigator){
   var registerWorker=function(){
