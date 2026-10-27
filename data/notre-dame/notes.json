@@ -6,8 +6,8 @@
  "sourceUrl": "https://fightingirish.com/documents/879c5d7a-ec83-4c8b-b34e-27e1af4f72da.pdf",
  "sourceLabel": "FightingIrish.com",
  "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/26/HfJtbIGZqOIRbFR6CXtdWNt4EwiF9j6Gt6MVoF59.pdf",
- "parser": 1,
- "fetchedAt": "2026-10-26T17:37:50.868936+00:00",
+ "parser": 2,
+ "fetchedAt": "2026-10-27T00:33:52.880154+00:00",
  "publishedAt": "2026-10-26",
  "game": "Navy",
  "pronounce": {
@@ -252,7 +252,7 @@
   },
   {
    "n": "32",
-   "text": "Career field goals for Spencer Porath (32-for-39, 82.1%), who is 72-for-73 on career extra points."
+   "text": "Career field goals for Spencer Porath (32-for-39, 82.1%), who is 72-for73 on career extra points."
   },
   {
    "n": "33",

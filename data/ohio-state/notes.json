@@ -3,28 +3,46 @@
  "team": "ohio-state",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/10/13/7_Indiana.pdf",
+ "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/10/25/8_USC.pdf",
  "sourceLabel": "ohiostatebuckeyes.com",
- "pdf": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/ohiostatebuckeyes.com/documents/2026/10/13/7_Indiana.pdf?timestamp=20261013071041",
+ "pdf": "https://ohiostatebuckeyes.com/documents/download/2026/10/25/8_USC.pdf",
  "parser": 2,
- "fetchedAt": "2026-10-26T20:23:41.637538+00:00",
- "publishedAt": "2026-10-13",
- "game": "Indiana",
+ "fetchedAt": "2026-10-27T00:34:03.852727+00:00",
+ "publishedAt": "2026-10-25",
+ "game": "USC",
  "pronounce": {
+  "Jeremiah Smith": "leads all players in",
+  "Phillip Bell": "(Mission Viejo, Calif.), junior",
+  "Bennett Christian": "TE",
+  "David Adolph": "WR",
+  "Carson Hinzman": "OL",
+  "Kenyatta Jackson Jr.": "DE",
+  "Earl Little Jr.": "Jr.* SAF",
+  "Brandon Inniss": "IN-iss",
+  "Nolan Baudo": "Bow(like ow, how, or cow)-dough",
+  "Brennen Schramm": "Sh-ram",
+  "Luke Montgomery": "OL",
+  "Ian Gecse": "Gettcha",
+  "Joshua Padilla": "OL",
+  "Austin Siereveld": "SIR-uh-veld",
+  "Will Smith Jr.": "DT",
+  "Jason Moore": "DT",
+  "Alec Delsignore": "LB",
+  "Jermaine Mathews Jr.": "CB",
+  "Cam Calhoun": "CB",
+  "Ryan Rudzinski": "SAF",
+  "Joe McGuire": "P",
+  "Marcello Diomede": "Mar-chello De-oh-meh-de",
   "Christian Alliegro": "Uh-leh-grow",
   "Favour Akih": "Uh-key",
-  "Nolan Baudo": "Bow(like ow, how, or cow)-dough",
   "Khmari Bing": "Ka-mar-ee",
   "Landry Brede": "Breed-e",
   "Simeon Caldwell": "Sim-ee-en",
-  "Marcello Diomede": "Mar-chello De-oh-meh-de",
-  "Ian Gecse": "Gettcha",
   "Brady Geibel": "GUY-bull",
   "Glorien Gough": "GLOR-ee-en Goff",
   "Zion Grady": "ZYE-on",
   "Jackson Gula": "Goo-luh",
   "Jerquaden Guilford": "jer-KWAY-den",
-  "Brandon Inniss": "IN-iss",
   "De’Zie Jones": "Dez-eye",
   "Nick Lautar": "Law-ter",
   "Maxence LeBlanc": "luh-BLAHN",
@@ -32,9 +50,7 @@
   "Nate Riegle": "ree-gl",
   "Leroy Roker III": "ROH-kur",
   "Qua Russaw": "Kway Roo-saw",
-  "Brennen Schramm": "Sh-ram",
   "Ryan Seimetz": "Sigh-mets",
-  "Austin Siereveld": "SIR-uh-veld",
   "Epi Sitanilei": "sit-TAWN-ee-lay",
   "Tavien St. Clair": "TAY-vee-in",
   "Gavin Thobe": "Toe-bee",
@@ -142,21 +158,20 @@
   ]
  },
  "glance": [
-  "This marks just the eighth time that Ohio State has played Indiana in the Day era, winning by a combined 274-97 in the previous seven games.",
-  "The Buckeyes are 30-1-1 in the last 32 matchups against Indiana and hold an all-time record of 80-13-5 against the Hoosiers."
+  "The Buckeyes are 10-13-1 all-time against USC and marks the first time the two teams have played since Ohio State won the 2017 Cotton Bowl, 24-7."
  ],
  "numbers": [
   {
-   "n": "99-100",
-   "text": "Ryan Day has coached 100 games at Ohio State and in 99 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 88 of those games."
+   "n": "100-101",
+   "text": "Ryan Day has coached 101 games at Ohio State and in 100 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 89 of those games."
   },
   {
-   "n": "29",
-   "text": "Under Day’s direction since the start of the 2019 season, Ohio State has 29 wins on the road which is tied for the most in the country."
+   "n": "30",
+   "text": "Under Day’s direction since the start of the 2019 season, Ohio State has 30 wins on the road which is tied for the most in the country."
   },
   {
-   "n": ".870",
-   "text": "Coach Ryan Day’s win percentage of .870 (87-13) is No. 1 nationally among all Division I head coaches and it is currently No. 2 all-time."
+   "n": ".871",
+   "text": "Coach Ryan Day’s win percentage of .871 (88-13) is No. 1 nationally among all Division I head coaches and it is currently No. 2 all-time."
   }
  ]
 }
