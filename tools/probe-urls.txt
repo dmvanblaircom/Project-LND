@@ -8,3 +8,6 @@ https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84
 https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
 https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
 https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449/schedule | ^events\[[0-9]+\]\.(name|date|competitions\[0\]\.venue\.fullName) = 
+# The defending national champion (David, 2026-10-27): which postseason game
+# is the title game, as ESPN labels it.
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | National Championship|Playoff
