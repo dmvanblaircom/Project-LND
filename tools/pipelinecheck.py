@@ -53,7 +53,12 @@ markets = {k: json.load(open(os.path.join(ROOT, f)))["markets"] for k, f in oh.L
 ndp = {k: oh.team_price(m, nd["sources"]["kalshi"]) for k, m in markets.items()}
 osup = {k: oh.team_price(m, osu["sources"]["kalshi"]) for k, m in markets.items()}
 ok(all(v is not None for v in list(ndp.values()) + list(osup.values())), "both teams have a price in both markets: %s / %s" % (ndp, osup))
-ok(ndp != osup, "and they are different prices - each team reads its own market")
+# The live prices can tie (2026-10-27: both teams 12.5 / 80.5), so each real
+# market is given a price of its own before asking which one each team reads.
+own = {k: [dict(x, yes_bid_dollars="%.2f" % (i / 100.0), yes_ask_dollars="%.2f" % (i / 100.0), last_price_dollars=None)
+           for i, x in enumerate(m, 1)] for k, m in markets.items()}
+ok(all(oh.team_price(own[k], nd["sources"]["kalshi"]) != oh.team_price(own[k], osu["sources"]["kalshi"]) for k in own),
+   "and each team reads its own market, not the same one")
 ok(oh.team_price([{"ticker": "KXNCAAF-27-OSU", "yes_bid_dollars": "0.10", "yes_ask_dollars": "0.12"},
                   {"ticker": "KXNCAAF-27-ND", "yes_bid_dollars": "0.20", "yes_ask_dollars": "0.22"}],
                  nd["sources"]["kalshi"]) == 21.0, "by ticker suffix, not by order")
