@@ -48,12 +48,11 @@ var CHECKS = MANIFEST.checks;
 var BY_ID = {}; CHECKS.forEach(function (c) { BY_ID[c.id] = c; });
 
 var EVERYTHING = [
-  /^(app\.js|app\.css|index\.html|sw\.js|chooser\.js|manifest\.json|package\.json|package-lock\.json)$/,
-  /^(suite|teamos|leagues|assets)\//,
-  /^tools\/(lib|fixtures)\//,
-  /^tools\/(a11yaudit\.js|checks\.json|select-checks\.js|run-checks\.js)$/,
-  /^\.github\/workflows\/check\.yml$/,
-  /^teams\/(index|notre-dame|ohio-state)\.js$/
+  [/^(app\.js|app\.css|index\.html|sw\.js|chooser\.js|manifest\.json|package\.json|package-lock\.json)$/, "the page runs on it"],
+  [/^(suite|teamos|leagues|assets)\//, "the page runs on it"],
+  [/^tools\/(lib|fixtures)\/|^tools\/a11yaudit\.js$/, "the checks' own harness"],
+  [/^tools\/(checks\.json|select-checks\.js|run-checks\.js)$|^\.github\/workflows\/check\.yml$/, "which checks run, and how"],
+  [/^teams\/(index|notre-dame|ohio-state)\.js$/, "a team the browser checks render, or the registry"]
 ];
 var TEAM_CHECKS = ["bootcheck.js", "registrycheck.js", "choosercheck.js", "swcheck.js", "adaptercheck.js",
                    "identitycheck.js", "pipelinecheck.py", "prospectsrefreshcheck.py", "teamfontcheck.js"];
@@ -71,7 +70,8 @@ function importers(producer) {
 
 // -> { rule, checks } for one changed file; checks null means everything.
 function forFile(f) {
-  if (EVERYTHING.some(function (re) { return re.test(f); })) return { rule: "the page runs on it", checks: null };
+  var all = EVERYTHING.filter(function (e) { return e[0].test(f); })[0];
+  if (all) return { rule: all[1] + ": everything", checks: null };
   if (/^teams\/[a-z0-9-]+\.js$/.test(f)) return { rule: "a team's config", checks: TEAM_CHECKS };
   var m = /^tools\/producers\/([a-z0-9_]+)\.py$/.exec(f);
   if (m) {
