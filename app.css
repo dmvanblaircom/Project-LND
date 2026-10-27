@@ -28,6 +28,8 @@
   --s-surface:#FFFFFF;
   --s-inset:#E9ECEC;           /* segmented tracks, away badges, insets */
   --s-chrome:#111D35;          /* the Suite's own header, before a team is chosen */
+  --s-bronze:#B8845A;          /* the Suite's bronze and champagne: Your Teams' star */
+  --s-champagne:#D4B896;
 
   /* Ink, measured on white and on the ivory page. */
   --s-ink:#111D35;             /* 17.3:1 / 15.7:1 */
@@ -191,9 +193,15 @@ html[data-choosing] .app-bar{background:var(--s-chrome)}
 .bar-gear[aria-current="page"]{color:var(--t-accent-text)}
 /* The selected team as quiet context beside the wordmark, on every team
    screen - a lockup, not a
-   button: no fill, no border, no chevron (decision 0024 §6). */
+   button: no fill, no border, no chevron (decision 0024 §6) - until the fan
+   has another team to switch to (decision 0036, below). */
 .bar-context{display:flex;align-items:center;gap:min(.5rem,8px);min-width:0;padding-left:min(.75rem,12px);border-left:1px solid rgba(255,255,255,.28);color:var(--s-on-dark-2)}
 .bar-context .mark{--mark:min(1.6rem,25.6px)}
+/* With another of the fan's teams to switch to, the context is the way to
+   them (Your Teams, 2026-10-27): a chevron says so, and it takes a press. */
+.bar-context[role="button"]{cursor:pointer;min-height:2.75rem}
+.bar-context[role="button"]:focus-visible{outline:3px solid var(--t-accent-text);outline-offset:2px}
+.bar-switch{flex:none;width:1.1rem;height:1.1rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 html[data-style="suite"] .bar-context{border-color:#B8845A}
 .bar-team{overflow:hidden;white-space:normal;font-family:var(--t-font-display);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
 /* The narrowest phones: a team's whole name, in its own face or the fallback
@@ -779,6 +787,25 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .pick{display:flex;align-items:center;gap:1rem;width:100%;min-height:4.5rem;padding:.55rem .9rem .55rem 1rem;border:1px solid var(--s-line);border-radius:var(--s-radius-card);background:var(--s-surface);color:var(--s-ink);box-shadow:var(--s-shadow-card);font-family:var(--t-font-ui);text-align:left;cursor:pointer}
 .pick:hover{border-color:var(--s-line-strong);box-shadow:var(--s-shadow-raise)}
 .pick:focus-visible{outline:3px solid var(--s-chrome);outline-offset:2px}
+/* Your Teams (David, 2026-10-27): a star in each team you can open,
+   between its name and the chevron, in the Suite's bronze - an outline,
+   then champagne edged in bronze once the team is one of yours (bronze is
+   3.24:1 on the card; champagne alone would be 1.89:1). Its own 44px
+   button over the row, never inside it, so a press on it never opens the
+   team; the name leaves it room. */
+.chooser-list li{position:relative}
+.fav-row .pick-main{margin-right:2.5rem}
+.fav{position:absolute;top:50%;right:2.55rem;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:0;border-radius:50%;background:none;color:var(--s-bronze);cursor:pointer}
+.fav svg{width:1.5rem;height:1.5rem;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round}
+.fav[aria-pressed="true"] svg{fill:var(--s-champagne)}
+.fav:focus-visible{outline:3px solid var(--s-chrome);outline-offset:-2px}
+#yourTeams{margin-bottom:1.25rem}
+/* The switcher's rows: the team being viewed is shown, not offered. */
+.pick.here{cursor:default;box-shadow:none;border-color:var(--s-line-strong)}
+.pick.here:hover{box-shadow:none}
+.sw-list{margin:0}
+.sw-edit{margin:1rem 0 .25rem;text-align:center}
+.sw-edit a{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 .75rem;font-weight:600;color:var(--s-chrome)}
 .pick .mark{--mark:3.25rem}
 .pick-main{display:flex;flex-direction:column;gap:.2rem;flex:1;min-width:0}
 .pick-name{font-weight:700;font-size:1.25rem;line-height:1.15;color:var(--s-chrome)}
@@ -832,8 +859,8 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
    the board from the bottom on a phone and sits centred on a wide screen,
    above the nav, and scrolls inside itself; the page under it holds still. */
 html.sheet-open,html.sheet-open body{overflow:hidden}
-#sheetHost{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-end;justify-content:center}
-#sheetHost[hidden]{display:none}
+#sheetHost,#switchHost{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-end;justify-content:center}
+#sheetHost[hidden],#switchHost[hidden]{display:none}
 .sh-scrim{position:absolute;inset:0;background:rgba(15,27,45,.45)}
 .sh{position:relative;display:flex;flex-direction:column;width:100%;max-width:34rem;max-height:min(88vh,88dvh);
   background:var(--s-surface);border-radius:var(--s-radius-card) var(--s-radius-card) 0 0;box-shadow:var(--s-shadow-raise);

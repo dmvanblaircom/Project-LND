@@ -61,6 +61,7 @@ function render(registry) {
       if (sel === ".chooser-count") return this.count;
       if (sel === ".chooser-empty") return this.empty;
       if (sel === "#soonMore") return this.more;
+      if (sel === "#yourTeams") return this.yours;     // Your Teams (decision 0036): favoritescheck.js tests it whole
       throw new Error("stub does not implement " + sel);
     } };
 
@@ -78,6 +79,11 @@ function render(registry) {
         : null;
       this.count = /class="chooser-count"/.test(html) ? node("", "") : null;
       this.empty = /class="chooser-empty"/.test(html) ? node("", "") : null;
+      this.yours = /id="yourTeams"/.test(html) ? (function () {
+        var attrs = {}, list = { innerHTML: "" };
+        return { hidden: true, list: list, querySelector: function () { return list; },
+                 setAttribute: function (k, v) { attrs[k] = String(v); }, getAttribute: function (k) { return k in attrs ? attrs[k] : null; } };
+      })() : null;
       var mt = (html.match(/<button[^>]*id="soonMore"[^>]*>/) || [])[0];
       this.more = mt ? (function () {
         var n = node(mt), attrs = {}, listeners = {};
@@ -256,8 +262,8 @@ eq(r.picks.filter(function (p) { return p.group === "open"; }).length, REGLIVE.a
 var confs = {};
 REGLIVE.all().forEach(function (t) { confs[t.conference] = true; });
 ok(Object.keys(confs).length > 5, "the roster does span many conferences");
-eq((r.html.match(/<h2/g) || []).length, 2,
-   "two headings - Available Teams and Coming Soon - never one per conference");
+eq((r.html.match(/<h2/g) || []).length, 3,
+   "three headings - Your Teams (decision 0036; hidden until a team is starred), Available Teams and Coming Soon - never one per conference");
 
 console.log(" each program shows its nickname; conference stays searchable");
 ok(r.picks.every(function (p) { return p.nick; }), "every program prints a line under its name");

@@ -3,7 +3,9 @@
 ## Status
 
 Accepted. §18 is amended by decision 0026 (Settings gains Appearance: one
-App Style choice). The text below is left as it was decided.
+App Style choice), and §6's team context by decision 0036 (with another of
+the fan's teams to switch to, it opens Your Teams). The text below is left
+as it was decided.
 
 ## Date
 

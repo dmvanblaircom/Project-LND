@@ -274,7 +274,7 @@
   ["teams/index.js", "leagues/college-football.js", "teamos/registry.js", "teamos/team.js", "teamos/snapshots.js",
    "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js", "teamos/ratings.js",
    "teamos/game.js", "teamos/outlook.js", "teamos/milestones.js", "teamos/champions.js", "teamos/notes.js", "teamos/prospects.js", "teamos/markets.js", "teamos/freshness.js", "teamos/weather.js", "teamos/roster.js", "teamos/sources.js", "teamos/cfbd.js",
-   "suite/ui.js"]
+   "suite/ui.js", "suite/favorites.js"]
     .forEach(function(src){ inject(src); });
 
   if (choosing) {
@@ -376,7 +376,8 @@ html:not([data-launched]):not([data-choosing]):not(:has(#launch, #appBar)) body{
 <header class="app-bar on-dark" id="appBar">
   <img class="wordmark" src="assets/suite/suite-wordmark-pearl.svg" alt="Suite" width="662" height="132">
   <!-- The selected team. Not a control: Change Team lives in Settings
-       (decision 0024 §6). -->
+       (decision 0024 §6) - except that with another of the fan's teams to
+       switch to, app.js makes it the way to them (decision 0036). -->
   <span class="bar-context" id="barContext" hidden>
     <span class="mark bare" id="barMark" aria-hidden="true"></span>
     <span class="bar-team" id="barTeam"></span>
