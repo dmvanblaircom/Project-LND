@@ -35,7 +35,7 @@ function check(value,label){assert(value,label);checks++;}
     check(!d.overflow&&d.left>=-1&&d.right<=width+1,label+" fits page");
     check(d.tabs.length===5&&d.tabs.every(t=>t.width>=44&&t.height>=44),label+" five 44px targets");
     const complete=["complete","failed","opener"].includes(state);
-    check(d.order.indexOf("news")===(complete?2:4),label+" News order");
+    check(d.order.indexOf("news")===(complete?3:5),label+" News order");
     check(d.season===["awaiting","complete","failed"].includes(state),label+" season hero boundary");
     check(d.game===["opener","in-season"].includes(state),label+" existing game hero");
     if(state==="opener")check(/Time TBA/.test(d.copy)&&!/\d:\d\d/.test(d.copy),label+" no invented kickoff");
