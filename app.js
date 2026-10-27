@@ -1332,6 +1332,7 @@ function paintHome(){
   if(complete) loadProspects();
   var milestone=TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now);
   tellWorkerMilestone(milestone);
+  loadChampion();
   Suite.home.paint(host, {
     team:{ name:TEAM.name, nick:TEAM_NICK, abbr:TEAM.abbreviation,
            markUrl:TeamOS.espn.mark(espnId, true) },
@@ -1348,6 +1349,8 @@ function paintHome(){
     outlook: TeamOS.outlook.metrics(HOME.markets),
     // the next round number of all-time wins, when one is near (W: 1,000th)
     milestone: milestone,
+    // a banner for the defending national champions, whoever they are
+    champion: TeamOS.champions.defending(CHAMP.snap, TEAM_CONFIG, seasonYear()),
     // By the Numbers, while the notes are this week's game's
     numbers: (TeamOS.notes.forGame(NOTES.model, g) || {}).numbers || null,
     fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),
@@ -1367,6 +1370,15 @@ function loadProspects(){
     snap ? get(snap.file+t).then(function(d){ PROSPECTS.recruits=TeamOS.prospects.recruits(roOurs(d), TEAM_CONFIG); }, function(){}) : null,
     get("data/league/draft.json"+t).then(function(d){ PROSPECTS.draft=TeamOS.prospects.draft(d, TEAM_CONFIG); }, function(){})
   ]).then(function(){ PROSPECTS.pending=false; PROSPECTS.loaded=true; paintHome(); paintRoster(); });
+}
+// The defending national champion (TeamOS.champions; David, 2026-10-27):
+// the league's file, which the refresh writes from ESPN's postseason, read
+// with Home and then at most hourly. A failed read keeps what was shown.
+var CHAMP={ snap:null, askedAt:0 };
+function loadChampion(){
+  if(Date.now()-CHAMP.askedAt<60*60e3) return;
+  CHAMP.askedAt=Date.now();
+  get("data/league/champion.json?t="+Date.now()).then(function(d){ CHAMP.snap=d; paintHome(); }, function(){});
 }
 function paintHomeLoading(host){
   var want=SC.failed ? "failed" : "1";

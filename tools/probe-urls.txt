@@ -11,3 +11,5 @@ https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/24
 # The defending national champion (David, 2026-10-27): which postseason game
 # is the title game, as ESPN labels it.
 https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | National Championship|Playoff
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | ^events\[45\]\.(id|date|name|status\.type\.(completed|state)|competitions\[0\]\.(notes\[0\]\.headline|competitors\[[01]\]\.(winner|score|homeAway|team\.(id|location|displayName|shortDisplayName|abbreviation)))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2026&groups=80&limit=300 | National Championship
