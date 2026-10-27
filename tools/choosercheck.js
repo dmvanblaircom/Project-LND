@@ -435,7 +435,7 @@ console.log(" picking one");
 var res = r.click("ohio-state");
 eq(res.stored["iw-team"], "ohio-state", "the choice is stored before navigating");
 eq(res.replaced, "?team=ohio-state", "and the URL carries it, so it is shareable and installable");
-var none = render(live.TEAM_REGISTRY).click("indiana");
+var none = render(live.TEAM_REGISTRY).click("alabama");
 eq(none.replaced, null, "a program with no config cannot be chosen, even by clicking");
 
 console.log(" selectable means it will actually open");

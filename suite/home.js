@@ -346,6 +346,21 @@ Suite.home = (function () {
     return one ? hundredth(ms, team) + "." : null;
   }
 
+  // ---- Defending national champions (David, 2026-10-27) ---------------------
+  // A banner across the top of Home for the team that won the last title
+  // game, whoever that is (TeamOS.champions). The trophy mark is Game's.
+
+  var TROPHY = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 4h8v5a4 4 0 0 1-8 0V4ZM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7M10 17h4v3h-4z"/></svg>';
+  function championHtml(t) {
+    if (!t) return "";
+    var line = [t.season + " national champions", t.opponent && t.score ? "beat " + t.opponent + " " + t.score.replace("-", "\u2013") : null]
+      .filter(Boolean).join(" \u00b7 ");
+    return '<div class="champ" role="note" aria-label="Defending national champions. ' + esc(line) + '.">' +
+      '<span class="champ-ic">' + TROPHY + "</span>" +
+      '<p class="champ-t">Defending National Champions</p>' +
+      '<p class="champ-s">' + esc(line) + "</p></div>";
+  }
+
   // ---- By the Numbers (David, 2026-10-09) -------------------------------------
   // Three of the program's weekly figures from its game notes; all of them on
   // Game's pregame view.
@@ -365,14 +380,14 @@ Suite.home = (function () {
 
   // Recruiting and the draft are drawn only in S4/S5; in season their
   // wrappers stay last and hidden.
-  var SECTIONS = ["fresh", "hero", "milestone", "numbers", "news", "schedule", "outlook", "recruiting", "draft"];
-  var OFFSEASON_SECTIONS = ["fresh", "hero", "news", "recruiting", "draft", "milestone", "numbers", "schedule", "outlook"];
+  var SECTIONS = ["fresh", "champion", "hero", "milestone", "numbers", "news", "schedule", "outlook", "recruiting", "draft"];
+  var OFFSEASON_SECTIONS = ["fresh", "champion", "hero", "news", "recruiting", "draft", "milestone", "numbers", "schedule", "outlook"];
 
   function paint(host, m) {
     if (!host) return;
     if (!host.querySelector("[data-home]")) {
       host.innerHTML = SECTIONS.map(function (k) {
-        return k === "hero" || k === "fresh"
+        return k === "hero" || k === "fresh" || k === "champion"
           ? '<div data-home="' + k + '"' + (k === "fresh" ? ' role="status"' : "") + "></div>"
           : '<section class="home-sec home-' + k + '" data-home="' + k + '"></section>';
       }).join("");
@@ -394,6 +409,7 @@ Suite.home = (function () {
     host._suiteHomeOrder = order.join("|");
     var html = {
       fresh: ui.freshBanner(m.fresh),
+      champion: championHtml(m.champion),
       hero: heroHtml(m),
       milestone: milestoneHtml(m.milestone, m.team),
       numbers: numbersHtml(m.numbers),

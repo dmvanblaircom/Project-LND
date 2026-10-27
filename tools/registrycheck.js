@@ -61,10 +61,10 @@ ok(!/available\s*:/.test(read("teams/index.js")),
    "no row carries an availability flag - naming a config is what makes a team selectable");
 eq(REG.get("notre-dame").available, true, "Notre Dame is selectable");
 eq(REG.get("ohio-state").available, true, "Ohio State is selectable");
-eq(REG.get("indiana").available, false, "Indiana is known but not selectable");
-eq(REG.get("byu").available, false, "BYU is known but not selectable");
-eq(REG.isAvailable("indiana"), false, "and the registry says so when asked directly");
-eq(REG.configFor("indiana"), null, "a team with no config has no config path");
+eq(REG.get("alabama").available, false, "Alabama is known but not selectable");
+eq(REG.get("utah").available, false, "Utah is known but not selectable");
+eq(REG.isAvailable("alabama"), false, "and the registry says so when asked directly");
+eq(REG.configFor("alabama"), null, "a team with no config has no config path");
 ok(REG.all().length > REG.available().length, "the registry is larger than what is selectable, as it should be");
 
 console.log(" a row that is not a team is dropped, not thrown on");

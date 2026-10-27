@@ -133,7 +133,7 @@ function rankings() {
       console.log(team + ": season complete (S4)");
       var a = await open({ team: team, now: JAN, recruits: T.recruits, draft: SNAP.board, expectAsk: true });
       var h = await home(a.page);
-      ok(/^fresh,hero,news,recruiting,draft,/.test(h.order), team + ": Recruiting and NFL Draft follow News, directly under the hero (" + h.order + ")");
+      ok(/^fresh,champion,hero,news,recruiting,draft,/.test(h.order), team + ": Recruiting and NFL Draft follow News, directly under the hero (" + h.order + ")");
       ok(!h.recruiting.hidden && !h.draft.hidden, team + ": both sections show");
       ok(h.recruiting.text.indexOf(T.recruits.recruits.length + " commitments in the 2027 class") > -1, team + ": the class, counted (" + T.recruits.recruits.length + ")");
       ok(h.recruiting.names[0] === T.recruits.recruits[0].name, team + ": ESPN's best grade first (" + h.recruiting.names[0] + ")");
@@ -265,7 +265,7 @@ function rankings() {
     var s2 = await open({ team: "notre-dame", now: "2025-12-01T17:00:00Z", unset: true, recruits: SNAP.nd, draft: SNAP.board });
     h = await home(s2.page);
     ok(h.recruiting.hidden && h.draft.hidden && !s2.asked.recruits && !s2.asked.draft, "S2: no recruiting or draft section, and neither file is read");
-    ok(/^fresh,hero,milestone,numbers,news,/.test(h.order), "S2: the in-season order");
+    ok(/^fresh,champion,hero,milestone,numbers,news,/.test(h.order), "S2: the in-season order");
     await s2.ctx.close();
     // A draft board that will not load: the section is left out, the class
     // still shows.

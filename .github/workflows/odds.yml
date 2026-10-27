@@ -209,6 +209,25 @@ jobs:
           echo "paths=$paths" >> "$GITHUB_OUTPUT"
           exit $fail
 
+      # The defending national champion, from ESPN's postseason scoreboard
+      # (David, 2026-10-27: Home's banner for whoever won the last title
+      # game). It changes once a year, in January, so every six hours is
+      # plenty - or whenever a run is started by hand.
+      - name: The defending national champion
+        id: champion
+        continue-on-error: true
+        env:
+          BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
+        run: |
+          mkdir -p .cadence
+          stamp=".cadence/champion"
+          if [ "$BY_HAND" != true ] && [ -f "$stamp" ] && [ $(( $(date +%s) - $(date -d "$(cat "$stamp")" +%s) )) -lt 21600 ]; then
+            echo "looked under six hours ago"; echo "ran=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          python3 tools/producers/champion.py
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$stamp"
+          echo "ran=true" >> "$GITHUB_OUTPUT"
+
       # Each team's recruiting class and the NFL draft board, from ESPN (W16:
       # the after-season Home's recruiting and draft cards). Once a day - a
       # class and a board move over days, and each read fetches every record -
@@ -256,6 +275,7 @@ jobs:
           RANKS: ${{ steps.rankhistory.outcome }}
           PROSPECTS: ${{ steps.prospects.outputs.ran }}
           NOTES_PATHS: ${{ steps.notes.outputs.paths }}
+          CHAMPION: ${{ steps.champion.outputs.ran }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -282,6 +302,7 @@ jobs:
           # Each file is written only when it passed; a refused one is left as it was.
           [ "$PROSPECTS" = true ]  && add "recruiting" 'data/*/recruits.json'
           [ "$PROSPECTS" = true ]  && add "draft board" 'data/league/draft.json'
+          [ "$CHAMPION" = true ]   && add "national champion" 'data/league/champion.json'
           if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
           git commit -q -m "Refresh team data: $moved"
           echo "committed: $moved"

@@ -242,13 +242,23 @@ function watchUpdate(reg){
   return track;
 }
 // The worker's reload, done by the page itself (sw.js reloadWindows), so it
-// comes in as a page swap. To this same address it would only move to the
-// #screen, so it carries a one-time "swap" mark, which index.html takes off.
+// comes in as a page swap. It waits until that worker is active: a
+// navigation during its activation would be checked against the old one and
+// install it twice. An ask that arrives after the worker stopped waiting for
+// the answer is left alone - the worker reloads this page itself. To this
+// same address it would only move to the #screen, so it carries a one-time
+// "swap" mark, which index.html takes off.
 if("serviceWorker" in navigator) navigator.serviceWorker.addEventListener("message", function(e){
   if(!e.data || e.data.type!=="reload") return;
+  if(e.data.at && e.data.within && Date.now()-e.data.at > e.data.within-300) return;
   if(e.ports && e.ports[0]) e.ports[0].postMessage({ ok:true });
-  var u=new URL(location.href); u.searchParams.set("swap", String(Date.now()));
-  location.replace(u.href);
+  var w=e.source;
+  function go(){ var u=new URL(location.href); u.searchParams.set("swap", String(Date.now())); location.replace(u.href); }
+  if(!w || !w.addEventListener || w.state==="activated") { go(); return; }
+  w.addEventListener("statechange", function once(){
+    if(w.state!=="activated") return;
+    w.removeEventListener("statechange", once); go();
+  });
 });
 if("serviceWorker" in navigator){
   var registerWorker=function(){
@@ -1341,6 +1351,7 @@ function paintHome(){
   if(complete) loadProspects();
   var milestone=TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now);
   tellWorkerMilestone(milestone);
+  loadChampion();
   Suite.home.paint(host, {
     team:{ name:TEAM.name, nick:TEAM_NICK, abbr:TEAM.abbreviation,
            markUrl:TeamOS.espn.mark(espnId, true) },
@@ -1357,6 +1368,8 @@ function paintHome(){
     outlook: TeamOS.outlook.metrics(HOME.markets),
     // the next round number of all-time wins, when one is near (W: 1,000th)
     milestone: milestone,
+    // a banner for the defending national champions, whoever they are
+    champion: TeamOS.champions.defending(CHAMP.snap, TEAM_CONFIG, seasonYear()),
     // By the Numbers, while the notes are this week's game's
     numbers: (TeamOS.notes.forGame(NOTES.model, g) || {}).numbers || null,
     fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),
@@ -1376,6 +1389,15 @@ function loadProspects(){
     snap ? get(snap.file+t).then(function(d){ PROSPECTS.recruits=TeamOS.prospects.recruits(roOurs(d), TEAM_CONFIG); }, function(){}) : null,
     get("data/league/draft.json"+t).then(function(d){ PROSPECTS.draft=TeamOS.prospects.draft(d, TEAM_CONFIG); }, function(){})
   ]).then(function(){ PROSPECTS.pending=false; PROSPECTS.loaded=true; paintHome(); paintRoster(); });
+}
+// The defending national champion (TeamOS.champions; David, 2026-10-27):
+// the league's file, which the refresh writes from ESPN's postseason, read
+// with Home and then at most hourly. A failed read keeps what was shown.
+var CHAMP={ snap:null, askedAt:0 };
+function loadChampion(){
+  if(Date.now()-CHAMP.askedAt<60*60e3) return;
+  CHAMP.askedAt=Date.now();
+  get("data/league/champion.json?t="+Date.now()).then(function(d){ CHAMP.snap=d; paintHome(); }, function(){});
 }
 function paintHomeLoading(host){
   var want=SC.failed ? "failed" : "1";
