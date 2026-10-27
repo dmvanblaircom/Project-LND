@@ -35,8 +35,8 @@ var TEAM_CONFIG = {
     },
 
     // Beat writers, read by the Action server-side. Each was confirmed from
-    // GitHub's network on 2026-10-27 (probe-feeds.yml) and proposed to David
-    // for approval. Coverage is thin: The Forum, the student paper and the
+    // GitHub's network on 2026-10-27 (probe-feeds.yml) and approved by David
+    // (2026-10-27). Coverage is thin: The Forum, the student paper and the
     // Fargo stations publish no working feed, and On SI has no NDSU site.
     // On3's feed is mostly national; `paths` keeps only its NDSU section.
     beatFeeds: [
@@ -60,7 +60,7 @@ var TEAM_CONFIG = {
   // NDSU inside Suite, from its 2025 brand basics (ndsu.edu): official green
   // #00583D, dark green #003524 and yellow #FFC425.
   identity: {
-    programLabel: "BISON FOOTBALL",
+    programLabel: "NDSU FOOTBALL",
 
     colors: {
       accent:         "#FFC425",   // NDSU yellow, 5.35:1 on green
@@ -81,7 +81,7 @@ var TEAM_CONFIG = {
     // NDSU's own guide names its faces: New Spirit for display, Antonio for
     // eyebrows and subheads, Gotham for text. Antonio is free, and NDSU
     // points to it; Montserrat is the closest public face to Gotham. Both
-    // self-hosted under the OFL. Proposed to David, 2026-10-27.
+    // self-hosted under the OFL. Approved by David, 2026-10-27.
     fonts: {
       ui:       "'Montserrat','Instrument Sans',system-ui,-apple-system,sans-serif",
       display:  "'Antonio','Instrument Display',sans-serif"

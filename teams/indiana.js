@@ -43,8 +43,8 @@ var TEAM_CONFIG = {
     },
 
     // Beat writers, read by the Action server-side. Each was confirmed from
-    // GitHub's network on 2026-10-27 (probe-feeds.yml) and proposed to David
-    // for approval. The student paper's feed is its whole sports section;
+    // GitHub's network on 2026-10-27 (probe-feeds.yml) and approved by David
+    // (2026-10-27). The student paper's feed is its whole sports section;
     // other sports are left out by the producer. `paths` keeps only On3's
     // Indiana section.
     beatFeeds: [
@@ -92,7 +92,7 @@ var TEAM_CONFIG = {
     // IU sets its type in Benton Sans, which is not free to use. Libre
     // Franklin, self-hosted in assets/fonts/libre-franklin/ under the OFL, is
     // the closest public face: the same American gothic lineage. One face
-    // for text and headings, as Ohio State's. Proposed to David, 2026-10-27.
+    // for text and headings, as Ohio State's. Approved by David, 2026-10-27.
     fonts: {
       ui:       "'Libre Franklin','Instrument Sans',system-ui,-apple-system,sans-serif",
       display:  "'Libre Franklin','Instrument Display',sans-serif"

@@ -35,8 +35,8 @@ var TEAM_CONFIG = {
     },
 
     // Beat writers, read by the Action server-side. Each was confirmed from
-    // GitHub's network on 2026-10-27 (probe-feeds.yml) and proposed to David
-    // for approval. BYU Athletics' feed covers every sport; other sports are
+    // GitHub's network on 2026-10-27 (probe-feeds.yml) and approved by David
+    // (2026-10-27). BYU Athletics' feed covers every sport; other sports are
     // left out by the producer. `paths` keeps only On3's BYU section. The
     // Daily Universe refuses the runner (403).
     beatFeeds: [
@@ -84,7 +84,7 @@ var TEAM_CONFIG = {
 
     // BYU's primary typeface is Ringside Narrow, sold by its foundry; its web
     // theme sets text in IBM Plex Sans, which is free. One face for text and
-    // headings, self-hosted under the OFL. Proposed to David, 2026-10-27.
+    // headings, self-hosted under the OFL. Approved by David, 2026-10-27.
     fonts: {
       ui:       "'IBM Plex Sans','Instrument Sans',system-ui,-apple-system,sans-serif",
       display:  "'IBM Plex Sans','Instrument Display',sans-serif"

@@ -42,8 +42,8 @@ var TEAM_CONFIG = {
     },
 
     // Beat writers, read by the Action server-side. Each was confirmed from
-    // GitHub's network on 2026-10-27 (probe-feeds.yml) and proposed to David
-    // for approval. Minnesota On SI was left out (its newest story was from
+    // GitHub's network on 2026-10-27 (probe-feeds.yml) and approved by David
+    // (2026-10-27). Minnesota On SI was left out (its newest story was from
     // July, and not football); On3 has no Minnesota feed (404).
     beatFeeds: [
       { name: "Minnesota Athletics", feed: "https://gophersports.com/rss?path=football",            site: "https://gophersports.com/sports/football", logo: "https://gophersports.com/favicon.ico" },
@@ -90,7 +90,7 @@ var TEAM_CONFIG = {
     // foundry; its body face is Open Sans, which is free. Josefin Sans is the
     // closest public face to Neutraface, a geometric sans with the same
     // period feel, for headings; Open Sans for text. Both self-hosted under
-    // the OFL. Proposed to David, 2026-10-27.
+    // the OFL. Approved by David, 2026-10-27.
     fonts: {
       ui:       "'Open Sans','Instrument Sans',system-ui,-apple-system,sans-serif",
       display:  "'Josefin Sans','Instrument Display',sans-serif"
