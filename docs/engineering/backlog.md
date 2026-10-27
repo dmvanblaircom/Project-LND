@@ -36,6 +36,16 @@ PRs before work.
   service/moderation scope before building. Alternatives are not four approvals.
 - **W24:** concrete fan-validation and measurement plan; no analytics vendor
   or telemetry implementation is approved merely by listing the task.
+- **Structured feedback (David, 2026-09-28, sent through Feedback from Top 25):**
+  a form in the app instead of a blank email: a star rating, what the
+  feedback is about, the message, and the fan's email so David can write
+  back. Today Feedback opens the fan's mail app with the team, screen and
+  version filled in (`feedbackHref` in `app.js`, `Suite.more.feedback`).
+  Open decision for David: the smallest version keeps the mail app and only
+  structures the message (no new service); sending from the app itself needs
+  the edge Worker to accept, store or forward it, plus spam protection and a
+  privacy note for the email address. Feedback arrives at
+  suiteappfeedback@gmail.com.
 - **W25:** each owner updates current docs with accepted changes. Old branches
   remain by David's decision; no manual branch-deletion campaign.
 
