@@ -1063,21 +1063,32 @@ function cfbdFor(school){
           function(){ return null; });            // a failure is not kept: the next ask tries again
 }
 
-// The rows no ESPN feed fills: points allowed (from results), and yards
-// allowed and the turnover margin (from CFBD). Copies rather than writes,
-// because the rows themselves are cached in SEASON_STATS and shared between
-// renders.
-function withDerived(rows, perGame, cfbd){
+// The FBS ranks Suite computes on the edge API (decision 0037), for passing
+// offense and the turnover margin: one answer for every team, kept for the
+// session; a failure is not kept, and those rows show no rank meanwhile.
+var FBS_RANKS=null;
+function fbsRanks(){
+  if(FBS_RANKS) return FBS_RANKS;
+  var p=get(EDGE+TeamOS.cfbd.ranksPath(seasonYear())).catch(function(){ if(FBS_RANKS===p) FBS_RANKS=null; return null; });
+  FBS_RANKS=p;
+  return p;
+}
+
+// The rows no ESPN feed fills: points allowed (from results), yards allowed
+// and the turnover margin (from CFBD), and the two ranks ESPN gets wrong
+// (`ranks`, TeamOS.cfbd.ranksFor). Copies rather than writes, because the
+// rows themselves are cached in SEASON_STATS and shared between renders.
+function withDerived(rows, perGame, cfbd, ranks){
   var yards=cfbd && cfbd.yards, tov=cfbd && cfbd.turnovers;
   var fill={ pointsAllowed: perGame==null ? null : perGame.toFixed(1),
              rushDefense: yards && yards.rush!=null ? yards.rush.toFixed(1) : null,
              passDefense: yards && yards.pass!=null ? yards.pass.toFixed(1) : null,
              turnoverMargin: tov ? TeamOS.cfbd.signed(tov.margin) : null };
   return rows.map(function(r){
-    var v=fill[r.key];
-    if(v==null) return r;
-    return { key:r.key, label:r.label, value:v,
-             rank:r.rank, rankText:r.rankText };
+    var v=fill[r.key], rk=ranks && ranks[r.key];
+    if(v==null && !rk) return r;
+    return { key:r.key, label:r.label, value:v==null ? r.value : v,
+             rank:rk ? rk.rank : r.rank, rankText:rk ? rk.rankText : r.rankText };
   });
 }
 
@@ -1126,8 +1137,9 @@ function teamSeasonFor(key, type){
       if(!r[0] && !r[1]) throw new Error("no season stats");
       var outcome=how.every(function(h){ return h==="network"; }) ? "network" : "cached";
       var season=TeamOS.espn.teamSeason(r[0], r[1]);
-      return cfbdFor(TeamOS.espn.teamSchool(r[1])).then(function(c){
-        return { season: TeamOS.cfbd.withTurnovers(season, c && c.turnovers), outcome: outcome };
+      return Promise.all([cfbdFor(TeamOS.espn.teamSchool(r[1])), fbsRanks()]).then(function(c){
+        var s=TeamOS.cfbd.withTurnovers(season, c[0] && c[0].turnovers);
+        return { season: TeamOS.cfbd.withRanks(s, TeamOS.cfbd.ranksFor(c[1], key, year)), outcome: outcome };
       });
     });
 }
@@ -1632,8 +1644,12 @@ function loadGamePreview(V, g, repaint){
   V.previewLoading=true; V.previewAt=Date.now();
   Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
                pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null),
-               cfbdFor(s.us.school), cfbdFor(s.them.school)])
-    .then(function(r){ V.preview={ us:withDerived(r[0], r[2], r[4]), them:withDerived(r[1], r[3], r[5]) }; V.previewFailed=false; })
+               cfbdFor(s.us.school), cfbdFor(s.them.school), fbsRanks()])
+    .then(function(r){
+      var year=seasonYear();
+      V.preview={ us:withDerived(r[0], r[2], r[4], TeamOS.cfbd.ranksFor(r[6], s.us.key, year)),
+                  them:withDerived(r[1], r[3], r[5], TeamOS.cfbd.ranksFor(r[6], s.them.key, year)) };
+      V.previewFailed=false; })
     .catch(function(){ if(V.preview===undefined) V.preview=null; V.previewFailed=true; })
     .then(function(){ V.previewLoading=false; repaint(); });
 }

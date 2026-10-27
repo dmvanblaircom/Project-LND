@@ -118,7 +118,8 @@ function fakeCaches() {
       "var S={ games:[] }, PTS_ALLOWED={}, CFBD_FOR={}, EDGE='E', statsFail=1, edgeFail=1, repaints=0;",
       "var Suite={ game:{ sides:function(){ return { us:{ key:'87', school:'Notre Dame' }, them:{ key:'2509', school:'Purdue' } }; } } };",
       "var TeamOS={ espn:{ teamScheduleUrl:function(){ return 'TS'; }, teamPostseasonUrl:function(){ return 'TP'; }, scoreLines:function(){ return []; }, joinSeason:function(a){ return a; } },",
-      "  season:{ pointsAllowedPerGame:function(){ return 20; } }, cfbd:{ seasonPath:function(){ return '/c'; }, yardsAllowed:function(){ return { rush:100, pass:200 }; }, turnovers:function(){ return { margin:3 }; } } };",
+      "  season:{ pointsAllowedPerGame:function(){ return 20; } }, cfbd:{ seasonPath:function(){ return '/c'; }, yardsAllowed:function(){ return { rush:100, pass:200 }; }, turnovers:function(){ return { margin:3 }; }, ranksFor:function(){ return null; } } };",
+      "function fbsRanks(){ return Promise.resolve(null); }",
       "function seasonYear(){ return 2026; }",
       "function get(u){ if(u.indexOf('E')===0 && edgeFail>0){ edgeFail--; return Promise.reject(new Error('edge down')); } if(u==='TS' && statsFail>0){ return Promise.reject(new Error('down')); } return Promise.resolve({}); }",
       "function teamSeasonStats(){ if(statsFail>0){ statsFail--; return Promise.reject(new Error('down')); } return Promise.resolve([]); }",
@@ -161,6 +162,7 @@ function fakeCaches() {
     vm.runInContext(read("teamos/espn.js") + "\n" + read("teamos/cfbd.js") + "\n" + ST_DECL + "\n" + [
       "var POST=null, S={ next:null }, TEAM_CONFIG={ sources:{ espn:{ teamId:'87' } } }, asked=[], mode='network', cfbdAsked=[];",
       "function cfbdFor(school){ cfbdAsked.push(school); return Promise.resolve(mode==='down' ? null : { turnovers:{ margin:14, takeaways:16, giveaways:2 } }); }",
+      "function fbsRanks(){ return Promise.resolve(mode==='down' ? null : { source:'cfbd-ranks', year:2026, ranks:{ '87':{ passOffense:{ rank:55, tied:false }, turnoverMargin:{ rank:2, tied:true } } } }); }",
       "function seasonYear(){ return 2026; } function noteSource(){} function paintStats(){}",
       "function $(){ return { hidden:false }; } function statsView(){ return 'team'; }",
       "var CORE=" + JSON.stringify(read("tools/fixtures/espn-teamstats-nd-2026-reg.json")) + ", SITE=" + JSON.stringify(read("tools/fixtures/espn-sitestats-nd.json")) + ";",
@@ -178,6 +180,9 @@ function fakeCaches() {
   var tov = st.ST.us && st.ST.us.groups.filter(function (g) { return g.id === "turnovers"; })[0];
   ok(st.cfbdAsked[0] === "Notre Dame" && tov && tov.rows.map(function (r) { return r.key + "=" + r.value; }).join() === "turnoverMargin=+14,takeaways=16,giveaways=2,penalties=2.5 for 26.5 yards",
      "its turnover rows are CFBD's, asked for by the school the site API names, ahead of ESPN's penalties (" + (tov ? tov.rows.map(function (r) { return r.key + "=" + r.value; }).join() : "none") + ")");
+  var pass = st.ST.us.groups[0].rows.filter(function (r) { return r.key === "passYards"; })[0];
+  ok(pass.rank === "55th" && tov.rows[0].rank === "Tied-2nd",
+     "passing yards and the turnover margin carry the FBS ranks the edge API computed (" + pass.rank + ", " + tov.rows[0].rank + ")");
   st.POST = JSON.parse(read("tools/fixtures/espn-schedule-nd-2024-post.json")); st.asked.length = 0;
   st.statsInputsChanged(); await settled();
   ok(st.ST.type === 3 && st.asked.some(function (u) { return /\/types\/3\/teams\/87\//.test(u); }),

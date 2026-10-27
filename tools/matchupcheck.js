@@ -59,6 +59,7 @@ function card(a, b, pa, pb, ya, yb) {
   ctx.__a = a; ctx.__b = b; ctx.__pa = pa; ctx.__pb = pb;
   ctx.__ya = arguments.length > 4 ? ya : YA; ctx.__yb = arguments.length > 5 ? yb : YB;
   ctx.__series = card.series || null; ctx.__kind = card.kind || null;
+  ctx.__ra = card.ranks ? card.ranks[0] : null; ctx.__rb = card.ranks ? card.ranks[1] : null;
   return vm.runInContext([
     '(function(){',
     '  var parts={}, host={ innerHTML:"", querySelector:function(q){',
@@ -70,7 +71,7 @@ function card(a, b, pa, pb, ya, yb) {
     '          series:__series||null, seriesKind:__kind||null };',
     '  Suite.game.paint(host, { team:{ name:"Notre Dame", abbr:"ND", markUrl:null }, oppMark:function(){ return null; },',
     '    game:g, detail:null, lifecycle:TeamOS.game.lifecycle(g), view:"details",',
-    '    preview:{ us:withDerived(__a,__pa,__ya), them:withDerived(__b,__pb,__yb) },',
+    '    preview:{ us:withDerived(__a,__pa,__ya,__ra), them:withDerived(__b,__pb,__yb,__rb) },',
     '    side:"us", open:{}, weather:null, now:new Date("2026-10-01T12:00:00Z") });',
     '  return parts.body.innerHTML;',
     '})()'].join("\n"), ctx);
@@ -122,6 +123,18 @@ eq([rows[8].away.rank, rows[8].home.rank], [null, null], "with no national rank:
 eq(rowsOf(card(ND, OP, ndPA, 24.7, yards(4, 420, 780, 3, 3), YB))[8].away.value, "0", "an even margin prints 0, not a dash");
 var noTov = rowsOf(card(ND, OP, ndPA, 24.7, yards(4, 420, 780), yards(4, 610, 905)));
 ok(noTov.every(function (r) { return r.label !== "Turnover margin"; }), "no CFBD turnovers: the row goes rather than show ESPN's miscounted margin");
+
+console.log(" the FBS ranks Suite computes (decision 0037)");
+eq([rows[4].away.rank, rows[4].home.rank], [null, null], "without them, passing offense shows no rank: ESPN's counts all of Division I");
+var RB = { source: "cfbd-ranks", year: 2026, ranks: { "87": { passOffense: { rank: 48, tied: false }, turnoverMargin: { rank: 2, tied: true } },
+                                                      "127": { passOffense: { rank: 101, tied: false }, turnoverMargin: { rank: 88, tied: false } } } };
+card.ranks = [ctx.TeamOS.cfbd.ranksFor(RB, "87", 2026), ctx.TeamOS.cfbd.ranksFor(RB, "127", 2026)];
+var withR = rowsOf(card(ND, OP, ndPA, 24.7));
+card.ranks = null;
+eq([withR[4].away.rank, withR[4].home.rank, withR[8].away.rank, withR[8].home.rank], ["48th", "101st", "Tied-2nd", "88th"],
+   "with them, passing offense and the turnover margin carry Suite's own FBS places");
+eq([withR[4].away.value, withR[8].away.value], [rows[4].away.value, rows[8].away.value], "and the figures are the same ones");
+eq([withR[0].away.rank, withR[3].away.rank], [rows[0].away.rank, rows[3].away.rank], "ESPN's FBS ranks on the other rows stay");
 eq(rows.filter(function (r) { return r.away.win; }).map(function (r) { return r.label; }),
    ["Points per game", "Points allowed", "Total offense", "Passing offense", "Rushing defense", "Passing defense", "Sacks", "Turnover margin"],
    "Notre Dame is marked on every row where its displayed value is better");

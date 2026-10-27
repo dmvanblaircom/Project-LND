@@ -1488,6 +1488,22 @@ eq(cf.withTurnovers(tsND, { margin: null, takeaways: null, giveaways: null }), t
 eq(cf.withTurnovers(tsND, null), tsND, "no CFBD answer: the same");
 var noGroup = cf.withTurnovers({ games: 7, groups: [{ id: "offense", label: "Offense", rows: [] }] }, { margin: -6, takeaways: 4, giveaways: 10 });
 eq(noGroup.groups.map(function (g) { return g.id + ":" + g.rows.length; }), ["offense:0", "turnovers:3"], "a season without the group gets one, last");
+
+console.log("teamos/cfbd.js: the FBS ranks Suite computes");
+var RB = { source: "cfbd-ranks", year: 2026, teams: 138, ranks: { "87": { passOffense: { rank: 55, tied: false }, turnoverMargin: { rank: 2, tied: true } },
+                                                                    "2426": { passOffense: { rank: 113, tied: false }, turnoverMargin: { rank: 111, tied: true } } } };
+eq(cf.ranksFor(RB, "87", 2026), { passOffense: { rank: 55, rankText: "55th" }, turnoverMargin: { rank: 2, rankText: "Tied-2nd" } },
+   "an ESPN team id's places, printed as ESPN prints its own");
+eq([cf.ranksFor(RB, 2426, 2026).passOffense.rankText, cf.ranksFor(RB, 2426, 2026).turnoverMargin.rankText], ["113th", "Tied-111th"], "113th and 111th, not 113rd");
+eq([cf.ranksFor(RB, "87", 2025), cf.ranksFor(RB, "9999", 2026), cf.ranksFor({ source: "cfbd-sp", year: 2026, ranks: {} }, "87", 2026), cf.ranksFor(null, "87")],
+   [null, null, null, null], "another season, a team it does not place, another answer, or none: no ranks");
+eq(cf.ranksFor({ source: "cfbd-ranks", year: 2026, ranks: { "87": { passOffense: { rank: 0 }, turnoverMargin: { rank: 1.5 } } } }, "87", 2026), {},
+   "a place that is not a place is dropped");
+var ranked2 = cf.withRanks(withT, cf.ranksFor(RB, "87", 2026));
+eq([rowOf(ranked2, "passYards").rank, rowOf(ranked2, "turnoverMargin").rank, rowOf(ranked2, "rushYards").rank],
+   ["55th", "Tied-2nd", rowOf(tsND, "rushYards").rank], "on the Stats screen: passing yards and the margin take those places; ESPN's FBS ranks stay");
+eq(rowOf(tsND, "passYards").rank, null, "and the season it was given is not changed");
+eq(cf.withRanks(tsND, null), tsND, "no ranks: the season as it was");
 eq(TeamOS.espn.teamSeason(fx("espn-teamstats-nd-2024-post.json"), null).games, 16,
    "the postseason payload is the whole season: Notre Dame 2024, 12 games and 4 in the CFP");
 eq(TeamOS.espn.teamSeason(null, null).groups, [], "nothing to show is no groups, not empty rows");

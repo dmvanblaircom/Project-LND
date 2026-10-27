@@ -2,6 +2,7 @@
 
      GET <edge>/v1/cfbd/season?team=&year=  ->  TeamOS.cfbd.yardsAllowed()
                                                 TeamOS.cfbd.turnovers()
+     GET <edge>/v1/cfbd/ranks?year=         ->  TeamOS.cfbd.ranksFor()
 
    CFBD's season totals for a team include what its opponents gained against
    it (rushingYardsOpponent, netPassingYardsOpponent) and the games those
@@ -14,6 +15,10 @@
    Turnover margin row and the Stats screen's turnover rows. ESPN's own
    margin matched the NCAA's table for 10% of FBS teams, CFBD's for 93%
    (2026-10-27).
+
+   And the FBS ranks Suite computes on the edge API (decision 0037), for the
+   two figures whose ESPN rank is wrong: passing offense (ESPN ranks it
+   across all of Division I) and the turnover margin.
 
    The edge API returns only those fields and never CFBD's raw payload; this
    file is the one place in the app that knows their names.
@@ -84,5 +89,42 @@ TeamOS.cfbd = (function () {
     return { games: season.games, groups: groups };
   }
 
-  return { seasonPath: seasonPath, yardsAllowed: yardsAllowed, turnovers: turnovers, signed: signed, withTurnovers: withTurnovers };
+  function ranksPath(year) { return "/v1/cfbd/ranks?year=" + year; }
+
+  // 1 -> "1st", 22 -> "22nd", 113 -> "113th"; a shared place is "Tied-".
+  function ordinal(n) {
+    var t = n % 100, s = t >= 11 && t <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] || "th";
+    return n + s;
+  }
+  // The edge API's ranks and an ESPN team id (CFBD's ids are ESPN's) ->
+  // { passOffense, turnoverMargin }, each { rank, rankText } or absent, or
+  // null when the answer is not one, is for another season, or does not
+  // place this team.
+  function ranksFor(body, id, year) {
+    if (!body || body.source !== "cfbd-ranks" || (year != null && body.year !== year) || !body.ranks) return null;
+    var mine = body.ranks[String(id)];
+    if (!mine) return null;
+    var out = {};
+    ["passOffense", "turnoverMargin"].forEach(function (k) {
+      var r = mine[k];
+      if (r && typeof r.rank === "number" && r.rank >= 1 && Math.floor(r.rank) === r.rank)
+        out[k] = { rank: r.rank, rankText: (r.tied ? "Tied-" : "") + ordinal(r.rank) };
+    });
+    return out;
+  }
+  // The Stats screen's season with those ranks on its passing-yards and
+  // turnover-margin rows. A row without one keeps no rank.
+  function withRanks(season, r) {
+    if (!season || !r) return season;
+    var on = { passYards: r.passOffense, turnoverMargin: r.turnoverMargin };
+    return { games: season.games, groups: season.groups.map(function (g) {
+      return { id: g.id, label: g.label, rows: g.rows.map(function (row) {
+        var k = on[row.key];
+        return k ? { key: row.key, label: row.label, value: row.value, rank: k.rankText } : row;
+      }) };
+    }) };
+  }
+
+  return { seasonPath: seasonPath, yardsAllowed: yardsAllowed, turnovers: turnovers, signed: signed, withTurnovers: withTurnovers,
+           ranksPath: ranksPath, ranksFor: ranksFor, withRanks: withRanks };
 })();

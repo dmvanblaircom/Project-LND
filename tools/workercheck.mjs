@@ -7,7 +7,7 @@
    fails, and never passes CFBD's raw payload or errors through.
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
-import worker, { pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts, Ratings, spClock } from "../worker/src/index.js";
+import worker, { fbsRanks, RANKED, pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts, Ratings, spClock } from "../worker/src/index.js";
 import { migrateSp, keepSp, spWeeks, spWeek, spIdOf, spDue, weekOf, SP_DUE, SP_KEEP_MAX } from "../worker/src/sp.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
          words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease,
@@ -1664,6 +1664,52 @@ console.log("SP+ week by week: the routes and the clock");
   const jan = Object.assign(spEnv(), { RATINGS: store(8), NOW: () => Date.parse("2027-01-15T12:00:00Z") });
   await spClock(jan, null);
   ok(jan.calls.some((x) => /ratings\/sp\?year=2026$/.test(x.url)), "in January the clock keeps last season's final table"); }
+
+console.log("FBS ranks Suite computes (decision 0037): passing offense and the turnover margin");
+// Thirty FBS schools; season totals for each, as CFBD's /stats/season lists them.
+function statRows(year, skip) {
+  const rows = [];
+  SP_SCHOOLS.forEach((team, i) => {
+    if (skip && skip(i)) return;
+    const add = (statName, statValue) => rows.push({ season: year, team, conference: "Somewhere", statName, statValue });
+    add("games", i === 4 ? 8 : 7);
+    add("netPassingYards", 7 * (300 - i * 5));          // 300.0, 295.0, ... per game: school 0 first
+    add("turnovers", 10); add("turnoversOpponent", i === 1 || i === 2 ? 20 : 10 + (i % 7));  // schools 1 and 2 tie for first
+  });
+  rows.push({ season: year, team: "Somewhere FCS", statName: "games", statValue: 7 });
+  rows.push({ season: year, team: "Somewhere FCS", statName: "netPassingYards", statValue: 99999 });
+  rows.push({ season: year - 1, team: SP_SCHOOLS[29], statName: "netPassingYards", statValue: 99999 });
+  return rows;
+}
+{ const ids = schoolIds(fbs(2026)), r = fbsRanks(statRows(2026), ids, 2026);
+  eq(RANKED, ["passOffense", "turnoverMargin"], "exactly the two ranks ESPN gets wrong");
+  eq(r.teams, 30, "every FBS school counted");
+  eq(r.ranks["1000"].passOffense, { rank: 1, tied: false }, "the most passing yards per game is 1st");
+  eq(r.ranks["1004"].passOffense.rank, 11, "per game, not in total: a school's eighth game does not lift it (5th in total yards, 11th per game)");
+  ok(!JSON.stringify(r).includes("99999"), "a school outside the FBS, or another season's row, ranks no one and is not ranked");
+  eq([r.ranks["1001"].turnoverMargin, r.ranks["1002"].turnoverMargin], [{ rank: 1, tied: true }, { rank: 1, tied: true }], "a shared margin shares the best place, and says so");
+  eq(r.ranks["1006"].turnoverMargin, { rank: 3, tied: true }, "and the next place after a two-way tie is 3rd, here shared by four");
+  ok(Object.values(r.ranks).every((t) => JSON.stringify(Object.keys(t)) === JSON.stringify(["passOffense", "turnoverMargin"]) &&
+     Object.values(t).every((x) => JSON.stringify(Object.keys(x)) === JSON.stringify(["rank", "tied"]))), "places only: no CFBD figure leaves the Worker");
+  eq(fbsRanks(statRows(2026, (i) => i < 4), ids, 2026), null, "a read missing more than one FBS school in ten is no answer: it would rank the rest too high");
+  ok(fbsRanks(statRows(2026, (i) => i === 0), ids, 2026) !== null, "one school missing is still a table");
+  eq(fbsRanks([], ids, 2026), null, "no rows: no answer"); }
+{ const ranksEnv = (opts) => { opts = opts || {}; const calls = [];
+    return { calls, NOW: () => Date.parse("2026-10-27T12:00:00Z"), CACHE: opts.cache || memoryCache(), CFBD_API_KEY: "test-key",
+      FETCH: async (url) => { calls.push(url); if (opts.down) throw new Error("network");
+        const body = /\/stats\/season\?/.test(url) ? statRows(2026) : fbs(2026);
+        return new Response(JSON.stringify(body), { status: 200, headers: { "content-type": "application/json" } }); } }; };
+  const e = ranksEnv(), { r, body } = await get("/v1/cfbd/ranks?year=2026", e, SITE);
+  ok(r.status === 200 && body.source === "cfbd-ranks" && body.year === 2026 && body.teams === 30, "answers with every FBS school's places");
+  ok(e.calls.some((u) => /\/stats\/season\?year=2026$/.test(u)), "from one league-wide read: no team named");
+  ok(!JSON.stringify(body).includes("netPassingYards") && !JSON.stringify(body).includes("turnovers"), "never CFBD's rows or field names");
+  const n = e.calls.length; await get("/v1/cfbd/ranks?year=2026", e, SITE);
+  ok(e.calls.length === n, "a second ask within six hours is the kept copy: CFBD is not asked again");
+  const down = await get("/v1/cfbd/ranks?year=2026", Object.assign(ranksEnv({ down: true, cache: e.CACHE }), { NOW: () => Date.parse("2026-10-28T12:00:00Z") }), SITE);
+  ok(down.r.status === 200, "CFBD down: the kept copy answers");
+  ok((await get("/v1/cfbd/ranks?year=2026", ranksEnv({ down: true }), SITE)).r.status === 502, "and with none kept, a 502, not a crash");
+  ok((await get("/v1/cfbd/ranks?year=2019", ranksEnv(), SITE)).r.status === 400, "only this season or last");
+  ok((await get("/v1/cfbd/ranks", ranksEnv(), SITE)).r.status === 400, "no year: 400"); }
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the edge API answers only what a screen shows"));
 process.exit(failures ? 1 : 0);
