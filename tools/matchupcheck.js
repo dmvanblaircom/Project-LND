@@ -115,7 +115,8 @@ eq([rows[1].away.win, rows[1].home.win], [true, false],
 console.log(" the rows the feed answers");
 eq([rows[0].away.value, rows[0].away.rank], ["40.0", "Tied-28th"], "points per game carries its rank");
 eq([rows[7].away.value, rows[7].home.value], ["7", "3"], "sacks is the defence's, both sides");
-eq([rows[8].away.value, rows[8].home.value], ["6", "-2"], "turnover margin keeps a negative");
+eq([rows[8].away.value, rows[8].home.value], ["+6", "-2"], "turnover margin keeps a negative, and says a positive one is");
+eq([rows[8].away.rank, rows[8].home.rank], [null, null], "with no national rank: ESPN's does not follow the margin");
 eq(rows.filter(function (r) { return r.away.win; }).map(function (r) { return r.label; }),
    ["Points per game", "Points allowed", "Total offense", "Passing offense", "Rushing defense", "Passing defense", "Sacks", "Turnover margin"],
    "Notre Dame is marked on every row where its displayed value is better");
