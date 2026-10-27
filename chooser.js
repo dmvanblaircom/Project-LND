@@ -272,7 +272,7 @@
            "</button>" + star(t);
   }
   function openable(t) {
-    return '<li data-group="open"' + searchAttrs(t) + ">" + row(t) + "</li>";
+    return '<li class="fav-row" data-group="open"' + searchAttrs(t) + ">" + row(t) + "</li>";
   }
 
   // The fan's teams, starred, at the top - in the order they were starred.
@@ -282,7 +282,7 @@
   function yourTeams() {
     return favs.list().map(function (id) { return REG.get(id); })
       .filter(function (t) { return t && t.available; })
-      .map(function (t) { return "<li>" + row(t) + "</li>"; }).join("");
+      .map(function (t) { return '<li class="fav-row">' + row(t) + "</li>"; }).join("");
   }
   function paintYourTeams(host) {
     var block = host.querySelector("#yourTeams"), list = block && block.querySelector("ul");

@@ -13,7 +13,10 @@ Accepted. Amends decision 0024 §6 for the header's team context only.
 David, 2026-10-27, choosing the smallest useful version of W22 (My Teams)
 now that Suite has more than two teams: **quick switch**.
 
-- **Favorites.** In the chooser, every team that can be opened has a star.
+- **Favorites.** In the chooser, every team that can be opened has a star,
+  inside its card between the name and the chevron, in the Suite's bronze
+  (`--s-bronze` #B8845A): an outline, then filled champagne (`--s-champagne`
+  #D4B896) edged in bronze once starred (David, 2026-10-27).
   Starred teams are the fan's teams and appear first, under **Your Teams**, in
   the order they were starred. A search still looks through every program
   once, below, so it never lists a team twice. At most 12.

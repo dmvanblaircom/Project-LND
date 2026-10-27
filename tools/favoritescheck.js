@@ -99,6 +99,17 @@ function fixture(url) {
   });
   ok(rows.length >= 6 && rows.every(function (r) { return r.star && r.pressed === "false" && /^Favorite /.test(r.label) && r.w >= 44 && r.h >= 44; }),
      "every team that can be opened has a 44px star, a toggle named for the team (" + rows.length + " teams)");
+  var geo = await c.page.evaluate(function () {
+    return [].slice.call(document.querySelectorAll('#availHead ~ .chooser-list li')).map(function (l) {
+      var card = l.querySelector(".pick").getBoundingClientRect(), star = l.querySelector(".fav svg").getBoundingClientRect(),
+          name = l.querySelector(".pick-main").getBoundingClientRect(), chev = l.querySelector(".chev").getBoundingClientRect();
+      return star.left >= card.left && star.right <= card.right && star.top >= card.top && star.bottom <= card.bottom &&
+             star.left >= name.right && star.right <= chev.left;
+    });
+  });
+  ok(geo.length && geo.every(Boolean), "the star sits inside each team's card, between its name and the chevron, overlapping neither (David, 2026-10-27)");
+  var tone = await c.page.evaluate(function () { var b = document.querySelector('#availHead ~ .chooser-list .fav'), st = getComputedStyle(b.querySelector("svg")); return getComputedStyle(b).color + " / " + st.fill; });
+  ok(tone === "rgb(184, 132, 90) / none", "in the Suite's bronze, an outline until starred (" + tone + ")");
   ok(await c.page.evaluate(function () { return document.getElementById("yourTeams").hidden && !document.querySelector(".soon .fav"); }),
      "with none starred there is no Your Teams, and a team that cannot be opened has no star");
   await c.page.click('#availHead ~ .chooser-list .fav[data-fav="indiana"]');
@@ -112,6 +123,8 @@ function fixture(url) {
   ok(after.url === "?choose=1", "a star never opens the team");
   ok(after.shown && after.teams.join() === "indiana" && after.top, "Indiana is under Your Teams, above every team (" + after.teams.join() + ")");
   ok(after.pressed.length === 2 && after.pressed.every(function (p) { return p === "true"; }), "and its star reads pressed in both places");
+  ok((await c.page.evaluate(function () { return getComputedStyle(document.querySelector('.fav[data-fav="indiana"] svg')).fill; })) === "rgb(212, 184, 150)",
+     "filled champagne once starred, edged in bronze");
   await c.page.click('#availHead ~ .chooser-list .fav[data-fav="ohio-state"]');
   ok((await favs(c.page)).join() === "indiana,ohio-state", "a second team joins after the first, kept on the device");
   await c.page.fill("#teamSearch", "ohio");
