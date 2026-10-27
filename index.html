@@ -284,6 +284,12 @@ html[data-choosing] .launch,html[data-launched] .launch{display:none}
    From the lift on, the page has its own colours again. */
 html:not([data-launched]):not([data-choosing]):has(#launch:not(.done)),
 html:not([data-launched]):not([data-choosing]):has(#launch:not(.done)) body{background:#111D35}
+/* And below its own foot, as the nav does (app.css .navbar::after): when iOS
+   stops fixed layers short of the screen's foot, what shows in the strip is
+   whatever is painted there - the nav's white extension, under the launch.
+   The launch's own navy extension covers it, and fades with it (David's
+   iPhone, 2026-10-27: the white strip again, after the page went navy). */
+.launch::after{content:"";position:absolute;left:0;right:0;top:100%;height:12rem;background:inherit;pointer-events:none}
 @keyframes launch-l{to{opacity:1;transform:none}}
 @keyframes launch-rule{to{transform:scaleX(1)}}
 @keyframes launch-out{to{opacity:0;visibility:hidden;pointer-events:none}}
