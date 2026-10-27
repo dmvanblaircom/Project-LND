@@ -265,9 +265,28 @@ def call(endpoint, body):
         return json.loads(r.read())
 
 
+def fetch(endpoint, body, cache=None):
+    """One conference's answer, read once a run: with --cache, the first team
+    of a conference asks and every other team of it reads that answer (Phase
+    0, 2026-10-27: eighteen Big Ten teams are one Big Ten report)."""
+    if not cache:
+        return call(endpoint, body)
+    key = re.sub(r"[^A-Za-z0-9_-]+", "-", "%s-%s-%s" % (body.get("conference"), body.get("sport"), endpoint))
+    path = os.path.join(cache, key + ".json")
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+    answer = call(endpoint, body)
+    os.makedirs(cache, exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(answer, f)
+    return answer
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--team", required=True)
+    ap.add_argument("--cache", help="a directory that keeps each conference's answer for this run")
     args = ap.parse_args()
 
     config = teamconfig.load(args.team)
@@ -280,8 +299,8 @@ def main():
     body = {"sport": feed.get("sport") or "Football", "organization": feed["conference"], "conference": feed["conference"]}
 
     try:
-        publish = call("get-publish-public", body)
-        archive = call("get-archive-public", body)
+        publish = fetch("get-publish-public", body, args.cache)
+        archive = fetch("get-archive-public", body, args.cache)
     except Exception as e:                                   # noqa: BLE001
         sys.exit("conference availability fetch failed: %s - leaving files alone" % str(e)[:160])
     if not isinstance(publish, dict) or not isinstance(archive, dict) or not archive.get("loaded", True):
