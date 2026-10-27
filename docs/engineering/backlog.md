@@ -46,6 +46,24 @@ PRs before work.
   the edge Worker to accept, store or forward it, plus spam protection and a
   privacy note for the email address. Feedback arrives at
   suiteappfeedback@gmail.com.
+- **The rest of FBS, in phases (David, 2026-10-27).** 132 teams left after
+  the first six. Phase 0 first: checks that run what a change needs, in
+  parallel (#186); every team's palette and faces checked in CI
+  (`tools/teamidentitycheck.js`); the data refresh made to scale; tooling to
+  add a conference at a time; one review sheet per phase. Then, by
+  conference: 1, the rest of the Big Ten (15, its availability reports
+  already built); 2, the SEC (16); 3, the Big 12 and ACC (32); 4a, the
+  American, Mountain West and Pac-12 (31); 4b, the Sun Belt, MAC, Conference
+  USA and UConn (38). David's rules for every phase:
+  - **Colours:** the school's official palette, checked for contrast.
+  - **Type:** the closest free face to the school's own for the Power 4;
+    the Suite's own faces for the Group of Five, a matched face later on
+    request.
+  - **Beat news:** the athletics site, SB Nation, On SI, On3 and the student
+    paper, wherever each works from GitHub's network; nothing stale (no
+    story in 30 days) or paywalled. Exceptions go on the phase's sheet.
+  - **Approval:** one review sheet per phase - every team's Home, palette,
+    faces and feeds - approved in one pass.
 - **The four teams added 2026-10-27 (Indiana, Minnesota, North Dakota
   State, BYU):** each has ESPN's schedule, scores, roster, stats and news,
   its own colours and type, beat news, price history (Kalshi lists no
