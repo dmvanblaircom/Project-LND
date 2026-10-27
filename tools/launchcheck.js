@@ -353,6 +353,7 @@ function fixture(url) {
   var u1 = await updateOpen(4000);
   var first = u1.of(u1.docs[0]), last = u1.of(u1.docs[u1.docs.length - 1]);
   ok(u1.docs.length === 2, "the worker reloads the page once (" + u1.docs.length + " documents)");
+  if (u1.docs.length !== 2) u1.trace();
   ok(first.length && first.every(function (c) { return c === "1.00"; }), "the launch holds over the page until that reload: it never starts to lift (" + first.join(",") + ")");
   ok(last[0] === "1.00" && last[last.length - 1] === "0.00", "the reloaded page carries the same launch on and lifts it once");
   ok(u1.reveal(u1.docs[u1.docs.length - 1]) === "swap",
@@ -365,8 +366,6 @@ function fixture(url) {
   ok(u4.docs.length === 2 && u4last[u4last.length - 1] === "0.00",
      "a page that does not answer is still reloaded, once, by the worker (" + u4.docs.length + " documents)");
   if (u4.docs.length !== 2) u4.trace();
-  // TEMP (CI diagnosis, removed before merge): the same case, repeated.
-  for (var rep = 0; rep < 12; rep++) { var ur = await updateOpen(0, 0, true); ok(ur.docs.length === 2, "TEMP repeat " + rep + " (" + ur.docs.length + " documents)"); if (ur.docs.length !== 2) ur.trace(); }
   // An install of 11 seconds outlasts that wait.
   var u2 = await updateOpen(11000);
   var slowLast = u2.of(u2.docs[u2.docs.length - 1]);
