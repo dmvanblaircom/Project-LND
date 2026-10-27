@@ -84,6 +84,7 @@ function forFile(f) {
   if (/^worker\//.test(f)) return { rule: "the edge API", checks: ["workercheck.mjs"] };
   if (/^\.github\/workflows\/odds\.yml$/.test(f)) return { rule: "the data refresh", checks: REFRESH_CHECKS };
   if (/^tools\/(build-registry|registry-ids)\.js$/.test(f)) return { rule: "the registry generator", checks: ["registrycheck.js", "choosercheck.js"] };
+  if (/^tools\/(newteams|reviewsheet)\.js$/.test(f)) return { rule: "the tools for adding teams", checks: ["newteamscheck.js"] };
   if (/^(docs|data)\//.test(f) || /^[^/]+\.md$/.test(f) || /^\.github\/workflows\/[^/]+\.yml$/.test(f) ||
       /^tools\/(probe-urls\.txt|fixtures\/capture-requests\.txt)$/.test(f) ||
       /^tools\/(probe_sources|cfbd_probe|cfbd_sp_probe|trim_summary|capture_[a-z_]+)\.py$/.test(f) ||

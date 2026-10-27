@@ -52,6 +52,7 @@ var c = pick(["tools/launchcheck.js"]);
 ok(!c.all && has(c, "launchcheck.js") && c.ids.length === ALWAYS.length + 1, "a check script: that check");
 ok(pick(["tools/identitycheck.js"]).ids.indexOf("identitycheck-release") !== -1 && pick(["tools/identitycheck.js"]).ids.indexOf("identitycheck.js") !== -1, "both runs of a check that runs twice");
 ok(has(pick(["worker/src/push.js"]), "workercheck.mjs") && !pick(["worker/src/push.js"]).all, "the edge API: its check");
+ok(has(pick(["tools/reviewsheet.js"]), "newteamscheck.js") && !pick(["tools/newteams.js"]).all, "the tools for adding teams: their check");
 ok(has(pick([".github/workflows/odds.yml"]), "cadencecheck.py") && !pick([".github/workflows/odds.yml"]).all, "the data refresh: its checks");
 ok(!pick([".github/workflows/probe-feeds.yml", "tools/probe-urls.txt"]).all, "a probe or another workflow: nothing more");
 ok(pick(["somewhere/new.thing"]).all && pick(["tools/new_helper.py"]).all, "anything no rule names: everything");
