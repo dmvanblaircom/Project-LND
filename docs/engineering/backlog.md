@@ -46,6 +46,15 @@ PRs before work.
   the edge Worker to accept, store or forward it, plus spam protection and a
   privacy note for the email address. Feedback arrives at
   suiteappfeedback@gmail.com.
+- **The four teams added 2026-10-27 (Indiana, Minnesota, North Dakota
+  State, BYU):** each has ESPN's schedule, scores, roster, stats and news,
+  its own colours and type, beat news, price history (Kalshi lists no
+  Minnesota or North Dakota State market yet; both start when one is
+  listed) and its recruiting class; Indiana and Minnesota have the Big Ten's
+  availability reports. Not yet: game notes readers (each school's notes
+  are a different PDF layout), depth charts (none of the four is checked),
+  and an availability source for the two outside the Big Ten. NDSU's beat
+  coverage is thin: The Forum and the student paper publish no usable feed.
 - **W25:** each owner updates current docs with accepted changes. Old branches
   remain by David's decision; no manual branch-deletion campaign.
 
