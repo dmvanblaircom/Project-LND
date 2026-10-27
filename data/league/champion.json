@@ -1,0 +1,22 @@
+{
+ "schema": 1,
+ "capability": "champion",
+ "season": 2025,
+ "source": "ESPN",
+ "fetchedAt": "2026-10-27T12:32:55+00:00",
+ "game": "401769076",
+ "label": "College Football Playoff National Championship",
+ "date": "2026-01-20T00:30Z",
+ "team": {
+  "id": "84",
+  "name": "Indiana"
+ },
+ "opponent": {
+  "id": "2390",
+  "name": "Miami"
+ },
+ "score": {
+  "winner": 27,
+  "loser": 21
+ }
+}

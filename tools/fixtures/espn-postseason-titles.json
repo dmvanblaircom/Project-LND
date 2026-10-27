@@ -1,0 +1,24 @@
+{
+ "_note": "Trimmed from ESPN's postseason scoreboards (scoreboard?seasontype=3&groups=80), read from GitHub's network on 2026-10-27 (probe-sources.yml): the keys tools/producers/champion.py reads. 2025: the Peach Bowl semifinal (scores left out) and the title game, Indiana 27, Miami 21. 2026: the title game as scheduled, its teams not yet known.",
+ "2025": {
+  "events": [
+   {
+     "status": { "type": { "state": "post", "completed": true } },
+     "competitions": [ { "notes": [ { "headline": "College Football Playoff Semifinal at the Chick-fil-A Peach Bowl" } ], "competitors": [] } ] },
+   { "id": "401769076", "date": "2026-01-20T00:30Z", "name": "Miami Hurricanes at Indiana Hoosiers",
+     "status": { "type": { "state": "post", "completed": true } },
+     "competitions": [ { "notes": [ { "headline": "College Football Playoff National Championship Presented by AT&T" } ],
+       "competitors": [
+         { "homeAway": "home", "winner": true,  "score": "27", "team": { "id": "84",   "location": "Indiana", "abbreviation": "IU",  "displayName": "Indiana Hoosiers", "shortDisplayName": "Indiana" } },
+         { "homeAway": "away", "winner": false, "score": "21", "team": { "id": "2390", "location": "Miami",   "abbreviation": "MIA", "displayName": "Miami Hurricanes", "shortDisplayName": "Miami" } }
+       ] } ] }
+  ]
+ },
+ "2026": {
+  "events": [
+   { "name": "TBD at TBD",
+     "status": { "type": { "state": "pre", "completed": false } },
+     "competitions": [ { "notes": [ { "headline": "College Football Playoff National Championship Presented by AT&T" } ], "competitors": [] } ] }
+  ]
+ }
+}
