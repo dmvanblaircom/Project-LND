@@ -42,7 +42,7 @@ ok(pick([".github/workflows/check.yml"]).all && pick(["tools/checks.json"]).all 
 ok(pick(["teams/notre-dame.js"]).all && pick(["teams/ohio-state.js"]).all && pick(["teams/index.js"]).all,
    "the two teams the browser checks render, and the registry the chooser lists: everything");
 var t = pick(["teams/indiana.js"]);
-ok(!t.all && has(t, "bootcheck.js") && has(t, "adaptercheck.js") && has(t, "pipelinecheck.py") && has(t, "teamfontcheck.js") && !has(t, "visualcheck.js"),
+ok(!t.all && has(t, "bootcheck.js") && has(t, "adaptercheck.js") && has(t, "teamidentitycheck.js") && has(t, "pipelinecheck.py") && has(t, "teamfontcheck.js") && !has(t, "visualcheck.js"),
    "another team's config: the checks that read every team (" + t.ids.length + " of " + ALL + ")");
 var p = pick(["tools/producers/beat_news.py"]);
 ok(!p.all && has(p, "newscheck.py") && has(p, "pipelinecheck.py") && !has(p, "launchcheck.js"), "a producer: the checks that import it, and the pipeline (" + p.ids.filter(function (i) { return ALWAYS.indexOf(i) === -1; }).join(", ") + ")");
