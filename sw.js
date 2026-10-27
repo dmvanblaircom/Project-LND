@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-27fourteams2";
+var VERSION = "suite-2026-10-27fourteams3";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -209,23 +209,35 @@ function reloadWhenActive() {
 // comes in as a page swap (index.html #page-swap) and one the worker drives
 // never does, so the old launch stays up until the new one paints, with no
 // blank frame between them (David's iPhone, 2026-10-27: a white flicker
-// between two launches). A page that does not answer - one from before
-// this, or the chooser - is reloaded from here, as before.
-function reloadWindows() {
+// between two launches). The asking is done during the activation, which
+// the browser keeps this worker alive for; a wait after it, on a timer,
+// could be cut short (CI, 2026-10-27: an unanswered page never reloaded).
+// A page that answers reloads itself once this worker is active; one that
+// does not - from before this, or the chooser - is reloaded from here, as
+// before, the moment it is.
+var SELF_RELOADING = {};
+function askWindows() {
   return self.clients.matchAll({ type: "window" }).then(function (list) {
     return Promise.all(list.map(function (c) {
-      return askToReload(c).then(function (asked) {
-        if (!asked && c.navigate) return c.navigate(c.url).catch(function () {});
-      });
+      return askToReload(c).then(function (yes) { if (yes) SELF_RELOADING[c.id] = true; });
     }));
   }).catch(function () {});
 }
 function askToReload(c) {
   return new Promise(function (done) {
-    var ch = new MessageChannel(), t = setTimeout(function () { done(false); }, 1500);
+    var ch = new MessageChannel(), t = setTimeout(function () { done(false); }, ASK_MS);
     ch.port1.onmessage = function () { clearTimeout(t); done(true); };
-    try { c.postMessage({ type: "reload" }, [ch.port2]); } catch (e) { clearTimeout(t); done(false); }
+    try { c.postMessage({ type: "reload", at: Date.now(), within: ASK_MS }, [ch.port2]); } catch (e) { clearTimeout(t); done(false); }
   });
+}
+var ASK_MS = 1500;
+function reloadWindows() {
+  return self.clients.matchAll({ type: "window" }).then(function (list) {
+    return Promise.all(list.map(function (c) {
+      if (SELF_RELOADING[c.id] || !c.navigate) return null;
+      return c.navigate(c.url).catch(function () {});
+    }));
+  }).catch(function () {});
 }
 
 /* ---- the team, told to the worker by the page ----------------------------
@@ -337,6 +349,9 @@ self.addEventListener("activate", function (e) {
       if (old.length) reloadWhenActive();
       return carryOver(old)
         .then(function () { return self.clients.claim(); })
+        // Asked here, inside the activation, so the browser keeps this
+        // worker alive while it waits for the answers (reloadWindows).
+        .then(function () { return old.length ? askWindows() : null; })
         .then(function () { return Promise.all(old.map(function (k) { return caches.delete(k); })); });
     })
   );
