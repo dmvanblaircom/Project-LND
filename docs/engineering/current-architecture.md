@@ -29,7 +29,7 @@ External sources ──► adapters (teamos/espn.js, cfbd.js, markets.js, weathe
 | `suite/*.js` | Screens: Home, Game, Top 25, Schedule, Roster, More, News, Settings, Stats and Outlook; `nav.js` routes and paints the one header every screen wears (decision 0031), with Settings as the header gear (0034), plus the swipe between a screen's views, and pull to refresh; `ui.js` shared pieces. Draw what TeamOS decided. |
 | `app.js` | The controller: fetches, cache-first paint, polling, per-source freshness, and the one manual refresh that Refresh Data and a pull down both run. Lifts the launch screen onto a finished first screen. Names no team and reads no provider field. |
 | `app.css` | One stylesheet; team color comes from identity tokens. |
-| `sw.js` | Service worker. Precaches the essential shell (everything but PNG/SVG artwork: if any of it fails, the install fails and the working version stays; artwork that fails to cache does not block it) and one team's files at a time (decision 0015); stale-while-revalidate for the shell, network-first with cached fallback for data. An update carries the fan's data over, minus copies kept over 30 days. `VERSION` must change with any shell file (`tools/versioncheck.js`; CI runs it only after merge, see `check.yml` below). |
+| `sw.js` | Service worker. Precaches the essential shell (everything but PNG/SVG artwork: if any of it fails, the install fails and the working version stays; artwork that fails to cache does not block it) and one team's files at a time (decision 0015); stale-while-revalidate for the shell, network-first with cached fallback for data. An update carries the fan's data over, minus copies kept over 30 days. `VERSION` must change with any shell file (`tools/versioncheck.js`, on every pull request). |
 
 ## Where data comes from
 
@@ -54,7 +54,7 @@ source for a kind shows that kind as unavailable, never another team's data.
 
 | Workflow | When | What |
 |---|---|---|
-| `check.yml` | Every PR into `main`, and pushes that touch code | Syntax, CSS, every `tools/*check` gate, and the browser checks: visual (both teams, four widths), outage, upgrade, postseason, More, Roster, flicker, launch, swipe, pull, focus. `VERSION` (`tools/versioncheck.js`) runs only on the push to `main` after a merge, not on the PR, so run `node tools/versioncheck.js origin/main` before merging |
+| `check.yml` | Every PR into `main` (once), pushes to `main` that touch code, and nightly | Every check in `tools/checks.json`: syntax, CSS, the `tools/*check` gates, the browser checks and the visual audit (both teams, four widths). A pull request runs what its change needs (`tools/select-checks.js`; anything unclassified runs everything); a push to `main` and the nightly run check everything. Browser checks run in parallel shards balanced by time, the visual audit one job per width, and `gate` is the one result. `VERSION` (`tools/versioncheck.js`) runs on every pull request |
 | `odds.yml` "Refresh team data" | The Worker's clock at :07/:37 (`source=clock`, live since 2026-10-01) and GitHub's scheduler (best effort) | Odds, news, depth chart, availability, freshness monitor; the ESPN-from-Worker probe on Saturdays (W19 Phase 0) |
 | `roster.yml` | Tuesdays | Regenerates `teams/index.js` |
 | `worker.yml` | Push to `worker/**` | Tests and deploys the edge API; waits for the new version; smoke-tests CFBD (names only in logs) |
