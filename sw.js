@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-27launchfoot";
+var VERSION = "suite-2026-10-27launchswap2";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -205,12 +205,27 @@ function reloadWhenActive() {
     setTimeout(reloadWindows, 0);
   }
 }
+// Each window is asked to reload itself first: a navigation the page starts
+// comes in as a page swap (index.html #page-swap) and one the worker drives
+// never does, so the old launch stays up until the new one paints, with no
+// blank frame between them (David's iPhone, 2026-10-27: a white flicker
+// between two launches). A page that does not answer - one from before
+// this, or the chooser - is reloaded from here, as before.
 function reloadWindows() {
   return self.clients.matchAll({ type: "window" }).then(function (list) {
     return Promise.all(list.map(function (c) {
-      return c.navigate ? c.navigate(c.url).catch(function () {}) : null;
+      return askToReload(c).then(function (asked) {
+        if (!asked && c.navigate) return c.navigate(c.url).catch(function () {});
+      });
     }));
   }).catch(function () {});
+}
+function askToReload(c) {
+  return new Promise(function (done) {
+    var ch = new MessageChannel(), t = setTimeout(function () { done(false); }, 1500);
+    ch.port1.onmessage = function () { clearTimeout(t); done(true); };
+    try { c.postMessage({ type: "reload" }, [ch.port2]); } catch (e) { clearTimeout(t); done(false); }
+  });
 }
 
 /* ---- the team, told to the worker by the page ----------------------------

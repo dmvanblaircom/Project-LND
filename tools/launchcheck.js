@@ -69,6 +69,12 @@ function fixture(url) {
       var u = route.request().url();
       if (u.startsWith(base)) {
         if (opts.noApp && /\/app\.js$/.test(u)) return route.abort();
+        // early: what the page looks like before the parser reaches the
+        // launch - the moment iOS can paint a reloaded page
+        if (opts.early && route.request().resourceType() === "document") {
+          var r = await route.fetch(), html = await r.text();
+          return route.fulfill({ response: r, body: html.replace("<body>", "<body><script>window.__early=[getComputedStyle(document.documentElement).backgroundColor, getComputedStyle(document.body).backgroundColor].join(\" / \")</script>") });
+        }
         return route.continue();
       }
       var body = fixture(u);
@@ -183,6 +189,18 @@ function fixture(url) {
   await c.ctx.close();
 
   console.log("app.js never runs");
+  // And before the parser has reached it: an update reloads the page under
+  // the launch, and iOS can paint the new page that early - white, between
+  // two launches (David's iPhone, 2026-10-27).
+  var ea = await open("/?team=notre-dame#home", { early: true });
+  await ea.page.waitForFunction(function () { return window.__first !== null; });
+  var early = await ea.page.evaluate(function () { return window.__early; });
+  ok(early === NAVY + " / " + NAVY, "before the launch is parsed, the page is already its navy (" + early + ")");
+  ok(await ea.page.evaluate(function () { var s = document.getElementById("page-swap"); return !!s && /@view-transition/.test(s.textContent); }),
+     "a team's page takes part in a page swap, so an update's reload is held over rather than blanked");
+  var eat = await liftedAt(ea, 8000), eafter = await under(ea.page);
+  ok(eat != null && eafter.indexOf(NAVY) < 0, "and from the lift on it has its own colours (" + eafter + ")");
+  await ea.ctx.close();
   var d = await open("/?team=notre-dame#home", { noApp: true });
   var td = await liftedAt(d, 9000);
   ok(td != null && td >= 6800 && td < 8000, "its own style lifts it (" + td + " ms): it can never trap a fan");
@@ -217,10 +235,17 @@ function fixture(url) {
   // install: how long the new worker's install takes - chooser.js, which
   // the install fetches and a team's page never does, held this long;
   // checkDelay: sw.js itself (the update check).
-  async function updateOpen(install, checkDelay) {
+  // deaf: the open page is one from before the page reloaded itself - it
+  // ignores the worker's word, so the worker must reload it.
+  async function updateOpen(install, checkDelay, deaf) {
     var os = require("os");
     var dir = fs.mkdtempSync(path.join(os.tmpdir(), "launch-upd-"));
     fs.cpSync(root, dir, { recursive: true, filter: function (f) { return !/[\\/](\.git|node_modules)$/.test(f); } });
+    if (deaf) {
+      var aj = path.join(dir, "app.js"), src = fs.readFileSync(aj, "utf8"), hush = 'if(!e.data || e.data.type!=="reload") return;';
+      if (src.indexOf(hush) < 0) throw new Error("app.js no longer has the reload handler this check silences");
+      fs.writeFileSync(aj, src.replace(hush, "return;"));
+    }
     var srv = serve(dir);
     // Both holds are at the server, which every client goes through - the
     // page, the browser's update check and the worker's own install alike;
@@ -251,11 +276,13 @@ function fixture(url) {
       return route.abort();
     });
     var page = await ctx.newPage(), frames = [];
-    page.on("console", function (m) { var t = m.text(); if (t.indexOf("LF|") === 0) frames.push(t.split("|")); if (process.env.LAUNCH_DEBUG && /^L[EF]\|/.test(t)) console.log("    " + Date.now() % 100000 + " " + t); });
+    var reveals = {};
+    page.on("console", function (m) { var t = m.text(); if (t.indexOf("LF|") === 0) frames.push(t.split("|")); if (t.indexOf("LV|") === 0) reveals[t.split("|")[1]] = t.split("|")[2]; if (process.env.LAUNCH_DEBUG && /^L[EF]\|/.test(t)) console.log("    " + Date.now() % 100000 + " " + t); });
     await page.addInitScript(function () {
       var doc = Math.random().toString(36).slice(2, 7), t0 = Date.now(), prev = "";
       if (navigator.serviceWorker) {
         navigator.serviceWorker.addEventListener("controllerchange", function () { console.log("LE|" + doc + "|controllerchange"); });
+        window.addEventListener("pagereveal", function (e) { console.log("LV|" + doc + "|" + (e.viewTransition ? "swap" : "none")); });
         navigator.serviceWorker.getRegistration().then(function (r) { if (r) r.addEventListener("updatefound", function () { console.log("LE|" + doc + "|updatefound"); }); });
       }
       (function f() {
@@ -282,11 +309,12 @@ function fixture(url) {
       if (settled || Date.now() > until) break;
     }
     await page.waitForTimeout(500);
+    var finalUrl = page.url();
     await ctx.close(); srv.close();
     fs.rmSync(dir, { recursive: true, force: true });
     var docs = []; frames.forEach(function (f) { if (docs.indexOf(f[1]) === -1) docs.push(f[1]); });
     function of(d) { return frames.filter(function (f) { return f[1] === d; }).map(function (f) { return f[2]; }); }
-    return { docs: docs, of: of };
+    return { docs: docs, of: of, url: finalUrl, reveal: function (d) { return reveals[d] || "no pagereveal"; } };
   }
 
   console.log("a clock that moved back");
@@ -305,6 +333,15 @@ function fixture(url) {
   ok(u1.docs.length === 2, "the worker reloads the page once (" + u1.docs.length + " documents)");
   ok(first.length && first.every(function (c) { return c === "1.00"; }), "the launch holds over the page until that reload: it never starts to lift (" + first.join(",") + ")");
   ok(last[0] === "1.00" && last[last.length - 1] === "0.00", "the reloaded page carries the same launch on and lifts it once");
+  ok(u1.reveal(u1.docs[u1.docs.length - 1]) === "swap",
+     "and it comes in as a page swap: the old launch stays on screen until the new one paints (" + u1.reveal(u1.docs[u1.docs.length - 1]) + ")");
+  ok(!/[?&]swap=/.test(u1.url) && /[?&]team=notre-dame/.test(u1.url) && /#home$/.test(u1.url),
+     "and its address is the fan's own again: the reload's mark is gone, the team and screen kept (" + u1.url.replace(/^https?:\/\/[^/]+/, "") + ")");
+  // A page from before this ignores the worker's word: the worker reloads it.
+  var u4 = await updateOpen(0, 0, true);
+  var u4last = u4.of(u4.docs[u4.docs.length - 1]);
+  ok(u4.docs.length === 2 && u4last[u4last.length - 1] === "0.00",
+     "a page that does not answer is still reloaded, once, by the worker (" + u4.docs.length + " documents)");
   // An install of 11 seconds outlasts that wait.
   var u2 = await updateOpen(11000);
   var slowLast = u2.of(u2.docs[u2.docs.length - 1]);
@@ -325,6 +362,8 @@ function fixture(url) {
      "no launch screen over the team chooser");
   ok((await f.page.evaluate(function () { return getComputedStyle(document.documentElement).backgroundColor; })) !== "rgb(17, 29, 53)",
      "and the chooser's page keeps its own colours");
+  ok(await f.page.evaluate(function () { return !document.getElementById("page-swap"); }),
+     "and takes no part in a page swap: Change Team and picking a team are as they were");
   await f.ctx.close();
 
   await browser.close(); server.close();

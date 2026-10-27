@@ -37,6 +37,15 @@
 <meta name="twitter:title" content="Suite">
 <meta name="twitter:description" content="Your college football team, every day.">
 <meta name="twitter:image" content="https://dmvanblaircom.github.io/Project-LND/assets/suite/og-1200x630.png">
+<!-- An update's reload, held over: the old page stays on screen until the
+     new one is ready to paint, then the two swap, instead of a blank frame
+     between them. The two launches are the same picture, so the swap does
+     not show. Only between two pages of a team: the chooser drops it (the
+     script below), so Change Team and picking a team are as they were.
+     A browser without these does what it did before. -->
+<style id="page-swap">@view-transition{navigation:auto}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none}}</style>
+<link rel="expect" href="#launch" blocking="render">
 <!-- Which team this page is, decided before anything else runs.
 
      Order: ?team= (so a link can carry it), then the last choice this browser
@@ -66,6 +75,13 @@
   function get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
   function set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
   function forget(k){ try { localStorage.removeItem(k); } catch(e){} }
+
+  // An update's reload marks the address it reloads to (app.js, on the
+  // worker's word); the mark is not the fan's, so it comes off at once.
+  try {
+    var here = new URL(location.href);
+    if (here.searchParams.has("swap")) { here.searchParams.delete("swap"); history.replaceState(history.state, "", here.href); }
+  } catch(e){}
 
   // The URL wins, then the last choice this browser made. There is
   // deliberately NO list of known teams here: teams/index.js is the one
@@ -203,6 +219,12 @@
     inject("app.js");
   }
 
+  // The chooser never takes part in a page swap (#page-swap, above).
+  function noSwap(){
+    var s = document.getElementById("page-swap");
+    if (s) s.parentNode.removeChild(s);
+  }
+
   // No team to show after all: the chooser, as for a first visit (decision
   // 0016). An id with no config is not kept, so it does not fail again; one
   // that only could not be reached is, so the next open with a connection
@@ -211,6 +233,7 @@
     if (forgetTeam) forget(TEAM_KEY);
     document.documentElement.setAttribute("data-team", "");
     document.documentElement.setAttribute("data-choosing", "");
+    noSwap();
     if (meta) meta.setAttribute("content", "#111D35");   // --s-chrome, the chooser's header
     inject("chooser.js");
   }
@@ -257,6 +280,7 @@
   if (choosing) {
     // No team, so no Suite. The chooser renders instead, from the registry.
     document.documentElement.setAttribute("data-choosing", "");
+    noSwap();
     inject("chooser.js");
   } else if (domReady) {
     start();
@@ -283,7 +307,14 @@ html[data-choosing] .launch,html[data-launched] .launch{display:none}
    white, a glitchy flash under the wordmark (David's iPhone, 2026-10-25).
    From the lift on, the page has its own colours again. */
 html:not([data-launched]):not([data-choosing]):has(#launch:not(.done)),
-html:not([data-launched]):not([data-choosing]):has(#launch:not(.done)) body{background:#111D35}
+html:not([data-launched]):not([data-choosing]):has(#launch:not(.done)) body,
+/* Before the launch is parsed too. An update reloads the page under the
+   launch, and iOS can paint the new page before its body reaches the
+   launch: the page's own white then shows between two launches (David's
+   iPhone, 2026-10-27: launch, a white flicker, the launch again). It is
+   navy until the launch or the page itself exists. */
+html:not([data-launched]):not([data-choosing]):not(:has(#launch, #appBar)),
+html:not([data-launched]):not([data-choosing]):not(:has(#launch, #appBar)) body{background:#111D35}
 /* And below its own foot, as the nav does (app.css .navbar::after): when iOS
    stops fixed layers short of the screen's foot, what shows in the strip is
    whatever is painted there - the nav's white extension, under the launch.
