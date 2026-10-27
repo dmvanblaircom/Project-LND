@@ -46,11 +46,9 @@ For meaningful feature work:
 If implementation requires a product decision, materially expands scope, or conflicts with an established architecture decision, stop and ask rather than guessing.
 
 Run the existing checks after changes:
-- `node --check app.js`
-- `node --check sw.js`
-- `python3 tools/csscheck.py app.css`
-- the `tools/*check` gates and browser checks that `.github/workflows/check.yml` runs on every pull request
-- a change to any shell file (the page, its scripts and styles, team configs, icons) needs a new `VERSION` in `sw.js`; run `node tools/versioncheck.js origin/main` before merging, because CI runs it only on the push after merge
+- `node tools/run-checks.js --base origin/main` runs what the branch's change needs, the same selection a pull request gets (`tools/select-checks.js`; every check is listed in `tools/checks.json`). `--all` runs everything. Locally, point Playwright at a browser with `PW_CHROMIUM`.
+- a new check goes in `tools/checks.json`, never straight into `check.yml`; `tools/selectcheck.js` fails when a check script is left out
+- a change to any shell file (the page, its scripts and styles, team configs, icons) needs a new `VERSION` in `sw.js`; `versioncheck` runs on every pull request against its base
 
 ## Architecture Rules
 

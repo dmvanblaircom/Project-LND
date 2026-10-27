@@ -1,107 +1,115 @@
-# Runs on every push that touches the front end. A red X here means a change
-# reintroduced the override-layer problem: a responsive rule that a later base
-# rule silently kills, or a property declared twice for the same selector.
-name: Check the stylesheet
+# The checks (David, 2026-10-27: one standard set; each merge runs the ones
+# its change needs). Every check is listed once, in tools/checks.json;
+# tools/select-checks.js picks them by the files a pull request changes, and
+# tools/run-checks.js runs them, here and locally. Anything the selector
+# cannot place runs everything.
+#
+#   pull request into main   what its change needs, once (not again as a push)
+#   push to main             everything: each merge is checked whole
+#   nightly                  everything, so a check that was skipped, or a
+#                            fixture that went stale, shows the same day
+#
+# The browser checks run in parallel shards balanced by their time, and the
+# visual audit one job per width; `gate` is the one result to read.
+name: Checks
 
 on:
   push:
-    # The live scan and source probes push captured provider data to their
-    # own branches every few minutes on a Saturday; they hold no app change,
-    # and raw live data is not a fixture to gate on (16 failure emails,
-    # 2026-10-10). Their findings reach main through a PR, which runs here.
-    branches-ignore: ["scan/**", "probe/**"]
-    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "suite/**", "tools/**", "teams/**", "teamos/**", "assets/**", "worker/**", ".github/workflows/**"]
-  # A pull request into main runs the release gate below before it can merge.
+    branches: [main]
+    # main also takes the data refresh's commits every half hour; they change
+    # no code and are not checked here.
+    paths: ["app.css", "app.js", "chooser.js", "sw.js", "index.html", "manifest.json", "package.json", "package-lock.json", "suite/**", "tools/**", "teams/**", "teamos/**", "leagues/**", "assets/**", "worker/**", ".github/workflows/**"]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: "41 7 * * *"     # 3:41 AM Eastern
   workflow_dispatch:
 
+concurrency:
+  # a new push to a pull request replaces its run still going
+  group: checks-${{ github.event.pull_request.number || github.ref }}-${{ github.event_name }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
-  css:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      unit: ${{ steps.pick.outputs.unit }}
+      browser: ${{ steps.pick.outputs.browser }}
+      visual: ${{ steps.pick.outputs.visual }}
+      base: ${{ steps.pick.outputs.base }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Pick the checks this change needs
+        id: pick
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "$EVENT" = pull_request ]; then
+            echo "base=$PR_BASE" >> "$GITHUB_OUTPUT"
+            node tools/select-checks.js --base "$PR_BASE" --github
+          else
+            # the version check compares a push with the one before it
+            [ "$EVENT" = push ] && echo "base=$BEFORE" >> "$GITHUB_OUTPUT"
+            node tools/select-checks.js --all --github
+          fi
+
+  unit:
+    needs: plan
+    if: needs.plan.outputs.unit != '[]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0     # versioncheck compares against the previous push
+          fetch-depth: 0     # versioncheck compares against the base
       # Node 22: the edge API's game-alert checks use node:sqlite to play the
       # Durable Object's SQLite (W19).
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Dead and shadowed CSS
-        run: python3 tools/csscheck.py app.css
-      - name: JavaScript parses
-        run: node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js suite/*.js tools/*.js tools/lib/*.js; do node --check "$f"; done
-      - name: The installed product is Suite, the same for every team
-        run: node tools/identitycheck.js
-      # Decision 0024 §11: TEMPORARY Suite identity assets are for the design
-      # branch only. Anything headed for, or on, main must carry the final set.
-      - name: No temporary Suite identity on main
-        if: github.ref == 'refs/heads/main' || github.base_ref == 'main'
-        run: node tools/identitycheck.js --release
-      - name: The page knows which team it is
-        run: node tools/bootcheck.js
-      - name: One registry, matching the repository
-        run: node tools/registrycheck.js
-      - name: The chooser offers what it can open
-        run: node tools/choosercheck.js
-      - name: The worker caches one team at a time
-        run: node tools/swcheck.js
-      - name: TeamOS ESPN adapter
-        run: node tools/adaptercheck.js
-      - name: Every surface agrees on one live game state
-        run: node tools/livecheck.js
-      - name: One set of game rules - status, nav, lifecycle, hero, preview, day/night
-        run: node tools/gamecheck.js
-      - name: Season Outlook and screen freshness
-        run: node tools/rulescheck.js
-      - name: The depth chart joined to the roster, views that follow the team
-        run: node tools/rostercheck.js
-      - name: Suite draws what TeamOS decided (box score, postponed dates)
-        run: node tools/suitecheck.js
-      - name: One request out at a time - two wake-ups never fetch the same thing twice
-        run: node tools/pollcheck.js
-      - name: What the app learns stays honest across refreshes (final summaries, the line, previews, Game's views)
-        run: node tools/controllercheck.js
-      - name: The matchup card agrees with the data
-        run: node tools/matchupcheck.js
-      - name: Predictive ratings are shaped from the producer's snapshot, never invented
-        run: node tools/ratingscheck.js
-      - name: Recruiting classes and draft prospects are ESPN's, shaped, never invented
-        run: node tools/prospectscheck.js
-      - name: The depth chart parser reads the official chart as written
-        run: python3 tools/depthcheck.py
-      - name: A failed game-notes fetch never costs the right availability report
-        run: python3 tools/availabilitycheck.py
-      - name: A conference's availability report is read as the conference wrote it
-        run: python3 tools/conferenceavailcheck.py
-      - name: The game notes' facts are read as written
-        run: python3 tools/notescheck.py
-      - name: The data refresh checks the depth chart when it should
-        run: python3 tools/cadencecheck.py
-      - name: The beat-news producer reads feeds and finds moved ones
-        run: python3 tools/newscheck.py
-      - name: The data pipeline is per team - each team's files in its own folder
-        run: python3 tools/pipelinecheck.py
-      - name: The freshness monitor notices a missed update or a stalled clock
-        run: python3 tools/freshnesscheck.py
-      - name: FPI arrives whole and current, or the previous snapshot stays
-        run: python3 tools/fpicheck.py
-      - name: Every released poll week is kept whole, and nothing kept is lost
-        run: python3 tools/rankingshistorycheck.py
-      - name: Recruiting and draft refresh
-        run: python3 tools/prospectsrefreshcheck.py
-      - name: One season's markets at a time, never last season's
-        run: python3 tools/marketscheck.py
-      - name: The edge API answers only what a screen shows
-        run: node tools/workercheck.mjs
-      - name: W16 verified offseason season-card rendering
-        run: node tools/offseasonrendercheck.js
-      - name: A shell change bumps the worker version
-        if: github.event_name == 'push'
-        run: node tools/versioncheck.js "${{ github.event.before }}"
-  visual:
+      - name: Unit checks
+        env:
+          CHECK_BASE: ${{ needs.plan.outputs.base }}
+          IDS: ${{ needs.plan.outputs.unit }}
+        run: node tools/run-checks.js --ids "$IDS"
+
+  browser:
+    needs: plan
+    if: needs.plan.outputs.browser != '[]'
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ids: ${{ fromJSON(needs.plan.outputs.browser) }}
+    name: browser (${{ strategy.job-index }})
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npx playwright install --with-deps chromium
+      - name: Browser checks
+        env:
+          IDS: ${{ toJSON(matrix.ids) }}
+        run: node tools/run-checks.js --ids "$IDS"
+
+  visual:
+    needs: plan
+    if: needs.plan.outputs.visual != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        width: ${{ fromJSON(needs.plan.outputs.visual) }}
+    name: visual (${{ matrix.width }})
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -112,84 +120,32 @@ jobs:
       # The runner can reach the provider's image CDN, so CI's screenshots show
       # real team marks and player headshots; the gate also fails every
       # headshot on purpose and checks the initials fallback shows instead.
-      - run: npm run test:visual
+      - name: Visual audit at ${{ matrix.width }}px
         env:
           ALLOW_PROVIDER_IMAGES: "1"
-          VISUAL_WIDTHS: "320,375,390,1280"
-      # Roster's retry and freshness behaviour: a failed load never locks
-      # itself out, and old data is never passed off as fresh.
-      # Review-only offseason Home v2 states and screenshots, not production season wiring.
-      - run: node tools/offseasonpreviewcheck.js
-      # Actual S2/S4 component and production CSS, both teams/styles.
-      - run: node tools/offseasoncomponentcheck.js
-      # Home composition and seasonal navigation, including saved routes/focus.
-      - run: node tools/offseasonhomecheck.js
-      # The real app's seasonal nav: the league's calendar, on every screen.
-      - run: node tools/offseasonnavcheck.js
-      # Recruiting and the NFL draft on the offseason Home: both teams, both styles.
-      - run: node tools/prospectshomecheck.js
-      # Home's weather: its own game's and moment's, never the last game's or a forecast as "now".
-      - run: node tools/weathercheck.js
-      # Every team's mark at one perceived size, capped, and left alone when it cannot be read.
-      - run: node tools/markfitcheck.js
-      - run: node tools/rosterflowcheck.js
-      # FPI routing, source-specific freshness and real service-worker recovery.
-      - run: node tools/ratingsflowcheck.js
-      # Every Top 25 row opens; a game's sheet shows a fixed few things and
-      # closes every way (David, 2026-10-20).
-      - run: node tools/sheetcheck.js
-      # Every kept week of a poll can be picked; the newest is the default
-      # (David, 2026-10-20).
-      - run: node tools/weekscheck.js
-      # A redraw never reloads a logo already showing: the hero's flicker
-      # on first open and on every live tick (David, 2026-10-01).
-      - run: node tools/flickercheck.js
-      # All matchup edges, aligned Outlook bars, and news photo/logo fallbacks.
-      - run: node tools/homegamecheck.js
-      # Oct 10 live-scan layout: long names, venues and halftime receiver.
-      - run: node tools/mobilefitcheck.js
-      # Stats columns, enlarged text and complete keyboard-scrollable tables.
-      - run: node tools/statslayoutcheck.js
-      # A background refresh never drops a keyboard or VoiceOver user's focus.
-      - run: node tools/focuscheck.js
-      # The Leaders / Box Score team toggle never moves the page (David, 2026-10-10).
-      - run: node tools/togglecheck.js
-      # The launch screen covers the first open and never outstays it.
-      - run: node tools/launchcheck.js
-      # Swiping moves between a screen's peer views, and only on purpose.
-      - run: node tools/swipecheck.js
-      # A pull down from the top is Refresh Data, and only on purpose.
-      - run: node tools/pullcheck.js
-      # A team's own type loads for that team alone (Ohio State: Nunito Sans).
-      - run: node tools/teamfontcheck.js
-      # More's news recovery, Refresh Data's outcome, the connection while a
-      # screen is open, and Feedback's version and origin (catch-up review).
-      - run: node tools/moreflowcheck.js
-      # Season Outlook's full field: the market whole, Home's number on it,
-      # Home navigation, and its failed, offline and saved states (W18).
-      - run: node tools/outlookcheck.js
-      # The road to a round number of all-time wins: the official count
-      # plus this season's results, and Home's card (the 1,000th win).
-      - run: node tools/milestonecheck.js
-      # Game alerts in Settings (round 2): Turn On sends the defaults, quick
-      # picks and switches send the fan's choice, all off is alerts off.
-      - run: node tools/alertscheck.js
-      # The week's game notes: pronunciations, captains and honors on
-      # Roster, the series and By the Numbers on Game and Home, only for
-      # the game they were written for.
-      - run: node tools/notescheck.js
-      # A first visit that can't reach the schedule says so on Home and Game,
-      # and fills in on reconnection or re-entry (release regression pass).
-      - run: node tools/outagecheck.js
-      # An update: the new worker reloads the page it takes over, once, with
-      # the team precached and the old data carried over; a first install
-      # reloads nothing.
-      - run: node tools/upgradecheck.js
-      # Bowl and CFP games reach the schedule: two season types, joined; a
-      # failed postseason never costs the regular season (backlog C17).
-      - run: node tools/postseasoncheck.js
+          VISUAL_WIDTHS: ${{ matrix.width }}
+        run: node tools/run-checks.js --ids '["visualcheck.js"]'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: suite-visual-smoke
+          name: suite-visual-${{ matrix.width }}
           path: artifacts/visual
+
+  # The one result: every job that ran passed, and a job the change did not
+  # need was skipped, not failed.
+  gate:
+    needs: [plan, unit, browser, visual]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          PLAN: ${{ needs.plan.result }}
+          UNIT: ${{ needs.unit.result }}
+          BROWSER: ${{ needs.browser.result }}
+          VISUAL: ${{ needs.visual.result }}
+        run: |
+          echo "plan $PLAN, unit $UNIT, browser $BROWSER, visual $VISUAL"
+          [ "$PLAN" = success ] || exit 1
+          for r in "$UNIT" "$BROWSER" "$VISUAL"; do
+            case "$r" in success|skipped) ;; *) exit 1 ;; esac
+          done
