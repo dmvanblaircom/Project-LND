@@ -74,6 +74,28 @@ def due(kicks, last_checked, now):
     return False, "last check %d min ago, not in a game window" % (age.total_seconds() // 60)
 
 
+def schedule(team, cache=None):
+    """The team's kickoffs, read once a run when a cache is given (the beat
+    news and the depth chart ask about the same team); None when unreadable."""
+    path = os.path.join(cache, team + ".json") if cache else None
+    if path and os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            saved = json.load(f)
+        return None if saved is None else [t for t in (parse_time(x) for x in saved) if t]
+    try:
+        req = urllib.request.Request(SCHEDULE % team_id(team), headers={"accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            kicks = kickoffs(json.load(r))
+    except Exception as e:                           # noqa: BLE001
+        print("  schedule:", str(e)[:120])
+        kicks = None
+    if path:
+        os.makedirs(cache, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(None if kicks is None else [k.isoformat() for k in kicks], f)
+    return kicks
+
+
 def team_id(team):
     config = open(os.path.join(ROOT, "teams", team + ".js"), encoding="utf-8").read()
     m = re.search(r'\bteamId\s*:\s*"([^"]+)"', config)
@@ -87,23 +109,21 @@ def main():
     ap.add_argument("--team", required=True)
     ap.add_argument("--last", required=True, help="file holding the last successful check time")
     ap.add_argument("--exit-code", action="store_true", help="exit 0 when due, 3 when not (for a loop over teams)")
+    ap.add_argument("--cache", help="a directory that keeps each team's kickoffs for this run")
     args = ap.parse_args()
 
     now = datetime.now(timezone.utc)
     try:
-        req = urllib.request.Request(SCHEDULE % team_id(args.team), headers={"accept": "application/json"})
-        with urllib.request.urlopen(req, timeout=20) as r:
-            kicks = kickoffs(json.load(r))
-    except Exception as e:                           # noqa: BLE001
-        print("  schedule:", str(e)[:120])
-        kicks = None
-    try:
         last = parse_time(open(args.last, encoding="utf-8").read().strip())
     except OSError:
         last = None
-
-    verdict, reason = due(kicks, last, now)
-    print("  depth chart %s: %s" % ("due" if verdict else "not due", reason))
+    # Due on the clock alone needs no schedule (Phase 0, 2026-10-27: 138
+    # teams' schedules a run is a request each); the answer is the same.
+    if last is None or now - last + SLACK >= EVERY:
+        verdict, reason = due([], last, now)
+    else:
+        verdict, reason = due(schedule(args.team, args.cache), last, now)
+    print("  %s: %s" % ("due" if verdict else "not due", reason))
     out = os.environ.get("GITHUB_OUTPUT")
     if out:
         with open(out, "a", encoding="utf-8") as f:

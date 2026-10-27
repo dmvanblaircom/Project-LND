@@ -116,18 +116,6 @@ jobs:
           done
           exit $fail
 
-      # Each team's feeds are its declaration (TEAM_CONFIG.sources.beatFeeds).
-      # A feed that has moved is found on its site and named in a warning.
-      - name: Pull beat writers
-        id: news
-        continue-on-error: true      # a dead feed must never block the odds
-        run: |
-          fail=0
-          for t in $(python3 tools/producers/teamconfig.py --with beatNews); do
-            echo "== $t"; python3 tools/producers/beat_news.py --team "$t" || fail=1
-          done
-          exit $fail
-
       # The last successful check lives in the Actions cache, not the repo, so
       # recording it never makes a commit. One file per team.
       - name: Recall the last depth chart checks
@@ -136,6 +124,30 @@ jobs:
           path: .cadence
           key: depth-checked-${{ github.run_id }}
           restore-keys: depth-checked-
+
+      # Each team's feeds are its declaration (TEAM_CONFIG.sources.beatFeeds).
+      # A feed that has moved is found on its site and named in a warning.
+      # Per team, on the depth chart's cadence (tools/producers/cadence.py):
+      # every run from 18 hours before a kickoff to 6 hours after it,
+      # otherwise every two hours (Phase 0, 2026-10-27: at 138 teams, every
+      # feed on every run is some 700 fetches a half hour). By hand, all.
+      - name: Pull beat writers
+        id: news
+        continue-on-error: true      # a dead feed must never block the odds
+        env:
+          BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
+        run: |
+          fail=0; mkdir -p .cadence
+          for t in $(python3 tools/producers/teamconfig.py --with beatNews); do
+            stamp=".cadence/news-$t"
+            if [ "$BY_HAND" != true ]; then
+              rc=0; python3 tools/producers/cadence.py --team "$t" --last "$stamp" --cache "$RUNNER_TEMP/kickoffs" --exit-code > /dev/null || rc=$?
+              if [ $rc -eq 3 ]; then echo "== $t: not due"; continue; fi    # any other answer: when in doubt, read
+            fi
+            echo "== $t"
+            if python3 tools/producers/beat_news.py --team "$t"; then date -u +%Y-%m-%dT%H:%M:%SZ > "$stamp"; else fail=1; fi
+          done
+          exit $fail
 
       # Per team: due by hand, or by the depth-chart cadence (decision 0020).
       - name: Official depth chart and availability
@@ -153,7 +165,7 @@ jobs:
             if [ -f .cadence/depth-checked ] && [ ! -f ".cadence/$t" ]; then cp .cadence/depth-checked ".cadence/$t"; fi
             if [ "$BY_HAND" = true ]; then echo "  depth chart due: run by hand"
             else
-              rc=0; python3 tools/producers/cadence.py --team "$t" --last ".cadence/$t" --exit-code || rc=$?
+              rc=0; python3 tools/producers/cadence.py --team "$t" --last ".cadence/$t" --cache "$RUNNER_TEMP/kickoffs" --exit-code || rc=$?
               if [ $rc -eq 3 ]; then continue; fi          # not due
               if [ $rc -ne 0 ]; then fail=1; continue; fi
             fi
@@ -166,6 +178,8 @@ jobs:
       # A conference's availability reports, for each team that declares the
       # feed (sources.official.availabilityFeed) - Ohio State's are the Big
       # Ten's. Two small JSON calls a run, so on every run: no cadence needed.
+      # One conference is asked once a run, whatever number of its teams
+      # read it (--cache).
       - name: Conference availability reports
         id: confav
         continue-on-error: true
@@ -174,7 +188,7 @@ jobs:
           for t in $(python3 tools/producers/teamconfig.py --with availability); do
             if ! grep -q "availabilityFeed" "teams/$t.js"; then continue; fi
             echo "== $t"
-            if python3 tools/producers/conference_availability.py --team "$t"; then
+            if python3 tools/producers/conference_availability.py --team "$t" --cache "$RUNNER_TEMP/confav"; then
               paths="$paths data/$t/availability.json data/$t/availability-history.json"
             else fail=1; fi
           done
