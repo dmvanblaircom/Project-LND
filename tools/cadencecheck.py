@@ -62,5 +62,58 @@ ok(is_due(tue, last=None), "no record of a previous check")
 ok(is_due(tue, last=tue, kicks=None), "the schedule could not be read")
 ok(is_due(tue, last=tue - timedelta(minutes=5), kicks=[]) is False, "an empty schedule is not doubt: off-season stays every 2 hours")
 
+print("a schedule only when the clock cannot decide (Phase 0)")
+import io, json, tempfile, contextlib, urllib.request  # noqa: E401,E402
+asked = []
+real_open = urllib.request.urlopen
+
+
+class Answer(io.BytesIO):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+
+def fake_open(req, timeout=None):
+    asked.append(req.full_url)
+    return Answer(json.dumps({"events": [{"date": "2026-10-31T19:30Z"}]}).encode())
+
+
+def run_main(last, cache=None):
+    d = tempfile.mkdtemp()
+    stamp = os.path.join(d, "stamp")
+    if last:
+        open(stamp, "w").write(last.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    argv = ["cadence.py", "--team", "notre-dame", "--last", stamp, "--exit-code"] + (["--cache", cache] if cache else [])
+    code, real_argv = 0, sys.argv
+    sys.argv = argv
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            cadence.main()
+    except SystemExit as e:
+        code = e.code or 0
+    finally:
+        sys.argv = real_argv
+    return code
+
+
+urllib.request.urlopen = fake_open
+try:
+    now = datetime.now(timezone.utc)
+    ok(run_main(None) == 0 and not asked, "no record of a check: due, and no schedule asked for")
+    ok(run_main(now - timedelta(hours=3)) == 0 and not asked, "a check three hours old: due, and no schedule asked for")
+    run_main(now - timedelta(minutes=20))
+    ok(len(asked) == 1, "a check 20 minutes old: only now is the schedule read")
+    cache = tempfile.mkdtemp()
+    run_main(now - timedelta(minutes=20), cache)
+    run_main(now - timedelta(minutes=20), cache)
+    ok(len(asked) == 2, "with a cache, the second ask in a run reads the first one's kickoffs (%d reads)" % len(asked))
+    kept = cadence.schedule("notre-dame", cache)
+    ok(kept and kept[0] == at("2026-10-31T19:30:00"), "the kept kickoffs are the schedule's")
+finally:
+    urllib.request.urlopen = real_open
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "the depth chart is checked when it should be"))
 sys.exit(1 if failures else 0)

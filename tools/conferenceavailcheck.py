@@ -133,6 +133,23 @@ def files(tmp):
     return sorted(os.listdir(d)) if os.path.isdir(d) else []
 
 
+print("one conference, read once a run")
+asked = []
+real_call = ca.call
+ca.call = lambda endpoint, body: (asked.append(endpoint), {"endpoint": endpoint, "conf": body["conference"]})[1]
+cache = tempfile.mkdtemp()
+try:
+    big10 = {"sport": "Football", "organization": "B10", "conference": "B10"}
+    first = [ca.fetch(e, big10, cache) for e in ("get-publish-public", "get-archive-public")]
+    second = [ca.fetch(e, big10, cache) for e in ("get-publish-public", "get-archive-public")]
+    ok(len(asked) == 2 and first == second, "a second team of the conference reads the first one's answer: 2 calls, not 4 (%d)" % len(asked))
+    ca.fetch("get-publish-public", dict(big10, conference="SEC", organization="SEC"), cache)
+    ok(len(asked) == 3, "another conference asks for its own")
+    ca.fetch("get-publish-public", big10)
+    ok(len(asked) == 4, "and without a cache every call asks, as before")
+finally:
+    ca.call = real_call
+
 print("the producer, end to end")
 tmp, code, out = produce([FIXTURE["publish"], FIXTURE["archive"]])
 ok(code == 0 and files(tmp) == ["availability-history.json", "availability.json"], "writes the team's declared files: %s" % files(tmp))

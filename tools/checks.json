@@ -9,6 +9,7 @@
   { "id": "teamidentitycheck.js", "kind": "unit", "run": "node tools/teamidentitycheck.js" },
   { "id": "identitycheck-release", "kind": "unit", "always": true, "run": "node tools/identitycheck.js --release", "file": "identitycheck.js" },
   { "id": "selectcheck.js", "kind": "unit", "always": true, "run": "node tools/selectcheck.js" },
+  { "id": "newteamscheck.js", "kind": "unit", "run": "node tools/newteamscheck.js" },
   { "id": "bootcheck.js", "kind": "unit", "run": "node tools/bootcheck.js" },
   { "id": "registrycheck.js", "kind": "unit", "run": "node tools/registrycheck.js" },
   { "id": "choosercheck.js", "kind": "unit", "run": "node tools/choosercheck.js" },
