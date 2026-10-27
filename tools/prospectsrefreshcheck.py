@@ -35,7 +35,9 @@ def fixture(name):
 # ---- each team declares its class --------------------------------------------
 teams = subprocess.run([sys.executable, os.path.join(HERE, "producers", "teamconfig.py"), "--with", "recruits"],
                        capture_output=True, text=True, check=True).stdout.split()
-ok(teams == ["byu", "indiana", "minnesota", "north-dakota-state", "notre-dame", "ohio-state"], "every team declares a recruiting class, so the workflow loops over all of them")
+configured = sorted(f[:-3] for f in os.listdir(os.path.join(HERE, "..", "teams")) if f.endswith(".js") and f != "index.js")
+ok(teams == configured and len(teams) >= 21,
+   "every team declares a recruiting class, so the workflow loops over all of them (%d of %d)" % (len(teams), len(configured)))
 for t in teams:
     c = teamconfig.load(t)
     ok(teamconfig.snapshot(c, "recruits")["file"] == "data/%s/recruits.json" % t,
