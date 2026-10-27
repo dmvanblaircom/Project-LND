@@ -43,7 +43,12 @@ var TEAM_CONFIG = {
     official: {
       availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
       availabilityReportLabel: "BigTen.org",
-      availabilityFeed: { provider: "hdintelligence", conference: "B10", sport: "Football", team: "Ohio St.", aliases: ["Ohio State"] }
+      availabilityFeed: { provider: "hdintelligence", conference: "B10", sport: "Football", team: "Ohio St.", aliases: ["Ohio State"] },
+      // Each week's game notes, linked from the season's Media Center under
+      // this label (probe of 2026-10-26; tools/producers/official_notes.py).
+      // No depth chart is published, there or in the notes.
+      notesIndex: "https://ohiostatebuckeyes.com/sports/2026/5/27/2026-ohio-state-football-media-center",
+      notesLink: "Ohio State Notes"
     },
 
     // Beat writers, read by the Action server-side (RSS sends no CORS
@@ -138,6 +143,9 @@ var TEAM_CONFIG = {
     beatNews:    { file: "data/ohio-state/news.json" },
     // The team's recruiting class, from ESPN (tools/producers/prospects.py;
     // David chose ESPN, 2026-10-03), refreshed once a day.
-    recruits:    { file: "data/ohio-state/recruits.json", label: "ESPN recruiting" }
+    recruits:    { file: "data/ohio-state/recruits.json", label: "ESPN recruiting" },
+    // This week's facts from the game notes: pronunciations, captains,
+    // honors, the series and By the Numbers (David, 2026-10-26).
+    notes:       { file: "data/ohio-state/notes.json", label: "ohiostatebuckeyes.com" }
   }
 };

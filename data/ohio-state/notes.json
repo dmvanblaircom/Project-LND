@@ -1,0 +1,162 @@
+{
+ "schema": 1,
+ "team": "ohio-state",
+ "capability": "notes",
+ "tier": "official",
+ "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/10/13/7_Indiana.pdf",
+ "sourceLabel": "ohiostatebuckeyes.com",
+ "pdf": "https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/ohiostatebuckeyes.com/documents/2026/10/13/7_Indiana.pdf?timestamp=20261013071041",
+ "parser": 2,
+ "fetchedAt": "2026-10-26T20:23:41.637538+00:00",
+ "publishedAt": "2026-10-13",
+ "game": "Indiana",
+ "pronounce": {
+  "Christian Alliegro": "Uh-leh-grow",
+  "Favour Akih": "Uh-key",
+  "Nolan Baudo": "Bow(like ow, how, or cow)-dough",
+  "Khmari Bing": "Ka-mar-ee",
+  "Landry Brede": "Breed-e",
+  "Simeon Caldwell": "Sim-ee-en",
+  "Marcello Diomede": "Mar-chello De-oh-meh-de",
+  "Ian Gecse": "Gettcha",
+  "Brady Geibel": "GUY-bull",
+  "Glorien Gough": "GLOR-ee-en Goff",
+  "Zion Grady": "ZYE-on",
+  "Jackson Gula": "Goo-luh",
+  "Jerquaden Guilford": "jer-KWAY-den",
+  "Brandon Inniss": "IN-iss",
+  "De’Zie Jones": "Dez-eye",
+  "Nick Lautar": "Law-ter",
+  "Maxence LeBlanc": "luh-BLAHN",
+  "Jamir Perez": "Juh-meer",
+  "Nate Riegle": "ree-gl",
+  "Leroy Roker III": "ROH-kur",
+  "Qua Russaw": "Kway Roo-saw",
+  "Brennen Schramm": "Sh-ram",
+  "Ryan Seimetz": "Sigh-mets",
+  "Austin Siereveld": "SIR-uh-veld",
+  "Epi Sitanilei": "sit-TAWN-ee-lay",
+  "Tavien St. Clair": "TAY-vee-in",
+  "Gavin Thobe": "Toe-bee",
+  "Hunter Welcing": "Well-sing"
+ },
+ "captains": [
+  "Payton Pierce",
+  "Kenyatta Jackson Jr.",
+  "Jaylen McClain",
+  "Julian Sayin",
+  "Austin Siereveld",
+  "Jeremiah Smith",
+  "Brandon Inniss"
+ ],
+ "honors": {
+  "Julian Sayin": [
+   "Maxwell Watch List",
+   "Walter Camp Watch List",
+   "O’Brien Watch List",
+   "Manning Watch List",
+   "Golden Arm Watch List",
+   "first-team All-American (ESPN)",
+   "second-team All-American (Walter Camp, Athlon)",
+   "third-team All-American (Phil Steele)",
+   "Big Ten Preseason Honors"
+  ],
+  "Bo Jackson": [
+   "Maxwell Watch List",
+   "Third-team All-American (Athlon)"
+  ],
+  "Jeremiah Smith": [
+   "Maxwell Watch List",
+   "Walter Camp Watch List",
+   "Biletnikoff Watch List",
+   "first-team All-American (AP, Walter Camp, Sporting News, Phil Steele, Athlon, CBS Sports, On3, ESPN, CBS)",
+   "Big Ten Preseason Honors"
+  ],
+  "Brandon Inniss": [
+   "Hornung Watch List"
+  ],
+  "Chris Henry Jr.": [
+   "Alexander Freshman of the Year Watch List",
+   "Polynesian Player of the Year Watch List",
+   "Freshman All-America (On3)"
+  ],
+  "Hunter Welcing": [
+   "Mackey Watch List"
+  ],
+  "Carson Hinzman": [
+   "Rimington Watch List",
+   "Outland Watch List",
+   "Lombardi Watch List",
+   "Fourth-team All-American (Athlon)"
+  ],
+  "Luke Montgomery": [
+   "Outland Watch List",
+   "Lombardi Watch List",
+   "First-team All-American (CBS)",
+   "Second-team All-American (AP, Sporting News, On3)",
+   "Third-team All-American (Phil Steele)",
+   "Fourth-team All-American (Athlon)"
+  ],
+  "Austin Siereveld": [
+   "Outland Watch List",
+   "Lombardi Watch List",
+   "First-team All-American (Walter Camp)",
+   "Second-team All-American (Sporting News, Athlon)",
+   "Third-team All-American (On3, Phil Steele)"
+  ],
+  "Kenyatta Jackson Jr.": [
+   "Lott IMPACT Watch List",
+   "Nagurski Watch List",
+   "Bednarik Watch List",
+   "Fourth-team All-American (Athlon)"
+  ],
+  "Cincere Johnson": [
+   "Alexander Freshman of the Year Watch List"
+  ],
+  "Devin Sanchez": [
+   "Hispanic Player of the Year Watch List"
+  ],
+  "Jermaine Mathews Jr.": [
+   "Lott IMPACT Watch List"
+  ],
+  "Jay Timmons": [
+   "Alexander Freshman of the Year Watch List",
+   "Freshman All-America (On3)"
+  ],
+  "Jaylen McClain": [
+   "Nagurski Watch List",
+   "Wuerffel Trophy Watch List",
+   "AFCA Good Works Team Nominee"
+  ],
+  "Earl Little Jr.": [
+   "Thorpe Watch List",
+   "Bednarik Watch List",
+   "Fourth-team All-American (Phil Steele)"
+  ],
+  "Connor Hawkins": [
+   "Groza Watch List"
+  ],
+  "Dalton Riggs": [
+   "Mannelly Watch List",
+   "Fourth-team All-American (Phil Steele)"
+  ]
+ },
+ "glance": [
+  "This marks just the eighth time that Ohio State has played Indiana in the Day era, winning by a combined 274-97 in the previous seven games.",
+  "The Buckeyes are 30-1-1 in the last 32 matchups against Indiana and hold an all-time record of 80-13-5 against the Hoosiers."
+ ],
+ "numbers": [
+  {
+   "n": "99-100",
+   "text": "Ryan Day has coached 100 games at Ohio State and in 99 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 88 of those games."
+  },
+  {
+   "n": "29",
+   "text": "Under Day’s direction since the start of the 2019 season, Ohio State has 29 wins on the road which is tied for the most in the country."
+  },
+  {
+   "n": ".870",
+   "text": "Coach Ryan Day’s win percentage of .870 (87-13) is No. 1 nationally among all Division I head coaches and it is currently No. 2 all-time."
+  }
+ ]
+}

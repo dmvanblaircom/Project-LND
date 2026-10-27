@@ -98,8 +98,9 @@ PRs before work.
   (ohiostatebuckeyes.com) links each week's "Ohio State Notes" PDF (probe of
   2026-10-26, `probe-osu-media`). They carry By the Numbers, the series,
   captains, a pronunciation guide and the all-time record; no depth chart.
-  Ohio State's Road to 1,000 uses the record (from 2026-10-26); the notes
-  reader is in progress (David, 2026-10-26).
+  Ohio State's Road to 1,000 uses the record, and `official_notes.py` reads
+  the notes into `data/ohio-state/notes.json` with the same parser as Notre
+  Dame's, taught the second layout (David, 2026-10-26).
 - Ourlads permission for OSU depth remains external. No projected chart on
   assumed permission; official OR designations stay as supplied.
 - January live provider verification for polls/markets remains dated; use

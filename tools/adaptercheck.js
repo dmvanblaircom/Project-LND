@@ -837,8 +837,8 @@ eq(TeamOS.snapshots.files(TEAM_CONFIG),
    "Notre Dame's snapshots, files and histories together - availability is its own now");
 eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), ["data/ohio-state/availability.json",
     "data/ohio-state/availability-history.json", "data/ohio-state/odds-history.json", "data/ohio-state/news.json",
-    "data/ohio-state/recruits.json"],
-   "Ohio State caches only what it declares: the Big Ten's availability report, its own odds history and beat news (W20)");
+    "data/ohio-state/notes.json", "data/ohio-state/recruits.json"],
+   "Ohio State caches only what it declares: the Big Ten's availability report, its own odds history and beat news (W20), its recruits and game notes");
 eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
 eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.json"],
    "a kind with no history contributes one file");
