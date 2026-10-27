@@ -1,46 +1,9 @@
-# 2026-10-27, Phase 1 (David): the rest of the Big Ten - each team's names, colours and venue as ESPN spells them.
-# Illinois
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/356 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/356/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Iowa
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2294 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2294/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Maryland
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/120 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/120/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Michigan
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/130 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/130/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Michigan State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/127 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/127/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Nebraska
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/158 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/158/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Northwestern
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/77 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/77/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Oregon
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2483 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2483/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Penn State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/213 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/213/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Purdue
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2509 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2509/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Rutgers
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/164 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/164/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# UCLA
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/26 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/26/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# USC
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/30 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/30/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Washington
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/264 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/264/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-# Wisconsin
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/275 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/275/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
+# 2026-10-27, Phase 1: brand colours and type from the schools' own brand pages.
+https://www.washington.edu/brand/colors/ | #[0-9A-Fa-f]{6}|Husky Purple|Gold
+https://www.washington.edu/brand/typography/ | [Tt]ypeface|[Ff]ont|Encode|Uncial|Open Sans
+https://brand.umich.edu/design-resources/typography/ | [Tt]ypeface|[Ff]ont|Montserrat|Victors|Roboto|Inter
+https://ucomm.unl.edu/brand/templates-assets/typography | [Tt]ypeface|[Ff]ont|Sans|Serif
+https://brand.uiowa.edu/fonts | Antonio|Roboto|Zilla|Slab|[Tt]ypeface
+https://communications.rutgers.edu/identity/brand-guidelines/typography | [Tt]ypeface|[Ff]ont|Sans|Serif
+https://marcom.purdue.edu/our-brand/visual-identity | [Ff]ont|United|Acumin|substitute|#[0-9A-Fa-f]{6}
+https://brand.psu.edu/design-toolkit/design-essentials | #[0-9A-Fa-f]{6}|Navy|Beaver Blue
