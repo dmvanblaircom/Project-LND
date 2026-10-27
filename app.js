@@ -241,6 +241,15 @@ function watchUpdate(reg){
   if(reg.addEventListener) reg.addEventListener("updatefound", function(){ track(reg.installing); });
   return track;
 }
+// The worker's reload, done by the page itself (sw.js reloadWindows), so it
+// comes in as a page swap. To this same address it would only move to the
+// #screen, so it carries a one-time "swap" mark, which index.html takes off.
+if("serviceWorker" in navigator) navigator.serviceWorker.addEventListener("message", function(e){
+  if(!e.data || e.data.type!=="reload") return;
+  if(e.ports && e.ports[0]) e.ports[0].postMessage({ ok:true });
+  var u=new URL(location.href); u.searchParams.set("swap", String(Date.now()));
+  location.replace(u.href);
+});
 if("serviceWorker" in navigator){
   var registerWorker=function(){
     // The check holds the launch too, from before register(): on a slow
