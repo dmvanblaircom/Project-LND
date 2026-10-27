@@ -55,7 +55,7 @@ var EVERYTHING = [
   [/^teams\/(index|notre-dame|ohio-state)\.js$/, "a team the browser checks render, or the registry"]
 ];
 var TEAM_CHECKS = ["bootcheck.js", "registrycheck.js", "choosercheck.js", "swcheck.js", "adaptercheck.js",
-                   "identitycheck.js", "pipelinecheck.py", "prospectsrefreshcheck.py", "teamfontcheck.js"];
+                   "identitycheck.js", "teamidentitycheck.js", "pipelinecheck.py", "prospectsrefreshcheck.py", "teamfontcheck.js"];
 var REFRESH_CHECKS = ["pipelinecheck.py", "cadencecheck.py", "prospectsrefreshcheck.py", "freshnesscheck.py"];
 
 // The Python checks that import a producer, read from the checks themselves.

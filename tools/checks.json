@@ -6,6 +6,7 @@
   { "id": "syntax", "kind": "unit", "always": true, "run": "node --check app.js && node --check sw.js && for f in teams/*.js teamos/*.js suite/*.js tools/*.js tools/lib/*.js; do node --check \"$f\"; done" },
   { "id": "versioncheck.js", "kind": "unit", "always": true, "run": "node tools/versioncheck.js \"$CHECK_BASE\"" },
   { "id": "identitycheck.js", "kind": "unit", "run": "node tools/identitycheck.js" },
+  { "id": "teamidentitycheck.js", "kind": "unit", "run": "node tools/teamidentitycheck.js" },
   { "id": "identitycheck-release", "kind": "unit", "always": true, "run": "node tools/identitycheck.js --release", "file": "identitycheck.js" },
   { "id": "selectcheck.js", "kind": "unit", "always": true, "run": "node tools/selectcheck.js" },
   { "id": "bootcheck.js", "kind": "unit", "run": "node tools/bootcheck.js" },
