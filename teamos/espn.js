@@ -1367,10 +1367,14 @@ TeamOS.espn = (function () {
     // same URL ESPN's own payloads carry as team.logo. `dark` is the variant
     // drawn for dark backgrounds. No id, no mark: the view shows its own
     // fallback (the program's initials), never a broken image.
-    mark: function(providerId, dark){
+    // A mark is drawn at 3.5rem at most, so it is asked for at 180 pixels -
+    // ESPN's own resizer, 3 to 8 KB rather than the 20 to 43 KB of its 500;
+    // `full` is the 500, for Home's watermark, drawn up to 25rem (2026-10-27).
+    mark: function(providerId, dark, full){
       var id=String(providerId==null?"":providerId);
       if(!/^[0-9]+$/.test(id)) return null;
-      return "https://a.espncdn.com/i/teamlogos/ncaa/"+(dark?"500-dark":"500")+"/"+id+".png";
+      var path="/i/teamlogos/ncaa/"+(dark?"500-dark":"500")+"/"+id+".png";
+      return full ? "https://a.espncdn.com"+path : "https://a.espncdn.com/combiner/i?img="+path+"&w=180&h=180";
     },
 
     // ESPN's roster payload -> RosterGroup[]: { key, label, players }. Either a

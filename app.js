@@ -1463,7 +1463,7 @@ function paintHome(){
     team:{ name:TEAM.name, nick:TEAM_NICK, abbr:TEAM.abbreviation,
            markUrl:TeamOS.espn.mark(espnId, true) },
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
-    art:{ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true),
+    art:{ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true, true),
           atmosphere: g ? TeamOS.game.atmosphere(g, zone) : null },
     hero:{ game:g, reason:h.reason, weather:wx },
     offseason: offseason,
