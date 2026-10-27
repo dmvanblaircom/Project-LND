@@ -53,9 +53,10 @@ TeamOS.sources = (function () {
       out.push({ id: "kalshi", name: "Kalshi", url: "https://kalshi.com/", supplies: ["outlook"] });
     }
 
-    // Yards allowed on the Matchup card, for any team: CollegeFootballData,
-    // through Suite's edge API (decision 0030).
-    out.push({ id: "cfbd", name: "CollegeFootballData", url: "https://collegefootballdata.com/", supplies: ["matchup"] });
+    // Yards allowed on the Matchup card, and the turnover figures there and on
+    // Stats, for any team: CollegeFootballData, through Suite's edge API
+    // (decision 0030).
+    out.push({ id: "cfbd", name: "CollegeFootballData", url: "https://collegefootballdata.com/", supplies: ["matchup", "turnovers"] });
 
     // Kickoff weather, for any team: it is looked up by the venue.
     out.push({ id: "weather", name: "Open-Meteo", url: "https://open-meteo.com/", supplies: ["weather"] });

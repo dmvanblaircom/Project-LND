@@ -45,7 +45,7 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-10-25win1000";
+export const VERSION = "edge-2026-10-27turnovers";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
@@ -57,7 +57,10 @@ const KEEP_SECONDS = 7 * 24 * 3600;    // a stale copy may stand in for a week
 // CFBD probe (2026-10-01, tools/cfbd_probe.py): the Matchup card's rushing
 // and passing yards allowed per game (W15) - season totals the opponents
 // gained, and the games they came from. Nothing else leaves CFBD.
-export const CFBD_FIELDS = ["games", "rushingYardsOpponent", "netPassingYardsOpponent"];
+// turnovers / turnoversOpponent: what a team gave away and took away, for its
+// turnover margin - ESPN's matched the NCAA's own table for 10% of FBS
+// teams, CFBD's for 93% (2026-10-27).
+export const CFBD_FIELDS = ["games", "rushingYardsOpponent", "netPassingYardsOpponent", "turnovers", "turnoversOpponent"];
 
 const TEAM = /^[A-Za-z0-9 .&'()À-ſ-]{2,40}$/;
 // Only the registry's schools, and only this season or last, ever reach

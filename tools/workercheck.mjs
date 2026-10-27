@@ -52,8 +52,8 @@ async function get(path, e, origin) {
 }
 
 console.log("what may leave CFBD");
-ok(JSON.stringify(CFBD_FIELDS) === JSON.stringify(["games", "rushingYardsOpponent", "netPassingYardsOpponent"]),
-   "exactly the three fields W15 needs, read from a real CFBD response - widening it is a deliberate change");
+ok(JSON.stringify(CFBD_FIELDS) === JSON.stringify(["games", "rushingYardsOpponent", "netPassingYardsOpponent", "turnovers", "turnoversOpponent"]),
+   "exactly the fields the screens need - W15's yards allowed and the turnover margin (2026-10-27), each read from a real CFBD response; widening it is a deliberate change");
 
 console.log("health");
 { const { r, body } = await get("/v1/health", env());

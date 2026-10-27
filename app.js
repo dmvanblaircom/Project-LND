@@ -1045,34 +1045,38 @@ function pointsAllowedFor(key, ourGames){
   return p.then(function(v){ PTS_ALLOWED[key]=v; return v; }, function(){ return null; });
 }
 
-// Yards allowed per game, for one side: CollegeFootballData through Suite's
-// edge API (decision 0030, W15) - ESPN's own figure is an empty stub. Keyed by
+// One side's season from CollegeFootballData, through Suite's edge API
+// (decision 0030): yards allowed per game (W15) - ESPN's own figure is an
+// empty stub - and turnovers, which ESPN miscounts (2026-10-27). Keyed by
 // school name. An answer is kept for the session (a school CFBD does not know
 // answers with null figures); a failure resolves to null without being kept,
-// so the next preview asks again. Either way the row shows a dash for that
+// so the next ask tries again. Either way its rows show a dash for that
 // side, and the card stands.
 var EDGE="https://suite-api.dmvanblaircom.workers.dev";
-var YDS_ALLOWED={};               // school -> { rush, pass, ... } | null
+var CFBD_FOR={};                  // school -> { yards, turnovers } | null
 
-function yardsAllowedFor(school){
+function cfbdFor(school){
   if(!school) return Promise.resolve(null);
-  if(YDS_ALLOWED.hasOwnProperty(school)) return Promise.resolve(YDS_ALLOWED[school]);
+  if(CFBD_FOR.hasOwnProperty(school)) return Promise.resolve(CFBD_FOR[school]);
   return get(EDGE+TeamOS.cfbd.seasonPath(school, seasonYear()))
-    .then(function(d){ var v=TeamOS.cfbd.yardsAllowed(d); YDS_ALLOWED[school]=v; return v; },
-          function(){ return null; });            // a failure is not kept: the next preview asks again
+    .then(function(d){ var v={ yards:TeamOS.cfbd.yardsAllowed(d), turnovers:TeamOS.cfbd.turnovers(d) }; CFBD_FOR[school]=v; return v; },
+          function(){ return null; });            // a failure is not kept: the next ask tries again
 }
 
-// The rows no ESPN feed fills: points allowed (from results) and yards
-// allowed (from CFBD). Copies rather than writes, because the rows themselves
-// are cached in SEASON_STATS and shared between renders.
-function withDerived(rows, perGame, yards){
-  var fill={ pointsAllowed: perGame,
-             rushDefense: yards ? yards.rush : null,
-             passDefense: yards ? yards.pass : null };
+// The rows no ESPN feed fills: points allowed (from results), and yards
+// allowed and the turnover margin (from CFBD). Copies rather than writes,
+// because the rows themselves are cached in SEASON_STATS and shared between
+// renders.
+function withDerived(rows, perGame, cfbd){
+  var yards=cfbd && cfbd.yards, tov=cfbd && cfbd.turnovers;
+  var fill={ pointsAllowed: perGame==null ? null : perGame.toFixed(1),
+             rushDefense: yards && yards.rush!=null ? yards.rush.toFixed(1) : null,
+             passDefense: yards && yards.pass!=null ? yards.pass.toFixed(1) : null,
+             turnoverMargin: tov ? TeamOS.cfbd.signed(tov.margin) : null };
   return rows.map(function(r){
     var v=fill[r.key];
     if(v==null) return r;
-    return { key:r.key, label:r.label, value:v.toFixed(1),
+    return { key:r.key, label:r.label, value:v,
              rank:r.rank, rankText:r.rankText };
   });
 }
@@ -1109,6 +1113,8 @@ function teamSeasonStats(key){
 // network, the worker's kept copy, or failed.
 var ST={ us:null, them:null, opp:null, oppFor:null, type:null, p:null, again:false, failed:false, outcome:null };
 function statsType(){ return TeamOS.espn.seasonTypeFor(POST); }
+// The turnover rows are CFBD's (cfbdFor), asked for by the school the site
+// API's answer names; without that answer, or CFBD's, they are left out.
 function teamSeasonFor(key, type){
   var year=seasonYear(), how=[];
   function one(url){
@@ -1119,7 +1125,10 @@ function teamSeasonFor(key, type){
     .then(function(r){
       if(!r[0] && !r[1]) throw new Error("no season stats");
       var outcome=how.every(function(h){ return h==="network"; }) ? "network" : "cached";
-      return { season: TeamOS.espn.teamSeason(r[0], r[1]), outcome: outcome };
+      var season=TeamOS.espn.teamSeason(r[0], r[1]);
+      return cfbdFor(TeamOS.espn.teamSchool(r[1])).then(function(c){
+        return { season: TeamOS.cfbd.withTurnovers(season, c && c.turnovers), outcome: outcome };
+      });
     });
 }
 // This week's opponent: the next game, while it is on or within seven days.
@@ -1623,7 +1632,7 @@ function loadGamePreview(V, g, repaint){
   V.previewLoading=true; V.previewAt=Date.now();
   Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
                pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null),
-               yardsAllowedFor(s.us.school), yardsAllowedFor(s.them.school)])
+               cfbdFor(s.us.school), cfbdFor(s.them.school)])
     .then(function(r){ V.preview={ us:withDerived(r[0], r[2], r[4]), them:withDerived(r[1], r[3], r[5]) }; V.previewFailed=false; })
     .catch(function(){ if(V.preview===undefined) V.preview=null; V.previewFailed=true; })
     .then(function(){ V.previewLoading=false; repaint(); });
