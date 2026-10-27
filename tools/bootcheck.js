@@ -58,6 +58,10 @@ function run(opts) {
       if (!missing && el.onload) pending.push(el.onload);
     } },
     createElement: function () { return { src: null, async: true, onerror: null }; },
+    // index.html's page-swap style, which the chooser drops
+    getElementById: function (id) {
+      return id === "page-swap" && !doc.__swapGone ? { parentNode: { removeChild: function () { doc.__swapGone = true; } } } : null;
+    },
     querySelector: function (sel) {
       var m = /^meta\[name="([^"]+)"\]$/.exec(sel);
       if (!m || !(m[1] in meta)) return null;
@@ -104,7 +108,7 @@ function run(opts) {
   if (opts.domFirst === false && doc.__domReady) doc.__domReady();
   for (guard = 0; pending.length && guard < 50; guard++) pending.shift()();
   return { team: attrs["data-team"], attrs: attrs, applied: applied, injected: injected,
-           meta: meta, title: doc.title, store: store };
+           meta: meta, title: doc.title, store: store, swap: !doc.__swapGone };
 }
 
 // A stored set, the shape paintIdentity() writes.
@@ -120,6 +124,8 @@ eq(run({}).attrs["data-choosing"], "", "it is its own state, and the page says s
 eq(run({}).injected.indexOf("app.js"), -1,
    "app.js is never loaded without a team - it reads TEAM_CONFIG as it parses");
 ok(run({}).injected.indexOf("chooser.js") !== -1, "the chooser is loaded instead");
+eq(run({}).swap, false, "and takes no part in a page swap (index.html #page-swap)");
+eq(run({ search: "?team=ohio-state" }).swap, true, "a team's page keeps it, for an update's reload");
 eq(run({}).injected.filter(function (s) { return /^teams\/[a-z-]+\.js$/.test(s); }),
    ["teams/index.js"], "and no team config is fetched, because none was chosen");
 eq(run({}).store["iw-team"], undefined, "nothing is stored, so the next visit asks again");
@@ -152,6 +158,7 @@ ok(gone.injected.indexOf("chooser.js") !== -1 && gone.injected.indexOf("app.js")
    "the chooser loads, and no team app does");
 ok(!("iw-team" in gone.store), "and the bad id is not left stored to fail again tomorrow");
 eq(gone.meta["theme-color"], "#111D35", "the browser chrome is the chooser's header, not a team's");
+eq(gone.swap, false, "and the chooser it falls back to drops the page swap too");
 eq(gone.injected.filter(function (s) { return /^teams\/[a-z-]+\.js$/.test(s); }),
    ["teams/alabama.js", "teams/index.js"], "no other team's config is fetched");
 var mine = run({ search: "?team=alabama", storage: { "iw-team": "ohio-state" }, missing: ["teams/alabama.js"] });

@@ -311,8 +311,8 @@ html:not([data-launched]):not([data-choosing]):has(#launch:not(.done)) body,
 /* Before the launch is parsed too. An update reloads the page under the
    launch, and iOS can paint the new page before its body reaches the
    launch: the page's own white then shows between two launches (David's
-   iPhone, 2026-10-27: launch, a white flicker, the launch again). Navy
-   until the launch or the page itself exists. */
+   iPhone, 2026-10-27: launch, a white flicker, the launch again). It is
+   navy until the launch or the page itself exists. */
 html:not([data-launched]):not([data-choosing]):not(:has(#launch, #appBar)),
 html:not([data-launched]):not([data-choosing]):not(:has(#launch, #appBar)) body{background:#111D35}
 /* And below its own foot, as the nav does (app.css .navbar::after): when iOS
