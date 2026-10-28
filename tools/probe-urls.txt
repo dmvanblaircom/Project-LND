@@ -1,4 +1,65 @@
-# 2026-10-28, Phase 3: where the Big 12 and the ACC post availability reports.
-https://big12sports.com/sports/football | href="[^"]*[Aa]vailab[^"]*"|[Aa]vailability [Rr]eport[^<]{0,60}
-https://big12sports.com/ | href="[^"]*[Aa]vailab[^"]*"|[Aa]vailability [Rr]eport[^<]{0,60}
-https://theacc.com/sports/2025/8/28/availability-reporting.aspx | <title>[^<]*|[Aa]vailability[^<]{0,60}
+# 2026-10-28, Phase 3: roster pages and stadium cities.
+https://arizonawildcats.com/sports/football/roster | <title>[^<]*
+https://thesundevils.com/sports/football/roster | <title>[^<]*
+https://baylorbears.com/sports/football/roster | <title>[^<]*
+https://gobearcats.com/sports/football/roster | <title>[^<]*
+https://cubuffs.com/sports/football/roster | <title>[^<]*
+https://uhcougars.com/sports/football/roster | <title>[^<]*
+https://cyclones.com/sports/football/roster | <title>[^<]*
+https://kuathletics.com/sports/football/roster | <title>[^<]*
+https://www.kstatesports.com/sports/football/roster | <title>[^<]*
+https://okstate.com/sports/football/roster | <title>[^<]*
+https://gofrogs.com/sports/football/roster | <title>[^<]*
+https://texastech.com/sports/football/roster | <title>[^<]*
+https://ucfknights.com/sports/football/roster | <title>[^<]*
+https://utahutes.com/sports/football/roster | <title>[^<]*
+https://wvusports.com/sports/football/roster | <title>[^<]*
+https://bceagles.com/sports/football/roster | <title>[^<]*
+https://calbears.com/sports/football/roster | <title>[^<]*
+https://clemsontigers.com/sports/football/roster | <title>[^<]*
+https://goduke.com/sports/football/roster | <title>[^<]*
+https://seminoles.com/sports/football/roster | <title>[^<]*
+https://ramblinwreck.com/sports/football/roster | <title>[^<]*
+https://gocards.com/sports/football/roster | <title>[^<]*
+https://miamihurricanes.com/sports/football/roster | <title>[^<]*
+https://gopack.com/sports/football/roster | <title>[^<]*
+https://goheels.com/sports/football/roster | <title>[^<]*
+https://pittsburghpanthers.com/sports/football/roster | <title>[^<]*
+https://smumustangs.com/sports/football/roster | <title>[^<]*
+https://gostanford.com/sports/football/roster | <title>[^<]*
+https://cuse.com/sports/football/roster | <title>[^<]*
+https://virginiasports.com/sports/football/roster | <title>[^<]*
+https://hokiesports.com/sports/football/roster | <title>[^<]*
+https://godeacs.com/sports/football/roster | <title>[^<]*
+https://geocoding-api.open-meteo.com/v1/search?name=Tucson&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Tempe&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Waco&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Cincinnati&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Boulder&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Houston&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Ames&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Lawrence&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Manhattan&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Stillwater&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Fort+Worth&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Lubbock&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Orlando&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Salt+Lake+City&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Morgantown&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Chestnut+Hill&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Berkeley&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Clemson&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Durham&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Tallahassee&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Atlanta&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Louisville&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Miami+Gardens&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Raleigh&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Chapel+Hill&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Pittsburgh&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Dallas&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Stanford&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Syracuse&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Charlottesville&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Blacksburg&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Winston-Salem&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
