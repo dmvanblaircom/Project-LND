@@ -1,11 +1,14 @@
-# 2026-10-28, Phase 2: the rest.
-https://www.secsports.com/fbreports | <title>[^<]*
-https://rolltide.com/sports/football/roster | <title>[^<]*
-https://arkansasrazorbacks.com/sports/football/roster | <title>[^<]*
-https://auburntigers.com/sports/football/roster | <title>[^<]*
-https://floridagators.com/sports/football/roster | <title>[^<]*
-https://georgiadogs.com/sports/football/roster | <title>[^<]*
-https://geocoding-api.open-meteo.com/v1/search?name=Tuscaloosa&count=1&countryCode=US | \]\.(latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Knoxville&count=1&countryCode=US | \]\.(latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Fayetteville&count=3&countryCode=US | \]\.(latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Auburn&count=10&countryCode=US | \]\.(latitude|longitude|admin1) =
+# 2026-10-28, Phase 2: athletics sites' football pages; Arkansas's roster.
+https://arkansasrazorbacks.com/sport/m-footbl/roster/ | <title>[^<]*
+https://arkansasrazorbacks.com/sport/m-footbl/ | <title>[^<]*
+https://arkansasrazorbacks.com/sports/football | <title>[^<]*
+https://rolltide.com/sports/football | <title>[^<]*
+https://floridagators.com/sports/football | <title>[^<]*
+https://georgiadogs.com/sports/football | <title>[^<]*
+https://ukathletics.com/sports/football | <title>[^<]*
+https://hailstate.com/sports/football | <title>[^<]*
+https://soonersports.com/sports/football | <title>[^<]*
+https://olemisssports.com/sports/football | <title>[^<]*
+https://gamecocksonline.com/sports/football | <title>[^<]*
+https://utsports.com/sports/football | <title>[^<]*
+https://texaslonghorns.com/sports/football | <title>[^<]*
