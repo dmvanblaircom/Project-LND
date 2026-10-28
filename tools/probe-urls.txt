@@ -1,5 +1,8 @@
-# 2026-10-28, bug fixes: a full-size Sidearm news image, and article pages' share images.
-https://gobison.com/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg?width=800 | x
-https://gobison.com/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg | x
-https://gobison.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg | x
-https://gobison.com/rss?path=football | rp_[a-z]+|<media:[a-z]+[^>]{0,200}|<enclosure[^>]{0,200}
+# 2026-10-28, bug fixes: Sidearm news image sizes.
+https://gobison.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg&width=800 | QQZZQQ
+https://gobison.com/common/controls/image_handler.aspx?image_path=/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg&width=800 | QQZZQQ
+https://images.sidearmdev.com/resize?url=https%3a%2f%2fdxbhsrqyrr690.cloudfront.net%2fsidearm.nextgen.sites%2fgobison.sidearmsports.com%2fimages%2f2026%2f10%2f21%2fKelton_McCaslin_20261017_FB_NEV_ZL154.jpg&width=800&type=webp | QQZZQQ
+https://gobison.com/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg?width=800 | QQZZQQ
+https://gobison.com/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg | QQZZQQ
+https://hawkeyesports.com/rss?path=football | rp_[a-z]+&image_path=[^&"<]{0,20}|width=[0-9]+
+https://dailyiowan.com/2026/10/27/iowa-running-back-kamari-moulton-out-for-season-with-injury/ | og:image" content="[^"]+
