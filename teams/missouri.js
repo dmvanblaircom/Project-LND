@@ -45,7 +45,7 @@ var TEAM_CONFIG = {
     beatFeeds: [
       { name: "Rock M Nation", feed: "https://www.rockmnation.com/rss/current.xml", site: "https://www.rockmnation.com/" },
       { name: "Missouri On SI", feed: "https://www.si.com/college/missouri/feed", site: "https://www.si.com/college/missouri", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
-      { name: "The Maneater", feed: "https://themaneater.com/category/sports/feed/", site: "https://themaneater.com/category/sports/" }
+      { name: "The Maneater", feed: "https://themaneater.com/category/sports/feed/", sportsSection: true, site: "https://themaneater.com/category/sports/" }
     ]
   },
 

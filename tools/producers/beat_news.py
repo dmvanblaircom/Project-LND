@@ -53,9 +53,20 @@ OTHER_SPORTS = {
     "college-football": re.compile(
         r"\b(wbb|mbb|basketball|hoops|final four|march madness|hockey|frozen four|volleyball|soccer|"
         r"baseball|softball|lacrosse|wrestling|swimming|golf|tennis|rowing|fencing|gymnastics|"
-        r"cross[- ]country|track and field|track & field)\b", re.I),
+        r"cross[- ]country|track and field|track & field|"
+        # the professional leagues a student paper also covers (the Daily
+        # Iowan's "Who will win this season's NHL Playoffs?", 2026-10-27);
+        # the NFL is left out on purpose: alumni in the NFL are football
+        r"nhl|nba|wnba|mlb|mls|nwsl|stanley cup|world series)\b", re.I),
 }
 OWN_SPORT = {"college-football": re.compile(r"\bfootball\b", re.I)}
+# For a newspaper's whole sports section (a source's `sportsSection`), where
+# most stories are other sports and many never name theirs: a story stays
+# only when its title, address or categories say football, or name what only
+# football has.
+FOOTBALL_SAYS = {"college-football": re.compile(
+    r"\b(football|quarterbacks?|qbs?|running backs?|wide receivers?|tight ends?|linebackers?|cornerbacks?|"
+    r"offensive line(man|men)?|defensive line(man|men)?|touchdowns?|kickoff|bowl game|depth chart|gridiron)\b", re.I)}
 
 
 # ---- pure: text in, data out (tools/newscheck.py tests these) -------------
@@ -99,6 +110,70 @@ def image_url(value, base):
     return url if WEB.match(url) else None
 
 
+SIDEARM_THUMB = re.compile(r"^(https?://[^/]+)/common/controls/image_handler\.aspx\?(?:[^#]*&)?image_path=(/images/[^&#]+)", re.I)
+
+
+def full_image(url):
+    """A Sidearm athletics feed's picture is its 125-pixel thumbnail
+    (image_handler.aspx?thumb_prefix=rp_system&image_path=...), which looked
+    blurred on NDSU's news card (David, 2026-10-28). The same picture at 800
+    pixels, from the site's own image path (65 KB as WebP, checked from
+    GitHub's network). Any other address is left as it is."""
+    m = SIDEARM_THUMB.match(url or "")
+    return "%s%s?width=800" % (m.group(1), m.group(2)) if m else url
+
+
+class _Meta(HTMLParser):
+    """An article page's share image: og:image, then twitter:image."""
+    def __init__(self, base):
+        super().__init__()
+        self.base, self.found = base, {}
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() != "meta":
+            return
+        a = {k.lower(): (v or "") for k, v in attrs}
+        key = (a.get("property") or a.get("name") or "").lower()
+        if key in ("og:image", "og:image:secure_url", "twitter:image") and key not in self.found:
+            url = image_url(a.get("content"), self.base)
+            if url:
+                self.found[key] = url
+
+
+def page_image(html, base):
+    """An article page's HTML -> its share image, or None. For a feed that
+    sends no picture (the Daily Iowan's, the Daily Northwestern's)."""
+    p = _Meta(base)
+    try:
+        p.feed(html)
+    except Exception:                                   # noqa: BLE001 - a broken page still yields what it parsed
+        pass
+    return next((p.found[k] for k in ("og:image:secure_url", "og:image", "twitter:image") if k in p.found), None)
+
+
+def fill_images(items, old_items, read_page, limit=8):
+    """Stories without a picture take the one their article page shares:
+    kept from the last run when the story was already there, otherwise read
+    from the page, at most `limit` pages a run. A page that does not answer
+    leaves the story as it was. -> the number of pages read."""
+    known = {it.get("link"): it.get("image") for it in (old_items or []) if it.get("image")}
+    read = 0
+    for it in items:
+        if it.get("image"):
+            continue
+        if it.get("link") in known:
+            it["image"] = known[it["link"]]
+            continue
+        if read >= limit:
+            continue
+        read += 1
+        try:
+            it["image"] = page_image(read_page(it["link"]), it["link"])
+        except Exception:                               # noqa: BLE001 - one page never stops the run
+            pass
+    return read
+
+
 class _Images(HTMLParser):
     def __init__(self, base):
         super().__init__()
@@ -132,7 +207,7 @@ def article_image(item, base):
                 continue
             url = image_url(node.get("url") or node.get("href"), base)
             if url:
-                return url
+                return full_image(url)
     for tag in ("{http://purl.org/rss/1.0/modules/content/}encoded", ATOM + "content", "description", ATOM + "summary"):
         node = item.find(tag)
         if node is None:
@@ -140,7 +215,7 @@ def article_image(item, base):
         parser = _Images(base)
         parser.feed("".join(node.itertext()) if not len(node) else ET.tostring(node, encoding="unicode"))
         if parser.urls:
-            return parser.urls[0]
+            return full_image(parser.urls[0])
     return None
 
 
@@ -214,7 +289,7 @@ def path_of(link):
         return None
 
 
-def off_topic(item, league, paths=None):
+def off_topic(item, league, paths=None, section=False):
     """-> why a story is not the team's football, or None to keep it.
 
     Another sport named in the title or the address drops it, unless the
@@ -224,7 +299,8 @@ def off_topic(item, league, paths=None):
     "Notre Dame WBB debuts at No. 13" (it reached the Oct 20 refresh). The
     summary is not read: it mentions other teams and sports in passing.
     `paths`: the source's own sections for this team; an address outside
-    them is someone else's story."""
+    them is someone else's story. `section`: the source is a newspaper's
+    whole sports section, so a story must say football to stay."""
     path = path_of(item["link"])
     if path is None:
         return "an address that does not parse"
@@ -247,6 +323,9 @@ def off_topic(item, league, paths=None):
     hit = first(cats)
     if hit and not football(said + cats):
         return "another sport (%s, by category)" % hit
+    says = FOOTBALL_SAYS.get(league)
+    if section and says and not any(says.search(x) for x in said + cats):
+        return "a sports section's story that does not say football"
     return None
 
 
@@ -255,12 +334,12 @@ def league_of(config):
     return ((config or {}).get("team") or {}).get("league")
 
 
-def keep_football(items, league, paths=None):
+def keep_football(items, league, paths=None, section=False):
     """-> (kept, dropped [(title, why)]). Categories are only for deciding:
     they are not written to the file."""
     kept, dropped = [], []
     for it in items:
-        why = off_topic(it, league, paths)
+        why = off_topic(it, league, paths, section)
         if why:
             dropped.append((it["title"], why))
         else:
@@ -298,6 +377,14 @@ def fetch(url):
 
 def get(url):
     return fetch(url)[0]
+
+
+def get_page(url, cap=400000):
+    """An article page's head and first screens, as text: the share image is
+    in the <head>, so the rest is not read."""
+    req = urllib.request.Request(url, headers={"user-agent": UA, "accept": "text/html,*/*"})
+    with urllib.request.urlopen(req, timeout=15) as r:
+        return r.read(cap).decode("utf-8", "replace")
 
 
 def read_source(src):
@@ -382,7 +469,7 @@ def main():
             moved.append(src["name"])
             print("::warning::%s: declared feed failed (%s); found %s - put it in teams/%s.js"
                   % (src["name"], note, url, args.team))
-        got, dropped = keep_football(got, league_of(config), src.get("paths"))
+        got, dropped = keep_football(got, league_of(config), src.get("paths"), bool(src.get("sportsSection")))
         print("  %s: %d items%s%s" % (src["name"], len(got), "" if not note else " (from " + url + ")",
                                       "; left out %d not the team's football" % len(dropped) if dropped else ""))
         for t, why in dropped[:8]:
@@ -398,6 +485,9 @@ def main():
         old = json.load(open(out, encoding="utf-8"))
     except (OSError, ValueError):
         old = {}
+    pages = fill_images(keep, old.get("items"), lambda url: get_page(url))
+    if pages:
+        print("  read %d article page(s) for a picture" % pages)
     if old.get("items") == keep and old.get("team") == args.team:
         print("  news unchanged (%d items); %s not touched" % (len(keep), out))
         return

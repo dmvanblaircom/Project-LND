@@ -4,6 +4,7 @@
 Usage:  python3 tools/newscheck.py     (exit 1 on any failure)
 """
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -154,7 +155,73 @@ ok(len(bn.keep_football([bad] + keep, "college-football")[0]) == len(keep), "and
 kept, dropped = bn.keep_football(drop + keep, "college-football")
 ok(len(kept) == len(keep) and len(dropped) == len(drop) and all("categories" not in i for i in kept),
    "keep_football splits them, and categories are not written to the file")
+# A student paper's whole sports section (Iowa, 2026-10-27): a professional
+# league is another sport, and in a `sportsSection` source a story stays only
+# when it says football. Real headlines and addresses from the Daily Iowan
+# and the Daily Northwestern.
+nhl = story("Point/Counterpoint | Who will win this season\u2019s NHL Playoffs?",
+            "https://dailyiowan.com/2026/10/27/point-counterpoint-who-will-win-this-seasons-nhl-playoffs/")
+ok(bn.off_topic(nhl, "college-football") is not None, "a professional league is another sport: " + nhl["title"][:50])
+alumni = story("Vols in the NFL: Dylan Sampson returns to action", "https://www.utdailybeacon.com/2026/10/27/vols-in-the-nfl/")
+ok(bn.off_topic(alumni, "college-football") is None, "but the NFL is football: alumni stories stay")
+paper = [
+    story("Iowa running back Kamari Moulton out for season with injury",
+          "https://dailyiowan.com/2026/10/27/iowa-running-back-kamari-moulton-out-for-season-with-injury/"),
+    story("Football: Schaller embraces transition from tight end to starting left tackle",
+          "https://dailynorthwestern.com/2026/10/27/sports/football-schaller-embraces-transition/"),
+    story("Hawkeyes hold on at Kinnick", "https://dailyiowan.com/2026/10/25/hawkeyes-hold-on/", ["Sports", "Football"]),
+]
+for it in paper:
+    ok(bn.off_topic(it, "college-football", None, True) is None, "a sports section's football stays: " + it["title"][:50])
+quiet = [
+    story("Hawkeyes sweep weekend series", "https://dailyiowan.com/2026/10/26/hawkeyes-sweep-weekend-series/", ["Sports"]),
+    story("Column: What this weekend meant", "https://dailyiowan.com/2026/10/26/column-what-this-weekend-meant/"),
+]
+for it in quiet:
+    ok(bn.off_topic(it, "college-football", None, True) is not None, "a sports section's story that does not say football is left out: " + it["title"][:40])
+    ok(bn.off_topic(it, "college-football") is None, "though from a football source it would stay")
+print("pictures: full size, and a page's own when the feed sends none (David, 2026-10-28)")
+thumb = "https://gobison.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg"
+ok(bn.full_image(thumb) == "https://gobison.com/images/2026/10/21/Kelton_McCaslin_20261017_FB_NEV_ZL154.jpg?width=800",
+   "a Sidearm thumbnail becomes the same picture at 800 pixels")
+ok(bn.full_image("https://cdn.example/a.jpg") == "https://cdn.example/a.jpg" and bn.full_image(None) is None, "any other picture is left as it is")
+rss = (b'<rss><channel><item><title>Bison Host UTEP</title><link>https://gobison.com/news/1</link>'
+       b'<enclosure url="' + thumb.replace("&", "&amp;").encode() + b'" type="image/jpeg"/></item></channel></rss>')
+ok(bn.parse_feed(rss, "NDSU Athletics")[0]["image"].endswith("ZL154.jpg?width=800"), "and the feed's reader asks for it")
+head = ('<html><head><meta name="twitter:image" content="https://dailyiowan.com/t.jpg">'
+        '<meta property="og:image" content="/wp-content/uploads/2026/10/moulton.jpg"></head><body>')
+ok(bn.page_image(head, "https://dailyiowan.com/2026/10/27/x/") == "https://dailyiowan.com/wp-content/uploads/2026/10/moulton.jpg",
+   "a page's share image is og:image, resolved against the page")
+ok(bn.page_image('<meta name="twitter:image" content="https://a.example/t.jpg">', "https://a.example/") == "https://a.example/t.jpg",
+   "then twitter:image")
+ok(bn.page_image("<p>no head", "https://a.example/") is None and bn.page_image('<meta property="og:image" content="javascript:x">', "") is None,
+   "none, or not a web address: no picture")
+asked = []
+def reader(url):
+    asked.append(url)
+    if "dead" in url:
+        raise OSError("403")
+    return '<meta property="og:image" content="https://p.example/%s.jpg">' % url.rsplit("/", 1)[-1]
+items = [{"link": "https://p.example/has", "image": "https://p.example/feed.jpg"},
+         {"link": "https://p.example/kept"}, {"link": "https://p.example/dead"}] + [{"link": "https://p.example/n%d" % i} for i in range(10)]
+read = bn.fill_images(items, [{"link": "https://p.example/kept", "image": "https://p.example/old.jpg"}], reader, limit=4)
+ok(items[0]["image"] == "https://p.example/feed.jpg" and "https://p.example/has" not in asked, "a feed's own picture is kept and its page not read")
+ok(items[1]["image"] == "https://p.example/old.jpg" and "https://p.example/kept" not in asked, "a story already pictured last run is not read again")
+ok(not items[2].get("image") and items[3]["image"] == "https://p.example/n0.jpg", "a page that does not answer leaves its story as it was; the next is read")
+ok(read == 4 and len(asked) == 4 and not items[-1].get("image"), "at most four pages a run here (eight in production)")
 import teamconfig  # noqa: E402
+# Every config: a feed that is a whole sports section (".../category/sports/
+# feed/", ".../sports/feed/") is marked so, or it would bring in every sport
+# whose headline does not name it, as the Daily Iowan's did.
+SECTION = re.compile(r"/(category/)?sports/feed/?$|/section/sports\.xml$", re.I)
+loose = []
+for f in sorted(os.listdir(os.path.join(HERE, "..", "teams"))):
+    if not f.endswith(".js") or f == "index.js":
+        continue
+    for src in (teamconfig.load(f[:-3]).get("sources") or {}).get("beatFeeds") or []:
+        if SECTION.search(src.get("feed") or "") and not src.get("sportsSection"):
+            loose.append(f[:-3] + ": " + src["name"])
+ok(not loose, "every newspaper's whole sports section is read as one: football only (%s)" % (", ".join(loose) or "none loose"))
 for team in ("notre-dame", "ohio-state"):
     conf = teamconfig.load(team)
     lg = bn.league_of(conf)

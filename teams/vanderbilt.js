@@ -45,7 +45,7 @@ var TEAM_CONFIG = {
     beatFeeds: [
       { name: "Anchor of Gold", feed: "https://www.anchorofgold.com/rss/current.xml", site: "https://www.anchorofgold.com/" },
       { name: "Vanderbilt On SI", feed: "https://www.si.com/college/vanderbilt/feed", site: "https://www.si.com/college/vanderbilt", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
-      { name: "The Vanderbilt Hustler", feed: "https://vanderbilthustler.com/category/sports/feed/", site: "https://vanderbilthustler.com/category/sports/" }
+      { name: "The Vanderbilt Hustler", feed: "https://vanderbilthustler.com/category/sports/feed/", sportsSection: true, site: "https://vanderbilthustler.com/category/sports/" }
     ]
   },
 

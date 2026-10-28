@@ -45,7 +45,7 @@ var TEAM_CONFIG = {
     beatFeeds: [
       { name: "Good Bull Hunting", feed: "https://www.goodbullhunting.com/rss/current.xml", site: "https://www.goodbullhunting.com/" },
       { name: "Texas A&M On SI", feed: "https://www.si.com/college/tamu/feed", site: "https://www.si.com/college/tamu", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
-      { name: "The Battalion", feed: "https://thebatt.com/category/sports/feed/", site: "https://thebatt.com/category/sports/" }
+      { name: "The Battalion", feed: "https://thebatt.com/category/sports/feed/", sportsSection: true, site: "https://thebatt.com/category/sports/" }
     ]
   },
 
