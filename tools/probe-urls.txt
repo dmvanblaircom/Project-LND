@@ -1,4 +1,15 @@
-# 2026-10-28, Phase 3: Georgia Tech's roster page.
-https://ramblinwreck.com/sports/m-footbl/roster/ | <title>[^<]*
-https://ramblinwreck.com/sports/football/roster/ | <title>[^<]*
-https://ramblinwreck.com/sports/mfootbl/roster/ | <title>[^<]*
+# 2026-10-27: four new teams (David: Indiana, Minnesota, North Dakota State,
+# BYU). Each one's ESPN name, colors and home venue, as ESPN spells them.
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|groups\.id|franchise\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449/schedule | ^events\[[0-9]+\]\.(name|date|competitions\[0\]\.venue\.fullName) = 
+# The defending national champion (David, 2026-10-27): which postseason game
+# is the title game, as ESPN labels it.
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | National Championship|Playoff
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | ^events\[45\]\.(id|date|name|status\.type\.(completed|state)|competitions\[0\]\.(notes\[0\]\.headline|competitors\[[01]\]\.(winner|score|homeAway|team\.(id|location|displayName|shortDisplayName|abbreviation)))) = 
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2026&groups=80&limit=300 | National Championship
