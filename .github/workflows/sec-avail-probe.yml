@@ -1,0 +1,14 @@
+# Temporary (2026-10-28, removed before the PR): HD Intelligence's conferences.
+name: Probe SEC availability
+on:
+  push:
+    branches: [phase2-sec]
+    paths: ["tools/sec_avail_probe.py"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/sec_avail_probe.py
