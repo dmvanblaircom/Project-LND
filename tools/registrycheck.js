@@ -61,10 +61,13 @@ ok(!/available\s*:/.test(read("teams/index.js")),
    "no row carries an availability flag - naming a config is what makes a team selectable");
 eq(REG.get("notre-dame").available, true, "Notre Dame is selectable");
 eq(REG.get("ohio-state").available, true, "Ohio State is selectable");
-eq(REG.get("alabama").available, false, "Alabama is known but not selectable");
-eq(REG.get("utah").available, false, "Utah is known but not selectable");
-eq(REG.isAvailable("alabama"), false, "and the registry says so when asked directly");
-eq(REG.configFor("alabama"), null, "a team with no config has no config path");
+// A program still waiting for its config, picked from the registry: the
+// phases add teams, so no one name stays unconfigured.
+var bare = REG.all().filter(function (t) { return !t.config; })[0];
+ok(!!bare, "the registry knows a program that has no config yet");
+eq(REG.get(bare.id).available, false, bare.name + " is known but not selectable");
+eq(REG.isAvailable(bare.id), false, "and the registry says so when asked directly");
+eq(REG.configFor(bare.id), null, "a team with no config has no config path");
 ok(REG.all().length > REG.available().length, "the registry is larger than what is selectable, as it should be");
 
 console.log(" a row that is not a team is dropped, not thrown on");
