@@ -1,5 +1,13 @@
 {
- "team": "ucla",
- "updated": null,
- "points": []
+"team": "ucla",
+"updated": "2026-10-28T01:37Z",
+"points": [
+{
+"t": "2026-10-28T01:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 57.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }

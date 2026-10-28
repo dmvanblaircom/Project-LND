@@ -3,13 +3,45 @@
  "team": "purdue",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:42.572444+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-16",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-16",
+ "game": "vs. Washington",
+ "players": [
+  {
+   "pos": "",
+   "no": "6",
+   "name": "Mister Clark",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "16",
+   "name": "Kylan Fox",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "24",
+   "name": "Raderrion Daniels",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "79",
+   "name": "Joey Tanona",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

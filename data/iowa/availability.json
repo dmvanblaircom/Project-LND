@@ -3,13 +3,52 @@
  "team": "iowa",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:41.567891+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Minnesota",
+ "players": [
+  {
+   "pos": "",
+   "no": "2",
+   "name": "Tyler Brown",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "19",
+   "name": "Kyler Gerardy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "25",
+   "name": "Eli Ozick",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "65",
+   "name": "Trent Wilson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "92",
+   "name": "Caden Buhr",
+   "status": "gtd",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

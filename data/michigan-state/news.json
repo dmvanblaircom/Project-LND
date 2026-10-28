@@ -1,5 +1,402 @@
 {
  "team": "michigan-state",
- "updated": null,
- "items": []
+ "updated": "2026-10-28T01:38:06.935769+00:00",
+ "items": [
+  {
+   "title": "Breaking Down Michigan State's Bleak Path to Bowl Game",
+   "link": "https://www.si.com/college/michiganstate/spartans-breaking-down-bleak-path-bowl-game?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "After six straight losses, MSU will have to win out to reach a bowl game.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_929,h_522,x_414,y_44/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5ykxtj37vhzrt8pac.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-27T13:00:01+00:00"
+  },
+  {
+   "title": "How Disappointing Preseason From Bonke Changes MSU's Outlook",
+   "link": "https://www.si.com/college/michiganstate/spartans-how-disappointing-preseason-bonke-changes-outlook?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "The Spartans' only transfer portal pickup this offseason has hardly played during the team's exhibition games.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_815,h_458,x_952,y_476/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5wda71e2m344j9c8b.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-27T12:00:01+00:00"
+  },
+  {
+   "title": "Breaking Down Kayd Coffman's MSU Starting Debut, What It Means",
+   "link": "https://www.si.com/college/michiganstate/spartans-breaking-down-kayd-coffman-starting-debut-what-means?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "The 4-star true freshman got his first extended game action for the Spartans in Pasadena.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2049,h_1152,x_746,y_10/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5wj0drp0h6pnqxpbh.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-27T11:00:01+00:00"
+  },
+  {
+   "title": "The Toughest Decisions MSU's Tom Izzo Faces Following Exhibitions",
+   "link": "https://www.si.com/college/michiganstate/spartans-toughest-decisions-tom-izzo-faces-following-exhibitions?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "Michigan State's three exhibition games provided more questions than answers.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1148,h_645,x_365,y_119/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5wq31rtzg8ps046et.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-27T10:00:00+00:00"
+  },
+  {
+   "title": "MSU vs UCLA sideline perspective",
+   "link": "https://www.theonlycolors.com/football/49059/msu-vs-ucla-sideline-perspective",
+   "source": "The Only Colors",
+   "summary": "I live about 60 miles from the Rose Bowl so, despite the rough season for MSU Football, I wanted to take advantage of the opportunity to see the Spartans play in this historic stadium. Through TOC, and UCLA\u2019s exceptional Athletic Communications team, I was able to get a field photography pass for this game. I [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/10/Fitz-questions-call.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-26T18:01:48+00:00"
+  },
+  {
+   "title": "Post-Game Quotes: UCLA",
+   "link": "https://msuspartans.com/news/2026/10/26/football-post-game-quotes-ucla",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Devin Vaught vs UCLA at Rose Bowl Stadium on Oct. 24, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC01735_8zAjq.JPG\" /><br /><br />Michigan State Head Coach Pat Fitzgerald",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/24/DSC01735_8zAjq.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-26T16:16:00+00:00"
+  },
+  {
+   "title": "Post-Game Notes: UCLA",
+   "link": "https://msuspartans.com/news/2026/10/26/football-post-game-notes-ucla",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Kenneth Williams vs UCLA at Rose Bowl Stadium on Oct. 24, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC01773_bS1rV.JPG\" /><br /><br />SERIES NOTES",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/24/DSC01773_bS1rV.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-26T16:03:00+00:00"
+  },
+  {
+   "title": "Michigan State Football vs. UCLA: Breaking Down Special Teams",
+   "link": "https://www.si.com/college/michiganstate/spartans-football-ucla-breaking-down-special-teams?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "The Spartans had a rough outing overall against UCLA, but their special teams stood out once again.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1032,h_580,x_590,y_111/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5w03ft9xgtsbz95vc.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-26T12:30:00+00:00"
+  },
+  {
+   "title": "Snap Counts To Know From Michigan State's Loss at UCLA",
+   "link": "https://www.si.com/college/michiganstate/spartans-snap-counts-know-loss-ucla?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "Injuries have forced several different players into action and some movement.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2555,h_1437,x_63,y_73/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5sqt57hrg3fqmh3wn.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-26T11:30:00+00:00"
+  },
+  {
+   "title": "How MSU's Jervis Already Staking Legitimate Claim for Starting Role",
+   "link": "https://www.si.com/college/michiganstate/spartans-how-jervis-already-staking-legitimate-claim-starting-role?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "The team's top incoming freshman has lived up to the hype so far.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_808,h_454,x_767,y_28/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5ta8jym552dsrxe7f.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-26T10:30:00+00:00"
+  },
+  {
+   "title": "Flood Gates Are Open As MSU Loses Another In The Weather Report",
+   "link": "https://www.theonlycolors.com/football/49036/flood-gates-are-open-as-msu-loses-another-in-the-weather-report",
+   "source": "The Only Colors",
+   "summary": "The flood gates have truly opened on MSU football. We knew the levy was on its way to cracking and it fully broke open. MSU lost another game, shocker, I know. I had MSU losing by 30, so there\u2019s the bright spot. It wasn\u2019t that bad. It has approached a point of being really difficult [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/10/gettyimages-2301375736.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-25T14:23:08+00:00"
+  },
+  {
+   "title": "How To Watch MSU's Exhibition Game at Marquette for Free",
+   "link": "https://www.si.com/college/michiganstate/spartans-how-watch-exhibition-game-marquette-free?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "Here's how you can take in the Spartans' exhibition at Marquette.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1038,h_583,x_710,y_158/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/spartan_nation/01m5q58jqqx99mszvzqa.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-25T11:00:04+00:00"
+  },
+  {
+   "title": "Pat Fitzgerald: Freshman QB Kayd Coffman 'more mature than his years' in first career start",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/pat-fitzgerald-freshman-qb-kayd-coffman-more-mature-than-his-years-in-first-career-start/",
+   "source": "On3",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25051123/Copy-of-On3-Matt-Zenitz-don-meyer-leadership-15.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-25T10:38:12+00:00"
+  },
+  {
+   "title": "Spartan Sundays: It Should Be All About 2027 for MSU Now",
+   "link": "https://www.si.com/college/michiganstate/spartans-sundays-should-be-all-about-2027-now?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "Michigan State's main focus should be getting itself ready for the offseason and 2027 now.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1292,h_726,x_1010,y_50/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5r44dt2xmmkmw81bt.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-25T10:00:01+00:00"
+  },
+  {
+   "title": "DotComp: Brace yourselves; it could get worse at Michigan State before it gets better",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/dotcomp-brace-yourselves-it-could-get-worse-at-michigan-state-before-it-gets-better/",
+   "source": "On3",
+   "summary": "A Michigan State football season castrated by injuries suffered more setbacks in that department during a loss to UCLA on Saturday, almost at a level of gallows humor. But the distant future might not be as cursed.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25034205/football-Gary-A.-Vasquez.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-25T08:45:02+00:00"
+  },
+  {
+   "title": "V-Cast: Nobody should be surprised by Michigan State's loss at UCLA given injuries on both sides of the ball",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/v-cast-nobody-should-be-surprised-by-michigan-state-road-loss-at-ucla-given-injuries-on-both-sides-of-the-ball/",
+   "source": "On3",
+   "summary": "Michigan State fans angry about the Spartans' losing streak need to understand the cost of injuries from the start of the season until now.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24225530/Copy-of-On3-Matt-Zenitz-don-meyer-leadership-2026-10-24T235513.091.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-25T03:55:47+00:00"
+  },
+  {
+   "title": "QB Leo Hannan gives Michigan State a late spark in return to home state",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/qb-leo-hannan-gives-michigan-state-a-spark-in-fourth-quarter-against-ucla-in-return-to-home-state/",
+   "source": "On3",
+   "summary": "Californian Leo Hannan engineered Michigan State's lone second-half scoring drive in its 28-10 loss to UCLA on Saturday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24222430/2026-10-10T182531Z_942073203_MT1USATODAY30047533_RTRMADP_3_MICHIGAN-STATE-S-LEO-HANNAN-WARMS-UP-BEFORE-THE-FOOTBALL.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-25T03:26:33+00:00"
+  },
+  {
+   "title": "Three Up/Three Down: Michigan State vs. UCLA",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/michigan-state-three-up-three-down-spartans-versus-ucla/",
+   "source": "On3",
+   "summary": "SpartanMag's Kenny Jordan provides three pluses and three minuses from Michigan State's 28-10 loss to UCLA on Saturday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24211106/Untitled-design-15-2.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-25T02:32:54+00:00"
+  },
+  {
+   "title": "Michigan State's injury woes continue as Ben Roberts goes down at UCLA: 'We're going to fight for him'",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/michigan-state-injury-woes-continue-as-ben-roberts-goes-down/",
+   "source": "On3",
+   "summary": "Michigan State's injury woes continued in Saturday's 28-10 loss to UCLA, as Ben Roberts went down early in the game.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24210528/Untitled-design-14-3.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-25T02:06:11+00:00"
+  },
+  {
+   "title": "No. 9 UCLA Tops Michigan State, 28-10",
+   "link": "https://msuspartans.com/news/2026/10/24/football-no-9-ucla-tops-michigan-state-28-10",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Cam Stodghill, Nikai Martinez and defense vs UCLA at Rose Bowl Stadium on Oct. 24, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC02246_j6gWu.JPG\" /><br /><br />PASADENA, Calif. \u2013 Under sunny skies and temperatures in the upper-70s at the Rose Bowl on Saturday afternoon, Michigan State fell to No. 9 UCLA, 28-10.",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/24/DSC02246_j6gWu.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-25T01:27:00+00:00"
+  },
+  {
+   "title": "Spartan Nation Going Through Emotions After Loss to UCLA",
+   "link": "https://www.si.com/college/michiganstate/spartans-nation-going-through-emotions-after-loss-ucla?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "The Spartans went up against the No. 9-ranked Bruins, and things were crazy from the very start.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1562,h_878,x_1805,y_238/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5qwyag1c3rq02zgcs.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-24T23:30:48+00:00"
+  },
+  {
+   "title": "Instant Recap: Another loss, more injuries for Michigan State",
+   "link": "https://www.theonlycolors.com/football/49031/instant-recap-another-loss-more-injuries-for-michigan-state",
+   "source": "The Only Colors",
+   "summary": "Alessio Milivojevic showed up on the injury report as questionable halfway through the week, but he was ruled out with an \u201cundisclosed\u201d injury before kickoff. Freshman QB Kayd Coffman would get the start while redshirt freshman QB Leo Hannan would be on backup duty. With Jaz Patterson also ruled out, Michigan State started this game [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/10/reuters-tagreuters.com2026newsml_MT1USATODAY30175201643592523.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-24T23:28:47+00:00"
+  },
+  {
+   "title": "3 Winners, Losers from Michigan State's Latest Loss at UCLA",
+   "link": "https://www.si.com/college/michiganstate/football/three-winners-losers-msu-spartans-latest-loss-at-ucla?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "Here are the winners and losers from MSU's loss to the ninth-ranked Bruins.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1957,h_1100,x_1346,y_230/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5r250pf0a610189wb.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-24T23:09:15+00:00"
+  },
+  {
+   "title": "3 Instant Takeaways from MSU's Sixth Straight Loss at UCLA",
+   "link": "https://www.si.com/college/michiganstate/football/three-instant-takeaways-msu-spartans-sixth-straight-loss-at-ucla?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "Here are some takeaways from the Spartans' loss to the ninth-ranked Bruins.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2494,h_1402,x_466,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5qwg536ag5h4hhxng.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-24T23:05:12+00:00"
+  },
+  {
+   "title": "ANALYSIS: How No. 9 UCLA handled Michigan State, 28-10 & what\u2019s next at QB",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/michigan-state-falls-to-ucla-28-10/",
+   "source": "On3",
+   "summary": "SpartanMag's Jim Comparoni provides instant analysis of Michigan State's 28-10 loss to No. 9 UCLA at the Rose Bowl.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24173255/Untitled-design-13-1.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-24T23:04:56+00:00"
+  },
+  {
+   "title": "3&Out: Michigan State badly needs bye-week reset after losing sixth straight game",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/3out-michigan-state-badly-needs-the-bye-week-reset-after-losing-sixth-straight-game/",
+   "source": "On3",
+   "summary": "Michigan State is beaten up both physically and mentally coming out of a lopsided loss at UCLA ahead of the the bye week. The Spartans need to mental reset before taking on their in-state rival Wolverines on Nov. 7 in Ann Arbor.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24180019/Copy-of-On3-Matt-Zenitz-don-meyer-leadership-2026-10-24T185333.610.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-24T23:03:56+00:00"
+  },
+  {
+   "title": "Michigan State week eight availability report: Alessio Milivojevic out against UCLA",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/michigan-state-week-eight-availability-report-ucla/",
+   "source": "On3",
+   "summary": "Michigan State released its week eight availability report ahead of its game against UCLA at the Rose Bowl on Saturday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24124850/Untitled-design-11-3.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-24T17:59:32+00:00"
+  },
+  {
+   "title": "One Underrated UCLA Weapon Michigan State Must Monitor",
+   "link": "https://www.si.com/college/michiganstate/spartans-one-underrated-ucla-weapon-must-monitor?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "The Bruins have a great player who is surprisingly flying under the radar.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_879,h_494,x_473,y_48/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5pyz7fgav60jh0gqr.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-24T14:00:00+00:00"
+  },
+  {
+   "title": "Meet Kayd Coffman, MSU's QB1 with Milivojevic and Fancher Out",
+   "link": "https://www.si.com/college/michiganstate/football/meet-kayd-coffman-msu-spartans-qb-milivojevic-fancher-out?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "The Spartans are set to start a true freshman with Alessio Milivojevic and Cam Fancher out.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1186,h_667,x_388,y_269/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m5q0wceaqkj12jz618.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-24T13:37:46+00:00"
+  },
+  {
+   "title": "Game Thread: Michigan State @ UCLA",
+   "link": "https://www.theonlycolors.com/football/49026/game-thread-michigan-state-ucla",
+   "source": "The Only Colors",
+   "summary": "Game #8 is today and it is in a stadium that many of us Spartan fans have some wonderful memories of. Unfortunately, this matchup is not an earned bowl game at the end of a highly accomplished MSU season. Rather, our 2-5 squad is playing conference foe UCLA and their perfect 6-0 record. The Bruins [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/10/gettyimages-2299699156.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-24T12:03:30+00:00"
+  },
+  {
+   "title": "5 MSU Players To Watch in Top-10 Test at UCLA",
+   "link": "https://www.si.com/college/michiganstate/spartans-5-players-watch-top-10-test-ucla?utm_source=RSS",
+   "source": "Michigan State On SI",
+   "summary": "Here are the Spartans to keep an eye on in Pasadena against No. 9 UCLA.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1767,h_993,x_1225,y_833/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/spartan_nation/01m2btmnp9k6sd6x70ha.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-24T12:00:02+00:00"
+  },
+  {
+   "title": "Pre-Snap Read: Michigan State vs UCLA",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/michigan-state-pre-snap-read-spartans-versus-ucla/",
+   "source": "On3",
+   "summary": "SpartanMag's Jim Comparoni provides extensive preview and analysis of Michigan State's matchup with No. 9 UCLA on Saturday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/23182303/Untitled-design-9-4.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-23T23:42:09+00:00"
+  },
+  {
+   "title": "3&Out: UCLA\u2019s Bob Chesney trying to get team to stay focused for Michigan State",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/ucla-three-and-out-bob-chesney-getting-bruins-focused-for-michigan-state/",
+   "source": "On3",
+   "summary": "SpartanMag's Ricardo Cooney provides three takeaways from UCLA coach Bob Chesney's pre-Michigan State press conference.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/23104533/Untitled-design-8-3.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-23T18:00:00+00:00"
+  },
+  {
+   "title": "Survey: Pat Fitzgerald Should Be Given Plenty Of Time",
+   "link": "https://www.theonlycolors.com/football/49021/survey-pat-fitzgerald-should-be-given-plenty-of-time",
+   "source": "The Only Colors",
+   "summary": "It\u2019s Saturday, and that means the votes are in. Thank you for all of you who have been voting in these polls. Quick reminder that these surveys will appear in The Feed early in the week as well as in their own article, so you should have every opportunity to see it and participate. You [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/10/reuters-tagreuters.com2026newsml_MT1USATODAY300504462023852719.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-23T17:42:48+00:00"
+  },
+  {
+   "title": "Michigan State Hires Mike Polisky as Deputy AD and Spartan Ventures CEO",
+   "link": "https://www.theonlycolors.com/michigan-state-spartans-sports/49009/michigan-state-hires-mike-polisky-as-deputy-ad-and-spartan-ventures-ceo",
+   "source": "The Only Colors",
+   "summary": "Earlier this morning, Michigan State\u00a0\u2060announced the hiring of Mike Polisky. It\u2019s an interesting hire and a name I hadn\u2019t heard connected to the university, but his background offers plenty of reasons why it makes sense on paper. Time will tell how it works out. Polisky brings experience in brand building, revenue generation and sports administration. [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/10/reuters-tagreuters.com2019newsml_MT1USATODAY13493513981984086.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-23T15:50:40+00:00"
+  },
+  {
+   "title": "TE Jayden Savoury stepping into lead role as Michigan State's top pass catcher",
+   "link": "https://on3.com/teams/michigan-state-spartans/news/savoury-stepping-into-lead-role-at-tight-end-as-michigan-states-top-pass-catcher-at-the-position/",
+   "source": "On3",
+   "summary": "Jayden Savoury has turned talent into production at the tight end position for Michigan State, giving the Spartans a reliable pass catching threat at a critical position.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/23082824/Copy-of-On3-Matt-Zenitz-don-meyer-leadership-2026-10-23T092743.676.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-23T13:30:38+00:00"
+  },
+  {
+   "title": "Aaron Zeigler Makes $10M Commitment to FOR SPARTA, Supporting Future of Spartan Football",
+   "link": "https://msuspartans.com/news/2026/10/22/aaron-zeigler-makes-10m-commitment-to-for-sparta-supporting-future-of-spartan-football",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Ziegler gift announcement\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/Zeigler_Gift_Ann_web_1.jpg\" /><br /><br />EAST LANSING, Mich. - Longtime Michigan State University supporter and alum Aaron Zeigler has made a $10 million commitment to FOR SPARTA, building on his long-standing relationship with the university and his dedication to Spartan Athletics. The commitment reflects Zeigler's belief in the future of Michigan State and his continued investment in the success of Spartan student-athletes.",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/22/Zeigler_Gift_Ann_web_1.jpg",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-22T18:00:00+00:00"
+  },
+  {
+   "title": "Spartans Look to End Frustration on the West Coast",
+   "link": "https://www.theonlycolors.com/football/48904/spartans-look-to-end-frustration-on-the-west-coast",
+   "source": "The Only Colors",
+   "summary": "Next up in this tortuous Michigan State football season is a trip to the Rose Bowl to take on the resurgent UCLA Bruins (3:30 PM ET, CBS).&#160; The Bruins enter Saturday\u2019s game at 6-0 overall and 3-0 in the Big Ten, with consecutive impressive victories at Oregon and vs Wisconsin. UCLA is the last remaining [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/10/gettyimages-2300712497.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-22T11:17:11+00:00"
+  },
+  {
+   "title": "Spartans Set to Face No. 9 UCLA in Rose Bowl on Saturday",
+   "link": "https://msuspartans.com/news/2026/10/20/football-spartans-set-to-face-no-9-ucla-in-rose-bowl-on-saturday",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Anelu Lafaele and defense celebrate\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/MMR36386_P1oEB.JPG\" /><br /><br />",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/17/MMR36386_P1oEB.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-20T19:41:00+00:00"
+  },
+  {
+   "title": "Pat Fitzgerald Weekly Press Conference Coverage",
+   "link": "https://msuspartans.com/news/2026/10/19/football-pat-fitzgerald-weekly-press-conference-coverage",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Head coach Pat Fitzgerald and team line march action photo vs Illinois 2026\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/_EY17027_6N3e4.JPG\" /><br /><br />EAST LANSING, Mich. \u2013\u00a0Michigan State head football coach\u00a0Pat Fitzgerald\u00a0held his weekly press conference Monday inside the Spartan Stadium North End Zone Media Center to recap the game against Northwestern and preview this Saturday's game at UCLA.",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/10/_EY17027_6N3e4.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-20T01:41:00+00:00"
+  },
+  {
+   "title": "Michigan State-UCLA To Kick at 3:30 p.m. ET on CBS",
+   "link": "https://msuspartans.com/news/2026/10/18/football-michigan-state-ucla-set-for-3-30-pm-et-on-cbs",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Rose Bowl\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2021/4/2/DSC_5858.JPG\" /><br /><br />EAST LANSING, Mich. \u2013 Michigan State's game at UCLA in the Rose Bowl on Saturday, Oct. 24 will kick off at 3:30 p.m. ET/12:30 p.m. PT.",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2021/4/2/DSC_5858.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-18T10:46:00+00:00"
+  },
+  {
+   "title": "Post-Game Notes: Northwestern",
+   "link": "https://msuspartans.com/news/2026/10/17/football-post-game-notes-northwestern",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Bryson Williams TD celebration with Brennan Parachek \" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/MMR36231_ZqdH8.JPG\" /><br /><br />SERIES NOTES",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/17/MMR36231_ZqdH8.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-18T00:19:00+00:00"
+  },
+  {
+   "title": "Post-Game Quotes: Northwestern",
+   "link": "https://msuspartans.com/news/2026/10/17/football-post-game-quotes-northwestern",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Alessio Milivojevic run vs Northwestern\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/_EY12726_R7doE.JPG\" /><br /><br />Michigan State Head Coach Pat Fitzgerald",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/17/_EY12726_R7doE.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-17T21:38:00+00:00"
+  },
+  {
+   "title": "Spartans Fall on Last-Second Field Goal to No. 25 Northwestern, 24-21",
+   "link": "https://msuspartans.com/news/2026/10/17/football-michigan-state-falls-short-against-northwestern-24-21",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Ben Roberts, Dion Crawford and defense vs Northwestern\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/MMR35089_h3wpI.JPG\" /><br /><br />EAST LANSING, Mich. \u2013 Michigan State had a field goal blocked with a minute left before Northwestern moved downfield and hit a 34-yard game-winning field goal with two seconds in a 24-21 loss at Spartan Stadium on Saturday afternoon.",
+   "image": "https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/17/MMR35089_h3wpI.JPG",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-17T20:54:00+00:00"
+  }
+ ]
 }

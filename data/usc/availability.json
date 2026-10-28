@@ -3,13 +3,80 @@
  "team": "usc",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:42.874168+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Wisconsin",
+ "players": [
+  {
+   "pos": "",
+   "no": "9",
+   "name": "Terrell Anderson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "10",
+   "name": "Corey Simms",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "19",
+   "name": "Mark Bowman",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "23",
+   "name": "Kendarius Reddick",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "50",
+   "name": "Taylor \"Taybo\" Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "57",
+   "name": "Roman Marchetti",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "67",
+   "name": "Kilian O'Connor",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "80",
+   "name": "Luc Weaver",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "97",
+   "name": "Jide Abasiri",
+   "status": "gtd",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

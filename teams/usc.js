@@ -36,7 +36,9 @@ var TEAM_CONFIG = {
     official: {
       availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
       availabilityReportLabel: "BigTen.org",
-      availabilityFeed: { provider: "hdintelligence", conference: "B10", sport: "Football", team: "USC" }
+      // The Big Ten's reports name USC "Southern California" (HD Intelligence,
+      // 2026-10-28), as they name Ohio State "Ohio St.".
+      availabilityFeed: { provider: "hdintelligence", conference: "B10", sport: "Football", team: "Southern California", aliases: ["USC"] }
     },
 
     // Beat writers, read by the Action server-side; each answered from

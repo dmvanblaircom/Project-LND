@@ -1,5 +1,13 @@
 {
- "team": "iowa",
- "updated": null,
- "points": []
+"team": "iowa",
+"updated": "2026-10-28T01:37Z",
+"points": [
+{
+"t": "2026-10-28T01:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 7.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }

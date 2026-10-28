@@ -3,13 +3,73 @@
  "team": "nebraska",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:42.070219+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-17",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-17",
+ "game": "at Oregon",
+ "players": [
+  {
+   "pos": "",
+   "no": "4",
+   "name": "Jamir Conn",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "13",
+   "name": "Rex Guthrie",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "17",
+   "name": "Larry Miles",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "19",
+   "name": "Kahmir Prescott",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "44",
+   "name": "Riley Van Poppel",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "52",
+   "name": "Jase Reynolds",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "54",
+   "name": "Jacob Bower",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "95",
+   "name": "Gabe Moore",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }
