@@ -1,17 +1,11 @@
-# 2026-10-28, Phase 2: SEC brand pages (colours and type).
-https://brandcenter.ufl.edu/colors | #[0-9A-Fa-f]{6}|Orange|Blue
-https://brand.missouri.edu/visual-identity/colors/ | #[0-9A-Fa-f]{6}|Gold|Black
-https://brand.missouri.edu/brand-visuals/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://www.ou.edu/brand/creative-platform/design-system/colors | #[0-9A-Fa-f]{6}|Crimson|Cream
-https://www.ou.edu/brand/creative-platform/design-system/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://brand.vanderbilt.edu/colors | #[0-9A-Fa-f]{6}|Gold|Black
-https://brand.ua.edu/typography/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://brand.olemiss.edu/brand-guidelines/visual/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://sc.edu/about/offices_and_divisions/communications/toolbox/visuals/typography/index.php | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://sc.edu/about/offices_and_divisions/communications/toolbox/visuals/colors/index.php | #[0-9A-Fa-f]{6}|Garnet
-https://brand.utk.edu/standards/typography/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://brand.utexas.edu/identity/typography/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://brandguide.tamu.edu/our-brand/visual-style/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://brand.uky.edu/brand-standards/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://brand.msstate.edu/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
-https://www.lsu.edu/brand/typography.php | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab
+# 2026-10-28, Phase 2: SEC brand pages, second round.
+https://sc.edu/about/offices_and_divisions/communications/toolbox/typography/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://sc.edu/about/offices_and_divisions/communications/toolbox/colors/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://brand.vanderbilt.edu/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://brand.vanderbilt.edu/color | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://umac.utexas.edu/brand-center/visual-identity/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://webfirst.uark.edu/site-toolkit/design-elements/typography-color/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://brand.uga.edu/color | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://brand.uga.edu/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://brand.ua.edu/color/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+https://marcomm.tamu.edu/?p=113 | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
