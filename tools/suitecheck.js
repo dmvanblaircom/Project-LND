@@ -412,10 +412,13 @@ ok(/class="lp-text"><span class="lp-at">9:56<\/span> R\.\u00a0Browne pass incomp
 console.log("Stats: the team's season, and in game week the opponent's beside it");
 var stx = vm.createContext({ console: console, Intl: Intl, Date: Date, document: { addEventListener: function () {} } });
 ["teams/notre-dame.js", "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js",
- "suite/ui.js", "suite/stats.js"].forEach(function (f) { vm.runInContext(read(f), stx, { filename: f }); });
+ "teamos/cfbd.js", "suite/ui.js", "suite/stats.js"].forEach(function (f) { vm.runInContext(read(f), stx, { filename: f }); });
 function sfx(f) { return JSON.parse(read("tools/fixtures/" + f)); }
-var usSeason = stx.TeamOS.espn.teamSeason(sfx("espn-teamstats-nd-2026-reg.json"), sfx("espn-sitestats-nd.json"));
-var themSeason = stx.TeamOS.espn.teamSeason(sfx("espn-teamstats-osu-2026-reg.json"), null);
+// as app.js builds it: ESPN's season with CFBD's turnover rows (decision 0037)
+var usSeason = stx.TeamOS.cfbd.withTurnovers(stx.TeamOS.espn.teamSeason(sfx("espn-teamstats-nd-2026-reg.json"), sfx("espn-sitestats-nd.json")),
+                                             { margin: 14, takeaways: 16, giveaways: 2 });
+var themSeason = stx.TeamOS.cfbd.withTurnovers(stx.TeamOS.espn.teamSeason(sfx("espn-teamstats-osu-2026-reg.json"), null),
+                                               { margin: 2, takeaways: 10, giveaways: 8 });
 function statsHtml(m) {
   var h = { innerHTML: "" };
   stx.Suite.stats.paint(h, Object.assign({ team: { name: "Notre Dame", abbr: "ND" }, opp: null, season: "2026", postseason: false,
