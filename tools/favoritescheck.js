@@ -17,6 +17,13 @@ var fs = require("fs"), path = require("path"), vm = require("vm");
 var chromium = require("playwright").chromium;
 var root = path.join(__dirname, "..");
 var serve = require("./lib/serve");
+// A program the registry knows but cannot open yet (no config), read from
+// teams/index.js: the phases add teams, so no one name stays unconfigured.
+var UNOPENED = (function () {
+  var c = vm.createContext({});
+  vm.runInContext(fs.readFileSync(path.join(__dirname, "..", "teams", "index.js"), "utf8"), c);
+  return c.TEAM_REGISTRY.filter(function (t) { return !t.config; })[0].id;
+})();
 var FX = path.join(root, "tools", "fixtures");
 
 var failures = 0;
@@ -174,11 +181,11 @@ function fixture(url) {
   var none = await header("notre-dame", null);
   ok(await none.page.evaluate(function () { return !document.getElementById("barContext").hasAttribute("role"); }), "and so it is with no favorites at all");
   await none.ctx.close();
-  var gone = await header("notre-dame", ["alabama"]);
+  var gone = await header("notre-dame", [UNOPENED]);
   ok(await gone.page.evaluate(function () { return !document.getElementById("barContext").hasAttribute("role"); }), "a favorite that cannot be opened is not one to switch to");
   await gone.ctx.close();
 
-  var h = await header("notre-dame", ["indiana", "ohio-state", "alabama"]);
+  var h = await header("notre-dame", ["indiana", "ohio-state", UNOPENED]);
   var ctxA = await h.page.evaluate(function () { var c = document.getElementById("barContext"), r = c.getBoundingClientRect();
     return { role: c.getAttribute("role"), tab: c.getAttribute("tabindex"), pop: c.getAttribute("aria-haspopup"), label: c.getAttribute("aria-label"), chev: !!c.querySelector(".bar-switch"), h: r.height }; });
   ok(ctxA.role === "button" && ctxA.tab === "0" && ctxA.pop === "dialog" && ctxA.chev && ctxA.h >= 44,
