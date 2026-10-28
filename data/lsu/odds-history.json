@@ -1,5 +1,13 @@
 {
- "team": "lsu",
- "updated": null,
- "points": []
+"team": "lsu",
+"updated": "2026-10-28T03:37Z",
+"points": [
+{
+"t": "2026-10-28T03:37Z",
+"title": 6.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 58.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }

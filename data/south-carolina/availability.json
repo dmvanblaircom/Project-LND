@@ -3,13 +3,59 @@
  "team": "south-carolina",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:04.599280+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "vs. Tennessee",
+ "players": [
+  {
+   "pos": "",
+   "no": "12",
+   "name": "Quay'sheed Scott",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "17",
+   "name": "Jayden Sellers",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "22",
+   "name": "Jawarn Howell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "41",
+   "name": "Kobby Sakyi-Prah",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "74",
+   "name": "Josiah Thompson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "78",
+   "name": "Seth Smith",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

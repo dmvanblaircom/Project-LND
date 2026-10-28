@@ -3,13 +3,59 @@
  "team": "tennessee",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:04.706489+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at South Carolina",
+ "players": [
+  {
+   "pos": "",
+   "no": "0",
+   "name": "Ethan Davis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "9",
+   "name": "Joakim Dodson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "12",
+   "name": "Jaedon Harmon",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "15",
+   "name": "Edrees Farooq",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "24",
+   "name": "Dylan Lewis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "75",
+   "name": "Wendell Moe Jr.",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

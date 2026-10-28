@@ -3,13 +3,45 @@
  "team": "arkansas",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:38:59.986266+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-17",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-17",
+ "game": "at Vanderbilt",
+ "players": [
+  {
+   "pos": "",
+   "no": "3",
+   "name": "Braydon Lee",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "47",
+   "name": "Maddox Lassiter",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "79",
+   "name": "Josiah Clemons",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "89",
+   "name": "Gavin Garretson",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

@@ -3,13 +3,59 @@
  "team": "texas",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:04.812660+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "vs. Ole Miss",
+ "players": [
+  {
+   "pos": "",
+   "no": "1",
+   "name": "Colin Simmons",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "2",
+   "name": "Hollywood Smothers",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "6",
+   "name": "Kobe Black",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "7",
+   "name": "Kaliq Lockett",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "75",
+   "name": "Jaydon Chatman",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "99",
+   "name": "Richard Wesley",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

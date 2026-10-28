@@ -1,5 +1,411 @@
 {
  "team": "kentucky",
- "updated": null,
- "items": []
+ "updated": "2026-10-28T03:38:10.994350+00:00",
+ "items": [
+  {
+   "title": "Josh Pate picks Kentucky to make the College Football Playoff on KSR",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/josh-pate-picks-kentucky-to-make-the-college-football-playoff-on-ksr/",
+   "source": "On3",
+   "summary": "Does Kentucky make the College Football Playoff? Josh Pate tells KSR that Will Stein gets the job done in year one.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/08/25202940/Josh-Pate-1.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-28T02:05:00+00:00"
+  },
+  {
+   "title": "Playoff Resume Rundown: Kentucky is in great shape entering November",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/kentucky-college-football-playoff-resume/",
+   "source": "On3",
+   "summary": "How good is Kentucky's playoff resume? KSR takes a closer look.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/11114213/keep-the-power-k-old-symbol-reborn-kentucky-win-over-lsu.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-28T00:00:00+00:00"
+  },
+  {
+   "title": "11 Personnel: Stein's Future + How Kentucky Grows in the Bye Week",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/11-personnel-kentucky-football-podcast-bye-week-progress-will-stein-future/",
+   "source": "On3",
+   "summary": "Kentucky is 7-1, yet there is still room for improvement. 11 Personnel is discussing how, and what lies next for Will Stein.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/27153251/11-Personnel-6.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T22:00:00+00:00"
+  },
+  {
+   "title": "Fran Curci is ready for Kentucky to win the SEC title",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/fran-curci-kentucky-football-will-stein-sec-championship-playoff/",
+   "source": "On3",
+   "summary": "Fran Curci wants to see Kentucky football back in Atlanta.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/27131426/Fran-Curci.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T19:00:00+00:00"
+  },
+  {
+   "title": "Will Stein explains why mixing tempos makes Kentucky's offense hard to stop",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/will-stein-kentucky-offense-tempo/",
+   "source": "On3",
+   "summary": "Kentucky's offensive success has a lot to do with tempo versatility.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/27110107/Will-Stein-2.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T18:00:00+00:00"
+  },
+  {
+   "title": "BBNFL Week 7: Oui, Oui! Barion Brown has career day in Paris",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/bbnfl-week-7-oui-oui-barion-brown-has-career-day-in-paris/",
+   "source": "On3",
+   "summary": "Fittingly, as we approach Halloween, the BBNFL had a skeleton crew on the field in Week 7. With Kentucky-heavy teams like the Bills and Jaguars on a bye, only nine former Cats saw the field this weekend. Still, a few made their presence known, most notably Barion Brown. Even better, his career day occurred in [&#8230;]",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26224045/bbnfl-week-7-oui-oui-barion-brown-has-career-day-in-paris.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T17:00:00+00:00"
+  },
+  {
+   "title": "Jordan Castell Named a Jim Thorpe Award Semifinalist",
+   "link": "https://ukathletics.com/news/2026/10/27/jordan-castell-named-a-jim-thorpe-award-semifinalist/",
+   "source": "Kentucky Athletics",
+   "summary": "",
+   "image": null,
+   "sourceLogo": "https://ukathletics.com/favicon.ico",
+   "published": "2026-10-27T16:00:26+00:00"
+  },
+  {
+   "title": "Tennessee is going Dark Mode against Kentucky because of course they are",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/tennessee-is-going-dark-mode-against-kentucky-because-of-course-they-are/",
+   "source": "On3",
+   "summary": "For the third straight home matchup\u2014and the first since the Volunteers switched to Adidas\u2014Tennessee will host Kentucky in its Dark Mode uniforms.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/27082021/HVk7Gk-WsAEdz6Y-e1793107276541.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T16:00:00+00:00"
+  },
+  {
+   "title": "KSR's 2026 Kentucky High School Football Top 25 Rankings: Week 10",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/ksr-2026-kentucky-high-school-football-top-25-rankings-week-10/",
+   "source": "On3",
+   "summary": "The Road to Kroger Field is right around the corner as teams across the state begin to wrap up their regular season schedules.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2024/12/01103743/KSR-2024-12-01T113736.605.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T14:00:00+00:00"
+  },
+  {
+   "title": "KSR Show, 10/27: Back in studio with special guest Josh Pate phoning in",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/ksr-show-10-27-back-in-studio-with-special-guest-josh-pate-phoning-in/",
+   "source": "On3",
+   "summary": "KSR is back in the iHeart studio today after a fun and long day with DraftKings and The Mint in Williamsburg and Corbin. Today, the crew will look ahead to tomorrow\u2019s exhibition game, plus more \u201cwork week\u201d conversations around UK Football. College football analyst Josh Pate will help with the latter. Pate will make his [&#8230;]",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/01111202/ksr-show-thread.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T13:55:00+00:00"
+  },
+  {
+   "title": "No. 23 Kentucky Hosts UCF in Final Exhibition Game This Season",
+   "link": "https://ukathletics.com/news/2026/10/27/no-23-kentucky-hosts-ucf-in-final-exhibition-game-this-season/",
+   "source": "Kentucky Athletics",
+   "summary": "",
+   "image": null,
+   "sourceLogo": "https://ukathletics.com/favicon.ico",
+   "published": "2026-10-27T13:09:08+00:00"
+  },
+  {
+   "title": "Will Stein reaffirms that Kentucky is his dream job",
+   "link": "https://www.si.com/college/kentucky/football/will-stein-reaffirms-that-kentucky-is-his-dream-job?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Will Stein says he would have kicked himself for not taking the Kentucky job.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1064,h_598,x_0,y_61/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/wildcats_today/01m5xqas6bcyeheccsxa.png",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-27T13:00:01+00:00"
+  },
+  {
+   "title": "KSR Today: Will Stein Sends a Message to Kentucky Fans",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/ksr-today-will-stein-sends-a-message-to-kentucky-fans/",
+   "source": "On3",
+   "summary": "Worried about how long Will Stein will be hanging around Kentucky? The Wildcats' head coach shared a message to Big Blue Nation.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26203922/Copy-of-Copy-of-four-star-julian-phillips-discusses-recruitment-official-visits-33.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T12:30:00+00:00"
+  },
+  {
+   "title": "Kentucky vs. Tennessee opening odds have Vols favored over Wildcats",
+   "link": "https://www.aseaofblue.com/kentucky-wildcats-football/185773/uk-vs-tennessee-opening-odds-vols-favored",
+   "source": "A Sea of Blue",
+   "summary": "The Kentucky Wildcats are on bye this week and lead the SEC. Up next, a road game at the Tennessee Volunteers. Right now on FanDuel, Kentucky is a 5.5-point underdog. Kentucky\u2019s moneyline is +172, while Tennessee\u2019s is -210. The over/under on the game is 49.5. It wouldn\u2019t be surprising if Will Stein uses a similar [&#8230;]",
+   "image": "https://platform.aseaofblue.com/wp-content/uploads/sites/13/2026/10/gettyimages-1244444475.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-27T03:00:35+00:00"
+  },
+  {
+   "title": "Will Stein addresses his future and love for everything Kentucky",
+   "link": "https://www.aseaofblue.com/kentucky-wildcats-football/185707/will-stein-addresses-future-contract-love-for-everything-uk",
+   "source": "A Sea of Blue",
+   "summary": "Will Stein&#8217;s future is a popular topic of conversation around college football. The first-year head coach has Kentucky Football inside the top 10 heading into the bye week. The Wildcats are expected to be included in the first College Football Playoff poll when it releases next Tuesday, the first time since 2018. Other programs are [&#8230;]",
+   "image": "https://platform.aseaofblue.com/wp-content/uploads/sites/13/2026/09/IK7A8196.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-27T02:26:23+00:00"
+  },
+  {
+   "title": "Kentucky is doing things that haven't been done since 1977",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/kentucky-football-stats-since-1977/",
+   "source": "On3",
+   "summary": "In his first year as the Wildcats' head coach, Will Stein is doing things that haven't happened at Kentucky in almost 50 years.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26105234/1976-Kentucky-football-team.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T02:00:00+00:00"
+  },
+  {
+   "title": "Cason Wallace to undergo surgery to repair torn labrum just a week removed from extension",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/cason-wallace-to-undergo-surgery-to-repair-torn-labrum-just-a-week-removed-from-extension/",
+   "source": "On3",
+   "summary": "Just over a week after signing a lucrative contract extension with the Oklahoma City Thunder, former Kentucky standout Cason Wallace\u2018s fourth season in the NBA is now in question. The 23-year-old suffered a shoulder injury in the team\u2019s win over the LA Clippers on Sunday, and OKC GM Sam Presti announced Monday that he will [&#8230;]",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26182836/2026-10-25T221915Z_1665111763_MT1USATODAY30187655_RTRMADP_3_NBA-LOS-ANGELES-CLIPPERS-AT-OKLAHOMA-CITY-THUNDER.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-27T00:30:00+00:00"
+  },
+  {
+   "title": "Cason Wallace to have surgery, could miss rest of the 2026-27 NBA season",
+   "link": "https://www.aseaofblue.com/former-kentucky-wildcats/185700/cason-wallace-injury-surgery-recovery-timeline-oklahoma-city-thunder",
+   "source": "A Sea of Blue",
+   "summary": "Cason Wallace started the 2026-27 NBA season by getting a lucrative contract extension to stay in Oklahoma City with the Thunder as they looked to make another run to the NBA Finals. Sadly, those hopes just took a major blow less than a full week into the season. Thunder GM Sam Presti announced on Monday [&#8230;]",
+   "image": "https://platform.aseaofblue.com/wp-content/uploads/sites/13/2026/10/gettyimages-2301567926.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-27T00:15:07+00:00"
+  },
+  {
+   "title": "How long does Will Stein plan on being at Kentucky? 'I love everything about this job.'",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/how-long-does-will-stein-plan-on-being-at-kentucky-i-love-everything-about-this-job/",
+   "source": "On3",
+   "summary": "Will Stein says the plan is to be at Kentucky for a very, very long time: \"I love it here.\"",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24224538/1-Will-Stein-2-Kentucky-_MGL8883-1.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-26T23:30:00+00:00"
+  },
+  {
+   "title": "Will Stein provides an injury update on Sam Greene: 'We're expecting him back'",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/will-stein-provides-an-injury-update-on-sam-greene-were-expecting-him-back/",
+   "source": "On3",
+   "summary": "Sam Greene has been a game-wrecker for the Kentucky defense. Now, he's expected back against Tennessee, says Will Stein.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/12180056/11-Sam-Greene-Kentucky-_DD_0135.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-26T23:00:00+00:00"
+  },
+  {
+   "title": "KSR Football Podcast: View from the Top of the SEC",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/ksr-football-podcast-view-from-the-top-of-the-sec/",
+   "source": "On3",
+   "summary": "Kentucky stands alone atop the SEC standings after an undefeated October. That makes for a very fun time on the KSR Football Podcast.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26162724/THUMBNAILS-19.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-26T22:00:00+00:00"
+  },
+  {
+   "title": "Kentucky\u2019s Kenny Darby Named SEC Freshman of the Week for Third Time",
+   "link": "https://ukathletics.com/news/2026/10/26/kentuckys-kenny-darby-named-sec-freshman-of-the-week-for-third-time/",
+   "source": "Kentucky Athletics",
+   "summary": "",
+   "image": null,
+   "sourceLogo": "https://ukathletics.com/favicon.ico",
+   "published": "2026-10-26T16:00:36+00:00"
+  },
+  {
+   "title": "Wildcats Battle to Scoreless Draw at James Madison",
+   "link": "https://ukathletics.com/news/2026/10/25/wildcats-battle-to-scoreless-draw-at-james-madison/",
+   "source": "Kentucky Athletics",
+   "summary": "",
+   "image": null,
+   "sourceLogo": "https://ukathletics.com/favicon.ico",
+   "published": "2026-10-26T01:10:01+00:00"
+  },
+  {
+   "title": "Inside the Scorecard: Landfall Tradition Final Round",
+   "link": "https://ukathletics.com/news/2026/10/25/inside-the-scorecard-landfall-tradition-final-round/",
+   "source": "Kentucky Athletics",
+   "summary": "",
+   "image": null,
+   "sourceLogo": "https://ukathletics.com/favicon.ico",
+   "published": "2026-10-25T23:42:48+00:00"
+  },
+  {
+   "title": "No. 19 Texas A&M Snaps No. 4 Kentucky\u2019s Home Court Winning Streak",
+   "link": "https://ukathletics.com/news/2026/10/25/no-19-texas-am-snaps-no-4-kentuckys-home-court-winning-streak/",
+   "source": "Kentucky Athletics",
+   "summary": "",
+   "image": null,
+   "sourceLogo": "https://ukathletics.com/favicon.ico",
+   "published": "2026-10-25T19:21:59+00:00"
+  },
+  {
+   "title": "Kentucky football is now a top 10 team in the country",
+   "link": "https://www.si.com/college/kentucky/football/kentucky-football-is-now-a-top-10-team-in-the-country?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Believe it or not, but Kentucky football is now a top 10 team after their 7-1 start to the season.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2724,h_1532,x_0,y_90/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5syvyhvaj0hhpbtf7.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-25T18:01:41+00:00"
+  },
+  {
+   "title": "No. 9 Kentucky earns its highest week 8 AP poll position since 1977",
+   "link": "https://kykernel.com/129986/sports/football/no-9-kentucky-earns-its-highest-week-8-ranking-since-1977/",
+   "source": "Kentucky Kernel",
+   "summary": "Kentucky football is ranked in the AP Top-10 for the first time since Sept. 25, 2022, as they come in at No. 9 in the Week 8 poll. The Wildcats continue to climb the rankings and continue to win, as they took down Vanderbilt 34-17 last night. Kentucky heads into the bye week 7-1 and...",
+   "image": "https://kykernel.com/wp-content/uploads/2026/10/261024_Kentucky-Vs-Vandy-FB_VC14838--600x400.jpg",
+   "sourceLogo": null,
+   "published": "2026-10-25T18:01:34+00:00"
+  },
+  {
+   "title": "Kentucky-Vanderbilt Football Photo Gallery",
+   "link": "https://ukathletics.com/news/2026/10/25/kentucky-vanderbilt-football-photo-gallery-5/",
+   "source": "Kentucky Athletics",
+   "summary": "",
+   "image": null,
+   "sourceLogo": "https://ukathletics.com/favicon.ico",
+   "published": "2026-10-25T17:51:40+00:00"
+  },
+  {
+   "title": "Kentucky football pulls away for a big win against Vandy",
+   "link": "https://www.si.com/college/kentucky/football/kentucky-football-pulls-away-for-a-big-win-against-vandy?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Kentucky put together a very strong second half thanks to defensive takeaways and efficient offense to pull away for the win against Vandy.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6839,h_3846,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5rempv1m94e05z7p2.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-25T02:54:50+00:00"
+  },
+  {
+   "title": "At the Whistle: No. 12 Kentucky stands alone atop SEC with 34-17 win over Vanderbilt",
+   "link": "https://kykernel.com/129939/sports/football/at-the-whistle-no-12-wildcats-stand-alone-atop-sec-with-34-17-win-over-vanderbilt/",
+   "source": "Kentucky Kernel",
+   "summary": "No. 12 Kentucky football shook off a rocky start to defeat Vanderbilt 34-17, moving to 7-1 on the season. Will Stein continues to build upon the historic start to his head coaching tenure, becoming the first Kentucky coach to begin his Kentucky career 7-1 since Edwin Sweetland in 1909. With this win, The Wildcats stand...",
+   "image": "https://kykernel.com/wp-content/uploads/2026/10/1B9A7545-600x400.png",
+   "sourceLogo": null,
+   "published": "2026-10-25T02:52:55+00:00"
+  },
+  {
+   "title": "ROAD WARRIORS: Kentucky football stays perfect on the road",
+   "link": "https://kykernel.com/129935/sports/football/road-warriors-kentucky-football-stays-perfect-on-the-road/",
+   "source": "Kentucky Kernel",
+   "summary": "No. 15 Kentucky overtook Norman and defeated the Oklahoma Sooners as the Wildcats continue to consistently establish themselves as road warriors. Kentucky\u2019s win makes it the only team in the SEC with a 3-0 record on the road. The Wildcats road wins all come as underdogs: a win over No. 9 Texas A&#38;M as 16.5-point...",
+   "image": "https://kykernel.com/wp-content/uploads/2026/10/Story-if-win-600x400.png",
+   "sourceLogo": null,
+   "published": "2026-10-24T20:33:37+00:00"
+  },
+  {
+   "title": "FILM STUDY: How Kentucky football\u2019s future opponents fared in Week 7",
+   "link": "https://kykernel.com/129918/sports/football/film-study-how-kentucky-footballs-future-opponents-fared-in-week-7/",
+   "source": "Kentucky Kernel",
+   "summary": "Seven games into the 2026 season, Kentucky football is 6-1 and ranked No. 12, its highest ranking since 2022.\u00a0 After a chaotic week in the SEC that saw two top 10-teams lose to unranked opponents, Kentucky finds itself tied with Georgia for first place in the conference standings.\u00a0 Here\u2019s a look at how Week 7...",
+   "image": null,
+   "sourceLogo": null,
+   "published": "2026-10-24T15:33:55+00:00"
+  },
+  {
+   "title": "NEED TO KNOW: No. 12 Kentucky seeks sixth straight win against Vanderbilt",
+   "link": "https://kykernel.com/129861/sports/football/need-to-know-no-12-kentucky-seeks-sixth-straight-win-against-vanderbilt/",
+   "source": "Kentucky Kernel",
+   "summary": "No. 12 Kentucky football (5-1, 4-1 SEC) will look to extend its five-game winning streak Saturday, Oct. 24, when it hosts Vanderbilt (3-4, 0-4 SEC) in Lexington. Kickoff is scheduled for 7:30 p.m. EDT at Kroger Field. Vanderbilt head coach Clark Lea will lead the Commodores against Will Stein\u2019s Wildcats. Vanderbilt has won the last...",
+   "image": null,
+   "sourceLogo": null,
+   "published": "2026-10-23T19:48:32+00:00"
+  },
+  {
+   "title": "Three things to know about the Vanderbilt Commodores",
+   "link": "https://www.si.com/college/kentucky/football/three-things-to-know-about-the-vanderbilt-commodores?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Here are three things Kentucky fans need to know about Vandy ahead of Saturday's game.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2995,h_1684,x_0,y_68/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5fy1c46gfqx6g16fm.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-23T16:00:05+00:00"
+  },
+  {
+   "title": "Mark Pope shares his thoughts on the job Kentucky football coach Will Stein has done",
+   "link": "https://www.si.com/college/kentucky/football/mark-pope-shares-his-thoughts-on-the-job-kentucky-football-coach-will-stein-has-done?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Mark Pope is very happy about where the athletic department is right now.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4726,h_2658,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5jc2h4gcesg4k3djb.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-22T18:22:33+00:00"
+  },
+  {
+   "title": "The injury report for Kentucky football vs. Vandy has been released",
+   "link": "https://www.si.com/college/kentucky/football/the-injury-report-for-kentucky-football-vs-vandy-has-been-released?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "The SEC has released the injury report for Kentucky's game against Vandy in Kroger Field on Saturday.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3031,h_1704,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5g29z1dtt3akn4kgh.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-22T00:14:40+00:00"
+  },
+  {
+   "title": "Will Stein discusses how his team has been able to handle success this season",
+   "link": "https://www.si.com/college/kentucky/football/will-stein-discusses-how-his-team-has-been-able-to-handle-success-this-season?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Kentucky has continued its hot start and have not flinched since popping up in playoff projections.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6000,h_3375,x_0,y_261/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5dezj02f52jjtgv0p.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-21T12:00:03+00:00"
+  },
+  {
+   "title": "Will Stein is not taking Vandy lightly heading into Saturday",
+   "link": "https://www.si.com/college/kentucky/football/will-stein-is-not-taking-vandy-lightly-heading-into-saturday?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Will Stein knows that Vandy has had Kentucky's number lately and he is not taking them lightly heading into Saturday's game.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_5929,h_3335,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5dacmt7hhyfv371ve.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-20T18:52:36+00:00"
+  },
+  {
+   "title": "What does Kentucky football have to do to achieve its postseason dreams?",
+   "link": "https://www.si.com/college/kentucky/football/what-does-kentucky-football-have-to-do-to-achieve-its-postseason-dreams?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Here is what Kentucky football has to do make one, or both, of the SEC Championship and College Football Playoff.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_7561,h_4253,x_0,y_214/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5agmekdarhzr9e0yj.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-20T15:00:03+00:00"
+  },
+  {
+   "title": "Turnover margin is a big reason for Kentucky's 6-1 start",
+   "link": "https://www.si.com/college/kentucky/football/turnover-margin-is-a-big-reason-for-kentucky-6-1-start?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Kentucky's ability to take care of the ball has gotten them really far this season.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4573,h_2572,x_0,y_159/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5ar9gyydfsjww7nr5.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-19T19:30:00+00:00"
+  },
+  {
+   "title": "Kenny Minchey is making history with his efficient play",
+   "link": "https://www.si.com/college/kentucky/football/kenny-minchey-is-making-history-with-his-efficient-play?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Minchey has been extremely efficient all season and he is making some program history because of it.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3058,h_1720,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5akgktdvbdmn4xktt.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-19T17:35:20+00:00"
+  },
+  {
+   "title": "Will Stein talks about his team's resiliency after yet another gritty win",
+   "link": "https://www.si.com/college/kentucky/football/will-stein-talks-about-his-team-s-resiliency-after-yet-another-gritty-win?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Kentucky football has shown its resiliency in big ways this season and that continued against Oklahoma.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3031,h_1704,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m56p3fvwbp4zrhxd56.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-18T13:00:00+00:00"
+  },
+  {
+   "title": "Kentucky football is now atop the SEC standings after a 4-1 conference start",
+   "link": "https://www.si.com/college/kentucky/football/kentucky-football-is-now-atop-the-sec-standings-after-a-4-1-conference-start?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Kentucky football has had a very hot stretch since the loss to Alabama in week 2.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3922,h_2206,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m56g45bgw2sey6adb5.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-18T03:17:28+00:00"
+  },
+  {
+   "title": "Kentucky's defense comes up big in a 21-13 win at Oklahoma",
+   "link": "https://www.si.com/college/kentucky/football/kentucky-s-defense-comes-up-big-in-a-21-13-win-at-oklahoma?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "When things were not going Kentucky's way, the defense came up clutch to seal the win over Oklahoma.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_5157,h_2900,x_0,y_26/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m56bbvk561eazdtpkn.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-18T02:43:47+00:00"
+  },
+  {
+   "title": "Three keys to the game for Kentucky at Oklahoma on Saturday",
+   "link": "https://www.si.com/college/kentucky/football/three-keys-to-the-game-for-kentucky-at-oklahoma-on-saturday?utm_source=RSS",
+   "source": "Kentucky On SI",
+   "summary": "Here are three things Kentucky football needs to do to beat Oklahoma.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3066,h_1724,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5109szgjqcz3p5923.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-16T16:00:01+00:00"
+  }
+ ]
 }

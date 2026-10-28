@@ -3,13 +3,73 @@
  "team": "kentucky",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:02.919808+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "vs. Vanderbilt",
+ "players": [
+  {
+   "pos": "",
+   "no": "2",
+   "name": "Sam Greene",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "4",
+   "name": "Nic Anderson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "4",
+   "name": "Antwan Smith",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "11",
+   "name": "Lincoln Watkins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "24",
+   "name": "Jaden Smith",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "30",
+   "name": "Grant Grayton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "40",
+   "name": "Cole Marszalek",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "97",
+   "name": "Tyler Thomas",
+   "status": "gtd",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

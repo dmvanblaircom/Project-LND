@@ -1,5 +1,13 @@
 {
- "team": "georgia",
- "updated": null,
- "points": []
+"team": "georgia",
+"updated": "2026-10-28T03:37Z",
+"points": [
+{
+"t": "2026-10-28T03:37Z",
+"title": 17.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 88.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }
