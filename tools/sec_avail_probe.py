@@ -13,7 +13,7 @@ for ep in ("get-publish-public", "get-archive-public"):
     names = {}
     def walk(o):
         if isinstance(o, dict):
-            for k in ("teamName", "teamDisplayName"):
+            for k in ("teamName", "teamDisplayName", "Team", "TeamDisplay"):
                 v = o.get(k)
                 if isinstance(v, str) and len(v) < 40: names.setdefault(k, set()).add(v)
             for v in o.values(): walk(v)
