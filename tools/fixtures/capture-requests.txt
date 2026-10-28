@@ -100,3 +100,35 @@ news-84 iu-oct27
 news-135 minn-oct27
 news-2449 ndsu-oct27
 news-252 byu-oct27
+
+# Phase 1, the rest of the Big Ten (2026-10-27): schedules and news for the review sheet
+schedule-356 illinois-review
+news-356 illinois-review
+schedule-2294 iowa-review
+news-2294 iowa-review
+schedule-120 maryland-review
+news-120 maryland-review
+schedule-130 michigan-review
+news-130 michigan-review
+schedule-127 michigan-state-review
+news-127 michigan-state-review
+schedule-158 nebraska-review
+news-158 nebraska-review
+schedule-77 northwestern-review
+news-77 northwestern-review
+schedule-2483 oregon-review
+news-2483 oregon-review
+schedule-213 penn-state-review
+news-213 penn-state-review
+schedule-2509 purdue-review
+news-2509 purdue-review
+schedule-164 rutgers-review
+news-164 rutgers-review
+schedule-26 ucla-review
+news-26 ucla-review
+schedule-30 usc-review
+news-30 usc-review
+schedule-264 washington-review
+news-264 washington-review
+schedule-275 wisconsin-review
+news-275 wisconsin-review

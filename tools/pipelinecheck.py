@@ -36,12 +36,23 @@ def ok(cond, what):
 
 
 print("teamconfig: which teams, which files")
-ALL = ["byu", "indiana", "minnesota", "north-dakota-state", "notre-dame", "ohio-state"]
-ok(teamconfig.teams() == ALL, "every configured team, and not the registry: %s" % teamconfig.teams())
+# Every config on disk (teams/<id>.js), not the registry's 138 programs - so
+# the next phase's teams are counted without editing this list.
+ALL = sorted(f[:-3] for f in os.listdir(os.path.join(ROOT, "teams")) if f.endswith(".js") and f != "index.js")
+ok(teamconfig.teams() == ALL and len(ALL) >= 21, "every configured team, and not the registry: %d - %s" % (len(ALL), teamconfig.teams()))
 with_kind = {k: [t for t in teamconfig.teams() if teamconfig.snapshot(teamconfig.load(t), k)]
              for k in ("depth", "availability", "oddsHistory", "beatNews", "notes")}
-ok(with_kind == {"depth": ["notre-dame"], "availability": ["indiana", "minnesota", "notre-dame", "ohio-state"], "oddsHistory": ALL, "beatNews": ALL, "notes": ["notre-dame", "ohio-state"]},
-   "the workflow's loops run for the teams that declare each kind - every team's odds history and beat news, the Big Ten teams' availability, two teams' game notes: %s" % with_kind)
+def declares(t, *keys):
+    c = teamconfig.load(t)
+    for k in keys:
+        c = (c or {}).get(k)
+    return bool(c)
+ok(with_kind["depth"] == ["notre-dame"] and with_kind["notes"] == ["notre-dame", "ohio-state"] and with_kind["beatNews"] == ALL,
+   "the workflow's loops run for the teams that declare each kind - every team's beat news, two teams' game notes, one depth chart: %s" % with_kind)
+ok(with_kind["oddsHistory"] == [t for t in ALL if declares(t, "sources", "kalshi")] and "maryland" not in with_kind["oddsHistory"],
+   "price history for exactly the teams Kalshi prices (none yet for Maryland): %s" % with_kind["oddsHistory"])
+ok(with_kind["availability"] == [t for t in ALL if declares(t, "sources", "official", "availabilityReportIndex")] and "byu" not in with_kind["availability"],
+   "availability for exactly the teams with an official report - the Big Ten's, and Notre Dame's: %s" % with_kind["availability"])
 nd, osu = teamconfig.load("notre-dame"), teamconfig.load("ohio-state")
 ok(teamconfig.snapshot(nd, "beatNews")["file"] == "data/notre-dame/news.json", "a producer's file is the team's declaration")
 ok(teamconfig.snapshot(osu, "depth") is None, "a team without a source has no file to write")
