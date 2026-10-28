@@ -1,11 +1,7 @@
-# 2026-10-28, Phase 2: SEC brand pages, second round.
-https://sc.edu/about/offices_and_divisions/communications/toolbox/typography/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://sc.edu/about/offices_and_divisions/communications/toolbox/colors/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://brand.vanderbilt.edu/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://brand.vanderbilt.edu/color | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://umac.utexas.edu/brand-center/visual-identity/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://webfirst.uark.edu/site-toolkit/design-elements/typography-color/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://brand.uga.edu/color | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://brand.uga.edu/typography | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://brand.ua.edu/color/ | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
-https://marcomm.tamu.edu/?p=113 | #[0-9A-Fa-f]{6}|[Tt]ypeface|[Ff]ont[s ]|Sans|Serif|Gothic|Slab|Garnet|Gold
+# 2026-10-28, Phase 2: where the SEC posts its availability reports.
+https://www.secsports.com/ | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*
+https://www.secsports.com/sport/football | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*
+https://www.secsports.com/football | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*
+https://www.secsports.com/availability-report | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*|<title>[^<]*
+https://www.secsports.com/football/availability-report | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*|<title>[^<]*
+https://www.secsports.com/player-availability-report | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*|<title>[^<]*
