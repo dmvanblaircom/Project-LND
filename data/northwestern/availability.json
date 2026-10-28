@@ -3,13 +3,108 @@
  "team": "northwestern",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:42.172974+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "vs. Rutgers",
+ "players": [
+  {
+   "pos": "",
+   "no": "6",
+   "name": "Robert Fitzgerald",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "13",
+   "name": "Josh Fussell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "15",
+   "name": "Brendan Flakes",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "22",
+   "name": "Daniel Anderson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "37",
+   "name": "Max Mohring",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "40",
+   "name": "Jason Reynolds II",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "44",
+   "name": "Callen Campbell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "50",
+   "name": "Qayvier Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "61",
+   "name": "David Anchondo",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "62",
+   "name": "Ezomo Oratokhai",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "79",
+   "name": "Jacob Miller",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "81",
+   "name": "Chris Petrucci",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "84",
+   "name": "Luke Dehnicke",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

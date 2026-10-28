@@ -1,6 +1,524 @@
 {
  "schema": 1,
  "team": "maryland",
- "updated": null,
- "reports": []
+ "updated": "2026-10-28T01:38:41.667713+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "maryland",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-28T01:38:41.667713+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-26",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-26",
+   "game": "vs. UCLA",
+   "players": [
+    {
+     "pos": "",
+     "no": "0",
+     "name": "DeJuan Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "8",
+     "name": "Preston Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Zahir Mathis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Lloyd Irvin III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Dontay Joyner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Josiah Teasley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "DJ Samuels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "21",
+     "name": "Sean Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Harry Dalton III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Terrez Worthy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "41",
+     "name": "John Boley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "45",
+     "name": "Solomon Foye",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "50",
+     "name": "Trevor Szymanski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "51",
+     "name": "Michael McMonigle",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "52",
+     "name": "Jonathan Panagou",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "66",
+     "name": "Teagan Cox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Delmar White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "95",
+     "name": "Armon Parker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "99",
+     "name": "Lavon Johnson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "maryland",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-28T01:38:41.667713+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "at Nebraska",
+   "players": [
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Trey Reddick",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "8",
+     "name": "Preston Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Zahir Mathis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "13",
+     "name": "DD Holmes",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Lloyd Irvin III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Dontay Joyner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Josiah Teasley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "DJ Samuels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "21",
+     "name": "Sean Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Harry Dalton III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Terrez Worthy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "41",
+     "name": "John Boley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "45",
+     "name": "Solomon Foye",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "50",
+     "name": "Trevor Szymanski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "51",
+     "name": "Michael McMonigle",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "57",
+     "name": "Bryce Jenkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Day'Jon Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Delmar White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "99",
+     "name": "Lavon Johnson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "maryland",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-28T01:38:41.667713+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "at Ohio State",
+   "players": [
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Zahir Mathis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "12",
+     "name": "Jayden Shipps",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Lloyd Irvin III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Josiah Teasley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "DJ Samuels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "21",
+     "name": "Sean Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "24",
+     "name": "Amari Jackson",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Harry Dalton III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Terrez Worthy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "45",
+     "name": "Solomon Foye",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "50",
+     "name": "Trevor Szymanski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Day'Jon Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Delmar White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "99",
+     "name": "Lavon Johnson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "maryland",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-28T01:38:41.667713+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "vs. Rutgers",
+   "players": [
+    {
+     "pos": "",
+     "no": "1",
+     "name": "Na'eem Abdul-Rahim Gladding",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Zahir Mathis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Lloyd Irvin III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Josiah Teasley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "DJ Samuels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "21",
+     "name": "Sean Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Harry Dalton III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "45",
+     "name": "Solomon Foye",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "50",
+     "name": "Trevor Szymanski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Day'Jon Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Delmar White",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  }
+ ]
 }

@@ -3,13 +3,38 @@
  "team": "wisconsin",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:43.072219+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "vs. USC",
+ "players": [
+  {
+   "pos": "",
+   "no": "3",
+   "name": "Cai Bates",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "4",
+   "name": "Malachi Coleman",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "15",
+   "name": "Nate Palmer",
+   "status": "gtd",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

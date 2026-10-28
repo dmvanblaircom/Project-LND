@@ -1,5 +1,13 @@
 {
- "team": "northwestern",
- "updated": null,
- "points": []
+"team": "northwestern",
+"updated": "2026-10-28T01:37Z",
+"points": [
+{
+"t": "2026-10-28T01:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 14.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }

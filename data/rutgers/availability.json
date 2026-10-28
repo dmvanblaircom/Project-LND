@@ -3,13 +3,73 @@
  "team": "rutgers",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:42.673045+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Northwestern",
+ "players": [
+  {
+   "pos": "",
+   "no": "1",
+   "name": "Kaj Sanders",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "3",
+   "name": "Antwan Raymond",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "4",
+   "name": "Jourdin Houston",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "7",
+   "name": "Kevin Levy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "10",
+   "name": "Ty Morris",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "12",
+   "name": "Zahmir Dawud",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "20",
+   "name": "Ja'shon Benjamin",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "96",
+   "name": "Keshon Griffin",
+   "status": "gtd",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

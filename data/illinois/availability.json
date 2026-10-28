@@ -3,13 +3,80 @@
  "team": "illinois",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:41.367399+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "vs. Oregon",
+ "players": [
+  {
+   "pos": "",
+   "no": "1",
+   "name": "Jayshon Platt",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "4",
+   "name": "Katin Houser",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "5",
+   "name": "Ca'Lil Valentine",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "28",
+   "name": "Kayden Bennett",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "48",
+   "name": "Carter Smith",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "53",
+   "name": "Kai Pritchard",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "54",
+   "name": "Demetrius John",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "55",
+   "name": "TJ McMillen",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "87",
+   "name": "BJ Thurman",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

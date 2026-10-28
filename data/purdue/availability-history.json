@@ -1,6 +1,216 @@
 {
  "schema": 1,
  "team": "purdue",
- "updated": null,
- "reports": []
+ "updated": "2026-10-28T01:38:42.572444+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "purdue",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-28T01:38:42.572444+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-19",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-19",
+   "game": "at UCLA",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Mister Clark",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Kylan Fox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Elo Modozie",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "24",
+     "name": "Raderrion Daniels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "79",
+     "name": "Joey Tanona",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "purdue",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-28T01:38:42.572444+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "at Illinois",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Mister Clark",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Kylan Fox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Elo Modozie",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "24",
+     "name": "Raderrion Daniels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Jude McCoskey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "79",
+     "name": "Joey Tanona",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "purdue",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-28T01:38:42.572444+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "vs. Minnesota",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Mister Clark",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Kylan Fox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "24",
+     "name": "Raderrion Daniels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "79",
+     "name": "Joey Tanona",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "purdue",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-28T01:38:42.572444+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-16",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-16",
+   "game": "vs. Washington",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Mister Clark",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Kylan Fox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "24",
+     "name": "Raderrion Daniels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "79",
+     "name": "Joey Tanona",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  }
+ ]
 }

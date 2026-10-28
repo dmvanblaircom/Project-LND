@@ -3,13 +3,87 @@
  "team": "washington",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
  "sourceLabel": "BigTen.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T01:38:42.973081+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-16",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-16",
+ "game": "at Purdue",
+ "players": [
+  {
+   "pos": "",
+   "no": "1",
+   "name": "Demond Williams Jr.",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "4",
+   "name": "Jordan Washington",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "5",
+   "name": "Christian Moss",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "10",
+   "name": "Xe'ree Alexander",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "17",
+   "name": "Jayden Limar",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "18",
+   "name": "Kai McClendon",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "21",
+   "name": "Quaid Carr",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "30",
+   "name": "Ansu Sanoe",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "65",
+   "name": "Jack Shaffer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "",
+   "name": "CJ Christian",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }
