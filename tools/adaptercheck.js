@@ -812,10 +812,20 @@ eq(TeamOS.espn.news({ articles: [{ headline:"Odd image", links:{ web:{ href:"htt
 eq(TeamOS.espn.news({ articles: [{ headline:"No link" }, { links:{ web:{ href:"https://x/y" } } }] }), [], "no web link or no headline -> dropped");
 eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 
+console.log("the home field");
+var hf = TeamOS.espn.homeField;
+eq([hf("Memorial Stadium", "Memorial Stadium"), hf("Memorial Stadium", "DKR-Texas Memorial Stadium"), hf("Memorial Stadium", "Memorial Stadium (Norman, OK)"),
+    hf("Memorial Stadium", "Gies Memorial Stadium")], [true, false, false, false],
+   "Missouri's Memorial Stadium is its own, not Texas's, Oklahoma's or Illinois's");
+eq([hf("Memorial Stadium (Bloomington", "Memorial Stadium (Bloomington, IN)"), hf("Memorial Stadium (Bloomington", "Memorial Stadium (Lincoln, NE)")], [true, false],
+   "a city-qualified name still matches its own stadium, and not the other Memorial Stadiums");
+eq([hf("Tiger Stadium (LA)", "Tiger Stadium (LA)"), hf("notre dame stadium", "Notre Dame Stadium"), hf("Ohio Stadium", "Ohio Stadium Field"), hf("", "Ohio Stadium")], [true, true, true, false],
+   "case-insensitive, a longer spelling of the same field still matches, and no name matches nothing");
+
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonBoardUrl","postseasonSelected","postseasonUrl","rankings","rankingsHistory","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSchool","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
+   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonBoardUrl","postseasonSelected","postseasonUrl","rankings","rankingsHistory","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSchool","teamSeason","teamStatsUrl","teamStatus","teamUrl","homeField"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
    "exactly the documented functions");
 
 console.log("mark");

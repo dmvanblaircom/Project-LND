@@ -100,10 +100,19 @@ TeamOS.espn = (function () {
   // there is a road game, and ESPN marks the bowls played there neutral.
   var NEUTRAL_VENUES = /lambeau|gillette|metlife|m&t bank|soldier field|yankee stadium|aviva|at&t stadium|mercedes-benz|caesars superdome|camping world/i;
 
-  // Case-insensitive match on the home field's name, the way ESPN spells it.
-  function isHomeField(team, venueName){
-    return String(venueName||"").toLowerCase().indexOf(team.venue.name.toLowerCase())>-1;
+  // Case-insensitive match on the home field's name, the way ESPN spells it:
+  // the venue starts with it, and an unqualified name is not another city's
+  // stadium of that name. Missouri's "Memorial Stadium" is not "DKR-Texas
+  // Memorial Stadium" or "Memorial Stadium (Norman, OK)"; Indiana's
+  // "Memorial Stadium (Bloomington" is still "Memorial Stadium (Bloomington,
+  // IN)" (Phase 2, 2026-10-28: no other team's match changed across 350
+  // venue names in the fixtures).
+  function homeField(name, venueName){
+    var v=String(venueName||"").toLowerCase().trim(), n=String(name||"").toLowerCase().trim();
+    if(!n || v.indexOf(n)!==0) return false;
+    return v===n || n.indexOf("(")>-1 || v.slice(n.length).trim().charAt(0)!=="(";
   }
+  function isHomeField(team, venueName){ return homeField(team.venue.name, venueName); }
   function isNeutral(team, comp, us){
     if(comp.neutralSite===true) return true;
     var v = comp.venue && comp.venue.fullName ? comp.venue.fullName : "";
@@ -1350,6 +1359,7 @@ TeamOS.espn = (function () {
       }).filter(function(t){ return t.rows.length; });
       return { tables: out, unnamed: Object.keys(unnamed).length };
     },
+    homeField: homeField,
     teamStatsUrl: function(key){
       return SITE+"/teams/"+key+"/statistics";
     },

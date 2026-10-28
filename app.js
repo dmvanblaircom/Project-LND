@@ -434,10 +434,10 @@ function kalshi(path){
 function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
   return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
-// Case-insensitive match on the home field's name, as a feed spells it. The
+// The home field's name, as a feed spells it (TeamOS.espn.homeField). The
 // kickoff forecast asks this of a Game's venue; TeamOS.espn asks it of ESPN's.
 function isHomeField(venueName){
-  return String(venueName||"").toLowerCase().indexOf(TEAM.venue.name.toLowerCase())>-1;
+  return TeamOS.espn.homeField(TEAM.venue.name, venueName);
 }
 /* ---------- hero ---------- */
 // What sits above the tab panels depends on the tab. Home gets the whole
