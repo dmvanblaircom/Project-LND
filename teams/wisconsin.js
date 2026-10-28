@@ -48,7 +48,7 @@ var TEAM_CONFIG = {
       { name: "Wisconsin Athletics", feed: "https://uwbadgers.com/rss?path=football", site: "https://uwbadgers.com/sports/football", logo: "https://uwbadgers.com/favicon.ico" },
       { name: "Bucky’s 5th Quarter", feed: "https://www.buckys5thquarter.com/rss/current.xml", site: "https://www.buckys5thquarter.com/" },
       { name: "Wisconsin On SI", feed: "https://www.si.com/college/wisconsin/feed", site: "https://www.si.com/college/wisconsin", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
-      { name: "The Badger Herald", feed: "https://badgerherald.com/sports/feed/", site: "https://badgerherald.com/sports/" }
+      { name: "The Badger Herald", feed: "https://badgerherald.com/sports/feed/", sportsSection: true, site: "https://badgerherald.com/sports/" }
     ]
   },
 

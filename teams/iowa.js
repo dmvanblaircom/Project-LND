@@ -47,7 +47,7 @@ var TEAM_CONFIG = {
       { name: "Black Heart Gold Pants", feed: "https://www.blackheartgoldpants.com/rss/current.xml", site: "https://www.blackheartgoldpants.com/" },
       { name: "Iowa On SI", feed: "https://www.si.com/college/iowa/feed", site: "https://www.si.com/college/iowa", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
       { name: "On3", feed: "https://www.on3.com/teams/iowa-hawkeyes/feed/", site: "https://www.on3.com/teams/iowa-hawkeyes/", paths: ["/teams/iowa-hawkeyes/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
-      { name: "The Daily Iowan", feed: "https://dailyiowan.com/category/sports/feed/", site: "https://dailyiowan.com/category/sports/" }
+      { name: "The Daily Iowan", feed: "https://dailyiowan.com/category/sports/feed/", sportsSection: true, site: "https://dailyiowan.com/category/sports/" }
     ]
   },
 

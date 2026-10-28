@@ -87,15 +87,18 @@ function paintIdentity(){
 // The team's name in the bar, whole: a one-word name too wide for its room
 // (NORTHWESTERN in Poppins, with Your Teams' chevron) was cut off, not
 // wrapped (David, 2026-10-28). Tighter spacing first, then a smaller size,
-// down to a floor; past that, the program's abbreviation.
+// down to a floor; past that, the program's abbreviation, fitted the same way.
 function fitBarTeam(){
   var el=$("barTeam"); if(!el || !el.offsetParent) return;
-  el.textContent=TEAM.name; el.style.letterSpacing=""; el.style.fontSize="";
   var over=function(){ return el.scrollWidth>el.clientWidth+1; };
-  if(!over()) return;
-  el.style.letterSpacing="0";
-  for(var px=15; over() && px>=12; px--) el.style.fontSize=px+"px";
-  if(over()){ el.style.fontSize=""; el.textContent=TEAM.abbreviation||TEAM.name; }
+  var names=[TEAM.name].concat(TEAM.abbreviation && TEAM.abbreviation!==TEAM.name ? [TEAM.abbreviation] : []);
+  for(var i=0; i<names.length; i++){
+    el.textContent=names[i]; el.style.letterSpacing=""; el.style.fontSize="";
+    if(!over()) return;
+    el.style.letterSpacing="0";
+    for(var px=15; over() && px>=11; px--) el.style.fontSize=px+"px";
+    if(!over()) return;
+  }
 }
 
 /* ---------- Your Teams: one tap between favorites (David, 2026-10-27) ---------- */

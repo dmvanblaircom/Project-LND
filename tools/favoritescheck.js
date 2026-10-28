@@ -68,8 +68,11 @@ function fixture(url) {
   var base = "http://127.0.0.1:" + server.address().port;
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
 
-  async function open(url, favs, team) {
-    var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  // A 2x2 opaque PNG: a logo that loads, so a check can tell a kept image
+  // from one drawn again.
+  var PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGNkYGD4z8DAwMTAwMDAAAAZBAIBnCQq3wAAAABJRU5ErkJggg==", "base64");
+  async function open(url, favs, team, width) {
+    var ctx = await browser.newContext({ viewport: { width: width || 390, height: 844 }, serviceWorkers: "block" });
     await ctx.addInitScript(function (a) {
       if (sessionStorage.getItem("__seeded")) return;
       sessionStorage.setItem("__seeded", "1");
@@ -81,6 +84,7 @@ function fixture(url) {
     await page.route("**/*", function (route) {
       var u = route.request().url();
       if (u.startsWith(base)) return route.continue();
+      if (/a\.espncdn\.com\/(combiner\/i\?img=)?\/?i\/teamlogos\//.test(u)) return route.fulfill({ status: 200, contentType: "image/png", body: PNG });
       var body = fixture(u);
       if (body) return route.fulfill({ status: 200, contentType: "application/json", body: body });
       return route.abort();
@@ -125,8 +129,12 @@ function fixture(url) {
   ok(after.pressed.length === 2 && after.pressed.every(function (p) { return p === "true"; }), "and its star reads pressed in both places");
   ok((await c.page.evaluate(function () { return getComputedStyle(document.querySelector('.fav[data-fav="indiana"] svg')).fill; })) === "rgb(212, 184, 150)",
      "filled champagne once starred, edged in bronze");
+  await c.page.waitForFunction(function () { var i = document.querySelector("#yourTeams img[data-mark]"); return i && i.complete && i.naturalWidth > 0; });
+  await c.page.evaluate(function () { document.querySelector("#yourTeams img[data-mark]").__kept = true; });
   await c.page.click('#availHead ~ .chooser-list .fav[data-fav="ohio-state"]');
   ok((await favs(c.page)).join() === "indiana,ohio-state", "a second team joins after the first, kept on the device");
+  ok(await c.page.evaluate(function () { var i = document.querySelector('#yourTeams .pick[data-team="indiana"] img[data-mark]'); return !!(i && i.__kept); }),
+     "and Indiana's logo is the same image, not drawn again: a star flickers no logo (David, 2026-10-28)");
   await c.page.fill("#teamSearch", "ohio");
   await c.page.waitForTimeout(100);
   var srch = await c.page.evaluate(function () {
@@ -176,6 +184,13 @@ function fixture(url) {
   ok(ctxA.role === "button" && ctxA.tab === "0" && ctxA.pop === "dialog" && ctxA.chev && ctxA.h >= 44,
      "another team to switch to: the team name is a control, with a chevron and a 44px target");
   ok(ctxA.label === "Switch team. Viewing Notre Dame.", "named for what it does and who is being viewed (" + ctxA.label + ")");
+  // Drawn ahead, hidden, once the page settles, its logos loading at once:
+  // a sheet drawn on the tap showed initials for a second (David, 2026-10-28).
+  await h.page.waitForFunction(function () { var x = document.getElementById("switchHost"); return x && x.hidden && x.querySelectorAll("img[data-mark]").length === 3; }, null, { timeout: 8000 });
+  ok(await h.page.evaluate(function () { return [].slice.call(document.querySelectorAll("#switchHost img[data-mark]")).every(function (i) { return i.getAttribute("loading") !== "lazy"; }); }),
+     "Your Teams is drawn before it is asked for, hidden, its logos not lazy");
+  await h.page.waitForFunction(function () { return [].slice.call(document.querySelectorAll("#switchHost img[data-mark]")).every(function (i) { return i.complete && i.naturalWidth > 0; }); });
+  await h.page.evaluate(function () { [].slice.call(document.querySelectorAll("#switchHost img[data-mark]")).forEach(function (i) { i.__kept = true; }); });
   await h.page.focus("#barContext");
   await h.page.keyboard.press("Enter");
   await h.page.waitForSelector("#switchHost:not([hidden]) .sh");
@@ -187,6 +202,8 @@ function fixture(url) {
              edit: host.querySelector(".sw-edit a").getAttribute("href"), inert: document.getElementById("main").hasAttribute("inert") };
   });
   ok(sh.dialog && sh.title === "Your Teams" && sh.focus === "swTitle", "Enter opens Your Teams as a dialog, its title focused");
+  ok(await h.page.evaluate(function () { var im = [].slice.call(document.querySelectorAll("#switchHost img[data-mark]")); return im.length === 3 && im.every(function (i) { return i.__kept && i.parentNode.classList.contains("loaded"); }); }),
+     "opened, it shows the logos already loaded: no initials while they load");
   ok(sh.rows.join() === "here:Notre Dame:current,indiana,ohio-state", "the team being viewed first, shown not offered; then the fan's teams in order; no team that cannot be opened (" + sh.rows.join() + ")");
   ok(sh.edit === "/?change" && sh.inert, "it links to the chooser to edit them, and the page under it is inert");
   await h.page.keyboard.press("Escape");
@@ -198,7 +215,9 @@ function fixture(url) {
   await h.page.click('#switchHost .sh-scrim', { position: { x: 20, y: 20 } });
   ok(await h.page.evaluate(function () { return document.getElementById("switchHost").hidden; }), "a tap on the dimmed page closes it too");
   await h.page.click("#barContext");
-  await h.page.waitForSelector('#switchHost [data-switch="indiana"]');
+  await h.page.waitForSelector('#switchHost:not([hidden]) [data-switch="indiana"]');
+  ok(await h.page.evaluate(function () { return [].slice.call(document.querySelectorAll("#switchHost img[data-mark]")).every(function (i) { return i.__kept; }); }),
+     "and opened again, the same images: closing it keeps them");
   await h.page.click('#switchHost [data-switch="indiana"]');
   await h.page.waitForURL(/\?team=indiana/);
   var landed = await h.page.evaluate(function () { return { search: location.search, hash: location.hash, stored: localStorage.getItem("iw-team") }; });
@@ -208,6 +227,26 @@ function fixture(url) {
      "and from Indiana, Notre Dame is not a favorite: the switch still offers Ohio State");
   ok(!h.errors.length, "no page errors (" + h.errors.join(" | ") + ")");
   await h.ctx.close();
+
+  // The team's name in the bar, whole, with the chevron beside it, on the
+  // narrowest phone: NORTHWESTERN was cut to NORTHWESTER (David, 2026-10-28).
+  console.log(" the team's name fits the bar");
+  var configured = fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; }).map(function (f) { return f.slice(0, -3); });
+  var cut = [];
+  for (var wi = 0; wi < 2; wi++) {
+    var width = [320, 390][wi];
+    for (var ti = 0; ti < configured.length; ti++) {
+      var team = configured[ti], other = team === "ohio-state" ? "notre-dame" : "ohio-state";
+      var o = await open("/?team=" + team + "#top25", [team, other], team, width);
+      await o.page.waitForFunction(function () { return !document.getElementById("launch"); }, null, { timeout: 15000 });
+      await o.page.evaluate(function () { return document.fonts.ready; });
+      var fit = await o.page.evaluate(function () { var e = document.getElementById("barTeam"), c = document.getElementById("barContext");
+        return { over: e.scrollWidth > e.clientWidth + 1, text: e.textContent, chev: !!c.querySelector(".bar-switch") }; });
+      if (fit.over || !fit.chev) cut.push(team + "@" + width + ":" + fit.text + (fit.chev ? "" : " (no chevron)"));
+      await o.ctx.close();
+    }
+  }
+  ok(!cut.length, "every configured team's name shows whole beside the chevron at 320 and 390 pixels (" + (cut.join(", ") || configured.length + " teams") + ")");
 
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the fan's teams are a star away, and a tap apart"));

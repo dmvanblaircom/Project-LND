@@ -53,7 +53,7 @@ var TEAM_CONFIG = {
       { name: "Indiana On SI",         feed: "https://www.si.com/college/indiana/feed",                  site: "https://www.si.com/college/indiana", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
       { name: "On3",                   feed: "https://www.on3.com/teams/indiana-hoosiers/feed/",         site: "https://www.on3.com/teams/indiana-hoosiers/", paths: ["/teams/indiana-hoosiers/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
       { name: "Hoosier Huddle",        feed: "https://hoosierhuddle.com/rss",                            site: "https://hoosierhuddle.com/" },
-      { name: "Indiana Daily Student", feed: "https://www.idsnews.com/plugin/feeds/section/sports.xml",  site: "https://www.idsnews.com/section/sports" }
+      { name: "Indiana Daily Student", feed: "https://www.idsnews.com/plugin/feeds/section/football.xml",  site: "https://www.idsnews.com/section/sports" }
     ]
   },
 
