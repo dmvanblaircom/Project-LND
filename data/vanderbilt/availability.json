@@ -3,13 +3,80 @@
  "team": "vanderbilt",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:05.211712+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Kentucky",
+ "players": [
+  {
+   "pos": "",
+   "no": "1",
+   "name": "Blaze Berlowitz",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "2",
+   "name": "Jaylin Lackey",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "10",
+   "name": "Brian Allen Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "18",
+   "name": "Josiah Broxton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "20",
+   "name": "Jamison Curtis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "50",
+   "name": "Gunner Givens",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "55",
+   "name": "Aaron Bryant",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "81",
+   "name": "Kahden Smith",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "93",
+   "name": "Nikhil Jefferson",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

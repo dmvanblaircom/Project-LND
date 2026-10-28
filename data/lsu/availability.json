@@ -3,13 +3,52 @@
  "team": "lsu",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:03.025127+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Auburn",
+ "players": [
+  {
+   "pos": "",
+   "no": "7",
+   "name": "Whit Weeks",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "10",
+   "name": "Dashawn Spears",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "15",
+   "name": "Phillip Wright III",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "26",
+   "name": "Charles Ross II",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "88",
+   "name": "Richard Anderson",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

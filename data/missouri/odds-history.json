@@ -1,5 +1,34 @@
 {
- "team": "missouri",
- "updated": null,
- "points": []
+"team": "missouri",
+"updated": "2026-10-28T15:37Z",
+"points": [
+{
+"t": "2026-10-28T03:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 7.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T09:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 7.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T14:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 6.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T15:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 8.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }

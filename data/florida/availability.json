@@ -3,13 +3,45 @@
  "team": "florida",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:00.199572+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-17",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-17",
+ "game": "at Texas",
+ "players": [
+  {
+   "pos": "",
+   "no": "1",
+   "name": "Vernell Brown III",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "3",
+   "name": "Bailey Stockton",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "12",
+   "name": "Aaron Philo",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "20",
+   "name": "Duke Clark",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

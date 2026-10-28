@@ -3,13 +3,80 @@
  "team": "ole-miss",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:04.114534+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Texas",
+ "players": [
+  {
+   "pos": "",
+   "no": "12",
+   "name": "Izaiah Hartrup",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "14",
+   "name": "Edwin Joseph",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "19",
+   "name": "MJ Preston",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "26",
+   "name": "Ant Davis Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "27",
+   "name": "Pat Broomfield",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "27",
+   "name": "Kervin Johnson Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "46",
+   "name": "Nascar McCoy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "55",
+   "name": "Terez Davis",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "71",
+   "name": "Emanuel Faulkner",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

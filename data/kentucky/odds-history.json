@@ -1,5 +1,69 @@
 {
- "team": "kentucky",
- "updated": null,
- "points": []
+"team": "kentucky",
+"updated": "2026-10-28T19:07Z",
+"points": [
+{
+"t": "2026-10-28T03:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 34.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T06:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 33.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T07:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 34.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T11:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 34.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T13:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T15:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 36.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T15:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T16:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 36.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T19:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }

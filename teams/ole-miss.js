@@ -47,7 +47,7 @@ var TEAM_CONFIG = {
       { name: "Red Cup Rebellion", feed: "https://www.redcuprebellion.com/rss/current.xml", site: "https://www.redcuprebellion.com/" },
       { name: "Ole Miss On SI", feed: "https://www.si.com/college/olemiss/feed", site: "https://www.si.com/college/olemiss", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
       { name: "On3", feed: "https://www.on3.com/teams/ole-miss-rebels/feed/", site: "https://www.on3.com/teams/ole-miss-rebels/", paths: ["/teams/ole-miss-rebels/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
-      { name: "The Daily Mississippian", feed: "https://thedmonline.com/category/sports/feed/", site: "https://thedmonline.com/category/sports/" }
+      { name: "The Daily Mississippian", feed: "https://thedmonline.com/category/sports/football/feed/", site: "https://thedmonline.com/category/sports/" }
     ]
   },
 

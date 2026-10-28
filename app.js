@@ -79,6 +79,26 @@ function paintIdentity(){
 
   applyStyle();
   paintSwitch();
+  fitBarTeam();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitBarTeam);
+  window.addEventListener("resize", fitBarTeam);
+}
+
+// The team's name in the bar, whole: a one-word name too wide for its room
+// (NORTHWESTERN in Poppins, with Your Teams' chevron) was cut off, not
+// wrapped (David, 2026-10-28). Tighter spacing first, then a smaller size,
+// down to a floor; past that, the program's abbreviation, fitted the same way.
+function fitBarTeam(){
+  var el=$("barTeam"); if(!el || !el.offsetParent) return;
+  var over=function(){ return el.scrollWidth>el.clientWidth+1; };
+  var names=[TEAM.name].concat(TEAM.abbreviation && TEAM.abbreviation!==TEAM.name ? [TEAM.abbreviation] : []);
+  for(var i=0; i<names.length; i++){
+    el.textContent=names[i]; el.style.letterSpacing=""; el.style.fontSize="";
+    if(!over()) return;
+    el.style.letterSpacing="0";
+    for(var px=15; over() && px>=11; px--) el.style.fontSize=px+"px";
+    if(!over()) return;
+  }
 }
 
 /* ---------- Your Teams: one tap between favorites (David, 2026-10-27) ---------- */
@@ -101,6 +121,7 @@ function paintSwitch(){
     ctx.setAttribute("role","button"); ctx.setAttribute("tabindex","0"); ctx.setAttribute("aria-haspopup","dialog");
     ctx.setAttribute("aria-label","Switch team. Viewing "+TEAM.name+".");
     if(!ctx.querySelector(".bar-switch")) ctx.insertAdjacentHTML("beforeend",'<svg class="bar-switch" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>');
+    drawSwitchSoon();
   } else {
     ["role","tabindex","aria-haspopup","aria-label"].forEach(function(a){ ctx.removeAttribute(a); });
     var c=ctx.querySelector(".bar-switch"); if(c) c.parentNode.removeChild(c);
@@ -119,25 +140,39 @@ function switchHost(){
   }
   return h;
 }
-function openSwitch(){
+// The sheet is drawn ahead of time, hidden, once the page has settled, with
+// its marks loading eagerly: a sheet drawn on the tap showed initials for a
+// second while its logos loaded (David, 2026-10-28). Redrawn with
+// Suite.ui.fill, so a logo already loaded is kept, not fetched again.
+function drawSwitch(){
   var list=yourTeams(), mine=list.filter(function(t){ return t.id===TEAM.id; }).length;
   var reg=TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []);
   // the team being viewed heads the list, starred or not
   if(!mine){ var cur=reg.get(TEAM.id); if(cur) list.unshift(cur); }
   else list.sort(function(a,b){ return (a.id===TEAM.id ? -1 : 0)-(b.id===TEAM.id ? -1 : 0); });
   var rows=list.map(function(t){
-    var here=t.id===TEAM.id, mark=Suite.ui.mark(TeamOS.espn.mark(t.providerId), t.name, t.abbr, "plain");
+    var here=t.id===TEAM.id, mark=Suite.ui.mark(TeamOS.espn.mark(t.providerId), t.name, t.abbr, "plain", true);
     var inner=mark+'<span class="pick-main"><span class="pick-name">'+esc(t.name)+'</span><span class="pick-nick">'+esc(here ? "Viewing now" : (t.nick||""))+"</span></span>";
     return "<li>"+(here ? '<div class="pick here" aria-current="true">'+inner+"</div>"
                         : '<button type="button" class="pick" data-switch="'+esc(t.id)+'">'+inner+'<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7"/></svg></button>')+"</li>";
   }).join("");
   var h=switchHost();
-  h.innerHTML='<div class="sh-scrim" data-close></div>'+
+  Suite.ui.fill(h, '<div class="sh-scrim" data-close></div>'+
     '<section class="sh" role="dialog" aria-modal="true" aria-labelledby="swTitle" data-no-swipe data-no-pull>'+
       '<div class="sh-top"><h2 class="sh-title" id="swTitle" tabindex="-1">Your Teams</h2>'+
       '<button type="button" class="sh-close" data-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>'+
       '<div class="sh-body"><ul class="chooser-list sw-list">'+rows+'</ul>'+
-      '<p class="sw-edit"><a href="'+esc(location.pathname+"?change")+'">Edit Your Teams</a></p></div></section>';
+      '<p class="sw-edit"><a href="'+esc(location.pathname+"?change")+'">Edit Your Teams</a></p></div></section>');
+  return h;
+}
+function drawSwitchSoon(){
+  if(SWITCH.drawn) return;
+  SWITCH.drawn=true;
+  var go=function(){ if(!SWITCH.open) drawSwitch(); };
+  if(window.requestIdleCallback) requestIdleCallback(go, { timeout:3000 }); else setTimeout(go, 1500);
+}
+function openSwitch(){
+  var h=drawSwitch();
   h.hidden=false; SWITCH.open=true;
   ["appBar","main","navbar"].forEach(function(k){ var el=$(k); if(el) el.setAttribute("inert",""); });
   document.documentElement.classList.add("sheet-open");
@@ -146,7 +181,8 @@ function openSwitch(){
 function closeSwitch(){
   if(!SWITCH.open) return;
   SWITCH.open=false;
-  var h=$("switchHost"); if(h){ h.hidden=true; h.innerHTML=""; }
+  // hidden, not emptied: its logos stay loaded for the next open
+  var h=$("switchHost"); if(h) h.hidden=true;
   ["appBar","main","navbar"].forEach(function(k){ var el=$(k); if(el) el.removeAttribute("inert"); });
   document.documentElement.classList.remove("sheet-open");
   var ctx=$("barContext"); if(ctx) ctx.focus({ preventScroll:true });

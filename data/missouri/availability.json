@@ -3,13 +3,73 @@
  "team": "missouri",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:03.618413+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-17",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-17",
+ "game": "at Ole Miss",
+ "players": [
+  {
+   "pos": "",
+   "no": "6",
+   "name": "Jeremiah Beasley",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "18",
+   "name": "JaDon Blair",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "21",
+   "name": "Malae Fonoti",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "29",
+   "name": "Ahmad Hardy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "54",
+   "name": "Josh Atkins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "58",
+   "name": "Khalief Canty Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "87",
+   "name": "Brett Norfleet",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "88",
+   "name": "Gavin Hoffman",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

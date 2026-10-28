@@ -47,7 +47,7 @@ var TEAM_CONFIG = {
       { name: "Northwestern Athletics", feed: "https://nusports.com/rss?path=football", site: "https://nusports.com/sports/football", logo: "https://nusports.com/favicon.ico" },
       { name: "Inside NU", feed: "https://www.insidenu.com/rss/current.xml", site: "https://www.insidenu.com/" },
       { name: "Northwestern On SI", feed: "https://www.si.com/college/northwestern/feed", site: "https://www.si.com/college/northwestern", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
-      { name: "The Daily Northwestern", feed: "https://dailynorthwestern.com/category/sports/feed/", site: "https://dailynorthwestern.com/category/sports/" }
+      { name: "The Daily Northwestern", feed: "https://dailynorthwestern.com/category/sports/feed/", sportsSection: true, site: "https://dailynorthwestern.com/category/sports/" }
     ]
   },
 

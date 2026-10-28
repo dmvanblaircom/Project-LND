@@ -287,8 +287,11 @@
   function paintYourTeams(host) {
     var block = host.querySelector("#yourTeams"), list = block && block.querySelector("ul");
     if (!block) return;
-    var html = yourTeams();
-    list.innerHTML = html;
+    var html = yourTeams(), ui = typeof Suite !== "undefined" && Suite.ui;
+    // Redrawn keeping the logos already loaded: setting innerHTML made every
+    // row's image anew, and each star tap flashed the whole list's logos
+    // (David, 2026-10-28).
+    if (ui && ui.fill) ui.fill(list, html); else list.innerHTML = html;
     block.setAttribute("data-empty", html ? "0" : "1");
     block.hidden = !html || block.getAttribute("data-searching") === "1";
   }

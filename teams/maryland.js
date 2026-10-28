@@ -43,7 +43,7 @@ var TEAM_CONFIG = {
       { name: "Testudo Times", feed: "https://www.testudotimes.com/rss/current.xml", site: "https://www.testudotimes.com/" },
       { name: "Maryland On SI", feed: "https://www.si.com/college/maryland/feed", site: "https://www.si.com/college/maryland", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
       { name: "On3", feed: "https://www.on3.com/teams/maryland-terrapins/feed/", site: "https://www.on3.com/teams/maryland-terrapins/", paths: ["/teams/maryland-terrapins/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
-      { name: "The Diamondback", feed: "https://dbknews.com/category/sports/feed/", site: "https://dbknews.com/category/sports/" }
+      { name: "The Diamondback", feed: "https://dbknews.com/category/sports/football/feed/", site: "https://dbknews.com/category/sports/" }
     ]
   },
 

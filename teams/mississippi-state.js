@@ -48,7 +48,7 @@ var TEAM_CONFIG = {
       { name: "Mississippi State Athletics", feed: "https://hailstate.com/rss?path=football", site: "https://hailstate.com/sports/football", logo: "https://hailstate.com/favicon.ico" },
       { name: "Mississippi State On SI", feed: "https://www.si.com/college/mississippistate/feed", site: "https://www.si.com/college/mississippistate", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
       { name: "On3", feed: "https://www.on3.com/teams/mississippi-state-bulldogs/feed/", site: "https://www.on3.com/teams/mississippi-state-bulldogs/", paths: ["/teams/mississippi-state-bulldogs/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
-      { name: "The Reflector", feed: "https://www.reflector-online.com/category/sports/feed/", site: "https://www.reflector-online.com/category/sports/" }
+      { name: "The Reflector", feed: "https://www.reflector-online.com/category/sports/feed/", sportsSection: true, site: "https://www.reflector-online.com/category/sports/" }
     ]
   },
 

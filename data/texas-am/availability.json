@@ -3,13 +3,45 @@
  "team": "texas-am",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://www.secsports.com/fbreports",
  "sourceLabel": "SECsports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-28T03:39:04.918261+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Alabama",
+ "players": [
+  {
+   "pos": "",
+   "no": "6",
+   "name": "Terry Bussey",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "11",
+   "name": "Kelshaun Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "14",
+   "name": "Anto Saka",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "52",
+   "name": "Blake Ivy",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }
