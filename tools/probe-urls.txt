@@ -1,22 +1,11 @@
-# 2026-10-28, Phase 2: the first roster pages and stadium cities, again.
+# 2026-10-28, Phase 2: the rest.
 https://www.secsports.com/fbreports | <title>[^<]*
 https://rolltide.com/sports/football/roster | <title>[^<]*
 https://arkansasrazorbacks.com/sports/football/roster | <title>[^<]*
 https://auburntigers.com/sports/football/roster | <title>[^<]*
 https://floridagators.com/sports/football/roster | <title>[^<]*
 https://georgiadogs.com/sports/football/roster | <title>[^<]*
-https://geocoding-api.open-meteo.com/v1/search?name=Tuscaloosa&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Fayetteville&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Auburn&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Gainesville&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Athens&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Lexington&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Baton+Rouge&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Starkville&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Columbia&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Norman&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Oxford&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Knoxville&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Austin&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=College+Station&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
-https://geocoding-api.open-meteo.com/v1/search?name=Nashville&count=3&countryCode=US | \]\.(name|latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Tuscaloosa&count=1&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Knoxville&count=1&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Fayetteville&count=3&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Auburn&count=10&countryCode=US | \]\.(latitude|longitude|admin1) =
