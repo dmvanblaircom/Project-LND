@@ -125,6 +125,51 @@ function boot(opts) {
            data:  function () { return Object.keys(store[sandbox.DATA]  || {}).sort(); } };
 }
 
+// Team marks (David, 2026-10-27: logos slow to appear): ESPN keeps one for
+// only hours; the worker keeps each it has fetched, across versions, and
+// answers from that copy first.
+function logoChecks() {
+  console.log("team marks are kept, and answered from the kept copy");
+  var w = boot(), inits = [];
+  w.sandbox.fetch = (function (orig) { return function (req, init) { inits.push(req && req.opts); return orig(req, init); }; })(w.sandbox.fetch);
+  var MARK = "https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/87.png&w=180&h=180";
+  function get(url) {
+    var answer = null;
+    w.listeners.fetch.forEach(function (fn) {
+      fn({ request: { method: "GET", url: url }, respondWith: function (p) { answer = p; }, waitUntil: function () {} });
+    });
+    return answer;
+  }
+  var first = get(MARK);
+  ok(!!first, "a mark is the worker's to answer");
+  return first.then(function () {
+    return new Promise(function (r) { setTimeout(r, 0); });
+  }).then(function () {
+    ok(w.fetched.indexOf(MARK) !== -1 && inits[inits.length - 1] && inits[inits.length - 1].mode === "cors",
+       "the first sight of it is fetched, as CORS (ESPN allows any origin), so the copy is not opaque");
+    ok(MARK in (w.store["suite-logos"] || {}), "and kept, in a cache no version owns");
+    var n = w.fetched.length;
+    return get(MARK).then(function () { ok(w.fetched.length === n, "the next sight of it is the kept copy: no network at all"); });
+  }).then(function () {
+    return w.sandbox.previousCaches();
+  }).then(function (old) {
+    ok(old.indexOf("suite-logos") === -1, "an update's clean-up never takes the kept marks");
+    ok(get("https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png") && get("https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500-dark/2426.png&w=180&h=180"),
+       "the full 500 (Home's watermark) and the dark variants are marks too");
+    ok(!get("https://a.espncdn.com/i/headshots/college-football/players/full/1.png") && !get("https://a.espncdn.com/combiner/i?img=/i/headshots/x.png"),
+       "a player's headshot is not a mark");
+    w.sandbox.LOGO_MAX = 2;
+    return Promise.all(["1", "2", "3"].map(function (id) { return get("https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/9" + id + ".png&w=180&h=180"); }));
+  }).then(function () {
+    return new Promise(function (r) { setTimeout(r, 20); });
+  }).then(function () {
+    ok(Object.keys(w.store["suite-logos"]).length <= 2, "past LOGO_MAX the oldest go (" + Object.keys(w.store["suite-logos"]).length + " kept)");
+    w.sandbox.fetch = function () { return Promise.reject(new Error("offline")); };
+    var mark2 = "https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/93.png&w=180&h=180";
+    return get(mark2).then(function (r) { ok(!!r && r.ok, "a kept mark answers offline"); });
+  });
+}
+
 // A data request the network leaves hanging is answered from the last good
 // copy after DATA_WAIT, and dropped (David, 2026-10-20): a worker busy with
 // it held back an update's activation. With no copy, the network is waited on.
@@ -423,6 +468,8 @@ w.fire("message", ND).then(function () {
   return alertsChecks();
 }).then(function () {
   return dataWaitChecks();
+}).then(function () {
+  return logoChecks();
 }).then(function () {
   process.exit(failures ? 1 : 0);
 }).catch(function (e) {

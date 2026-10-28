@@ -819,8 +819,10 @@ eq(Object.keys(TeamOS.espn).sort(),
    "exactly the documented functions");
 
 console.log("mark");
-eq(TeamOS.espn.mark("87"), "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png", "a program's mark, as the provider hosts it");
-eq(TeamOS.espn.mark(87, true), "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png", "the variant drawn for dark backgrounds");
+eq(TeamOS.espn.mark("87"), "https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/87.png&w=180&h=180",
+   "a program's mark, as the provider hosts it, at the 180 pixels a mark is drawn at (3 to 8 KB, not 20 to 43)");
+eq(TeamOS.espn.mark(87, true), "https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500-dark/87.png&w=180&h=180", "the variant drawn for dark backgrounds");
+eq(TeamOS.espn.mark(87, true, true), "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png", "and the full 500, for Home's watermark");
 eq(TeamOS.espn.mark(null), null, "no id, no mark - the view draws its own fallback");
 eq(TeamOS.espn.mark("87/../x"), null, "an id is digits or nothing: it becomes part of a URL");
 

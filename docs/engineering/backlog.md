@@ -76,6 +76,24 @@ PRs before work.
 - **W25:** each owner updates current docs with accepted changes. Old branches
   remain by David's decision; no manual branch-deletion campaign.
 
+- **Performance: near-zero latency (David, 2026-10-27), after the FBS
+  phases.** "Batch feed as much into the app as we can": every source, image
+  and request reviewed for what can be prepared ahead and served from Suite's
+  own origin or the worker's cache instead of asked for on demand. Done
+  first: team marks at 180 pixels, kept by the worker across versions
+  (decision 0037's PR set). Next, from David's notes:
+  - **Matchup, batched:** both teams' season figures for the game the Game
+    tab will show, written by the data refresh as a snapshot and read in one
+    request, regenerated when the tab moves on from the last game's box score
+    to the next game's Matchup (a final), and otherwise daily. Today it waits
+    on the game summary, then two ESPN season reads, two schedules and the
+    edge API, in sequence.
+  - **An inventory:** each screen's requests, what each source's figures
+    change with (a play, a game, a week, a season), and for each: batch,
+    stale-while-revalidate, or live. Measured on a phone before and after.
+  - **The referee:** a scheduled check of ESPN's figures against CFBD's,
+    flagging drift (decision 0037).
+
 ## Completed implementation: do not rebuild
 
 | Work | Merged evidence |
