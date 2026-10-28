@@ -45,7 +45,7 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-10-25win1000";
+export const VERSION = "edge-2026-10-27fbsranks";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
@@ -57,7 +57,10 @@ const KEEP_SECONDS = 7 * 24 * 3600;    // a stale copy may stand in for a week
 // CFBD probe (2026-10-01, tools/cfbd_probe.py): the Matchup card's rushing
 // and passing yards allowed per game (W15) - season totals the opponents
 // gained, and the games they came from. Nothing else leaves CFBD.
-export const CFBD_FIELDS = ["games", "rushingYardsOpponent", "netPassingYardsOpponent"];
+// turnovers / turnoversOpponent: what a team gave away and took away, for its
+// turnover margin - ESPN's matched the NCAA's own table for 10% of FBS
+// teams, CFBD's for 93% (2026-10-27).
+export const CFBD_FIELDS = ["games", "rushingYardsOpponent", "netPassingYardsOpponent", "turnovers", "turnoversOpponent"];
 
 const TEAM = /^[A-Za-z0-9 .&'()À-ſ-]{2,40}$/;
 // Only the registry's schools, and only this season or last, ever reach
@@ -328,6 +331,70 @@ async function cfbdSp(url, env, origin, ctx) {
   return json(await withWeeks(body, env, true), 200, origin);
 }
 
+// FBS ranks Suite computes itself (decision 0037): ESPN ranks net passing
+// yards across all of Division I, and its turnover rank does not follow the
+// margin. From one league-wide read of CFBD's season totals, each FBS
+// school's place in passing yards per game and in turnover margin (taken
+// away less given away), more being better, a tie sharing the best place as
+// ESPN prints "Tied-". Only places leave the Worker, never CFBD's figures.
+// A read that cannot place nine in ten FBS schools is no answer: a table
+// missing teams would rank the rest too high.
+export const RANKED = ["passOffense", "turnoverMargin"];
+export function fbsRanks(rows, ids, year) {
+  if (!ids || !ids.size) return null;
+  const by = new Map();
+  (Array.isArray(rows) ? rows : []).forEach(function (r) {
+    if (!r || Number(r.season) !== year || typeof r.team !== "string") return;
+    const v = Number(r.statValue);
+    if (!Number.isFinite(v)) return;
+    if (!by.has(r.team)) by.set(r.team, {});
+    by.get(r.team)[r.statName] = v;
+  });
+  const values = { passOffense: new Map(), turnoverMargin: new Map() };
+  ids.forEach(function (id, school) {
+    const s = id && by.get(school);
+    if (!s || !(s.games > 0)) return;
+    if (Number.isFinite(s.netPassingYards)) values.passOffense.set(id, s.netPassingYards / s.games);
+    if (Number.isFinite(s.turnovers) && Number.isFinite(s.turnoversOpponent)) values.turnoverMargin.set(id, s.turnoversOpponent - s.turnovers);
+  });
+  const named = Array.from(ids.values()).filter(Boolean).length;
+  const out = {};
+  for (const k of RANKED) {
+    const m = values[k];
+    if (m.size < 0.9 * named) return null;
+    const all = Array.from(m.values());
+    m.forEach(function (v, id) {
+      let better = 0, same = 0;
+      all.forEach(function (x) { if (x > v) better++; else if (x === v) same++; });
+      (out[id] = out[id] || {})[k] = { rank: better + 1, tied: same > 1 };
+    });
+  }
+  return { teams: named, ranks: out };
+}
+
+async function cfbdRanks(url, env, origin, ctx) {
+  const year = Number(url.searchParams.get("year"));
+  if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
+  if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
+  if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
+
+  const cache = env.CACHE || caches.default;
+  const key = new Request("https://edge.cache/v1/cfbd/ranks?year=" + year + "&r=" + RANKED.join(","));
+  const heldBody = await held(cache, key);
+  if (heldBody && Date.now() - Date.parse(heldBody.fetchedAt) < FRESH_SECONDS * 1000) return json(heldBody, 200, origin);
+
+  const rows = await cfbdJson("/stats/season?year=" + year, env);
+  const ids = Array.isArray(rows) ? await fbsIds(year, env, cache, ctx) : null;
+  const ranked = ids ? fbsRanks(rows, ids, year) : null;
+  if (!ranked) {
+    if (heldBody) return json(Object.assign({}, heldBody, { stale: true }), 200, origin);
+    return fail(502, "CFBD could not be reached", origin);
+  }
+  const body = { source: "cfbd-ranks", year: year, fetchedAt: new Date().toISOString(), teams: ranked.teams, ranks: ranked.ranks };
+  await keep(cache, key, body, KEEP_SECONDS, ctx);
+  return json(body, 200, origin);
+}
+
 // The refresh clock. Starts the data refresh through GitHub's API with a
 // fine-grained token that can do only that (REFRESH_CLOCK_TOKEN, Actions
 // read/write on this repository). Never throws: a failed start is logged and
@@ -427,6 +494,7 @@ export default {
                                                    200, origin, { "cache-control": "no-store" });
     if (url.pathname === "/v1/cfbd/season") return cfbdSeason(url, env || {}, origin, ctx);
     if (url.pathname === "/v1/cfbd/sp") return cfbdSp(url, env || {}, origin, ctx);
+    if (url.pathname === "/v1/cfbd/ranks") return cfbdRanks(url, env || {}, origin, ctx);
     if (url.pathname === "/v1/cfbd/sp/week") return cfbdSpWeek(url, env || {}, origin);
     if (url.pathname === "/v1/probe/espn") return json(await probeEspn(env || {}, request.cf && request.cf.colo), 200, origin,
                                                        { "cache-control": "no-store" });

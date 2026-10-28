@@ -22,7 +22,7 @@ function read(p) { return fs.readFileSync(path.join(root, p), "utf8"); }
 // A context with nothing but the two globals the scripts define.
 function load(teamFile) {
   var c = vm.createContext({});
-  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js"].forEach(function (f) {
+  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js", "teamos/cfbd.js"].forEach(function (f) {
     vm.runInContext(read(f), c, { filename: f });
   });
   return c;
@@ -643,7 +643,11 @@ eq([row(nd, "totalOffense").value, row(nd, "rushOffense").value, row(nd, "passOf
    "the yardage rows");
 eq([row(nd, "rushDefense").value, row(nd, "passDefense").value, row(nd, "rushDefense").rank], [null, null, null],
    "yards allowed is not ESPN's to answer (its yardsAllowed is a stub): null, for TeamOS.cfbd to fill");
-eq([nd[8].value, op[8].value], ["6","-2"], "turnover margin keeps a negative");
+eq([nd[8].value, nd[8].rank, nd[8].rankText, op[8].value], [null, null, null, null],
+   "turnover margin is not ESPN's to answer (its margin matched the NCAA's for 10% of FBS teams; its rank, +8 \"Tied-60th\" and \"44th\"): null, for TeamOS.cfbd to fill");
+eq([row(nd, "passOffense").value, row(nd, "passOffense").rank, row(nd, "passOffense").rankText], ["277.7", null, null],
+   "passing offense keeps its figure and drops ESPN's rank, which counts all of Division I (\"258th\")");
+eq([row(nd, "rushOffense").rank !== null, row(nd, "totalOffense").rank !== null], [true, true], "while the ranks that are FBS ranks stay");
 ok(!/splits|categories|rankDisplayValue|espn/i.test(JSON.stringify(nd)), "carries no ESPN keys or names");
 
 console.log(" the sacks collision");
@@ -811,12 +815,14 @@ eq(TeamOS.espn.news(null), [], "no payload -> empty list");
 // ---- exports ----
 console.log("exports");
 eq(Object.keys(TeamOS.espn).sort(),
-   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonBoardUrl","postseasonSelected","postseasonUrl","rankings","rankingsHistory","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
+   ["gameDetail","gameOdds","joinSeason","mark","matchupBetter","news","newsUrl","postseasonBoardUrl","postseasonSelected","postseasonUrl","rankings","rankingsHistory","rankingsUrl","roster","rosterUrl","schedule","scheduleUrl","scoreLines","scoreboard","scoreboardUrl","seasonStats","seasonStatsUrl","seasonTypeFor","summaryFinal","summaryUrl","teamPostseasonUrl","teamScheduleUrl","teamSchool","teamSeason","teamStatsUrl","teamStatus","teamUrl"].concat(["boxNames","leadersUrl","namedLeaders","seasonLeaders"]).sort(),
    "exactly the documented functions");
 
 console.log("mark");
-eq(TeamOS.espn.mark("87"), "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png", "a program's mark, as the provider hosts it");
-eq(TeamOS.espn.mark(87, true), "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png", "the variant drawn for dark backgrounds");
+eq(TeamOS.espn.mark("87"), "https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/87.png&w=180&h=180",
+   "a program's mark, as the provider hosts it, at the 180 pixels a mark is drawn at (3 to 8 KB, not 20 to 43)");
+eq(TeamOS.espn.mark(87, true), "https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500-dark/87.png&w=180&h=180", "the variant drawn for dark backgrounds");
+eq(TeamOS.espn.mark(87, true, true), "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png", "and the full 500, for Home's watermark");
 eq(TeamOS.espn.mark(null), null, "no id, no mark - the view draws its own fallback");
 eq(TeamOS.espn.mark("87/../x"), null, "an id is digits or nothing: it becomes part of a URL");
 
@@ -1455,18 +1461,52 @@ eq([rowOf(tsND, "sacks").value, rowOf(tsND, "sacks").rank], ["13", "Tied-10th"],
 eq(rowOf(tsND, "thirdDowns"), { key: "thirdDowns", label: "Third-down conversions", value: "17 of 41 (41.5%)", rank: null },
    "third downs as made of attempted, with no rank (ESPN never fills it)");
 eq(rowOf(tsND, "possession").value, "31:05", "time of possession per game, from the season's seconds");
-eq([rowOf(tsND, "turnoverMargin").value, rowOf(tsND, "turnoverMargin").rank], ["+7", "Tied-10th"], "a positive margin says so");
+ok(["turnoverMargin", "takeaways", "giveaways"].every(function (k) { return !rowOf(tsND, k); }),
+   "no turnover margin, takeaways or giveaways of ESPN's: its fumble counts are short (Notre Dame 2026: 10 takeaways to the NCAA's 16)");
 eq([rowOf(tsND, "penalties").value, rowOf(tsND, "penalties").rank], ["2.5 for 26.5 yards", null],
    "penalties per game, with no rank: ESPN ranks the raw count, so the fewest would read last");
 var shown = JSON.stringify(tsND);
 ok(!/2075|Tied-289th/.test(shown), "none of ESPN's stub values or ranks reaches the screen");
 var ranked = []; tsND.groups.forEach(function (g) { g.rows.forEach(function (r) { if (r.rank) ranked.push(r.key); }); });
-eq(ranked, ["pointsPerGame", "yardsPerGame", "passYards", "rushYards", "completionPct", "yardsPerPass", "yardsPerRush", "passTds", "rushTds",
-            "sacks", "tacklesForLoss", "interceptions", "forcedFumbles", "turnoverMargin", "takeaways"],
-   "a rank only where more of the figure is better");
+eq(ranked, ["pointsPerGame", "yardsPerGame", "rushYards", "completionPct", "yardsPerPass", "yardsPerRush", "passTds", "rushTds",
+            "sacks", "tacklesForLoss", "interceptions", "forcedFumbles"],
+   "a rank only where more of the figure is better, and ESPN's rank follows it");
 var tsOSU = TeamOS.espn.teamSeason(fx("espn-teamstats-osu-2026-reg.json"), null);
-eq(tsOSU.groups.map(function (g) { return g.label + ":" + g.rows.length; }), ["Offense:12", "Defense:4", "Special teams:6", "Turnovers and penalties:4"],
+eq(tsOSU.groups.map(function (g) { return g.label + ":" + g.rows.length; }), ["Offense:12", "Defense:4", "Special teams:6", "Turnovers and penalties:1"],
    "Ohio State, the same code; without the site payload only the allowed rows are missing, never shown as 0");
+
+console.log("teamos/cfbd.js: turnovers");
+var cf = TeamOS.cfbd;
+eq(cf.turnovers({ stats: { games: 7, turnovers: 2, turnoversOpponent: 16 } }), { margin: 14, takeaways: 16, giveaways: 2 },
+   "taken away less given away (Notre Dame 2026, as the NCAA counts it)");
+eq(cf.turnovers({ stats: { turnovers: 10 } }), { margin: null, takeaways: null, giveaways: 10 }, "half a margin is no margin: nothing is guessed");
+eq(cf.turnovers(null), { margin: null, takeaways: null, giveaways: null }, "no answer: nothing");
+eq([cf.signed(14), cf.signed(-6), cf.signed(0), cf.signed(null)], ["+14", "-6", "0", null], "a margin is printed with its sign; an even one is 0");
+var withT = cf.withTurnovers(tsND, { margin: 14, takeaways: 16, giveaways: 2 });
+eq(withT.groups.filter(function (g) { return g.id === "turnovers"; })[0].rows.map(function (r) { return [r.key, r.value, r.rank]; }),
+   [["turnoverMargin", "+14", null], ["takeaways", "16", null], ["giveaways", "2", null], ["penalties", "2.5 for 26.5 yards", null]],
+   "CFBD's rows go first in the turnovers group, with no rank, ahead of ESPN's penalties");
+ok(tsND.groups.filter(function (g) { return g.id === "turnovers"; })[0].rows.length === 1, "and the season it was given is not changed");
+eq(cf.withTurnovers(tsND, { margin: null, takeaways: null, giveaways: null }), tsND, "no CFBD figures: the season as it was");
+eq(cf.withTurnovers(tsND, null), tsND, "no CFBD answer: the same");
+var noGroup = cf.withTurnovers({ games: 7, groups: [{ id: "offense", label: "Offense", rows: [] }] }, { margin: -6, takeaways: 4, giveaways: 10 });
+eq(noGroup.groups.map(function (g) { return g.id + ":" + g.rows.length; }), ["offense:0", "turnovers:3"], "a season without the group gets one, last");
+
+console.log("teamos/cfbd.js: the FBS ranks Suite computes");
+var RB = { source: "cfbd-ranks", year: 2026, teams: 138, ranks: { "87": { passOffense: { rank: 55, tied: false }, turnoverMargin: { rank: 2, tied: true } },
+                                                                    "2426": { passOffense: { rank: 113, tied: false }, turnoverMargin: { rank: 111, tied: true } } } };
+eq(cf.ranksFor(RB, "87", 2026), { passOffense: { rank: 55, rankText: "55th" }, turnoverMargin: { rank: 2, rankText: "Tied-2nd" } },
+   "an ESPN team id's places, printed as ESPN prints its own");
+eq([cf.ranksFor(RB, 2426, 2026).passOffense.rankText, cf.ranksFor(RB, 2426, 2026).turnoverMargin.rankText], ["113th", "Tied-111th"], "113th and 111th, not 113rd");
+eq([cf.ranksFor(RB, "87", 2025), cf.ranksFor(RB, "9999", 2026), cf.ranksFor({ source: "cfbd-sp", year: 2026, ranks: {} }, "87", 2026), cf.ranksFor(null, "87")],
+   [null, null, null, null], "another season, a team it does not place, another answer, or none: no ranks");
+eq(cf.ranksFor({ source: "cfbd-ranks", year: 2026, ranks: { "87": { passOffense: { rank: 0 }, turnoverMargin: { rank: 1.5 } } } }, "87", 2026), {},
+   "a place that is not a place is dropped");
+var ranked2 = cf.withRanks(withT, cf.ranksFor(RB, "87", 2026));
+eq([rowOf(ranked2, "passYards").rank, rowOf(ranked2, "turnoverMargin").rank, rowOf(ranked2, "rushYards").rank],
+   ["55th", "Tied-2nd", rowOf(tsND, "rushYards").rank], "on the Stats screen: passing yards and the margin take those places; ESPN's FBS ranks stay");
+eq(rowOf(tsND, "passYards").rank, null, "and the season it was given is not changed");
+eq(cf.withRanks(tsND, null), tsND, "no ranks: the season as it was");
 eq(TeamOS.espn.teamSeason(fx("espn-teamstats-nd-2024-post.json"), null).games, 16,
    "the postseason payload is the whole season: Notre Dame 2024, 12 games and 4 in the CFP");
 eq(TeamOS.espn.teamSeason(null, null).groups, [], "nothing to show is no groups, not empty rows");

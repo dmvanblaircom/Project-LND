@@ -153,7 +153,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
       // initials are what is measured - also a real state).
       if (/^https:\/\/fonts\.(googleapis|gstatic)\.com\//.test(url)) return route.continue();
       // Team marks and player headshots (decision 0029) are provider-hosted.
-      if (process.env.ALLOW_PROVIDER_IMAGES && /^https:\/\/a\.espncdn\.com\/i\/(teamlogos|headshots)\//.test(url)) return route.continue();
+      if (process.env.ALLOW_PROVIDER_IMAGES && /^https:\/\/a\.espncdn\.com\/(i\/(teamlogos|headshots)\/|combiner\/i\?img=\/i\/teamlogos\/)/.test(url)) return route.continue();
       return route.abort();
     });
     return { context: context, page: page };

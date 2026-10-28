@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-27bigten";
+var VERSION = "suite-2026-10-28bigten";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -357,6 +357,37 @@ self.addEventListener("activate", function (e) {
   );
 });
 
+// Team marks (TeamOS.espn.mark): ESPN's, which tells the browser to keep one
+// for only three to five hours, so a fan's logos were fetched again on most
+// opens and arrived after the page (David, 2026-10-27). A mark almost never
+// changes, so this worker keeps each one it has fetched, under a name no
+// version owns (previousCaches never matches it), and answers from that copy
+// first. ESPN allows any origin (access-control-allow-origin: *), so the copy
+// is read as CORS, never opaque: it costs only its own few kilobytes of
+// storage. At most LOGO_MAX are kept; past that the oldest go first.
+var LOGOS = "suite-logos";
+var LOGO_MAX = 400;
+function isLogo(url) {
+  return url.hostname === "a.espncdn.com" &&
+         (/^\/i\/teamlogos\//.test(url.pathname) || (url.pathname === "/combiner/i" && /^\/i\/teamlogos\//.test(url.searchParams.get("img") || "")));
+}
+function logo(url) {
+  return caches.open(LOGOS).then(function (c) {
+    return c.match(url).then(function (hit) {
+      if (hit) return hit;
+      return fetch(new Request(url, { mode: "cors", credentials: "omit" })).then(function (res) {
+        if (res && res.ok) c.put(url, res.clone()).then(function () { return trimLogos(c); }).catch(function () {});
+        return res;
+      });
+    });
+  });
+}
+function trimLogos(c) {
+  return c.keys().then(function (keys) {
+    return Promise.all(keys.slice(0, Math.max(0, keys.length - LOGO_MAX)).map(function (k) { return c.delete(k); }));
+  });
+}
+
 function isShell(url) {
   if (url.origin === self.location.origin) {
     var p = url.pathname;
@@ -488,6 +519,13 @@ self.addEventListener("fetch", function (e) {
   if (e.request.method !== "GET") return;
   var url;
   try { url = new URL(e.request.url); } catch (err) { return; }
+
+  if (isLogo(url)) {
+    // the kept copy first; the network only for a mark not yet kept, and
+    // the browser's own fetch if that fails (an offline first sight)
+    e.respondWith(logo(url.href).catch(function () { return fetch(e.request); }));
+    return;
+  }
 
   if (isShell(url)) {
     // stale-while-revalidate

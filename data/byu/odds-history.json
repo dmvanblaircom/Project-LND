@@ -1,6 +1,6 @@
 {
 "team": "byu",
-"updated": "2026-10-27T21:07Z",
+"updated": "2026-10-28T00:37Z",
 "points": [
 {
 "t": "2026-10-27T15:07Z",
@@ -21,6 +21,13 @@
 "title": 1.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 39.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-28T00:37Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 41.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

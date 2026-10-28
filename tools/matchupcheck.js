@@ -48,15 +48,18 @@ vm.runInContext(lift("withDerived"), ctx, { filename: "withDerived" });
 
 // A pregame game, painted the way app.js paints Game before kickoff.
 // Yards allowed as the edge API answers them, through TeamOS.cfbd.
-function yards(games, rush, pass) {
-  return ctx.TeamOS.cfbd.yardsAllowed({ stats: { games: games, rushingYardsOpponent: rush, netPassingYardsOpponent: pass },
-                                        fetchedAt: "2026-10-01T12:00:00Z" });
+// Turnovers too (2026-10-27): what each side gave away and took away.
+function yards(games, rush, pass, given, taken) {
+  var json = { stats: { games: games, rushingYardsOpponent: rush, netPassingYardsOpponent: pass, turnovers: given, turnoversOpponent: taken },
+               fetchedAt: "2026-10-01T12:00:00Z" };
+  return { yards: ctx.TeamOS.cfbd.yardsAllowed(json), turnovers: ctx.TeamOS.cfbd.turnovers(json) };
 }
-var YA = yards(4, 420, 780), YB = yards(4, 610, 905);
+var YA = yards(4, 420, 780, 2, 8), YB = yards(4, 610, 905, 7, 5);
 function card(a, b, pa, pb, ya, yb) {
   ctx.__a = a; ctx.__b = b; ctx.__pa = pa; ctx.__pb = pb;
   ctx.__ya = arguments.length > 4 ? ya : YA; ctx.__yb = arguments.length > 5 ? yb : YB;
   ctx.__series = card.series || null; ctx.__kind = card.kind || null;
+  ctx.__ra = card.ranks ? card.ranks[0] : null; ctx.__rb = card.ranks ? card.ranks[1] : null;
   return vm.runInContext([
     '(function(){',
     '  var parts={}, host={ innerHTML:"", querySelector:function(q){',
@@ -68,7 +71,7 @@ function card(a, b, pa, pb, ya, yb) {
     '          series:__series||null, seriesKind:__kind||null };',
     '  Suite.game.paint(host, { team:{ name:"Notre Dame", abbr:"ND", markUrl:null }, oppMark:function(){ return null; },',
     '    game:g, detail:null, lifecycle:TeamOS.game.lifecycle(g), view:"details",',
-    '    preview:{ us:withDerived(__a,__pa,__ya), them:withDerived(__b,__pb,__yb) },',
+    '    preview:{ us:withDerived(__a,__pa,__ya,__ra), them:withDerived(__b,__pb,__yb,__rb) },',
     '    side:"us", open:{}, weather:null, now:new Date("2026-10-01T12:00:00Z") });',
     '  return parts.body.innerHTML;',
     '})()'].join("\n"), ctx);
@@ -115,7 +118,23 @@ eq([rows[1].away.win, rows[1].home.win], [true, false],
 console.log(" the rows the feed answers");
 eq([rows[0].away.value, rows[0].away.rank], ["40.0", "Tied-28th"], "points per game carries its rank");
 eq([rows[7].away.value, rows[7].home.value], ["7", "3"], "sacks is the defence's, both sides");
-eq([rows[8].away.value, rows[8].home.value], ["6", "-2"], "turnover margin keeps a negative");
+eq([rows[8].away.value, rows[8].home.value], ["+6", "-2"], "turnover margin is CFBD's, taken away less given away: a positive one says so, a negative one keeps its sign");
+eq([rows[8].away.rank, rows[8].home.rank], [null, null], "with no national rank: ESPN's does not follow the margin");
+eq(rowsOf(card(ND, OP, ndPA, 24.7, yards(4, 420, 780, 3, 3), YB))[8].away.value, "0", "an even margin prints 0, not a dash");
+var noTov = rowsOf(card(ND, OP, ndPA, 24.7, yards(4, 420, 780), yards(4, 610, 905)));
+ok(noTov.every(function (r) { return r.label !== "Turnover margin"; }), "no CFBD turnovers: the row goes rather than show ESPN's miscounted margin");
+
+console.log(" the FBS ranks Suite computes (decision 0037)");
+eq([rows[4].away.rank, rows[4].home.rank], [null, null], "without them, passing offense shows no rank: ESPN's counts all of Division I");
+var RB = { source: "cfbd-ranks", year: 2026, ranks: { "87": { passOffense: { rank: 48, tied: false }, turnoverMargin: { rank: 2, tied: true } },
+                                                      "127": { passOffense: { rank: 101, tied: false }, turnoverMargin: { rank: 88, tied: false } } } };
+card.ranks = [ctx.TeamOS.cfbd.ranksFor(RB, "87", 2026), ctx.TeamOS.cfbd.ranksFor(RB, "127", 2026)];
+var withR = rowsOf(card(ND, OP, ndPA, 24.7));
+card.ranks = null;
+eq([withR[4].away.rank, withR[4].home.rank, withR[8].away.rank, withR[8].home.rank], ["48th", "101st", "Tied-2nd", "88th"],
+   "with them, passing offense and the turnover margin carry Suite's own FBS places");
+eq([withR[4].away.value, withR[8].away.value], [rows[4].away.value, rows[8].away.value], "and the figures are the same ones");
+eq([withR[0].away.rank, withR[3].away.rank], [rows[0].away.rank, rows[3].away.rank], "ESPN's FBS ranks on the other rows stay");
 eq(rows.filter(function (r) { return r.away.win; }).map(function (r) { return r.label; }),
    ["Points per game", "Points allowed", "Total offense", "Passing offense", "Rushing defense", "Passing defense", "Sacks", "Turnover margin"],
    "Notre Dame is marked on every row where its displayed value is better");
@@ -148,8 +167,8 @@ eq([rows[5].away.value, rows[5].home.value, rows[6].away.value, rows[6].home.val
 eq([rows[5].away.rank, rows[6].home.rank, rows[5].away.win, rows[6].home.win], [null, null, true, false],
    "fewer yards allowed gets the mark without inventing a national rank");
 var noYards = rowsOf(card(ND, OP, ndPA, 24.7, null, null));
-eq(noYards.length, 7, "the edge API unreachable: both rows go, the card stands");
-ok(noYards.every(function (r) { return !/defense/.test(r.label); }), "and it is those two that went");
+eq(noYards.length, 6, "the edge API unreachable: its three rows go, the card stands");
+ok(noYards.every(function (r) { return !/defense|Turnover/.test(r.label); }), "and it is those three that went: the yards allowed and the turnover margin");
 var oneYards = rowsOf(card(ND, OP, ndPA, 24.7, YA, null));
 eq([oneYards[5].away.value, oneYards[5].home.value], ["105.0", "–"],
    "a school CFBD does not know: that side shows a dash, the row stays");
@@ -164,7 +183,7 @@ var keys=ND.map(function(r){ return r.key; });
 var valuesA=[42.3,8.3,416.8,141.8,275,53.8,145.5,13,7];
 var valuesB=[23.3,13.7,366,155,211,123,189.3,10,0];
 function screenshotRows(values){ return ND.map(function(r,i){ return Object.assign({},r,{ value:String(values[i]),rank:null,rankText:null }); }); }
-var shown=rowsOf(card(screenshotRows(valuesA),screenshotRows(valuesB),8.3,13.7,yards(1,53.8,145.5),yards(1,123,189.3)));
+var shown=rowsOf(card(screenshotRows(valuesA),screenshotRows(valuesB),8.3,13.7,yards(1,53.8,145.5,0,7),yards(1,123,189.3,0,0)));
 eq(shown.map(function(r){ return r.away.win ? "ND" : r.home.win ? "UNC" : null; }),
    ["ND","ND","ND","UNC","ND","ND","ND","ND","ND"], "all nine screenshot comparisons show the better team");
 var cmp=ctx.TeamOS.espn.matchupBetter;

@@ -1065,7 +1065,8 @@ TeamOS.espn = (function () {
     ["pointsAllowed", "Points allowed",   []],
     ["totalOffense",  "Total offense",    ["yardspergame","netyardspergame","totalyardspergame"]],
     ["rushOffense",   "Rushing offense",  ["rushing.rushingyardspergame","rushingyardspergame"]],
-    ["passOffense",   "Passing offense",  ["passing.netpassingyardspergame","netpassingyardspergame","passingyardspergame"]],
+    // Unranked: ESPN ranks it across all of Division I ("258th"; 2026-10-27).
+    ["passOffense",   "Passing offense",  ["passing.netpassingyardspergame","netpassingyardspergame","passingyardspergame"], { unranked:true }],
     // Yards allowed per game: ESPN's yardsAllowed is an unpopulated stub
     // (above), so these come from CollegeFootballData through Suite's edge
     // API (TeamOS.cfbd, W15). They replace Yards per play and Tackles for
@@ -1073,7 +1074,11 @@ TeamOS.espn = (function () {
     ["rushDefense",   "Rushing defense",  []],
     ["passDefense",   "Passing defense",  []],
     ["sacks",         "Sacks",            ["defensive.sacks"]],
-    ["turnoverMargin","Turnover margin",  ["turnoverdifferential","turnovermargin"]]
+    // Not ESPN's to answer: its margin matched the NCAA's own table for 10%
+    // of FBS teams, and its rank for it does not follow the margin (Notre
+    // Dame +8 "Tied-60th", Ohio State +8 "44th"; 2026-10-27). It comes from
+    // CollegeFootballData (TeamOS.cfbd.turnovers), with no rank.
+    ["turnoverMargin","Turnover margin",  []]
   ];
   // Flatten every category into one map so lookups do not care where ESPN
   // filed a stat this year. Each stat is keyed twice: qualified by its
@@ -1095,7 +1100,8 @@ TeamOS.espn = (function () {
     ["offense", "Offense", [
       ["pointsPerGame", "Points per game",        "core:scoring.totalpointspergame+rank"],
       ["yardsPerGame",  "Total yards per game",   "core:passing.yardspergame+rank"],
-      ["passYards",     "Passing yards per game", "core:passing.netpassingyardspergame+rank"],
+      // no rank: ESPN ranks it across all of Division I ("258th"; 2026-10-27)
+      ["passYards",     "Passing yards per game", "core:passing.netpassingyardspergame"],
       ["rushYards",     "Rushing yards per game", "core:rushing.rushingyardspergame+rank"],
       ["completionPct", "Completion percentage",  "core:passing.completionpct+rank", null, "%"],
       ["yardsPerPass",  "Yards per pass",         "core:passing.yardsperpassattempt+rank"],
@@ -1124,10 +1130,10 @@ TeamOS.espn = (function () {
       ["kickReturns",   "Kick return average",  "core:returning.yardsperkickreturn"],
       ["puntReturns",   "Punt return average",  "core:returning.yardsperpuntreturn"]
     ]],
+    // Turnover margin, takeaways and giveaways are not ESPN's: its fumble
+    // counts are short (Notre Dame 2026: 10 takeaways to the NCAA's 16), so
+    // they come from CollegeFootballData (TeamOS.cfbd.withTurnovers).
     ["turnovers", "Turnovers and penalties", [
-      ["turnoverMargin","Turnover margin",      function(c){ var v=num(c, "miscellaneous.turnoverdifferential"); return v==null ? null : (v>0 ? "+" : "")+v; }, "miscellaneous.turnoverdifferential"],
-      ["takeaways",     "Takeaways",            "core:miscellaneous.totaltakeaways+rank"],
-      ["giveaways",     "Giveaways",            "core:miscellaneous.totalgiveaways"],
       ["penalties",     "Penalties per game",   function(c){ return perGame(c, "miscellaneous.totalpenalties", "miscellaneous.totalpenaltyyards"); }]
     ]]
   ];
@@ -1347,6 +1353,11 @@ TeamOS.espn = (function () {
     teamStatsUrl: function(key){
       return SITE+"/teams/"+key+"/statistics";
     },
+    // The school the site API's team statistics are for ("Notre Dame"), as
+    // CollegeFootballData names it too (TeamOS.cfbd); "" when it says none.
+    teamSchool: function(site){
+      return str((site && site.team && site.team.location) || "");
+    },
     rankingsUrl: function(){
       return SITE+"/rankings";
     },
@@ -1356,10 +1367,14 @@ TeamOS.espn = (function () {
     // same URL ESPN's own payloads carry as team.logo. `dark` is the variant
     // drawn for dark backgrounds. No id, no mark: the view shows its own
     // fallback (the program's initials), never a broken image.
-    mark: function(providerId, dark){
+    // A mark is drawn at 3.5rem at most, so it is asked for at 180 pixels -
+    // ESPN's own resizer, 3 to 8 KB rather than the 20 to 43 KB of its 500;
+    // `full` is the 500, for Home's watermark, drawn up to 25rem (2026-10-27).
+    mark: function(providerId, dark, full){
       var id=String(providerId==null?"":providerId);
       if(!/^[0-9]+$/.test(id)) return null;
-      return "https://a.espncdn.com/i/teamlogos/ncaa/"+(dark?"500-dark":"500")+"/"+id+".png";
+      var path="/i/teamlogos/ncaa/"+(dark?"500-dark":"500")+"/"+id+".png";
+      return full ? "https://a.espncdn.com"+path : "https://a.espncdn.com/combiner/i?img="+path+"&w=180&h=180";
     },
 
     // ESPN's roster payload -> RosterGroup[]: { key, label, players }. Either a
@@ -1496,10 +1511,11 @@ TeamOS.espn = (function () {
       return PREVIEW_ROWS.map(function(r){
         var names=r[2], hit=null;
         for(var i=0;i<names.length&&!hit;i++) hit=map[names[i]]||null;
+        var ranked=hit && !(r[3] && r[3].unranked);
         return { key:r[0], label:r[1],
                  value: hit ? str(hit.display) : null,
-                 rank: hit ? hit.rank : null,
-                 rankText: hit ? hit.rankText : null };
+                 rank: ranked ? hit.rank : null,
+                 rankText: ranked ? hit.rankText : null };
       });
     },
 

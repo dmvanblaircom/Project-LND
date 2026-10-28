@@ -237,6 +237,21 @@ function fixture(url) {
   // checkDelay: sw.js itself (the update check).
   // deaf: the open page is one from before the page reloaded itself - it
   // ignores the worker's word, so the worker must reload it.
+  var SW_TRACE = "(" + function () {
+    // to the check's own server: a worker's console does not reach the check
+    function log() { var t = "LW|" + (typeof VERSION === "undefined" ? "?" : VERSION.slice(-5)) + "|" + [].join.call(arguments, " "); fetch("/__trace?" + encodeURIComponent(t)).catch(function () {}); }
+    function who(c) { return c.id.slice(0, 6) + ":" + c.url.replace(/^[^?#]*\//, ""); }
+    self.addEventListener("install", function () { log("install"); });
+    self.addEventListener("activate", function () { log("activate"); });
+    if (self.serviceWorker) self.serviceWorker.addEventListener("statechange", function () { log("state", self.serviceWorker.state); });
+    var match = Clients.prototype.matchAll, claim = Clients.prototype.claim, nav = WindowClient.prototype.navigate;
+    Clients.prototype.matchAll = function (o) { return match.call(this, o).then(function (l) { log("windows", l.map(who).join(", ") || "none"); return l; }); };
+    Clients.prototype.claim = function () { log("claim"); return claim.call(this); };
+    WindowClient.prototype.navigate = function (u) {
+      var c = who(this); log("navigate", c);
+      return nav.call(this, u).then(function (r) { log("navigated", c, r ? "ok" : "null"); return r; }, function (e) { log("navigate failed", c, e && e.message); throw e; });
+    };
+  } + ")();\n";
   async function updateOpen(install, checkDelay, deaf) {
     var os = require("os");
     var dir = fs.mkdtempSync(path.join(os.tmpdir(), "launch-upd-"));
@@ -246,7 +261,12 @@ function fixture(url) {
       if (src.indexOf(hush) < 0) throw new Error("app.js no longer has the reload handler this check silences");
       fs.writeFileSync(aj, src.replace(hush, "return;"));
     }
-    var srv = serve(dir);
+    // The worker's side of it, for the log when a check here fails: what it
+    // was told, what windows it found, and what came of each reload it drove.
+    var swPath = path.join(dir, "sw.js");
+    fs.writeFileSync(swPath, SW_TRACE + fs.readFileSync(swPath, "utf8"));
+    var srv = serve(dir), trace = [];
+    function note(t) { if (/^L[EW]\|/.test(t)) trace.push(Date.now() % 100000 + " " + t); }
     // Both holds are at the server, which every client goes through - the
     // page, the browser's update check and the worker's own install alike;
     // Playwright routes a worker's requests on some runs and not others, so a
@@ -257,6 +277,7 @@ function fixture(url) {
     var handle = srv.listeners("request")[0], held = 0;
     srv.removeAllListeners("request");
     srv.on("request", function (req, res) {
+      if (/^\/__trace\?/.test(req.url)) { note(decodeURIComponent(req.url.slice(9))); res.writeHead(204); res.end(); return; }
       // checkDelay holds the first sw.js fetch only - the update check under
       // test. A second check of the same version (the browser's own, on the
       // reload's navigation) is the double-install issue, not this case.
@@ -277,7 +298,7 @@ function fixture(url) {
     });
     var page = await ctx.newPage(), frames = [];
     var reveals = {};
-    page.on("console", function (m) { var t = m.text(); if (t.indexOf("LF|") === 0) frames.push(t.split("|")); if (t.indexOf("LV|") === 0) reveals[t.split("|")[1]] = t.split("|")[2]; if (process.env.LAUNCH_DEBUG && /^L[EF]\|/.test(t)) console.log("    " + Date.now() % 100000 + " " + t); });
+    page.on("console", function (m) { var t = m.text(); note(t); if (t.indexOf("LF|") === 0) frames.push(t.split("|")); if (t.indexOf("LV|") === 0) reveals[t.split("|")[1]] = t.split("|")[2]; if (process.env.LAUNCH_DEBUG && /^L[EF]\|/.test(t)) console.log("    " + Date.now() % 100000 + " " + t); });
     await page.addInitScript(function () {
       var doc = Math.random().toString(36).slice(2, 7), t0 = Date.now(), prev = "";
       if (navigator.serviceWorker) {
@@ -314,7 +335,8 @@ function fixture(url) {
     fs.rmSync(dir, { recursive: true, force: true });
     var docs = []; frames.forEach(function (f) { if (docs.indexOf(f[1]) === -1) docs.push(f[1]); });
     function of(d) { return frames.filter(function (f) { return f[1] === d; }).map(function (f) { return f[2]; }); }
-    return { docs: docs, of: of, url: finalUrl, reveal: function (d) { return reveals[d] || "no pagereveal"; } };
+    return { docs: docs, of: of, url: finalUrl, reveal: function (d) { return reveals[d] || "no pagereveal"; },
+             trace: function () { console.log("      " + trace.join("\n      ")); } };
   }
 
   console.log("a clock that moved back");
@@ -331,6 +353,7 @@ function fixture(url) {
   var u1 = await updateOpen(4000);
   var first = u1.of(u1.docs[0]), last = u1.of(u1.docs[u1.docs.length - 1]);
   ok(u1.docs.length === 2, "the worker reloads the page once (" + u1.docs.length + " documents)");
+  if (u1.docs.length !== 2) u1.trace();
   ok(first.length && first.every(function (c) { return c === "1.00"; }), "the launch holds over the page until that reload: it never starts to lift (" + first.join(",") + ")");
   ok(last[0] === "1.00" && last[last.length - 1] === "0.00", "the reloaded page carries the same launch on and lifts it once");
   ok(u1.reveal(u1.docs[u1.docs.length - 1]) === "swap",
@@ -342,6 +365,7 @@ function fixture(url) {
   var u4last = u4.of(u4.docs[u4.docs.length - 1]);
   ok(u4.docs.length === 2 && u4last[u4last.length - 1] === "0.00",
      "a page that does not answer is still reloaded, once, by the worker (" + u4.docs.length + " documents)");
+  if (u4.docs.length !== 2) u4.trace();
   // An install of 11 seconds outlasts that wait.
   var u2 = await updateOpen(11000);
   var slowLast = u2.of(u2.docs[u2.docs.length - 1]);
