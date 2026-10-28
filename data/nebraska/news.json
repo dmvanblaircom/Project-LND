@@ -1,7 +1,16 @@
 {
  "team": "nebraska",
- "updated": "2026-10-28T13:38:23.426884+00:00",
+ "updated": "2026-10-28T15:38:36.504011+00:00",
  "items": [
+  {
+   "title": "HuskerOnline Live RSS Chat: October 28",
+   "link": "https://on3.com/teams/nebraska-cornhuskers/news/huskeronline-live-rss-chat-october-28/",
+   "source": "On3",
+   "summary": "HuskerOnline members can get all of their Nebraska athletics and recruiting questions answered by our staff in our weekly Live RSS Chat.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2023/01/10102209/image-9.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-28T15:00:47+00:00"
+  },
   {
    "title": "Where Football Polls and Metrics Have Nebraska Placed Going Into Week 9",
    "link": "https://www.si.com/college/nebraska/football/where-football-polls-and-metrics-have-nebraska-placed-going-into-week-9?utm_source=RSS",
@@ -37,6 +46,15 @@
    "image": "https://platform.cornnation.com/wp-content/uploads/sites/67/2026/10/gettyimages-2301844916.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-10-28T00:26:41+00:00"
+  },
+  {
+   "title": "Nebraska Football: We\u2019re a Second Half of the Season Team",
+   "link": "https://www.cornnation.com/football/104158/nebraska-football-were-a-second-half-of-the-season-team",
+   "source": "Corn Nation",
+   "summary": "Now that we\u2019ve all had the bye week to calm down (I know, I couldn\u2019t keep a straight face either), we can look forward to the Halloween matchup against Washington and the dreaded \u201cNebraska football in November\u201d. So far, the first half of the season by record has gone exactly like we expected, 5-2. This [&#8230;]",
+   "image": "https://platform.cornnation.com/wp-content/uploads/sites/67/2026/10/2026-Game-7-Oregon-8.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-28T00:24:28+00:00"
   },
   {
    "title": "Nebraska vs. Washington Preview and Prediction",
@@ -325,15 +343,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_7284,h_4097,x_312,y_716/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_huskers/01m5mmfv7tbwcpfq5t85.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-23T15:58:48+00:00"
-  },
-  {
-   "title": "Tunnel Talk: The latest intel on Nebraska football, recruiting, and more",
-   "link": "https://on3.com/teams/nebraska-cornhuskers/news/tunnel-talk-the-latest-intel-on-nebraska-football-recruiting-and-more-18/",
-   "source": "On3",
-   "summary": "Get all of the team and recruiting buzz as Nebraska looks to regroup and maximize a much-needed bye week.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2023/01/12114324/IMG_1351.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-23T11:00:00+00:00"
   }
  ]
 }
