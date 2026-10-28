@@ -1,7 +1,33 @@
-# 2026-10-28, Phase 2: where the SEC posts its availability reports.
-https://www.secsports.com/ | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*
-https://www.secsports.com/sport/football | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*
-https://www.secsports.com/football | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*
-https://www.secsports.com/availability-report | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*|<title>[^<]*
-https://www.secsports.com/football/availability-report | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*|<title>[^<]*
-https://www.secsports.com/player-availability-report | href="[^"]*[Aa]vailab[^"]*"|hdintelligence[^"' ]*|<title>[^<]*
+# 2026-10-28, Phase 2: the SEC's reports page, roster pages, stadium cities.
+https://www.secsports.com/fbreports | <title>[^<]*|[Aa]vailability [Rr]eport[^<]{0,80}|hdintelligence[^"' ]*
+https://rolltide.com/sports/football/roster | <title>[^<]*
+https://arkansasrazorbacks.com/sports/football/roster | <title>[^<]*
+https://auburntigers.com/sports/football/roster | <title>[^<]*
+https://floridagators.com/sports/football/roster | <title>[^<]*
+https://georgiadogs.com/sports/football/roster | <title>[^<]*
+https://ukathletics.com/sports/football/roster | <title>[^<]*
+https://lsusports.net/sports/football/roster | <title>[^<]*
+https://hailstate.com/sports/football/roster | <title>[^<]*
+https://mutigers.com/sports/football/roster | <title>[^<]*
+https://soonersports.com/sports/football/roster | <title>[^<]*
+https://olemisssports.com/sports/football/roster | <title>[^<]*
+https://gamecocksonline.com/sports/football/roster | <title>[^<]*
+https://utsports.com/sports/football/roster | <title>[^<]*
+https://texaslonghorns.com/sports/football/roster | <title>[^<]*
+https://12thman.com/sports/football/roster | <title>[^<]*
+https://vucommodores.com/sports/football/roster | <title>[^<]*
+https://geocoding-api.open-meteo.com/v1/search?name=Tuscaloosa&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Fayetteville&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Auburn&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Gainesville&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Athens&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Lexington&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Baton+Rouge&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Starkville&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Columbia&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Norman&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Oxford&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Knoxville&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Austin&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=College+Station&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
+https://geocoding-api.open-meteo.com/v1/search?name=Nashville&count=5&countryCode=US | "name":"[^"]*","latitude":[0-9.-]+,"longitude":[0-9.-]+|"admin1":"[^"]*"
