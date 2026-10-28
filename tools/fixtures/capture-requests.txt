@@ -132,3 +132,37 @@ schedule-264 washington-review
 news-264 washington-review
 schedule-275 wisconsin-review
 news-275 wisconsin-review
+
+# Phase 2, the SEC (2026-10-28): schedules and news for the review sheet
+schedule-333 alabama-review
+news-333 alabama-review
+schedule-8 arkansas-review
+news-8 arkansas-review
+schedule-2 auburn-review
+news-2 auburn-review
+schedule-57 florida-review
+news-57 florida-review
+schedule-61 georgia-review
+news-61 georgia-review
+schedule-96 kentucky-review
+news-96 kentucky-review
+schedule-99 lsu-review
+news-99 lsu-review
+schedule-344 mississippi-state-review
+news-344 mississippi-state-review
+schedule-142 missouri-review
+news-142 missouri-review
+schedule-201 oklahoma-review
+news-201 oklahoma-review
+schedule-145 ole-miss-review
+news-145 ole-miss-review
+schedule-2579 south-carolina-review
+news-2579 south-carolina-review
+schedule-2633 tennessee-review
+news-2633 tennessee-review
+schedule-251 texas-review
+news-251 texas-review
+schedule-245 texas-am-review
+news-245 texas-am-review
+schedule-238 vanderbilt-review
+news-238 vanderbilt-review
