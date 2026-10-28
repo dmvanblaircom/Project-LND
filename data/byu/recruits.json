@@ -96,7 +96,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 78,
-   "stateRank": 19,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 35,
-   "stateRank": 21,
+   "stateRank": 22,
    "status": "Verbal"
   },
   {
@@ -161,7 +161,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 87,
-   "stateRank": 26,
+   "stateRank": 27,
    "status": "Verbal"
   },
   {
@@ -174,7 +174,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 83,
-   "stateRank": 24,
+   "stateRank": 25,
    "status": "Verbal"
   },
   {
@@ -186,7 +186,7 @@
    "state": "NV",
    "grade": 73,
    "rank": null,
-   "positionRank": 118,
+   "positionRank": 119,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 223,
-   "stateRank": 28,
+   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-27T20:37Z"
+ "fetchedAt": "2026-10-28T16:38Z"
 }
