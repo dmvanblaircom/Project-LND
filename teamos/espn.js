@@ -1073,7 +1073,10 @@ TeamOS.espn = (function () {
     ["rushDefense",   "Rushing defense",  []],
     ["passDefense",   "Passing defense",  []],
     ["sacks",         "Sacks",            ["defensive.sacks"]],
-    ["turnoverMargin","Turnover margin",  ["turnoverdifferential","turnovermargin"]]
+    // Signed, and never ranked: ESPN's rank for it does not follow the
+    // margin (2026-10-27: Notre Dame +8 "Tied-60th", Ohio State +8 "44th",
+    // Navy -7 "Tied-58th", Indiana +2 "Tied-109th").
+    ["turnoverMargin","Turnover margin",  ["turnoverdifferential","turnovermargin"], { signed:true, unranked:true }]
   ];
   // Flatten every category into one map so lookups do not care where ESPN
   // filed a stat this year. Each stat is keyed twice: qualified by its
@@ -1125,7 +1128,7 @@ TeamOS.espn = (function () {
       ["puntReturns",   "Punt return average",  "core:returning.yardsperpuntreturn"]
     ]],
     ["turnovers", "Turnovers and penalties", [
-      ["turnoverMargin","Turnover margin",      function(c){ var v=num(c, "miscellaneous.turnoverdifferential"); return v==null ? null : (v>0 ? "+" : "")+v; }, "miscellaneous.turnoverdifferential"],
+      ["turnoverMargin","Turnover margin",      function(c){ var v=num(c, "miscellaneous.turnoverdifferential"); return v==null ? null : (v>0 ? "+" : "")+v; }],
       ["takeaways",     "Takeaways",            "core:miscellaneous.totaltakeaways+rank"],
       ["giveaways",     "Giveaways",            "core:miscellaneous.totalgiveaways"],
       ["penalties",     "Penalties per game",   function(c){ return perGame(c, "miscellaneous.totalpenalties", "miscellaneous.totalpenaltyyards"); }]
@@ -1496,10 +1499,12 @@ TeamOS.espn = (function () {
       return PREVIEW_ROWS.map(function(r){
         var names=r[2], hit=null;
         for(var i=0;i<names.length&&!hit;i++) hit=map[names[i]]||null;
-        return { key:r[0], label:r[1],
-                 value: hit ? str(hit.display) : null,
-                 rank: hit ? hit.rank : null,
-                 rankText: hit ? hit.rankText : null };
+        var how=r[3]||{}, ranked=hit && !how.unranked;
+        var value=hit ? str(hit.display) : null;
+        if(value!=null && how.signed && typeof hit.value==="number" && hit.value>0 && value.charAt(0)!=="+") value="+"+value;
+        return { key:r[0], label:r[1], value: value,
+                 rank: ranked ? hit.rank : null,
+                 rankText: ranked ? hit.rankText : null };
       });
     },
 

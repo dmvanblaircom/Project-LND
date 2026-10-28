@@ -643,7 +643,9 @@ eq([row(nd, "totalOffense").value, row(nd, "rushOffense").value, row(nd, "passOf
    "the yardage rows");
 eq([row(nd, "rushDefense").value, row(nd, "passDefense").value, row(nd, "rushDefense").rank], [null, null, null],
    "yards allowed is not ESPN's to answer (its yardsAllowed is a stub): null, for TeamOS.cfbd to fill");
-eq([nd[8].value, op[8].value], ["6","-2"], "turnover margin keeps a negative");
+eq([nd[8].value, op[8].value], ["+6","-2"], "turnover margin keeps a negative, and says a positive one is");
+eq([nd[8].rank, nd[8].rankText, op[8].rank, op[8].rankText], [null, null, null, null],
+   "and carries no rank: ESPN's does not follow the margin (+8 \"Tied-60th\" and \"44th\", -7 \"Tied-58th\")");
 ok(!/splits|categories|rankDisplayValue|espn/i.test(JSON.stringify(nd)), "carries no ESPN keys or names");
 
 console.log(" the sacks collision");
@@ -1454,15 +1456,15 @@ eq([rowOf(tsND, "sacks").value, rowOf(tsND, "sacks").rank], ["13", "Tied-10th"],
 eq(rowOf(tsND, "thirdDowns"), { key: "thirdDowns", label: "Third-down conversions", value: "17 of 41 (41.5%)", rank: null },
    "third downs as made of attempted, with no rank (ESPN never fills it)");
 eq(rowOf(tsND, "possession").value, "31:05", "time of possession per game, from the season's seconds");
-eq([rowOf(tsND, "turnoverMargin").value, rowOf(tsND, "turnoverMargin").rank], ["+7", "Tied-10th"], "a positive margin says so");
+eq([rowOf(tsND, "turnoverMargin").value, rowOf(tsND, "turnoverMargin").rank], ["+7", null], "a positive margin says so, with no rank (ESPN's does not follow it)");
 eq([rowOf(tsND, "penalties").value, rowOf(tsND, "penalties").rank], ["2.5 for 26.5 yards", null],
    "penalties per game, with no rank: ESPN ranks the raw count, so the fewest would read last");
 var shown = JSON.stringify(tsND);
 ok(!/2075|Tied-289th/.test(shown), "none of ESPN's stub values or ranks reaches the screen");
 var ranked = []; tsND.groups.forEach(function (g) { g.rows.forEach(function (r) { if (r.rank) ranked.push(r.key); }); });
 eq(ranked, ["pointsPerGame", "yardsPerGame", "passYards", "rushYards", "completionPct", "yardsPerPass", "yardsPerRush", "passTds", "rushTds",
-            "sacks", "tacklesForLoss", "interceptions", "forcedFumbles", "turnoverMargin", "takeaways"],
-   "a rank only where more of the figure is better");
+            "sacks", "tacklesForLoss", "interceptions", "forcedFumbles", "takeaways"],
+   "a rank only where more of the figure is better, and ESPN's rank follows it");
 var tsOSU = TeamOS.espn.teamSeason(fx("espn-teamstats-osu-2026-reg.json"), null);
 eq(tsOSU.groups.map(function (g) { return g.label + ":" + g.rows.length; }), ["Offense:12", "Defense:4", "Special teams:6", "Turnovers and penalties:4"],
    "Ohio State, the same code; without the site payload only the allowed rows are missing, never shown as 0");
