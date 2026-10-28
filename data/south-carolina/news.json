@@ -1,7 +1,25 @@
 {
  "team": "south-carolina",
- "updated": "2026-10-28T17:39:01.255641+00:00",
+ "updated": "2026-10-28T19:39:19.497896+00:00",
  "items": [
+  {
+   "title": "Wednesdays with Wes: That one was for Gamecock Nation",
+   "link": "https://on3.com/teams/south-carolina-gamecocks/news/wednesdays-with-wes-that-one-was-for-gamecock-nation/",
+   "source": "On3",
+   "summary": "South Carolina fans witnessed something at Williams-Brice Stadium on Saturday that they've never seen before.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28142021/south-carolina-gamecocks-fans.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-28T19:22:22+00:00"
+  },
+  {
+   "title": "Joyce Edwards Named to Small Forward Watch List",
+   "link": "https://gamecocksonline.com/news/2026/10/28/joyce-edwards-named-to-small-forward-watch-list/",
+   "source": "South Carolina Athletics",
+   "summary": "",
+   "image": "https://storage.googleapis.com/gamecocksonline-com/2026/10/amt-cd3740352588dea434dcae4158b13bb86a0bde8a-9ff2ffa2-miller_preseasonwatchlist_edwards-scaled.jpg",
+   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
+   "published": "2026-10-28T17:00:07+00:00"
+  },
   {
    "title": "Details you may have missed: South Carolina vs. Tennessee",
    "link": "https://on3.com/teams/south-carolina-gamecocks/news/details-you-may-have-missed-south-carolina-vs-tennessee/",
@@ -46,6 +64,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24194706/South-Carolina-afi-hookly-3.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-28T14:00:00+00:00"
+  },
+  {
+   "title": "2026 Hall of Fame Profile \u2013 Tomas Peribonio",
+   "link": "https://gamecocksonline.com/news/2026/10/28/2026-hall-of-fame-profile-tomas-peribonio/",
+   "source": "South Carolina Athletics",
+   "summary": "",
+   "image": "https://storage.googleapis.com/gamecocksonline-com/2026/10/amt-04025d7374241c318ab5c257b6aa805590b5c427-a0eb1cf3-peribonioquotegraphicwebsite.jpg",
+   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
+   "published": "2026-10-28T13:00:12+00:00"
   },
   {
    "title": "The 'SEC flu' is real this season. What makes South Carolina capable of avoiding it?",
@@ -93,6 +120,24 @@
    "published": "2026-10-27T23:39:37+00:00"
   },
   {
+   "title": "Videos: Tuesday Football Media Availability (Oklahoma) 10/27/26",
+   "link": "https://gamecocksonline.com/news/2026/10/27/videos-tuesday-football-media-availability-oklahoma-10-27-26/",
+   "source": "South Carolina Athletics",
+   "summary": "",
+   "image": "https://storage.googleapis.com/gamecocksonline-com/2026/08/amt-faf40e65f8bdea609cb09c70332078814b862dbc-ef1a507d-team-press-conference_football.png",
+   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
+   "published": "2026-10-27T21:53:28+00:00"
+  },
+  {
+   "title": "Gamecocks in the NFL \u2013 Week 7",
+   "link": "https://gamecocksonline.com/news/2026/10/27/gamecocks-in-the-nfl-week-7/",
+   "source": "South Carolina Athletics",
+   "summary": "",
+   "image": "https://storage.googleapis.com/gamecocksonline-com/2026/10/amt-7a5fa953f4a2d71d90a6f651e4df9823b03ac935-c5d1cff6-usatsi_30183901.jpg",
+   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
+   "published": "2026-10-27T19:39:11+00:00"
+  },
+  {
    "title": "South Carolina offensive lineman earns Outland Trophy National Player of the Week honors",
    "link": "https://on3.com/teams/south-carolina-gamecocks/news/south-carolina-offensive-lineman-earns-outland-trophy-player-of-the-week-honors/",
    "source": "On3",
@@ -102,11 +147,20 @@
    "published": "2026-10-27T18:15:59+00:00"
   },
   {
+   "title": "Hay Tabbed Outland Trophy National Player of the Week",
+   "link": "https://gamecocksonline.com/news/2026/10/27/hay-tabbed-outland-trophy-national-player-of-the-week/",
+   "source": "South Carolina Athletics",
+   "summary": "",
+   "image": "https://storage.googleapis.com/gamecocksonline-com/2026/10/amt-e8e4b909b49344c1bb91b5ae6c7d6d330b2d90ef-6213f889-fb_tenn_allred_26_1q0a0769.jpg",
+   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
+   "published": "2026-10-27T18:00:33+00:00"
+  },
+  {
    "title": "Tessa Johnson Named to Shooting Guard Watch List",
    "link": "https://gamecocksonline.com/news/2026/10/27/tessa-johnson-named-to-shooting-guard-watch-list/",
    "source": "South Carolina Athletics",
    "summary": "",
-   "image": null,
+   "image": "https://storage.googleapis.com/gamecocksonline-com/2026/10/amt-80d3a8aa2ac99593feca86888da853ca873f5722-ccd3e9c4-amd_preseasonwatchlist_johnson-scaled.jpg",
    "sourceLogo": "https://gamecocksonline.com/favicon.ico",
    "published": "2026-10-27T17:00:03+00:00"
   },
@@ -120,38 +174,20 @@
    "published": "2026-10-27T14:45:00+00:00"
   },
   {
-   "title": "Watch Live: Shane Beamer Weekly News Conference (Oklahoma) \u2013 Beginning at 1:00 P.M.",
-   "link": "https://gamecocksonline.com/news/2026/10/27/watch-live-shane-beamer-weekly-news-conference-oklahoma-beginning-at-100-p-m/",
-   "source": "South Carolina Athletics",
-   "summary": "",
-   "image": null,
-   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
-   "published": "2026-10-27T13:12:16+00:00"
-  },
-  {
    "title": "2026 Hall of Fame Profile \u2013 Bert Sorin",
    "link": "https://gamecocksonline.com/news/2026/10/27/2026-hall-of-fame-profile-bert-sorin/",
    "source": "South Carolina Athletics",
    "summary": "",
-   "image": null,
+   "image": "https://storage.googleapis.com/gamecocksonline-com/2026/10/amt-30c865c701003056f87a85c630fed76f0687b32f-288a7e4f-bertsorinquotegraphic_website.jpg",
    "sourceLogo": "https://gamecocksonline.com/favicon.ico",
    "published": "2026-10-27T13:00:00+00:00"
-  },
-  {
-   "title": "South Carolina's LaNorris Sellers named a Davey O'Brien QB of the Week",
-   "link": "https://on3.com/teams/south-carolina-gamecocks/news/south-carolina-football-lanorris-sellers-davey-obrien-8-tennessee-2026/",
-   "source": "On3",
-   "summary": "South Carolina quarterback LaNorris Sellers has earned another Davey O'Brien Great 8 selection for his strong play against Tennessee.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24194706/South-Carolina-afi-hookly-3.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-27T11:45:00+00:00"
   },
   {
    "title": "Sellers Repeats as Davey O\u2019Brien Great 8 Quarterback of the Week",
    "link": "https://gamecocksonline.com/news/2026/10/26/sellers-repeats-as-davey-obrien-great-8-quarterback-of-the-week/",
    "source": "South Carolina Athletics",
    "summary": "",
-   "image": null,
+   "image": "https://storage.googleapis.com/gamecocksonline-com/2026/10/amt-aa6ac42f540fb9cd7d8d4c94efdafe2110a6babc-5c74809f-fb_tenn_allred_26_1q0a1072.jpg",
    "sourceLogo": "https://gamecocksonline.com/favicon.ico",
    "published": "2026-10-27T00:12:30+00:00"
   },
@@ -163,42 +199,6 @@
    "image": null,
    "sourceLogo": "https://gamecocksonline.com/favicon.ico",
    "published": "2026-10-26T18:03:07+00:00"
-  },
-  {
-   "title": "Orsan/Hay Earn SEC Player of the Week Honors",
-   "link": "https://gamecocksonline.com/news/2026/10/26/orsan-hay-earn-sec-player-of-the-week-honors/",
-   "source": "South Carolina Athletics",
-   "summary": "",
-   "image": null,
-   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
-   "published": "2026-10-26T16:08:43+00:00"
-  },
-  {
-   "title": "2026 Hall of Fame Profile \u2013 Sabrina D\u2019Angelo",
-   "link": "https://gamecocksonline.com/news/2026/10/26/2026-hall-of-fame-profile-sabrina-dangelo/",
-   "source": "South Carolina Athletics",
-   "summary": "",
-   "image": null,
-   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
-   "published": "2026-10-26T14:00:45+00:00"
-  },
-  {
-   "title": "Former Gamecock Markeshia Grant Honored for Giving Back",
-   "link": "https://gamecocksonline.com/news/2026/10/26/former-gamecock-markeshia-grant-honored-for-giving-back/",
-   "source": "South Carolina Athletics",
-   "summary": "",
-   "image": null,
-   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
-   "published": "2026-10-26T12:30:54+00:00"
-  },
-  {
-   "title": "Gamecocks Close Fall Slate with Runner-up Finish",
-   "link": "https://gamecocksonline.com/news/2026/10/25/gamecocks-close-fall-slate-with-runner-up-finish/",
-   "source": "South Carolina Athletics",
-   "summary": "",
-   "image": null,
-   "sourceLogo": "https://gamecocksonline.com/favicon.ico",
-   "published": "2026-10-26T01:13:19+00:00"
   },
   {
    "title": "FINAL SCORE: Gamecocks Win in a Thriller against Vols, 27-24",

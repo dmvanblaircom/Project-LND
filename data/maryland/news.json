@@ -1,13 +1,13 @@
 {
  "team": "maryland",
- "updated": "2026-10-28T17:38:22.917317+00:00",
+ "updated": "2026-10-28T19:38:25.512101+00:00",
  "items": [
   {
    "title": "Maryland Athletics Partners With TurnkeyZRG on National Football Head Coach Search",
    "link": "https://umterps.com/news/2026/10/28/maryland-athletics-partners-with-turnkeyzrg-on-national-football-head-coach-search",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Maryland Football Flags \" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/240831_mlm_fb_vs.uconn_1957.jpg\" /><br /><br />Maryland Athletics has partnered with leading executive search firm TurnkeyZRG to assist with their national pursuit for the next head coach of the Maryland football program.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/28/240831_mlm_fb_vs.uconn_1957.jpg",
+   "image": "https://umterps.com/images/2026/10/28/240831_mlm_fb_vs.uconn_1957.jpg?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-28T17:00:00+00:00"
   },
@@ -70,7 +70,7 @@
    "link": "https://umterps.com/news/2026/10/27/football-for-the-love-of-the-players-and-the-place-he-calls-home",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Aazaar Abdul-Rahim Feature Graphic\" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/27/Aazaar_Abdul-Rahim_FeatureWebsite.jpg\" /><br /><br />",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/27/Aazaar_Abdul-Rahim_FeatureWebsite.jpg",
+   "image": "https://umterps.com/images/2026/10/27/Aazaar_Abdul-Rahim_FeatureWebsite.jpg?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-27T22:00:00+00:00"
   },
@@ -79,7 +79,7 @@
    "link": "https://umterps.com/news/2026/10/27/football-terps-in-the-nfl-week-7",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Former Terp Deonte Banks breaks up a pass against Nico Collins\" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/27/banks.png\" /><br /><br />In this edition of Terps of the NFL, we look at some of the standout performances from former Terps in week seven of the 2026 season.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/27/banks.png",
+   "image": "https://umterps.com/images/2026/10/27/banks.png?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-27T16:09:00+00:00"
   },
@@ -106,7 +106,7 @@
    "link": "https://umterps.com/news/2026/10/26/football-game-7-rutgers-at-maryland-preview",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Jamare Glasker runs back a blocked PAT against Rutgers\" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/glasker.png\" /><br /><br />Maryland hosts Illinois for the fifth meeting between the programs and just the second Halloween game in College Park, the first since 1992. The game marks the debut of interim head coach Aazaar Abdul-Rahim, who was appointed by Athletic Director Jim Smith on Wednesday, October 21, 2026.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/26/glasker.png",
+   "image": "https://umterps.com/images/2026/10/26/glasker.png?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-26T20:15:00+00:00"
   },
@@ -124,7 +124,7 @@
    "link": "https://umterps.com/news/2026/10/26/football-kick-time-tv-information-announced-for-maryland-at-purdue",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Testudo and Maryland fans at the 2026 Homecoming game vs. Rutgers\" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/261017_mlm_fb_vs.Rutgers_2108.jpg\" /><br /><br />Maryland football's game at Purdue on Saturday, Nov. 7, will kick off at 12:30 PM and air on Big Ten Network, it was announced Monday.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/26/261017_mlm_fb_vs.Rutgers_2108.jpg",
+   "image": "https://umterps.com/images/2026/10/26/261017_mlm_fb_vs.Rutgers_2108.jpg?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-26T18:00:00+00:00"
   },
@@ -255,11 +255,47 @@
    "published": "2026-10-22T19:11:09+00:00"
   },
   {
+   "title": "The Diamondback Sports Digest: Michael Locksley out as Maryland football\u2019s coach",
+   "link": "https://dbknews.com/2026/10/22/sports-digest-maryland-athletics-michael-locksley-fired/",
+   "source": "The Diamondback",
+   "summary": "Welcome to The Diamondback Sports Digest, your weekly all-access pass to everything Maryland athletics.",
+   "image": "https://dbknews.com/wp-content/uploads/2026/09/548A2904-1024x683.jpg",
+   "sourceLogo": "https://dbknews.com/wp-content/uploads/2026/01/dbk-fav-150x150.png",
+   "published": "2026-10-22T12:00:42+00:00"
+  },
+  {
+   "title": "5 candidates to replace Michael Locksley as Maryland football\u2019s coach",
+   "link": "https://dbknews.com/2026/10/21/maryland-football-coaching-candidates/",
+   "source": "The Diamondback",
+   "summary": "\"We are committed to finding the right person to guide the Terrapins into the future,\" athletic director Jim Smith said in a statement.",
+   "image": "https://dbknews.com/wp-content/uploads/2026/05/10.4.25.MarylandvsWashingtonFootball-GS-094-1024x683.jpg",
+   "sourceLogo": "https://dbknews.com/wp-content/uploads/2026/01/dbk-fav-150x150.png",
+   "published": "2026-10-21T22:21:06+00:00"
+  },
+  {
+   "title": "3-star 2027 safety Kevin Jackson upholds commitment to Maryland football",
+   "link": "https://dbknews.com/2026/10/21/kevin-jackson-commitment-maryland-football/",
+   "source": "The Diamondback",
+   "summary": "While Jackson called coach Michael Locksley's firing \"a shocking moment,\" he remains committed to coming to College Park.",
+   "image": "https://dbknews.com/wp-content/uploads/2026/10/Screenshot-2026-10-21-at-5.45.18-PM-e1792619863984-1024x676.png",
+   "sourceLogo": "https://dbknews.com/wp-content/uploads/2026/01/dbk-fav-150x150.png",
+   "published": "2026-10-21T21:59:46+00:00"
+  },
+  {
+   "title": "3-star 2027 wide receiver Kyren Caldwell reaffirms commitment to Maryland football",
+   "link": "https://dbknews.com/2026/10/21/maryland-football-kyren-caldwell-commitment-locksley-fired/",
+   "source": "The Diamondback",
+   "summary": "Caldwell expressed worries for the program's future, but said he is sticking with the Terps for now.",
+   "image": "https://dbknews.com/wp-content/uploads/2026/10/Screenshot-2026-10-21-at-9.03.04-PM-1024x679.png",
+   "sourceLogo": "https://dbknews.com/wp-content/uploads/2026/01/dbk-fav-150x150.png",
+   "published": "2026-10-21T21:37:51+00:00"
+  },
+  {
    "title": "Maryland Athletics, Michael Locksley Mutually Agree To Part Ways",
    "link": "https://umterps.com/news/2026/10/21/football-maryland-athletics-michael-locksley-mutually-agree-to-part-ways",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Terps Football Helmet\nPhotos from Football Content Photoshoot at Jones-Hill House in College Park, MD on Monday, Jun. 15, 2026. \nKevin Snyder/Maryland Terrapins\" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/21/Details_WHITE_DAY1_0449.jpg\" /><br /><br />In a mutual decision, Maryland Athletics announced that Michael Locksley is stepping down as the head coach of the football program, effective immediately. Aazaar Abdul-Rahim has been named interim head coach.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/21/Details_WHITE_DAY1_0449.jpg",
+   "image": "https://umterps.com/images/2026/10/21/Details_WHITE_DAY1_0449.jpg?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-21T16:45:00+00:00"
   },
@@ -273,11 +309,20 @@
    "published": "2026-10-21T15:55:35+00:00"
   },
   {
+   "title": "Maryland football coach Michael Locksley fired midway through eighth season",
+   "link": "https://dbknews.com/2026/10/21/maryland-football-michael-locksley-fired/",
+   "source": "The Diamondback",
+   "summary": "The Terps' coach was fired after amassing a 16-47 record in Big Ten play since taking over in 2019, including a woeful 1-12 mark the last two seasons.",
+   "image": "https://dbknews.com/wp-content/uploads/2026/10/IMG_0310-1024x683.jpg",
+   "sourceLogo": "https://dbknews.com/wp-content/uploads/2026/01/dbk-fav-150x150.png",
+   "published": "2026-10-21T15:28:32+00:00"
+  },
+  {
    "title": "Terps in the NFL: Week 6",
    "link": "https://umterps.com/news/2026/10/20/football-terps-in-the-nfl-week-6",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Ty Johnson Buffalo Bills pregame warm ups \" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/20/ty.png\" /><br /><br />In this edition of Terps of the NFL, we look at some of the standout performances from former Terps in week six of the 2026 season.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/20/ty.png",
+   "image": "https://umterps.com/images/2026/10/20/ty.png?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-20T20:00:00+00:00"
   },
@@ -286,7 +331,7 @@
    "link": "https://umterps.com/news/2026/10/19/maryland-footballs-halloween-game-against-illinois-set-for-noon-kickoff-on-fs1",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Daniel Wingate at Illinois in 2015\" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/251115_djd_fb_illinois_1273__1_.jpg\" /><br /><br />Maryland football's home game against Illinois on Saturday, Oct. 31, at SECU Stadium will kick off at Noon\u00a0and be televised nationally on FS1, it was announced Monday.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/19/251115_djd_fb_illinois_1273__1_.jpg",
+   "image": "https://umterps.com/images/2026/10/19/251115_djd_fb_illinois_1273__1_.jpg?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-19T17:04:00+00:00"
   },
@@ -300,11 +345,20 @@
    "published": "2026-10-18T20:36:50+00:00"
   },
   {
+   "title": "Maryland football fires defensive coordinator Ted Monachino amid dismal second season",
+   "link": "https://dbknews.com/2026/10/18/maryland-football-firing-ted-monachino/",
+   "source": "The Diamondback",
+   "summary": "Aazaar Abdul-Rahim will fill the defensive coordinator role the rest of this season.",
+   "image": "https://dbknews.com/wp-content/uploads/2026/10/09.25.26_Football.vs_.UCLA_NV35-1024x683.jpg",
+   "sourceLogo": "https://dbknews.com/wp-content/uploads/2026/01/dbk-fav-150x150.png",
+   "published": "2026-10-18T20:08:26+00:00"
+  },
+  {
    "title": "Terrapins Make Change at Defensive Coordinator Position",
    "link": "https://umterps.com/news/2026/10/18/football-terrapins-make-change-at-defensive-coordinator-position",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Maryland branded football\" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/18/terps_football.jpg\" /><br /><br />University of Maryland head football coach Michael Locksley announced Sunday that defensive coordinator and outside linebackers coach Ted Monachino has been relieved of his coaching duties.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/18/terps_football.jpg",
+   "image": "https://umterps.com/images/2026/10/18/terps_football.jpg?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-18T20:00:00+00:00"
   },
@@ -331,7 +385,7 @@
    "link": "https://umterps.com/news/2026/10/17/football-vs-rutgers-recap",
    "source": "Maryland Athletics",
    "summary": "<img alt=\"Damon Hall TD Rush\" src=\"https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/20261017_ggev_FB_vs_Rutgers_0447.JPG\" /><br /><br />The Terps head into a bye ahead of their final five games.",
-   "image": "https://umterps.com/common/controls/image_handler.aspx?thumb_prefix=rp_system&image_path=/images/2026/10/17/20261017_ggev_FB_vs_Rutgers_0447.JPG",
+   "image": "https://umterps.com/images/2026/10/17/20261017_ggev_FB_vs_Rutgers_0447.JPG?width=800",
    "sourceLogo": "https://umterps.com/favicon.ico",
    "published": "2026-10-17T17:30:00+00:00"
   },
