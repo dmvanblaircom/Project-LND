@@ -4,6 +4,7 @@
 Usage:  python3 tools/newscheck.py     (exit 1 on any failure)
 """
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -209,6 +210,18 @@ ok(items[1]["image"] == "https://p.example/old.jpg" and "https://p.example/kept"
 ok(not items[2].get("image") and items[3]["image"] == "https://p.example/n0.jpg", "a page that does not answer leaves its story as it was; the next is read")
 ok(read == 4 and len(asked) == 4 and not items[-1].get("image"), "at most four pages a run here (eight in production)")
 import teamconfig  # noqa: E402
+# Every config: a feed that is a whole sports section (".../category/sports/
+# feed/", ".../sports/feed/") is marked so, or it would bring in every sport
+# whose headline does not name it, as the Daily Iowan's did.
+SECTION = re.compile(r"/(category/)?sports/feed/?$|/section/sports\.xml$", re.I)
+loose = []
+for f in sorted(os.listdir(os.path.join(HERE, "..", "teams"))):
+    if not f.endswith(".js") or f == "index.js":
+        continue
+    for src in (teamconfig.load(f[:-3]).get("sources") or {}).get("beatFeeds") or []:
+        if SECTION.search(src.get("feed") or "") and not src.get("sportsSection"):
+            loose.append(f[:-3] + ": " + src["name"])
+ok(not loose, "every newspaper's whole sports section is read as one: football only (%s)" % (", ".join(loose) or "none loose"))
 for team in ("notre-dame", "ohio-state"):
     conf = teamconfig.load(team)
     lg = bn.league_of(conf)

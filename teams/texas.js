@@ -47,7 +47,7 @@ var TEAM_CONFIG = {
       { name: "Burnt Orange Nation", feed: "https://www.burntorangenation.com/rss/current.xml", site: "https://www.burntorangenation.com/" },
       { name: "Texas On SI", feed: "https://www.si.com/college/texas/feed", site: "https://www.si.com/college/texas", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
       { name: "On3", feed: "https://www.on3.com/teams/texas-longhorns/feed/", site: "https://www.on3.com/teams/texas-longhorns/", paths: ["/teams/texas-longhorns/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
-      { name: "The Daily Texan", feed: "https://thedailytexan.com/category/sports/feed/", site: "https://thedailytexan.com/category/sports/" }
+      { name: "The Daily Texan", feed: "https://thedailytexan.com/category/sports/feed/", sportsSection: true, site: "https://thedailytexan.com/category/sports/" }
     ]
   },
 

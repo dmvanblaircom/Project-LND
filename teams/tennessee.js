@@ -47,7 +47,7 @@ var TEAM_CONFIG = {
       { name: "Rocky Top Talk", feed: "https://www.rockytoptalk.com/rss/current.xml", site: "https://www.rockytoptalk.com/" },
       { name: "Tennessee On SI", feed: "https://www.si.com/college/tennessee/feed", site: "https://www.si.com/college/tennessee", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
       { name: "On3", feed: "https://www.on3.com/teams/tennessee-volunteers/feed/", site: "https://www.on3.com/teams/tennessee-volunteers/", paths: ["/teams/tennessee-volunteers/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
-      { name: "The Daily Beacon", feed: "https://www.utdailybeacon.com/category/sports/feed/", site: "https://www.utdailybeacon.com/category/sports/" }
+      { name: "The Daily Beacon", feed: "https://www.utdailybeacon.com/category/sports/feed/", sportsSection: true, site: "https://www.utdailybeacon.com/category/sports/" }
     ]
   },
 
