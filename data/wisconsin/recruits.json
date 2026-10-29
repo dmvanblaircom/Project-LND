@@ -9,42 +9,16 @@
  "committedElsewhere": 0,
  "recruits": [
   {
-   "id": "262181",
-   "name": "Korz Loken",
-   "position": "TE-H",
-   "highSchool": "Iola-Scandinavia High School",
-   "city": "Iola",
-   "state": "WI",
-   "grade": 80,
-   "rank": 252,
-   "positionRank": 11,
-   "stateRank": 1,
-   "status": "Verbal"
-  },
-  {
    "id": "266357",
    "name": "Cole Reiter",
    "position": "OT",
    "highSchool": "Germantown High School",
    "city": "Germantown",
    "state": "WI",
-   "grade": 80,
-   "rank": 265,
-   "positionRank": 26,
-   "stateRank": 2,
-   "status": "Verbal"
-  },
-  {
-   "id": "265869",
-   "name": "Mekhi Williams",
-   "position": "S",
-   "highSchool": "Lennard High School",
-   "city": "Ruskin",
-   "state": "FL",
-   "grade": 80,
-   "rank": 281,
-   "positionRank": 21,
-   "stateRank": 27,
+   "grade": 81,
+   "rank": 242,
+   "positionRank": 23,
+   "stateRank": 1,
    "status": "Verbal"
   },
   {
@@ -56,8 +30,47 @@
    "state": "WI",
    "grade": 80,
    "rank": null,
-   "positionRank": 33,
+   "positionRank": 35,
    "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
+   "id": "271655",
+   "name": "Kingston Allen",
+   "position": "RB",
+   "highSchool": "Notre Dame De La Baie Academy",
+   "city": "Green Bay",
+   "state": "WI",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 28,
+   "stateRank": 5,
+   "status": "Verbal"
+  },
+  {
+   "id": "262181",
+   "name": "Korz Loken",
+   "position": "TE-H",
+   "highSchool": "Iola-Scandinavia High School",
+   "city": "Iola",
+   "state": "WI",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 14,
+   "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
+   "id": "265869",
+   "name": "Mekhi Williams",
+   "position": "S",
+   "highSchool": "Lennard High School",
+   "city": "Ruskin",
+   "state": "FL",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 23,
+   "stateRank": 30,
    "status": "Verbal"
   },
   {
@@ -69,7 +82,7 @@
    "state": "AZ",
    "grade": 80,
    "rank": null,
-   "positionRank": 29,
+   "positionRank": 30,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -95,21 +108,8 @@
    "state": "AZ",
    "grade": 79,
    "rank": null,
-   "positionRank": 28,
+   "positionRank": 30,
    "stateRank": 11,
-   "status": "Verbal"
-  },
-  {
-   "id": "271655",
-   "name": "Kingston Allen",
-   "position": "RB",
-   "highSchool": "Notre Dame De La Baie Academy",
-   "city": "Green Bay",
-   "state": "WI",
-   "grade": 79,
-   "rank": null,
-   "positionRank": 36,
-   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -134,7 +134,7 @@
    "state": "DE",
    "grade": 78,
    "rank": null,
-   "positionRank": 31,
+   "positionRank": 33,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "WI",
    "grade": 78,
    "rank": null,
-   "positionRank": 67,
+   "positionRank": 68,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -160,8 +160,8 @@
    "state": "TX",
    "grade": 78,
    "rank": null,
-   "positionRank": 61,
-   "stateRank": 87,
+   "positionRank": 63,
+   "stateRank": 86,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "WI",
    "grade": 77,
    "rank": null,
-   "positionRank": 72,
+   "positionRank": 73,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -225,8 +225,8 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 94,
-   "stateRank": 78,
+   "positionRank": 96,
+   "stateRank": 80,
    "status": "Verbal"
   },
   {
@@ -238,7 +238,7 @@
    "state": "MT",
    "grade": 77,
    "rank": null,
-   "positionRank": 94,
+   "positionRank": 95,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -264,7 +264,7 @@
    "state": "WI",
    "grade": 76,
    "rank": null,
-   "positionRank": 100,
+   "positionRank": 102,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:41Z"
 }

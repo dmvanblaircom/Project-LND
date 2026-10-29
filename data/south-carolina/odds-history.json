@@ -1,6 +1,6 @@
 {
 "team": "south-carolina",
-"updated": "2026-10-29T09:37Z",
+"updated": "2026-10-29T13:37Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -42,6 +42,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 5.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-29T13:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 6.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
