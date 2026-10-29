@@ -34,13 +34,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // The Tropolitan is the student paper; its feed is every topic, so only
-    // stories that say football stay (2026-10-29). Not used: On SI has no Troy
-    // site (404), On3's feed carries only national stories, and AL.com turns
-    // GitHub's network away (403).
+    // One source only: On SI has no Troy site (404), On3's feed carries only
+    // national stories, and no student paper feed was found.
     beatFeeds: [
-      { name: "Troy Athletics", feed: "https://troytrojans.com/rss?path=football", site: "https://troytrojans.com/sports/football", logo: "https://troytrojans.com/favicon.ico" },
-      { name: "The Tropolitan", feed: "https://www.tropnews.com/blog-feed.xml", site: "https://www.tropnews.com/", sportsSection: true }
+      { name: "Troy Athletics", feed: "https://troytrojans.com/rss?path=football", site: "https://troytrojans.com/sports/football", logo: "https://troytrojans.com/favicon.ico" }
     ]
   },
 

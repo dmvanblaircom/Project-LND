@@ -35,12 +35,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // The Round Up is the student paper; its feed is every topic, so only
-    // stories that say football stay (2026-10-29). Not used: On SI has no NM
-    // State site (404), and On3's feed carries only national stories.
+    // One source only: On SI has no NM State site (404), On3's feed carries
+    // only national stories, and no student paper feed was found.
     beatFeeds: [
-      { name: "NM State Athletics", feed: "https://nmstatesports.com/rss?path=football", site: "https://nmstatesports.com/sports/football", logo: "https://nmstatesports.com/favicon.ico" },
-      { name: "The Round Up", feed: "https://nmsuroundup.com/feed/", site: "https://nmsuroundup.com/", sportsSection: true }
+      { name: "NM State Athletics", feed: "https://nmstatesports.com/rss?path=football", site: "https://nmstatesports.com/sports/football", logo: "https://nmstatesports.com/favicon.ico" }
     ]
   },
 
