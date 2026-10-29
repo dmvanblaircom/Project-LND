@@ -3,13 +3,66 @@
  "team": "west-virginia",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:48.690368+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at TCU",
+ "players": [
+  {
+   "pos": "",
+   "no": "6",
+   "name": "Da'Mare Williams",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "23",
+   "name": "Emory Snyder",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "25",
+   "name": "Armoni Weaver-Bomar",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "26",
+   "name": "Andre Devine",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "36",
+   "name": "Jason Chambers",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "52",
+   "name": "Corey McIntyre Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "91",
+   "name": "Darius Wiley",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

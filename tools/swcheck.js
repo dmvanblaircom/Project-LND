@@ -125,6 +125,35 @@ function boot(opts) {
            data:  function () { return Object.keys(store[sandbox.DATA]  || {}).sort(); } };
 }
 
+// An update waits on the worker it replaces: Chrome activates the new worker
+// only once the old one has no event still open. Caching a team's files ran
+// inside the team message's event with no limit, so one slow fetch held a
+// fan's update in "installed" for as long as it took (launchcheck's
+// "a page that does not answer" case, CI on #198 and #200, 2026-10-28).
+function updateHoldChecks() {
+  console.log("a slow team download does not hold back an update");
+  var hang = [], w = boot({ speed: 50, fetch: function (url) {
+    return new Promise(function (resolve) { hang.push(function () { resolve({ ok: true, status: 200, clone: function () { return this; }, text: function () { return Promise.resolve("x"); } }); }); });
+  } });
+  var replied = null, waits = [];
+  (w.listeners.message || []).forEach(function (fn) {
+    fn({ data: ND, waitUntil: function (p) { waits.push(p); }, ports: [{ postMessage: function (m) { replied = m; } }] });
+  });
+  var t0 = Date.now(), cap = w.sandbox.TEAM_HOLD_MS;
+  ok(typeof cap === "number" && cap > 0 && cap <= 10000, "the team message is held open for a set time at most (" + cap + " ms)");
+  var settled = Promise.all(waits).then(function () { return "settled"; });
+  var limit = new Promise(function (r) { setTimeout(function () { r("still open"); }, 2000); });
+  return Promise.race([settled, limit]).then(function (got) {
+    eq(got, "settled", "with every fetch still out, the event lets go, so a waiting update can take over");
+    ok(Date.now() - t0 >= ((cap || 0) / 50) * 0.8, "but not before the cap: a quick download still finishes inside the event");
+    ok(replied === null, "and the page is not told its team is cached while it is not");
+    hang.forEach(function (f) { f(); });
+    return new Promise(function (r) { setTimeout(r, 50); });
+  }).then(function () {
+    ok(replied && replied.ok === true, "the download carries on, and the page hears once it is done");
+  });
+}
+
 // Team marks (David, 2026-10-27: logos slow to appear): ESPN keeps one for
 // only hours; the worker keeps each it has fetched, across versions, and
 // answers from that copy first.
@@ -470,6 +499,8 @@ w.fire("message", ND).then(function () {
   return dataWaitChecks();
 }).then(function () {
   return logoChecks();
+}).then(function () {
+  return updateHoldChecks();
 }).then(function () {
   process.exit(failures ? 1 : 0);
 }).catch(function (e) {

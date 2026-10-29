@@ -1,5 +1,13 @@
 {
- "team": "kansas-state",
- "updated": null,
- "points": []
+"team": "kansas-state",
+"updated": "2026-10-29T14:07Z",
+"points": [
+{
+"t": "2026-10-29T14:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }

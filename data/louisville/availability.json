@@ -3,13 +3,129 @@
  "team": "louisville",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
  "sourceLabel": "TheACC.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:45.169731+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Stanford",
+ "players": [
+  {
+   "pos": "DL",
+   "no": "3",
+   "name": "Tyler Thompson",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "7",
+   "name": "Lawayne McCoy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "9",
+   "name": "Antonio Watts",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "12",
+   "name": "DJ Waller Jr.",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "21",
+   "name": "Jaydin Broadnax",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "44",
+   "name": "Travis Egan",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "P",
+   "no": "48",
+   "name": "Jacob Baker",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OT",
+   "no": "63",
+   "name": "Bryten Close",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "67",
+   "name": "James Glover-Tyson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "70",
+   "name": "Anwar O'neal",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "72",
+   "name": "Sam Secrest",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "85",
+   "name": "Justyn Reid",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "90",
+   "name": "Hamilton Atkins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "90",
+   "name": "Daylen Russell",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "98",
+   "name": "Sam Dawson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Jerod Smith II",
+   "status": "questionable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

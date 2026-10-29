@@ -3,13 +3,94 @@
  "team": "texas-tech",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:47.821967+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Arizona",
+ "players": [
+  {
+   "pos": "S",
+   "no": "3",
+   "name": "Peyton Morgan",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "6",
+   "name": "Jalen Jones",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "7",
+   "name": "Terrance Carter Jr.",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "8",
+   "name": "Cameron Dickey",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "11",
+   "name": "Malcolm Simmons",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "13",
+   "name": "Ben Roberts",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "18",
+   "name": "S'Vioarean Martin",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "21",
+   "name": "Miquel Dingle Jr.",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "28",
+   "name": "Jordan Rogers",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "77",
+   "name": "Elias Gillen",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "97",
+   "name": "Charles Anderson Jr.",
+   "status": "probable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

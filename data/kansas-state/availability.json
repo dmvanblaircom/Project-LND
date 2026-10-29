@@ -3,13 +3,31 @@
  "team": "kansas-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:44.984792+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Colorado",
+ "players": [
+  {
+   "pos": "QB",
+   "no": "2",
+   "name": "Avery Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "7",
+   "name": "Jacob Knuth",
+   "status": "doubtful",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

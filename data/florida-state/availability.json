@@ -3,13 +3,129 @@
  "team": "florida-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
  "sourceLabel": "TheACC.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:43.846486+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Clemson",
+ "players": [
+  {
+   "pos": "DB",
+   "no": "0",
+   "name": "Quindarrius Jones",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "1",
+   "name": "Malachi Marshall",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "3",
+   "name": "Samuel Singleton Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "9",
+   "name": "Omar Graham Jr.",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "10",
+   "name": "Chris Jones",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "16",
+   "name": "Karson Hobbs",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "18",
+   "name": "Jamari Howard",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "20",
+   "name": "Blake Nichelson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "24",
+   "name": "K.J. Kirkland",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "27",
+   "name": "Jordan Crutchfield",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "28",
+   "name": "Mikai Gbayor",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "29",
+   "name": "Caleb LaVallee",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "30",
+   "name": "Izayia Williams",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "32",
+   "name": "Ousmane Kromah",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "38",
+   "name": "Daylen Green",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "45",
+   "name": "Noah LaVallee",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

@@ -3,13 +3,73 @@
  "team": "clemson",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
  "sourceLabel": "TheACC.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:43.468885+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Florida State",
+ "players": [
+  {
+   "pos": "CB",
+   "no": "8",
+   "name": "Corian Gipson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "11",
+   "name": "Polo Anderson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "12",
+   "name": "Shavar Young Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "19",
+   "name": "Gordon Sellars III",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "22",
+   "name": "Cole Turner",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "24",
+   "name": "David Eziomume",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "76",
+   "name": "Mason Wade",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "99",
+   "name": "Markus Strong",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

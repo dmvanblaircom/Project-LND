@@ -3,13 +3,101 @@
  "team": "arizona",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:39.885278+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Texas Tech",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "5",
+   "name": "Giovanni Richardson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "5",
+   "name": "Max Harris",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "8",
+   "name": "Jay'Vion Cole",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "8",
+   "name": "Shane King",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "11",
+   "name": "Chris Hunter III",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "14",
+   "name": "Cole Rusk",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "20",
+   "name": "Dajon Hinton",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "21",
+   "name": "Ismail Mahdi",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "28",
+   "name": "Swayde Griffin",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "38",
+   "name": "Kevin Moorer Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "44",
+   "name": "Antwan Roberts Jr.",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "92",
+   "name": "Ezra Funa",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

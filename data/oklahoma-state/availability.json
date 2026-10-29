@@ -3,13 +3,52 @@
  "team": "oklahoma-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:46.471923+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Iowa State",
+ "players": [
+  {
+   "pos": "DE",
+   "no": "0",
+   "name": "Malik Charles",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "7",
+   "name": "Quinton Hammonds",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "19",
+   "name": "Dayvon Standard",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "44",
+   "name": "Carson Kolb",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "88",
+   "name": "Landon Dean",
+   "status": "questionable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

@@ -3,13 +3,101 @@
  "team": "nc-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
  "sourceLabel": "TheACC.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:45.949967+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. California",
+ "players": [
+  {
+   "pos": "RB",
+   "no": "1",
+   "name": "Jayden \"Duke\" Scott",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "2",
+   "name": "Joshisa \"Jojo\" Trader",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "3",
+   "name": "Tristan Teasdell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "4",
+   "name": "Vander Ploog",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "NCK",
+   "no": "8",
+   "name": "Isaiah Crowell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "15",
+   "name": "AJ Richardson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "50",
+   "name": "Daniel Cruz",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "71",
+   "name": "Yousef Mugharbil",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "72",
+   "name": "Spike Sowells Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "87",
+   "name": "Ian Flynt",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "91",
+   "name": "Nick Konieczynski",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "AJ Prim",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

@@ -3,13 +3,87 @@
  "team": "colorado",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:43.552493+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Kansas State",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "6",
+   "name": "Quentin Gibson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "7",
+   "name": "Kam Perry",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "10",
+   "name": "Julian Lewis",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "18",
+   "name": "Danny Scudero",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "20",
+   "name": "Cree Thomas",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "26",
+   "name": "Braylon Edwards",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "29",
+   "name": "Micah Welch",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "45",
+   "name": "Vili Taufatofua",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "92",
+   "name": "Sam Gadie",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Dylan Manuel",
+   "status": "questionable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

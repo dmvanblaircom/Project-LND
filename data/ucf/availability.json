@@ -3,13 +3,115 @@
  "team": "ucf",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:47.902398+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Update 1",
+ "kickoffDate": "2026-10-30",
+ "game": "vs. Baylor",
+ "players": [
+  {
+   "pos": "RB",
+   "no": "4",
+   "name": "Taevion Swint",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "5",
+   "name": "DJ Bell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "7",
+   "name": "Duane Thomas Jr.",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "8",
+   "name": "Demari Henderson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "10",
+   "name": "Sincere Edwards",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "11",
+   "name": "Ken Talley",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "13",
+   "name": "Caleb Rollerson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "14",
+   "name": "Alonza Barnett III",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "20",
+   "name": "Lewis Carter",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "38",
+   "name": "Jayden Jennings",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "41",
+   "name": "Bruno Dall",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "55",
+   "name": "Jacob Maiava",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "75",
+   "name": "Tyler Gibson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "78",
+   "name": "Preston Cushman",
+   "status": "probable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }
