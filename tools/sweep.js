@@ -47,7 +47,9 @@ var root = path.join(__dirname, "..");
 var out = path.join(root, "artifacts", "sweep");
 fs.mkdirSync(out, { recursive: true });
 
-var TEAMS = (process.env.SWEEP_TEAMS ? process.env.SWEEP_TEAMS.split(",") :
+var LISTED = process.env.SWEEP_TEAMS || (process.env.SWEEP_TEAMS_FILE && fs.existsSync(process.env.SWEEP_TEAMS_FILE) ?
+  fs.readFileSync(process.env.SWEEP_TEAMS_FILE, "utf8").split(/\s+/).filter(Boolean).join(",") : "");
+var TEAMS = (LISTED ? LISTED.split(",") :
   fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; })
     .map(function (f) { return f.replace(/\.js$/, ""); })).sort();
 // SWEEP_SHARD="2/4": the second quarter of the teams, for a workflow that
@@ -63,6 +65,7 @@ var SCREENS = (process.env.SWEEP_SCREENS || "home,top25,game,roster,more,schedul
 var NAV = ["home", "top25", "game", "roster", "more"];
 var PARALLEL = Number(process.env.SWEEP_PARALLEL || 2);
 var SHOTS = process.env.SWEEP_SHOTS || "flagged";       // "flagged" | "all" | "none"
+var SHEET_MAX = 4200;                                    // px of a screen a contact sheet keeps
 
 // Where a name or a figure is drawn (visualcheck's list, plus the rows a
 // fan scans on each screen).
@@ -121,7 +124,7 @@ async function main() {
       t.findings.push({ key: key, kind: kind, where: where, detail: String(detail).slice(0, 240) });
     }
     for (var wi = 0; wi < WIDTHS.length; wi++) {
-      var width = WIDTHS[wi];
+      var width = WIDTHS[wi], sheet = [];
       var context = await browser.newContext({ viewport: { width: width, height: width < 600 ? 844 : 900 },
         serviceWorkers: "block", timezoneId: "America/New_York", locale: "en-US",
         deviceScaleFactor: 1,
@@ -236,6 +239,7 @@ async function main() {
           var ct = await audit.auditText(page, team + " " + where).catch(function () { return { failures: [] }; });
           ct.failures.forEach(function (f) { find("contrast", where, (f.sel || "") + " " + (f.detail || "")); });
         }
+        if (process.env.SWEEP_SHEET && width < 600) sheet.push({ screen: screen, png: await fullPage(page) });
         var flagged = t.findings.length > flagsBefore;
         if (SHOTS === "all" || (SHOTS === "flagged" && flagged)) {
           var file = path.join(out, team + "-" + width + "-" + screen + ".jpg");
@@ -243,9 +247,39 @@ async function main() {
           if (process.env.SWEEP_LOG_SHOTS && flagged && width < 600) logShot(team + "-" + width + "-" + screen, file);
         }
       }
+      if (process.env.SWEEP_SHEET && width < 600 && sheet.length) await contactSheet(context, team, sheet);
       await context.close();
     }
     t.findings.forEach(function (f) { delete f.key; });
+  }
+
+  // The whole screen as a fan scrolls it (visualcheck's fullShot): the
+  // viewport grown to the document, so fixed bars sit at the true bottom.
+  async function fullPage(page) {
+    var vp = page.viewportSize();
+    var h = await page.evaluate(function () { return document.documentElement.scrollHeight; });
+    await page.setViewportSize({ width: vp.width, height: Math.min(SHEET_MAX, Math.max(vp.height, h)) });
+    await page.waitForTimeout(150);
+    var png = await page.screenshot({ type: "png" });
+    await page.setViewportSize(vp);
+    return png;
+  }
+
+  // One image per team: every screen side by side at half size, for a
+  // reviewer to look across a team in one glance (SWEEP_SHEET=1).
+  async function contactSheet(context, team, shots) {
+    var p = await context.newPage(), colW = 210;
+    var html = "<body style='margin:0;background:#888;display:flex;gap:6px;padding:6px;align-items:flex-start;font:12px sans-serif'>" +
+      shots.map(function (x) {
+        return "<figure style='margin:0;width:" + colW + "px'><figcaption style='color:#fff;padding:2px 0'>" + team + " " + x.screen +
+               "</figcaption><img style='width:" + colW + "px;display:block' src='data:image/png;base64," + x.png.toString("base64") + "'></figure>";
+      }).join("") + "</body>";
+    await p.setViewportSize({ width: shots.length * (colW + 6) + 6, height: 600 });
+    await p.setContent(html);
+    var file = path.join(out, "sheet-" + team + ".jpg");
+    await p.screenshot({ path: file, type: "jpeg", quality: 62, fullPage: true });
+    await p.close();
+    logShot("sheet-" + team, file);
   }
 
   function logShot(name, file) {

@@ -31,7 +31,7 @@ on:
         type: boolean
   push:
     branches: [experience-sweep]
-    paths: ["tools/sweep.js", ".github/workflows/sweep.yml"]
+    paths: ["tools/sweep.js", "tools/sweep-review.txt", ".github/workflows/sweep.yml"]
 
 permissions:
   contents: read
@@ -59,12 +59,15 @@ jobs:
           # production unless a dispatch names another address ("local": this
           # branch's build on the runner, whose provider calls are refused)
           SWEEP_BASE: ${{ inputs.base }}
-          # a push to the sweep's own branch tries the sweep on eight teams
-          SWEEP_TEAMS: ${{ github.event_name == 'push' && 'notre-dame,ohio-state,wyoming,troy,hawaii,uconn,usc,army' || inputs.teams }}
-          SWEEP_WIDTHS: ${{ inputs.widths || '390,1280' }}
+          # a push to the sweep's own branch is a review run: the teams listed
+          # in tools/sweep-review.txt, at phone width, with contact sheets
+          SWEEP_TEAMS: ${{ inputs.teams }}
+          SWEEP_TEAMS_FILE: ${{ github.event_name == 'push' && 'tools/sweep-review.txt' || '' }}
+          SWEEP_WIDTHS: ${{ github.event_name == 'push' && '390' || inputs.widths || '390,1280' }}
           SWEEP_CONTRAST: ${{ inputs.contrast && '1' || '' }}
           SWEEP_SHARD: ${{ matrix.shard }}/4
           SWEEP_LOG_SHOTS: ${{ github.event_name == 'push' && '1' || '' }}
+          SWEEP_SHEET: ${{ github.event_name == 'push' && '1' || '' }}
         run: node tools/sweep.js
       - uses: actions/upload-artifact@v4
         if: always()
