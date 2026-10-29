@@ -204,9 +204,20 @@ async function main() {
 
       for (var k = 0; k < SCREENS.length; k++) {
         screen = SCREENS[k];
+        var navAt = now();
         if (NAV.indexOf(screen) !== -1) await page.click('.nav-item[data-screen="' + screen + '"]').catch(function () {});
         else await page.evaluate(function (h) { location.hash = h; }, "#" + screen);
-        await page.waitForTimeout(900);
+        // ready: the screen drawn, nothing still saying "Loading", and every
+        // image in view settled - what a fan waits for after a tap
+        await page.waitForFunction(function () {
+          var main = document.querySelector("main");
+          if (!main || /\bLoading\b/.test(main.innerText)) return false;
+          return [].every.call(document.images, function (i) {
+            var r = i.getBoundingClientRect(); return i.complete || r.bottom < 0 || r.top > innerHeight || !i.offsetParent;
+          });
+        }, null, { timeout: 10000, polling: 50 }).catch(function () {});
+        (t.nav = t.nav || {})[screen + " " + width] = now() - navAt;
+        await page.waitForTimeout(400);
         var where = screen + " " + width;
         // stuck: a "Loading" that a fan is still reading 8 seconds later
         var stuck = await page.waitForFunction(function () {
@@ -376,6 +387,16 @@ async function main() {
   Object.keys(report.teams).map(function (tm) { return [tm, (report.teams[tm].perf || {})[WIDTHS[0]] || {}]; })
     .sort(function (a, b) { return (b[1].homeMs || 0) - (a[1].homeMs || 0); })
     .forEach(function (x) { var p = x[1]; console.log("   PERF " + x[0] + " " + p.homeMs + " " + p.lcp + " " + p.cls + " " + p.requests + " " + p.kb); });
+  console.log("\n-- screen ready after a tap (ms), median and slowest by screen:");
+  var bys = {};
+  Object.keys(report.teams).forEach(function (tm) {
+    var nv = report.teams[tm].nav || {};
+    Object.keys(nv).forEach(function (k) { (bys[k] = bys[k] || []).push([nv[k], tm]); });
+  });
+  Object.keys(bys).sort().forEach(function (k) {
+    var v = bys[k].sort(function (a, b) { return a[0] - b[0]; });
+    console.log("   NAV " + k + " median " + v[Math.floor(v.length / 2)][0] + " max " + v[v.length - 1][0] + " (" + v[v.length - 1][1] + ")");
+  });
   if (report.links) console.log("\nlinks checked: " + report.links.checked + ", bad: " + report.links.bad.length);
 }
 
