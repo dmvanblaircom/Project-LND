@@ -20,6 +20,7 @@
      contrast   text under WCAG AA against the pixels behind it (with
                 SWEEP_CONTRAST=1; slower, it reads the screen)
      link       an outbound link that answers 4xx/5xx or not at all
+     stuck      "Loading" still on the screen 8 seconds after arriving
      empty      a section that tells the fan it has nothing ("unavailable",
                 "no ... yet"), counted per team: a sourcing gap, not a bug
      perf       the first load: time to Home's schedule, largest paint,
@@ -189,6 +190,15 @@ async function main() {
         else await page.evaluate(function (h) { location.hash = h; }, "#" + screen);
         await page.waitForTimeout(900);
         var where = screen + " " + width;
+        // stuck: a "Loading" that a fan is still reading 8 seconds later
+        var stuck = await page.waitForFunction(function () {
+          return !/\bLoading\b/.test(document.querySelector("main") ? document.querySelector("main").innerText : "");
+        }, null, { timeout: 8000 }).then(function () { return null; }, async function () {
+          return page.evaluate(function () {
+            return (document.querySelector("main").innerText.split("\n").filter(function (l) { return /\bLoading\b/.test(l); })[0] || "").trim();
+          });
+        });
+        if (stuck) find("stuck", where, stuck);
         var flagsBefore = t.findings.length;
         var s = await page.evaluate(function (args) {
           var leak = new RegExp(args.leak), empty = new RegExp(args.empty, "i");
@@ -259,7 +269,11 @@ async function main() {
     var vp = page.viewportSize();
     var h = await page.evaluate(function () { return document.documentElement.scrollHeight; });
     await page.setViewportSize({ width: vp.width, height: Math.min(SHEET_MAX, Math.max(vp.height, h)) });
-    await page.waitForTimeout(150);
+    // the images the taller view brings in (lazy), settled: loaded or failed
+    await page.waitForFunction(function () {
+      return [].every.call(document.images, function (i) { return i.complete || !i.offsetParent; });
+    }, null, { timeout: 5000 }).catch(function () {});
+    await page.waitForTimeout(200);
     var png = await page.screenshot({ type: "png" });
     await page.setViewportSize(vp);
     return png;
