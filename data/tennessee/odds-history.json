@@ -1,6 +1,6 @@
 {
 "team": "tennessee",
-"updated": "2026-10-29T04:37Z",
+"updated": "2026-10-29T07:07Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -56,6 +56,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 22.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-29T07:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 23.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
