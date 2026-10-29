@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-10-26T17:37:50.868936+00:00",
+ "updated": "2026-10-29T18:39:40.922192+00:00",
  "reports": [
   {
    "schema": 1,
@@ -597,14 +597,14 @@
    "capability": "availability",
    "tier": "official",
    "game": "vs. Navy",
-   "sourceUrl": "https://fightingirish.com/documents/879c5d7a-ec83-4c8b-b34e-27e1af4f72da.pdf",
+   "sourceUrl": "https://fightingirish.com/documents/9a8108e9-7641-4ac3-89a8-8ca804beaf98.pdf",
    "sourceLabel": "FightingIrish.com",
-   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/26/HfJtbIGZqOIRbFR6CXtdWNt4EwiF9j6Gt6MVoF59.pdf",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/29/sHqxicKpD04i6rxI8tYhwbvJzflvta5wle7IrRHK.pdf",
    "parser": 2,
-   "fetchedAt": "2026-10-26T17:37:50.868936+00:00",
+   "fetchedAt": "2026-10-29T18:39:40.922192+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-26",
-   "heading": "AVAILABILITY UPDATE (OCT. 26)",
+   "effectiveAt": "2026-10-29",
+   "heading": "AVAILABILITY UPDATE (OCT. 29)",
    "players": [
     {
      "no": "",
