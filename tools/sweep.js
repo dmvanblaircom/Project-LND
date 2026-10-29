@@ -183,6 +183,24 @@ async function main() {
       });
       perf.homeMs = homeMs;
       t.perf[width] = perf;
+      // SWEEP_PERF_DETAIL=1: every request of the first load, in the order it
+      // finished, with when it started, how long it took and its size.
+      if (process.env.SWEEP_PERF_DETAIL && wi === 0) {
+        var rows = await page.evaluate(function () {
+          return performance.getEntriesByType("resource").map(function (r) {
+            return [Math.round(r.startTime), Math.round(r.duration), Math.round((r.transferSize || 0) / 1024), r.initiatorType, r.name.replace(location.origin, "").slice(0, 110)];
+          }).sort(function (a, b) { return (a[0] + a[1]) - (b[0] + b[1]); });
+        });
+        var shifts = await page.evaluate(function () {
+          return performance.getEntriesByType("layout-shift").filter(function (e) { return e.value > 0.002; }).map(function (e) {
+            return Math.round(e.startTime) + "ms " + e.value.toFixed(3) + " " + (e.sources || []).map(function (s) {
+              var n = s.node; return n && n.className ? (n.tagName + "." + String(n.className).split(" ")[0]) : (n ? n.nodeName : "?");
+            }).join(",");
+          });
+        });
+        rows.forEach(function (r) { console.log("REQ " + team + " " + r.join(" | ")); });
+        shifts.forEach(function (x) { console.log("SHIFT " + team + " " + x); });
+      }
 
       for (var k = 0; k < SCREENS.length; k++) {
         screen = SCREENS[k];

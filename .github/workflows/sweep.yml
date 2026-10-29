@@ -68,6 +68,7 @@ jobs:
           SWEEP_SHARD: ${{ matrix.shard }}/4
           SWEEP_LOG_SHOTS: ${{ github.event_name == 'push' && '1' || '' }}
           SWEEP_SHEET: ${{ github.event_name == 'push' && '1' || '' }}
+          SWEEP_PERF_DETAIL: ${{ github.event_name == 'push' && '1' || '' }}
         run: node tools/sweep.js
       - uses: actions/upload-artifact@v4
         if: always()
