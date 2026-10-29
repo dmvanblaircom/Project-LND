@@ -46,6 +46,7 @@ var TEAM_CONFIG = {
     // (SB Nation) is gone (404), and the Daily Bruin's feed does not parse.
     beatFeeds: [
       { name: "UCLA On SI", feed: "https://www.si.com/college/ucla/feed", site: "https://www.si.com/college/ucla", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "Bruin Report Online", feed: "https://www.on3.com/sites/bruin-report-online/feed/", site: "https://www.on3.com/sites/bruin-report-online/", paths: ["/sites/bruin-report-online/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" },
       { name: "Bruin Report Online", feed: "https://www.on3.com/sites/bruin-report-online/feed/", site: "https://www.on3.com/sites/bruin-report-online/", paths: ["/sites/bruin-report-online/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },

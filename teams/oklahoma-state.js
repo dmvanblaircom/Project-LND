@@ -46,7 +46,8 @@ var TEAM_CONFIG = {
     // On3 team feed (404).
     beatFeeds: [
       { name: "Oklahoma State Athletics", feed: "https://okstate.com/rss?path=football", site: "https://okstate.com/sports/football", logo: "https://okstate.com/favicon.ico" },
-      { name: "Oklahoma State On SI", feed: "https://www.si.com/college/oklahomastate/feed", site: "https://www.si.com/college/oklahomastate", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Oklahoma State On SI", feed: "https://www.si.com/college/oklahomastate/feed", site: "https://www.si.com/college/oklahomastate", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "OState Illustrated", feed: "https://www.on3.com/sites/o-state-illustrated/feed/", site: "https://www.on3.com/sites/o-state-illustrated/", paths: ["/sites/o-state-illustrated/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

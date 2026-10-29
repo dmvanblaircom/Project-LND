@@ -45,7 +45,8 @@ var TEAM_CONFIG = {
     // Gold & Black did not answer, and there is no On3 team feed (404).
     beatFeeds: [
       { name: "Wake Forest Athletics", feed: "https://godeacs.com/rss?path=football", site: "https://godeacs.com/sports/football", logo: "https://godeacs.com/favicon.ico" },
-      { name: "Wake Forest On SI", feed: "https://www.si.com/college/wake-forest/feed", site: "https://www.si.com/college/wake-forest", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Wake Forest On SI", feed: "https://www.si.com/college/wake-forest/feed", site: "https://www.si.com/college/wake-forest", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "Deacons Illustrated", feed: "https://www.on3.com/sites/deacons-illustrated/feed/", site: "https://www.on3.com/sites/deacons-illustrated/", paths: ["/sites/deacons-illustrated/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

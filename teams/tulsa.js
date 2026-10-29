@@ -40,7 +40,8 @@ var TEAM_CONFIG = {
     // One source only: there is no On3 team feed or On SI site (404), and no
     // student paper feed.
     beatFeeds: [
-      { name: "Tulsa Athletics", feed: "https://tulsahurricane.com/rss?path=football", site: "https://tulsahurricane.com/sports/football", logo: "https://tulsahurricane.com/favicon.ico" }
+      { name: "Tulsa Athletics", feed: "https://tulsahurricane.com/rss?path=football", site: "https://tulsahurricane.com/sports/football", logo: "https://tulsahurricane.com/favicon.ico" },
+      { name: "Inside Tulsa Sports", feed: "https://www.on3.com/sites/inside-tulsa-sports/feed/", site: "https://www.on3.com/sites/inside-tulsa-sports/", paths: ["/sites/inside-tulsa-sports/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

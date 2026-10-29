@@ -46,7 +46,8 @@ var TEAM_CONFIG = {
     // team feed (404).
     beatFeeds: [
       { name: "Pitt Athletics", feed: "https://pittsburghpanthers.com/rss?path=football", site: "https://pittsburghpanthers.com/sports/football", logo: "https://pittsburghpanthers.com/favicon.ico" },
-      { name: "Pitt On SI", feed: "https://www.si.com/college/pittsburgh/feed", site: "https://www.si.com/college/pittsburgh", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Pitt On SI", feed: "https://www.si.com/college/pittsburgh/feed", site: "https://www.si.com/college/pittsburgh", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "Pittsburgh Sports Now", feed: "https://www.on3.com/sites/pitt-sports-news/feed/", site: "https://www.on3.com/sites/pitt-sports-news/", paths: ["/sites/pitt-sports-news/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

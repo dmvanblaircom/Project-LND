@@ -41,7 +41,8 @@ var TEAM_CONFIG = {
     // is no On3 team feed or On SI site (404).
     beatFeeds: [
       { name: "USF Athletics", feed: "https://gousfbulls.com/rss?path=football", site: "https://gousfbulls.com/sports/football", logo: "https://gousfbulls.com/favicon.ico" },
-      { name: "The Oracle", feed: "https://www.usforacle.com/category/sports/football/feed/", site: "https://www.usforacle.com/category/sports/football/" }
+      { name: "The Oracle", feed: "https://www.usforacle.com/category/sports/football/feed/", site: "https://www.usforacle.com/category/sports/football/" },
+      { name: "Bulls Insider", feed: "https://www.on3.com/sites/bulls-insider/feed/", site: "https://www.on3.com/sites/bulls-insider/", paths: ["/sites/bulls-insider/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

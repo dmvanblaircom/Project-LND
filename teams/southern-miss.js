@@ -39,7 +39,8 @@ var TEAM_CONFIG = {
     // (403), and there is no On3 team feed (404).
     beatFeeds: [
       { name: "Southern Miss Athletics", feed: "https://southernmiss.com/rss?path=football", site: "https://southernmiss.com/sports/football", logo: "https://southernmiss.com/favicon.ico" },
-      { name: "Southern Miss On SI", feed: "https://www.si.com/college/southernmiss/feed", site: "https://www.si.com/college/southernmiss", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico", sportsSection: true }
+      { name: "Southern Miss On SI", feed: "https://www.si.com/college/southernmiss/feed", site: "https://www.si.com/college/southernmiss", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico", sportsSection: true },
+      { name: "Big Gold Nation", feed: "https://www.on3.com/sites/big-gold-nation/feed/", site: "https://www.on3.com/sites/big-gold-nation/", paths: ["/sites/big-gold-nation/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

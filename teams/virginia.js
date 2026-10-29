@@ -46,7 +46,8 @@ var TEAM_CONFIG = {
     // (404).
     beatFeeds: [
       { name: "Streaking the Lawn", feed: "https://www.streakingthelawn.com/rss/current.xml", site: "https://www.streakingthelawn.com/" },
-      { name: "Virginia On SI", feed: "https://www.si.com/college/virginia/feed", site: "https://www.si.com/college/virginia", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Virginia On SI", feed: "https://www.si.com/college/virginia/feed", site: "https://www.si.com/college/virginia", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "CavsCorner", feed: "https://www.on3.com/sites/cavs-corner/feed/", site: "https://www.on3.com/sites/cavs-corner/", paths: ["/sites/cavs-corner/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

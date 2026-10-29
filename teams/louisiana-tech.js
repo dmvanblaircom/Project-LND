@@ -37,7 +37,8 @@ var TEAM_CONFIG = {
     // One source only: On SI has no LA Tech site (404), there is no On3 team
     // feed (404), and no student paper feed was found.
     beatFeeds: [
-      { name: "LA Tech Athletics", feed: "https://latechsports.com/rss?path=football", site: "https://latechsports.com/sports/football", logo: "https://latechsports.com/favicon.ico" }
+      { name: "LA Tech Athletics", feed: "https://latechsports.com/rss?path=football", site: "https://latechsports.com/sports/football", logo: "https://latechsports.com/favicon.ico" },
+      { name: "Bleed Tech Blue", feed: "https://www.on3.com/sites/bleed-tech-blue/feed/", site: "https://www.on3.com/sites/bleed-tech-blue/", paths: ["/sites/bleed-tech-blue/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

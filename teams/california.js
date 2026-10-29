@@ -46,7 +46,8 @@ var TEAM_CONFIG = {
     // there is no On3 team feed (404).
     beatFeeds: [
       { name: "Cal Athletics", feed: "https://calbears.com/rss?path=football", site: "https://calbears.com/sports/football", logo: "https://calbears.com/favicon.ico" },
-      { name: "Cal On SI", feed: "https://www.si.com/college/cal/feed", site: "https://www.si.com/college/cal", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Cal On SI", feed: "https://www.si.com/college/cal/feed", site: "https://www.si.com/college/cal", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "Golden Bear Report", feed: "https://www.on3.com/sites/golden-bear-report/feed/", site: "https://www.on3.com/sites/golden-bear-report/", paths: ["/sites/golden-bear-report/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

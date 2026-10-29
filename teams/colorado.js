@@ -43,7 +43,8 @@ var TEAM_CONFIG = {
     // away (403).
     beatFeeds: [
       { name: "Colorado Athletics", feed: "https://cubuffs.com/rss?path=football", site: "https://cubuffs.com/sports/football", logo: "https://cubuffs.com/favicon.ico" },
-      { name: "Colorado On SI", feed: "https://www.si.com/college/colorado/feed", site: "https://www.si.com/college/colorado", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Colorado On SI", feed: "https://www.si.com/college/colorado/feed", site: "https://www.si.com/college/colorado", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "BuffBlitz", feed: "https://www.on3.com/sites/buff-blitz/feed/", site: "https://www.on3.com/sites/buff-blitz/", paths: ["/sites/buff-blitz/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

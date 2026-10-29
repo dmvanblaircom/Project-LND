@@ -41,7 +41,8 @@ var TEAM_CONFIG = {
     // One source only: there is no On3 team feed or On SI site (404), and no
     // student paper.
     beatFeeds: [
-      { name: "Navy Athletics", feed: "https://navysports.com/rss?path=football", site: "https://navysports.com/sports/football", logo: "https://navysports.com/favicon.ico" }
+      { name: "Navy Athletics", feed: "https://navysports.com/rss?path=football", site: "https://navysports.com/sports/football", logo: "https://navysports.com/favicon.ico" },
+      { name: "The Mid Report", feed: "https://www.on3.com/sites/the-mid-report/feed/", site: "https://www.on3.com/sites/the-mid-report/", paths: ["/sites/the-mid-report/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

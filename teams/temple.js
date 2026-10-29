@@ -40,7 +40,8 @@ var TEAM_CONFIG = {
     // One source only: The Temple News refused GitHub's network (403), and
     // there is no On3 team feed or On SI site (404).
     beatFeeds: [
-      { name: "Temple Athletics", feed: "https://owlsports.com/rss?path=football", site: "https://owlsports.com/sports/football", logo: "https://owlsports.com/favicon.ico" }
+      { name: "Temple Athletics", feed: "https://owlsports.com/rss?path=football", site: "https://owlsports.com/sports/football", logo: "https://owlsports.com/favicon.ico" },
+      { name: "OwlScoop", feed: "https://www.on3.com/sites/owl-scoop/feed/", site: "https://www.on3.com/sites/owl-scoop/", paths: ["/sites/owl-scoop/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 
