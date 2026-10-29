@@ -61,14 +61,22 @@ ok(!/available\s*:/.test(read("teams/index.js")),
    "no row carries an availability flag - naming a config is what makes a team selectable");
 eq(REG.get("notre-dame").available, true, "Notre Dame is selectable");
 eq(REG.get("ohio-state").available, true, "Ohio State is selectable");
-// A program still waiting for its config, picked from the registry: the
-// phases add teams, so no one name stays unconfigured.
-var bare = REG.all().filter(function (t) { return !t.config; })[0];
-ok(!!bare, "the registry knows a program that has no config yet");
-eq(REG.get(bare.id).available, false, bare.name + " is known but not selectable");
-eq(REG.isAvailable(bare.id), false, "and the registry says so when asked directly");
-eq(REG.configFor(bare.id), null, "a team with no config has no config path");
-ok(REG.all().length > REG.available().length, "the registry is larger than what is selectable, as it should be");
+// A program waiting for its config. Phase 4b (2026-10-29) gave every FBS
+// program one, so the live registry may have none left: the rule is checked
+// on a copy with one program's config taken away.
+eq(REG.available().length, REG.all().filter(function (t) { return !!t.config; }).length,
+   "every program with a config is selectable, and only those (" + REG.available().length + " of " + REG.all().length + ")");
+var bareId = (REG.all().filter(function (t) { return !t.config; })[0] || REG.all().filter(function (t) { return t.id !== "notre-dame"; })[0]).id;
+var HELD = ctx.TeamOS.registry.create(ctx.TEAM_REGISTRY.map(function (t) {
+  if (t.id !== bareId) return t;
+  var c = {}; Object.keys(t).forEach(function (k) { if (k !== "config") c[k] = t[k]; }); return c;
+}));
+var bare = HELD.get(bareId);
+ok(!!bare && !bare.config, "a program without a config is still known to the registry");
+eq(bare.available, false, bare.name + " is known but not selectable");
+eq(HELD.isAvailable(bareId), false, "and the registry says so when asked directly");
+eq(HELD.configFor(bareId), null, "a team with no config has no config path");
+ok(HELD.all().length > HELD.available().length, "the registry is larger than what is selectable while one waits");
 
 console.log(" a row that is not a team is dropped, not thrown on");
 var messy = ctx.TeamOS.registry.create([
