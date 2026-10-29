@@ -1173,6 +1173,30 @@ var tiny = { markets: [
   { ticker: "X-D", yes_sub_title: "Delta", yes_bid_dollars: "0.2000", yes_ask_dollars: "0.2200", status: "active" } ] };
 var tf = MK.field(tiny, { sources: { kalshi: { tickerSuffix: "-D" } } }, "title");
 eq(tf.rows.map(function (r) { return r.team; }), ["Alpha", "Delta"], "an unpriced market and a closed one are left out; ties read by name");
+
+console.log("TeamOS.markets: the suffix wins over a look-alike name (Michigan, 2026-10-29)");
+var lookalike = { markets: [
+  { ticker: "KXNCAAFPLAYOFF-26-WMU", yes_sub_title: "Western Michigan", last_price_dollars: "0.0400", status: "active" },
+  { ticker: "KXNCAAFPLAYOFF-26-MICH", yes_sub_title: "Michigan", last_price_dollars: "0.6100", status: "active" } ] };
+var michK = { sources: { kalshi: { tickerSuffix: "-MICH", namePattern: /\bmichigan\b(?! st)|wolverines/i } } };
+eq(MK.teamMarket(lookalike, michK).ticker, "KXNCAAFPLAYOFF-26-MICH", "a pattern that also reads Western Michigan still gets Michigan's own market");
+eq(MK.field(lookalike, michK, "playoff").rows.filter(function (r) { return r.mine; }).map(function (r) { return r.ticker; }), ["KXNCAAFPLAYOFF-26-MICH"],
+   "and only Michigan's row is marked as the team's");
+eq(MK.teamMarket(lookalike, { sources: { kalshi: { namePattern: /western mich/i } } }).ticker, "KXNCAAFPLAYOFF-26-WMU", "a config with only a pattern still finds its market by name");
+eq(MK.teamMarket(lookalike, { sources: { kalshi: { tickerSuffix: "-ND", namePattern: /notre dame/i } } }), null, "and a team not in the event finds none");
+
+console.log("every configured team's name pattern reads only its own market in the committed league snapshots");
+fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; }).forEach(function (f) {
+  var c = vm.createContext({}); vm.runInContext(read("teams/" + f), c, { filename: f });
+  var k = c.TEAM_CONFIG.sources && c.TEAM_CONFIG.sources.kalshi;
+  if (!k || !k.namePattern || !k.tickerSuffix) return;
+  [titleEv, playoffEv].forEach(function (ev) {
+    var hits = ev.markets.filter(function (m) { return k.namePattern.test(MK.name(m) || ""); });
+    var other = hits.filter(function (m) { return !String(m.ticker || "").endsWith(k.tickerSuffix); });
+    if (other.length) ok(false, f + ": its name pattern also reads " + other.map(function (m) { return MK.name(m); }).join(", "));
+  });
+});
+ok(true, "checked every config with a Kalshi suffix and pattern");
 eq([tf.rows[0].change, tf.rows[1].change], [3, null], "change against the source's previous price, else none");
 ok(tf.rows[1].mine && !tf.rows[0].mine, "the team's row is marked");
 eq(MK.field({ markets: [] }, ndK, "title"), null, "an event with nothing priced: no field");

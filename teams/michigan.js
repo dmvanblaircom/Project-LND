@@ -29,7 +29,7 @@ var TEAM_CONFIG = {
     },
     kalshi: {
       tickerSuffix: "-MICH",
-      namePattern:  /\bmichigan\b(?! st)|wolverines/i
+      namePattern:  /(?<!western )(?<!central )(?<!eastern )\bmichigan\b(?! st)|wolverines/i
     },
 
     // The Big Ten's availability reports (tools/producers/conference_availability.py).
