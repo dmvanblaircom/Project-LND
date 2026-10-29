@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia",
- "updated": "2026-10-29T00:38:05.278730+00:00",
+ "updated": "2026-10-29T10:08:09.382618+00:00",
  "reports": [
   {
    "schema": 1,
@@ -296,12 +296,12 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T00:38:05.278730+00:00",
+   "fetchedAt": "2026-10-29T10:08:09.382618+00:00",
    "reported": true,
    "effectiveAt": "2026-10-28",
    "heading": "Initial",
    "kickoffDate": "2026-10-31",
-   "game": "Florida",
+   "game": "vs. Florida",
    "players": [
     {
      "pos": "WR",

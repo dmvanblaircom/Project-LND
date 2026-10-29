@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "northwestern",
- "updated": "2026-10-29T00:08:17.929031+00:00",
+ "updated": "2026-10-29T10:08:13.546860+00:00",
  "reports": [
   {
    "schema": 1,
@@ -536,12 +536,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T00:08:17.929031+00:00",
+   "fetchedAt": "2026-10-29T10:08:13.546860+00:00",
    "reported": true,
    "effectiveAt": "2026-10-28",
    "heading": "Initial",
    "kickoffDate": "2026-10-31",
-   "game": "Oregon",
+   "game": "at Oregon",
    "players": [
     {
      "pos": "DB",
