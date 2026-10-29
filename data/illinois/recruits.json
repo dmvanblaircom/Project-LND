@@ -16,9 +16,22 @@
    "city": "Evanston",
    "state": "IL",
    "grade": 80,
-   "rank": 272,
-   "positionRank": 12,
-   "stateRank": 11,
+   "rank": 297,
+   "positionRank": 16,
+   "stateRank": 13,
+   "status": "Verbal"
+  },
+  {
+   "id": "272496",
+   "name": "Bennett Konkey",
+   "position": "WR",
+   "highSchool": "Geneva High School",
+   "city": "Geneva",
+   "state": "IL",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 45,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -30,8 +43,8 @@
    "state": "IL",
    "grade": 79,
    "rank": null,
-   "positionRank": 40,
-   "stateRank": 17,
+   "positionRank": 41,
+   "stateRank": 18,
    "status": "Verbal"
   },
   {
@@ -43,21 +56,8 @@
    "state": "IL",
    "grade": 79,
    "rank": null,
-   "positionRank": 39,
-   "stateRank": 16,
-   "status": "Verbal"
-  },
-  {
-   "id": "272496",
-   "name": "Bennett Konkey",
-   "position": "WR",
-   "highSchool": "Geneva High School",
-   "city": "Geneva",
-   "state": "IL",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 78,
-   "stateRank": 20,
+   "positionRank": 40,
+   "stateRank": 17,
    "status": "Verbal"
   },
   {
@@ -82,7 +82,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 72,
+   "positionRank": 71,
    "stateRank": 79,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "MI",
    "grade": 76,
    "rank": null,
-   "positionRank": 66,
+   "positionRank": 67,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -121,8 +121,8 @@
    "state": "IL",
    "grade": 76,
    "rank": null,
-   "positionRank": 93,
-   "stateRank": 31,
+   "positionRank": 95,
+   "stateRank": 32,
    "status": "Verbal"
   },
   {
@@ -147,7 +147,7 @@
    "state": "IA",
    "grade": 75,
    "rank": null,
-   "positionRank": 37,
+   "positionRank": 38,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 153,
+   "positionRank": 154,
    "stateRank": 152,
    "status": "Verbal"
   },
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

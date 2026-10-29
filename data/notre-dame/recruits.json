@@ -16,7 +16,7 @@
    "city": "Lake Charles",
    "state": "LA",
    "grade": 88,
-   "rank": 26,
+   "rank": 31,
    "positionRank": 1,
    "stateRank": 4,
    "status": "Verbal"
@@ -28,9 +28,9 @@
    "highSchool": "Saint Peter's Prep",
    "city": "Jersey City",
    "state": "NJ",
-   "grade": 84,
-   "rank": 44,
-   "positionRank": 7,
+   "grade": 86,
+   "rank": 35,
+   "positionRank": 5,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -42,8 +42,8 @@
    "city": "Fort Lauderdale",
    "state": "FL",
    "grade": 84,
-   "rank": 50,
-   "positionRank": 10,
+   "rank": 52,
+   "positionRank": 11,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -55,8 +55,21 @@
    "city": "Raleigh",
    "state": "NC",
    "grade": 84,
-   "rank": 54,
-   "positionRank": 6,
+   "rank": 58,
+   "positionRank": 7,
+   "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
+   "id": "266507",
+   "name": "Abraham Sesay",
+   "position": "DE",
+   "highSchool": "Downingtown East High School",
+   "city": "Exton",
+   "state": "PA",
+   "grade": 84,
+   "rank": 68,
+   "positionRank": 10,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -68,22 +81,35 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 84,
-   "rank": 66,
+   "rank": 75,
    "positionRank": 5,
-   "stateRank": 3,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
-   "id": "266507",
-   "name": "Abraham Sesay",
-   "position": "DE",
-   "highSchool": "Downingtown East High School",
-   "city": "Exton",
-   "state": "PA",
+   "id": "261589",
+   "name": "Zayden Gamble",
+   "position": "S",
+   "highSchool": "Saint Thomas Aquinas High School",
+   "city": "Fort Lauderdale",
+   "state": "FL",
    "grade": 83,
-   "rank": 90,
-   "positionRank": 11,
-   "stateRank": 4,
+   "rank": 106,
+   "positionRank": 10,
+   "stateRank": 10,
+   "status": "Verbal"
+  },
+  {
+   "id": "266551",
+   "name": "Jackson Vaughn",
+   "position": "DE",
+   "highSchool": "IMG Academy",
+   "city": "Bradenton",
+   "state": "FL",
+   "grade": 83,
+   "rank": 111,
+   "positionRank": 14,
+   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -94,9 +120,9 @@
    "city": "Cincinnati",
    "state": "OH",
    "grade": 81,
-   "rank": 146,
+   "rank": 161,
    "positionRank": 17,
-   "stateRank": 3,
+   "stateRank": 4,
    "status": "Verbal"
   },
   {
@@ -107,22 +133,9 @@
    "city": "Waco",
    "state": "TX",
    "grade": 81,
-   "rank": 152,
-   "positionRank": 7,
-   "stateRank": 21,
-   "status": "Verbal"
-  },
-  {
-   "id": "260429",
-   "name": "Isaiah Rogers",
-   "position": "RB",
-   "highSchool": "Springfield Central High School",
-   "city": "Springfield",
-   "state": "MA",
-   "grade": 81,
-   "rank": 157,
-   "positionRank": 9,
-   "stateRank": 2,
+   "rank": 169,
+   "positionRank": 10,
+   "stateRank": 24,
    "status": "Verbal"
   },
   {
@@ -133,8 +146,8 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 81,
-   "rank": 159,
-   "positionRank": 3,
+   "rank": 173,
+   "positionRank": 4,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -146,22 +159,9 @@
    "city": "Pittsburgh",
    "state": "PA",
    "grade": 81,
-   "rank": 160,
-   "positionRank": 16,
+   "rank": 174,
+   "positionRank": 17,
    "stateRank": 6,
-   "status": "Verbal"
-  },
-  {
-   "id": "266551",
-   "name": "Jackson Vaughn",
-   "position": "DE",
-   "highSchool": "IMG Academy",
-   "city": "Bradenton",
-   "state": "FL",
-   "grade": 81,
-   "rank": 166,
-   "positionRank": 20,
-   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -172,22 +172,22 @@
    "city": "Ramsey",
    "state": "NJ",
    "grade": 81,
-   "rank": 188,
+   "rank": 202,
    "positionRank": 21,
    "stateRank": 5,
    "status": "Verbal"
   },
   {
-   "id": "261589",
-   "name": "Zayden Gamble",
-   "position": "S",
-   "highSchool": "Saint Thomas Aquinas High School",
-   "city": "Fort Lauderdale",
-   "state": "FL",
+   "id": "266419",
+   "name": "Brayden Parks",
+   "position": "DT",
+   "highSchool": "Brother Rice High School",
+   "city": "Chicago",
+   "state": "IL",
    "grade": 81,
-   "rank": 192,
-   "positionRank": 13,
-   "stateRank": 19,
+   "rank": 244,
+   "positionRank": 22,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -198,9 +198,9 @@
    "city": "Vero Beach",
    "state": "FL",
    "grade": 80,
-   "rank": 215,
-   "positionRank": 15,
-   "stateRank": 24,
+   "rank": 262,
+   "positionRank": 17,
+   "stateRank": 25,
    "status": "Verbal"
   },
   {
@@ -211,9 +211,22 @@
    "city": "Rabun Gap",
    "state": "GA",
    "grade": 80,
-   "rank": 269,
-   "positionRank": 25,
+   "rank": 294,
+   "positionRank": 28,
    "stateRank": 35,
+   "status": "Verbal"
+  },
+  {
+   "id": "260429",
+   "name": "Isaiah Rogers",
+   "position": "RB",
+   "highSchool": "Springfield Central High School",
+   "city": "Springfield",
+   "state": "MA",
+   "grade": 80,
+   "rank": 300,
+   "positionRank": 22,
+   "stateRank": 3,
    "status": "Verbal"
   },
   {
@@ -224,22 +237,9 @@
    "city": "West Hills",
    "state": "CA",
    "grade": 80,
-   "rank": 277,
-   "positionRank": 29,
-   "stateRank": 25,
-   "status": "Verbal"
-  },
-  {
-   "id": "266419",
-   "name": "Brayden Parks",
-   "position": "DT",
-   "highSchool": "Brother Rice High School",
-   "city": "Chicago",
-   "state": "IL",
-   "grade": 80,
    "rank": null,
-   "positionRank": 32,
-   "stateRank": 14,
+   "positionRank": 33,
+   "stateRank": 26,
    "status": "Verbal"
   },
   {
@@ -264,7 +264,7 @@
    "state": "OK",
    "grade": 80,
    "rank": null,
-   "positionRank": 14,
+   "positionRank": 16,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -277,7 +277,7 @@
    "state": "CO",
    "grade": 78,
    "rank": null,
-   "positionRank": 76,
+   "positionRank": 77,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -290,7 +290,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 78,
+   "positionRank": 80,
    "stateRank": 69,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-27T20:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

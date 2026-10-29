@@ -16,9 +16,22 @@
    "city": "Omaha",
    "state": "NE",
    "grade": 82,
-   "rank": 139,
+   "rank": 147,
    "positionRank": 9,
    "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
+   "id": "271451",
+   "name": "Chris Harris Jr.",
+   "position": "ATH",
+   "highSchool": "Lee's Summit West High School",
+   "city": "Lee's Summit",
+   "state": "MO",
+   "grade": 81,
+   "rank": 162,
+   "positionRank": 7,
+   "stateRank": 2,
    "status": "Verbal"
   },
   {
@@ -29,9 +42,9 @@
    "city": "Saint Charles",
    "state": "MO",
    "grade": 81,
-   "rank": 181,
+   "rank": 195,
    "positionRank": 8,
-   "stateRank": 2,
+   "stateRank": 3,
    "status": "Verbal"
   },
   {
@@ -42,9 +55,9 @@
    "city": "Memphis",
    "state": "TN",
    "grade": 80,
-   "rank": 229,
-   "positionRank": 8,
-   "stateRank": 9,
+   "rank": 271,
+   "positionRank": 14,
+   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -55,9 +68,9 @@
    "city": "Kansas City",
    "state": "MO",
    "grade": 80,
-   "rank": 254,
+   "rank": 283,
    "positionRank": 9,
-   "stateRank": 3,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -68,22 +81,9 @@
    "city": "Saint Louis",
    "state": "MO",
    "grade": 80,
-   "rank": 271,
-   "positionRank": 22,
-   "stateRank": 4,
-   "status": "Verbal"
-  },
-  {
-   "id": "271451",
-   "name": "Chris Harris Jr.",
-   "position": "ATH",
-   "highSchool": "Lee's Summit West High School",
-   "city": "Lee's Summit",
-   "state": "MO",
-   "grade": 80,
-   "rank": 287,
-   "positionRank": 13,
-   "stateRank": 5,
+   "rank": 295,
+   "positionRank": 21,
+   "stateRank": 6,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 80,
    "rank": null,
    "positionRank": 30,
-   "stateRank": 7,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "MO",
    "grade": 79,
    "rank": null,
-   "positionRank": 38,
+   "positionRank": 36,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "FL",
    "grade": 79,
    "rank": null,
-   "positionRank": 43,
+   "positionRank": 45,
    "stateRank": 44,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 76,
-   "stateRank": 22,
+   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -161,7 +161,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 44,
-   "stateRank": 23,
+   "stateRank": 24,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "MI",
    "grade": 77,
    "rank": null,
-   "positionRank": 123,
+   "positionRank": 122,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -186,8 +186,8 @@
    "state": "IL",
    "grade": 77,
    "rank": null,
-   "positionRank": 69,
-   "stateRank": 24,
+   "positionRank": 71,
+   "stateRank": 25,
    "status": "Verbal"
   },
   {
@@ -199,8 +199,8 @@
    "state": "OH",
    "grade": 76,
    "rank": null,
-   "positionRank": 98,
-   "stateRank": 39,
+   "positionRank": 100,
+   "stateRank": 41,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "AL",
    "grade": 76,
    "rank": null,
-   "positionRank": 91,
+   "positionRank": 93,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

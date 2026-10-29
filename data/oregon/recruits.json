@@ -30,7 +30,7 @@
    "state": "NJ",
    "grade": 90,
    "rank": 19,
-   "positionRank": 5,
+   "positionRank": 4,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -42,8 +42,8 @@
    "city": "Raleigh",
    "state": "NC",
    "grade": 86,
-   "rank": 35,
-   "positionRank": 4,
+   "rank": 37,
+   "positionRank": 5,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -55,7 +55,7 @@
    "city": "Collierville",
    "state": "TN",
    "grade": 84,
-   "rank": 62,
+   "rank": 69,
    "positionRank": 3,
    "stateRank": 4,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Mililani",
    "state": "HI",
    "grade": 83,
-   "rank": 69,
+   "rank": 79,
    "positionRank": 7,
    "stateRank": 1,
    "status": "Verbal"
@@ -81,9 +81,9 @@
    "city": "Broken Arrow",
    "state": "OK",
    "grade": 83,
-   "rank": 73,
+   "rank": 83,
    "positionRank": 7,
-   "stateRank": 2,
+   "stateRank": 3,
    "status": "Verbal"
   },
   {
@@ -94,9 +94,9 @@
    "city": "Harper Woods",
    "state": "MI",
    "grade": 83,
-   "rank": 79,
-   "positionRank": 16,
-   "stateRank": 1,
+   "rank": 90,
+   "positionRank": 17,
+   "stateRank": 2,
    "status": "Verbal"
   },
   {
@@ -107,9 +107,22 @@
    "city": "Chandler",
    "state": "AZ",
    "grade": 83,
-   "rank": 94,
-   "positionRank": 4,
+   "rank": 100,
+   "positionRank": 5,
    "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
+   "id": "262558",
+   "name": "CaDarius McMiller",
+   "position": "RB",
+   "highSchool": "John Tyler High School",
+   "city": "Tyler",
+   "state": "TX",
+   "grade": 82,
+   "rank": 128,
+   "positionRank": 7,
+   "stateRank": 18,
    "status": "Verbal"
   },
   {
@@ -120,9 +133,9 @@
    "city": "Denton",
    "state": "TX",
    "grade": 82,
-   "rank": 123,
-   "positionRank": 14,
-   "stateRank": 17,
+   "rank": 130,
+   "positionRank": 15,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -133,9 +146,9 @@
    "city": "Massillon",
    "state": "OH",
    "grade": 81,
-   "rank": 189,
-   "positionRank": 5,
-   "stateRank": 6,
+   "rank": 203,
+   "positionRank": 6,
+   "stateRank": 7,
    "status": "Verbal"
   },
   {
@@ -146,22 +159,9 @@
    "city": "Hays",
    "state": "KS",
    "grade": 80,
-   "rank": 213,
+   "rank": 260,
    "positionRank": 7,
    "stateRank": 1,
-   "status": "Verbal"
-  },
-  {
-   "id": "262558",
-   "name": "CaDarius McMiller",
-   "position": "RB",
-   "highSchool": "John Tyler High School",
-   "city": "Tyler",
-   "state": "TX",
-   "grade": 80,
-   "rank": 218,
-   "positionRank": 15,
-   "stateRank": 32,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "MI",
    "grade": 80,
    "rank": null,
-   "positionRank": 16,
+   "positionRank": 18,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -186,8 +186,8 @@
    "state": "AL",
    "grade": 80,
    "rank": null,
-   "positionRank": 31,
-   "stateRank": 17,
+   "positionRank": 33,
+   "stateRank": 18,
    "status": "Verbal"
   },
   {
@@ -199,8 +199,8 @@
    "state": "IL",
    "grade": 80,
    "rank": null,
-   "positionRank": 35,
-   "stateRank": 13,
+   "positionRank": 37,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "OR",
    "grade": 80,
    "rank": null,
-   "positionRank": 33,
+   "positionRank": 35,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "CA",
    "grade": 79,
    "rank": null,
-   "positionRank": 48,
+   "positionRank": 49,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "PA",
    "grade": 79,
    "rank": null,
-   "positionRank": 37,
+   "positionRank": 35,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -278,7 +278,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 51,
-   "stateRank": 45,
+   "stateRank": 44,
    "status": "Verbal"
   },
   {
@@ -291,7 +291,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 49,
-   "stateRank": 10,
+   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -303,7 +303,7 @@
    "state": "OR",
    "grade": 76,
    "rank": null,
-   "positionRank": 155,
+   "positionRank": 154,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

@@ -15,10 +15,10 @@
    "highSchool": "John Hersey High School",
    "city": "Arlington Heights",
    "state": "IL",
-   "grade": 82,
-   "rank": 124,
-   "positionRank": 7,
-   "stateRank": 8,
+   "grade": 83,
+   "rank": 88,
+   "positionRank": 3,
+   "stateRank": 7,
    "status": "Verbal"
   },
   {
@@ -29,9 +29,9 @@
    "city": "Prattville",
    "state": "AL",
    "grade": 81,
-   "rank": 165,
-   "positionRank": 12,
-   "stateRank": 7,
+   "rank": 178,
+   "positionRank": 13,
+   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -41,9 +41,9 @@
    "highSchool": "Corbin High School",
    "city": "Corbin",
    "state": "KY",
-   "grade": 80,
-   "rank": 243,
-   "positionRank": 20,
+   "grade": 81,
+   "rank": 253,
+   "positionRank": 25,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "NC",
    "grade": 80,
    "rank": null,
-   "positionRank": 25,
+   "positionRank": 26,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -69,7 +69,7 @@
    "state": "KY",
    "grade": 80,
    "rank": null,
-   "positionRank": 15,
+   "positionRank": 18,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -82,8 +82,8 @@
    "state": "OH",
    "grade": 79,
    "rank": null,
-   "positionRank": 36,
-   "stateRank": 18,
+   "positionRank": 34,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 23,
-   "stateRank": 17,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "GA",
    "grade": 79,
    "rank": null,
-   "positionRank": 28,
+   "positionRank": 26,
    "stateRank": 50,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 52,
-   "stateRank": 14,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -147,8 +147,21 @@
    "state": "IN",
    "grade": 79,
    "rank": null,
-   "positionRank": 35,
-   "stateRank": 10,
+   "positionRank": 33,
+   "stateRank": 11,
+   "status": "Verbal"
+  },
+  {
+   "id": "268147",
+   "name": "Tristin Hughes",
+   "position": "ATH",
+   "highSchool": "Rocky River High School",
+   "city": "Rocky River",
+   "state": "OH",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 21,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -173,8 +186,8 @@
    "state": "NC",
    "grade": 78,
    "rank": null,
-   "positionRank": 78,
-   "stateRank": 23,
+   "positionRank": 79,
+   "stateRank": 25,
    "status": "Verbal"
   },
   {
@@ -199,7 +212,7 @@
    "state": "KY",
    "grade": 78,
    "rank": null,
-   "positionRank": 64,
+   "positionRank": 66,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -212,21 +225,8 @@
    "state": "FL",
    "grade": 78,
    "rank": null,
-   "positionRank": 23,
+   "positionRank": 24,
    "stateRank": 52,
-   "status": "Verbal"
-  },
-  {
-   "id": "268147",
-   "name": "Tristin Hughes",
-   "position": "ATH",
-   "highSchool": "Rocky River High School",
-   "city": "Rocky River",
-   "state": "OH",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 34,
-   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 112,
+   "positionRank": 111,
    "stateRank": 77,
    "status": "Verbal"
   },
@@ -277,7 +277,7 @@
    "state": "AR",
    "grade": 77,
    "rank": null,
-   "positionRank": 72,
+   "positionRank": 70,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -291,7 +291,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 47,
-   "stateRank": 27,
+   "stateRank": 28,
    "status": "Verbal"
   },
   {
@@ -303,7 +303,7 @@
    "state": "AL",
    "grade": 77,
    "rank": null,
-   "positionRank": 81,
+   "positionRank": 80,
    "stateRank": 41,
    "status": "Verbal"
   },
@@ -316,7 +316,7 @@
    "state": "TN",
    "grade": 77,
    "rank": null,
-   "positionRank": 73,
+   "positionRank": 72,
    "stateRank": 30,
    "status": "Verbal"
   },
@@ -329,10 +329,10 @@
    "state": "OH",
    "grade": 77,
    "rank": null,
-   "positionRank": 74,
-   "stateRank": 30,
+   "positionRank": 75,
+   "stateRank": 31,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

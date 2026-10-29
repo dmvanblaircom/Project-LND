@@ -16,7 +16,7 @@
    "city": "Kingwood",
    "state": "TX",
    "grade": 92,
-   "rank": 4,
+   "rank": 5,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -28,10 +28,10 @@
    "highSchool": "Saint Thomas Aquinas High School",
    "city": "Fort Lauderdale",
    "state": "FL",
-   "grade": 90,
-   "rank": 11,
+   "grade": 92,
+   "rank": 6,
    "positionRank": 3,
-   "stateRank": 1,
+   "stateRank": 2,
    "status": "Verbal"
   },
   {
@@ -43,8 +43,8 @@
    "state": "FL",
    "grade": 90,
    "rank": 16,
-   "positionRank": 3,
-   "stateRank": 2,
+   "positionRank": 2,
+   "stateRank": 3,
    "status": "Verbal"
   },
   {
@@ -56,19 +56,6 @@
    "state": "MD",
    "grade": 90,
    "rank": 18,
-   "positionRank": 3,
-   "stateRank": 2,
-   "status": "Verbal"
-  },
-  {
-   "id": "265138",
-   "name": "Zyron Forstall",
-   "position": "DE",
-   "highSchool": "C. E. King High School",
-   "city": "Houston",
-   "state": "TX",
-   "grade": 90,
-   "rank": 21,
    "positionRank": 3,
    "stateRank": 2,
    "status": "Verbal"
@@ -94,9 +81,22 @@
    "city": "Tampa",
    "state": "FL",
    "grade": 89,
-   "rank": 24,
+   "rank": 25,
    "positionRank": 1,
-   "stateRank": 3,
+   "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
+   "id": "265138",
+   "name": "Zyron Forstall",
+   "position": "DE",
+   "highSchool": "C. E. King High School",
+   "city": "Houston",
+   "state": "TX",
+   "grade": 88,
+   "rank": 30,
+   "positionRank": 3,
+   "stateRank": 2,
    "status": "Verbal"
   },
   {
@@ -107,9 +107,9 @@
    "city": "Waxahachie",
    "state": "TX",
    "grade": 84,
-   "rank": 52,
+   "rank": 56,
    "positionRank": 6,
-   "stateRank": 6,
+   "stateRank": 7,
    "status": "Verbal"
   },
   {
@@ -120,7 +120,7 @@
    "city": "Ramsey",
    "state": "NJ",
    "grade": 84,
-   "rank": 58,
+   "rank": 62,
    "positionRank": 5,
    "stateRank": 3,
    "status": "Verbal"
@@ -133,9 +133,9 @@
    "city": "Orlando",
    "state": "FL",
    "grade": 84,
-   "rank": 65,
+   "rank": 73,
    "positionRank": 6,
-   "stateRank": 8,
+   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -146,22 +146,9 @@
    "city": "Leesburg",
    "state": "GA",
    "grade": 83,
-   "rank": 67,
-   "positionRank": 14,
+   "rank": 76,
+   "positionRank": 15,
    "stateRank": 7,
-   "status": "Verbal"
-  },
-  {
-   "id": "262483",
-   "name": "Jayce Johnson",
-   "position": "QB-DT",
-   "highSchool": "Lowndes High School",
-   "city": "Valdosta",
-   "state": "GA",
-   "grade": 83,
-   "rank": 81,
-   "positionRank": 3,
-   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -172,9 +159,22 @@
    "city": "Inglewood",
    "state": "CA",
    "grade": 83,
-   "rank": 92,
+   "rank": 99,
    "positionRank": 6,
-   "stateRank": 9,
+   "stateRank": 10,
+   "status": "Verbal"
+  },
+  {
+   "id": "262483",
+   "name": "Jayce Johnson",
+   "position": "QB-DT",
+   "highSchool": "Lowndes High School",
+   "city": "Valdosta",
+   "state": "GA",
+   "grade": 82,
+   "rank": 118,
+   "positionRank": 4,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -185,9 +185,9 @@
    "city": "Houston",
    "state": "TX",
    "grade": 82,
-   "rank": 118,
-   "positionRank": 9,
-   "stateRank": 16,
+   "rank": 126,
+   "positionRank": 10,
+   "stateRank": 17,
    "status": "Verbal"
   },
   {
@@ -198,9 +198,9 @@
    "city": "San Antonio",
    "state": "TX",
    "grade": 82,
-   "rank": 140,
+   "rank": 149,
    "positionRank": 13,
-   "stateRank": 20,
+   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -210,10 +210,10 @@
    "highSchool": "Northside High School",
    "city": "Warner Robins",
    "state": "GA",
-   "grade": 80,
-   "rank": 240,
-   "positionRank": 19,
-   "stateRank": 32,
+   "grade": 81,
+   "rank": 247,
+   "positionRank": 23,
+   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -224,8 +224,8 @@
    "city": "Las Vegas",
    "state": "NV",
    "grade": 80,
-   "rank": 289,
-   "positionRank": 42,
+   "rank": null,
+   "positionRank": 46,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -238,8 +238,8 @@
    "state": "TX",
    "grade": 80,
    "rank": null,
-   "positionRank": 37,
-   "stateRank": 43,
+   "positionRank": 38,
+   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -251,8 +251,8 @@
    "state": "IN",
    "grade": 80,
    "rank": null,
-   "positionRank": 37,
-   "stateRank": 7,
+   "positionRank": 36,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -264,7 +264,7 @@
    "state": "TX",
    "grade": 79,
    "rank": null,
-   "positionRank": 26,
+   "positionRank": 28,
    "stateRank": 61,
    "status": "Verbal"
   },
@@ -277,7 +277,7 @@
    "state": "MI",
    "grade": 79,
    "rank": null,
-   "positionRank": 17,
+   "positionRank": 19,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -303,7 +303,7 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 208,
+   "positionRank": 209,
    "stateRank": 58,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

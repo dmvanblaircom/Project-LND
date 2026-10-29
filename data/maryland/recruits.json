@@ -15,9 +15,9 @@
    "highSchool": "Archbishop Spalding High School",
    "city": "Severn",
    "state": "MD",
-   "grade": 83,
-   "rank": 106,
-   "positionRank": 21,
+   "grade": 81,
+   "rank": 160,
+   "positionRank": 29,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -30,7 +30,7 @@
    "state": "VA",
    "grade": 80,
    "rank": null,
-   "positionRank": 26,
+   "positionRank": 27,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -43,7 +43,7 @@
    "state": "MD",
    "grade": 79,
    "rank": null,
-   "positionRank": 35,
+   "positionRank": 36,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -70,7 +70,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 58,
-   "stateRank": 86,
+   "stateRank": 88,
    "status": "Verbal"
   },
   {
@@ -82,7 +82,7 @@
    "state": "MD",
    "grade": 78,
    "rank": null,
-   "positionRank": 56,
+   "positionRank": 57,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "LA",
    "grade": 77,
    "rank": null,
-   "positionRank": 98,
+   "positionRank": 99,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 82,
+   "positionRank": 84,
    "stateRank": 74,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 110,
+   "positionRank": 109,
    "stateRank": 76,
    "status": "Verbal"
   },
@@ -212,7 +212,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 135,
+   "positionRank": 136,
    "stateRank": 157,
    "status": "Verbal"
   },
@@ -239,7 +239,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 172,
-   "stateRank": 52,
+   "stateRank": 53,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "PA",
    "grade": 75,
    "rank": null,
-   "positionRank": 97,
+   "positionRank": 98,
    "stateRank": 38,
    "status": "Verbal"
   },
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

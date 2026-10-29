@@ -16,7 +16,7 @@
    "city": "Sacramento",
    "state": "CA",
    "grade": 82,
-   "rank": 109,
+   "rank": 117,
    "positionRank": 5,
    "stateRank": 11,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Ackerman",
    "state": "MS",
    "grade": 82,
-   "rank": 110,
+   "rank": 119,
    "positionRank": 8,
    "stateRank": 4,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Louisville",
    "state": "MS",
    "grade": 82,
-   "rank": 120,
+   "rank": 127,
    "positionRank": 9,
    "stateRank": 5,
    "status": "Verbal"
@@ -55,8 +55,21 @@
    "city": "Tupelo",
    "state": "MS",
    "grade": 81,
-   "rank": 168,
+   "rank": 180,
    "positionRank": 6,
+   "stateRank": 8,
+   "status": "Verbal"
+  },
+  {
+   "id": "260472",
+   "name": "Keegan Croucher",
+   "position": "QB-PP",
+   "highSchool": "Baylor School",
+   "city": "Chattanooga",
+   "state": "TN",
+   "grade": 81,
+   "rank": 183,
+   "positionRank": 13,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -68,61 +81,9 @@
    "city": "Lewisville",
    "state": "TX",
    "grade": 81,
-   "rank": 185,
+   "rank": 199,
    "positionRank": 22,
-   "stateRank": 26,
-   "status": "Verbal"
-  },
-  {
-   "id": "266319",
-   "name": "Jamarkus Pittman",
-   "position": "DT",
-   "highSchool": "Memphis Academy of Science and Engineering",
-   "city": "Memphis",
-   "state": "TN",
-   "grade": 80,
-   "rank": 259,
-   "positionRank": 23,
-   "stateRank": 11,
-   "status": "Verbal"
-  },
-  {
-   "id": "265394",
-   "name": "Antonio Keefer",
-   "position": "OT",
-   "highSchool": "Southwind High School",
-   "city": "Memphis",
-   "state": "TN",
-   "grade": 80,
-   "rank": 262,
-   "positionRank": 25,
-   "stateRank": 12,
-   "status": "Verbal"
-  },
-  {
-   "id": "265174",
-   "name": "Miguel Whitley",
-   "position": "WR",
-   "highSchool": "Saint Augustine High School",
-   "city": "New Orleans",
-   "state": "LA",
-   "grade": 80,
-   "rank": 274,
-   "positionRank": 41,
-   "stateRank": 11,
-   "status": "Verbal"
-  },
-  {
-   "id": "271302",
-   "name": "Antwan Jackson",
-   "position": "DE",
-   "highSchool": "White Station High School",
-   "city": "Memphis",
-   "state": "TN",
-   "grade": 80,
-   "rank": 300,
-   "positionRank": 27,
-   "stateRank": 13,
+   "stateRank": 28,
    "status": "Verbal"
   },
   {
@@ -133,9 +94,48 @@
    "city": "Crawford",
    "state": "TX",
    "grade": 80,
+   "rank": 267,
+   "positionRank": 39,
+   "stateRank": 36,
+   "status": "Verbal"
+  },
+  {
+   "id": "271302",
+   "name": "Antwan Jackson",
+   "position": "DE",
+   "highSchool": "White Station High School",
+   "city": "Memphis",
+   "state": "TN",
+   "grade": 80,
+   "rank": 276,
+   "positionRank": 27,
+   "stateRank": 12,
+   "status": "Verbal"
+  },
+  {
+   "id": "265394",
+   "name": "Antonio Keefer",
+   "position": "OT",
+   "highSchool": "Southwind High School",
+   "city": "Memphis",
+   "state": "TN",
+   "grade": 80,
+   "rank": 290,
+   "positionRank": 32,
+   "stateRank": 14,
+   "status": "Verbal"
+  },
+  {
+   "id": "266319",
+   "name": "Jamarkus Pittman",
+   "position": "DT",
+   "highSchool": "Memphis Academy of Science and Engineering",
+   "city": "Memphis",
+   "state": "TN",
+   "grade": 80,
    "rank": null,
-   "positionRank": 47,
-   "stateRank": 38,
+   "positionRank": 30,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -147,21 +147,8 @@
    "state": "GA",
    "grade": 80,
    "rank": null,
-   "positionRank": 27,
-   "stateRank": 42,
-   "status": "Verbal"
-  },
-  {
-   "id": "260472",
-   "name": "Keegan Croucher",
-   "position": "QB-PP",
-   "highSchool": "Baylor School",
-   "city": "Chattanooga",
-   "state": "TN",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 21,
-   "stateRank": 14,
+   "positionRank": 25,
+   "stateRank": 43,
    "status": "Verbal"
   },
   {
@@ -173,8 +160,21 @@
    "state": "IL",
    "grade": 80,
    "rank": null,
-   "positionRank": 24,
-   "stateRank": 12,
+   "positionRank": 23,
+   "stateRank": 15,
+   "status": "Verbal"
+  },
+  {
+   "id": "265174",
+   "name": "Miguel Whitley",
+   "position": "WR",
+   "highSchool": "Saint Augustine High School",
+   "city": "New Orleans",
+   "state": "LA",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 44,
+   "stateRank": 10,
    "status": "Verbal"
   },
   {
@@ -187,7 +187,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 48,
-   "stateRank": 18,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 17,
-   "stateRank": 74,
+   "stateRank": 75,
    "status": "Verbal"
   },
   {
@@ -239,7 +239,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 71,
-   "stateRank": 83,
+   "stateRank": 85,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "AL",
    "grade": 78,
    "rank": null,
-   "positionRank": 77,
+   "positionRank": 78,
    "stateRank": 25,
    "status": "Verbal"
   },
@@ -290,7 +290,7 @@
    "state": "LA",
    "grade": 76,
    "rank": null,
-   "positionRank": 100,
+   "positionRank": 99,
    "stateRank": 31,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

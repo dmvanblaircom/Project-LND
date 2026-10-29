@@ -16,9 +16,22 @@
    "city": "Tustin",
    "state": "CA",
    "grade": 81,
-   "rank": 149,
-   "positionRank": 11,
-   "stateRank": 13,
+   "rank": 166,
+   "positionRank": 12,
+   "stateRank": 14,
+   "status": "Verbal"
+  },
+  {
+   "id": "272547",
+   "name": "Uhila Wolfgramm",
+   "position": "DE",
+   "highSchool": "Maple Mountain High School",
+   "city": "Spanish Fork",
+   "state": "UT",
+   "grade": 81,
+   "rank": 175,
+   "positionRank": 20,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -30,21 +43,8 @@
    "state": "CA",
    "grade": 80,
    "rank": null,
-   "positionRank": 50,
+   "positionRank": 53,
    "stateRank": 31,
-   "status": "Verbal"
-  },
-  {
-   "id": "272547",
-   "name": "Uhila Wolfgramm",
-   "position": "DE",
-   "highSchool": "Maple Mountain High School",
-   "city": "Spanish Fork",
-   "state": "UT",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 28,
-   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -56,8 +56,8 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 49,
-   "stateRank": 79,
+   "positionRank": 50,
+   "stateRank": 81,
    "status": "Verbal"
   },
   {
@@ -69,7 +69,7 @@
    "state": "GA",
    "grade": 77,
    "rank": null,
-   "positionRank": 85,
+   "positionRank": 84,
    "stateRank": 114,
    "status": "Verbal"
   },
@@ -83,7 +83,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 68,
-   "stateRank": 18,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 78,
-   "stateRank": 20,
+   "stateRank": 21,
    "status": "Verbal"
   },
   {
@@ -108,8 +108,8 @@
    "state": "UT",
    "grade": 76,
    "rank": null,
-   "positionRank": 35,
-   "stateRank": 22,
+   "positionRank": 37,
+   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -121,7 +121,7 @@
    "state": "NV",
    "grade": 75,
    "rank": null,
-   "positionRank": 72,
+   "positionRank": 73,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "UT",
    "grade": 74,
    "rank": null,
-   "positionRank": 87,
+   "positionRank": 88,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "UT",
    "grade": 74,
    "rank": null,
-   "positionRank": 83,
+   "positionRank": 84,
    "stateRank": 25,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "UT",
    "grade": 73,
    "rank": null,
-   "positionRank": 223,
+   "positionRank": 224,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

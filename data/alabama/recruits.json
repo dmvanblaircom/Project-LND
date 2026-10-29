@@ -16,7 +16,7 @@
    "city": "Baton Rouge",
    "state": "LA",
    "grade": 92,
-   "rank": 5,
+   "rank": 7,
    "positionRank": 1,
    "stateRank": 1,
    "status": "Verbal"
@@ -28,10 +28,10 @@
    "highSchool": "IMG Academy",
    "city": "Bradenton",
    "state": "FL",
-   "grade": 86,
-   "rank": 34,
-   "positionRank": 7,
-   "stateRank": 6,
+   "grade": 88,
+   "rank": 27,
+   "positionRank": 6,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -41,10 +41,10 @@
    "highSchool": "Thompson High School",
    "city": "Alabaster",
    "state": "AL",
-   "grade": 80,
-   "rank": 208,
-   "positionRank": 14,
-   "stateRank": 9,
+   "grade": 81,
+   "rank": 238,
+   "positionRank": 16,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -56,7 +56,7 @@
    "state": "AL",
    "grade": 80,
    "rank": null,
-   "positionRank": 32,
+   "positionRank": 34,
    "stateRank": 20,
    "status": "Verbal"
   },
@@ -70,7 +70,20 @@
    "grade": 80,
    "rank": null,
    "positionRank": 26,
-   "stateRank": 10,
+   "stateRank": 11,
+   "status": "Verbal"
+  },
+  {
+   "id": "271227",
+   "name": "Tyler Younger",
+   "position": "DE",
+   "highSchool": "Greater Atlanta Christian School",
+   "city": "Norcross",
+   "state": "GA",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 32,
+   "stateRank": 41,
    "status": "Verbal"
   },
   {
@@ -82,7 +95,7 @@
    "state": "GA",
    "grade": 79,
    "rank": null,
-   "positionRank": 33,
+   "positionRank": 34,
    "stateRank": 63,
    "status": "Verbal"
   },
@@ -95,7 +108,7 @@
    "state": "AL",
    "grade": 78,
    "rank": null,
-   "positionRank": 86,
+   "positionRank": 87,
    "stateRank": 28,
    "status": "Verbal"
   },
@@ -121,7 +134,7 @@
    "state": "AL",
    "grade": 77,
    "rank": null,
-   "positionRank": 83,
+   "positionRank": 84,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -134,21 +147,8 @@
    "state": "GA",
    "grade": 77,
    "rank": null,
-   "positionRank": 86,
+   "positionRank": 85,
    "stateRank": 115,
-   "status": "Verbal"
-  },
-  {
-   "id": "271227",
-   "name": "Tyler Younger",
-   "position": "DE",
-   "highSchool": "Greater Atlanta Christian School",
-   "city": "Norcross",
-   "state": "GA",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 100,
-   "stateRank": 116,
    "status": "Verbal"
   },
   {
@@ -174,7 +174,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 62,
-   "stateRank": 49,
+   "stateRank": 50,
    "status": "Verbal"
   },
   {
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

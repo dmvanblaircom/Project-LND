@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2633",
  "classYear": 2027,
- "listed": 18,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -15,8 +15,8 @@
    "highSchool": "Baylor School",
    "city": "Chattanooga",
    "state": "TN",
-   "grade": 90,
-   "rank": 13,
+   "grade": 91,
+   "rank": 10,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Brentwood",
    "state": "TN",
    "grade": 85,
-   "rank": 39,
+   "rank": 43,
    "positionRank": 9,
    "stateRank": 3,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Oak Ridge",
    "state": "TN",
    "grade": 81,
-   "rank": 162,
+   "rank": 176,
    "positionRank": 7,
    "stateRank": 7,
    "status": "Verbal"
@@ -55,9 +55,22 @@
    "city": "Brentwood",
    "state": "TN",
    "grade": 81,
-   "rank": 183,
-   "positionRank": 13,
-   "stateRank": 8,
+   "rank": 197,
+   "positionRank": 14,
+   "stateRank": 9,
+   "status": "Verbal"
+  },
+  {
+   "id": "268385",
+   "name": "Niko Kampas",
+   "position": "OT",
+   "highSchool": "NFL Academy",
+   "city": "London, England",
+   "state": "EUR",
+   "grade": 81,
+   "rank": 215,
+   "positionRank": 21,
+   "stateRank": 1,
    "status": "Verbal"
   },
   {
@@ -68,22 +81,9 @@
    "city": "Murfreesboro",
    "state": "TN",
    "grade": 80,
-   "rank": 256,
-   "positionRank": 24,
-   "stateRank": 10,
-   "status": "Verbal"
-  },
-  {
-   "id": "268385",
-   "name": "Niko Kampas",
-   "position": "OT",
-   "highSchool": "NFL Academy",
-   "city": "London, England",
-   "state": "EUR",
-   "grade": 80,
-   "rank": 280,
-   "positionRank": 30,
-   "stateRank": 1,
+   "rank": 285,
+   "positionRank": 31,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -95,8 +95,8 @@
    "state": "PA",
    "grade": 80,
    "rank": null,
-   "positionRank": 32,
-   "stateRank": 9,
+   "positionRank": 31,
+   "stateRank": 10,
    "status": "Verbal"
   },
   {
@@ -108,8 +108,21 @@
    "state": "TN",
    "grade": 79,
    "rank": null,
-   "positionRank": 30,
-   "stateRank": 15,
+   "positionRank": 31,
+   "stateRank": 16,
+   "status": "Verbal"
+  },
+  {
+   "id": "271234",
+   "name": "Preston Glasco",
+   "position": "CB",
+   "highSchool": "Grayson High School",
+   "city": "Loganville",
+   "state": "GA",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 48,
+   "stateRank": 65,
    "status": "Verbal"
   },
   {
@@ -121,8 +134,8 @@
    "state": "GA",
    "grade": 78,
    "rank": null,
-   "positionRank": 10,
-   "stateRank": 94,
+   "positionRank": 11,
+   "stateRank": 96,
    "status": "Verbal"
   },
   {
@@ -135,7 +148,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 57,
-   "stateRank": 85,
+   "stateRank": 87,
    "status": "Verbal"
   },
   {
@@ -147,7 +160,7 @@
    "state": "TN",
    "grade": 78,
    "rank": null,
-   "positionRank": 41,
+   "positionRank": 40,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -173,7 +186,7 @@
    "state": "VA",
    "grade": 78,
    "rank": null,
-   "positionRank": 55,
+   "positionRank": 56,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -186,7 +199,7 @@
    "state": "TN",
    "grade": 76,
    "rank": null,
-   "positionRank": 56,
+   "positionRank": 57,
    "stateRank": 32,
    "status": "Verbal"
   },
@@ -199,7 +212,7 @@
    "state": "GA",
    "grade": 75,
    "rank": null,
-   "positionRank": 140,
+   "positionRank": 141,
    "stateRank": 147,
    "status": "Verbal"
   },
@@ -212,7 +225,7 @@
    "state": "TN",
    "grade": 75,
    "rank": null,
-   "positionRank": 70,
+   "positionRank": 71,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -243,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

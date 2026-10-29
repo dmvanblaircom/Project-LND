@@ -16,9 +16,9 @@
    "city": "Long Beach",
    "state": "CA",
    "grade": 88,
-   "rank": 27,
-   "positionRank": 4,
-   "stateRank": 3,
+   "rank": 29,
+   "positionRank": 6,
+   "stateRank": 4,
    "status": "Verbal"
   },
   {
@@ -29,7 +29,7 @@
    "city": "Layton",
    "state": "UT",
    "grade": 84,
-   "rank": 61,
+   "rank": 67,
    "positionRank": 4,
    "stateRank": 3,
    "status": "Verbal"
@@ -42,9 +42,9 @@
    "city": "Fort Worth",
    "state": "TX",
    "grade": 83,
-   "rank": 85,
-   "positionRank": 7,
-   "stateRank": 13,
+   "rank": 93,
+   "positionRank": 10,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -55,8 +55,8 @@
    "city": "Pottstown",
    "state": "PA",
    "grade": 83,
-   "rank": 91,
-   "positionRank": 18,
+   "rank": 98,
+   "positionRank": 19,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -68,7 +68,7 @@
    "city": "Englewood",
    "state": "CO",
    "grade": 80,
-   "rank": 216,
+   "rank": 263,
    "positionRank": 8,
    "stateRank": 1,
    "status": "Verbal"
@@ -81,9 +81,9 @@
    "city": "Gardena",
    "state": "CA",
    "grade": 80,
-   "rank": 296,
-   "positionRank": 23,
-   "stateRank": 26,
+   "rank": 266,
+   "positionRank": 21,
+   "stateRank": 24,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "NM",
    "grade": 80,
    "rank": null,
-   "positionRank": 10,
+   "positionRank": 11,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "CA",
    "grade": 79,
    "rank": null,
-   "positionRank": 64,
+   "positionRank": 66,
    "stateRank": 40,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "CA",
    "grade": 78,
    "rank": null,
-   "positionRank": 82,
+   "positionRank": 83,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -174,7 +174,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 45,
-   "stateRank": 82,
+   "stateRank": 81,
    "status": "Verbal"
   },
   {
@@ -187,7 +187,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 46,
-   "stateRank": 44,
+   "stateRank": 43,
    "status": "Verbal"
   },
   {
@@ -199,7 +199,7 @@
    "state": "CA",
    "grade": 78,
    "rank": null,
-   "positionRank": 63,
+   "positionRank": 64,
    "stateRank": 53,
    "status": "Verbal"
   },
@@ -225,8 +225,8 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 66,
-   "stateRank": 73,
+   "positionRank": 64,
+   "stateRank": 74,
    "status": "Verbal"
   },
   {
@@ -238,8 +238,8 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 121,
-   "stateRank": 76,
+   "positionRank": 120,
+   "stateRank": 77,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 106,
+   "positionRank": 105,
    "stateRank": 62,
    "status": "Verbal"
   },
@@ -264,8 +264,8 @@
    "state": "PA",
    "grade": 76,
    "rank": null,
-   "positionRank": 89,
-   "stateRank": 31,
+   "positionRank": 88,
+   "stateRank": 30,
    "status": "Verbal"
   },
   {
@@ -291,7 +291,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 72,
-   "stateRank": 105,
+   "stateRank": 104,
    "status": "Verbal"
   },
   {
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

@@ -16,7 +16,7 @@
    "city": "Denton",
    "state": "TX",
    "grade": 86,
-   "rank": 32,
+   "rank": 34,
    "positionRank": 2,
    "stateRank": 3,
    "status": "Verbal"
@@ -29,8 +29,8 @@
    "city": "Fort Gibson",
    "state": "OK",
    "grade": 86,
-   "rank": 38,
-   "positionRank": 5,
+   "rank": 42,
+   "positionRank": 6,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -42,8 +42,8 @@
    "city": "Orem",
    "state": "UT",
    "grade": 84,
-   "rank": 45,
-   "positionRank": 6,
+   "rank": 53,
+   "positionRank": 7,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -55,9 +55,22 @@
    "city": "Tustin",
    "state": "CA",
    "grade": 84,
-   "rank": 63,
+   "rank": 70,
    "positionRank": 1,
-   "stateRank": 7,
+   "stateRank": 8,
+   "status": "Verbal"
+  },
+  {
+   "id": "268380",
+   "name": "Gabriel Osborne Jr.",
+   "position": "CB",
+   "highSchool": "Mustang High School",
+   "city": "Mustang",
+   "state": "OK",
+   "grade": 84,
+   "rank": 71,
+   "positionRank": 9,
+   "stateRank": 2,
    "status": "Verbal"
   },
   {
@@ -68,7 +81,7 @@
    "city": "Danville",
    "state": "KY",
    "grade": 83,
-   "rank": 76,
+   "rank": 86,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -81,21 +94,8 @@
    "city": "Bixby",
    "state": "OK",
    "grade": 83,
-   "rank": 104,
+   "rank": 113,
    "positionRank": 4,
-   "stateRank": 3,
-   "status": "Verbal"
-  },
-  {
-   "id": "268380",
-   "name": "Gabriel Osborne Jr.",
-   "position": "CB",
-   "highSchool": "Mustang High School",
-   "city": "Mustang",
-   "state": "OK",
-   "grade": 83,
-   "rank": 105,
-   "positionRank": 12,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -107,9 +107,9 @@
    "city": "Montgomery",
    "state": "TX",
    "grade": 82,
-   "rank": 113,
-   "positionRank": 5,
-   "stateRank": 14,
+   "rank": 121,
+   "positionRank": 6,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -120,8 +120,8 @@
    "city": "Kaysville",
    "state": "UT",
    "grade": 82,
-   "rank": 129,
-   "positionRank": 4,
+   "rank": 137,
+   "positionRank": 5,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -133,9 +133,9 @@
    "city": "Inglewood",
    "state": "CA",
    "grade": 81,
-   "rank": 191,
-   "positionRank": 15,
-   "stateRank": 17,
+   "rank": 207,
+   "positionRank": 17,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -146,9 +146,9 @@
    "city": "Mobile",
    "state": "AL",
    "grade": 80,
-   "rank": 221,
-   "positionRank": 17,
-   "stateRank": 12,
+   "rank": 264,
+   "positionRank": 20,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -159,7 +159,7 @@
    "city": "Saraland",
    "state": "AL",
    "grade": 80,
-   "rank": 273,
+   "rank": 289,
    "positionRank": 6,
    "stateRank": 16,
    "status": "Verbal"
@@ -174,7 +174,7 @@
    "grade": 80,
    "rank": null,
    "positionRank": 27,
-   "stateRank": 47,
+   "stateRank": 48,
    "status": "Verbal"
   },
   {
@@ -186,7 +186,7 @@
    "state": "CA",
    "grade": 80,
    "rank": null,
-   "positionRank": 30,
+   "positionRank": 33,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -212,7 +212,7 @@
    "state": "OK",
    "grade": 79,
    "rank": null,
-   "positionRank": 23,
+   "positionRank": 25,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -225,8 +225,8 @@
    "state": "TX",
    "grade": 79,
    "rank": null,
-   "positionRank": 47,
-   "stateRank": 64,
+   "positionRank": 48,
+   "stateRank": 63,
    "status": "Verbal"
   },
   {
@@ -238,8 +238,8 @@
    "state": "TX",
    "grade": 79,
    "rank": null,
-   "positionRank": 39,
-   "stateRank": 54,
+   "positionRank": 41,
+   "stateRank": 55,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "AZ",
    "grade": 79,
    "rank": null,
-   "positionRank": 46,
+   "positionRank": 47,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -265,7 +265,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 52,
-   "stateRank": 73,
+   "stateRank": 72,
    "status": "Verbal"
   },
   {
@@ -278,7 +278,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 31,
-   "stateRank": 76,
+   "stateRank": 75,
    "status": "Verbal"
   },
   {
@@ -303,7 +303,7 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 45,
+   "positionRank": 46,
    "stateRank": 111,
    "status": "Verbal"
   },
@@ -329,7 +329,7 @@
    "state": "AR",
    "grade": 77,
    "rank": null,
-   "positionRank": 84,
+   "positionRank": 85,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -360,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

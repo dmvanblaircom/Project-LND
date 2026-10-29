@@ -22,19 +22,6 @@
    "status": "Verbal"
   },
   {
-   "id": "260408",
-   "name": "Jamier Brown",
-   "position": "WR",
-   "highSchool": "Wayne High School",
-   "city": "Huber Heights",
-   "state": "OH",
-   "grade": 90,
-   "rank": 10,
-   "positionRank": 2,
-   "stateRank": 1,
-   "status": "Verbal"
-  },
-  {
    "id": "261965",
    "name": "Marcus Fakatou",
    "position": "DT",
@@ -42,7 +29,7 @@
    "city": "Chatsworth",
    "state": "CA",
    "grade": 90,
-   "rank": 12,
+   "rank": 13,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -61,16 +48,29 @@
    "status": "Verbal"
   },
   {
+   "id": "260408",
+   "name": "Jamier Brown",
+   "position": "WR",
+   "highSchool": "Wayne High School",
+   "city": "Huber Heights",
+   "state": "OH",
+   "grade": 89,
+   "rank": 24,
+   "positionRank": 5,
+   "stateRank": 1,
+   "status": "Verbal"
+  },
+  {
    "id": "265014",
    "name": "Wyatt Smith",
    "position": "DE",
    "highSchool": "Saint Thomas Aquinas High School",
    "city": "Fort Lauderdale",
    "state": "FL",
-   "grade": 82,
-   "rank": 112,
-   "positionRank": 12,
-   "stateRank": 10,
+   "grade": 84,
+   "rank": 64,
+   "positionRank": 9,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -81,21 +81,21 @@
    "city": "Cibolo",
    "state": "TX",
    "grade": 82,
-   "rank": 116,
-   "positionRank": 11,
-   "stateRank": 15,
+   "rank": 124,
+   "positionRank": 12,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
-   "id": "267355",
-   "name": "Kellen Wymer",
-   "position": "OT",
-   "highSchool": "Liberty Center School",
-   "city": "Liberty Center",
-   "state": "OH",
-   "grade": 81,
-   "rank": 147,
-   "positionRank": 15,
+   "id": "267346",
+   "name": "Karlos May",
+   "position": "DT",
+   "highSchool": "Ramsay High School",
+   "city": "Birmingham",
+   "state": "AL",
+   "grade": 82,
+   "rank": 135,
+   "positionRank": 11,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -106,10 +106,23 @@
    "highSchool": "Blue Springs South High School",
    "city": "Blue Springs",
    "state": "MO",
-   "grade": 81,
-   "rank": 161,
-   "positionRank": 12,
+   "grade": 82,
+   "rank": 159,
+   "positionRank": 13,
    "stateRank": 1,
+   "status": "Verbal"
+  },
+  {
+   "id": "267355",
+   "name": "Kellen Wymer",
+   "position": "OT",
+   "highSchool": "Liberty Center School",
+   "city": "Liberty Center",
+   "state": "OH",
+   "grade": 81,
+   "rank": 163,
+   "positionRank": 16,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -120,9 +133,9 @@
    "city": "Huntington Beach",
    "state": "CA",
    "grade": 81,
-   "rank": 173,
-   "positionRank": 13,
-   "stateRank": 14,
+   "rank": 185,
+   "positionRank": 14,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -132,9 +145,22 @@
    "highSchool": "Washington High School",
    "city": "Massillon",
    "state": "OH",
-   "grade": 80,
-   "rank": 249,
-   "positionRank": 11,
+   "grade": 81,
+   "rank": 223,
+   "positionRank": 10,
+   "stateRank": 9,
+   "status": "Verbal"
+  },
+  {
+   "id": "262021",
+   "name": "Jimmy Kalis",
+   "position": "OT",
+   "highSchool": "Pittsburgh Central Catholic H. S.",
+   "city": "Pittsburgh",
+   "state": "PA",
+   "grade": 81,
+   "rank": 248,
+   "positionRank": 24,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -146,35 +172,9 @@
    "city": "Raleigh",
    "state": "NC",
    "grade": 80,
-   "rank": 279,
-   "positionRank": 8,
+   "rank": 281,
+   "positionRank": 9,
    "stateRank": 11,
-   "status": "Verbal"
-  },
-  {
-   "id": "262021",
-   "name": "Jimmy Kalis",
-   "position": "OT",
-   "highSchool": "Pittsburgh Central Catholic H. S.",
-   "city": "Pittsburgh",
-   "state": "PA",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 36,
-   "stateRank": 8,
-   "status": "Verbal"
-  },
-  {
-   "id": "267346",
-   "name": "Karlos May",
-   "position": "DT",
-   "highSchool": "Ramsay High School",
-   "city": "Birmingham",
-   "state": "AL",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 33,
-   "stateRank": 18,
    "status": "Verbal"
   },
   {
@@ -186,7 +186,7 @@
    "state": "VA",
    "grade": 79,
    "rank": null,
-   "positionRank": 52,
+   "positionRank": 53,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 16,
-   "stateRank": 11,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -212,8 +212,8 @@
    "state": "OH",
    "grade": 79,
    "rank": null,
-   "positionRank": 42,
-   "stateRank": 13,
+   "positionRank": 43,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -225,7 +225,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 77,
+   "positionRank": 76,
    "stateRank": 87,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 122,
+   "positionRank": 121,
    "stateRank": 86,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 123,
+   "positionRank": 125,
    "stateRank": 118,
    "status": "Verbal"
   },
@@ -265,9 +265,9 @@
    "grade": 76,
    "rank": null,
    "positionRank": 43,
-   "stateRank": 35,
+   "stateRank": 37,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-27T20:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

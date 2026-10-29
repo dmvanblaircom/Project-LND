@@ -15,9 +15,9 @@
    "highSchool": "East Coweta High School",
    "city": "Sharpsburg",
    "state": "GA",
-   "grade": 87,
-   "rank": 29,
-   "positionRank": 3,
+   "grade": 86,
+   "rank": 41,
+   "positionRank": 4,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -29,8 +29,8 @@
    "city": "Middletown",
    "state": "DE",
    "grade": 84,
-   "rank": 42,
-   "positionRank": 6,
+   "rank": 46,
+   "positionRank": 7,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -42,9 +42,9 @@
    "city": "East Saint Louis",
    "state": "IL",
    "grade": 84,
-   "rank": 57,
+   "rank": 61,
    "positionRank": 2,
-   "stateRank": 2,
+   "stateRank": 3,
    "status": "Verbal"
   },
   {
@@ -55,8 +55,8 @@
    "city": "Hyattsville",
    "state": "MD",
    "grade": 83,
-   "rank": 84,
-   "positionRank": 10,
+   "rank": 92,
+   "positionRank": 13,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -68,9 +68,9 @@
    "city": "Quitman",
    "state": "GA",
    "grade": 82,
-   "rank": 131,
+   "rank": 139,
    "positionRank": 6,
-   "stateRank": 17,
+   "stateRank": 18,
    "status": "Verbal"
   },
   {
@@ -81,9 +81,22 @@
    "city": "Prattville",
    "state": "AL",
    "grade": 82,
-   "rank": 144,
-   "positionRank": 25,
-   "stateRank": 4,
+   "rank": 155,
+   "positionRank": 28,
+   "stateRank": 5,
+   "status": "Verbal"
+  },
+  {
+   "id": "271286",
+   "name": "Isaac McNeil",
+   "position": "OLB",
+   "highSchool": "Vigor High School",
+   "city": "Prichard",
+   "state": "AL",
+   "grade": 82,
+   "rank": 157,
+   "positionRank": 12,
+   "stateRank": 6,
    "status": "Verbal"
   },
   {
@@ -94,9 +107,9 @@
    "city": "Duncan",
    "state": "SC",
    "grade": 81,
-   "rank": 150,
+   "rank": 167,
    "positionRank": 18,
-   "stateRank": 3,
+   "stateRank": 4,
    "status": "Verbal"
   },
   {
@@ -107,9 +120,9 @@
    "city": "Bessemer",
    "state": "AL",
    "grade": 81,
-   "rank": 179,
-   "positionRank": 13,
-   "stateRank": 8,
+   "rank": 193,
+   "positionRank": 15,
+   "stateRank": 10,
    "status": "Verbal"
   },
   {
@@ -120,35 +133,9 @@
    "city": "Lyons",
    "state": "GA",
    "grade": 80,
-   "rank": 225,
-   "positionRank": 15,
-   "stateRank": 26,
-   "status": "Verbal"
-  },
-  {
-   "id": "271286",
-   "name": "Isaac McNeil",
-   "position": "OLB",
-   "highSchool": "Vigor High School",
-   "city": "Prichard",
-   "state": "AL",
-   "grade": 80,
-   "rank": 250,
-   "positionRank": 17,
-   "stateRank": 14,
-   "status": "Verbal"
-  },
-  {
-   "id": "266415",
-   "name": "Rion Jackson",
-   "position": "OLB",
-   "highSchool": "Annapolis High School",
-   "city": "Annapolis",
-   "state": "MD",
-   "grade": 80,
-   "rank": 293,
-   "positionRank": 22,
-   "stateRank": 6,
+   "rank": 269,
+   "positionRank": 19,
+   "stateRank": 31,
    "status": "Verbal"
   },
   {
@@ -159,9 +146,22 @@
    "city": "Windermere",
    "state": "FL",
    "grade": 80,
-   "rank": 297,
+   "rank": null,
    "positionRank": 10,
-   "stateRank": 30,
+   "stateRank": 33,
+   "status": "Verbal"
+  },
+  {
+   "id": "266415",
+   "name": "Rion Jackson",
+   "position": "OLB",
+   "highSchool": "Annapolis High School",
+   "city": "Annapolis",
+   "state": "MD",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 21,
+   "stateRank": 6,
    "status": "Verbal"
   },
   {
@@ -173,8 +173,8 @@
    "state": "TN",
    "grade": 79,
    "rank": null,
-   "positionRank": 67,
-   "stateRank": 20,
+   "positionRank": 69,
+   "stateRank": 21,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 32,
-   "stateRank": 75,
+   "stateRank": 76,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "MD",
    "grade": 78,
    "rank": null,
-   "positionRank": 65,
+   "positionRank": 67,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "TN",
    "grade": 78,
    "rank": null,
-   "positionRank": 62,
+   "positionRank": 63,
    "stateRank": 25,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "MD",
    "grade": 77,
    "rank": null,
-   "positionRank": 41,
+   "positionRank": 42,
    "stateRank": 21,
    "status": "Verbal"
   },
@@ -252,7 +252,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 15,
-   "stateRank": 127,
+   "stateRank": 126,
    "status": "Verbal"
   },
   {
@@ -264,7 +264,7 @@
    "state": "TN",
    "grade": 76,
    "rank": null,
-   "positionRank": 77,
+   "positionRank": 75,
    "stateRank": 31,
    "status": "Verbal"
   },
@@ -277,8 +277,8 @@
    "state": "GA",
    "grade": 76,
    "rank": null,
-   "positionRank": 107,
-   "stateRank": 124,
+   "positionRank": 110,
+   "stateRank": 123,
    "status": "Verbal"
   },
   {
@@ -303,10 +303,10 @@
    "state": "AL",
    "grade": 74,
    "rank": null,
-   "positionRank": 160,
+   "positionRank": 161,
    "stateRank": 61,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

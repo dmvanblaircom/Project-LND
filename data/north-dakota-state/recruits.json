@@ -30,7 +30,7 @@
    "state": "ND",
    "grade": 75,
    "rank": null,
-   "positionRank": 45,
+   "positionRank": 46,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -69,7 +69,7 @@
    "state": "MO",
    "grade": 73,
    "rank": null,
-   "positionRank": 28,
+   "positionRank": 27,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -82,7 +82,7 @@
    "state": "IL",
    "grade": 73,
    "rank": null,
-   "positionRank": 91,
+   "positionRank": 92,
    "stateRank": 53,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "TX",
    "grade": 72,
    "rank": null,
-   "positionRank": 250,
+   "positionRank": 251,
    "stateRank": 261,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

@@ -16,7 +16,7 @@
    "city": "McKeesport",
    "state": "PA",
    "grade": 91,
-   "rank": 7,
+   "rank": 9,
    "positionRank": 1,
    "stateRank": 2,
    "status": "Verbal"
@@ -28,10 +28,23 @@
    "highSchool": "East Lincoln High School",
    "city": "Denver",
    "state": "NC",
-   "grade": 83,
-   "rank": 82,
-   "positionRank": 3,
+   "grade": 84,
+   "rank": 74,
+   "positionRank": 2,
    "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
+   "id": "271107",
+   "name": "Joakim Gouda",
+   "position": "ILB",
+   "highSchool": "McEachern High School",
+   "city": "Powder Springs",
+   "state": "GA",
+   "grade": 83,
+   "rank": 110,
+   "positionRank": 3,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -42,9 +55,9 @@
    "city": "Fairburn",
    "state": "GA",
    "grade": 82,
-   "rank": 117,
+   "rank": 125,
    "positionRank": 10,
-   "stateRank": 15,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -55,8 +68,8 @@
    "city": "Alcoa",
    "state": "TN",
    "grade": 82,
-   "rank": 128,
-   "positionRank": 23,
+   "rank": 136,
+   "positionRank": 24,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -68,7 +81,7 @@
    "city": "Metairie",
    "state": "LA",
    "grade": 82,
-   "rank": 133,
+   "rank": 141,
    "positionRank": 8,
    "stateRank": 7,
    "status": "Verbal"
@@ -81,9 +94,9 @@
    "city": "Lithonia",
    "state": "GA",
    "grade": 82,
-   "rank": 142,
+   "rank": 152,
    "positionRank": 14,
-   "stateRank": 19,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -93,10 +106,10 @@
    "highSchool": "Douglas County High School",
    "city": "Douglasville",
    "state": "GA",
-   "grade": 80,
-   "rank": 235,
-   "positionRank": 18,
-   "stateRank": 28,
+   "grade": 81,
+   "rank": 211,
+   "positionRank": 16,
+   "stateRank": 25,
    "status": "Verbal"
   },
   {
@@ -108,21 +121,8 @@
    "state": "NC",
    "grade": 80,
    "rank": null,
-   "positionRank": 35,
+   "positionRank": 36,
    "stateRank": 13,
-   "status": "Verbal"
-  },
-  {
-   "id": "271107",
-   "name": "Joakim Gouda",
-   "position": "ILB",
-   "highSchool": "McEachern High School",
-   "city": "Powder Springs",
-   "state": "GA",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 11,
-   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -134,7 +134,7 @@
    "state": "GA",
    "grade": 80,
    "rank": null,
-   "positionRank": 35,
+   "positionRank": 34,
    "stateRank": 48,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "MS",
    "grade": 79,
    "rank": null,
-   "positionRank": 48,
+   "positionRank": 49,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "GA",
    "grade": 79,
    "rank": null,
-   "positionRank": 43,
+   "positionRank": 44,
    "stateRank": 61,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "GA",
    "grade": 79,
    "rank": null,
-   "positionRank": 56,
+   "positionRank": 59,
    "stateRank": 52,
    "status": "Verbal"
   },
@@ -212,8 +212,8 @@
    "state": "GA",
    "grade": 78,
    "rank": null,
-   "positionRank": 64,
-   "stateRank": 90,
+   "positionRank": 65,
+   "stateRank": 92,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 56,
-   "stateRank": 82,
+   "stateRank": 84,
    "status": "Verbal"
   },
   {
@@ -239,7 +239,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 70,
-   "stateRank": 80,
+   "stateRank": 81,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "SC",
    "grade": 78,
    "rank": null,
-   "positionRank": 58,
+   "positionRank": 59,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -265,7 +265,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 45,
-   "stateRank": 71,
+   "stateRank": 72,
    "status": "Verbal"
   },
   {
@@ -278,7 +278,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 54,
-   "stateRank": 96,
+   "stateRank": 98,
    "status": "Verbal"
   },
   {
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

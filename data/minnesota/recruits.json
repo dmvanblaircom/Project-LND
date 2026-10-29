@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "135",
  "classYear": 2027,
- "listed": 29,
+ "listed": 30,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -16,8 +16,8 @@
    "city": "Kindred",
    "state": "ND",
    "grade": 80,
-   "rank": 242,
-   "positionRank": 10,
+   "rank": 279,
+   "positionRank": 12,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -29,8 +29,8 @@
    "city": "Plymouth",
    "state": "MN",
    "grade": 80,
-   "rank": 257,
-   "positionRank": 26,
+   "rank": 286,
+   "positionRank": 28,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -43,7 +43,7 @@
    "state": "NV",
    "grade": 79,
    "rank": null,
-   "positionRank": 55,
+   "positionRank": 58,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "IA",
    "grade": 79,
    "rank": null,
-   "positionRank": 34,
+   "positionRank": 32,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -69,7 +69,7 @@
    "state": "MN",
    "grade": 79,
    "rank": null,
-   "positionRank": 29,
+   "positionRank": 31,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -82,7 +82,7 @@
    "state": "SD",
    "grade": 78,
    "rank": null,
-   "positionRank": 25,
+   "positionRank": 26,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "NJ",
    "grade": 78,
    "rank": null,
-   "positionRank": 66,
+   "positionRank": 68,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "NE",
    "grade": 78,
    "rank": null,
-   "positionRank": 63,
+   "positionRank": 65,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -121,8 +121,8 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 96,
-   "stateRank": 70,
+   "positionRank": 97,
+   "stateRank": 71,
    "status": "Verbal"
   },
   {
@@ -134,7 +134,7 @@
    "state": "MN",
    "grade": 77,
    "rank": null,
-   "positionRank": 116,
+   "positionRank": 115,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "MS",
    "grade": 77,
    "rank": null,
-   "positionRank": 65,
+   "positionRank": 63,
    "stateRank": 19,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 40,
+   "positionRank": 41,
    "stateRank": 72,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "NV",
    "grade": 77,
    "rank": null,
-   "positionRank": 70,
+   "positionRank": 72,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "MD",
    "grade": 76,
    "rank": null,
-   "positionRank": 157,
+   "positionRank": 156,
    "stateRank": 31,
    "status": "Verbal"
   },
@@ -225,8 +225,8 @@
    "state": "IL",
    "grade": 76,
    "rank": null,
-   "positionRank": 87,
-   "stateRank": 29,
+   "positionRank": 89,
+   "stateRank": 30,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "WI",
    "grade": 76,
    "rank": null,
-   "positionRank": 90,
+   "positionRank": 92,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -264,7 +264,7 @@
    "state": "MS",
    "grade": 76,
    "rank": null,
-   "positionRank": 101,
+   "positionRank": 100,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -277,7 +277,7 @@
    "state": "MN",
    "grade": 76,
    "rank": null,
-   "positionRank": 99,
+   "positionRank": 101,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -329,8 +329,8 @@
    "state": "OH",
    "grade": 76,
    "rank": null,
-   "positionRank": 104,
-   "stateRank": 34,
+   "positionRank": 105,
+   "stateRank": 36,
    "status": "Verbal"
   },
   {
@@ -342,7 +342,7 @@
    "state": "MN",
    "grade": 76,
    "rank": null,
-   "positionRank": 84,
+   "positionRank": 81,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -368,7 +368,7 @@
    "state": "IA",
    "grade": 75,
    "rank": null,
-   "positionRank": 104,
+   "positionRank": 106,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -384,7 +384,20 @@
    "positionRank": 69,
    "stateRank": 130,
    "status": "Verbal"
+  },
+  {
+   "id": "274689",
+   "name": "Zach Shatek",
+   "position": "RB",
+   "highSchool": "Hastings High School",
+   "city": "Hastings",
+   "state": "MN",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-27T20:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

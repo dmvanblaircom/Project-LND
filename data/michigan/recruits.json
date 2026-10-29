@@ -16,7 +16,7 @@
    "city": "Salt Lake City",
    "state": "UT",
    "grade": 86,
-   "rank": 36,
+   "rank": 38,
    "positionRank": 1,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 86,
-   "rank": 37,
+   "rank": 39,
    "positionRank": 8,
    "stateRank": 1,
    "status": "Verbal"
@@ -42,9 +42,22 @@
    "city": "Rumson",
    "state": "NJ",
    "grade": 83,
-   "rank": 87,
+   "rank": 95,
    "positionRank": 4,
    "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
+   "id": "268459",
+   "name": "Monsanna Torbert",
+   "position": "ATH",
+   "highSchool": "Princeton High School",
+   "city": "Cincinnati",
+   "state": "OH",
+   "grade": 83,
+   "rank": 105,
+   "positionRank": 4,
+   "stateRank": 2,
    "status": "Verbal"
   },
   {
@@ -55,22 +68,9 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 82,
-   "rank": 111,
+   "rank": 120,
    "positionRank": 13,
-   "stateRank": 7,
-   "status": "Verbal"
-  },
-  {
-   "id": "261458",
-   "name": "Tyson Robinson",
-   "position": "RB",
-   "highSchool": "Brandon High School",
-   "city": "Brandon",
-   "state": "MS",
-   "grade": 82,
-   "rank": 121,
-   "positionRank": 6,
-   "stateRank": 6,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -81,9 +81,9 @@
    "city": "Pearland",
    "state": "TX",
    "grade": 82,
-   "rank": 135,
-   "positionRank": 17,
-   "stateRank": 19,
+   "rank": 143,
+   "positionRank": 18,
+   "stateRank": 22,
    "status": "Verbal"
   },
   {
@@ -94,8 +94,34 @@
    "city": "Greenwood",
    "state": "MS",
    "grade": 82,
-   "rank": 143,
-   "positionRank": 10,
+   "rank": 154,
+   "positionRank": 11,
+   "stateRank": 6,
+   "status": "Verbal"
+  },
+  {
+   "id": "268502",
+   "name": "Jakari Lipsey",
+   "position": "OT",
+   "highSchool": "Loy Norrix High School",
+   "city": "Kalamazoo",
+   "state": "MI",
+   "grade": 82,
+   "rank": 156,
+   "positionRank": 15,
+   "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
+   "id": "261458",
+   "name": "Tyson Robinson",
+   "position": "RB",
+   "highSchool": "Brandon High School",
+   "city": "Brandon",
+   "state": "MS",
+   "grade": 82,
+   "rank": 158,
+   "positionRank": 8,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -107,9 +133,9 @@
    "city": "Muskegon",
    "state": "MI",
    "grade": 81,
-   "rank": 156,
+   "rank": 171,
    "positionRank": 19,
-   "stateRank": 3,
+   "stateRank": 4,
    "status": "Verbal"
   },
   {
@@ -120,7 +146,7 @@
    "city": "Fort Wayne",
    "state": "IN",
    "grade": 81,
-   "rank": 194,
+   "rank": 213,
    "positionRank": 22,
    "stateRank": 2,
    "status": "Verbal"
@@ -133,9 +159,9 @@
    "city": "Bullard",
    "state": "TX",
    "grade": 81,
-   "rank": 202,
-   "positionRank": 19,
-   "stateRank": 29,
+   "rank": 254,
+   "positionRank": 25,
+   "stateRank": 34,
    "status": "Verbal"
   },
   {
@@ -146,35 +172,9 @@
    "city": "Katy",
    "state": "TX",
    "grade": 80,
-   "rank": 205,
-   "positionRank": 24,
-   "stateRank": 30,
-   "status": "Verbal"
-  },
-  {
-   "id": "268459",
-   "name": "Monsanna Torbert",
-   "position": "ATH",
-   "highSchool": "Princeton High School",
-   "city": "Cincinnati",
-   "state": "OH",
-   "grade": 80,
-   "rank": 239,
-   "positionRank": 10,
-   "stateRank": 8,
-   "status": "Verbal"
-  },
-  {
-   "id": "268502",
-   "name": "Jakari Lipsey",
-   "position": "OT",
-   "highSchool": "Loy Norrix High School",
-   "city": "Kalamazoo",
-   "state": "MI",
-   "grade": 80,
-   "rank": 275,
-   "positionRank": 28,
-   "stateRank": 4,
+   "rank": 257,
+   "positionRank": 29,
+   "stateRank": 35,
    "status": "Verbal"
   },
   {
@@ -186,7 +186,7 @@
    "state": "CA",
    "grade": 80,
    "rank": null,
-   "positionRank": 30,
+   "positionRank": 32,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -199,8 +199,8 @@
    "state": "IN",
    "grade": 79,
    "rank": null,
-   "positionRank": 50,
-   "stateRank": 9,
+   "positionRank": 49,
+   "stateRank": 10,
    "status": "Verbal"
   },
   {
@@ -238,8 +238,8 @@
    "state": "GA",
    "grade": 78,
    "rank": null,
-   "positionRank": 40,
-   "stateRank": 73,
+   "positionRank": 39,
+   "stateRank": 74,
    "status": "Verbal"
   },
   {
@@ -251,8 +251,8 @@
    "state": "UT",
    "grade": 77,
    "rank": null,
-   "positionRank": 27,
-   "stateRank": 12,
+   "positionRank": 28,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -264,7 +264,7 @@
    "state": "MI",
    "grade": 77,
    "rank": null,
-   "positionRank": 46,
+   "positionRank": 47,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -277,7 +277,7 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 104,
+   "positionRank": 106,
    "stateRank": 102,
    "status": "Verbal"
   },
@@ -290,10 +290,10 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 231,
+   "positionRank": 232,
    "stateRank": 196,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

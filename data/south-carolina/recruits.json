@@ -16,7 +16,7 @@
    "city": "Cornelius",
    "state": "NC",
    "grade": 92,
-   "rank": 6,
+   "rank": 8,
    "positionRank": 1,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,8 +29,8 @@
    "city": "Cornelius",
    "state": "NC",
    "grade": 81,
-   "rank": 167,
-   "positionRank": 12,
+   "rank": 179,
+   "positionRank": 14,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -42,8 +42,8 @@
    "city": "Fayetteville",
    "state": "NC",
    "grade": 81,
-   "rank": 182,
-   "positionRank": 14,
+   "rank": 196,
+   "positionRank": 16,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -55,9 +55,9 @@
    "city": "Charlotte",
    "state": "NC",
    "grade": 81,
-   "rank": 201,
-   "positionRank": 18,
-   "stateRank": 9,
+   "rank": 235,
+   "positionRank": 20,
+   "stateRank": 10,
    "status": "Verbal"
   },
   {
@@ -68,8 +68,8 @@
    "city": "Columbia",
    "state": "SC",
    "grade": 80,
-   "rank": 282,
-   "positionRank": 31,
+   "rank": 280,
+   "positionRank": 30,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -81,9 +81,9 @@
    "city": "Snellville",
    "state": "GA",
    "grade": 80,
-   "rank": 294,
-   "positionRank": 24,
-   "stateRank": 36,
+   "rank": null,
+   "positionRank": 23,
+   "stateRank": 37,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "GA",
    "grade": 79,
    "rank": null,
-   "positionRank": 63,
+   "positionRank": 65,
    "stateRank": 66,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "VA",
    "grade": 79,
    "rank": null,
-   "positionRank": 59,
+   "positionRank": 61,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "PA",
    "grade": 79,
    "rank": null,
-   "positionRank": 68,
+   "positionRank": 70,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -147,8 +147,8 @@
    "state": "TN",
    "grade": 79,
    "rank": null,
-   "positionRank": 18,
-   "stateRank": 18,
+   "positionRank": 20,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "GA",
    "grade": 79,
    "rank": null,
-   "positionRank": 42,
+   "positionRank": 44,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "AL",
    "grade": 78,
    "rank": null,
-   "positionRank": 71,
+   "positionRank": 72,
    "stateRank": 31,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 88,
+   "positionRank": 90,
    "stateRank": 98,
    "status": "Verbal"
   },
@@ -213,7 +213,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 60,
-   "stateRank": 19,
+   "stateRank": 18,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 61,
-   "stateRank": 24,
+   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

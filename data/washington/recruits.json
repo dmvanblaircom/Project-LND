@@ -16,9 +16,9 @@
    "city": "Pflugerville",
    "state": "TX",
    "grade": 81,
-   "rank": 180,
-   "positionRank": 29,
-   "stateRank": 25,
+   "rank": 194,
+   "positionRank": 33,
+   "stateRank": 27,
    "status": "Verbal"
   },
   {
@@ -29,22 +29,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 81,
-   "rank": 196,
-   "positionRank": 23,
+   "rank": 218,
+   "positionRank": 24,
    "stateRank": 20,
-   "status": "Verbal"
-  },
-  {
-   "id": "261600",
-   "name": "Dontay Tyson",
-   "position": "WR",
-   "highSchool": "Peoria High School",
-   "city": "Peoria",
-   "state": "AZ",
-   "grade": 81,
-   "rank": 204,
-   "positionRank": 31,
-   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -54,10 +41,10 @@
    "highSchool": "Desert Edge High School",
    "city": "Goodyear",
    "state": "AZ",
-   "grade": 80,
-   "rank": 227,
-   "positionRank": 16,
-   "stateRank": 6,
+   "grade": 81,
+   "rank": 222,
+   "positionRank": 15,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -68,8 +55,8 @@
    "city": "Seattle",
    "state": "WA",
    "grade": 80,
-   "rank": 255,
-   "positionRank": 22,
+   "rank": 284,
+   "positionRank": 26,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -82,7 +69,7 @@
    "state": "WA",
    "grade": 80,
    "rank": null,
-   "positionRank": 48,
+   "positionRank": 51,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -95,8 +82,21 @@
    "state": "NJ",
    "grade": 80,
    "rank": null,
-   "positionRank": 37,
+   "positionRank": 38,
    "stateRank": 7,
+   "status": "Verbal"
+  },
+  {
+   "id": "261600",
+   "name": "Dontay Tyson",
+   "position": "WR",
+   "highSchool": "Peoria High School",
+   "city": "Peoria",
+   "state": "AZ",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 48,
+   "stateRank": 6,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "CA",
    "grade": 80,
    "rank": null,
-   "positionRank": 31,
+   "positionRank": 34,
    "stateRank": 28,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "AZ",
    "grade": 79,
    "rank": null,
-   "positionRank": 60,
+   "positionRank": 62,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 22,
-   "stateRank": 49,
+   "stateRank": 48,
    "status": "Verbal"
   },
   {
@@ -213,7 +213,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 53,
-   "stateRank": 66,
+   "stateRank": 67,
    "status": "Verbal"
   },
   {
@@ -238,7 +238,7 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 85,
+   "positionRank": 86,
    "stateRank": 57,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "AZ",
    "grade": 77,
    "rank": null,
-   "positionRank": 78,
+   "positionRank": 80,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -264,8 +264,8 @@
    "state": "CA",
    "grade": 76,
    "rank": null,
-   "positionRank": 103,
-   "stateRank": 82,
+   "positionRank": 105,
+   "stateRank": 84,
    "status": "Verbal"
   },
   {
@@ -277,7 +277,7 @@
    "state": "WA",
    "grade": 76,
    "rank": null,
-   "positionRank": 31,
+   "positionRank": 33,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

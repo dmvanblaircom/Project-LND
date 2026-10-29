@@ -16,9 +16,9 @@
    "city": "Duncanville",
    "state": "TX",
    "grade": 80,
-   "rank": 206,
-   "positionRank": 32,
-   "stateRank": 31,
+   "rank": 274,
+   "positionRank": 40,
+   "stateRank": 38,
    "status": "Verbal"
   },
   {
@@ -29,9 +29,9 @@
    "city": "Indianapolis",
    "state": "IN",
    "grade": 80,
-   "rank": 283,
-   "positionRank": 22,
-   "stateRank": 4,
+   "rank": null,
+   "positionRank": 24,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -43,7 +43,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 76,
+   "positionRank": 74,
    "stateRank": 95,
    "status": "Verbal"
   },
@@ -57,7 +57,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 128,
-   "stateRank": 117,
+   "stateRank": 116,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "AZ",
    "grade": 77,
    "rank": null,
-   "positionRank": 89,
+   "positionRank": 90,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -122,7 +122,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 83,
-   "stateRank": 51,
+   "stateRank": 52,
    "status": "Verbal"
   },
   {
@@ -160,8 +160,8 @@
    "state": "OH",
    "grade": 75,
    "rank": null,
-   "positionRank": 106,
-   "stateRank": 44,
+   "positionRank": 108,
+   "stateRank": 46,
    "status": "Verbal"
   },
   {
@@ -174,7 +174,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 120,
-   "stateRank": 41,
+   "stateRank": 43,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

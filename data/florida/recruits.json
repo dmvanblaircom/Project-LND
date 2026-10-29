@@ -29,9 +29,22 @@
    "city": "New Orleans",
    "state": "LA",
    "grade": 91,
-   "rank": 8,
+   "rank": 11,
    "positionRank": 1,
    "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
+   "id": "265446",
+   "name": "Raheem Floyd",
+   "position": "CB",
+   "highSchool": "East St. Louis High School",
+   "city": "East Saint Louis",
+   "state": "IL",
+   "grade": 84,
+   "rank": 65,
+   "positionRank": 8,
+   "stateRank": 4,
    "status": "Verbal"
   },
   {
@@ -42,9 +55,9 @@
    "city": "Anna",
    "state": "TX",
    "grade": 83,
-   "rank": 68,
+   "rank": 77,
    "positionRank": 1,
-   "stateRank": 10,
+   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -55,22 +68,9 @@
    "city": "Swainsboro",
    "state": "GA",
    "grade": 83,
-   "rank": 100,
+   "rank": 108,
    "positionRank": 2,
-   "stateRank": 13,
-   "status": "Verbal"
-  },
-  {
-   "id": "265446",
-   "name": "Raheem Floyd",
-   "position": "CB",
-   "highSchool": "East St. Louis High School",
-   "city": "East Saint Louis",
-   "state": "IL",
-   "grade": 83,
-   "rank": 102,
-   "positionRank": 11,
-   "stateRank": 6,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -81,9 +81,9 @@
    "city": "Sarasota",
    "state": "FL",
    "grade": 82,
-   "rank": 107,
-   "positionRank": 6,
-   "stateRank": 9,
+   "rank": 116,
+   "positionRank": 7,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -94,9 +94,22 @@
    "city": "Roanoke",
    "state": "VA",
    "grade": 82,
-   "rank": 138,
+   "rank": 146,
    "positionRank": 12,
    "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
+   "id": "271318",
+   "name": "Elias Pearl",
+   "position": "WR",
+   "highSchool": "Port Charlotte High School",
+   "city": "Port Charlotte",
+   "state": "FL",
+   "grade": 82,
+   "rank": 148,
+   "positionRank": 26,
+   "stateRank": 17,
    "status": "Verbal"
   },
   {
@@ -107,9 +120,9 @@
    "city": "Cottondale",
    "state": "FL",
    "grade": 81,
-   "rank": 158,
-   "positionRank": 6,
-   "stateRank": 15,
+   "rank": 172,
+   "positionRank": 8,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -120,22 +133,22 @@
    "city": "Bogart",
    "state": "GA",
    "grade": 81,
-   "rank": 176,
+   "rank": 188,
    "positionRank": 11,
    "stateRank": 22,
    "status": "Verbal"
   },
   {
-   "id": "271318",
-   "name": "Elias Pearl",
-   "position": "WR",
-   "highSchool": "Port Charlotte High School",
-   "city": "Port Charlotte",
-   "state": "FL",
+   "id": "268400",
+   "name": "Aamaury Fountain",
+   "position": "CB",
+   "highSchool": "Dodge High School",
+   "city": "Eastman",
+   "state": "GA",
    "grade": 81,
-   "rank": 186,
-   "positionRank": 30,
-   "stateRank": 18,
+   "rank": 209,
+   "positionRank": 23,
+   "stateRank": 24,
    "status": "Verbal"
   },
   {
@@ -145,7 +158,7 @@
    "highSchool": "St. Paul's School",
    "city": "Brooklandville",
    "state": "MD",
-   "grade": 80,
+   "grade": 81,
    "rank": 220,
    "positionRank": 23,
    "stateRank": 5,
@@ -159,9 +172,9 @@
    "city": "Mobile",
    "state": "AL",
    "grade": 80,
-   "rank": 228,
-   "positionRank": 7,
-   "stateRank": 13,
+   "rank": 270,
+   "positionRank": 8,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -172,22 +185,9 @@
    "city": "Fort Lauderdale",
    "state": "FL",
    "grade": 80,
-   "rank": 241,
-   "positionRank": 38,
-   "stateRank": 25,
-   "status": "Verbal"
-  },
-  {
-   "id": "268400",
-   "name": "Aamaury Fountain",
-   "position": "CB",
-   "highSchool": "Dodge High School",
-   "city": "Eastman",
-   "state": "GA",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 28,
-   "stateRank": 38,
+   "rank": 278,
+   "positionRank": 41,
+   "stateRank": 26,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 80,
    "rank": null,
    "positionRank": 29,
-   "stateRank": 44,
+   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "NJ",
    "grade": 80,
    "rank": null,
-   "positionRank": 15,
+   "positionRank": 17,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "FL",
    "grade": 79,
    "rank": null,
-   "positionRank": 40,
+   "positionRank": 42,
    "stateRank": 41,
    "status": "Verbal"
   },
@@ -264,8 +264,8 @@
    "state": "OH",
    "grade": 79,
    "rank": null,
-   "positionRank": 19,
-   "stateRank": 19,
+   "positionRank": 21,
+   "stateRank": 21,
    "status": "Verbal"
   },
   {
@@ -290,7 +290,7 @@
    "state": "OK",
    "grade": 78,
    "rank": null,
-   "positionRank": 32,
+   "positionRank": 34,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -304,7 +304,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 60,
-   "stateRank": 21,
+   "stateRank": 22,
    "status": "Verbal"
   },
   {
@@ -316,7 +316,7 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 80,
+   "positionRank": 79,
    "stateRank": 90,
    "status": "Verbal"
   },
@@ -347,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

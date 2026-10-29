@@ -16,9 +16,35 @@
    "city": "Euclid",
    "state": "OH",
    "grade": 82,
-   "rank": 132,
+   "rank": 140,
    "positionRank": 15,
-   "stateRank": 2,
+   "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
+   "id": "266547",
+   "name": "Stanley Montgomery",
+   "position": "DT",
+   "highSchool": "Archbishop Ryan High School",
+   "city": "Philadelphia",
+   "state": "PA",
+   "grade": 81,
+   "rank": 237,
+   "positionRank": 21,
+   "stateRank": 8,
+   "status": "Verbal"
+  },
+  {
+   "id": "271945",
+   "name": "David Tarawallie",
+   "position": "OT",
+   "highSchool": "Painesville Riverside High",
+   "city": "Painesville",
+   "state": "OH",
+   "grade": 80,
+   "rank": 256,
+   "positionRank": 26,
+   "stateRank": 10,
    "status": "Verbal"
   },
   {
@@ -29,8 +55,8 @@
    "city": "Pierre",
    "state": "SD",
    "grade": 80,
-   "rank": 266,
-   "positionRank": 12,
+   "rank": 292,
+   "positionRank": 13,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -43,8 +69,8 @@
    "state": "TX",
    "grade": 80,
    "rank": null,
-   "positionRank": 31,
-   "stateRank": 40,
+   "positionRank": 33,
+   "stateRank": 42,
    "status": "Verbal"
   },
   {
@@ -56,21 +82,8 @@
    "state": "IA",
    "grade": 80,
    "rank": null,
-   "positionRank": 52,
+   "positionRank": 55,
    "stateRank": 2,
-   "status": "Verbal"
-  },
-  {
-   "id": "266547",
-   "name": "Stanley Montgomery",
-   "position": "DT",
-   "highSchool": "Archbishop Ryan High School",
-   "city": "Philadelphia",
-   "state": "PA",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 37,
-   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -96,7 +109,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 38,
-   "stateRank": 20,
+   "stateRank": 22,
    "status": "Verbal"
   },
   {
@@ -173,7 +186,7 @@
    "state": "PA",
    "grade": 78,
    "rank": null,
-   "positionRank": 59,
+   "positionRank": 60,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -200,7 +213,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 68,
-   "stateRank": 16,
+   "stateRank": 17,
    "status": "Verbal"
   },
   {
@@ -225,8 +238,8 @@
    "state": "NJ",
    "grade": 77,
    "rank": null,
-   "positionRank": 89,
-   "stateRank": 27,
+   "positionRank": 91,
+   "stateRank": 26,
    "status": "Verbal"
   },
   {
@@ -238,8 +251,8 @@
    "state": "NC",
    "grade": 76,
    "rank": null,
-   "positionRank": 111,
-   "stateRank": 33,
+   "positionRank": 114,
+   "stateRank": 35,
    "status": "Verbal"
   },
   {
@@ -251,21 +264,8 @@
    "state": "CT",
    "grade": 76,
    "rank": null,
-   "positionRank": 92,
+   "positionRank": 94,
    "stateRank": 4,
-   "status": "Verbal"
-  },
-  {
-   "id": "271945",
-   "name": "David Tarawallie",
-   "position": "OT",
-   "highSchool": "Painesville Riverside High",
-   "city": "Painesville",
-   "state": "OH",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 109,
-   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

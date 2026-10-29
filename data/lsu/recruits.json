@@ -29,8 +29,8 @@
    "city": "Stone Mountain",
    "state": "GA",
    "grade": 84,
-   "rank": 47,
-   "positionRank": 7,
+   "rank": 49,
+   "positionRank": 6,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -42,7 +42,7 @@
    "city": "Chesterfield",
    "state": "VA",
    "grade": 84,
-   "rank": 55,
+   "rank": 59,
    "positionRank": 8,
    "stateRank": 1,
    "status": "Verbal"
@@ -55,8 +55,8 @@
    "city": "Shreveport",
    "state": "LA",
    "grade": 83,
-   "rank": 86,
-   "positionRank": 3,
+   "rank": 94,
+   "positionRank": 4,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -68,8 +68,8 @@
    "city": "Cecilia",
    "state": "LA",
    "grade": 83,
-   "rank": 103,
-   "positionRank": 20,
+   "rank": 112,
+   "positionRank": 21,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -81,9 +81,9 @@
    "city": "Duncan",
    "state": "SC",
    "grade": 81,
-   "rank": 154,
-   "positionRank": 8,
-   "stateRank": 4,
+   "rank": 165,
+   "positionRank": 9,
+   "stateRank": 3,
    "status": "Verbal"
   },
   {
@@ -94,8 +94,8 @@
    "city": "Lansdale",
    "state": "PA",
    "grade": 81,
-   "rank": 184,
-   "positionRank": 18,
+   "rank": 198,
+   "positionRank": 19,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -106,9 +106,9 @@
    "highSchool": "Franklin Parish High School",
    "city": "Winnsboro",
    "state": "LA",
-   "grade": 80,
-   "rank": 223,
-   "positionRank": 16,
+   "grade": 81,
+   "rank": 214,
+   "positionRank": 14,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -121,8 +121,8 @@
    "state": "FL",
    "grade": 80,
    "rank": null,
-   "positionRank": 45,
-   "stateRank": 33,
+   "positionRank": 49,
+   "stateRank": 35,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "PA",
    "grade": 78,
    "rank": null,
-   "positionRank": 82,
+   "positionRank": 83,
    "stateRank": 20,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "LA",
    "grade": 77,
    "rank": null,
-   "positionRank": 42,
+   "positionRank": 43,
    "stateRank": 24,
    "status": "Verbal"
   },
@@ -186,8 +186,8 @@
    "state": "CA",
    "grade": 76,
    "rank": null,
-   "positionRank": 86,
-   "stateRank": 80,
+   "positionRank": 88,
+   "stateRank": 82,
    "status": "Verbal"
   },
   {
@@ -199,10 +199,10 @@
    "state": "LA",
    "grade": 76,
    "rank": null,
-   "positionRank": 154,
+   "positionRank": 153,
    "stateRank": 34,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

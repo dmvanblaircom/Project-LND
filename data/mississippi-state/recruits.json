@@ -9,19 +9,6 @@
  "committedElsewhere": 0,
  "recruits": [
   {
-   "id": "266350",
-   "name": "Kennedy Green",
-   "position": "S",
-   "highSchool": "Douglas County High School",
-   "city": "Douglasville",
-   "state": "GA",
-   "grade": 80,
-   "rank": 267,
-   "positionRank": 20,
-   "stateRank": 34,
-   "status": "Verbal"
-  },
-  {
    "id": "265202",
    "name": "Christian Alexander",
    "position": "RB",
@@ -29,9 +16,22 @@
    "city": "Tunica",
    "state": "MS",
    "grade": 80,
-   "rank": 278,
-   "positionRank": 23,
+   "rank": 282,
+   "positionRank": 19,
    "stateRank": 10,
+   "status": "Verbal"
+  },
+  {
+   "id": "266350",
+   "name": "Kennedy Green",
+   "position": "S",
+   "highSchool": "Douglas County High School",
+   "city": "Douglasville",
+   "state": "GA",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 22,
+   "stateRank": 36,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 65,
-   "stateRank": 101,
+   "stateRank": 103,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "MS",
    "grade": 77,
    "rank": null,
-   "positionRank": 97,
+   "positionRank": 99,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 95,
+   "positionRank": 94,
    "stateRank": 127,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "MS",
    "grade": 76,
    "rank": null,
-   "positionRank": 156,
+   "positionRank": 155,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -160,8 +160,8 @@
    "state": "AL",
    "grade": 76,
    "rank": null,
-   "positionRank": 145,
-   "stateRank": 60,
+   "positionRank": 101,
+   "stateRank": 48,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "TN",
    "grade": 75,
    "rank": null,
-   "positionRank": 139,
+   "positionRank": 140,
    "stateRank": 41,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "TN",
    "grade": 75,
    "rank": null,
-   "positionRank": 41,
+   "positionRank": 42,
    "stateRank": 47,
    "status": "Verbal"
   },
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

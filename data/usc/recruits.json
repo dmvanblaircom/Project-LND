@@ -29,9 +29,22 @@
    "city": "Corona",
    "state": "CA",
    "grade": 84,
-   "rank": 53,
+   "rank": 57,
+   "positionRank": 12,
+   "stateRank": 6,
+   "status": "Verbal"
+  },
+  {
+   "id": "266340",
+   "name": "Mekai Brown",
+   "position": "DE",
+   "highSchool": "Greenwich Country Day School",
+   "city": "Greenwich",
+   "state": "CT",
+   "grade": 83,
+   "rank": 78,
    "positionRank": 11,
-   "stateRank": 5,
+   "stateRank": 1,
    "status": "Verbal"
   },
   {
@@ -42,8 +55,8 @@
    "city": "Chandler",
    "state": "AZ",
    "grade": 83,
-   "rank": 101,
-   "positionRank": 19,
+   "rank": 109,
+   "positionRank": 20,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -55,22 +68,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 82,
-   "rank": 115,
+   "rank": 123,
    "positionRank": 14,
-   "stateRank": 11,
-   "status": "Verbal"
-  },
-  {
-   "id": "266340",
-   "name": "Mekai Brown",
-   "position": "DE",
-   "highSchool": "Greenwich Country Day School",
-   "city": "Greenwich",
-   "state": "CT",
-   "grade": 82,
-   "rank": 119,
-   "positionRank": 13,
-   "stateRank": 1,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -81,7 +81,7 @@
    "city": "Santa Ana",
    "state": "CA",
    "grade": 82,
-   "rank": 136,
+   "rank": 144,
    "positionRank": 16,
    "stateRank": 12,
    "status": "Verbal"
@@ -93,10 +93,10 @@
    "highSchool": "Damien High School",
    "city": "La Verne",
    "state": "CA",
-   "grade": 80,
-   "rank": 217,
-   "positionRank": 16,
-   "stateRank": 18,
+   "grade": 82,
+   "rank": 153,
+   "positionRank": 13,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -106,10 +106,10 @@
    "highSchool": "Oaks Christian High School",
    "city": "Westlake Village",
    "state": "CA",
-   "grade": 80,
-   "rank": 247,
-   "positionRank": 21,
-   "stateRank": 21,
+   "grade": 81,
+   "rank": 189,
+   "positionRank": 14,
+   "stateRank": 17,
    "status": "Verbal"
   },
   {
@@ -119,10 +119,10 @@
    "highSchool": "Servite High School",
    "city": "Anaheim",
    "state": "CA",
-   "grade": 80,
-   "rank": 268,
-   "positionRank": 27,
-   "stateRank": 24,
+   "grade": 81,
+   "rank": 201,
+   "positionRank": 20,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 47,
-   "stateRank": 46,
+   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -147,8 +147,8 @@
    "state": "CA",
    "grade": 78,
    "rank": null,
-   "positionRank": 22,
-   "stateRank": 47,
+   "positionRank": 23,
+   "stateRank": 46,
    "status": "Verbal"
   },
   {
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

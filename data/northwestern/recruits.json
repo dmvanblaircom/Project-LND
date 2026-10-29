@@ -15,10 +15,10 @@
    "highSchool": "Thompson High School",
    "city": "Alabaster",
    "state": "AL",
-   "grade": 80,
-   "rank": 219,
-   "positionRank": 35,
-   "stateRank": 11,
+   "grade": 81,
+   "rank": 245,
+   "positionRank": 37,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -30,8 +30,8 @@
    "state": "TX",
    "grade": 79,
    "rank": null,
-   "positionRank": 53,
-   "stateRank": 70,
+   "positionRank": 54,
+   "stateRank": 69,
    "status": "Verbal"
   },
   {
@@ -43,8 +43,8 @@
    "state": "OH",
    "grade": 79,
    "rank": null,
-   "positionRank": 34,
-   "stateRank": 14,
+   "positionRank": 35,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -56,7 +56,7 @@
    "state": "TX",
    "grade": 78,
    "rank": null,
-   "positionRank": 67,
+   "positionRank": 69,
    "stateRank": 91,
    "status": "Verbal"
   },
@@ -69,8 +69,8 @@
    "state": "OH",
    "grade": 78,
    "rank": null,
-   "positionRank": 33,
-   "stateRank": 22,
+   "positionRank": 35,
+   "stateRank": 24,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "PA",
    "grade": 77,
    "rank": null,
-   "positionRank": 104,
+   "positionRank": 103,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "MD",
    "grade": 77,
    "rank": null,
-   "positionRank": 90,
+   "positionRank": 92,
    "stateRank": 24,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "IL",
    "grade": 75,
    "rank": null,
-   "positionRank": 101,
+   "positionRank": 103,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "NE",
    "grade": 74,
    "rank": null,
-   "positionRank": 54,
+   "positionRank": 55,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -277,7 +277,7 @@
    "state": "IL",
    "grade": 73,
    "rank": null,
-   "positionRank": 57,
+   "positionRank": 58,
    "stateRank": 50,
    "status": "Verbal"
   },
@@ -295,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

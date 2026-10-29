@@ -15,9 +15,9 @@
    "highSchool": "Millard North High School",
    "city": "Omaha",
    "state": "NE",
-   "grade": 87,
-   "rank": 31,
-   "positionRank": 4,
+   "grade": 88,
+   "rank": 28,
+   "positionRank": 3,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -29,7 +29,7 @@
    "city": "Omaha",
    "state": "NE",
    "grade": 85,
-   "rank": 41,
+   "rank": 44,
    "positionRank": 2,
    "stateRank": 2,
    "status": "Verbal"
@@ -42,9 +42,9 @@
    "city": "Gibsonia",
    "state": "PA",
    "grade": 83,
-   "rank": 71,
-   "positionRank": 15,
-   "stateRank": 3,
+   "rank": 81,
+   "positionRank": 16,
+   "stateRank": 4,
    "status": "Verbal"
   },
   {
@@ -55,7 +55,7 @@
    "city": "Loganville",
    "state": "GA",
    "grade": 83,
-   "rank": 75,
+   "rank": 85,
    "positionRank": 3,
    "stateRank": 9,
    "status": "Verbal"
@@ -68,22 +68,9 @@
    "city": "Tyrone",
    "state": "GA",
    "grade": 82,
-   "rank": 114,
-   "positionRank": 10,
-   "stateRank": 14,
-   "status": "Verbal"
-  },
-  {
-   "id": "261471",
-   "name": "Jailen Hill",
-   "position": "CB",
-   "highSchool": "Carol City High School",
-   "city": "Miami",
-   "state": "FL",
-   "grade": 81,
-   "rank": 169,
-   "positionRank": 20,
-   "stateRank": 17,
+   "rank": 122,
+   "positionRank": 11,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -94,9 +81,9 @@
    "city": "Rolesville",
    "state": "NC",
    "grade": 81,
-   "rank": 200,
-   "positionRank": 13,
-   "stateRank": 8,
+   "rank": 231,
+   "positionRank": 15,
+   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -107,9 +94,22 @@
    "city": "Locust Grove",
    "state": "GA",
    "grade": 80,
-   "rank": 237,
-   "positionRank": 22,
-   "stateRank": 30,
+   "rank": 275,
+   "positionRank": 29,
+   "stateRank": 32,
+   "status": "Verbal"
+  },
+  {
+   "id": "261471",
+   "name": "Jailen Hill",
+   "position": "CB",
+   "highSchool": "Carol City High School",
+   "city": "Miami",
+   "state": "FL",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 30,
+   "stateRank": 31,
    "status": "Verbal"
   },
   {
@@ -121,7 +121,7 @@
    "state": "FL",
    "grade": 79,
    "rank": null,
-   "positionRank": 38,
+   "positionRank": 40,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -161,7 +161,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 48,
-   "stateRank": 91,
+   "stateRank": 93,
    "status": "Verbal"
   },
   {
@@ -186,7 +186,7 @@
    "state": "NE",
    "grade": 78,
    "rank": null,
-   "positionRank": 61,
+   "positionRank": 62,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -199,8 +199,8 @@
    "state": "UT",
    "grade": 77,
    "rank": null,
-   "positionRank": 98,
-   "stateRank": 13,
+   "positionRank": 100,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -264,7 +264,7 @@
    "state": "NC",
    "grade": 74,
    "rank": null,
-   "positionRank": 163,
+   "positionRank": 164,
    "stateRank": 43,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:39Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

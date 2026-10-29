@@ -16,7 +16,7 @@
    "city": "Nashville",
    "state": "TN",
    "grade": 86,
-   "rank": 33,
+   "rank": 36,
    "positionRank": 3,
    "stateRank": 2,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Milton",
    "state": "GA",
    "grade": 83,
-   "rank": 74,
+   "rank": 84,
    "positionRank": 1,
    "stateRank": 8,
    "status": "Verbal"
@@ -42,8 +42,8 @@
    "city": "Louisville",
    "state": "KY",
    "grade": 83,
-   "rank": 95,
-   "positionRank": 10,
+   "rank": 101,
+   "positionRank": 12,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -55,9 +55,9 @@
    "city": "Richardson",
    "state": "TX",
    "grade": 80,
-   "rank": 224,
-   "positionRank": 21,
-   "stateRank": 33,
+   "rank": 268,
+   "positionRank": 28,
+   "stateRank": 37,
    "status": "Verbal"
   },
   {
@@ -69,7 +69,7 @@
    "state": "VA",
    "grade": 80,
    "rank": null,
-   "positionRank": 29,
+   "positionRank": 31,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "NJ",
    "grade": 78,
    "rank": null,
-   "positionRank": 42,
+   "positionRank": 41,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -109,7 +109,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 67,
-   "stateRank": 2,
+   "stateRank": 3,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 58,
-   "stateRank": 50,
+   "stateRank": 49,
    "status": "Verbal"
   },
   {
@@ -147,8 +147,8 @@
    "state": "IL",
    "grade": 77,
    "rank": null,
-   "positionRank": 85,
-   "stateRank": 28,
+   "positionRank": 87,
+   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -161,7 +161,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 51,
-   "stateRank": 100,
+   "stateRank": 102,
    "status": "Verbal"
   },
   {
@@ -173,8 +173,21 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 108,
+   "positionRank": 107,
    "stateRank": 104,
+   "status": "Verbal"
+  },
+  {
+   "id": "272280",
+   "name": "Josiah Sturdivant",
+   "position": "DE",
+   "highSchool": "Wake Forest High School",
+   "city": "Wake Forest",
+   "state": "NC",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 98,
+   "stateRank": 27,
    "status": "Verbal"
   },
   {
@@ -187,20 +200,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 89,
-   "stateRank": 106,
-   "status": "Verbal"
-  },
-  {
-   "id": "272280",
-   "name": "Josiah Sturdivant",
-   "position": "DE",
-   "highSchool": "Wake Forest High School",
-   "city": "Wake Forest",
-   "state": "NC",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 116,
-   "stateRank": 37,
+   "stateRank": 105,
    "status": "Verbal"
   },
   {
@@ -213,7 +213,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 51,
-   "stateRank": 102,
+   "stateRank": 101,
    "status": "Verbal"
   },
   {
@@ -239,7 +239,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 108,
-   "stateRank": 59,
+   "stateRank": 60,
    "status": "Verbal"
   },
   {
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

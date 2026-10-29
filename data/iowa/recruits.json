@@ -9,6 +9,19 @@
  "committedElsewhere": 0,
  "recruits": [
   {
+   "id": "265994",
+   "name": "Tommy Riordan",
+   "position": "DE",
+   "highSchool": "Hinsdale Central High School",
+   "city": "Hinsdale",
+   "state": "IL",
+   "grade": 81,
+   "rank": 243,
+   "positionRank": 25,
+   "stateRank": 11,
+   "status": "Verbal"
+  },
+  {
    "id": "261998",
    "name": "Jaxx DeJean",
    "position": "ATH",
@@ -17,21 +30,8 @@
    "state": "IA",
    "grade": 80,
    "rank": null,
-   "positionRank": 18,
+   "positionRank": 20,
    "stateRank": 3,
-   "status": "Verbal"
-  },
-  {
-   "id": "265994",
-   "name": "Tommy Riordan",
-   "position": "DE",
-   "highSchool": "Hinsdale Central High School",
-   "city": "Hinsdale",
-   "state": "IL",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 40,
-   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -48,6 +48,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271619",
+   "name": "Jake Thies",
+   "position": "S",
+   "highSchool": "Fenwick High School",
+   "city": "Oak Park",
+   "state": "IL",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 62,
+   "stateRank": 21,
+   "status": "Verbal"
+  },
+  {
    "id": "271878",
    "name": "Kyler Van Maanen",
    "position": "ILB",
@@ -61,15 +74,15 @@
    "status": "Verbal"
   },
   {
-   "id": "271619",
-   "name": "Jake Thies",
-   "position": "S",
-   "highSchool": "Fenwick High School",
-   "city": "Oak Park",
-   "state": "IL",
-   "grade": 76,
+   "id": "265982",
+   "name": "Reilly Newman",
+   "position": "OT",
+   "highSchool": "Lakota West High School",
+   "city": "West Chester",
+   "state": "OH",
+   "grade": 77,
    "rank": null,
-   "positionRank": 112,
+   "positionRank": 79,
    "stateRank": 32,
    "status": "Verbal"
   },
@@ -82,7 +95,7 @@
    "state": "IA",
    "grade": 76,
    "rank": null,
-   "positionRank": 115,
+   "positionRank": 116,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -95,8 +108,8 @@
    "state": "IN",
    "grade": 76,
    "rank": null,
-   "positionRank": 104,
-   "stateRank": 24,
+   "positionRank": 89,
+   "stateRank": 21,
    "status": "Verbal"
   },
   {
@@ -109,7 +122,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 87,
-   "stateRank": 40,
+   "stateRank": 42,
    "status": "Verbal"
   },
   {
@@ -147,7 +160,7 @@
    "state": "IL",
    "grade": 75,
    "rank": null,
-   "positionRank": 131,
+   "positionRank": 132,
    "stateRank": 38,
    "status": "Verbal"
   },
@@ -160,23 +173,10 @@
    "state": "IA",
    "grade": 75,
    "rank": null,
-   "positionRank": 108,
-   "stateRank": 15,
-   "status": "Verbal"
-  },
-  {
-   "id": "265982",
-   "name": "Reilly Newman",
-   "position": "OT",
-   "highSchool": "Lakota West High School",
-   "city": "West Chester",
-   "state": "OH",
-   "grade": 75,
-   "rank": null,
    "positionRank": 110,
-   "stateRank": 46,
+   "stateRank": 15,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:38Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }

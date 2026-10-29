@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "251",
  "classYear": 2027,
- "listed": 22,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -16,9 +16,9 @@
    "city": "Richmond",
    "state": "TX",
    "grade": 84,
-   "rank": 46,
-   "positionRank": 3,
-   "stateRank": 4,
+   "rank": 48,
+   "positionRank": 4,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -29,7 +29,7 @@
    "city": "Prichard",
    "state": "AL",
    "grade": 84,
-   "rank": 49,
+   "rank": 51,
    "positionRank": 4,
    "stateRank": 1,
    "status": "Verbal"
@@ -42,8 +42,8 @@
    "city": "Chandler",
    "state": "AZ",
    "grade": 84,
-   "rank": 51,
-   "positionRank": 4,
+   "rank": 54,
+   "positionRank": 5,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -55,9 +55,9 @@
    "city": "Gilmer",
    "state": "TX",
    "grade": 84,
-   "rank": 56,
+   "rank": 60,
    "positionRank": 2,
-   "stateRank": 7,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -68,9 +68,9 @@
    "city": "Chatsworth",
    "state": "CA",
    "grade": 84,
-   "rank": 59,
+   "rank": 63,
    "positionRank": 3,
-   "stateRank": 6,
+   "stateRank": 7,
    "status": "Verbal"
   },
   {
@@ -81,9 +81,9 @@
    "city": "Libertyville",
    "state": "IL",
    "grade": 83,
-   "rank": 70,
-   "positionRank": 2,
-   "stateRank": 4,
+   "rank": 80,
+   "positionRank": 3,
+   "stateRank": 6,
    "status": "Verbal"
   },
   {
@@ -94,8 +94,8 @@
    "city": "Brookhaven",
    "state": "MS",
    "grade": 83,
-   "rank": 77,
-   "positionRank": 9,
+   "rank": 87,
+   "positionRank": 12,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -107,9 +107,9 @@
    "city": "Dallas",
    "state": "TX",
    "grade": 83,
-   "rank": 78,
+   "rank": 89,
    "positionRank": 8,
-   "stateRank": 12,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -120,9 +120,22 @@
    "city": "Alabaster",
    "state": "AL",
    "grade": 83,
-   "rank": 98,
+   "rank": 104,
    "positionRank": 9,
    "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
+   "id": "267367",
+   "name": "Briceson Thrower Jr.",
+   "position": "WR",
+   "highSchool": "North Forney High School",
+   "city": "Forney",
+   "state": "TX",
+   "grade": 82,
+   "rank": 131,
+   "positionRank": 23,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -133,9 +146,9 @@
    "city": "Pearland",
    "state": "TX",
    "grade": 81,
-   "rank": 155,
+   "rank": 170,
    "positionRank": 19,
-   "stateRank": 22,
+   "stateRank": 25,
    "status": "Verbal"
   },
   {
@@ -146,9 +159,9 @@
    "city": "Garland",
    "state": "TX",
    "grade": 81,
-   "rank": 171,
-   "positionRank": 21,
-   "stateRank": 24,
+   "rank": 182,
+   "positionRank": 20,
+   "stateRank": 26,
    "status": "Verbal"
   },
   {
@@ -158,10 +171,10 @@
    "highSchool": "Summit High School",
    "city": "Arlington",
    "state": "TX",
-   "grade": 80,
-   "rank": 245,
-   "positionRank": 25,
-   "stateRank": 35,
+   "grade": 81,
+   "rank": 224,
+   "positionRank": 24,
+   "stateRank": 30,
    "status": "Verbal"
   },
   {
@@ -172,22 +185,9 @@
    "city": "Wellington",
    "state": "FL",
    "grade": 80,
-   "rank": 298,
-   "positionRank": 28,
-   "stateRank": 31,
-   "status": "Verbal"
-  },
-  {
-   "id": "267367",
-   "name": "Briceson Thrower Jr.",
-   "position": "WR",
-   "highSchool": "North Forney High School",
-   "city": "Forney",
-   "state": "TX",
-   "grade": 79,
-   "rank": null,
-   "positionRank": 58,
-   "stateRank": 57,
+   "rank": 299,
+   "positionRank": 29,
+   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 43,
-   "stateRank": 67,
+   "stateRank": 66,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "CA",
    "grade": 79,
    "rank": null,
-   "positionRank": 46,
+   "positionRank": 47,
    "stateRank": 38,
    "status": "Verbal"
   },
@@ -252,7 +252,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 2,
-   "stateRank": 74,
+   "stateRank": 73,
    "status": "Verbal"
   },
   {
@@ -265,7 +265,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 34,
-   "stateRank": 77,
+   "stateRank": 76,
    "status": "Verbal"
   },
   {
@@ -278,7 +278,20 @@
    "grade": 78,
    "rank": null,
    "positionRank": 25,
-   "stateRank": 75,
+   "stateRank": 74,
+   "status": "Verbal"
+  },
+  {
+   "id": "272517",
+   "name": "Jason Crenshaw Jr.",
+   "position": "OLB",
+   "highSchool": "Prattville High School",
+   "city": "Prattville",
+   "state": "AL",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 54,
+   "stateRank": 36,
    "status": "Verbal"
   },
   {
@@ -290,10 +303,10 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 118,
+   "positionRank": 117,
    "stateRank": 109,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-28T16:40Z"
+ "fetchedAt": "2026-10-29T13:08Z"
 }
