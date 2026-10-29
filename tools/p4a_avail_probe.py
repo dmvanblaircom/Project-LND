@@ -1,7 +1,7 @@
 """Temporary (2026-10-29): which of the American's, Mountain West's and
 Pac-12's codes HD Intelligence answers, and the team names it uses. Names only."""
 import json, urllib.request
-for conf in ("AAC", "AMER", "American", "MWC", "MW", "PAC12", "P12", "PAC", "Pac-12"):
+for conf in ("Mountain West", "MountainWest", "MWest", "Pac12", "PAC-12", "Pac 12", "PacTwelve", "MtnWest", "MWCFB", "CUSA", "SBC", "MAC", "SunBelt", "Sun Belt", "C-USA"):
     for ep in ("get-publish-public", "get-archive-public"):
         body = json.dumps({"sport": "Football", "organization": conf, "conference": conf}).encode()
         req = urllib.request.Request("https://app.hdintelligence.com/api/" + ep, data=body,
