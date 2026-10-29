@@ -3,13 +3,94 @@
  "team": "smu",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
  "sourceLabel": "TheACC.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:47.093901+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Syracuse",
+ "players": [
+  {
+   "pos": "RB",
+   "no": "4",
+   "name": "Dramekco Green",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "7",
+   "name": "Ahmaad Moses",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "9",
+   "name": "Ira Singleton IV",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "10",
+   "name": "Tyren Polley Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "11",
+   "name": "Carterrious Brown",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "14",
+   "name": "Trey Wilson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "24",
+   "name": "Link Rhodes",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "25",
+   "name": "I'Zayah Young",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "56",
+   "name": "Tyron Winslow",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "58",
+   "name": "Abel Hoopii",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "99",
+   "name": "Nick Reed",
+   "status": "questionable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

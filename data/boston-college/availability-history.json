@@ -1,6 +1,438 @@
 {
  "schema": 1,
  "team": "boston-college",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:43.187857+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "boston-college",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.187857+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-26",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-26",
+   "game": "vs. Virginia Tech",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Chris Marable Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "10",
+     "name": "Syair Torrence",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Isaiah Farris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Justin Medlock",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Sedric Addison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "29",
+     "name": "Cameron Martinez",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "36",
+     "name": "Bodie Kahoun",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "69",
+     "name": "Marek Jin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "77",
+     "name": "Michael Crounse",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "84",
+     "name": "Brady Clough",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Kaelan Chudzinski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "Bryce Lewis",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "boston-college",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.187857+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "at SMU",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Chris Marable Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "10",
+     "name": "Syair Torrence",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Isaiah Farris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Justin Medlock",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Sedric Addison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "29",
+     "name": "Cameron Martinez",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "36",
+     "name": "Bodie Kahoun",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "56",
+     "name": "E'Lla Boykin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Pape Abdoulaye Sy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "77",
+     "name": "Michael Crounse",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "84",
+     "name": "Brady Clough",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Kaelan Chudzinski",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "boston-college",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.187857+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "vs. Pittsburgh",
+   "players": [
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Isaiah Farris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Justin Medlock",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Sedric Addison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "29",
+     "name": "Cameron Martinez",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Pape Abdoulaye Sy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "80",
+     "name": "Reed Swanson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Kaelan Chudzinski",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "boston-college",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.187857+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "at Georgia Tech",
+   "players": [
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Isaiah Farris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Justin Medlock",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Evan Dickens",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Sedric Addison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "29",
+     "name": "Cameron Martinez",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "53",
+     "name": "Trevon Humphrey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Pape Abdoulaye Sy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "80",
+     "name": "Reed Swanson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Kaelan Chudzinski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "93",
+     "name": "Gavin Neil",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "boston-college",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.187857+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "at Duke",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "16",
+     "name": "Isaiah Farris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "Justin Medlock",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "23",
+     "name": "Evan Dickens",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "26",
+     "name": "Sedric Addison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "48",
+     "name": "Zeke Moore",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Pape Abdoulaye Sy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "80",
+     "name": "Reed Swanson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

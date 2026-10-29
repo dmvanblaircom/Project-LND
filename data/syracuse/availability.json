@@ -3,13 +3,87 @@
  "team": "syracuse",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
  "sourceLabel": "TheACC.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:47.379263+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. SMU",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "7",
+   "name": "Darien Williams",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "9",
+   "name": "Steve Angeli",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "9",
+   "name": "Jai Eugene Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "12",
+   "name": "Amari Odom",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "16",
+   "name": "Malachi Nelson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "50",
+   "name": "Kahlil Stewart",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "62",
+   "name": "Jackson Iak",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "67",
+   "name": "D'Joni Scatliffe",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "74",
+   "name": "Matthew Hawn",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "88",
+   "name": "Terrell Wilfong",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

@@ -1,6 +1,487 @@
 {
  "schema": 1,
  "team": "florida-state",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:43.846486+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "florida-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.846486+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-07",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-07",
+   "game": "vs. SMU",
+   "players": [
+    {
+     "pos": "",
+     "no": "1",
+     "name": "Darryll Desir",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Devin Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "13",
+     "name": "Tae'Shaun Gelsey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Karson Hobbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Blake Nichelson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Chuck Kennon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "24",
+     "name": "K.J. Kirkland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "27",
+     "name": "Jordan Crutchfield",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Gavin Markey",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "florida-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.846486+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "vs. Virginia",
+   "players": [
+    {
+     "pos": "",
+     "no": "1",
+     "name": "Darryll Desir",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Samuel Singleton Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Devin Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Karson Hobbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Jamari Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Blake Nichelson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "22",
+     "name": "Zae Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "30",
+     "name": "Izayia Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "33",
+     "name": "Antonio Cromartie Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "38",
+     "name": "Daylen Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "45",
+     "name": "Noah LaVallee",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "florida-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.846486+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-09",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-09",
+   "game": "at Louisville",
+   "players": [
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Samuel Singleton Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Devin Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Karson Hobbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Jamari Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Blake Nichelson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "22",
+     "name": "Zae Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "27",
+     "name": "Jordan Crutchfield",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "30",
+     "name": "Izayia Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "38",
+     "name": "Daylen Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "45",
+     "name": "Noah LaVallee",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "florida-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.846486+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Miami",
+   "players": [
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Samuel Singleton Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Devin Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Karson Hobbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Jamari Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Blake Nichelson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "27",
+     "name": "Jordan Crutchfield",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "30",
+     "name": "Izayia Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "38",
+     "name": "Daylen Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "45",
+     "name": "Noah LaVallee",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "florida-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.846486+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Clemson",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "0",
+     "name": "Quindarrius Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Malachi Marshall",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "3",
+     "name": "Samuel Singleton Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "9",
+     "name": "Omar Graham Jr.",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Chris Jones",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "16",
+     "name": "Karson Hobbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "18",
+     "name": "Jamari Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "Blake Nichelson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "24",
+     "name": "K.J. Kirkland",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "27",
+     "name": "Jordan Crutchfield",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "28",
+     "name": "Mikai Gbayor",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "29",
+     "name": "Caleb LaVallee",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "30",
+     "name": "Izayia Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "32",
+     "name": "Ousmane Kromah",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "38",
+     "name": "Daylen Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "45",
+     "name": "Noah LaVallee",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

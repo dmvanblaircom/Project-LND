@@ -1,6 +1,296 @@
 {
  "schema": 1,
  "team": "wake-forest",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:48.528315+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.528315+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-18",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-18",
+   "game": "vs. Miami",
+   "players": [
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Ny Carr",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.528315+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-26",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-26",
+   "game": "at Louisville",
+   "players": [
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Ny Carr",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.528315+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "vs. Stanford",
+   "players": [
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Ny Carr",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Tyler Walton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Devin Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Elijah Otieno",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.528315+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "at NC State",
+   "players": [
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Tyler Walton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Devin Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Elijah Otieno",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "69",
+     "name": "Dalton DeBoer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "78",
+     "name": "Jack Hines",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.528315+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at California",
+   "players": [
+    {
+     "pos": "",
+     "no": "8",
+     "name": "Carlos Hernandez",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Langston Hardy",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Tyler Walton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Devin Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Elijah Otieno",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "32",
+     "name": "Joel Lowenberg",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "69",
+     "name": "Dalton DeBoer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "78",
+     "name": "Jack Hines",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.528315+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Virginia",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "Carlos Hernandez",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "14",
+     "name": "Tyler Walton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "15",
+     "name": "Devin Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "20",
+     "name": "Elijah Otieno",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Dalton DeBoer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Jack Hines",
+     "status": "probable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

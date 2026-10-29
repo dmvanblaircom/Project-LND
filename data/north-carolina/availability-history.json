@@ -1,6 +1,494 @@
 {
  "schema": 1,
  "team": "north-carolina",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:46.131507+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "north-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.131507+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-19",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-19",
+   "game": "at Clemson",
+   "players": [
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Melkart Abou Jaoude",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "C.J. Sadler",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "42",
+     "name": "Jordan Avinger",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "54",
+     "name": "Jonah Rodriguez",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "56",
+     "name": "Viliami Moala",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "80",
+     "name": "Jordan Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "82",
+     "name": "Keeyun Chapman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "83",
+     "name": "Carnell Warren",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "Vodney Cleveland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Rece Verhoff",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "92",
+     "name": "Jimmy-Phrisco Alo-Suliafu",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "north-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.131507+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "at Pittsburgh",
+   "players": [
+    {
+     "pos": "",
+     "no": "0",
+     "name": "Isaiah Johnson",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Donovan Hoilette Jr.",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Jaylen Harvey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "17",
+     "name": "Jakob Weatherspoon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "54",
+     "name": "Jonah Rodriguez",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "56",
+     "name": "Viliami Moala",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "66",
+     "name": "Jordan Hall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "80",
+     "name": "Jordan Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "82",
+     "name": "Keeyun Chapman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Dream Rashad",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "Vodney Cleveland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "92",
+     "name": "Jimmy-Phrisco Alo-Suliafu",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "north-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.131507+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Duke",
+   "players": [
+    {
+     "pos": "",
+     "no": "0",
+     "name": "Isaiah Johnson",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "1",
+     "name": "Greg Smith",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Kaleb Cost",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "4",
+     "name": "Mason Humphrey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Tre Miller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "17",
+     "name": "Jakob Weatherspoon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "35",
+     "name": "Ashton Blatt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "56",
+     "name": "Viliami Moala",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "66",
+     "name": "Jordan Hall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "80",
+     "name": "Jordan Washington",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "82",
+     "name": "Keeyun Chapman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "Vodney Cleveland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "92",
+     "name": "Jimmy-Phrisco Alo-Suliafu",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "north-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.131507+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "vs. Syracuse",
+   "players": [
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Kaleb Cost",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "4",
+     "name": "Mason Humphrey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Tre Miller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Peyton Waters",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "17",
+     "name": "Jakob Weatherspoon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "35",
+     "name": "Ashton Blatt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "56",
+     "name": "Viliami Moala",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "82",
+     "name": "Keeyun Chapman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "Vodney Cleveland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "92",
+     "name": "Jimmy-Phrisco Alo-Suliafu",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "north-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.131507+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Miami",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "Tre Miller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Peyton Waters",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "8",
+     "name": "Jonathan Agumadu",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "29",
+     "name": "Zavion Griffin-Haynes",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "56",
+     "name": "Viliami Moala",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "66",
+     "name": "Jordan Hall",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Andrew Threatt",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "82",
+     "name": "Keeyun Chapman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "88",
+     "name": "Vodney Cleveland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "92",
+     "name": "Jimmy-Phrisco Alo-Suliafu",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

@@ -1,6 +1,291 @@
 {
  "schema": 1,
  "team": "west-virginia",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:48.690368+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "west-virginia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.690368+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-26",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-26",
+   "game": "vs. Oklahoma State",
+   "players": [
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Emory Snyder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Andre Devine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Darius Wiley",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "west-virginia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.690368+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "at Iowa State",
+   "players": [
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Emory Snyder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Armoni Weaver-Bomar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Andre Devine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Darius Wiley",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "west-virginia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.690368+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "vs. Arizona",
+   "players": [
+    {
+     "pos": "",
+     "no": "10",
+     "name": "Cam Ball",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "19",
+     "name": "Nick Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Emory Snyder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Armoni Weaver-Bomar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Andre Devine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Darius Wiley",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "west-virginia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.690368+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "vs. Cincinnati",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Da'Mare Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "19",
+     "name": "Nick Taylor",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "22",
+     "name": "Chris Talley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Emory Snyder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Armoni Weaver-Bomar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Andre Devine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Darius Wiley",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "west-virginia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:48.690368+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "at TCU",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Da'Mare Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Emory Snyder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Armoni Weaver-Bomar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Andre Devine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "36",
+     "name": "Jason Chambers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "52",
+     "name": "Corey McIntyre Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Darius Wiley",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  }
+ ]
 }

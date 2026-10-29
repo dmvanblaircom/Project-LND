@@ -3,13 +3,59 @@
  "team": "iowa-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:44.820895+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Oklahoma State",
+ "players": [
+  {
+   "pos": "QB",
+   "no": "5",
+   "name": "Connor Moberly",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "5",
+   "name": "Beni Ngoyi",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "44",
+   "name": "Trey Verdon",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "92",
+   "name": "Caden Crawford",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "95",
+   "name": "Ka'Mori Moore",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "99",
+   "name": "Bryson Lamb",
+   "status": "questionable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

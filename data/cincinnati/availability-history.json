@@ -1,6 +1,242 @@
 {
  "schema": 1,
  "team": "cincinnati",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:43.372097+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "cincinnati",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.372097+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-26",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-26",
+   "game": "vs. Kansas State",
+   "players": [
+    {
+     "pos": "",
+     "no": "12",
+     "name": "Filip Maciorowski",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "73",
+     "name": "Aiden Pastoriza",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "DaMari Witherspoon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "89",
+     "name": "Pierce Ayers",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "cincinnati",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.372097+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "at Arizona",
+   "players": [
+    {
+     "pos": "",
+     "no": "73",
+     "name": "Aiden Pastoriza",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "DaMari Witherspoon",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "cincinnati",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.372097+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at West Virginia",
+   "players": [
+    {
+     "pos": "",
+     "no": "73",
+     "name": "Aiden Pastoriza",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "DaMari Witherspoon",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "cincinnati",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.372097+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "vs. Texas Tech",
+   "players": [
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Gi'Bran Payne",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "83",
+     "name": "Devyn Zahursky",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "DaMari Witherspoon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "95",
+     "name": "Josh Hough",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "96",
+     "name": "Nathan Nunn",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "cincinnati",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:43.372097+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Utah",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Isaiah Johnson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Giyahni Kontosis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "44",
+     "name": "Montay Weedon",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Taran Tyo",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "80",
+     "name": "Jalen Williams",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "DaMari Witherspoon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "95",
+     "name": "Josh Hough",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

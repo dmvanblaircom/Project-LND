@@ -3,13 +3,66 @@
  "team": "baylor",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:40.231555+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Update 1",
+ "kickoffDate": "2026-10-30",
+ "game": "at UCF",
+ "players": [
+  {
+   "pos": "CB",
+   "no": "7",
+   "name": "Devon Jordan",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "8",
+   "name": "Jacob Redding",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "35",
+   "name": "Dawson Pendergrass",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "38",
+   "name": "Jamarion Richardson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "59",
+   "name": "Devonte Tezino",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "61",
+   "name": "Cayden Tone",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "87",
+   "name": "Ashton Jones",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

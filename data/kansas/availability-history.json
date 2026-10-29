@@ -1,6 +1,375 @@
 {
  "schema": 1,
  "team": "kansas",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:44.902770+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "kansas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:44.902770+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-19",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-19",
+   "game": "vs. Arizona State",
+   "players": [
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Kory Amachree",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Cam Pickett",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Bam Crouch",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Cole Ballard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Jaylen Mason",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Justin Thurman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Carson Bruhn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "71",
+     "name": "Grady Seyfert",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "95",
+     "name": "Tre'von McAlpine",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "kansas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:44.902770+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "at Utah",
+   "players": [
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Kory Amachree",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Yasin Willis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Cole Ballard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "25",
+     "name": "Justin Thurman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "58",
+     "name": "Marco Mohajir",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "67",
+     "name": "Eli Richmond",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "80",
+     "name": "Griffin Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Carter Moses",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "95",
+     "name": "Tre'von McAlpine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "98",
+     "name": "Jalen Atkins",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "kansas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:44.902770+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Kansas State",
+   "players": [
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Syeed Gibbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Keaton Kubecka",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Cole Ballard",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "79",
+     "name": "Connor Stroh",
+     "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "kansas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:44.902770+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "vs. Baylor",
+   "players": [
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Syeed Gibbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Keaton Kubecka",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "12",
+     "name": "Jaden Harris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Cole Ballard",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Mason Ellis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "51",
+     "name": "Kasen Carpenter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "53",
+     "name": "Kaden Moody",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "kansas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:44.902770+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "at TCU",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "2",
+     "name": "Syeed Gibbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "4",
+     "name": "Jalen Dupree",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "8",
+     "name": "Isaiah Marshall",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "10",
+     "name": "Elijah Cannon",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "12",
+     "name": "Jaden Harris",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "23",
+     "name": "Mason Ellis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "35",
+     "name": "Jack Utz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "51",
+     "name": "Kasen Carpenter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "80",
+     "name": "Griffin Baker",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

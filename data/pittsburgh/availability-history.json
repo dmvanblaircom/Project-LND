@@ -1,6 +1,576 @@
 {
  "schema": 1,
  "team": "pittsburgh",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:46.827502+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "pittsburgh",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.827502+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-17",
+   "game": "vs. Syracuse",
+   "players": [
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Malik Knight",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Ja'Kyrian Turner",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Benny Haselrig",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Max Hunt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Synkwan Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "27",
+     "name": "Nigel Maynard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "36",
+     "name": "Ben Kauffman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "64",
+     "name": "Josh Nindl",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "81",
+     "name": "Rodney Dunbar",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "pittsburgh",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.827502+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-02",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-02",
+   "game": "at Virginia Tech",
+   "players": [
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Tony Kinsler",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Zach Crothers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Malik Knight",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Ja'Kyrian Turner",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "12",
+     "name": "Cruce Brookins",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "17",
+     "name": "Elijah Lagg",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Max Hunt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "36",
+     "name": "Ben Kauffman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "41",
+     "name": "Isaac Patterson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "81",
+     "name": "Rodney Dunbar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Trevor Sommers",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "pittsburgh",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.827502+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "vs. North Carolina",
+   "players": [
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Zach Crothers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Mason Heintschel",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Malik Knight",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "10",
+     "name": "Alex Sanford Jr.",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Josh Guerrier",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "17",
+     "name": "Elijah Lagg",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Max Hunt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Allen Bryant",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "36",
+     "name": "Ben Kauffman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "41",
+     "name": "Isaac Patterson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "81",
+     "name": "Rodney Dunbar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Trevor Sommers",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "pittsburgh",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.827502+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Boston College",
+   "players": [
+    {
+     "pos": "",
+     "no": "4",
+     "name": "Rashan Murray",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Mason Heintschel",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Ja'Kyrian Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Nick James",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Josh Guerrier",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "17",
+     "name": "Elijah Lagg",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Max Hunt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Allen Bryant",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "36",
+     "name": "Ben Kauffman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "41",
+     "name": "Isaac Patterson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "81",
+     "name": "Rodney Dunbar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Trevor Sommers",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "pittsburgh",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.827502+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "at Miami",
+   "players": [
+    {
+     "pos": "",
+     "no": "4",
+     "name": "Rashan Murray",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "6",
+     "name": "Mason Heintschel",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Ja'Kyrian Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "17",
+     "name": "Elijah Lagg",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "18",
+     "name": "Max Hunt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Allen Bryant",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "36",
+     "name": "Ben Kauffman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "41",
+     "name": "Isaac Patterson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "81",
+     "name": "Rodney Dunbar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Trevor Sommers",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "pittsburgh",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:46.827502+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Georgia Tech",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "6",
+     "name": "Mason Heintschel",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "9",
+     "name": "Ja'Kyrian Turner",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "17",
+     "name": "Elijah Lagg",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "18",
+     "name": "Max Hunt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "24",
+     "name": "Cameron Lindsey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "26",
+     "name": "Allen Bryant",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "26",
+     "name": "Damon Ferguson Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "36",
+     "name": "Ben Kauffman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "41",
+     "name": "Isaac Patterson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "81",
+     "name": "Rodney Dunbar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "90",
+     "name": "Trevor Sommers",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

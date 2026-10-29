@@ -1,6 +1,508 @@
 {
  "schema": 1,
  "team": "nc-state",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:45.949967+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "nc-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.949967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-08-29",
+   "heading": "Game Day",
+   "kickoffDate": "2026-08-29",
+   "game": "at Virginia",
+   "players": [
+    {
+     "pos": "",
+     "no": "8",
+     "name": "Isaiah Crowell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "12",
+     "name": "Teddy Hoffmann",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Gus Ritchey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Rylan Vann",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Tyreek Copper",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "93",
+     "name": "Carmelo McKenzie",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "95",
+     "name": "JJ Ferguson Jr.",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "nc-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.949967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "vs. Louisville",
+   "players": [
+    {
+     "pos": "",
+     "no": "4",
+     "name": "Vander Ploog",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "8",
+     "name": "Isaiah Crowell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "AJ Richardson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "34",
+     "name": "Noah Moss",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Rylan Vann",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "62",
+     "name": "Jimarion McCrimon",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Spike Sowells Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Tyreek Copper",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "87",
+     "name": "Ian Flynt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Nick Konieczynski",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "93",
+     "name": "Carmelo McKenzie",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "nc-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.949967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "vs. Wake Forest",
+   "players": [
+    {
+     "pos": "",
+     "no": "1",
+     "name": "Jayden \"Duke\" Scott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Joshisa \"Jojo\" Trader",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Tristan Teasdell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "4",
+     "name": "Vander Ploog",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "8",
+     "name": "Isaiah Crowell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "AJ Richardson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "47",
+     "name": "Adrian Farrow",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Rylan Vann",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "71",
+     "name": "Yousef Mugharbil",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Spike Sowells Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "79",
+     "name": "Kamen Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "87",
+     "name": "Ian Flynt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Nick Konieczynski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "93",
+     "name": "Carmelo McKenzie",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "nc-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.949967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-23",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-23",
+   "game": "at Stanford",
+   "players": [
+    {
+     "pos": "",
+     "no": "1",
+     "name": "Jayden \"Duke\" Scott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Joshisa \"Jojo\" Trader",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Tristan Teasdell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "4",
+     "name": "Vander Ploog",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "8",
+     "name": "Isaiah Crowell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "AJ Richardson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "24",
+     "name": "Dylan McCoy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Rylan Vann",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "71",
+     "name": "Yousef Mugharbil",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Spike Sowells Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "79",
+     "name": "Kamen Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "84",
+     "name": "Stephen Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "87",
+     "name": "Ian Flynt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Nick Konieczynski",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "nc-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.949967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. California",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "1",
+     "name": "Jayden \"Duke\" Scott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "Joshisa \"Jojo\" Trader",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "3",
+     "name": "Tristan Teasdell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "4",
+     "name": "Vander Ploog",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "NCK",
+     "no": "8",
+     "name": "Isaiah Crowell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "15",
+     "name": "AJ Richardson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Daniel Cruz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "71",
+     "name": "Yousef Mugharbil",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "Spike Sowells Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "Ian Flynt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "91",
+     "name": "Nick Konieczynski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "AJ Prim",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

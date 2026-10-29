@@ -1,6 +1,466 @@
 {
  "schema": 1,
  "team": "ucf",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:47.902398+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "ucf",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:47.902398+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-26",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-26",
+   "game": "vs. TCU",
+   "players": [
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Jonathan Bibbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Duane Thomas Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Alonza Barnett III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Dante Carr",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Antonio Branch Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Lewis Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "54",
+     "name": "Trenton Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "61",
+     "name": "Owen Spell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "81",
+     "name": "Zack Palmer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "98",
+     "name": "Alhassan Iddrissu",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "ucf",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:47.902398+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "at Houston",
+   "players": [
+    {
+     "pos": "",
+     "no": "0",
+     "name": "Dylan Wade",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Duane Thomas Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Alonza Barnett III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Dante Carr",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Antonio Branch Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Lewis Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "54",
+     "name": "Trenton Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "61",
+     "name": "Owen Spell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "83",
+     "name": "Dylan Burk",
+     "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "ucf",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:47.902398+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "at Oklahoma State",
+   "players": [
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Duane Thomas Jr.",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "13",
+     "name": "Caleb Rollerson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Alonza Barnett III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Dante Carr",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Lewis Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "41",
+     "name": "Bruno Dall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "54",
+     "name": "Trenton Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Jacob Maiava",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "61",
+     "name": "Owen Spell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Tyler Gibson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "ucf",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:47.902398+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "vs. BYU",
+   "players": [
+    {
+     "pos": "",
+     "no": "4",
+     "name": "Taevion Swint",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "5",
+     "name": "DJ Bell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "13",
+     "name": "Caleb Rollerson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Alonza Barnett III",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Lewis Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Jacob Maiava",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "61",
+     "name": "Owen Spell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Tyler Gibson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "95",
+     "name": "RJ Jackson Jr.",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "ucf",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:47.902398+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Update 1",
+   "kickoffDate": "2026-10-30",
+   "game": "vs. Baylor",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "4",
+     "name": "Taevion Swint",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "5",
+     "name": "DJ Bell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "7",
+     "name": "Duane Thomas Jr.",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "8",
+     "name": "Demari Henderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "10",
+     "name": "Sincere Edwards",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "11",
+     "name": "Ken Talley",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "13",
+     "name": "Caleb Rollerson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "14",
+     "name": "Alonza Barnett III",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "Lewis Carter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "38",
+     "name": "Jayden Jennings",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "41",
+     "name": "Bruno Dall",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Jacob Maiava",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Tyler Gibson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Preston Cushman",
+     "status": "probable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

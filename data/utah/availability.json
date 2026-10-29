@@ -3,13 +3,38 @@
  "team": "utah",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:48.147930+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Cincinnati",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "6",
+   "name": "Daidren Zipperer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "10",
+   "name": "Hunter Andrews",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "42",
+   "name": "Tayson Reid",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

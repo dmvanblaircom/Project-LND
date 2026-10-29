@@ -3,13 +3,31 @@
  "team": "houston",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:44.126762+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Utah",
+ "players": [
+  {
+   "pos": "",
+   "no": "1",
+   "name": "Jaden Yates",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "90",
+   "name": "De'Marion Thomas",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

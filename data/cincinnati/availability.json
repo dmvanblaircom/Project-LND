@@ -3,13 +3,66 @@
  "team": "cincinnati",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-29T14:09:43.372097+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Utah",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "0",
+   "name": "Isaiah Johnson",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "18",
+   "name": "Giyahni Kontosis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "44",
+   "name": "Montay Weedon",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "77",
+   "name": "Taran Tyo",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "80",
+   "name": "Jalen Williams",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "88",
+   "name": "DaMari Witherspoon",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "95",
+   "name": "Josh Hough",
+   "status": "questionable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

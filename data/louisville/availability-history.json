@@ -1,6 +1,569 @@
 {
  "schema": 1,
  "team": "louisville",
- "updated": null,
- "reports": []
+ "updated": "2026-10-29T14:09:45.169731+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "louisville",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.169731+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-19",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-19",
+   "game": "vs. SMU",
+   "players": [
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Travis Egan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "48",
+     "name": "Jacob Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "52",
+     "name": "Max Merz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "63",
+     "name": "Bryten Close",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Sam Secrest",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "75",
+     "name": "Cameron Gorin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "84",
+     "name": "Payton Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "98",
+     "name": "Sam Dawson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "louisville",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.169731+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-26",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-26",
+   "game": "vs. Wake Forest",
+   "players": [
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Koen Entringer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Antonio Watts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Travis Egan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "48",
+     "name": "Jacob Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "52",
+     "name": "Max Merz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "63",
+     "name": "Bryten Close",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Sam Secrest",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "84",
+     "name": "Payton Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "98",
+     "name": "Sam Dawson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "louisville",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.169731+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "at NC State",
+   "players": [
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Lincoln Kienholz",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Koen Entringer",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Antonio Watts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Travis Egan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "48",
+     "name": "Jacob Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "63",
+     "name": "Bryten Close",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "65",
+     "name": "Ellis McAdoo",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Sam Secrest",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "82",
+     "name": "Montavin Quisenberry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Hamilton Atkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "98",
+     "name": "Sam Dawson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "louisville",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.169731+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-09",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-09",
+   "game": "vs. Florida State",
+   "players": [
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Keyjuan Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Antonio Watts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Travis Egan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "48",
+     "name": "Jacob Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "63",
+     "name": "Bryten Close",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "71",
+     "name": "Cason Henry",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Sam Secrest",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "82",
+     "name": "Montavin Quisenberry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Hamilton Atkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "98",
+     "name": "Sam Dawson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "louisville",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.169731+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Syracuse",
+   "players": [
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Antonio Watts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "12",
+     "name": "DJ Waller Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Travis Egan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "48",
+     "name": "Jacob Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "63",
+     "name": "Bryten Close",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "67",
+     "name": "James Glover-Tyson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "70",
+     "name": "Anwar O'neal",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "72",
+     "name": "Sam Secrest",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "90",
+     "name": "Hamilton Atkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "98",
+     "name": "Sam Dawson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "louisville",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T14:09:45.169731+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Stanford",
+   "players": [
+    {
+     "pos": "DL",
+     "no": "3",
+     "name": "Tyler Thompson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "7",
+     "name": "Lawayne McCoy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "9",
+     "name": "Antonio Watts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "12",
+     "name": "DJ Waller Jr.",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "21",
+     "name": "Jaydin Broadnax",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "44",
+     "name": "Travis Egan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "P",
+     "no": "48",
+     "name": "Jacob Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OT",
+     "no": "63",
+     "name": "Bryten Close",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "James Glover-Tyson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Anwar O'neal",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "Sam Secrest",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "85",
+     "name": "Justyn Reid",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "90",
+     "name": "Hamilton Atkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "90",
+     "name": "Daylen Russell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "Sam Dawson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Jerod Smith II",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }
