@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       base:
-        description: "Where to sweep: a URL, or empty for this branch's build served on the runner"
+        description: "Where to sweep: empty for production, a URL, or local"
         required: false
         type: string
       teams:
@@ -56,8 +56,9 @@ jobs:
       - run: npm install
       - name: Sweep
         env:
-          # the schedule sweeps what fans have; a dispatch, what it is given
-          SWEEP_BASE: ${{ github.event_name == 'schedule' && 'https://dmvanblaircom.github.io/Project-LND/' || inputs.base }}
+          # production unless a dispatch names another address ("local": this
+          # branch's build on the runner, whose provider calls are refused)
+          SWEEP_BASE: ${{ inputs.base }}
           # a push to the sweep's own branch tries the sweep on eight teams
           SWEEP_TEAMS: ${{ github.event_name == 'push' && 'notre-dame,ohio-state,wyoming,troy,hawaii,uconn,usc,army' || inputs.teams }}
           SWEEP_WIDTHS: ${{ inputs.widths || '390,1280' }}

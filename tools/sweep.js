@@ -32,8 +32,8 @@
    reviewer who cannot download artifacts can still see them.
 
    Usage:
-     node tools/sweep.js                       this checkout, served locally, live data
-     SWEEP_BASE=https://dmvanblaircom.github.io/Project-LND/ node tools/sweep.js
+     node tools/sweep.js                       production, as fans have it
+     SWEEP_BASE=local node tools/sweep.js      this checkout, served on this machine
      SWEEP_TEAMS=notre-dame,ohio-state SWEEP_WIDTHS=390 node tools/sweep.js
    It needs the network; it is not one of the gating checks. */
 "use strict";
@@ -75,8 +75,11 @@ var EMPTY = /\b(unavailable|not available|no [a-z ]{0,30} yet|nothing to show|co
 function now() { return Date.now(); }
 
 async function main() {
-  var server = null, base = process.env.SWEEP_BASE;
-  if (!base) {
+  // Production by default: the provider answers the Suite's own origin and
+  // refuses a local one (CORS, first sweep, 2026-10-29), so a build served on
+  // the runner can only be swept where its data comes from elsewhere.
+  var server = null, base = process.env.SWEEP_BASE || "https://dmvanblaircom.github.io/Project-LND/";
+  if (base === "local") {
     server = serve(root);
     await new Promise(function (r) { server.listen(0, "127.0.0.1", r); });
     base = "http://127.0.0.1:" + server.address().port + "/";
