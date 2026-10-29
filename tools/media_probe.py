@@ -1,23 +1,24 @@
 """Temporary (2026-10-29): every fan site On3 lists, slug and name. Names only."""
-import re, urllib.request, html
+import re, urllib.request, html, gzip
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 def get(u):
-    req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
+    req = urllib.request.Request(u, headers={"User-Agent": UA, "Accept": "text/html,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9"})
     with urllib.request.urlopen(req, timeout=40) as r:
-        return r.read().decode("utf-8", "replace")
-for u in ("https://www.on3.com/teams/", "https://www.on3.com/teams/?page=2"):
+        b = r.read()
+        if b[:2] == b"\x1f\x8b": b = gzip.decompress(b)
+        return r.geturl(), b.decode("utf-8", "replace")
+for u in ("https://www.on3.com/teams/", "https://www.on3.com/sites/", "https://www.on3.com/sitemap.xml",
+          "https://www.on3.com/sitemap_index.xml", "https://www.on3.com/robots.txt"):
     try:
-        h = get(u)
+        final, h = get(u)
     except Exception as e:
         print(u, "error", e); continue
-    seen = {}
-    for m in re.finditer(r'href="(?:https://www\.on3\.com)?/sites/([a-z0-9-]+)/"[^>]*>(.{0,300}?)</a>', h, re.S):
-        slug, inner = m.group(1), re.sub(r"<[^>]+>", " ", m.group(2))
-        seen.setdefault(slug, " ".join(html.unescape(inner).split())[:80])
-    for s in sorted(set(re.findall(r'/sites/([a-z0-9-]+)/', h))):
-        seen.setdefault(s, "")
-    print(u, len(seen))
-    for s, n in sorted(seen.items()):
-        print("SITE", s, "|", n)
-    # the page's own JSON (Next.js) often carries every site
-    for s in sorted(set(re.findall(r'"slug":"([a-z0-9-]+)"', h)))[:400]:
-        print("SLUG", s)
+    print("==", u, "->", final, len(h))
+    if u.endswith("robots.txt") or "sitemap" in u:
+        for l in re.findall(r"https://www\.on3\.com/[^\s<]*sitemap[^\s<]*", h)[:80]: print("MAP", l)
+    slugs = sorted(set(re.findall(r'/sites/([a-z0-9-]+)/', h)))
+    print("slugs", len(slugs))
+    for s in slugs: print("SITE", s)
+    # names near slugs in embedded JSON
+    for m in re.finditer(r'"(?:name|title|siteName|fullName)":"([^"]{3,60})"[^{}]{0,300}?"(?:slug|url|siteSlug)":"(?:https://www\.on3\.com)?/?(?:sites/)?([a-z0-9-]+)', h):
+        print("PAIR", m.group(2), "|", html.unescape(m.group(1)))
