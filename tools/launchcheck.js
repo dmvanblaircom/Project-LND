@@ -21,6 +21,14 @@
 
    Usage: node tools/launchcheck.js     (exit 1 on failure) */
 "use strict";
+// The worker's own requests go through this check's routes too, as in
+// moreflowcheck and rosterflowcheck. Unrouted, an old worker's fetch to the
+// real ESPN stayed open for as long as the network took, and Chrome activates
+// a waiting update only once the old worker has no fetch open: on a slow
+// answer, "a page that does not answer" never saw its reload (#198, #200,
+// #202). Routed, each answers from its fixture in 150 ms.
+process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = "1";
+
 var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
 var root = path.join(__dirname, "..");
