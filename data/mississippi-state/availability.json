@@ -7,48 +7,62 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:03.511886+00:00",
+ "fetchedAt": "2026-10-29T00:38:06.643498+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "vs. Oklahoma",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Texas",
  "players": [
   {
-   "pos": "",
-   "no": "2",
-   "name": "Isaac Smith",
+   "pos": "QB",
+   "no": "1",
+   "name": "Kamario Taylor",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "S",
+   "no": "2",
+   "name": "Isaac Smith",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
    "no": "10",
    "name": "Jalen Smith",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "11",
    "name": "Ayden Williams",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DL",
    "no": "23",
    "name": "Trevion Williams",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "78",
+   "name": "DJ Chester",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "99",
    "name": "Diesel Moye",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

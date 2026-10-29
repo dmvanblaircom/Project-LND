@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "mississippi-state",
- "updated": "2026-10-28T03:39:03.511886+00:00",
+ "updated": "2026-10-29T00:38:06.643498+00:00",
  "reports": [
   {
    "schema": 1,
@@ -258,6 +258,74 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "mississippi-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T00:38:06.643498+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "Texas",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Kamario Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Isaac Smith",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Jalen Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Ayden Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "23",
+     "name": "Trevion Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "DJ Chester",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Diesel Moye",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

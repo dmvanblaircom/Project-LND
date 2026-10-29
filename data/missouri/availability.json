@@ -7,69 +7,34 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:03.618413+00:00",
+ "fetchedAt": "2026-10-29T00:38:06.775518+00:00",
  "reported": true,
- "effectiveAt": "2026-10-17",
- "heading": "Game Day",
- "kickoffDate": "2026-10-17",
- "game": "at Ole Miss",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Arkansas",
  "players": [
   {
-   "pos": "",
-   "no": "6",
-   "name": "Jeremiah Beasley",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "18",
-   "name": "JaDon Blair",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "RB",
    "no": "21",
    "name": "Malae Fonoti",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "29",
-   "name": "Ahmad Hardy",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "OL",
    "no": "54",
    "name": "Josh Atkins",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "58",
-   "name": "Khalief Canty Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "87",
-   "name": "Brett Norfleet",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "TE",
    "no": "88",
    "name": "Gavin Hoffman",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

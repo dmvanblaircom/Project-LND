@@ -7,76 +7,118 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:04.114534+00:00",
+ "fetchedAt": "2026-10-29T00:38:07.414715+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Texas",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Auburn",
  "players": [
   {
-   "pos": "",
+   "pos": "CB",
+   "no": "0",
+   "name": "Jalyn Crawford",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "5",
+   "name": "Kewan Lacy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "12",
    "name": "Izaiah Hartrup",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
+   "no": "13",
+   "name": "Cedrick Beavers",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
    "no": "14",
    "name": "Edwin Joseph",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "S",
    "no": "19",
    "name": "MJ Preston",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "26",
    "name": "Ant Davis Jr.",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "27",
-   "name": "Pat Broomfield",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "WR",
    "no": "27",
    "name": "Kervin Johnson Jr.",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
+   "no": "34",
+   "name": "Iverson McCoy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
    "no": "46",
    "name": "Nascar McCoy",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "55",
    "name": "Terez Davis",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "62",
+   "name": "Brycen Sanders",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "65",
+   "name": "Connor Howes",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "71",
    "name": "Emanuel Faulkner",
    "status": "out-game",
    "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "88",
+   "name": "Michai Boireau",
+   "status": "probable",
+   "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

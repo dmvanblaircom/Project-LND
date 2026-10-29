@@ -7,41 +7,69 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:38:59.986266+00:00",
+ "fetchedAt": "2026-10-29T00:38:04.887332+00:00",
  "reported": true,
- "effectiveAt": "2026-10-17",
- "heading": "Game Day",
- "kickoffDate": "2026-10-17",
- "game": "at Vanderbilt",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Missouri",
  "players": [
   {
-   "pos": "",
+   "pos": "RB",
+   "no": "0",
+   "name": "Braylen Russell",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "3",
    "name": "Braydon Lee",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
+   "no": "6",
+   "name": "Chris Marshall",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
    "no": "47",
    "name": "Maddox Lassiter",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "79",
-   "name": "Josiah Clemons",
+   "pos": "OL",
+   "no": "52",
+   "name": "Caden Kitler",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
+   "no": "83",
+   "name": "Jaden Platt",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
    "no": "89",
    "name": "Gavin Garretson",
    "status": "out-game",
    "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "90",
+   "name": "Caleb Bell",
+   "status": "probable",
+   "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

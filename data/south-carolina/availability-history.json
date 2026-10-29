@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-carolina",
- "updated": "2026-10-28T03:39:04.599280+00:00",
+ "updated": "2026-10-29T00:38:08.028434+00:00",
  "reports": [
   {
    "schema": 1,
@@ -314,6 +314,74 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "south-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T00:38:08.028434+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "Oklahoma",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "12",
+     "name": "Quay'sheed Scott",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Jayden Sellers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Jawarn Howell",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "41",
+     "name": "Kobby Sakyi-Prah",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Josiah Thompson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Dayne Arnett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Seth Smith",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

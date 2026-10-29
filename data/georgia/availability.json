@@ -7,55 +7,55 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:00.304949+00:00",
+ "fetchedAt": "2026-10-29T00:38:05.278730+00:00",
  "reported": true,
- "effectiveAt": "2026-10-17",
- "heading": "Game Day",
- "kickoffDate": "2026-10-17",
- "game": "vs. Auburn",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Florida",
  "players": [
   {
-   "pos": "",
+   "pos": "WR",
    "no": "2",
    "name": "Thomas Blackshear",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "4",
    "name": "KJ Bolden",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "5",
    "name": "Chauncey Bowens",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "6",
    "name": "Isiah Canion",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OLB",
    "no": "17",
    "name": "Amaris Williams",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "S",
    "no": "23",
    "name": "Tyriq Green",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

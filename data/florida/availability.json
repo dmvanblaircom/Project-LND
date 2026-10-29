@@ -7,41 +7,55 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:00.199572+00:00",
+ "fetchedAt": "2026-10-29T00:38:05.148800+00:00",
  "reported": true,
- "effectiveAt": "2026-10-17",
- "heading": "Game Day",
- "kickoffDate": "2026-10-17",
- "game": "at Texas",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Georgia",
  "players": [
   {
-   "pos": "",
+   "pos": "WR",
    "no": "1",
    "name": "Vernell Brown III",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "3",
    "name": "Bailey Stockton",
-   "status": "gtd",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "QB",
+   "no": "9",
+   "name": "Tramell Jones Jr.",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
    "no": "12",
    "name": "Aaron Philo",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "20",
    "name": "Duke Clark",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "29",
+   "name": "Jaden Robinson",
+   "status": "doubtful",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }
