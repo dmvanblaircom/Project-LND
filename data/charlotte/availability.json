@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "team": "charlotte",
+ "capability": "availability",
+ "tier": "official",
+ "game": null,
+ "sourceUrl": null,
+ "sourceLabel": "TheAmerican.org",
+ "pdf": null,
+ "reported": false,
+ "effectiveAt": null,
+ "heading": null,
+ "players": [],
+ "fetchedAt": null
+}

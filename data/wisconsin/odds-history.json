@@ -1,6 +1,6 @@
 {
 "team": "wisconsin",
-"updated": "2026-10-29T11:07Z",
+"updated": "2026-10-29T15:28Z",
 "points": [
 {
 "t": "2026-10-28T01:37Z",
@@ -119,6 +119,13 @@
 "title": null,
 "titleEvent": "KXNCAAF-27",
 "playoff": 12.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-29T15:28Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 14.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

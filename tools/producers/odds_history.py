@@ -49,14 +49,19 @@ def price(m):
 
 
 def team_price(markets, kalshi):
-    """The team's market in one event: by ticker suffix, then by name."""
+    """The team's market in one event: the one with its ticker suffix, and
+    only when none has it, the first its name pattern matches (a pattern can
+    match a look-alike listed first: "Western Michigan" for Michigan,
+    2026-10-29). teamos/markets.js picks the same way."""
     suffix, pattern = kalshi.get("tickerSuffix"), teamconfig.regex(kalshi.get("namePattern"))
-    for m in markets:
-        name = " ".join(str(m.get(k, "")) for k in ("yes_sub_title", "subtitle", "title"))
-        if (suffix and str(m.get("ticker", "")).endswith(suffix)) or (pattern and pattern.search(name)):
-            p = price(m)
-            return round(p, 1) if p is not None else None
-    return None
+    def name(m): return " ".join(str(m.get(k, "")) for k in ("yes_sub_title", "subtitle", "title"))
+    own = next((m for m in markets if suffix and str(m.get("ticker", "")).endswith(suffix)), None)
+    if own is None and pattern:
+        own = next((m for m in markets if pattern.search(name(m))), None)
+    if own is None:
+        return None
+    p = price(own)
+    return round(p, 1) if p is not None else None
 
 
 def append(hist, point, now):
