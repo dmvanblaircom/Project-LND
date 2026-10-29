@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "team": "wake-forest",
+ "capability": "availability",
+ "tier": "official",
+ "game": null,
+ "sourceUrl": null,
+ "sourceLabel": "TheACC.com",
+ "pdf": null,
+ "reported": false,
+ "effectiveAt": null,
+ "heading": null,
+ "players": [],
+ "fetchedAt": null
+}

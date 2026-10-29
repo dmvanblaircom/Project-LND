@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "team": "west-virginia",
+ "capability": "availability",
+ "tier": "official",
+ "game": null,
+ "sourceUrl": null,
+ "sourceLabel": "Big12Sports.com",
+ "pdf": null,
+ "reported": false,
+ "effectiveAt": null,
+ "heading": null,
+ "players": [],
+ "fetchedAt": null
+}
