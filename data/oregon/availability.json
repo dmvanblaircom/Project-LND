@@ -7,90 +7,69 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T01:38:42.375296+00:00",
+ "fetchedAt": "2026-10-29T00:08:18.316030+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Illinois",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Northwestern",
  "players": [
   {
-   "pos": "",
+   "pos": "WR",
    "no": "3",
    "name": "Jeremiah McClellan",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "QB",
    "no": "5",
    "name": "Dante Moore",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "7",
-   "name": "Evan Stewart",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "10",
-   "name": "Jalen Lott",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "15",
-   "name": "Messiah Hampton",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "DB",
    "no": "21",
    "name": "Aaron Flowers",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "ILB",
    "no": "23",
    "name": "Brayden Platt",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DL",
    "no": "55",
    "name": "Matthew Johnson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "56",
    "name": "Trent Ferguson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "73",
-   "name": "Kawika Rogers",
+   "pos": "OL",
+   "no": "74",
+   "name": "Dave Iuli",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "79",
    "name": "Immanuel Iheanacho",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

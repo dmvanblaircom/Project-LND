@@ -7,48 +7,83 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T01:38:41.567891+00:00",
+ "fetchedAt": "2026-10-29T00:08:17.016412+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Minnesota",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Wisconsin",
  "players": [
   {
-   "pos": "",
+   "pos": "DB",
+   "no": "0",
+   "name": "Cody Haddad",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "2",
    "name": "Tyler Brown",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
+   "no": "10",
+   "name": "Burke Gautcher",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "11",
+   "name": "Brody Schaffer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "13",
+   "name": "Brevin Doll",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "19",
    "name": "Kyler Gerardy",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "25",
-   "name": "Eli Ozick",
-   "status": "gtd",
+   "pos": "RB",
+   "no": "28",
+   "name": "Kamari Moulton",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "60",
+   "name": "Lucas Allgeyer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "65",
    "name": "Trent Wilson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "92",
-   "name": "Caden Buhr",
-   "status": "gtd",
+   "pos": "DL",
+   "no": "88",
+   "name": "Emmanuel Olagbaju",
+   "status": "doubtful",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

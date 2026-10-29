@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-10-28T01:38:42.070219+00:00",
+ "updated": "2026-10-29T00:08:17.843853+00:00",
  "reports": [
   {
    "schema": 1,
@@ -302,6 +302,95 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "nebraska",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T00:08:17.843853+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "Washington",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "4",
+     "name": "Jamir Conn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "5",
+     "name": "Anthony Jones Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Larry Miles",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "19",
+     "name": "Kahmir Prescott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Isaiah Mozee",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "30",
+     "name": "Vincent Genatone",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "44",
+     "name": "Riley Van Poppel",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "52",
+     "name": "Jase Reynolds",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "54",
+     "name": "Jacob Bower",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "95",
+     "name": "Gabe Moore",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

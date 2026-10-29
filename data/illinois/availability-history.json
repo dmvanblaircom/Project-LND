@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "illinois",
- "updated": "2026-10-28T01:38:41.367399+00:00",
+ "updated": "2026-10-29T00:08:16.839857+00:00",
  "reports": [
   {
    "schema": 1,
@@ -407,6 +407,95 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "illinois",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-29T00:08:16.839857+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-28",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "Maryland",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Jayshon Platt",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "4",
+     "name": "Katin Houser",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "5",
+     "name": "Ca'Lil Valentine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "32",
+     "name": "Tywan Cox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "33",
+     "name": "Grant Beerman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "48",
+     "name": "Carter Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "53",
+     "name": "Kai Pritchard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "54",
+     "name": "Demetrius John",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "TJ McMillen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "BJ Thurman",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

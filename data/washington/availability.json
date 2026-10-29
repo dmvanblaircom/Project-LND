@@ -7,83 +7,111 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T01:38:42.973081+00:00",
+ "fetchedAt": "2026-10-29T00:08:19.285775+00:00",
  "reported": true,
- "effectiveAt": "2026-10-16",
- "heading": "Game Day",
- "kickoffDate": "2026-10-16",
- "game": "at Purdue",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Nebraska",
  "players": [
   {
-   "pos": "",
+   "pos": "QB",
    "no": "1",
    "name": "Demond Williams Jr.",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "4",
    "name": "Jordan Washington",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "5",
    "name": "Christian Moss",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
+   "no": "9",
+   "name": "Jacob Manu",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
    "no": "10",
    "name": "Xe'ree Alexander",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "11",
+   "name": "Ramzak Fruean",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "17",
    "name": "Jayden Limar",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "18",
-   "name": "Kai McClendon",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "RB",
    "no": "21",
    "name": "Quaid Carr",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
+   "no": "22",
+   "name": "Trey Cooley",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
    "no": "30",
    "name": "Ansu Sanoe",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "66",
+   "name": "Landen Hatchett",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "65",
-   "name": "Jack Shaffer",
-   "status": "out-game",
+   "pos": "OL",
+   "no": "70",
+   "name": "Justin Hylkema",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "78",
+   "name": "Jake Flores",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "S",
    "no": "",
    "name": "CJ Christian",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

@@ -7,13 +7,20 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-17T14:08:02.845690+00:00",
+ "fetchedAt": "2026-10-29T00:08:18.023586+00:00",
  "reported": true,
- "effectiveAt": "2026-10-17",
- "heading": "Game Day",
- "kickoffDate": "2026-10-17",
- "game": "at Indiana",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "USC",
  "players": [
+  {
+   "pos": "WR",
+   "no": "0",
+   "name": "Brandon Inniss",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "S",
    "no": "10",
@@ -22,23 +29,23 @@
    "detail": ""
   },
   {
+   "pos": "QB",
+   "no": "10",
+   "name": "Julian Sayin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "11",
    "name": "Brock Boyd",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "21",
    "name": "Brenten \"Inky\" Jones",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "21",
-   "name": "Anthony “Turbo” Rogers",
    "status": "out-game",
    "detail": ""
   },
@@ -50,6 +57,13 @@
    "detail": ""
   },
   {
+   "pos": "CB",
+   "no": "25",
+   "name": "Jay Timmons",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "30",
    "name": "Amari Valerio-Hudson",
@@ -57,10 +71,17 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "30",
-   "name": "Khmari Bing",
-   "status": "out-game",
+   "pos": "LB",
+   "no": "33",
+   "name": "Eli Lee",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "43",
+   "name": "Amar’e Miller",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -71,9 +92,9 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "67",
-   "name": "Austin Siereveld",
+   "pos": "TE",
+   "no": "88",
+   "name": "Maxence LeBlanc",
    "status": "out-game",
    "detail": ""
   }

@@ -7,104 +7,111 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T01:38:42.172974+00:00",
+ "fetchedAt": "2026-10-29T00:08:17.929031+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "vs. Rutgers",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Oregon",
  "players": [
   {
-   "pos": "",
+   "pos": "DB",
    "no": "6",
    "name": "Robert Fitzgerald",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "13",
    "name": "Josh Fussell",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DL",
    "no": "15",
    "name": "Brendan Flakes",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "22",
    "name": "Daniel Anderson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "37",
    "name": "Max Mohring",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "40",
    "name": "Jason Reynolds II",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
+   "no": "41",
+   "name": "Robby Preckel",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "44",
    "name": "Callen Campbell",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "50",
    "name": "Qayvier Johnson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "61",
-   "name": "David Anchondo",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "OL",
    "no": "62",
    "name": "Ezomo Oratokhai",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "79",
    "name": "Jacob Miller",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "81",
    "name": "Chris Petrucci",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "84",
    "name": "Luke Dehnicke",
-   "status": "out-game",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "97",
+   "name": "Braxton Strong",
+   "status": "doubtful",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

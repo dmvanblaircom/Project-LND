@@ -7,69 +7,69 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T01:38:42.673045+00:00",
+ "fetchedAt": "2026-10-29T00:08:18.569813+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Northwestern",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Michigan",
  "players": [
   {
-   "pos": "",
+   "pos": "DB",
    "no": "1",
    "name": "Kaj Sanders",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "3",
-   "name": "Antwan Raymond",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "4",
-   "name": "Jourdin Houston",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "DB",
    "no": "7",
    "name": "Kevin Levy",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
+   "no": "8",
+   "name": "KJ Duff",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
    "no": "10",
    "name": "Ty Morris",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "12",
    "name": "Zahmir Dawud",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "20",
-   "name": "Ja'shon Benjamin",
-   "status": "gtd",
+   "pos": "QB",
+   "no": "12",
+   "name": "Dylan Lonergan",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "56",
+   "name": "Tyler Needham",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "96",
    "name": "Keshon Griffin",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

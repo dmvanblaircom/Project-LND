@@ -7,132 +7,146 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T01:38:42.473756+00:00",
+ "fetchedAt": "2026-10-29T00:08:18.402188+00:00",
  "reported": true,
- "effectiveAt": "2026-10-17",
- "heading": "Game Day",
- "kickoffDate": "2026-10-17",
- "game": "at Michigan",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Purdue",
  "players": [
   {
-   "pos": "",
+   "pos": "WR",
    "no": "0",
    "name": "Chase Sowell",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "S",
+   "no": "4",
+   "name": "Jeremiah Cooper",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "6",
    "name": "Koby Howard",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "11",
-   "name": "LaVar Arrington II",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "CB",
    "no": "15",
    "name": "Joshua Johnson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DE",
    "no": "18",
    "name": "Max Granville",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DE",
    "no": "19",
    "name": "Yvan Kemajou",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "25",
    "name": "Alex Tatsch",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "26",
-   "name": "Cam Smith",
-   "status": "gtd",
+   "pos": "S",
+   "no": "27",
+   "name": "Omarion Davis",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
    "no": "30",
    "name": "Christian Askew",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DE",
+   "no": "33",
+   "name": "Alexander McPherson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
    "no": "35",
    "name": "Tyler Armstead",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DE",
    "no": "42",
    "name": "Mason Robinson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "43",
-   "name": "Dayshaun Burnett",
-   "status": "out-game",
+   "pos": "DT",
+   "no": "56",
+   "name": "Alijah Carnell",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "66",
    "name": "Will Tompkins",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "80",
    "name": "Cooper Alexander",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
+   "no": "83",
+   "name": "Brian Kortovich",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
    "no": "90",
    "name": "Liam Andrews",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DT",
    "no": "91",
    "name": "Armstrong Nnodim",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "K",
    "no": "95",
    "name": "Cristiano Rosa",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

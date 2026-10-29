@@ -7,76 +7,90 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-27T15:08:11.472690+00:00",
+ "fetchedAt": "2026-10-29T00:08:17.562881+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "vs. Iowa",
+ "effectiveAt": "2026-10-28",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "Indiana",
  "players": [
   {
-   "pos": "",
+   "pos": "DB",
+   "no": "9",
+   "name": "Garrison Monroe",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
    "no": "12",
    "name": "Michael Merdinger",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "19",
    "name": "Pierce Walsh",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "20",
    "name": "Ryan Estrada",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "26",
    "name": "Elisha West",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DL",
    "no": "47",
    "name": "Enoch Atewogbola",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "56",
    "name": "Brett Carroll",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "78",
    "name": "Ashton Beers",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "84",
    "name": "Hayden Moore",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "K",
+   "no": "92",
+   "name": "Beckham Sunderland",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "93",
    "name": "Riley Sunram",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }
