@@ -41,8 +41,7 @@ var TEAM_CONFIG = {
     // (429), On SI has no ECU site (404), and On3's feed carries only
     // national stories.
     beatFeeds: [
-      { name: "ECU Athletics", feed: "https://ecupirates.com/rss?path=football", site: "https://ecupirates.com/sports/football", logo: "https://ecupirates.com/favicon.ico" },
-      { name: "Bonesville", feed: "https://bonesville.net/feed/", site: "https://bonesville.net/", logo: "https://bonesville.net/favicon.ico" }
+      { name: "ECU Athletics", feed: "https://ecupirates.com/rss?path=football", site: "https://ecupirates.com/sports/football", logo: "https://ecupirates.com/favicon.ico" }
     ]
   },
 

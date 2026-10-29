@@ -37,7 +37,8 @@ var TEAM_CONFIG = {
     // One source only: On SI has no Wyoming site (404), and On3's feed
     // carries only national stories.
     beatFeeds: [
-      { name: "Wyoming Athletics", feed: "https://gowyo.com/rss?path=football", site: "https://gowyo.com/sports/football", logo: "https://gowyo.com/favicon.ico" }
+      { name: "Wyoming Athletics", feed: "https://gowyo.com/rss?path=football", site: "https://gowyo.com/sports/football", logo: "https://gowyo.com/favicon.ico" },
+      { name: "The Branding Iron", feed: "https://www.uwbrandingiron.com/?feed=rss2", site: "https://www.uwbrandingiron.com/", sportsSection: true }
     ]
   },
 

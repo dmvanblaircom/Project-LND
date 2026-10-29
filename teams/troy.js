@@ -37,7 +37,8 @@ var TEAM_CONFIG = {
     // One source only: On SI has no Troy site (404), On3's feed carries only
     // national stories, and no student paper feed was found.
     beatFeeds: [
-      { name: "Troy Athletics", feed: "https://troytrojans.com/rss?path=football", site: "https://troytrojans.com/sports/football", logo: "https://troytrojans.com/favicon.ico" }
+      { name: "Troy Athletics", feed: "https://troytrojans.com/rss?path=football", site: "https://troytrojans.com/sports/football", logo: "https://troytrojans.com/favicon.ico" },
+      { name: "The Tropolitan", feed: "https://www.tropnews.com/blog-feed.xml", site: "https://www.tropnews.com/", sportsSection: true }
     ]
   },
 

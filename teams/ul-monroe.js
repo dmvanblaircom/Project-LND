@@ -37,7 +37,8 @@ var TEAM_CONFIG = {
     // One source only: On SI has no ULM site (404), there is no On3 team feed
     // (404), and no student paper feed was found.
     beatFeeds: [
-      { name: "ULM Athletics", feed: "https://ulmwarhawks.com/rss?path=football", site: "https://ulmwarhawks.com/sports/football", logo: "https://ulmwarhawks.com/favicon.ico" }
+      { name: "ULM Athletics", feed: "https://ulmwarhawks.com/rss?path=football", site: "https://ulmwarhawks.com/sports/football", logo: "https://ulmwarhawks.com/favicon.ico" },
+      { name: "The Hawkeye", feed: "https://ulmhawkeyeonline.com/feed/", site: "https://ulmhawkeyeonline.com/", sportsSection: true }
     ]
   },
 

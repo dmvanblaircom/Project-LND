@@ -38,7 +38,8 @@ var TEAM_CONFIG = {
     // One source only: On SI has no NM State site (404), On3's feed carries
     // only national stories, and no student paper feed was found.
     beatFeeds: [
-      { name: "NM State Athletics", feed: "https://nmstatesports.com/rss?path=football", site: "https://nmstatesports.com/sports/football", logo: "https://nmstatesports.com/favicon.ico" }
+      { name: "NM State Athletics", feed: "https://nmstatesports.com/rss?path=football", site: "https://nmstatesports.com/sports/football", logo: "https://nmstatesports.com/favicon.ico" },
+      { name: "The Round Up", feed: "https://nmsuroundup.com/feed/", site: "https://nmsuroundup.com/", sportsSection: true }
     ]
   },
 
