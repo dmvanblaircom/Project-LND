@@ -1,15 +1,77 @@
-# 2026-10-27: four new teams (David: Indiana, Minnesota, North Dakota State,
-# BYU). Each one's ESPN name, colors and home venue, as ESPN spells them.
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|groups\.id|franchise\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449/schedule | ^events\[[0-9]+\]\.(name|date|competitions\[0\]\.venue\.fullName) = 
-# The defending national champion (David, 2026-10-27): which postseason game
-# is the title game, as ESPN labels it.
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | National Championship|Playoff
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | ^events\[45\]\.(id|date|name|status\.type\.(completed|state)|competitions\[0\]\.(notes\[0\]\.headline|competitors\[[01]\]\.(winner|score|homeAway|team\.(id|location|displayName|shortDisplayName|abbreviation)))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2026&groups=80&limit=300 | National Championship
+# 2026-10-29, Phase 4b: ESPN's names and colours.
+# App State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2026 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Arkansas State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2032 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Coastal Carolina
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/324 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Georgia Southern
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/290 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Georgia State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2247 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# James Madison
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/256 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Louisiana
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/309 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Louisiana Tech
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2348 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Marshall
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/276 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Old Dominion
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/295 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# South Alabama
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/6 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Southern Miss
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2572 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Troy
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2653 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# UL Monroe
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2433 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Akron
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2006 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Ball State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2050 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Bowling Green
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/189 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Buffalo
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2084 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Central Michigan
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2117 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Eastern Michigan
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2199 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Kent State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2309 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Massachusetts
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/113 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Miami (OH)
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/193 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Ohio
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/195 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Sacramento State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/16 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Toledo
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2649 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Western Michigan
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2711 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Delaware
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/48 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Florida International
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2229 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Jacksonville State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/55 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Kennesaw State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/338 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Liberty
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2335 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Middle Tennessee
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2393 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Missouri State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2623 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# New Mexico State
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/166 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Sam Houston
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2534 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# Western Kentucky
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/98 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# UConn
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/41 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
