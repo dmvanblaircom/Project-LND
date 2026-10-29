@@ -76,6 +76,10 @@ ok(oh.team_price([{"ticker": "KXNCAAF-27-OSU", "yes_bid_dollars": "0.10", "yes_a
                  nd["sources"]["kalshi"]) == 21.0, "by ticker suffix, not by order")
 ok(oh.team_price([{"ticker": "X-1", "yes_sub_title": "Notre Dame", "last_price_dollars": "0.3"}],
                  nd["sources"]["kalshi"]) == 30.0, "by name when the ticker does not say")
+look = [{"ticker": "KXNCAAFPLAYOFF-26-WMU", "yes_sub_title": "Western Michigan", "last_price_dollars": "0.04"},
+        {"ticker": "KXNCAAFPLAYOFF-26-MICH", "yes_sub_title": "Michigan", "last_price_dollars": "0.61"}]
+ok(oh.team_price(look, {"tickerSuffix": "-MICH", "namePattern": {"source": "\\bmichigan\\b(?! st)", "flags": "i"}}) == 61.0,
+   "the suffix wins over a look-alike name listed first (Western Michigan for Michigan, 2026-10-29)")
 
 now = datetime(2026, 9, 25, 12, 0, tzinfo=timezone.utc)
 last = {"t": "2026-09-25T11:30Z", "title": 11.5, "playoff": 83.5}

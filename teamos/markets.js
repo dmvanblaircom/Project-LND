@@ -71,14 +71,23 @@ TeamOS.markets = (function () {
            (k.namePattern && k.namePattern.test(String(label || ""))) || false;
   }
   function list(event) { return (event && Array.isArray(event.markets)) ? event.markets : []; }
+  // The team's market in one event: the one with its ticker suffix, and only
+  // when none has it, the first its name pattern matches. A pattern alone can
+  // match a look-alike listed first - "Western Michigan" for Michigan's
+  // playoff odds (2026-10-29) - so the suffix always wins.
   function teamMarket(event, config) {
-    return list(event).filter(function (m) { return m && isTeams(config, m.ticker, name(m)); })[0] || null;
+    var k = kalshiOf(config), ms = list(event).filter(Boolean);
+    if (!k) return null;
+    var own = k.tickerSuffix ? ms.filter(function (m) { return String(m.ticker || "").endsWith(k.tickerSuffix); })[0] : null;
+    if (own) return own;
+    return k.namePattern ? ms.filter(function (m) { return k.namePattern.test(String(name(m) || "")); })[0] || null : null;
   }
 
   // The whole event, for "View full field": every team it prices, most
   // likely first, ties by name. The label is the one Home uses for it.
   function field(event, config, key) {
     var meta = ((TeamOS.outlook && TeamOS.outlook.MARKETS) || []).filter(function (x) { return x.key === key; })[0];
+    var own = teamMarket(event, config);
     var rows = list(event).filter(function (m) { return m && (!m.status || m.status === "active" || m.status === "open"); })
       .map(function (m) {
         var v = price(m), p = previous(m);
@@ -86,7 +95,7 @@ TeamOS.markets = (function () {
         return { team: String(name(m) || ""), ticker: String(m.ticker || ""), value: v,
                  previous: p == null ? null : p,
                  change: p == null ? null : Math.round((v - p) * 10) / 10,
-                 mine: isTeams(config, m.ticker, name(m)) };
+                 mine: m === own };
       })
       .filter(Boolean)
       .sort(function (a, b) { return b.value - a.value || (a.team < b.team ? -1 : a.team > b.team ? 1 : 0); });
