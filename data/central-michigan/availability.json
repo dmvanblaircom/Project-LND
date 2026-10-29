@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "team": "central-michigan",
+ "capability": "availability",
+ "tier": "official",
+ "game": null,
+ "sourceUrl": null,
+ "sourceLabel": "GetSomeMACtion.com",
+ "pdf": null,
+ "reported": false,
+ "effectiveAt": null,
+ "heading": null,
+ "players": [],
+ "fetchedAt": null
+}
