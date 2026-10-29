@@ -1,7 +1,25 @@
 {
  "team": "auburn",
- "updated": "2026-10-29T15:28:16.301806+00:00",
+ "updated": "2026-10-29T19:38:06.459811+00:00",
  "items": [
+  {
+   "title": "Reverse Engineering: THE CAMERA EYE",
+   "link": "https://on3.com/teams/auburn-tigers/news/reverse-engineering-the-camera-eye/",
+   "source": "On3",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/09/10073118/CAMERA-EYE-ON3-copy.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-29T19:23:52+00:00"
+  },
+  {
+   "title": "How Alex Golesh 'Dissected' LSU Disaster, Made Changes to Process Ahead of Ole Miss",
+   "link": "https://www.si.com/college/auburn/football/how-alex-golesh-dissected-lsu-disaster-made-changes-process-ahead-ole-miss?utm_source=RSS",
+   "source": "Auburn On SI",
+   "summary": "The Auburn Tigers are coming off an ugly loss, and Golesh evaluated every aspect of it this week.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1356,h_762,x_204,y_40/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/auburn_daily/01m647pqw1rbebtpdpqd.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-29T16:31:17+00:00"
+  },
   {
    "title": "Class of 2028 top CB target Mekhi Paschall visits Auburn, plans to return",
    "link": "https://on3.com/teams/auburn-tigers/news/class-of-2028-top-cb-target-mekhi-paschall-visits-auburn-plans-to-return/",
@@ -174,15 +192,6 @@
    "published": "2026-10-27T22:16:34+00:00"
   },
   {
-   "title": "THE RUNDOWN: Episode 721",
-   "link": "https://on3.com/teams/auburn-tigers/news/the-rundown-episode-721/",
-   "source": "On3",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/07/14161855/NEW-RUNDOWN-26.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-27T21:25:46+00:00"
-  },
-  {
    "title": "How Kamario Taylor's Injury News Makes Auburn's Remaining Season Easier",
    "link": "https://www.si.com/college/auburn/football/how-kamario-taylor-injury-news-makes-auburns-remaining-season-easier?utm_source=RSS",
    "source": "Auburn On SI",
@@ -262,15 +271,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2000,h_1125,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/auburn_daily/01m5t3djty75es67n7c7.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-25T18:00:51+00:00"
-  },
-  {
-   "title": "How Will Auburn Recover From Their Blowout Loss to LSU?",
-   "link": "https://www.si.com/college/auburn/football/how-will-auburn-recover-from-their-blowout-loss-to-lsu?utm_source=RSS",
-   "source": "Auburn On SI",
-   "summary": "Here's what the Auburn Tigers had to say regarding the slow performance against No. 18 LSU.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2000,h_1125,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/auburn_daily/01m5qy3g0vw3gqwyvaxh.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-24T21:48:45+00:00"
   }
  ]
 }
