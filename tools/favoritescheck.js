@@ -17,12 +17,15 @@ var fs = require("fs"), path = require("path"), vm = require("vm");
 var chromium = require("playwright").chromium;
 var root = path.join(__dirname, "..");
 var serve = require("./lib/serve");
-// A program the registry knows but cannot open yet (no config), read from
-// teams/index.js: the phases add teams, so no one name stays unconfigured.
+// A favorite that cannot be opened: a program the registry knows without a
+// config, read from teams/index.js, or - once every program has one (Phase 4b,
+// 2026-10-29) - an id the registry does not know, as a favorite saved before
+// a program left would be.
 var UNOPENED = (function () {
   var c = vm.createContext({});
   vm.runInContext(fs.readFileSync(path.join(__dirname, "..", "teams", "index.js"), "utf8"), c);
-  return c.TEAM_REGISTRY.filter(function (t) { return !t.config; })[0].id;
+  var bare = c.TEAM_REGISTRY.filter(function (t) { return !t.config; })[0];
+  return bare ? bare.id : "no-such-program";
 })();
 var FX = path.join(root, "tools", "fixtures");
 

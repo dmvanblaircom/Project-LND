@@ -198,12 +198,23 @@ var live = vm.createContext({});
 vm.runInContext(read("teams/index.js"), live, { filename: "teams/index.js" });
 var regCtx = vm.createContext({});
 vm.runInContext(read("teamos/registry.js"), regCtx);
-var REGLIVE = regCtx.TeamOS.registry.create(live.TEAM_REGISTRY);
+// Phase 4b (2026-10-29) gave every FBS program a config, so the live registry
+// can have no Coming Soon group left. Its behaviour is still checked: on a
+// copy that holds the last thirty programs back, as if they had no config.
+// Notre Dame and Ohio State, which the checks pick, are never held.
+var LIVE_SOON = live.TEAM_REGISTRY.filter(function (t) { return !t.config; }).length;
+var HELD = LIVE_SOON > 12 ? [] : live.TEAM_REGISTRY.filter(function (t) { return t.config && t.id !== "notre-dame" && t.id !== "ohio-state"; })
+  .map(function (t) { return t.id; }).sort().slice(-30);
+var TEST_REGISTRY = live.TEAM_REGISTRY.map(function (t) {
+  if (HELD.indexOf(t.id) < 0) return t;
+  var c = {}; Object.keys(t).forEach(function (k) { if (k !== "config") c[k] = t[k]; }); return c;
+});
+var REGLIVE = regCtx.TeamOS.registry.create(TEST_REGISTRY);
 
 console.log("the real registry");
 // Structural: the registry is generated, so asserting a fixed roster here
 // would be a second copy of it to maintain.
-var r = render(live.TEAM_REGISTRY);
+var r = render(TEST_REGISTRY);
 eq(r.picks.length, REGLIVE.all().length, "every program in the registry is shown");
 eq(r.picks.filter(function (p) { return p.openable; }).map(function (p) { return p.id; }).sort(),
    REGLIVE.available().map(function (t) { return t.id; }).sort(),
@@ -216,7 +227,7 @@ ok(/<h1 id="chooseHead">Find Your Team<\/h1>/.test(r.html), "the page asks the c
 ok(/Choose your team to get started\./.test(r.html), "and explains it in a line");
 
 console.log(" Coming Soon opens on twelve, and search still sees all 138 (decision 0024 §4)");
-var rc = render(live.TEAM_REGISTRY);
+var rc = render(TEST_REGISTRY);
 var soonAll = rc.picks.filter(function (p) { return !p.openable; }).map(function (p) { return p.name; });
 var openAll = rc.picks.filter(function (p) { return p.openable; }).map(function (p) { return p.name; });
 var rest = rc.shown();
@@ -419,8 +430,10 @@ var back = r.search("");
 eq(back.names.length, resting, "clearing the box brings back the resting list");
 eq(back.count, "", "and the status line goes quiet again - there is no count at rest");
 eq(back.headings, ["open", "soon"], "as do both headings");
-eq(r.search("akron").headings, ["soon"],
-   "a search that only hits unbuilt programs keeps their heading, and drops the other");
+var soonOnly = REGLIVE.all().filter(function (t) { return !t.available; }).map(function (t) { return t.name; })
+  .filter(function (n) { return r.search(n.toLowerCase()).names.every(function (m) { return soonAll.indexOf(m) > -1; }); })[0];
+eq(r.search(soonOnly.toLowerCase()).headings, ["soon"],
+   "a search that only hits unbuilt programs keeps their heading, and drops the other (" + soonOnly + ")");
 
 console.log(" every program can be found by what it is called");
 // The sweep. Not a fixed list - the roster is generated, so this asks the
@@ -441,8 +454,15 @@ console.log(" picking one");
 var res = r.click("ohio-state");
 eq(res.stored["iw-team"], "ohio-state", "the choice is stored before navigating");
 eq(res.replaced, "?team=ohio-state", "and the URL carries it, so it is shareable and installable");
-var none = render(live.TEAM_REGISTRY).click(REGLIVE.all().filter(function (t) { return !t.config; })[0].id);
+var none = render(TEST_REGISTRY).click(REGLIVE.all().filter(function (t) { return !t.config; })[0].id);
 eq(none.replaced, null, "a program with no config cannot be chosen, even by clicking");
+
+console.log(" the live registry");
+var lr = render(live.TEAM_REGISTRY);
+eq(/id="soonHead"/.test(lr.html), LIVE_SOON > 0,
+   "Coming Soon is drawn only while a program waits for its config (" + LIVE_SOON + " wait now)");
+eq(lr.picks.filter(function (p) { return p.openable; }).length, live.TEAM_REGISTRY.length - LIVE_SOON,
+   "and every program with a config can be picked");
 
 console.log(" selectable means it will actually open");
 // The check that matters most: a team offered here must have a config on
