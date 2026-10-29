@@ -38,8 +38,9 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // One source only: there is no On3 team feed or On SI site (404), and no
-    // student paper.
+    // The Mid Report is On3's fan site for Navy (the former Rivals site), read
+    // through its own section so On3's national stories stay out (2026-10-29).
+    // Not used: there is no On SI site (404) and no student paper.
     beatFeeds: [
       { name: "Navy Athletics", feed: "https://navysports.com/rss?path=football", site: "https://navysports.com/sports/football", logo: "https://navysports.com/favicon.ico" },
       { name: "The Mid Report", feed: "https://www.on3.com/sites/the-mid-report/feed/", site: "https://www.on3.com/sites/the-mid-report/", paths: ["/sites/the-mid-report/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }

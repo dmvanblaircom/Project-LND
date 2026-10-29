@@ -37,9 +37,12 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: One source only: gostanford.com's feed is every sport, Rule
-    // of Tree (SB Nation) did not answer, there is no On3 team feed (404),
-    // and Stanford On SI has published nothing since May.
+    // Cardinal Sports Report is On3's fan site for Stanford (the former Rivals
+    // site), read through its own section so On3's national stories stay out
+    // (2026-10-29). It covers every Stanford sport, so only its stories that
+    // say football stay. Not used: gostanford.com's feed is every sport, Rule
+    // of Tree (SB Nation) did not answer, and Stanford On SI has published
+    // nothing since May.
     beatFeeds: [
       { name: "The Stanford Daily", feed: "https://stanforddaily.com/category/sports/feed/", site: "https://stanforddaily.com/category/sports/", sportsSection: true },
       { name: "Cardinal Sports Report", feed: "https://www.on3.com/sites/cardinal-sports-report/feed/", site: "https://www.on3.com/sites/cardinal-sports-report/", paths: ["/sites/cardinal-sports-report/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png", sportsSection: true }

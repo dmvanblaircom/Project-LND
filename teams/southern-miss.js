@@ -34,9 +34,11 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // Not used: Southern Miss On SI covers every sport, so only its stories
-    // that say football stay. The Student Printz refused GitHub's network
-    // (403), and there is no On3 team feed (404).
+    // Southern Miss On SI covers every sport, so only its stories that say
+    // football stay. Big Gold Nation is On3's fan site for Southern Miss (the
+    // former Rivals site), read through its own section so On3's national
+    // stories stay out (2026-10-29). Not used: the Student Printz refused
+    // GitHub's network (403).
     beatFeeds: [
       { name: "Southern Miss Athletics", feed: "https://southernmiss.com/rss?path=football", site: "https://southernmiss.com/sports/football", logo: "https://southernmiss.com/favicon.ico" },
       { name: "Southern Miss On SI", feed: "https://www.si.com/college/southernmiss/feed", site: "https://www.si.com/college/southernmiss", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico", sportsSection: true },

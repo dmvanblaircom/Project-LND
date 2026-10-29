@@ -37,8 +37,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // One source only: The Daily Helmsman refused GitHub's network (405), and
-    // there is no On3 team feed or On SI site (404).
+    // Tiger Sports Report is On3's fan site for Memphis (the former Rivals
+    // site), read through its own section so On3's national stories stay out
+    // (2026-10-29). Not used: the Daily Helmsman refused GitHub's network
+    // (405), and there is no On SI site (404).
     beatFeeds: [
       { name: "Memphis Athletics", feed: "https://gotigersgo.com/rss?path=football", site: "https://gotigersgo.com/sports/football", logo: "https://gotigersgo.com/favicon.ico" },
       { name: "Tiger Sports Report", feed: "https://www.on3.com/sites/tiger-sports-report/feed/", site: "https://www.on3.com/sites/tiger-sports-report/", paths: ["/sites/tiger-sports-report/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }

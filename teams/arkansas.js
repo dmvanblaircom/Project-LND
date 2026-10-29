@@ -41,9 +41,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: Arkansas Fight (SB Nation) did not answer
-    // GitHub's network, there is no On3 team feed (404), and the Arkansas
-    // Traveler has no working feed.
+    // HawgBeat is On3's fan site for Arkansas (the former Rivals site), read
+    // through its own section so On3's national stories stay out (2026-10-29).
+    // Not used: Arkansas Fight (SB Nation) did not answer GitHub's network,
+    // and the Arkansas Traveler has no working feed.
     beatFeeds: [
       { name: "Arkansas Athletics", feed: "https://arkansasrazorbacks.com/rss?path=football", site: "https://arkansasrazorbacks.com/sport/m-footbl/", logo: "https://arkansasrazorbacks.com/favicon.ico" },
       { name: "Arkansas On SI", feed: "https://www.si.com/college/arkansas/feed", site: "https://www.si.com/college/arkansas", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },

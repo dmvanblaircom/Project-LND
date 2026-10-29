@@ -14,3 +14,4 @@ for t in TEAMS:
     for s, its in by.items():
         print("  KEPT %s: %d, newest %s" % (s, len(its), its[0].get("published")))
         for i in its[:6]: print("     . %s | %s" % (i["title"][:90], i["link"][:110]))
+# rerun 2

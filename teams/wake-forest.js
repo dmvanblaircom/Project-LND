@@ -41,8 +41,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: Blogger So Dear (SB Nation) is gone, Old
-    // Gold & Black did not answer, and there is no On3 team feed (404).
+    // Deacons Illustrated is On3's fan site for Wake Forest (the former Rivals
+    // site), read through its own section so On3's national stories stay out
+    // (2026-10-29). Not used: Blogger So Dear (SB Nation) is gone, and Old
+    // Gold & Black did not answer.
     beatFeeds: [
       { name: "Wake Forest Athletics", feed: "https://godeacs.com/rss?path=football", site: "https://godeacs.com/sports/football", logo: "https://godeacs.com/favicon.ico" },
       { name: "Wake Forest On SI", feed: "https://www.si.com/college/wake-forest/feed", site: "https://www.si.com/college/wake-forest", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },

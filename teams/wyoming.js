@@ -34,8 +34,11 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // One source only: On SI has no Wyoming site (404), and On3's feed
-    // carries only national stories.
+    // The Branding Iron is the student paper; its feed is every topic, so only
+    // stories that say football stay (2026-10-29). Not used: On SI has no
+    // Wyoming site (404), On3's feed carries only national stories, 7220
+    // Sports mixes in Buffalo Bills news no filter can tell apart, and
+    // WyoSports is mostly high school.
     beatFeeds: [
       { name: "Wyoming Athletics", feed: "https://gowyo.com/rss?path=football", site: "https://gowyo.com/sports/football", logo: "https://gowyo.com/favicon.ico" },
       { name: "The Branding Iron", feed: "https://www.uwbrandingiron.com/?feed=rss2", site: "https://www.uwbrandingiron.com/", sportsSection: true }

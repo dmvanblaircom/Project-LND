@@ -37,8 +37,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
+    // Bulls Insider is On3's fan site for USF (the former Rivals site), read
+    // through its own section so On3's national stories stay out (2026-10-29).
     // Not used: Voodoo Five (SB Nation) reset the connection twice, and there
-    // is no On3 team feed or On SI site (404).
+    // is no On SI site (404).
     beatFeeds: [
       { name: "USF Athletics", feed: "https://gousfbulls.com/rss?path=football", site: "https://gousfbulls.com/sports/football", logo: "https://gousfbulls.com/favicon.ico" },
       { name: "The Oracle", feed: "https://www.usforacle.com/category/sports/football/feed/", site: "https://www.usforacle.com/category/sports/football/" },

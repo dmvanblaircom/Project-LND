@@ -34,8 +34,9 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // One source only: On SI has no ULM site (404), there is no On3 team feed
-    // (404), and no student paper feed was found.
+    // The Hawkeye is the student paper; its feed is every topic, so only
+    // stories that say football stay (2026-10-29). Not used: On SI has no ULM
+    // site (404), and there is no On3 team feed (404).
     beatFeeds: [
       { name: "ULM Athletics", feed: "https://ulmwarhawks.com/rss?path=football", site: "https://ulmwarhawks.com/sports/football", logo: "https://ulmwarhawks.com/favicon.ico" },
       { name: "The Hawkeye", feed: "https://ulmhawkeyeonline.com/feed/", site: "https://ulmhawkeyeonline.com/", sportsSection: true }

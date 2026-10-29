@@ -37,8 +37,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: the Chronicle turned GitHub's network away
-    // (405) and there is no On3 team feed (404).
+    // Devils Illustrated is On3's fan site for Duke (the former Rivals site),
+    // read through its own section so On3's national stories stay out
+    // (2026-10-29). Not used: the Chronicle turned GitHub's network away
+    // (405).
     beatFeeds: [
       { name: "Duke Athletics", feed: "https://goduke.com/rss?path=football", site: "https://goduke.com/sports/football", logo: "https://goduke.com/favicon.ico" },
       { name: "Duke On SI", feed: "https://www.si.com/college/duke/feed", site: "https://www.si.com/college/duke", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },

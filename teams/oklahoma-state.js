@@ -41,9 +41,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: Cowboys Ride for Free (SB Nation) did not
-    // answer, the O'Colly turned GitHub's network away (429), and there is no
-    // On3 team feed (404).
+    // OState Illustrated is On3's fan site for Oklahoma State (the former
+    // Rivals site), read through its own section so On3's national stories
+    // stay out (2026-10-29). Not used: Cowboys Ride for Free (SB Nation) did
+    // not answer, and the O'Colly turned GitHub's network away (429).
     beatFeeds: [
       { name: "Oklahoma State Athletics", feed: "https://okstate.com/rss?path=football", site: "https://okstate.com/sports/football", logo: "https://okstate.com/favicon.ico" },
       { name: "Oklahoma State On SI", feed: "https://www.si.com/college/oklahomastate/feed", site: "https://www.si.com/college/oklahomastate", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },

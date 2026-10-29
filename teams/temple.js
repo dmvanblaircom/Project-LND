@@ -37,8 +37,10 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // One source only: The Temple News refused GitHub's network (403), and
-    // there is no On3 team feed or On SI site (404).
+    // OwlScoop is On3's fan site for Temple (the former Rivals site), read
+    // through its own section so On3's national stories stay out (2026-10-29).
+    // Not used: the Temple News refused GitHub's network (403), and there is
+    // no On SI site (404).
     beatFeeds: [
       { name: "Temple Athletics", feed: "https://owlsports.com/rss?path=football", site: "https://owlsports.com/sports/football", logo: "https://owlsports.com/favicon.ico" },
       { name: "OwlScoop", feed: "https://www.on3.com/sites/owl-scoop/feed/", site: "https://www.on3.com/sites/owl-scoop/", paths: ["/sites/owl-scoop/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }

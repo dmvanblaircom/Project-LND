@@ -37,10 +37,11 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: Ralphie Report (SB Nation) stopped
-    // publishing in March, the CU Independent's sports feed is advertising,
-    // there is no On3 team feed (404), and BuffZone turned GitHub's network
-    // away (403).
+    // BuffBlitz is On3's fan site for Colorado (the former Rivals site), read
+    // through its own section so On3's national stories stay out (2026-10-29).
+    // Not used: Ralphie Report (SB Nation) stopped publishing in March, the CU
+    // Independent's sports feed is advertising, and BuffZone turned GitHub's
+    // network away (403).
     beatFeeds: [
       { name: "Colorado Athletics", feed: "https://cubuffs.com/rss?path=football", site: "https://cubuffs.com/sports/football", logo: "https://cubuffs.com/favicon.ico" },
       { name: "Colorado On SI", feed: "https://www.si.com/college/colorado/feed", site: "https://www.si.com/college/colorado", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
