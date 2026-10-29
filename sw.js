@@ -318,6 +318,7 @@ function adoptTeam(msg) {
   });
 }
 
+var TEAM_HOLD_MS = 5000;
 self.addEventListener("message", function (e) {
   var msg = e.data;
   // The app's version, for About Suite and Feedback: the worker's own.
@@ -332,7 +333,12 @@ self.addEventListener("message", function (e) {
   }
   if (!msg || msg.type !== "team") return;
   var done = adoptTeam(msg);
-  if (e.waitUntil) e.waitUntil(done);
+  // Held open for TEAM_HOLD_MS at most. Chrome activates a waiting update
+  // only once this worker has no event still open, so a team download with
+  // one slow fetch held a fan's update back for as long as it took. The
+  // download carries on past the hold; what is not cached by the time the
+  // browser stops this worker is fetched again on the next open.
+  if (e.waitUntil) e.waitUntil(Promise.race([done, new Promise(function (r) { setTimeout(r, TEAM_HOLD_MS); })]));
   // Reply only to the port that asked, so the page can tell whether its team
   // is actually cached rather than assuming it.
   if (e.ports && e.ports[0]) {
