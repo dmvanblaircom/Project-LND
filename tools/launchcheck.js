@@ -21,6 +21,14 @@
 
    Usage: node tools/launchcheck.js     (exit 1 on failure) */
 "use strict";
+// The worker's own requests go through this check's routes too, as in
+// moreflowcheck and rosterflowcheck. Unrouted, an old worker's fetch to the
+// real ESPN stayed open for as long as the network took, and Chrome activates
+// a waiting update only once the old worker has no fetch open: on a slow
+// answer, "a page that does not answer" never saw its reload (#198, #200,
+// #202). Routed, each answers from its fixture in 150 ms.
+process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = "1";
+
 var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
 var root = path.join(__dirname, "..");
@@ -241,6 +249,13 @@ function fixture(url) {
     // to the check's own server: a worker's console does not reach the check
     function log() { var t = "LW|" + (typeof VERSION === "undefined" ? "?" : VERSION.slice(-5)) + "|" + [].join.call(arguments, " "); fetch("/__trace?" + encodeURIComponent(t)).catch(function () {}); }
     function who(c) { return c.id.slice(0, 6) + ":" + c.url.replace(/^[^?#]*\//, ""); }
+    // Every fetch and waitUntil the worker leaves open, and when each closes:
+    // Chrome activates a waiting update only once the old worker has none.
+    var RW = FetchEvent.prototype.respondWith, WU = ExtendableEvent.prototype.waitUntil;
+    FetchEvent.prototype.respondWith = function (p) { var u = this.request.url.replace(/^https?:\/\/[^/]+/, "").slice(0, 60), t = Date.now(); log("fetch+", u);
+      Promise.resolve(p).then(function () { log("fetch-", u, Date.now() - t); }, function () { log("fetch!", u, Date.now() - t); }); return RW.call(this, p); };
+    ExtendableEvent.prototype.waitUntil = function (p) { var k = this.type + (this.data && this.data.type ? ":" + this.data.type : ""), t = Date.now(); log("hold+", k);
+      Promise.resolve(p).then(function () { log("hold-", k, Date.now() - t); }, function () { log("hold!", k, Date.now() - t); }); return WU.call(this, p); };
     self.addEventListener("install", function () { log("install"); });
     self.addEventListener("activate", function () { log("activate"); });
     if (self.serviceWorker) self.serviceWorker.addEventListener("statechange", function () { log("state", self.serviceWorker.state); });
