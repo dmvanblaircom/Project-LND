@@ -86,6 +86,25 @@ async function main() {
   }
   if (!/\/$/.test(base)) base += "/";
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
+
+  // The provider's data. ESPN answers a fan's browser but not a browser on
+  // a datacenter address (no CORS header, first sweep, 2026-10-29), so the
+  // runner fetches each provider call itself - as the fixture captures do
+  // (capture-fixture.yml) - once per run, and hands the page the answer:
+  // the browser checks' fixtures, captured live for every team.
+  var PROVIDER = /^https:\/\/(site|sports\.core|site\.web)\.api\.espn\.com\//;
+  var cache = {};
+  function provider(url) {
+    if (!cache[url]) cache[url] = (async function () {
+      var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 25000);
+      try {
+        var r = await fetch(url, { signal: ctl.signal, headers: { accept: "application/json" } });
+        return { status: r.status, body: Buffer.from(await r.arrayBuffer()), type: r.headers.get("content-type") || "application/json" };
+      } catch (e) { return { status: 599, body: Buffer.from(""), type: "text/plain" }; }
+      finally { clearTimeout(timer); }
+    })();
+    return cache[url];
+  }
   var report = { base: base, startedAt: new Date().toISOString(), widths: WIDTHS, screens: SCREENS, teams: {} };
   var links = {};
 
@@ -110,6 +129,12 @@ async function main() {
         // headless name away from a datacenter address (first sweep, 2026-10-29)
         userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" });
       var page = await context.newPage();
+      await page.route(PROVIDER, async function (route) {
+        var a = await provider(route.request().url());
+        if (a.status === 599) return route.abort();
+        return route.fulfill({ status: a.status, contentType: a.type, body: a.body,
+                               headers: { "access-control-allow-origin": "*" } });
+      });
       var screen = "load", own = base.replace(/\/$/, "");
       page.on("pageerror", function (e) { find("error", screen + " " + width, "script: " + e.message); });
       page.on("console", function (m) {
