@@ -1,63 +1,91 @@
-# 2026-10-29, Phase 4a: ESPN's names and colours.
-# Army
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/349 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Charlotte
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2429 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# East Carolina
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/151 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Florida Atlantic
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2226 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Memphis
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/235 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Navy
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2426 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# North Texas
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/249 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Rice
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/242 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# South Florida
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/58 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Temple
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/218 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Tulane
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2655 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Tulsa
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/202 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# UAB
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/5 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# UTSA
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2636 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Air Force
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2005 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Hawai'i
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/62 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Nevada
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2440 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# New Mexico
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/167 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Northern Illinois
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2459 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# San José State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/23 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# UNLV
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2439 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# UTEP
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2638 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Wyoming
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2751 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Boise State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/68 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Colorado State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/36 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Fresno State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/278 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Oregon State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/204 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# San Diego State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/21 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Texas State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/326 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Utah State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/328 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Washington State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/265 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# 2026-10-29, Phase 4a round 2: rosters, stadium cities, On3 team stories, MW/Pac-12 availability pages.
+https://goarmywestpoint.com/sports/football/roster | <title>[^<]*
+https://charlotte49ers.com/sports/football/roster | <title>[^<]*
+https://ecupirates.com/sports/football/roster | <title>[^<]*
+https://fausports.com/sports/football/roster | <title>[^<]*
+https://gotigersgo.com/sports/football/roster | <title>[^<]*
+https://navysports.com/sports/football/roster | <title>[^<]*
+https://meangreensports.com/sports/football/roster | <title>[^<]*
+https://riceowls.com/sports/football/roster | <title>[^<]*
+https://gousfbulls.com/sports/football/roster | <title>[^<]*
+https://owlsports.com/sports/football/roster | <title>[^<]*
+https://tulanegreenwave.com/sports/football/roster | <title>[^<]*
+https://tulsahurricane.com/sports/football/roster | <title>[^<]*
+https://uabsports.com/sports/football/roster | <title>[^<]*
+https://goutsa.com/sports/football/roster | <title>[^<]*
+https://goairforcefalcons.com/sports/football/roster | <title>[^<]*
+https://hawaiiathletics.com/sports/football/roster | <title>[^<]*
+https://nevadawolfpack.com/sports/football/roster | <title>[^<]*
+https://golobos.com/sports/football/roster | <title>[^<]*
+https://niuhuskies.com/sports/football/roster | <title>[^<]*
+https://sjsuspartans.com/sports/football/roster | <title>[^<]*
+https://unlvrebels.com/sports/football/roster | <title>[^<]*
+https://utepminers.com/sports/football/roster | <title>[^<]*
+https://gowyo.com/sports/football/roster | <title>[^<]*
+https://broncosports.com/sports/football/roster | <title>[^<]*
+https://csurams.com/sports/football/roster | <title>[^<]*
+https://gobulldogs.com/sports/football/roster | <title>[^<]*
+https://osubeavers.com/sports/football/roster | <title>[^<]*
+https://goaztecs.com/sports/football/roster | <title>[^<]*
+https://txst.com/sports/football/roster | <title>[^<]*
+https://utahstateaggies.com/sports/football/roster | <title>[^<]*
+https://wsucougars.com/sports/football/roster | <title>[^<]*
+https://geocoding-api.open-meteo.com/v1/search?name=West%20Point&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Charlotte&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Greenville&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Boca%20Raton&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Memphis&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Annapolis&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Denton&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Houston&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Tampa&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Philadelphia&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=New%20Orleans&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Tulsa&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Birmingham&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=San%20Antonio&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=USAF%20Academy&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Honolulu&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Reno&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Albuquerque&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Dekalb&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=San%20Jose&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Las%20Vegas&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=El%20Paso&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Laramie&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Boise&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Fort%20Collins&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Fresno&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Corvallis&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=San%20Diego&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=San%20Marcos&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Logan&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Pullman&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://www.on3.com/teams/charlotte-49ers/feed/ | <link>https://www\.on3\.com/teams/charlotte-49ers/[^<]*
+https://www.on3.com/teams/east-carolina-pirates/feed/ | <link>https://www\.on3\.com/teams/east-carolina-pirates/[^<]*
+https://www.on3.com/teams/florida-atlantic-owls/feed/ | <link>https://www\.on3\.com/teams/florida-atlantic-owls/[^<]*
+https://www.on3.com/teams/north-texas-mean-green/feed/ | <link>https://www\.on3\.com/teams/north-texas-mean-green/[^<]*
+https://www.on3.com/teams/rice-owls/feed/ | <link>https://www\.on3\.com/teams/rice-owls/[^<]*
+https://www.on3.com/teams/tulane-green-wave/feed/ | <link>https://www\.on3\.com/teams/tulane-green-wave/[^<]*
+https://www.on3.com/teams/uab-blazers/feed/ | <link>https://www\.on3\.com/teams/uab-blazers/[^<]*
+https://www.on3.com/teams/utsa-roadrunners/feed/ | <link>https://www\.on3\.com/teams/utsa-roadrunners/[^<]*
+https://www.on3.com/teams/air-force-falcons/feed/ | <link>https://www\.on3\.com/teams/air-force-falcons/[^<]*
+https://www.on3.com/teams/wyoming-cowboys/feed/ | <link>https://www\.on3\.com/teams/wyoming-cowboys/[^<]*
+https://www.on3.com/teams/boise-state-broncos/feed/ | <link>https://www\.on3\.com/teams/boise-state-broncos/[^<]*
+https://www.on3.com/teams/colorado-state-rams/feed/ | <link>https://www\.on3\.com/teams/colorado-state-rams/[^<]*
+https://www.on3.com/teams/fresno-state-bulldogs/feed/ | <link>https://www\.on3\.com/teams/fresno-state-bulldogs/[^<]*
+https://www.on3.com/teams/oregon-state-beavers/feed/ | <link>https://www\.on3\.com/teams/oregon-state-beavers/[^<]*
+https://www.on3.com/teams/san-diego-state-aztecs/feed/ | <link>https://www\.on3\.com/teams/san-diego-state-aztecs/[^<]*
+https://www.on3.com/teams/texas-state-bobcats/feed/ | <link>https://www\.on3\.com/teams/texas-state-bobcats/[^<]*
+https://www.on3.com/teams/utah-state-aggies/feed/ | <link>https://www\.on3\.com/teams/utah-state-aggies/[^<]*
+https://www.on3.com/teams/washington-state-cougars/feed/ | <link>https://www\.on3\.com/teams/washington-state-cougars/[^<]*
+https://www.on3.com/teams/nevada-wolf-pack/feed/ | <link>https://www\.on3\.com/teams/nevada-wolf-pack/[^<]*
+https://www.on3.com/teams/new-mexico-lobos/feed/ | <link>https://www\.on3\.com/teams/new-mexico-lobos/[^<]*
+https://www.on3.com/teams/northern-illinois-huskies/feed/ | <link>https://www\.on3\.com/teams/northern-illinois-huskies/[^<]*
+https://www.on3.com/teams/unlv-rebels/feed/ | <link>https://www\.on3\.com/teams/unlv-rebels/[^<]*
+https://www.on3.com/teams/utep-miners/feed/ | <link>https://www\.on3\.com/teams/utep-miners/[^<]*
+https://themw.com/sports/football | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
+https://themw.com/ | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
+https://pac-12.com/football | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
+https://pac-12.com/ | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
+https://broncosports.com/sports/football | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
