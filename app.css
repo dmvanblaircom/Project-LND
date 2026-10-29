@@ -682,6 +682,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .go-short,.gh-opp.fit-short .go-full{display:none}
 .gh-opp.fit-short .go-short{display:inline}
 .gh-when{font-size:1rem;font-weight:600}
+.gh-when .nb{white-space:nowrap}
 .gh-venue{font-size:.88rem;color:var(--s-on-dark-2)}
 .gh-series{font-size:.88rem;color:var(--t-accent-text)}
 .gh-countdown{display:flex;justify-content:center;margin-top:.8rem !important;max-width:100%}

@@ -136,8 +136,8 @@ Suite.ui = (function () {
      read (its host sends no CORS) keeps ESPN's size. */
   var FIT_TARGET = 0.718, FIT_N = 100, FIT_KEY = "suite-markfit:2:", fits = {};
   // A mark's ink, by brightness: the share of its opaque pixels in each of
-  // eight relative-luminance bands, kept with its fit so a mark is read once.
-  var INK_BANDS = 8;
+  // 32 bands of (square-rooted) luminance, kept with its fit so a mark is read once.
+  var INK_BANDS = 32;
   function lum(r, g, b) {
     function c(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
     return 0.2126 * c(r) + 0.7152 * c(g) + 0.0722 * c(b);
@@ -160,7 +160,7 @@ Suite.ui = (function () {
         if (x1 < 0) return done(null);
         var w = (x1 - x0 + 1) / FIT_N, h = (y1 - y0 + 1) / FIT_N, inkFrac = ink / 255 / (FIT_N * FIT_N);
         done({ p: Math.sqrt(Math.sqrt(w * h) * Math.sqrt(inkFrac)), side: Math.max(w, h),
-               ink: solid ? bands.map(function (n) { return Math.round(n / solid * 100) / 100; }) : null });
+               ink: solid ? bands.map(function (n) { return Math.round(n / solid * 1000) / 1000; }) : null });
       } catch (err) { done(null); }          // a canvas the host would not let us read
     };
     im.onerror = function () { done(null); };
@@ -181,7 +181,7 @@ Suite.ui = (function () {
      most of a mark's ink clearly apart from the surface leaves it as drawn.
      The surface is the nearest solid background behind the mark, or the
      team's own surface where a gradient or the team's art is behind it. */
-  var LIFT_SEPARATE = 1.6, LIFT_SHARE = 0.4;
+  var LIFT_SEPARATE = 2, LIFT_SHARE = 0.4;
   function surfaceLum(el) {
     for (var a = el; a && a.nodeType === 1; a = a.parentElement) {
       var cs = getComputedStyle(a), m = /rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?/.exec(cs.backgroundColor);
