@@ -67,7 +67,7 @@
   { "id": "outlookcheck.js", "kind": "browser", "secs": 15, "run": "node tools/outlookcheck.js" },
   { "id": "milestonecheck.js", "kind": "browser", "secs": 25, "run": "node tools/milestonecheck.js" },
   { "id": "championcheck.js", "kind": "browser", "secs": 15, "run": "node tools/championcheck.js" },
-  { "id": "favoritescheck.js", "kind": "browser", "secs": 25, "run": "node tools/favoritescheck.js" },
+  { "id": "favoritescheck.js", "kind": "browser", "secs": 120, "run": "node tools/favoritescheck.js" },
   { "id": "alertscheck.js", "kind": "browser", "secs": 57, "run": "node tools/alertscheck.js" },
   { "id": "notescheck.js", "kind": "browser", "secs": 49, "run": "node tools/notescheck.js" },
   { "id": "outagecheck.js", "kind": "browser", "secs": 14, "run": "node tools/outagecheck.js" },

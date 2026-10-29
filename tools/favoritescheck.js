@@ -139,13 +139,18 @@ function fixture(url) {
   ok(after.pressed.length === 2 && after.pressed.every(function (p) { return p === "true"; }), "and its star reads pressed in both places");
   ok((await c.page.evaluate(function () { return getComputedStyle(document.querySelector('.fav[data-fav="indiana"] svg')).fill; })) === "rgb(212, 184, 150)",
      "filled champagne once starred, edged in bronze");
+  // Back up to Your Teams, as a fan would: starring Indiana scrolled the page
+  // to it, and with every FBS program listed (Phase 4b) Your Teams' lazy logo
+  // is then past the distance at which Chromium starts a lazy image.
+  await c.page.evaluate(function () { window.scrollTo(0, 0); });
   await c.page.waitForFunction(function () { var i = document.querySelector("#yourTeams img[data-mark]"); return i && i.complete && i.naturalWidth > 0; });
   await c.page.evaluate(function () { document.querySelector("#yourTeams img[data-mark]").__kept = true; });
   await c.page.click('#availHead ~ .chooser-list .fav[data-fav="ohio-state"]');
   ok((await favs(c.page)).join() === "indiana,ohio-state", "a second team joins after the first, kept on the device");
   ok(await c.page.evaluate(function () { var i = document.querySelector('#yourTeams .pick[data-team="indiana"] img[data-mark]'); return !!(i && i.__kept); }),
      "and Indiana's logo is the same image, not drawn again: a star flickers no logo (David, 2026-10-28)");
-  await c.page.fill("#teamSearch", "ohio");
+  // "ohio st": the MAC's Ohio (Phase 4b) answers "ohio" too.
+  await c.page.fill("#teamSearch", "ohio st");
   await c.page.waitForTimeout(100);
   var srch = await c.page.evaluate(function () {
     return { mine: document.getElementById("yourTeams").hidden,
@@ -242,19 +247,28 @@ function fixture(url) {
   // narrowest phone: NORTHWESTERN was cut to NORTHWESTER (David, 2026-10-28).
   console.log(" the team's name fits the bar");
   var configured = fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; }).map(function (f) { return f.slice(0, -3); });
+  // One load a team, measured at 320 and then at 390 (the bar fits itself
+  // again on resize), without waiting out the launch: with every FBS program
+  // configured (Phase 4b) two loads a team took fifteen minutes.
   var cut = [];
-  for (var wi = 0; wi < 2; wi++) {
-    var width = [320, 390][wi];
-    for (var ti = 0; ti < configured.length; ti++) {
-      var team = configured[ti], other = team === "ohio-state" ? "notre-dame" : "ohio-state";
-      var o = await open("/?team=" + team + "#top25", [team, other], team, width);
-      await o.page.waitForFunction(function () { return !document.getElementById("launch"); }, null, { timeout: 15000 });
-      await o.page.evaluate(function () { return document.fonts.ready; });
-      var fit = await o.page.evaluate(function () { var e = document.getElementById("barTeam"), c = document.getElementById("barContext");
-        return { over: e.scrollWidth > e.clientWidth + 1, text: e.textContent, chev: !!c.querySelector(".bar-switch") }; });
+  function measure(page) {
+    return page.evaluate(function () { var e = document.getElementById("barTeam"), c = document.getElementById("barContext");
+      return { over: e.scrollWidth > e.clientWidth + 1, text: e.textContent, chev: !!c.querySelector(".bar-switch") }; });
+  }
+  for (var ti = 0; ti < configured.length; ti++) {
+    var team = configured[ti], other = team === "ohio-state" ? "notre-dame" : "ohio-state";
+    var o = await open("/?team=" + team + "#top25", [team, other], team, 320);
+    await o.page.waitForFunction(function () { var e = document.getElementById("barTeam"), c = document.getElementById("barContext");
+      return e && e.textContent && c && c.querySelector(".bar-switch"); }, null, { timeout: 15000 }).catch(function () {});
+    await o.page.evaluate(function () { return document.fonts.ready; });
+    await o.page.waitForTimeout(100);
+    for (var wi = 0; wi < 2; wi++) {
+      var width = [320, 390][wi];
+      if (wi) { await o.page.setViewportSize({ width: width, height: 844 }); await o.page.waitForTimeout(150); }
+      var fit = await measure(o.page);
       if (fit.over || !fit.chev) cut.push(team + "@" + width + ":" + fit.text + (fit.chev ? "" : " (no chevron)"));
-      await o.ctx.close();
     }
+    await o.ctx.close();
   }
   ok(!cut.length, "every configured team's name shows whole beside the chevron at 320 and 390 pixels (" + (cut.join(", ") || configured.length + " teams") + ")");
 
