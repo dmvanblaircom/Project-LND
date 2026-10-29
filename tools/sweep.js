@@ -49,7 +49,7 @@ var out = path.join(root, "artifacts", "sweep");
 fs.mkdirSync(out, { recursive: true });
 
 var LISTED = process.env.SWEEP_TEAMS || (process.env.SWEEP_TEAMS_FILE && fs.existsSync(process.env.SWEEP_TEAMS_FILE) ?
-  fs.readFileSync(process.env.SWEEP_TEAMS_FILE, "utf8").split(/\s+/).filter(Boolean).join(",") : "");
+  fs.readFileSync(process.env.SWEEP_TEAMS_FILE, "utf8").replace(/#.*/g, "").split(/\s+/).filter(Boolean).join(",") : "");
 var TEAMS = (LISTED ? LISTED.split(",") :
   fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; })
     .map(function (f) { return f.replace(/\.js$/, ""); })).sort();
