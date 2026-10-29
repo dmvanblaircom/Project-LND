@@ -1,77 +1,119 @@
-# 2026-10-29, Phase 4b: ESPN's names and colours.
-# App State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2026 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Arkansas State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2032 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Coastal Carolina
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/324 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Georgia Southern
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/290 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Georgia State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2247 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# James Madison
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/256 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Louisiana
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/309 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Louisiana Tech
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2348 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Marshall
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/276 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Old Dominion
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/295 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# South Alabama
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/6 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Southern Miss
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2572 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Troy
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2653 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# UL Monroe
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2433 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Akron
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2006 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Ball State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2050 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Bowling Green
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/189 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Buffalo
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2084 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Central Michigan
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2117 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Eastern Michigan
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2199 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Kent State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2309 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Massachusetts
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/113 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Miami (OH)
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/193 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Ohio
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/195 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Sacramento State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/16 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Toledo
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2649 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Western Michigan
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2711 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Delaware
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/48 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Florida International
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2229 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Jacksonville State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/55 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Kennesaw State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/338 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Liberty
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2335 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Middle Tennessee
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2393 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Missouri State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2623 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# New Mexico State
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/166 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Sam Houston
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2534 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# Western Kentucky
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/98 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
-# UConn
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/41 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor) = 
+# 2026-10-29, Phase 4b round 2: rosters, stadium cities, On3 feed titles, the MAC's report page.
+https://appstatesports.com/sports/football/roster | <title>[^<]*
+https://astateredwolves.com/sports/football/roster | <title>[^<]*
+https://goccusports.com/sports/football/roster | <title>[^<]*
+https://gseagles.com/sports/football/roster | <title>[^<]*
+https://georgiastatesports.com/sports/football/roster | <title>[^<]*
+https://jmusports.com/sports/football/roster | <title>[^<]*
+https://ragincajuns.com/sports/football/roster | <title>[^<]*
+https://latechsports.com/sports/football/roster | <title>[^<]*
+https://herdzone.com/sports/football/roster | <title>[^<]*
+https://odusports.com/sports/football/roster | <title>[^<]*
+https://usajaguars.com/sports/football/roster | <title>[^<]*
+https://southernmiss.com/sports/football/roster | <title>[^<]*
+https://troytrojans.com/sports/football/roster | <title>[^<]*
+https://ulmwarhawks.com/sports/football/roster | <title>[^<]*
+https://gozips.com/sports/football/roster | <title>[^<]*
+https://ballstatesports.com/sports/football/roster | <title>[^<]*
+https://bgsufalcons.com/sports/football/roster | <title>[^<]*
+https://ubbulls.com/sports/football/roster | <title>[^<]*
+https://cmuchippewas.com/sports/football/roster | <title>[^<]*
+https://emueagles.com/sports/football/roster | <title>[^<]*
+https://kentstatesports.com/sports/football/roster | <title>[^<]*
+https://umassathletics.com/sports/football/roster | <title>[^<]*
+https://miamiredhawks.com/sports/football/roster | <title>[^<]*
+https://ohiobobcats.com/sports/football/roster | <title>[^<]*
+https://hornetsports.com/sports/football/roster | <title>[^<]*
+https://utrockets.com/sports/football/roster | <title>[^<]*
+https://wmubroncos.com/sports/football/roster | <title>[^<]*
+https://bluehens.com/sports/football/roster | <title>[^<]*
+https://fiusports.com/sports/football/roster | <title>[^<]*
+https://jaxstatesports.com/sports/football/roster | <title>[^<]*
+https://ksuowls.com/sports/football/roster | <title>[^<]*
+https://libertyflames.com/sports/football/roster | <title>[^<]*
+https://goblueraiders.com/sports/football/roster | <title>[^<]*
+https://missouristatebears.com/sports/football/roster | <title>[^<]*
+https://nmstatesports.com/sports/football/roster | <title>[^<]*
+https://gobearkats.com/sports/football/roster | <title>[^<]*
+https://wkusports.com/sports/football/roster | <title>[^<]*
+https://uconnhuskies.com/sports/football/roster | <title>[^<]*
+https://geocoding-api.open-meteo.com/v1/search?name=Boone&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Jonesboro&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Conway&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Statesboro&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Atlanta&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Harrisonburg&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Lafayette&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Ruston&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Huntington&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Norfolk&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Mobile&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Hattiesburg&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Troy&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Monroe&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Akron&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Muncie&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Bowling%20Green&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Buffalo&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Mount%20Pleasant&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Ypsilanti&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Kent&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Amherst&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Oxford&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Athens&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Sacramento&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Toledo&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Kalamazoo&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Newark&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Miami&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Jacksonville&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Kennesaw&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Lynchburg&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Murfreesboro&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Springfield&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Las%20Cruces&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Huntsville&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=Bowling%20Green&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://geocoding-api.open-meteo.com/v1/search?name=East%20Hartford&count=5&countryCode=US | \]\.(latitude|longitude|admin1) =
+https://www.on3.com/teams/app-state-mountaineers/feed/ | <title>[^<]*
+https://www.on3.com/teams/arkansas-state-red-wolves/feed/ | <title>[^<]*
+https://www.on3.com/teams/coastal-carolina-chanticleers/feed/ | <title>[^<]*
+https://www.on3.com/teams/georgia-southern-eagles/feed/ | <title>[^<]*
+https://www.on3.com/teams/georgia-state-panthers/feed/ | <title>[^<]*
+https://www.on3.com/teams/james-madison-dukes/feed/ | <title>[^<]*
+https://www.on3.com/teams/louisiana-ragin-cajuns/feed/ | <title>[^<]*
+https://www.on3.com/teams/louisiana-tech-bulldogs/feed/ | <title>[^<]*
+https://www.on3.com/teams/marshall-thundering-herd/feed/ | <title>[^<]*
+https://www.on3.com/teams/old-dominion-monarchs/feed/ | <title>[^<]*
+https://www.on3.com/teams/south-alabama-jaguars/feed/ | <title>[^<]*
+https://www.on3.com/teams/southern-miss-golden-eagles/feed/ | <title>[^<]*
+https://www.on3.com/teams/troy-trojans/feed/ | <title>[^<]*
+https://www.on3.com/teams/ul-monroe-warhawks/feed/ | <title>[^<]*
+https://www.on3.com/teams/akron-zips/feed/ | <title>[^<]*
+https://www.on3.com/teams/ball-state-cardinals/feed/ | <title>[^<]*
+https://www.on3.com/teams/bowling-green-falcons/feed/ | <title>[^<]*
+https://www.on3.com/teams/buffalo-bulls/feed/ | <title>[^<]*
+https://www.on3.com/teams/central-michigan-chippewas/feed/ | <title>[^<]*
+https://www.on3.com/teams/eastern-michigan-eagles/feed/ | <title>[^<]*
+https://www.on3.com/teams/kent-state-golden-flashes/feed/ | <title>[^<]*
+https://www.on3.com/teams/massachusetts-minutemen/feed/ | <title>[^<]*
+https://www.on3.com/teams/miami-oh-redhawks/feed/ | <title>[^<]*
+https://www.on3.com/teams/ohio-bobcats/feed/ | <title>[^<]*
+https://www.on3.com/teams/sacramento-state-hornets/feed/ | <title>[^<]*
+https://www.on3.com/teams/toledo-rockets/feed/ | <title>[^<]*
+https://www.on3.com/teams/western-michigan-broncos/feed/ | <title>[^<]*
+https://www.on3.com/teams/delaware-blue-hens/feed/ | <title>[^<]*
+https://www.on3.com/teams/florida-international-panthers/feed/ | <title>[^<]*
+https://www.on3.com/teams/jacksonville-state-gamecocks/feed/ | <title>[^<]*
+https://www.on3.com/teams/kennesaw-state-owls/feed/ | <title>[^<]*
+https://www.on3.com/teams/liberty-flames/feed/ | <title>[^<]*
+https://www.on3.com/teams/middle-tennessee-blue-raiders/feed/ | <title>[^<]*
+https://www.on3.com/teams/missouri-state-bears/feed/ | <title>[^<]*
+https://www.on3.com/teams/new-mexico-state-aggies/feed/ | <title>[^<]*
+https://www.on3.com/teams/sam-houston-bearkats/feed/ | <title>[^<]*
+https://www.on3.com/teams/western-kentucky-hilltoppers/feed/ | <title>[^<]*
+https://www.on3.com/teams/uconn-huskies/feed/ | <title>[^<]*
+https://getsomemaction.com/sports/football | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
+https://getsomemaction.com/ | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
+https://sunbeltsports.org/sports/football | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
+https://conferenceusa.com/sports/football | [^<>"]{0,80}[Aa]vailability[^<>"]{0,80}
