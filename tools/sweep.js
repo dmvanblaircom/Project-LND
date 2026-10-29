@@ -61,7 +61,7 @@ var WIDTHS = (process.env.SWEEP_WIDTHS || "390,1280").split(",").map(Number).fil
 // team's, and the browser checks already cover them.
 var SCREENS = (process.env.SWEEP_SCREENS || "home,top25,game,roster,more,schedule,news,stats").split(",");
 var NAV = ["home", "top25", "game", "roster", "more"];
-var PARALLEL = Number(process.env.SWEEP_PARALLEL || 4);
+var PARALLEL = Number(process.env.SWEEP_PARALLEL || 2);
 var SHOTS = process.env.SWEEP_SHOTS || "flagged";       // "flagged" | "all" | "none"
 
 // Where a name or a figure is drawn (visualcheck's list, plus the rows a
@@ -102,7 +102,10 @@ async function main() {
       var width = WIDTHS[wi];
       var context = await browser.newContext({ viewport: { width: width, height: width < 600 ? 844 : 900 },
         serviceWorkers: "block", timezoneId: "America/New_York", locale: "en-US",
-        deviceScaleFactor: 1 });
+        deviceScaleFactor: 1,
+        // a fan's browser, not "HeadlessChrome": the provider turns the
+        // headless name away from a datacenter address (first sweep, 2026-10-29)
+        userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" });
       var page = await context.newPage();
       var screen = "load", own = base.replace(/\/$/, "");
       page.on("pageerror", function (e) { find("error", screen + " " + width, "script: " + e.message); });
@@ -158,7 +161,13 @@ async function main() {
         var flagsBefore = t.findings.length;
         var s = await page.evaluate(function (args) {
           var leak = new RegExp(args.leak), empty = new RegExp(args.empty, "i");
-          var vis = function (el) { return el.offsetParent !== null || getComputedStyle(el).position === "fixed"; };
+          // seen by the eye: laid out, and not a screen reader's text (sr-only
+          // clips itself to a pixel on purpose)
+          var vis = function (el) {
+            if (el.offsetParent === null && getComputedStyle(el).position !== "fixed") return false;
+            for (var a = el; a && a !== document.body; a = a.parentElement) if (a.classList && a.classList.contains("sr-only")) return false;
+            var b = el.getBoundingClientRect(); return b.width > 1 && b.height > 1;
+          };
           var r = { overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
                     leaks: [], clipped: [], split: [], images: [], empty: [], links: [] };
           // what the fan reads: the visible screen and the bars

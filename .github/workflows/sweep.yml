@@ -58,7 +58,8 @@ jobs:
         env:
           # the schedule sweeps what fans have; a dispatch, what it is given
           SWEEP_BASE: ${{ github.event_name == 'schedule' && 'https://dmvanblaircom.github.io/Project-LND/' || inputs.base }}
-          SWEEP_TEAMS: ${{ inputs.teams }}
+          # a push to the sweep's own branch tries the sweep on eight teams
+          SWEEP_TEAMS: ${{ github.event_name == 'push' && 'notre-dame,ohio-state,wyoming,troy,hawaii,uconn,usc,army' || inputs.teams }}
           SWEEP_WIDTHS: ${{ inputs.widths || '390,1280' }}
           SWEEP_CONTRAST: ${{ inputs.contrast && '1' || '' }}
           SWEEP_SHARD: ${{ matrix.shard }}/4
