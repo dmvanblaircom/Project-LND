@@ -239,6 +239,7 @@ CASES = [
     ("names in a new form (\"WR 0 Brandon Inniss\")", lambda r, a: [x.update(name=x["name"].replace("#", "")) for g in r["games"] for x in g["rows"]]),
     ("names without a position", lambda r, a: [x.update(name=x["name"].split(" ", 1)[1]) for g in r["games"] for x in g["rows"]]),
     ("only the archive's Game Day column renamed", lambda r, a: [x.update(Gameday=x.pop("Game Day")) for x in a]),
+    ("only an update column renamed", lambda r, a: [x.update(Update1=x.pop("Update 1")) for x in a]),
 ]
 for what, edit in CASES:
     ok(broken(edit), "%s: refused, last good files kept" % what)
@@ -283,6 +284,38 @@ for what, date in (("missing", None), ("unreadable", "Oct 10")):
     ok(code not in (0, None) and files(tmp) == [],
        "a report whose game date is %s is refused: nothing could retire it after the game (Codex, #118)" % what)
     shutil.rmtree(tmp)
+
+print("an archive with only the reports its conference files (MAC, refresh 2026-10-30)")
+MAC = {"loaded": True, "data": [
+    {"Game Day": "Out", "Initial": "-", "Number": "#1", "Opponent": "at Wake Forest", "OpponentDisplay": "at Wake Forest",
+     "Player": "Cyrus Durham", "Team": "Akron", "TeamDisplay": "Akron", "Week": "Thu, 03 Sep 2026 00:00:00 GMT", "WeekNum": 1},
+    {"Game Day": "-", "Initial": "Questionable", "Number": "#7", "Opponent": "at Wake Forest", "OpponentDisplay": "at Wake Forest",
+     "Player": "Reese Poffenbarger", "Team": "Akron", "TeamDisplay": "Akron", "Week": "Thu, 03 Sep 2026 00:00:00 GMT", "WeekNum": 1}]}
+mac_latest, mac_hist = ca.build({}, MAC, {"akron"})
+ok(mac_latest and mac_latest["game"] == "at Wake Forest" and mac_latest["heading"] == "Game Day"
+   and names(mac_latest, "out-game") == ["Cyrus Durham"] and names(mac_latest, "questionable") == ["Reese Poffenbarger"],
+   "two columns, not four: each player's newest filed status is read (%s)" % (mac_latest and mac_latest["players"]))
+nocols = {"loaded": True, "data": [{k: v for k, v in MAC["data"][0].items() if k not in ("Initial", "Game Day")}]}
+try:
+    ca.build({}, nocols, {"akron"})
+    ok(False, "a row with no report column at all is still refused")
+except ValueError:
+    ok(True, "a row with no report column at all is still refused")
+
+slip = copy.deepcopy(FIXTURE["publish"])
+side = [g for g in slip["3130"]["games"] if g["teamName"] == "Ohio St."][0]
+avail_row = [r for r in side["rows"] if ca.status_key(r["status"]) is None][0]
+avail_row["name"] = "38 #38 Karsten Busch"
+tmp, code, out = produce([slip, FIXTURE["archive"]])
+ok(code in (0, None) and files(tmp), "a slip in a row the report does not list (Miami, ACC, 2026-10-30) does not hold up the report")
+shutil.rmtree(tmp)
+slip_out = copy.deepcopy(FIXTURE["publish"])
+side = [g for g in slip_out["3130"]["games"] if g["teamName"] == "Ohio St."][0]
+out_row = [r for r in side["rows"] if ca.status_key(r["status"])][0]
+out_row["name"] = "38 #38 Karsten Busch"
+tmp, code, out = produce([slip_out, FIXTURE["archive"]])
+ok(code not in (0, None) and files(tmp) == [], "the same slip in a listed row is refused: that player would match nobody")
+shutil.rmtree(tmp)
 
 print("the Pac-12's and the Sun Belt's report.json (David, 2026-10-30)")
 PAC12 = json.load(open(os.path.join(HERE, "fixtures", "conference-report-pac12.json"), encoding="utf-8"))
