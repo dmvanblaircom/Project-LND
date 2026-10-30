@@ -3,13 +3,38 @@
  "team": "marshall",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:54.644914+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Old Dominion",
+ "players": [
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Xavier Bausley",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Louikenzy Jules",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Mikailin Warren",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

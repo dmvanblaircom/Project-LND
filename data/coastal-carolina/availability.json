@@ -3,13 +3,87 @@
  "team": "coastal-carolina",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:51.475363+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Georgia State",
+ "players": [
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Jaden Allen-Hendrix",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Zach Courtney",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Braxton Starnes",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Mason Barton",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jayden Jackson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Jayden Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Dom Rijos",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Travis Roman",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Gavin McLaughlin",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Goldie Lawrence",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

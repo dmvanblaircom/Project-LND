@@ -1,6 +1,54 @@
 {
  "schema": 1,
  "team": "oregon-state",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T07:08:57.033301+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "oregon-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T07:08:57.033301+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 1",
+   "kickoffDate": "2026-10-31",
+   "game": "at Fresno State",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Eddie Freauff",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Kai Wheaton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Kord Shaw",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Ryan RJ Whitten",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

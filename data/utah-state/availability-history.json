@@ -1,6 +1,145 @@
 {
  "schema": 1,
  "team": "utah-state",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T07:09:00.289337+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "utah-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T07:09:00.289337+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 1",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Colorado State",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Eli Wood",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Chapman Lewis",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Rex Haynes",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "John Randle",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "John McClellan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "SP",
+     "no": "",
+     "name": "Landon Rehkow",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Diego Grateron",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Joshua Papu",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Harrison Taggart",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Kauasi Hansen",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Kadin Lynch",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Adonis Jackson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Demick Starling",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Easton Hammond",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Jude Nelson",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Chris Joe",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Nikko Boncore",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

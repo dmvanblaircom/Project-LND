@@ -3,13 +3,80 @@
  "team": "old-dominion",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:56.736722+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Marshall",
+ "players": [
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Quinn Henicle",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Koa Naotala",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Zion Frink",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Justin Watts",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Tavares Murray",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "DeAndre Lynch",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "JJ Harrell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Sidney Mbanasor",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "DJ Thompson",
+   "status": "out-season",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

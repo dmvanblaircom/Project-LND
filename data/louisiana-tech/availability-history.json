@@ -1,6 +1,61 @@
 {
  "schema": 1,
  "team": "louisiana-tech",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T07:08:54.337159+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "louisiana-tech",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T07:08:54.337159+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-29",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "at South Alabama",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Dane Benedix",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Za'Qwaun Nunn",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Dylone Brooks",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "David Pierro",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Judd Rouyea",
+     "status": "probable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

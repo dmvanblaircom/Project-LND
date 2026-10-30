@@ -3,13 +3,45 @@
  "team": "boise-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
  "sourceLabel": "Pac-12.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:46.021751+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 1",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Texas State",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Ben Ford",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Sire Gaines",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Austin Terry",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Carson Rasmussen",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

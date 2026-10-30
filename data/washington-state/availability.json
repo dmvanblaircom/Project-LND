@@ -3,13 +3,38 @@
  "team": "washington-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
  "sourceLabel": "Pac-12.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:09:01.062225+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 1",
+ "kickoffDate": "2026-10-31",
+ "game": "at San Diego State",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Darrius Clemons",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jeremiah Bernard",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Nylan Brown",
+   "status": "out-season",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

@@ -3,13 +3,52 @@
  "team": "james-madison",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:53.766876+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-29",
+ "game": "vs. Troy",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Za'Ron Collins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jayon Harvey",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "George Pettaway",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Jayden Studio",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Tanner Vibabul",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

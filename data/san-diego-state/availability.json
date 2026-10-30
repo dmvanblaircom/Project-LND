@@ -3,13 +3,150 @@
  "team": "san-diego-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
  "sourceLabel": "Pac-12.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:57.728587+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 1",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Washington State",
+ "players": [
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Tano Letuli",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Josiah Cox",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Max Garrison",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Mike Lindsay",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jelani McLaughlin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Yanick Parker",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Dalesean Staley",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jalen Thomeson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "DJ Overstreet",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Joe Borjon",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Kalan Ellis",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Jack Ellis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Jackson Ford",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Jayden Denegal",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "SP",
+   "no": "",
+   "name": "Luke Williams",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Isaac Lucas",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Malachi Finau",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Gavriel Lightfoot",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Tainoa Lave",
+   "status": "probable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

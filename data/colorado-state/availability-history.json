@@ -1,6 +1,103 @@
 {
  "schema": 1,
  "team": "colorado-state",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T07:08:51.665090+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "colorado-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T07:08:51.665090+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 1",
+   "kickoffDate": "2026-10-31",
+   "game": "at Utah State",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Mel Brown",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Juice Vereen",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "John Holthaus",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Pearce Spurlin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Steph Wright",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Elijah McCantos",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Dagan Myers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "AJ Noland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Steph Daily",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Dakota Rich",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Antoine Martin",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

@@ -3,13 +3,73 @@
  "team": "fresno-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
  "sourceLabel": "Pac-12.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:52.395722+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 1",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Oregon State",
+ "players": [
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Sammie Hunter",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Gino Quinones",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "SP",
+   "no": "",
+   "name": "Ethan Rossetti",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Jairus Satele",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Ethan Tierney",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Marquise Thorpe-Taylor",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Ryan Wilson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Noah Yeh",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

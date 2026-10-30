@@ -1,6 +1,131 @@
 {
  "schema": 1,
  "team": "texas-state",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T07:08:59.101562+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "texas-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T07:08:59.101562+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 1",
+   "kickoffDate": "2026-10-31",
+   "game": "at Boise State",
+   "players": [
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Tice Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "SP",
+     "no": "",
+     "name": "Joshua Selmes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Cole Snodgrass",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Ayden Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Jordan Sample",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "JP Deeter",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Ryan Nolan",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Davian Jackson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Will Mitchell",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jo'Laison Landry",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Torrance Burgess",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "TJ Burkhalter",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Bryce Carter",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Donterry Russell",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Mekhi Buchanan",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

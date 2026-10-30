@@ -3,13 +3,108 @@
  "team": "southern-miss",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:58.239177+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at ULM",
+ "players": [
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jeremiah Dillon",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Avery Sledge",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Luke Rogers",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Greg Nunnery",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Ethan Hampton",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Grant Page",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Caleb Triplett",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Jaylen Himes",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Jahmir Davis",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jordan Pride",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Ricky Harding",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Jeffery Rush",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "",
+   "name": "Robert Briggs",
+   "status": "out-season",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

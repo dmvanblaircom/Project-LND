@@ -3,13 +3,59 @@
  "team": "troy",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:59.389227+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-29",
+ "game": "at James Madison",
+ "players": [
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Tai Terrell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Jywon Boyd",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Jayvin Bennett",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Jackson Worley",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Joe Lott",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Jermaine Paramore",
+   "status": "out-season",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

@@ -1,6 +1,110 @@
 {
  "schema": 1,
  "team": "ul-monroe",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T07:08:59.990465+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "ul-monroe",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T07:08:59.990465+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-29",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Southern Miss",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Parker Fulghum",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Zyan Tremont",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Korian Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Javon Campbell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Laterrius Robinson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Marcus Ross",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Tyrell Brown",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "RJ Hall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Le'kell McGowan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Roscoe Tucker",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Makin Lenard",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Jackson Parker",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

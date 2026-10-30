@@ -3,13 +3,101 @@
  "team": "app-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:43.055352+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "at Georgia Southern",
+ "players": [
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Jordan Harris",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Devon Manuel",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Aiden Benton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Cary Grant",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Keshawn Thomas",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Kamauri Austin",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Darrin Fugitt",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Ja'Cari Henderson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Tyriq Poindexter",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Brooks Yurachek",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Nate Branch",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Mac Walters",
+   "status": "probable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

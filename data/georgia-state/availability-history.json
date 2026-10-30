@@ -1,6 +1,89 @@
 {
  "schema": 1,
  "team": "georgia-state",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T07:08:52.688348+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "georgia-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T07:08:52.688348+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-29",
+   "heading": "Initial",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Coastal Carolina",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Cameran Brown",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Curtis Walker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Kelze Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Eric Butler",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Ryan Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Owen Dupree",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Jamari Miller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jordan Brown",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Eric Lee",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

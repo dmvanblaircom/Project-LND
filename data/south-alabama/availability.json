@@ -3,13 +3,101 @@
  "team": "south-alabama",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T07:08:57.935116+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Initial",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. LA Tech",
+ "players": [
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Laseter, Matt",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Johnson, Tirrell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Korchagin, Artem",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Mosley, Demetress",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Graham, Jerrian",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Jones-Thomas, Jeremiah",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Siler, Jamal",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Barnes, Brian",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Chiedo, Dylan",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Lynch, Maddox",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Marion, Khatori",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Dozier, Caleb",
+   "status": "out-season",
+   "detail": ""
+  }
+ ],
+ "current": true
 }
