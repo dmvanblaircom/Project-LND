@@ -3,13 +3,129 @@
  "team": "akron",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://getsomemaction.com/sports/football",
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:40:31.277047+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "at Kent State",
+ "players": [
+  {
+   "pos": "",
+   "no": "2",
+   "name": "Daymon David",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "12",
+   "name": "Iesa Jarmon",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "15",
+   "name": "Jaborree Riggins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "21",
+   "name": "Catrell White",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "23",
+   "name": "Yaseen DeReese",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "25",
+   "name": "Chris Gee",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "27",
+   "name": "Keyveon Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "35",
+   "name": "Rod Smith Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "41",
+   "name": "Stone Dean",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "50",
+   "name": "Jahvon Frazier",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "53",
+   "name": "Alex Fox",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "55",
+   "name": "Amarie Archer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "61",
+   "name": "Jon Stephens",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "75",
+   "name": "Dayne Shor",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "81",
+   "name": "Luke Sivon",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "94",
+   "name": "Malakai Ross-Graves",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }
