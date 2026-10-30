@@ -34,6 +34,15 @@ var TEAM_CONFIG = {
       namePattern:  /\bbyu\b|brigham young/i
     },
 
+    // The Big 12's availability reports (tools/producers/conference_availability.py).
+    // BYU predates the conference feeds; its name in the Big 12's archive
+    // ("BYU") was checked from GitHub's network on 2026-10-29.
+    official: {
+      availabilityReportIndex: "https://big12sports.com/sports/football",
+      availabilityReportLabel: "Big12Sports.com",
+      availabilityFeed: { provider: "hdintelligence", conference: "B12", sport: "Football", team: "BYU" }
+    },
+
     // Beat writers, read by the Action server-side. Each was confirmed from
     // GitHub's network on 2026-10-27 (probe-feeds.yml) and approved by David
     // (2026-10-27). BYU Athletics' feed covers every sport; other sports are
@@ -92,6 +101,7 @@ var TEAM_CONFIG = {
   },
 
   snapshots: {
+    availability: { file: "data/byu/availability.json", history: "data/byu/availability-history.json", label: "Big12Sports.com" },
     oddsHistory: { file: "data/byu/odds-history.json" },
     beatNews:    { file: "data/byu/news.json" },
     recruits:    { file: "data/byu/recruits.json", label: "ESPN recruiting" }
