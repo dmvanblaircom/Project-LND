@@ -134,7 +134,14 @@ Suite.ui = (function () {
      ESPN marks (probe, 2026-10-25). Never so far that it spills: a bare mark
      to 1.3x ESPN's size, one inside a circle to 1.15x. A mark that cannot be
      read (its host sends no CORS) keeps ESPN's size. */
-  var FIT_TARGET = 0.718, FIT_N = 100, FIT_KEY = "suite-markfit:1:", fits = {};
+  var FIT_TARGET = 0.718, FIT_N = 100, FIT_KEY = "suite-markfit:2:", fits = {};
+  // A mark's ink, by brightness: the share of its opaque pixels in each of
+  // 32 bands of (square-rooted) luminance, kept with its fit so a mark is read once.
+  var INK_BANDS = 32;
+  function lum(r, g, b) {
+    function c(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return 0.2126 * c(r) + 0.7152 * c(g) + 0.0722 * c(b);
+  }
   function measureMark(url, done) {
     var im = new Image();
     im.crossOrigin = "anonymous";
@@ -143,13 +150,17 @@ Suite.ui = (function () {
         var c = document.createElement("canvas"); c.width = c.height = FIT_N;
         var cx = c.getContext("2d"); cx.drawImage(im, 0, 0, FIT_N, FIT_N);
         var d = cx.getImageData(0, 0, FIT_N, FIT_N).data, ink = 0, x0 = FIT_N, y0 = FIT_N, x1 = -1, y1 = -1;
+        var bands = [], solid = 0;
+        for (var k = 0; k < INK_BANDS; k++) bands.push(0);
         for (var i = 0; i < FIT_N * FIT_N; i++) {
           var a = d[i * 4 + 3]; ink += a;
           if (a > 16) { var x = i % FIT_N, y = (i / FIT_N) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+          if (a > 128) { solid++; bands[Math.min(INK_BANDS - 1, Math.floor(Math.sqrt(lum(d[i * 4], d[i * 4 + 1], d[i * 4 + 2])) * INK_BANDS))]++; }
         }
         if (x1 < 0) return done(null);
         var w = (x1 - x0 + 1) / FIT_N, h = (y1 - y0 + 1) / FIT_N, inkFrac = ink / 255 / (FIT_N * FIT_N);
-        done({ p: Math.sqrt(Math.sqrt(w * h) * Math.sqrt(inkFrac)), side: Math.max(w, h) });
+        done({ p: Math.sqrt(Math.sqrt(w * h) * Math.sqrt(inkFrac)), side: Math.max(w, h),
+               ink: solid ? bands.map(function (n) { return Math.round(n / solid * 1000) / 1000; }) : null });
       } catch (err) { done(null); }          // a canvas the host would not let us read
     };
     im.onerror = function () { done(null); };
@@ -161,6 +172,36 @@ Suite.ui = (function () {
     var cap = box.classList && box.classList.contains("bare") ? 1.3 : 1.15;
     var s = Math.max(0.8, Math.min(FIT_TARGET / f.p, cap * 0.92 / f.side));
     img.style.transform = Math.abs(s - 1) < 0.01 ? "" : "scale(" + s.toFixed(3) + ")";
+    lift(box, f);
+  }
+
+  /* A mark that disappears into what it sits on - Arkansas's hog on its own
+     red, UL Monroe's maroon on Arkansas State's (sweep, 2026-10-29) - gets a
+     fine keyline in the opposite tone, so its outline reads. Only those:
+     most of a mark's ink clearly apart from the surface leaves it as drawn.
+     The surface is the nearest solid background behind the mark, or the
+     team's own surface where a gradient or the team's art is behind it. */
+  var LIFT_SEPARATE = 2, LIFT_SHARE = 0.4;
+  function surfaceLum(el) {
+    for (var a = el; a && a.nodeType === 1; a = a.parentElement) {
+      var cs = getComputedStyle(a), m = /rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?/.exec(cs.backgroundColor);
+      if (m && (m[4] === undefined || +m[4] >= 0.6)) return lum(+m[1], +m[2], +m[3]);
+      if (cs.backgroundImage && cs.backgroundImage !== "none") break;
+    }
+    var hex = /#([0-9a-f]{6})/i.exec(getComputedStyle(document.documentElement).getPropertyValue("--t-surface") || "");
+    return hex ? lum(parseInt(hex[1].slice(0, 2), 16), parseInt(hex[1].slice(2, 4), 16), parseInt(hex[1].slice(4), 16)) : null;
+  }
+  function lift(box, f) {
+    if (!box.classList || !f.ink) return;
+    box.classList.remove("lift", "lift-dark");
+    var bg = surfaceLum(box);
+    if (bg == null) return;
+    var apart = 0;
+    f.ink.forEach(function (share, k) {
+      var l = Math.pow((k + 0.5) / INK_BANDS, 2);
+      if ((Math.max(l, bg) + 0.05) / (Math.min(l, bg) + 0.05) >= LIFT_SEPARATE) apart += share;
+    });
+    if (apart < LIFT_SHARE) box.classList.add(bg < 0.18 ? "lift" : "lift-dark");
   }
   // One measurement per mark: every copy that loads while it is out waits
   // for it, and the answer is kept on the device.
@@ -211,6 +252,8 @@ Suite.ui = (function () {
       if (!old || !img.parentNode) return;
       img.parentNode.replaceChild(old, img);
       old.parentNode.classList.add("loaded");
+      var f = fits[old.getAttribute("src")];
+      if (f) lift(old.parentNode, f);          // the new box is the one that needs the keyline
     });
   }
 

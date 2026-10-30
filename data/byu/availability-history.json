@@ -1,0 +1,263 @@
+{
+ "schema": 1,
+ "team": "byu",
+ "updated": "2026-10-30T04:09:38.670549+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "byu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T04:09:38.670549+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-12",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-12",
+   "game": "vs. Arizona",
+   "players": [
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Jonathan Kabeya",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Raider Damuni",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Kevin Doe",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Pierson Watson",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "28",
+     "name": "Jovesa Damuni",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "30",
+     "name": "Sione Moa",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "66",
+     "name": "Brigham Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "80",
+     "name": "Jacob Nye",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "byu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T04:09:38.670549+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "at TCU",
+   "players": [
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Jonathan Kabeya",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Raider Damuni",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "30",
+     "name": "Sione Moa",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "54",
+     "name": "Siale Esera",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "73",
+     "name": "Caden McKee",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "byu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T04:09:38.670549+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-09",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-09",
+   "game": "vs. Iowa State",
+   "players": [
+    {
+     "pos": "",
+     "no": "3",
+     "name": "Raider Damuni",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "4",
+     "name": "LJ Martin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Isaiah Glasker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "30",
+     "name": "Sione Moa",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "32",
+     "name": "Cannon DeVries",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "byu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T04:09:38.670549+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "at UCF",
+   "players": [
+    {
+     "pos": "",
+     "no": "4",
+     "name": "LJ Martin",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "byu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T04:09:38.670549+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
+   "kickoffDate": "2026-10-31",
+   "game": "vs. Arizona State",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "0",
+     "name": "Evan Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "4",
+     "name": "LJ Martin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "12",
+     "name": "Preston Rex",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "64",
+     "name": "Kyle Sfarcioc",
+     "status": "probable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
+}

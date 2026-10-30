@@ -208,7 +208,10 @@ Suite.home = (function () {
       else if (st === "paused" || st === "delayed" || st === "postponed" || st === "canceled")
         top += '<span class="state-pill ' + st + '">' + esc(st === "paused" ? (g.status === "suspended" ? "Suspended" : "Delayed") : PILL[st]) + "</span>";
       else top += '<span class="gc-label' + (st === "final" ? " gc-final" : "") + '">' + esc(LABEL[st]) + "</span>";
-      if (st === "upcoming") top += '<span class="gc-when">' + esc(ko.full) + "</span>";
+      // The day and the time each stay whole: beside a long network ("SEC
+      // Network") the line breaks at the dot, never before "EDT" (sweep,
+      // 2026-10-29).
+      if (st === "upcoming") top += '<span class="gc-when"><span class="nb">' + esc(ko.day) + '</span> \u00B7 <span class="nb">' + esc(ko.time) + "</span></span>";
       else if (st === "delayed") top += '<span class="gc-when">' + esc(ko.day) + "</span>";
       else if (st === "postponed") top += '<span class="gc-when">' + esc(newDate(g)) + "</span>";
       if (g.net && st !== "final" && st !== "canceled") top += '<span class="gc-net">' + esc(g.net) + "</span>";
