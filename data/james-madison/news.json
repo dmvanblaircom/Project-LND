@@ -1,7 +1,16 @@
 {
  "team": "james-madison",
- "updated": "2026-10-29T18:38:30.985155+00:00",
+ "updated": "2026-10-30T15:08:08.357315+00:00",
  "items": [
+  {
+   "title": "Football: Dukes Drop Second Straight in OT",
+   "link": "https://jmusports.com/news/2026/10/30/football-dukes-drop-second-straight-in-ot",
+   "source": "JMU Athletics",
+   "summary": "<img alt=\"kells bush\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/DSC_2527__1_.JPG\" /><br /><br />HARRISONBURG, Va. \u2013 James Madison was plagued by turnovers in a 24-21, overtime loss to Troy on Thursday night at Bridgeforth Stadium.",
+   "image": "https://jmusports.com/images/2026/10/30/DSC_2527__1_.JPG?width=800",
+   "sourceLogo": "https://jmusports.com/favicon.ico",
+   "published": "2026-10-30T06:38:00+00:00"
+  },
   {
    "title": "Football: JMU Takes on Troy in Sun Belt Championship Rematch",
    "link": "https://jmusports.com/news/2026/10/27/football-jmu-takes-on-troy-in-sun-belt-championship-rematch",
@@ -82,15 +91,6 @@
    "image": "https://jmusports.com/images/2026/10/14/091926_SDSU_49.JPG?width=800",
    "sourceLogo": "https://jmusports.com/favicon.ico",
    "published": "2026-10-14T21:53:00+00:00"
-  },
-  {
-   "title": "Football: Dukes Set for Homecoming vs. Georgia State",
-   "link": "https://jmusports.com/news/2026/10/13/football-dukes-set-for-homecoming-vs-georgia-state",
-   "source": "JMU Athletics",
-   "summary": "<img alt=\"georgia state preview\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/13/gsu_Game_Preview.jpg\" /><br /><br />HARRISONBURG, Va. \u2013 James Madison returns home for its fourth straight Sun Belt Conference East Division matchup against Georgia State on Saturday, Oct. 17. Kickoff at Bridgeforth Stadium is set for noon ET, and the game will be aired live on ESPNU.",
-   "image": "https://jmusports.com/images/2026/10/13/gsu_Game_Preview.jpg?width=800",
-   "sourceLogo": "https://jmusports.com/favicon.ico",
-   "published": "2026-10-13T21:57:00+00:00"
   }
  ]
 }
