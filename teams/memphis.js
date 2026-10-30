@@ -71,6 +71,10 @@ var TEAM_CONFIG = {
       accentSoft:     "#C1C2C1",
       accentTint:     "#EBEBEB",
       accentTintSoft: "#F6F6F6",
+      // Game Details in white, lettered in the team's colour: its silver
+      // read as a disabled button (sweep, 2026-10-29; David, 2026-10-30).
+      action:         "#FFFFFF",
+      actionInk:      "#004991",
       focus:          "#FFFFFF",
       surface:        "#004991",
       surfaceDeep:    "#003568",

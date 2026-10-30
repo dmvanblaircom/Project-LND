@@ -237,7 +237,7 @@ function applyStyle(){
   for(var i=r.length-1;i>=0;i--){ if(r[i].indexOf("--t-")===0) r.removeProperty(r[i]); }
   [["--t-accent",c.accent], ["--t-accent-rgb",c.accentRgb], ["--t-accent-text",c.accentText],
    ["--t-accent-on-light",c.accentOnLight],
-   ["--t-accent-ink",c.accentInk], ["--t-accent-soft",c.accentSoft], ["--t-accent-tint",c.accentTint],
+   ["--t-accent-ink",c.accentInk], ["--t-action",c.action], ["--t-action-ink",c.actionInk], ["--t-accent-soft",c.accentSoft], ["--t-accent-tint",c.accentTint],
    ["--t-accent-tint-soft",c.accentTintSoft], ["--t-focus",c.focus],
    ["--t-surface",c.surface], ["--t-surface-rgb",c.surfaceRgb],
    ["--t-deep",c.surfaceDeep], ["--t-deep-rgb",c.surfaceDeepRgb],
