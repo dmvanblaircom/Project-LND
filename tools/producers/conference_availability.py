@@ -46,10 +46,13 @@ Rules, each tested by tools/conferenceavailcheck.py:
     place and the failure is loud.
 """
 import argparse
+import http.client
 import json
 import os
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
@@ -345,17 +348,31 @@ def build_report(payload, names, previous=None):
 
 # ---- network ----------------------------------------------------------
 
+RETRY_AFTER = 5     # seconds
+
+
+def answer(req):
+    """One request, asked again once if the network fails it - a timeout, a
+    dropped connection, an answer cut off part way (Codex, #217): a single
+    one from a busy server (HD Intelligence, 2026-10-30) is not a broken source.
+    A second failure, or an answer that is not JSON, still fails."""
+    for attempt in (1, 2):
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                return json.loads(r.read())
+        except (urllib.error.URLError, TimeoutError, ConnectionError, http.client.IncompleteRead):
+            if attempt == 2:
+                raise
+            time.sleep(RETRY_AFTER)
+
+
 def call(endpoint, body):
-    req = urllib.request.Request(API + endpoint, data=json.dumps(body).encode(), method="POST",
-                                 headers={"user-agent": UA, "content-type": "application/json"})
-    with urllib.request.urlopen(req, timeout=40) as r:
-        return json.loads(r.read())
+    return answer(urllib.request.Request(API + endpoint, data=json.dumps(body).encode(), method="POST",
+                                         headers={"user-agent": UA, "content-type": "application/json"}))
 
 
 def get(url):
-    req = urllib.request.Request(url, headers={"user-agent": UA})
-    with urllib.request.urlopen(req, timeout=40) as r:
-        return json.loads(r.read())
+    return answer(urllib.request.Request(url, headers={"user-agent": UA}))
 
 
 def fetch_url(url, cache=None):
