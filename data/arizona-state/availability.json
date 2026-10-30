@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T14:09:39.970271+00:00",
+ "fetchedAt": "2026-10-30T02:09:23.949355+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "at BYU",
  "players": [
@@ -22,6 +22,13 @@
    "detail": ""
   },
   {
+   "pos": "DE",
+   "no": "3",
+   "name": "Albert Smith III",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "QB",
    "no": "12",
    "name": "Mikey Keene",
@@ -29,17 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "20",
-   "name": "Maurice Williams",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "50",
    "name": "Marques Uini",
-   "status": "probable",
+   "status": "questionable",
    "detail": ""
   },
   {

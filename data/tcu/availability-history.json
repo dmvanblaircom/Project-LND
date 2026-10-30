@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tcu",
- "updated": "2026-10-29T14:09:47.465101+00:00",
+ "updated": "2026-10-30T02:09:38.798872+00:00",
  "reports": [
   {
    "schema": 1,
@@ -319,10 +319,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T14:09:47.465101+00:00",
+   "fetchedAt": "2026-10-30T02:09:38.798872+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-28",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-31",
    "game": "vs. Kansas",
    "players": [
@@ -338,6 +338,13 @@
      "no": "13",
      "name": "Ryan Yaites",
      "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Terry Shelton",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -365,7 +372,7 @@
      "pos": "RB",
      "no": "26",
      "name": "Jeremy Payne",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -393,13 +400,27 @@
      "pos": "TE",
      "no": "81",
      "name": "Kari Ashley",
-     "status": "questionable",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "83",
+     "name": "Keagan Cunningham",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "84",
      "name": "Cooper Reid",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "99",
+     "name": "Brody Whatley",
      "status": "out-game",
      "detail": ""
     }
