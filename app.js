@@ -82,6 +82,7 @@ function paintIdentity(){
   fitBarTeam();
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitBarTeam);
   window.addEventListener("resize", fitBarTeam);
+  window.addEventListener("hashchange", fitBarTeam);
 }
 
 // The team's name in the bar, whole: a one-word name too wide for its room
@@ -93,7 +94,12 @@ function paintIdentity(){
 // floor; past that, the program's abbreviation, fitted the same way.
 function fitBarTeam(){
   var el=$("barTeam"); if(!el || !el.offsetParent) return;
-  var over=function(){ return el.scrollWidth>el.clientWidth+1; };
+  // The text's own laid-out width against its box: scrollWidth rounds, and a
+  // sub-pixel overflow on one line still cuts the last letter off.
+  var over=function(){
+    var r=document.createRange(); r.selectNodeContents(el);
+    return el.scrollWidth>el.clientWidth || r.getBoundingClientRect().width>el.getBoundingClientRect().width+0.01;
+  };
   el.textContent=TEAM.name; el.style.whiteSpace="nowrap"; el.style.letterSpacing=""; el.style.fontSize="";
   if(!over()) return;
   el.style.letterSpacing="0";
