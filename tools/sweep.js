@@ -208,15 +208,27 @@ async function main() {
         if (NAV.indexOf(screen) !== -1) await page.click('.nav-item[data-screen="' + screen + '"]').catch(function () {});
         else await page.evaluate(function (h) { location.hash = h; }, "#" + screen);
         // ready: the screen drawn, nothing still saying "Loading", and every
-        // image in view settled - what a fan waits for after a tap
-        await page.waitForFunction(function () {
+        // image in view settled - what a fan waits for after a tap. In view
+        // is both ways: a rail's lazy images past the right edge never load.
+        var inView = function () {
+          return [].filter.call(document.images, function (i) {
+            var r = i.getBoundingClientRect();
+            return !i.complete && i.offsetParent && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth;
+          }).map(function (i) { return i.currentSrc || i.src || i.className; });
+        };
+        var settled = await page.waitForFunction(function () {
           var main = document.querySelector("main");
           if (!main || /\bLoading\b/.test(main.innerText)) return false;
           return [].every.call(document.images, function (i) {
-            var r = i.getBoundingClientRect(); return i.complete || r.bottom < 0 || r.top > innerHeight || !i.offsetParent;
+            var r = i.getBoundingClientRect();
+            return i.complete || !i.offsetParent || r.bottom <= 0 || r.top >= innerHeight || r.right <= 0 || r.left >= innerWidth;
           });
-        }, null, { timeout: 10000, polling: 50 }).catch(function () {});
+        }, null, { timeout: 10000, polling: 50 }).then(function () { return true; }, function () { return false; });
         (t.nav = t.nav || {})[screen + " " + width] = now() - navAt;
+        if (!settled) {
+          var waiting = await page.evaluate(inView).catch(function () { return []; });
+          find("slow", screen + " " + width, "not settled 10s after the tap" + (waiting.length ? ": waiting on " + waiting.slice(0, 3).join(", ") : ""));
+        }
         await page.waitForTimeout(400);
         var where = screen + " " + width;
         // stuck: a "Loading" that a fan is still reading 8 seconds later
