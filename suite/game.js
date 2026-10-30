@@ -129,7 +129,9 @@ Suite.game = (function () {
         (st === "upcoming" ? '<p class="gh-where">' + esc(where) + "</p>"
                            : '<span class="state-pill ' + st + '">' + esc(st) + "</span>") +
         // Never an ellipsis: fit() shrinks it, then takes the abbreviation.
-        '<p class="gh-opp"><span class="go-full">' + esc(g.oppName) + '</span><span class="go-short">' + esc(g.oppAbbr || g.oppName) + "</span></p>" +
+        // A one- or two-letter word stays with its neighbour - never "E" over
+        // "MICHIGAN" (sweep, 2026-10-29).
+        '<p class="gh-opp"><span class="go-full">' + esc(glue(g.oppName)) + '</span><span class="go-short">' + esc(g.oppAbbr || g.oppName) + "</span></p>" +
         // Day, time and network each stay whole in the narrow middle: it
         // breaks at a dot, never inside "SEC Network" (sweep, 2026-10-29).
         '<p class="gh-when">' + (st === "upcoming" ? nb(ko.day) + " · " + nb(ko.time) : esc(when)) +
@@ -199,6 +201,9 @@ Suite.game = (function () {
   function card(title, body, right, cls) {
     return '<section class="card gcard' + (cls ? " " + cls : "") + '"><div class="gcard-head"><h2 class="gcard-title">' + esc(title) + "</h2>" +
            (right || "") + "</div>" + body + "</section>";
+  }
+  function glue(name) {
+    return String(name || "").replace(/(^|\s)(\S{1,2}) (?=\S)/g, "$1$2\u00A0").replace(/(\S) (\S{1,2})$/, "$1\u00A0$2");
   }
   function nb(text) { return '<span class="nb">' + esc(text) + "</span>"; }
   function quiet(text) { return '<p class="sec-quiet">' + esc(text) + "</p>"; }
