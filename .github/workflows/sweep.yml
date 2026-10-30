@@ -29,9 +29,11 @@ on:
         required: false
         default: false
         type: boolean
-  push:
-    branches: [experience-sweep]
-    paths: ["tools/sweep.js", "tools/sweep-review.txt", ".github/workflows/sweep.yml"]
+      sheets:
+        description: "Review run: each team's screens as a contact sheet, and the first load's requests and layout shifts, in the log"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -59,16 +61,13 @@ jobs:
           # production unless a dispatch names another address ("local": this
           # branch's build on the runner, whose provider calls are refused)
           SWEEP_BASE: ${{ inputs.base }}
-          # a push to the sweep's own branch is a review run: the teams listed
-          # in tools/sweep-review.txt, at phone width, with contact sheets
           SWEEP_TEAMS: ${{ inputs.teams }}
-          SWEEP_TEAMS_FILE: ${{ github.event_name == 'push' && 'tools/sweep-review.txt' || '' }}
-          SWEEP_WIDTHS: ${{ github.event_name == 'push' && '390' || inputs.widths || '390,1280' }}
+          SWEEP_WIDTHS: ${{ inputs.widths || '390,1280' }}
           SWEEP_CONTRAST: ${{ inputs.contrast && '1' || '' }}
           SWEEP_SHARD: ${{ matrix.shard }}/4
-          SWEEP_LOG_SHOTS: ${{ github.event_name == 'push' && '1' || '' }}
-          SWEEP_SHEET: ${{ github.event_name == 'push' && '1' || '' }}
-          SWEEP_PERF_DETAIL: ${{ github.event_name == 'push' && '1' || '' }}
+          SWEEP_LOG_SHOTS: ${{ inputs.sheets && '1' || '' }}
+          SWEEP_SHEET: ${{ inputs.sheets && '1' || '' }}
+          SWEEP_PERF_DETAIL: ${{ inputs.sheets && '1' || '' }}
         run: node tools/sweep.js
       - uses: actions/upload-artifact@v4
         if: always()
