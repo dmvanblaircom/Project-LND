@@ -1,7 +1,34 @@
 {
  "team": "colorado",
- "updated": "2026-10-30T20:08:13.060226+00:00",
+ "updated": "2026-10-30T22:08:15.394449+00:00",
  "items": [
+  {
+   "title": "Know Before You Go: Football vs. Kansas State",
+   "link": "https://cubuffs.com/news/2026/10/30/know-before-you-go-football-vs-kansas-state",
+   "source": "Colorado Athletics",
+   "summary": "<img alt=\"Buffs Halloween Bash  \" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/FBMK_2026_06_17_K_State_-_Halloween_16x9.jpg\" /><br /><br />The University of Colorado will host Kansas State this Saturday, October 31 at noon at Folsom Field for Military Appreciation and the Buffs Halloween Bash!",
+   "image": "https://cubuffs.com/images/2026/10/22/FBMK_2026_06_17_K_State_-_Halloween_16x9.jpg?width=800",
+   "sourceLogo": "https://cubuffs.com/favicon.ico",
+   "published": "2026-10-30T22:45:00+00:00"
+  },
+  {
+   "title": "Video: Previewing and projecting Colorado Buffs football vs. Kansas State",
+   "link": "https://on3.com/sites/buff-blitz/news/video-previewing-and-projecting-colorado-buffs-football-vs-kansas-state/",
+   "source": "BuffBlitz",
+   "summary": "Colorado beat writer Brian Howell is joined by Leo Rivera of BuffStampede to preview Colorado's game against Kansas State.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/19235613/CU-football-2026-10-19T225454.153.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-30T21:02:24+00:00"
+  },
+  {
+   "title": "Colorado football Game 8 preview: Buffs vs. Kansas State",
+   "link": "https://on3.com/sites/buff-blitz/news/colorado-football-game-8-preview-buffs-vs-kansas-state/",
+   "source": "BuffBlitz",
+   "summary": "On Saturday afternoon, the Colorado football team will host Kansas State, while still seeking its first Big 12 victory.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26115734/CU-football-2026-10-26T104942.492.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-30T20:57:26+00:00"
+  },
   {
    "title": "Colorado Buffaloes in NFL Prompt Trade Deadline Questions",
    "link": "https://www.si.com/college/colorado/football/colorado-buffaloes-nfl-prompt-trade-deadline-questions?utm_source=RSS",
@@ -273,24 +300,6 @@
    "published": "2026-10-25T14:07:22+00:00"
   },
   {
-   "title": "Inside Colorado football: Adversity hit and Buffs crumbled",
-   "link": "https://on3.com/sites/buff-blitz/news/inside-colorado-football-adversity-hit-and-buffs-crumbled/",
-   "source": "BuffBlitz",
-   "summary": "After a strong first half on Saturday night, the Colorado football team collapsed in the second half, falling 57-24 at Oklahoma State.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25050928/CU-football-2026-10-25T040909.540.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-25T10:41:19+00:00"
-  },
-  {
-   "title": "Colorado Buffs postgame analysis: Buffs embarrassed in 2nd half at Oklahoma State",
-   "link": "https://on3.com/sites/buff-blitz/news/colorado-buffs-postgame-analysis-buffs-embarrassed-in-2nd-half-at-oklahoma-state/",
-   "source": "BuffBlitz",
-   "summary": "Colorado football beat writer Brian Howell is joined by Leo Rivera of BuffStampede to talk about the Buffaloes' 57-24 loss at Oklahoma State.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25023012/CU-football-2026-10-25T013000.480.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-25T07:33:02+00:00"
-  },
-  {
    "title": "Buffs Fall In Stillwater",
    "link": "https://cubuffs.com/news/2026/10/24/football-buffs-fall-in-stillwater",
    "source": "Colorado Athletics",
@@ -352,15 +361,6 @@
    "image": "https://cubuffs.com/images/2026/10/20/10-20_Coach_Prime_Press_Conference_.png?width=800",
    "sourceLogo": "https://cubuffs.com/favicon.ico",
    "published": "2026-10-20T19:16:00+00:00"
-  },
-  {
-   "title": "Colorado Rallies In Third Quarter But Falls To Utah",
-   "link": "https://cubuffs.com/news/2026/10/18/football-colorado-falls-27-24-to-no-11-utah",
-   "source": "Colorado Athletics",
-   "summary": "<img alt=\"Randon Fontenette\" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/vs_Utah__Randon_Fontenette_.jpg\" /><br /><br />BOULDER \u2013 The Colorado Buffaloes' football team fell short against Utah, 27-24, Saturday night at Folsom Field",
-   "image": "https://cubuffs.com/images/2026/10/17/vs_Utah__Randon_Fontenette_.jpg?width=800",
-   "sourceLogo": "https://cubuffs.com/favicon.ico",
-   "published": "2026-10-18T07:38:00+00:00"
   }
  ]
 }

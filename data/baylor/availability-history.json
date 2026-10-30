@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "baylor",
- "updated": "2026-10-30T02:09:26.413604+00:00",
+ "updated": "2026-10-30T22:09:48.925775+00:00",
  "reports": [
   {
    "schema": 1,
@@ -228,32 +228,18 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T02:09:26.413604+00:00",
+   "fetchedAt": "2026-10-30T22:09:48.925775+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-30",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-30",
    "game": "at UCF",
    "players": [
-    {
-     "pos": "CB",
-     "no": "7",
-     "name": "Devon Jordan",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "S",
      "no": "8",
      "name": "Jacob Redding",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "35",
-     "name": "Dawson Pendergrass",
-     "status": "probable",
      "detail": ""
     },
     {

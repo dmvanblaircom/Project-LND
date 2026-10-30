@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T02:09:40.102266+00:00",
+ "fetchedAt": "2026-10-30T22:10:01.367107+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-30",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-30",
  "game": "vs. Baylor",
  "players": [
@@ -29,13 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "7",
-   "name": "Duane Thomas Jr.",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "8",
    "name": "Demari Henderson",
@@ -43,31 +36,17 @@
    "detail": ""
   },
   {
-   "pos": "EDG",
-   "no": "10",
-   "name": "Sincere Edwards",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "EDG",
-   "no": "11",
-   "name": "Ken Talley",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "WR",
    "no": "13",
    "name": "Caleb Rollerson",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "QB",
    "no": "14",
    "name": "Alonza Barnett III",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -78,38 +57,10 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "38",
-   "name": "Jayden Jennings",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "EDG",
-   "no": "41",
-   "name": "Bruno Dall",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "55",
-   "name": "Jacob Maiava",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "75",
    "name": "Tyler Gibson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "78",
-   "name": "Preston Cushman",
-   "status": "probable",
    "detail": ""
   }
  ],
