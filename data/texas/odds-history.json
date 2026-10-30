@@ -1,6 +1,6 @@
 {
 "team": "texas",
-"updated": "2026-10-30T05:07Z",
+"updated": "2026-10-30T11:07Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -151,6 +151,13 @@
 },
 {
 "t": "2026-10-30T05:07Z",
+"title": 6.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 53.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-30T11:07Z",
 "title": 6.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 53.0,
