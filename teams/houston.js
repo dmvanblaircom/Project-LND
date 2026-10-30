@@ -55,6 +55,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://uhcougars.com/sports/2018/6/12/sports-m-footbl-game-notes-html", label: "uhcougars.com", kind: "index" },
     roster: { url: "https://uhcougars.com/sports/football/roster", label: "uhcougars.com" }
   },
 

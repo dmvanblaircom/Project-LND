@@ -56,6 +56,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://baylorbears.com/sports/2022/7/12/fb-game-notes", label: "baylorbears.com", kind: "index" },
     roster: { url: "https://baylorbears.com/sports/football/roster", label: "baylorbears.com" }
   },
 

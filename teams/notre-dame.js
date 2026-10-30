@@ -147,6 +147,9 @@ var TEAM_CONFIG = {
 
   // The team's own pages, where the app points readers for the official word.
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://fightingirish.com/sports/football/schedule", label: "fightingirish.com", kind: "schedule" },
     roster: { url: "https://fightingirish.com/sports/football/roster", label: "fightingirish.com" }
   },
 

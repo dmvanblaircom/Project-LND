@@ -46,6 +46,24 @@ PRs before work.
   the edge Worker to accept, store or forward it, plus spam protection and a
   privacy note for the email address. Feedback arrives at
   suiteappfeedback@gmail.com.
+- **Game notes and depth chart readers for every school (David, 2026-10-30:
+  "soon").** Today Game links each program's notes page, or its schedule
+  where each game's notes are posted (`links.gameNotes`, all 138 teams);
+  only Notre Dame's and Ohio State's notes are read into Suite
+  (`tools/producers/gamenotes.py`, built for their layouts). A survey of 17
+  schools' notes on 2026-10-29 found `gamenotes.parse` usable for 2. The
+  work: generalise the reader by layout family (most schools' notes are
+  SIDEARM-built PDFs), school by school behind a check like
+  `tools/notescheck.py`, starting with the programs whose notes are linked
+  from a maintained notes page (30). Depth charts the same way: a
+  published PDF or page found for 12 teams on 2026-10-30, most of them one
+  week's file rather than a page that stays current.
+- **Mountain West and Conference USA availability.** Both publish through
+  Faktor Sports' embedded viewer, which answers only a browser: a plain
+  request gets an empty page (probe, 2026-10-30). Reading it would mean the
+  data refresh imitating a browser, so it is held for David's decision:
+  link the conference's report page for those teams, ask Faktor or the
+  conferences for a feed, or read it in a real browser in the refresh.
 - **The rest of FBS, in phases (David, 2026-10-27).** 132 teams left after
   the first six. Phase 0 first: checks that run what a change needs, in
   parallel (#186); every team's palette and faces checked in CI

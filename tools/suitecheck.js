@@ -255,6 +255,25 @@ ok(/--drive:#E84A27/.test(theirs), "and drawn in their colour that shows on the 
 ok(/--drive:#FFFFFF/.test(driveHtml(false, null)), "no published colours: neutral white, never our colour");
 ok(/--drive:#FFFFFF/.test(driveHtml(false, ["0B3D11", "123F18"])), "colours that vanish on the turf: neutral white");
 
+// ---- Game notes: where the program posts them (David, 2026-10-30) ----
+console.log("Game notes: a link to the program's own page");
+function notesHtml(game, detail, gn) {
+  var h = host(), lc = G.lifecycle(game);
+  sctx.Suite.game.paint(h, { team: { name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, oppMark: function () { return ""; },
+    game: game, detail: detail, lifecycle: lc, view: lc.defaultView, preview: null, side: "us", open: {},
+    weather: null, now: new Date("2026-09-07T14:00:00Z"), gameNotes: gn });
+  return h.parts.body.innerHTML;
+}
+var NOTES_PAGE = { url: "https://und.example/football-game-notes", label: "und.example", kind: "index" };
+var fin = notesHtml(WG, WD, NOTES_PAGE);
+ok(/gcard-docs[\s\S]*Game notes[\s\S]*href="https:\/\/und\.example\/football-game-notes" target="_blank" rel="noopener noreferrer">und\.example/.test(fin),
+   "after the game: a Game notes card links the program's notes page, in a new tab");
+var preGame = Object.assign({}, WG, { state: "pre", status: "scheduled", started: false });
+ok(/gcard-docs/.test(notesHtml(preGame, null, NOTES_PAGE)), "and before it, under the Matchup");
+ok(/Schedule and game notes/.test(notesHtml(WG, WD, { url: "https://und.example/schedule", label: "und.example", kind: "schedule" })),
+   "a schedule page says so: Schedule and game notes");
+ok(!/gcard-docs/.test(notesHtml(WG, WD, null)), "a team with no page declared shows no card");
+
 // ---- Plays: scoring drives (David, 2026-10-01, with a fan's feedback) ----
 console.log("Plays: each score opens the drive that made it (real final, Notre Dame v Wisconsin)");
 function playsHtml(detail, open) {

@@ -50,6 +50,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://umassathletics.com/sports/2026/8/10/2026-umass-football-weekly-information", label: "umassathletics.com", kind: "index" },
     roster: { url: "https://umassathletics.com/sports/football/roster", label: "umassathletics.com" }
   },
 

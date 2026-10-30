@@ -62,6 +62,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://gophersports.com/sports/2018/5/21/sports-m-footbl-spec-rel-game-notes-html", label: "gophersports.com", kind: "index" },
     roster: { url: "https://gophersports.com/sports/football/roster", label: "gophersports.com" }
   },
 

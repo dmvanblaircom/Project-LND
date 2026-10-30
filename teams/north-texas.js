@@ -54,6 +54,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://meangreensports.com/sports/football/schedule", label: "meangreensports.com", kind: "schedule" },
     roster: { url: "https://meangreensports.com/sports/football/roster", label: "meangreensports.com" }
   },
 
