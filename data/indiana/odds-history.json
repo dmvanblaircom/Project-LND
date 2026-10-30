@@ -1,6 +1,6 @@
 {
 "team": "indiana",
-"updated": "2026-10-30T16:07Z",
+"updated": "2026-10-30T19:37Z",
 "points": [
 {
 "t": "2026-10-27T15:07Z",
@@ -168,6 +168,13 @@
 "title": 7.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 88.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-30T19:37Z",
+"title": 7.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 87.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
