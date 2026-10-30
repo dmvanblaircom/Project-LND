@@ -359,5 +359,34 @@ for what, mutate in (("an unknown report name", lambda d: d["games"][0].update(n
     except ValueError as e:
         ok(True, "%s is refused, the last good files left alone (%s)" % (what, e))
 
+print("a busy server is asked again once (refresh, 2026-10-30)")
+class _Answer:
+    def __init__(self, body): self.body = body
+    def __enter__(self): return self
+    def __exit__(self, *a): return False
+    def read(self): return self.body
+def asked(script):
+    seen = []
+    def fake(req, timeout=None):
+        seen.append(1)
+        step = script[len(seen) - 1]
+        if isinstance(step, Exception):
+            raise step
+        return _Answer(step)
+    saved = (ca.urllib.request.urlopen, ca.RETRY_AFTER)
+    ca.urllib.request.urlopen, ca.RETRY_AFTER = fake, 0
+    try:
+        return ca.call("get-archive-public", {}), len(seen)
+    except Exception as e:
+        return e, len(seen)
+    finally:
+        ca.urllib.request.urlopen, ca.RETRY_AFTER = saved
+got, n = asked([TimeoutError("The read operation timed out"), b'{"data": []}'])
+ok(got == {"data": []} and n == 2, "one timeout, then an answer: the answer is read (%d asks)" % n)
+got, n = asked([TimeoutError("timed out"), ca.urllib.error.URLError("down")])
+ok(isinstance(got, Exception) and n == 2, "two failures in a row still fail: never more than one second ask")
+got, n = asked([b"<html>not json</html>"])
+ok(isinstance(got, ValueError) and n == 1, "an answer that is not JSON is not asked again: it is a changed answer, not a busy server")
+
 print("\n%s" % ("all passed" if not failures else "%d FAILED" % failures))
 sys.exit(1 if failures else 0)
