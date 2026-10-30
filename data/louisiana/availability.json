@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "team": "louisiana",
+ "capability": "availability",
+ "tier": "official",
+ "game": null,
+ "sourceUrl": null,
+ "sourceLabel": "SunBeltSports.org",
+ "pdf": null,
+ "reported": false,
+ "effectiveAt": null,
+ "heading": null,
+ "players": [],
+ "fetchedAt": null
+}

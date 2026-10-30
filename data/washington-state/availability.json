@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "team": "washington-state",
+ "capability": "availability",
+ "tier": "official",
+ "game": null,
+ "sourceUrl": null,
+ "sourceLabel": "Pac-12.com",
+ "pdf": null,
+ "reported": false,
+ "effectiveAt": null,
+ "heading": null,
+ "players": [],
+ "fetchedAt": null
+}

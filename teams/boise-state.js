@@ -23,6 +23,15 @@ var TEAM_CONFIG = {
   },
 
   sources: {
+    // The Pac-12's availability reports, read from the public file its report
+    // page draws (tools/producers/conference_availability.py; David,
+    // 2026-10-30). The team as the file names it, seen there on 2026-10-30.
+    official: {
+      availabilityReportIndex: "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+      availabilityReportLabel: "Pac-12.com",
+      availabilityFeed: { provider: "reportjson", url: "https://sbcautostorage.blob.core.windows.net/availability-reports/pac12-football/prod/report.json", team: "Boise State" }
+    },
+
     espn: {
       teamId: "68",
       broadcastFallback: []
@@ -89,6 +98,7 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for Boise State, each because a
   // source exists for it.
   snapshots: {
+    availability: { file: "data/boise-state/availability.json", history: "data/boise-state/availability-history.json", label: "Pac-12.com" },
     oddsHistory:  { file: "data/boise-state/odds-history.json" },
     beatNews:     { file: "data/boise-state/news.json" },
     recruits:     { file: "data/boise-state/recruits.json", label: "ESPN recruiting" }
