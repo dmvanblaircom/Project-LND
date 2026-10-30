@@ -11,6 +11,11 @@ makes on the page, with no key and no login:
     POST https://app.hdintelligence.com/api/get-archive-public   the season's archive
          body {"sport": "Football", "organization": "B10", "conference": "B10"}
 
+The Pac-12 and the Sun Belt publish theirs as one public JSON file each,
+the file their report pages draw (provider "reportjson", its `url` in the
+declaration): this week's conference games, each side's listed players with
+a position and a status, and which report it is (Initial, Second, Game Day).
+
 This file is the adapter: those schemas stop here. It writes the same
 availability snapshot the school-notes producer writes (official_depth.py),
 so TeamOS and Suite cannot tell which document a report came from.
@@ -20,6 +25,7 @@ so TeamOS and Suite cannot tell which document a report came from.
 It reads the team's declaration in teams/<team>.js:
 
     sources.official.availabilityFeed   { provider, conference, sport, team }
+                                        or { provider: "reportjson", url, team }
     sources.official.availabilityReportLabel / availabilityReportIndex
     snapshots.availability              the files it writes
 
@@ -60,6 +66,7 @@ PARSER = 1
 STATUSES = [
     (re.compile(r"^out\W*\(?1st half\)?$", re.I), "out-half"),
     (re.compile(r"^out$", re.I), "out-game"),
+    (re.compile(r"^out for (the )?season$", re.I), "out-season"),
     (re.compile(r"^doubtful$", re.I), "doubtful"),
     (re.compile(r"^questionable$", re.I), "questionable"),
     (re.compile(r"^probable$", re.I), "probable"),
@@ -256,6 +263,77 @@ def build(publish, archive, names, previous=None):
     return (history[-1] if history else None), history
 
 
+# ---- the Pac-12's and the Sun Belt's report.json ------------------------
+
+# Their report names -> the order the Big Ten's use, so a newer report on
+# file is never replaced by an older one.
+REPORT_HEADING = {"initial report": "Initial", "second report": "Update 1",
+                  "third report": "Update 2", "game day report": "Game Day"}
+
+
+def report_games(payload, names):
+    """report.json -> {game date: (game, our side, their side)} for the team.
+    Every field the producer reads is checked first: a field missing or in a
+    new form is a changed answer, never a report."""
+    games = (payload or {}).get("games") if isinstance(payload, dict) else None
+    if not isinstance(games, list):
+        raise ValueError("the report file has no games list")
+    out = {}
+    for g in games:
+        sides = [(g or {}).get("home"), (g or {}).get("away")]
+        mine = [s for s in sides if isinstance(s, dict) and _ours(s.get("name"), names)]
+        if not mine:
+            continue
+        side = mine[0]
+        other = sides[1] if side is sides[0] else sides[0]
+        day = _date(g.get("dateISO"))
+        if not day or not isinstance(other, dict) or not str(other.get("name") or "").strip():
+            raise ValueError("a game in the report file has no readable date or opponent")
+        if str(g.get("notes") or "").strip().lower() not in REPORT_HEADING:
+            raise ValueError("a report in the file has an unknown name: %r" % g.get("notes"))
+        rows = side.get("players")
+        if not isinstance(rows, list) or not all(isinstance(r, dict) and str(r.get("name") or "").strip()
+                                                 and str(r.get("status") or "").strip() for r in rows):
+            raise ValueError("a player in the report file has no name or no status")
+        out[day] = (g, side, other)
+    return out
+
+
+def from_report(g, side, other):
+    players = []
+    for row in side["players"]:
+        key = status_key(row.get("status"))
+        if key:
+            players.append({"pos": str(row.get("position") or "").strip(), "no": "",
+                            "name": str(row["name"]).strip(), "status": key, "detail": ""})
+    home = side is g.get("home")
+    return {"reported": True, "effectiveAt": _date(str(g.get("updatedAtUTC") or "")[:10]) or _date(g.get("dateISO")),
+            "heading": REPORT_HEADING[str(g["notes"]).strip().lower()], "kickoffDate": _date(g.get("dateISO")),
+            "game": ("vs. " if home else "at ") + str(other["name"]).strip(), "players": players}
+
+
+def build_report(payload, names, previous=None):
+    """-> (latest report, every report this season, oldest first), as build().
+    The file carries only this week's games, so the history on file is the
+    season; this week's report replaces what it covers unless the one on
+    file is newer. A side with nobody listed has not been filed: the file's
+    own message says the school posts it elsewhere."""
+    season = {}
+    for r in previous or []:
+        if isinstance(r, dict) and r.get("kickoffDate"):
+            season[r["kickoffDate"]] = dict({k: r.get(k) for k in FIELDS}, current=r.get("current") is True)
+    for day, (g, side, other) in sorted(report_games(payload, names).items()):
+        if not side["players"]:
+            continue
+        theirs = dict(from_report(g, side, other), current=True)
+        mine = season.get(day)
+        if mine and RANK.get(mine.get("heading"), -1) > RANK.get(theirs["heading"], -1):
+            continue
+        season[day] = theirs
+    history = [season[k] for k in sorted(season)]
+    return (history[-1] if history else None), history
+
+
 # ---- network ----------------------------------------------------------
 
 def call(endpoint, body):
@@ -263,6 +341,27 @@ def call(endpoint, body):
                                  headers={"user-agent": UA, "content-type": "application/json"})
     with urllib.request.urlopen(req, timeout=40) as r:
         return json.loads(r.read())
+
+
+def get(url):
+    req = urllib.request.Request(url, headers={"user-agent": UA})
+    with urllib.request.urlopen(req, timeout=40) as r:
+        return json.loads(r.read())
+
+
+def fetch_url(url, cache=None):
+    """A report file, read once a run (as fetch)."""
+    if not cache:
+        return get(url)
+    path = os.path.join(cache, re.sub(r"[^A-Za-z0-9_-]+", "-", url)[-120:] + ".json")
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+    answer = get(url)
+    os.makedirs(cache, exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(answer, f)
+    return answer
 
 
 def fetch(endpoint, body, cache=None):
@@ -293,23 +392,30 @@ def main():
     off = (config.get("sources") or {}).get("official") or {}
     feed = off.get("availabilityFeed") or {}
     snap = teamconfig.snapshot(config, "availability")
-    if feed.get("provider") != "hdintelligence" or not snap:
+    provider = feed.get("provider")
+    if provider not in ("hdintelligence", "reportjson") or not snap:
         sys.exit("teams/%s.js declares no conference availability feed and snapshot" % args.team)
     names = {str(n).strip().lower() for n in ([feed.get("team")] + list(feed.get("aliases") or [])) if n}
-    body = {"sport": feed.get("sport") or "Football", "organization": feed["conference"], "conference": feed["conference"]}
 
     try:
-        publish = fetch("get-publish-public", body, args.cache)
-        archive = fetch("get-archive-public", body, args.cache)
+        if provider == "reportjson":
+            report = fetch_url(feed["url"], args.cache)
+        else:
+            body = {"sport": feed.get("sport") or "Football", "organization": feed["conference"], "conference": feed["conference"]}
+            publish = fetch("get-publish-public", body, args.cache)
+            archive = fetch("get-archive-public", body, args.cache)
     except Exception as e:                                   # noqa: BLE001
         sys.exit("conference availability fetch failed: %s - leaving files alone" % str(e)[:160])
-    if not isinstance(publish, dict) or not isinstance(archive, dict) or not archive.get("loaded", True):
+    if provider == "hdintelligence" and (not isinstance(publish, dict) or not isinstance(archive, dict) or not archive.get("loaded", True)):
         sys.exit("conference availability: an unexpected answer - leaving files alone")
 
     AV, AHIST = snap["file"], snap.get("history")
     old_av, old_hist = load(AV, None), (load(AHIST, None) if AHIST else None)
     try:
-        latest, history = build(publish, archive, names, (old_hist or {}).get("reports"))
+        if provider == "reportjson":
+            latest, history = build_report(report, names, (old_hist or {}).get("reports"))
+        else:
+            latest, history = build(publish, archive, names, (old_hist or {}).get("reports"))
     except ValueError as e:
         sys.exit("conference availability: %s - leaving files alone" % e)
     if latest is None:
