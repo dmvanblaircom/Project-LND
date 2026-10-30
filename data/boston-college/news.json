@@ -1,7 +1,16 @@
 {
  "team": "boston-college",
- "updated": "2026-10-30T14:08:09.719719+00:00",
+ "updated": "2026-10-30T16:08:06.091242+00:00",
  "items": [
+  {
+   "title": "The Tailgate: Duke",
+   "link": "https://bceagles.com/news/2026/10/30/-forboston-files-the-tailgate-duke",
+   "source": "Boston College Athletics",
+   "summary": "<img alt=\"Football: BC DUKE 2022\" src=\"https://bceagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/A62R4674.jpg\" /><br /><br />For more than a century, the Rose Bowl has stood as one of college football's most enduring New Year's Day traditions. Its picturesque backdrop in Pasadena, California offers a welcome contrast to the previous night's frigid celebrations in New York City's Times Square, and as the new year arrives, the blaring horns and midnight ball drop give way to a different kind of spectacle centered around flower-covered parade fl",
+   "image": "https://bceagles.com/images/2026/10/30/A62R4674.jpg?width=800",
+   "sourceLogo": "https://bceagles.com/favicon.ico",
+   "published": "2026-10-30T14:37:00+00:00"
+  },
   {
    "title": "Preview: BC Seeks Third Straight Win in Road Test Against Duke",
    "link": "https://bcheights.com/233818/sports/bc-seeks-third-straight-win-in-road-test-against-duke/",
@@ -264,15 +273,6 @@
    "published": "2026-10-21T14:20:00+00:00"
   },
   {
-   "title": "Know Your Personnel: Results In The Deep Passing Game",
-   "link": "https://bceagles.com/news/2026/10/21/-forboston-files-know-your-personnel-throw-it-deep",
-   "source": "Boston College Athletics",
-   "summary": "<img alt=\"Football: Landon Wright catch\" src=\"https://bceagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/21/JA107738.jpg\" /><br /><br />Mason McKenzie's deep pass to Landon Wright offered a lesson in BC's offensive win over Pitt.",
-   "image": "https://bceagles.com/images/2026/10/21/JA107738.jpg?width=800",
-   "sourceLogo": "https://bceagles.com/favicon.ico",
-   "published": "2026-10-21T12:00:00+00:00"
-  },
-  {
    "title": "Jett Watson Reaffirms Boston College Commitment Following Father Kenyatta Watson's Departure",
    "link": "https://www.si.com/college/bostoncollege/recruiting/jett-watson-reaffirms-boston-college-commitment?utm_source=RSS",
    "source": "Boston College On SI",
@@ -340,7 +340,7 @@
    "link": "https://bcheights.com/232729/sports/preview-bc-travels-to-face-no-21-smu-looking-for-its-first-conference-win/",
    "source": "The Heights",
    "summary": "<p>Boston College football will travel to Texas this weekend with an upset on its mind, as the Eagles are looking to secure their first conference win of the season against No. 21 Southern Methodist.</p>\n<p>The post <a href=\"https://bcheights.com/232729/sports/preview-bc-travels-to-face-no-21-smu-looking-for-its-first-conference-win/\">Preview: BC Travels To Face No. 21 SMU Looking for Its First Conference Win</a> appeared first on <a href=\"https://bcheights.com\">The Heights</a>.</p>",
-   "image": null,
+   "image": "https://bcheights.com/wp-content/uploads/2026/10/BC-Football-FLick.jpg",
    "sourceLogo": "https://bcheights.com/wp-content/uploads/2025/08/cropped-blacklogo-copy-32x32.webp",
    "published": "2026-10-02T01:37:23+00:00"
   }
