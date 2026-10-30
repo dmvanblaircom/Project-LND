@@ -1647,7 +1647,10 @@ function gameModel(V, g, lc, view, base){
     view: view || lc.defaultView, preview:V.preview, side:V.side, open:V.open,
     weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date(),
     // this game's facts from the week's notes: only the game they were written for
-    notes: TeamOS.notes.forGame(NOTES.model, g)
+    notes: TeamOS.notes.forGame(NOTES.model, g),
+    // where the program posts its game notes, for the fan to read them there
+    // (David, 2026-10-30: a link for every school, readers to follow)
+    gameNotes: (TEAM_CONFIG.links && TEAM_CONFIG.links.gameNotes) || null
   };
 }
 function paintGame(){
@@ -2702,7 +2705,8 @@ liftLaunchWhenReady();
 // rank, odds, news, weather and line all answered or failed), and every
 // image in view has loaded or failed. So nothing fills in once it lifts.
 // Never later than MAX: a slow network shows what it has. Reduced motion
-// has no animation to wait for, so its minimum is short. While an update is
+// has no animation to wait for, so its minimum is short; so does a later
+// open the same day, whose wordmark is drawn from the start (index.html). While an update is
 // installing it holds too (UPDATING), up to UPD_MAX - an update comes once a
 // release, and lifting before its reload shows the page and then reloads it -
 // and keeps its start time, so the reloaded page carries on this launch
@@ -2719,7 +2723,8 @@ function liftLaunchWhenReady(){
   // for an app.js that never runs, and must not cut an update's wait short.
   el.style.animation="none";
   var reduce=window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var start=Date.now(), at=Math.min(window.SUITE_LAUNCH_AT||start, start), MIN=reduce?600:2600, MAX=6000, UPD_MAX=10000, OWN=3000, QUIET=300;
+  var short=document.documentElement.getAttribute("data-launch")==="short";
+  var start=Date.now(), at=Math.min(window.SUITE_LAUNCH_AT||start, start), MIN=reduce?600:short?800:2600, MAX=6000, UPD_MAX=10000, OWN=3000, QUIET=300;
   var cap=Math.max(at+MAX, start+OWN);
   function screen(){ return document.querySelector("#main > div:not([hidden])"); }
   function inView(img){

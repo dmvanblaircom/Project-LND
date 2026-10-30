@@ -49,6 +49,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://nevadawolfpack.com/sports/football/schedule", label: "nevadawolfpack.com", kind: "schedule" },
     roster: { url: "https://nevadawolfpack.com/sports/football/roster", label: "nevadawolfpack.com" }
   },
 

@@ -55,6 +55,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://12thman.com/sports/football/schedule", label: "12thman.com", kind: "schedule" },
     roster: { url: "https://12thman.com/sports/football/roster", label: "12thman.com" }
   },
 

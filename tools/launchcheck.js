@@ -68,7 +68,8 @@ function fixture(url) {
 
   // opts: delay (ms) for the providers' answers, newsDelay for news alone,
   // noApp to make app.js fail to load, startedAgo to resume a launch begun
-  // that long ago (an update's reload)
+  // that long ago (an update's reload), lastDay for the device's last launch
+  // that many days ago
   async function open(url, opts) {
     opts = opts || {};
     var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
@@ -94,8 +95,11 @@ function fixture(url) {
       if (/teamlogos|espncdn/.test(u)) { await new Promise(function (r) { setTimeout(r, opts.delay || 0); }); return route.fulfill({ status: 200, contentType: "image/png", body: LOGO }); }
       return route.abort();
     });
-    await page.addInitScript(function (ago) {
+    await page.addInitScript(function (args) {
+      var ago = args.ago;
       if (ago != null) { try { sessionStorage.setItem("suite-launch-at", String(Date.now() - ago)); } catch (e) {} }
+      // lastDay: days since this device's last launch (0: earlier today)
+      if (args.lastDay != null) { try { localStorage.setItem("suite-launch-day", new Date(Date.now() - args.lastDay * 864e5).toDateString()); } catch (e) {} }
       window.__first = null; window.__boxes = [];
       document.addEventListener("DOMContentLoaded", function () {
         var l = document.getElementById("launch"), m = l && l.querySelector(".launch-mark");
@@ -108,7 +112,7 @@ function fixture(url) {
           setTimeout(watch, 100);
         })();
       });
-    }, opts.startedAgo == null ? null : opts.startedAgo);
+    }, { ago: opts.startedAgo == null ? null : opts.startedAgo, lastDay: opts.lastDay == null ? null : opts.lastDay });
     var t0 = Date.now();
     await page.goto(base + url, { waitUntil: "commit" });
     return { ctx: ctx, page: page, t0: t0 };
@@ -183,6 +187,32 @@ function fixture(url) {
   await a.page.waitForTimeout(700);
   ok(await a.page.evaluate(function () { return !document.getElementById("launch"); }), "then it is gone from the page");
   await a.ctx.close();
+
+  // David, 2026-10-30: the whole launch on a day's first open; later that
+  // day, the wordmark already drawn, then the page.
+  console.log("a later open the same day");
+  var sd = await open("/?team=notre-dame#home", { delay: 300, lastDay: 0 });
+  await sd.page.waitForFunction(function () { return window.__first !== null; });
+  ok(await sd.page.evaluate(function () {
+    var l = document.querySelector("#launch .launch-l"), cs = getComputedStyle(l);
+    return document.documentElement.getAttribute("data-launch") === "short" && cs.animationName === "none" && cs.opacity === "1";
+  }), "the wordmark is there from the first paint, not drawn letter by letter");
+  var tsd = await liftedAt(sd, 8000), csd = await complete(sd.page);
+  ok(tsd != null && tsd >= 800 && tsd < 2000, "it lifts once the screen is complete, after 0.8 seconds at least (" + tsd + " ms)");
+  ok(csd.card && csd.stories >= 3 && csd.loaded, "and the screen is just as complete under it");
+  await sd.ctx.close();
+  var nd = await open("/?team=notre-dame#home", { delay: 300, lastDay: 1 });
+  await nd.page.waitForFunction(function () { return window.__first !== null; });
+  var tnd = await liftedAt(nd, 8000);
+  ok(!(await nd.page.evaluate(function () { return document.documentElement.hasAttribute("data-launch"); })) && tnd >= 2600,
+     "the next day's first open plays the whole launch again (" + tnd + " ms)");
+  ok(await nd.page.evaluate(function () { return localStorage.getItem("suite-launch-day") === new Date().toDateString(); }), "and marks the day as launched");
+  await nd.ctx.close();
+  var rs = await open("/?team=notre-dame#home", { delay: 300, lastDay: 0, startedAgo: 1200 });
+  await rs.page.waitForFunction(function () { return window.__first !== null; });
+  ok(!(await rs.page.evaluate(function () { return document.documentElement.hasAttribute("data-launch"); })),
+     "an update's reload carries on the launch it began with, never switching to the short one midway");
+  await rs.ctx.close();
 
   console.log("a late answer holds it");
   var b = await open("/?team=notre-dame#home", { delay: 100, newsDelay: 3500 });
@@ -403,6 +433,8 @@ function fixture(url) {
      "and the chooser's page keeps its own colours");
   ok(await f.page.evaluate(function () { return !document.getElementById("page-swap"); }),
      "and takes no part in a page swap: Change Team and picking a team are as they were");
+  ok(await f.page.evaluate(function () { return localStorage.getItem("suite-launch-day") === null; }),
+     "nor counts as the day's launch: the first team page after it plays the whole launch (Codex, #212)");
   await f.ctx.close();
 
   await browser.close(); server.close();

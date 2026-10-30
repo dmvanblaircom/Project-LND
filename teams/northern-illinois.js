@@ -48,6 +48,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://niuhuskies.com/sports/football/schedule", label: "niuhuskies.com", kind: "schedule" },
     roster: { url: "https://niuhuskies.com/sports/football/roster", label: "niuhuskies.com" }
   },
 

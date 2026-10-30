@@ -57,6 +57,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://okstate.com/sports/football/schedule", label: "okstate.com", kind: "schedule" },
     roster: { url: "https://okstate.com/sports/football/roster", label: "okstate.com" }
   },
 

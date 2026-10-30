@@ -24,6 +24,15 @@ var TEAM_CONFIG = {
   },
 
   sources: {
+    // The Sun Belt's availability reports, read from the public file its report
+    // page draws (tools/producers/conference_availability.py; David,
+    // 2026-10-30). The team as the file names it, seen there on 2026-10-30.
+    official: {
+      availabilityReportIndex: "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+      availabilityReportLabel: "SunBeltSports.org",
+      availabilityFeed: { provider: "reportjson", url: "https://sbcautostorage.blob.core.windows.net/availability-reports/sunbelt-football/prod/report.json", team: "Georgia Southern" }
+    },
+
     espn: {
       teamId: "290",
       broadcastFallback: []
@@ -49,6 +58,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://gseagles.com/sports/football/schedule", label: "gseagles.com", kind: "schedule" },
     roster: { url: "https://gseagles.com/sports/football/roster", label: "gseagles.com" }
   },
 
@@ -83,6 +95,7 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for Georgia Southern, each because a
   // source exists for it.
   snapshots: {
+    availability: { file: "data/georgia-southern/availability.json", history: "data/georgia-southern/availability-history.json", label: "SunBeltSports.org" },
     beatNews:     { file: "data/georgia-southern/news.json" },
     recruits:     { file: "data/georgia-southern/recruits.json", label: "ESPN recruiting" }
   }

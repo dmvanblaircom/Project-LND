@@ -57,6 +57,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://texaslonghorns.com/sports/2016/8/29/football-game-notes", label: "texaslonghorns.com", kind: "index" },
     roster: { url: "https://texaslonghorns.com/sports/football/roster", label: "texaslonghorns.com" }
   },
 

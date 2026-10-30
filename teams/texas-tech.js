@@ -57,6 +57,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://texastech.com/sports/2026/7/10/sports-m-footbl-spec-rel-2026-gamenotes-html", label: "texastech.com", kind: "index" },
     roster: { url: "https://texastech.com/sports/football/roster", label: "texastech.com" }
   },
 

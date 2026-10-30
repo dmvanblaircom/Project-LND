@@ -1,0 +1,682 @@
+{
+ "config": {
+  "emptyPlayerMessage": "Report will be posted to the institution's conference website.",
+  "helmetBase": "https://sbcautostorage.blob.core.windows.net/availability-reports/sunbelt-football/helmets/",
+  "genericHelmet": "generic.png"
+ },
+ "games": [
+  {
+   "gameId": "2026-10-31-Georgia Southern-App State",
+   "gameNumber": "027",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-29T00:49:31.5310024Z",
+   "kickoff": "17:30:00",
+   "kickoffUTC": "2026-10-31T22:30:00Z",
+   "timeZone": "Central Standard Time",
+   "timeZoneLabel": "CT",
+   "network": "ESPN+",
+   "venue": "Allen E. Paulson Stadium",
+   "notes": "Initial Report",
+   "away": {
+    "name": "App State",
+    "players": [
+     {
+      "name": "Jordan Harris",
+      "position": "DL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Devon Manuel",
+      "position": "OL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Aiden Benton",
+      "position": "DL",
+      "status": "Out"
+     },
+     {
+      "name": "Cary Grant",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Keshawn Thomas",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Kamauri Austin",
+      "position": "WR",
+      "status": "Doubtful"
+     },
+     {
+      "name": "Darrin Fugitt",
+      "position": "TE",
+      "status": "Doubtful"
+     },
+     {
+      "name": "Ja'Cari Henderson",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Tyriq Poindexter",
+      "position": "OL",
+      "status": "Questionable"
+     },
+     {
+      "name": "Brooks Yurachek",
+      "position": "ILB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Nate Branch",
+      "position": "WR",
+      "status": "Probable"
+     },
+     {
+      "name": "Mac Walters",
+      "position": "OL",
+      "status": "Probable"
+     }
+    ]
+   },
+   "home": {
+    "name": "Georgia Southern",
+    "players": [
+     {
+      "name": "Terrance Gibbs",
+      "position": "RB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Max Johnson",
+      "position": "QB",
+      "status": "Probable"
+     },
+     {
+      "name": "King Phillips",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Colin Alexander",
+      "position": "OL",
+      "status": "Questionable"
+     },
+     {
+      "name": "Caleb Ellis",
+      "position": "DL",
+      "status": "Out"
+     },
+     {
+      "name": "Jaquari Brown",
+      "position": "DB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Fabo Chaney",
+      "position": "DB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "RJ Myles",
+      "position": "ILB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Ashton Hollins",
+      "position": "WR",
+      "status": "Out for Season"
+     }
+    ]
+   }
+  },
+  {
+   "gameId": "2026-10-31-ULM-Southern Miss",
+   "gameNumber": "029",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-29T00:50:56.1016669Z",
+   "kickoff": "14:30:00",
+   "kickoffUTC": "2026-10-31T19:30:00Z",
+   "timeZone": "Central Standard Time",
+   "timeZoneLabel": "CT",
+   "network": "ESPN+",
+   "venue": "St. Francis Stadium",
+   "notes": "Initial Report",
+   "away": {
+    "name": "Southern Miss",
+    "players": [
+     {
+      "name": "Jeremiah Dillon",
+      "position": "DB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Avery Sledge",
+      "position": "ILB",
+      "status": "Probable"
+     },
+     {
+      "name": "Luke Rogers",
+      "position": "OL",
+      "status": "Questionable"
+     },
+     {
+      "name": "Greg Nunnery",
+      "position": "OL",
+      "status": "Out"
+     },
+     {
+      "name": "Ethan Hampton",
+      "position": "QB",
+      "status": "Probable"
+     },
+     {
+      "name": "Grant Page ",
+      "position": "WR",
+      "status": "Probable"
+     },
+     {
+      "name": "Caleb Triplett",
+      "position": "ILB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Jaylen Himes ",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Jahmir Davis ",
+      "position": "OL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Jordan Pride ",
+      "position": "DB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Ricky Harding ",
+      "position": "ILB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Jeffery Rush",
+      "position": "DL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Robert Briggs ",
+      "position": "",
+      "status": "Out for Season"
+     }
+    ]
+   },
+   "home": {
+    "name": "ULM",
+    "players": [
+     {
+      "name": "Parker Fulghum",
+      "position": "WR",
+      "status": "Probable"
+     },
+     {
+      "name": "Zyan Tremont",
+      "position": "DL",
+      "status": "Questionable"
+     },
+     {
+      "name": "Korian Wilson",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Javon Campbell",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Laterrius Robinson",
+      "position": "WR",
+      "status": "Probable"
+     },
+     {
+      "name": "Marcus Ross",
+      "position": "ILB",
+      "status": "Probable"
+     },
+     {
+      "name": "Tyrell Brown",
+      "position": "DL",
+      "status": "Questionable"
+     },
+     {
+      "name": "RJ Hall ",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Le'kell McGowan",
+      "position": "OLB",
+      "status": "Out"
+     },
+     {
+      "name": "Roscoe Tucker",
+      "position": "OL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Makin Lenard",
+      "position": "RB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Jackson Parker ",
+      "position": "ILB",
+      "status": "Out for Season"
+     }
+    ]
+   }
+  },
+  {
+   "gameId": "2026-10-31-Georgia State-Coastal Carolina",
+   "gameNumber": "028",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-29T00:53:13.0213444Z",
+   "kickoff": "13:00:00",
+   "kickoffUTC": "2026-10-31T18:00:00Z",
+   "timeZone": "Central Standard Time",
+   "timeZoneLabel": "CT",
+   "network": "ESPN+",
+   "venue": "Center Parc Stadium",
+   "notes": "Initial Report",
+   "away": {
+    "name": "Coastal Carolina",
+    "players": [
+     {
+      "name": "Jaden Allen-Hendrix",
+      "position": "RB",
+      "status": "Probable"
+     },
+     {
+      "name": "Zach Courtney",
+      "position": "TE",
+      "status": "Probable"
+     },
+     {
+      "name": "Braxton Starnes",
+      "position": "ILB",
+      "status": "Probable"
+     },
+     {
+      "name": "Mason Barton",
+      "position": "OL",
+      "status": "Questionable"
+     },
+     {
+      "name": "Jayden Jackson",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Jayden Johnson",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Dom Rijos",
+      "position": "OL",
+      "status": "Out"
+     },
+     {
+      "name": "Travis Roman",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Gavin McLaughlin",
+      "position": "OL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Goldie Lawrence",
+      "position": "WR",
+      "status": "Out"
+     }
+    ]
+   },
+   "home": {
+    "name": "Georgia State",
+    "players": [
+     {
+      "name": "Cameran Brown",
+      "position": "QB",
+      "status": "Doubtful"
+     },
+     {
+      "name": "Curtis Walker",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Kelze Howard",
+      "position": "DL",
+      "status": "Out"
+     },
+     {
+      "name": "Eric Butler",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Ryan Green",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Owen Dupree",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Jamari Miller",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Jordan Brown",
+      "position": "OL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Eric Lee",
+      "position": "DB",
+      "status": "Questionable"
+     }
+    ]
+   }
+  },
+  {
+   "gameId": "2026-10-31-South Alabama-LA Tech",
+   "gameNumber": "030",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-29T00:56:28.0594552Z",
+   "kickoff": "14:00:00",
+   "kickoffUTC": "2026-10-31T19:00:00Z",
+   "timeZone": "Central Standard Time",
+   "timeZoneLabel": "CT",
+   "network": "ESPN+",
+   "venue": "Hancock Whitney Stadium",
+   "notes": "Initial Report",
+   "away": {
+    "name": "LA Tech",
+    "players": [
+     {
+      "name": "Dane Benedix",
+      "position": "WR",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Za'Qwaun Nunn",
+      "position": "DL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Dylone Brooks",
+      "position": "RB",
+      "status": "Doubtful"
+     },
+     {
+      "name": "David Pierro",
+      "position": "DB",
+      "status": "Probable"
+     },
+     {
+      "name": "Judd Rouyea",
+      "position": "DL",
+      "status": "Probable"
+     }
+    ]
+   },
+   "home": {
+    "name": "South Alabama",
+    "players": [
+     {
+      "name": "Laseter, Matt",
+      "position": "DB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Johnson, Tirrell",
+      "position": "OLB",
+      "status": "Out"
+     },
+     {
+      "name": "Korchagin, Artem",
+      "position": "OL",
+      "status": "Out"
+     },
+     {
+      "name": "Mosley, Demetress",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Graham, Jerrian",
+      "position": "WR",
+      "status": "Probable"
+     },
+     {
+      "name": "Jones-Thomas, Jeremiah",
+      "position": "WR",
+      "status": "Probable"
+     },
+     {
+      "name": "Siler, Jamal",
+      "position": "OL",
+      "status": "Probable"
+     },
+     {
+      "name": "Barnes, Brian ",
+      "position": "WR",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Chiedo, Dylan",
+      "position": "OLB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Lynch, Maddox",
+      "position": "TE",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Marion, Khatori",
+      "position": "WR",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Dozier, Caleb",
+      "position": "ILB",
+      "status": "Out for Season"
+     }
+    ]
+   }
+  },
+  {
+   "gameId": "2026-10-31-Old Dominion-Marshall",
+   "gameNumber": "026",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-29T00:57:28.2802215Z",
+   "kickoff": "12:00:00",
+   "kickoffUTC": "2026-10-31T17:00:00Z",
+   "timeZone": "Central Standard Time",
+   "timeZoneLabel": "CT",
+   "network": "ESPN+",
+   "venue": "S.B. Ballard Stadium",
+   "notes": "Initial Report",
+   "away": {
+    "name": "Marshall",
+    "players": [
+     {
+      "name": "Xavier Bausley",
+      "position": "OL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Louikenzy Jules",
+      "position": "DB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Mikailin Warren",
+      "position": "DL",
+      "status": "Out"
+     }
+    ]
+   },
+   "home": {
+    "name": "Old Dominion",
+    "players": [
+     {
+      "name": "Quinn Henicle",
+      "position": "QB",
+      "status": "Doubtful"
+     },
+     {
+      "name": "Koa Naotala",
+      "position": "ILB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Zion Frink",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Justin Watts",
+      "position": "DB",
+      "status": "Probable"
+     },
+     {
+      "name": "Tavares Murray",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "DeAndre Lynch",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "JJ Harrell",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Sidney Mbanasor",
+      "position": "WR",
+      "status": "Out for Season"
+     },
+     {
+      "name": "DJ Thompson",
+      "position": "DL",
+      "status": "Out for Season"
+     }
+    ]
+   }
+  },
+  {
+   "gameId": "2026-10-29-James Madison-Troy",
+   "gameNumber": "025",
+   "dateISO": "2026-10-29",
+   "updatedAtUTC": "2026-10-29T14:33:36.7414710Z",
+   "kickoff": "18:30:00",
+   "kickoffUTC": "2026-10-29T23:30:00Z",
+   "timeZone": "Central Standard Time",
+   "timeZoneLabel": "CT",
+   "network": "ESPN2",
+   "venue": "Bridgeforth Stadium",
+   "notes": "Game Day Report",
+   "away": {
+    "name": "Troy",
+    "players": [
+     {
+      "name": "Goose Crowder",
+      "position": "QB",
+      "status": "Available"
+     },
+     {
+      "name": "TK Keyes",
+      "position": "WR",
+      "status": "Available"
+     },
+     {
+      "name": "Tai Terrell",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Jywon Boyd",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Jayvin Bennett",
+      "position": "TE",
+      "status": "Out"
+     },
+     {
+      "name": "Jackson Worley",
+      "position": "TE",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Joe Lott",
+      "position": "DB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Jermaine Paramore",
+      "position": "DL",
+      "status": "Out for Season"
+     }
+    ]
+   },
+   "home": {
+    "name": "James Madison",
+    "players": [
+     {
+      "name": "Za'Ron Collins",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Jayon Harvey",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "George Pettaway",
+      "position": "RB",
+      "status": "Out"
+     },
+     {
+      "name": "Jayden Studio",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Tanner Vibabul",
+      "position": "QB",
+      "status": "Out"
+     }
+    ]
+   }
+  }
+ ]
+}

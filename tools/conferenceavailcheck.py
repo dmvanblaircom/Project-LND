@@ -6,7 +6,9 @@ The fixture is the Big Ten's public report viewer as it answered on
 2026-10-10 (tools/fixtures/b1g-availability-2026-10-09.json): Friday's
 Update 2 for Maryland at Ohio State, Iowa's gameday report for its Friday
 game, and the season's archive for four teams. The real producer runs on a
-copy of the repository with the network stood in for.
+copy of the repository with the network stood in for. The Pac-12's and the
+Sun Belt's report.json as they answered on 2026-10-30
+(tools/fixtures/conference-report-*.json) test the second provider.
 
     python3 tools/conferenceavailcheck.py     (exit 1 on any failure)
 """
@@ -281,6 +283,48 @@ for what, date in (("missing", None), ("unreadable", "Oct 10")):
     ok(code not in (0, None) and files(tmp) == [],
        "a report whose game date is %s is refused: nothing could retire it after the game (Codex, #118)" % what)
     shutil.rmtree(tmp)
+
+print("the Pac-12's and the Sun Belt's report.json (David, 2026-10-30)")
+PAC12 = json.load(open(os.path.join(HERE, "fixtures", "conference-report-pac12.json"), encoding="utf-8"))
+SBC = json.load(open(os.path.join(HERE, "fixtures", "conference-report-sunbelt.json"), encoding="utf-8"))
+usu, hist = ca.build_report(PAC12, {"utah state"})
+ok(usu["game"] == "vs. Colorado State" and usu["kickoffDate"] == "2026-10-31" and usu["heading"] == "Update 1" and usu["current"] is True,
+   "Utah State's game: vs. Colorado State, the Second Report read as Update 1 (%s, %s)" % (usu["game"], usu["heading"]))
+ok(len(usu["players"]) == 17 and names(usu, "out-season") == ["Kauasi Hansen", "Jude Nelson", "Chris Joe", "Nikko Boncore"] and all(p["pos"] for p in usu["players"]),
+   "every listed player kept with a position; Out for Season is the season's (%d listed)" % len(usu["players"]))
+csu, _ = ca.build_report(PAC12, {"colorado state"})
+ok(csu["game"] == "at Utah State" and "Mel Brown" in names(csu, "questionable"), "the other side reads the same game from the road")
+app, _ = ca.build_report(SBC, {"app state"})
+ok(app["game"] == "at Georgia Southern" and app["heading"] == "Initial", "the Sun Belt's file reads the same way (App State at Georgia Southern)")
+listed = [p["status"] for g in SBC["games"] for side in ("home", "away") for p in g[side]["players"]]
+everyone = sum(len(ca.build_report(SBC, {g[side]["name"].lower()})[0]["players"]) for g in SBC["games"] for side in ("home", "away")
+               if g[side]["players"])
+ok("Available" in listed and everyone == sum(1 for st in listed if st != "Available"),
+   "a player marked Available is not listed: the conference's own rule (%d of %d rows listed)" % (everyone, len(listed)))
+none, h0 = ca.build_report(PAC12, {"boise state", "nobody"} - {"boise state"})
+ok(none is None and h0 == [], "a team with no game in the file has no report from it")
+blank = copy.deepcopy(PAC12)
+blank["games"][0]["home"]["players"] = []
+mine = blank["games"][0]["home"]["name"].lower()
+ok(ca.build_report(blank, {mine})[0] is None, "a side with nobody listed has not been filed: nothing is written for it")
+older = dict(usu, heading="Game Day", players=[], current=True)
+kept, _ = ca.build_report(PAC12, {"utah state"}, [older])
+ok(kept["heading"] == "Game Day", "a newer report on file is never replaced by an older one in the file")
+before = {"reported": True, "effectiveAt": "2026-10-23", "heading": "Game Day", "kickoffDate": "2026-10-24",
+          "game": "at Boise State", "players": [], "current": False}
+_, season = ca.build_report(PAC12, {"utah state"}, [before])
+ok([r["kickoffDate"] for r in season] == ["2026-10-24", "2026-10-31"], "last week's report stays in the season's history")
+for what, mutate in (("an unknown report name", lambda d: d["games"][0].update(notes="Fourth Report")),
+                     ("a player with no status", lambda d: d["games"][0]["home"]["players"][0].pop("status")),
+                     ("a status no rule reads", lambda d: d["games"][0]["home"]["players"][0].update(status="Limited")),
+                     ("no games list", lambda d: d.pop("games"))):
+    bad = copy.deepcopy(PAC12)
+    mutate(bad)
+    try:
+        ca.build_report(bad, {"utah state"})
+        ok(False, "%s is refused" % what)
+    except ValueError as e:
+        ok(True, "%s is refused, the last good files left alone (%s)" % (what, e))
 
 print("\n%s" % ("all passed" if not failures else "%d FAILED" % failures))
 sys.exit(1 if failures else 0)

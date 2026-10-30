@@ -57,6 +57,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://pittsburghpanthers.com/sports/2026/8/31/2026-pitt-football-game-notes-stats", label: "pittsburghpanthers.com", kind: "index" },
     roster: { url: "https://pittsburghpanthers.com/sports/football/roster", label: "pittsburghpanthers.com" }
   },
 
