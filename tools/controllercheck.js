@@ -12,7 +12,7 @@
    - a failed Matchup preview is tried again, and a failed yards or points
      request is never remembered as "no figure" for the session
    - Game's views follow the hero game from the first paint, the saved copy
-     included
+     included, and its Matchup is warmed from Home before the tap
 
    Usage: node tools/controllercheck.js     (exit 1 on failure) */
 "use strict";
@@ -153,6 +153,20 @@ function fakeCaches() {
   var V4 = { at: Date.now(), gd: {}, preview: null, previewFailed: true, previewAt: Date.now() - 5e3 };
   re.loadGameDetail(V4, {}, { phase: "pregame" }, function () {}); await settled();
   ok(V4.preview === null, "but not on every paint: not again within 30 seconds");
+
+  // Sweep, 2026-10-29: Game's Matchup is warmed from Home, into the state
+  // Game reads, so the tap opens it drawn.
+  var w = previewScope(); w.statsFail = 0; w.edgeFail = 0;
+  vm.runInContext("var NEXT={ id:'g1', date:'2026-10-31T16:00Z' }, paints=0, SB={}, TEAM={}, TEAM_CONFIG={}, OPENING={};" +
+    "TeamOS.espn.gameDetail=function(){ return {}; }; TeamOS.game.lifecycle=function(){ return { phase:'pregame' }; };" +
+    "function learnOpening(){ return false; } function heroGame(){ return NEXT; } function paintGame(){ paints++; }" +
+    "function gameState(id){ return { id:id, gd:null, preview:undefined, at:0, loading:false }; } var GV=gameState(null);" + lift("warmGame"), w);
+  w.S.games = null; w.warmGame();
+  ok(w.summaries === 0, "warming Game waits for the schedule");
+  w.S.games = [w.NEXT]; w.warmGame(); await settled(8);
+  ok(w.GV.id === "g1" && w.GV.gd && w.GV.preview && w.summaries === 1, "then loads the next game's summary and Matchup into Game's own state");
+  w.warmGame(); await settled();
+  ok(w.summaries === 1, "and opening Game after it asks for nothing again");
 
   // ---- Stats: the right season, and an honest refresh (Codex review, #82) ----
   console.log("Stats: the season type, and what a refresh came to");
