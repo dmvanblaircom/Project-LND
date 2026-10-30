@@ -234,5 +234,40 @@ ok(bn.parse_feed(CATS, "Site A")[0]["categories"] == ["Basketball", "WBB"], "RSS
 ACATS = ATOM.replace(b"<updated>", b'<category term="Hockey"/><updated>')
 ok(bn.parse_feed(ACATS, "Site B")[0]["categories"] == ["Hockey"], "Atom category terms too")
 
+import gzip
+ok(bn.ungzip(gzip.compress(RSS)) == RSS and bn.parse_feed(bn.ungzip(gzip.compress(RSS)), "Site A"),
+   "a feed sent gzipped though nobody asked (SJSU Athletics, 2026-10-30) is read; a plain one is left as it is")
+ok(bn.ungzip(RSS) == RSS, "and a plain feed passes through untouched")
+# A quiet week is not a broken source (refresh, 2026-10-30): the Daily Lobo
+# answered with ten stories and none of them football, and the run failed
+# every half hour. Every feed answering with nothing to keep leaves the file
+# and succeeds; every feed failing still fails.
+import io, contextlib, tempfile
+def run_main(read):
+    saved = (bn.read_source, bn.teamconfig.load, bn.teamconfig.snapshot, sys.argv)
+    bn.read_source = read
+    bn.teamconfig.load = lambda t: {"team": {"id": t, "league": "college-football"}, "sources": {"beatFeeds": [{"name": "Daily Lobo", "feed": "https://x.example/feed", "sportsSection": True}]}}
+    bn.teamconfig.snapshot = lambda c, k: None
+    out = os.path.join(tempfile.mkdtemp(), "news.json")
+    with open(out, "w") as f:
+        f.write("OLD")
+    sys.argv = ["beat_news.py", "--team", "new-mexico", "--out", out]
+    code = 0
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            bn.main()
+    except SystemExit as e:
+        code = e.code or 0
+    finally:
+        bn.read_source, bn.teamconfig.load, bn.teamconfig.snapshot, sys.argv = saved
+    return code, open(out).read()
+QUIET = [{"title": "Lobos sweep Spartans at home", "link": "https://x.example/1", "source": "Daily Lobo", "published": "2026-10-29T12:00:00Z", "categories": ["Volleyball"]}]
+code, body = run_main(lambda src: (QUIET, src["feed"], None))
+ok(code == 0 and body == "OLD", "feeds that answer with no football story: the old file stays and the run succeeds (exit %r)" % code)
+def down(src):
+    raise ValueError("not XML")
+code, body = run_main(down)
+ok(code not in (0, None) and body == "OLD", "every feed failing still fails the run, the old file kept (exit %r)" % code)
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "the producer reads feeds and finds moved ones"))
 sys.exit(1 if failures else 0)

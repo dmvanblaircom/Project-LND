@@ -75,6 +75,8 @@ STATUSES = [
 NOT_LISTED = re.compile(r"^(available|exempt|-|)$", re.I)
 ORDER = ["Game Day", "Update 2", "Update 1", "Initial"]      # newest first
 RANK = {kind: len(ORDER) - i for i, kind in enumerate(ORDER)}  # Initial 1 ... Game Day 4
+FILED = ("Initial", "Game Day")                  # the reports every conference files
+ARCHIVE_COLUMNS = set(ORDER) | {"Number", "Opponent", "OpponentDisplay", "Player", "Team", "TeamDisplay", "Week", "WeekNum"}
 PENDING = {"Report Pending"}  # HD Intelligence placeholder before the next report is filed
 # A published report lists the whole travel squad (about 110-120 players), the
 # available ones included. Far fewer rows is a partial or changed answer, not
@@ -155,12 +157,15 @@ def check_published(report, side, other):
                          % (len(rows) if isinstance(rows, list) else "no"))
     if not all(isinstance(r, dict) and all(str(r.get(k) or "").strip() for k in ("name", "status")) for r in rows):
         raise ValueError("a player row in this week's report has no name or no status")
-    # The rows' form is checked too: every one "POS [#N] Name", nearly all
-    # numbered. A new form ("WR 0 Brandon Inniss") would read as mangled
-    # names that match nobody on the roster (Codex, #118).
+    # The rows' form is checked too: every listed one "POS [#N] Name", nearly
+    # all numbered. A new form ("WR 0 Brandon Inniss") would read as mangled
+    # names that match nobody on the roster (Codex, #118). A row the report
+    # does not list is never read, so a slip there ("38 #38 Karsten Busch",
+    # Available, the ACC's on 2026-10-30) does not hold up the report.
     names = [str(r["name"]) for r in rows]
+    listed = [str(r["name"]) for r in rows if status_key(r.get("status"))]
     numbered = sum(1 for n in names if (NAME.match(n) or {}) and NAME.match(n).group("no"))
-    if not all(NAME.match(n) for n in names) or numbered < NUMBERED * len(names):
+    if not all(NAME.match(n) for n in listed) or numbered < NUMBERED * len(names):
         raise ValueError("this week's player names are not in the form 'POS #N Name' (%d of %d numbered)"
                          % (numbered, len(names)))
     if not other or not str(other.get("teamDisplayName") or other.get("teamName") or "").strip():
@@ -177,7 +182,11 @@ def archive_games(payload, names):
         # date, the opponent, and the report columns (Codex, #118).
         day = _date(row.get("Week"))
         game = str(row.get("OpponentDisplay") or row.get("Opponent") or "").strip()
-        if not day or not game or not all(k in row for k in ORDER):
+        # Every conference files Initial and Game Day; the Big Ten files two
+        # updates between them, the MAC and the American do not (refresh,
+        # 2026-10-30) - an update column not there was not filed. A column
+        # no rule knows is a renamed one, never quietly skipped.
+        if not day or not game or not all(k in row for k in FILED) or set(row) - ARCHIVE_COLUMNS:
             raise ValueError("an archive row for the team has no readable date, opponent or report columns")
         g = out.setdefault(day, {"game": game, "rows": []})
         g["rows"].append(row)
