@@ -41,11 +41,13 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: One source only: thesundevils.com has no feed, House of
-    // Sparky (SB Nation) is gone (404), there is no On3 team feed (404), and
-    // the State Press has no working feed.
+    // Devils Digest is On3's fan site for Arizona State (the former Rivals
+    // site), read through its own section so On3's national stories stay out
+    // (2026-10-29). Not used: thesundevils.com has no feed, House of Sparky
+    // (SB Nation) is gone (404), and the State Press has no working feed.
     beatFeeds: [
-      { name: "Arizona State On SI", feed: "https://www.si.com/college/arizonastate/feed", site: "https://www.si.com/college/arizonastate", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Arizona State On SI", feed: "https://www.si.com/college/arizonastate/feed", site: "https://www.si.com/college/arizonastate", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "Devils Digest", feed: "https://www.on3.com/sites/asu-devils/feed/", site: "https://www.on3.com/sites/asu-devils/", paths: ["/sites/asu-devils/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

@@ -7,32 +7,18 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T14:09:43.552493+00:00",
+ "fetchedAt": "2026-10-30T02:09:31.927848+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "vs. Kansas State",
  "players": [
   {
-   "pos": "WR",
-   "no": "6",
-   "name": "Quentin Gibson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "7",
-   "name": "Kam Perry",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "QB",
    "no": "10",
    "name": "Julian Lewis",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -81,7 +67,7 @@
    "pos": "DL",
    "no": "99",
    "name": "Dylan Manuel",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],

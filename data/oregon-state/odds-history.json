@@ -1,6 +1,6 @@
 {
 "team": "oregon-state",
-"updated": "2026-10-29T18:07Z",
+"updated": "2026-10-30T01:08Z",
 "points": [
 {
 "t": "2026-10-29T15:37Z",
@@ -14,6 +14,27 @@
 "title": null,
 "titleEvent": "KXNCAAF-27",
 "playoff": 15.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-30T00:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 15.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-30T00:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 13.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-30T01:08Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 13.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

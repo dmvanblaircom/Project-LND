@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T10:08:13.646762+00:00",
+ "fetchedAt": "2026-10-30T00:09:27.217240+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "at USC",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "WR",
    "no": "11",
    "name": "Brock Boyd",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -64,6 +64,13 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "29",
+   "name": "Deshawn Stewart",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "30",
    "name": "Amari Valerio-Hudson",
@@ -74,14 +81,7 @@
    "pos": "LB",
    "no": "33",
    "name": "Eli Lee",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "43",
-   "name": "Amar’e Miller",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

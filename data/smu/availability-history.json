@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "smu",
- "updated": "2026-10-29T14:09:47.093901+00:00",
+ "updated": "2026-10-30T00:09:28.563208+00:00",
  "reports": [
   {
    "schema": 1,
@@ -457,10 +457,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T14:09:47.093901+00:00",
+   "fetchedAt": "2026-10-30T00:09:28.563208+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-28",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-31",
    "game": "at Syracuse",
    "players": [

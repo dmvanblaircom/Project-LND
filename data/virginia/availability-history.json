@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "virginia",
- "updated": "2026-10-29T14:09:48.334602+00:00",
+ "updated": "2026-10-30T00:09:31.157252+00:00",
  "reports": [
   {
    "schema": 1,
@@ -807,18 +807,25 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T14:09:48.334602+00:00",
+   "fetchedAt": "2026-10-30T00:09:31.157252+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-28",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-31",
    "game": "at Wake Forest",
    "players": [
     {
+     "pos": "RB",
+     "no": "3",
+     "name": "Noah Vaughn",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
      "pos": "S",
      "no": "4",
      "name": "Corey Costner",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -850,23 +857,9 @@
      "detail": ""
     },
     {
-     "pos": "WR",
-     "no": "15",
-     "name": "Dillon Newton-Short",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "ATH",
      "no": "17",
      "name": "Jae’Oyn Williams",
-     "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "19",
-     "name": "Evan Ward",
      "status": "out-game",
      "detail": ""
     },
@@ -888,7 +881,21 @@
      "pos": "RB",
      "no": "21",
      "name": "Jekail Middlebrook",
-     "status": "doubtful",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "21",
+     "name": "Keke Adams",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "23",
+     "name": "Triston Ward",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -909,7 +916,7 @@
      "pos": "S",
      "no": "30",
      "name": "Ethan Minter",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
