@@ -34,10 +34,13 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // One source only: The Nevada Sagebrush's site no longer resolves, On SI
-    // has no Nevada site (404), and On3's feed carries only national stories.
+    // The Nevada Sagebrush is the student paper; its feed is every topic, so
+    // only stories that say football stay (2026-10-29). Not used: On SI has no
+    // Nevada site (404), On3's feed carries only national stories, and Nevada
+    // Sports Net has no feed.
     beatFeeds: [
-      { name: "Nevada Athletics", feed: "https://nevadawolfpack.com/rss?path=football", site: "https://nevadawolfpack.com/sports/football", logo: "https://nevadawolfpack.com/favicon.ico" }
+      { name: "Nevada Athletics", feed: "https://nevadawolfpack.com/rss?path=football", site: "https://nevadawolfpack.com/sports/football", logo: "https://nevadawolfpack.com/favicon.ico" },
+      { name: "The Nevada Sagebrush", feed: "https://nevadasagebrush.com/feed/", site: "https://nevadasagebrush.com/", sportsSection: true }
     ]
   },
 

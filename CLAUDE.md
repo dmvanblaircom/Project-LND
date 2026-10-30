@@ -19,6 +19,8 @@ The critical architecture test is:
 
 If adding Ohio State requires copying the application or scattering team conditionals throughout the code, the architecture boundary is wrong.
 
+Parity is the floor, not the goal (decision 0038). Every team first gets every capability its sources allow. After that, each Suite should become as distinctive as the fandom it serves: its traditions, rivalries, voices and rhythms. That uniqueness comes from the team's data and declared capabilities, never from conditionals in the code.
+
 ## Current State
 
 Irish Watch is a vanilla HTML/CSS/JavaScript PWA using browser APIs, ESPN data, local JSON snapshots, GitHub Actions, Kalshi data, RSS/news sources, a service worker, responsive UI, accessibility features, and automated checks. It now runs as Suite on TeamOS: one codebase, the team chosen at runtime from `teams/<team>.js`, with a small edge API (Cloudflare Worker, decision 0030) for keyed data. The as-built map is `docs/engineering/current-architecture.md`.

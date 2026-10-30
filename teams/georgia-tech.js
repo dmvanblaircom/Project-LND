@@ -41,11 +41,14 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: ramblinwreck.com's feed is every sport, the
-    // Technique has no working feed, and there is no On3 team feed (404).
+    // Jackets Online is On3's fan site for Georgia Tech (the former Rivals
+    // site), read through its own section so On3's national stories stay out
+    // (2026-10-29). Not used: ramblinwreck.com's feed is every sport, and the
+    // Technique has no working feed.
     beatFeeds: [
       { name: "From the Rumble Seat", feed: "https://www.fromtherumbleseat.com/rss/current.xml", site: "https://www.fromtherumbleseat.com/" },
-      { name: "Georgia Tech On SI", feed: "https://www.si.com/college/georgiatech/feed", site: "https://www.si.com/college/georgiatech", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Georgia Tech On SI", feed: "https://www.si.com/college/georgiatech/feed", site: "https://www.si.com/college/georgiatech", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "Jackets Online", feed: "https://www.on3.com/sites/jackets-online/feed/", site: "https://www.on3.com/sites/jackets-online/", paths: ["/sites/jackets-online/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

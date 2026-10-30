@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T14:09:44.820895+00:00",
+ "fetchedAt": "2026-10-30T02:09:33.739082+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "vs. Oklahoma State",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "QB",
    "no": "5",
    "name": "Connor Moberly",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -53,7 +53,7 @@
    "pos": "DT",
    "no": "99",
    "name": "Bryson Lamb",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   }
  ],

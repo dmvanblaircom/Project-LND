@@ -1,0 +1,76 @@
+# The experience sweep (tools/sweep.js): every team, every screen, with live
+# data, looking for what a fan would notice - errors, broken images, text cut
+# off or leaking "undefined", sideways scrolling, dead links - and timing the
+# first load. Each morning against production, and on demand against any
+# branch's build. It reports; it does not gate a pull request (David,
+# 2026-10-29).
+name: Experience sweep
+
+on:
+  schedule:
+    - cron: "17 10 * * *"          # 6:17 a.m. Eastern (EDT), before the fan's morning check
+  workflow_dispatch:
+    inputs:
+      base:
+        description: "Where to sweep: empty for production, a URL, or local"
+        required: false
+        type: string
+      teams:
+        description: "Team ids, comma-separated (empty: all)"
+        required: false
+        type: string
+      widths:
+        description: "Widths in px"
+        required: false
+        default: "390,1280"
+        type: string
+      contrast:
+        description: "Also judge text contrast on the five main screens at phone width (slower)"
+        required: false
+        default: false
+        type: boolean
+      sheets:
+        description: "Review run: each team's screens as a contact sheet, and the first load's requests and layout shifts, in the log"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    name: sweep (${{ matrix.shard }}/4)
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Sweep
+        env:
+          # production unless a dispatch names another address ("local": this
+          # branch's build on the runner, whose provider calls are refused)
+          SWEEP_BASE: ${{ inputs.base }}
+          SWEEP_TEAMS: ${{ inputs.teams }}
+          SWEEP_WIDTHS: ${{ inputs.widths || '390,1280' }}
+          SWEEP_CONTRAST: ${{ inputs.contrast && '1' || '' }}
+          SWEEP_SHARD: ${{ matrix.shard }}/4
+          SWEEP_LOG_SHOTS: ${{ inputs.sheets && '1' || '' }}
+          SWEEP_SHEET: ${{ inputs.sheets && '1' || '' }}
+          SWEEP_PERF_DETAIL: ${{ inputs.sheets && '1' || '' }}
+        run: node tools/sweep.js
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sweep-${{ matrix.shard }}
+          path: artifacts/sweep
