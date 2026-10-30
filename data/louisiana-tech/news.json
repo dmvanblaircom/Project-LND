@@ -1,7 +1,16 @@
 {
  "team": "louisiana-tech",
- "updated": "2026-10-30T04:38:24.025768+00:00",
+ "updated": "2026-10-30T14:38:28.008175+00:00",
  "items": [
+  {
+   "title": "Three Keys to Victory: South Alabama",
+   "link": "https://on3.com/sites/bleed-tech-blue/news/three-keys-to-victory-south-alabama/",
+   "source": "Bleed Tech Blue",
+   "summary": "LA Tech is seeking a perfect end to their perfect October. How can the Dogs get it done on the road in Mobile?",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28223047/Screenshot-2026-10-28-223037.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-30T11:30:00+00:00"
+  },
   {
    "title": "Preview: LA Tech at South Alabama",
    "link": "https://latechsports.com/news/2026/10/29/football-preview-la-tech-at-south-alabama",
@@ -154,15 +163,6 @@
    "image": "https://latechsports.com/images/2026/10/24/story_image_ODU_FB_recap.png?width=800",
    "sourceLogo": "https://latechsports.com/favicon.ico",
    "published": "2026-10-25T03:00:00+00:00"
-  },
-  {
-   "title": "GAME DAY PRIMER: Louisiana Tech vs Old Dominion",
-   "link": "https://on3.com/sites/bleed-tech-blue/news/game-day-primer-louisiana-tech-vs-old-dominion/",
-   "source": "Bleed Tech Blue",
-   "summary": "Louisiana Tech (4-2, 2-0) will host Old Dominion (2-5, 1-3) for Homecoming in Ruston on Saturday afternoon.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/23102920/Baker-3.webp",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-24T10:30:00+00:00"
   },
   {
    "title": "Preview: LA Tech vs. Old Dominion",
