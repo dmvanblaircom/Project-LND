@@ -1,7 +1,16 @@
 {
  "team": "utah",
- "updated": "2026-10-30T00:08:56.351862+00:00",
+ "updated": "2026-10-30T14:09:58.204425+00:00",
  "items": [
+  {
+   "title": "IN THE ZONE PODCAST: Houston, Cincinnati and Mailbag",
+   "link": "https://on3.com/teams/utah-utes/news/in-the-zone-podcast-houston-cincinnati-and-mailbag/",
+   "source": "On3",
+   "summary": "Dan Sorensen and Sammy Mora are back for this week's episode of In the Zone. They recap the Houston game and preview the spooky match up with Cincinnati.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/06/04141638/ChatGPT-Image-May-27-2026-02_54_59-PM.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-30T13:52:17+00:00"
+  },
   {
    "title": "Utes in the Pros: Week 8",
    "link": "https://utahutes.com/news/2026/10/29/football-utes-in-the-pros-week-8",
@@ -253,15 +262,6 @@
    "image": "https://www.deseret.com/resizer/v2/RJJLQRHL25GE3NDB3MZUJNF5KM.JPG?auth=c38bfd80c655a17629131e1aeacd80a2d59b8c9a1b1fa4df5a1bf020a53034c1&smart=true&width=980&height=600",
    "sourceLogo": null,
    "published": "2026-10-25T18:05:36+00:00"
-  },
-  {
-   "title": "Utah Football Stays Unbeaten, Moves Up In the Polls",
-   "link": "https://on3.com/teams/utah-utes/news/utah-football-stays-unbeaten-moves-up-in-the-polls/",
-   "source": "On3",
-   "summary": "Utah football was able to come away with a much needed ranked win on Saturday night. Their performance was rewarded with an improved ranking in the polls.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25115445/2026-10-25T033807Z_1263724293_MT1USATODAY30181247_RTRMADP_3_NCAA-FOOTBALL-HOUSTON-AT-UTAH.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-25T18:02:22+00:00"
   },
   {
    "title": "Utah Beats Houston 21-13 to Improve to 7-0",
