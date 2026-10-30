@@ -1,7 +1,16 @@
 {
  "team": "south-florida",
- "updated": "2026-10-30T13:39:38.054791+00:00",
+ "updated": "2026-10-30T17:39:03.601312+00:00",
  "items": [
+  {
+   "title": "Know Your Opponent: UAB",
+   "link": "https://on3.com/sites/bulls-insider/news/know-your-opponent-uab/",
+   "source": "Bulls Insider",
+   "summary": "Q&A with Charles Vaughan of AL.com on what to expect from UAB",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/08/30202956/2025-11-01T193947Z_1522451654_MT1USATODAY27475177_RTRMADP_3_NCAA-FOOTBALL-ALABAMA-BIRMINGHAM-AT-CONNECTICUT.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-30T15:47:23+00:00"
+  },
   {
    "title": "Bulls flip UAB OL commit Mack on game week with UAB",
    "link": "https://on3.com/sites/bulls-insider/news/bulls-flip-uab-ol-commit-mack-on-game-week-with-uab/",
@@ -307,15 +316,6 @@
    "image": "https://www.usforacle.com/wp-content/uploads/sites/2/2026/10/1V6A2309-2-scaled.jpg",
    "sourceLogo": "https://www.usforacle.com/wp-content/uploads/sites/2/2023/11/cropped-YTJytUXh_400x400-32x32.jpg",
    "published": "2026-10-05T02:54:12+00:00"
-  },
-  {
-   "title": "What He Said, What He Meant: Coach Brian Hartline After USF's Loss to Temple",
-   "link": "https://on3.com/sites/bulls-insider/news/what-he-said-what-he-meant-coach-brian-hartline-after-usfs-loss-to-temple/",
-   "source": "Bulls Insider",
-   "summary": "Breaking down coach Brian Hartline's post-game press conference after South Florida's home loss to Temple.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/12232613/2026-09-12T195906Z_354411993_MT1USATODAY29802376_RTRMADP_3_NCAA-FOOTBALL-SOUTH-FLORIDA-AT-ARMY.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-04T15:33:24+00:00"
   }
  ]
 }
