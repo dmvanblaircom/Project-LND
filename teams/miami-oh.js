@@ -54,6 +54,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://miamiredhawks.com/sports/football/schedule", label: "miamiredhawks.com", kind: "schedule" },
     roster: { url: "https://miamiredhawks.com/sports/football/roster", label: "miamiredhawks.com" }
   },
 

@@ -51,6 +51,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://cmuchippewas.com/sports/football/schedule", label: "cmuchippewas.com", kind: "schedule" },
     roster: { url: "https://cmuchippewas.com/sports/football/roster", label: "cmuchippewas.com" }
   },
 

@@ -56,6 +56,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://goccusports.com/sports/2026/9/3/2026-football-game-notes", label: "goccusports.com", kind: "index" },
     roster: { url: "https://goccusports.com/sports/football/roster", label: "goccusports.com" }
   },
 

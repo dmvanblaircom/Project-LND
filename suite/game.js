@@ -28,6 +28,8 @@
                          "#schedule/<id>"
        model.notes       TeamOS.notes.forGame() | null - the week's official
                          game notes, only for the game they were written for
+       model.gameNotes   { url, label, kind: "index" | "schedule" } | null -
+                         where the program posts them (team config links)
 
    The screen is written from the team's side: the team is always on the
    left, whoever is home. */
@@ -546,12 +548,24 @@ Suite.game = (function () {
     return card("Box score", body, sideToggle(m, m.side), "gcard-box");
   }
 
+  // Where the program posts its game notes: a maintained notes page, or its
+  // schedule, where each game's notes are posted (David, 2026-10-30). The
+  // program's own document, read on its own site.
+  var EXTERNAL = '<svg class="ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4"/></svg>';
+  function notesLink(m) {
+    var n = m.gameNotes;
+    if (!n || !n.url) return "";
+    return card(n.kind === "schedule" ? "Schedule and game notes" : "Game notes",
+      '<a class="ro-src gn-link" href="' + esc(n.url) + '" target="_blank" rel="noopener noreferrer">' + esc(n.label) + EXTERNAL +
+      '<span class="sr-only"> (opens in a new tab)</span></a>', "", "gcard-docs");
+  }
+
   // ---- compose -------------------------------------------------------------------------
 
   function body(m) {
     var g = m.game, v = m.view;
     if (m.lifecycle.phase === "pregame") {
-      return matchup(m) + leaders(m, "Leaders (season)") + seriesCard(g, m.notes) + numbersCard(m.notes);
+      return matchup(m) + leaders(m, "Leaders (season)") + seriesCard(g, m.notes) + numbersCard(m.notes) + notesLink(m);
     }
     if (v === "drive") {
       var html = driveCard(m) + lastPlay(m) + linescore(m);
@@ -564,7 +578,7 @@ Suite.game = (function () {
       if (!m.detail) return quiet("Loading the stats…");
       return (statRows(m) ? card("Team stats", statRows(m)) : "") + linescore(m) + leaders(m, "Leaders") || quiet("No stats yet.");
     }
-    return box(m) + linescore(m);                               // box, the final default
+    return box(m) + linescore(m) + notesLink(m);                // box, the final default
   }
 
   // The names row follows ui.fitNames: never an ellipsis, both sides alike.

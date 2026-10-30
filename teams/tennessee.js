@@ -56,6 +56,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://utsports.com/sports/football/schedule", label: "utsports.com", kind: "schedule" },
     roster: { url: "https://utsports.com/sports/football/roster", label: "utsports.com" }
   },
 

@@ -1647,7 +1647,10 @@ function gameModel(V, g, lc, view, base){
     view: view || lc.defaultView, preview:V.preview, side:V.side, open:V.open,
     weather: g && HOME.weatherFor===g.id ? HOME.weather : null, now:new Date(),
     // this game's facts from the week's notes: only the game they were written for
-    notes: TeamOS.notes.forGame(NOTES.model, g)
+    notes: TeamOS.notes.forGame(NOTES.model, g),
+    // where the program posts its game notes, for the fan to read them there
+    // (David, 2026-10-30: a link for every school, readers to follow)
+    gameNotes: (TEAM_CONFIG.links && TEAM_CONFIG.links.gameNotes) || null
   };
 }
 function paintGame(){

@@ -50,6 +50,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://ecupirates.com/sports/football/schedule", label: "ecupirates.com", kind: "schedule" },
     roster: { url: "https://ecupirates.com/sports/football/roster", label: "ecupirates.com" }
   },
 
