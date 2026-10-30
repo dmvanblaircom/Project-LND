@@ -1,7 +1,16 @@
 {
  "team": "ul-monroe",
- "updated": "2026-10-29T18:39:28.367243+00:00",
+ "updated": "2026-10-30T22:39:42.397676+00:00",
  "items": [
+  {
+   "title": "Football Preview: Warhawks Gear Up for Return Home vs. Southern Miss",
+   "link": "https://ulmwarhawks.com/news/2026/10/30/football-preview-warhawks-gear-up-for-return-home-vs-southern-miss.aspx",
+   "source": "ULM Athletics",
+   "summary": "<img alt=\"USMPreview\" src=\"https://ulmwarhawks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/USMPreview.png\" /><br /><br />The Warhawks hunt for a win in Monroe, coming off the 21-14 victory at Troy.",
+   "image": "https://ulmwarhawks.com/images/2026/10/30/USMPreview.png?width=800",
+   "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
+   "published": "2026-10-30T22:16:00+00:00"
+  },
   {
    "title": "Warhawk Football Downs Troy, 21-14",
    "link": "https://ulmwarhawks.com/news/2026/10/24/warhawk-football-downs-troy-21-14.aspx",
@@ -82,15 +91,6 @@
    "image": "https://ulmwarhawks.com/images/2026/9/19/RolandRecap.png?width=800",
    "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
    "published": "2026-09-20T02:16:00+00:00"
-  },
-  {
-   "title": "Preview: Warhawks Prepare for Home Opener against Lions",
-   "link": "https://ulmwarhawks.com/news/2026/9/18/football-preview-warhawks-prepare-for-home-opener-against-lions.aspx",
-   "source": "ULM Athletics",
-   "summary": "<img alt=\"SLUPreview\" src=\"https://ulmwarhawks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/18/SLUPreview.png\" /><br /><br />ULM looks to make an impact in the home opener of the newly-named FMOL Health | St. Francis Stadium.",
-   "image": "https://ulmwarhawks.com/images/2026/9/18/SLUPreview.png?width=800",
-   "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
-   "published": "2026-09-18T20:16:00+00:00"
   }
  ]
 }
