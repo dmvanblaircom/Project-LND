@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T10:08:13.546860+00:00",
+ "fetchedAt": "2026-10-30T00:09:26.979381+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "at Oregon",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "DB",
    "no": "6",
    "name": "Robert Fitzgerald",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -99,17 +99,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "84",
-   "name": "Luke Dehnicke",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "97",
    "name": "Braxton Strong",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   }
  ],

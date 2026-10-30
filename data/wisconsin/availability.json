@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T10:08:15.314827+00:00",
+ "fetchedAt": "2026-10-30T00:09:31.904393+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "at Iowa",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "S",
    "no": "4",
    "name": "Marvin Burks Jr.",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -60,7 +60,7 @@
    "pos": "DL",
    "no": "92",
    "name": "Nolan Vils",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],

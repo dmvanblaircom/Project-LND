@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T14:09:46.827502+00:00",
+ "fetchedAt": "2026-10-30T00:09:27.962222+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "vs. Georgia Tech",
  "players": [
@@ -25,6 +25,13 @@
    "pos": "RB",
    "no": "9",
    "name": "Ja'Kyrian Turner",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "16",
+   "name": "Eliyt Nairne",
    "status": "questionable",
    "detail": ""
   },
@@ -50,17 +57,17 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "24",
+   "name": "Tyreek Robinson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "26",
    "name": "Allen Bryant",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "26",
-   "name": "Damon Ferguson Jr.",
-   "status": "questionable",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "indiana",
- "updated": "2026-10-29T10:08:12.411335+00:00",
+ "updated": "2026-10-30T00:09:24.008587+00:00",
  "reports": [
   {
    "schema": 1,
@@ -200,10 +200,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T10:08:12.411335+00:00",
+   "fetchedAt": "2026-10-30T00:09:24.008587+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-28",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-31",
    "game": "vs. Minnesota",
    "players": [
@@ -225,7 +225,7 @@
      "pos": "DB",
      "no": "13",
      "name": "Quan Sanks",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
