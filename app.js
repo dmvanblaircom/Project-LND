@@ -1853,13 +1853,23 @@ function warmTabs(){
   // the live poller should run. It is 95KB on the wire, which is why it is
   // here and not in load() competing with the schedule for first paint.
   var jobs=[function(){ getScoreboard().then(scoreboardArrived).catch(function(){}); },
-            function(){ loadRosterScreen(false, true); }, loadNews, prefetchSummaries];
+            warmGame, function(){ loadRosterScreen(false, true); }, loadNews, prefetchSummaries];
   jobs.forEach(function(fn,i){
     setTimeout(function(){
       if(document.hidden) return;
       try{ fn(); }catch(e){}
     }, 700 + i*500);
   });
+}
+
+// Game, the screen a fan opens next, is ready before the tap: its summary
+// and the pregame Matchup load into the state Game itself reads, so it opens
+// drawn, never on "Loading the matchup" (sweep, 2026-10-29).
+function warmGame(){
+  if(!S.games) return;
+  var g=heroGame(); if(!g) return;
+  if(GV.id!==g.id) GV=gameState(g.id);
+  loadGameDetail(GV, g, TeamOS.game.lifecycle(g), paintGame);
 }
 
 /* ---------- automatic refresh ---------- */

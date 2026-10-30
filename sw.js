@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-10-29p4b";
+var VERSION = "suite-2026-10-30perf";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -97,7 +97,7 @@ self.addEventListener("install", function (e) {
       return Promise.all([addAll(SHELL, files.filter(essential), true),
                           addAll(SHELL, files.filter(function (f) { return !essential(f); }))]);
     }).then(function () {
-      return Promise.all([cacheManifestIcons("./manifest.json"), cacheFontSheets("./index.html")]);
+      return cacheManifestIcons("./manifest.json");
     }),
     adoptPreviousTeam()
   ]));
@@ -138,18 +138,6 @@ function adoptPreviousTeam() {
     if (!mark || typeof mark.team !== "string" || !/^[a-z0-9-]+$/.test(mark.team)) return null;
     return addAll(SHELL, ["./teams/" + mark.team + ".js"]).then(function () {
       return writeMark({ team: mark.team, data: Array.isArray(mark.data) ? mark.data : [] });
-    });
-  }).catch(function () {});
-}
-
-// The stylesheets index.html loads from Google Fonts block the first paint.
-// Cache the ones it names, read from the page itself so there is no second list.
-function cacheFontSheets(pagePath) {
-  return caches.open(SHELL).then(function (c) {
-    return c.match(pagePath).then(function (r) { return r ? r.text() : ""; }).then(function (html) {
-      var urls = [], re = /<link[^>]+href="(https:\/\/fonts\.googleapis\.com\/[^"]+)"[^>]*rel="stylesheet"|<link[^>]+rel="stylesheet"[^>]+href="(https:\/\/fonts\.googleapis\.com\/[^"]+)"/g, m;
-      while ((m = re.exec(html))) urls.push((m[1] || m[2]).replace(/&amp;/g, "&"));
-      return missing(SHELL, urls).then(function (files) { return addAll(SHELL, files); });
     });
   }).catch(function () {});
 }
