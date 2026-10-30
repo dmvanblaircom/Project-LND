@@ -50,6 +50,10 @@ var TEAM_CONFIG = {
     // Where the program posts its game notes (Game links to it; David,
     // 2026-10-30): its schedule, where each game's notes are posted.
     gameNotes: { url: "https://bluehens.com/sports/football/schedule", label: "bluehens.com", kind: "schedule" },
+    // The Conference USA's availability reports, which Suite cannot read (its
+    // viewer answers only a browser): Roster links the page instead
+    // (David, 2026-10-30).
+    availability: { url: "https://conferenceusa.com/sports/2025/8/23/FB_0823254134.aspx", label: "ConferenceUSA.com", conference: "Conference USA" },
     roster: { url: "https://bluehens.com/sports/football/roster", label: "bluehens.com" }
   },
 

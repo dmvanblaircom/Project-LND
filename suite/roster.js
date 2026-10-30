@@ -28,6 +28,8 @@
        model.history   TeamOS.roster.history() - newest first | null
        model.roster    roster groups (TeamOS.espn.roster) | null (loading)
        model.avail     TeamOS.roster.availability() | null (loading or none)
+       model.availLink { url, label, conference } | null - the conference's
+                       own report page, for a team with no report Suite reads
        model.query     the roster search, as typed
        model.notes     TeamOS.notes.model() | null - pronunciations, captains
                        and honors from the week's official game notes
@@ -237,7 +239,13 @@ Suite.roster = (function () {
   // ---- Availability ------------------------------------------------------------
 
   function availView(m) {
-    var a = m.avail;
+    var a = m.avail, l = m.availLink;
+    // The conference publishes its reports where Suite cannot read them: say
+    // where they are, and nothing about who is out (0019: never inferred).
+    if (!a && l) return '<section class="card ro-head"><h2 class="ro-title">Availability Report</h2>' +
+      '<p class="ro-meta">' + esc((l.conference || "The conference") + " posts") +
+      " each conference game's availability report on its own site.</p>" +
+      '<p class="ro-meta">' + external(l.url, l.label) + "</p></section>";
     if (!a) return quiet(m.failed && m.failed.avail ? "The availability report didn’t load. No status is inferred from that." : "Loading the availability report…");
     var head = '<section class="card ro-head"><h2 class="ro-title">Availability Report</h2>';
     // Never inferred from silence (0019): no report says so; a report that

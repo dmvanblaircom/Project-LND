@@ -51,6 +51,10 @@ var TEAM_CONFIG = {
     // 2026-10-30): its notes page, which carries this season's notes
     // (checked from GitHub's network that day).
     gameNotes: { url: "https://jaxstatesports.com/sports/2021/8/25/2016-football-game-notes", label: "jaxstatesports.com", kind: "index" },
+    // The Conference USA's availability reports, which Suite cannot read (its
+    // viewer answers only a browser): Roster links the page instead
+    // (David, 2026-10-30).
+    availability: { url: "https://conferenceusa.com/sports/2025/8/23/FB_0823254134.aspx", label: "ConferenceUSA.com", conference: "Conference USA" },
     roster: { url: "https://jaxstatesports.com/sports/football/roster", label: "jaxstatesports.com" }
   },
 

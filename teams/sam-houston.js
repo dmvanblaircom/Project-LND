@@ -51,6 +51,10 @@ var TEAM_CONFIG = {
     // 2026-10-30): its notes page, which carries this season's notes
     // (checked from GitHub's network that day).
     gameNotes: { url: "https://gobearkats.com/sports/2021/1/26/football-game-notes", label: "gobearkats.com", kind: "index" },
+    // The Conference USA's availability reports, which Suite cannot read (its
+    // viewer answers only a browser): Roster links the page instead
+    // (David, 2026-10-30).
+    availability: { url: "https://conferenceusa.com/sports/2025/8/23/FB_0823254134.aspx", label: "ConferenceUSA.com", conference: "Conference USA" },
     roster: { url: "https://gobearkats.com/sports/football/roster", label: "gobearkats.com" }
   },
 

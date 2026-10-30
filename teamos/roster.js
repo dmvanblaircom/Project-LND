@@ -34,10 +34,19 @@ TeamOS.roster = (function () {
     if (get && get(config, "depth")) out.push({ id: "depth", label: "Depth Chart" });
     out.push({ id: "roster", label: "Roster" });
     if (get && get(config, "availability")) out.push({ id: "availability", label: "Availability" });
+    // A conference whose reports Suite cannot read (Mountain West, CUSA): the
+    // view still has its place, and links the conference's own page (David,
+    // 2026-10-30).
+    else if (availabilityLink(config)) out.push({ id: "availability", label: "Availability", link: true });
     // Who is coming and who may leave: the team's recruiting class and its
     // players on the NFL draft board, all year (David, 2026-10-24).
     if (get && get(config, "recruits")) out.push({ id: "prospects", label: "Prospects" });
     return out;
+  }
+
+  function availabilityLink(config) {
+    var l = config && config.links && config.links.availability;
+    return l && /^https:\/\//.test(l.url || "") && l.label ? l : null;
   }
 
   var SUFFIX = /^(jr|sr|ii|iii|iv|v)\.?$/i;
@@ -301,5 +310,5 @@ TeamOS.roster = (function () {
     });
   }
 
-  return { views: views, depth: depth, phase: phase, availability: availability, history: history, spotName: spotName, withStatus: withStatus };
+  return { views: views, availabilityLink: availabilityLink, depth: depth, phase: phase, availability: availability, history: history, spotName: spotName, withStatus: withStatus };
 })();

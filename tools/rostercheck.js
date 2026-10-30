@@ -55,6 +55,17 @@ var bare = JSON.parse(JSON.stringify(osu.TEAM_CONFIG)); delete bare.snapshots.av
 eq(osu.TeamOS.roster.views(bare).map(function (v) { return v.id; }), ["roster"],
    "a team with none of them: the roster alone - no empty views");
 
+// David, 2026-10-30: a conference whose reports Suite cannot read (the
+// Mountain West's, CUSA's) still gets its place, linking the conference page.
+var LINK = { url: "https://themw.com/sports/2026/8/21/football_reports.aspx", label: "TheMW.com", conference: "Mountain West" };
+var linked = JSON.parse(JSON.stringify(bare)); linked.links = { availability: LINK };
+eq(osu.TeamOS.roster.views(linked).map(function (v) { return v.id + (v.link ? "(link)" : ""); }), ["roster", "availability(link)"],
+   "a team whose conference posts its reports elsewhere: Availability, as a link");
+var both = JSON.parse(JSON.stringify(osu.TEAM_CONFIG)); both.links = { availability: LINK };
+ok(!osu.TeamOS.roster.views(both).some(function (v) { return v.link; }), "a report Suite reads wins over the link");
+var badLink = JSON.parse(JSON.stringify(bare)); badLink.links = { availability: { url: "javascript:alert(1)", label: "x" } };
+eq(osu.TeamOS.roster.views(badLink).map(function (v) { return v.id; }), ["roster"], "a link that is not https is no link");
+
 console.log("the depth chart, joined to the real roster");
 var chart = JSON.parse(read(G4.depth));
 var groups = nd.TeamOS.espn.roster(JSON.parse(read("tools/fixtures/espn-roster-nd-sep24.json")));
@@ -270,6 +281,16 @@ var b1 = rosterBody(dc1), b4 = rosterBody(dc4);
 ok(/class="ro-battle">Battle</.test(b1) && /starting jobs? still open/.test(b1), "drawn: Game 1 shows Battle badges and the open-jobs count");
 ok(!/ro-battle|still open/.test(b4), "drawn: Game 4 shows neither");
 ok(/class="ro-or">or</.test(b4), "drawn: Game 4 still shows every OR");
+
+var lh = (function () {
+  var parts = {}, h = { innerHTML: "", querySelector: function (q) { var k = (/data-ro="(\w+)"/.exec(q) || [])[1];
+    if (!k) return q === "[data-ro]" && this.innerHTML ? {} : null; return parts[k] || (parts[k] = { innerHTML: "" }); } };
+  ui5.Suite.roster.paint(h, { view: "availability", views: R.views(linked), avail: null, availLink: LINK, failed: {}, fresh: null });
+  return parts.body.innerHTML;
+})();
+ok(/Mountain West posts each conference game's availability report on its own site/.test(lh) &&
+   /href="https:\/\/themw\.com\/sports\/2026\/8\/21\/football_reports\.aspx"[^>]*target="_blank"[^>]*>TheMW\.com/.test(lh) && !/Loading/.test(lh),
+   "drawn: the conference's page, linked, and nothing about who is out");
 
 console.log("spot names");
 eq([R.spotName("QB"), R.spotName("dt"), R.spotName("WILL"), R.spotName("NICKEL")],

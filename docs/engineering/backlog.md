@@ -60,10 +60,10 @@ PRs before work.
   week's file rather than a page that stays current.
 - **Mountain West and Conference USA availability.** Both publish through
   Faktor Sports' embedded viewer, which answers only a browser: a plain
-  request gets an empty page (probe, 2026-10-30). Reading it would mean the
-  data refresh imitating a browser, so it is held for David's decision:
-  link the conference's report page for those teams, ask Faktor or the
-  conferences for a feed, or read it in a real browser in the refresh.
+  request gets an empty page (probe, 2026-10-30). David's call (2026-10-30):
+  link the conference's report page (`links.availability`, 20 teams; Roster
+  says where the reports are and links them). Reading them would take a
+  feed from Faktor or the conferences.
 - **The rest of FBS, in phases (David, 2026-10-27).** 132 teams left after
   the first six. Phase 0 first: checks that run what a change needs, in
   parallel (#186); every team's palette and faces checked in CI

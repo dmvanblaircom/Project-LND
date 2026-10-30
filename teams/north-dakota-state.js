@@ -57,6 +57,10 @@ var TEAM_CONFIG = {
     // Where the program posts its game notes (Game links to it; David,
     // 2026-10-30): its schedule, where each game's notes are posted.
     gameNotes: { url: "https://gobison.com/sports/football/schedule", label: "gobison.com", kind: "schedule" },
+    // The Mountain West's availability reports, which Suite cannot read (its
+    // viewer answers only a browser): Roster links the page instead
+    // (David, 2026-10-30).
+    availability: { url: "https://themw.com/sports/2026/8/21/football_reports.aspx", label: "TheMW.com", conference: "Mountain West" },
     roster: { url: "https://gobison.com/sports/football/roster", label: "gobison.com" }
   },
 

@@ -55,6 +55,10 @@ var TEAM_CONFIG = {
     // 2026-10-30): its notes page, which carries this season's notes
     // (checked from GitHub's network that day).
     gameNotes: { url: "https://gowyo.com/sports/2023/8/28/2023-wyoming-football-game-notes", label: "gowyo.com", kind: "index" },
+    // The Mountain West's availability reports, which Suite cannot read (its
+    // viewer answers only a browser): Roster links the page instead
+    // (David, 2026-10-30).
+    availability: { url: "https://themw.com/sports/2026/8/21/football_reports.aspx", label: "TheMW.com", conference: "Mountain West" },
     roster: { url: "https://gowyo.com/sports/football/roster", label: "gowyo.com" }
   },
 
