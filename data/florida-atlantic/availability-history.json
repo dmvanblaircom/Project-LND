@@ -1,6 +1,405 @@
 {
  "schema": 1,
  "team": "florida-atlantic",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T13:27:57.122687+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "florida-atlantic",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:27:57.122687+00:00",
+   "reported": true,
+   "effectiveAt": "2026-09-12",
+   "heading": "Game Day",
+   "kickoffDate": "2026-09-12",
+   "game": "vs. Navy",
+   "players": [
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Deshaun Batiste",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Brooks Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "19",
+     "name": "Tyson Rooks",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Rain Banick",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Lebron Edmond",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "florida-atlantic",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:27:57.122687+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Army",
+   "players": [
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Deshaun Batiste",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "6",
+     "name": "RJ Garcia II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Brooks Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "16",
+     "name": "Wallace Foster IV",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "19",
+     "name": "Tyson Rooks",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "28",
+     "name": "Kaden Shields-Dutton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "30",
+     "name": "Justin Weatherall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "50",
+     "name": "Owen Cheatham",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Rain Banick",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "71",
+     "name": "Landon Rapkiewicz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "87",
+     "name": "Peter Cannon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Lebron Edmond",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "florida-atlantic",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:27:57.122687+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-24",
+   "game": "vs. Rice",
+   "players": [
+    {
+     "pos": "",
+     "no": "1",
+     "name": "AJ Johnson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "2",
+     "name": "Kelby Valsin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "5",
+     "name": "Deshaun Batiste",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "6",
+     "name": "RJ Garcia II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "8",
+     "name": "Chris Tooley III",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "11",
+     "name": "Brooks Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "17",
+     "name": "Char'Quez Lee",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Bo Simpson-Nealy",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "21",
+     "name": "Ethan Ervin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "30",
+     "name": "Justin Weatherall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "50",
+     "name": "Owen Cheatham",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Rain Banick",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "62",
+     "name": "Vincent Fiacable",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "71",
+     "name": "Landon Rapkiewicz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "87",
+     "name": "Peter Cannon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "91",
+     "name": "Lebron Edmond",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "florida-atlantic",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:27:57.122687+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-29",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-29",
+   "game": "at North Texas",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "1",
+     "name": "AJ Johnson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "Kelby Valsin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "RJ Garcia II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "11",
+     "name": "Brooks Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "30",
+     "name": "Justin Weatherall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Owen Cheatham",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Rain Banick",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "57",
+     "name": "Ja'Kavion Nonar",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "62",
+     "name": "Vincent Fiacable",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "71",
+     "name": "Landon Rapkiewicz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "Peter Cannon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "Marcus Vinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "91",
+     "name": "Lebron Edmond",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  }
+ ]
 }

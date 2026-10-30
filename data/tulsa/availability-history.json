@@ -1,6 +1,356 @@
 {
  "schema": 1,
  "team": "tulsa",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T13:28:06.185967+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "tulsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:28:06.185967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-01",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-01",
+   "game": "vs. North Texas",
+   "players": [
+    {
+     "pos": "",
+     "no": "0",
+     "name": "Kyran Duhon",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Elijah Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Jimmy Calloway",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "19",
+     "name": "Grayson Tempest",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "29",
+     "name": "Keynan Farley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "33",
+     "name": "William Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "34",
+     "name": "Elijah Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "35",
+     "name": "C.J. Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "43",
+     "name": "Raymir Coney",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "tulsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:28:06.185967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "at Navy",
+   "players": [
+    {
+     "pos": "",
+     "no": "1",
+     "name": "Zach Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Elijah Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Jimmy Calloway",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "19",
+     "name": "Grayson Tempest",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "33",
+     "name": "William Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "34",
+     "name": "Elijah Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "35",
+     "name": "C.J. Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "43",
+     "name": "Raymir Coney",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "60",
+     "name": "Hunter Erb",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "tulsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:28:06.185967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Rice",
+   "players": [
+    {
+     "pos": "",
+     "no": "0",
+     "name": "Donnell Gee Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Elijah Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Jimmy Calloway",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "19",
+     "name": "Grayson Tempest",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "33",
+     "name": "William Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "34",
+     "name": "Elijah Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "35",
+     "name": "C.J. Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "43",
+     "name": "Raymir Coney",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "60",
+     "name": "Hunter Erb",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "99",
+     "name": "Tai Newhouse",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "tulsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:28:06.185967+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-23",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-23",
+   "game": "vs. Army",
+   "players": [
+    {
+     "pos": "",
+     "no": "0",
+     "name": "Donnell Gee Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "1",
+     "name": "Zach Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Elijah Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Jimmy Calloway",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "33",
+     "name": "William Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "34",
+     "name": "Elijah Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "35",
+     "name": "C.J. Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "43",
+     "name": "Raymir Coney",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "60",
+     "name": "Hunter Erb",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "73",
+     "name": "Cam East",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "99",
+     "name": "Tai Newhouse",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": false
+  }
+ ]
 }

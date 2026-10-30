@@ -3,13 +3,87 @@
  "team": "east-carolina",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theamerican.org/sports/football",
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:27:56.710862+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-22",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-22",
+ "game": "at Memphis",
+ "players": [
+  {
+   "pos": "",
+   "no": "2",
+   "name": "Jaylen Bowden",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "6",
+   "name": "DeMarius Hines",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "10",
+   "name": "Brock Spalding",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "11",
+   "name": "Jeremiah Melvin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "13",
+   "name": "Ayden Duncanson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "14",
+   "name": "Dillon Lorick",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "35",
+   "name": "Landon Lewis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "48",
+   "name": "Tomas O'Halloran",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "55",
+   "name": "Ethan Kramer",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "88",
+   "name": "Dawson Quarterman",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

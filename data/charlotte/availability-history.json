@@ -1,6 +1,323 @@
 {
  "schema": 1,
  "team": "charlotte",
- "updated": null,
- "reports": []
+ "updated": "2026-10-30T13:27:55.808188+00:00",
+ "reports": [
+  {
+   "schema": 1,
+   "team": "charlotte",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:27:55.808188+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-03",
+   "game": "vs. Memphis",
+   "players": [
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Chance Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Curtis Simpson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Kendal Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Conner Harrell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Zayden Laing-Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Devon St. Clair",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "32",
+     "name": "Latrell Sellers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "33",
+     "name": "Colin Bussey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Mathias Nielsen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "80",
+     "name": "Jeremiah Hoffman",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Caleb Irving",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "charlotte",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:27:55.808188+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-10",
+   "game": "at North Texas",
+   "players": [
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Chance Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "9",
+     "name": "Curtis Simpson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Kendal Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "15",
+     "name": "Ayo Tifase",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "19",
+     "name": "Kadin Schmitz",
+     "status": "out-half",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Zayden Laing-Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "22",
+     "name": "Kaden Catoe",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "26",
+     "name": "Devon St. Clair",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "32",
+     "name": "Latrell Sellers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "33",
+     "name": "Colin Bussey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Mathias Nielsen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "82",
+     "name": "Shelden Golliday",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "85",
+     "name": "Caleb Irving",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "D'Nas White",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  },
+  {
+   "schema": 1,
+   "team": "charlotte",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T13:27:55.808188+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-17",
+   "game": "at Temple",
+   "players": [
+    {
+     "pos": "",
+     "no": "7",
+     "name": "Chance Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "14",
+     "name": "Kendal Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "20",
+     "name": "Zayden Laing-Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "23",
+     "name": "Darius Wallace",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "32",
+     "name": "Latrell Sellers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "44",
+     "name": "Ian Kelly",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "45",
+     "name": "Mikey Domanik",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "50",
+     "name": "Rod Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "55",
+     "name": "Mathias Nielsen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "82",
+     "name": "Shelden Golliday",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "88",
+     "name": "D'Nas White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "99",
+     "name": "Jaylen Doss",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": false
+  }
+ ]
 }

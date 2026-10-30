@@ -3,13 +3,122 @@
  "team": "army",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theamerican.org/sports/football",
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:27:51.079977+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-23",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-23",
+ "game": "at Tulsa",
+ "players": [
+  {
+   "pos": "",
+   "no": "10",
+   "name": "Cole Searight",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "14",
+   "name": "Josh Milhollin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "16",
+   "name": "Taps Hananda",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "18",
+   "name": "Brady Mott",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "19",
+   "name": "Jaquavious Moss",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "29",
+   "name": "Kai Woolfolk",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "32",
+   "name": "Cameron Binkowski",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "33",
+   "name": "Jake Rendina",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "40",
+   "name": "Charlie Daly",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "46",
+   "name": "Nick McGlynn",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "58",
+   "name": "Rhett VanBoening",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "69",
+   "name": "Miles Hagan",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "79",
+   "name": "Jonah Zimmerman",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "83",
+   "name": "Kurt Thompson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "91",
+   "name": "Sean Donovan",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

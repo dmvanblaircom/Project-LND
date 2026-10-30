@@ -3,13 +3,122 @@
  "team": "temple",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theamerican.org/sports/football",
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:28:05.102867+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-17",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-17",
+ "game": "vs. Charlotte",
+ "players": [
+  {
+   "pos": "",
+   "no": "5",
+   "name": "Sam Brown V",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "8",
+   "name": "Eric Stuart",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "13",
+   "name": "Ajani Sheppard",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "14",
+   "name": "Nakeel Lawrence",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "17",
+   "name": "JoJo Bermudez",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "27",
+   "name": "Devontae Ward-Grant",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "30",
+   "name": "Jayvant Brown",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "33",
+   "name": "Curly Ordonez",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "34",
+   "name": "Brandon Enarusai",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "52",
+   "name": "Eric King",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "71",
+   "name": "Giakoby Hills",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "75",
+   "name": "Luke Watson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "83",
+   "name": "Kenedy Uzoma",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "87",
+   "name": "Kaegan Chambers",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "89",
+   "name": "Zander Baptiste",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

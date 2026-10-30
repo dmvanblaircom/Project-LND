@@ -3,13 +3,59 @@
  "team": "memphis",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theamerican.org/sports/football",
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:28:00.453006+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-22",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-22",
+ "game": "vs. East Carolina",
+ "players": [
+  {
+   "pos": "",
+   "no": "8",
+   "name": "Anthony Richard Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "39",
+   "name": "Desmond Cox",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "40",
+   "name": "Trey McDonald",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "66",
+   "name": "Carde Smith",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "74",
+   "name": "Richard Thigpen",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "94",
+   "name": "J'Mari Monette",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

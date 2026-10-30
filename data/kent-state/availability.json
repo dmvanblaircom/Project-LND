@@ -3,13 +3,59 @@
  "team": "kent-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://getsomemaction.com/sports/football",
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:27:59.321309+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-24",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-24",
+ "game": "vs. Akron",
+ "players": [
+  {
+   "pos": "",
+   "no": "0",
+   "name": "Mason King",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "13",
+   "name": "Quan Rhodes-McKee",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "15",
+   "name": "Sayed Abuhamdeh",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "55",
+   "name": "Jaxon Dunn",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "78",
+   "name": "Tyler Meadows",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "89",
+   "name": "Terik Mulder",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

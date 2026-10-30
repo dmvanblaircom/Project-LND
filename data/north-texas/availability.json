@@ -3,13 +3,94 @@
  "team": "north-texas",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theamerican.org/sports/football",
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:28:02.015708+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-29",
+ "game": "vs. Florida Atlantic",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "0",
+   "name": "Corri Milliner",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "8",
+   "name": "Caden Jenkins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "9",
+   "name": "Chaston Ditta",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "22",
+   "name": "Julian Knox Sr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "22",
+   "name": "Colin Page",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "27",
+   "name": "Zach Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "31",
+   "name": "Aaden Little",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "40",
+   "name": "Kailer Pettijohn",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "85",
+   "name": "Drew Clemens",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "92",
+   "name": "Grady Holmes",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Avion Carter",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

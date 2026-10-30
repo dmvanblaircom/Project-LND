@@ -3,13 +3,80 @@
  "team": "massachusetts",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://getsomemaction.com/sports/football",
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:28:00.327028+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-23",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-23",
+ "game": "at UConn",
+ "players": [
+  {
+   "pos": "",
+   "no": "0",
+   "name": "Jordan Washington",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "1",
+   "name": "Joseph Griffin Jr.",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "2",
+   "name": "T.Y. Harding",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "5",
+   "name": "William \"Pop\" Watson III",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "13",
+   "name": "Aedan McCarthy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "17",
+   "name": "Dallas Elliott",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "17",
+   "name": "Zachary Betts",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "78",
+   "name": "Greg Klingensmith",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "98",
+   "name": "William DePaepe",
+   "status": "questionable",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

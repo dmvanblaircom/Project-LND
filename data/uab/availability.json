@@ -3,13 +3,66 @@
  "team": "uab",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theamerican.org/sports/football",
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:28:06.312297+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-15",
+ "heading": "Game Day",
+ "kickoffDate": "2026-10-15",
+ "game": "vs. East Carolina",
+ "players": [
+  {
+   "pos": "",
+   "no": "8",
+   "name": "Nigel Tate",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "12",
+   "name": "Jaylen Elder",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "32",
+   "name": "Colby Archie",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "51",
+   "name": "Payton Kirkland",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "58",
+   "name": "J'Quan Mason",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "68",
+   "name": "Adam Lepkowski",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "85",
+   "name": "Antonio Ferguson",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": false
 }

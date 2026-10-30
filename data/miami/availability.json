@@ -3,13 +3,59 @@
  "team": "miami",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
  "sourceLabel": "TheACC.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T13:28:00.591995+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
+ "kickoffDate": "2026-10-31",
+ "game": "at North Carolina",
+ "players": [
+  {
+   "pos": "WR",
+   "no": "3",
+   "name": "Joshua Moore",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "6",
+   "name": "CharMar Brown",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "16",
+   "name": "Ja'Boree Antoine",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "29",
+   "name": "Romanas \"OJ\" Frederique Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "66",
+   "name": "Max Buchanan",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "88",
+   "name": "Luka Gilbert",
+   "status": "out-game",
+   "detail": ""
+  }
+ ],
+ "current": true
 }
