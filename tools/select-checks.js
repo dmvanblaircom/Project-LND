@@ -88,6 +88,7 @@ function forFile(f) {
   if (/^(docs|data)\//.test(f) || /^[^/]+\.md$/.test(f) || /^\.github\/workflows\/[^/]+\.yml$/.test(f) ||
       /^tools\/(probe-urls\.txt|fixtures\/capture-requests\.txt)$/.test(f) ||
       /^tools\/(probe_sources|cfbd_probe|cfbd_sp_probe|trim_summary|capture_[a-z_]+)\.py$/.test(f) ||
+      /^tools\/sweep\.js$/.test(f) ||
       /^\.gitignore$/.test(f))
     return { rule: "not run by the app", checks: [] };
   return { rule: "no rule names it", checks: null };

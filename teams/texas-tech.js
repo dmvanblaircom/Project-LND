@@ -41,12 +41,14 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: Viva the Matadors (SB Nation) did not
-    // answer, the Daily Toreador turned GitHub's network away (405), and
-    // there is no On3 team feed (404).
+    // Red Raider Sports is On3's fan site for Texas Tech (the former Rivals
+    // site), read through its own section so On3's national stories stay out
+    // (2026-10-29). Not used: Viva the Matadors (SB Nation) did not answer,
+    // and the Daily Toreador turned GitHub's network away (405).
     beatFeeds: [
       { name: "Texas Tech Athletics", feed: "https://texastech.com/rss?path=football", site: "https://texastech.com/sports/football", logo: "https://texastech.com/favicon.ico" },
-      { name: "Texas Tech On SI", feed: "https://www.si.com/college/texas-tech/feed", site: "https://www.si.com/college/texas-tech", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Texas Tech On SI", feed: "https://www.si.com/college/texas-tech/feed", site: "https://www.si.com/college/texas-tech", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "Red Raider Sports", feed: "https://www.on3.com/sites/red-raider-sports/feed/", site: "https://www.on3.com/sites/red-raider-sports/", paths: ["/sites/red-raider-sports/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

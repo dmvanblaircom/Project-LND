@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "mississippi-state",
- "updated": "2026-10-29T10:08:13.238646+00:00",
+ "updated": "2026-10-30T00:11:53.297884+00:00",
  "reports": [
   {
    "schema": 1,
@@ -268,10 +268,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T10:08:13.238646+00:00",
+   "fetchedAt": "2026-10-30T00:11:53.297884+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-28",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-31",
    "game": "at Texas",
    "players": [
@@ -297,6 +297,13 @@
      "detail": ""
     },
     {
+     "pos": "LB",
+     "no": "11",
+     "name": "Tyler Lockhart",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
      "pos": "WR",
      "no": "11",
      "name": "Ayden Williams",
@@ -314,7 +321,7 @@
      "pos": "OL",
      "no": "78",
      "name": "DJ Chester",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
