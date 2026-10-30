@@ -1,7 +1,16 @@
 {
  "team": "buffalo",
- "updated": "2026-10-30T18:38:09.695350+00:00",
+ "updated": "2026-10-30T20:38:04.900052+00:00",
  "items": [
+  {
+   "title": "Coach Lembo's Weekly Press Conference: Week 9",
+   "link": "https://ubbulls.com/news/2026/10/30/football-coach-lembos-weekly-press-conference-week-9",
+   "source": "UB Athletics",
+   "summary": "<img alt=\"Pete Lembo speaking at a podium\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/LemboPC.jpg\" /><br /><br />",
+   "image": "https://ubbulls.com/images/2026/10/30/LemboPC.jpg?width=800",
+   "sourceLogo": "https://ubbulls.com/favicon.ico",
+   "published": "2026-10-30T19:56:00+00:00"
+  },
   {
    "title": "Bulls Begin Midweek MACtion at Miami (OH) on Tuesday Night",
    "link": "https://ubbulls.com/news/2026/10/30/football-bulls-begin-midweek-maction-at-miami-oh-on-tuesday-night",
@@ -73,15 +82,6 @@
    "image": "https://ubbulls.com/images/2026/10/17/WALKER-20261017fb-1607-web.jpg?width=800",
    "sourceLogo": "https://ubbulls.com/favicon.ico",
    "published": "2026-10-17T22:57:00+00:00"
-  },
-  {
-   "title": "Burch Named MAC Scholar Athlete of the Week",
-   "link": "https://ubbulls.com/news/2026/10/15/football-burch-named-mac-scholar-athlete-of-the-week",
-   "source": "UB Athletics",
-   "summary": "<img alt=\"BURCH\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/26/BURCH-20260926fb-3689-web.jpg\" /><br /><br />BUFFALO, NY \u2013 University at Buffalo running back Messiah Burch was named the Mid-American Conference Scholar Athlete of the Week, the league announced on Thursday.",
-   "image": "https://ubbulls.com/images/2026/9/26/BURCH-20260926fb-3689-web.jpg?width=800",
-   "sourceLogo": "https://ubbulls.com/favicon.ico",
-   "published": "2026-10-15T23:13:00+00:00"
   }
  ]
 }

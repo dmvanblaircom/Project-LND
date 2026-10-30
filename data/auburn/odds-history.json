@@ -1,6 +1,6 @@
 {
 "team": "auburn",
-"updated": "2026-10-30T14:37Z",
+"updated": "2026-10-30T20:37Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -81,6 +81,13 @@
 },
 {
 "t": "2026-10-30T14:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 2.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-30T20:37Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 2.5,
