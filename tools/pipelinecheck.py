@@ -51,8 +51,8 @@ ok(with_kind["depth"] == ["notre-dame"] and with_kind["notes"] == ["notre-dame",
    "the workflow's loops run for the teams that declare each kind - every team's beat news, two teams' game notes, one depth chart: %s" % with_kind)
 ok(with_kind["oddsHistory"] == [t for t in ALL if declares(t, "sources", "kalshi")] and "maryland" not in with_kind["oddsHistory"],
    "price history for exactly the teams Kalshi prices (none yet for Maryland): %s" % with_kind["oddsHistory"])
-ok(with_kind["availability"] == [t for t in ALL if declares(t, "sources", "official", "availabilityReportIndex")] and "byu" not in with_kind["availability"],
-   "availability for exactly the teams with an official report - the Big Ten's, and Notre Dame's: %s" % with_kind["availability"])
+ok(with_kind["availability"] == [t for t in ALL if declares(t, "sources", "official", "availabilityReportIndex")] and "byu" in with_kind["availability"],
+   "availability for exactly the teams with an official report - the conferences' (BYU's included), and Notre Dame's: %s" % with_kind["availability"])
 nd, osu = teamconfig.load("notre-dame"), teamconfig.load("ohio-state")
 ok(teamconfig.snapshot(nd, "beatNews")["file"] == "data/notre-dame/news.json", "a producer's file is the team's declaration")
 ok(teamconfig.snapshot(osu, "depth") is None, "a team without a source has no file to write")

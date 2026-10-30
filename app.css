@@ -415,6 +415,10 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .mark.plain .initials{color:var(--s-ink-2);background:var(--s-inset)}
 .mark.loaded .initials{display:none}
 .mark.bare{border-radius:0;overflow:visible}
+/* A mark lost in its surface (suite/ui.js lift): a hairline in the
+   opposite tone, close enough to the mark to read as its edge. */
+.mark.lift img{filter:drop-shadow(0 0 .6px rgba(255,255,255,.9)) drop-shadow(0 0 .6px rgba(255,255,255,.75))}
+.mark.lift-dark img{filter:drop-shadow(0 0 .6px rgba(17,29,53,.85)) drop-shadow(0 0 .6px rgba(17,29,53,.65))}
 .mark.bare img{width:100%;height:100%}
 .mark.bare .initials{border-radius:50%;background:rgba(255,255,255,.12);color:var(--s-on-dark)}
 
@@ -505,6 +509,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 /* FINAL: the state, once, centred over the scores - team-neutral. */
 .gc-top > .gc-final{grid-column:1 / -1;justify-self:center;font-family:var(--t-font-display);font-weight:700;font-size:1.25rem;letter-spacing:.24em;text-transform:uppercase}
 .gc-when{grid-column:1;font-size:1.05rem;color:var(--s-on-dark-2)}
+.gc-when .nb{white-space:nowrap}
 .gc-net{grid-column:2;grid-row:1 / span 2;padding:.25rem .55rem;border:1px solid rgba(255,255,255,.32);border-radius:6px;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em}
 .gc-matchup{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.4rem;margin-top:.85rem}
 .gc-side{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
@@ -677,6 +682,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .go-short,.gh-opp.fit-short .go-full{display:none}
 .gh-opp.fit-short .go-short{display:inline}
 .gh-when{font-size:1rem;font-weight:600}
+.gh-when .nb{white-space:nowrap}
 .gh-venue{font-size:.88rem;color:var(--s-on-dark-2)}
 .gh-series{font-size:.88rem;color:var(--t-accent-text)}
 .gh-countdown{display:flex;justify-content:center;margin-top:.8rem !important;max-width:100%}
