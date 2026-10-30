@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-tech",
- "updated": "2026-10-29T14:09:44.042934+00:00",
+ "updated": "2026-10-30T00:09:23.434374+00:00",
  "reports": [
   {
    "schema": 1,
@@ -564,10 +564,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T14:09:44.042934+00:00",
+   "fetchedAt": "2026-10-30T00:09:23.434374+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-28",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-31",
    "game": "at Pittsburgh",
    "players": [
@@ -589,13 +589,20 @@
      "pos": "CB",
      "no": "4",
      "name": "Daiquan White",
-     "status": "out-game",
+     "status": "questionable",
      "detail": ""
     },
     {
      "pos": "DE",
      "no": "10",
      "name": "Jordan Walker",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "12",
+     "name": "Jon Mitchell",
      "status": "questionable",
      "detail": ""
     },

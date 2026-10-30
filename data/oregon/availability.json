@@ -7,13 +7,20 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T10:08:14.058857+00:00",
+ "fetchedAt": "2026-10-30T00:09:27.706406+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "vs. Northwestern",
  "players": [
+  {
+   "pos": "WR",
+   "no": "2",
+   "name": "Iverson Hooks",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "3",
@@ -61,13 +68,6 @@
    "no": "74",
    "name": "Dave Iuli",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "79",
-   "name": "Immanuel Iheanacho",
-   "status": "questionable",
    "detail": ""
   }
  ],

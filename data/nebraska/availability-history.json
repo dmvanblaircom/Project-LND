@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-10-29T10:08:13.444602+00:00",
+ "updated": "2026-10-30T00:09:26.605318+00:00",
  "reports": [
   {
    "schema": 1,
@@ -312,10 +312,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T10:08:13.444602+00:00",
+   "fetchedAt": "2026-10-30T00:09:26.605318+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-28",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-31",
    "game": "vs. Washington",
    "players": [
@@ -331,6 +331,13 @@
      "no": "5",
      "name": "Anthony Jones Jr.",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Vincent Shavers Jr.",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -379,6 +386,13 @@
      "pos": "LB",
      "no": "54",
      "name": "Jacob Bower",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Gunnar Gottula",
      "status": "out-game",
      "detail": ""
     },

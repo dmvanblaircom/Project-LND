@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida-state",
- "updated": "2026-10-29T14:09:43.846486+00:00",
+ "updated": "2026-10-30T00:09:23.165755+00:00",
  "reports": [
   {
    "schema": 1,
@@ -361,10 +361,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-29T14:09:43.846486+00:00",
+   "fetchedAt": "2026-10-30T00:09:23.165755+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-28",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-29",
+   "heading": "Update 1",
    "kickoffDate": "2026-10-31",
    "game": "vs. Clemson",
    "players": [
@@ -376,24 +376,10 @@
      "detail": ""
     },
     {
-     "pos": "QB",
-     "no": "1",
-     "name": "Malachi Marshall",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "RB",
      "no": "3",
      "name": "Samuel Singleton Jr.",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "9",
-     "name": "Omar Graham Jr.",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -428,20 +414,13 @@
      "pos": "DB",
      "no": "24",
      "name": "K.J. Kirkland",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "27",
      "name": "Jordan Crutchfield",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "28",
-     "name": "Mikai Gbayor",
      "status": "probable",
      "detail": ""
     },
