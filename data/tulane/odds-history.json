@@ -1,6 +1,6 @@
 {
 "team": "tulane",
-"updated": "2026-10-30T09:37Z",
+"updated": "2026-10-30T15:37Z",
 "points": [
 {
 "t": "2026-10-29T15:37Z",
@@ -25,6 +25,13 @@
 },
 {
 "t": "2026-10-30T09:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-30T15:37Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 0.5,
