@@ -7,24 +7,31 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T14:09:47.280104+00:00",
+ "fetchedAt": "2026-10-30T00:09:28.951689+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "at Louisville",
  "players": [
   {
-   "pos": "S",
-   "no": "6",
-   "name": "Darrius Davis",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "CB",
    "no": "9",
    "name": "Brandon Nicholson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "18",
+   "name": "Langdon Horace",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "19",
+   "name": "London Bironas",
    "status": "out-game",
    "detail": ""
   },
@@ -36,16 +43,9 @@
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "ILB",
    "no": "23",
-   "name": "Nico Brown",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "NB",
-   "no": "24",
-   "name": "Lonnie McAllister III",
+   "name": "Wassie Lugolobi",
    "status": "probable",
    "detail": ""
   },
@@ -67,13 +67,6 @@
    "pos": "LB",
    "no": "32",
    "name": "Chase Cahoon",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "33",
-   "name": "Lasiah Jackson",
    "status": "probable",
    "detail": ""
   },
@@ -82,13 +75,6 @@
    "no": "35",
    "name": "Matt Rose",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "39",
-   "name": "Charlie Eckhardt",
-   "status": "probable",
    "detail": ""
   },
   {

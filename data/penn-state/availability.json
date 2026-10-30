@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T10:08:14.163109+00:00",
+ "fetchedAt": "2026-10-30T00:09:27.824846+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "vs. Purdue",
  "players": [
@@ -81,7 +81,7 @@
    "pos": "DE",
    "no": "33",
    "name": "Alexander McPherson",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

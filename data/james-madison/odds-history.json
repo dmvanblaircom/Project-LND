@@ -1,6 +1,6 @@
 {
 "team": "james-madison",
-"updated": "2026-10-29T19:37Z",
+"updated": "2026-10-29T23:37Z",
 "points": [
 {
 "t": "2026-10-29T16:37Z",
@@ -14,6 +14,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 6.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-29T23:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 5.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

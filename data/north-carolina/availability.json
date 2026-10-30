@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T14:09:46.131507+00:00",
+ "fetchedAt": "2026-10-30T00:09:26.741753+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "vs. Miami",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "DL",
    "no": "29",
    "name": "Zavion Griffin-Haynes",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

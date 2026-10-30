@@ -1,7 +1,16 @@
 {
  "team": "fresno-state",
- "updated": "2026-10-29T19:38:38.523992+00:00",
+ "updated": "2026-10-29T23:38:22.737968+00:00",
  "items": [
+  {
+   "title": "The Pawd: Checkerboard Chats (Chase Perino, Bo Ausmus)",
+   "link": "https://gobulldogs.com/news/2026/10/29/football-the-pawd-checkerboard-chats-chase-perino-bo-ausmus",
+   "source": "Fresno State Athletics",
+   "summary": "",
+   "image": null,
+   "sourceLogo": "https://gobulldogs.com/favicon.ico",
+   "published": "2026-10-29T23:23:00+00:00"
+  },
   {
    "title": "2026 Bulldogs in the NFL: Week 7",
    "link": "https://gobulldogs.com/news/2026/10/27/football-2026-bulldogs-in-the-nfl-week-7",
@@ -82,15 +91,6 @@
    "image": "https://gobulldogs.com/images/2026/10/8/26-09-12-WB-VsSacState-169__1_.jpg?width=800",
    "sourceLogo": "https://gobulldogs.com/favicon.ico",
    "published": "2026-10-08T23:30:00+00:00"
-  },
-  {
-   "title": "2026 Bulldogs in the NFL: Week 4",
-   "link": "https://gobulldogs.com/news/2026/10/6/football-2026-bulldogs-in-the-nfl-week-4",
-   "source": "Fresno State Athletics",
-   "summary": "<img alt=\"NFL: Los Angeles Chargers at Houston Texans\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/6/img_tag_reuters.com_2026_newsml_MT1USATODAY29582282_1391601318_iYZy2.jpg\" /><br /><br />A new beginning \u2013 more Fresno State football alumni get their long-awaited chance to take the NFL field in Week 4.",
-   "image": "https://gobulldogs.com/images/2026/10/6/img_tag_reuters.com_2026_newsml_MT1USATODAY29582282_1391601318_iYZy2.jpg?width=800",
-   "sourceLogo": "https://gobulldogs.com/favicon.ico",
-   "published": "2026-10-06T21:00:00+00:00"
   }
  ]
 }

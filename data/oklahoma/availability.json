@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T10:08:13.754820+00:00",
+ "fetchedAt": "2026-10-30T00:11:54.156190+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "vs. South Carolina",
  "players": [
@@ -109,14 +109,7 @@
    "pos": "OL",
    "no": "72",
    "name": "Fred Hinton",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "77",
-   "name": "Heath Ozaeta",
-   "status": "probable",
+   "status": "doubtful",
    "detail": ""
   }
  ],

@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T10:08:12.830282+00:00",
+ "fetchedAt": "2026-10-30T00:09:25.127423+00:00",
  "reported": true,
- "effectiveAt": "2026-10-28",
- "heading": "Initial",
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
  "kickoffDate": "2026-10-31",
  "game": "vs. Illinois",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "WR",
    "no": "21",
    "name": "Sean Williams",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -67,21 +67,21 @@
    "pos": "LB",
    "no": "35",
    "name": "Keyari James",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "50",
    "name": "Trevor Szymanski",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "90",
    "name": "Delmar White",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
