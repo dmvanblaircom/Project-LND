@@ -178,6 +178,18 @@ The architecture is successful when the same application can produce:
 
 without copying the application or scattering team-specific conditionals throughout the code.
 
+## Every Suite Is Its Own
+
+Being a fan of a program is not interchangeable. Notre Dame is independence, a national schedule and a TV deal. Ohio State is The Game and the 1,000th win. The academies play for the Commander-in-Chief's Trophy. A Sun Belt fan reads the student paper because that is where the coverage is. A Suite that looks the same for every team has done half its job.
+
+David's direction (2026-10-29, decision 0038):
+
+1. **Parity first.** Every team gets every capability its sources allow: news from the outlets its fans actually read, the official injury report, depth chart and game notes where the school or conference publishes them, odds, rankings, the series and its trophies. A missing capability is a sourcing gap to close, not a design choice.
+2. **Then the team's own.** Each Suite should grow as distinctive as its fandom. That means the program's traditions and rituals, its rivalries and trophies, its voices, its language and the rhythm of its week. Over time, a fan should be able to tell whose Suite it is with the logo covered.
+3. **Still data, not code.** What makes a Suite unique is declared in that team's configuration and data, and expressed through capabilities that any team can use. It never comes from conditionals in the app. A module built for one program is a capability the next program can declare.
+
+The sequence matters. Parity across all teams comes now. Personalising each Suite within the platform is the destination, and work toward it should keep the boundary above intact.
+
 ## Core Principle
 
 **The team should feel like the product, not a filter inside the product.**
