@@ -251,7 +251,7 @@
    "state": "MD",
    "grade": 75,
    "rank": null,
-   "positionRank": 93,
+   "positionRank": 94,
    "stateRank": 32,
    "status": "Verbal"
   },
@@ -277,10 +277,10 @@
    "state": "MO",
    "grade": 74,
    "rank": null,
-   "positionRank": 194,
+   "positionRank": 195,
    "stateRank": 14,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:13Z"
 }

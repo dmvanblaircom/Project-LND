@@ -1,6 +1,39 @@
 {
  "schema": 1,
- "team": "navy",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "2426",
+ "classYear": 2027,
+ "listed": 2,
+ "committedElsewhere": 0,
+ "recruits": [
+  {
+   "id": "266734",
+   "name": "Caden Cashman",
+   "position": "OLB",
+   "highSchool": "McDonogh School",
+   "city": "Owings Mills",
+   "state": "MD",
+   "grade": 42,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "260487",
+   "name": "Lorenzo Tartamella",
+   "position": "DE",
+   "highSchool": "Red Bank Catholic High",
+   "city": "Red Bank",
+   "state": "NJ",
+   "grade": 42,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  }
+ ],
+ "fetchedAt": "2026-10-30T10:13Z"
 }

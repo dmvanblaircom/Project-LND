@@ -1,6 +1,12 @@
 {
  "schema": 1,
- "team": "air-force",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "2005",
+ "classYear": null,
+ "listed": 0,
+ "committedElsewhere": 0,
+ "recruits": [],
+ "fetchedAt": "2026-10-30T10:10Z"
 }

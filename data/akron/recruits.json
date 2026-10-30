@@ -1,6 +1,91 @@
 {
  "schema": 1,
- "team": "akron",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "2006",
+ "classYear": 2027,
+ "listed": 6,
+ "committedElsewhere": 0,
+ "recruits": [
+  {
+   "id": "273327",
+   "name": "Ronnie Taylor",
+   "position": "RB",
+   "highSchool": "Villa Angela-St. Joseph High School",
+   "city": "Cleveland",
+   "state": "OH",
+   "grade": 71,
+   "rank": null,
+   "positionRank": 147,
+   "stateRank": 86,
+   "status": "Verbal"
+  },
+  {
+   "id": "273727",
+   "name": "Jayden Remplet",
+   "position": "OT",
+   "highSchool": "Wyoming Seminary Prep School",
+   "city": "Kingston",
+   "state": "PA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273671",
+   "name": "Juleone Carney",
+   "position": "DT",
+   "highSchool": "Trinity High School",
+   "city": "Louisville",
+   "state": "KY",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273300",
+   "name": "Luke Fleischman",
+   "position": "ILB",
+   "highSchool": "Saint Francis High",
+   "city": "Athol Springs",
+   "state": "NY",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "272663",
+   "name": "Owen Pelkowski",
+   "position": "OG",
+   "highSchool": "Walsh Jesuit High School",
+   "city": "Stow",
+   "state": "OH",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273328",
+   "name": "Samuel McGrath",
+   "position": "OT",
+   "highSchool": "Roseville High School",
+   "city": "Roseville",
+   "state": "MI",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  }
+ ],
+ "fetchedAt": "2026-10-30T10:10Z"
 }

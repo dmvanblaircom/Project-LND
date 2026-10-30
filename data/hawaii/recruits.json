@@ -1,6 +1,104 @@
 {
  "schema": 1,
- "team": "hawaii",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "62",
+ "classYear": 2027,
+ "listed": 7,
+ "committedElsewhere": 0,
+ "recruits": [
+  {
+   "id": "272569",
+   "name": "Carvell Wafer",
+   "position": "RB",
+   "highSchool": "Buchanan High School",
+   "city": "Clovis",
+   "state": "CA",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 111,
+   "stateRank": 133,
+   "status": "Verbal"
+  },
+  {
+   "id": "274506",
+   "name": "Khalil Abdullah",
+   "position": "CB",
+   "highSchool": "Mater Academy East Las Vegas",
+   "city": "Las Vegas",
+   "state": "NV",
+   "grade": 71,
+   "rank": null,
+   "positionRank": 179,
+   "stateRank": 17,
+   "status": "Verbal"
+  },
+  {
+   "id": "271762",
+   "name": "Jaden Jefferson",
+   "position": "QB-DT",
+   "highSchool": "Centennial High School",
+   "city": "Corona",
+   "state": "CA",
+   "grade": 70,
+   "rank": null,
+   "positionRank": 40,
+   "stateRank": 192,
+   "status": "Verbal"
+  },
+  {
+   "id": "273426",
+   "name": "Asofa Lauifi",
+   "position": "OG",
+   "highSchool": "Cathedral Catholic High School",
+   "city": "San Diego",
+   "state": "CA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273428",
+   "name": "Ayden Bullinger",
+   "position": "OT",
+   "highSchool": "Graham-Kapowsin High School",
+   "city": "Graham",
+   "state": "WA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273319",
+   "name": "Davian Whitener",
+   "position": "DE",
+   "highSchool": "Desert Mountain High School",
+   "city": "Scottsdale",
+   "state": "AZ",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273427",
+   "name": "Shaison Kupukaa",
+   "position": "WR",
+   "highSchool": "Campbell High School",
+   "city": "Ewa Beach",
+   "state": "HI",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  }
+ ],
+ "fetchedAt": "2026-10-30T10:12Z"
 }

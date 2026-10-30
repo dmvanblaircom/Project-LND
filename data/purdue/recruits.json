@@ -108,7 +108,7 @@
    "state": "MD",
    "grade": 76,
    "rank": null,
-   "positionRank": 77,
+   "positionRank": 78,
    "stateRank": 28,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "AL",
    "grade": 76,
    "rank": null,
-   "positionRank": 83,
+   "positionRank": 84,
    "stateRank": 52,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "IL",
    "grade": 75,
    "rank": null,
-   "positionRank": 131,
+   "positionRank": 133,
    "stateRank": 40,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "IL",
    "grade": 74,
    "rank": null,
-   "positionRank": 96,
+   "positionRank": 97,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -212,7 +212,7 @@
    "state": "IN",
    "grade": 73,
    "rank": null,
-   "positionRank": 134,
+   "positionRank": 135,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:15Z"
 }

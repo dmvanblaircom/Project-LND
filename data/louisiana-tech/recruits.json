@@ -1,6 +1,104 @@
 {
  "schema": 1,
- "team": "louisiana-tech",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "2348",
+ "classYear": 2027,
+ "listed": 7,
+ "committedElsewhere": 0,
+ "recruits": [
+  {
+   "id": "274525",
+   "name": "Zachais Ratliff",
+   "position": "OG",
+   "highSchool": "Southwind High School",
+   "city": "Memphis",
+   "state": "TN",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 113,
+   "stateRank": 65,
+   "status": "Verbal"
+  },
+  {
+   "id": "274017",
+   "name": "Sam Hartwell",
+   "position": "QB-DT",
+   "highSchool": "Ruston High School",
+   "city": "Ruston",
+   "state": "LA",
+   "grade": 71,
+   "rank": null,
+   "positionRank": 39,
+   "stateRank": 60,
+   "status": "Verbal"
+  },
+  {
+   "id": "268479",
+   "name": "Braylon Fisher",
+   "position": "WR",
+   "highSchool": "Barbers Hill High",
+   "city": "Mont Belvieu",
+   "state": "TX",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "274524",
+   "name": "Julian Morris",
+   "position": "OG",
+   "highSchool": "D'Iberville High School",
+   "city": "D'Iberville",
+   "state": "MS",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273156",
+   "name": "Jye Blain",
+   "position": "S",
+   "highSchool": "Saint James High School",
+   "city": "Saint James",
+   "state": "LA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "271958",
+   "name": "Malik Dismuke",
+   "position": "OG",
+   "highSchool": "Waxahachie High School",
+   "city": "Waxahachie",
+   "state": "TX",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "274018",
+   "name": "Quade Williams",
+   "position": "DT",
+   "highSchool": "Richland High School",
+   "city": "North Richland Hills",
+   "state": "TX",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  }
+ ],
+ "fetchedAt": "2026-10-30T10:12Z"
 }

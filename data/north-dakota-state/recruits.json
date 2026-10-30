@@ -56,7 +56,7 @@
    "state": "WI",
    "grade": 73,
    "rank": null,
-   "positionRank": 115,
+   "positionRank": 116,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -95,8 +95,8 @@
    "state": "TX",
    "grade": 72,
    "rank": null,
-   "positionRank": 251,
-   "stateRank": 261,
+   "positionRank": 252,
+   "stateRank": 265,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "NE",
    "grade": 70,
    "rank": null,
-   "positionRank": 194,
+   "positionRank": 197,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:14Z"
 }

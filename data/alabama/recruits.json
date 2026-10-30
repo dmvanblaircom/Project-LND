@@ -178,6 +178,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274681",
+   "name": "Xavier Endicott",
+   "position": "OG",
+   "highSchool": "Oxford High School",
+   "city": "Oxford",
+   "state": "AL",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 81,
+   "stateRank": 56,
+   "status": "Verbal"
+  },
+  {
    "id": "272594",
    "name": "Luke Cody",
    "position": "K",
@@ -187,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 11,
-   "stateRank": 209,
+   "stateRank": 211,
    "status": "Verbal"
   },
   {
@@ -197,25 +210,12 @@
    "highSchool": "Liverpool High School",
    "city": "Liverpool",
    "state": "NY",
-   "grade": 44,
+   "grade": 74,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "274681",
-   "name": "Xavier Endicott",
-   "position": "OG",
-   "highSchool": "Oxford High School",
-   "city": "Oxford",
-   "state": "AL",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 52,
+   "stateRank": 11,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:10Z"
 }

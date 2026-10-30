@@ -1,6 +1,39 @@
 {
  "schema": 1,
- "team": "army",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "349",
+ "classYear": 2027,
+ "listed": 2,
+ "committedElsewhere": 0,
+ "recruits": [
+  {
+   "id": "265064",
+   "name": "Chase Goodrich",
+   "position": "DT",
+   "highSchool": "Saint Thomas Aquinas High School",
+   "city": "Fort Lauderdale",
+   "state": "FL",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 146,
+   "stateRank": 234,
+   "status": "Verbal"
+  },
+  {
+   "id": "273663",
+   "name": "Cannon Gulla",
+   "position": "ILB",
+   "highSchool": "Saint Thomas Aquinas High School",
+   "city": "Fort Lauderdale",
+   "state": "FL",
+   "grade": 70,
+   "rank": null,
+   "positionRank": 84,
+   "stateRank": 241,
+   "status": "Verbal"
+  }
+ ],
+ "fetchedAt": "2026-10-30T10:10Z"
 }

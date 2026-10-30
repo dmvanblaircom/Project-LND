@@ -1,6 +1,78 @@
 {
  "schema": 1,
- "team": "new-mexico-state",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "166",
+ "classYear": 2027,
+ "listed": 5,
+ "committedElsewhere": 0,
+ "recruits": [
+  {
+   "id": "273240",
+   "name": "Isaiah Carpenter",
+   "position": "QB-PP",
+   "highSchool": "Saint Pius X High School",
+   "city": "Albuquerque",
+   "state": "NM",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 67,
+   "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
+   "id": "274602",
+   "name": "Brayden Mendoza",
+   "position": "OT",
+   "highSchool": "Vista Grande High School",
+   "city": "Casa Grande",
+   "state": "AZ",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273238",
+   "name": "Bryce Jackson",
+   "position": "DT",
+   "highSchool": "Barbers Hill High",
+   "city": "Mont Belvieu",
+   "state": "TX",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273239",
+   "name": "Calvin Thigpen",
+   "position": "OG",
+   "highSchool": "Jersey Village High",
+   "city": "Houston",
+   "state": "TX",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273241",
+   "name": "Landon Miles",
+   "position": "S",
+   "highSchool": "Angleton High School",
+   "city": "Angleton",
+   "state": "TX",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  }
+ ],
+ "fetchedAt": "2026-10-30T10:14Z"
 }

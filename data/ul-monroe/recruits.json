@@ -1,6 +1,39 @@
 {
  "schema": 1,
- "team": "ul-monroe",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "2433",
+ "classYear": 2027,
+ "listed": 2,
+ "committedElsewhere": 0,
+ "recruits": [
+  {
+   "id": "273552",
+   "name": "Parker Robinson",
+   "position": "QB-PP",
+   "highSchool": "Neville High School",
+   "city": "Monroe",
+   "state": "LA",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 91,
+   "stateRank": 58,
+   "status": "Verbal"
+  },
+  {
+   "id": "264821",
+   "name": "Kason Delgado",
+   "position": "QB-PP",
+   "highSchool": "Broken Arrow High School",
+   "city": "Broken Arrow",
+   "state": "OK",
+   "grade": 71,
+   "rank": null,
+   "positionRank": 99,
+   "stateRank": 25,
+   "status": "Verbal"
+  }
+ ],
+ "fetchedAt": "2026-10-30T10:16Z"
 }

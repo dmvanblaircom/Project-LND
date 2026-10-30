@@ -95,7 +95,7 @@
    "state": "IA",
    "grade": 76,
    "rank": null,
-   "positionRank": 116,
+   "positionRank": 118,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "OH",
    "grade": 75,
    "rank": null,
-   "positionRank": 87,
+   "positionRank": 88,
    "stateRank": 42,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 53,
-   "stateRank": 40,
+   "stateRank": 41,
    "status": "Verbal"
   },
   {
@@ -178,5 +178,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:12Z"
 }

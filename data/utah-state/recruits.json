@@ -1,6 +1,104 @@
 {
  "schema": 1,
- "team": "utah-state",
- "source": null,
- "recruits": null
+ "source": "espn-recruiting",
+ "label": "ESPN recruiting",
+ "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
+ "teamId": "328",
+ "classYear": 2027,
+ "listed": 7,
+ "committedElsewhere": 0,
+ "recruits": [
+  {
+   "id": "273537",
+   "name": "Noah Fiefia",
+   "position": "RB",
+   "highSchool": "Ridgeline High School",
+   "city": "Millville",
+   "state": "UT",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 84,
+   "stateRank": 21,
+   "status": "Verbal"
+  },
+  {
+   "id": "273272",
+   "name": "Brayden Hanks",
+   "position": "ILB",
+   "highSchool": "Cedar Falls High School",
+   "city": "Cedar Falls",
+   "state": "IA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273271",
+   "name": "Dakota Calverley",
+   "position": "OT",
+   "highSchool": "Green Canyon High School",
+   "city": "Logan",
+   "state": "UT",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273129",
+   "name": "James Klopfenstein",
+   "position": "WR",
+   "highSchool": "Horizon High School",
+   "city": "Scottsdale",
+   "state": "AZ",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273274",
+   "name": "Makai Gordon",
+   "position": "OLB",
+   "highSchool": "Orem High School",
+   "city": "East Orem",
+   "state": "UT",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273273",
+   "name": "Malik Sika",
+   "position": "ATH",
+   "highSchool": "Westlake High School",
+   "city": "Saratoga Springs",
+   "state": "UT",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273142",
+   "name": "Samuel Coleman",
+   "position": "WR",
+   "highSchool": "Davis High School",
+   "city": "Kaysville",
+   "state": "UT",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  }
+ ],
+ "fetchedAt": "2026-10-30T10:16Z"
 }

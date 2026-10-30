@@ -95,7 +95,7 @@
    "state": "SC",
    "grade": 76,
    "rank": null,
-   "positionRank": 85,
+   "positionRank": 86,
    "stateRank": 26,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "GA",
    "grade": 75,
    "rank": null,
-   "positionRank": 133,
+   "positionRank": 135,
    "stateRank": 154,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "PA",
    "grade": 73,
    "rank": null,
-   "positionRank": 106,
+   "positionRank": 107,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:15Z"
 }

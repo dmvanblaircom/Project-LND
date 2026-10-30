@@ -251,7 +251,7 @@
    "state": "IL",
    "grade": 76,
    "rank": null,
-   "positionRank": 84,
+   "positionRank": 85,
    "stateRank": 33,
    "status": "Verbal"
   },
@@ -290,7 +290,7 @@
    "state": "CT",
    "grade": 75,
    "rank": null,
-   "positionRank": 95,
+   "positionRank": 96,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:41Z"
+ "fetchedAt": "2026-10-30T10:17Z"
 }

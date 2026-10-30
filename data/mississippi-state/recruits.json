@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "344",
  "classYear": 2027,
- "listed": 17,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -126,19 +126,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272501",
-   "name": "J'lynnd Kellow",
-   "position": "CB",
-   "highSchool": "Willis High School",
-   "city": "Willis",
-   "state": "TX",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 94,
-   "stateRank": 127,
-   "status": "Verbal"
-  },
-  {
    "id": "271541",
    "name": "Javorious Griffin",
    "position": "WR",
@@ -147,7 +134,7 @@
    "state": "MS",
    "grade": 76,
    "rank": null,
-   "positionRank": 155,
+   "positionRank": 156,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -174,7 +161,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 140,
-   "stateRank": 41,
+   "stateRank": 42,
    "status": "Verbal"
   },
   {
@@ -187,7 +174,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 129,
-   "stateRank": 44,
+   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -200,7 +187,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 42,
-   "stateRank": 47,
+   "stateRank": 48,
    "status": "Verbal"
   },
   {
@@ -212,7 +199,7 @@
    "state": "LA",
    "grade": 75,
    "rank": null,
-   "positionRank": 88,
+   "positionRank": 89,
    "stateRank": 43,
    "status": "Verbal"
   },
@@ -230,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:13Z"
 }

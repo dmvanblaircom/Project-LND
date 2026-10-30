@@ -199,7 +199,7 @@
    "state": "MD",
    "grade": 76,
    "rank": null,
-   "positionRank": 156,
+   "positionRank": 157,
    "stateRank": 31,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "MN",
    "grade": 76,
    "rank": null,
-   "positionRank": 80,
+   "positionRank": 81,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -303,8 +303,8 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 161,
-   "stateRank": 148,
+   "positionRank": 162,
+   "stateRank": 150,
    "status": "Verbal"
   },
   {
@@ -316,7 +316,7 @@
    "state": "CA",
    "grade": 76,
    "rank": null,
-   "positionRank": 81,
+   "positionRank": 82,
    "stateRank": 90,
    "status": "Verbal"
   },
@@ -329,7 +329,7 @@
    "state": "OH",
    "grade": 76,
    "rank": null,
-   "positionRank": 105,
+   "positionRank": 106,
    "stateRank": 36,
    "status": "Verbal"
   },
@@ -356,7 +356,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 72,
-   "stateRank": 34,
+   "stateRank": 35,
    "status": "Verbal"
   },
   {
@@ -373,6 +373,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274689",
+   "name": "Zach Shatek",
+   "position": "RB",
+   "highSchool": "Hastings High School",
+   "city": "Hastings",
+   "state": "MN",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 95,
+   "stateRank": 11,
+   "status": "Verbal"
+  },
+  {
    "id": "262477",
    "name": "Furian Infererra",
    "position": "QB-PP",
@@ -384,20 +397,7 @@
    "positionRank": 69,
    "stateRank": 130,
    "status": "Verbal"
-  },
-  {
-   "id": "274689",
-   "name": "Zach Shatek",
-   "position": "RB",
-   "highSchool": "Hastings High School",
-   "city": "Hastings",
-   "state": "MN",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:13Z"
 }

@@ -95,8 +95,8 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 140,
-   "stateRank": 133,
+   "positionRank": 141,
+   "stateRank": 135,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "IA",
    "grade": 75,
    "rank": null,
-   "positionRank": 127,
+   "positionRank": 129,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -187,7 +187,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 95,
-   "stateRank": 204,
+   "stateRank": 206,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-10-30T10:12Z"
 }
