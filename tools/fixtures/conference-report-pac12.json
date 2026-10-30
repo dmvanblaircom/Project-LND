@@ -1,0 +1,506 @@
+{
+ "config": {
+  "emptyPlayerMessage": "Report will be posted to the institution's conference website.",
+  "helmetBase": "https://sbcautostorage.blob.core.windows.net/availability-reports/pac12-football/helmets/",
+  "genericHelmet": "generic.png"
+ },
+ "games": [
+  {
+   "gameId": "2026-10-31-Utah State-Colorado State",
+   "gameNumber": "016",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-30T02:03:20.5685038Z",
+   "kickoff": "12:30:00",
+   "kickoffUTC": "2026-10-31T19:30:00Z",
+   "timeZone": "Pacific Standard Time",
+   "timeZoneLabel": "PT",
+   "network": "USA",
+   "venue": "Merlin Olsen Field at Maverik Stadium in Logan, UT",
+   "notes": "Second Report",
+   "away": {
+    "name": "Colorado State",
+    "players": [
+     {
+      "name": "Mel Brown",
+      "position": "RB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Juice Vereen",
+      "position": "TE",
+      "status": "Doubtful"
+     },
+     {
+      "name": "John Holthaus",
+      "position": "OL",
+      "status": "Probable"
+     },
+     {
+      "name": "Pearce Spurlin",
+      "position": "TE",
+      "status": "Questionable"
+     },
+     {
+      "name": "Steph Wright",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "Elijah McCantos",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Dagan Myers",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "AJ Noland",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Steph Daily",
+      "position": "WR",
+      "status": "Doubtful"
+     },
+     {
+      "name": "Dakota Rich",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Antoine Martin",
+      "position": "WR",
+      "status": "Out"
+     }
+    ]
+   },
+   "home": {
+    "name": "Utah State",
+    "players": [
+     {
+      "name": "Eli Wood",
+      "position": "WR",
+      "status": "Doubtful"
+     },
+     {
+      "name": "Chapman Lewis",
+      "position": "DB",
+      "status": "Doubtful"
+     },
+     {
+      "name": "Rex Haynes",
+      "position": "WR",
+      "status": "Doubtful"
+     },
+     {
+      "name": "John Randle ",
+      "position": "OL",
+      "status": "Out"
+     },
+     {
+      "name": "John McClellan",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Landon Rehkow",
+      "position": "SP",
+      "status": "Out"
+     },
+     {
+      "name": "Diego Grateron",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Joshua Papu",
+      "position": "DL",
+      "status": "Out"
+     },
+     {
+      "name": "Harrison Taggart",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Kauasi Hansen",
+      "position": "OL",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Kadin Lynch",
+      "position": "OL",
+      "status": "Probable"
+     },
+     {
+      "name": "Adonis Jackson",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "Demick Starling",
+      "position": "WR",
+      "status": "Probable"
+     },
+     {
+      "name": "Easton Hammond",
+      "position": "OL",
+      "status": "Probable"
+     },
+     {
+      "name": "Jude Nelson",
+      "position": "TE",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Chris Joe",
+      "position": "ILB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Nikko Boncore",
+      "position": "WR",
+      "status": "Out for Season"
+     }
+    ]
+   }
+  },
+  {
+   "gameId": "2026-10-31-San Diego State-Washington State",
+   "gameNumber": "017",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-30T02:04:08.7410449Z",
+   "kickoff": "16:00:00",
+   "kickoffUTC": "2026-10-31T23:00:00Z",
+   "timeZone": "Pacific Standard Time",
+   "timeZoneLabel": "PT",
+   "network": "CBS Sports Network",
+   "venue": "Snapdragon Stadium in San Diego, CA",
+   "notes": "Second Report",
+   "away": {
+    "name": "Washington State",
+    "players": [
+     {
+      "name": "Darrius Clemons",
+      "position": "WR",
+      "status": "Questionable"
+     },
+     {
+      "name": "Jeremiah Bernard",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Nylan Brown",
+      "position": "ILB",
+      "status": "Out for Season"
+     }
+    ]
+   },
+   "home": {
+    "name": "San Diego State",
+    "players": [
+     {
+      "name": "Tano Letuli",
+      "position": "ILB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Josiah Cox",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Max Garrison",
+      "position": "DB",
+      "status": "Probable"
+     },
+     {
+      "name": "Mike Lindsay",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Jelani McLaughlin",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Yanick Parker",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Dalesean Staley",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Jalen Thomeson",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "DJ Overstreet",
+      "position": "RB",
+      "status": "Out"
+     },
+     {
+      "name": "Joe Borjon",
+      "position": "OL",
+      "status": "Probable"
+     },
+     {
+      "name": "Kalan Ellis",
+      "position": "OL",
+      "status": "Probable"
+     },
+     {
+      "name": "Jack Ellis",
+      "position": "TE",
+      "status": "Out"
+     },
+     {
+      "name": "Jackson Ford",
+      "position": "TE",
+      "status": "Probable"
+     },
+     {
+      "name": "Jayden Denegal",
+      "position": "QB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Luke Williams",
+      "position": "SP",
+      "status": "Out"
+     },
+     {
+      "name": "Isaac Lucas",
+      "position": "OL",
+      "status": "Probable"
+     },
+     {
+      "name": "Malachi Finau",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "Gavriel Lightfoot",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "Tainoa Lave",
+      "position": "DB",
+      "status": "Probable"
+     }
+    ]
+   }
+  },
+  {
+   "gameId": "2026-10-31-Boise State-Texas State",
+   "gameNumber": "018",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-30T02:05:16.5536134Z",
+   "kickoff": "19:00:00",
+   "kickoffUTC": "2026-11-01T02:00:00Z",
+   "timeZone": "Pacific Standard Time",
+   "timeZoneLabel": "PT",
+   "network": "CW",
+   "venue": "Albertsons Stadium in Boise, ID",
+   "notes": "Second Report",
+   "away": {
+    "name": "Texas State",
+    "players": [
+     {
+      "name": "Tice Williams",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Joshua Selmes",
+      "position": "SP",
+      "status": "Out"
+     },
+     {
+      "name": "Cole Snodgrass",
+      "position": "TE",
+      "status": "Out"
+     },
+     {
+      "name": "Ayden Jones",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "Jordan Sample",
+      "position": "ILB",
+      "status": "Out"
+     },
+     {
+      "name": "JP Deeter",
+      "position": "DL",
+      "status": "Questionable"
+     },
+     {
+      "name": "Ryan Nolan",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Davian Jackson",
+      "position": "RB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Will Mitchell",
+      "position": "DB",
+      "status": "Probable"
+     },
+     {
+      "name": "Jo'Laison Landry",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "Torrance Burgess",
+      "position": "RB",
+      "status": "Probable"
+     },
+     {
+      "name": "TJ Burkhalter",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "Bryce Carter",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "Donterry Russell",
+      "position": "DL",
+      "status": "Probable"
+     },
+     {
+      "name": "Mekhi Buchanan",
+      "position": "DL",
+      "status": "Out for Season"
+     }
+    ]
+   },
+   "home": {
+    "name": "Boise State",
+    "players": [
+     {
+      "name": "Ben Ford",
+      "position": "WR",
+      "status": "Questionable"
+     },
+     {
+      "name": "Sire Gaines",
+      "position": "RB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Austin Terry",
+      "position": "TE",
+      "status": "Questionable"
+     },
+     {
+      "name": "Carson Rasmussen",
+      "position": "OL",
+      "status": "Out"
+     }
+    ]
+   }
+  },
+  {
+   "gameId": "2026-10-31-Fresno State-Oregon State",
+   "gameNumber": "019",
+   "dateISO": "2026-10-31",
+   "updatedAtUTC": "2026-10-30T02:06:07.1384814Z",
+   "kickoff": "20:00:00",
+   "kickoffUTC": "2026-11-01T03:00:00Z",
+   "timeZone": "Pacific Standard Time",
+   "timeZoneLabel": "PT",
+   "network": "USA",
+   "venue": "Valley Children's Stadium in Fresno, CA",
+   "notes": "Second Report",
+   "away": {
+    "name": "Oregon State",
+    "players": [
+     {
+      "name": "Eddie Freauff",
+      "position": "WR",
+      "status": "Out"
+     },
+     {
+      "name": "Kai Wheaton",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Kord Shaw",
+      "position": "ILB",
+      "status": "Out for Season"
+     },
+     {
+      "name": "Ryan RJ Whitten",
+      "position": "DB",
+      "status": "Out"
+     }
+    ]
+   },
+   "home": {
+    "name": "Fresno State",
+    "players": [
+     {
+      "name": "Sammie Hunter",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Gino Quinones",
+      "position": "OL",
+      "status": "Out"
+     },
+     {
+      "name": "Ethan Rossetti",
+      "position": "SP",
+      "status": "Questionable"
+     },
+     {
+      "name": "Jairus Satele",
+      "position": "DL",
+      "status": "Questionable"
+     },
+     {
+      "name": "Ethan Tierney",
+      "position": "DB",
+      "status": "Questionable"
+     },
+     {
+      "name": "Marquise Thorpe-Taylor",
+      "position": "OL",
+      "status": "Questionable"
+     },
+     {
+      "name": "Ryan Wilson",
+      "position": "DB",
+      "status": "Out"
+     },
+     {
+      "name": "Noah Yeh",
+      "position": "DL",
+      "status": "Out"
+     }
+    ]
+   }
+  }
+ ]
+}
