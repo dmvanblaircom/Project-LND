@@ -321,6 +321,7 @@ html:not([data-launched]):not([data-choosing]):not(:has(#launch, #appBar)) body{
 @keyframes launch-l{to{opacity:1;transform:none}}
 @keyframes launch-rule{to{transform:scaleX(1)}}
 @keyframes launch-out{to{opacity:0;visibility:hidden;pointer-events:none}}
+html[data-launch="short"] .launch-l,html[data-launch="short"] .launch-rule{animation:none;opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .launch,.launch-mark{transition:none}
   .launch-l,.launch-rule{animation:none;opacity:1;transform:none}
@@ -329,12 +330,25 @@ html:not([data-launched]):not([data-choosing]):not(:has(#launch, #appBar)) body{
 <script>
 // When this launch began. An update's reload a moment later carries on from
 // the same point, so the fan sees one animation, not two.
+// The first open of a day plays the whole launch; later opens that day show
+// the wordmark already drawn and lift as soon as the screen is complete
+// (David, 2026-10-30: the mark, then the page). A reload that carries on a
+// launch keeps the launch it began with. Only a launch the fan sees counts
+// as the day's: the chooser shows none (Codex, #212).
 (function(){
-  var now = Date.now(), at = now;
+  var now = Date.now(), at = now, short = false, day = new Date(now).toDateString();
+  var choosing = document.documentElement.hasAttribute("data-choosing");
   try {
     var prev = +sessionStorage.getItem("suite-launch-at");
-    if (prev && now >= prev && now - prev < 15000) at = prev;   // never a start in the future: a clock moved back
-    else sessionStorage.setItem("suite-launch-at", String(now));
+    if (prev && now >= prev && now - prev < 15000) {               // never a start in the future: a clock moved back
+      at = prev;
+      short = sessionStorage.getItem("suite-launch-short") === "1";
+    } else {
+      sessionStorage.setItem("suite-launch-at", String(now));
+      try { short = !choosing && localStorage.getItem("suite-launch-day") === day; } catch (e) {}
+      sessionStorage.setItem("suite-launch-short", short ? "1" : "");
+    }
+    if (!choosing) { try { localStorage.setItem("suite-launch-day", day); } catch (e) {} }
     // The launch already lifted on this open and an update's reload followed
     // (a slow install outlasted it): the fan has seen the page, so the reload
     // draws it again without a second launch. The next page always consumes
@@ -344,6 +358,7 @@ html:not([data-launched]):not([data-choosing]):not(:has(#launch, #appBar)) body{
     sessionStorage.removeItem("suite-launch-lifted");
     if (lifted && now >= lifted && now - lifted < 300000) document.documentElement.setAttribute("data-launched", "");
   } catch (e) {}
+  if (short) document.documentElement.setAttribute("data-launch", "short");
   window.SUITE_LAUNCH_AT = at;
   document.documentElement.style.setProperty("--launch-t", (at - now) + "ms");
 })();
