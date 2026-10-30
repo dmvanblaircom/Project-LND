@@ -383,6 +383,8 @@ def asked(script):
         ca.urllib.request.urlopen, ca.RETRY_AFTER = saved
 got, n = asked([TimeoutError("The read operation timed out"), b'{"data": []}'])
 ok(got == {"data": []} and n == 2, "one timeout, then an answer: the answer is read (%d asks)" % n)
+got, n = asked([ca.http.client.IncompleteRead(b'{"da', 20), b'{"data": []}'])
+ok(got == {"data": []} and n == 2, "an answer cut off part way is asked again too (Codex, #217)")
 got, n = asked([TimeoutError("timed out"), ca.urllib.error.URLError("down")])
 ok(isinstance(got, Exception) and n == 2, "two failures in a row still fail: never more than one second ask")
 got, n = asked([b"<html>not json</html>"])
