@@ -1,0 +1,17 @@
+# Temporary (2026-10-30, deleted with its branch): the archive rows the
+# conference producer refuses for the MAC and American teams, and Miami's
+# unreadable ACC name (refresh failing since Phase 4).
+name: Conference availability probe
+on:
+  push:
+    branches: [confav-probe]
+    paths: ["tools/confav_probe.py"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/confav_probe.py
