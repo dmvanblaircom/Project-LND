@@ -82,15 +82,30 @@ function paintIdentity(){
   fitBarTeam();
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitBarTeam);
   window.addEventListener("resize", fitBarTeam);
+  window.addEventListener("hashchange", fitBarTeam);
 }
 
 // The team's name in the bar, whole: a one-word name too wide for its room
 // (NORTHWESTERN in Poppins, with Your Teams' chevron) was cut off, not
-// wrapped (David, 2026-10-28). Tighter spacing first, then a smaller size,
-// down to a floor; past that, the program's abbreviation, fitted the same way.
+// wrapped (David, 2026-10-28). One line first - tighter spacing, then a
+// little smaller - because BOSTON COLLEGE broke onto two lines at full size
+// while the longer CENTRAL MICHIGAN shrank onto one (sweep, 2026-10-29);
+// then two lines at full size; then tighter and smaller again, down to a
+// floor; past that, the program's abbreviation, fitted the same way.
 function fitBarTeam(){
   var el=$("barTeam"); if(!el || !el.offsetParent) return;
-  var over=function(){ return el.scrollWidth>el.clientWidth+1; };
+  // The text's own laid-out width against its box: scrollWidth rounds, and a
+  // sub-pixel overflow on one line still cuts the last letter off.
+  var over=function(){
+    var r=document.createRange(); r.selectNodeContents(el);
+    return el.scrollWidth>el.clientWidth || r.getBoundingClientRect().width>el.getBoundingClientRect().width+0.01;
+  };
+  el.textContent=TEAM.name; el.style.whiteSpace="nowrap"; el.style.letterSpacing=""; el.style.fontSize="";
+  if(!over()) return;
+  el.style.letterSpacing="0";
+  for(var lp=15; over() && lp>=13; lp--) el.style.fontSize=lp+"px";
+  if(!over()) return;
+  el.style.whiteSpace="";
   var names=[TEAM.name].concat(TEAM.abbreviation && TEAM.abbreviation!==TEAM.name ? [TEAM.abbreviation] : []);
   for(var i=0; i<names.length; i++){
     el.textContent=names[i]; el.style.letterSpacing=""; el.style.fontSize="";
