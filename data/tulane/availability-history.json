@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tulane",
- "updated": "2026-10-30T13:28:06.065400+00:00",
+ "updated": "2026-10-30T21:09:13.236905+00:00",
  "reports": [
   {
    "schema": 1,
@@ -304,6 +304,109 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "tulane",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-30T21:09:13.236905+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-30",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-30",
+   "game": "Charlotte",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "3",
+     "name": "TJ Smith",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "4",
+     "name": "Chris Rodgers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "13",
+     "name": "Ty Thompson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "14",
+     "name": "Armani Cargo",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Antwaun Parham",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "22",
+     "name": "Justin Agu",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "23",
+     "name": "Orion Saunders",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Jamauri McClure",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "51",
+     "name": "John Bock II",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Ryan Mickow",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "70",
+     "name": "Kameron Hamilton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "73",
+     "name": "Elijah Baker",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

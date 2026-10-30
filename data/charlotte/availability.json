@@ -7,97 +7,62 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:27:55.808188+00:00",
+ "fetchedAt": "2026-10-30T21:08:58.710872+00:00",
  "reported": true,
- "effectiveAt": "2026-10-17",
+ "effectiveAt": "2026-10-30",
  "heading": "Game Day",
- "kickoffDate": "2026-10-17",
- "game": "at Temple",
+ "kickoffDate": "2026-10-30",
+ "game": "Tulane",
  "players": [
   {
-   "pos": "",
+   "pos": "RB",
    "no": "7",
    "name": "Chance Williams",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
+   "no": "10",
+   "name": "Jerry Wall III",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "14",
    "name": "Kendal Brown",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "20",
    "name": "Zayden Laing-Taylor",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "23",
-   "name": "Darius Wallace",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "LB",
    "no": "32",
    "name": "Latrell Sellers",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "44",
-   "name": "Ian Kelly",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "45",
-   "name": "Mikey Domanik",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "50",
-   "name": "Rod Green",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "OL",
    "no": "55",
    "name": "Mathias Nielsen",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "82",
    "name": "Shelden Golliday",
    "status": "out-game",
    "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "88",
-   "name": "D'Nas White",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "99",
-   "name": "Jaylen Doss",
-   "status": "out-game",
-   "detail": ""
   }
  ],
- "current": false
+ "current": true
 }
