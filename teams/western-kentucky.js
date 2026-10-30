@@ -49,6 +49,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // The Conference USA's availability reports, which Suite cannot read (its
+    // viewer answers only a browser): Roster links the page instead
+    // (David, 2026-10-30).
+    availability: { url: "https://conferenceusa.com/sports/2025/8/23/FB_0823254134.aspx", label: "ConferenceUSA.com", conference: "Conference USA" },
     roster: { url: "https://wkusports.com/sports/football/roster", label: "wkusports.com" }
   },
 

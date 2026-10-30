@@ -49,6 +49,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // The Mountain West's availability reports, which Suite cannot read (its
+    // viewer answers only a browser): Roster links the page instead
+    // (David, 2026-10-30).
+    availability: { url: "https://themw.com/sports/2026/8/21/football_reports.aspx", label: "TheMW.com", conference: "Mountain West" },
     roster: { url: "https://nevadawolfpack.com/sports/football/roster", label: "nevadawolfpack.com" }
   },
 

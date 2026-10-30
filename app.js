@@ -986,6 +986,8 @@ function rosterModel(route, views){
     history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart, today) : null, query: RO.q,
     notes: NOTES.model,
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
+    // no report Suite reads: the conference's own page instead
+    availLink: rosterSnap("availability") ? null : TeamOS.roster.availabilityLink(TEAM_CONFIG),
     prospects: { recruits:PROSPECTS.recruits, draft:PROSPECTS.draft, loaded:PROSPECTS.loaded },
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
     fresh: TeamOS.freshness.summary(rosterFreshSources(view), { now:new Date(), online: navigator.onLine!==false })
