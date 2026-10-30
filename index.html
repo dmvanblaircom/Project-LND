@@ -333,9 +333,11 @@ html[data-launch="short"] .launch-l,html[data-launch="short"] .launch-rule{anima
 // The first open of a day plays the whole launch; later opens that day show
 // the wordmark already drawn and lift as soon as the screen is complete
 // (David, 2026-10-30: the mark, then the page). A reload that carries on a
-// launch keeps the launch it began with.
+// launch keeps the launch it began with. Only a launch the fan sees counts
+// as the day's: the chooser shows none (Codex, #212).
 (function(){
-  var now = Date.now(), at = now, short = false;
+  var now = Date.now(), at = now, short = false, day = new Date(now).toDateString();
+  var choosing = document.documentElement.hasAttribute("data-choosing");
   try {
     var prev = +sessionStorage.getItem("suite-launch-at");
     if (prev && now >= prev && now - prev < 15000) {               // never a start in the future: a clock moved back
@@ -343,10 +345,10 @@ html[data-launch="short"] .launch-l,html[data-launch="short"] .launch-rule{anima
       short = sessionStorage.getItem("suite-launch-short") === "1";
     } else {
       sessionStorage.setItem("suite-launch-at", String(now));
-      var day = new Date(now).toDateString();
-      try { short = localStorage.getItem("suite-launch-day") === day; localStorage.setItem("suite-launch-day", day); } catch (e) {}
+      try { short = !choosing && localStorage.getItem("suite-launch-day") === day; } catch (e) {}
       sessionStorage.setItem("suite-launch-short", short ? "1" : "");
     }
+    if (!choosing) { try { localStorage.setItem("suite-launch-day", day); } catch (e) {} }
     // The launch already lifted on this open and an update's reload followed
     // (a slow install outlasted it): the fan has seen the page, so the reload
     // draws it again without a second launch. The next page always consumes

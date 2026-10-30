@@ -433,6 +433,8 @@ function fixture(url) {
      "and the chooser's page keeps its own colours");
   ok(await f.page.evaluate(function () { return !document.getElementById("page-swap"); }),
      "and takes no part in a page swap: Change Team and picking a team are as they were");
+  ok(await f.page.evaluate(function () { return localStorage.getItem("suite-launch-day") === null; }),
+     "nor counts as the day's launch: the first team page after it plays the whole launch (Codex, #212)");
   await f.ctx.close();
 
   await browser.close(); server.close();
