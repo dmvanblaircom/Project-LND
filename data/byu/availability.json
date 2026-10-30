@@ -3,13 +3,45 @@
  "team": "byu",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://big12sports.com/sports/football",
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-10-30T04:09:38.670549+00:00",
+ "reported": true,
+ "effectiveAt": "2026-10-29",
+ "heading": "Update 1",
+ "kickoffDate": "2026-10-31",
+ "game": "vs. Arizona State",
+ "players": [
+  {
+   "pos": "CB",
+   "no": "0",
+   "name": "Evan Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "4",
+   "name": "LJ Martin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "12",
+   "name": "Preston Rex",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "64",
+   "name": "Kyle Sfarcioc",
+   "status": "probable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }
