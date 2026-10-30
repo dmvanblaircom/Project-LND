@@ -1,7 +1,16 @@
 {
  "team": "western-michigan",
- "updated": "2026-10-29T18:39:35.356484+00:00",
+ "updated": "2026-10-30T16:38:57.922141+00:00",
  "items": [
+  {
+   "title": "Football Hosts Bowling Green for Halloween Showdown",
+   "link": "https://wmubroncos.com/news/2026/10/30/football-hosts-bowling-green-for-halloween-showdown.aspx",
+   "source": "WMU Athletics",
+   "summary": "<img alt=\"Broc Lowry runs past a KSU tackler.\" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/12/CMoss261010-490A6068.JPG\" /><br /><br />The Western Michigan welcomes Bowling Green for a Mid-American Conference showdown on Saturday at 12 p.m. The game can be watched live on CBS Sports Network and heard live on the Bronco Media Network.",
+   "image": "https://wmubroncos.com/images/2026/10/12/CMoss261010-490A6068.JPG?width=800",
+   "sourceLogo": "https://wmubroncos.com/favicon.ico",
+   "published": "2026-10-30T17:00:00+00:00"
+  },
   {
    "title": "WMU's Comeback Falls Short at Toledo",
    "link": "https://wmubroncos.com/news/2026/10/24/football-wmus-comeback-falls-short-at-toledo.aspx",
@@ -82,15 +91,6 @@
    "image": "https://wmubroncos.com/images/2026/10/3/_CLS_2026100300092.JPG?width=800",
    "sourceLogo": "https://wmubroncos.com/favicon.ico",
    "published": "2026-10-03T22:34:00+00:00"
-  },
-  {
-   "title": "Football Heads to Buffalo to Open MAC Play",
-   "link": "https://wmubroncos.com/news/2026/10/1/football-heads-to-buffalo-to-open-mac-play.aspx",
-   "source": "WMU Athletics",
-   "summary": "<img alt=\"WMU vs Boise State\" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/26/AJ8I1132.jpg\" /><br /><br />The Western Michigan Broncos head on the road to Buffalo take on the Bulls, opening Mid-American Conference play on Saturday at 1 p.m. at Broadview Stadium. The game can be watched live on ESPN+ and heard live on the Bronco Media Network.",
-   "image": "https://wmubroncos.com/images/2026/9/26/AJ8I1132.jpg?width=800",
-   "sourceLogo": "https://wmubroncos.com/favicon.ico",
-   "published": "2026-10-01T19:03:00+00:00"
   }
  ]
 }
