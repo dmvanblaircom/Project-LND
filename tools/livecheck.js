@@ -269,7 +269,12 @@ run("ohio-state.js", "Ohio State", "Ohio State", "Kent State");
   var after = ctx.TeamOS.live.reconcileAll(games, board).filter(function (g) { return g.id === "401858467"; })[0];
   ok(after.oppRecord === "1-2", "the scoreboard gives it: Purdue " + after.oppRecord);
   ok(after.usRecord === "3-0", "and ours: " + after.usRecord);
-  var msu = games.filter(function (g) { return g.oppName === "Michigan St"; })[0];
+  var msu = games.filter(function (g) { return g.oppName === "Michigan State"; })[0];
+  // David, 2026-10-30: the school's name in full where ESPN clips it, the
+  // short forms fans use themselves kept
+  ok(!!msu && !games.some(function (g) { return / St$/.test(g.oppName); }), "a program reads in full: Michigan State, not Michigan St");
+  var names = board.reduce(function (a, l) { return a.concat([l.home && l.home.name, l.away && l.away.name, l.us && l.us.name, l.them && l.them.name]); }, []).filter(Boolean);
+  ok(names.length > 20 && !names.some(function (n) { return /^(N|S|E|W|C) |\bSt$/.test(n); }), "and so do the scoreboard's: no clipped names among " + names.length);
   var msuAfter = ctx.TeamOS.live.reconcileAll(games, board).filter(function (g) { return g.id === msu.id; })[0];
   ok(msuAfter.oppRecord === msu.oppRecord, "a game the scoreboard does not carry keeps its own record (" + msu.oppRecord + ")");
   var withRec = Object.assign({}, pur, { oppRecord: "9-9" });

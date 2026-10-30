@@ -17,7 +17,8 @@
 
      - every colour is a #rrggbb string
      - accentText on the team's deepest surface is at least 4.5:1
-     - accentInk on the team's accent is at least 4.5:1
+     - accentInk on the team's accent is at least 4.5:1, and so is a
+       declared actionInk on its action
      - a declared text colour on that surface is at least 4.5:1
      - on the Suite's LIGHT surfaces (the canonical Suite is ivory pages and
        white cards): accentOnLight, and the team's surface colour used as
@@ -71,6 +72,11 @@ TeamOS.identity = (function () {
     "surfaceAbyss",    // the darkest step, gradient ends and scrims
     "surfaceRaise"     // a lifted surface, hovers and insets
   ];
+  // Optional, as a pair: the fill and ink of the call to action on the team's
+  // own dark surface (Home's Game Details). Without them it is the accent. A
+  // team whose accent is a silver or a gray reads as a disabled button there
+  // (sweep, 2026-10-29), so it names another of its colours (David, 2026-10-30).
+  var ACTION = ["action", "actionInk"];
   // Fields the pre-canonical screens read and nothing reads now (retired
   // when the Suite redesign merged). Refused rather than ignored, so a config
   // copied from an old one is told, not silently carrying dead data.
@@ -169,6 +175,10 @@ TeamOS.identity = (function () {
     RETIRED_COLORS.forEach(function (k) {
       if (i.colors[k] !== undefined) fail("identity.colors." + k + " is retired: no canonical Suite rule reads it");
     });
+    var named = ACTION.filter(function (k) { return i.colors[k] !== undefined; });
+    if (named.length === 1) fail("identity.colors.action and actionInk come as a pair");
+    c.action    = named.length ? hex(i.colors, "action", "identity.colors.") : c.accent;
+    c.actionInk = named.length ? hex(i.colors, "actionInk", "identity.colors.") : c.accentInk;
     c.accentRgb       = rgb(c.accent);
     c.surfaceRgb      = rgb(c.surface);
     c.surfaceDeepRgb  = rgb(c.surfaceDeep);
@@ -181,6 +191,7 @@ TeamOS.identity = (function () {
       accentText: require([c.accentText, c.surfaceDeep], MIN, "identity.colors.accentText on surfaceDeep"),
       accentSoft: require([c.accentSoft, c.surfaceDeep], MIN, "identity.colors.accentSoft on surfaceDeep"),
       accentInk:  require([c.accentInk,  c.accent],      MIN, "identity.colors.accentInk on accent"),
+      actionInk:  require([c.actionInk,  c.action],      MIN, "identity.colors.actionInk on action"),
       accentOnLight: Math.min(
         require([c.accentOnLight, LIGHT.surface], MIN, "identity.colors.accentOnLight on the Suite's white surface"),
         require([c.accentOnLight, LIGHT.page],    MIN, "identity.colors.accentOnLight on the Suite's page")),

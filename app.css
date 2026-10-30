@@ -550,7 +550,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gc-extra .dot{display:none}
 .gc-extra .gc-wx ~ .gc-odds{border-left:1px solid rgba(255,255,255,.3);padding-left:.75rem}
 .gc-extra > :only-child{grid-column:1 / -1}
-.gc-cta{width:100%;margin-top:.9rem}
+.gc-cta{width:100%;margin-top:.9rem;background:var(--t-action,var(--t-accent));color:var(--t-action-ink,var(--t-accent-ink))}
 .gc-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
 .gc-cta:focus-visible{outline-color:var(--t-focus)}
 

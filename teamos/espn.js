@@ -295,7 +295,7 @@ TeamOS.espn = (function () {
       id:ev.id, date:ev.date, timeSet:timeIsSet(ev.date, comp),
       home: us?us.homeAway==="home":true,
       neutral: isNeutral(team, comp, us),
-      oppName: them&&them.team?(them.team.shortDisplayName||them.team.displayName):"opponent to be announced",
+      oppName: them&&them.team?programName(them.team):"opponent to be announced",
       oppRank: them&&them.curatedRank&&them.curatedRank.current<26?them.curatedRank.current:null,
       // For the opponent's mark (TeamOS.espn.mark) and its initials fallback.
       oppProviderId: them ? idOf(them.team) : null,
@@ -346,6 +346,21 @@ TeamOS.espn = (function () {
   }
   function str(v){ return v==null ? "" : String(v); }
 
+  // A program's name as a fan says it. ESPN's short form clips the school
+  // ("N Illinois", "Michigan St", "Coastal", "Miami OH"); where it does, the
+  // school's own name (its location) reads in full (David, 2026-10-30). The
+  // short forms fans use themselves stay: initialisms (FIU, MTSU) and the
+  // names schools go by (UMass, Pitt, Jax State). Where a full name does not
+  // fit, the screen falls back to the abbreviation.
+  var GOES_BY = { "UMass":1, "Pitt":1, "Jax State":1 };
+  function programName(t){
+    t = t || {};
+    var short = str(t.shortDisplayName), school = str(t.location);
+    if(!short) return str(t.displayName||t.name||school);
+    if(!school || school===short || GOES_BY[short] || /^[A-Z&]{2,6}$/.test(short)) return short;
+    return school;
+  }
+
   // One ESPN athlete -> one Player. Only what the roster view shows and
   // searches; position is the abbreviation with the full name as a fallback,
   // and positionName keeps the full name so a search for "quarterback" works.
@@ -381,7 +396,7 @@ TeamOS.espn = (function () {
     var recs=(c&&c.records)||[];
     var rec=recs.filter(function(r){ return r && r.type==="total"; })[0];
     return {
-      name:       c && c.team ? str(t.shortDisplayName||t.displayName) : "opponent to be announced",
+      name:       c && c.team ? programName(t) : "opponent to be announced",
       abbr:       t.abbreviation ? str(t.abbreviation) : null,
       // opaque: Suite hands it back to ask for the program's mark
       providerId: t.id!=null ? str(t.id) : null,
@@ -622,7 +637,7 @@ TeamOS.espn = (function () {
     var t=c.team||{};
     return {
       key:          str(t.id),
-      name:         str(t.shortDisplayName||t.displayName||t.name||"TBA"),
+      name:         t.shortDisplayName||t.displayName||t.name ? programName(t) : "TBA",
       // the school as ESPN lists it ("North Carolina"), which is how
       // CollegeFootballData names a program too (TeamOS.cfbd)
       school:       str(t.location||""),
