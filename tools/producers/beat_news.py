@@ -22,6 +22,7 @@ the stories changed: a fresh timestamp on an identical list made every run
 look like news and commit it.
 """
 import argparse
+import gzip
 import json
 import os
 import re
@@ -372,7 +373,12 @@ def fetch(url):
     req = urllib.request.Request(url, headers={"user-agent": UA,
                                                "accept": "application/rss+xml, application/atom+xml, text/xml, */*"})
     with urllib.request.urlopen(req, timeout=20) as r:
-        return r.read(), r.geturl()
+        return ungzip(r.read()), r.geturl()
+
+
+def ungzip(body):
+    """A feed sent gzipped though nobody asked (SJSU Athletics, 2026-10-30)."""
+    return gzip.decompress(body) if body[:2] == b"\x1f\x8b" else body
 
 
 def get(url):
@@ -479,6 +485,12 @@ def main():
         print("::warning::no feed found for %s" % ", ".join(dead))
 
     keep = merge(items)
+    if not keep and len(dead) < len(feeds):
+        # Every feed that answered had no football story: a quiet week for a
+        # small team (the Daily Lobo, 2026-10-30), not a broken source. The
+        # last good file stays; the run is not a failure.
+        print("  nothing new about football - leaving the old %s alone" % out)
+        return
     if not keep:
         sys.exit("no feed returned anything - leaving the old %s alone" % out)
     try:
