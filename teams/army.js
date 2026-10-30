@@ -37,10 +37,13 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-29.
-    // One source only: Against All Enemies (SB Nation) reset the connection
-    // twice, and there is no On3 team feed or On SI site (404).
+    // GoBlackKnights is On3's fan site for Army (the former Rivals site), read
+    // through its own section so On3's national stories stay out (2026-10-29).
+    // Not used: Against All Enemies (SB Nation) reset the connection twice,
+    // and there is no On SI site (404).
     beatFeeds: [
-      { name: "Army West Point Athletics", feed: "https://goarmywestpoint.com/rss?path=football", site: "https://goarmywestpoint.com/sports/football", logo: "https://goarmywestpoint.com/favicon.ico" }
+      { name: "Army West Point Athletics", feed: "https://goarmywestpoint.com/rss?path=football", site: "https://goarmywestpoint.com/sports/football", logo: "https://goarmywestpoint.com/favicon.ico" },
+      { name: "GoBlackKnights", feed: "https://www.on3.com/sites/go-black-knights/feed/", site: "https://www.on3.com/sites/go-black-knights/", paths: ["/sites/go-black-knights/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

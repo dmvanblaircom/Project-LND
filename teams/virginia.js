@@ -41,12 +41,14 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: virginiasports.com's feed is every sport,
-    // the Cavalier Daily has no working feed, and there is no On3 team feed
-    // (404).
+    // CavsCorner is On3's fan site for Virginia (the former Rivals site), read
+    // through its own section so On3's national stories stay out (2026-10-29).
+    // Not used: virginiasports.com's feed is every sport, and the Cavalier
+    // Daily has no working feed.
     beatFeeds: [
       { name: "Streaking the Lawn", feed: "https://www.streakingthelawn.com/rss/current.xml", site: "https://www.streakingthelawn.com/" },
-      { name: "Virginia On SI", feed: "https://www.si.com/college/virginia/feed", site: "https://www.si.com/college/virginia", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Virginia On SI", feed: "https://www.si.com/college/virginia/feed", site: "https://www.si.com/college/virginia", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "CavsCorner", feed: "https://www.on3.com/sites/cavs-corner/feed/", site: "https://www.on3.com/sites/cavs-corner/", paths: ["/sites/cavs-corner/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 

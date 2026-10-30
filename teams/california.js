@@ -41,12 +41,14 @@ var TEAM_CONFIG = {
 
     // Beat writers, read by the Action server-side; each answered from
     // GitHub's network on 2026-10-28.
-    // Not used: Two sources only: California Golden Blogs (SB Nation) did not
-    // answer, the Daily Californian turned GitHub's network away (429), and
-    // there is no On3 team feed (404).
+    // Golden Bear Report is On3's fan site for Cal (the former Rivals site),
+    // read through its own section so On3's national stories stay out
+    // (2026-10-29). Not used: California Golden Blogs (SB Nation) did not
+    // answer, and the Daily Californian turned GitHub's network away (429).
     beatFeeds: [
       { name: "Cal Athletics", feed: "https://calbears.com/rss?path=football", site: "https://calbears.com/sports/football", logo: "https://calbears.com/favicon.ico" },
-      { name: "Cal On SI", feed: "https://www.si.com/college/cal/feed", site: "https://www.si.com/college/cal", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" }
+      { name: "Cal On SI", feed: "https://www.si.com/college/cal/feed", site: "https://www.si.com/college/cal", logo: "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico" },
+      { name: "Golden Bear Report", feed: "https://www.on3.com/sites/golden-bear-report/feed/", site: "https://www.on3.com/sites/golden-bear-report/", paths: ["/sites/golden-bear-report/"], logo: "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png" }
     ]
   },
 
