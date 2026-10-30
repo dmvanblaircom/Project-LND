@@ -1030,6 +1030,17 @@ function idThrows(mutate, what) {
 idThrows(function (c) { c.identity.colors.accentText = "#BA0C2F"; }, "accent text that fails on the surface throws");
 idThrows(function (c) { c.identity.colors.accentInk = "#4A0513"; }, "ink that fails on the accent throws");
 idThrows(function (c) { c.identity.colors.accentSoft = "#3F4443"; }, "a soft tone that fails throws");
+// The call to action on the team's dark surface (David, 2026-10-30): the
+// accent unless the team names a pair, which is held to the same 4.5:1.
+(function () {
+  var plain = TeamOS.identity.create(baseIdentity(), ND).colors;
+  ok(plain.action === plain.accent && plain.actionInk === plain.accentInk, "with no action named, Game Details is the accent");
+  var named = baseIdentity(); named.identity.colors.action = "#FFFFFF"; named.identity.colors.actionInk = "#212325";
+  var nc = TeamOS.identity.create(named, ND).colors;
+  ok(nc.action === "#FFFFFF" && nc.actionInk === "#212325" && nc.accent === "#BA0C2F", "a named action is its own, and the accent stays the team's");
+})();
+idThrows(function (c) { c.identity.colors.action = "#FFFFFF"; c.identity.colors.actionInk = "#EFF1F2"; }, "an action ink that fails on its fill throws");
+idThrows(function (c) { c.identity.colors.action = "#FFFFFF"; }, "an action without its ink throws");
 idThrows(function (c) { c.identity.colors.accentOnLight = "#C99700"; }, "accent text that fails on the light Suite surfaces throws");
 idThrows(function (c) { c.identity.colors.surface = "#8A94A6"; }, "a surface too light to be heading ink on light pages throws");
 idThrows(function (c) { c.identity.newsLabel = "N"; }, "a retired field (newsLabel) is refused, not ignored");

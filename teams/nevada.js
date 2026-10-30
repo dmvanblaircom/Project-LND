@@ -49,6 +49,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://nevadawolfpack.com/sports/football/schedule", label: "nevadawolfpack.com", kind: "schedule" },
     // The Mountain West's availability reports, which Suite cannot read (its
     // viewer answers only a browser): Roster links the page instead
     // (David, 2026-10-30).
@@ -69,6 +72,10 @@ var TEAM_CONFIG = {
       accentSoft:     "#BFC0C1",
       accentTint:     "#EAEAEB",
       accentTintSoft: "#F6F6F6",
+      // Game Details in white, lettered in the team's colour: its silver
+      // read as a disabled button (sweep, 2026-10-29; David, 2026-10-30).
+      action:         "#FFFFFF",
+      actionInk:      "#041E42",
       focus:          "#FFFFFF",
       surface:        "#041E42",
       surfaceDeep:    "#031630",

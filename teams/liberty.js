@@ -46,6 +46,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://libertyflames.com/sports/2023/9/2/football-game-notes", label: "libertyflames.com", kind: "index" },
     // The Conference USA's availability reports, which Suite cannot read (its
     // viewer answers only a browser): Roster links the page instead
     // (David, 2026-10-30).

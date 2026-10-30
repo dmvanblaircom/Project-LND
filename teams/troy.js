@@ -55,6 +55,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://troytrojans.com/sports/2026/8/31/2026-football-game-notes", label: "troytrojans.com", kind: "index" },
     roster: { url: "https://troytrojans.com/sports/football/roster", label: "troytrojans.com" }
   },
 
@@ -71,6 +75,10 @@ var TEAM_CONFIG = {
       accentSoft:     "#D4D4D4",
       accentTint:     "#F1F1F1",
       accentTintSoft: "#F9F9F9",
+      // Game Details in white, lettered in the team's colour: its silver
+      // read as a disabled button (sweep, 2026-10-29; David, 2026-10-30).
+      action:         "#FFFFFF",
+      actionInk:      "#862633",
       focus:          "#FFFFFF",
       surface:        "#862633",
       surfaceDeep:    "#601B25",

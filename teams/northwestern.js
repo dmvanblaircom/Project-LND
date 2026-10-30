@@ -56,6 +56,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://nusports.com/sports/football/schedule", label: "nusports.com", kind: "schedule" },
     roster: { url: "https://nusports.com/sports/football/roster", label: "nusports.com" }
   },
 

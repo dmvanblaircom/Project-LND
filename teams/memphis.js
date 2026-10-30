@@ -52,6 +52,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://gotigersgo.com/sports/football/schedule", label: "gotigersgo.com", kind: "schedule" },
     roster: { url: "https://gotigersgo.com/sports/football/roster", label: "gotigersgo.com" }
   },
 
@@ -68,6 +71,10 @@ var TEAM_CONFIG = {
       accentSoft:     "#C1C2C1",
       accentTint:     "#EBEBEB",
       accentTintSoft: "#F6F6F6",
+      // Game Details in white, lettered in the team's colour: its silver
+      // read as a disabled button (sweep, 2026-10-29; David, 2026-10-30).
+      action:         "#FFFFFF",
+      actionInk:      "#004991",
       focus:          "#FFFFFF",
       surface:        "#004991",
       surfaceDeep:    "#003568",

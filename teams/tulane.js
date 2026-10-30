@@ -54,6 +54,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://tulanegreenwave.com/sports/2019/5/1/tulane-football-game-notes", label: "tulanegreenwave.com", kind: "index" },
     roster: { url: "https://tulanegreenwave.com/sports/football/roster", label: "tulanegreenwave.com" }
   },
 

@@ -53,6 +53,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://gopack.com/sports/football/schedule", label: "gopack.com", kind: "schedule" },
     roster: { url: "https://gopack.com/sports/football/roster", label: "gopack.com" }
   },
 

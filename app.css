@@ -555,7 +555,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gc-extra .dot{display:none}
 .gc-extra .gc-wx ~ .gc-odds{border-left:1px solid rgba(255,255,255,.3);padding-left:.75rem}
 .gc-extra > :only-child{grid-column:1 / -1}
-.gc-cta{width:100%;margin-top:.9rem}
+.gc-cta{width:100%;margin-top:.9rem;background:var(--t-action,var(--t-accent));color:var(--t-action-ink,var(--t-accent-ink))}
 .gc-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
 .gc-cta:focus-visible{outline-color:var(--t-focus)}
 
@@ -1115,6 +1115,7 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .ro-title{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.25rem;line-height:1.15;color:var(--t-surface)}
 .ro-meta{margin:.3rem 0 0;font-size:.88rem;color:var(--s-muted)}
 .ro-src{display:inline-flex;align-items:center;gap:.25rem;color:var(--t-surface);font-weight:600}
+.gn-link{min-height:2.75rem}
 .ro-src:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;border-radius:4px}
 .ro-chev{flex:none;width:.5rem;height:.5rem;margin:0 .2rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px)}
 details[open] > summary .ro-chev{transform:rotate(-135deg) translateY(-1px)}

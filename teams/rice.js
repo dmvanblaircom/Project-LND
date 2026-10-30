@@ -50,6 +50,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://riceowls.com/sports/football/schedule", label: "riceowls.com", kind: "schedule" },
     roster: { url: "https://riceowls.com/sports/football/roster", label: "riceowls.com" }
   },
 
@@ -66,6 +69,10 @@ var TEAM_CONFIG = {
       accentSoft:     "#DDE0E1",
       accentTint:     "#F4F5F5",
       accentTintSoft: "#FAFAFB",
+      // Game Details in white, lettered in the team's colour: its silver
+      // read as a disabled button (sweep, 2026-10-29; David, 2026-10-30).
+      action:         "#FFFFFF",
+      actionInk:      "#00205B",
       focus:          "#FFFFFF",
       surface:        "#00205B",
       surfaceDeep:    "#001742",

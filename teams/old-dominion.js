@@ -57,6 +57,9 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its schedule, where each game's notes are posted.
+    gameNotes: { url: "https://odusports.com/sports/football/schedule", label: "odusports.com", kind: "schedule" },
     roster: { url: "https://odusports.com/sports/football/roster", label: "odusports.com" }
   },
 

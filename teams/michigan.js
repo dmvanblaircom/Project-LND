@@ -58,6 +58,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://mgoblue.com/sports/2026/8/30/2026-michigan-football-game-notes", label: "mgoblue.com", kind: "index" },
     roster: { url: "https://mgoblue.com/sports/football/roster", label: "mgoblue.com" }
   },
 

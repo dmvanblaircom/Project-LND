@@ -52,6 +52,10 @@ var TEAM_CONFIG = {
   ],
 
   links: {
+    // Where the program posts its game notes (Game links to it; David,
+    // 2026-10-30): its notes page, which carries this season's notes
+    // (checked from GitHub's network that day).
+    gameNotes: { url: "https://owlsports.com/sports/2016/8/28/2018-game-notes", label: "owlsports.com", kind: "index" },
     roster: { url: "https://owlsports.com/sports/football/roster", label: "owlsports.com" }
   },
 
