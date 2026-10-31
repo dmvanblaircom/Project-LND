@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T02:10:13.949496+00:00",
+ "fetchedAt": "2026-10-31T21:11:52.561919+00:00",
  "reported": true,
  "effectiveAt": "2026-10-31",
- "heading": "Update 2",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Washington State",
  "players": [
@@ -18,28 +18,28 @@
    "pos": "ILB",
    "no": "",
    "name": "Tano Letuli",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Josiah Cox",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Max Garrison",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Mike Lindsay",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -88,7 +88,7 @@
    "pos": "QB",
    "no": "",
    "name": "Jayden Denegal",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
