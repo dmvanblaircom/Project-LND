@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado",
- "updated": "2026-10-30T02:09:31.927848+00:00",
+ "updated": "2026-10-31T02:10:00.827996+00:00",
  "reports": [
   {
    "schema": 1,
@@ -277,18 +277,18 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T02:09:31.927848+00:00",
+   "fetchedAt": "2026-10-31T02:10:00.827996+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Kansas State",
    "players": [
     {
-     "pos": "QB",
-     "no": "10",
-     "name": "Julian Lewis",
-     "status": "out-game",
+     "pos": "WR",
+     "no": "4",
+     "name": "Ernest Campbell",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -296,13 +296,6 @@
      "no": "18",
      "name": "Danny Scudero",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "20",
-     "name": "Cree Thomas",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -323,7 +316,7 @@
      "pos": "DL",
      "no": "45",
      "name": "Vili Taufatofua",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -331,13 +324,6 @@
      "no": "92",
      "name": "Sam Gadie",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "99",
-     "name": "Dylan Manuel",
-     "status": "probable",
      "detail": ""
     }
    ],

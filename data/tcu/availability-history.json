@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tcu",
- "updated": "2026-10-30T02:09:38.798872+00:00",
+ "updated": "2026-10-31T02:10:14.970089+00:00",
  "reports": [
   {
    "schema": 1,
@@ -319,10 +319,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T02:09:38.798872+00:00",
+   "fetchedAt": "2026-10-31T02:10:14.970089+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Kansas",
    "players": [
@@ -337,7 +337,7 @@
      "pos": "S",
      "no": "13",
      "name": "Ryan Yaites",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -358,13 +358,6 @@
      "pos": "WR",
      "no": "22",
      "name": "Fletcher Fierro",
-     "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "24",
-     "name": "Joe Pitchford",
      "status": "out-game",
      "detail": ""
     },
@@ -414,13 +407,6 @@
      "pos": "WR",
      "no": "84",
      "name": "Cooper Reid",
-     "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DT",
-     "no": "99",
-     "name": "Brody Whatley",
      "status": "out-game",
      "detail": ""
     }

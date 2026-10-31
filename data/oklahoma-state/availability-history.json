@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma-state",
- "updated": "2026-10-30T02:09:37.006596+00:00",
+ "updated": "2026-10-31T02:10:12.601479+00:00",
  "reports": [
   {
    "schema": 1,
@@ -193,10 +193,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T02:09:37.006596+00:00",
+   "fetchedAt": "2026-10-31T02:10:12.601479+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "at Iowa State",
    "players": [
@@ -211,7 +211,7 @@
      "pos": "WR",
      "no": "19",
      "name": "Dayvon Standard",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

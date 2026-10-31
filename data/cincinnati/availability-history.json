@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "cincinnati",
- "updated": "2026-10-30T02:09:31.672138+00:00",
+ "updated": "2026-10-31T02:10:00.454910+00:00",
  "reports": [
   {
    "schema": 1,
@@ -179,39 +179,25 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T02:09:31.672138+00:00",
+   "fetchedAt": "2026-10-31T02:10:00.454910+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Utah",
    "players": [
     {
-     "pos": "WR",
-     "no": "0",
-     "name": "Isaiah Johnson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "ILB",
      "no": "44",
      "name": "Montay Weedon",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "77",
      "name": "Taran Tyo",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "80",
-     "name": "Jalen Williams",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -225,7 +211,7 @@
      "pos": "DL",
      "no": "95",
      "name": "Josh Hough",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     }
    ],

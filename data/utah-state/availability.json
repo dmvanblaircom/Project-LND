@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:09:00.289337+00:00",
+ "fetchedAt": "2026-10-31T02:10:17.028827+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-31",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Colorado State",
  "players": [
@@ -18,21 +18,21 @@
    "pos": "WR",
    "no": "",
    "name": "Eli Wood",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Chapman Lewis",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "Rex Haynes",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

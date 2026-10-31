@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-tech",
- "updated": "2026-10-30T02:09:39.476605+00:00",
+ "updated": "2026-10-31T02:10:15.723534+00:00",
  "reports": [
   {
    "schema": 1,
@@ -256,20 +256,13 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T02:09:39.476605+00:00",
+   "fetchedAt": "2026-10-31T02:10:15.723534+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Arizona",
    "players": [
-    {
-     "pos": "S",
-     "no": "3",
-     "name": "Peyton Morgan",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "WR",
      "no": "6",
@@ -278,65 +271,23 @@
      "detail": ""
     },
     {
-     "pos": "TE",
-     "no": "7",
-     "name": "Terrance Carter Jr.",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "8",
-     "name": "Cameron Dickey",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "WR",
      "no": "11",
      "name": "Malcolm Simmons",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "13",
-     "name": "Ben Roberts",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "CB",
      "no": "18",
      "name": "S'Vioarean Martin",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "S",
      "no": "21",
      "name": "Miquel Dingle Jr.",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "28",
-     "name": "Jordan Rogers",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "77",
-     "name": "Elias Gillen",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OLB",
-     "no": "97",
-     "name": "Charles Anderson Jr.",
      "status": "probable",
      "detail": ""
     }

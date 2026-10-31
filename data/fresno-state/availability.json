@@ -7,17 +7,45 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:52.395722+00:00",
+ "fetchedAt": "2026-10-31T02:10:01.837420+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-31",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Oregon State",
  "players": [
   {
+   "pos": "ILB",
+   "no": "",
+   "name": "Niko Baumgartner",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Lucas Blumling",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Logan Goodspeed",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "",
    "name": "Sammie Hunter",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Jahzon Jacks",
    "status": "questionable",
    "detail": ""
   },
@@ -52,7 +80,7 @@
   {
    "pos": "OL",
    "no": "",
-   "name": "Marquise Thorpe-Taylor",
+   "name": "Marqusie Thorpe-Taylor",
    "status": "questionable",
    "detail": ""
   },

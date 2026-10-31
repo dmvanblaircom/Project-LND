@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:51.665090+00:00",
+ "fetchedAt": "2026-10-31T02:10:00.942791+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-31",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "at Utah State",
  "players": [
@@ -74,7 +74,7 @@
    "pos": "WR",
    "no": "",
    "name": "Steph Daily",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -88,6 +88,13 @@
    "pos": "WR",
    "no": "",
    "name": "Antoine Martin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Makih Johnson",
    "status": "out-game",
    "detail": ""
   }

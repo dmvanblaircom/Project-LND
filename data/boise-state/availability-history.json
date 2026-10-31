@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "boise-state",
- "updated": "2026-10-30T07:08:46.021751+00:00",
+ "updated": "2026-10-31T02:09:59.098489+00:00",
  "reports": [
   {
    "schema": 1,
@@ -12,10 +12,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T07:08:46.021751+00:00",
+   "fetchedAt": "2026-10-31T02:09:59.098489+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-31",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Texas State",
    "players": [

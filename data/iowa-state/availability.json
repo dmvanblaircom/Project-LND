@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T02:09:33.739082+00:00",
+ "fetchedAt": "2026-10-31T02:10:08.863939+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Oklahoma State",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "DE",
    "no": "44",
    "name": "Trey Verdon",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -53,7 +53,7 @@
    "pos": "DT",
    "no": "99",
    "name": "Bryson Lamb",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   }
  ],

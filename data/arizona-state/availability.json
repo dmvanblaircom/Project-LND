@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T02:09:23.949355+00:00",
+ "fetchedAt": "2026-10-31T02:09:57.384058+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "at BYU",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "OL",
    "no": "50",
    "name": "Marques Uini",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "OL",
    "no": "79",
    "name": "Xander Ruggeroli",
-   "status": "probable",
+   "status": "doubtful",
    "detail": ""
   },
   {

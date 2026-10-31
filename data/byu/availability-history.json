@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "byu",
- "updated": "2026-10-30T04:09:38.670549+00:00",
+ "updated": "2026-10-31T02:09:59.940653+00:00",
  "reports": [
   {
    "schema": 1,
@@ -221,10 +221,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T04:09:38.670549+00:00",
+   "fetchedAt": "2026-10-31T02:09:59.940653+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Arizona State",
    "players": [
@@ -232,6 +232,13 @@
      "pos": "CB",
      "no": "0",
      "name": "Evan Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "2",
+     "name": "Jonathan Kabeya",
      "status": "out-game",
      "detail": ""
     },
@@ -250,10 +257,31 @@
      "detail": ""
     },
     {
-     "pos": "OL",
-     "no": "64",
-     "name": "Kyle Sfarcioc",
+     "pos": "LB",
+     "no": "23",
+     "name": "Pierson Watson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "37",
+     "name": "Joseph Douglas",
      "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "39",
+     "name": "Seth Shigg",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "46",
+     "name": "Kendal Wall",
+     "status": "out-game",
      "detail": ""
     }
    ],
