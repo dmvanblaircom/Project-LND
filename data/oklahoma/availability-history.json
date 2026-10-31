@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-10-31T00:10:44.306338+00:00",
+ "updated": "2026-10-31T19:11:11.295264+00:00",
  "reports": [
   {
    "schema": 1,
@@ -340,10 +340,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:44.306338+00:00",
+   "fetchedAt": "2026-10-31T19:11:11.295264+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. South Carolina",
    "players": [
@@ -386,7 +386,7 @@
      "pos": "DB",
      "no": "22",
      "name": "Peyton Bowen",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -400,7 +400,7 @@
      "pos": "DB",
      "no": "23",
      "name": "Eli Bowen",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -421,7 +421,7 @@
      "pos": "OL",
      "no": "69",
      "name": "Jake Maikkula",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
