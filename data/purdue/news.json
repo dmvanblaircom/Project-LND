@@ -1,7 +1,16 @@
 {
  "team": "purdue",
- "updated": "2026-10-31T15:09:46.618644+00:00",
+ "updated": "2026-10-31T16:09:44.946060+00:00",
  "items": [
+  {
+   "title": "Purdue vs. Penn State Confidence Meter: Boilers Looking For 2nd Win in Happy Valley",
+   "link": "https://www.si.com/college/purdue/football/purdue-vs-penn-state-confidence-meter-boilers-looking-for-second-win-happy-valley?utm_source=RSS",
+   "source": "Purdue On SI",
+   "summary": "The Boilers have never had much luck in Happy Valley. Will that change this week? Can Purdue put a scare in Penn State on Halloween night?",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2370,h_1333,x_895,y_138/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/boilermakers_country/01m69a8er7k9t7ysebm4.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-31T16:02:04+00:00"
+  },
   {
    "title": "GoldandBlack.com game day thread: Purdue at Penn State",
    "link": "https://on3.com/teams/purdue-boilermakers/news/goldandblack-com-game-day-thread-purdue-at-penn-state/",
@@ -316,15 +325,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3955,h_2224,x_0,y_150/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/boilermakers_country/01m53y08v202q7ys9c1e.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-17T03:50:19+00:00"
-  },
-  {
-   "title": "Purdue vs. Washington Live Game Blog With Updates, Analysis & Highlights",
-   "link": "https://www.si.com/college/purdue/football/purdue-vs-washington-live-game-blog-with-updates-analysis-highlights-big-ten-football?utm_source=RSS",
-   "source": "Purdue On SI",
-   "summary": "The Boilermakers and Huskies are going head-to-head on Friday night at Ross-Ade Stadium. Follow along for the latest news, updates and highlights.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4133,h_2324,x_1419,y_259/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/boilermakers_country/01m536d1skf04w75vhme.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-16T23:00:01+00:00"
   }
  ]
 }

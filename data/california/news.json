@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-10-31T15:38:19.041383+00:00",
+ "updated": "2026-10-31T16:08:20.310599+00:00",
  "items": [
+  {
+   "title": "Live Game Blog: Cal vs NC State",
+   "link": "https://on3.com/sites/golden-bear-report/news/live-game-blog-cal-vs-nc-state/",
+   "source": "Golden Bear Report",
+   "summary": "Here's everything from Cal vs NC State as it happens right here at Golden Bear Report. Its an early one in Raleigh",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/11220131/2026-09-12T010217Z_1921884400_MT1USATODAY29793283_RTRMADP_3_NCAA-FOOTBALL-RICHMOND-AT-NORTH-CAROLINA-STATE.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-31T15:42:29+00:00"
+  },
   {
    "title": "Cal vs. NC State Thread: Golden Bears Seeking to Halt 2-Game Skid",
    "link": "https://www.si.com/college/cal/football/cal-vs-nc-state-thread-bears-hope-to-halt-2-game-skid-01m685tqnsyh?utm_source=RSS",
@@ -316,15 +325,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/01070902/Kendrick-Raphael.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-24T15:00:00+00:00"
-  },
-  {
-   "title": "Get to Know the SMU Defense vs the Cal Offense",
-   "link": "https://on3.com/sites/golden-bear-report/news/get-to-know-the-smu-defense-vs-the-cal-offense/",
-   "source": "Golden Bear Report",
-   "summary": "SMU has had some hits and misses when it came down to its 2206 defense. Here's what Cal is walking into in Dallas",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/08/04092234/Brandon-Booker.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-23T19:15:00+00:00"
   },
   {
    "title": "Texas Ties",
