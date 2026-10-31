@@ -7,55 +7,41 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:27:59.321309+00:00",
+ "fetchedAt": "2026-10-31T01:40:46.669373+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
+ "effectiveAt": "2026-10-30",
  "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "vs. Akron",
+ "kickoffDate": "2026-10-30",
+ "game": "Sacramento State",
  "players": [
   {
-   "pos": "",
+   "pos": "RB",
    "no": "0",
    "name": "Mason King",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "13",
-   "name": "Quan Rhodes-McKee",
-   "status": "out-game",
+   "pos": "WR",
+   "no": "8",
+   "name": "Da'Realyst Clark",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "15",
-   "name": "Sayed Abuhamdeh",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "55",
-   "name": "Jaxon Dunn",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "OL",
    "no": "78",
    "name": "Tyler Meadows",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "89",
    "name": "Terik Mulder",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }
