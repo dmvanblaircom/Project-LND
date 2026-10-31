@@ -1,7 +1,16 @@
 {
  "team": "uab",
- "updated": "2026-10-29T19:40:29.538234+00:00",
+ "updated": "2026-10-31T20:39:46.909815+00:00",
  "items": [
+  {
+   "title": "UAB Falls 30-10 at South Florida",
+   "link": "https://uabsports.com/news/2026/10/31/football-uab-falls-30-10-at-south-florida",
+   "source": "UAB Athletics",
+   "summary": "<img alt=\"Jo Pierce vs USF\" src=\"https://uabsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/46-060A4543.jpg\" /><br /><br />UAB jumped out to a 10-0 first-quarter lead, but South Florida scored 30 unanswered points, including two defensive touchdowns, to defeat the Blazers 30-10 Saturday afternoon at Raymond James Stadium.",
+   "image": "https://uabsports.com/images/2026/10/31/46-060A4543.jpg?width=800",
+   "sourceLogo": "https://uabsports.com/favicon.ico",
+   "published": "2026-10-31T21:04:00+00:00"
+  },
   {
    "title": "UAB Travels to South Florida for Halloween Showdown on ESPNU",
    "link": "https://uabsports.com/news/2026/10/29/football-uab-travels-to-south-florida-for-halloween-showdown-on-espnu",
@@ -82,15 +91,6 @@
    "image": "https://uabsports.com/images/2026/10/12/060A6285_wczoW.jpg?width=800",
    "sourceLogo": "https://uabsports.com/favicon.ico",
    "published": "2026-10-13T00:45:00+00:00"
-  },
-  {
-   "title": "Oliver Straw Named to Ray\u2019s 8 For Second Consecutive Week",
-   "link": "https://uabsports.com/news/2026/10/12/football-oliver-straw-named-to-rays-8-for-second-consecutive-week",
-   "source": "UAB Athletics",
-   "summary": "<img alt=\"Ollie Straw\" src=\"https://uabsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/12/30055035.jpg\" /><br /><br />AUGUSTA, Ga. \u2013 UAB punter Oliver Straw has been named to Ray's 8 for Week 6 as announced by the Augusta Sports Council and the Ray Guy Award committee on Monday.",
-   "image": "https://uabsports.com/images/2026/10/12/30055035.jpg?width=800",
-   "sourceLogo": "https://uabsports.com/favicon.ico",
-   "published": "2026-10-12T20:30:00+00:00"
   }
  ]
 }
