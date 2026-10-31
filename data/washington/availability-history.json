@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-10-31T00:10:49.799279+00:00",
+ "updated": "2026-10-31T22:10:17.034977+00:00",
  "reports": [
   {
    "schema": 1,
@@ -298,20 +298,13 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:49.799279+00:00",
+   "fetchedAt": "2026-10-31T22:10:17.034977+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at Nebraska",
    "players": [
-    {
-     "pos": "QB",
-     "no": "1",
-     "name": "Demond Williams Jr.",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "RB",
      "no": "4",
@@ -327,24 +320,10 @@
      "detail": ""
     },
     {
-     "pos": "S",
-     "no": "7",
-     "name": "Alex McLaughlin",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "9",
-     "name": "Jacob Manu",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "LB",
      "no": "10",
      "name": "Xe'ree Alexander",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -356,13 +335,6 @@
     },
     {
      "pos": "RB",
-     "no": "17",
-     "name": "Jayden Limar",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
      "no": "21",
      "name": "Quaid Carr",
      "status": "out-game",
@@ -370,16 +342,9 @@
     },
     {
      "pos": "RB",
-     "no": "22",
-     "name": "Trey Cooley",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
      "no": "30",
      "name": "Ansu Sanoe",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -393,14 +358,14 @@
      "pos": "OL",
      "no": "70",
      "name": "Justin Hylkema",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "78",
      "name": "Jake Flores",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

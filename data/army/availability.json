@@ -7,118 +7,125 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:27:51.079977+00:00",
+ "fetchedAt": "2026-10-31T22:09:59.133881+00:00",
  "reported": true,
- "effectiveAt": "2026-10-23",
+ "effectiveAt": "2026-10-31",
  "heading": "Game Day",
- "kickoffDate": "2026-10-23",
- "game": "at Tulsa",
+ "kickoffDate": "2026-10-31",
+ "game": "Memphis",
  "players": [
   {
-   "pos": "",
+   "pos": "NB",
    "no": "10",
    "name": "Cole Searight",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "14",
    "name": "Josh Milhollin",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
    "no": "16",
    "name": "Taps Hananda",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "SB",
    "no": "18",
    "name": "Brady Mott",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "ILB",
    "no": "19",
    "name": "Jaquavious Moss",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "S",
+   "no": "22",
+   "name": "Larry Pickett Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
    "no": "29",
    "name": "Kai Woolfolk",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OLB",
    "no": "32",
    "name": "Cameron Binkowski",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "33",
-   "name": "Jake Rendina",
-   "status": "questionable",
+   "pos": "RB",
+   "no": "34",
+   "name": "Carson Smith",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "SB",
    "no": "40",
    "name": "Charlie Daly",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "46",
-   "name": "Nick McGlynn",
-   "status": "questionable",
+   "pos": "ILB",
+   "no": "53",
+   "name": "Phillip Goodrich",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "58",
    "name": "Rhett VanBoening",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "69",
    "name": "Miles Hagan",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "79",
-   "name": "Jonah Zimmerman",
+   "pos": "OL",
+   "no": "76",
+   "name": "Max Stober",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "83",
    "name": "Kurt Thompson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DL",
    "no": "91",
    "name": "Sean Donovan",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

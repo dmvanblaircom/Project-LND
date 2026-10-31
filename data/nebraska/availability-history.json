@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-10-31T00:10:43.519282+00:00",
+ "updated": "2026-10-31T22:10:10.961880+00:00",
  "reports": [
   {
    "schema": 1,
@@ -312,10 +312,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:43.519282+00:00",
+   "fetchedAt": "2026-10-31T22:10:10.961880+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Washington",
    "players": [
@@ -337,7 +337,7 @@
      "pos": "LB",
      "no": "10",
      "name": "Vincent Shavers Jr.",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
