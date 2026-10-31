@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado-state",
- "updated": "2026-10-31T02:10:00.942791+00:00",
+ "updated": "2026-10-31T17:41:20.070568+00:00",
  "reports": [
   {
    "schema": 1,
@@ -12,10 +12,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T02:10:00.942791+00:00",
+   "fetchedAt": "2026-10-31T17:41:20.070568+00:00",
    "reported": true,
    "effectiveAt": "2026-10-31",
-   "heading": "Update 2",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at Utah State",
    "players": [
@@ -23,35 +23,21 @@
      "pos": "RB",
      "no": "",
      "name": "Mel Brown",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "TE",
      "no": "",
      "name": "Juice Vereen",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "John Holthaus",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "TE",
      "no": "",
      "name": "Pearce Spurlin",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Steph Wright",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {

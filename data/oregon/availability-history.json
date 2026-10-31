@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oregon",
- "updated": "2026-10-31T00:10:44.809449+00:00",
+ "updated": "2026-10-31T17:41:26.284660+00:00",
  "reports": [
   {
    "schema": 1,
@@ -326,10 +326,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:44.809449+00:00",
+   "fetchedAt": "2026-10-31T17:41:26.284660+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Northwestern",
    "players": [
@@ -337,7 +337,7 @@
      "pos": "WR",
      "no": "2",
      "name": "Iverson Hooks",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

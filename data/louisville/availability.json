@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:41.567243+00:00",
+ "fetchedAt": "2026-10-31T17:41:23.179954+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Stanford",
  "players": [
@@ -29,20 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "21",
-   "name": "Jaydin Broadnax",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "33",
-   "name": "Kris Brunson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "44",
    "name": "Travis Egan",
@@ -54,13 +40,6 @@
    "no": "48",
    "name": "Jacob Baker",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "61",
-   "name": "Gradey Anthony",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -103,13 +82,6 @@
    "no": "98",
    "name": "Sam Dawson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "99",
-   "name": "Jerod Smith II",
-   "status": "probable",
    "detail": ""
   }
  ],

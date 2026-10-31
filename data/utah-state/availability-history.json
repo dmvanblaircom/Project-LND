@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utah-state",
- "updated": "2026-10-31T02:10:17.028827+00:00",
+ "updated": "2026-10-31T17:41:30.303006+00:00",
  "reports": [
   {
    "schema": 1,
@@ -12,10 +12,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T02:10:17.028827+00:00",
+   "fetchedAt": "2026-10-31T17:41:30.303006+00:00",
    "reported": true,
    "effectiveAt": "2026-10-31",
-   "heading": "Update 2",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Colorado State",
    "players": [
@@ -87,34 +87,6 @@
      "no": "",
      "name": "Kauasi Hansen",
      "status": "out-season",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Kadin Lynch",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Adonis Jackson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
-     "name": "Demick Starling",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Easton Hammond",
-     "status": "probable",
      "detail": ""
     },
     {

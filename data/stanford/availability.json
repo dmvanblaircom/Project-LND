@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:46.598892+00:00",
+ "fetchedAt": "2026-10-31T17:41:28.006541+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "at Louisville",
  "players": [
@@ -54,13 +54,6 @@
    "no": "28",
    "name": "Sam Neely III",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "32",
-   "name": "Chase Cahoon",
-   "status": "probable",
    "detail": ""
   },
   {

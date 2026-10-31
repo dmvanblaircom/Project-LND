@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "indiana",
- "updated": "2026-10-31T00:10:40.335711+00:00",
+ "updated": "2026-10-31T17:41:21.993195+00:00",
  "reports": [
   {
    "schema": 1,
@@ -200,10 +200,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:40.335711+00:00",
+   "fetchedAt": "2026-10-31T17:41:21.993195+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Minnesota",
    "players": [
@@ -212,20 +212,6 @@
      "no": "4",
      "name": "Davion Chandler",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "QB",
-     "no": "10",
-     "name": "Josh Hoover",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "13",
-     "name": "Quan Sanks",
-     "status": "probable",
      "detail": ""
     },
     {
