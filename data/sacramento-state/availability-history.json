@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "sacramento-state",
- "updated": "2026-10-31T01:40:51.096980+00:00",
+ "updated": "2026-10-31T10:10:31.834543+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1277,12 +1277,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T01:40:51.096980+00:00",
+   "fetchedAt": "2026-10-31T10:10:31.834543+00:00",
    "reported": true,
    "effectiveAt": "2026-10-30",
    "heading": "Game Day",
    "kickoffDate": "2026-10-30",
-   "game": "Kent State",
+   "game": "vs. Kent State",
    "players": [
     {
      "pos": "S",
