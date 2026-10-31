@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "penn-state",
- "updated": "2026-10-31T00:10:45.048939+00:00",
+ "updated": "2026-10-31T18:41:20.619406+00:00",
  "reports": [
   {
    "schema": 1,
@@ -508,10 +508,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:45.048939+00:00",
+   "fetchedAt": "2026-10-31T18:41:20.619406+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Purdue",
    "players": [
@@ -519,21 +519,14 @@
      "pos": "WR",
      "no": "0",
      "name": "Chase Sowell",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "4",
-     "name": "Jeremiah Cooper",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "6",
      "name": "Koby Howard",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -554,7 +547,7 @@
      "pos": "DE",
      "no": "19",
      "name": "Yvan Kemajou",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -576,13 +569,6 @@
      "no": "30",
      "name": "Christian Askew",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "33",
-     "name": "Alexander McPherson",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -624,7 +610,7 @@
      "pos": "TE",
      "no": "83",
      "name": "Brian Kortovich",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -638,7 +624,7 @@
      "pos": "DT",
      "no": "91",
      "name": "Armstrong Nnodim",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {

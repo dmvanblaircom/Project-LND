@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "cincinnati",
- "updated": "2026-10-31T02:10:00.454910+00:00",
+ "updated": "2026-10-31T18:41:14.646525+00:00",
  "reports": [
   {
    "schema": 1,
@@ -179,10 +179,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T02:10:00.454910+00:00",
+   "fetchedAt": "2026-10-31T18:41:14.646525+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Utah",
    "players": [

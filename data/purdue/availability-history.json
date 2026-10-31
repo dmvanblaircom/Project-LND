@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "purdue",
- "updated": "2026-10-31T00:10:45.321806+00:00",
+ "updated": "2026-10-31T18:41:20.831182+00:00",
  "reports": [
   {
    "schema": 1,
@@ -221,10 +221,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:45.321806+00:00",
+   "fetchedAt": "2026-10-31T18:41:20.831182+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at Penn State",
    "players": [
@@ -232,14 +232,14 @@
      "pos": "DB",
      "no": "2",
      "name": "Jaden Mangham",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "8",
      "name": "De'Nylon Morrissette",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
