@@ -7,83 +7,69 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:27:56.710862+00:00",
+ "fetchedAt": "2026-10-31T17:11:46.618138+00:00",
  "reported": true,
- "effectiveAt": "2026-10-22",
+ "effectiveAt": "2026-10-31",
  "heading": "Game Day",
- "kickoffDate": "2026-10-22",
- "game": "at Memphis",
+ "kickoffDate": "2026-10-31",
+ "game": "Temple",
  "players": [
   {
-   "pos": "",
+   "pos": "DB",
    "no": "2",
    "name": "Jaylen Bowden",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "6",
    "name": "DeMarius Hines",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "10",
    "name": "Brock Spalding",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "11",
    "name": "Jeremiah Melvin",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "13",
    "name": "Ayden Duncanson",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "14",
    "name": "Dillon Lorick",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "35",
-   "name": "Landon Lewis",
+   "pos": "DB",
+   "no": "17",
+   "name": "Rae'mon Mosby",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "48",
-   "name": "Tomas O'Halloran",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "55",
-   "name": "Ethan Kramer",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "WR",
    "no": "88",
    "name": "Dawson Quarterman",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

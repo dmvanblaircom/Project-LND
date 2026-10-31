@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "east-carolina",
- "updated": "2026-10-30T13:27:56.710862+00:00",
+ "updated": "2026-10-31T17:11:46.618138+00:00",
  "reports": [
   {
    "schema": 1,
@@ -234,6 +234,81 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "east-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-31T17:11:46.618138+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-31",
+   "game": "Temple",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Jaylen Bowden",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "DeMarius Hines",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "10",
+     "name": "Brock Spalding",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Jeremiah Melvin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "13",
+     "name": "Ayden Duncanson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "14",
+     "name": "Dillon Lorick",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "17",
+     "name": "Rae'mon Mosby",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "88",
+     "name": "Dawson Quarterman",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

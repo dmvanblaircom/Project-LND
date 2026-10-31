@@ -7,118 +7,111 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:28:05.102867+00:00",
+ "fetchedAt": "2026-10-31T17:11:54.950957+00:00",
  "reported": true,
- "effectiveAt": "2026-10-17",
+ "effectiveAt": "2026-10-31",
  "heading": "Game Day",
- "kickoffDate": "2026-10-17",
- "game": "vs. Charlotte",
+ "kickoffDate": "2026-10-31",
+ "game": "East Carolina",
  "players": [
   {
-   "pos": "",
+   "pos": "RB",
    "no": "5",
    "name": "Sam Brown V",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "8",
    "name": "Eric Stuart",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "13",
-   "name": "Ajani Sheppard",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "14",
-   "name": "Nakeel Lawrence",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "17",
-   "name": "JoJo Bermudez",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
+   "no": "17",
+   "name": "JoJo Bermudez",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
    "no": "27",
    "name": "Devontae Ward-Grant",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "30",
-   "name": "Jayvant Brown",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "33",
-   "name": "Curly Ordonez",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "DL",
    "no": "34",
    "name": "Brandon Enarusai",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "52",
-   "name": "Eric King",
+   "pos": "LB",
+   "no": "44",
+   "name": "Tyree Alualu",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "55",
+   "name": "Kevin Terry",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "63",
+   "name": "John Watkins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "71",
    "name": "Giakoby Hills",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "75",
    "name": "Luke Watson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "83",
    "name": "Kenedy Uzoma",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "87",
    "name": "Kaegan Chambers",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "89",
    "name": "Zander Baptiste",
    "status": "out-game",
    "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "93",
+   "name": "Kevin Hornbeak Jr.",
+   "status": "out-game",
+   "detail": ""
   }
  ],
- "current": false
+ "current": true
 }
