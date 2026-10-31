@@ -1,7 +1,16 @@
 {
  "team": "arkansas",
- "updated": "2026-10-31T19:29:36.554269+00:00",
+ "updated": "2026-10-31T22:38:05.435952+00:00",
  "items": [
+  {
+   "title": "Arkansas Football Availability Report: Missouri week (Gameday)",
+   "link": "https://on3.com/sites/hawg-beat/news/arkansas-football-availability-report-missouri-week-gameday/",
+   "source": "HawgBeat",
+   "summary": "The final SEC Availability Report for Arkansas versus Missouri was released on Saturday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/08/27060926/Silvy-show.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-31T22:15:16+00:00"
+  },
   {
    "title": "Arkansas Has Chance to Snap Three Ugly Losing Streaks Against Missouri",
    "link": "https://www.si.com/college/arkansas/football/arkansas-has-chance-to-snap-three-ugly-losing-streaks-against-missouri?utm_source=RSS",
@@ -235,15 +244,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26122211/Silver-1.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-26T17:56:58+00:00"
-  },
-  {
-   "title": "Game time, TV info announced for Arkansas' game against Auburn",
-   "link": "https://on3.com/sites/hawg-beat/news/game-time-tv-info-announced-for-arkansas-game-against-auburn/",
-   "source": "HawgBeat",
-   "summary": "Kickoff time and TV information has been announced for Arkansas' SEC matchup at Auburn on Nov. 7.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26080355/Settles.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-26T17:11:14+00:00"
   }
  ]
 }

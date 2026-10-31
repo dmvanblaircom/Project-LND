@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arkansas",
- "updated": "2026-10-31T00:10:31.647232+00:00",
+ "updated": "2026-10-31T22:40:28.154969+00:00",
  "reports": [
   {
    "schema": 1,
@@ -179,10 +179,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:31.647232+00:00",
+   "fetchedAt": "2026-10-31T22:40:28.154969+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Missouri",
    "players": [
@@ -197,7 +197,7 @@
      "pos": "WR",
      "no": "6",
      "name": "Chris Marshall",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

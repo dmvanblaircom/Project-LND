@@ -1,7 +1,16 @@
 {
  "team": "missouri",
- "updated": "2026-10-31T21:39:14.298874+00:00",
+ "updated": "2026-10-31T22:39:05.095942+00:00",
  "items": [
+  {
+   "title": "Live Blog of Mizzou Football vs. Arkansas",
+   "link": "https://www.si.com/college/missouri/football/live-blog-of-mizzou-football-vs-arkansas?utm_source=RSS",
+   "source": "Missouri On SI",
+   "summary": "Live score updates, analysis and reports for Mizzou football vs. Arkansas.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2294,h_1290,x_595,y_224/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mizzou_central/01m69qascf7y1s2xrme6.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-31T22:11:14+00:00"
+  },
   {
    "title": "Four questions for Mizzou ahead of the Battle Line Rivalry",
    "link": "https://www.rockmnation.com/missouri-tigers-football/161544/four-questions-for-mizzou-ahead-of-the-battle-line-rivalry",
@@ -199,15 +208,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4875,h_2742,x_0,y_113/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mizzou_central/01m5fmtgqvp41bxzmh98.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-22T17:00:00+00:00"
-  },
-  {
-   "title": "'Doing this for Titus': How Mizzou\u2019s Elijah Dotson keeps late best friend's memory alive",
-   "link": "https://www.si.com/college/missouri/football/doing-this-for-titus-how-mizzou-s-elijah-dotson-keeps-late-best-friend-s-memory-alive?utm_source=RSS",
-   "source": "Missouri On SI",
-   "summary": "Missouri Tigers safety Elijah Dotson uses game days as a way to honor Titus Cromer Jr., his late best friend who he calls his brother. He's learned to live with his grief.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2560,h_1440,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/mizzou_central/01m5g0xfdm38bhhzjrwh.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-22T11:00:00+00:00"
   }
  ]
 }
