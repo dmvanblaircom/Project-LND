@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oregon",
- "updated": "2026-10-30T00:09:27.706406+00:00",
+ "updated": "2026-10-31T00:10:44.809449+00:00",
  "reports": [
   {
    "schema": 1,
@@ -326,10 +326,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:09:27.706406+00:00",
+   "fetchedAt": "2026-10-31T00:10:44.809449+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Northwestern",
    "players": [
@@ -351,6 +351,13 @@
      "pos": "QB",
      "no": "5",
      "name": "Dante Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Messiah Hampton",
      "status": "out-game",
      "detail": ""
     },

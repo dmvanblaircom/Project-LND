@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T00:09:27.824846+00:00",
+ "fetchedAt": "2026-10-31T00:10:45.048939+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Purdue",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "WR",
    "no": "6",
    "name": "Koby Howard",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -102,7 +102,7 @@
    "pos": "DT",
    "no": "56",
    "name": "Alijah Carnell",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "mississippi-state",
- "updated": "2026-10-30T00:11:53.297884+00:00",
+ "updated": "2026-10-31T00:10:42.983761+00:00",
  "reports": [
   {
    "schema": 1,
@@ -268,10 +268,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:11:53.297884+00:00",
+   "fetchedAt": "2026-10-31T00:10:42.983761+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "at Texas",
    "players": [
@@ -286,7 +286,7 @@
      "pos": "S",
      "no": "2",
      "name": "Isaac Smith",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -300,7 +300,7 @@
      "pos": "LB",
      "no": "11",
      "name": "Tyler Lockhart",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {

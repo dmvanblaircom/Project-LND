@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan",
- "updated": "2026-10-30T00:09:25.726047+00:00",
+ "updated": "2026-10-31T00:10:42.596087+00:00",
  "reports": [
   {
    "schema": 1,
@@ -361,10 +361,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:09:25.726047+00:00",
+   "fetchedAt": "2026-10-31T00:10:42.596087+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "at Rutgers",
    "players": [
@@ -394,6 +394,13 @@
      "no": "8",
      "name": "Dom Nichols",
      "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "16",
+     "name": "Jo'Ziah Edmond",
+     "status": "out-game",
      "detail": ""
     },
     {

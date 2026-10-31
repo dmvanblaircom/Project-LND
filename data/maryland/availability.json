@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T00:09:25.127423+00:00",
+ "fetchedAt": "2026-10-31T00:10:41.947601+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Illinois",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "WR",
    "no": "11",
    "name": "Ryan Manning",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "WR",
    "no": "21",
    "name": "Sean Williams",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "OL",
    "no": "50",
    "name": "Trevor Szymanski",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

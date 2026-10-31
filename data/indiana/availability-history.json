@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "indiana",
- "updated": "2026-10-30T00:09:24.008587+00:00",
+ "updated": "2026-10-31T00:10:40.335711+00:00",
  "reports": [
   {
    "schema": 1,
@@ -200,10 +200,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:09:24.008587+00:00",
+   "fetchedAt": "2026-10-31T00:10:40.335711+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Minnesota",
    "players": [

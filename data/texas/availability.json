@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T00:11:55.697690+00:00",
+ "fetchedAt": "2026-10-31T00:10:47.268511+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Mississippi State",
  "players": [
@@ -18,14 +18,7 @@
    "pos": "EDG",
    "no": "1",
    "name": "Colin Simmons",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "7",
-   "name": "Kaliq Lockett",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {

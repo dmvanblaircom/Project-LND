@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-10-30T00:11:54.156190+00:00",
+ "updated": "2026-10-31T00:10:44.306338+00:00",
  "reports": [
   {
    "schema": 1,
@@ -340,10 +340,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:11:54.156190+00:00",
+   "fetchedAt": "2026-10-31T00:10:44.306338+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. South Carolina",
    "players": [
@@ -372,7 +372,7 @@
      "pos": "WR",
      "no": "14",
      "name": "Elijah Thomas",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -383,17 +383,10 @@
      "detail": ""
     },
     {
-     "pos": "RB",
-     "no": "21",
-     "name": "Xavier Robinson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "DB",
      "no": "22",
      "name": "Peyton Bowen",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -407,7 +400,7 @@
      "pos": "DB",
      "no": "23",
      "name": "Eli Bowen",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -442,7 +435,7 @@
      "pos": "OL",
      "no": "72",
      "name": "Fred Hinton",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     }
    ],

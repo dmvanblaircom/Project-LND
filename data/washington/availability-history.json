@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-10-30T00:09:31.554660+00:00",
+ "updated": "2026-10-31T00:10:49.799279+00:00",
  "reports": [
   {
    "schema": 1,
@@ -298,10 +298,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:09:31.554660+00:00",
+   "fetchedAt": "2026-10-31T00:10:49.799279+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "at Nebraska",
    "players": [
@@ -324,6 +324,13 @@
      "no": "5",
      "name": "Christian Moss",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "7",
+     "name": "Alex McLaughlin",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -365,7 +372,7 @@
      "pos": "RB",
      "no": "22",
      "name": "Trey Cooley",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

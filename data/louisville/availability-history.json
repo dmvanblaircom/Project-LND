@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisville",
- "updated": "2026-10-30T00:09:24.875950+00:00",
+ "updated": "2026-10-31T00:10:41.567243+00:00",
  "reports": [
   {
    "schema": 1,
@@ -443,20 +443,13 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:09:24.875950+00:00",
+   "fetchedAt": "2026-10-31T00:10:41.567243+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Stanford",
    "players": [
-    {
-     "pos": "DL",
-     "no": "3",
-     "name": "Tyler Thompson",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "WR",
      "no": "7",
@@ -473,15 +466,15 @@
     },
     {
      "pos": "DB",
-     "no": "12",
-     "name": "DJ Waller Jr.",
-     "status": "probable",
+     "no": "21",
+     "name": "Jaydin Broadnax",
+     "status": "questionable",
      "detail": ""
     },
     {
      "pos": "DB",
-     "no": "21",
-     "name": "Jaydin Broadnax",
+     "no": "33",
+     "name": "Kris Brunson",
      "status": "questionable",
      "detail": ""
     },
@@ -497,6 +490,13 @@
      "no": "48",
      "name": "Jacob Baker",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "61",
+     "name": "Gradey Anthony",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -521,20 +521,6 @@
      "detail": ""
     },
     {
-     "pos": "OL",
-     "no": "72",
-     "name": "Sam Secrest",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "85",
-     "name": "Justyn Reid",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "TE",
      "no": "90",
      "name": "Hamilton Atkins",
@@ -545,7 +531,7 @@
      "pos": "DL",
      "no": "90",
      "name": "Daylen Russell",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -559,7 +545,7 @@
      "pos": "DL",
      "no": "99",
      "name": "Jerod Smith II",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

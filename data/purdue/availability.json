@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T00:09:28.081571+00:00",
+ "fetchedAt": "2026-10-31T00:10:45.321806+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "at Penn State",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "DB",
    "no": "2",
    "name": "Jaden Mangham",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "8",
    "name": "De'Nylon Morrissette",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {

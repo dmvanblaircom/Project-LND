@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arkansas",
- "updated": "2026-10-30T00:11:45.126252+00:00",
+ "updated": "2026-10-31T00:10:31.647232+00:00",
  "reports": [
   {
    "schema": 1,
@@ -179,20 +179,13 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:11:45.126252+00:00",
+   "fetchedAt": "2026-10-31T00:10:31.647232+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. Missouri",
    "players": [
-    {
-     "pos": "RB",
-     "no": "0",
-     "name": "Braylen Russell",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "3",
@@ -223,23 +216,9 @@
     },
     {
      "pos": "TE",
-     "no": "83",
-     "name": "Jaden Platt",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
      "no": "89",
      "name": "Gavin Garretson",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "90",
-     "name": "Caleb Bell",
-     "status": "probable",
      "detail": ""
     }
    ],

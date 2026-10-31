@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T00:09:24.131790+00:00",
+ "fetchedAt": "2026-10-31T00:10:40.460358+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Wisconsin",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "DB",
    "no": "0",
    "name": "Cody Haddad",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "RB",
    "no": "13",
    "name": "Brevin Doll",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -81,7 +81,7 @@
    "pos": "DL",
    "no": "88",
    "name": "Emmanuel Olagbaju",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   }
  ],

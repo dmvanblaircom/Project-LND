@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "syracuse",
- "updated": "2026-10-30T00:09:29.091556+00:00",
+ "updated": "2026-10-31T00:10:46.744733+00:00",
  "reports": [
   {
    "schema": 1,
@@ -345,10 +345,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:09:29.091556+00:00",
+   "fetchedAt": "2026-10-31T00:10:46.744733+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "vs. SMU",
    "players": [
@@ -363,7 +363,7 @@
      "pos": "QB",
      "no": "9",
      "name": "Steve Angeli",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -391,7 +391,7 @@
      "pos": "OL",
      "no": "50",
      "name": "Kahlil Stewart",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -412,7 +412,14 @@
      "pos": "OL",
      "no": "74",
      "name": "Matthew Hawn",
-     "status": "doubtful",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "80",
+     "name": "Carter Bashir",
+     "status": "out-game",
      "detail": ""
     },
     {

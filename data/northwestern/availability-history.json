@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "northwestern",
- "updated": "2026-10-30T00:09:26.979381+00:00",
+ "updated": "2026-10-31T00:10:43.914674+00:00",
  "reports": [
   {
    "schema": 1,
@@ -536,10 +536,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:09:26.979381+00:00",
+   "fetchedAt": "2026-10-31T00:10:43.914674+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "at Oregon",
    "players": [
@@ -561,7 +561,7 @@
      "pos": "DL",
      "no": "15",
      "name": "Brendan Flakes",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -589,7 +589,7 @@
      "pos": "RB",
      "no": "41",
      "name": "Robby Preckel",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

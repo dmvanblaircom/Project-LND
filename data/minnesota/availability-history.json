@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "minnesota",
- "updated": "2026-10-30T00:09:25.967835+00:00",
+ "updated": "2026-10-31T00:10:42.843887+00:00",
  "reports": [
   {
    "schema": 1,
@@ -312,10 +312,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T00:09:25.967835+00:00",
+   "fetchedAt": "2026-10-31T00:10:42.843887+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Update 1",
+   "effectiveAt": "2026-10-30",
+   "heading": "Update 2",
    "kickoffDate": "2026-10-31",
    "game": "at Indiana",
    "players": [
@@ -323,7 +323,7 @@
      "pos": "DB",
      "no": "9",
      "name": "Garrison Monroe",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -337,7 +337,7 @@
      "pos": "TE",
      "no": "19",
      "name": "Pierce Walsh",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T00:09:22.544869+00:00",
+ "fetchedAt": "2026-10-31T00:10:35.444327+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Boston College",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "CB",
    "no": "1",
    "name": "Kyon Loud",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -46,14 +46,14 @@
    "pos": "S",
    "no": "9",
    "name": "Ché Ojarikre",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "15",
    "name": "Jake Taylor",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -123,7 +123,7 @@
    "pos": "TE",
    "no": "85",
    "name": "Jeremiah Hasley",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],

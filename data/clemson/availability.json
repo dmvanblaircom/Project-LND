@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T00:09:22.285057+00:00",
+ "fetchedAt": "2026-10-31T00:10:34.942828+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "at Florida State",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "WR",
    "no": "19",
    "name": "Gordon Sellars III",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

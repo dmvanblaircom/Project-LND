@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T00:09:26.605318+00:00",
+ "fetchedAt": "2026-10-31T00:10:43.519282+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Update 1",
+ "effectiveAt": "2026-10-30",
+ "heading": "Update 2",
  "kickoffDate": "2026-10-31",
  "game": "vs. Washington",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "LB",
    "no": "10",
    "name": "Vincent Shavers Jr.",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -51,23 +51,9 @@
   },
   {
    "pos": "RB",
-   "no": "22",
-   "name": "Isaiah Mozee",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
    "no": "30",
    "name": "Vincent Genatone",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "44",
-   "name": "Riley Van Poppel",
-   "status": "probable",
    "detail": ""
   },
   {

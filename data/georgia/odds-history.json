@@ -1,6 +1,6 @@
 {
 "team": "georgia",
-"updated": "2026-10-30T18:07Z",
+"updated": "2026-10-31T00:07Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -208,6 +208,13 @@
 {
 "t": "2026-10-30T18:07Z",
 "title": 19.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 84.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-31T00:07Z",
+"title": 18.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 84.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
