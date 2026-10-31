@@ -1,7 +1,16 @@
 {
  "team": "indiana",
- "updated": "2026-10-31T23:08:40.344334+00:00",
+ "updated": "2026-10-31T23:38:43.600008+00:00",
  "items": [
+  {
+   "title": "No. 4 Indiana football survives overtime scare on Homecoming, wins 23-16",
+   "link": "https://www.idsnews.com/article/2026/10/indiana-football-minnesota-overtime-cignetti-homecoming",
+   "source": "Indiana Daily Student",
+   "summary": "<div><p><span data-contrast=\"auto\">In a fourth straight one-possession game, No. 4 Indiana football defeated Minnesota 23-16 in overtime Saturday afternoon at Memorial Stadium in Bloomington.</span><span data-ccp-props=\"{'134233117':false,'134233118':false,'201341983':0,'335551550':1,'335551620':1,'335559685':0,'335559737':0,'335559738':0,'335559739':160,'335559740':279}\"></span></p></div><div><p><span data-contrast=\"auto\">On the game's opening possession, the Golden Gophers netted negative-1 yard</span><span data-contrast=\"auto\">s</span><span data-contrast=\"auto\">. The Hoosiers followed it up",
+   "image": "https://snworksceo.imgix.net/ids/c5b71a49-549d-4dea-8f8e-ae611c5a9d1f.sized-1000x1000.jpg?w=800&h=800",
+   "sourceLogo": null,
+   "published": "2026-10-31T23:29:51+00:00"
+  },
   {
    "title": "Indiana goes with backup quarterback Grant Wilson to start second half vs Minnesota",
    "link": "https://on3.com/teams/indiana-hoosiers/news/indiana-goes-with-backup-quarterback-grant-wilson-to-start-second-half-vs-minnesota/",
@@ -12,7 +21,7 @@
    "published": "2026-10-31T21:47:11+00:00"
   },
   {
-   "title": "Live Game Blog: Indiana-13 Minnesota-13   Q4",
+   "title": "Live Game Blog: Indiana-23 Minnesota-16   FINAL",
    "link": "https://on3.com/teams/indiana-hoosiers/news/live-game-blog-indiana-vs-minnesota/",
    "source": "On3",
    "summary": "Live updates, news, stats, and note from Indiana's game versus Minnesota.",
@@ -532,15 +541,6 @@
    "image": "https://snworksceo.imgix.net/ids/13d441b7-e1ba-4967-9f61-7f48a4eb5c70.sized-1000x1000.jpg?w=800&h=800",
    "sourceLogo": null,
    "published": "2026-10-25T00:08:59+00:00"
-  },
-  {
-   "title": "Postgame Notes: at Michigan",
-   "link": "https://iuhoosiers.com/news/2026/10/24/football-postgame-notes-at-michigan",
-   "source": "Indiana Athletics",
-   "summary": "<img alt=\"Isaiah Jones | Action | Celebration\" src=\"https://iuhoosiers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/CAS_5586.jpg\" /><br /><br />Postgame Notes",
-   "image": "https://iuhoosiers.com/images/2026/10/24/CAS_5586.jpg?width=800",
-   "sourceLogo": "https://iuhoosiers.com/favicon.ico",
-   "published": "2026-10-24T22:05:00+00:00"
   }
  ]
 }

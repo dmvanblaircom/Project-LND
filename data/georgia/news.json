@@ -1,7 +1,34 @@
 {
  "team": "georgia",
- "updated": "2026-10-31T23:08:32.887715+00:00",
+ "updated": "2026-10-31T23:38:36.490434+00:00",
  "items": [
+  {
+   "title": "Takeaways Power Bulldogs Past Gators",
+   "link": "https://georgiadogs.com/news/2026/10/31/football-takeaways-power-bulldogs-past-gators",
+   "source": "Georgia Athletics",
+   "summary": "<img alt=\"26FB Score - Georgia 27, Florida 8\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/26FB_Score_Florida.jpg\" /><br /><br />Led by a dominating and opportunistic performance from its defense, the No. 3-ranked Georgia football team knocked off No. 17 Florida, 27-8, in the Atlanta Gridiron Classic on Saturday afternoon at Mercedes-Benz Stadium. Playing in front of a sellout crowd of 72,541, the Bulldogs forced four turnovers, which they turned into 17 points, and earned their sixth consecutive win in the series.",
+   "image": "https://georgiadogs.com/images/2026/10/31/26FB_Score_Florida.jpg?width=800",
+   "sourceLogo": "https://georgiadogs.com/favicon.ico",
+   "published": "2026-11-01T00:09:00+00:00"
+  },
+  {
+   "title": "Snap Judgments: Georgia's defense carries the load",
+   "link": "https://on3.com/teams/georgia-bulldogs/news/snap-judgments-georgias-defense-carries-the-load/",
+   "source": "On3",
+   "summary": "Georgia's defense spearheaded an effort on Saturday to secure its sixth straight win over Florida, one of its most bitter rivals.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/12152710/snap-judgements-uga-sports-1.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-31T23:36:42+00:00"
+  },
+  {
+   "title": "Complete Coverage: Georgia's D makes a statement",
+   "link": "https://on3.com/teams/georgia-bulldogs/news/complete-coverage-georgias-d-makes-a-statement/",
+   "source": "On3",
+   "summary": "ATLANTA - Demello Jones and Georgia's defense made a statement Saturday at Mercedes-Benz Stadium against Florida.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31181635/KM1_5479.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-31T23:20:54+00:00"
+  },
   {
    "title": "JJ's Takeaways: Three things we learned about Georgia in win over Florida",
    "link": "https://on3.com/teams/georgia-bulldogs/news/jjs-takeaways-three-things-we-learned-about-georgia-in-win-over-florida/",
@@ -66,33 +93,6 @@
    "published": "2026-10-31T17:52:04+00:00"
   },
   {
-   "title": "Georgia/Florida Football Live Thread",
-   "link": "https://www.dawgsports.com/georgia-bulldogs-football/39415/georgia-florida-football-live-thread",
-   "source": "Dawg Sports",
-   "summary": "I don\u2019t know very much. But I do know this: Gators eat boogers and only weirdos wear jorts. G",
-   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/10/reuters-tagreuters.com2024newsml_MT1USATODAY24122538938349227.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-10-31T17:23:03+00:00"
-  },
-  {
-   "title": "Chapel Bell Curve: The one with only one Bell Curve",
-   "link": "https://www.dawgsports.com/georgia-bulldogs-dawg-gone-podcast/39412/chapel-bell-curve-the-one-with-only-one-bell-curve",
-   "source": "Dawg Sports",
-   "summary": "Chapel Bell Curve is back, and like a college football team battling its way through a tough SEC schedule, the team is down a key contributor. But the World\u2019s Largest Outdoor Cocktail Party must be previewed, and preview ed it will be. In this episode: The key to life and football is this: just try [&#8230;]",
-   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/chorus/uploads/chorus_asset/file/25810371/163953494.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-10-31T17:17:31+00:00"
-  },
-  {
-   "title": "Game Day Dawg Bites",
-   "link": "https://www.dawgsports.com/georgia-bulldogs-football/39406/game-day-dawg-bites",
-   "source": "Dawg Sports",
-   "summary": "Get up, Dawgs. It\u2019s game day! Cue the tailgate music, in honor of Captain Jean-Luc Picard: Of all the games on the Bulldogs\u2019 schedule this is the one that fires me up. Part of it is growing up below the gnat line where uncultured Gator fans are as thick as mosquitos. Perhaps it was watching [&#8230;]",
-   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/10/gettyimages-2298116132.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-10-31T17:07:15+00:00"
-  },
-  {
    "title": "ESPN\u2019s Kirk Herbstreit Gives Two Big Takes on Georgia Football's Fight with the Gators",
    "link": "https://www.si.com/college/georgia/espn-s-kirk-herbstreit-gives-two-big-takes-on-georgia-football-s-fight-with-the-gators-01m69209pted?utm_source=RSS",
    "source": "Georgia On SI",
@@ -100,6 +100,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3882,h_2183,x_1039,y_1698/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/dawgs_daily/01m69251qp305kqyzxhx.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-31T13:27:23+00:00"
+  },
+  {
+   "title": "Game Day Dawg Bites",
+   "link": "https://www.dawgsports.com/georgia-bulldogs-football/39406/game-day-dawg-bites",
+   "source": "Dawg Sports",
+   "summary": "Get up, Dawgs. It\u2019s game day! Cue the tailgate music, in honor of Captain Jean Luc Picard: Of all the games on the Bulldogs\u2019 schedule this is the one that fires me up. Part of it is growing up below the gnat line where uncultured Gator fans are as thick as mosquitos. Perhaps it was [&#8230;]",
+   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/10/gettyimages-2298116132.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-31T02:24:43+00:00"
   },
   {
    "title": "Football Game Trailer vs Florida - Through The Lens",
@@ -273,15 +282,6 @@
    "published": "2026-10-30T00:05:49+00:00"
   },
   {
-   "title": "Bag of Bones: Georgia vs. Florida recruiting intel from expected visitors",
-   "link": "https://on3.com/teams/georgia-bulldogs/news/bag-of-bones-georgia-vs-florida-recruiting-intel-from-expected-visitors/",
-   "source": "On3",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/08/13205521/bag-of-bones.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-29T21:18:14+00:00"
-  },
-  {
    "title": "ESPN Gives Big Take On Georgia Football's Big Rivalry Game Against The Florida Gators",
    "link": "https://www.si.com/college/georgia/football/espn-gives-big-take-on-georgia-football-s-big-rivalry-game-against-the-florida-gators-01m63nb96xw8?utm_source=RSS",
    "source": "Georgia On SI",
@@ -298,15 +298,6 @@
    "image": "https://georgiadogs.com/images/2025/8/5/25FB_BulldogsLive_Smart2.jpg?width=800",
    "sourceLogo": "https://georgiadogs.com/favicon.ico",
    "published": "2026-10-29T16:00:00+00:00"
-  },
-  {
-   "title": "The recruitments that shaped Georgia vs. Florida this year",
-   "link": "https://on3.com/teams/georgia-bulldogs/news/the-recruitments-that-shaped-georgia-vs-florida-this-year/",
-   "source": "On3",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28212203/IMG_1286.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-29T14:40:19+00:00"
   },
   {
    "title": "Odds Have Changed for Georgia Football vs. Florida Gators",
@@ -444,13 +435,22 @@
    "published": "2026-10-27T17:36:06+00:00"
   },
   {
-   "title": "Smart, Players Look Ahead to Florida",
-   "link": "https://georgiadogs.com/news/2026/10/26/football-smart-players-look-ahead-to-florida",
-   "source": "Georgia Athletics",
-   "summary": "<img alt=\"Coach Smart standing at Podium during football press conference\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/261012_FB_PressCOnference_PreAUburn_CoachSmart_WEB.00_03_53_08.Still003.jpg\" /><br /><br />ATHENS, Ga. - The University of Georgia head football coach Kirby Smart alongside fifth-year offensive lineman Drew Bobo and junior defensive back Ellis Robinson IV spoke with the media on Monday afternoon ahead of this weekend's Southeastern conference game against Florida. They offered the following comments.",
-   "image": "https://georgiadogs.com/images/2026/10/26/261012_FB_PressCOnference_PreAUburn_CoachSmart_WEB.00_03_53_08.Still003.jpg?width=800",
-   "sourceLogo": "https://georgiadogs.com/favicon.ico",
-   "published": "2026-10-26T20:21:00+00:00"
+   "title": "Tuesday \u2018Dawg Bites Will Try To Be The Bigger Man",
+   "link": "https://www.dawgsports.com/gators-eat-boogers/39373/tuesday-dawg-bites-will-try-to-be-the-bigger-man",
+   "source": "Dawg Sports",
+   "summary": "Welcome to Tuesday, Bulldog fans! And welcome to Tuesday of Hate Week, that of loathing all things reptilian, jortian, mulletian, and boogerian. So how does one reconcile our moral foundations with the role of healing divided societies? F* it. It\u2019s Georgia Florida. The World\u2019s Largest Outdoor Luxury Sport Saloon Car Cocktail Party. Let it flow [&#8230;]",
+   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/08/gettyimages-2254310813.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-27T01:30:22+00:00"
+  },
+  {
+   "title": "Dawg Sports on the Radio",
+   "link": "https://www.dawgsports.com/georgia-bulldogs-football/39369/dawg-sports-on-the-radio",
+   "source": "Dawg Sports",
+   "summary": "You\u2019re probably busy packing up the car to head to St. Simon\u2019s Island for the World\u2019s Largest Outdoor Cocktail Party, or perhaps you\u2019re on the phone with the people you rented your condo from down there back in January because you\u2019ve now realized the game isn\u2019t in Jacksonville this year, and you need that deposit [&#8230;]",
+   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/10/gettyimages-2245044365.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-26T17:46:58+00:00"
   }
  ]
 }
