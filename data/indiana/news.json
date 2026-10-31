@@ -1,7 +1,16 @@
 {
  "team": "indiana",
- "updated": "2026-10-31T07:38:47.606001+00:00",
+ "updated": "2026-10-31T12:38:35.100684+00:00",
  "items": [
+  {
+   "title": "Gameday Central: Everything you need to know ahead of Indiana vs Minnesota",
+   "link": "https://on3.com/teams/indiana-hoosiers/news/gameday-central-everything-you-need-to-know-ahead-of-indiana-vs-minnesota/",
+   "source": "On3",
+   "summary": "A full recap of all the content from TheHoosier leading into Indiana\u2019s matchup with Minnesota on Saturday afternoon.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/05050021/IMG_3087.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-31T12:14:11+00:00"
+  },
   {
    "title": "Will Indiana Go Into Selection Sunday Without a Ranked Win?",
    "link": "https://www.si.com/college/indiana/football/will-indiana-go-into-final-college-football-playoff-without-ranked-win?utm_source=RSS",
@@ -532,15 +541,6 @@
    "image": "https://iuhoosiers.com/images/2026/10/24/_RM_6895.jpg?width=800",
    "sourceLogo": "https://iuhoosiers.com/favicon.ico",
    "published": "2026-10-24T22:00:00+00:00"
-  },
-  {
-   "title": "Indiana football sneaks by Michigan in overtime, notches first win in Ann Arbor since 1967",
-   "link": "https://www.idsnews.com/article/2026/10/indiana-football-michigan-overtime-win-ann-arbor",
-   "source": "Indiana Daily Student",
-   "summary": "<div><p><span data-contrast=\"auto\">ANNARBOR, Mich. - After struggling offensively for much of the contest, Indiana football notched a 13-6 overtime victory over Michigan on Saturday in Ann Arbor, Michigan.</span><span data-ccp-props=\"{}\"></span></p></div><div><p><span data-contrast=\"auto\">The Hoosiers received the ball to begin the game. After a false start penalty before its first snap, Indiana settled in and moved the ball into Michigan territory. Fifth-year running back Lee Beebe Jr. was then stuffed on a first down carry, and redshirt senior quarterback Josh Hoover missed two consecutive t",
-   "image": "https://snworksceo.imgix.net/ids/62952437-57ee-4581-a086-15b998e6d380.sized-1000x1000.jpg?w=800&h=800",
-   "sourceLogo": null,
-   "published": "2026-10-24T19:42:10+00:00"
   }
  ]
 }
