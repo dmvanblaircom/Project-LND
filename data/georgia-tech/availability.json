@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:36.728527+00:00",
+ "fetchedAt": "2026-10-31T21:41:08.131740+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "at Pittsburgh",
  "players": [
@@ -32,21 +32,21 @@
    "pos": "CB",
    "no": "4",
    "name": "Daiquan White",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DE",
    "no": "10",
    "name": "Jordan Walker",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "CB",
    "no": "12",
    "name": "Jon Mitchell",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -102,7 +102,7 @@
    "pos": "OL",
    "no": "65",
    "name": "Courtney Heard",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -131,13 +131,6 @@
    "no": "88",
    "name": "A.J. Hoffler",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "89",
-   "name": "Chris Elko",
-   "status": "questionable",
    "detail": ""
   },
   {

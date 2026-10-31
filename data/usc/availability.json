@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:48.735814+00:00",
+ "fetchedAt": "2026-10-31T21:41:13.947525+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Ohio State",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "DT",
    "no": "4",
    "name": "Jahkeem Stewart",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -39,14 +39,14 @@
    "pos": "TE",
    "no": "19",
    "name": "Mark Bowman",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "22",
    "name": "Shahn Alston",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -88,7 +88,7 @@
    "pos": "DT",
    "no": "99",
    "name": "Jamaal Jarrett",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],

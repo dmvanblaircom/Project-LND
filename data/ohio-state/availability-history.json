@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-10-31T00:10:44.162703+00:00",
+ "updated": "2026-10-31T21:41:11.082152+00:00",
  "reports": [
   {
    "schema": 1,
@@ -347,10 +347,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:44.162703+00:00",
+   "fetchedAt": "2026-10-31T21:41:11.082152+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at USC",
    "players": [
@@ -358,7 +358,7 @@
      "pos": "WR",
      "no": "0",
      "name": "Brandon Inniss",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -400,7 +400,7 @@
      "pos": "CB",
      "no": "25",
      "name": "Jay Timmons",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

@@ -1,6 +1,6 @@
 {
  "team": "boston-college",
- "updated": "2026-10-31T21:08:25.110422+00:00",
+ "updated": "2026-10-31T21:38:12.382309+00:00",
  "items": [
   {
    "title": "Eagles Fall at Duke",
@@ -19,6 +19,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4319,h_2429,x_0,y_218/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/bc_bulletin/01m69tp6g6g3gb98wz55.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-31T20:38:45+00:00"
+  },
+  {
+   "title": "FINAL: Boston College Dominated by Duke 47-2",
+   "link": "https://www.bcinterruption.com/boston-college-football/52681/final-boston-college-dominated-by-duke-47-2",
+   "source": "BC Interruption",
+   "summary": "Yes, you read that score correctly. Boston College\u2019s lone points of the afternoon came on a miraculous Carter Davis return off a botched extra point attempt. BC committed an absurd 15 penalties for 132 yards, keeping Duke drives going and putting themselves constantly behind. While many of these penalties were rather questionable, the offensive performance [&#8230;]",
+   "image": "https://platform.bcinterruption.com/wp-content/uploads/sites/25/2026/10/reuters-tagreuters.com2026newsml_MT1USATODAY30236712123886483.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-31T20:28:12+00:00"
   },
   {
    "title": "Gamethread: Boston College vs Duke",
@@ -367,7 +376,7 @@
    "link": "https://bcheights.com/232729/sports/preview-bc-travels-to-face-no-21-smu-looking-for-its-first-conference-win/",
    "source": "The Heights",
    "summary": "<p>Boston College football will travel to Texas this weekend with an upset on its mind, as the Eagles are looking to secure their first conference win of the season against No. 21 Southern Methodist.</p>\n<p>The post <a href=\"https://bcheights.com/232729/sports/preview-bc-travels-to-face-no-21-smu-looking-for-its-first-conference-win/\">Preview: BC Travels To Face No. 21 SMU Looking for Its First Conference Win</a> appeared first on <a href=\"https://bcheights.com\">The Heights</a>.</p>",
-   "image": null,
+   "image": "https://bcheights.com/wp-content/uploads/2026/10/BC-Football-FLick.jpg",
    "sourceLogo": "https://bcheights.com/wp-content/uploads/2025/08/cropped-blacklogo-copy-32x32.webp",
    "published": "2026-10-02T01:37:23+00:00"
   }

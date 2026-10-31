@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T02:10:08.863939+00:00",
+ "fetchedAt": "2026-10-31T21:41:08.779959+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Oklahoma State",
  "players": [
@@ -26,13 +26,6 @@
    "no": "5",
    "name": "Beni Ngoyi",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "44",
-   "name": "Trey Verdon",
-   "status": "probable",
    "detail": ""
   },
   {
