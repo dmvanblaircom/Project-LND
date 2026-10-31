@@ -1,6 +1,6 @@
 {
 "team": "ole-miss",
-"updated": "2026-10-31T02:37Z",
+"updated": "2026-10-31T03:07Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -159,6 +159,13 @@
 {
 "t": "2026-10-31T02:37Z",
 "title": 3.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 44.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-31T03:07Z",
+"title": 4.0,
 "titleEvent": "KXNCAAF-27",
 "playoff": 44.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
