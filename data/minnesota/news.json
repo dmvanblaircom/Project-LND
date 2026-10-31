@@ -1,6 +1,6 @@
 {
  "team": "minnesota",
- "updated": "2026-10-31T13:39:21.240077+00:00",
+ "updated": "2026-10-31T14:09:56.577448+00:00",
  "items": [
   {
    "title": "Minnesota Golden Gophers Halloween Weekend Preview",
@@ -19,6 +19,15 @@
    "image": "https://mndaily.com/wp-content/uploads/2026/10/KickerLead.jpg",
    "sourceLogo": null,
    "published": "2026-10-30T15:43:11+00:00"
+  },
+  {
+   "title": "Game Trailer: Gophers at #4 Indiana",
+   "link": "https://gophersports.com/news/2026/10/30/football-game-trailer-gophers-at-4-indiana",
+   "source": "Minnesota Athletics",
+   "summary": "<img alt=\"team, huddle\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/sportart__team_15019.JPG\" /><br /><br />The Golden Gophers travel to Bloomington to meet the #4 Hoosiers. Kick off is set for 2:30PM on CBS.",
+   "image": "https://gophersports.com/images/2026/10/30/sportart__team_15019.JPG?width=800",
+   "sourceLogo": "https://gophersports.com/favicon.ico",
+   "published": "2026-10-30T15:43:00+00:00"
   },
   {
    "title": "Minnesota Football vs. Indiana: Staff Predictions",
@@ -190,15 +199,6 @@
    "image": "https://gophersports.com/images/2026/10/21/team__sportart_10225.jpg?width=800",
    "sourceLogo": "https://gophersports.com/favicon.ico",
    "published": "2026-10-21T14:54:00+00:00"
-  },
-  {
-   "title": "Coach Fleck Featured on BTN's The Journey",
-   "link": "https://gophersports.com/news/2026/10/21/football-coach-fleck-featured-on-btns-the-journey",
-   "source": "Minnesota Athletics",
-   "summary": "<img alt=\"Fleck, Locker Room, Speech\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/8/24/Fleck_PJ__team__LockerRoom_739.jpg\" /><br /><br />You know P.J. Fleck's mantra, but there's a story and mission behind it. The Journey spotlights the coach's impact on others.",
-   "image": "https://gophersports.com/images/2026/8/24/Fleck_PJ__team__LockerRoom_739.jpg?width=800",
-   "sourceLogo": "https://gophersports.com/favicon.ico",
-   "published": "2026-10-21T11:11:00+00:00"
   },
   {
    "title": "Gophers transfer receiver Noah Jennings makes immediate impact",

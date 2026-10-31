@@ -7,76 +7,83 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:28:04.467767+00:00",
+ "fetchedAt": "2026-10-31T14:12:12.580386+00:00",
  "reported": true,
- "effectiveAt": "2026-10-08",
+ "effectiveAt": "2026-10-31",
  "heading": "Game Day",
- "kickoffDate": "2026-10-08",
- "game": "at UTSA",
+ "kickoffDate": "2026-10-31",
+ "game": "UAB",
  "players": [
   {
-   "pos": "",
+   "pos": "CB",
+   "no": "3",
+   "name": "Za'Quan Bryan",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "4",
    "name": "Arhmad Branch",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "11",
-   "name": "Dmari Roberts",
-   "status": "out-game",
+   "pos": "LB",
+   "no": "7",
+   "name": "Sam Robinson",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "12",
    "name": "Jaden Alexis",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
+   "no": "19",
+   "name": "JeyQuan Smith",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
    "no": "20",
    "name": "A'Mon Lane-Ganus",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "21",
-   "name": "Victor Zidor",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "OL",
    "no": "67",
    "name": "Thomas Shrader",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "72",
+   "name": "Cash Hudson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "82",
    "name": "Gabe Legrand",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "94",
-   "name": "Brooks Williams Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "NT",
    "no": "95",
    "name": "Iverson Garcia-Ponce",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

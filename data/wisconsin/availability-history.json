@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wisconsin",
- "updated": "2026-10-31T00:10:50.279170+00:00",
+ "updated": "2026-10-31T14:12:16.376000+00:00",
  "reports": [
   {
    "schema": 1,
@@ -207,10 +207,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:50.279170+00:00",
+   "fetchedAt": "2026-10-31T14:12:16.376000+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at Iowa",
    "players": [
@@ -222,31 +222,10 @@
      "detail": ""
     },
     {
-     "pos": "S",
-     "no": "4",
-     "name": "Marvin Burks Jr.",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "4",
-     "name": "Malachi Coleman",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "6",
-     "name": "Darrion Dupree",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "RB",
      "no": "15",
      "name": "Nate Palmer",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -254,13 +233,6 @@
      "no": "70",
      "name": "Barrett Nelson",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "92",
-     "name": "Nolan Vils",
-     "status": "probable",
      "detail": ""
     }
    ],

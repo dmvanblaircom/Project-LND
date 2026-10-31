@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:35.444327+00:00",
+ "fetchedAt": "2026-10-31T14:12:02.057360+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Boston College",
  "players": [
@@ -23,37 +23,9 @@
   },
   {
    "pos": "CB",
-   "no": "1",
-   "name": "Kyon Loud",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
    "no": "5",
    "name": "Kimari Robinson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "8",
-   "name": "Jayden Moore",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "9",
-   "name": "Ché Ojarikre",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "15",
-   "name": "Jake Taylor",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -117,13 +89,6 @@
    "no": "79",
    "name": "Roman Fina",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "85",
-   "name": "Jeremiah Hasley",
-   "status": "probable",
    "detail": ""
   }
  ],

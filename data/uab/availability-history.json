@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "uab",
- "updated": "2026-10-30T13:28:06.312297+00:00",
+ "updated": "2026-10-31T14:12:14.422235+00:00",
  "reports": [
   {
    "schema": 1,
@@ -185,6 +185,95 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "uab",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-31T14:12:14.422235+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-31",
+   "game": "South Florida",
+   "players": [
+    {
+     "pos": "DT",
+     "no": "8",
+     "name": "Nigel Tate",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "12",
+     "name": "Jaylen Elder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "15",
+     "name": "Elijah Hall",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "23",
+     "name": "Mykale Hrabowski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "32",
+     "name": "Colby Archie",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "51",
+     "name": "Payton Kirkland",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "58",
+     "name": "J'Quan Mason",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "68",
+     "name": "Adam Lepkowski",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Calib Perez",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "85",
+     "name": "Antonio Ferguson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

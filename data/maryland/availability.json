@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:41.947601+00:00",
+ "fetchedAt": "2026-10-31T14:12:08.385401+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Illinois",
  "players": [
@@ -19,13 +19,6 @@
    "no": "9",
    "name": "Zahir Mathis",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "11",
-   "name": "Ryan Manning",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -64,13 +57,6 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "35",
-   "name": "Keyari James",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "50",
    "name": "Trevor Szymanski",
@@ -79,16 +65,9 @@
   },
   {
    "pos": "DL",
-   "no": "90",
-   "name": "Delmar White",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
    "no": "97",
    "name": "Jayvon Parker",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],

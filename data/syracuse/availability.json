@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:46.744733+00:00",
+ "fetchedAt": "2026-10-31T14:12:12.969651+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. SMU",
  "players": [
@@ -19,13 +19,6 @@
    "no": "7",
    "name": "Darien Williams",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "9",
-   "name": "Steve Angeli",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -47,13 +40,6 @@
    "no": "16",
    "name": "Malachi Nelson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "50",
-   "name": "Kahlil Stewart",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -89,13 +75,6 @@
    "no": "88",
    "name": "Terrell Wilfong",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "95",
-   "name": "Dillan Fontus",
-   "status": "questionable",
    "detail": ""
   }
  ],

@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:34.425544+00:00",
+ "fetchedAt": "2026-10-31T14:12:00.994906+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "at NC State",
  "players": [
@@ -37,72 +37,16 @@
   },
   {
    "pos": "WR",
-   "no": "9",
-   "name": "Ian Strong",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "9",
-   "name": "AJ Tuitele",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "10",
-   "name": "Cooper Perry",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
    "no": "15",
    "name": "Mark Hamper",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "20",
-   "name": "Ashten Emory",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "24",
-   "name": "Adam Mohammed",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "33",
    "name": "JD McKinley",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "54",
-   "name": "Frederick Williams III",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "56",
-   "name": "Tyson Ruffins",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "77",
-   "name": "Jimothy Lewis Jr.",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

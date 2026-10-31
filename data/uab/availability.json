@@ -7,62 +7,83 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:28:06.312297+00:00",
+ "fetchedAt": "2026-10-31T14:12:14.422235+00:00",
  "reported": true,
- "effectiveAt": "2026-10-15",
+ "effectiveAt": "2026-10-31",
  "heading": "Game Day",
- "kickoffDate": "2026-10-15",
- "game": "vs. East Carolina",
+ "kickoffDate": "2026-10-31",
+ "game": "South Florida",
  "players": [
   {
-   "pos": "",
+   "pos": "DT",
    "no": "8",
    "name": "Nigel Tate",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "12",
    "name": "Jaylen Elder",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DL",
+   "no": "15",
+   "name": "Elijah Hall",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "23",
+   "name": "Mykale Hrabowski",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
    "no": "32",
    "name": "Colby Archie",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "51",
    "name": "Payton Kirkland",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DE",
    "no": "58",
    "name": "J'Quan Mason",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "68",
    "name": "Adam Lepkowski",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "75",
+   "name": "Calib Perez",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
    "no": "85",
    "name": "Antonio Ferguson",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

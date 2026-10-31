@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "smu",
- "updated": "2026-10-31T00:10:45.950909+00:00",
+ "updated": "2026-10-31T14:12:12.214121+00:00",
  "reports": [
   {
    "schema": 1,
@@ -457,10 +457,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:45.950909+00:00",
+   "fetchedAt": "2026-10-31T14:12:12.214121+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at Syracuse",
    "players": [
@@ -538,7 +538,7 @@
      "pos": "K",
      "no": "99",
      "name": "Nick Reed",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     }
    ],

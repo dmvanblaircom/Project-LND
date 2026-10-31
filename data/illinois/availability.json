@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:40.209892+00:00",
+ "fetchedAt": "2026-10-31T14:12:06.714309+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "at Maryland",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "QB",
    "no": "4",
    "name": "Katin Houser",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
