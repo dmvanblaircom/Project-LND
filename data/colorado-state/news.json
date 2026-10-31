@@ -1,7 +1,16 @@
 {
  "team": "colorado-state",
- "updated": "2026-10-30T21:38:16.055915+00:00",
+ "updated": "2026-10-31T15:08:25.706584+00:00",
  "items": [
+  {
+   "title": "Game Day: at Utah State",
+   "link": "https://csurams.com/news/2026/10/31/football-game-day-at-utah-state",
+   "source": "Colorado State Athletics",
+   "summary": "<img alt=\"Game Day Utah State\" src=\"https://csurams.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/gameday-_utst_16x9.jpg\" /><br /><br />The Rams face the Aggies in Logan for Halloween.",
+   "image": "https://csurams.com/images/2026/10/31/gameday-_utst_16x9.jpg?width=800",
+   "sourceLogo": "https://csurams.com/favicon.ico",
+   "published": "2026-10-31T15:36:00+00:00"
+  },
   {
    "title": "Setting the Stage: Explosive Through the Changes",
    "link": "https://csurams.com/news/2026/10/30/football-setting-the-stage-explosive-through-the-changes",
@@ -127,15 +136,6 @@
    "image": "https://collegian.com/wp-content/uploads/2026/10/10_24_26_Football_vs_SDSU_half_CHembury_3.jpg",
    "sourceLogo": null,
    "published": "2026-10-24T22:16:57+00:00"
-  },
-  {
-   "title": "Game Day: vs. San Diego State",
-   "link": "https://csurams.com/news/2026/10/24/football-game-day-vs-san-diego-state",
-   "source": "Colorado State Athletics",
-   "summary": "<img alt=\"Game Day vs. SDSU\" src=\"https://csurams.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/gameday-_sdsu16x9.jpg\" /><br /><br />Colorado State hosts San Diego State.",
-   "image": "https://csurams.com/images/2026/10/24/gameday-_sdsu16x9.jpg?width=800",
-   "sourceLogo": "https://csurams.com/favicon.ico",
-   "published": "2026-10-24T16:04:00+00:00"
   },
   {
    "title": "\u2018Fewer yards and a lot fewer points\u2019: Mora looks to remedy CSU\u2019s defensive woes in SDSU home game",

@@ -7,125 +7,132 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:27:55.144328+00:00",
+ "fetchedAt": "2026-10-31T15:11:02.652945+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
+ "effectiveAt": "2026-10-31",
  "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Buffalo",
+ "kickoffDate": "2026-10-31",
+ "game": "Western Michigan",
  "players": [
   {
-   "pos": "",
+   "pos": "RB",
+   "no": "1",
+   "name": "Austyn Dendy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
    "no": "2",
    "name": "JoJo Johnson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "S",
    "no": "9",
    "name": "Preston EstoEsta",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "9",
-   "name": "Nick Sowell",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "WR",
    "no": "11",
    "name": "Austin Clay",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
+   "no": "18",
+   "name": "Nick Sawyer",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "22",
    "name": "Julian Holt",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
    "no": "32",
    "name": "Rico Garcia",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "33",
-   "name": "Tristin Blackmon",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "LB",
    "no": "36",
    "name": "Jabari Mitchell",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "43",
-   "name": "MJ Dillard",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "DE",
    "no": "48",
    "name": "Quentin Lewis",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "50",
    "name": "Jonathan Goins",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DT",
    "no": "57",
    "name": "Dayln White",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OT",
    "no": "58",
    "name": "Ethan Kraatz",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "61",
    "name": "Pete Pendergest",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "76",
+   "name": "Theo Andall",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OG",
    "no": "77",
    "name": "James Thomas Jr.",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "84",
    "name": "Trent Taylor",
    "status": "out-game",
    "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "88",
+   "name": "Selah Brown",
+   "status": "questionable",
+   "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

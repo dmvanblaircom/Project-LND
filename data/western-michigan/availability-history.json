@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "western-michigan",
- "updated": "2026-10-30T13:28:08.196353+00:00",
+ "updated": "2026-10-31T15:11:13.262861+00:00",
  "reports": [
   {
    "schema": 1,
@@ -672,6 +672,95 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "western-michigan",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-10-31T15:11:13.262861+00:00",
+   "reported": true,
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
+   "kickoffDate": "2026-10-31",
+   "game": "Bowling Green",
+   "players": [
+    {
+     "pos": "S",
+     "no": "6",
+     "name": "Joey Pope",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "10",
+     "name": "Trey Petty",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "15",
+     "name": "Adam Parks",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "18",
+     "name": "Micah Davis",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Ofa \"Lolo\" Mataele",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LS",
+     "no": "46",
+     "name": "Drew Doyle",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Jeremy Schleicher",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "Ryan Westrich",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "88",
+     "name": "August Johanningsmeier",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "97",
+     "name": "Noah Bishop",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

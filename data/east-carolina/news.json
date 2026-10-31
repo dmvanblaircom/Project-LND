@@ -1,7 +1,16 @@
 {
  "team": "east-carolina",
- "updated": "2026-10-29T19:38:33.363901+00:00",
+ "updated": "2026-10-31T15:08:28.238199+00:00",
  "items": [
+  {
+   "title": "ECU Hosts Temple On Halloween At 3 P.M.",
+   "link": "https://ecupirates.com/news/2026/10/31/football-ecu-hosts-temple-on-halloween-at-3-pm",
+   "source": "ECU Athletics",
+   "summary": "<img alt=\"Entrance-Memphis 2026\" src=\"https://ecupirates.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/Intro-Memphis.jpg\" /><br /><br />",
+   "image": "https://ecupirates.com/images/2026/10/31/Intro-Memphis.jpg?width=800",
+   "sourceLogo": "https://ecupirates.com/favicon.ico",
+   "published": "2026-10-31T15:43:00+00:00"
+  },
   {
    "title": "ECU Falls At Memphis In Overtime, 41-34",
    "link": "https://ecupirates.com/news/2026/10/23/football-pirates-fall-at-memphis-in-overtime-41-34",
@@ -82,15 +91,6 @@
    "image": "https://ecupirates.com/images/2026/10/9/TeamCaptains-NCCU.png?width=800",
    "sourceLogo": "https://ecupirates.com/favicon.ico",
    "published": "2026-10-09T18:11:00+00:00"
-  },
-  {
-   "title": "ECU-Rice Kickoff Moved To 1 P.M. Saturday",
-   "link": "https://ecupirates.com/news/2026/10/9/football-ecu-rice-kickoff-moved-to-1-pm-saturday",
-   "source": "ECU Athletics",
-   "summary": "<img alt=\"ECU-Rice Game Time Change Part 2\" src=\"https://ecupirates.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/9/100926ECU-RiceGraphic02.jpg\" /><br /><br />GREENVILLE, N.C. \u2013 Due to the forecast of inclement weather in Greenville and surrounding areas during the late afternoon and evening, kickoff for Saturday's ECU football game against Rice at Dowdy-Ficklen Stadium has been moved to 1 p.m.",
-   "image": "https://ecupirates.com/images/2026/10/9/100926ECU-RiceGraphic02.jpg?width=800",
-   "sourceLogo": "https://ecupirates.com/favicon.ico",
-   "published": "2026-10-09T15:33:00+00:00"
   }
  ]
 }

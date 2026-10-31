@@ -7,69 +7,83 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:28:08.196353+00:00",
+ "fetchedAt": "2026-10-31T15:11:13.262861+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
+ "effectiveAt": "2026-10-31",
  "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Toledo",
+ "kickoffDate": "2026-10-31",
+ "game": "Bowling Green",
  "players": [
   {
-   "pos": "",
+   "pos": "S",
    "no": "6",
    "name": "Joey Pope",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "QB",
+   "no": "10",
+   "name": "Trey Petty",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "15",
+   "name": "Adam Parks",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
    "no": "18",
    "name": "Micah Davis",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "21",
-   "name": "CJ Miles Jr.",
+   "pos": "RB",
+   "no": "24",
+   "name": "Ofa \"Lolo\" Mataele",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LS",
+   "no": "46",
+   "name": "Drew Doyle",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "65",
    "name": "Jeremy Schleicher",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "67",
    "name": "Ryan Westrich",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DE",
    "no": "88",
    "name": "August Johanningsmeier",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "90",
-   "name": "Jori Benson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "DE",
    "no": "97",
    "name": "Noah Bishop",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }
