@@ -1,7 +1,16 @@
 {
  "team": "indiana",
- "updated": "2026-10-31T19:08:44.987705+00:00",
+ "updated": "2026-10-31T19:30:19.016614+00:00",
  "items": [
+  {
+   "title": "Live Game Blog: Indiana vs. Minnesota",
+   "link": "https://on3.com/teams/indiana-hoosiers/news/live-game-blog-indiana-vs-minnesota/",
+   "source": "On3",
+   "summary": "Live updates, news, stats, and note from Indiana's game versus Minnesota.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31141249/IMG_8210.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-10-31T19:15:12+00:00"
+  },
   {
    "title": "Pregame Scoop: Notes and observations from Indiana's warmups vs. Minnesota",
    "link": "https://on3.com/teams/indiana-hoosiers/news/pregame-scoop-notes-and-observations-from-indianas-warmups-vs-minnesota/",
@@ -307,15 +316,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/26104329/resize-2-e1793029437848.webp",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-29T00:03:56+00:00"
-  },
-  {
-   "title": "2027 offensive lineman Conner Rutherford taking another look at Indiana after re-opening his recruitment",
-   "link": "https://on3.com/teams/indiana-hoosiers/news/2027-offensive-lineman-conner-rutherford-taking-another-look-at-indiana-after-re-opening-his-recruitment/",
-   "source": "On3",
-   "summary": "2027 three-star offensive lineman Conner Rutherford took a visit to Indiana in the spring and is checking the program out again this weekend.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/14134549/ALERT-14-2.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-28T19:49:34+00:00"
   },
   {
    "title": "Indiana Basketball Stock Report: Rising and Falling After 3 Exhibitions",
