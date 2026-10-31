@@ -1,6 +1,6 @@
 {
 "team": "oklahoma",
-"updated": "2026-10-31T06:07Z",
+"updated": "2026-10-31T07:37Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -147,6 +147,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 5.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-31T07:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 5.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
