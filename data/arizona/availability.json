@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T02:09:57.262959+00:00",
+ "fetchedAt": "2026-10-31T14:40:26.514058+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "at Texas Tech",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "LB",
    "no": "5",
    "name": "Max Harris",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "RB",
    "no": "21",
    "name": "Ismail Mahdi",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

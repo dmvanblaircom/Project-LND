@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-southern",
- "updated": "2026-10-30T07:08:52.595856+00:00",
+ "updated": "2026-10-31T14:40:33.341214+00:00",
  "reports": [
   {
    "schema": 1,
@@ -12,10 +12,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T07:08:52.595856+00:00",
+   "fetchedAt": "2026-10-31T14:40:33.341214+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. App State",
    "players": [
@@ -24,13 +24,6 @@
      "no": "",
      "name": "Terrance Gibbs",
      "status": "out-season",
-     "detail": ""
-    },
-    {
-     "pos": "QB",
-     "no": "",
-     "name": "Max Johnson",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -44,7 +37,7 @@
      "pos": "OL",
      "no": "",
      "name": "Colin Alexander",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

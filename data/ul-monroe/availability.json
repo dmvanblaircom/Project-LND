@@ -7,27 +7,13 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:59.990465+00:00",
+ "fetchedAt": "2026-10-31T14:40:40.799830+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Initial",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Southern Miss",
  "players": [
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Parker Fulghum",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Zyan Tremont",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "DB",
    "no": "",
@@ -43,24 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "",
-   "name": "Laterrius Robinson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Marcus Ross",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "",
    "name": "Tyrell Brown",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -75,6 +47,13 @@
    "no": "",
    "name": "Le'kell McGowan",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Ameyr Adams",
+   "status": "gtd",
    "detail": ""
   },
   {

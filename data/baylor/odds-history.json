@@ -1,6 +1,6 @@
 {
 "team": "baylor",
-"updated": "2026-10-31T08:37Z",
+"updated": "2026-10-31T14:37Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -60,6 +60,13 @@
 },
 {
 "t": "2026-10-31T08:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 2.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-10-31T14:37Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 2.0,

@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:56.736722+00:00",
+ "fetchedAt": "2026-10-31T14:40:37.408995+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Initial",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Marshall",
  "players": [
@@ -18,42 +18,28 @@
    "pos": "QB",
    "no": "",
    "name": "Quinn Henicle",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "",
    "name": "Koa Naotala",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Zion Frink",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Justin Watts",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Tavares Murray",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "DeAndre Lynch",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -61,6 +47,13 @@
    "no": "",
    "name": "JJ Harrell",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Zialis Blackmon",
+   "status": "gtd",
    "detail": ""
   },
   {

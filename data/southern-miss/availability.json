@@ -7,60 +7,32 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:58.239177+00:00",
+ "fetchedAt": "2026-10-31T14:40:39.065838+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Initial",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "at ULM",
  "players": [
   {
-   "pos": "DB",
-   "no": "",
-   "name": "Jeremiah Dillon",
-   "status": "out-season",
-   "detail": ""
-  },
-  {
    "pos": "ILB",
    "no": "",
-   "name": "Avery Sledge",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
    "name": "Luke Rogers",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
+   "pos": "OLB",
    "no": "",
    "name": "Greg Nunnery",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "",
-   "name": "Ethan Hampton",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Grant Page",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "ILB",
    "no": "",
    "name": "Caleb Triplett",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -102,6 +74,13 @@
    "pos": "",
    "no": "",
    "name": "Robert Briggs",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jeremiah Dillon",
    "status": "out-season",
    "detail": ""
   }

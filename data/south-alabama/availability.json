@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:57.935116+00:00",
+ "fetchedAt": "2026-10-31T14:40:38.760353+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Initial",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. LA Tech",
  "players": [
@@ -46,21 +46,14 @@
    "pos": "WR",
    "no": "",
    "name": "Graham, Jerrian",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "Jones-Thomas, Jeremiah",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Siler, Jamal",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {

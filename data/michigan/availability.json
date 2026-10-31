@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:42.596087+00:00",
+ "fetchedAt": "2026-10-31T14:40:35.799373+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "at Rutgers",
  "players": [
@@ -22,24 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "1",
-   "name": "Rod Moore",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "6",
-   "name": "Jordan Young",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "DE",
    "no": "8",
    "name": "Dom Nichols",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -53,14 +39,7 @@
    "pos": "DT",
    "no": "17",
    "name": "Enow Etta",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "18",
-   "name": "Troy Bowles",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -93,30 +72,16 @@
   },
   {
    "pos": "OL",
-   "no": "53",
-   "name": "Jake Guarnera",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "54",
    "name": "Andrew Sprague",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "77",
-   "name": "Blake Frazier",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "DE",
    "no": "90",
    "name": "John Henry Daley",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],

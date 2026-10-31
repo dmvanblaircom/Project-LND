@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:52.688348+00:00",
+ "fetchedAt": "2026-10-31T14:40:33.434142+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Initial",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Coastal Carolina",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "QB",
    "no": "",
    "name": "Cameran Brown",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "DB",
    "no": "",
    "name": "Eric Lee",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],

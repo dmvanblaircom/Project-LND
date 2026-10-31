@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T02:10:15.723534+00:00",
+ "fetchedAt": "2026-10-31T14:40:40.017864+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Arizona",
  "players": [
@@ -26,20 +26,6 @@
    "no": "11",
    "name": "Malcolm Simmons",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "18",
-   "name": "S'Vioarean Martin",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "21",
-   "name": "Miquel Dingle Jr.",
-   "status": "probable",
    "detail": ""
   }
  ],

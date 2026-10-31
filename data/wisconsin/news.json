@@ -1,7 +1,16 @@
 {
  "team": "wisconsin",
- "updated": "2026-10-31T13:10:48.270392+00:00",
+ "updated": "2026-10-31T14:40:08.187062+00:00",
  "items": [
+  {
+   "title": "Game Day Central: Football at Iowa",
+   "link": "https://uwbadgers.com/news/2026/10/31/game-day-central-football-at-iowa",
+   "source": "Wisconsin Athletics",
+   "summary": "<img alt=\"Colton Joseph (1) throws against Penn State\" src=\"https://uwbadgers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/26/C51B3E77-63BF-41F0-BF40-7C36F7F54693_2iLkT.jpeg\" /><br /><br />",
+   "image": "https://uwbadgers.com/images/2026/9/26/C51B3E77-63BF-41F0-BF40-7C36F7F54693_2iLkT.jpeg?width=800",
+   "sourceLogo": "https://uwbadgers.com/favicon.ico",
+   "published": "2026-10-31T15:02:00+00:00"
+  },
   {
    "title": "Staff Predictions: Can Wisconsin Take Back the Heartland Trophy?",
    "link": "https://www.si.com/college/wisconsin/football/staff-predictions-can-wisconsin-take-back-the-heartland-trophy?utm_source=RSS",
@@ -307,15 +316,6 @@
    "image": "https://uwbadgers.com/images/2026/10/5/261003FB-1138-8_44_3A3zs.JPG?width=800",
    "sourceLogo": "https://uwbadgers.com/favicon.ico",
    "published": "2026-10-15T16:03:00+00:00"
-  },
-  {
-   "title": "Colton Joseph named Big Ten co-Offensive Player of the Week",
-   "link": "https://uwbadgers.com/news/2026/10/5/football-colton-joseph-named-big-ten-co-offensive-player-of-the-week",
-   "source": "Wisconsin Athletics",
-   "summary": "<img alt=\"Wisconsin Football vs. Michigan State on Oct. 3, 2026\" src=\"https://uwbadgers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/5/261003FB-1058-1_Qad7u.jpg\" /><br /><br />Joseph ran for 141 yards and threw for three touchdowns in UW's win on Saturday",
-   "image": "https://uwbadgers.com/images/2026/10/5/261003FB-1058-1_Qad7u.jpg?width=800",
-   "sourceLogo": "https://uwbadgers.com/favicon.ico",
-   "published": "2026-10-05T20:03:00+00:00"
   }
  ]
 }

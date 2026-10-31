@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "rutgers",
- "updated": "2026-10-31T00:10:45.572362+00:00",
+ "updated": "2026-10-31T14:40:38.236951+00:00",
  "reports": [
   {
    "schema": 1,
@@ -305,10 +305,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:45.572362+00:00",
+   "fetchedAt": "2026-10-31T14:40:38.236951+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Michigan",
    "players": [
@@ -323,21 +323,14 @@
      "pos": "DB",
      "no": "7",
      "name": "Kevin Levy",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "8",
      "name": "KJ Duff",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "10",
-     "name": "Ty Morris",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -358,21 +351,14 @@
      "pos": "LB",
      "no": "38",
      "name": "Joey Kopec",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "56",
      "name": "Tyler Needham",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "96",
-     "name": "Keshon Griffin",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     }
    ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "app-state",
- "updated": "2026-10-30T07:08:43.055352+00:00",
+ "updated": "2026-10-31T14:40:26.240394+00:00",
  "reports": [
   {
    "schema": 1,
@@ -12,13 +12,20 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-30T07:08:43.055352+00:00",
+   "fetchedAt": "2026-10-31T14:40:26.240394+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-29",
-   "heading": "Initial",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at Georgia Southern",
    "players": [
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Cary Grant",
+     "status": "out-season",
+     "detail": ""
+    },
     {
      "pos": "DL",
      "no": "",
@@ -34,6 +41,13 @@
      "detail": ""
     },
     {
+     "pos": "WR",
+     "no": "",
+     "name": "Kamauri Austin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
      "pos": "DL",
      "no": "",
      "name": "Aiden Benton",
@@ -41,9 +55,23 @@
      "detail": ""
     },
     {
+     "pos": "RB",
+     "no": "",
+     "name": "J'Marion Burnette",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Darrin Fugitt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
      "pos": "DB",
      "no": "",
-     "name": "Cary Grant",
+     "name": "Ja'Cari Henderson",
      "status": "out-game",
      "detail": ""
     },
@@ -55,52 +83,10 @@
      "detail": ""
     },
     {
-     "pos": "WR",
-     "no": "",
-     "name": "Kamauri Austin",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "",
-     "name": "Darrin Fugitt",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Ja'Cari Henderson",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Tyriq Poindexter",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
      "pos": "ILB",
      "no": "",
      "name": "Brooks Yurachek",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
-     "name": "Nate Branch",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Mac Walters",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     }
    ],
