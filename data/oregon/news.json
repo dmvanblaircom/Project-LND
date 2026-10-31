@@ -1,7 +1,16 @@
 {
  "team": "oregon",
- "updated": "2026-10-31T12:09:31.164546+00:00",
+ "updated": "2026-10-31T13:09:54.075687+00:00",
  "items": [
+  {
+   "title": "OSN Pregame Interviews: Northwestern",
+   "link": "https://goducks.com/news/2026/10/31/football-osn-pregame-interviews-northwestern",
+   "source": "Oregon Athletics",
+   "summary": "<img alt=\"Offord_PSU_EE\" src=\"https://goducks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/Offord_PSU_EE__1_.JPG\" /><br /><br />The Oregon Sports Network crew talks with Douglas Utu, Na'eem Offord, Jack Smith and Dan Lanning ahead of Saturday's game against Northwestern (12:30 p.m. PT, Peacock).",
+   "image": "https://goducks.com/images/2026/10/30/Offord_PSU_EE__1_.JPG?width=800",
+   "sourceLogo": "https://goducks.com/favicon.ico",
+   "published": "2026-10-31T14:00:00+00:00"
+  },
   {
    "title": "5 Things to Watch: Northwestern",
    "link": "https://goducks.com/news/2026/10/31/football-5-things-to-watch-northwestern",
@@ -370,15 +379,6 @@
    "image": "https://goducks.com/images/2026/10/21/UOFB_IllUni_GoDucksEdits_6.jpg?width=800",
    "sourceLogo": "https://goducks.com/favicon.ico",
    "published": "2026-10-24T16:03:00+00:00"
-  },
-  {
-   "title": "Oregon Football Game 7 Uniform Reveal",
-   "link": "https://goducks.com/news/2026/10/21/oregon-football-game-7-uniform-reveal",
-   "source": "Oregon Athletics",
-   "summary": "<img alt=\"Game 7 Uni\" src=\"https://goducks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/21/UOFB_IllUni_GoDucksEdits_5.jpg\" /><br /><br />The Oregon football team revealed its uniform combination for this Saturday's game at Illinois (12:00 p.m. PT, Big Ten Network).",
-   "image": "https://goducks.com/images/2026/10/21/UOFB_IllUni_GoDucksEdits_5.jpg?width=800",
-   "sourceLogo": "https://goducks.com/favicon.ico",
-   "published": "2026-10-22T02:00:00+00:00"
   }
  ]
 }
