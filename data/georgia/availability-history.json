@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia",
- "updated": "2026-10-31T00:10:36.354107+00:00",
+ "updated": "2026-10-31T18:11:01.433396+00:00",
  "reports": [
   {
    "schema": 1,
@@ -296,10 +296,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:36.354107+00:00",
+   "fetchedAt": "2026-10-31T18:11:01.433396+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Florida",
    "players": [
@@ -314,7 +314,7 @@
      "pos": "DB",
      "no": "4",
      "name": "KJ Bolden",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -328,7 +328,7 @@
      "pos": "WR",
      "no": "6",
      "name": "Isiah Canion",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

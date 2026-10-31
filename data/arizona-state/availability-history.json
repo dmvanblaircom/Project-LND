@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona-state",
- "updated": "2026-10-31T02:09:57.384058+00:00",
+ "updated": "2026-10-31T18:10:52.703982+00:00",
  "reports": [
   {
    "schema": 1,
@@ -256,10 +256,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T02:09:57.384058+00:00",
+   "fetchedAt": "2026-10-31T18:10:52.703982+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at BYU",
    "players": [
@@ -267,35 +267,21 @@
      "pos": "DB",
      "no": "2",
      "name": "Lyrik Rawls",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "3",
-     "name": "Albert Smith III",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "QB",
      "no": "12",
      "name": "Mikey Keene",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "50",
      "name": "Marques Uini",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "57",
-     "name": "Filiva'a Lokotui",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -309,21 +295,14 @@
      "pos": "OL",
      "no": "64",
      "name": "Wade Helton",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "78",
-     "name": "Luke Baklenko",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "79",
      "name": "Xander Ruggeroli",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

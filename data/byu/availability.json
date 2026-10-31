@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T02:09:59.940653+00:00",
+ "fetchedAt": "2026-10-31T18:10:59.817585+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Arizona State",
  "players": [
@@ -36,24 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "12",
-   "name": "Preston Rex",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "23",
    "name": "Pierson Watson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "37",
-   "name": "Joseph Douglas",
-   "status": "probable",
    "detail": ""
   },
   {

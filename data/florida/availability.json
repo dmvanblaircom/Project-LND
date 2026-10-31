@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T00:10:35.829290+00:00",
+ "fetchedAt": "2026-10-31T18:11:01.027210+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Update 2",
+ "effectiveAt": "2026-10-31",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Georgia",
  "players": [
@@ -18,28 +18,14 @@
    "pos": "WR",
    "no": "1",
    "name": "Vernell Brown III",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "3",
    "name": "Bailey Stockton",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "9",
-   "name": "Tramell Jones Jr.",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "12",
-   "name": "Aaron Philo",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {

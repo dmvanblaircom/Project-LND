@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wake-forest",
- "updated": "2026-10-31T00:10:49.671378+00:00",
+ "updated": "2026-10-31T18:11:09.594369+00:00",
  "reports": [
   {
    "schema": 1,
@@ -240,27 +240,13 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:49.671378+00:00",
+   "fetchedAt": "2026-10-31T18:11:09.594369+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Virginia",
    "players": [
-    {
-     "pos": "WR",
-     "no": "8",
-     "name": "Carlos Hernandez",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "14",
-     "name": "Tyler Walton",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "15",
@@ -280,13 +266,6 @@
      "no": "69",
      "name": "Dalton DeBoer",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "78",
-     "name": "Jack Hines",
-     "status": "probable",
      "detail": ""
     }
    ],

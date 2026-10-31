@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "virginia",
- "updated": "2026-10-31T00:10:49.379525+00:00",
+ "updated": "2026-10-31T18:11:09.363896+00:00",
  "reports": [
   {
    "schema": 1,
@@ -807,10 +807,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:49.379525+00:00",
+   "fetchedAt": "2026-10-31T18:11:09.363896+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at Wake Forest",
    "players": [
@@ -818,28 +818,28 @@
      "pos": "RB",
      "no": "3",
      "name": "Noah Vaughn",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "S",
      "no": "4",
      "name": "Corey Costner",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "5",
      "name": "Kameron Courtney",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "S",
      "no": "6",
      "name": "Brandyn Hillman",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -864,13 +864,6 @@
      "detail": ""
     },
     {
-     "pos": "WR",
-     "no": "19",
-     "name": "Dylan Cope",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
      "pos": "CB",
      "no": "20",
      "name": "Omillio Agard",
@@ -888,7 +881,7 @@
      "pos": "S",
      "no": "21",
      "name": "Keke Adams",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -916,7 +909,7 @@
      "pos": "S",
      "no": "30",
      "name": "Ethan Minter",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

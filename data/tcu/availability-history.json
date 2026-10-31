@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tcu",
- "updated": "2026-10-31T02:10:14.970089+00:00",
+ "updated": "2026-10-31T18:11:07.357163+00:00",
  "reports": [
   {
    "schema": 1,
@@ -319,10 +319,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T02:10:14.970089+00:00",
+   "fetchedAt": "2026-10-31T18:11:07.357163+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Kansas",
    "players": [
@@ -337,7 +337,7 @@
      "pos": "S",
      "no": "13",
      "name": "Ryan Yaites",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -379,7 +379,7 @@
      "pos": "RB",
      "no": "27",
      "name": "Landon Walker",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -387,13 +387,6 @@
      "no": "60",
      "name": "Cade Bennett",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "81",
-     "name": "Kari Ashley",
-     "status": "probable",
      "detail": ""
     },
     {
