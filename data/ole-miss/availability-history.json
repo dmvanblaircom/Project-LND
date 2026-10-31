@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ole-miss",
- "updated": "2026-10-31T00:10:44.682651+00:00",
+ "updated": "2026-10-31T15:18:21.488271+00:00",
  "reports": [
   {
    "schema": 1,
@@ -401,10 +401,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T00:10:44.682651+00:00",
+   "fetchedAt": "2026-10-31T15:18:21.488271+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-30",
-   "heading": "Update 2",
+   "effectiveAt": "2026-10-31",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "vs. Auburn",
    "players": [
@@ -412,7 +412,7 @@
      "pos": "CB",
      "no": "0",
      "name": "Jalyn Crawford",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -427,13 +427,6 @@
      "no": "12",
      "name": "Izaiah Hartrup",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "12",
-     "name": "Luke Ferrelli",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -483,20 +476,6 @@
      "no": "46",
      "name": "Nascar McCoy",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "55",
-     "name": "Terez Davis",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "65",
-     "name": "Connor Howes",
-     "status": "probable",
      "detail": ""
     },
     {
