@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "167",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -243,6 +243,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274692",
+   "name": "Aaron Torres",
+   "position": "DE",
+   "highSchool": "Fort Sumner High School",
+   "city": "Fort Sumner",
+   "state": "NM",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274509",
    "name": "Gunner Edwards",
    "position": "DE",
@@ -269,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:14Z"
+ "fetchedAt": "2026-10-31T06:46Z"
 }

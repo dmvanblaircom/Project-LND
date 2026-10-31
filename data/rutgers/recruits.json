@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "164",
  "classYear": 2027,
- "listed": 18,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -84,19 +84,6 @@
    "rank": null,
    "positionRank": 65,
    "stateRank": 6,
-   "status": "Verbal"
-  },
-  {
-   "id": "271340",
-   "name": "Dennis Glenn Jr.",
-   "position": "DT",
-   "highSchool": "Boiling Springs High School",
-   "city": "Boiling Springs",
-   "state": "SC",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 86,
-   "stateRank": 26,
    "status": "Verbal"
   },
   {
@@ -243,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:15Z"
+ "fetchedAt": "2026-10-31T06:47Z"
 }

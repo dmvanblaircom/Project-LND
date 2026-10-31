@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2032",
  "classYear": 2027,
- "listed": 18,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -191,6 +191,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274691",
+   "name": "Mason Laster",
+   "position": "CB",
+   "highSchool": "Alcoa High School",
+   "city": "Alcoa",
+   "state": "TN",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "264788",
    "name": "Owen Willis",
    "position": "OLB",
@@ -243,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:10Z"
+ "fetchedAt": "2026-10-31T06:42Z"
 }

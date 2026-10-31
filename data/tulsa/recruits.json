@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "202",
  "classYear": 2027,
- "listed": 13,
+ "listed": 14,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -113,6 +113,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274690",
+   "name": "Reign Illian",
+   "position": "QB-PP",
+   "highSchool": "Maize South High School",
+   "city": "Wichita",
+   "state": "KS",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "271918",
    "name": "Devin Girtmon",
    "position": "OG",
@@ -178,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:16Z"
+ "fetchedAt": "2026-10-31T06:48Z"
 }

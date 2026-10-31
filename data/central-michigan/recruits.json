@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2117",
  "classYear": 2027,
- "listed": 15,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,6 +32,19 @@
    "rank": null,
    "positionRank": 90,
    "stateRank": 27,
+   "status": "Verbal"
+  },
+  {
+   "id": "273194",
+   "name": "Tyler Goebbel",
+   "position": "ILB",
+   "highSchool": "Apex Friendship High School",
+   "city": "Apex",
+   "state": "NC",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 82,
+   "stateRank": 58,
    "status": "Verbal"
   },
   {
@@ -204,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:10Z"
+ "fetchedAt": "2026-10-31T06:42Z"
 }

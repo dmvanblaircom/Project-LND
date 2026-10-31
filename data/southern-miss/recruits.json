@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2572",
  "classYear": 2027,
- "listed": 8,
+ "listed": 9,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "261570",
+   "name": "Dolph McDonald",
+   "position": "CB",
+   "highSchool": "Morton High School",
+   "city": "Morton",
+   "state": "MS",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 66,
+   "stateRank": 18,
+   "status": "Verbal"
+  },
   {
    "id": "274030",
    "name": "Jacques Robichaux III",
@@ -113,5 +126,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:15Z"
+ "fetchedAt": "2026-10-31T06:47Z"
 }

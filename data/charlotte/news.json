@@ -1,7 +1,16 @@
 {
  "team": "charlotte",
- "updated": "2026-10-29T19:38:24.397620+00:00",
+ "updated": "2026-10-31T06:38:23.706894+00:00",
  "items": [
+  {
+   "title": "Charlotte Suffers Overtime Loss Against Tulane",
+   "link": "https://charlotte49ers.com/news/2026/10/31/football-charlotte-suffers-overtime-loss-against-tulane",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Henry Rutledge running against Tulane\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/20261030_FB_Rutledge.jpg\" /><br /><br />CHARLOTTE, N.C. --\u00a0Charlotte Football suffered its second home overtime setback of the season, falling 38-31 to Tulane on Friday evening (Oct. 30).",
+   "image": "https://charlotte49ers.com/images/2026/10/31/20261030_FB_Rutledge.jpg?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-10-31T06:12:00+00:00"
+  },
   {
    "title": "Niners Host Tulane on Friday Night",
    "link": "https://charlotte49ers.com/news/2026/10/27/football-niners-host-tulane-on-friday-night",
@@ -82,15 +91,6 @@
    "image": "https://charlotte49ers.com/images/2026/9/26/20260926_FB_Johnson.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-09-27T04:56:00+00:00"
-  },
-  {
-   "title": "Niners Return Home to Face Louisiana",
-   "link": "https://charlotte49ers.com/news/2026/9/22/football-niners-return-home-to-face-louisiana",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"Derrick Eley hauls in a touchdown catch\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/22/20260922_FB_Eley.jpg\" /><br /><br />CHARLOTTE, N.C. -- Charlotte Football returns home this weekend after two weeks on the road to face the Louisiana Ragin' Cajuns at Jerry Richardson Stadium on Saturday evening (Sept. 26).",
-   "image": "https://charlotte49ers.com/images/2026/9/22/20260922_FB_Eley.jpg?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-09-22T19:00:00+00:00"
   }
  ]
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2429",
  "classYear": 2027,
- "listed": 13,
+ "listed": 12,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -87,19 +87,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273194",
-   "name": "Tyler Goebbel",
-   "position": "ILB",
-   "highSchool": "Apex Friendship High School",
-   "city": "Apex",
-   "state": "NC",
-   "grade": 72,
-   "rank": null,
-   "positionRank": 82,
-   "stateRank": 58,
-   "status": "Verbal"
-  },
-  {
    "id": "272439",
    "name": "Ryan Harrigan",
    "position": "QB-PP",
@@ -178,5 +165,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:11Z"
+ "fetchedAt": "2026-10-31T06:42Z"
 }

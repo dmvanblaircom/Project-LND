@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2628",
  "classYear": 2027,
- "listed": 20,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -110,19 +110,6 @@
    "rank": null,
    "positionRank": 109,
    "stateRank": 30,
-   "status": "Verbal"
-  },
-  {
-   "id": "272266",
-   "name": "Alexander Herrera",
-   "position": "OT",
-   "highSchool": "Crowley High School",
-   "city": "Crowley",
-   "state": "TX",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 118,
-   "stateRank": 177,
    "status": "Verbal"
   },
   {
@@ -269,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:15Z"
+ "fetchedAt": "2026-10-31T06:48Z"
 }
