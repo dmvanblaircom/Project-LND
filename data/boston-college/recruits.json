@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "103",
  "classYear": 2027,
- "listed": 29,
+ "listed": 28,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,19 +32,6 @@
    "rank": null,
    "positionRank": 30,
    "stateRank": 2,
-   "status": "Verbal"
-  },
-  {
-   "id": "271744",
-   "name": "Kaleb Exume",
-   "position": "DT",
-   "highSchool": "Cardinal Mooney High School",
-   "city": "Sarasota",
-   "state": "FL",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 49,
-   "stateRank": 49,
    "status": "Verbal"
   },
   {
@@ -386,5 +373,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:10Z"
+ "fetchedAt": "2026-11-01T03:10Z"
 }

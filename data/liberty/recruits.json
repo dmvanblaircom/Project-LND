@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2335",
  "classYear": 2027,
- "listed": 14,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -178,6 +178,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274693",
+   "name": "Xavier Cuth",
+   "position": "WR",
+   "highSchool": "West Craven High School",
+   "city": "Vanceboro",
+   "state": "NC",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273672",
    "name": "Moses Byrd",
    "position": "DE",
@@ -191,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:12Z"
+ "fetchedAt": "2026-11-01T03:12Z"
 }
