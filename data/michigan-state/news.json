@@ -1,6 +1,6 @@
 {
  "team": "michigan-state",
- "updated": "2026-11-01T17:38:33.325128+00:00",
+ "updated": "2026-11-01T21:38:45.209719+00:00",
  "items": [
   {
    "title": "MSU Special Teams Summary: Breaking It Down Over Bye Week",
@@ -219,24 +219,6 @@
    "published": "2026-10-27T10:00:00+00:00"
   },
   {
-   "title": "Post-Game Quotes: UCLA",
-   "link": "https://msuspartans.com/news/2026/10/26/football-post-game-quotes-ucla",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Devin Vaught vs UCLA at Rose Bowl Stadium on Oct. 24, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC01735_8zAjq.JPG\" /><br /><br />Michigan State Head Coach Pat Fitzgerald",
-   "image": "https://msuspartans.com/images/2026/10/24/DSC01735_8zAjq.JPG?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-10-26T16:16:00+00:00"
-  },
-  {
-   "title": "Post-Game Notes: UCLA",
-   "link": "https://msuspartans.com/news/2026/10/26/football-post-game-notes-ucla",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Kenneth Williams vs UCLA at Rose Bowl Stadium on Oct. 24, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC01773_bS1rV.JPG\" /><br /><br />SERIES NOTES",
-   "image": "https://msuspartans.com/images/2026/10/24/DSC01773_bS1rV.JPG?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-10-26T16:03:00+00:00"
-  },
-  {
    "title": "Pat Fitzgerald: Freshman QB Kayd Coffman 'more mature than his years' in first career start",
    "link": "https://on3.com/teams/michigan-state-spartans/news/pat-fitzgerald-freshman-qb-kayd-coffman-more-mature-than-his-years-in-first-career-start/",
    "source": "On3",
@@ -253,6 +235,24 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25034205/football-Gary-A.-Vasquez.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-25T08:45:02+00:00"
+  },
+  {
+   "title": "Post-Game Quotes: UCLA",
+   "link": "https://msuspartans.com/news/2026/10/24/football-post-game-quotes-ucla",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Devin Vaught vs UCLA at Rose Bowl Stadium on Oct. 24, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC01735_8zAjq.JPG\" /><br /><br />Michigan State Head Coach Pat Fitzgerald",
+   "image": "https://msuspartans.com/images/2026/10/24/DSC01735_8zAjq.JPG?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-25T04:16:00+00:00"
+  },
+  {
+   "title": "Post-Game Notes: UCLA",
+   "link": "https://msuspartans.com/news/2026/10/24/football-post-game-notes-ucla",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Kenneth Williams vs UCLA at Rose Bowl Stadium on Oct. 24, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC01773_bS1rV.JPG\" /><br /><br />SERIES NOTES",
+   "image": "https://msuspartans.com/images/2026/10/24/DSC01773_bS1rV.JPG?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-10-25T04:03:00+00:00"
   },
   {
    "title": "V-Cast: Nobody should be surprised by Michigan State's loss at UCLA given injuries on both sides of the ball",
