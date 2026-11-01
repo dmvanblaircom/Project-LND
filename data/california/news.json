@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-01T01:38:20.339932+00:00",
+ "updated": "2026-11-01T17:38:12.336375+00:00",
  "items": [
+  {
+   "title": "The Road Scan: TD's view of Cal going down 31-10 to NC State",
+   "link": "https://on3.com/sites/golden-bear-report/news/the-road-scan-tds-view-of-cal-going-down-31-10-to-nc-state/",
+   "source": "Golden Bear Report",
+   "summary": "Everything as it happened from Thomas' perspective when Cal took on NC State and lost in Raleigh on Saturday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31163722/CFS.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-01T16:00:00+00:00"
+  },
   {
    "title": "Burning Cal Football Quotes Post NC State",
    "link": "https://on3.com/sites/golden-bear-report/news/burning-cal-football-quotes-post-nc-state/",
@@ -316,15 +325,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/16223954/Kevin-Jennings.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-25T15:30:00+00:00"
-  },
-  {
-   "title": "Burning Cal Football Quotes Post SMU",
-   "link": "https://on3.com/sites/golden-bear-report/news/burning-cal-football-quotes-post-smu/",
-   "source": "Golden Bear Report",
-   "summary": "Cal Football got boat-raced against SMU, losing 59-20. Here's what Head Coach Tosh Lupoi and Quarterback Jaron-Keawe Sagapolutele said after.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/21014600/Pre-SMU.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-24T22:30:44+00:00"
   },
   {
    "title": "Postgame Notes: No. 23 SMU 59, California 20",
