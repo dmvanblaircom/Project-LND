@@ -1,7 +1,16 @@
 {
  "team": "fresno-state",
- "updated": "2026-10-30T19:38:43.369364+00:00",
+ "updated": "2026-11-01T08:38:15.525569+00:00",
  "items": [
+  {
+   "title": "Bulldogs spook Beavers in Halloween Night win",
+   "link": "https://gobulldogs.com/news/2026/10/31/football-bulldogs-spook-beavers-in-halloween-night-win",
+   "source": "Fresno State Athletics",
+   "summary": "<img alt=\"Mordecai Hines celebrates big play vs Oregon State\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/1/IMG_8356.JPG\" /><br /><br />FRESNO, Calif. \u2013 Fresno State put on a Halloween night show at Valley Children's Stadium, using a full team-effort to power past Oregon State 38-22 on Saturday night. The Bulldogs scored 17 points in the third quarter to build a 22-point lead and secure their fifth win of the season.",
+   "image": "https://gobulldogs.com/images/2026/11/1/IMG_8356.JPG?width=800",
+   "sourceLogo": "https://gobulldogs.com/favicon.ico",
+   "published": "2026-11-01T07:59:00+00:00"
+  },
   {
    "title": "The Pawd: Checkerboard Chats (Chase Perino, Bo Ausmus)",
    "link": "https://gobulldogs.com/news/2026/10/29/football-the-pawd-checkerboard-chats-chase-perino-bo-ausmus",
@@ -82,15 +91,6 @@
    "image": "https://gobulldogs.com/images/2026/9/26/260912Athletics027.JPG?width=800",
    "sourceLogo": "https://gobulldogs.com/favicon.ico",
    "published": "2026-10-10T23:52:00+00:00"
-  },
-  {
-   "title": "Game Day Know Before You Go",
-   "link": "https://gobulldogs.com/news/2026/10/8/football-game-day-know-before-you-go",
-   "source": "Fresno State Athletics",
-   "summary": "<img alt=\"Valley Children's Stadium\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/8/26-09-12-WB-VsSacState-169__1_.jpg\" /><br /><br />",
-   "image": "https://gobulldogs.com/images/2026/10/8/26-09-12-WB-VsSacState-169__1_.jpg?width=800",
-   "sourceLogo": "https://gobulldogs.com/favicon.ico",
-   "published": "2026-10-08T23:30:00+00:00"
   }
  ]
 }
