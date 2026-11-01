@@ -1,7 +1,16 @@
 {
  "team": "mississippi-state",
- "updated": "2026-10-31T23:39:18.501239+00:00",
+ "updated": "2026-11-01T00:08:39.695543+00:00",
  "items": [
+  {
+   "title": "Game Day: State At Texas",
+   "link": "https://hailstate.com/news/2026/10/31/football-game-day-state-at-texas",
+   "source": "Mississippi State Athletics",
+   "summary": "<img alt=\"Mississippi State Offensive Lineman Miles McVay #58 McVay58\nSeptember 26,2026\nPhoto taken by Natalie Ryals\" src=\"https://hailstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/20260925_FB_VS_Mizzou_McVay58_NR_101_.jpg\" /><br /><br />",
+   "image": "https://hailstate.com/images/2026/10/30/20260925_FB_VS_Mizzou_McVay58_NR_101_.jpg?width=800",
+   "sourceLogo": "https://hailstate.com/favicon.ico",
+   "published": "2026-11-01T00:30:00+00:00"
+  },
   {
    "title": "Pregame Update: Smith and Lockhart Out vs. No. 11 Texas",
    "link": "https://on3.com/teams/mississippi-state-bulldogs/news/pregame-update-smith-and-lockhart-out-vs-no-11-texas/",
@@ -370,15 +379,6 @@
    "image": "https://hailstate.com/images/2026/10/23/20261019_FB_vs_LSU_Shumpert-Perkins51_LK479.jpg?width=800",
    "sourceLogo": "https://hailstate.com/favicon.ico",
    "published": "2026-10-23T20:30:00+00:00"
-  },
-  {
-   "title": "State Hosts Sooners On Saturday At Davis Wade Stadium",
-   "link": "https://hailstate.com/news/2026/10/23/football-state-hosts-sooners-on-saturday-at-davis-wade-stadium",
-   "source": "Mississippi State Athletics",
-   "summary": "<img alt=\"Mississippi State Defensive Lineman Jaray Bledsoe #9 Bledsoe9\" src=\"https://hailstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/23/20261019_FB_vs_LSU_Bledsoe9_2JDkz.jpg\" /><br /><br />",
-   "image": "https://hailstate.com/images/2026/10/23/20261019_FB_vs_LSU_Bledsoe9_2JDkz.jpg?width=800",
-   "sourceLogo": "https://hailstate.com/favicon.ico",
-   "published": "2026-10-23T18:45:00+00:00"
   },
   {
    "title": "Injury-plagued Mississippi State shut out by LSU in 31-0 loss",

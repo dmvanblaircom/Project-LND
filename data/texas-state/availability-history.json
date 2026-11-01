@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-state",
- "updated": "2026-10-31T02:10:15.602883+00:00",
+ "updated": "2026-11-01T00:10:03.399615+00:00",
  "reports": [
   {
    "schema": 1,
@@ -12,10 +12,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-10-31T02:10:15.602883+00:00",
+   "fetchedAt": "2026-11-01T00:10:03.399615+00:00",
    "reported": true,
-   "effectiveAt": "2026-10-31",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-01",
+   "heading": "Game Day",
    "kickoffDate": "2026-10-31",
    "game": "at Boise State",
    "players": [
@@ -58,63 +58,7 @@
      "pos": "DL",
      "no": "",
      "name": "JP Deeter",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Ryan Nolan",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "",
-     "name": "Davian Jackson",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Will Mitchell",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Jo'Laison Landry",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "",
-     "name": "Torrance Burgess",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "TJ Burkhalter",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Bryce Carter",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Donterry Russell",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {

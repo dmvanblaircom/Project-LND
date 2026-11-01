@@ -1,7 +1,16 @@
 {
  "team": "east-carolina",
- "updated": "2026-10-31T15:08:28.238199+00:00",
+ "updated": "2026-11-01T00:08:12.907551+00:00",
  "items": [
+  {
+   "title": "East Carolina Defeats Temple, 17-9",
+   "link": "https://ecupirates.com/news/2026/10/31/football-east-carolina-defeats-temple-17-9",
+   "source": "ECU Athletics",
+   "summary": "<img alt=\"TJ Engleman Jr - Temple 26\" src=\"https://ecupirates.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/TJEnglemanJr-Temple.jpg\" /><br /><br />GREENVILLE, N.C. (AP) - TJ Engleman Jr. ran for 107 yards including a second-half touchdown that helped East Carolina defeat Temple 17-9 on Saturday.",
+   "image": "https://ecupirates.com/images/2026/10/31/TJEnglemanJr-Temple.jpg?width=800",
+   "sourceLogo": "https://ecupirates.com/favicon.ico",
+   "published": "2026-11-01T00:40:00+00:00"
+  },
   {
    "title": "ECU Hosts Temple On Halloween At 3 P.M.",
    "link": "https://ecupirates.com/news/2026/10/31/football-ecu-hosts-temple-on-halloween-at-3-pm",
@@ -82,15 +91,6 @@
    "image": "https://ecupirates.com/images/2026/10/10/ECUDefense-Rice.jpg?width=800",
    "sourceLogo": "https://ecupirates.com/favicon.ico",
    "published": "2026-10-10T23:47:00+00:00"
-  },
-  {
-   "title": "ECU Opens American Conference Play Hosting Rice At 1 P.M.",
-   "link": "https://ecupirates.com/news/2026/10/9/football-ecu-opens-american-conference-play-hosting-rice-at-1-pm",
-   "source": "ECU Athletics",
-   "summary": "<img alt=\"ECU Game Captains - NCCU 2026\" src=\"https://ecupirates.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/9/TeamCaptains-NCCU.png\" /><br /><br />",
-   "image": "https://ecupirates.com/images/2026/10/9/TeamCaptains-NCCU.png?width=800",
-   "sourceLogo": "https://ecupirates.com/favicon.ico",
-   "published": "2026-10-09T18:11:00+00:00"
   }
  ]
 }
