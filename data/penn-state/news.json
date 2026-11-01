@@ -1,7 +1,16 @@
 {
  "team": "penn-state",
- "updated": "2026-11-01T02:08:35.890467+00:00",
+ "updated": "2026-11-01T04:08:36.474003+00:00",
  "items": [
+  {
+   "title": "Penn State Football Report Card After a 31-17 Victory Over Purdue",
+   "link": "https://www.si.com/college/pennstate/football/penn-state-football-report-card-after-31-17-victory-over-purdue?utm_source=RSS",
+   "source": "Penn State On SI",
+   "summary": "The Nittany Lions found their physical run game in dominating the Boilermakers.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3943,h_2217,x_0,y_122/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_penn_state/01m6abzh99fbdpfhf5vm.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-01T02:50:07+00:00"
+  },
   {
    "title": "Penn State finally finishes, showing signs of growth in win over Purdue",
    "link": "https://on3.com/teams/penn-state-nittany-lions/news/penn-state-finally-finishes-showing-signs-growth-win-over-purdue/",
@@ -174,7 +183,7 @@
    "published": "2026-10-31T19:41:16+00:00"
   },
   {
-   "title": "Penn State Finds its Groove in 31-14 Victory Over Purdue",
+   "title": "Penn State Finds its Groove in 31-17 Victory Over Purdue",
    "link": "https://www.si.com/college/pennstate/football/penn-state-vs-purdue-live-updates-and-analysis-from-beaver-stadium?utm_source=RSS",
    "source": "Penn State On SI",
    "summary": "Follow along as the Nittany Lions attempt to snap their four-game Big Ten slide.",
@@ -325,15 +334,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2268,h_1275,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_penn_state/01m5z1vj0erb8gtrh46m.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-27T17:17:00+00:00"
-  },
-  {
-   "title": "Penn State-Purdue Football Ticket Prices Are Cheaper Than a Movie",
-   "link": "https://www.si.com/college/pennstate/football/penn-state-purdue-football-ticket-prices-are-cheaper-than-a-movie?utm_source=RSS",
-   "source": "Penn State On SI",
-   "summary": "The Nittany Lions host the Boilermakers on Halloween at Beaver Stadium.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4735,h_2663,x_0,y_6/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_penn_state/01m5x9hrkva9h2f6vqd9.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-27T00:28:16+00:00"
   }
  ]
 }
