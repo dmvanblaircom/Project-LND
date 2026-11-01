@@ -1,6 +1,6 @@
 {
 "team": "ohio-state",
-"updated": "2026-11-01T02:02Z",
+"updated": "2026-11-01T02:07Z",
 "points": [
 {
 "t": "2026-10-02T13:24Z",
@@ -1923,6 +1923,13 @@
 "title": 6.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 52.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-01T02:07Z",
+"title": 6.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 51.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
