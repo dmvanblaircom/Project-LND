@@ -1,16 +1,7 @@
 {
  "team": "georgia-southern",
- "updated": "2026-11-01T03:08:26.487685+00:00",
+ "updated": "2026-11-01T18:08:08.282728+00:00",
  "items": [
-  {
-   "title": "Eagles Run Streak Against App to Five in 19-3 Win",
-   "link": "https://gseagles.com/news/2026/10/31/football-eagles-run-streak-against-app-to-five-in-19-3-win",
-   "source": "Georgia Southern Athletics",
-   "summary": "<img alt=\"Taylor_Alex\" src=\"https://gseagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/AJ3_6593.jpg\" /><br /><br />STATESBORO\u00a0\u2014 Georgia Southern (4-4, 3-1) defeated App State (5-3, 2-2) 19-3 on Saturday at Allen E. Paulson Stadium.",
-   "image": "https://gseagles.com/images/2026/10/31/AJ3_6593.jpg?width=800",
-   "sourceLogo": "https://gseagles.com/favicon.ico",
-   "published": "2026-11-01T03:46:00+00:00"
-  },
   {
    "title": "Eagles Run Streak Against App to Four in 19-3 Win",
    "link": "https://gseagles.com/news/2026/10/31/football-eagles-run-streak-against-app-to-four-in-19-3-win",
@@ -91,6 +82,15 @@
    "image": "https://gseagles.com/images/2026/10/11/GameNotes_ODU.jpg?width=800",
    "sourceLogo": "https://gseagles.com/favicon.ico",
    "published": "2026-10-12T20:30:00+00:00"
+  },
+  {
+   "title": "Late Rally Falls Just Short to Dukes",
+   "link": "https://gseagles.com/news/2026/10/11/football-late-rally-falls-just-short-to-dukes",
+   "source": "Georgia Southern Athletics",
+   "summary": "<img alt=\"Bradshaw_Taylor\" src=\"https://gseagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/CM5A0306.jpg\" /><br /><br />STATESBORO, Ga. \u2014 Georgia Southern came up just short to James Madison, falling 27-24 on Saturday at Allen E. Paulson Stadium.",
+   "image": "https://gseagles.com/images/2026/10/10/CM5A0306.jpg?width=800",
+   "sourceLogo": "https://gseagles.com/favicon.ico",
+   "published": "2026-10-11T05:22:00+00:00"
   }
  ]
 }
