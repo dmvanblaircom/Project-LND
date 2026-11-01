@@ -1,6 +1,6 @@
 {
 "team": "illinois",
-"updated": "2026-11-01T17:37Z",
+"updated": "2026-11-01T23:37Z",
 "points": [
 {
 "t": "2026-10-28T01:37Z",
@@ -179,6 +179,13 @@
 },
 {
 "t": "2026-11-01T17:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 3.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-01T23:37Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 3.0,
