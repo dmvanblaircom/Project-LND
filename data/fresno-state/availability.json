@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T02:10:01.837420+00:00",
+ "fetchedAt": "2026-11-01T01:10:36.242820+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-01",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "vs. Oregon State",
  "players": [
@@ -18,35 +18,35 @@
    "pos": "ILB",
    "no": "",
    "name": "Niko Baumgartner",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "",
    "name": "Lucas Blumling",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "",
    "name": "Logan Goodspeed",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Sammie Hunter",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "",
    "name": "Jahzon Jacks",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -60,28 +60,28 @@
    "pos": "SP",
    "no": "",
    "name": "Ethan Rossetti",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "",
    "name": "Jairus Satele",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Ethan Tierney",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
-   "name": "Marqusie Thorpe-Taylor",
-   "status": "questionable",
+   "name": "Marquise Thorpe-Taylor",
+   "status": "gtd",
    "detail": ""
   },
   {

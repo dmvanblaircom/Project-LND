@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T02:10:13.080693+00:00",
+ "fetchedAt": "2026-11-01T01:10:43.916993+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-01",
+ "heading": "Game Day",
  "kickoffDate": "2026-10-31",
  "game": "at Fresno State",
  "players": [
@@ -29,17 +29,17 @@
    "detail": ""
   },
   {
-   "pos": "ILB",
-   "no": "",
-   "name": "Kord Shaw",
-   "status": "out-season",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "",
    "name": "Ryan RJ Whitten",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Kord Shaw",
+   "status": "out-season",
    "detail": ""
   }
  ],
