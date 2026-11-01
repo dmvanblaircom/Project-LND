@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-10-31T21:09:39.869503+00:00",
+ "updated": "2026-11-01T19:38:50.971062+00:00",
  "items": [
+  {
+   "title": "Navy vs Notre Dame - Pregame Photo Gallery",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-notre-dame-pregame-photo-gallery/",
+   "source": "The Mid Report",
+   "summary": "Pregame photos from the Mids\u2019 game vs the Notre Dame Fighting Irish on Saturday, Oct 31, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31184627/DSC_0585.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-01T19:00:00+00:00"
+  },
   {
    "title": "Navy Battles No. 5 Notre Dame Before Falling 35-13",
    "link": "https://navysports.com/news/2026/10/31/football-navy-battles-no-5-notre-dame-before-falling-35-13.aspx",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/11181320/DSC_9497.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-12T18:00:00+00:00"
-  },
-  {
-   "title": "Navy vs Tulsa - Pregame Photo Gallery",
-   "link": "https://on3.com/sites/the-mid-report/news/navy-fb-vs-tulsa-pregame-photo-gallery/",
-   "source": "The Mid Report",
-   "summary": "Pregame photos from the Mids\u2019 game vs Tulsa Golden Hurricanes on Saturday, Oct 10, 2026, as seen through the lens of staff photographer Alison Althouse.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/11083551/DSC_9457.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-11T19:56:34+00:00"
   }
  ]
 }
