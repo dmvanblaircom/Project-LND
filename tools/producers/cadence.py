@@ -13,12 +13,20 @@ decides only the official-document step.
     hours old or more. The data-refresh workflow keeps that time in the
     Actions cache, so the rule holds whatever the runs' real spacing - which
     for GitHub's own scheduler is irregular, often hours apart.
+  * PUBLISH WINDOW - the hours, local to the team, when its program posts
+    availability on the days it does (sources.official.availabilityUpdates:
+    daysBeforeKickoff and publishWindow). Inside it, the chart is checked on
+    every run too, so a report reaches fans within half an hour of being
+    posted rather than up to two hours later (David, 2026-11-02: Notre
+    Dame's Monday report was posted between two checks).
   * When in doubt, check. A schedule that cannot be read or a missing
     last-check time means due: a wasted check costs a few small requests; a
     missed one costs a stale injury report.
 
 Usage (in the workflow):
-    python3 tools/producers/cadence.py --team notre-dame --last .cadence/depth-checked
+    python3 tools/producers/cadence.py --team notre-dame --last .cadence/depth-checked [--official]
+--official also reads the team's publishing window (the official-document
+step passes it; beat news does not need it).
 Prints the verdict and writes due=true|false to $GITHUB_OUTPUT when set.
 """
 import argparse
@@ -27,7 +35,8 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, time, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 BEFORE = timedelta(hours=18)
 AFTER = timedelta(hours=6)
@@ -60,12 +69,37 @@ def in_game_window(kicks, now):
     return any(k - BEFORE <= now <= k + AFTER for k in kicks)
 
 
-def due(kicks, last_checked, now):
-    """-> (due, reason). kicks None means the schedule could not be read."""
+def clock(s):
+    h, m = str(s).split(":")
+    return time(int(h), int(m))
+
+
+def in_publish_window(kicks, now, policy):
+    """Is it a day the team publishes availability (daysBeforeKickoff, by the
+    game's local date) and inside its publishWindow ["HH:MM", "HH:MM"], local?
+    A policy without a window, or one that cannot be read, never is: the
+    two-hour rule still covers the team."""
+    try:
+        tz = ZoneInfo(policy["timeZone"])
+        start, end = (clock(t) for t in policy["publishWindow"])
+        days = [int(d) for d in policy.get("daysBeforeKickoff") or []]
+    except (TypeError, KeyError, ValueError, AttributeError):
+        return False
+    local = now.astimezone(tz)
+    if not start <= local.time() < end:
+        return False
+    return any(k.astimezone(tz).date() - timedelta(days=d) == local.date() for k in kicks for d in days)
+
+
+def due(kicks, last_checked, now, policy=None):
+    """-> (due, reason). kicks None means the schedule could not be read;
+    policy is the team's availabilityUpdates, when its window counts."""
     if kicks is None:
         return True, "schedule unreadable - checking rather than guessing"
     if in_game_window(kicks, now):
         return True, "game window"
+    if policy and in_publish_window(kicks, now, policy):
+        return True, "publish window"
     if last_checked is None:
         return True, "no record of a previous check"
     age = now - last_checked
@@ -96,6 +130,18 @@ def schedule(team, cache=None):
     return kicks
 
 
+def publish_policy(team):
+    """The team's sources.official.availabilityUpdates, or None. Read only
+    when the clock alone cannot decide, so most runs never load the config."""
+    sys.path.insert(0, HERE)
+    import teamconfig
+    try:
+        return ((teamconfig.load(team).get("sources") or {}).get("official") or {}).get("availabilityUpdates")
+    except Exception as e:                           # noqa: BLE001
+        print("  publish window unreadable:", str(e)[:120])
+        return None
+
+
 def team_id(team):
     config = open(os.path.join(ROOT, "teams", team + ".js"), encoding="utf-8").read()
     m = re.search(r'\bteamId\s*:\s*"([^"]+)"', config)
@@ -110,6 +156,8 @@ def main():
     ap.add_argument("--last", required=True, help="file holding the last successful check time")
     ap.add_argument("--exit-code", action="store_true", help="exit 0 when due, 3 when not (for a loop over teams)")
     ap.add_argument("--cache", help="a directory that keeps each team's kickoffs for this run")
+    ap.add_argument("--official", action="store_true",
+                    help="also due inside the team's availability publishing window")
     args = ap.parse_args()
 
     now = datetime.now(timezone.utc)
@@ -122,7 +170,8 @@ def main():
     if last is None or now - last + SLACK >= EVERY:
         verdict, reason = due([], last, now)
     else:
-        verdict, reason = due(schedule(args.team, args.cache), last, now)
+        verdict, reason = due(schedule(args.team, args.cache), last, now,
+                              publish_policy(args.team) if args.official else None)
     print("  %s: %s" % ("due" if verdict else "not due", reason))
     out = os.environ.get("GITHUB_OUTPUT")
     if out:
