@@ -4293,6 +4293,13 @@
    "week": 9,
    "label": "Week 9",
    "updated": "2026-11-02T09:00Z"
+  },
+  {
+   "id": "w10",
+   "type": 2,
+   "week": 10,
+   "label": "Week 10",
+   "updated": "2026-11-02T09:00Z"
   }
  ],
  "teams": {
