@@ -4,14 +4,17 @@ sys.path.insert(0, "tools/producers")
 from official_depth import fetch
 from bs4 import BeautifulSoup
 html, final, ctype = fetch("https://fightingirish.com/news/2022/08/29/ndfbmedia")
-print("FINAL", final, ctype, len(html))
 soup = BeautifulSoup(html.decode("utf-8", "replace"), "html.parser")
-for h in soup.find_all(["h1", "h2", "h3", "h4", "strong"])[:60]:
-    print("HEAD", h.name, repr(h.get_text(" ", strip=True)[:90]))
-for a in soup.find_all("a", href=True):
-    t = a.get_text(" ", strip=True)
-    if re.search(r"availab|depth|notes|pdf|document", t + " " + a["href"], re.I):
-        print("LINK", repr(t[:70]), a["href"][:150])
-txt = soup.get_text("\n", strip=True)
-i = txt.find("2026")
-print("TEXT2026", repr(txt[max(0, i - 300): i + 1500]))
+for h in soup.find_all(re.compile(r"^h[1-6]$")):
+    print("HEAD", h.name, repr(h.get_text(" ", strip=True)[:90]), "classes", h.get("class"))
+for el in soup.find_all(string=re.compile(r"^\s*20(26|25)\s*$")):
+    p = el.parent
+    print("YEARTEXT", p.name, p.get("class"), "parents:", [x.name for x in p.parents][:6])
+tables = soup.find_all("table")
+print("TABLES", len(tables))
+for i, t in enumerate(tables[:3]):
+    prev = t.find_previous(re.compile(r"^(h[1-6]|strong|p|button|summary)$"))
+    print("TABLE", i, "prev:", prev.name if prev else None, repr(prev.get_text(" ", strip=True)[:60]) if prev else "")
+    for tr in t.find_all("tr")[:12]:
+        cells = tr.find_all(["th", "td"])
+        print("  ROW", [c.get_text(" ", strip=True)[:40] for c in cells], [a["href"][:70] for a in tr.find_all("a", href=True)])
