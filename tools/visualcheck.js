@@ -31,6 +31,10 @@
 
 var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
+// The fixtures' week (2026-11-02): their schedule ends with Navy on Oct 31,
+// so on the real clock the app is past it and shows the season complete.
+// Pinned to the Tuesday before, when every check here last passed.
+var FIXTURE_NOW = "2026-10-27T16:00:00Z";
 var audit = require("./a11yaudit.js");
 
 var root = path.join(__dirname, "..");
@@ -142,6 +146,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
     var context = await browser.newContext({ viewport: { width: width, height: 900 }, serviceWorkers: "block",
                                              timezoneId: "America/New_York", locale: "en-US" });
     var page = await context.newPage();
+    await page.clock.setSystemTime(new Date(FIXTURE_NOW));
     await page.route("**/*", async function (route) {
       var url = route.request().url();
       var body = responseFor(url);

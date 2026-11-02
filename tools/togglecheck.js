@@ -18,6 +18,10 @@
 "use strict";
 var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
+// The fixtures' week (2026-11-02): their schedule ends with Navy on Oct 31,
+// so on the real clock the app is past it and shows the season complete.
+// Pinned to the Tuesday before, when every check here last passed.
+var FIXTURE_NOW = "2026-10-27T16:00:00Z";
 var serve = require("./lib/serve");
 var root = path.join(__dirname, "..");
 var FX = path.join(root, "tools", "fixtures");
@@ -48,6 +52,7 @@ function ok(cond, what) { if (cond) { console.log("  ok   " + what); return; } f
     var ctx = await browser.newContext({ viewport: { width: 390, height: 700 }, hasTouch: true, isMobile: true,
       serviceWorkers: "block", timezoneId: "America/New_York", locale: "en-US" });
     var page = await ctx.newPage(), errors = [];
+    await page.clock.setSystemTime(new Date(FIXTURE_NOW));
     page.on("pageerror", function (e) { errors.push(String(e && e.message || e)); });
     await page.route("**/*", function (r) {
       var u = r.request().url();

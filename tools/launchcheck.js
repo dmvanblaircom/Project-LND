@@ -31,6 +31,10 @@ process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = "1";
 
 var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
+// The fixtures' week (2026-11-02): their schedule ends with Navy on Oct 31,
+// so on the real clock the app is past it and shows the season complete.
+// Pinned to the Tuesday before, when every check here last passed.
+var FIXTURE_NOW = "2026-10-27T16:00:00Z";
 var root = path.join(__dirname, "..");
 var serve = require("./lib/serve");
 var FX = path.join(root, "tools", "fixtures");
@@ -74,6 +78,7 @@ function fixture(url) {
     opts = opts || {};
     var ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
     var page = await ctx.newPage();
+    await page.clock.setSystemTime(new Date(FIXTURE_NOW));
     await page.route("**/*", async function (route) {
       var u = route.request().url();
       if (u.startsWith(base)) {
@@ -342,6 +347,7 @@ function fixture(url) {
       return route.abort();
     });
     var page = await ctx.newPage(), frames = [];
+    await page.clock.setSystemTime(new Date(FIXTURE_NOW));
     var reveals = {};
     page.on("console", function (m) { var t = m.text(); note(t); if (t.indexOf("LF|") === 0) frames.push(t.split("|")); if (t.indexOf("LV|") === 0) reveals[t.split("|")[1]] = t.split("|")[2]; if (process.env.LAUNCH_DEBUG && /^L[EF]\|/.test(t)) console.log("    " + Date.now() % 100000 + " " + t); });
     await page.addInitScript(function () {
