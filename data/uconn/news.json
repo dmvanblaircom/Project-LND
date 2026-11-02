@@ -1,7 +1,16 @@
 {
  "team": "uconn",
- "updated": "2026-11-02T20:39:09.882403+00:00",
+ "updated": "2026-11-02T22:38:13.486531+00:00",
  "items": [
+  {
+   "title": "WATCH: Game 9 Football Press Conference",
+   "link": "https://uconnhuskies.com/news/2026/11/2/watch-game-9-football-press-conference",
+   "source": "UConn Athletics",
+   "summary": "<img alt=\"Jason Candle Press Conference Thumbnail\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/22/Candle_ThumbnailforPressers.jpg\" /><br /><br />STORRS, CT - The UConn Huskies being a stretch of three-striaght at home this Saturday when they host the North Carolina Tar Heels.\u00a0Watch Head Coach Jason Candle's press conference previewing this week's match-up.",
+   "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
+   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
+   "published": "2026-11-02T22:31:00+00:00"
+  },
   {
    "title": "Football: Air Force run game proves to be too much for the Huskies",
    "link": "https://dailycampus.com/2026/11/02/football-air-force-run-game-proves-to-be-too-much-for-the-huskies/",
@@ -109,15 +118,6 @@
    "image": "https://uconnhuskies.com/images/2026/10/3/Syracuse_C_Bowers_2.JPG?width=800",
    "sourceLogo": "https://uconnhuskies.com/favicon.ico",
    "published": "2026-10-03T21:55:00+00:00"
-  },
-  {
-   "title": "Syracuse Comes to the Rent This Saturday",
-   "link": "https://uconnhuskies.com/news/2026/9/30/football-syracuse-comes-to-the-rent-this-saturday",
-   "source": "UConn Athletics",
-   "summary": "<img alt=\"UConn Football\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/30/KBFBvMARYLAND09122634.jpg\" /><br /><br />Media Coverage",
-   "image": "https://uconnhuskies.com/images/2026/9/30/KBFBvMARYLAND09122634.jpg?width=800",
-   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
-   "published": "2026-10-01T03:22:00+00:00"
   }
  ]
 }
