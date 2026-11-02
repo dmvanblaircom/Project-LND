@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-02T17:38:49.278378+00:00",
+ "updated": "2026-11-02T19:38:39.932320+00:00",
  "items": [
+  {
+   "title": "Navy vs Notre Dame - Game Photo Gallery Part 1",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-notre-dame-game-photo-gallery-part-1/",
+   "source": "The Mid Report",
+   "summary": "Photos from the first quarter of Navy\u2019s 35-13 loss to the Notre Dame Fighting Irish on October 31, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01142121/DSC_0627.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-02T19:00:00+00:00"
+  },
   {
    "title": "Navy Returns Home to Play Host to American Conference Game Against Temple",
    "link": "https://navysports.com/news/2026/11/2/football-navy-returns-home-to-play-host-to-american-conference-game-against-temple.aspx",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/12151010/DSC_9808.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-13T18:00:00+00:00"
-  },
-  {
-   "title": "Navy vs Tulsa - Game Photo Gallery Part 1",
-   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-tulsa-game-photo-gallery-part-1/",
-   "source": "The Mid Report",
-   "summary": "Photos from the first quarter of Navy\u2019s 34-26 win over the Tulsa Golden Hurricanes on October 10, 2026, as seen through the lens of staff photographer Alison Althouse.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/11181320/DSC_9497.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-12T18:00:00+00:00"
   }
  ]
 }
