@@ -1,7 +1,16 @@
 {
  "team": "unlv",
- "updated": "2026-11-01T07:39:35.640371+00:00",
+ "updated": "2026-11-02T21:38:19.195386+00:00",
  "items": [
+  {
+   "title": "Game Promotions Announced for Football vs. Wyoming",
+   "link": "https://unlvrebels.com/news/2026/11/2/game-promotions-announced-for-football-vs-wyoming",
+   "source": "UNLV Athletics",
+   "summary": "<img alt=\"Jackson Arnold vs Cal\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/3/_LKP9039.jpg\" /><br /><br />UNLV Football will celebrate our nation's veterans and honor Native American Heritage Month at Allegiant Stadium with an evening battle against the Wyoming Cowboys.",
+   "image": "https://unlvrebels.com/images/2026/10/3/_LKP9039.jpg?width=800",
+   "sourceLogo": "https://unlvrebels.com/favicon.ico",
+   "published": "2026-11-02T20:55:00+00:00"
+  },
   {
    "title": "Rebel Football Scares Up Halloween Win Over NIU",
    "link": "https://unlvrebels.com/news/2026/11/1/rebel-football-scares-up-halloween-win-over-niu",
@@ -82,15 +91,6 @@
    "image": "https://unlvrebels.com/images/2026/10/10/Andre_Porter_Pick_6_NDSU.jpg?width=800",
    "sourceLogo": "https://unlvrebels.com/favicon.ico",
    "published": "2026-10-11T05:04:00+00:00"
-  },
-  {
-   "title": "GAME 6: Bison Here For Homecoming",
-   "link": "https://unlvrebels.com/news/2026/10/6/football-game-6-bison-here-for-homecoming",
-   "source": "UNLV Athletics",
-   "summary": "<img alt=\"Defense v Cal\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/6/_LKP0289.jpg\" /><br /><br />GAME 6: Homecoming 2026",
-   "image": "https://unlvrebels.com/images/2026/10/6/_LKP0289.jpg?width=800",
-   "sourceLogo": "https://unlvrebels.com/favicon.ico",
-   "published": "2026-10-06T21:33:00+00:00"
   }
  ]
 }

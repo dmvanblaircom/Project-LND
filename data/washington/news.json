@@ -1,7 +1,16 @@
 {
  "team": "washington",
- "updated": "2026-11-02T19:39:07.546733+00:00",
+ "updated": "2026-11-02T21:38:21.056443+00:00",
  "items": [
+  {
+   "title": "McLaughlin Named Big Ten Defensive Player Of The Week",
+   "link": "https://gohuskies.com/news/2026/11/2/football-mclaughlin-named-big-ten-defensive-player-of-the-week",
+   "source": "Washington Athletics",
+   "summary": "<img alt=\"Alex McLaughlin interception returned for a touchdown at Nebraska\" src=\"https://gohuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/Alex_McLaughlin.png\" /><br /><br />SEATTLE \u2013 Washington's Alex McLaughlin has been tabbed the Big Ten Defensive Player of the Week, the conference office announced this afternoon.",
+   "image": "https://gohuskies.com/images/2026/11/2/Alex_McLaughlin.png?width=800",
+   "sourceLogo": "https://gohuskies.com/favicon.ico",
+   "published": "2026-11-02T20:00:00+00:00"
+  },
   {
    "title": "Huskies To Welcome Penn State For First Time In 105 Years",
    "link": "https://gohuskies.com/news/2026/11/2/football-huskies-to-welcome-penn-state-for-first-time-in-105-years",
@@ -307,15 +316,6 @@
    "image": "https://gohuskies.com/images/2026/10/8/UW_Med_Web_Hero.png?width=800",
    "sourceLogo": "https://gohuskies.com/favicon.ico",
    "published": "2026-10-08T16:58:00+00:00"
-  },
-  {
-   "title": "Green Named To Ray Guy Award\u2019s \u201cRay\u2019s 8\u201d For Week Five",
-   "link": "https://gohuskies.com/news/2026/10/5/football-green-named-to-ray-guy-awards-rays-8-for-week-five",
-   "source": "Washington Athletics",
-   "summary": "<img alt=\"Hunter Green punts the ball against USC\" src=\"https://gohuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/5/Hunter_Green.png\" /><br /><br />Washington punter Hunter Green was selected as one of &quot;Ray's 8&quot; for Week 5, as announced by the Augusta Sports Council and the Ray Guy Award on Monday.",
-   "image": "https://gohuskies.com/images/2026/10/5/Hunter_Green.png?width=800",
-   "sourceLogo": "https://gohuskies.com/favicon.ico",
-   "published": "2026-10-05T20:00:00+00:00"
   }
  ]
 }
