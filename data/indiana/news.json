@@ -1,7 +1,16 @@
 {
  "team": "indiana",
- "updated": "2026-11-02T09:08:15.538382+00:00",
+ "updated": "2026-11-02T15:08:29.153389+00:00",
  "items": [
+  {
+   "title": "All the news, stats and analysis from Indiana football\u2019s 23-16 win over Minnesota",
+   "link": "https://www.crimsonquarry.com/indiana-football/31484/minnesota-recap-links-news-stats",
+   "source": "The Crimson Quarry",
+   "summary": "Indiana football pulled off yet another stunner in crunch time this past Saturday, beating Minnesota 23-16 in overtime for the annual homecoming matchup. This one had everything, from aforementioned overtime period to a quarterback change in the second half. Grant Wilson gave the Hoosier offense the spark it needed to get the ball moving and, [&#8230;]",
+   "image": "https://platform.crimsonquarry.com/wp-content/uploads/sites/71/2026/11/gettyimages-2302631194.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-02T14:01:12+00:00"
+  },
   {
    "title": "'They have depth everywhere': P.J. Fleck's reaction to Indiana's wild win over Minnesota",
    "link": "https://on3.com/teams/indiana-hoosiers/news/they-have-depth-everywhere-p-j-flecks-reaction-to-indianas-wild-win-over-minnesota/",
@@ -309,15 +318,6 @@
    "published": "2026-10-31T16:31:59+00:00"
   },
   {
-   "title": "Behind the scenes: A look at the sights and sounds from College GameDay in Bloomington",
-   "link": "https://on3.com/teams/indiana-hoosiers/news/check-out-behind-the-scenes-photos-from-college-gamedays-visit-to-bloomington/",
-   "source": "On3",
-   "summary": "For the third time ever, and just the second time for a full Saturday show, ESPN\u2019s College GameDay was live from Bloomington ahead of an Indiana football game. This time, the set was able to be on Indiana\u2019s campus, with it featured by Showalter Fountain in front of the IU Auditorium. It was a fantastic [&#8230;]",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31104923/IMG_0415-rotated.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-31T15:50:39+00:00"
-  },
-  {
    "title": "Tidbits for the Tailgate: Minnesota",
    "link": "https://hoosierhuddle.com/2026/10/31/tidbits-for-the-tailgate-minnesota/",
    "source": "Hoosier Huddle",
@@ -379,15 +379,6 @@
    "image": "https://platform.crimsonquarry.com/wp-content/uploads/sites/71/2026/10/gettyimages-2300660258.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-10-30T16:05:03+00:00"
-  },
-  {
-   "title": "Indiana football vs. Minnesota: 3 Things to watch for",
-   "link": "https://www.crimsonquarry.com/indiana-football/31451/vs-minnesota-preview-3-things-to-watch-for",
-   "source": "The Crimson Quarry",
-   "summary": "Indiana will look to start another home winning streak Saturday as the Hoosiers host the Minnesota Golden Gophers for Homecoming. At No. 4, Indiana is also looking to add to its playoff resume with a win over a P.J. Fleck team that has had some highs this year. At 5-2 on the season and 3-1 [&#8230;]",
-   "image": "https://platform.crimsonquarry.com/wp-content/uploads/sites/71/2026/10/gettyimages-2299296919.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-10-30T15:54:50+00:00"
   },
   {
    "title": "IU Will Raise the Victory Flag Against Minnesota If\u2026",
@@ -541,6 +532,15 @@
    "image": "https://iuhoosiers.com/images/2026/10/26/20241026_FB_Washington_KEP_0022.jpg?width=800",
    "sourceLogo": "https://iuhoosiers.com/favicon.ico",
    "published": "2026-10-26T21:30:00+00:00"
+  },
+  {
+   "title": "ESPN FPI Predicts Indiana's Chances Against Minnesota in Homecoming Clash",
+   "link": "https://www.si.com/college/indiana/football/espn-fpi-predicts-indiana-chances-against-minnesota-in-homecoming-clash?utm_source=RSS",
+   "source": "Indiana On SI",
+   "summary": "ESPN's Football Power Index gives No. 4 Indiana a commanding edge over Minnesota as the Hoosiers return to Bloomington for Saturday's Homecoming matchup.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_5070,h_2851,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/hoosiers_now/01m5wgnbvkvyfq96cjay.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-26T21:06:00+00:00"
   }
  ]
 }
