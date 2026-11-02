@@ -1,7 +1,25 @@
 {
  "team": "alabama",
- "updated": "2026-11-02T13:37:58.714798+00:00",
+ "updated": "2026-11-02T15:28:52.019120+00:00",
  "items": [
+  {
+   "title": "Game Week - LSU",
+   "link": "https://rolltide.com/news/2026/11/2/football-game-week-lsu",
+   "source": "Alabama Athletics",
+   "summary": "<img alt=\"Football at LSU at 2:30 p.m. CT on ABC at Tiger Stadium in Baton Rouge, La.\" src=\"https://rolltide.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/Game_9_-_LSU_web.jpg\" /><br /><br />",
+   "image": "https://rolltide.com/images/2026/10/30/Game_9_-_LSU_web.jpg?width=800",
+   "sourceLogo": "https://rolltide.com/favicon.ico",
+   "published": "2026-11-02T15:00:00+00:00"
+  },
+  {
+   "title": "How Alabama, LSU compare statistically ahead of Week 10 clash",
+   "link": "https://on3.com/teams/alabama-crimson-tide/news/how-alabama-lsu-compare-statistically-ahead-of-week-10-clash/",
+   "source": "On3",
+   "summary": "Before Alabama and LSU square off in Baton Rouge, we look at how the two teams compare statistically after Week 9.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01230321/Alabama-SamLeavittKeelonRussell-hookly.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-02T14:00:00+00:00"
+  },
   {
    "title": "Alabama rises to No. 9 in final AP poll before CFP rankings release",
    "link": "https://thecrimsonwhite.com/131869/sports/alabama-rises-to-no-9-in-final-ap-poll-before-cfp-rankings-release/",
@@ -291,15 +309,6 @@
    "published": "2026-10-29T16:00:04+00:00"
   },
   {
-   "title": "BOL Commitment Performance of the Week: EDGE Tyler Younger",
-   "link": "https://on3.com/teams/alabama-crimson-tide/news/bol-commitment-performance-of-the-week-edge-tyler-younger/",
-   "source": "On3",
-   "summary": "BamaOnLine spotlights a Crimson Tide commit for their on-field performance. This week is 2027 edge Tyler Younger.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28210516/TylerYounger.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-29T14:00:00+00:00"
-  },
-  {
    "title": "Jumbo Package: Kalen DeBoer stands behind Ryan Grubb, Lane Kiffin whines on SEC teleconference",
    "link": "https://www.rollbamaroll.com/alabama-crimson-tide-basketball/85832/alabama-football-kalen-deboer-stands-behind-ryan-grubb-lane-kiffin-whines-on-sec-teleconference",
    "source": "Roll Bama Roll",
@@ -433,15 +442,6 @@
    "image": "https://rolltide.com/images/2026/10/11/Game_6_-_Tennessee_web.jpg?width=800",
    "sourceLogo": "https://rolltide.com/favicon.ico",
    "published": "2026-10-12T15:00:00+00:00"
-  },
-  {
-   "title": "No. 6/7 Alabama Falls to No. 2/2 Georgia, 20-17",
-   "link": "https://rolltide.com/news/2026/10/10/football-no-6-7-alabama-falls-to-no-2-2-georgia-20-17",
-   "source": "Alabama Athletics",
-   "summary": "<img alt=\"Yhonzae Pierre tackle against Georgia\" src=\"https://rolltide.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/Pierre_Tackle_vs._Georgia.jpg\" /><br /><br />TUSCALOOSA, Ala. - No. 6/7 Alabama football (5-1, 3-1 SEC) dropped its first contest of the season, falling 20-17 to No. 2/2 Georgia (6-0, 4-0 SEC), Saturday night in front of a sold-out crowd inside Saban Field at Bryant-Denny Stadium.",
-   "image": "https://rolltide.com/images/2026/10/10/Pierre_Tackle_vs._Georgia.jpg?width=800",
-   "sourceLogo": "https://rolltide.com/favicon.ico",
-   "published": "2026-10-11T05:36:00+00:00"
   }
  ]
 }
