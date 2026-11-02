@@ -1,0 +1,17 @@
+# Temporary (2026-11-02, deleted with its branch): ND's media page changed
+# ("2026 section not found"); what it looks like now.
+name: ND media page probe
+on:
+  push:
+    branches: [nd-probe]
+    paths: ["tools/nd_probe.py"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet beautifulsoup4 pypdf
+      - run: python3 tools/nd_probe.py
