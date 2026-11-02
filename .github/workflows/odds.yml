@@ -9,9 +9,10 @@
 # the commit step adds only what a step that SUCCEEDED produced. A failing
 # school website can never again cost the odds (it did on 2026-09-23, run 100).
 #
-# Cadence (decision 0020): odds and news every run; the official depth chart
-# every run in a game window or the team's publish window, otherwise every 2
-# hours (tools/producers/cadence.py).
+# Cadence (decision 0020): odds, beat news, conference availability and a
+# media index's game notes every run; the official depth chart every run in a
+# game window or the team's publish window, otherwise every 2 hours
+# (tools/producers/cadence.py).
 # GitHub's scheduler is best-effort: "twice an hour" has in practice meant a
 # run every 2-5 hours.
 name: Refresh team data
@@ -128,27 +129,21 @@ jobs:
 
       # Each team's feeds are its declaration (TEAM_CONFIG.sources.beatFeeds).
       # A feed that has moved is found on its site and named in a warning.
-      # Per team, on the depth chart's cadence (tools/producers/cadence.py):
-      # every run from 18 hours before a kickoff to 6 hours after it,
-      # otherwise every two hours (Phase 0, 2026-10-27: at 138 teams, every
-      # feed on every run is some 700 fetches a half hour). By hand, all.
+      # Every team on every run (David, 2026-11-02: fans should have the
+      # news early). Phase 0 (2026-10-27) had put news on the depth chart's
+      # two-hour cadence to keep a run short at 138 teams; eight teams at a
+      # time keep it short instead (39 teams one by one took 82 s). Each
+      # team's log is printed whole, in order, after they all finish.
       - name: Pull beat writers
         id: news
         continue-on-error: true      # a dead feed must never block the odds
-        env:
-          BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
         run: |
-          fail=0; mkdir -p .cadence
-          for t in $(python3 tools/producers/teamconfig.py --with beatNews); do
-            stamp=".cadence/news-$t"
-            if [ "$BY_HAND" != true ]; then
-              rc=0; python3 tools/producers/cadence.py --team "$t" --last "$stamp" --cache "$RUNNER_TEMP/kickoffs" --exit-code > /dev/null || rc=$?
-              if [ $rc -eq 3 ]; then echo "== $t: not due"; continue; fi    # any other answer: when in doubt, read
-            fi
-            echo "== $t"
-            if python3 tools/producers/beat_news.py --team "$t"; then date -u +%Y-%m-%dT%H:%M:%SZ > "$stamp"; else fail=1; fi
-          done
-          exit $fail
+          logs="$RUNNER_TEMP/news"; mkdir -p "$logs"; rm -f "$logs/failed"
+          teams=$(python3 tools/producers/teamconfig.py --with beatNews)
+          printf '%s\n' $teams | xargs -P 8 -I{} sh -c \
+            'python3 tools/producers/beat_news.py --team "$1" > "$2/$1.log" 2>&1 || echo "$1" >> "$2/failed"' _ {} "$logs"
+          for t in $teams; do echo "== $t"; cat "$logs/$t.log"; done
+          if [ -s "$logs/failed" ]; then echo "::error::beat news failed for: $(tr '\n' ' ' < "$logs/failed")"; exit 1; fi
 
       # Per team: due by hand, or by the depth-chart cadence (decision 0020).
       - name: Official depth chart and availability
@@ -198,27 +193,21 @@ jobs:
 
       # A team's game notes from its official media index, for a team whose
       # depth-chart index does not carry them (Ohio State's Media Center;
-      # David, 2026-10-26). The index is looked at every three hours, and the
-      # notes PDF read only when a new week's is posted (or the reading
-      # changed): tools/producers/official_notes.py.
+      # David, 2026-10-26). The index is one page, looked at every run (David,
+      # 2026-11-02: it was every three hours); the notes PDF is read only when
+      # a new week's is posted (or the reading changed):
+      # tools/producers/official_notes.py.
       - name: Official game notes from a media index
         id: notes
         continue-on-error: true
-        env:
-          BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
         run: |
           pip install --quiet beautifulsoup4 pypdf
-          mkdir -p .cadence
           fail=0; paths=""
           for t in $(python3 tools/producers/teamconfig.py --with notes); do
             grep -q "notesIndex" "teams/$t.js" || continue
             echo "== $t"
-            stamp=".cadence/notes-$t"
-            if [ "$BY_HAND" != true ] && [ -f "$stamp" ] && [ $(( $(date +%s) - $(date -d "$(cat "$stamp")" +%s) )) -lt 10800 ]; then
-              echo "  looked under three hours ago"; continue
-            fi
             if python3 tools/producers/official_notes.py --team "$t"; then
-              date -u +%Y-%m-%dT%H:%M:%SZ > "$stamp"; paths="$paths data/$t/notes.json"
+              paths="$paths data/$t/notes.json"
             else fail=1; fi
           done
           echo "paths=$paths" >> "$GITHUB_OUTPUT"

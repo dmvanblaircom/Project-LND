@@ -46,6 +46,18 @@ PRs before work.
   the edge Worker to accept, store or forward it, plus spam protection and a
   privacy note for the email address. Feedback arrives at
   suiteappfeedback@gmail.com.
+- **In-game injuries (parked, David, 2026-11-02).** ESPN's play-by-play,
+  which Suite already polls in a live game, tags injuries in the play text
+  ("#9 Z.Grady injured on the play"); Suite does not read them yet. Parked
+  because the feed cannot say whether a player is back: most players are
+  never named in play text (linemen, most defenders), so "not seen since"
+  would tell fans a player is out who played the rest of the game. If
+  picked up: report the event only ("2nd Q 4:12 - LG #70 P. Daniels
+  injured on the play"), both teams, a notification for the fan's own
+  team (David's answers, 2026-11-02), and never an inferred status. A real
+  status (out for the game, questionable to return) needs a source that
+  reports it - the official game-day update or beat writers - and none has
+  a feed Suite can read in-game today.
 - **Game notes and depth chart readers for every school (David, 2026-10-30:
   "soon").** Today Game links each program's notes page, or its schedule
   where each game's notes are posted (`links.gameNotes`, all 138 teams);

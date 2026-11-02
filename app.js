@@ -2650,8 +2650,11 @@ document.addEventListener("click", function(e){
 });
 
 // How long data may sit before a silent refresh: on return to a tab that was
-// hidden this long, and on a timer while it stays visible.
-var FRESH={ at:Date.now(), hiddenAt:null, afterHidden:10*60e3, whileVisible:30*60e3 };
+// hidden this long, and on a timer while it stays visible. Ten minutes either
+// way (David, 2026-11-02: news early): the data behind it refreshes every 30
+// minutes, and half an hour on top of that left an open app up to an hour
+// behind.
+var FRESH={ at:Date.now(), hiddenAt:null, afterHidden:10*60e3, whileVisible:10*60e3 };
 document.addEventListener("visibilitychange", function(){
   if(document.hidden){ FRESH.hiddenAt=Date.now(); return; }
   var away=FRESH.hiddenAt ? Date.now()-FRESH.hiddenAt : 0;
