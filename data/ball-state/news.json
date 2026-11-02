@@ -1,7 +1,16 @@
 {
  "team": "ball-state",
- "updated": "2026-10-30T18:38:06.333489+00:00",
+ "updated": "2026-11-02T18:38:04.815122+00:00",
  "items": [
+  {
+   "title": "Ball State Visits UMass to Begin Midweek #MACtion Schedule in November",
+   "link": "https://ballstatesports.com/news/2026/11/2/football-ball-state-visits-umass-to-begin-midweek-maction-schedule-in-november",
+   "source": "Ball State Athletics",
+   "summary": "<img alt=\"Ball State celebrates on field after homecoming win versus Sacramento State 10/24/26\" src=\"https://ballstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/BSUFB_vs._SacState-0945.jpg\" /><br /><br />",
+   "image": "https://ballstatesports.com/images/2026/11/2/BSUFB_vs._SacState-0945.jpg?width=800",
+   "sourceLogo": "https://ballstatesports.com/favicon.ico",
+   "published": "2026-11-02T16:41:00+00:00"
+  },
   {
    "title": "Ball State Turns Attention to UMass as the Cardinals Prepare for Midweek MACtion.",
    "link": "https://ballstatesports.com/news/2026/10/30/football-ball-state-turns-attention-to-umass-as-the-cardinals-prepare-for-midweek-maction",
@@ -82,15 +91,6 @@
    "image": "https://ballstatesports.com/images/2026/10/17/BSUFB_vs.BG_INGAME-24.JPG?width=800",
    "sourceLogo": "https://ballstatesports.com/favicon.ico",
    "published": "2026-10-17T20:31:00+00:00"
-  },
-  {
-   "title": "TOGETHER (Ball State Sports Link Docuseries): Episode 4",
-   "link": "https://ballstatesports.com/news/2026/10/16/football-together-ball-state-sports-link-docuseries-episode-4",
-   "source": "Ball State Athletics",
-   "summary": "<img alt=\"TOGETHER: Season 2, Episode 4\" src=\"https://ballstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/16/Episode4YTthumbnail.png\" /><br /><br />MUNCIE, Ind. -- For the second straight year, Ball State Football has teamed with on-campus partner Ball State Sports Link to present a weekly documentary series that chronicles the season of head coach Mike Uremovich and the 2026 Cardinals.",
-   "image": "https://ballstatesports.com/images/2026/10/16/Episode4YTthumbnail.png?width=800",
-   "sourceLogo": "https://ballstatesports.com/favicon.ico",
-   "published": "2026-10-16T16:11:00+00:00"
   }
  ]
 }

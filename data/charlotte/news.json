@@ -1,7 +1,16 @@
 {
  "team": "charlotte",
- "updated": "2026-10-31T06:38:23.706894+00:00",
+ "updated": "2026-11-02T18:38:08.579668+00:00",
  "items": [
+  {
+   "title": "East Carolina Game Time Announced",
+   "link": "https://charlotte49ers.com/news/2026/11/2/football-east-carolina-game-time-announced",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Football team runs out pregame\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/20261102_FB_Team.jpg\" /><br /><br />CHARLOTTE, N.C. --\u00a0Charlotte Football and East Carolina will get underway at 1 p.m. on November 14, as announced by the American Conference. The Gold Rush rivalry game, presented by Harris Teeter, will air on ESPN+.",
+   "image": "https://charlotte49ers.com/images/2026/11/2/20261102_FB_Team.jpg?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-11-02T18:00:00+00:00"
+  },
   {
    "title": "Charlotte Suffers Overtime Loss Against Tulane",
    "link": "https://charlotte49ers.com/news/2026/10/31/football-charlotte-suffers-overtime-loss-against-tulane",
@@ -82,15 +91,6 @@
    "image": "https://charlotte49ers.com/images/2026/9/29/20260929_FB_Davis.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-09-29T20:19:00+00:00"
-  },
-  {
-   "title": "Offensive Struggles Hurt Niners Against Louisiana",
-   "link": "https://charlotte49ers.com/news/2026/9/26/football-offensive-struggles-hurt-niners-against-louisiana",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"Jaylon Johnson running a fumble recovery for a touchdown\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/26/20260926_FB_Johnson.jpg\" /><br /><br />CHARLOTTE, N.C. --\u00a0Charlotte Football couldn't find its groove offensively against Louisiana, falling 34-7 at Jerry Richardson Stadium on Saturday evening (Sept. 26).",
-   "image": "https://charlotte49ers.com/images/2026/9/26/20260926_FB_Johnson.jpg?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-09-27T04:56:00+00:00"
   }
  ]
 }
