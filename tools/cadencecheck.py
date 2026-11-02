@@ -2,8 +2,9 @@
 """Does the data refresh check the official depth chart when it should?
 
 The rule (tools/producers/cadence.py, decision 0020): every run inside a game
-window - 18 hours before kickoff to 6 hours after - and otherwise once the
-last successful check is two hours old. When in doubt, check.
+window - 18 hours before kickoff to 6 hours after - or the team's declared
+publish window, and otherwise once the last successful check is two hours
+old. When in doubt, check.
 
 Usage:  python3 tools/cadencecheck.py     (exit 1 on any failure)
 """
@@ -62,6 +63,39 @@ ok(is_due(tue, last=None), "no record of a previous check")
 ok(is_due(tue, last=tue, kicks=None), "the schedule could not be read")
 ok(is_due(tue, last=tue - timedelta(minutes=5), kicks=[]) is False, "an empty schedule is not doubt: off-season stays every 2 hours")
 
+print("inside the team's publish window: every run (David, 2026-11-02)")
+# Notre Dame vs Miami, Saturday 2026-11-07, 7:30 PM ET = 2026-11-08 00:30 UTC.
+# Its game's local date is the 7th, so Monday the 2nd and Thursday the 5th.
+nd = {"timeZone": "America/New_York", "daysBeforeKickoff": [5, 2], "publishWindow": ["11:00", "18:00"]}
+miami = [at("2026-11-08T00:30:00")]
+mon = at("2026-11-02T18:40:00")                  # 1:40 PM ET, Monday
+just = mon - timedelta(minutes=30)
+
+
+def due_with(now, policy=nd, kicks=miami, last=None):
+    return cadence.due(kicks, last if last else now - timedelta(minutes=30), now, policy)
+
+
+ok(due_with(mon) == (True, "publish window"), "Monday 1:40 PM ET, half an hour after a check: due")
+ok(due_with(at("2026-11-05T16:05:00"))[0], "Thursday 11:05 AM ET: due")
+ok(due_with(at("2026-11-02T16:00:00"))[0], "11:00 AM ET exactly: the window opens")
+ok(not due_with(at("2026-11-02T23:00:00"))[0], "6:00 PM ET: the window has closed")
+ok(not due_with(at("2026-11-02T15:30:00"))[0], "10:30 AM ET: not yet")
+ok(not due_with(at("2026-11-03T18:40:00"))[0], "Tuesday 1:40 PM ET: not a day the team publishes")
+ok(not due_with(at("2026-11-04T18:40:00"))[0], "Wednesday: nor that")
+ok(not due_with(mon, policy=None)[0], "no policy: the two-hour rule as before")
+ok(not due_with(mon, policy={"timeZone": "America/New_York", "daysBeforeKickoff": [5, 2]})[0],
+   "a policy without a window: the two-hour rule as before")
+ok(not due_with(mon, policy={"timeZone": "America/New_York", "daysBeforeKickoff": [5], "publishWindow": ["noon"]})[0],
+   "an unreadable window is never a window, and never an error")
+ok(not due_with(mon, policy={"timeZone": "Mars/Base", "daysBeforeKickoff": [5], "publishWindow": ["11:00", "18:00"]})[0],
+   "nor is an unknown time zone")
+ok(not due_with(mon, kicks=[])[0], "no game ahead (off-season): no window")
+# An evening kickoff on the West Coast: the game's own date, in the team's zone.
+late = {"timeZone": "America/Los_Angeles", "daysBeforeKickoff": [5], "publishWindow": ["11:00", "18:00"]}
+ok(due_with(at("2026-11-02T20:00:00"), policy=late, kicks=[at("2026-11-08T03:30:00")])[0],
+   "a 7:30 PM PT Saturday kickoff (03:30 UTC Sunday) counts back from Saturday")
+
 print("a schedule only when the clock cannot decide (Phase 0)")
 import io, json, tempfile, contextlib, urllib.request  # noqa: E401,E402
 asked = []
@@ -81,12 +115,12 @@ def fake_open(req, timeout=None):
     return Answer(json.dumps({"events": [{"date": "2026-10-31T19:30Z"}]}).encode())
 
 
-def run_main(last, cache=None):
+def run_main(last, cache=None, official=False):
     d = tempfile.mkdtemp()
     stamp = os.path.join(d, "stamp")
     if last:
         open(stamp, "w").write(last.strftime("%Y-%m-%dT%H:%M:%SZ"))
-    argv = ["cadence.py", "--team", "notre-dame", "--last", stamp, "--exit-code"] + (["--cache", cache] if cache else [])
+    argv = ["cadence.py", "--team", "notre-dame", "--last", stamp, "--exit-code"] + (["--cache", cache] if cache else []) + (["--official"] if official else [])
     code, real_argv = 0, sys.argv
     sys.argv = argv
     try:
@@ -112,6 +146,18 @@ try:
     ok(len(asked) == 2, "with a cache, the second ask in a run reads the first one's kickoffs (%d reads)" % len(asked))
     kept = cadence.schedule("notre-dame", cache)
     ok(kept and kept[0] == at("2026-10-31T19:30:00"), "the kept kickoffs are the schedule's")
+    loads, real_policy = [], cadence.publish_policy
+    cadence.publish_policy = lambda team: loads.append(team) or nd
+    try:
+        run_main(now - timedelta(hours=3), official=True)
+        ok(not loads, "--official, due on the clock: the team's config is not loaded")
+        run_main(now - timedelta(minutes=20), official=True)
+        ok(loads == ["notre-dame"], "--official, not due on the clock: the publish window is read")
+        loads.clear()
+        run_main(now - timedelta(minutes=20))
+        ok(not loads, "without --official (beat news): never read")
+    finally:
+        cadence.publish_policy = real_policy
 finally:
     urllib.request.urlopen = real_open
 

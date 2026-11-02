@@ -65,6 +65,16 @@ the workflow every 30 minutes through `workflow_dispatch`. It sends
 It uses a fine-grained token that can only start workflows on this
 repository. Setup: `docs/engineering/data-refresh-clock.md`.
 
+**Amended (David, 2026-11-02): a team's publish window.** Notre Dame's
+Monday report was posted between two checks, two hours apart. A team that
+reads its own documents can declare when its program posts them,
+`sources.official.availabilityUpdates.publishWindow` (`["HH:MM", "HH:MM"]`,
+in the policy's `timeZone`), on the days it already declares
+(`daysBeforeKickoff`). Inside that window the official document is checked
+on every run, as in a game window. The same declaration drives the monitor
+below, so when a team publishes is written down once. Conference feeds need
+no window: they are read on every run already.
+
 ## Monitoring
 
 `tools/producers/freshness.py` runs at the end of every refresh. It is tested

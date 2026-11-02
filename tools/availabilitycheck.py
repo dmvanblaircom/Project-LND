@@ -145,5 +145,41 @@ try:
 finally:
     gamenotes.parse, gamenotes.PARSER = saved_notes
 
+print("a media page without its season sections is read once more (2026-11-02)")
+PAGE, BARE = b"<h2>2026</h2><table>...</table>", b"<p>Javascript is required.</p>"
+ROW = [{"game": "Miami FL", "depth": "d.pdf", "notes": "n.pdf"}]
+saved_io = (od.fetch, od.time.sleep, od.season_rows)
+pages, naps = [], []
+od.time.sleep = naps.append
+od.season_rows = lambda html, url, season: ROW if html == PAGE else None   # the page's reading is bs4's
+
+
+def serve(*answers):
+    pages[:] = list(answers)
+    od.fetch = lambda url: (pages.pop(0), url, "text/html")
+
+
+try:
+    serve(BARE, PAGE)
+    with contextlib.redirect_stdout(io.StringIO()) as out:
+        rows = od.chart_links("https://fightingirish.com/news/2022/08/29/ndfbmedia", 2026)
+    ok(rows == ROW and naps == [od.RETRY_AFTER],
+       "a bare page, then the real one: this week's row is read, after one pause")
+    ok("reading the page once more" in out.getvalue(), "and the log says the page was read again")
+    serve(BARE, BARE)
+    naps.clear()
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            od.chart_links("https://fightingirish.com/news/2022/08/29/ndfbmedia", 2026)
+        ok(False, "a page that stays bare stops the run")
+    except SystemExit as e:
+        ok("2026 section not found" in str(e) and len(naps) == 1, "a page that stays bare stops the run, after two reads")
+    serve(PAGE)
+    naps.clear()
+    od.chart_links("https://fightingirish.com/news/2022/08/29/ndfbmedia", 2026)
+    ok(not naps and not pages, "a good page is read once, with no pause")
+finally:
+    od.fetch, od.time.sleep, od.season_rows = saved_io
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "a failed fetch never costs the right report"))
 sys.exit(1 if failures else 0)

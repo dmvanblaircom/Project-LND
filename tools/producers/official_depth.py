@@ -36,6 +36,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
 from urllib.parse import urljoin
@@ -50,6 +51,7 @@ import twodeep  # noqa: E402
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
 MIN_PLAYERS = 25            # fewer than this is not a two-deep; refuse it
+RETRY_AFTER = 10           # seconds before reading the media page a second time
 
 
 def log(*a):
@@ -76,12 +78,28 @@ def fetch(url, limit=None):
 def chart_links(index_url, season):
     """The season's rows from the official media index: game, depth chart,
     and game notes (which carry the availability report)."""
+    # Once in a while the page comes back without its season sections (Notre
+    # Dame's, 2026-11-02 19:37 UTC, fine again minutes later). One more read
+    # before calling the page changed.
+    for attempt in (1, 2):
+        html, _, _ = fetch(index_url)
+        rows = season_rows(html, index_url, season)
+        if rows is not None:
+            return rows
+        if attempt == 1:
+            log("  %s section not found at %s; reading the page once more" % (season, index_url))
+            time.sleep(RETRY_AFTER)
+    sys.exit("%s section not found at %s" % (season, index_url))
+
+
+def season_rows(html, index_url, season):
+    """The rows under the season's heading; None when the page has no such
+    heading."""
     from bs4 import BeautifulSoup
-    html, _, _ = fetch(index_url)
     soup = BeautifulSoup(html.decode("utf-8", "replace"), "html.parser")
     year = next((h for h in soup.find_all(["h2", "h3"]) if h.get_text(" ", strip=True) == str(season)), None)
     if year is None:
-        sys.exit("%s section not found at %s" % (season, index_url))
+        return None
     table = year.find_next("table")
     if table is None:
         sys.exit("%s media table not found at %s" % (season, index_url))

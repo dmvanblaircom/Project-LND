@@ -10,7 +10,8 @@
 # school website can never again cost the odds (it did on 2026-09-23, run 100).
 #
 # Cadence (decision 0020): odds and news every run; the official depth chart
-# every run in a game window, otherwise every 2 hours (tools/producers/cadence.py).
+# every run in a game window or the team's publish window, otherwise every 2
+# hours (tools/producers/cadence.py).
 # GitHub's scheduler is best-effort: "twice an hour" has in practice meant a
 # run every 2-5 hours.
 name: Refresh team data
@@ -165,7 +166,7 @@ jobs:
             if [ -f .cadence/depth-checked ] && [ ! -f ".cadence/$t" ]; then cp .cadence/depth-checked ".cadence/$t"; fi
             if [ "$BY_HAND" = true ]; then echo "  depth chart due: run by hand"
             else
-              rc=0; python3 tools/producers/cadence.py --team "$t" --last ".cadence/$t" --cache "$RUNNER_TEMP/kickoffs" --exit-code || rc=$?
+              rc=0; python3 tools/producers/cadence.py --team "$t" --last ".cadence/$t" --cache "$RUNNER_TEMP/kickoffs" --official --exit-code || rc=$?
               if [ $rc -eq 3 ]; then continue; fi          # not due
               if [ $rc -ne 0 ]; then fail=1; continue; fi
             fi

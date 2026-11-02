@@ -35,7 +35,7 @@ var TEAM_CONFIG = {
       depthChartLabel: "FightingIrish.com",
       availabilityReportIndex: "https://fightingirish.com/news/2022/08/29/ndfbmedia",
       availabilityReportLabel: "FightingIrish.com",
-      availabilityUpdates: { timeZone: "America/New_York", daysBeforeKickoff: [5, 2] }
+      availabilityUpdates: { timeZone: "America/New_York", daysBeforeKickoff: [5, 2], publishWindow: ["11:00", "18:00"] }
     },
     beatFeeds: [ { name: "One Foot Down", feed: "https://...", site: "https://..." } /* ... */ ]
   },

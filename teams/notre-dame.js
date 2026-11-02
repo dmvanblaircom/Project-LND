@@ -89,9 +89,14 @@ var TEAM_CONFIG = {
       // The final pregame update is posted on X only (David, 2026-09-30),
       // never in the game notes this source reads, so it is not expected
       // here: declaring it only raised an alert every game (issue #15).
+      // publishWindow is when, Eastern, they are posted on those days: seen
+      // between about 12:30 and 3 PM this season. The refresh checks on every
+      // run inside it rather than every two hours (tools/producers/cadence.py),
+      // so a report reaches Suite within half an hour (David, 2026-11-02).
       availabilityUpdates: {
         timeZone:           "America/New_York",
-        daysBeforeKickoff:  [5, 2]  // Monday's report and Thursday's update, for a Saturday game
+        daysBeforeKickoff:  [5, 2],  // Monday's report and Thursday's update, for a Saturday game
+        publishWindow:      ["11:00", "18:00"]
       }
     },
 
