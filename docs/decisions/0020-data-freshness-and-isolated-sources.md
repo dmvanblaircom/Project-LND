@@ -75,6 +75,15 @@ on every run, as in a game window. The same declaration drives the monitor
 below, so when a team publishes is written down once. Conference feeds need
 no window: they are read on every run already.
 
+**Restored (2026-11-02): beat news on every run.** Phase 0 (2026-10-27)
+moved beat news onto the depth chart's two-hour cadence to keep a run short
+at 138 teams, against the decision above, and nobody decided it: a story
+could take over two hours to reach Suite on a weekday. Every team is read
+on every run again, eight at a time. A media index's game notes (Ohio State)
+are looked at every run too (they were every three hours): the index is one
+page, and the notes PDF is read only when it changes. The open app refreshes
+itself every 10 minutes while on screen (was 30).
+
 ## Monitoring
 
 `tools/producers/freshness.py` runs at the end of every refresh. It is tested
