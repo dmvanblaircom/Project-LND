@@ -1,7 +1,25 @@
 {
  "team": "california",
- "updated": "2026-11-02T01:38:25.874212+00:00",
+ "updated": "2026-11-02T17:38:19.718791+00:00",
  "items": [
+  {
+   "title": "Game Time At Virginia Announced",
+   "link": "https://calbears.com/news/2026/11/2/football-game-time-at-virginia-announced",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Ashten Emory at NC State (10.31.2026)\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/_NC_St_10.31.26_MW_17226-3__1_.jpg\" /><br /><br />Bears, Cavaliers To Meet At 12:30 p.m. PT On ACCN",
+   "image": "https://calbears.com/images/2026/11/2/_NC_St_10.31.26_MW_17226-3__1_.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-02T17:00:00+00:00"
+  },
+  {
+   "title": "Cal on the Verge of Continuing a Troubling Football Streak",
+   "link": "https://www.si.com/college/cal/football/cal-on-the-verge-of-continuing-a-troubling-football-streak-01m6bypv8tq5?utm_source=RSS",
+   "source": "Cal On SI",
+   "summary": "Cal is 'competing' with Boston College to end a long run of conference shortcomings",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4790,h_2694,x_0,y_170/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m6efzj4sejnvyykd12.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-02T16:00:25+00:00"
+  },
   {
    "title": "What I Liked and Disliked From Cal Football vs NC State",
    "link": "https://on3.com/sites/golden-bear-report/news/what-i-liked-and-disliked-from-cal-football-vs-nc-state/",
@@ -300,15 +318,6 @@
    "published": "2026-10-27T00:19:42+00:00"
   },
   {
-   "title": "Was Cal's Second Half at SMU the Worst in Program History?",
-   "link": "https://www.si.com/college/cal/football/was-cal-s-second-half-at-smu-the-worst-in-program-history-01m5wy0zjnte?utm_source=RSS",
-   "source": "Cal On SI",
-   "summary": "The Bears looked sharp while building a 20-17 halftime lead, then were outscored 42-0 the rest of the way",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2648,h_1489,x_0,y_31/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m5wygn0eapj7dewr2t.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-26T20:52:01+00:00"
-  },
-  {
    "title": "PFF Grades and Snap Counts from Cal's Loss to SMU",
    "link": "https://on3.com/sites/golden-bear-report/news/pff-grades-and-snap-counts-from-cals-loss-to-smu/",
    "source": "Golden Bear Report",
@@ -352,15 +361,6 @@
    "image": "https://calbears.com/images/2026/10/23/Inside_Cal_FB_Feature_WebCROSBY.jpg?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-10-23T17:45:00+00:00"
-  },
-  {
-   "title": "Pro Bears Week 6: Keenan Allen Joins Top-10 In NFL Career Receptions",
-   "link": "https://calbears.com/news/2026/10/21/football-pro-bears-week-6-keenan-allen-joins-top-10-in-nfl-career-receptions",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"2026 Pro Bears Title Slide\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/16/2026_Pro_Bears_1920x1080.png\" /><br /><br />Aaron Rodgers Leads Pittsburgh To Overtime Victory",
-   "image": "https://calbears.com/images/2026/9/16/2026_Pro_Bears_1920x1080.png?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-10-21T17:30:00+00:00"
   }
  ]
 }
