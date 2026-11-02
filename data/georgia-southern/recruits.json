@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "290",
  "classYear": 2027,
- "listed": 11,
+ "listed": 12,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -71,6 +71,19 @@
    "rank": null,
    "positionRank": 32,
    "stateRank": 200,
+   "status": "Verbal"
+  },
+  {
+   "id": "272894",
+   "name": "Qualteau Hawkins",
+   "position": "TE-Y",
+   "highSchool": "Stuart W. Cramer High School",
+   "city": "Cramerton",
+   "state": "NC",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -152,5 +165,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:11Z"
+ "fetchedAt": "2026-11-02T20:12Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "154",
  "classYear": 2027,
- "listed": 32,
+ "listed": 33,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -282,6 +282,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273065",
+   "name": "Caleb Mattison",
+   "position": "RB",
+   "highSchool": "Bishop Kenny High School",
+   "city": "Jacksonville",
+   "state": "FL",
+   "grade": 74,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "271887",
    "name": "Esa Wittingburg",
    "position": "DE",
@@ -425,5 +438,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:17Z"
+ "fetchedAt": "2026-11-02T20:17Z"
 }

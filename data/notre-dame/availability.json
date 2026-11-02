@@ -3,43 +3,36 @@
  "team": "notre-dame",
  "capability": "availability",
  "tier": "official",
- "game": "vs. Navy",
- "sourceUrl": "https://fightingirish.com/documents/9a8108e9-7641-4ac3-89a8-8ca804beaf98.pdf",
+ "game": "Miami FL",
+ "sourceUrl": "https://fightingirish.com/documents/e7fd54b1-29bf-4c76-8ee6-07b7d615728b.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/29/sHqxicKpD04i6rxI8tYhwbvJzflvta5wle7IrRHK.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/02/HCDOVpUMZpk61CIcXOudhPzhHoYqIXgCnorq6uKV.pdf",
  "parser": 2,
- "fetchedAt": "2026-10-29T18:39:40.922192+00:00",
+ "fetchedAt": "2026-11-02T20:09:07.065752+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "AVAILABILITY UPDATE (OCT. 29)",
+ "effectiveAt": "2026-11-02",
+ "heading": "AVAILABILITY UPDATE (NOV. 2)",
  "players": [
   {
    "no": "",
-   "pos": "TE",
-   "name": "Cooper Flanagan",
+   "pos": "DL",
+   "name": "Francis Brewu",
    "status": "questionable",
-   "detail": "Left Hamstring"
+   "detail": "Left Knee"
   },
   {
    "no": "",
    "pos": "DL",
-   "name": "Loghan Thomas",
+   "name": "Jason Onye",
    "status": "questionable",
-   "detail": "Right Shoulder"
+   "detail": "Right Knee"
   },
   {
    "no": "",
    "pos": "LB",
-   "name": "Kyngstonn Viliamu-Asa",
-   "status": "questionable",
-   "detail": "Left Thumb"
-  },
-  {
-   "no": "",
-   "pos": "CB",
-   "name": "Mark Zackery IV",
-   "status": "questionable",
-   "detail": "Concussion"
+   "name": "Drayk Bowen",
+   "status": "out-game",
+   "detail": "Right Ankle"
   },
   {
    "no": "",

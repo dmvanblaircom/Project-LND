@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2628",
  "classYear": 2027,
- "listed": 19,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -204,6 +204,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273269",
+   "name": "Charles Egbo",
+   "position": "DT",
+   "highSchool": "Iowa Colony High School",
+   "city": "Iowa Colony",
+   "state": "TX",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 142,
+   "stateRank": 262,
+   "status": "Verbal"
+  },
+  {
    "id": "274567",
    "name": "Gabriel Brooks",
    "position": "OT",
@@ -256,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-31T06:48Z"
+ "fetchedAt": "2026-11-02T20:15Z"
 }

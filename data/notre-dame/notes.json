@@ -3,13 +3,13 @@
  "team": "notre-dame",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/9a8108e9-7641-4ac3-89a8-8ca804beaf98.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/e7fd54b1-29bf-4c76-8ee6-07b7d615728b.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/10/29/sHqxicKpD04i6rxI8tYhwbvJzflvta5wle7IrRHK.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/02/HCDOVpUMZpk61CIcXOudhPzhHoYqIXgCnorq6uKV.pdf",
  "parser": 2,
- "fetchedAt": "2026-10-29T18:39:40.922192+00:00",
- "publishedAt": "2026-10-29",
- "game": "Navy",
+ "fetchedAt": "2026-11-02T20:09:07.065752+00:00",
+ "publishedAt": "2026-11-02",
+ "game": "Miami",
  "pronounce": {
   "Khary Adams": "CAR-ee",
   "Matty Augustine": "August-EEN",
@@ -75,6 +75,7 @@
   "Drayk Bowen": [
    "Bronko Nagurski Trophy Watch List",
    "Butkus Award Watch List",
+   "Butkus Award Semifinalist (Oct. 28)",
    "Phil Steele Preseason All-America Third Team",
    "Sporting News Preseason All-America Second Team"
   ],
@@ -151,6 +152,7 @@
    "Maxwell Award Watch List",
    "On3 Preseason All-America First Team",
    "Paycom Jim Thorpe Award Watch List",
+   "Paycom Jim Thorpe Award Semifinalist (Oct. 27)",
    "Phil Steele Preseason All-America First Team",
    "Phil Steele Preseason Defensive Player of the Year",
    "Pony Express Award Watch List",
@@ -172,7 +174,8 @@
    "Chuck Bednarik Award Watch List"
   ],
   "Luke Talich": [
-   "William V. Campbell Trophy Nominee"
+   "William V. Campbell Trophy Nominee",
+   "William V. Campbell Trophy Semifinalist"
   ],
   "Boubacar Traore": [
    "Associated Press Midseason All-America Second Team",
@@ -210,12 +213,12 @@
   ]
  },
  "glance": [
-  "Saturday afternoon in New England will mark the 99th Notre Dame-Navy meeting. The series stands with an 84-13-1 Notre Dame advantage all-time.",
-  "It is the fourth meeting between Marcus Freeman and Brian Newberry as head coaches. Under Freeman, the Irish are 4-0 against the Midshipmen overall and 3-0 against Newberry-led Navy squads.",
-  "The Irish and Midshipmen met a season ago; it was the first true home game at Notre Dame Stadium against Navy in the Freeman Era. No. 10 Notre Dame won 49-10.",
-  "The last time the two teams met at a neutral site, it was a clash of top 25 opponents; No. 12 Notre Dame claimed a 51-14 win at MetLife Stadium over No. 24 Navy on October 26, 2024.",
-  "The Irish are 142-23-5 against American Athletic Conference opponents all-time.",
-  "Notre Dame is 6-0 against AAC members under Freeman."
+  "Saturday night will mark the 29th meeting between Notre Dame and Miami. The series stands at an 18-9-1 all-time advantage for Notre Dame.",
+  "It is the second meeting between Marcus Freeman and Mario Cristobal as head coaches. Both are in their fifth season at the helm of their respective programs.",
+  "Notre Dame is 9-1-0 against Miami at Notre Dame Stadium.",
+  "The Irish have won three straight agianst the Hurricanes at Notre Dame Stadium, starting with the 1988 meeting between Notre Dame and Miami, when the Irish won a classic 31-30.",
+  "The two sides have entered the contest both ranked in the Top 25 on ten previous occasions, as this year’s meeting will mark the 11th such instance.",
+  "The last meeting between the Irish and the Hurricanes came last season in 2025. No. 10 Miami took a 27-24 decision over No. 5 Notre Dame at Hard Rock Stadium."
  ],
  "numbers": [
   {
@@ -243,36 +246,40 @@
    "text": "Career-high receptions for Jaden Greathouse at BYU, totaling 125 receiving yards."
   },
   {
-   "n": "16",
-   "text": "Takeaways by the Irish through seven games, including eight interceptions and eight fumble recoveries."
+   "n": "9",
+   "text": "Notre Dame victories over the AP’s No. 1 team, tied with Miami for second-most nationally behind Alabama’s 11."
   },
   {
-   "n": "28",
-   "text": "Consecutive games with a reception for Jordan Faison."
+   "n": "13",
+   "text": "College GameDay visits to South Bend, including Saturday’s matchup with Miami."
+  },
+  {
+   "n": "16",
+   "text": "Takeaways by the Irish through eight games, including eight interceptions and eight fumble recoveries."
+  },
+  {
+   "n": "29",
+   "text": "Consecutive games with a reception for Jordan Faison, three shy of TJ Jones’ program-record 32."
   },
   {
    "n": "32",
-   "text": "Career field goals for Spencer Porath (32-for-39, 82.1%), who is 72-for73 on career extra points."
+   "text": "Career field goals for Spencer Porath (32-for-39, 82.1%), who is 77-for78 on career extra points."
   },
   {
    "n": "33",
-   "text": "Non-offensive touchdowns scored by Notre Dame since the start of the 2021 season, the most in the FBS over that span."
+   "text": "Non-offensive touchdowns scored by Notre Dame since the start of the 2021 season."
   },
   {
-   "n": "40",
-   "text": "Career touchdown passes for CJ Carr, tying Rick Mirer for eighth in Notre Dame history."
+   "n": "42",
+   "text": "Career touchdown passes for CJ Carr, seventh in Notre Dame history."
   },
   {
-   "n": "70",
-   "text": "Yards on Aneyas Williams’ touchdown reception from CJ Carr against Stanford."
+   "n": "50",
+   "text": "Wins for Marcus Freeman at Notre Dame after the victory over Navy."
   },
   {
    "n": "97",
-   "text": "Yards on Jonaz Walton's first career touchdown, a second-quarter run against Stanford."
-  },
-  {
-   "n": "170",
-   "text": "Micah Gilbert finished the Michigan State game with 170 receiving yards, the most by an Irish player since November 4, 2017, when Chase Claypool recorded 180 receiving yards against Wake Forest."
+   "text": "Yards on Jonaz Walton's first career touchdown run, a second-quarter score against Stanford."
   },
   {
    "n": "181",
