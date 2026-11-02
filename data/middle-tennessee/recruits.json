@@ -5,22 +5,9 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2393",
  "classYear": 2027,
- "listed": 9,
+ "listed": 8,
  "committedElsewhere": 0,
  "recruits": [
-  {
-   "id": "267646",
-   "name": "Josh Echols",
-   "position": "OLB",
-   "highSchool": "Buford High School",
-   "city": "Buford",
-   "state": "GA",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 93,
-   "stateRank": 160,
-   "status": "Verbal"
-  },
   {
    "id": "273128",
    "name": "Ayden Ashlock",
@@ -126,5 +113,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:13Z"
+ "fetchedAt": "2026-11-02T20:13Z"
 }

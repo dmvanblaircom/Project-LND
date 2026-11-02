@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2335",
  "classYear": 2027,
- "listed": 15,
+ "listed": 14,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -113,19 +113,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271758",
-   "name": "Christopher Butler",
-   "position": "WR",
-   "highSchool": "Mainland High School",
-   "city": "Daytona Beach",
-   "state": "FL",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "273283",
    "name": "Elias Grant",
    "position": "CB",
@@ -204,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-01T03:12Z"
+ "fetchedAt": "2026-11-02T20:13Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "193",
  "classYear": 2027,
- "listed": 26,
+ "listed": 25,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -45,19 +45,6 @@
    "rank": null,
    "positionRank": 159,
    "stateRank": 68,
-   "status": "Verbal"
-  },
-  {
-   "id": "273359",
-   "name": "Kaden Estep",
-   "position": "QB-DT",
-   "highSchool": "Elder High School",
-   "city": "Cincinnati",
-   "state": "OH",
-   "grade": 73,
-   "rank": null,
-   "positionRank": 30,
-   "stateRank": 72,
    "status": "Verbal"
   },
   {
@@ -347,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:13Z"
+ "fetchedAt": "2026-11-02T20:13Z"
 }

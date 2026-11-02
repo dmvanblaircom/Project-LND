@@ -13,6 +13,10 @@
 "use strict";
 var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
+// The fixtures' week (2026-11-02): their schedule ends with Navy on Oct 31,
+// so on the real clock the app is past it and shows the season complete.
+// Pinned to the Tuesday before, when every check here last passed.
+var FIXTURE_NOW = "2026-10-27T16:00:00Z";
 var root = path.join(__dirname, "..");
 var serve = require("./lib/serve");
 var FX = path.join(root, "tools", "fixtures");
@@ -45,7 +49,7 @@ function fixture(url) {
     var page = await ctx.newPage(), fonts = [];
     page.on("request", function (r) { if (/nunito/i.test(r.url())) fonts.push(r.url()); });
     // Days before a real kickoff, so the Game hero shows its countdown.
-    if (opts.at) await page.clock.setSystemTime(new Date(opts.at));
+    await page.clock.setSystemTime(new Date(opts.at || FIXTURE_NOW));
     if (opts.suiteStyle) await page.addInitScript(function () { try { localStorage.setItem("suite-style", "suite"); } catch (e) {} });
     await page.route("**/*", function (route) {
       var u = route.request().url();

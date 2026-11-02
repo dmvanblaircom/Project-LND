@@ -3,11 +3,11 @@
  "team": "notre-dame",
  "capability": "depth",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/d8263def-9bd3-487e-9661-36b97cd3c43d.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/1aaae31d-807b-4dda-8e77-b903ddee6c50.pdf",
  "sourceLabel": "FightingIrish.com",
- "title": "DEPTH CHART - GAME 8 VS NAVY",
- "game": "vs. Navy",
- "fetchedAt": "2026-10-26T17:37:50.868936+00:00",
+ "title": "DEPTH CHART - GAME 9 VS MIAMI",
+ "game": "Miami FL",
+ "fetchedAt": "2026-11-02T20:09:07.065752+00:00",
  "units": [
   {
    "unit": "Defense",
@@ -165,20 +165,15 @@
        "level": 1,
        "players": [
         {
-         "no": "34",
-         "name": "Drayk Bowen",
-         "cl": "Sr."
+         "no": "27",
+         "name": "Kyngstonn Viliamu-Asa",
+         "cl": "Jr."
         }
        ]
       },
       {
        "level": 2,
        "players": [
-        {
-         "no": "27",
-         "name": "Kyngstonn Viliamu-Asa",
-         "cl": "Jr."
-        },
         {
          "no": "19",
          "name": "Madden Faraimo",
@@ -897,16 +892,6 @@
   },
   {
    "unit": "Defense",
-   "label": "MIKE",
-   "ordinal": 1,
-   "level": 2,
-   "names": [
-    "Kyngstonn Viliamu-Asa",
-    "Madden Faraimo"
-   ]
-  },
-  {
-   "unit": "Defense",
    "label": "NICKEL",
    "ordinal": 1,
    "level": 2,
@@ -1029,29 +1014,14 @@
  ],
  "changes": [
   {
-   "kind": "added",
-   "name": "Jayden Sanders",
-   "text": "Jayden Sanders now also listed at CB 2, first team"
-  },
-  {
-   "kind": "removed",
-   "name": "Jayden Sanders",
-   "text": "Jayden Sanders no longer listed at CB 1"
-  },
-  {
-   "kind": "enters",
-   "name": "Mark Zackery IV",
-   "text": "Mark Zackery IV enters the depth chart at CB 1, second team"
+   "kind": "up",
+   "name": "Kyngstonn Viliamu-Asa",
+   "text": "Kyngstonn Viliamu-Asa moves up to first team at MIKE"
   },
   {
    "kind": "leaves",
-   "name": "Sean Sevillano Jr.",
-   "text": "Sean Sevillano Jr. is off the depth chart"
-  },
-  {
-   "kind": "leaves",
-   "name": "DJ McKinney",
-   "text": "DJ McKinney is off the depth chart"
+   "name": "Drayk Bowen",
+   "text": "Drayk Bowen is off the depth chart"
   }
  ]
 }
