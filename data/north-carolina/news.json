@@ -1,7 +1,25 @@
 {
  "team": "north-carolina",
- "updated": "2026-11-02T19:08:45.102867+00:00",
+ "updated": "2026-11-02T21:08:51.308680+00:00",
  "items": [
+  {
+   "title": "UNC vs. Miami Game Rewind",
+   "link": "https://on3.com/teams/north-carolina-tar-heels/news/unc-vs-miami-game-rewind/",
+   "source": "On3",
+   "summary": "Storylines, film review, stats and superlatives from Inside Carolina\u2019s Greg Barnes reviewing UNC\u2019s 38-35 loss to No. 1 Miami on Saturday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01141300/34.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-02T21:01:11+00:00"
+  },
+  {
+   "title": "Edwards Named ACC Quarterback Of The Week",
+   "link": "https://goheels.com/news/2026/11/2/football-edwards-named-acc-quarterback-of-the-week",
+   "source": "North Carolina Athletics",
+   "summary": "<img alt=\"Billy Edwards Jr. Against Miami\" src=\"https://goheels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/Edwards_Billy.mia.1633.jpg\" /><br /><br />North Carolina's Billy Edwards Jr. has been named ACC Quarterback of the Week, the conference office announced on Monday.",
+   "image": "https://goheels.com/images/2026/11/2/Edwards_Billy.mia.1633.jpg?width=800",
+   "sourceLogo": "https://goheels.com/favicon.ico",
+   "published": "2026-11-02T19:00:00+00:00"
+  },
   {
    "title": "UNC Freshman Play Report: Week 9",
    "link": "https://on3.com/teams/north-carolina-tar-heels/news/unc-freshman-play-report-week-9/",
@@ -73,6 +91,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2719,h_1529,x_396,y_584/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_tar_heels/01m6chetnc5h42yfh1tg.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-02T11:00:03+00:00"
+  },
+  {
+   "title": "AP Top 25: After Week 9",
+   "link": "https://www.tarheelblog.com/unc-football/62897/unc-football-ap-top-25-rankings-missouri-new-mexico-ohio-state",
+   "source": "Tar Heel Blog",
+   "summary": "With the first College Football Playoff rankings set to be unveiled Tuesday night, this week\u2019s AP Top 25 only gets about two days of relevance before it\u2019s completely cast aside by media and fans. Still, it\u2019s fun to see how things changed with a handful of upsets on Saturday. Let\u2019s dive in. AP Top 25 [&#8230;]",
+   "image": "https://platform.tarheelblog.com/wp-content/uploads/sites/155/2026/11/gettyimages-2302435860.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-02T04:57:29+00:00"
   },
   {
    "title": "Winners, Losers, &#038; Honorable Mentions in UNC\u2019s failed upset bid against Miami",
@@ -282,15 +309,6 @@
    "published": "2026-11-01T03:12:34+00:00"
   },
   {
-   "title": "No. 1 Miami 38, UNC 35",
-   "link": "https://on3.com/teams/north-carolina-tar-heels/news/no-1-miami-38-unc-35/",
-   "source": "On3",
-   "summary": "A 14-point fourth quarter was enough for the top-ranked Hurricanes to come from behind and hand North Carolina a 38-35 loss Saturday night in Chapel Hill.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31213033/11-29.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T03:07:37+00:00"
-  },
-  {
    "title": "UNC vs. Miami Live Discussion",
    "link": "https://www.tarheelblog.com/north-carolina-tar-heels-discussion/62824/unc-football-tar-heels-miami-hurricanes-game-thread",
    "source": "Tar Heel Blog",
@@ -406,15 +424,6 @@
    "image": "https://goheels.com/images/2026/10/26/McDonald_Derek.Syracuse.fb.01947001.jpg?width=800",
    "sourceLogo": "https://goheels.com/favicon.ico",
    "published": "2026-10-26T19:20:00+00:00"
-  },
-  {
-   "title": "Watch Football's Pre-Miami Press Conferences",
-   "link": "https://goheels.com/news/2026/10/26/watch-footballs-pre-miami-press-conferences",
-   "source": "North Carolina Athletics",
-   "summary": "<img alt=\"Bill Belichick pre-Miami press conference 2026\" src=\"https://goheels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/102626_Bill_Belichick_PC_pre_Miami.jpg\" /><br /><br />Bill Belichick, Garrick McGee, Jelani Thurman, Demon June and Coleman Bryson met with the media on Monday to preview Saturday night's home game against top-ranked Miami.",
-   "image": "https://goheels.com/images/2026/10/26/102626_Bill_Belichick_PC_pre_Miami.jpg?width=800",
-   "sourceLogo": "https://goheels.com/favicon.ico",
-   "published": "2026-10-26T18:00:00+00:00"
   }
  ]
 }
