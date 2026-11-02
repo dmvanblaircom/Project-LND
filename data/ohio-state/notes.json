@@ -3,16 +3,15 @@
  "team": "ohio-state",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/10/25/8_USC.pdf",
+ "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/11/1/9_Oregon.pdf",
  "sourceLabel": "ohiostatebuckeyes.com",
- "pdf": "https://ohiostatebuckeyes.com/documents/download/2026/10/25/8_USC.pdf",
+ "pdf": "https://ohiostatebuckeyes.com/documents/download/2026/11/1/9_Oregon.pdf",
  "parser": 2,
- "fetchedAt": "2026-10-27T00:34:03.852727+00:00",
- "publishedAt": "2026-10-25",
- "game": "USC",
+ "fetchedAt": "2026-11-02T01:09:54.852613+00:00",
+ "publishedAt": "2026-11-01",
+ "game": "Oregon",
  "pronounce": {
   "Jeremiah Smith": "leads all players in",
-  "Phillip Bell": "(Mission Viejo, Calif.), junior",
   "Bennett Christian": "TE",
   "David Adolph": "WR",
   "Carson Hinzman": "OL",
@@ -158,20 +157,21 @@
   ]
  },
  "glance": [
-  "The Buckeyes are 10-13-1 all-time against USC and marks the first time the two teams have played since Ohio State won the 2017 Cotton Bowl, 24-7."
+  "This marks just the fourth time that Ohio State has played Oregon in the Day era, holding a 1-2 record.",
+  "The Buckeyes are 10-2-0 all-time against Oregon and marks the first time the two teams have played since Ohio State won the 2025 Rose Bowl, 41-21."
  ],
  "numbers": [
   {
-   "n": "100-101",
-   "text": "Ryan Day has coached 101 games at Ohio State and in 100 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 89 of those games."
+   "n": "100-102",
+   "text": "Ryan Day has coached 102 games at Ohio State and in 100 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 89 of those games."
   },
   {
-   "n": "30",
-   "text": "Under Day’s direction since the start of the 2019 season, Ohio State has 30 wins on the road which is tied for the most in the country."
+   "n": "48",
+   "text": " Under Day’s direction since the start of the 2019 season, Ohio State has 48 home wins at which is tied for the highest total in the country."
   },
   {
-   "n": ".871",
-   "text": "Coach Ryan Day’s win percentage of .871 (88-13) is No. 1 nationally among all Division I head coaches and it is currently No. 2 all-time."
+   "n": ".863",
+   "text": "Coach Ryan Day’s win percentage of .863 (88-14) is No. 1 nationally among all Division I head coaches and it is currently No. 3 all-time."
   }
  ]
 }
