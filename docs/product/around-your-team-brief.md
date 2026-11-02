@@ -73,22 +73,25 @@ Home and More.
 ## Open decisions for David
 
 1. **The tab's name.** David's leaning: "Around" plus the team's initials.
-   A bottom-nav cell is about 64 px at 320 px wide: "Around ND" fits; "Around
-   UCLA" and "Around WAKE" (11 characters, 54 of 138 abbreviations are four
-   letters) are not expected to on one line - to be measured before choosing.
+   **Measured 2026-11-02** (each team in its own face, in the real bottom
+   nav, the label on one line): "Around" + the registry abbreviation fits
+   **5 of 138 teams at 320 px** (GT, ILL, IU, KU, LT; the label has 57.8
+   px), 49 at 375 px and 30 at 390 px (the label's type is larger there).
+   "Around ND" is 61.8 px at 320 px; "Around OSU" 68.8. "Around" alone is
+   at most 45.6 px; "The Field" and "The Race" at most 55.8 px, 2 px spare.
 
    | Name | In season | Out of season | Independents | At 320 px |
    |---|---|---|---|---|
-   | Around ND | strong | fine | fine | 4-letter abbreviations likely too long |
-   | Around (the team in the screen heading) | strong | fine | fine | fits |
-   | The Field | strong | fair | fine | fits |
-   | The Race | strongest | weak | fine | fits |
+   | Around ND | strong | fine | fine | 5 of 138 fit |
+   | Around (the team in the screen heading) | strong | fine | fine | fits all, 12 px spare |
+   | The Field | strong | fair | fine | fits all, 2 px spare |
+   | The Race | strongest | weak | fine | fits all, 2 px spare |
    | the conference's name | strong | strong | fails for Notre Dame | "Mountain West" does not fit |
    | League | fair | fair | odd for Notre Dame | fits |
 
-   Recommendation: "Around" in the nav, and the team's mark with "Around ND"
-   as the screen's heading. If the initials belong in the nav itself, all
-   138 are measured at 320 px first.
+   Recommendation: "Around" in the nav, and "Around Notre Dame" (or the
+   team's mark with "Around ND") as the screen's heading, where there is
+   room for any team's name.
 2. **A ranked team's order.** For a team in the CFP race, does Top 25 come
    before the conference? Recommendation: conference first for everyone,
    and the CFP layer leads for an independent.
