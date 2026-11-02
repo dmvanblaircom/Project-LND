@@ -3,7 +3,10 @@
 **Status:** Proposed, for David's review (2026-11-02). Direction agreed by
 David the same day: "I agree with the direction". The layer of national
 games and polls keeps the name **Top 25** ("That term is common across
-all"), never "National". Nothing is built yet.
+all"), never "National". The tab stays in the bottom nav all year; only
+Game changes out of season (David: "the bottom nav can stay consistent in
+and out of season except for the Game tab"). His leaning for the name:
+"Around" plus the team's initials. Nothing is built yet.
 
 ## The problem
 
@@ -37,6 +40,24 @@ One tab, three layers, ordered for the selected team:
 
 A game is listed once, in the first layer that claims it.
 
+## Out of season
+
+Today the nav swaps Top 25 for News and Game for Schedule out of season.
+Under this proposal only Game changes. The tab keeps its three layers with
+the season's other content:
+
+| Layer | Out of season | Source |
+|---|---|---|
+| Your conference | Final standings and bowl results (December-January); the conference's recruiting classes ranked (February); next season's conference slate (spring-summer) | ESPN standings (probe first); the recruiting classes the refresh already reads daily |
+| Your games that matter | Next season's opponents: their recruiting classes, draft losses, last season's record (some of it is already in Outlook) | Already in hand |
+| Top 25 | The final polls, then the preseason polls once published | Today's Top 25 layer |
+
+Coaching changes and the transfer portal belong here too, but Suite has no
+source for either yet.
+
+Out of season News no longer takes the tab's place. It stays reachable from
+Home and More.
+
 ## Where it comes from
 
 - **Games:** the app already reads the whole FBS scoreboard for the Top 25
@@ -51,11 +72,23 @@ A game is listed once, in the first layer that claims it.
 
 ## Open decisions for David
 
-1. **The tab's name.** "Top 25" no longer describes the whole tab. Options:
-   keep "Top 25" (familiar, now only the third layer); the conference's name
-   per team ("Big Ten", "MAC"; nothing for an independent); or a word that
-   covers all three. Recommendation: the conference name, falling back to
-   "Top 25" for an independent.
+1. **The tab's name.** David's leaning: "Around" plus the team's initials.
+   A bottom-nav cell is about 64 px at 320 px wide: "Around ND" fits; "Around
+   UCLA" and "Around WAKE" (11 characters, 54 of 138 abbreviations are four
+   letters) are not expected to on one line - to be measured before choosing.
+
+   | Name | In season | Out of season | Independents | At 320 px |
+   |---|---|---|---|---|
+   | Around ND | strong | fine | fine | 4-letter abbreviations likely too long |
+   | Around (the team in the screen heading) | strong | fine | fine | fits |
+   | The Field | strong | fair | fine | fits |
+   | The Race | strongest | weak | fine | fits |
+   | the conference's name | strong | strong | fails for Notre Dame | "Mountain West" does not fit |
+   | League | fair | fair | odd for Notre Dame | fits |
+
+   Recommendation: "Around" in the nav, and the team's mark with "Around ND"
+   as the screen's heading. If the initials belong in the nav itself, all
+   138 are measured at 320 px first.
 2. **A ranked team's order.** For a team in the CFP race, does Top 25 come
    before the conference? Recommendation: conference first for everyone,
    and the CFP layer leads for an independent.
@@ -65,7 +98,9 @@ A game is listed once, in the first layer that claims it.
 - **PR 1:** layers 1 (this week's conference games, no standings) and 2,
   above today's Top 25, all from the scoreboard the app already has.
 - **PR 2:** conference standings, after the probe.
-- **PR 3:** the name, once decided.
+- **PR 3:** the name, once decided, and the tab kept out of season (News
+  no longer takes its place).
+- **PR 4:** the out-of-season content, layer by layer, from data in hand.
 
 ## Not in scope
 
