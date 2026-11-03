@@ -212,7 +212,7 @@
    "state": "NY",
    "grade": 75,
    "rank": null,
-   "positionRank": 125,
+   "positionRank": 126,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -290,8 +290,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 111,
+   "stateRank": 163,
    "status": "Verbal"
   },
   {
@@ -303,7 +303,7 @@
    "state": "NJ",
    "grade": 74,
    "rank": null,
-   "positionRank": 139,
+   "positionRank": 140,
    "stateRank": 40,
    "status": "Verbal"
   },
@@ -395,7 +395,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 154,
-   "stateRank": 70,
+   "stateRank": 71,
    "status": "Verbal"
   },
   {
@@ -438,5 +438,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-02T20:17Z"
+ "fetchedAt": "2026-11-03T17:11Z"
 }

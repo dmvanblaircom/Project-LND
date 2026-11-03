@@ -95,7 +95,7 @@
    "state": "OK",
    "grade": 73,
    "rank": null,
-   "positionRank": 176,
+   "positionRank": 177,
    "stateRank": 24,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "MO",
    "grade": 72,
    "rank": null,
-   "positionRank": 135,
+   "positionRank": 137,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-31T06:48Z"
+ "fetchedAt": "2026-11-03T17:11Z"
 }

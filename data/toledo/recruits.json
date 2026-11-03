@@ -43,7 +43,7 @@
    "state": "OH",
    "grade": 73,
    "rank": null,
-   "positionRank": 119,
+   "positionRank": 121,
    "stateRank": 73,
    "status": "Verbal"
   },
@@ -69,8 +69,8 @@
    "state": "FL",
    "grade": 72,
    "rank": null,
-   "positionRank": 140,
-   "stateRank": 220,
+   "positionRank": 141,
+   "stateRank": 222,
    "status": "Verbal"
   },
   {
@@ -95,8 +95,8 @@
    "state": "FL",
    "grade": 72,
    "rank": null,
-   "positionRank": 142,
-   "stateRank": 228,
+   "positionRank": 143,
+   "stateRank": 230,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-02T20:16Z"
+ "fetchedAt": "2026-11-03T17:11Z"
 }

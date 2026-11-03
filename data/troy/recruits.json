@@ -30,8 +30,8 @@
    "state": "AL",
    "grade": 74,
    "rank": null,
-   "positionRank": 105,
-   "stateRank": 67,
+   "positionRank": 106,
+   "stateRank": 68,
    "status": "Verbal"
   },
   {
@@ -70,7 +70,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 121,
-   "stateRank": 74,
+   "stateRank": 75,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 29,
-   "stateRank": 219,
+   "stateRank": 220,
    "status": "Verbal"
   },
   {
@@ -95,8 +95,8 @@
    "state": "AL",
    "grade": 71,
    "rank": null,
-   "positionRank": 195,
-   "stateRank": 87,
+   "positionRank": 196,
+   "stateRank": 88,
    "status": "Verbal"
   },
   {
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:16Z"
+ "fetchedAt": "2026-11-03T17:11Z"
 }
