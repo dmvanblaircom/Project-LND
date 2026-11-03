@@ -1,7 +1,16 @@
 {
  "team": "charlotte",
- "updated": "2026-11-02T18:38:08.579668+00:00",
+ "updated": "2026-11-03T21:38:09.947180+00:00",
  "items": [
+  {
+   "title": "Charlotte Heads to Birmingham to Face UAB",
+   "link": "https://charlotte49ers.com/news/2026/11/3/charlotte-heads-to-birmingham-to-face-uab",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Offensive line makes its way to the ball\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/20261103_FB_OLine.jpg\" /><br /><br />CHARLOTTE, N.C. \u2013 Charlotte Football heads back on the road this weekend to face UAB on Saturday afternoon (Nov. 7).",
+   "image": "https://charlotte49ers.com/images/2026/11/3/20261103_FB_OLine.jpg?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-11-03T20:56:00+00:00"
+  },
   {
    "title": "East Carolina Game Time Announced",
    "link": "https://charlotte49ers.com/news/2026/11/2/football-east-carolina-game-time-announced",
@@ -82,15 +91,6 @@
    "image": "https://charlotte49ers.com/images/2026/10/1/Game_Time_Change_Memphis_16x9.png?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-10-01T19:12:00+00:00"
-  },
-  {
-   "title": "Charlotte Hosts Memphis for Homecoming Game",
-   "link": "https://charlotte49ers.com/news/2026/9/29/football-charlotte-hosts-memphis-for-homecoming-game",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"Jamil Davis celebrates a sack\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/29/20260929_FB_Davis.jpg\" /><br /><br />CHARLOTTE, N.C. -- Charlotte Football is home this week against Memphis for its annual Niner Nation Week homecoming game, presented by Harris Teeter.",
-   "image": "https://charlotte49ers.com/images/2026/9/29/20260929_FB_Davis.jpg?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-09-29T20:19:00+00:00"
   }
  ]
 }
