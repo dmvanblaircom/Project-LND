@@ -1,6 +1,6 @@
 {
 "team": "usc",
-"updated": "2026-11-03T07:37Z",
+"updated": "2026-11-03T08:07Z",
 "points": [
 {
 "t": "2026-10-28T01:37Z",
@@ -497,6 +497,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 19.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-03T08:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 20.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
