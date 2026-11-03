@@ -1,7 +1,16 @@
 {
  "team": "central-michigan",
- "updated": "2026-11-02T20:38:08.383785+00:00",
+ "updated": "2026-11-03T00:38:02.783901+00:00",
  "items": [
+  {
+   "title": "Watch: Central Michigan Football Coaches Show No. 9 (Eastern Michigan Week)",
+   "link": "https://cmuchippewas.com/news/2026/11/2/watch-central-michigan-football-coaches-show-no-9-eastern-michigan-week",
+   "source": "CMU Athletics",
+   "summary": "<img alt=\"Ninth CMU Football Coaches Show Graphic\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/10-Eastern-1.jpg\" /><br /><br />",
+   "image": "https://cmuchippewas.com/images/2026/11/2/10-Eastern-1.jpg?width=800",
+   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
+   "published": "2026-11-02T23:00:00+00:00"
+  },
   {
    "title": "Football Preview: Chippewas Need a Win in Motor City MACtion with Eastern",
    "link": "https://cmuchippewas.com/news/2026/11/2/football-preview-chippewas-need-a-win-in-motor-city-maction-with-eastern",
@@ -82,15 +91,6 @@
    "image": "https://cmuchippewas.com/images/2026/10/3/glasser_jaydyn_fb05_BPG_.jpg?width=800",
    "sourceLogo": "https://cmuchippewas.com/favicon.ico",
    "published": "2026-10-23T14:34:00+00:00"
-  },
-  {
-   "title": "Watch: Central Michigan Football Coaches Show Week 8 (Miami, Ohio Week)",
-   "link": "https://cmuchippewas.com/news/2026/10/22/watch-central-michigan-football-coaches-show-week-8-miami-ohio-week",
-   "source": "CMU Athletics",
-   "summary": "<img alt=\"Football Coaches Show Graphic Week 8\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/08-MiamiOH-1__2_.jpg\" /><br /><br />",
-   "image": "https://cmuchippewas.com/images/2026/10/22/08-MiamiOH-1__2_.jpg?width=800",
-   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
-   "published": "2026-10-23T01:58:00+00:00"
   }
  ]
 }
