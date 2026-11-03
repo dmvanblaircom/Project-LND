@@ -1,7 +1,16 @@
 {
  "team": "boston-college",
- "updated": "2026-11-03T11:47:43.370156+00:00",
+ "updated": "2026-11-03T18:38:10.831880+00:00",
  "items": [
+  {
+   "title": "Week 10 Media: BC vs. Florida State",
+   "link": "https://bceagles.com/news/2026/11/3/football-week-10-media-bc-vs-florida-state",
+   "source": "Boston College Athletics",
+   "summary": "<img alt=\"Football: E'Lla Boykin at Duke \" src=\"https://bceagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/20261031_FB_JS_DUKE-272.jpg\" /><br /><br />",
+   "image": "https://bceagles.com/images/2026/11/3/20261031_FB_JS_DUKE-272.jpg?width=800",
+   "sourceLogo": "https://bceagles.com/favicon.ico",
+   "published": "2026-11-03T12:45:00+00:00"
+  },
   {
    "title": "Moments From Boston College Football's Road Loss at Duke: Photo Gallery",
    "link": "https://www.si.com/college/bostoncollege/football/moments-from-boston-college-football-road-loss-at-duke-photo-gallery?utm_source=RSS",
@@ -298,15 +307,6 @@
    "image": "https://bceagles.com/images/2026/10/24/RecapCover.png?width=800",
    "sourceLogo": "https://bceagles.com/favicon.ico",
    "published": "2026-10-25T00:07:00+00:00"
-  },
-  {
-   "title": "The Tailgate: Georgia Tech",
-   "link": "https://bceagles.com/news/2026/10/23/-forboston-files-the-tailgate-georgia-tech",
-   "source": "Boston College Athletics",
-   "summary": "<img alt=\"Football: Georgia Tech 11/15/25\" src=\"https://bceagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/23/MK_08946.JPG\" /><br /><br />BC looks to continue its winning ways with a road trip to Atlanta.",
-   "image": "https://bceagles.com/images/2026/10/23/MK_08946.JPG?width=800",
-   "sourceLogo": "https://bceagles.com/favicon.ico",
-   "published": "2026-10-23T14:00:00+00:00"
   },
   {
    "title": "Preview: BC Heads to Atlanta To Face Struggling Georgia Tech in ACC Duel",
