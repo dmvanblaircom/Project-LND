@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-03T15:38:15.697766+00:00",
+ "updated": "2026-11-03T18:08:22.040786+00:00",
  "items": [
+  {
+   "title": "CavsCorner 4-3-4 Breakdown: How the Hoos Got Here",
+   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-4-3-4-breakdown-how-the-hoos-got-here/",
+   "source": "CavsCorner",
+   "summary": "In his latest feature for CavsCorner, Deuce Prince explains why he thinks strategy and implementation, and not construction, are to blame for UVa's woes.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09193132/Deuce-Prince-blue.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-03T17:49:06+00:00"
+  },
   {
    "title": "Three Bold Predictions for UVA\u2019s Final Three Games",
    "link": "https://www.si.com/college/virginia/three-bold-predictions-for-uva-s-final-three-games-01m6fpq1c9m4?utm_source=RSS",
@@ -298,15 +307,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/20062343/2026-10-17T235434Z_1848896939_MT1USATODAY30116788_RTRMADP_3_NCAA-FOOTBALL-NORTH-CAROLINA-AT-DUKE.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-21T17:05:51+00:00"
-  },
-  {
-   "title": "The 3-2-1: UVa returns home and back to the drawing board",
-   "link": "https://on3.com/sites/cavs-corner/news/the-3-2-1-uva-returns-home-and-back-to-the-drawing-board/",
-   "source": "CavsCorner",
-   "summary": "The 3-2-1 is back to look at three things we know, ask two questions, and make one prediction coming off yesterday's press conference.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/09/17052747/USATSI_27072439-scaled.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-21T10:30:00+00:00"
   }
  ]
 }

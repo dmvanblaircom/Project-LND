@@ -1,7 +1,16 @@
 {
  "team": "arkansas-state",
- "updated": "2026-11-02T21:38:00.158377+00:00",
+ "updated": "2026-11-03T18:08:01.457851+00:00",
  "items": [
+  {
+   "title": "Game Notes: A-State vs ULM (Nov. 7 | 2:00 PM | ESPN+)",
+   "link": "https://astateredwolves.com/news/2026/11/3/football-game-notes-a-state-vs-ulm-nov-7-2026.aspx",
+   "source": "A-State Athletics",
+   "summary": "<img alt=\"Jaylen Bonelli\" src=\"https://astateredwolves.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/ASU11790.JPG\" /><br /><br />",
+   "image": "https://astateredwolves.com/images/2026/11/3/ASU11790.JPG?width=800",
+   "sourceLogo": "https://astateredwolves.com/favicon.ico",
+   "published": "2026-11-03T17:09:00+00:00"
+  },
   {
    "title": "Kickoff for A-State Football Road Contest at Coastal Carolina Set for 12:00 PM on ESPN+",
    "link": "https://astateredwolves.com/news/2026/11/2/kickoff-for-a-state-football-road-contest-at-coastal-carolina-set-for-12-00-pm-on-espn.aspx",
@@ -82,15 +91,6 @@
    "image": "https://astateredwolves.com/images/2026/10/8/ASU10639__1_.JPG?width=800",
    "sourceLogo": "https://astateredwolves.com/favicon.ico",
    "published": "2026-10-09T05:52:00+00:00"
-  },
-  {
-   "title": "Gameday Guide: A-State vs South Alabama",
-   "link": "https://astateredwolves.com/news/2026/10/6/football-gameday-2026-south-alabama.aspx",
-   "source": "A-State Athletics",
-   "summary": "<img alt=\"Gameday Guide South Alabama\" src=\"https://astateredwolves.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/6/FB_Gameday_Guide_South_Alabama.png\" /><br /><br />",
-   "image": "https://astateredwolves.com/images/2026/10/6/FB_Gameday_Guide_South_Alabama.png?width=800",
-   "sourceLogo": "https://astateredwolves.com/favicon.ico",
-   "published": "2026-10-06T20:43:00+00:00"
   }
  ]
 }
