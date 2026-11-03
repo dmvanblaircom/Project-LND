@@ -1,7 +1,16 @@
 {
  "team": "colorado",
- "updated": "2026-11-03T18:08:05.533488+00:00",
+ "updated": "2026-11-03T20:08:20.548903+00:00",
  "items": [
+  {
+   "title": "Coach Prime Weekly Press Conference: Arizona State",
+   "link": "https://cubuffs.com/news/2026/11/3/football-coach-prime-weekly-press-conference-arizona-state",
+   "source": "Colorado Athletics",
+   "summary": "<img alt=\"11-3 Coach Prime Press Conference \" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/11-3_Coach_Prime_Press_Conference__.png\" /><br /><br />Coach Prime meets the media to break down the Buffs' matchup at Arizona State on Saturday in Tempe.\u00a0 Coach was joined by DE Yamil Talib, RB Richard Young, TE Corbin Laisure, and S Ben Finneseth, who recap CU's big win against Kansas State and preview the battle with the Sun Devils.",
+   "image": "https://cubuffs.com/images/2026/11/3/11-3_Coach_Prime_Press_Conference__.png?width=800",
+   "sourceLogo": "https://cubuffs.com/favicon.ico",
+   "published": "2026-11-03T19:33:00+00:00"
+  },
   {
    "title": "Colorado\u2019s Biggest Concerns After Kansas State: What\u2019s Real and What\u2019s an Overreaction",
    "link": "https://www.si.com/college/colorado/football/colorado-buffaloes-biggest-concerns-kansas-state-wildcats-real-overreaction?utm_source=RSS",
@@ -352,15 +361,6 @@
    "image": "https://cubuffs.com/images/2026/10/27/10-27_Coach_Prime_Press_Conference_.png?width=800",
    "sourceLogo": "https://cubuffs.com/favicon.ico",
    "published": "2026-10-27T19:46:00+00:00"
-  },
-  {
-   "title": "Buffs Fall In Stillwater",
-   "link": "https://cubuffs.com/news/2026/10/24/football-buffs-fall-in-stillwater",
-   "source": "Colorado Athletics",
-   "summary": "<img alt=\"CU OSU\" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/TY108955.jpg\" /><br /><br />The Colorado Buffaloes Football team fell 57-24 to Oklahoma State Saturday night at Boone Pickens Stadium, battling neck-and-neck with the Cowboys in the first half, before OSU pulled away in the second for a win on Homecoming weekend.",
-   "image": "https://cubuffs.com/images/2026/10/24/TY108955.jpg?width=800",
-   "sourceLogo": "https://cubuffs.com/favicon.ico",
-   "published": "2026-10-25T03:55:00+00:00"
   }
  ]
 }
