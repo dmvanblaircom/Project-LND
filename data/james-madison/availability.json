@@ -7,18 +7,18 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:53.766876+00:00",
+ "fetchedAt": "2026-11-03T01:08:47.731655+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Game Day",
- "kickoffDate": "2026-10-29",
- "game": "vs. Troy",
+ "effectiveAt": "2026-11-03",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-05",
+ "game": "at Southern Miss",
  "players": [
   {
    "pos": "WR",
    "no": "",
-   "name": "Za'Ron Collins",
-   "status": "out-game",
+   "name": "Noah Grevious",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -29,16 +29,16 @@
    "detail": ""
   },
   {
-   "pos": "RB",
+   "pos": "TE",
    "no": "",
-   "name": "George Pettaway",
+   "name": "KD Mosley",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "RB",
    "no": "",
-   "name": "Jayden Studio",
+   "name": "George Pettaway",
    "status": "out-game",
    "detail": ""
   },

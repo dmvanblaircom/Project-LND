@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "james-madison",
- "updated": "2026-10-30T07:08:53.766876+00:00",
+ "updated": "2026-11-03T01:08:47.731655+00:00",
  "reports": [
   {
    "schema": 1,
@@ -44,6 +44,60 @@
      "pos": "ILB",
      "no": "",
      "name": "Jayden Studio",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Tanner Vibabul",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "james-madison",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-03T01:08:47.731655+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-03",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-05",
+   "game": "at Southern Miss",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Noah Grevious",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jayon Harvey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "KD Mosley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "George Pettaway",
      "status": "out-game",
      "detail": ""
     },

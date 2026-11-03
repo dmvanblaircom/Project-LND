@@ -7,39 +7,53 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:39.065838+00:00",
+ "fetchedAt": "2026-11-03T01:08:53.212743+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at ULM",
+ "effectiveAt": "2026-11-03",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-05",
+ "game": "vs. James Madison",
  "players": [
   {
-   "pos": "ILB",
+   "pos": "WR",
    "no": "",
-   "name": "Luke Rogers",
+   "name": "Jaylen Himes",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OLB",
+   "pos": "OL",
+   "no": "",
+   "name": "Dante Devine",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Will Smith",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Luke Rogers",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "",
    "name": "Greg Nunnery",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "",
    "name": "Caleb Triplett",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Jaylen Himes",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
