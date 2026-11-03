@@ -1,7 +1,16 @@
 {
  "team": "oklahoma-state",
- "updated": "2026-11-03T17:08:22.107581+00:00",
+ "updated": "2026-11-03T22:38:13.996971+00:00",
  "items": [
+  {
+   "title": "Mestemaker earns Burlsworth Trophy nomination",
+   "link": "https://okstate.com/news/2026/11/3/cowboy-football-mestemaker-earns-burlsworth-trophy-nomination",
+   "source": "Oklahoma State Athletics",
+   "summary": "<img alt=\"Mestemaker back of jersey\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/261024_football_colorado_aw__35.jpg\" /><br /><br />STILLWATER \u2013 Oklahoma State quarterback Drew Mestemaker is one of 65 nominees for the 2026 Burlsworth Trophy, the award's committee announced Tuesday.",
+   "image": "https://okstate.com/images/2026/11/3/261024_football_colorado_aw__35.jpg?width=800",
+   "sourceLogo": "https://okstate.com/favicon.ico",
+   "published": "2026-11-03T21:44:00+00:00"
+  },
   {
    "title": "Oklahoma State Football Stock Report: Big Risers in Backfield, Offensive Line",
    "link": "https://www.si.com/college/oklahomastate/football/oklahoma-state-football-stock-report-big-risers-in-backfield-offensive-line?utm_source=RSS",
@@ -307,15 +316,6 @@
    "image": "https://okstate.com/images/2026/10/26/FBVSCOLORADO2_11.jpg?width=800",
    "sourceLogo": "https://okstate.com/favicon.ico",
    "published": "2026-10-27T22:11:00+00:00"
-  },
-  {
-   "title": "Oklahoma State starts two-game road stretch at Iowa State",
-   "link": "https://okstate.com/news/2026/10/27/cowboy-football-oklahoma-state-starts-two-game-road-stretch-at-iowa-state",
-   "source": "Oklahoma State Athletics",
-   "summary": "<img alt=\"Eric Morris Colorado\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/25/261024_football_colorado_KC__86.jpg\" /><br /><br />Complete notes available here",
-   "image": "https://okstate.com/images/2026/10/25/261024_football_colorado_KC__86.jpg?width=800",
-   "sourceLogo": "https://okstate.com/favicon.ico",
-   "published": "2026-10-27T17:00:00+00:00"
   }
  ]
 }
