@@ -1,7 +1,16 @@
 {
  "team": "syracuse",
- "updated": "2026-11-03T07:38:09.863130+00:00",
+ "updated": "2026-11-03T15:08:12.941287+00:00",
  "items": [
+  {
+   "title": "Don't Miss The Huddle Live from the Quad on Saturday",
+   "link": "https://cuse.com/news/2026/11/3/don-t-miss-the-huddle-live-from-the-quad-on-saturday",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"The Huddle\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/11/3/web.png\" /><br /><br />ACC Network's Huddle will be live from Syracuse's Quad on Saturday, highlighting the Orange's showdown with Clemson in the Loud House.",
+   "image": "https://cuse.com/images/2026/11/3/web.png?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-03T14:04:00+00:00"
+  },
   {
    "title": "3-Star DL Shuts Down Recruitment, Reaffirms Commitment to Syracuse",
    "link": "https://www.si.com/college/syracuse/football/jason-lewis-reaffirms-commitment-syracuse-01m6ekxrhypg?utm_source=RSS",
@@ -57,24 +66,6 @@
    "published": "2026-11-02T01:23:33+00:00"
   },
   {
-   "title": "Syracuse football: Orange open as slim underdogs to Clemson",
-   "link": "https://www.nunesmagician.com/syracuse-orange-football-fran/114978/syracuse-football-orange-open-as-slim-underdogs-to-clemson",
-   "source": "Troy Nunes Is an Absolute Magician",
-   "summary": "The Syracuse Orange have suddenly improved in their opening odds after a two-game winning streak. Syracuse hosts the Clemson Tigers in the JMA Wireless Dome this Saturday. The Orange only opened as +3.5 point underdogs according to FanDuel\u2019s opening odds. The odds have since decreased as the Orange are only +1.5 point underdogs as of [&#8230;]",
-   "image": "https://platform.nunesmagician.com/wp-content/uploads/sites/116/2026/11/gettyimages-2302416780.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-01T23:33:34+00:00"
-  },
-  {
-   "title": "Syracuse football: takeaways from the win over SMU",
-   "link": "https://www.nunesmagician.com/syracuse-orange-football-fran/114960/syracuse-football-takeaways-from-the-win-over-smu",
-   "source": "Troy Nunes Is an Absolute Magician",
-   "summary": "Two weeks ago, it seemed like everyone was wondering how much longer it would take Syracuse to pick up another conference win. Following yet another ACC loss at the hands of Virginia, coupled with more injuries at the quarterback position, it was difficult to see when, or even how, the Orange would finally get back [&#8230;]",
-   "image": "https://platform.nunesmagician.com/wp-content/uploads/sites/116/2026/11/gettyimages-2302887506.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-01T21:37:23+00:00"
-  },
-  {
    "title": "What Fran Brown said after Syracuse upset No. 19 SMU, notching consecutive wins over ACC opponents",
    "link": "https://www.si.com/college/syracuse/football/what-fran-brown-said-after-syracuse-01m69zwkyye1?utm_source=RSS",
    "source": "Syracuse On SI",
@@ -82,15 +73,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1703,h_957,x_403,y_243/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/all_syracuse/01m69zz7j09jcc6sgsr3.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-31T22:52:40+00:00"
-  },
-  {
-   "title": "Syracuse Football: Orange knock off #19 SMU",
-   "link": "https://www.nunesmagician.com/syracuse-orange-football-fran/114948/syracuse-football-orange-knock-off-19-smu",
-   "source": "Troy Nunes Is an Absolute Magician",
-   "summary": "Syracuse Football got a big time win over 19th ranked SMU 30-27, it\u2019s the third ranked win at home under Fran Brown, and the Otto logo helmets didn\u2019t disappoint. The defense made big time plays throughout the first 30 minutes, the d-line provided big time pressure to SMU quarterback Kevin Jennings. Keyshawn Johnson got to [&#8230;]",
-   "image": "https://platform.nunesmagician.com/wp-content/uploads/sites/116/2026/10/gettyimages-2302416986.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-10-31T21:47:22+00:00"
   },
   {
    "title": "\u2019Cuse Rallies Past #19 SMU in Fourth",
@@ -253,15 +235,6 @@
    "image": "https://cuse.com/images/2026/10/24/09_16x9__UNC.jpeg?width=800",
    "sourceLogo": "https://cuse.com/favicon.ico",
    "published": "2026-10-26T19:00:00+00:00"
-  },
-  {
-   "title": "Cardiac 'Cuse Top Carolina in Overtime",
-   "link": "https://cuse.com/news/2026/10/24/football-cardiac-cuse-top-carolina-in-overtime",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Steve Angeli\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/24/09_16x9__UNC.jpeg\" /><br /><br />Down by 10\u00a0midway through the third quarter, it all came down to a 2-point conversion as Syracuse football outlasted North Carolina 31-30 in overtime Saturday night at Kenan Stadium.",
-   "image": "https://cuse.com/images/2026/10/24/09_16x9__UNC.jpeg?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-10-25T04:15:00+00:00"
   }
  ]
 }
