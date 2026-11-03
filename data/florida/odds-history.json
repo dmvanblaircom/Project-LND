@@ -1,6 +1,6 @@
 {
 "team": "florida",
-"updated": "2026-11-03T18:07Z",
+"updated": "2026-11-03T23:37Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -406,6 +406,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 18.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-03T23:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 17.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
