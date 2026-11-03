@@ -1,6 +1,6 @@
 {
  "team": "iowa",
- "updated": "2026-11-03T01:38:03.034829+00:00",
+ "updated": "2026-11-03T03:08:10.297545+00:00",
  "items": [
   {
    "title": "Iowa head coach Kirk Ferentz named Dodd Trophy Coach of the Week",
@@ -300,15 +300,6 @@
    "published": "2026-11-01T02:49:11+00:00"
   },
   {
-   "title": "PFF Grades - Iowa defense vs #25 Wisconsin",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/pff-grades-iowa-defense-vs-number-25-wisconsin/",
-   "source": "On3",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31193951/Grades-D-cover-1-e1793493608218.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T02:37:06+00:00"
-  },
-  {
    "title": "\u2018The Boogeyman\u2019 spooks the Badgers on Halloween",
    "link": "https://dailyiowan.com/2026/10/31/the-boogeyman-spooks-the-badgers-on-halloween/",
    "source": "The Daily Iowan",
@@ -541,6 +532,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4851,h_2728,x_190,y_202/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_hawkeyes/01m5vyyqm51q0g6rgsth.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-30T10:30:00+00:00"
+  },
+  {
+   "title": "Backs Against the Wall: Iowa Football Stars Overdue to Breakout vs. Wisconsin",
+   "link": "https://www.si.com/college/iowa/football/iowa-football-vs-wisconsin-breakout-stars?utm_source=RSS",
+   "source": "Iowa On SI",
+   "summary": "Iowa traditionally responds well after a loss under Kirk Ferentz. I think that's the case against Wisconsin, with a trio of Hawkeyes playing their best yet.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3690,h_2075,x_450,y_70/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_hawkeyes/01m5wmhxr25n35mwmeg1.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-10-29T20:00:00+00:00"
   }
  ]
 }

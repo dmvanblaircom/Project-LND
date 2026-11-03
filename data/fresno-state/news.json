@@ -1,7 +1,16 @@
 {
  "team": "fresno-state",
- "updated": "2026-11-02T22:08:05.305063+00:00",
+ "updated": "2026-11-03T03:08:07.851075+00:00",
  "items": [
+  {
+   "title": "2026 Bulldogs in the NFL: Week 8",
+   "link": "https://gobulldogs.com/news/2026/11/2/football-2026-bulldogs-in-the-nfl-week-8",
+   "source": "Fresno State Athletics",
+   "summary": "<img alt=\"NFL: Dallas Cowboys at Green Bay Packers\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/img_tag_reuters.com_2026_newsml_MT1USATODAY30141899_803664967_EdSVK.jpg\" /><br /><br />",
+   "image": "https://gobulldogs.com/images/2026/11/2/img_tag_reuters.com_2026_newsml_MT1USATODAY30141899_803664967_EdSVK.jpg?width=800",
+   "sourceLogo": "https://gobulldogs.com/favicon.ico",
+   "published": "2026-11-03T02:48:00+00:00"
+  },
   {
    "title": "Bulldogs travel to face Utah State",
    "link": "https://gobulldogs.com/news/2026/11/2/football-bulldogs-travel-to-face-utah-state",
@@ -82,15 +91,6 @@
    "image": "https://gobulldogs.com/images/2026/10/14/img_tag_reuters.com_2026_newsml_MT1USATODAY30060238_1391093_6ZAbA.jpg?width=800",
    "sourceLogo": "https://gobulldogs.com/favicon.ico",
    "published": "2026-10-14T21:39:00+00:00"
-  },
-  {
-   "title": "'Dogs face Aztecs for Old Oil Can",
-   "link": "https://gobulldogs.com/news/2026/10/12/football-dogs-face-aztecs-for-old-oil-can",
-   "source": "Fresno State Athletics",
-   "summary": "<img alt=\"Old Oil Can\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/12/25-10-25-JC-FB-vs-SDSU-75.jpg\" /><br /><br />Fresno State (4-2, 1-1 Pac-12) at San Diego State (2-4, 1-1 Pac-12)",
-   "image": "https://gobulldogs.com/images/2026/10/12/25-10-25-JC-FB-vs-SDSU-75.jpg?width=800",
-   "sourceLogo": "https://gobulldogs.com/favicon.ico",
-   "published": "2026-10-12T20:45:00+00:00"
   }
  ]
 }
