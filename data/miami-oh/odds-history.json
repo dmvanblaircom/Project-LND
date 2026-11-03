@@ -1,6 +1,6 @@
 {
 "team": "miami-oh",
-"updated": "2026-11-03T03:59Z",
+"updated": "2026-11-03T10:08Z",
 "points": [
 {
 "t": "2026-10-29T16:37Z",
@@ -242,6 +242,13 @@
 },
 {
 "t": "2026-11-03T03:59Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-03T10:08Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 1.5,
