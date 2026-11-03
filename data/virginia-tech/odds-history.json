@@ -1,6 +1,6 @@
 {
 "team": "virginia-tech",
-"updated": "2026-11-02T20:37Z",
+"updated": "2026-11-03T02:38Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -144,6 +144,13 @@
 },
 {
 "t": "2026-11-02T20:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 2.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-03T02:38Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 2.0,
