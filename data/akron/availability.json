@@ -7,125 +7,104 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:40:31.277047+00:00",
+ "fetchedAt": "2026-11-03T23:08:28.658141+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
+ "effectiveAt": "2026-11-03",
  "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Kent State",
+ "kickoffDate": "2026-11-03",
+ "game": "Ohio",
  "players": [
   {
-   "pos": "",
+   "pos": "S",
    "no": "2",
    "name": "Daymon David",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "QB",
+   "no": "10",
+   "name": "Semaj Beals",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "12",
    "name": "Iesa Jarmon",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "15",
-   "name": "Jaborree Riggins",
+   "pos": "WR",
+   "no": "12",
+   "name": "Cameron Monteiro",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
+   "no": "16",
+   "name": "Paul Davis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "21",
    "name": "Catrell White",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "23",
-   "name": "Yaseen DeReese",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "RB",
    "no": "25",
    "name": "Chris Gee",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "27",
-   "name": "Keyveon Johnson",
+   "pos": "LB",
+   "no": "31",
+   "name": "Gavin James",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "35",
-   "name": "Rod Smith Jr.",
+   "pos": "DE",
+   "no": "56",
+   "name": "Omari Abor",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "41",
-   "name": "Stone Dean",
+   "pos": "DL",
+   "no": "65",
+   "name": "Logan Hindmarch",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "50",
-   "name": "Jahvon Frazier",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "53",
-   "name": "Alex Fox",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "55",
-   "name": "Amarie Archer",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "61",
-   "name": "Jon Stephens",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "75",
-   "name": "Dayne Shor",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "WR",
    "no": "81",
    "name": "Luke Sivon",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
+   "no": "83",
+   "name": "Elijah Alexander",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "94",
    "name": "Malakai Ross-Graves",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

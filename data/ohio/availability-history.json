@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio",
- "updated": "2026-10-30T13:28:02.255041+00:00",
+ "updated": "2026-11-03T23:08:38.981610+00:00",
  "reports": [
   {
    "schema": 1,
@@ -833,6 +833,109 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "ohio",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-03T23:08:38.981610+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-03",
+   "game": "Akron",
+   "players": [
+    {
+     "pos": "S",
+     "no": "6",
+     "name": "Tony Mathis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "7",
+     "name": "Eli Thompson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "10",
+     "name": "Ian Ver Steeg",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Zach Hackleman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "13",
+     "name": "Rashad Perry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "14",
+     "name": "Marcus Cain",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "16",
+     "name": "Ryan Miller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "18",
+     "name": "Andrew Vera",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "47",
+     "name": "Will Hryszko",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "54",
+     "name": "Will Odenthal",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "56",
+     "name": "Cody Raymond",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "80",
+     "name": "Kaden Page",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }
