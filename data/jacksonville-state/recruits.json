@@ -56,8 +56,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 104,
-   "stateRank": 167,
+   "positionRank": 105,
+   "stateRank": 168,
    "status": "Verbal"
   },
   {
@@ -70,7 +70,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 163,
-   "stateRank": 164,
+   "stateRank": 165,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 73,
-   "stateRank": 64,
+   "stateRank": 65,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 53,
-   "stateRank": 60,
+   "stateRank": 61,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 237,
-   "stateRank": 203,
+   "stateRank": 204,
    "status": "Verbal"
   },
   {
@@ -347,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:12Z"
+ "fetchedAt": "2026-11-03T16:41Z"
 }

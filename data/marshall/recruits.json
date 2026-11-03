@@ -43,7 +43,7 @@
    "state": "MD",
    "grade": 75,
    "rank": null,
-   "positionRank": 137,
+   "positionRank": 138,
    "stateRank": 35,
    "status": "Verbal"
   },
@@ -70,7 +70,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 216,
-   "stateRank": 173,
+   "stateRank": 174,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 191,
-   "stateRank": 205,
+   "stateRank": 207,
    "status": "Verbal"
   },
   {
@@ -121,7 +121,7 @@
    "state": "WV",
    "grade": 73,
    "rank": null,
-   "positionRank": 115,
+   "positionRank": 117,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "DC",
    "grade": 72,
    "rank": null,
-   "positionRank": 138,
+   "positionRank": 139,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:13Z"
+ "fetchedAt": "2026-11-03T16:42Z"
 }

@@ -316,7 +316,7 @@
    "state": "OR",
    "grade": 75,
    "rank": null,
-   "positionRank": 132,
+   "positionRank": 133,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:14Z"
+ "fetchedAt": "2026-11-03T16:44Z"
 }

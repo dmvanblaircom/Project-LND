@@ -121,7 +121,7 @@
    "state": "SC",
    "grade": 74,
    "rank": null,
-   "positionRank": 152,
+   "positionRank": 153,
    "stateRank": 35,
    "status": "Verbal"
   },
@@ -187,7 +187,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 168,
-   "stateRank": 78,
+   "stateRank": 79,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "NC",
    "grade": 72,
    "rank": null,
-   "positionRank": 139,
+   "positionRank": 141,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "TN",
    "grade": 72,
    "rank": null,
-   "positionRank": 138,
+   "positionRank": 140,
    "stateRank": 71,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "NC",
    "grade": 71,
    "rank": null,
-   "positionRank": 173,
+   "positionRank": 174,
    "stateRank": 59,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-02T20:11Z"
+ "fetchedAt": "2026-11-03T16:41Z"
 }

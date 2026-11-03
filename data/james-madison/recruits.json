@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "256",
  "classYear": 2027,
- "listed": 25,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,19 +32,6 @@
    "rank": null,
    "positionRank": 87,
    "stateRank": 14,
-   "status": "Verbal"
-  },
-  {
-   "id": "272809",
-   "name": "Simeon Jones Jr.",
-   "position": "DT",
-   "highSchool": "North Augusta High School",
-   "city": "North Augusta",
-   "state": "SC",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 70,
-   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -199,7 +186,7 @@
    "state": "NC",
    "grade": 74,
    "rank": null,
-   "positionRank": 103,
+   "positionRank": 104,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -212,7 +199,7 @@
    "state": "VA",
    "grade": 74,
    "rank": null,
-   "positionRank": 113,
+   "positionRank": 114,
    "stateRank": 40,
    "status": "Verbal"
   },
@@ -238,7 +225,7 @@
    "state": "OH",
    "grade": 73,
    "rank": null,
-   "positionRank": 160,
+   "positionRank": 161,
    "stateRank": 69,
    "status": "Verbal"
   },
@@ -264,7 +251,7 @@
    "state": "SC",
    "grade": 73,
    "rank": null,
-   "positionRank": 127,
+   "positionRank": 128,
    "stateRank": 38,
    "status": "Verbal"
   },
@@ -329,10 +316,10 @@
    "state": "NJ",
    "grade": 71,
    "rank": null,
-   "positionRank": 151,
+   "positionRank": 153,
    "stateRank": 48,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:12Z"
+ "fetchedAt": "2026-11-03T16:41Z"
 }

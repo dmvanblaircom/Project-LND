@@ -304,7 +304,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 243,
-   "stateRank": 80,
+   "stateRank": 81,
    "status": "Verbal"
   },
   {
@@ -316,7 +316,7 @@
    "state": "PA",
    "grade": 72,
    "rank": null,
-   "positionRank": 169,
+   "positionRank": 170,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:15Z"
+ "fetchedAt": "2026-11-03T16:44Z"
 }

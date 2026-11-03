@@ -30,7 +30,7 @@
    "state": "MS",
    "grade": 73,
    "rank": null,
-   "positionRank": 132,
+   "positionRank": 133,
    "stateRank": 43,
    "status": "Verbal"
   },
@@ -43,7 +43,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 128,
+   "positionRank": 130,
    "stateRank": 254,
    "status": "Verbal"
   },
@@ -70,7 +70,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 80,
-   "stateRank": 229,
+   "stateRank": 231,
    "status": "Verbal"
   },
   {
@@ -113,5 +113,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:15Z"
+ "fetchedAt": "2026-11-03T16:44Z"
 }

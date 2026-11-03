@@ -121,7 +121,7 @@
    "state": "ID",
    "grade": 75,
    "rank": null,
-   "positionRank": 122,
+   "positionRank": 123,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "ID",
    "grade": 72,
    "rank": null,
-   "positionRank": 164,
+   "positionRank": 165,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:10Z"
+ "fetchedAt": "2026-11-03T16:40Z"
 }

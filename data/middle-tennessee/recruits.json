@@ -18,7 +18,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 28,
-   "stateRank": 209,
+   "stateRank": 210,
    "status": "Verbal"
   },
   {
@@ -57,7 +57,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 200,
-   "stateRank": 222,
+   "stateRank": 224,
    "status": "Verbal"
   },
   {
@@ -70,7 +70,7 @@
    "grade": 71,
    "rank": null,
    "positionRank": 204,
-   "stateRank": 238,
+   "stateRank": 240,
    "status": "Verbal"
   },
   {
@@ -113,5 +113,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-02T20:13Z"
+ "fetchedAt": "2026-11-03T16:42Z"
 }

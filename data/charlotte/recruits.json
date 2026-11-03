@@ -30,7 +30,7 @@
    "state": "TN",
    "grade": 73,
    "rank": null,
-   "positionRank": 127,
+   "positionRank": 129,
    "stateRank": 69,
    "status": "Verbal"
   },
@@ -57,7 +57,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 139,
-   "stateRank": 225,
+   "stateRank": 227,
    "status": "Verbal"
   },
   {
@@ -70,7 +70,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 251,
-   "stateRank": 217,
+   "stateRank": 218,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 245,
-   "stateRank": 223,
+   "stateRank": 225,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 71,
    "rank": null,
    "positionRank": 98,
-   "stateRank": 229,
+   "stateRank": 230,
    "status": "Verbal"
   },
   {
@@ -165,5 +165,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-31T06:42Z"
+ "fetchedAt": "2026-11-03T16:40Z"
 }

@@ -121,7 +121,7 @@
    "state": "CA",
    "grade": 74,
    "rank": null,
-   "positionRank": 144,
+   "positionRank": 145,
    "stateRank": 124,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 108,
-   "stateRank": 75,
+   "stateRank": 76,
    "status": "Verbal"
   },
   {
@@ -160,8 +160,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 171,
-   "stateRank": 199,
+   "positionRank": 172,
+   "stateRank": 200,
    "status": "Verbal"
   },
   {
@@ -174,7 +174,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 143,
-   "stateRank": 216,
+   "stateRank": 217,
    "status": "Verbal"
   },
   {
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:11Z"
+ "fetchedAt": "2026-11-03T16:40Z"
 }

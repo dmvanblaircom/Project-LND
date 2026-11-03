@@ -186,7 +186,7 @@
    "state": "NV",
    "grade": 73,
    "rank": null,
-   "positionRank": 120,
+   "positionRank": 121,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:10Z"
+ "fetchedAt": "2026-11-03T16:40Z"
 }

@@ -43,7 +43,7 @@
    "state": "MA",
    "grade": 73,
    "rank": null,
-   "positionRank": 110,
+   "positionRank": 112,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -100,5 +100,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:13Z"
+ "fetchedAt": "2026-11-03T16:42Z"
 }

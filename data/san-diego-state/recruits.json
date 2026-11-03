@@ -160,7 +160,7 @@
    "state": "UT",
    "grade": 74,
    "rank": null,
-   "positionRank": 150,
+   "positionRank": 151,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -303,7 +303,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 163,
+   "positionRank": 164,
    "stateRank": 167,
    "status": "Verbal"
   },
@@ -329,7 +329,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 120,
+   "positionRank": 122,
    "stateRank": 159,
    "status": "Verbal"
   },
@@ -342,7 +342,7 @@
    "state": "CA",
    "grade": 72,
    "rank": null,
-   "positionRank": 166,
+   "positionRank": 167,
    "stateRank": 177,
    "status": "Verbal"
   },
@@ -399,5 +399,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:15Z"
+ "fetchedAt": "2026-11-03T16:44Z"
 }

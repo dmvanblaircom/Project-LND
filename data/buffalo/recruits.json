@@ -70,7 +70,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 138,
-   "stateRank": 224,
+   "stateRank": 226,
    "status": "Verbal"
   },
   {
@@ -82,8 +82,8 @@
    "state": "OH",
    "grade": 72,
    "rank": null,
-   "positionRank": 191,
-   "stateRank": 82,
+   "positionRank": 192,
+   "stateRank": 83,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "WV",
    "grade": 71,
    "rank": null,
-   "positionRank": 174,
+   "positionRank": 175,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:10Z"
+ "fetchedAt": "2026-11-03T16:40Z"
 }

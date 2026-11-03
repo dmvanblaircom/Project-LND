@@ -1,7 +1,16 @@
 {
  "team": "eastern-michigan",
- "updated": "2026-11-03T05:08:00.297851+00:00",
+ "updated": "2026-11-03T16:38:07.064545+00:00",
  "items": [
+  {
+   "title": "Get Ready for the Fan Cam at the Motor City MACtion Game!",
+   "link": "https://emueagles.com/news/2026/11/3/football-get-ready-for-the-fan-cam-at-the-motor-city-maction-game",
+   "source": "EMU Athletics",
+   "summary": "<img alt=\"Motor City MACtion Fan Cam Sign Up\" src=\"https://emueagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/FanCam_1920.jpg\" /><br /><br />",
+   "image": "https://emueagles.com/images/2026/11/3/FanCam_1920.jpg?width=800",
+   "sourceLogo": "https://emueagles.com/favicon.ico",
+   "published": "2026-11-03T16:00:00+00:00"
+  },
   {
    "title": "Know Before You Go: Motor City MACtion Edition as Eastern Michigan Takes Over Ford Field",
    "link": "https://emueagles.com/news/2026/11/2/football-know-before-you-go-motor-city-maction-special-edition-as-eastern-michigan-takes-over-ford-field",
@@ -82,15 +91,6 @@
    "image": "https://emueagles.com/images/2026/10/19/FOT26-_EMU_vsToledo-Game-_FullTake194_.png?width=800",
    "sourceLogo": "https://emueagles.com/favicon.ico",
    "published": "2026-10-19T19:52:00+00:00"
-  },
-  {
-   "title": "Eastern Falls on Homecoming to Toledo",
-   "link": "https://emueagles.com/news/2026/10/17/football-eastern-falls-on-homecoming-to-toledo-34-14",
-   "source": "EMU Athletics",
-   "summary": "<img alt=\"Joshua Long jumps for a reception against Toledo\" src=\"https://emueagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/longs.png\" /><br /><br />The Eastern Michigan University football team suffered a 34-14 Homecoming defeat to the University of Toledo, Oct. 17, inside Rynearson Stadium, ending its three-game Mid-American Conference winning streak. A season-high 10,373 fans created a festive atmosphere inside 'The Factory', but it was not enough as the Eagles fell to 4-4 overall and 3-1 in the MAC while the Rockets moved to 5-2 overall a",
-   "image": "https://emueagles.com/images/2026/10/17/longs.png?width=800",
-   "sourceLogo": "https://emueagles.com/favicon.ico",
-   "published": "2026-10-18T01:22:00+00:00"
   }
  ]
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "52",
  "classYear": 2027,
- "listed": 15,
+ "listed": 14,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -113,19 +113,6 @@
    "status": "Verbal"
   },
   {
-   "id": "265616",
-   "name": "Majay Thompson",
-   "position": "WR",
-   "highSchool": "Shelby High School",
-   "city": "Shelby",
-   "state": "NC",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 74,
-   "stateRank": 20,
-   "status": "Verbal"
-  },
-  {
    "id": "266422",
    "name": "Jaxon Holly",
    "position": "OLB",
@@ -200,9 +187,9 @@
    "grade": 73,
    "rank": null,
    "positionRank": 15,
-   "stateRank": 203,
+   "stateRank": 205,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:11Z"
+ "fetchedAt": "2026-11-03T16:41Z"
 }

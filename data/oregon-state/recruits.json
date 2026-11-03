@@ -134,7 +134,7 @@
    "state": "KY",
    "grade": 74,
    "rank": null,
-   "positionRank": 142,
+   "positionRank": 143,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -174,7 +174,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 153,
-   "stateRank": 177,
+   "stateRank": 178,
    "status": "Verbal"
   },
   {
@@ -199,8 +199,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 128,
-   "stateRank": 187,
+   "positionRank": 129,
+   "stateRank": 188,
    "status": "Verbal"
   },
   {
@@ -256,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:14Z"
+ "fetchedAt": "2026-11-03T16:44Z"
 }

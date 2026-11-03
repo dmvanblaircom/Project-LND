@@ -147,7 +147,7 @@
    "state": "GA",
    "grade": 75,
    "rank": null,
-   "positionRank": 135,
+   "positionRank": 136,
    "stateRank": 154,
    "status": "Verbal"
   },
@@ -212,7 +212,7 @@
    "state": "PA",
    "grade": 73,
    "rank": null,
-   "positionRank": 107,
+   "positionRank": 108,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -226,9 +226,9 @@
    "grade": 73,
    "rank": null,
    "positionRank": 148,
-   "stateRank": 182,
+   "stateRank": 183,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-31T06:47Z"
+ "fetchedAt": "2026-11-03T16:44Z"
 }

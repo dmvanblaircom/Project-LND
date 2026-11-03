@@ -278,7 +278,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 110,
-   "stateRank": 185,
+   "stateRank": 186,
    "status": "Verbal"
   },
   {
@@ -304,7 +304,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 117,
-   "stateRank": 180,
+   "stateRank": 181,
    "status": "Verbal"
   },
   {
@@ -355,7 +355,7 @@
    "state": "CT",
    "grade": 72,
    "rank": null,
-   "positionRank": 134,
+   "positionRank": 136,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -369,9 +369,9 @@
    "grade": 72,
    "rank": null,
    "positionRank": 30,
-   "stateRank": 231,
+   "stateRank": 233,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-01T03:10Z"
+ "fetchedAt": "2026-11-03T16:40Z"
 }

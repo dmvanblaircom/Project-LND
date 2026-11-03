@@ -82,7 +82,7 @@
    "state": "CA",
    "grade": 74,
    "rank": null,
-   "positionRank": 155,
+   "positionRank": 156,
    "stateRank": 144,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 130,
+   "positionRank": 131,
    "stateRank": 159,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 179,
+   "positionRank": 180,
    "stateRank": 169,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "CA",
    "grade": 71,
    "rank": null,
-   "positionRank": 153,
+   "positionRank": 155,
    "stateRank": 189,
    "status": "Verbal"
   },
@@ -212,7 +212,7 @@
    "state": "CA",
    "grade": 71,
    "rank": null,
-   "positionRank": 177,
+   "positionRank": 178,
    "stateRank": 190,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:11Z"
+ "fetchedAt": "2026-11-03T16:41Z"
 }

@@ -173,7 +173,7 @@
    "state": "LA",
    "grade": 75,
    "rank": null,
-   "positionRank": 135,
+   "positionRank": 136,
    "stateRank": 41,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-31T06:46Z"
+ "fetchedAt": "2026-11-03T16:43Z"
 }
