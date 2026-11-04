@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "buffalo",
- "updated": "2026-10-30T13:27:55.276945+00:00",
+ "updated": "2026-11-04T00:09:45.791740+00:00",
  "reports": [
   {
    "schema": 1,
@@ -896,6 +896,123 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "buffalo",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-04T00:09:45.791740+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-03",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-03",
+   "game": "Miami",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "8",
+     "name": "Ramari Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Alvin Jones III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "10",
+     "name": "Mark-Anthony Scott, Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "16",
+     "name": "Elijah Holmes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Jeremiah Watkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "18",
+     "name": "Jake Forburger",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "19",
+     "name": "Mathew Hilty",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "DJ Mangan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "26",
+     "name": "Zae Jennings",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "30",
+     "name": "Jacari Bennett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "38",
+     "name": "Dylan Cleary",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "52",
+     "name": "Jack Garbolino",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Nino Francavilla",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "96",
+     "name": "Charlton Goodell",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

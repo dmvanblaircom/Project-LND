@@ -7,118 +7,104 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:28:00.711676+00:00",
+ "fetchedAt": "2026-11-04T00:09:53.645308+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
+ "effectiveAt": "2026-11-03",
  "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Central Michigan",
+ "kickoffDate": "2026-11-03",
+ "game": "Buffalo",
  "players": [
   {
-   "pos": "",
+   "pos": "WR",
    "no": "4",
    "name": "Devin Hyatt",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "5",
    "name": "Keith Reynolds",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "6",
    "name": "Adrian Walker Jr.",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "QB",
    "no": "13",
    "name": "Thomas Gotkowski",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "16",
-   "name": "Christian McKinney",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "QB",
    "no": "16",
    "name": "David McComb",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "33",
-   "name": "Harrison Brewster",
-   "status": "out-game",
+   "pos": "RB",
+   "no": "20",
+   "name": "Cade Yacamelli",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "37",
-   "name": "Vito McConnell",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "DB",
    "no": "38",
    "name": "Max Deckard",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "44",
-   "name": "Noam Butbul",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "DL",
    "no": "49",
    "name": "Anthony Ludington",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "74",
+   "name": "Greg Smith Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "77",
    "name": "Shaun Shahu",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "83",
    "name": "Eric Karner",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "85",
    "name": "Trey Zvonar",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "89",
    "name": "Brayden Boeing",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }
