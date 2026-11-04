@@ -7,132 +7,181 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:27:56.842519+00:00",
+ "fetchedAt": "2026-11-04T23:38:43.845815+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
+ "effectiveAt": "2026-11-04",
  "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Ohio",
+ "kickoffDate": "2026-11-04",
+ "game": "Central Michigan",
  "players": [
   {
-   "pos": "",
+   "pos": "QB",
    "no": "1",
    "name": "Noah Kim",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "2",
-   "name": "Nick Devereaux",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "LB",
    "no": "3",
    "name": "Barry Manning",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "8",
    "name": "Jaivian Norman",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "11",
    "name": "Zach Mowchan",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "14",
-   "name": "Armaad Sharp",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "DB",
    "no": "16",
    "name": "Caleb Coley",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "22",
-   "name": "Decorie Johnson",
+   "pos": "TE",
+   "no": "16",
+   "name": "Jackson Holt",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "37",
-   "name": "Nathan Dibert",
+   "pos": "DB",
+   "no": "28",
+   "name": "Davontey Oliver",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "55",
-   "name": "Javon Thomas",
+   "pos": "DB",
+   "no": "31",
+   "name": "Antonio Solares-Vitti",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
+   "no": "35",
+   "name": "Jabari Monds",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "43",
+   "name": "Payton Kokaly",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "45",
+   "name": "Kadin Bailey",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "49",
+   "name": "Brady Shelton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "62",
+   "name": "Adham Abouraya",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "66",
+   "name": "Joshua Anderson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "70",
    "name": "Samuel Adjin",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "71",
    "name": "Tyler Brumfield",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "72",
    "name": "Cole Dellinger",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "74",
-   "name": "Carter Miculka",
-   "status": "questionable",
+   "pos": "OL",
+   "no": "76",
+   "name": "Nily Taylor",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "77",
    "name": "Cole Powell",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "79",
+   "name": "Jackson Higgins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "85",
-   "name": "Kozy Isaac",
+   "name": "Jefferson Adam",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "88",
+   "name": "Ronn Hardin",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "86",
-   "name": "Dalin Wilkins",
+   "pos": "DL",
+   "no": "94",
+   "name": "Brandon Simmons Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "97",
+   "name": "Jahbarri Frost",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

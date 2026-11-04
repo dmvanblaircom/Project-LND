@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "central-michigan",
- "updated": "2026-10-30T13:27:55.677371+00:00",
+ "updated": "2026-11-04T23:38:42.762847+00:00",
  "reports": [
   {
    "schema": 1,
@@ -700,6 +700,88 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "central-michigan",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-04T23:38:42.762847+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-04",
+   "game": "Eastern Michigan",
+   "players": [
+    {
+     "pos": "DL",
+     "no": "5",
+     "name": "Korver Demma",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "6",
+     "name": "Hunter Zirkle",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Ed Conoran",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "7",
+     "name": "Angel Flores",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "11",
+     "name": "Xavier White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Tommy McIntosh",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "20",
+     "name": "Langston Lewis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Jacob Booth",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "95",
+     "name": "Joey VanWetzinga",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }
