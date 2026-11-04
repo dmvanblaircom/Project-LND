@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "smu",
- "updated": "2026-10-31T14:12:12.214121+00:00",
+ "updated": "2026-11-04T02:09:01.437121+00:00",
  "reports": [
   {
    "schema": 1,
@@ -539,6 +539,95 @@
      "no": "99",
      "name": "Nick Reed",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "smu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-04T02:09:01.437121+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-03",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-06",
+   "game": "Virginia Tech",
+   "players": [
+    {
+     "pos": "S",
+     "no": "7",
+     "name": "Ahmaad Moses",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "9",
+     "name": "Ira Singleton IV",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "10",
+     "name": "Tyren Polley Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Carterrious Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "13",
+     "name": "Jaelyn Davis-Robinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "14",
+     "name": "Trey Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Link Rhodes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "25",
+     "name": "I'Zayah Young",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "46",
+     "name": "Xavier Wright",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Abel Hoopii",
+     "status": "out-game",
      "detail": ""
     }
    ],

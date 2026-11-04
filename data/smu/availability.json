@@ -7,25 +7,18 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:12:12.214121+00:00",
+ "fetchedAt": "2026-11-04T02:09:01.437121+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Syracuse",
+ "effectiveAt": "2026-11-03",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-06",
+ "game": "Virginia Tech",
  "players": [
-  {
-   "pos": "RB",
-   "no": "4",
-   "name": "Dramekco Green",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "S",
    "no": "7",
    "name": "Ahmaad Moses",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -46,6 +39,13 @@
    "pos": "WR",
    "no": "11",
    "name": "Carterrious Brown",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "13",
+   "name": "Jaelyn Davis-Robinson",
    "status": "out-game",
    "detail": ""
   },
@@ -71,9 +71,9 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "56",
-   "name": "Tyron Winslow",
+   "pos": "LB",
+   "no": "46",
+   "name": "Xavier Wright",
    "status": "out-game",
    "detail": ""
   },
@@ -82,13 +82,6 @@
    "no": "58",
    "name": "Abel Hoopii",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "K",
-   "no": "99",
-   "name": "Nick Reed",
-   "status": "gtd",
    "detail": ""
   }
  ],
