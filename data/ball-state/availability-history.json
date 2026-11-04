@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ball-state",
- "updated": "2026-10-30T13:27:51.537280+00:00",
+ "updated": "2026-11-04T23:08:37.465368+00:00",
  "reports": [
   {
    "schema": 1,
@@ -952,6 +952,95 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "ball-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-04T23:08:37.465368+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-04",
+   "game": "Massachusetts",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Tobi Adewoyin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "18",
+     "name": "Cedric Franklin II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Blake Scriber",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Ryan Eldridge",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Zach Bandy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "80",
+     "name": "Derion Talbert",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "86",
+     "name": "Mason Riggins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "Cole Coonrod",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "89",
+     "name": "Sean Ward",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "99",
+     "name": "Kendrick Gilbert",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

@@ -1,7 +1,16 @@
 {
  "team": "ball-state",
- "updated": "2026-11-04T16:38:06.164965+00:00",
+ "updated": "2026-11-04T23:07:59.130072+00:00",
  "items": [
+  {
+   "title": "TOGETHER (Ball State Sports Link Docuseries): Episode 5",
+   "link": "https://ballstatesports.com/news/2026/11/4/football-together-ball-state-sports-link-docuseries-episode-5a",
+   "source": "Ball State Athletics",
+   "summary": "<img alt=\"TOGETHER: Season 2, Episode 5\" src=\"https://ballstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/4/Artboard_2.png\" /><br /><br />MUNCIE, Ind. -- For the second straight year, Ball State Football has teamed with on-campus partner Ball State Sports Link to present a weekly documentary series that chronicles the season of head coach Mike Uremovich and the 2026 Cardinals.",
+   "image": "https://ballstatesports.com/images/2026/11/4/Artboard_2.png?width=800",
+   "sourceLogo": "https://ballstatesports.com/favicon.ico",
+   "published": "2026-11-04T22:47:00+00:00"
+  },
   {
    "title": "Ball State and Buffalo Kick Off at 7:30 p.m. on Wednesday, Nov. 11",
    "link": "https://ballstatesports.com/news/2026/11/4/ball-state-and-buffalo-kick-off-at-7-30-pm-on-wednesday-nov-11",
@@ -82,15 +91,6 @@
    "image": "https://ballstatesports.com/images/2026/10/19/BSUFB_at_Bowling_Green-550.jpg?width=800",
    "sourceLogo": "https://ballstatesports.com/favicon.ico",
    "published": "2026-10-19T18:56:00+00:00"
-  },
-  {
-   "title": "Luster Named MAC Offensive Player of the Week, Ball State's First Two-Time Winner Since Carson Steele",
-   "link": "https://ballstatesports.com/news/2026/10/19/football-luster-mac-offensive-player-of-the-week-ball-states-first-two-time-winner-since-carson-steele",
-   "source": "Ball State Athletics",
-   "summary": "<img alt=\"Keldric Luster at Bowling Green\" src=\"https://ballstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/BSUFB_at_BGSU-1130_3mrTn.JPG\" /><br /><br />MUNCIE, Ind. \u2013 Keldric Luster broke the Ball State passing record for completion percentage by a QB with at least 30 attempts, passing 27-of-32 for 256 yards and three touchdowns as the Cardinals got past Stony Brook, 41-17 last Saturday. For his efforts, Luster has been named the Mid-American Conference Offensive Player of the Week, the first by a Cardinal since Marquez Cooper won the aw",
-   "image": "https://ballstatesports.com/images/2026/10/19/BSUFB_at_BGSU-1130_3mrTn.JPG?width=800",
-   "sourceLogo": "https://ballstatesports.com/favicon.ico",
-   "published": "2026-10-19T16:00:00+00:00"
   }
  ]
 }

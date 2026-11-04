@@ -7,118 +7,111 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:28:05.836322+00:00",
+ "fetchedAt": "2026-11-04T23:08:51.209535+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
+ "effectiveAt": "2026-11-04",
  "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "vs. Western Michigan",
+ "kickoffDate": "2026-11-04",
+ "game": "Sacramento State",
  "players": [
   {
-   "pos": "",
+   "pos": "WR",
    "no": "2",
    "name": "Trenton Jones",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DE",
    "no": "6",
    "name": "Langston Long",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "8",
    "name": "Connor Walendzak",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "13",
    "name": "Kari Jackson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "20",
    "name": "Corey Smith",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "27",
    "name": "Dane Nauman",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "P",
    "no": "36",
    "name": "Emilio Duran",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
+   "no": "36",
+   "name": "Nathan Gersh",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
    "no": "41",
    "name": "Cam Gwinn",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
+   "no": "43",
+   "name": "Sam Lee",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "50",
    "name": "Luke Rector",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "51",
-   "name": "Zackery Samuel",
+   "pos": "OL",
+   "no": "63",
+   "name": "Grant Zimmerly",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "55",
-   "name": "Ibrahim Traore",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "OL",
    "no": "65",
    "name": "Stephen Gales",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "73",
-   "name": "Jonathan Harder",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "85",
-   "name": "Josh Lee",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "87",
-   "name": "Tucker Kelleher",
+   "pos": "DT",
+   "no": "91",
+   "name": "Laith Shamma",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

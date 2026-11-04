@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "massachusetts",
- "updated": "2026-10-30T13:28:00.327028+00:00",
+ "updated": "2026-11-04T23:08:45.769561+00:00",
  "reports": [
   {
    "schema": 1,
@@ -546,6 +546,60 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "massachusetts",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-04T23:08:45.769561+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-04",
+   "game": "Ball State",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "Jordan Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Dallas Elliott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "17",
+     "name": "Zachary Betts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "18",
+     "name": "Matt Ogunniyi",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Greg Klingensmith",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

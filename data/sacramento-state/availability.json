@@ -7,18 +7,18 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T10:10:31.834543+00:00",
+ "fetchedAt": "2026-11-04T23:08:49.222163+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
+ "effectiveAt": "2026-11-04",
  "heading": "Game Day",
- "kickoffDate": "2026-10-30",
- "game": "vs. Kent State",
+ "kickoffDate": "2026-11-04",
+ "game": "Toledo",
  "players": [
   {
-   "pos": "S",
-   "no": "0",
-   "name": "Donovan Turner",
-   "status": "questionable",
+   "pos": "CB",
+   "no": "2",
+   "name": "Dionte Thornton",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "TE",
    "no": "16",
    "name": "Jordan Williams",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -60,6 +60,13 @@
    "pos": "OLB",
    "no": "17",
    "name": "Dylan Gooden",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "25",
+   "name": "Davion Godley",
    "status": "out-game",
    "detail": ""
   },
@@ -82,20 +89,6 @@
    "no": "29",
    "name": "Caleb Reese",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "58",
-   "name": "Jamel Howard",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "63",
-   "name": "Jamin Guilbert",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -151,7 +144,7 @@
    "pos": "DL",
    "no": "90",
    "name": "Austin Chambers",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
