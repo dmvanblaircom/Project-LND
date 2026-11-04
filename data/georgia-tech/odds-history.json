@@ -1,6 +1,6 @@
 {
 "team": "georgia-tech",
-"updated": "2026-11-03T20:08Z",
+"updated": "2026-11-04T02:37Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -151,6 +151,13 @@
 },
 {
 "t": "2026-11-03T20:08Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-04T02:37Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 0.5,
