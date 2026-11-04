@@ -7,18 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T22:10:10.961880+00:00",
+ "fetchedAt": "2026-11-04T01:08:42.947746+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Washington",
+ "effectiveAt": "2026-11-03",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-06",
+ "game": "Illinois",
  "players": [
   {
    "pos": "DB",
    "no": "4",
    "name": "Jamir Conn",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -26,13 +26,6 @@
    "no": "5",
    "name": "Anthony Jones Jr.",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "10",
-   "name": "Vincent Shavers Jr.",
-   "status": "gtd",
    "detail": ""
   },
   {
@@ -74,7 +67,7 @@
    "pos": "OL",
    "no": "77",
    "name": "Gunnar Gottula",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

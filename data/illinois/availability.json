@@ -7,25 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:12:06.714309+00:00",
+ "fetchedAt": "2026-11-04T01:08:40.312230+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Maryland",
+ "effectiveAt": "2026-11-03",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-06",
+ "game": "Nebraska",
  "players": [
   {
    "pos": "WR",
    "no": "1",
    "name": "Jayshon Platt",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "4",
-   "name": "Katin Houser",
-   "status": "gtd",
    "detail": ""
   },
   {
@@ -81,7 +74,7 @@
    "pos": "TE",
    "no": "87",
    "name": "BJ Thurman",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   }
  ],

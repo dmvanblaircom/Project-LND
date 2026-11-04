@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-10-31T22:10:10.961880+00:00",
+ "updated": "2026-11-04T01:08:42.947746+00:00",
  "reports": [
   {
    "schema": 1,
@@ -380,6 +380,88 @@
      "no": "77",
      "name": "Gunnar Gottula",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "95",
+     "name": "Gabe Moore",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "nebraska",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-04T01:08:42.947746+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-03",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-06",
+   "game": "Illinois",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "4",
+     "name": "Jamir Conn",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "5",
+     "name": "Anthony Jones Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Larry Miles",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "19",
+     "name": "Kahmir Prescott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "30",
+     "name": "Vincent Genatone",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "52",
+     "name": "Jase Reynolds",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "54",
+     "name": "Jacob Bower",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Gunnar Gottula",
+     "status": "questionable",
      "detail": ""
     },
     {
