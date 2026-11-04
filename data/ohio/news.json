@@ -1,7 +1,16 @@
 {
  "team": "ohio",
- "updated": "2026-11-02T18:38:39.543070+00:00",
+ "updated": "2026-11-04T04:38:15.785545+00:00",
  "items": [
+  {
+   "title": "Ohio Football Wins on The Road at Akron",
+   "link": "https://ohiobobcats.com/news/2026/11/3/ohio-football-wins-on-the-road-at-akron",
+   "source": "Ohio Athletics",
+   "summary": "<img alt=\"Touchdown\" src=\"https://ohiobobcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/FBvsAkron_11_3_26_NS_129.jpg\" /><br /><br />",
+   "image": "https://ohiobobcats.com/images/2026/11/3/FBvsAkron_11_3_26_NS_129.jpg?width=800",
+   "sourceLogo": "https://ohiobobcats.com/favicon.ico",
+   "published": "2026-11-04T04:08:00+00:00"
+  },
   {
    "title": "Ohio Football Set to Begin Midweek MACtion at Akron",
    "link": "https://ohiobobcats.com/news/2026/10/31/ohio-football-begins-midweek-maction-at-akron",
@@ -64,15 +73,6 @@
    "image": "https://ohiobobcats.com/images/2026/10/17/Image__8_.jpeg?width=800",
    "sourceLogo": "https://ohiobobcats.com/favicon.ico",
    "published": "2026-10-18T06:38:00+00:00"
-  },
-  {
-   "title": "James-Hamilton Named to Jet Award Midseason Watchlist",
-   "link": "https://ohiobobcats.com/news/2026/10/14/football-james-hamilton-named-to-jet-award-midseason-watchlist",
-   "source": "Ohio Athletics",
-   "summary": "<img alt=\"Darren James-Hamilton | 2026 at Kent State\" src=\"https://ohiobobcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/14/FB_VS_KSU_10_3_2026_AD_214.JPG\" /><br /><br />Ohio football's redshirt sophomore safety Darren James-Hamilton has been named to the midseason watchlist for the 16th annual Jet Award, which recognizes the top return specialist in college football (Oct. 14).",
-   "image": "https://ohiobobcats.com/images/2026/10/14/FB_VS_KSU_10_3_2026_AD_214.JPG?width=800",
-   "sourceLogo": "https://ohiobobcats.com/favicon.ico",
-   "published": "2026-10-14T15:35:00+00:00"
   }
  ]
 }
