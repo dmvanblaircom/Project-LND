@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio",
- "updated": "2026-11-03T23:08:38.981610+00:00",
+ "updated": "2026-11-04T11:09:09.873567+00:00",
  "reports": [
   {
    "schema": 1,
@@ -843,12 +843,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-03T23:08:38.981610+00:00",
+   "fetchedAt": "2026-11-04T11:09:09.873567+00:00",
    "reported": true,
    "effectiveAt": "2026-11-03",
    "heading": "Game Day",
    "kickoffDate": "2026-11-03",
-   "game": "Akron",
+   "game": "at Akron",
    "players": [
     {
      "pos": "S",

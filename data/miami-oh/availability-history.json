@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "miami-oh",
- "updated": "2026-11-04T00:09:53.645308+00:00",
+ "updated": "2026-11-04T11:09:08.657879+00:00",
  "reports": [
   {
    "schema": 1,
@@ -962,12 +962,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-04T00:09:53.645308+00:00",
+   "fetchedAt": "2026-11-04T11:09:08.657879+00:00",
    "reported": true,
    "effectiveAt": "2026-11-03",
    "heading": "Game Day",
    "kickoffDate": "2026-11-03",
-   "game": "Buffalo",
+   "game": "vs. Buffalo",
    "players": [
     {
      "pos": "WR",
