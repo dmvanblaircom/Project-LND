@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-04T19:08:01.169929+00:00",
+ "updated": "2026-11-04T20:07:57.731678+00:00",
  "items": [
+  {
+   "title": "Pro Bears Week 8: Goff Leads Lions To Victory Over Vikings",
+   "link": "https://calbears.com/news/2026/11/4/football-pro-bears-week-8-goff-leads-lions-to-victory-over-vikings",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"2026 Pro Bears Title Slide\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/16/2026_Pro_Bears_1920x1080.png\" /><br /><br />Aaron Rodgers Helps Pittsburgh Win Fourth-Straight Game",
+   "image": "https://calbears.com/images/2026/9/16/2026_Pro_Bears_1920x1080.png?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-04T20:00:00+00:00"
+  },
   {
    "title": "Cal vs Virginia Kickoff Time Announced",
    "link": "https://on3.com/sites/golden-bear-report/news/cal-vs-virginia-kickoff-time-announced/",
@@ -325,15 +334,6 @@
    "image": "https://calbears.com/images/2026/10/24/DSC09329.JPG?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-10-24T20:56:00+00:00"
-  },
-  {
-   "title": "Texas Ties",
-   "link": "https://calbears.com/news/2026/10/23/football-texas-ties",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Inside Cal Football: Texas Ties \" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/23/Inside_Cal_FB_Feature_WebCROSBY.jpg\" /><br /><br />Isaiah Crosby Among Many Cal Football Players Returning Home To Texas This Saturday",
-   "image": "https://calbears.com/images/2026/10/23/Inside_Cal_FB_Feature_WebCROSBY.jpg?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-10-23T17:45:00+00:00"
   }
  ]
 }
