@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-03T19:08:12.162900+00:00",
+ "updated": "2026-11-04T22:38:11.373437+00:00",
  "items": [
+  {
+   "title": "The Notre Dame Debrief",
+   "link": "https://on3.com/sites/the-mid-report/news/the-notre-dame-debrief-3/",
+   "source": "The Mid Report",
+   "summary": "Notre Dame was too good for the Mids to give them a helping hand.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02150145/DSC_0813.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-04T22:01:05+00:00"
+  },
   {
    "title": "Navy vs Notre Dame - Game Photo Gallery Part 2",
    "link": "https://on3.com/sites/the-mid-report/news/navy-vs-notre-dame-game-photo-gallery-part-2/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/15095144/2026-10-11T002637Z_94786281_MT1USATODAY30052292_RTRMADP_3_NCAA-FOOTBALL-TULSA-AT-NAVY.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-15T14:52:20+00:00"
-  },
-  {
-   "title": "The Tulsa Debrief",
-   "link": "https://on3.com/sites/the-mid-report/news/the-tulsa-debrief-2/",
-   "source": "The Mid Report",
-   "summary": "Turnovers, shmurnovers",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/12150843/DSC_9671-e1792017563413.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-14T22:41:38+00:00"
   }
  ]
 }

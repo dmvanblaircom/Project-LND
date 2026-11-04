@@ -1,7 +1,16 @@
 {
  "team": "south-alabama",
- "updated": "2026-11-02T20:38:59.482183+00:00",
+ "updated": "2026-11-04T22:38:16.884468+00:00",
  "items": [
+  {
+   "title": "Jags and Cajuns Lined Up for 4 p.m. Saturday Kick in Lafayette",
+   "link": "https://usajaguars.com/news/2026/11/4/football-jags-travel-to-louisiana-for-4-pm-kick.aspx",
+   "source": "South Alabama Athletics",
+   "summary": "<img alt=\"UL Preview Photo\" src=\"https://usajaguars.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/4/ANW_046.jpg\" /><br /><br />Game 9",
+   "image": "https://usajaguars.com/images/2026/11/4/ANW_046.jpg?width=800",
+   "sourceLogo": "https://usajaguars.com/favicon.ico",
+   "published": "2026-11-04T21:45:00+00:00"
+  },
   {
    "title": "Kickoff Time Set for In-State Battle Versus Troy",
    "link": "https://usajaguars.com/news/2026/11/2/football-kickoff-time-set-for-in-state-battle-versus-troy.aspx",
@@ -82,15 +91,6 @@
    "image": "https://usajaguars.com/images/2026/10/8/SD_ARKST_10826_1339.jpg?width=800",
    "sourceLogo": "https://usajaguars.com/favicon.ico",
    "published": "2026-10-09T05:26:00+00:00"
-  },
-  {
-   "title": "South Alabama Travels to Arkansas State for Thursday Night Clash",
-   "link": "https://usajaguars.com/news/2026/10/6/football-south-alabama-travels-to-arkansas-state-for-thursday-night-clash.aspx",
-   "source": "South Alabama Athletics",
-   "summary": "<img alt=\"Christian Ross Celebrates a tackle in the Oct. 5, 2026 game against ULM.\" src=\"https://usajaguars.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/6/ANW_110.jpg\" /><br /><br />Game 6",
-   "image": "https://usajaguars.com/images/2026/10/6/ANW_110.jpg?width=800",
-   "sourceLogo": "https://usajaguars.com/favicon.ico",
-   "published": "2026-10-06T13:36:00+00:00"
   }
  ]
 }

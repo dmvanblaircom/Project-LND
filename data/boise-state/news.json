@@ -1,7 +1,16 @@
 {
  "team": "boise-state",
- "updated": "2026-11-04T17:08:00.724196+00:00",
+ "updated": "2026-11-04T22:38:04.045560+00:00",
  "items": [
+  {
+   "title": "NFL Broncos: Week Nine",
+   "link": "https://broncosports.com/news/2026/11/4/football-nfl-broncos-week-nine",
+   "source": "Boise State Athletics",
+   "summary": "<img alt=\"NFL Broncos Week Nine webslider\" src=\"https://broncosports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/FB26_Broncos_In_NFL_W9.jpg\" /><br /><br />Broncos will be in action on three days as NFL season reaches midpoint",
+   "image": "https://broncosports.com/images/2026/11/3/FB26_Broncos_In_NFL_W9.jpg?width=800",
+   "sourceLogo": "https://broncosports.com/favicon.ico",
+   "published": "2026-11-04T22:00:00+00:00"
+  },
   {
    "title": "Phelps Nominated for Burlsworth Trophy",
    "link": "https://broncosports.com/news/2026/11/4/football-phelps-nominated-for-burlsworth-trophy",
@@ -235,15 +244,6 @@
    "image": "https://broncosports.com/images/2026/10/29/B1_Feature_-_Canaan_Moore_WEB.png?width=800",
    "sourceLogo": "https://broncosports.com/favicon.ico",
    "published": "2026-10-29T21:00:00+00:00"
-  },
-  {
-   "title": "Week Nine Availability Report",
-   "link": "https://broncosports.com/news/2026/10/28/football-week-nine-availability-report",
-   "source": "Boise State Athletics",
-   "summary": "<img alt=\"Texas State Availability Report Web\" src=\"https://broncosports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/FB25_Availability_Report_WEB.png\" /><br /><br />All Pac-12 availability reports can be found at Pac-12.com.",
-   "image": "https://broncosports.com/images/2026/10/28/FB25_Availability_Report_WEB.png?width=800",
-   "sourceLogo": "https://broncosports.com/favicon.ico",
-   "published": "2026-10-29T03:00:00+00:00"
   },
   {
    "title": "Boise State escapes Pullman with victory after dominant fourth quarter",
