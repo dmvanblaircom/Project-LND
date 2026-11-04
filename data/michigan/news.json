@@ -1,6 +1,6 @@
 {
  "team": "michigan",
- "updated": "2026-11-04T16:08:12.024417+00:00",
+ "updated": "2026-11-04T16:38:12.542304+00:00",
  "items": [
   {
    "title": "Michigan football, the 3-2-1: The A.D. search (more names), MSU thoughts, and a prediction",
@@ -10,6 +10,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/19174529/2026-10-18T002507Z_2130468147_MT1USATODAY30117197_RTRMADP_3_MICHIGAN-QUARTERBACK-TOMMY-CARR-14-LEFT-CELEBRATES-A.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-04T16:00:26+00:00"
+  },
+  {
+   "title": "What You Need to Know for Gameday: Michigan vs. Michigan State",
+   "link": "https://mgoblue.com/news/2026/11/4/football-what-you-need-to-know-for-gameday-michigan-vs-michigan-state",
+   "source": "Michigan Athletics",
+   "summary": "<img alt=\"Michigan Football Gameday Central vs. Michigan State\" src=\"https://mgoblue.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/4/20261103-fbl-gameday.jpg\" /><br /><br />Everything you need for Saturday's Battle for the Paul Bunyan Trophy at the Big House, including gameday activities, the Blue Out, Military Appreciation Game, parking, stadium information and more.",
+   "image": "https://mgoblue.com/images/2026/11/4/20261103-fbl-gameday.jpg?width=800",
+   "sourceLogo": "https://mgoblue.com/favicon.ico",
+   "published": "2026-11-04T16:00:00+00:00"
   },
   {
    "title": "Unbiased, Totally Accurate Big Ten Power Rankings: Another chaotic week leads to a shakeup",
@@ -264,15 +273,6 @@
    "published": "2026-11-02T22:06:59+00:00"
   },
   {
-   "title": "Michigan at Oregon kickoff time, TV designation officially set for Week 11",
-   "link": "https://on3.com/teams/michigan-wolverines/news/michigan-at-oregon-kickoff-time-tv-designation-officially-set-for-week-11/",
-   "source": "On3",
-   "summary": "The Week 11 showdown between Michigan and Oregon in Eugene had its kickoff time and TV assignment have been announced by the Big Ten.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31223616/Dan-Lanning-4.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-02T21:35:58+00:00"
-  },
-  {
    "title": "Kickoff Time, TV Network Announced for Michigan Game at Oregon",
    "link": "https://mgoblue.com/news/2026/11/2/football-kickoff-time-tv-network-announced-for-michigan-game-at-oregon",
    "source": "Michigan Athletics",
@@ -415,15 +415,6 @@
    "image": "https://platform.maizenbrew.com/wp-content/uploads/sites/102/2025/10/gettyimages-2239237445.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-10-31T11:23:42+00:00"
-  },
-  {
-   "title": "Scholar Stories: Link's Pursuit of Excellence at U-M Built on Early Curiosity",
-   "link": "https://mgoblue.com/news/2026/10/29/football-scholar-stories-links-pursuit-of-excellence-at-u-m-built-on-early-curiosity",
-   "source": "Michigan Athletics",
-   "summary": "<img alt=\"Evan Link\" src=\"https://mgoblue.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/20261028-fbl-link_UXD3q.jpg\" /><br /><br />Growing up, Evan Link's older brother had an unusual way of testing their homemade inventions: he sent his younger brother down a hill in them.",
-   "image": "https://mgoblue.com/images/2026/10/28/20261028-fbl-link_UXD3q.jpg?width=800",
-   "sourceLogo": "https://mgoblue.com/favicon.ico",
-   "published": "2026-10-29T15:00:00+00:00"
   }
  ]
 }
