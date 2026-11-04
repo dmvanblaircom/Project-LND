@@ -1,6 +1,6 @@
 {
  "team": "iowa",
- "updated": "2026-11-04T18:38:06.234936+00:00",
+ "updated": "2026-11-04T19:38:06.536340+00:00",
  "items": [
   {
    "title": "PFF Deep Dive: Northwestern Wildcats",
@@ -37,24 +37,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3539,h_1990,x_2152,y_571/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_hawkeyes/01m6gma82865er51h19y.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-04T18:00:00+00:00"
-  },
-  {
-   "title": "Notes: at No. 21 Indiana/vs. No. 19 Minnesota",
-   "link": "https://hawkeyesports.com/news/2026/11/4/notes-at-21-indianavs-19-minnesota",
-   "source": "Iowa Athletics",
-   "summary": "Iowa travels to No. 21 Indiana on Friday night at 6 p.m. (CT) before returning home to host No. 19 Minnesota on Sunday at 2 p.m. for Military Appreciation Day.",
-   "image": "https://hawkeyesports.com/imgproxy/k1dFpzdj5QGIghLSzvg4n5upExw2FShbOtLFzMC3FD8/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzA0L1pHbEVHQmVOUXpIN3p0dlNMM2xxUExxRFlMalhiUkE2MlNyNTVJbGQuanBn.jpg",
-   "sourceLogo": "https://hawkeyesports.com/favicon.ico",
-   "published": "2026-11-04T16:37:27+00:00"
-  },
-  {
-   "title": "Lauck, Pieper Named Lombardi Award Semifinalists",
-   "link": "https://hawkeyesports.com/news/2026/11/4/lauck-pieper-named-lombardi-award-semifinalists",
-   "source": "Iowa Athletics",
-   "summary": "Fourth-year offensive linemen Trevor Lauck and Kade Pieper have been named 2026 Lombardi Award semifinalists.",
-   "image": "https://hawkeyesports.com/imgproxy/GQtcslwnNZS_LuRk2mRh5cWjEFJ7OQs-GJNeeEtT_bw/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzAzLzF1RFZxT2xwREt0UmhKYVd3VXJFMlJEd3NEQ2UzVVJFS20yVmI5dmsuanBn.jpg",
-   "sourceLogo": "https://hawkeyesports.com/favicon.ico",
-   "published": "2026-11-04T16:00:00+00:00"
   },
   {
    "title": "Iowa Football's Biggest Defensive Question vs. Northwestern: Creativity vs. Discipline?",
@@ -444,6 +426,15 @@
    "published": "2026-11-01T22:38:37+00:00"
   },
   {
+   "title": "Hawkeyes Wrap Up Fall Season at Princeton Chase",
+   "link": "https://hawkeyesports.com/news/2026/11/1/hawkeyes-wrap-up-fall-season-at-princeton-chase",
+   "source": "Iowa Athletics",
+   "summary": "The University of Iowa rowing team finished its fall racing schedule on Sunday morning at Lake Carnegie for the Princeton Chase.",
+   "image": "https://hawkeyesports.com/imgproxy/J-rpomIqui5Z75hRzIAnukJaEfGkeag5UrH3klwiqzo/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzAxLzdkaVlpc3JYbjRHZW5tRUZUTmE3M3prclNrYWN0MGY0eE1OM1c1WEEuanBn.jpg",
+   "sourceLogo": "https://hawkeyesports.com/favicon.ico",
+   "published": "2026-11-01T16:35:58+00:00"
+  },
+  {
    "title": "The Morning After: Torture Chamber",
    "link": "https://www.blackheartgoldpants.com/football/71828/iowa-hawkeyes-wisconsin-badgers-heartland-trophy-hank-brown-tony-diaz-bhgp",
    "source": "Black Heart Gold Pants",
@@ -460,6 +451,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3268,h_1838,x_0,y_239/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_hawkeyes/01m6bg8s808v50c8wnzg.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-01T14:30:00+00:00"
+  },
+  {
+   "title": "Spencer Lee Wins World Championship",
+   "link": "https://hawkeyesports.com/news/2026/11/1/spencer-lee-wins-world-championship",
+   "source": "Iowa Athletics",
+   "summary": "Spencer Lee captured the 2026 UWW World Championship at 57 kilograms Sunday.",
+   "image": "https://hawkeyesports.com/imgproxy/AbIJnKcZu4aL0Bx1KH7nJI4zpbOlL1cTTLLY9upHJ3c/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzAxL0xRSjBibklqMHZVWFVWbEMyMWNkSlY3V0RTUUd5UmZ3VlhqSTZsNHouanBn.jpg",
+   "sourceLogo": "https://hawkeyesports.com/favicon.ico",
+   "published": "2026-11-01T14:19:31+00:00"
   },
   {
    "title": "Iowa Football Report Card: Hawkeyes Return to Honor Roll Against Wisconsin",
