@@ -1,16 +1,7 @@
 {
  "team": "arizona",
- "updated": "2026-11-04T20:07:57.212603+00:00",
+ "updated": "2026-11-04T21:38:08.224369+00:00",
  "items": [
-  {
-   "title": "Arizona football notebook: Moving forward, embracing expectations and investing in the community",
-   "link": "https://www.azdesertswarm.com/football/85112/arizona-wildcats-football-notebook-seth-doege-danny-gonzales-brent-brennan-chase-kennedy-big12-2026",
-   "source": "Arizona Desert Swarm",
-   "summary": "Arizona has to quickly move forward from its heartbreaking 34-26 loss to Texas Tech and focus on the Friday night matchup against TCU. However, while preparation needs to turn to the Horned Frogs, lessons learned from the trip to Lubbock cannot be ignored. For fifth year linebacker Chase Kennedy, he is entering the endgame of [&#8230;]",
-   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/gettyimages-2301963948.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-04T06:31:30+00:00"
-  },
   {
    "title": "Intel: Brennan on Arizona's play-calling, donating tickets, and more",
    "link": "https://on3.com/teams/arizona-wildcats/news/intel-brennan-on-arizonas-play-calling-donating-tickets-and-more/",
@@ -46,6 +37,15 @@
    "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/gettyimages-2302871251.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-11-04T00:26:02+00:00"
+  },
+  {
+   "title": "What Brent Brennan said at his press conference to open TCU week",
+   "link": "https://www.azdesertswarm.com/football/85053/arizona-wildcats-football-brent-brennan-press-conference-tcu-horned-frogs-tusd-2026-big12",
+   "source": "Arizona Desert Swarm",
+   "summary": "Arizona (6-2, 3-2 Big 12) is coming off its second loss of the season to Texas Tech. The 34-26 heartbreaker to the Red Raiders has to be washed away as a Friday night matchup against TCU is quickly approaching. Three of the final four games of the season will be played in Tucson, and that [&#8230;]",
+   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/gettyimages-2301829880.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-02T22:34:10+00:00"
   },
   {
    "title": "No. 24 Wildcats to Host Horned Frogs on Friday Night",
@@ -229,7 +229,7 @@
   },
   {
    "title": "UA football mid-way roundtable",
-   "link": "https://wildcat.arizona.edu/166805/football/ua-football-mid-way-roundtable/",
+   "link": "https://wildcat.arizona.edu/166805/sports/football/ua-football-mid-way-roundtable/",
    "source": "Arizona Daily Wildcat",
    "summary": "The No. 25 University of Arizona football team head into homecoming week, 5-1. Here is what our sports staff has to say so far six games into the season.",
    "image": "https://wildcat.arizona.edu/wp-content/uploads/2026/10/WILD-THINGGGG-1.jpg",
@@ -301,7 +301,7 @@
   },
   {
    "title": "Five takeaways from Arizona football\u2019s surgical win at West Virginia University",
-   "link": "https://wildcat.arizona.edu/166559/football/five-takeaways-from-arizona-footballs-surgical-win-at-west-virginia/",
+   "link": "https://wildcat.arizona.edu/166559/sports/football/five-takeaways-from-arizona-footballs-surgical-win-at-west-virginia/",
    "source": "Arizona Daily Wildcat",
    "summary": "From explosive offensive production to timely defensive stops, the Wildcats delivered a complete performance that could serve as a blueprint for the rest of their season following a dominating 52-31 win against West Virginia University.",
    "image": "https://wildcat.arizona.edu/wp-content/uploads/2026/10/Football-19.jpg",
@@ -310,7 +310,7 @@
   },
   {
    "title": "Arizona football rolls past West Virginia",
-   "link": "https://wildcat.arizona.edu/166547/football/arizona-football-rolls-past-west-virginia/",
+   "link": "https://wildcat.arizona.edu/166547/sports/football/arizona-football-rolls-past-west-virginia/",
    "source": "Arizona Daily Wildcat",
    "summary": "The University of Arizona football team (5-1, 2-1 in Big 12) crushed West Virginia University (3-3, 0-3 in Big 12) 52-31 on Saturday, Oct. 10 at Mountaineer Field. The Wildcats have now won four games in a row heading into the bye week.",
    "image": "https://wildcat.arizona.edu/wp-content/uploads/2026/10/WILD-THINGGGG-6.jpg",
@@ -355,7 +355,7 @@
   },
   {
    "title": "Arizona travels to West Virginia for Big 12 road test",
-   "link": "https://wildcat.arizona.edu/166529/football/arizona-travels-to-west-virginia-for-big-12-road-test/",
+   "link": "https://wildcat.arizona.edu/166529/sports/football/arizona-travels-to-west-virginia-for-big-12-road-test/",
    "source": "Arizona Daily Wildcat",
    "summary": "The Wildcats look for their fourth straight win, while the Mountaineers try to avoid a 0-3 start in Big 12 play.",
    "image": "https://wildcat.arizona.edu/wp-content/uploads/2026/10/WILD-THINGGGG-9.jpg",
@@ -382,7 +382,7 @@
   },
   {
    "title": "Arizona wide receiver Tre Spivey out for year with broken foot",
-   "link": "https://wildcat.arizona.edu/166436/football/arizona-wide-receiver-tre-spivey-out-for-year-with-broken-foot/",
+   "link": "https://wildcat.arizona.edu/166436/sports/football/arizona-wide-receiver-tre-spivey-out-for-year-with-broken-foot/",
    "source": "Arizona Daily Wildcat",
    "summary": "University of Arizona wide receiver Tre Spivey is out for the season with a broken left foot, head coach Brent Brennan stated Monday, Oct. 5.",
    "image": "https://wildcat.arizona.edu/wp-content/uploads/2026/10/WILD-THINGGGG-17.jpg",
