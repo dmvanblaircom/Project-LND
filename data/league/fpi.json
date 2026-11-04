@@ -8,7 +8,7 @@
  "seasonType": 2,
  "week": 10,
  "weekText": "Week 10",
- "sourceUpdated": "2026-11-03T09:00Z",
+ "sourceUpdated": "2026-11-04T09:00Z",
  "teams": [
   {
    "espnId": "87",
@@ -105,7 +105,7 @@
    "name": "Wake Forest",
    "abbr": "WAKE",
    "rank": 11,
-   "rating": 17.4,
+   "rating": 17.5,
    "rankChange": 0,
    "record": "7-1"
   },
@@ -254,22 +254,22 @@
    "record": "6-2"
   },
   {
-   "espnId": "26",
-   "name": "UCLA",
-   "abbr": "UCLA",
-   "rank": 28,
-   "rating": 12.2,
-   "rankChange": 0,
-   "record": "8-0"
-  },
-  {
    "espnId": "213",
    "name": "Penn State",
    "abbr": "PSU",
+   "rank": 28,
+   "rating": 12.3,
+   "rankChange": 1,
+   "record": "4-4"
+  },
+  {
+   "espnId": "26",
+   "name": "UCLA",
+   "abbr": "UCLA",
    "rank": 29,
    "rating": 12.2,
-   "rankChange": 0,
-   "record": "4-4"
+   "rankChange": -1,
+   "record": "8-0"
   },
   {
    "espnId": "201",
@@ -303,7 +303,7 @@
    "name": "Michigan",
    "abbr": "MICH",
    "rank": 33,
-   "rating": 10.7,
+   "rating": 10.8,
    "rankChange": 0,
    "record": "5-3"
   },
@@ -492,7 +492,7 @@
    "name": "Memphis",
    "abbr": "MEM",
    "rank": 54,
-   "rating": 3.7,
+   "rating": 3.8,
    "rankChange": 0,
    "record": "7-2"
   },
@@ -582,7 +582,7 @@
    "name": "West Virginia",
    "abbr": "WVU",
    "rank": 64,
-   "rating": 1.6,
+   "rating": 1.5,
    "rankChange": 0,
    "record": "5-3"
   },
@@ -717,7 +717,7 @@
    "name": "UNLV",
    "abbr": "UNLV",
    "rank": 79,
-   "rating": -3.4,
+   "rating": -3.3,
    "rankChange": 0,
    "record": "5-3"
   },
@@ -857,31 +857,31 @@
    "record": "3-6"
   },
   {
-   "espnId": "195",
-   "name": "Ohio",
-   "abbr": "OHIO",
-   "rank": 95,
-   "rating": -8.0,
-   "rankChange": 0,
-   "record": "6-2"
-  },
-  {
    "espnId": "2440",
    "name": "Nevada",
    "abbr": "NEV",
-   "rank": 96,
+   "rank": 95,
    "rating": -8.2,
-   "rankChange": 0,
+   "rankChange": 1,
    "record": "3-5"
   },
   {
    "espnId": "2026",
    "name": "App State",
    "abbr": "APP",
+   "rank": 96,
+   "rating": -8.4,
+   "rankChange": 1,
+   "record": "5-3"
+  },
+  {
+   "espnId": "195",
+   "name": "Ohio",
+   "abbr": "OHIO",
    "rank": 97,
    "rating": -8.4,
-   "rankChange": 0,
-   "record": "5-3"
+   "rankChange": -2,
+   "record": "7-2"
   },
   {
    "espnId": "2032",
@@ -965,22 +965,22 @@
    "record": "4-4"
   },
   {
-   "espnId": "193",
-   "name": "Miami OH",
-   "abbr": "M-OH",
-   "rank": 107,
-   "rating": -9.8,
-   "rankChange": 0,
-   "record": "5-3"
-  },
-  {
    "espnId": "24",
    "name": "Stanford",
    "abbr": "STAN",
-   "rank": 108,
+   "rank": 107,
    "rating": -10.0,
-   "rankChange": 0,
+   "rankChange": 1,
    "record": "4-5"
+  },
+  {
+   "espnId": "193",
+   "name": "Miami OH",
+   "abbr": "M-OH",
+   "rank": 108,
+   "rating": -10.2,
+   "rankChange": -1,
+   "record": "5-4"
   },
   {
    "espnId": "324",
@@ -1028,31 +1028,31 @@
    "record": "3-5"
   },
   {
+   "espnId": "2084",
+   "name": "Buffalo",
+   "abbr": "BUFF",
+   "rank": 114,
+   "rating": -12.7,
+   "rankChange": 2,
+   "record": "6-3"
+  },
+  {
    "espnId": "2751",
    "name": "Wyoming",
    "abbr": "WYO",
-   "rank": 114,
+   "rank": 115,
    "rating": -13.0,
-   "rankChange": 0,
+   "rankChange": -1,
    "record": "5-3"
   },
   {
    "espnId": "2572",
    "name": "Southern Miss",
    "abbr": "USM",
-   "rank": 115,
-   "rating": -13.0,
-   "rankChange": 0,
-   "record": "3-5"
-  },
-  {
-   "espnId": "2084",
-   "name": "Buffalo",
-   "abbr": "BUFF",
    "rank": 116,
-   "rating": -13.2,
-   "rankChange": 0,
-   "record": "5-3"
+   "rating": -13.1,
+   "rankChange": -1,
+   "record": "3-5"
   },
   {
    "espnId": "2229",
@@ -1104,7 +1104,7 @@
    "name": "C Michigan",
    "abbr": "CMU",
    "rank": 122,
-   "rating": -14.6,
+   "rating": -14.7,
    "rankChange": 0,
    "record": "3-5"
   },
@@ -1167,7 +1167,7 @@
    "name": "Bowling Green",
    "abbr": "BGSU",
    "rank": 129,
-   "rating": -17.6,
+   "rating": -17.5,
    "rankChange": 0,
    "record": "2-7"
   },
@@ -1212,9 +1212,9 @@
    "name": "Akron",
    "abbr": "AKR",
    "rank": 134,
-   "rating": -23.2,
+   "rating": -22.9,
    "rankChange": 0,
-   "record": "1-7"
+   "record": "1-8"
   },
   {
    "espnId": "2309",
@@ -1253,5 +1253,5 @@
    "record": "2-7"
   }
  ],
- "fetchedAt": "2026-11-03T10:07Z"
+ "fetchedAt": "2026-11-04T10:07Z"
 }
