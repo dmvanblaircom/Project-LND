@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "130",
  "classYear": 2027,
- "listed": 22,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -152,19 +152,6 @@
    "status": "Verbal"
   },
   {
-   "id": "262170",
-   "name": "Sidney Rouleau",
-   "position": "OT",
-   "highSchool": "The Brook Hill School",
-   "city": "Bullard",
-   "state": "TX",
-   "grade": 81,
-   "rank": 254,
-   "positionRank": 25,
-   "stateRank": 34,
-   "status": "Verbal"
-  },
-  {
    "id": "266201",
    "name": "Blake Jenkins",
    "position": "CB",
@@ -295,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:42Z"
+ "fetchedAt": "2026-11-04T13:40Z"
 }

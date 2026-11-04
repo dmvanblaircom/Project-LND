@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2636",
  "classYear": 2027,
- "listed": 16,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -45,6 +45,19 @@
    "rank": null,
    "positionRank": 66,
    "stateRank": 155,
+   "status": "Verbal"
+  },
+  {
+   "id": "271747",
+   "name": "Elijah Wright",
+   "position": "DE",
+   "highSchool": "Jordan High School",
+   "city": "Fulshear",
+   "state": "TX",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 129,
+   "stateRank": 171,
    "status": "Verbal"
   },
   {
@@ -217,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-04T13:40Z"
 }

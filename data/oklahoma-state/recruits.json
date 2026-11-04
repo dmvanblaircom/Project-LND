@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "197",
  "classYear": 2027,
- "listed": 16,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -215,7 +215,20 @@
    "positionRank": 136,
    "stateRank": 205,
    "status": "Verbal"
+  },
+  {
+   "id": "274567",
+   "name": "Gabriel Brooks",
+   "position": "OT",
+   "highSchool": "North Crowley High School",
+   "city": "Fort Worth",
+   "state": "TX",
+   "grade": 71,
+   "rank": null,
+   "positionRank": 177,
+   "stateRank": 267,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:43Z"
+ "fetchedAt": "2026-11-04T13:40Z"
 }
