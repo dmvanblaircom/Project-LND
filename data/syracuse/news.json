@@ -1,7 +1,16 @@
 {
  "team": "syracuse",
- "updated": "2026-11-04T18:08:14.111215+00:00",
+ "updated": "2026-11-04T18:38:14.908186+00:00",
  "items": [
+  {
+   "title": "5 Things to Know: 'Cuse vs. Clemson",
+   "link": "https://cuse.com/news/2026/11/4/football-5-things-to-know-cuse-vs-clemson",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"Demetres Samuel\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/31/16x9_1_32.jpeg\" /><br /><br />The Syracuse football team hosts Clemson on Saturday for homecoming in the final home conference contest of the season. Here are five things to know about the matchup:",
+   "image": "https://cuse.com/images/2026/10/31/16x9_1_32.jpeg?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-04T17:56:00+00:00"
+  },
   {
    "title": "Syracuse Football: How Top PFF Performers Fueled the Orange's Second Straight ACC Win",
    "link": "https://www.si.com/college/syracuse/football/syracuse-football-pff-performers-smu-01m6kmky6zjs?utm_source=RSS",
@@ -253,15 +262,6 @@
    "image": "https://cuse.com/images/2026/10/26/Calvin_Action_ROTW.png?width=800",
    "sourceLogo": "https://cuse.com/favicon.ico",
    "published": "2026-10-26T19:01:00+00:00"
-  },
-  {
-   "title": "'Cuse and Clemson Tabbed for Noon Kickoff",
-   "link": "https://cuse.com/news/2026/10/26/football-cuse-and-clemson-tabbed-for-noon-kickoff",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Steve Angeli\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/24/09_16x9__UNC.jpeg\" /><br /><br />Syracuse will have back-to-back games on ESPN2, as ESPN and the Atlantic Coast Conference announced the Orange's Nov. 7 matchup with Clemson will be on ESPN2 as at 12 p.m. kickoff.",
-   "image": "https://cuse.com/images/2026/10/24/09_16x9__UNC.jpeg?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-10-26T19:00:00+00:00"
   }
  ]
 }
