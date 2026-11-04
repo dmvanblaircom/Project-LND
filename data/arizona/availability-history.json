@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona",
- "updated": "2026-10-31T14:40:26.514058+00:00",
+ "updated": "2026-11-04T03:10:35.283006+00:00",
  "reports": [
   {
    "schema": 1,
@@ -324,6 +324,116 @@
      "no": "92",
      "name": "Ezra Funa",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "arizona",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-04T03:10:35.283006+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-03",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-06",
+   "game": "TCU",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "R.J. Mosley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "5",
+     "name": "Max Harris",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "8",
+     "name": "Jay'Vion Cole",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "8",
+     "name": "Shane King",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "13",
+     "name": "Cam Chapa",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "14",
+     "name": "Cole Rusk",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "20",
+     "name": "Caleb Smith",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Ismail Mahdi",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "28",
+     "name": "Swayde Griffin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "38",
+     "name": "Kevin Moorer Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Grayson Stovall",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "92",
+     "name": "Ezra Funa",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "96",
+     "name": "Zac Siulepa",
+     "status": "questionable",
      "detail": ""
     }
    ],

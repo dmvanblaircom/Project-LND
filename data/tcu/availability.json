@@ -7,25 +7,25 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T18:11:07.357163+00:00",
+ "fetchedAt": "2026-11-04T03:10:56.572409+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Kansas",
+ "effectiveAt": "2026-11-03",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-06",
+ "game": "Arizona",
  "players": [
   {
-   "pos": "S",
-   "no": "7",
-   "name": "Julius Simms",
+   "pos": "RB",
+   "no": "2",
+   "name": "Jon Denman",
    "status": "out-game",
    "detail": ""
   },
   {
    "pos": "S",
-   "no": "13",
-   "name": "Ryan Yaites",
-   "status": "gtd",
+   "no": "7",
+   "name": "Julius Simms",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -43,31 +43,17 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "22",
-   "name": "Fletcher Fierro",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "RB",
    "no": "26",
    "name": "Jeremy Payne",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "27",
-   "name": "Michael Teason Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "27",
-   "name": "Landon Walker",
-   "status": "gtd",
+   "pos": "OL",
+   "no": "55",
+   "name": "Samir Camacho",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -75,6 +61,13 @@
    "no": "60",
    "name": "Cade Bennett",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "77",
+   "name": "Cooper Powers",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -88,6 +81,13 @@
    "pos": "WR",
    "no": "84",
    "name": "Cooper Reid",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "89",
+   "name": "Braden Bach",
    "status": "out-game",
    "detail": ""
   }
