@@ -1,7 +1,16 @@
 {
  "team": "wyoming",
- "updated": "2026-11-05T18:38:19.851203+00:00",
+ "updated": "2026-11-05T22:08:22.169365+00:00",
  "items": [
+  {
+   "title": "Cowboy Classics: UNLV",
+   "link": "https://gowyo.com/news/2026/11/5/football-cowboy-classics-unlv",
+   "source": "Wyoming Athletics",
+   "summary": "<img alt=\"Levi\" src=\"https://gowyo.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2020/11/27/JOSH9024.JPG\" /><br /><br />",
+   "image": "https://gowyo.com/images/2020/11/27/JOSH9024.JPG?width=800",
+   "sourceLogo": "https://gowyo.com/favicon.ico",
+   "published": "2026-11-05T21:44:00+00:00"
+  },
   {
    "title": "Pokes Insider: Jayden Williams looking forward to Las Vegas homecoming",
    "link": "https://gowyo.com/news/2026/11/5/football-pokes-insider-jayden-williams-looking-forward-to-las-vegas-homecoming",
@@ -100,15 +109,6 @@
    "image": "https://gowyo.com/images/2018/11/5/Epps_Marcus_UW_at_AF_11_11_2017_TB_01.jpg?width=800",
    "sourceLogo": "https://gowyo.com/favicon.ico",
    "published": "2026-10-22T23:10:00+00:00"
-  },
-  {
-   "title": "Pokes Insider: Making every possession count",
-   "link": "https://gowyo.com/news/2026/10/21/football-pokes-insider-making-every-possession-count",
-   "source": "Wyoming Athletics",
-   "summary": "<img alt=\"Christian Taylor\" src=\"https://gowyo.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/21/Taylor.jpeg\" /><br /><br />LARAMIE \u2013 Aaron Bohl has his hands full this week.",
-   "image": "https://gowyo.com/images/2026/10/21/Taylor.jpeg?width=800",
-   "sourceLogo": "https://gowyo.com/favicon.ico",
-   "published": "2026-10-21T21:47:00+00:00"
   }
  ]
 }
