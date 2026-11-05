@@ -6,7 +6,9 @@
 # Cloudflare's shared edge — the one that Kalshi rate-limits into the ground.
 #
 # Each source is independent: every producer step has continue-on-error, and
-# the commit step adds only what a step that SUCCEEDED produced. A failing
+# the commit step adds only what a step that SUCCEEDED produced - team by
+# team where a step reads many teams. A broken source is reported once, as an
+# issue, by the Source health step (tools/producers/health.py). A failing
 # school website can never again cost the odds (it did on 2026-09-23, run 100).
 #
 # Cadence (decision 0020): odds, beat news, conference availability and a
@@ -138,12 +140,17 @@ jobs:
         id: news
         continue-on-error: true      # a dead feed must never block the odds
         run: |
-          logs="$RUNNER_TEMP/news"; mkdir -p "$logs"; rm -f "$logs/failed"
+          H="$RUNNER_TEMP/health"; logs="$RUNNER_TEMP/news"; mkdir -p "$H" "$logs"; rm -f "$logs/ok" "$logs/failed"
           teams=$(python3 tools/producers/teamconfig.py --with beatNews)
           printf '%s\n' $teams | xargs -P 8 -I{} sh -c \
-            'python3 tools/producers/beat_news.py --team "$1" > "$2/$1.log" 2>&1 || echo "$1" >> "$2/failed"' _ {} "$logs"
+            'if python3 tools/producers/beat_news.py --team "$1" > "$2/$1.log" 2>&1; then echo "$1" >> "$2/ok"; else echo "$1" >> "$2/failed"; fi' _ {} "$logs"
           for t in $teams; do echo "== $t"; cat "$logs/$t.log"; done
-          if [ -s "$logs/failed" ]; then echo "::error::beat news failed for: $(tr '\n' ' ' < "$logs/failed")"; exit 1; fi
+          # Each team on its own (David, 2026-11-05): a team whose feeds failed
+          # keeps its last news; every other team's is saved this run.
+          paths=""
+          for t in $(cat "$logs/ok" 2>/dev/null); do printf 'news\t%s\n' "$t" >> "$H/ok.tsv"; paths="$paths data/$t/news.json"; done
+          for t in $(cat "$logs/failed" 2>/dev/null); do printf 'news\t%s\t%s\n' "$t" "$logs/$t.log" >> "$H/failed.tsv"; done
+          echo "paths=$paths" >> "$GITHUB_OUTPUT"
 
       # Per team: due by hand, or by the depth-chart cadence (decision 0020).
       - name: Official depth chart and availability
@@ -153,7 +160,7 @@ jobs:
           BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
         run: |
           pip install --quiet beautifulsoup4 pypdf
-          fail=0
+          H="$RUNNER_TEMP/health"; mkdir -p "$H"; teams=""
           for t in $(python3 tools/producers/teamconfig.py --with depth); do
             echo "== $t"
             mkdir -p .cadence
@@ -161,15 +168,21 @@ jobs:
             if [ -f .cadence/depth-checked ] && [ ! -f ".cadence/$t" ]; then cp .cadence/depth-checked ".cadence/$t"; fi
             if [ "$BY_HAND" = true ]; then echo "  depth chart due: run by hand"
             else
-              rc=0; python3 tools/producers/cadence.py --team "$t" --last ".cadence/$t" --cache "$RUNNER_TEMP/kickoffs" --official --exit-code || rc=$?
+              rc=0; python3 tools/producers/cadence.py --team "$t" --last ".cadence/$t" --cache "$RUNNER_TEMP/kickoffs" --official --exit-code > "$H/depth-$t.log" 2>&1 || rc=$?
+              cat "$H/depth-$t.log"
               if [ $rc -eq 3 ]; then continue; fi          # not due
-              if [ $rc -ne 0 ]; then fail=1; continue; fi
+              if [ $rc -ne 0 ]; then printf 'depth\t%s\t%s\n' "$t" "$H/depth-$t.log" >> "$H/failed.tsv"; continue; fi
             fi
-            if python3 tools/producers/official_depth.py --team "$t" --season 2026; then
+            if python3 tools/producers/official_depth.py --team "$t" --season 2026 > "$H/depth-$t.log" 2>&1; then
+              cat "$H/depth-$t.log"
               date -u +%Y-%m-%dT%H:%M:%SZ > ".cadence/$t"
-            else fail=1; fi
+              printf 'depth\t%s\n' "$t" >> "$H/ok.tsv"; teams="$teams $t"
+            else
+              cat "$H/depth-$t.log"
+              printf 'depth\t%s\t%s\n' "$t" "$H/depth-$t.log" >> "$H/failed.tsv"
+            fi
           done
-          exit $fail
+          echo "teams=$teams" >> "$GITHUB_OUTPUT"
 
       # A conference's availability reports, for each team that declares the
       # feed (sources.official.availabilityFeed) - Ohio State's are the Big
@@ -180,16 +193,20 @@ jobs:
         id: confav
         continue-on-error: true
         run: |
-          fail=0; paths=""
+          H="$RUNNER_TEMP/health"; mkdir -p "$H"; paths=""
           for t in $(python3 tools/producers/teamconfig.py --with availability); do
             if ! grep -q "availabilityFeed" "teams/$t.js"; then continue; fi
             echo "== $t"
-            if python3 tools/producers/conference_availability.py --team "$t" --cache "$RUNNER_TEMP/confav"; then
+            if python3 tools/producers/conference_availability.py --team "$t" --cache "$RUNNER_TEMP/confav" > "$H/confav-$t.log" 2>&1; then
+              cat "$H/confav-$t.log"
               paths="$paths data/$t/availability.json data/$t/availability-history.json"
-            else fail=1; fi
+              printf 'confav\t%s\n' "$t" >> "$H/ok.tsv"
+            else
+              cat "$H/confav-$t.log"
+              printf 'confav\t%s\t%s\n' "$t" "$H/confav-$t.log" >> "$H/failed.tsv"
+            fi
           done
           echo "paths=$paths" >> "$GITHUB_OUTPUT"
-          exit $fail
 
       # A team's game notes from its official media index, for a team whose
       # depth-chart index does not carry them (Ohio State's Media Center;
@@ -202,16 +219,19 @@ jobs:
         continue-on-error: true
         run: |
           pip install --quiet beautifulsoup4 pypdf
-          fail=0; paths=""
+          H="$RUNNER_TEMP/health"; mkdir -p "$H"; paths=""
           for t in $(python3 tools/producers/teamconfig.py --with notes); do
             grep -q "notesIndex" "teams/$t.js" || continue
             echo "== $t"
-            if python3 tools/producers/official_notes.py --team "$t"; then
-              paths="$paths data/$t/notes.json"
-            else fail=1; fi
+            if python3 tools/producers/official_notes.py --team "$t" > "$H/notes-$t.log" 2>&1; then
+              cat "$H/notes-$t.log"
+              paths="$paths data/$t/notes.json"; printf 'notes\t%s\n' "$t" >> "$H/ok.tsv"
+            else
+              cat "$H/notes-$t.log"
+              printf 'notes\t%s\t%s\n' "$t" "$H/notes-$t.log" >> "$H/failed.tsv"
+            fi
           done
           echo "paths=$paths" >> "$GITHUB_OUTPUT"
-          exit $fail
 
       # The defending national champion, from ESPN's postseason scoreboard
       # (David, 2026-10-27: Home's banner for whoever won the last title
@@ -258,6 +278,21 @@ jobs:
           echo "ran=true" >> "$GITHUB_OUTPUT"
           exit $fail
 
+      # Which sources failed, for which teams, and why - told once
+      # (tools/producers/health.py; David, 2026-11-05: the "Run failed"
+      # emails were constant and said nothing). One issue per source once a
+      # failure has lasted three runs in a row; it updates in place and
+      # closes when every team has recovered. The run itself stays green.
+      - name: Source health
+        if: always()
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p .cadence
+          python3 tools/producers/health.py --dir "$RUNNER_TEMP/health" --state .cadence/health.json --open-issues \
+            --steps "kalshi=${{ steps.kalshi.outcome }},odds=${{ steps.odds.outcome }},oddshistory=${{ steps.oddshistory.outcome }},news=${{ steps.news.outcome }},depth=${{ steps.depth.outcome }},confav=${{ steps.confav.outcome }},notes=${{ steps.notes.outcome }},fpi=${{ steps.fpi.outcome }},rankhistory=${{ steps.rankhistory.outcome }},prospects=${{ steps.prospects.outcome }},champion=${{ steps.champion.outcome }}"
+
       - name: Remember the depth chart checks
         if: always() && hashFiles('.cadence/*') != ''
         uses: actions/cache/save@v4
@@ -272,8 +307,8 @@ jobs:
         env:
           ODDS: ${{ steps.odds.outcome }}
           HISTORY: ${{ steps.oddshistory.outcome }}
-          NEWS: ${{ steps.news.outcome }}
-          DEPTH: ${{ steps.depth.outcome }}
+          NEWS_PATHS: ${{ steps.news.outputs.paths }}
+          DEPTH_TEAMS: ${{ steps.depth.outputs.teams }}
           CONFAV_PATHS: ${{ steps.confav.outputs.paths }}
           FPI: ${{ steps.fpi.outcome }}
           RANKS: ${{ steps.rankhistory.outcome }}
@@ -293,10 +328,13 @@ jobs:
           }
           [ "$ODDS" = success ]    && add "odds" 'data/league/odds-*.json'
           [ "$HISTORY" = success ] && add "odds history" 'data/*/odds-history.json'
-          [ "$NEWS" = success ]    && add "news" 'data/*/news.json'
-          [ "$DEPTH" = success ]   && add "depth chart" 'data/*/depth.json' 'data/*/depth-history.json'
-          [ "$DEPTH" = success ]   && add "availability" 'data/*/availability.json' 'data/*/availability-history.json'
-          [ "$DEPTH" = success ]   && add "game notes" 'data/*/notes.json'
+          # Team by team (David, 2026-11-05): only the teams whose step read them.
+          [ -n "$NEWS_PATHS" ]     && add "news" $NEWS_PATHS
+          for t in $DEPTH_TEAMS; do
+            add "depth chart" "data/$t/depth.json" "data/$t/depth-history.json"
+            add "availability" "data/$t/availability.json" "data/$t/availability-history.json"
+            add "game notes" "data/$t/notes.json"
+          done
           # a media index's notes: only the teams whose notes were read
           [ -n "$NOTES_PATHS" ]    && add "game notes" $NOTES_PATHS
           # only the files of the teams whose conference report was read
@@ -334,21 +372,3 @@ jobs:
           [ "$(TZ=America/New_York date +%u)" = 6 ] || { echo "not a Saturday: no probe"; exit 0; }
           curl -sS --max-time 30 https://suite-api.dmvanblaircom.workers.dev/v1/probe/espn || echo "probe: the edge API did not answer"
           echo
-
-      # The run still goes red when a source failed, so a broken source is
-      # visible in the Actions tab - after everything that did work is saved.
-      - name: Report any source that failed
-        if: always()
-        run: |
-          failed=""
-          for s in "kalshi:${{ steps.kalshi.outcome }}" "odds:${{ steps.odds.outcome }}" \
-                   "odds history:${{ steps.oddshistory.outcome }}" "news:${{ steps.news.outcome }}" \
-                   "depth chart:${{ steps.depth.outcome }}" \
-                   "conference availability:${{ steps.confav.outcome }}" \
-                   "game notes:${{ steps.notes.outcome }}" \
-                   "rankings by week:${{ steps.rankhistory.outcome }}" \
-                   "recruiting and draft:${{ steps.prospects.outcome }}"; do
-            [ "${s##*:}" = failure ] && failed="${failed:+$failed, }${s%:*}"
-          done
-          if [ -n "$failed" ]; then echo "::error::failed: $failed"; exit 1; fi
-          echo "every source that ran succeeded"
