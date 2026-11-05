@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "235",
  "classYear": 2027,
- "listed": 8,
+ "listed": 9,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -74,6 +74,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272509",
+   "name": "Kentorion King",
+   "position": "WR",
+   "highSchool": "Waxahachie High School",
+   "city": "Waxahachie",
+   "state": "TX",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 202,
+   "stateRank": 196,
+   "status": "Verbal"
+  },
+  {
    "id": "271465",
    "name": "Jonathan Toney",
    "position": "OT",
@@ -113,5 +126,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:42Z"
+ "fetchedAt": "2026-11-05T10:10Z"
 }

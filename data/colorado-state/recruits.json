@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "36",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -71,19 +71,6 @@
    "rank": null,
    "positionRank": 65,
    "stateRank": 97,
-   "status": "Verbal"
-  },
-  {
-   "id": "272509",
-   "name": "Kentorion King",
-   "position": "WR",
-   "highSchool": "Midlothian High School",
-   "city": "Midlothian",
-   "state": "TX",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 202,
-   "stateRank": 196,
    "status": "Verbal"
   },
   {
@@ -321,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:40Z"
+ "fetchedAt": "2026-11-05T10:09Z"
 }
