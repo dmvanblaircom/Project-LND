@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:26.240394+00:00",
+ "fetchedAt": "2026-11-05T01:40:29.769861+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Georgia Southern",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "vs. Georgia State",
  "players": [
   {
    "pos": "DB",
@@ -36,13 +36,6 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "",
-   "name": "Kamauri Austin",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "",
    "name": "Aiden Benton",
@@ -50,38 +43,66 @@
    "detail": ""
   },
   {
+   "pos": "OL",
+   "no": "",
+   "name": "Jayden Thomas",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Kamauri Austin",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "",
    "name": "J'Marion Burnette",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "",
    "name": "Darrin Fugitt",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Tyriq Poindexter",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Ja'Cari Henderson",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "",
    "name": "Keshawn Thomas",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Dre Walker",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "",
    "name": "Brooks Yurachek",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

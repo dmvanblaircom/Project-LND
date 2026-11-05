@@ -7,53 +7,39 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:37.408995+00:00",
+ "fetchedAt": "2026-11-05T01:40:45.906734+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Marshall",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "at Coastal Carolina",
  "players": [
   {
    "pos": "QB",
    "no": "",
    "name": "Quinn Henicle",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Koa Naotala",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Zion Frink",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
-   "name": "Tavares Murray",
-   "status": "gtd",
+   "name": "Lucas Struck",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "JJ Harrell",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Zialis Blackmon",
-   "status": "gtd",
+   "status": "doubtful",
    "detail": ""
   },
   {

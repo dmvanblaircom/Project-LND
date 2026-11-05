@@ -7,24 +7,66 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T22:10:14.599542+00:00",
+ "fetchedAt": "2026-11-05T01:40:47.816539+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Mississippi State",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Missouri",
  "players": [
   {
    "pos": "EDG",
    "no": "1",
    "name": "Colin Simmons",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "1",
+   "name": "Ryan Wingo",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "2",
+   "name": "Hollywood Smothers",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "8",
+   "name": "Cam Coleman",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "8",
+   "name": "Kade Phillips",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "29",
+   "name": "Graceson Littleton",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "74",
    "name": "Trevor Goosby",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "81",
+   "name": "Nick Townsend",
    "status": "out-game",
    "detail": ""
   },

@@ -7,18 +7,32 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T19:11:12.906686+00:00",
+ "fetchedAt": "2026-11-05T01:40:47.060820+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Oklahoma",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Texas A&M",
  "players": [
   {
+   "pos": "WR",
+   "no": "6",
+   "name": "Donovan Murph",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "11",
+   "name": "Jordan Thomas",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DB",
-   "no": "12",
-   "name": "Quay'sheed Scott",
-   "status": "out-game",
+   "no": "14",
+   "name": "J’Zavien Currence",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -30,8 +44,8 @@
   },
   {
    "pos": "RB",
-   "no": "22",
-   "name": "Jawarn Howell",
+   "no": "28",
+   "name": "Matt Fuller",
    "status": "out-game",
    "detail": ""
   },

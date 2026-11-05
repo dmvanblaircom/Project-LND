@@ -3,13 +3,73 @@
  "team": "louisiana",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-11-05T01:40:43.537072+00:00",
+ "reported": true,
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "vs. South Alabama",
+ "players": [
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Collin Jacob",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "J'Marion Gooch",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Landon Strother",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Hayden Darbonne",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Jeremiah Holts",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Alexander Spencer",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Conor McPherson",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Darrell Smith",
+   "status": "out-season",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

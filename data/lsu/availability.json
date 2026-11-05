@@ -7,48 +7,55 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:03.025127+00:00",
+ "fetchedAt": "2026-11-05T01:40:43.821125+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Auburn",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Alabama",
  "players": [
   {
-   "pos": "",
+   "pos": "LB",
    "no": "7",
    "name": "Whit Weeks",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "S",
    "no": "10",
    "name": "Dashawn Spears",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "15",
    "name": "Phillip Wright III",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "26",
    "name": "Charles Ross II",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
+   "no": "35",
+   "name": "Zach Weeks",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
    "no": "88",
    "name": "Richard Anderson",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

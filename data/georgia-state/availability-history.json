@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-state",
- "updated": "2026-10-31T14:40:33.434142+00:00",
+ "updated": "2026-11-05T01:40:37.751036+00:00",
  "reports": [
   {
    "schema": 1,
@@ -80,6 +80,95 @@
      "no": "",
      "name": "Eric Lee",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "georgia-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:37.751036+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-05",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "at App State",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Cameran Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Jamari Miller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Kelze Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Malique Harrell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Owen Dupree",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Ryan Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jordan Brown",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Deuce Walker",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Coby Owens",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Toby Bolton",
+     "status": "questionable",
      "detail": ""
     }
    ],

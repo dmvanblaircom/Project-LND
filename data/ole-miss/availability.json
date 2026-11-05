@@ -7,18 +7,25 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T15:18:21.488271+00:00",
+ "fetchedAt": "2026-11-05T01:40:46.012462+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Auburn",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Georgia",
  "players": [
   {
    "pos": "CB",
    "no": "0",
    "name": "Jalyn Crawford",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "5",
+   "name": "Kam Franklin",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -26,6 +33,13 @@
    "no": "5",
    "name": "Kewan Lacy",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "11",
+   "name": "Keaton Thomas",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -39,7 +53,7 @@
    "pos": "CB",
    "no": "13",
    "name": "Cedrick Beavers",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -53,7 +67,7 @@
    "pos": "S",
    "no": "19",
    "name": "MJ Preston",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -71,9 +85,9 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "34",
-   "name": "Iverson McCoy",
+   "pos": "S",
+   "no": "39",
+   "name": "Gerald Lacy Jr.",
    "status": "out-game",
    "detail": ""
   },
@@ -86,8 +100,22 @@
   },
   {
    "pos": "OL",
-   "no": "71",
-   "name": "Emanuel Faulkner",
+   "no": "55",
+   "name": "Terez Davis",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "57",
+   "name": "Carius Curne",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "81",
+   "name": "Samari Reed",
    "status": "out-game",
    "detail": ""
   }

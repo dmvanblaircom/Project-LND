@@ -7,69 +7,55 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:02.919808+00:00",
+ "fetchedAt": "2026-11-05T01:40:43.453206+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "vs. Vanderbilt",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Tennessee",
  "players": [
   {
-   "pos": "",
+   "pos": "OLB",
    "no": "2",
    "name": "Sam Greene",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "4",
-   "name": "Nic Anderson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "ILB",
    "no": "4",
    "name": "Antwan Smith",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "11",
-   "name": "Lincoln Watkins",
+   "pos": "ILB",
+   "no": "17",
+   "name": "Justyn Hartley",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
    "no": "24",
    "name": "Jaden Smith",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DB",
+   "no": "27",
+   "name": "Isaiah McMillian",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "30",
    "name": "Grant Grayton",
    "status": "out-game",
    "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "40",
-   "name": "Cole Marszalek",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "97",
-   "name": "Tyler Thomas",
-   "status": "gtd",
-   "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

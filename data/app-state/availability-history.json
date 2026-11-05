@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "app-state",
- "updated": "2026-10-31T14:40:26.240394+00:00",
+ "updated": "2026-11-05T01:40:29.769861+00:00",
  "reports": [
   {
    "schema": 1,
@@ -87,6 +87,116 @@
      "no": "",
      "name": "Brooks Yurachek",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "app-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:29.769861+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-05",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "vs. Georgia State",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Cary Grant",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jordan Harris",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Devon Manuel",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Aiden Benton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jayden Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Kamauri Austin",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "J'Marion Burnette",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Darrin Fugitt",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Tyriq Poindexter",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Ja'Cari Henderson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Keshawn Thomas",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Dre Walker",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Brooks Yurachek",
+     "status": "questionable",
      "detail": ""
     }
    ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "auburn",
- "updated": "2026-10-31T15:18:09.898722+00:00",
+ "updated": "2026-11-05T01:40:31.394800+00:00",
  "reports": [
   {
    "schema": 1,
@@ -224,6 +224,60 @@
      "no": "85",
      "name": "Hunter Herring",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "auburn",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:31.394800+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Arkansas",
+   "players": [
+    {
+     "pos": "S",
+     "no": "0",
+     "name": "Sylvester Smith-Reed",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Jeremiah Koger",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "22",
+     "name": "Andre Jordan Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "71",
+     "name": "Tai Buster",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "85",
+     "name": "Hunter Herring",
+     "status": "questionable",
      "detail": ""
     }
    ],

@@ -7,32 +7,25 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T18:11:01.027210+00:00",
+ "fetchedAt": "2026-11-05T01:40:37.179244+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Georgia",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Oklahoma",
  "players": [
   {
    "pos": "WR",
    "no": "1",
    "name": "Vernell Brown III",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "3",
    "name": "Bailey Stockton",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "20",
-   "name": "Duke Clark",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -40,6 +33,34 @@
    "no": "29",
    "name": "Jaden Robinson",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "66",
+   "name": "Emeka Ugorji",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "85",
+   "name": "Evan Chieca",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "91",
+   "name": "Jeramiah McCloud",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Emmanuel Oyebadejo",
+   "status": "questionable",
    "detail": ""
   }
  ],

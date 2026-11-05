@@ -7,53 +7,53 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:38.760353+00:00",
+ "fetchedAt": "2026-11-05T01:40:46.960678+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. LA Tech",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "at Louisiana",
  "players": [
   {
-   "pos": "DB",
+   "pos": "OL",
    "no": "",
-   "name": "Laseter, Matt",
+   "name": "Kidd, Julius",
    "status": "out-season",
    "detail": ""
   },
   {
-   "pos": "OLB",
+   "pos": "WR",
    "no": "",
-   "name": "Johnson, Tirrell",
-   "status": "out-game",
+   "name": "Woods, Micah",
+   "status": "out-season",
    "detail": ""
   },
   {
-   "pos": "OL",
+   "pos": "DB",
    "no": "",
-   "name": "Korchagin, Artem",
+   "name": "Blaylock, Cole",
    "status": "out-game",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "",
-   "name": "Mosley, Demetress",
+   "name": "Hand, Perry",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "OL",
    "no": "",
-   "name": "Graham, Jerrian",
-   "status": "gtd",
+   "name": "Hubbard, Shalik",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "DL",
    "no": "",
-   "name": "Jones-Thomas, Jeremiah",
-   "status": "gtd",
+   "name": "Lewis, Masey",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -88,6 +88,13 @@
    "pos": "ILB",
    "no": "",
    "name": "Dozier, Caleb",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Laseter, Matt",
    "status": "out-season",
    "detail": ""
   }

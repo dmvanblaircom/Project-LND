@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "vanderbilt",
- "updated": "2026-10-28T03:39:05.211712+00:00",
+ "updated": "2026-11-05T01:40:49.320153+00:00",
  "reports": [
   {
    "schema": 1,
@@ -335,6 +335,102 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "vanderbilt",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:49.320153+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Mississippi State",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Blaze Berlowitz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "2",
+     "name": "Jaylin Lackey",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "10",
+     "name": "Brian Allen Jr.",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "18",
+     "name": "Josiah Broxton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "Jamison Curtis",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "23",
+     "name": "Evan Hampton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "34",
+     "name": "Daniel Vollmer Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Gunner Givens",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Aaron Bryant",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "93",
+     "name": "Nikhil Jefferson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "96",
+     "name": "Khalil Poteat",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ole-miss",
- "updated": "2026-10-31T15:18:21.488271+00:00",
+ "updated": "2026-11-05T01:40:46.012462+00:00",
  "reports": [
   {
    "schema": 1,
@@ -482,6 +482,130 @@
      "pos": "OL",
      "no": "71",
      "name": "Emanuel Faulkner",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "ole-miss",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:46.012462+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Georgia",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "0",
+     "name": "Jalyn Crawford",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "5",
+     "name": "Kam Franklin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "5",
+     "name": "Kewan Lacy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "11",
+     "name": "Keaton Thomas",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "12",
+     "name": "Izaiah Hartrup",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "13",
+     "name": "Cedrick Beavers",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "14",
+     "name": "Edwin Joseph",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "19",
+     "name": "MJ Preston",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "26",
+     "name": "Ant Davis Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "27",
+     "name": "Kervin Johnson Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "39",
+     "name": "Gerald Lacy Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "46",
+     "name": "Nascar McCoy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Terez Davis",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "57",
+     "name": "Carius Curne",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "81",
+     "name": "Samari Reed",
      "status": "out-game",
      "detail": ""
     }

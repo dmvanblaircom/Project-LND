@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-alabama",
- "updated": "2026-10-31T14:40:38.760353+00:00",
+ "updated": "2026-11-05T01:40:46.960678+00:00",
  "reports": [
   {
    "schema": 1,
@@ -93,6 +93,109 @@
      "pos": "ILB",
      "no": "",
      "name": "Dozier, Caleb",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "south-alabama",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:46.960678+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-05",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "at Louisiana",
+   "players": [
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Kidd, Julius",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Woods, Micah",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Blaylock, Cole",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Hand, Perry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Hubbard, Shalik",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Lewis, Masey",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Barnes, Brian",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Chiedo, Dylan",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Lynch, Maddox",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Marion, Khatori",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Dozier, Caleb",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Laseter, Matt",
      "status": "out-season",
      "detail": ""
     }

@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:33.434142+00:00",
+ "fetchedAt": "2026-11-05T01:40:37.751036+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Coastal Carolina",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "at App State",
  "players": [
   {
    "pos": "QB",
@@ -22,9 +22,9 @@
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "WR",
    "no": "",
-   "name": "Curtis Walker",
+   "name": "Jamari Miller",
    "status": "out-game",
    "detail": ""
   },
@@ -36,16 +36,9 @@
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "DB",
    "no": "",
-   "name": "Eric Butler",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Ryan Green",
+   "name": "Malique Harrell",
    "status": "out-game",
    "detail": ""
   },
@@ -57,9 +50,9 @@
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "ILB",
    "no": "",
-   "name": "Jamari Miller",
+   "name": "Ryan Green",
    "status": "out-game",
    "detail": ""
   },
@@ -73,8 +66,22 @@
   {
    "pos": "DB",
    "no": "",
-   "name": "Eric Lee",
-   "status": "gtd",
+   "name": "Deuce Walker",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Coby Owens",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Toby Bolton",
+   "status": "questionable",
    "detail": ""
   }
  ],

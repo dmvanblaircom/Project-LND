@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tennessee",
- "updated": "2026-10-28T03:39:04.706489+00:00",
+ "updated": "2026-11-05T01:40:47.709091+00:00",
  "reports": [
   {
    "schema": 1,
@@ -356,6 +356,67 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "tennessee",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:47.709091+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Kentucky",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "0",
+     "name": "Ethan Davis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Joakim Dodson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "12",
+     "name": "Jaedon Harmon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "15",
+     "name": "Edrees Farooq",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "24",
+     "name": "Dylan Lewis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Wendell Moe Jr.",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

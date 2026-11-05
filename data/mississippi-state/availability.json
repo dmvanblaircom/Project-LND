@@ -7,12 +7,12 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T22:10:10.447870+00:00",
+ "fetchedAt": "2026-11-05T01:40:44.766665+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Texas",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Vanderbilt",
  "players": [
   {
    "pos": "QB",
@@ -39,13 +39,20 @@
    "pos": "LB",
    "no": "11",
    "name": "Tyler Lockhart",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "11",
    "name": "Ayden Williams",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "16",
+   "name": "Derion Gullette",
    "status": "out-game",
    "detail": ""
   },
@@ -53,13 +60,6 @@
    "pos": "DL",
    "no": "23",
    "name": "Trevion Williams",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "78",
-   "name": "DJ Chester",
    "status": "out-game",
    "detail": ""
   },

@@ -3,13 +3,59 @@
  "team": "arkansas-state",
  "capability": "availability",
  "tier": "official",
- "game": null,
- "sourceUrl": null,
+ "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
- "reported": false,
- "effectiveAt": null,
- "heading": null,
- "players": [],
- "fetchedAt": null
+ "parser": 1,
+ "fetchedAt": "2026-11-05T01:40:30.714514+00:00",
+ "reported": true,
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "vs. ULM",
+ "players": [
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Baker North",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Devin Spencer",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Sterling Wiggins",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Sultan Badmus",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Nigel Nelson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Jakohri Johnson",
+   "status": "probable",
+   "detail": ""
+  }
+ ],
+ "current": true
 }

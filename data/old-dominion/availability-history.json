@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "old-dominion",
- "updated": "2026-10-31T14:40:37.408995+00:00",
+ "updated": "2026-11-05T01:40:45.906734+00:00",
  "reports": [
   {
    "schema": 1,
@@ -59,6 +59,67 @@
      "no": "",
      "name": "Zialis Blackmon",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Sidney Mbanasor",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "DJ Thompson",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "old-dominion",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:45.906734+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-05",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "at Coastal Carolina",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Quinn Henicle",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Zion Frink",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Lucas Struck",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "JJ Harrell",
+     "status": "doubtful",
      "detail": ""
     },
     {

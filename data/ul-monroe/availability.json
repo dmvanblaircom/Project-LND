@@ -7,13 +7,34 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:40.799830+00:00",
+ "fetchedAt": "2026-11-05T01:40:48.855007+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Southern Miss",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "at Arkansas State",
  "players": [
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "RJ Hall",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Kaliem Croswell",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Le'kell McGowan",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "",
@@ -29,31 +50,31 @@
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "OL",
    "no": "",
-   "name": "Tyrell Brown",
-   "status": "gtd",
+   "name": "Van Martinez",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "RB",
    "no": "",
-   "name": "RJ Hall",
-   "status": "out-game",
+   "name": "Zach Palmer Smith",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "OLB",
+   "pos": "RB",
    "no": "",
-   "name": "Le'kell McGowan",
-   "status": "out-game",
+   "name": "Claude Phillip",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "WR",
    "no": "",
-   "name": "Ameyr Adams",
-   "status": "gtd",
+   "name": "Darrian Gilliam",
+   "status": "questionable",
    "detail": ""
   },
   {

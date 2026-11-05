@@ -7,13 +7,20 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T22:40:28.154969+00:00",
+ "fetchedAt": "2026-11-05T01:40:30.630544+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Missouri",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Auburn",
  "players": [
+  {
+   "pos": "RB",
+   "no": "0",
+   "name": "Braylen Russell",
+   "status": "probable",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "3",
@@ -25,7 +32,14 @@
    "pos": "WR",
    "no": "6",
    "name": "Chris Marshall",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "35",
+   "name": "Steven Soles Jr.",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -36,17 +50,17 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "52",
-   "name": "Caden Kitler",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "89",
    "name": "Gavin Garretson",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "97",
+   "name": "Quincy Rhodes Jr.",
+   "status": "probable",
    "detail": ""
   }
  ],

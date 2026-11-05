@@ -7,13 +7,20 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T19:11:11.295264+00:00",
+ "fetchedAt": "2026-11-05T01:40:45.729184+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. South Carolina",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Florida",
  "players": [
+  {
+   "pos": "WR",
+   "no": "5",
+   "name": "Jer'Michael Carter",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "LB",
    "no": "7",
@@ -39,7 +46,7 @@
    "pos": "WR",
    "no": "14",
    "name": "Elijah Thomas",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -53,7 +60,7 @@
    "pos": "DB",
    "no": "22",
    "name": "Peyton Bowen",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -67,7 +74,7 @@
    "pos": "DB",
    "no": "23",
    "name": "Eli Bowen",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -81,14 +88,14 @@
    "pos": "OL",
    "no": "55",
    "name": "Eddy Pierre-Louis",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "69",
    "name": "Jake Maikkula",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -103,6 +110,20 @@
    "no": "72",
    "name": "Fred Hinton",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "81",
+   "name": "Rocky Beers",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "94",
+   "name": "Kenny Ozowalu",
+   "status": "questionable",
    "detail": ""
   }
  ],

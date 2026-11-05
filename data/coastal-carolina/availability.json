@@ -7,48 +7,13 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:32.206893+00:00",
+ "fetchedAt": "2026-11-05T01:40:36.599931+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Georgia State",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "vs. Old Dominion",
  "players": [
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Mason Barton",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Jayden Jackson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Jayden Johnson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Dom Rijos",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Travis Roman",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "OL",
    "no": "",
@@ -57,10 +22,38 @@
    "detail": ""
   },
   {
+   "pos": "OL",
+   "no": "",
+   "name": "Dom Rijos",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Breyhan Townsend",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "",
-   "name": "Goldie Lawrence",
-   "status": "out-game",
+   "name": "Jayden Johnson",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Mason Barton",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Travis Roman",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -7,76 +7,90 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:05.211712+00:00",
+ "fetchedAt": "2026-11-05T01:40:49.320153+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Kentucky",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Mississippi State",
  "players": [
   {
-   "pos": "",
+   "pos": "QB",
    "no": "1",
    "name": "Blaze Berlowitz",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
    "no": "2",
    "name": "Jaylin Lackey",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "EDG",
    "no": "10",
    "name": "Brian Allen Jr.",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "18",
    "name": "Josiah Broxton",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "20",
    "name": "Jamison Curtis",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "23",
+   "name": "Evan Hampton",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
+   "no": "34",
+   "name": "Daniel Vollmer Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "50",
    "name": "Gunner Givens",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DL",
    "no": "55",
    "name": "Aaron Bryant",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "81",
-   "name": "Kahden Smith",
-   "status": "out-game",
+   "pos": "DL",
+   "no": "93",
+   "name": "Nikhil Jefferson",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "93",
-   "name": "Nikhil Jefferson",
-   "status": "out-game",
+   "pos": "EDG",
+   "no": "96",
+   "name": "Khalil Poteat",
+   "status": "questionable",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

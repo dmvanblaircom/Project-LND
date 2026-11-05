@@ -7,18 +7,32 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T15:18:09.898722+00:00",
+ "fetchedAt": "2026-11-05T01:40:31.394800+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Ole Miss",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Arkansas",
  "players": [
+  {
+   "pos": "S",
+   "no": "0",
+   "name": "Sylvester Smith-Reed",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "4",
    "name": "Jeremiah Koger",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "22",
+   "name": "Andre Jordan Jr.",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -32,7 +46,7 @@
    "pos": "TE",
    "no": "85",
    "name": "Hunter Herring",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "alabama",
- "updated": "2026-10-28T03:38:59.876824+00:00",
+ "updated": "2026-11-05T01:40:29.633187+00:00",
  "reports": [
   {
    "schema": 1,
@@ -452,6 +452,109 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "alabama",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:29.633187+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "LSU",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "AK Dear",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Ryan Coleman-Williams",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Zabien Brown",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "9",
+     "name": "Desmond Umeozulu",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "13",
+     "name": "EJ Crowell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "15",
+     "name": "Jett Thomalla",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "23",
+     "name": "Cayden Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "29",
+     "name": "Nick Sherman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Racin Delgatty",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "William Sanders",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "92",
+     "name": "Jeremiah Beaman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Terrance Green",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia",
- "updated": "2026-10-31T18:11:01.433396+00:00",
+ "updated": "2026-11-05T01:40:37.573703+00:00",
  "reports": [
   {
    "schema": 1,
@@ -343,6 +343,81 @@
      "no": "23",
      "name": "Tyriq Green",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "georgia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:37.573703+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Ole Miss",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "Thomas Blackshear",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "5",
+     "name": "Chauncey Bowens",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Isiah Canion",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "10",
+     "name": "Elyiss Williams",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "13",
+     "name": "AJ Kruah",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "17",
+     "name": "Amaris Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "23",
+     "name": "Tyriq Green",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Joseph Jonah-Ajonye",
+     "status": "questionable",
      "detail": ""
     }
    ],

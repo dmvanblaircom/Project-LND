@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-10-31T19:11:11.295264+00:00",
+ "updated": "2026-11-05T01:40:45.729184+00:00",
  "reports": [
   {
    "schema": 1,
@@ -436,6 +436,137 @@
      "no": "72",
      "name": "Fred Hinton",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "oklahoma",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:40:45.729184+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Florida",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "5",
+     "name": "Jer'Michael Carter",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "7",
+     "name": "Taylor Heim",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "9",
+     "name": "Dakoda Fields",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Trell Harris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "14",
+     "name": "Elijah Thomas",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "18",
+     "name": "Cole Sullivan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "22",
+     "name": "Peyton Bowen",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "22",
+     "name": "Trynae Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "23",
+     "name": "Eli Bowen",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "24",
+     "name": "Jacobe Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Eddy Pierre-Louis",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Jake Maikkula",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Ryan Fodje",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "Fred Hinton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Rocky Beers",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "Kenny Ozowalu",
+     "status": "questionable",
      "detail": ""
     }
    ],

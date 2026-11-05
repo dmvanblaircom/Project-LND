@@ -7,41 +7,48 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T03:39:04.918261+00:00",
+ "fetchedAt": "2026-11-05T01:40:47.923820+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Alabama",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "South Carolina",
  "players": [
   {
-   "pos": "",
+   "pos": "RB",
+   "no": "0",
+   "name": "KJ Edwards",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "0",
+   "name": "Noah Mikhail",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "6",
    "name": "Terry Bussey",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "11",
    "name": "Kelshaun Johnson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "14",
-   "name": "Anto Saka",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "OL",
    "no": "52",
    "name": "Blake Ivy",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }
