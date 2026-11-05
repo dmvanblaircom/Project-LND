@@ -89,9 +89,28 @@ Home and More.
    | the conference's name | strong | strong | fails for Notre Dame | "Mountain West" does not fit |
    | League | fair | fair | odd for Notre Dame | fits |
 
-   Recommendation: "Around" in the nav, and "Around Notre Dame" (or the
-   team's mark with "Around ND") as the screen's heading, where there is
-   room for any team's name.
+   Recommendation (first round): "Around" in the nav, "Around Notre Dame"
+   as the heading. David, 2026-11-05: OK, but "Around" reads like news, and
+   the tab is upcoming games and live scores of games that matter to his
+   team - not convinced yet. Game words, measured the same way (widest
+   team at 320 px, 57.8 px of room):
+
+   | Name | Fits every team | Widest at 320 px |
+   |---|---|---|
+   | Scores | yes | 40.2 |
+   | Slate | yes | 30.2 |
+   | Radar | yes | 36.1 |
+   | The Race | yes | 55.8 |
+   | Saturday | yes | 54.5 |
+   | Stakes | yes | 40.1 |
+   | Matchups | 13 teams over at 320 px | 60.5 |
+   | Scoreboard | no team at 320 px | 69.9 |
+
+   Recommendation (second round): "Scores", the most familiar game word
+   across fan bases, with the team in the heading ("Scores · Notre Dame").
+   Runner-up: "Slate", which works out of season (next season's slate) but
+   is less familiar.
+
 2. **A ranked team's order.** For a team in the CFP race, does Top 25 come
    before the conference? Recommendation: conference first for everyone,
    and the CFP layer leads for an independent.
