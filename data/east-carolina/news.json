@@ -1,7 +1,16 @@
 {
  "team": "east-carolina",
- "updated": "2026-11-01T02:38:16.339351+00:00",
+ "updated": "2026-11-05T15:08:04.896366+00:00",
  "items": [
+  {
+   "title": "Dickerson Named Burlsworth Trophy Nominee",
+   "link": "https://ecupirates.com/news/2026/11/5/football-dickerson-named-burlsworth-trophy-nominee",
+   "source": "ECU Athletics",
+   "summary": "<img alt=\"Jason Dickerson 2026-ASU\" src=\"https://ecupirates.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/4/JasonDickersonWeb2026.jpg\" /><br /><br />FAYETTEVILLE, Ark. \u2013 East Carolina wide receiver Jason Dickerson is one of 65 nominees for the 2026 Burlsworth Trophy, which recognizes outstanding college football players from across the country who began their careers as walk-ons and have distinguished themselves through their performance, determination and perseverance.",
+   "image": "https://ecupirates.com/images/2026/11/4/JasonDickersonWeb2026.jpg?width=800",
+   "sourceLogo": "https://ecupirates.com/favicon.ico",
+   "published": "2026-11-05T15:00:00+00:00"
+  },
   {
    "title": "East Carolina Defeats Temple, 17-9",
    "link": "https://ecupirates.com/news/2026/10/31/football-east-carolina-defeats-temple-17-9",
@@ -82,15 +91,6 @@
    "image": "https://ecupirates.com/images/2026/10/12/101226CoastalWebGraphic.jpg?width=800",
    "sourceLogo": "https://ecupirates.com/favicon.ico",
    "published": "2026-10-13T17:29:00+00:00"
-  },
-  {
-   "title": "ECU Wins American Conference Opener Over Rice, 28-12",
-   "link": "https://ecupirates.com/news/2026/10/10/football-ecu-wins-american-conference-opener-over-rice-28-12",
-   "source": "ECU Athletics",
-   "summary": "<img alt=\"ECU Defense 101026\" src=\"https://ecupirates.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/ECUDefense-Rice.jpg\" /><br /><br />GREENVILLE, N.C. \u2013 The threat of rain and wind from the remnants of Hurricane Isaia put a small damper on East Carolina's annual homecoming game and American Conference opener. But another big day from T.J. Engleman Jr. combined with a relentless defense ensured the party would not be spoiled.",
-   "image": "https://ecupirates.com/images/2026/10/10/ECUDefense-Rice.jpg?width=800",
-   "sourceLogo": "https://ecupirates.com/favicon.ico",
-   "published": "2026-10-10T23:47:00+00:00"
   }
  ]
 }
