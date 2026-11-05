@@ -46,6 +46,34 @@ PRs before work.
   the edge Worker to accept, store or forward it, plus spam protection and a
   privacy note for the email address. Feedback arrives at
   suiteappfeedback@gmail.com.
+- **The wire: in-the-moment updates for a team (David, 2026-11-05).** Short,
+  fast, attributed updates, all year, not only articles: "After further
+  testing, Miami WR Malachi Toney is expected to undergo surgery on the ankle
+  he hurt in practice today, per CBS Sports" (Sleeper's CFB feed, Nov 5). A
+  fan wants it the moment it posts. It is personal twice over: Miami's news
+  for a Miami fan, and big news for a Notre Dame fan in the week ND plays
+  Miami, so an opponent's updates belong in the wire in the week of the game.
+  Sources to weigh, none chosen:
+  - Sleeper's in-app CFB feed carries these, but its public API (as far as
+    known) is NFL data only; its feed sits behind the app's private backend.
+    Reading that without Sleeper's permission is off the table, as Faktor's
+    embed was. A partnership or licensed access is the clean way.
+  - Licensed player-news feeds that cover college football (RotoWire,
+    SportsDataIO, Sportradar and similar): legitimate, paid; prices not yet
+    known - quote before deciding.
+  - The reporters themselves: X's API is paid; Bluesky's is free but
+    reporter coverage varies by team and needs a per-team sourcing pass.
+  - Faster reading of what Suite already has (beat RSS every run since
+    #221; ESPN news): fastest to ship, slower than a wire.
+  Next step: a brief with sources, costs and what each covers for a sample
+  of teams. A product and money decision for David.
+- **The team's former players in the NFL (David, 2026-11-05).** For example
+  "Irish in the NFL": each alum's NFL team, role and injury status. Sleeper's
+  public API (no key, read-only) has NFL players with injury status, injury
+  notes and practice participation; its college field would tie an NFL
+  player to the program. Not verified from this session (its docs host is
+  outside the session's network); a read-only probe from Actions comes
+  first. New scope: a brief before building.
 - **In-game injuries (parked, David, 2026-11-02).** ESPN's play-by-play,
   which Suite already polls in a live game, tags injuries in the play text
   ("#9 Z.Grady injured on the play"); Suite does not read them yet. Parked
