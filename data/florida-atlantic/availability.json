@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T13:27:57.122687+00:00",
+ "fetchedAt": "2026-11-05T22:38:57.744148+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
+ "effectiveAt": "2026-11-05",
  "heading": "Game Day",
- "kickoffDate": "2026-10-29",
- "game": "at North Texas",
+ "kickoffDate": "2026-11-05",
+ "game": "UTSA",
  "players": [
   {
    "pos": "TE",
@@ -36,6 +36,13 @@
    "detail": ""
   },
   {
+   "pos": "CB",
+   "no": "8",
+   "name": "Chris Tooley III",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "TE",
    "no": "11",
    "name": "Brooks Johnson",
@@ -43,10 +50,17 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "21",
+   "name": "Nate Fischer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "30",
    "name": "Justin Weatherall",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -58,23 +72,9 @@
   },
   {
    "pos": "OL",
-   "no": "55",
-   "name": "Rain Banick",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "57",
    "name": "Ja'Kavion Nonar",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "62",
-   "name": "Vincent Fiacable",
-   "status": "questionable",
    "detail": ""
   },
   {

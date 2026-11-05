@@ -1,7 +1,16 @@
 {
  "team": "troy",
- "updated": "2026-11-05T15:08:17.758985+00:00",
+ "updated": "2026-11-05T22:38:20.775843+00:00",
  "items": [
+  {
+   "title": "Troy Hosts Louisiana Tech for Homecoming",
+   "link": "https://troytrojans.com/news/2026/11/5/troy-hosts-louisiana-tech-for-homecoming",
+   "source": "Troy Athletics",
+   "summary": "<img alt=\"Troy University\" src=\"https://troytrojans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/5/Kilcrease_Tucker_JM_1.jpg\" /><br /><br />",
+   "image": "https://troytrojans.com/images/2026/11/5/Kilcrease_Tucker_JM_1.jpg?width=800",
+   "sourceLogo": "https://troytrojans.com/favicon.ico",
+   "published": "2026-11-05T22:13:00+00:00"
+  },
   {
    "title": "Special Episode of Trojan Talk TONIGHT at Baumhower\u2019s Tonight; 81 Cent Wings",
    "link": "https://troytrojans.com/news/2026/11/5/football-trojan-talk-returns-to-baumhowers-tonight-81-cent-wings",
@@ -82,15 +91,6 @@
    "image": "https://troytrojans.com/images/2026/10/27/Troy_26_FB_Watch_Party_1920x1080.jpg?width=800",
    "sourceLogo": "https://troytrojans.com/favicon.ico",
    "published": "2026-10-27T14:59:00+00:00"
-  },
-  {
-   "title": "Gerad Parker Press Conference - James Madison Game",
-   "link": "https://troytrojans.com/news/2026/10/26/football-gerad-parker-press-conference-james-madison-game",
-   "source": "Troy Athletics",
-   "summary": "<img alt=\"Parker\" src=\"https://troytrojans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/Parker_Gerad_AC_2.jpg\" /><br /><br />",
-   "image": "https://troytrojans.com/images/2026/10/26/Parker_Gerad_AC_2.jpg?width=800",
-   "sourceLogo": "https://troytrojans.com/favicon.ico",
-   "published": "2026-10-26T18:52:00+00:00"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utsa",
- "updated": "2026-10-30T13:28:07.138324+00:00",
+ "updated": "2026-11-05T22:39:08.204279+00:00",
  "reports": [
   {
    "schema": 1,
@@ -337,6 +337,88 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "utsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T22:39:08.204279+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-05",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-05",
+   "game": "Florida Atlantic",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "10",
+     "name": "Lawrence Brown Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "12",
+     "name": "Marcellus Wilkerson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "MB",
+     "no": "16",
+     "name": "Chris Bryson II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "19",
+     "name": "Johnny Bowens III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "21",
+     "name": "Jarvse \"Duece\" Dickerson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Bryson Donnell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "23",
+     "name": "Brandon Tucker",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "23",
+     "name": "Mykha Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "53",
+     "name": "Sekope Wallace",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }
