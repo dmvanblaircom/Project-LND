@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "james-madison",
- "updated": "2026-11-03T01:08:47.731655+00:00",
+ "updated": "2026-11-05T15:38:42.833187+00:00",
  "reports": [
   {
    "schema": 1,
@@ -66,18 +66,18 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-03T01:08:47.731655+00:00",
+   "fetchedAt": "2026-11-05T15:38:42.833187+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-03",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-05",
    "game": "at Southern Miss",
    "players": [
     {
      "pos": "WR",
      "no": "",
-     "name": "Noah Grevious",
-     "status": "questionable",
+     "name": "Kylan Billiot",
+     "status": "gtd",
      "detail": ""
     },
     {

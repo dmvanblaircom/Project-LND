@@ -1,7 +1,16 @@
 {
  "team": "oklahoma-state",
- "updated": "2026-11-05T14:08:10.008749+00:00",
+ "updated": "2026-11-05T15:38:06.790148+00:00",
  "items": [
+  {
+   "title": "Inside the Numbers \u2013 Oklahoma State vs Kansas State",
+   "link": "https://okstate.com/news/2026/11/5/cowboy-football-inside-the-numbers-oklahoma-state-vs-kansas-state",
+   "source": "Oklahoma State Athletics",
+   "summary": "<img alt=\"Cowboy FB vs Iowa State\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/4/261031_football_iowa_state_db__359.jpg\" /><br /><br />STILLWATER \u2013 Oklahoma State heads north to Kansas State on Saturday, Nov. 7, at Noon CT on TNT at Bill Snyder Family Stadium.",
+   "image": "https://okstate.com/images/2026/11/4/261031_football_iowa_state_db__359.jpg?width=800",
+   "sourceLogo": "https://okstate.com/favicon.ico",
+   "published": "2026-11-05T15:00:00+00:00"
+  },
   {
    "title": "Oklahoma State Lists Tate Romney, Jaleel Johnson as Doubtful for Kansas State Game",
    "link": "https://www.si.com/college/oklahomastate/football/oklahoma-state-tate-romney-jaleel-johnson-doubtful-kansas-state-game?utm_source=RSS",
@@ -316,15 +325,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/05/30213500/2027-OK-LB-Bryson-Brown3.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-29T01:19:17+00:00"
-  },
-  {
-   "title": "Cowboys in the NFL: Week Seven",
-   "link": "https://okstate.com/news/2026/10/28/cowboy-football-cowboys-in-the-nfl-week-seven",
-   "source": "Oklahoma State Athletics",
-   "summary": "<img alt=\"Ollie Gordon\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/images.jpeg\" /><br /><br />STILLWATER -\u00a0The 2026-27 NFL regular season reached its seventh week this past weekend, with former Cowboys at the center of several storylines.",
-   "image": "https://okstate.com/images/2026/10/28/images.jpeg?width=800",
-   "sourceLogo": "https://okstate.com/favicon.ico",
-   "published": "2026-10-28T15:00:00+00:00"
   }
  ]
 }

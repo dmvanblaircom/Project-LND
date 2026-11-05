@@ -1,7 +1,16 @@
 {
  "team": "arkansas",
- "updated": "2026-11-05T13:08:02.720177+00:00",
+ "updated": "2026-11-05T15:37:57.163522+00:00",
  "items": [
+  {
+   "title": "Know Your Foe: Auburn Tigers",
+   "link": "https://on3.com/sites/hawg-beat/news/know-your-foe-auburn-tigers-2/",
+   "source": "HawgBeat",
+   "summary": "HawgBeat caught up with Auburn beat writer Adam Cole to get a deeper knowledge of the Tigers.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28115627/alex-golesh-auburn-football-4.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-05T15:30:00+00:00"
+  },
   {
    "title": "4-Star QB Prospect Nash Henry Sees Future in Arkansas\u2019 Offense Despite Struggles",
    "link": "https://www.si.com/college/arkansas/football/4-star-qb-prospect-nash-henry-sees-future-in-arkansas-offense-despite-struggles?utm_source=RSS",
@@ -307,15 +316,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/30154033/Q-HTW.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-31T11:30:00+00:00"
-  },
-  {
-   "title": "Arkansas Football Availability Report: Missouri week (Friday)",
-   "link": "https://on3.com/sites/hawg-beat/news/arkansas-football-availability-report-missouri-week-friday/",
-   "source": "HawgBeat",
-   "summary": "The third SEC Availability Report for Arkansas versus Missouri was released on Friday.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/23092144/Silv-PFF.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-31T00:10:59+00:00"
   }
  ]
 }

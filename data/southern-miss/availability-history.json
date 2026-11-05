@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "southern-miss",
- "updated": "2026-11-03T05:39:05.990601+00:00",
+ "updated": "2026-11-05T15:38:47.487659+00:00",
  "reports": [
   {
    "schema": 1,
@@ -101,10 +101,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-03T01:08:53.212743+00:00",
+   "fetchedAt": "2026-11-05T15:38:47.487659+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-03",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-05",
    "game": "vs. James Madison",
    "players": [
@@ -113,41 +113,6 @@
      "no": "",
      "name": "Jaylen Himes",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Dante Devine",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Will Smith",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Luke Rogers",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Greg Nunnery",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
-     "name": "Caleb Triplett",
-     "status": "probable",
      "detail": ""
     },
     {
