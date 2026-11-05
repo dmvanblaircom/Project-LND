@@ -1,7 +1,16 @@
 {
  "team": "iowa",
- "updated": "2026-11-05T01:43:40.349905+00:00",
+ "updated": "2026-11-05T02:38:05.399891+00:00",
  "items": [
+  {
+   "title": "Extensive injury report for the Hawkeyes",
+   "link": "https://on3.com/teams/iowa-hawkeyes/news/iowa-hawkeyes-football-injury-report/",
+   "source": "On3",
+   "summary": "Kirk Ferentz said on Tuesday that the Hawkeyes had a lot of injured players this week. He was not kidding.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24233119/Kirk-Ferentz-26.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-05T02:09:43+00:00"
+  },
   {
    "title": "Football | Hawk Talk with Kirk Ferentz | 11.4.2026",
    "link": "https://hawkeyesports.com/news/2026/11/5/football-hawk-talk-with-kirk-ferentz-1142026",
@@ -343,15 +352,6 @@
    "image": "https://dailyiowan.com/wp-content/uploads/2025/04/Football_Basketball_postseason_.jpg",
    "sourceLogo": null,
    "published": "2026-11-03T18:43:47+00:00"
-  },
-  {
-   "title": "Tuesdays with Torbee",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/tuesday-torbee-iowa-football-wisconsin/",
-   "source": "On3",
-   "summary": "It's Tuesday and Torbee has thoughts on the Iowa win over Wisconsin.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31171557/Heartland-Trophy1-1.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-03T18:15:07+00:00"
   },
   {
    "title": "Iowa Football vs. Northwestern Shows College Football's Changing of the Guard",
