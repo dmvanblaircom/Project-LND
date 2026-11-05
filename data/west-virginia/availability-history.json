@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "west-virginia",
- "updated": "2026-10-29T14:09:48.690368+00:00",
+ "updated": "2026-11-05T03:09:03.201472+00:00",
  "reports": [
   {
    "schema": 1,
@@ -286,6 +286,95 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "west-virginia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T03:09:03.201472+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Texas Tech",
+   "players": [
+    {
+     "pos": "S",
+     "no": "3",
+     "name": "Matt Sieg",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "6",
+     "name": "Da'Mare Williams",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "8",
+     "name": "Jyron Hughley",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "12",
+     "name": "Jacob Bradford",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "19",
+     "name": "Nick Taylor",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "N/S",
+     "no": "23",
+     "name": "Emory Snyder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "25",
+     "name": "Armoni Weaver-Bomar",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "26",
+     "name": "Andre Devine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "Lawrence Autry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "91",
+     "name": "Darius Wiley",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

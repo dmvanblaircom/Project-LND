@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-tech",
- "updated": "2026-10-31T14:40:40.017864+00:00",
+ "updated": "2026-11-05T03:09:00.818187+00:00",
  "reports": [
   {
    "schema": 1,
@@ -275,6 +275,88 @@
      "no": "11",
      "name": "Malcolm Simmons",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "texas-tech",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T03:09:00.818187+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "West Virginia",
+   "players": [
+    {
+     "pos": "S",
+     "no": "0",
+     "name": "Mikal Harrison-Pilot",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "Kenny Johnson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "3",
+     "name": "Peyton Morgan",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Jalen Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Malcolm Simmons",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "21",
+     "name": "Miquel Dingle Jr.",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "22",
+     "name": "Marcus Ramon-Edwards",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "33",
+     "name": "Ansel Nedore",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "54",
+     "name": "Jordan Church",
+     "status": "probable",
      "detail": ""
     }
    ],

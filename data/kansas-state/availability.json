@@ -7,13 +7,20 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T16:41:05.335357+00:00",
+ "fetchedAt": "2026-11-05T03:08:53.965228+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Colorado",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Oklahoma State",
  "players": [
+  {
+   "pos": "S",
+   "no": "0",
+   "name": "Koy Beasley",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "QB",
    "no": "2",
@@ -26,6 +33,34 @@
    "no": "7",
    "name": "Jacob Knuth",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "9",
+   "name": "Jay Harris",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "16",
+   "name": "DJ Ackerson Jr.",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "87",
+   "name": "Lawson McGraw",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "88",
+   "name": "Eli Jackson",
+   "status": "questionable",
    "detail": ""
   }
  ],

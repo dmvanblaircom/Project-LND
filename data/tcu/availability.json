@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-04T11:09:12.030632+00:00",
+ "fetchedAt": "2026-11-05T03:09:00.012509+00:00",
  "reported": true,
- "effectiveAt": "2026-11-03",
- "heading": "Initial",
+ "effectiveAt": "2026-11-04",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-06",
  "game": "at Arizona",
  "players": [
@@ -46,13 +46,6 @@
    "pos": "RB",
    "no": "26",
    "name": "Jeremy Payne",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "55",
-   "name": "Samir Camacho",
    "status": "questionable",
    "detail": ""
   },

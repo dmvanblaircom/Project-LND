@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucf",
- "updated": "2026-10-30T22:10:01.367107+00:00",
+ "updated": "2026-11-05T03:09:01.564636+00:00",
  "reports": [
   {
    "schema": 1,
@@ -401,6 +401,116 @@
      "no": "20",
      "name": "Lewis Carter",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Tyler Gibson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "ucf",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T03:09:01.564636+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Kansas",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "4",
+     "name": "Taevion Swint",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "5",
+     "name": "DJ Bell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "8",
+     "name": "Demari Henderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "12",
+     "name": "Keyone Jenkins",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "13",
+     "name": "Caleb Rollerson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "14",
+     "name": "Alonza Barnett III",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "14",
+     "name": "Kahmel Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "Lewis Carter",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "21",
+     "name": "Ty Bartrum",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "38",
+     "name": "Jayden Jennings",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "41",
+     "name": "Bruno Dall",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Jacob Maiava",
+     "status": "questionable",
      "detail": ""
     },
     {

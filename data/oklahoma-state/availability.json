@@ -7,25 +7,25 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:41:11.246455+00:00",
+ "fetchedAt": "2026-11-05T03:08:57.499520+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Iowa State",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Kansas State",
  "players": [
+  {
+   "pos": "LB",
+   "no": "3",
+   "name": "Tate Romney",
+   "status": "doubtful",
+   "detail": ""
+  },
   {
    "pos": "S",
    "no": "7",
    "name": "Quinton Hammonds",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "19",
-   "name": "Dayvon Standard",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,7 +39,14 @@
    "pos": "DT",
    "no": "88",
    "name": "Landon Dean",
-   "status": "gtd",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "95",
+   "name": "Jaleel Johnson",
+   "status": "doubtful",
    "detail": ""
   }
  ],

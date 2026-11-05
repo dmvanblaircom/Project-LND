@@ -7,18 +7,18 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T18:10:59.817585+00:00",
+ "fetchedAt": "2026-11-05T03:08:50.102457+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Arizona State",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Utah",
  "players": [
   {
    "pos": "CB",
    "no": "0",
    "name": "Evan Johnson",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -29,10 +29,17 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "2",
+   "name": "Roger Saleapaga II",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "4",
    "name": "LJ Martin",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -40,6 +47,13 @@
    "no": "23",
    "name": "Pierson Watson",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "37",
+   "name": "Joseph Douglas",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,7 +67,28 @@
    "pos": "DE",
    "no": "46",
    "name": "Kendal Wall",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "52",
+   "name": "Vincent Tautua",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "59",
+   "name": "Siosefa Brown",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "99",
+   "name": "Brody Laga",
+   "status": "probable",
    "detail": ""
   }
  ],

@@ -7,27 +7,41 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-29T14:09:44.126762+00:00",
+ "fetchedAt": "2026-11-05T03:08:52.662076+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at Utah",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Cincinnati",
  "players": [
   {
-   "pos": "",
-   "no": "1",
-   "name": "Jaden Yates",
-   "status": "out-game",
+   "pos": "DB",
+   "no": "3",
+   "name": "JD Rhym",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
+   "no": "8",
+   "name": "Tyson Turner",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "24",
+   "name": "Keany Parks",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "90",
    "name": "De'Marion Thomas",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

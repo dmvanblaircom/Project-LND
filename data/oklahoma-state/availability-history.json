@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma-state",
- "updated": "2026-10-31T21:41:11.246455+00:00",
+ "updated": "2026-11-05T03:08:57.499520+00:00",
  "reports": [
   {
    "schema": 1,
@@ -226,6 +226,60 @@
      "no": "88",
      "name": "Landon Dean",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "oklahoma-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T03:08:57.499520+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Kansas State",
+   "players": [
+    {
+     "pos": "LB",
+     "no": "3",
+     "name": "Tate Romney",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "7",
+     "name": "Quinton Hammonds",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "44",
+     "name": "Carson Kolb",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "88",
+     "name": "Landon Dean",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "95",
+     "name": "Jaleel Johnson",
+     "status": "doubtful",
      "detail": ""
     }
    ],

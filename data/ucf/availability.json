@@ -7,18 +7,18 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T22:10:01.367107+00:00",
+ "fetchedAt": "2026-11-05T03:09:01.564636+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
- "heading": "Game Day",
- "kickoffDate": "2026-10-30",
- "game": "vs. Baylor",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Kansas",
  "players": [
   {
    "pos": "RB",
    "no": "4",
    "name": "Taevion Swint",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -36,24 +36,66 @@
    "detail": ""
   },
   {
+   "pos": "QB",
+   "no": "12",
+   "name": "Keyone Jenkins",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "13",
    "name": "Caleb Rollerson",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "QB",
    "no": "14",
    "name": "Alonza Barnett III",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "14",
+   "name": "Kahmel Johnson",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "20",
    "name": "Lewis Carter",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "21",
+   "name": "Ty Bartrum",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "38",
+   "name": "Jayden Jennings",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "41",
+   "name": "Bruno Dall",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "55",
+   "name": "Jacob Maiava",
+   "status": "questionable",
    "detail": ""
   },
   {

@@ -7,13 +7,27 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:41:08.779959+00:00",
+ "fetchedAt": "2026-11-05T03:08:53.601523+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Oklahoma State",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Baylor",
  "players": [
+  {
+   "pos": "CB",
+   "no": "1",
+   "name": "Keyon Washington",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "3",
+   "name": "Arnold Barnes III",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "QB",
    "no": "5",
@@ -29,10 +43,17 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "9",
+   "name": "Omari Hayes",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DE",
-   "no": "92",
-   "name": "Caden Crawford",
-   "status": "out-game",
+   "no": "44",
+   "name": "Trey Verdon",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,10 +64,17 @@
    "detail": ""
   },
   {
+   "pos": "DE",
+   "no": "98",
+   "name": "Malaki Ta'ase",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DT",
    "no": "99",
    "name": "Bryson Lamb",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

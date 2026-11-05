@@ -7,13 +7,20 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T18:41:14.646525+00:00",
+ "fetchedAt": "2026-11-05T03:08:50.626036+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Utah",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Houston",
  "players": [
+  {
+   "pos": "ILB",
+   "no": "31",
+   "name": "Simeon Coleman",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "ILB",
    "no": "44",
@@ -25,6 +32,20 @@
    "pos": "OL",
    "no": "77",
    "name": "Taran Tyo",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "78",
+   "name": "Grant Edgington",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "83",
+   "name": "Devyn Zahursky",
    "status": "out-game",
    "detail": ""
   },
@@ -37,9 +58,9 @@
   },
   {
    "pos": "DL",
-   "no": "95",
-   "name": "Josh Hough",
-   "status": "out-game",
+   "no": "92",
+   "name": "Elijah Gunn",
+   "status": "probable",
    "detail": ""
   }
  ],

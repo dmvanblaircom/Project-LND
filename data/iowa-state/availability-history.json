@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa-state",
- "updated": "2026-10-31T21:41:08.779959+00:00",
+ "updated": "2026-11-05T03:08:53.601523+00:00",
  "reports": [
   {
    "schema": 1,
@@ -247,6 +247,88 @@
      "no": "99",
      "name": "Bryson Lamb",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "iowa-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T03:08:53.601523+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Baylor",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "1",
+     "name": "Keyon Washington",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "3",
+     "name": "Arnold Barnes III",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "5",
+     "name": "Connor Moberly",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "5",
+     "name": "Beni Ngoyi",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Omari Hayes",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "44",
+     "name": "Trey Verdon",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "95",
+     "name": "Ka'Mori Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "98",
+     "name": "Malaki Ta'ase",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "99",
+     "name": "Bryson Lamb",
+     "status": "questionable",
      "detail": ""
     }
    ],

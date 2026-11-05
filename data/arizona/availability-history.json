@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona",
- "updated": "2026-11-04T11:08:55.219474+00:00",
+ "updated": "2026-11-05T03:08:43.877468+00:00",
  "reports": [
   {
    "schema": 1,
@@ -338,20 +338,13 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-04T11:08:55.219474+00:00",
+   "fetchedAt": "2026-11-05T03:08:43.877468+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-03",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-04",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-06",
    "game": "vs. TCU",
    "players": [
-    {
-     "pos": "WR",
-     "no": "2",
-     "name": "R.J. Mosley",
-     "status": "out-game",
-     "detail": ""
-    },
     {
      "pos": "LB",
      "no": "5",
@@ -377,7 +370,7 @@
      "pos": "S",
      "no": "13",
      "name": "Cam Chapa",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -433,7 +426,7 @@
      "pos": "DL",
      "no": "96",
      "name": "Zac Siulepa",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

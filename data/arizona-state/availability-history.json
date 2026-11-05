@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona-state",
- "updated": "2026-10-31T18:10:52.703982+00:00",
+ "updated": "2026-11-05T03:08:44.003004+00:00",
  "reports": [
   {
    "schema": 1,
@@ -302,6 +302,81 @@
      "pos": "OL",
      "no": "79",
      "name": "Xander Ruggeroli",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "89",
+     "name": "Harry Hassmann",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "arizona-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T03:08:44.003004+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Colorado",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Lyrik Rawls",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "12",
+     "name": "Mikey Keene",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "44",
+     "name": "Kristian Ingman",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "57",
+     "name": "Filiva'a Lokotui",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Tana Alo-Tupuola",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "64",
+     "name": "Wade Helton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "81",
+     "name": "Uriah Neloms",
      "status": "out-game",
      "detail": ""
     },
