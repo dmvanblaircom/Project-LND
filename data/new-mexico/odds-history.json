@@ -1,6 +1,6 @@
 {
 "team": "new-mexico",
-"updated": "2026-11-05T15:07Z",
+"updated": "2026-11-05T19:07Z",
 "points": [
 {
 "t": "2026-10-29T15:37Z",
@@ -728,6 +728,13 @@
 "title": null,
 "titleEvent": "KXNCAAF-27",
 "playoff": 20.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-05T19:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 21.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
