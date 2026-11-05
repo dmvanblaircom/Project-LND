@@ -1,0 +1,16 @@
+# Temporary (2026-11-05, deleted with its branch): the Pac-12 report file's
+# new "Advance Report" - where it sits among the others.
+name: Pac-12 report probe
+on:
+  push:
+    branches: [pac12-probe]
+    paths: ["tools/pac12_probe.py"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/pac12_probe.py
