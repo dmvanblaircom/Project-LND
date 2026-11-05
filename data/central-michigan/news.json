@@ -1,7 +1,16 @@
 {
  "team": "central-michigan",
- "updated": "2026-11-05T07:38:02.475483+00:00",
+ "updated": "2026-11-05T18:38:00.527205+00:00",
  "items": [
+  {
+   "title": "Football Notebook: As Good As They've Been? Maybe",
+   "link": "https://cmuchippewas.com/news/2026/11/5/football-notebook-as-good-as-they-ve-been-maybe",
+   "source": "CMU Athletics",
+   "summary": "<img alt=\"FB vs. Eastern at Ford Field (11/2/26)\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/5/woodford_nick_fb09_JPR_0239.jpg\" /><br /><br />DETROIT \u2013 The question brought a pause to Central Michigan football coach Matt Drinkall.",
+   "image": "https://cmuchippewas.com/images/2026/11/5/woodford_nick_fb09_JPR_0239.jpg?width=800",
+   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
+   "published": "2026-11-05T18:17:00+00:00"
+  },
   {
    "title": "Chippewas Roll Past Eastern in Motor City MACtion, 35-7",
    "link": "https://cmuchippewas.com/news/2026/11/5/football-chippewas-roll-past-eastern-in-motor-city-maction",
@@ -82,15 +91,6 @@
    "image": "https://cmuchippewas.com/images/2026/1/21/Motor-City-MACtion_16x9.jpg?width=800",
    "sourceLogo": "https://cmuchippewas.com/favicon.ico",
    "published": "2026-10-26T17:50:00+00:00"
-  },
-  {
-   "title": "Football Notebook: Glasser Shines in First Start at Quarterback",
-   "link": "https://cmuchippewas.com/news/2026/10/25/football-notebook-glasser-shines-in-first-start-at-quarterback",
-   "source": "CMU Athletics",
-   "summary": "<img alt=\"CMU Football vs Miami (Ohio), October 24th, 2026\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/glasser_jayden_fb8_LJS_1953.jpg\" /><br /><br />MOUNT PLEASANT, Mich. \u2013 Jadyn Glasser stepped up, admirably, at quarterback on Saturday in Central Michigan's 28-27 Mid-American Conference loss to Miami at Kelly/Shorts Stadium.",
-   "image": "https://cmuchippewas.com/images/2026/10/24/glasser_jayden_fb8_LJS_1953.jpg?width=800",
-   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
-   "published": "2026-10-25T16:09:00+00:00"
   }
  ]
 }
