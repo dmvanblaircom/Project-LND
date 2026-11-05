@@ -1,6 +1,6 @@
 {
 "team": "arizona",
-"updated": "2026-11-05T15:07Z",
+"updated": "2026-11-05T17:35Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -427,6 +427,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 5.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-05T17:35Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 4.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
