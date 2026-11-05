@@ -1,7 +1,16 @@
 {
  "team": "central-michigan",
- "updated": "2026-11-03T22:38:03.581028+00:00",
+ "updated": "2026-11-05T06:08:01.382417+00:00",
  "items": [
+  {
+   "title": "Chippewas Roll Past Eastern in Motor City MACtion",
+   "link": "https://cmuchippewas.com/news/2026/11/5/football-chippewas-roll-past-eastern-in-motor-city-maction",
+   "source": "CMU Athletics",
+   "summary": "<img alt=\"FB vs. Eastern at Ford Field (11/2/26)\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/4/_celebration_fb09_JPR_1099.jpg\" /><br /><br />DETROIT \u2013 A dominant performance and it couldn't have come at a better time.",
+   "image": "https://cmuchippewas.com/images/2026/11/4/_celebration_fb09_JPR_1099.jpg?width=800",
+   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
+   "published": "2026-11-05T06:02:00+00:00"
+  },
   {
    "title": "125 years of CMU Football: Rivalry Against Eastern Michigan",
    "link": "https://cmuchippewas.com/news/2026/11/3/125-years-of-cmu-football-rivalry-against-eastern-michigan",
@@ -82,15 +91,6 @@
    "image": "https://cmuchippewas.com/images/2026/10/24/glasser_jayden_fb8_LJS_1953.jpg?width=800",
    "sourceLogo": "https://cmuchippewas.com/favicon.ico",
    "published": "2026-10-25T16:09:00+00:00"
-  },
-  {
-   "title": "Chippewas Battle, But Fall 28-27 on Late Miami Touchdown",
-   "link": "https://cmuchippewas.com/news/2026/10/24/football-chippewas-battle-but-fall-on-late-miami-td",
-   "source": "CMU Athletics",
-   "summary": "<img alt=\"CMU vs Miami (Ohio), October 24th, 2026\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/_team_fb08_KLH_6930.jpg\" /><br /><br />MOUNT PLEASANT, Mich. \u2013 Close, again.",
-   "image": "https://cmuchippewas.com/images/2026/10/24/_team_fb08_KLH_6930.jpg?width=800",
-   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
-   "published": "2026-10-24T23:44:00+00:00"
   }
  ]
 }
