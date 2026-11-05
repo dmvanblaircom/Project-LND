@@ -1,6 +1,6 @@
 {
 "team": "mississippi-state",
-"updated": "2026-11-05T05:07Z",
+"updated": "2026-11-05T11:07Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -263,6 +263,13 @@
 },
 {
 "t": "2026-11-05T05:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-05T11:07Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 0.5,

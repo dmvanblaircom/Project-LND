@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "penn-state",
- "updated": "2026-11-05T01:08:45.737546+00:00",
+ "updated": "2026-11-05T11:09:14.041043+00:00",
  "reports": [
   {
    "schema": 1,
@@ -646,12 +646,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T01:08:45.737546+00:00",
+   "fetchedAt": "2026-11-05T11:09:14.041043+00:00",
    "reported": true,
    "effectiveAt": "2026-11-04",
    "heading": "Initial",
    "kickoffDate": "2026-11-07",
-   "game": "Washington",
+   "game": "at Washington",
    "players": [
     {
      "pos": "WR",

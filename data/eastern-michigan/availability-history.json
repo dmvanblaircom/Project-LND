@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "eastern-michigan",
- "updated": "2026-11-04T23:38:43.845815+00:00",
+ "updated": "2026-11-05T11:09:04.135943+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1296,12 +1296,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-04T23:38:43.845815+00:00",
+   "fetchedAt": "2026-11-05T11:09:04.135943+00:00",
    "reported": true,
    "effectiveAt": "2026-11-04",
    "heading": "Game Day",
    "kickoffDate": "2026-11-04",
-   "game": "Central Michigan",
+   "game": "vs. Central Michigan",
    "players": [
     {
      "pos": "QB",

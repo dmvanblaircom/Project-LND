@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kentucky",
- "updated": "2026-11-05T01:40:43.453206+00:00",
+ "updated": "2026-11-05T11:09:10.116617+00:00",
  "reports": [
   {
    "schema": 1,
@@ -392,12 +392,12 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T01:40:43.453206+00:00",
+   "fetchedAt": "2026-11-05T11:09:10.116617+00:00",
    "reported": true,
    "effectiveAt": "2026-11-04",
    "heading": "Initial",
    "kickoffDate": "2026-11-07",
-   "game": "Tennessee",
+   "game": "at Tennessee",
    "players": [
     {
      "pos": "OLB",
