@@ -1,16 +1,7 @@
 {
  "team": "charlotte",
- "updated": "2026-11-05T00:07:57.760040+00:00",
+ "updated": "2026-11-05T14:38:03.807678+00:00",
  "items": [
-  {
-   "title": "Listen Live: Charlotte Football Coaches Show",
-   "link": "https://charlotte49ers.com/news/2026/11/4/listen-live-charlotte-football-coaches-show",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"Football coaches show graphic\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/GENATH_ALBIN_CoachesShow26_16x9.png\" /><br /><br />",
-   "image": "https://charlotte49ers.com/images/2026/10/28/GENATH_ALBIN_CoachesShow26_16x9.png?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-11-04T23:25:00+00:00"
-  },
   {
    "title": "Charlotte Heads to Birmingham to Face UAB",
    "link": "https://charlotte49ers.com/news/2026/11/3/charlotte-heads-to-birmingham-to-face-uab",
@@ -91,6 +82,15 @@
    "image": "https://charlotte49ers.com/images/2026/10/3/20261003_FB_Rutledge.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-10-03T21:12:00+00:00"
+  },
+  {
+   "title": "Time Change for Homecoming Game Against Memphis",
+   "link": "https://charlotte49ers.com/news/2026/10/1/football-time-change-for-homecoming-game-against-memphis",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Memphis Game Time Change Graphic\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/1/Game_Time_Change_Memphis_16x9.png\" /><br /><br />CHARLOTTE, N.C. --\u00a0Due to expected inclement weather on Saturday afternoon, this weekend's Niner Nation Week Homecoming game against Memphis has been moved up to an 11:00 a.m. kick. The game will still be broadcast on ESPN+.",
+   "image": "https://charlotte49ers.com/images/2026/10/1/Game_Time_Change_Memphis_16x9.png?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-10-01T19:12:00+00:00"
   }
  ]
 }
