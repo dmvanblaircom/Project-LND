@@ -1,7 +1,16 @@
 {
  "team": "wake-forest",
- "updated": "2026-11-05T14:38:21.631884+00:00",
+ "updated": "2026-11-05T17:08:27.428341+00:00",
  "items": [
+  {
+   "title": "Know Before You Go: Merrimack",
+   "link": "https://godeacs.com/news/2026/11/5/football-know-before-you-go-merrimack",
+   "source": "Wake Forest Athletics",
+   "summary": "<img alt=\"Allegacy Stadium\" src=\"https://godeacs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/5/261031_SRS_WAKEFB_vsUVA-16254.jpg\" /><br /><br />WINSTON-SALEM, N.C. -- Wake Forest Athletics is committed to providing The Best Fan Experience in North Carolina inside all of its venues while ensuring that all fans have a great time in a healthy and safe environment. Wake Forest University has several gameday strategies in place to ensure all fans have a great experience at Allegacy Financial Stadium.",
+   "image": "https://godeacs.com/images/2026/11/5/261031_SRS_WAKEFB_vsUVA-16254.jpg?width=800",
+   "sourceLogo": "https://godeacs.com/favicon.ico",
+   "published": "2026-11-05T17:00:00+00:00"
+  },
   {
    "title": "Know your foe: 5 things to know about Merrimack",
    "link": "https://on3.com/sites/deacons-illustrated/news/know-your-foe-5-things-to-know-about-merrimack/",
@@ -298,15 +307,6 @@
    "image": "https://godeacs.com/images/2026/10/27/u00fqglyzu3wx7c7wrtr.png?width=800",
    "sourceLogo": "https://godeacs.com/favicon.ico",
    "published": "2026-10-27T20:52:00+00:00"
-  },
-  {
-   "title": "Week 9 Open the Gate Honoree: Malik Mustapha",
-   "link": "https://godeacs.com/news/2026/10/27/football-week-9-open-the-gate-honoree-malik-mustapha",
-   "source": "Wake Forest Athletics",
-   "summary": "<img alt=\"Open The Gate, Malik Mustapha \" src=\"https://godeacs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/OpentheGate16x9_Virginia.jpg\" /><br /><br />WINSTON-SALEM, N.C. \u2013 Wake Forest football alum Malik Mustapha will serve as the Open the Gate honoree during the No. 14 Demon Deacons' Week 9 matchup against Virginia on Saturday, Oct. 31 at Allegacy Financial Stadium.",
-   "image": "https://godeacs.com/images/2026/10/22/OpentheGate16x9_Virginia.jpg?width=800",
-   "sourceLogo": "https://godeacs.com/favicon.ico",
-   "published": "2026-10-27T17:00:00+00:00"
   }
  ]
 }

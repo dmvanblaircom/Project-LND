@@ -7,13 +7,20 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-01T00:09:48.515834+00:00",
+ "fetchedAt": "2026-11-05T17:09:13.365816+00:00",
  "reported": true,
- "effectiveAt": "2026-11-01",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Texas State",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "at Colorado State",
  "players": [
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Maddux Madsen",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "RB",
    "no": "",

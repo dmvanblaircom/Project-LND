@@ -7,17 +7,17 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-01T00:10:03.399615+00:00",
+ "fetchedAt": "2026-11-05T17:09:28.832654+00:00",
  "reported": true,
- "effectiveAt": "2026-11-01",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Boise State",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "at Oregon State",
  "players": [
   {
-   "pos": "ILB",
+   "pos": "TE",
    "no": "",
-   "name": "Tice Williams",
+   "name": "Cole Snodgrass",
    "status": "out-game",
    "detail": ""
   },
@@ -25,13 +25,6 @@
    "pos": "SP",
    "no": "",
    "name": "Joshua Selmes",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "",
-   "name": "Cole Snodgrass",
    "status": "out-game",
    "detail": ""
   },
@@ -45,14 +38,28 @@
   {
    "pos": "ILB",
    "no": "",
-   "name": "Jordan Sample",
-   "status": "out-game",
+   "name": "Tice Williams",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Chris Jones",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "",
-   "name": "JP Deeter",
+   "name": "Tymere Jackson",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Jayden Lawton",
    "status": "out-game",
    "detail": ""
   },

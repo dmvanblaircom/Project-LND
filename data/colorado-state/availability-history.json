@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado-state",
- "updated": "2026-10-31T17:41:20.070568+00:00",
+ "updated": "2026-11-05T17:09:19.891205+00:00",
  "reports": [
   {
    "schema": 1,
@@ -86,6 +86,144 @@
      "pos": "DB",
      "no": "",
      "name": "Makih Johnson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "colorado-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T17:09:19.891205+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-05",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "vs. Boise State",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Grant Houser",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Jaivyn Moore",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Makhi Johnson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Mukendi Wa-Kalonji",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Durell Robinson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Steph Wright",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Pearce Spurlin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Jaseim Mitchell",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jordan Lessard",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Phil Ocon",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jace Bellah",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Mel Brown",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "John Holthaus",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Juice Vereen",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Elijah McCantos",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Dagan Myers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Aj  Noland",
      "status": "out-game",
      "detail": ""
     }

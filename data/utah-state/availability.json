@@ -7,39 +7,25 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T17:41:30.303006+00:00",
+ "fetchedAt": "2026-11-05T17:09:30.205612+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Colorado State",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "vs. Fresno State",
  "players": [
   {
    "pos": "WR",
    "no": "",
    "name": "Eli Wood",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Chapman Lewis",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Rex Haynes",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "John Randle",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -59,29 +45,36 @@
   {
    "pos": "ILB",
    "no": "",
-   "name": "Diego Grateron",
+   "name": "Harrison Taggart",
    "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "",
-   "name": "Joshua Papu",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Harrison Taggart",
+   "name": "Tevita Tuha",
    "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
-   "name": "Kauasi Hansen",
-   "status": "out-season",
+   "name": "John Randle",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Bronson Olevao",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Jimmy Liston",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -102,6 +95,13 @@
    "pos": "WR",
    "no": "",
    "name": "Nikko Boncore",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Kauasi Hansen",
    "status": "out-season",
    "detail": ""
   }

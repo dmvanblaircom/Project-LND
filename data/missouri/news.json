@@ -1,7 +1,16 @@
 {
  "team": "missouri",
- "updated": "2026-11-05T16:38:09.769779+00:00",
+ "updated": "2026-11-05T17:08:14.470590+00:00",
  "items": [
+  {
+   "title": "Previewing Mizzou vs. Texas on the 'All Things Mizzou' Podcast",
+   "link": "https://www.si.com/college/missouri/podcasts/previewing-mizzou-vs-texas-on-the-all-things-mizzou-podcast?utm_source=RSS",
+   "source": "Missouri On SI",
+   "summary": "Previewing Mizzou vs. Texas, Mizzou vs. Saint Louis and Ahmad Hardy's second game, along with addressing the Eli Drinkwitz-Florida State head coach rumors.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1920,h_1080,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/mizzou_central/01m6p5bdx5v609g68v74.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-05T17:00:04+00:00"
+  },
   {
    "title": "Sack-Prone Texas Offense Could Reignite Mizzou Pass Rush",
    "link": "https://www.rockmnation.com/missouri-tigers-football/162412/sack-prone-texas-offense-could-reignite-mizzou-pass-rush",
@@ -190,15 +199,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2294,h_1290,x_595,y_224/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mizzou_central/01m69qascf7y1s2xrme6.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-31T22:11:14+00:00"
-  },
-  {
-   "title": "Mizzou RB Ahmad Hardy to play against Arkansas, per report",
-   "link": "https://www.si.com/college/missouri/football/mizzou-rb-ahmad-hardy-to-play-against-arkansas-per-report?utm_source=RSS",
-   "source": "Missouri On SI",
-   "summary": "Star Mizzou football running back Ahmad Hardy is set to make his season debut against Arkansas on Saturday, per Pete Thamel. Hardy will not start but is expected to receive carries.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_7790,h_4381,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mizzou_central/01m64pz4dv5d4yzd52mr.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-29T21:07:04+00:00"
   }
  ]
 }

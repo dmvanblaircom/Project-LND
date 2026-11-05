@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utah-state",
- "updated": "2026-10-31T17:41:30.303006+00:00",
+ "updated": "2026-11-05T17:09:30.205612+00:00",
  "reports": [
   {
    "schema": 1,
@@ -107,6 +107,116 @@
      "pos": "WR",
      "no": "",
      "name": "Nikko Boncore",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "utah-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T17:09:30.205612+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-05",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "vs. Fresno State",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Eli Wood",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Chapman Lewis",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "John McClellan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "SP",
+     "no": "",
+     "name": "Landon Rehkow",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Harrison Taggart",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Tevita Tuha",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "John Randle",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Bronson Olevao",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jimmy Liston",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Jude Nelson",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Chris Joe",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Nikko Boncore",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Kauasi Hansen",
      "status": "out-season",
      "detail": ""
     }
