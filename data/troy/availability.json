@@ -7,32 +7,46 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-30T07:08:59.389227+00:00",
+ "fetchedAt": "2026-11-05T02:09:15.719559+00:00",
  "reported": true,
- "effectiveAt": "2026-10-29",
- "heading": "Game Day",
- "kickoffDate": "2026-10-29",
- "game": "at James Madison",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "vs. LA Tech",
  "players": [
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Goose Crowder",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Kam Curry",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Marquis Harris",
+   "status": "doubtful",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "",
    "name": "Tai Terrell",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Jywon Boyd",
-   "status": "out-game",
+   "status": "out-season",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "",
    "name": "Jayvin Bennett",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {

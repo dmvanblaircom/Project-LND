@@ -7,34 +7,13 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:34.861908+00:00",
+ "fetchedAt": "2026-11-05T02:09:09.545497+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at South Alabama",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "at Troy",
  "players": [
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "Dylone Brooks",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Talyn Shettron",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "",
-   "name": "William Mayes",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "",
@@ -47,6 +26,13 @@
    "no": "",
    "name": "Za'Qwaun Nunn",
    "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Dylone Brooks",
+   "status": "questionable",
    "detail": ""
   }
  ],

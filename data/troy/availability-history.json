@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "troy",
- "updated": "2026-10-30T07:08:59.389227+00:00",
+ "updated": "2026-11-05T02:09:15.719559+00:00",
  "reports": [
   {
    "schema": 1,
@@ -38,6 +38,81 @@
      "no": "",
      "name": "Jayvin Bennett",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Jackson Worley",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Joe Lott",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jermaine Paramore",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "troy",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T02:09:15.719559+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-05",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "vs. LA Tech",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Goose Crowder",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Kam Curry",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Marquis Harris",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Tai Terrell",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Jayvin Bennett",
+     "status": "doubtful",
      "detail": ""
     },
     {
