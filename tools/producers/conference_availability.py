@@ -279,7 +279,10 @@ def build(publish, archive, names, previous=None):
 
 # Their report names -> the order the Big Ten's use, so a newer report on
 # file is never replaced by an older one.
-REPORT_HEADING = {"initial report": "Initial", "second report": "Update 1",
+# "Advance Report" is the Pac-12's name for the week's first report since
+# Nov 5, 2026: posted Wednesday night for a Saturday game, as the Sun Belt
+# posts its Initial Report. An Initial Report after it replaces it (same rank).
+REPORT_HEADING = {"initial report": "Initial", "advance report": "Initial", "second report": "Update 1",
                   "third report": "Update 2", "game day report": "Game Day"}
 
 
