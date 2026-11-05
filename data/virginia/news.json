@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-04T15:38:19.350434+00:00",
+ "updated": "2026-11-05T12:08:18.279071+00:00",
  "items": [
+  {
+   "title": "CavsCorner Podcast: Episode 686",
+   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-podcast-episode-686/",
+   "source": "CavsCorner",
+   "summary": "On the latest installment of the\u00a0CavsCorner Podcast, we welcome the start of hoops season with a deep dive into the roster, the season ahead, our thoughts from the opener, and much more.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/12/17102959/CC-Pod-scaled.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-05T11:45:41+00:00"
+  },
   {
    "title": "Biggest Winners and Losers From Virginia\u2019s Opening Win",
    "link": "https://www.si.com/college/virginia/biggest-winners-and-losers-from-virginia-s-opening-win-01m6j8hg102c?utm_source=RSS",
@@ -298,15 +307,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/12/17102959/CC-Pod-scaled.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-22T10:26:30+00:00"
-  },
-  {
-   "title": "Five to Watch for the Hoos: Duke Edition",
-   "link": "https://on3.com/sites/cavs-corner/news/five-to-watch-for-the-hoos-duke-edition/",
-   "source": "CavsCorner",
-   "summary": "We get you ready for UVa's matchup against Duke on Friday night (7 p.m., ESPN) by breaking down five Blue Devils to watch.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/20062343/2026-10-17T235434Z_1848896939_MT1USATODAY30116788_RTRMADP_3_NCAA-FOOTBALL-NORTH-CAROLINA-AT-DUKE.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-21T17:05:51+00:00"
   }
  ]
 }
