@@ -26,14 +26,23 @@ From the committed snapshots (`data/<team>/news.json`), times UTC:
 | 22:18 | 22:39 | Miami On SI, "Next Man Up" | Miami |
 | 00:32 | 00:38 | State of the U, "will have surgery" | Miami |
 
+David's Sleeper alert for the surgery report came at about 7:40 PM ET,
+00:40 UTC on Nov 5. Suite had the surgery news at 00:38 (State of the U,
+published 00:32): two minutes earlier for a Miami fan. Notre Dame's feed
+had its own outlets' surgery stories at 00:51-00:53, and the earlier injury
+news at 21:09, three and a half hours before the alert.
+
 So since #221 (beat news every run) an article reaches Suite within about
-30 minutes of being published. Three gaps remain:
+30 minutes of being published, and here Suite was not slower than Sleeper.
+What it lacked was telling the fan. Three gaps remain:
 
 1. **Before the first article.** The news breaks as a reporter's post; the
    articles follow. That lead is what Sleeper's feed relays. Only a wire
-   source closes it.
+   source closes it. On Nov 4 it was minutes at most for Miami's outlets;
+   for teams with quieter outlets it is likely longer (not measured).
 2. **Buried.** The story is one row in a news list, like any other article:
-   no "this matters" mark, no notification.
+   no "this matters" mark, no notification. This is the gap that cost David
+   the news on Nov 4.
 3. **The opponent, by luck.** Notre Dame fans had it because Notre Dame's
    outlets wrote about it. A smaller program's outlets may not cover its
    opponent's news.
@@ -71,7 +80,7 @@ So since #221 (beat news every run) an article reaches Suite within about
 ## Open decisions for David
 
 1. **Phase 1 as above?** Recommendation: yes; it is free and closes gaps 2
-   and 3.
+   and 3, the ones Nov 4 showed. Phase 2 can wait on what Phase 1 leaves.
 2. **Phase 2: which to pursue.** Recommendation: the Bluesky pass first
    (free; it shows which teams it can serve), and quote requests to Sleeper,
    RotoWire and SportsDataIO in parallel - drafted for David to send, never
