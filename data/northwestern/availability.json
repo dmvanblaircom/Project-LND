@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T17:41:25.428840+00:00",
+ "fetchedAt": "2026-11-05T01:08:44.999564+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Oregon",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Iowa",
  "players": [
+  {
+   "pos": "QB",
+   "no": "0",
+   "name": "Aidan Chiles",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "6",
    "name": "Robert Fitzgerald",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -29,17 +36,17 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "15",
-   "name": "Brendan Flakes",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "RB",
    "no": "22",
    "name": "Daniel Anderson",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "29",
+   "name": "Jon Jon Stevens Jr.",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -60,14 +67,7 @@
    "pos": "RB",
    "no": "41",
    "name": "Robby Preckel",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "44",
-   "name": "Callen Campbell",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -95,13 +95,6 @@
    "pos": "TE",
    "no": "81",
    "name": "Chris Petrucci",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "97",
-   "name": "Braxton Strong",
    "status": "out-game",
    "detail": ""
   }

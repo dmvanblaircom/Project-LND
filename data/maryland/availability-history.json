@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "maryland",
- "updated": "2026-10-31T14:12:08.385401+00:00",
+ "updated": "2026-11-05T01:08:43.669734+00:00",
  "reports": [
   {
    "schema": 1,
@@ -590,6 +590,95 @@
      "no": "97",
      "name": "Jayvon Parker",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "maryland",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:43.669734+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Purdue",
+   "players": [
+    {
+     "pos": "LB",
+     "no": "3",
+     "name": "Trey Reddick",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "8",
+     "name": "Preston Howard",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "9",
+     "name": "Zahir Mathis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Josiah Teasley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "20",
+     "name": "DJ Samuels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Harry Dalton III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "48",
+     "name": "Darius Grimes",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Trevor Szymanski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Javonte Williams",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "97",
+     "name": "Jayvon Parker",
+     "status": "questionable",
      "detail": ""
     }
    ],

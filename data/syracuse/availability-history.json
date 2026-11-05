@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "syracuse",
- "updated": "2026-10-31T14:12:12.969651+00:00",
+ "updated": "2026-11-05T01:08:46.846292+00:00",
  "reports": [
   {
    "schema": 1,
@@ -413,6 +413,109 @@
      "no": "88",
      "name": "Terrell Wilfong",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "syracuse",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:46.846292+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Clemson",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "7",
+     "name": "Darien Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "9",
+     "name": "Steve Angeli",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "9",
+     "name": "Jai Eugene Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "12",
+     "name": "Amari Odom",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "16",
+     "name": "Malachi Nelson",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "30",
+     "name": "Tunmise Adeleye",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Kahlil Stewart",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "62",
+     "name": "Jackson Iak",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Matthew Hawn",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "88",
+     "name": "Terrell Wilfong",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "93",
+     "name": "Alex Haskell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "95",
+     "name": "Dillan Fontus",
+     "status": "probable",
      "detail": ""
     }
    ],

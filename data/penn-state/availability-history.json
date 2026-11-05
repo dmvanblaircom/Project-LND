@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "penn-state",
- "updated": "2026-10-31T18:41:20.619406+00:00",
+ "updated": "2026-11-05T01:08:45.737546+00:00",
  "reports": [
   {
    "schema": 1,
@@ -625,6 +625,88 @@
      "no": "91",
      "name": "Armstrong Nnodim",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "95",
+     "name": "Cristiano Rosa",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "penn-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:45.737546+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Washington",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Chase Sowell",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Koby Howard",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "18",
+     "name": "Max Granville",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "25",
+     "name": "Alex Tatsch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "35",
+     "name": "Tyler Armstead",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "56",
+     "name": "Alijah Carnell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Malachi Goodman",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "91",
+     "name": "Armstrong Nnodim",
+     "status": "probable",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-10-31T21:41:11.082152+00:00",
+ "updated": "2026-11-05T01:08:45.164672+00:00",
  "reports": [
   {
    "schema": 1,
@@ -429,6 +429,81 @@
      "no": "60",
      "name": "Jaxon Powell",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "Maxence LeBlanc",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "ohio-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:45.164672+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Oregon",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Brandon Inniss",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "10",
+     "name": "Julian Sayin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Brock Boyd",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Ja’Kobi Jackson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "33",
+     "name": "Eli Lee",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Jaxon Powell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Ian Moore",
+     "status": "questionable",
      "detail": ""
     },
     {

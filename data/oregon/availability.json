@@ -7,25 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T17:41:26.284660+00:00",
+ "fetchedAt": "2026-11-05T01:08:45.584118+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Northwestern",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Ohio State",
  "players": [
   {
-   "pos": "WR",
-   "no": "2",
-   "name": "Iverson Hooks",
-   "status": "gtd",
+   "pos": "RB",
+   "no": "0",
+   "name": "Jordon Davison",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "3",
    "name": "Jeremiah McClellan",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,6 +39,13 @@
    "pos": "WR",
    "no": "15",
    "name": "Messiah Hampton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "19",
+   "name": "Andrew Olesh",
    "status": "out-game",
    "detail": ""
   },

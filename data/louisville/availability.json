@@ -7,18 +7,32 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T17:41:23.179954+00:00",
+ "fetchedAt": "2026-11-05T01:08:43.415495+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Stanford",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Georgia Tech",
  "players": [
+  {
+   "pos": "WR",
+   "no": "0",
+   "name": "Tre Richardson",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "1",
+   "name": "Isaac Brown",
+   "status": "probable",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "7",
    "name": "Lawayne McCoy",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -29,10 +43,24 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "21",
+   "name": "Jaydin Broadnax",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "27",
+   "name": "Myles Norwood",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "TE",
    "no": "44",
    "name": "Travis Egan",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -40,6 +68,20 @@
    "no": "48",
    "name": "Jacob Baker",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "56",
+   "name": "Eryx Daugherty",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "58",
+   "name": "Evan Wibberley",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -64,6 +106,13 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "84",
+   "name": "Payton Cook",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "TE",
    "no": "90",
    "name": "Hamilton Atkins",
@@ -74,7 +123,7 @@
    "pos": "DL",
    "no": "90",
    "name": "Daylen Russell",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {

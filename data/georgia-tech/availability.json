@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:41:08.131740+00:00",
+ "fetchedAt": "2026-11-05T01:08:42.109890+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Pittsburgh",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Louisville",
  "players": [
   {
    "pos": "RB",
@@ -30,43 +30,15 @@
   },
   {
    "pos": "CB",
-   "no": "4",
-   "name": "Daiquan White",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "10",
-   "name": "Jordan Walker",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "12",
-   "name": "Jon Mitchell",
-   "status": "gtd",
+   "no": "6",
+   "name": "Kelvin Hill",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "13",
    "name": "Savion Riley",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "21",
-   "name": "Jaedyn Terry",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "24",
-   "name": "Noah Carter",
    "status": "out-game",
    "detail": ""
   },

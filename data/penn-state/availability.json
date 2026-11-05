@@ -7,32 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T18:41:20.619406+00:00",
+ "fetchedAt": "2026-11-05T01:08:45.737546+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Purdue",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Washington",
  "players": [
   {
    "pos": "WR",
    "no": "0",
    "name": "Chase Sowell",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "6",
    "name": "Koby Howard",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "15",
-   "name": "Joshua Johnson",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,13 +36,6 @@
    "detail": ""
   },
   {
-   "pos": "DE",
-   "no": "19",
-   "name": "Yvan Kemajou",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "25",
    "name": "Alex Tatsch",
@@ -57,30 +43,9 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "27",
-   "name": "Omarion Davis",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "30",
-   "name": "Christian Askew",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "CB",
    "no": "35",
    "name": "Tyler Armstead",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "42",
-   "name": "Mason Robinson",
    "status": "out-game",
    "detail": ""
   },
@@ -93,37 +58,16 @@
   },
   {
    "pos": "OL",
-   "no": "66",
-   "name": "Will Tompkins",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "80",
-   "name": "Cooper Alexander",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "83",
-   "name": "Brian Kortovich",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DT",
-   "no": "90",
-   "name": "Liam Andrews",
-   "status": "out-game",
+   "no": "78",
+   "name": "Malachi Goodman",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "DT",
    "no": "91",
    "name": "Armstrong Nnodim",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {

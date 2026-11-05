@@ -7,104 +7,139 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T01:38:41.866131+00:00",
+ "fetchedAt": "2026-11-05T01:08:44.182565+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "at UCLA",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Michigan",
  "players": [
   {
-   "pos": "",
+   "pos": "RB",
    "no": "0",
    "name": "Cam Edwards",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "QB",
    "no": "2",
    "name": "Cam Fancher",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "S",
+   "no": "2",
+   "name": "Devin Vaught",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
    "no": "3",
    "name": "Tre Bell",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "RB",
    "no": "4",
    "name": "Jaziun Patterson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
    "no": "4",
    "name": "Charles Brantley",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "LB",
    "no": "5",
    "name": "Jordan Hall",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "QB",
    "no": "11",
    "name": "Alessio Milivojevic",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "WR",
    "no": "19",
    "name": "Charles Taplin",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
    "no": "20",
    "name": "Keshawn Williams",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "21",
+   "name": "Marvis Parrish",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "CB",
    "no": "22",
    "name": "Tyran Chappell",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "28",
+   "name": "Brayden Thomas",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
+   "no": "31",
+   "name": "Jayden Savoury",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "FB",
    "no": "44",
    "name": "Jay Coyne",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "DL",
+   "no": "55",
+   "name": "Ben Roberts",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "79",
    "name": "Tristan Comer",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "TE",
    "no": "87",
    "name": "Joe Caudill",
    "status": "out-game",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

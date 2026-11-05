@@ -7,13 +7,20 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:12:00.478798+00:00",
+ "fetchedAt": "2026-11-05T01:08:40.224222+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Duke",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Florida State",
  "players": [
+  {
+   "pos": "DL",
+   "no": "8",
+   "name": "Onye Nwosisi",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "16",
@@ -43,16 +50,16 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "48",
-   "name": "Zeke Moore",
-   "status": "gtd",
+   "pos": "OL",
+   "no": "53",
+   "name": "Trevon Humphrey",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
-   "no": "75",
-   "name": "Pape Abdoulaye Sy",
+   "no": "77",
+   "name": "Michael Crounse",
    "status": "out-game",
    "detail": ""
   },
@@ -61,6 +68,13 @@
    "no": "80",
    "name": "Reed Swanson",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "86",
+   "name": "Danny Edgehille",
+   "status": "questionable",
    "detail": ""
   }
  ],

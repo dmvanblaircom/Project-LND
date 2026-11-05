@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-04T11:09:09.472898+00:00",
+ "fetchedAt": "2026-11-05T01:08:44.736503+00:00",
  "reported": true,
- "effectiveAt": "2026-11-03",
- "heading": "Initial",
+ "effectiveAt": "2026-11-04",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-06",
  "game": "at Illinois",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "DB",
    "no": "4",
    "name": "Jamir Conn",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -67,7 +67,7 @@
    "pos": "OL",
    "no": "77",
    "name": "Gunnar Gottula",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

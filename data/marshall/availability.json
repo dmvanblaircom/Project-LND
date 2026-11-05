@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:35.181177+00:00",
+ "fetchedAt": "2026-11-05T01:08:43.586687+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Old Dominion",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "at Georgia Southern",
  "players": [
   {
    "pos": "OL",
@@ -29,10 +29,24 @@
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "ILB",
    "no": "",
-   "name": "Mikailin Warren",
-   "status": "out-game",
+   "name": "Brysen Davies",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Carlos Del Rio Wilson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Jaasai Simmons",
+   "status": "probable",
    "detail": ""
   }
  ],

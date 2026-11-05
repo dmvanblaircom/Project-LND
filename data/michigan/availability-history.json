@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan",
- "updated": "2026-10-31T14:40:35.799373+00:00",
+ "updated": "2026-11-05T01:08:44.098355+00:00",
  "reports": [
   {
    "schema": 1,
@@ -436,6 +436,116 @@
      "no": "90",
      "name": "John Henry Daley",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "michigan",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:44.098355+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Michigan State",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Kendrick Bell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "1",
+     "name": "Rod Moore",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "6",
+     "name": "Jordan Young",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "8",
+     "name": "Dom Nichols",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "22",
+     "name": "Braydon Alford",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Micah Ka'apana",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "37",
+     "name": "Julius Holly",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "52",
+     "name": "Ace Hamilton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "53",
+     "name": "Jake Guarnera",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "54",
+     "name": "Andrew Sprague",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Brady Norton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "80",
+     "name": "Hogan Hansen",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "90",
+     "name": "John Henry Daley",
+     "status": "questionable",
      "detail": ""
     }
    ],

@@ -7,25 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T18:41:20.831182+00:00",
+ "fetchedAt": "2026-11-05T01:08:45.911184+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Penn State",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Maryland",
  "players": [
   {
    "pos": "DB",
    "no": "2",
    "name": "Jaden Mangham",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "8",
-   "name": "De'Nylon Morrissette",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -39,6 +32,13 @@
    "pos": "DB",
    "no": "24",
    "name": "Raderrion Daniels",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "94",
+   "name": "Rodney Lora",
    "status": "out-game",
    "detail": ""
   }

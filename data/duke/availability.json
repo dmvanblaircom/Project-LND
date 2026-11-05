@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:12:02.057360+00:00",
+ "fetchedAt": "2026-11-05T01:08:41.258525+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Boston College",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "NC State",
  "players": [
   {
    "pos": "WR",
@@ -23,8 +23,22 @@
   },
   {
    "pos": "CB",
+   "no": "1",
+   "name": "Kyon Loud",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
    "no": "5",
    "name": "Kimari Robinson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "7",
+   "name": "Kavon Simmons",
    "status": "out-game",
    "detail": ""
   },
@@ -39,7 +53,7 @@
    "pos": "CB",
    "no": "23",
    "name": "Kolbe Harmon",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -53,7 +67,7 @@
    "pos": "S",
    "no": "35",
    "name": "Andrew Pellicciotta",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -68,6 +82,13 @@
    "no": "44",
    "name": "David Anderson",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "63",
+   "name": "Bradley Smith",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -89,6 +110,13 @@
    "no": "79",
    "name": "Roman Fina",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "85",
+   "name": "Jeremiah Hasley",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "boston-college",
- "updated": "2026-10-31T14:12:00.478798+00:00",
+ "updated": "2026-11-05T01:08:40.224222+00:00",
  "reports": [
   {
    "schema": 1,
@@ -429,6 +429,88 @@
      "no": "80",
      "name": "Reed Swanson",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "boston-college",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:40.224222+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Florida State",
+   "players": [
+    {
+     "pos": "DL",
+     "no": "8",
+     "name": "Onye Nwosisi",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "16",
+     "name": "Isaiah Farris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "Justin Medlock",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "23",
+     "name": "Evan Dickens",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "26",
+     "name": "Sedric Addison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "53",
+     "name": "Trevon Humphrey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Michael Crounse",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "80",
+     "name": "Reed Swanson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "86",
+     "name": "Danny Edgehille",
+     "status": "questionable",
      "detail": ""
     }
    ],

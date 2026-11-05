@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisville",
- "updated": "2026-10-31T17:41:23.179954+00:00",
+ "updated": "2026-11-05T01:08:43.415495+00:00",
  "reports": [
   {
    "schema": 1,
@@ -511,6 +511,144 @@
      "no": "90",
      "name": "Daylen Russell",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "Sam Dawson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "louisville",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:43.415495+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Georgia Tech",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Tre Richardson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "1",
+     "name": "Isaac Brown",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "7",
+     "name": "Lawayne McCoy",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "9",
+     "name": "Antonio Watts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "21",
+     "name": "Jaydin Broadnax",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "27",
+     "name": "Myles Norwood",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "44",
+     "name": "Travis Egan",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "P",
+     "no": "48",
+     "name": "Jacob Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Eryx Daugherty",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Evan Wibberley",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OT",
+     "no": "63",
+     "name": "Bryten Close",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "James Glover-Tyson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Anwar O'neal",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "84",
+     "name": "Payton Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "90",
+     "name": "Hamilton Atkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "90",
+     "name": "Daylen Russell",
+     "status": "probable",
      "detail": ""
     },
     {

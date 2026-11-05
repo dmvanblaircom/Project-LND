@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:11:45.963468+00:00",
+ "fetchedAt": "2026-11-05T01:08:41.693990+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Clemson",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Boston College",
  "players": [
   {
    "pos": "DB",
@@ -22,9 +22,37 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "0",
+   "name": "Duce Robinson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "3",
    "name": "Samuel Singleton Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "5",
+   "name": "Quintrevion Wisner",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "6",
+   "name": "Ja’Bril Rawls",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "8",
+   "name": "Deante McCray",
    "status": "out-game",
    "detail": ""
   },
@@ -53,7 +81,14 @@
    "pos": "DB",
    "no": "24",
    "name": "K.J. Kirkland",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "29",
+   "name": "Caleb LaVallee",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -85,10 +120,24 @@
    "detail": ""
   },
   {
+   "pos": "DL",
+   "no": "55",
+   "name": "Kevin Wynn",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "91",
+   "name": "Cam Brooks",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "K",
    "no": "93",
    "name": "Conor McAneney",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

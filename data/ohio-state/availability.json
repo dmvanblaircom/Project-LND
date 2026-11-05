@@ -7,25 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:41:11.082152+00:00",
+ "fetchedAt": "2026-11-05T01:08:45.164672+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at USC",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Oregon",
  "players": [
   {
    "pos": "WR",
    "no": "0",
    "name": "Brandon Inniss",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "10",
-   "name": "Leroy Roker III",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -39,14 +32,7 @@
    "pos": "WR",
    "no": "11",
    "name": "Brock Boyd",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "21",
-   "name": "Brenten \"Inky\" Jones",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -57,31 +43,10 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "25",
-   "name": "Jay Timmons",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "29",
-   "name": "Deshawn Stewart",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "30",
-   "name": "Amari Valerio-Hudson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "33",
    "name": "Eli Lee",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -89,6 +54,13 @@
    "no": "60",
    "name": "Jaxon Powell",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "69",
+   "name": "Ian Moore",
+   "status": "questionable",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "rutgers",
- "updated": "2026-10-31T14:40:38.236951+00:00",
+ "updated": "2026-11-05T01:08:46.080478+00:00",
  "reports": [
   {
    "schema": 1,
@@ -359,6 +359,123 @@
      "no": "56",
      "name": "Tyler Needham",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "rutgers",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:46.080478+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Wisconsin",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Dyzier Carter",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "1",
+     "name": "Kaj Sanders",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "6",
+     "name": "Abram Wright",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Kevin Levy",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "KJ Duff",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Ty Morris",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "12",
+     "name": "Zahmir Dawud",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "12",
+     "name": "Dylan Lonergan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "29",
+     "name": "Dane Pizzaro",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "38",
+     "name": "Joey Kopec",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Tyler Needham",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Kwabena Asamoah",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "J'Dan Burnett",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Rondo Porter",
+     "status": "questionable",
      "detail": ""
     }
    ],

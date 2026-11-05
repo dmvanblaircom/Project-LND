@@ -7,39 +7,46 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:40:33.341214+00:00",
+ "fetchedAt": "2026-11-05T01:08:41.940744+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. App State",
+ "effectiveAt": "2026-11-05",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "vs. Marshall",
  "players": [
   {
-   "pos": "RB",
+   "pos": "OL",
    "no": "",
-   "name": "Terrance Gibbs",
-   "status": "out-season",
+   "name": "Colin Alexander",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "King Phillips",
-   "status": "out-game",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Jacob Hammonds",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
-   "name": "Colin Alexander",
-   "status": "out-game",
+   "name": "Matt Williams",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "WR",
    "no": "",
-   "name": "Caleb Ellis",
-   "status": "out-game",
+   "name": "Kam Mikell",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -67,6 +74,13 @@
    "pos": "WR",
    "no": "",
    "name": "Ashton Hollins",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Terrance Gibbs",
    "status": "out-season",
    "detail": ""
   }

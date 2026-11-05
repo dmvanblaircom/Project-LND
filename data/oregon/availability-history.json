@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oregon",
- "updated": "2026-10-31T17:41:26.284660+00:00",
+ "updated": "2026-11-05T01:08:45.584118+00:00",
  "reports": [
   {
    "schema": 1,
@@ -358,6 +358,95 @@
      "pos": "WR",
      "no": "15",
      "name": "Messiah Hampton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "21",
+     "name": "Aaron Flowers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "23",
+     "name": "Brayden Platt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Matthew Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Trent Ferguson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Dave Iuli",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "oregon",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-05T01:08:45.584118+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-04",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-07",
+   "game": "Ohio State",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "Jordon Davison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "3",
+     "name": "Jeremiah McClellan",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "5",
+     "name": "Dante Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Messiah Hampton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "19",
+     "name": "Andrew Olesh",
      "status": "out-game",
      "detail": ""
     },

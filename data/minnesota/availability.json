@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T17:41:24.407774+00:00",
+ "fetchedAt": "2026-11-05T01:08:44.265853+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Indiana",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "UCLA",
  "players": [
   {
    "pos": "DB",
@@ -22,17 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "12",
-   "name": "Michael Merdinger",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "19",
    "name": "Pierce Walsh",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -43,17 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "26",
-   "name": "Elisha West",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "47",
-   "name": "Enoch Atewogbola",
-   "status": "out-game",
+   "pos": "LB",
+   "no": "46",
+   "name": "Mason Carrier",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -65,9 +51,23 @@
   },
   {
    "pos": "OL",
+   "no": "77",
+   "name": "Nick Spence",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "78",
    "name": "Ashton Beers",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "82",
+   "name": "Julian Johnson",
+   "status": "doubtful",
    "detail": ""
   },
   {

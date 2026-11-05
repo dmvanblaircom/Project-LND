@@ -7,32 +7,32 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:12:09.759506+00:00",
+ "fetchedAt": "2026-11-05T01:08:44.648535+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. California",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Duke",
  "players": [
   {
    "pos": "RB",
    "no": "1",
    "name": "Jayden \"Duke\" Scott",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "S",
    "no": "2",
-   "name": "Joshisa \"Jojo\" Trader",
-   "status": "gtd",
+   "name": "Ronnie Royal, III",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "3",
    "name": "Tristan Teasdell",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,10 +43,10 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "6",
-   "name": "Jamel Johnson",
-   "status": "gtd",
+   "pos": "OLB",
+   "no": "5",
+   "name": "Harvey Dyson III",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -57,6 +57,20 @@
    "detail": ""
   },
   {
+   "pos": "QB",
+   "no": "10",
+   "name": "Will Wilson",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "13",
+   "name": "Joseph Adedire",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "ILB",
    "no": "15",
    "name": "AJ Richardson",
@@ -64,10 +78,24 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "19",
+   "name": "Preston Douglas",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "50",
    "name": "Daniel Cruz",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "54",
+   "name": "Teague Andersen",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -102,7 +130,7 @@
    "pos": "DL",
    "no": "99",
    "name": "AJ Prim",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   }
  ],

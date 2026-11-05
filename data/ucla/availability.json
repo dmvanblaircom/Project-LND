@@ -7,62 +7,83 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-28T01:38:42.775020+00:00",
+ "fetchedAt": "2026-11-05T01:08:48.050322+00:00",
  "reported": true,
- "effectiveAt": "2026-10-24",
- "heading": "Game Day",
- "kickoffDate": "2026-10-24",
- "game": "vs. Michigan State",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Minnesota",
  "players": [
   {
-   "pos": "",
+   "pos": "WR",
+   "no": "2",
+   "name": "Brian Rowe Jr.",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "2",
    "name": "Rodrick Pleasant",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
-   "no": "6",
-   "name": "Tao Johnson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "WR",
    "no": "7",
    "name": "Mikey Matthews",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "QB",
    "no": "9",
    "name": "Nico Iamaleava",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OLB",
+   "no": "19",
+   "name": "Ryan McCulloch",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "24",
    "name": "Jonah Smith",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "P",
+   "no": "35",
+   "name": "Curtis Gerrand",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "44",
+   "name": "Ashton Sanders",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "64",
    "name": "Sam Yoon",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "68",
    "name": "Jordan Davis",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   }
  ],
- "current": false
+ "current": true
 }

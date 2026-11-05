@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T22:10:17.034977+00:00",
+ "fetchedAt": "2026-11-05T01:08:48.935633+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Nebraska",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Penn State",
  "players": [
   {
    "pos": "RB",
@@ -29,17 +29,24 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "7",
+   "name": "Alex McLaughlin",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "10",
    "name": "Xe'ree Alexander",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "EDG",
    "no": "11",
    "name": "Ramzak Fruean",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -50,10 +57,17 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "30",
-   "name": "Ansu Sanoe",
-   "status": "out-game",
+   "pos": "OL",
+   "no": "55",
+   "name": "Kolt Dieterich",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "56",
+   "name": "Geirean Hatchett",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -67,14 +81,14 @@
    "pos": "OL",
    "no": "70",
    "name": "Justin Hylkema",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OL",
-   "no": "78",
-   "name": "Jake Flores",
-   "status": "out-game",
+   "no": "73",
+   "name": "Champ Taulealea",
+   "status": "questionable",
    "detail": ""
   },
   {

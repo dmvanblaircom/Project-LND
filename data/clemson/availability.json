@@ -7,13 +7,27 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:11:44.842804+00:00",
+ "fetchedAt": "2026-11-05T01:08:40.935532+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Florida State",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Syracuse",
  "players": [
+  {
+   "pos": "WR",
+   "no": "6",
+   "name": "Tyler Brown",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "8",
+   "name": "Gideon Davidson",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "CB",
    "no": "8",
@@ -39,6 +53,13 @@
    "pos": "WR",
    "no": "19",
    "name": "Gordon Sellars III",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "21",
+   "name": "Kobe McCloud",
    "status": "out-game",
    "detail": ""
   },
@@ -58,8 +79,29 @@
   },
   {
    "pos": "OL",
+   "no": "52",
+   "name": "Elyjah Thurmon",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "55",
+   "name": "Harris Sewell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "76",
    "name": "Mason Wade",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "79",
+   "name": "Braden Wilmes",
    "status": "out-game",
    "detail": ""
   },

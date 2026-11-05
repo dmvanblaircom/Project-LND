@@ -7,18 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:12:06.955708+00:00",
+ "fetchedAt": "2026-11-05T01:08:42.669746+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Wisconsin",
+ "effectiveAt": "2026-11-04",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-07",
+ "game": "Northwestern",
  "players": [
   {
    "pos": "DB",
    "no": "0",
    "name": "Cody Haddad",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -26,6 +26,27 @@
    "no": "2",
    "name": "Tyler Brown",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "3",
+   "name": "Jaylen Watson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "6",
+   "name": "Zach Lutmer",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "7",
+   "name": "Dayton Howard",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -46,7 +67,7 @@
    "pos": "RB",
    "no": "13",
    "name": "Brevin Doll",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -64,9 +85,30 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "31",
+   "name": "Nolan DeLong",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "48",
+   "name": "Zach Ortwerth",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "60",
    "name": "Lucas Allgeyer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "61",
+   "name": "Cael Winter",
    "status": "out-game",
    "detail": ""
   },
@@ -78,10 +120,17 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "88",
-   "name": "Emmanuel Olagbaju",
+   "pos": "OL",
+   "no": "75",
+   "name": "Cannon Leonard",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "81",
+   "name": "DJ Vonnahme",
+   "status": "probable",
    "detail": ""
   }
  ],
