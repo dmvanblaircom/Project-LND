@@ -288,10 +288,13 @@ jobs:
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
+        # A step that skipped itself as not due (champion, recruiting: ran=false)
+        # reports "skipped", never "success": not trying is not recovering
+        # (Codex, #225).
         run: |
           mkdir -p .cadence
           python3 tools/producers/health.py --dir "$RUNNER_TEMP/health" --state .cadence/health.json --open-issues \
-            --steps "kalshi=${{ steps.kalshi.outcome }},odds=${{ steps.odds.outcome }},oddshistory=${{ steps.oddshistory.outcome }},news=${{ steps.news.outcome }},depth=${{ steps.depth.outcome }},confav=${{ steps.confav.outcome }},notes=${{ steps.notes.outcome }},fpi=${{ steps.fpi.outcome }},rankhistory=${{ steps.rankhistory.outcome }},prospects=${{ steps.prospects.outcome }},champion=${{ steps.champion.outcome }}"
+            --steps "kalshi=${{ steps.kalshi.outcome }},odds=${{ steps.odds.outcome }},oddshistory=${{ steps.oddshistory.outcome }},news=${{ steps.news.outcome }},depth=${{ steps.depth.outcome }},confav=${{ steps.confav.outcome }},notes=${{ steps.notes.outcome }},fpi=${{ steps.fpi.outcome }},rankhistory=${{ steps.rankhistory.outcome }},prospects=${{ steps.prospects.outcome == 'failure' && 'failure' || (steps.prospects.outputs.ran == 'true' && 'success' || 'skipped') }},champion=${{ steps.champion.outcome == 'failure' && 'failure' || (steps.champion.outputs.ran == 'true' && 'success' || 'skipped') }}"
 
       - name: Remember the depth chart checks
         if: always() && hashFiles('.cadence/*') != ''

@@ -73,5 +73,13 @@ for i in range(3):
     s = health.update(s, [], [("fpi", "league", "the step failed - see the run's log")], "2026-11-05T0%d:00:00Z" % i)
 ok(health.title("fpi", health.broken(s)["fpi"]) == "FPI is not updating", "a league-wide source reads as itself, not '1 team'")
 
+print("a step that skipped itself is not a recovery (Codex, #225)")
+lok, lfail = health.league("champion=skipped,prospects=failure,fpi=success,news=")
+ok(lok == [("fpi", "league")] and [f[:2] for f in lfail] == [("prospects", "league")],
+   "success counts, failure counts, skipped and empty count for nothing")
+s = {"champion|league": {"since": "2026-11-05T01:00:00Z", "runs": 4, "reason": "x"}}
+ok(health.update(s, lok, lfail, "2026-11-05T03:00:00Z")["champion|league"]["runs"] == 4,
+   "a skipped champion step keeps its failure streak, so its issue stays open")
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "a broken source is told once, for its teams, for its reason"))
 sys.exit(1 if failures else 0)

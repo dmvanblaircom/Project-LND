@@ -95,6 +95,20 @@ def failing(state):
     return {k.split("|", 1)[0] for k in (state or {})}
 
 
+def league(steps):
+    """"name=outcome,..." -> (ok, failed) for league-wide steps. Only success
+    and failure count: "skipped" (not run, or not due) leaves a streak as it
+    was."""
+    ok, failed = [], []
+    for pair in filter(None, str(steps or "").split(",")):
+        name, _, outcome = pair.partition("=")
+        if outcome == "success":
+            ok.append((name, "league"))
+        elif outcome == "failure":
+            failed.append((name, "league", "the step failed - see the run's log"))
+    return ok, failed
+
+
 def title(source, rows):
     name = NAMES.get(source, source)
     teams = [r[0] for r in rows]
@@ -185,12 +199,9 @@ def main():
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     ok = [(s, t) for s, t in read_tsv(os.path.join(args.dir, "ok.tsv"), 2)]
     failed = [(s, t, reason_from(r)) for s, t, r in read_tsv(os.path.join(args.dir, "failed.tsv"), 3)]
-    for pair in filter(None, args.steps.split(",")):
-        name, outcome = pair.split("=", 1)
-        if outcome == "success":
-            ok.append((name, "league"))
-        elif outcome == "failure":
-            failed.append((name, "league", "the step failed - see the run's log"))
+    lok, lfailed = league(args.steps)
+    ok += lok
+    failed += lfailed
     try:
         state = json.load(open(args.state, encoding="utf-8"))
     except (OSError, ValueError):
