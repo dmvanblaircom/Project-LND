@@ -103,7 +103,7 @@ var OWNER = { schedule: "more", news: "more", stats: "more", feedback: "more", a
 // Every screen wears one header: the SUITE bar with the team as context
 // (decision 0031). Under it, a visible page title names every screen that
 // has no hero; Home and Game lead with their hero instead.
-var TITLE = { top25: "Top 25", roster: "Roster", more: "More", schedule: "Schedule", news: "News", stats: "Stats",
+var TITLE = { top25: "Around", roster: "Roster", more: "More", schedule: "Schedule", news: "News", stats: "Stats",
               settings: "Settings", feedback: "Feedback", about: "About Suite" };
 // VISUAL_WIDTHS="375,390,1280" adds the canonical 390px review width.
 var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).filter(Boolean);
@@ -295,8 +295,8 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                    canvas: getComputedStyle(document.documentElement).backgroundColor === cs.backgroundColor &&
                            document.body.getBoundingClientRect().height >= innerHeight - 1 };
         });
-        if (nav.labels.join("|") !== "Home|Top 25|Game|Roster|More")
-          fail(who, "behaviour", ".navbar", "nav reads " + nav.labels.join(" / ") + ", not Home / Top 25 / Game / Roster / More");
+        if (nav.labels.join("|") !== "Home|Around|Game|Roster|More")
+          fail(who, "behaviour", ".navbar", "nav reads " + nav.labels.join(" / ") + ", not Home / Around / Game / Roster / More");
         if (nav.pad < 8) fail(who, "layout", ".navbar", "nav sits on the bottom edge (" + nav.pad + "px padding)");
         // iOS can stop a fixed bar short of the bottom edge; the nav's own
         // surface must fill what is left under it, not the page (David, 2026-10-02).

@@ -730,6 +730,7 @@ function paintTop25(){
     games:  SB.games || T25.cachedGames,
     pollsFailed: T25.pollsFailed, gamesFailed: T25.gamesFailed,
     heroId: hero ? hero.id : null,
+    outlook: TeamOS.outlook.metrics(HOME.markets),   // Season Outlook's card (David, 2026-11-05)
     mark:   function(id){ return TeamOS.espn.mark(id, false); },
     fresh:  TeamOS.freshness.summary(top25Sources(), { now:now, online: navigator.onLine!==false }),
     calendar: TeamOS.season.calendar(window.LEAGUE_CALENDAR, seasonYear(), now),
@@ -868,7 +869,7 @@ function loadStrip(){
       MARKET_FIELD.failed[q.key] = false;
       HOME.markets[q.key] = p==null ? null
         : { value:p, previous:TeamOS.markets.previous(m), asOf:o.fetchedAt||null, cached:!!o.cached };
-      paintHome(); paintOutlook();
+      paintHome(); paintOutlook(); paintTop25();
       return { key:"odds-"+q.key, outcome: o.cached ? "cached" : "network" };
     }, function(){
       // A failed refresh keeps the field already drawn; it fails only a
@@ -1470,18 +1471,18 @@ function offseasonModel(now){
   if((model || now.getMonth()<8) && T25.polls==null && !T25.p) loadRankings();
   if(Suite.nav && Suite.nav.setSeasonNav){
     // The nav follows the league's calendar, not this team or the season
-    // year (offseason UI contract, "Seasonal navigation"): Top 25 and Game
-    // stay through the title game, so the offseason nav starts with the
-    // final AP poll - ESPN's own last-edition mark - and ends with the next
-    // preseason poll, which is not marked last. Game comes back no later
-    // than 14 days before a confirmed opener.
+    // year (offseason UI contract, "Seasonal navigation"): Game stays
+    // through the title game, so the offseason starts with the final AP
+    // poll - ESPN's own last-edition mark - and ends with the next preseason
+    // poll, which is not marked last. Game comes back no later than 14 days
+    // before a confirmed opener. Around stays all year (David, 2026-11-05).
     var off=(T25.polls||[]).some(function(p){
       return String(p.key||"").toLowerCase()==="ap" && p.last===true;
     });
     var opener=(model && model.phase.opener) || S.next;
     var gameBack=!!(opener && Date.parse(opener.date)>=now.getTime() &&
       Date.parse(opener.date)-now.getTime()<=14*24*60*60e3);
-    Suite.nav.setSeasonNav({top25:!off,game:!off||gameBack});
+    Suite.nav.setSeasonNav({game:!off||gameBack});
     var route=Suite.nav.current();
     if(route && route.screen==="more") paintMore();
   }
@@ -1822,7 +1823,7 @@ $("scheduleList").addEventListener("pointerdown", function(e){
 // other half: which host a screen shows, and what it loads on entry. UI.tab
 // names the screen's family, for what Refresh Data reloads.
 var PANEL_FOR={ home:"home", top25:"top25", game:"game", roster:"roster", more:"more", schedule:"schedule",
-                news:"more", stats:"more", settings:"more", feedback:"more", about:"more", outlook:"home" };
+                news:"more", stats:"more", settings:"more", feedback:"more", about:"more", outlook:"top25" };
 // More and the destinations it owns, each its own host (suite/more.js).
 var MORE_HOSTS={ more:"screenMore", news:"screenNews", stats:"screenStats", settings:"screenSettings", feedback:"screenFeedback", about:"screenAbout" };
 function showScreen(route){

@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 /* Season Outlook's full field (W18), in a real browser.
 
-     1. Home's Season Outlook links to the full field; the link opens
-        #outlook with Home still selected, and Back returns to Home.
+     1. Home's one Season Outlook line opens Around (David, 2026-11-05),
+        whose Season Outlook card links to the full field; the link opens
+        #outlook with Around still selected, and Back returns to Around.
      2. Each view - Playoff, National Title - lists every team its market
         prices, most likely first, the same field TeamOS.markets.field()
         builds from the committed snapshot, with the team's own row marked
         and repeated above the list; a price under 1% reads "<1", never 0.
-     3. The team's own number on the board is Home's number.
+     3. The team's own number on the board is Around's number, and Home's.
      4. Saved prices say so; a market that never loaded says it failed, or
         that the fan is offline; a refresh that fails keeps the board.
      5. Ohio State: the same board, its own row marked (no team named here).
@@ -136,23 +137,36 @@ function expected(slug, key) {
   }
 
   // ---- 1. the way in and out -------------------------------------------------
-  console.log("1. Home links to the full field");
+  console.log("1. Home's line opens Around; Around's card opens the full field");
   var a = await open("notre-dame");
-  var link = await a.page.evaluate(function () {
-    var l = document.querySelector('#screenHome .home-outlook a.sec-link');
-    return l ? { text: l.textContent.trim(), href: l.getAttribute("href") } : null;
+  var homeLine = await a.page.evaluate(function () {
+    var l = document.querySelector('#screenHome .home-outlook a.out-line');
+    return l ? { text: l.querySelector(".out-line-v").textContent, href: l.getAttribute("href"),
+                 card: !!document.querySelector("#screenHome .out-metric") } : null;
   });
-  ok(link && link.text === "View Full Field" && link.href === "#outlook", "Season Outlook carries 'View Full Field' (" + JSON.stringify(link) + ")");
+  ok(homeLine && homeLine.href === "#top25" && /Playoff \d+%/.test(homeLine.text) && !homeLine.card,
+     "Home has one Season Outlook line, opening Around, and no card (" + JSON.stringify(homeLine) + ")");
+  await a.page.click('#screenHome .home-outlook a.out-line');
+  await a.page.waitForTimeout(600);
+  var link = await a.page.evaluate(function () {
+    var l = document.querySelector('#screenTop25 .t25-outlook a.sec-link');
+    return l ? { text: l.textContent.trim(), href: l.getAttribute("href"), hash: location.hash } : null;
+  });
+  ok(link && link.hash === "#top25" && link.text === "View Full Field" && link.href === "#outlook",
+     "Around's Season Outlook carries 'View Full Field' (" + JSON.stringify(link) + ")");
   var homeMetric = await a.page.evaluate(function () {
-    return [].map.call(document.querySelectorAll("#screenHome .out-metric"), function (m) {
+    return [].map.call(document.querySelectorAll("#screenTop25 .out-metric"), function (m) {
       return { label: m.querySelector(".out-label").textContent, value: m.querySelector(".out-value").textContent };
     });
   });
-  await a.page.click('#screenHome .home-outlook a.sec-link');
+  var lineFig = (/Playoff (\d+)%/.exec(homeLine.text) || [])[1];
+  var cardFig = (homeMetric.filter(function (m) { return /Playoff/.test(m.label); })[0] || {}).value;
+  ok(lineFig && cardFig && cardFig.replace(/\s|%/g, "") === lineFig, "Home's line and Around's card give the same Playoff figure (" + lineFig + ", " + cardFig + ")");
+  await a.page.click('#screenTop25 .t25-outlook a.sec-link');
   await a.page.waitForTimeout(600);
   var p = await board(a.page);
   ok(!p.hidden && p.hash === "#outlook", "the link opens #outlook");
-  ok(p.navCurrent === "Home", "with Home still selected (" + p.navCurrent + ")");
+  ok(p.navCurrent === "Around", "with Around still selected (" + p.navCurrent + ")");
   ok(/Season Outlook/.test(p.title), "the screen names itself Season Outlook (" + p.title + ")");
   ok(p.tab === "Playoff", "Playoff is the first view");
   await shot(a.page, "outlook-playoff-nd");
@@ -176,9 +190,9 @@ function expected(slug, key) {
   ok(/Kalshi/.test(p.note) && /Information only/.test(p.note), "attributed to Kalshi, information only");
   ok(/Saved prices, as of/.test(p.note) || /As of/.test(p.note) || !snapshot("playoff").fetchedAt, "says when the prices are from, when the snapshot does");
 
-  console.log("3. the team's number is Home's number");
+  console.log("3. the team's number is Around's number");
   var hp = homeMetric.filter(function (m) { return /Playoff/.test(m.label); })[0];
-  ok(hp && hp.value.replace(/\s/g, "") === String(Math.round(wantMine.value)) + "%", "Home's Playoff figure " + (hp && hp.value) + " = the board's " + pct(wantMine.value));
+  ok(hp && hp.value.replace(/\s/g, "") === String(Math.round(wantMine.value)) + "%", "Around's Playoff figure " + (hp && hp.value) + " = the board's " + pct(wantMine.value));
 
   await a.page.click('#screenOutlook .view-tabs a[href="#outlook/title"]');
   await a.page.waitForTimeout(600);
@@ -193,7 +207,7 @@ function expected(slug, key) {
   await a.page.goBack(); await a.page.waitForTimeout(400);
   await a.page.goBack(); await a.page.waitForTimeout(600);
   var back = await board(a.page);
-  ok(back.hidden && back.hash === "#home", "Back walks the views, then returns to Home (" + back.hash + ")");
+  ok(back.hidden && back.hash === "#top25", "Back walks the views, then returns to Around (" + back.hash + ")");
 
   // ---- 4. states --------------------------------------------------------------
   console.log("4. failure, offline, and a refresh that fails");

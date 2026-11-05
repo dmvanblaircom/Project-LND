@@ -7,8 +7,10 @@
    Home's Season Outlook shows the team's own two numbers; this is the whole
    market behind each, most likely first, the team's own row marked and
    repeated above the list so it is never lost below the fold. A secondary
-   destination owned by Home, reached from Season Outlook's "View Full
-   Field". Information only: nothing here places, links to, or prices a bet
+   destination owned by Around (David, 2026-11-05; Home before), reached
+   from Season Outlook's "View Full Field".
+   Around draws the team's own card (suite/top25.js) and Home its one line
+   (suite/home.js). Information only: nothing here places, links to, or prices a bet
    (decision 0025).
 
    This file only draws: app.js fetches, TeamOS.markets.field() decides which

@@ -70,14 +70,17 @@ without that evidence.
 
 ## Seasonal navigation and unchanged states
 
-- Keep Top 25 through the national title game even if this team's season is
+- Keep Game through the national title game even if this team's season is
   already complete. Team phase and league navigation phase are separate.
-- In the approved offseason interval: Home, News, Schedule, Roster, More.
-- Top 25 returns with the preseason AP release. Game returns with it, and
-  no later than 14 days before a confirmed opener. Missing kickoff time
-  never becomes an invented exact countdown.
-- Preserve saved routes: last Game and final Rankings remain reachable,
-  including from More. Schedule opens Results for the completed season.
+- In the approved offseason interval: Home, Around, Schedule, Roster, More.
+  **Amended (David, 2026-11-05):** the Top 25 tab is now Around and stays in
+  the nav all year; News no longer takes its place out of season (News stays
+  on Home and in More). See `docs/product/navigation-brief.md`.
+- Game returns with the preseason AP release, and no later than 14 days
+  before a confirmed opener. Missing kickoff time never becomes an invented
+  exact countdown.
+- Preserve saved routes: last Game remains reachable, including from More;
+  final Rankings are in Around. Schedule opens Results for the completed season.
 - S1 remains unchanged. S3 uses the existing Game hero and real round label.
   A won playoff round awaiting its next opponent remains postseason.
 - S5 reuses the existing upcoming-game card with the confirmed next-season
