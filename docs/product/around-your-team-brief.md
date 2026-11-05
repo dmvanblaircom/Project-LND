@@ -8,12 +8,10 @@ Game changes out of season (David: "the bottom nav can stay consistent in
 and out of season except for the Game tab"). His leaning for the name:
 "Around" plus the team's initials. Nothing is built yet.
 
-**Decided (David, 2026-11-05):** in season the tab is named **Games**; when
-the season is over it becomes **Around**, with its out-of-season content
-still to be defined (below). Out of season the nav is then Home, Around,
-Schedule, Roster, More. Noted with the decision: in season "Games" sits
-next to "Game" in the nav (Home, Games, Game, Roster, More); if that reads
-as confusing in use, "Scores" is the measured fallback.
+**Decided (David, 2026-11-05):** the tab is named **Around**, in and out of
+season ("Just call it Around for now, not Race or Games"). It replaces Top
+25 in the nav; its national layer keeps the name Top 25. How Around, Home
+and Game divide the work is in `docs/product/navigation-brief.md`.
 
 ## The problem
 
