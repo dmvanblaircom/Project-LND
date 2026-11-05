@@ -1,6 +1,6 @@
 # Proposal: one job per tab, in and out of season
 
-**Status:** Proposed, for David's review (2026-11-05). Nothing is built.
+**Status:** Approved by David, 2026-11-05 (decisions below). Nothing is built yet.
 Decided so far (David, 2026-11-05): the third tab is **Around**, all year
 ("Just call it Around for now, not Race or Games"), and it stays in the nav
 out of season, where today News takes its place. Its national layer keeps
@@ -40,7 +40,7 @@ features or data/info/value for the fan."
 |---|---|---|---|
 | **Home** | How is my team right now? | Hero; the wire and news; schedule preview; **one standing line** ("#6 CFP - 71% playoff odds") that opens Around; milestone; By the Numbers | Season card; the wire and news; **our** recruiting class; **our** draft picks |
 | **Game** | This game | unchanged | Schedule, unchanged rule |
-| **Around** | Where do we stand, and what around us matters? | Our conference: standings and this week's games. Games that matter to us: opponents, rivals, CFP neighbours. **Season Outlook's full odds (moved from Home).** Top 25: the week's ranked games and the rankings | The wire around us (team, rivals, conference). Our conference: standings and bowl results, then Signing Day classes ranked, then the NFL Draft by school, then next season's slate. Next season's opponents, once the schedule is published. Top 25: final polls, then the preseason poll |
+| **Around** | Where do we stand, and what around us matters? | Our conference: standings and this week's games. Games that matter to us: opponents, rivals, CFP neighbours. **Season Outlook's full odds (moved from Home, decided).** Top 25: the week's ranked games and the rankings | The wire around us (team, rivals, conference). Our conference: standings and bowl results, then Signing Day classes ranked, then the NFL Draft by school, then next season's slate. Next season's opponents, once the schedule is published. Top 25: final polls, then the preseason poll |
 | **Roster** | Who | unchanged | unchanged |
 | **More** | Everything else | News, Schedule, Stats, settings | same |
 
@@ -56,7 +56,7 @@ Rules that keep them apart:
 | Feature today | Where it goes |
 |---|---|
 | Home hero, milestone, news, schedule preview, By the Numbers | Home, unchanged |
-| Season Outlook (full) | Around (proposed); Home keeps one line that opens it |
+| Season Outlook (full) | Around (decided); Home keeps one line that opens it |
 | Top 25 Games and Rankings, every source and week | Around, as its Top 25 section, unchanged |
 | Top 25 game sheet | Around; the team's own game opens Game |
 | Out-of-season News tab | Home (first) and More |
@@ -76,15 +76,13 @@ The wire depends on `docs/product/wire-brief.md` Phase 1. Without it Around
 is thin from January to April: coaching and portal news have no structured
 source.
 
-## Open decisions for David
+## Decided (David, 2026-11-05)
 
-1. **Move Season Outlook's full view from Home to Around,** Home keeping a
-   one-line standing? Recommendation: yes - it answers "where do we stand",
-   Around's question.
-2. **Wire first in Around out of season?** Recommendation: yes; it is what
-   fans open the app for between seasons.
-3. **Approve the wire's Phase 1 with this?** Recommendation: yes; Around
-   out of season depends on it.
+1. **Season Outlook moves to Around.** Its full view leaves Home; Home keeps
+   a one-line standing that opens it.
+2. **The wire comes first in Around out of season.**
+3. **The wire's Phase 1 is approved** (`docs/product/wire-brief.md`), since
+   Around out of season depends on it.
 
 ## Smallest build, in order
 
