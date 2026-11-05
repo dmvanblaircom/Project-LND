@@ -1,6 +1,9 @@
 # Proposal: the wire - a team's updates as they break
 
-**Status:** Proposed, for David's review (2026-11-05). Nothing is built.
+**Status:** Phase 1 approved by David, 2026-11-05 ("Yes approved on phase 1"),
+with the Around tab (`docs/product/navigation-brief.md`): out of season the
+wire comes first in Around. Phase 2 (a paid or partner source) is not
+decided. Nothing is built yet.
 From the backlog item "The wire" (David, 2026-11-05).
 
 ## The ask
