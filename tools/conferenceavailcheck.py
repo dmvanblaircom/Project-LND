@@ -347,6 +347,14 @@ before = {"reported": True, "effectiveAt": "2026-10-23", "heading": "Game Day", 
           "game": "at Boise State", "players": [], "current": False}
 _, season = ca.build_report(PAC12, {"utah state"}, [before])
 ok([r["kickoffDate"] for r in season] == ["2026-10-24", "2026-10-31"], "last week's report stays in the season's history")
+adv = copy.deepcopy(PAC12)
+for g in adv["games"]:
+    g["notes"] = "Advance Report"
+first, _ = ca.build_report(adv, {"utah state"})
+ok(first and first["heading"] == "Initial" and len(first["players"]) == 17,
+   "the Pac-12's Advance Report (Nov 5) is the week's first report: read as Initial")
+later, _ = ca.build_report(PAC12, {"utah state"}, [dict(first, current=True)])
+ok(later["heading"] == "Update 1", "and the week's next report replaces it")
 for what, mutate in (("an unknown report name", lambda d: d["games"][0].update(notes="Fourth Report")),
                      ("a player with no status", lambda d: d["games"][0]["home"]["players"][0].pop("status")),
                      ("a status no rule reads", lambda d: d["games"][0]["home"]["players"][0].update(status="Limited")),
