@@ -56,7 +56,7 @@ var EVERYTHING = [
 ];
 var TEAM_CHECKS = ["bootcheck.js", "registrycheck.js", "choosercheck.js", "swcheck.js", "adaptercheck.js",
                    "identitycheck.js", "teamidentitycheck.js", "pipelinecheck.py", "prospectsrefreshcheck.py", "teamfontcheck.js"];
-var REFRESH_CHECKS = ["pipelinecheck.py", "cadencecheck.py", "prospectsrefreshcheck.py", "freshnesscheck.py"];
+var REFRESH_CHECKS = ["pipelinecheck.py", "cadencecheck.py", "prospectsrefreshcheck.py", "freshnesscheck.py", "healthcheck.py"];
 
 // The Python checks that import a producer, read from the checks themselves.
 function importers(producer) {

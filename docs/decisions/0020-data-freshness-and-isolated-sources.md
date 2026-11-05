@@ -30,9 +30,21 @@ in CI.
 **Sources are isolated.** Each producer step in `.github/workflows/odds.yml`
 has `continue-on-error`, and the commit step adds only files that a step
 which **succeeded** produced. The commit message names what moved
-(`Refresh team data: odds, availability`). The run still ends red when any
-source failed, after everything that worked is saved, so a broken source
-stays visible.
+(`Refresh team data: odds, availability`).
+
+**Amended (David, 2026-11-05): team by team, and told once.** A step that
+reads many teams saves each team that succeeded, not all or none: one team's
+dead feed no longer holds back 137 teams' news (it did on Nov 3 and 4). A
+failed team keeps its last good files. The run no longer ends red for a
+failed source: at 138 teams every 30 minutes that was a near-constant
+"Run failed" email that said nothing, and a real breakage (six Pac-12 teams,
+Nov 5) was lost in it. Instead `tools/producers/health.py` records each
+source, team and reason, keeps how many runs in a row each has failed (in
+the Actions cache), and opens one GitHub issue per source (label
+`data-source`) once a failure has lasted three runs in a row. The issue
+names the teams and the reason in the producer's own words, updates itself
+without commenting, and closes with a comment when every team has
+recovered. Tested by `tools/healthcheck.py`.
 
 **Nothing is written unless it changed.** `news.json` joins the depth and
 availability files: an identical story list no longer gets a fresh
