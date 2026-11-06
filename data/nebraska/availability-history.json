@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-11-06T01:08:54.299536+00:00",
+ "updated": "2026-11-06T23:08:37.577228+00:00",
  "reports": [
   {
    "schema": 1,
@@ -401,10 +401,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:54.299536+00:00",
+   "fetchedAt": "2026-11-06T23:08:37.577228+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-06",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-06",
    "game": "at Illinois",
    "players": [
@@ -412,7 +412,7 @@
      "pos": "DB",
      "no": "4",
      "name": "Jamir Conn",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
