@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-01T11:09:30.114251+00:00",
+ "fetchedAt": "2026-11-06T22:38:45.297014+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
+ "effectiveAt": "2026-11-06",
  "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Temple",
+ "kickoffDate": "2026-11-06",
+ "game": "South Florida",
  "players": [
   {
    "pos": "DB",
@@ -25,6 +25,13 @@
    "pos": "DB",
    "no": "6",
    "name": "DeMarius Hines",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "8",
+   "name": "Ismael Smith Flores",
    "status": "out-game",
    "detail": ""
   },
@@ -58,8 +65,8 @@
   },
   {
    "pos": "DB",
-   "no": "17",
-   "name": "Rae'mon Mosby",
+   "no": "28",
+   "name": "David Coleman Jr.",
    "status": "out-game",
    "detail": ""
   },

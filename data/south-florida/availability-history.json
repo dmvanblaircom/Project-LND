@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-florida",
- "updated": "2026-11-01T11:09:38.890956+00:00",
+ "updated": "2026-11-06T22:38:51.651109+00:00",
  "reports": [
   {
    "schema": 1,
@@ -361,6 +361,102 @@
      "no": "72",
      "name": "Cash Hudson",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "82",
+     "name": "Gabe Legrand",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "NT",
+     "no": "95",
+     "name": "Iverson Garcia-Ponce",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "south-florida",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-06T22:38:51.651109+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-06",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-06",
+   "game": "East Carolina",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "3",
+     "name": "Michael Van Buren Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Arhmad Branch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "12",
+     "name": "Jaden Alexis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "19",
+     "name": "JeyQuan Smith",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "20",
+     "name": "A'Mon Lane-Ganus",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "38",
+     "name": "Derrick \"Tre\" Nichols III",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "Thomas Shrader",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "Cash Hudson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "79",
+     "name": "Ethan Green",
+     "status": "questionable",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "east-carolina",
- "updated": "2026-11-01T11:09:30.114251+00:00",
+ "updated": "2026-11-06T22:38:45.297014+00:00",
  "reports": [
   {
    "schema": 1,
@@ -297,6 +297,88 @@
      "pos": "DB",
      "no": "17",
      "name": "Rae'mon Mosby",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "88",
+     "name": "Dawson Quarterman",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "east-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-06T22:38:45.297014+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-06",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-06",
+   "game": "South Florida",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Jaylen Bowden",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "DeMarius Hines",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "8",
+     "name": "Ismael Smith Flores",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "10",
+     "name": "Brock Spalding",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Jeremiah Melvin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "13",
+     "name": "Ayden Duncanson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "14",
+     "name": "Dillon Lorick",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "28",
+     "name": "David Coleman Jr.",
      "status": "out-game",
      "detail": ""
     },
