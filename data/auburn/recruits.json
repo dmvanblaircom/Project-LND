@@ -16,7 +16,7 @@
    "city": "Sharpsburg",
    "state": "GA",
    "grade": 86,
-   "rank": 41,
+   "rank": 42,
    "positionRank": 4,
    "stateRank": 4,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Middletown",
    "state": "DE",
    "grade": 84,
-   "rank": 46,
+   "rank": 47,
    "positionRank": 7,
    "stateRank": 1,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "East Saint Louis",
    "state": "IL",
    "grade": 84,
-   "rank": 61,
+   "rank": 62,
    "positionRank": 2,
    "stateRank": 3,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Hyattsville",
    "state": "MD",
    "grade": 83,
-   "rank": 92,
+   "rank": 93,
    "positionRank": 13,
    "stateRank": 3,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Quitman",
    "state": "GA",
    "grade": 82,
-   "rank": 139,
+   "rank": 140,
    "positionRank": 6,
    "stateRank": 18,
    "status": "Verbal"
@@ -81,8 +81,8 @@
    "city": "Prattville",
    "state": "AL",
    "grade": 82,
-   "rank": 155,
-   "positionRank": 28,
+   "rank": 156,
+   "positionRank": 29,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -94,7 +94,7 @@
    "city": "Prichard",
    "state": "AL",
    "grade": 82,
-   "rank": 157,
+   "rank": 158,
    "positionRank": 12,
    "stateRank": 6,
    "status": "Verbal"
@@ -107,7 +107,7 @@
    "city": "Duncan",
    "state": "SC",
    "grade": 81,
-   "rank": 167,
+   "rank": 168,
    "positionRank": 18,
    "stateRank": 4,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Bessemer",
    "state": "AL",
    "grade": 81,
-   "rank": 193,
+   "rank": 194,
    "positionRank": 15,
    "stateRank": 10,
    "status": "Verbal"
@@ -133,7 +133,7 @@
    "city": "Lyons",
    "state": "GA",
    "grade": 80,
-   "rank": 269,
+   "rank": 270,
    "positionRank": 19,
    "stateRank": 31,
    "status": "Verbal"
@@ -148,7 +148,7 @@
    "grade": 80,
    "rank": null,
    "positionRank": 10,
-   "stateRank": 33,
+   "stateRank": 34,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "TN",
    "grade": 79,
    "rank": null,
-   "positionRank": 69,
+   "positionRank": 70,
    "stateRank": 21,
    "status": "Verbal"
   },
@@ -291,7 +291,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 2,
-   "stateRank": 123,
+   "stateRank": 124,
    "status": "Verbal"
   },
   {
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:40Z"
+ "fetchedAt": "2026-11-06T06:39Z"
 }

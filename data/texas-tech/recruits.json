@@ -29,7 +29,7 @@
    "city": "Baltimore",
    "state": "MD",
    "grade": 90,
-   "rank": 12,
+   "rank": 13,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Northville",
    "state": "MI",
    "grade": 90,
-   "rank": 21,
+   "rank": 22,
    "positionRank": 4,
    "stateRank": 1,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "DeSoto",
    "state": "TX",
    "grade": 86,
-   "rank": 40,
+   "rank": 41,
    "positionRank": 3,
    "stateRank": 4,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Austin",
    "state": "TX",
    "grade": 84,
-   "rank": 50,
+   "rank": 51,
    "positionRank": 2,
    "stateRank": 6,
    "status": "Verbal"
@@ -81,8 +81,8 @@
    "city": "Argyle",
    "state": "TX",
    "grade": 84,
-   "rank": 66,
-   "positionRank": 13,
+   "rank": 67,
+   "positionRank": 14,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -94,8 +94,8 @@
    "city": "Houston",
    "state": "TX",
    "grade": 84,
-   "rank": 72,
-   "positionRank": 14,
+   "rank": 73,
+   "positionRank": 15,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -107,7 +107,7 @@
    "city": "Houston",
    "state": "TX",
    "grade": 83,
-   "rank": 82,
+   "rank": 83,
    "positionRank": 8,
    "stateRank": 12,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "DeSoto",
    "state": "TX",
    "grade": 81,
-   "rank": 219,
+   "rank": 220,
    "positionRank": 18,
    "stateRank": 29,
    "status": "Verbal"
@@ -133,7 +133,7 @@
    "city": "Denton",
    "state": "TX",
    "grade": 81,
-   "rank": 227,
+   "rank": 228,
    "positionRank": 19,
    "stateRank": 31,
    "status": "Verbal"
@@ -146,7 +146,7 @@
    "city": "Humble",
    "state": "TX",
    "grade": 81,
-   "rank": 234,
+   "rank": 235,
    "positionRank": 25,
    "stateRank": 32,
    "status": "Verbal"
@@ -225,7 +225,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 92,
+   "positionRank": 93,
    "stateRank": 166,
    "status": "Verbal"
   },
@@ -256,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:16Z"
+ "fetchedAt": "2026-11-06T06:46Z"
 }

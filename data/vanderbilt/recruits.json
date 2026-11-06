@@ -16,7 +16,7 @@
    "city": "Nashville",
    "state": "TN",
    "grade": 86,
-   "rank": 36,
+   "rank": 37,
    "positionRank": 3,
    "stateRank": 2,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Milton",
    "state": "GA",
    "grade": 83,
-   "rank": 84,
+   "rank": 85,
    "positionRank": 1,
    "stateRank": 8,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Louisville",
    "state": "KY",
    "grade": 83,
-   "rank": 101,
+   "rank": 102,
    "positionRank": 12,
    "stateRank": 2,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Richardson",
    "state": "TX",
    "grade": 80,
-   "rank": 268,
+   "rank": 269,
    "positionRank": 28,
    "stateRank": 37,
    "status": "Verbal"
@@ -83,7 +83,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 45,
-   "stateRank": 45,
+   "stateRank": 46,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 41,
-   "stateRank": 12,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -121,8 +121,8 @@
    "state": "FL",
    "grade": 78,
    "rank": null,
-   "positionRank": 72,
-   "stateRank": 48,
+   "positionRank": 73,
+   "stateRank": 49,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 107,
+   "positionRank": 108,
    "stateRank": 104,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "CA",
    "grade": 75,
    "rank": null,
-   "positionRank": 90,
+   "positionRank": 91,
    "stateRank": 105,
    "status": "Verbal"
   },
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

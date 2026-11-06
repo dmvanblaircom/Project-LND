@@ -16,8 +16,8 @@
    "city": "Indianapolis",
    "state": "IN",
    "grade": 90,
-   "rank": 17,
-   "positionRank": 3,
+   "rank": 18,
+   "positionRank": 4,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -29,7 +29,7 @@
    "city": "Lincolnton",
    "state": "NC",
    "grade": 81,
-   "rank": 221,
+   "rank": 222,
    "positionRank": 17,
    "stateRank": 8,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Marion",
    "state": "MA",
    "grade": 81,
-   "rank": 225,
+   "rank": 226,
    "positionRank": 18,
    "stateRank": 2,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Noblesville",
    "state": "IN",
    "grade": 81,
-   "rank": 229,
+   "rank": 230,
    "positionRank": 22,
    "stateRank": 3,
    "status": "Verbal"
@@ -68,8 +68,8 @@
    "city": "Brownsburg",
    "state": "IN",
    "grade": 80,
-   "rank": 258,
-   "positionRank": 38,
+   "rank": 259,
+   "positionRank": 39,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "GA",
    "grade": 77,
    "rank": null,
-   "positionRank": 119,
+   "positionRank": 120,
    "stateRank": 111,
    "status": "Verbal"
   },
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:12Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

@@ -16,7 +16,7 @@
    "city": "Evanston",
    "state": "IL",
    "grade": 80,
-   "rank": 297,
+   "rank": 298,
    "positionRank": 16,
    "stateRank": 13,
    "status": "Verbal"
@@ -30,7 +30,7 @@
    "state": "IL",
    "grade": 80,
    "rank": null,
-   "positionRank": 45,
+   "positionRank": 46,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -70,7 +70,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 55,
-   "stateRank": 68,
+   "stateRank": 69,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 71,
-   "stateRank": 79,
+   "stateRank": 80,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 141,
+   "positionRank": 142,
    "stateRank": 135,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 154,
-   "stateRank": 152,
+   "stateRank": 153,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:41Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

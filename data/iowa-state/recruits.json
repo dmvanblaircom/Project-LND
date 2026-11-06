@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "66",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -16,7 +16,7 @@
    "city": "Newton",
    "state": "IA",
    "grade": 81,
-   "rank": 208,
+   "rank": 209,
    "positionRank": 12,
    "stateRank": 1,
    "status": "Verbal"
@@ -43,8 +43,21 @@
    "state": "OH",
    "grade": 78,
    "rank": null,
-   "positionRank": 89,
+   "positionRank": 90,
    "stateRank": 27,
+   "status": "Verbal"
+  },
+  {
+   "id": "266413",
+   "name": "Ty Tautolo",
+   "position": "DE",
+   "highSchool": "Lake Stevens High School",
+   "city": "Lake Stevens",
+   "state": "WA",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 75,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -69,7 +82,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 152,
+   "positionRank": 153,
    "stateRank": 142,
    "status": "Verbal"
   },
@@ -109,7 +122,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 107,
-   "stateRank": 112,
+   "stateRank": 113,
    "status": "Verbal"
   },
   {
@@ -269,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:12Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

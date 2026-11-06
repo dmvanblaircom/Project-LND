@@ -16,7 +16,7 @@
    "city": "Macon",
    "state": "GA",
    "grade": 84,
-   "rank": 47,
+   "rank": 48,
    "positionRank": 5,
    "stateRank": 5,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Poplarville",
    "state": "MS",
    "grade": 83,
-   "rank": 102,
+   "rank": 103,
    "positionRank": 7,
    "stateRank": 3,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Springfield",
    "state": "GA",
    "grade": 81,
-   "rank": 216,
+   "rank": 217,
    "positionRank": 17,
    "stateRank": 26,
    "status": "Verbal"
@@ -55,8 +55,8 @@
    "city": "Kingsland",
    "state": "GA",
    "grade": 80,
-   "rank": 287,
-   "positionRank": 42,
+   "rank": 288,
+   "positionRank": 43,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -68,9 +68,9 @@
    "city": "Miami",
    "state": "FL",
    "grade": 80,
-   "rank": 293,
+   "rank": 294,
    "positionRank": 15,
-   "stateRank": 28,
+   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 65,
-   "stateRank": 47,
+   "stateRank": 48,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 29,
-   "stateRank": 61,
+   "stateRank": 62,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 95,
-   "stateRank": 93,
+   "stateRank": 94,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "MS",
    "grade": 75,
    "rank": null,
-   "positionRank": 91,
+   "positionRank": 92,
    "stateRank": 33,
    "status": "Verbal"
   },
@@ -187,9 +187,9 @@
    "grade": 73,
    "rank": null,
    "positionRank": 15,
-   "stateRank": 205,
+   "stateRank": 206,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:41Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

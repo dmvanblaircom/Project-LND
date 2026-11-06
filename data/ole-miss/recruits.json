@@ -16,7 +16,7 @@
    "city": "Sacramento",
    "state": "CA",
    "grade": 82,
-   "rank": 117,
+   "rank": 118,
    "positionRank": 5,
    "stateRank": 11,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Ackerman",
    "state": "MS",
    "grade": 82,
-   "rank": 119,
+   "rank": 120,
    "positionRank": 8,
    "stateRank": 4,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Louisville",
    "state": "MS",
    "grade": 82,
-   "rank": 127,
+   "rank": 128,
    "positionRank": 9,
    "stateRank": 5,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Tupelo",
    "state": "MS",
    "grade": 81,
-   "rank": 180,
+   "rank": 181,
    "positionRank": 6,
    "stateRank": 8,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Chattanooga",
    "state": "TN",
    "grade": 81,
-   "rank": 183,
+   "rank": 184,
    "positionRank": 13,
    "stateRank": 8,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Lewisville",
    "state": "TX",
    "grade": 81,
-   "rank": 199,
+   "rank": 200,
    "positionRank": 22,
    "stateRank": 28,
    "status": "Verbal"
@@ -94,8 +94,8 @@
    "city": "Crawford",
    "state": "TX",
    "grade": 80,
-   "rank": 267,
-   "positionRank": 39,
+   "rank": 268,
+   "positionRank": 40,
    "stateRank": 36,
    "status": "Verbal"
   },
@@ -107,7 +107,7 @@
    "city": "Memphis",
    "state": "TN",
    "grade": 80,
-   "rank": 276,
+   "rank": 277,
    "positionRank": 27,
    "stateRank": 12,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Memphis",
    "state": "TN",
    "grade": 80,
-   "rank": 290,
+   "rank": 291,
    "positionRank": 32,
    "stateRank": 14,
    "status": "Verbal"
@@ -173,7 +173,7 @@
    "state": "LA",
    "grade": 80,
    "rank": null,
-   "positionRank": 44,
+   "positionRank": 45,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "AL",
    "grade": 78,
    "rank": null,
-   "positionRank": 78,
+   "positionRank": 79,
    "stateRank": 25,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:14Z"
+ "fetchedAt": "2026-11-06T06:44Z"
 }

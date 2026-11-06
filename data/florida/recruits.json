@@ -29,8 +29,8 @@
    "city": "New Orleans",
    "state": "LA",
    "grade": 91,
-   "rank": 11,
-   "positionRank": 1,
+   "rank": 12,
+   "positionRank": 2,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -42,7 +42,7 @@
    "city": "East Saint Louis",
    "state": "IL",
    "grade": 84,
-   "rank": 65,
+   "rank": 66,
    "positionRank": 8,
    "stateRank": 4,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Anna",
    "state": "TX",
    "grade": 83,
-   "rank": 77,
+   "rank": 78,
    "positionRank": 1,
    "stateRank": 11,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Swainsboro",
    "state": "GA",
    "grade": 83,
-   "rank": 108,
+   "rank": 109,
    "positionRank": 2,
    "stateRank": 12,
    "status": "Verbal"
@@ -81,9 +81,9 @@
    "city": "Sarasota",
    "state": "FL",
    "grade": 82,
-   "rank": 116,
+   "rank": 117,
    "positionRank": 7,
-   "stateRank": 12,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -94,7 +94,7 @@
    "city": "Roanoke",
    "state": "VA",
    "grade": 82,
-   "rank": 146,
+   "rank": 147,
    "positionRank": 12,
    "stateRank": 2,
    "status": "Verbal"
@@ -107,9 +107,9 @@
    "city": "Port Charlotte",
    "state": "FL",
    "grade": 82,
-   "rank": 148,
-   "positionRank": 26,
-   "stateRank": 17,
+   "rank": 149,
+   "positionRank": 27,
+   "stateRank": 18,
    "status": "Verbal"
   },
   {
@@ -120,9 +120,9 @@
    "city": "Cottondale",
    "state": "FL",
    "grade": 81,
-   "rank": 172,
+   "rank": 173,
    "positionRank": 8,
-   "stateRank": 19,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -133,7 +133,7 @@
    "city": "Bogart",
    "state": "GA",
    "grade": 81,
-   "rank": 188,
+   "rank": 189,
    "positionRank": 11,
    "stateRank": 22,
    "status": "Verbal"
@@ -146,7 +146,7 @@
    "city": "Eastman",
    "state": "GA",
    "grade": 81,
-   "rank": 209,
+   "rank": 210,
    "positionRank": 23,
    "stateRank": 24,
    "status": "Verbal"
@@ -159,7 +159,7 @@
    "city": "Brooklandville",
    "state": "MD",
    "grade": 81,
-   "rank": 220,
+   "rank": 221,
    "positionRank": 23,
    "stateRank": 5,
    "status": "Verbal"
@@ -172,7 +172,7 @@
    "city": "Mobile",
    "state": "AL",
    "grade": 80,
-   "rank": 270,
+   "rank": 271,
    "positionRank": 8,
    "stateRank": 15,
    "status": "Verbal"
@@ -185,9 +185,9 @@
    "city": "Fort Lauderdale",
    "state": "FL",
    "grade": 80,
-   "rank": 278,
-   "positionRank": 41,
-   "stateRank": 26,
+   "rank": 279,
+   "positionRank": 42,
+   "stateRank": 27,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 42,
-   "stateRank": 41,
+   "stateRank": 42,
    "status": "Verbal"
   },
   {
@@ -238,7 +238,7 @@
    "state": "MD",
    "grade": 79,
    "rank": null,
-   "positionRank": 44,
+   "positionRank": 45,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -252,7 +252,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 38,
-   "stateRank": 40,
+   "stateRank": 41,
    "status": "Verbal"
   },
   {
@@ -317,7 +317,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 79,
-   "stateRank": 90,
+   "stateRank": 91,
    "status": "Verbal"
   },
   {
@@ -347,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

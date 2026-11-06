@@ -16,8 +16,8 @@
    "city": "Kansas City",
    "state": "MO",
    "grade": 80,
-   "rank": 296,
-   "positionRank": 43,
+   "rank": 297,
+   "positionRank": 44,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -69,7 +69,7 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 126,
+   "positionRank": 127,
    "stateRank": 79,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 152,
+   "positionRank": 153,
    "stateRank": 142,
    "status": "Verbal"
   },
@@ -121,8 +121,8 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 159,
-   "stateRank": 116,
+   "positionRank": 160,
+   "stateRank": 117,
    "status": "Verbal"
   },
   {
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:42Z"
+ "fetchedAt": "2026-11-06T06:42Z"
 }

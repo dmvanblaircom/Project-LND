@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2226",
  "classYear": 2027,
- "listed": 18,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -30,7 +30,7 @@
    "state": "KY",
    "grade": 79,
    "rank": null,
-   "positionRank": 41,
+   "positionRank": 42,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -43,8 +43,8 @@
    "state": "FL",
    "grade": 75,
    "rank": null,
-   "positionRank": 183,
-   "stateRank": 138,
+   "positionRank": 184,
+   "stateRank": 139,
    "status": "Verbal"
   },
   {
@@ -57,7 +57,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 169,
-   "stateRank": 169,
+   "stateRank": 170,
    "status": "Verbal"
   },
   {
@@ -70,7 +70,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 135,
-   "stateRank": 210,
+   "stateRank": 211,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 150,
-   "stateRank": 185,
+   "stateRank": 186,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 229,
+   "positionRank": 230,
    "stateRank": 229,
    "status": "Verbal"
   },
@@ -109,7 +109,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 68,
-   "stateRank": 180,
+   "stateRank": 181,
    "status": "Verbal"
   },
   {
@@ -122,7 +122,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 184,
-   "stateRank": 220,
+   "stateRank": 221,
    "status": "Verbal"
   },
   {
@@ -204,6 +204,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274734",
+   "name": "Grayson Smith",
+   "position": "TE-H",
+   "highSchool": "Sunnyvale High School",
+   "city": "Sunnyvale",
+   "state": "TX",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "272584",
    "name": "Jerzey Lighten",
    "position": "OG",
@@ -243,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:41Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

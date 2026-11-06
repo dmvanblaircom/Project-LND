@@ -17,7 +17,7 @@
    "state": "VA",
    "grade": 77,
    "rank": null,
-   "positionRank": 97,
+   "positionRank": 98,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -31,7 +31,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 77,
-   "stateRank": 89,
+   "stateRank": 90,
    "status": "Verbal"
   },
   {
@@ -82,7 +82,7 @@
    "state": "VA",
    "grade": 76,
    "rank": null,
-   "positionRank": 160,
+   "positionRank": 161,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "SC",
    "grade": 76,
    "rank": null,
-   "positionRank": 135,
+   "positionRank": 136,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -186,10 +186,10 @@
    "state": "VA",
    "grade": 74,
    "rank": null,
-   "positionRank": 198,
+   "positionRank": 199,
    "stateRank": 36,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

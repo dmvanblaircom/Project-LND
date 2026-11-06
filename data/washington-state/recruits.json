@@ -43,7 +43,7 @@
    "state": "CA",
    "grade": 75,
    "rank": null,
-   "positionRank": 170,
+   "positionRank": 171,
    "stateRank": 103,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "CA",
    "grade": 74,
    "rank": null,
-   "positionRank": 206,
+   "positionRank": 207,
    "stateRank": 131,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "WA",
    "grade": 74,
    "rank": null,
-   "positionRank": 203,
+   "positionRank": 204,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

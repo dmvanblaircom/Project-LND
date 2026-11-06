@@ -16,8 +16,8 @@
    "city": "Louisville",
    "state": "KY",
    "grade": 83,
-   "rank": 115,
-   "positionRank": 22,
+   "rank": 116,
+   "positionRank": 23,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -29,7 +29,7 @@
    "city": "Cleveland",
    "state": "OH",
    "grade": 81,
-   "rank": 200,
+   "rank": 201,
    "positionRank": 3,
    "stateRank": 6,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Lithonia",
    "state": "GA",
    "grade": 81,
-   "rank": 240,
+   "rank": 241,
    "positionRank": 12,
    "stateRank": 28,
    "status": "Verbal"
@@ -82,7 +82,7 @@
    "state": "AL",
    "grade": 79,
    "rank": null,
-   "positionRank": 42,
+   "positionRank": 43,
    "stateRank": 24,
    "status": "Verbal"
   },
@@ -134,8 +134,8 @@
    "state": "FL",
    "grade": 78,
    "rank": null,
-   "positionRank": 49,
-   "stateRank": 49,
+   "positionRank": 50,
+   "stateRank": 50,
    "status": "Verbal"
   },
   {
@@ -160,8 +160,8 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 69,
-   "stateRank": 94,
+   "positionRank": 70,
+   "stateRank": 95,
    "status": "Verbal"
   },
   {
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-01T03:12Z"
+ "fetchedAt": "2026-11-06T06:42Z"
 }

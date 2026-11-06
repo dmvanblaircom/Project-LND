@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "87",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -16,7 +16,7 @@
    "city": "Lake Charles",
    "state": "LA",
    "grade": 88,
-   "rank": 31,
+   "rank": 32,
    "positionRank": 1,
    "stateRank": 4,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Jersey City",
    "state": "NJ",
    "grade": 86,
-   "rank": 35,
+   "rank": 36,
    "positionRank": 5,
    "stateRank": 2,
    "status": "Verbal"
@@ -42,9 +42,9 @@
    "city": "Fort Lauderdale",
    "state": "FL",
    "grade": 84,
-   "rank": 52,
-   "positionRank": 11,
-   "stateRank": 7,
+   "rank": 53,
+   "positionRank": 12,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -55,7 +55,7 @@
    "city": "Raleigh",
    "state": "NC",
    "grade": 84,
-   "rank": 58,
+   "rank": 59,
    "positionRank": 7,
    "stateRank": 3,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Exton",
    "state": "PA",
    "grade": 84,
-   "rank": 68,
+   "rank": 69,
    "positionRank": 10,
    "stateRank": 3,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 84,
-   "rank": 75,
+   "rank": 76,
    "positionRank": 5,
    "stateRank": 5,
    "status": "Verbal"
@@ -94,9 +94,9 @@
    "city": "Fort Lauderdale",
    "state": "FL",
    "grade": 83,
-   "rank": 106,
+   "rank": 107,
    "positionRank": 10,
-   "stateRank": 10,
+   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -107,9 +107,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 83,
-   "rank": 111,
+   "rank": 112,
    "positionRank": 14,
-   "stateRank": 11,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -120,7 +120,7 @@
    "city": "Cincinnati",
    "state": "OH",
    "grade": 81,
-   "rank": 161,
+   "rank": 162,
    "positionRank": 17,
    "stateRank": 4,
    "status": "Verbal"
@@ -133,7 +133,7 @@
    "city": "Waco",
    "state": "TX",
    "grade": 81,
-   "rank": 169,
+   "rank": 170,
    "positionRank": 10,
    "stateRank": 24,
    "status": "Verbal"
@@ -146,7 +146,7 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 81,
-   "rank": 173,
+   "rank": 174,
    "positionRank": 4,
    "stateRank": 9,
    "status": "Verbal"
@@ -159,7 +159,7 @@
    "city": "Pittsburgh",
    "state": "PA",
    "grade": 81,
-   "rank": 174,
+   "rank": 175,
    "positionRank": 17,
    "stateRank": 6,
    "status": "Verbal"
@@ -172,7 +172,7 @@
    "city": "Ramsey",
    "state": "NJ",
    "grade": 81,
-   "rank": 202,
+   "rank": 203,
    "positionRank": 21,
    "stateRank": 5,
    "status": "Verbal"
@@ -185,7 +185,7 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 81,
-   "rank": 244,
+   "rank": 245,
    "positionRank": 22,
    "stateRank": 12,
    "status": "Verbal"
@@ -198,9 +198,9 @@
    "city": "Vero Beach",
    "state": "FL",
    "grade": 80,
-   "rank": 262,
+   "rank": 263,
    "positionRank": 17,
-   "stateRank": 25,
+   "stateRank": 26,
    "status": "Verbal"
   },
   {
@@ -211,7 +211,7 @@
    "city": "Rabun Gap",
    "state": "GA",
    "grade": 80,
-   "rank": 294,
+   "rank": 295,
    "positionRank": 28,
    "stateRank": 35,
    "status": "Verbal"
@@ -224,7 +224,7 @@
    "city": "Springfield",
    "state": "MA",
    "grade": 80,
-   "rank": 300,
+   "rank": null,
    "positionRank": 22,
    "stateRank": 3,
    "status": "Verbal"
@@ -277,7 +277,7 @@
    "state": "CO",
    "grade": 78,
    "rank": null,
-   "positionRank": 77,
+   "positionRank": 78,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -291,7 +291,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 80,
-   "stateRank": 69,
+   "stateRank": 70,
    "status": "Verbal"
   },
   {
@@ -306,7 +306,20 @@
    "positionRank": 1,
    "stateRank": 60,
    "status": "Verbal"
+  },
+  {
+   "id": "273394",
+   "name": "James Criniti",
+   "position": "S",
+   "highSchool": "Saint Joseph High School",
+   "city": "South Bend",
+   "state": "IN",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:44Z"
 }

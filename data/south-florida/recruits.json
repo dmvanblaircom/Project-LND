@@ -30,8 +30,8 @@
    "state": "NJ",
    "grade": 78,
    "rank": null,
-   "positionRank": 93,
-   "stateRank": 19,
+   "positionRank": 94,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -44,7 +44,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 38,
-   "stateRank": 56,
+   "stateRank": 57,
    "status": "Verbal"
   },
   {
@@ -57,7 +57,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 26,
-   "stateRank": 53,
+   "stateRank": 54,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 108,
-   "stateRank": 113,
+   "stateRank": 114,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "MS",
    "grade": 76,
    "rank": null,
-   "positionRank": 139,
+   "positionRank": 140,
    "stateRank": 26,
    "status": "Verbal"
   },
@@ -122,7 +122,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 90,
-   "stateRank": 140,
+   "stateRank": 141,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 74,
-   "stateRank": 170,
+   "stateRank": 171,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 111,
-   "stateRank": 187,
+   "stateRank": 188,
    "status": "Verbal"
   },
   {
@@ -213,7 +213,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 27,
-   "stateRank": 207,
+   "stateRank": 208,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 194,
-   "stateRank": 212,
+   "stateRank": 213,
    "status": "Verbal"
   },
   {
@@ -252,7 +252,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 196,
-   "stateRank": 215,
+   "stateRank": 216,
    "status": "Verbal"
   },
   {
@@ -265,7 +265,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 145,
-   "stateRank": 234,
+   "stateRank": 235,
    "status": "Verbal"
   },
   {
@@ -278,7 +278,7 @@
    "grade": 71,
    "rank": null,
    "positionRank": 151,
-   "stateRank": 238,
+   "stateRank": 239,
    "status": "Verbal"
   },
   {
@@ -295,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:10Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

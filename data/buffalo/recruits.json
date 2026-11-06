@@ -43,7 +43,7 @@
    "state": "NY",
    "grade": 73,
    "rank": null,
-   "positionRank": 235,
+   "positionRank": 236,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -70,7 +70,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 138,
-   "stateRank": 226,
+   "stateRank": 227,
    "status": "Verbal"
   },
   {
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:40Z"
+ "fetchedAt": "2026-11-06T06:40Z"
 }

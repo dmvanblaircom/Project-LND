@@ -16,7 +16,7 @@
    "city": "Las Vegas",
    "state": "NV",
    "grade": 90,
-   "rank": 15,
+   "rank": 16,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,8 +29,8 @@
    "city": "Glassboro",
    "state": "NJ",
    "grade": 90,
-   "rank": 19,
-   "positionRank": 4,
+   "rank": 20,
+   "positionRank": 5,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -42,7 +42,7 @@
    "city": "Raleigh",
    "state": "NC",
    "grade": 86,
-   "rank": 37,
+   "rank": 38,
    "positionRank": 5,
    "stateRank": 2,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Collierville",
    "state": "TN",
    "grade": 84,
-   "rank": 69,
+   "rank": 70,
    "positionRank": 3,
    "stateRank": 4,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Mililani",
    "state": "HI",
    "grade": 83,
-   "rank": 79,
+   "rank": 80,
    "positionRank": 7,
    "stateRank": 1,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Broken Arrow",
    "state": "OK",
    "grade": 83,
-   "rank": 83,
+   "rank": 84,
    "positionRank": 7,
    "stateRank": 3,
    "status": "Verbal"
@@ -94,8 +94,8 @@
    "city": "Harper Woods",
    "state": "MI",
    "grade": 83,
-   "rank": 90,
-   "positionRank": 17,
+   "rank": 91,
+   "positionRank": 18,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -107,7 +107,7 @@
    "city": "Chandler",
    "state": "AZ",
    "grade": 83,
-   "rank": 100,
+   "rank": 101,
    "positionRank": 5,
    "stateRank": 2,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Tyler",
    "state": "TX",
    "grade": 82,
-   "rank": 128,
+   "rank": 129,
    "positionRank": 7,
    "stateRank": 18,
    "status": "Verbal"
@@ -133,7 +133,7 @@
    "city": "Denton",
    "state": "TX",
    "grade": 82,
-   "rank": 130,
+   "rank": 131,
    "positionRank": 15,
    "stateRank": 19,
    "status": "Verbal"
@@ -146,7 +146,7 @@
    "city": "Massillon",
    "state": "OH",
    "grade": 81,
-   "rank": 203,
+   "rank": 204,
    "positionRank": 6,
    "stateRank": 7,
    "status": "Verbal"
@@ -159,7 +159,7 @@
    "city": "Hays",
    "state": "KS",
    "grade": 80,
-   "rank": 260,
+   "rank": 261,
    "positionRank": 7,
    "stateRank": 1,
    "status": "Verbal"
@@ -303,7 +303,7 @@
    "state": "OR",
    "grade": 76,
    "rank": null,
-   "positionRank": 155,
+   "positionRank": 156,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:44Z"
+ "fetchedAt": "2026-11-06T06:44Z"
 }

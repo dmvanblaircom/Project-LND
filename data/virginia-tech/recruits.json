@@ -16,7 +16,7 @@
    "city": "Marion",
    "state": "MA",
    "grade": 83,
-   "rank": 103,
+   "rank": 104,
    "positionRank": 6,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,8 +29,8 @@
    "city": "Leesburg",
    "state": "VA",
    "grade": 81,
-   "rank": 184,
-   "positionRank": 31,
+   "rank": 185,
+   "positionRank": 32,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -42,7 +42,7 @@
    "city": "Columbus",
    "state": "OH",
    "grade": 81,
-   "rank": 204,
+   "rank": 205,
    "positionRank": 9,
    "stateRank": 8,
    "status": "Verbal"
@@ -55,9 +55,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 81,
-   "rank": 230,
+   "rank": 231,
    "positionRank": 7,
-   "stateRank": 22,
+   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -68,7 +68,7 @@
    "city": "Woodberry Forest",
    "state": "VA",
    "grade": 80,
-   "rank": 259,
+   "rank": 260,
    "positionRank": 27,
    "stateRank": 4,
    "status": "Verbal"
@@ -108,7 +108,7 @@
    "state": "VA",
    "grade": 79,
    "rank": null,
-   "positionRank": 68,
+   "positionRank": 69,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "NC",
    "grade": 78,
    "rank": null,
-   "positionRank": 75,
+   "positionRank": 76,
    "stateRank": 21,
    "status": "Verbal"
   },
@@ -161,7 +161,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 54,
-   "stateRank": 13,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "MD",
    "grade": 78,
    "rank": null,
-   "positionRank": 50,
+   "positionRank": 51,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -291,7 +291,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 52,
-   "stateRank": 29,
+   "stateRank": 30,
    "status": "Verbal"
   },
   {
@@ -317,7 +317,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 88,
-   "stateRank": 80,
+   "stateRank": 81,
    "status": "Verbal"
   },
   {
@@ -347,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:17Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

@@ -1,7 +1,16 @@
 {
  "team": "james-madison",
- "updated": "2026-11-05T20:38:07.400556+00:00",
+ "updated": "2026-11-06T06:38:09.053465+00:00",
  "items": [
+  {
+   "title": "Football: Evans Leads Dukes in Road Win at Southern Miss",
+   "link": "https://jmusports.com/news/2026/11/6/football-evans-leads-dukes-in-road-win-at-southern-miss",
+   "source": "JMU Athletics",
+   "summary": "<img alt=\"JC Evans scrambles during JMU's game at Southern Miss on Nov. 5.\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/5/DSC_4559-2.jpg\" /><br /><br />HATTIESBURG, Miss. \u2013 James Madison scored 38 second-half points to push the Dukes to a 54-23 win over Southern Miss on Thursday night at Renasant Stadium in Hattiesburg, Mississippi.",
+   "image": "https://jmusports.com/images/2026/11/5/DSC_4559-2.jpg?width=800",
+   "sourceLogo": "https://jmusports.com/favicon.ico",
+   "published": "2026-11-06T06:09:00+00:00"
+  },
   {
    "title": "Football: Rea Named to Ray Guy Award Midseason Watch List",
    "link": "https://jmusports.com/news/2026/11/5/football-rea-named-to-ray-guy-award-midseason-watch-list",
@@ -82,15 +91,6 @@
    "image": "https://jmusports.com/images/2026/10/19/app_st_Game_Preview.jpg?width=800",
    "sourceLogo": "https://jmusports.com/favicon.ico",
    "published": "2026-10-20T15:40:00+00:00"
-  },
-  {
-   "title": "Football: Dukes Dominate in Georgia State Win",
-   "link": "https://jmusports.com/news/2026/10/17/football-dukes-dominate-in-georgia-state-win",
-   "source": "JMU Athletics",
-   "summary": "<img alt=\"Seth Cromwell celebrates with his teammates after a touchdown in the Georgia State game.\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/3W2A0342.jpg\" /><br /><br />HARRISONBURG, Va. \u2013 James Madison tallied 515 yards of total offense and went a perfect 6-for-6 in the red zone in a 49-22 win over Georgia State on Saturday afternoon at Bridgeforth Stadium.",
-   "image": "https://jmusports.com/images/2026/10/17/3W2A0342.jpg?width=800",
-   "sourceLogo": "https://jmusports.com/favicon.ico",
-   "published": "2026-10-17T23:22:00+00:00"
   }
  ]
 }

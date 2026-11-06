@@ -82,7 +82,7 @@
    "state": "OR",
    "grade": 72,
    "rank": null,
-   "positionRank": 247,
+   "positionRank": 248,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -165,5 +165,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:43Z"
+ "fetchedAt": "2026-11-06T06:43Z"
 }

@@ -16,8 +16,8 @@
    "city": "Duncanville",
    "state": "TX",
    "grade": 80,
-   "rank": 274,
-   "positionRank": 40,
+   "rank": 275,
+   "positionRank": 41,
    "stateRank": 38,
    "status": "Verbal"
   },
@@ -44,7 +44,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 74,
-   "stateRank": 95,
+   "stateRank": 96,
    "status": "Verbal"
   },
   {
@@ -56,7 +56,7 @@
    "state": "GA",
    "grade": 77,
    "rank": null,
-   "positionRank": 128,
+   "positionRank": 129,
    "stateRank": 116,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "MD",
    "grade": 76,
    "rank": null,
-   "positionRank": 78,
+   "positionRank": 79,
    "stateRank": 28,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "AL",
    "grade": 76,
    "rank": null,
-   "positionRank": 84,
+   "positionRank": 85,
    "stateRank": 52,
    "status": "Verbal"
   },
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:44Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

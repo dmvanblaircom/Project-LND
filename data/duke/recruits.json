@@ -16,7 +16,7 @@
    "city": "Sevierville",
    "state": "TN",
    "grade": 80,
-   "rank": 261,
+   "rank": 262,
    "positionRank": 11,
    "stateRank": 10,
    "status": "Verbal"
@@ -83,7 +83,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 26,
-   "stateRank": 15,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "NC",
    "grade": 78,
    "rank": null,
-   "positionRank": 73,
+   "positionRank": 74,
    "stateRank": 19,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 58,
-   "stateRank": 84,
+   "stateRank": 85,
    "status": "Verbal"
   },
   {
@@ -256,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:11Z"
+ "fetchedAt": "2026-11-06T06:40Z"
 }

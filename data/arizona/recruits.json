@@ -16,8 +16,8 @@
    "city": "Irvine",
    "state": "CA",
    "grade": 81,
-   "rank": 226,
-   "positionRank": 35,
+   "rank": 227,
+   "positionRank": 36,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "AZ",
    "grade": 76,
    "rank": null,
-   "positionRank": 133,
+   "positionRank": 134,
    "stateRank": 21,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 89,
+   "positionRank": 90,
    "stateRank": 161,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:39Z"
+ "fetchedAt": "2026-11-06T06:39Z"
 }

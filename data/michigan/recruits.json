@@ -16,7 +16,7 @@
    "city": "Salt Lake City",
    "state": "UT",
    "grade": 86,
-   "rank": 38,
+   "rank": 39,
    "positionRank": 1,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,8 +29,8 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 86,
-   "rank": 39,
-   "positionRank": 8,
+   "rank": 40,
+   "positionRank": 9,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -42,7 +42,7 @@
    "city": "Rumson",
    "state": "NJ",
    "grade": 83,
-   "rank": 95,
+   "rank": 96,
    "positionRank": 4,
    "stateRank": 4,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Cincinnati",
    "state": "OH",
    "grade": 83,
-   "rank": 105,
+   "rank": 106,
    "positionRank": 4,
    "stateRank": 2,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Chicago",
    "state": "IL",
    "grade": 82,
-   "rank": 120,
+   "rank": 121,
    "positionRank": 13,
    "stateRank": 8,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Pearland",
    "state": "TX",
    "grade": 82,
-   "rank": 143,
+   "rank": 144,
    "positionRank": 18,
    "stateRank": 22,
    "status": "Verbal"
@@ -94,7 +94,7 @@
    "city": "Greenwood",
    "state": "MS",
    "grade": 82,
-   "rank": 154,
+   "rank": 155,
    "positionRank": 11,
    "stateRank": 6,
    "status": "Verbal"
@@ -107,7 +107,7 @@
    "city": "Kalamazoo",
    "state": "MI",
    "grade": 82,
-   "rank": 156,
+   "rank": 157,
    "positionRank": 15,
    "stateRank": 3,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Brandon",
    "state": "MS",
    "grade": 82,
-   "rank": 158,
+   "rank": 159,
    "positionRank": 8,
    "stateRank": 7,
    "status": "Verbal"
@@ -133,7 +133,7 @@
    "city": "Muskegon",
    "state": "MI",
    "grade": 81,
-   "rank": 171,
+   "rank": 172,
    "positionRank": 19,
    "stateRank": 4,
    "status": "Verbal"
@@ -146,7 +146,7 @@
    "city": "Fort Wayne",
    "state": "IN",
    "grade": 81,
-   "rank": 213,
+   "rank": 214,
    "positionRank": 22,
    "stateRank": 2,
    "status": "Verbal"
@@ -159,7 +159,7 @@
    "city": "Katy",
    "state": "TX",
    "grade": 80,
-   "rank": 257,
+   "rank": 258,
    "positionRank": 29,
    "stateRank": 35,
    "status": "Verbal"
@@ -265,7 +265,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 106,
-   "stateRank": 102,
+   "stateRank": 103,
    "status": "Verbal"
   },
   {
@@ -277,10 +277,10 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 233,
-   "stateRank": 198,
+   "positionRank": 234,
+   "stateRank": 199,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-04T13:40Z"
+ "fetchedAt": "2026-11-06T06:43Z"
 }

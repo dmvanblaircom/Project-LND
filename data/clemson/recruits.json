@@ -16,7 +16,7 @@
    "city": "Gainesville",
    "state": "GA",
    "grade": 82,
-   "rank": 133,
+   "rank": 134,
    "positionRank": 5,
    "stateRank": 17,
    "status": "Verbal"
@@ -29,9 +29,9 @@
    "city": "Jacksonville",
    "state": "FL",
    "grade": 82,
-   "rank": 134,
+   "rank": 135,
    "positionRank": 17,
-   "stateRank": 15,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -42,9 +42,9 @@
    "city": "Tallahassee",
    "state": "FL",
    "grade": 82,
-   "rank": 150,
-   "positionRank": 27,
-   "stateRank": 18,
+   "rank": 151,
+   "positionRank": 28,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -55,7 +55,7 @@
    "city": "Prattville",
    "state": "AL",
    "grade": 81,
-   "rank": 205,
+   "rank": 206,
    "positionRank": 15,
    "stateRank": 11,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Fairburn",
    "state": "GA",
    "grade": 81,
-   "rank": 239,
+   "rank": 240,
    "positionRank": 16,
    "stateRank": 27,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Howell",
    "state": "MI",
    "grade": 81,
-   "rank": 250,
+   "rank": 251,
    "positionRank": 18,
    "stateRank": 5,
    "status": "Verbal"
@@ -94,7 +94,7 @@
    "city": "Rock Hill",
    "state": "SC",
    "grade": 80,
-   "rank": 265,
+   "rank": 266,
    "positionRank": 26,
    "stateRank": 5,
    "status": "Verbal"
@@ -160,7 +160,7 @@
    "state": "SC",
    "grade": 80,
    "rank": null,
-   "positionRank": 47,
+   "positionRank": 48,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -213,7 +213,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 54,
-   "stateRank": 46,
+   "stateRank": 47,
    "status": "Verbal"
   },
   {
@@ -264,7 +264,7 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 98,
+   "positionRank": 99,
    "stateRank": 97,
    "status": "Verbal"
   },
@@ -304,7 +304,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 1,
-   "stateRank": 120,
+   "stateRank": 121,
    "status": "Verbal"
   },
   {
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:11Z"
+ "fetchedAt": "2026-11-06T06:40Z"
 }

@@ -16,7 +16,7 @@
    "city": "Yukon",
    "state": "OK",
    "grade": 81,
-   "rank": 190,
+   "rank": 191,
    "positionRank": 21,
    "stateRank": 5,
    "status": "Verbal"
@@ -69,7 +69,7 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 61,
+   "positionRank": 62,
    "stateRank": 98,
    "status": "Verbal"
   },
@@ -82,7 +82,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 161,
+   "positionRank": 162,
    "stateRank": 149,
    "status": "Verbal"
   },
@@ -256,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-04T13:40Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

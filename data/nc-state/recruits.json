@@ -16,7 +16,7 @@
    "city": "Lilburn",
    "state": "GA",
    "grade": 83,
-   "rank": 91,
+   "rank": 92,
    "positionRank": 8,
    "stateRank": 10,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Fairhope",
    "state": "AL",
    "grade": 81,
-   "rank": 168,
+   "rank": 169,
    "positionRank": 11,
    "stateRank": 7,
    "status": "Verbal"
@@ -56,7 +56,7 @@
    "state": "NC",
    "grade": 79,
    "rank": null,
-   "positionRank": 63,
+   "positionRank": 64,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 96,
+   "positionRank": 97,
    "stateRank": 96,
    "status": "Verbal"
   },
@@ -174,7 +174,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 69,
-   "stateRank": 106,
+   "stateRank": 107,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 105,
-   "stateRank": 166,
+   "stateRank": 167,
    "status": "Verbal"
   },
   {
@@ -239,9 +239,9 @@
    "grade": 72,
    "rank": null,
    "positionRank": 138,
-   "stateRank": 223,
+   "stateRank": 224,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:43Z"
+ "fetchedAt": "2026-11-06T06:43Z"
 }

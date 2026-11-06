@@ -16,8 +16,8 @@
    "city": "Orange",
    "state": "CA",
    "grade": 81,
-   "rank": 186,
-   "positionRank": 32,
+   "rank": 187,
+   "positionRank": 33,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -29,7 +29,7 @@
    "city": "Chandler",
    "state": "AZ",
    "grade": 81,
-   "rank": 192,
+   "rank": 193,
    "positionRank": 18,
    "stateRank": 4,
    "status": "Verbal"
@@ -82,7 +82,7 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 116,
+   "positionRank": 117,
    "stateRank": 75,
    "status": "Verbal"
   },
@@ -152,5 +152,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:39Z"
+ "fetchedAt": "2026-11-06T06:39Z"
 }

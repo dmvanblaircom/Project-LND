@@ -16,7 +16,7 @@
    "city": "Antioch",
    "state": "TN",
    "grade": 82,
-   "rank": 151,
+   "rank": 152,
    "positionRank": 10,
    "stateRank": 6,
    "status": "Verbal"
@@ -121,7 +121,7 @@
    "state": "GA",
    "grade": 77,
    "rank": null,
-   "positionRank": 60,
+   "positionRank": 61,
    "stateRank": 101,
    "status": "Verbal"
   },
@@ -148,7 +148,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 94,
-   "stateRank": 91,
+   "stateRank": 92,
    "status": "Verbal"
   },
   {
@@ -161,7 +161,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 98,
-   "stateRank": 104,
+   "stateRank": 105,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 147,
-   "stateRank": 160,
+   "stateRank": 161,
    "status": "Verbal"
   },
   {
@@ -225,8 +225,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 209,
-   "stateRank": 161,
+   "positionRank": 210,
+   "stateRank": 162,
    "status": "Verbal"
   },
   {
@@ -265,9 +265,9 @@
    "grade": 73,
    "rank": null,
    "positionRank": 153,
-   "stateRank": 191,
+   "stateRank": 192,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:40Z"
+ "fetchedAt": "2026-11-06T06:40Z"
 }

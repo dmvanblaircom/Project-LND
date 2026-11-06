@@ -16,8 +16,8 @@
    "city": "Severn",
    "state": "MD",
    "grade": 81,
-   "rank": 160,
-   "positionRank": 29,
+   "rank": 161,
+   "positionRank": 30,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "LA",
    "grade": 77,
    "rank": null,
-   "positionRank": 99,
+   "positionRank": 100,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -109,7 +109,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 84,
-   "stateRank": 74,
+   "stateRank": 75,
    "status": "Verbal"
   },
   {
@@ -121,7 +121,7 @@
    "state": "TN",
    "grade": 77,
    "rank": null,
-   "positionRank": 64,
+   "positionRank": 65,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -134,8 +134,8 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 109,
-   "stateRank": 76,
+   "positionRank": 110,
+   "stateRank": 77,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 33,
-   "stateRank": 70,
+   "stateRank": 71,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "VA",
    "grade": 76,
    "rank": null,
-   "positionRank": 136,
+   "positionRank": 137,
    "stateRank": 19,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 171,
+   "positionRank": 172,
    "stateRank": 157,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "AL",
    "grade": 75,
    "rank": null,
-   "positionRank": 173,
+   "positionRank": 174,
    "stateRank": 53,
    "status": "Verbal"
   },
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:42Z"
+ "fetchedAt": "2026-11-06T06:42Z"
 }

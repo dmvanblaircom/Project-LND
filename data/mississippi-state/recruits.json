@@ -16,7 +16,7 @@
    "city": "Tunica",
    "state": "MS",
    "grade": 80,
-   "rank": 282,
+   "rank": 283,
    "positionRank": 19,
    "stateRank": 10,
    "status": "Verbal"
@@ -56,7 +56,7 @@
    "state": "LA",
    "grade": 79,
    "rank": null,
-   "positionRank": 40,
+   "positionRank": 41,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "MS",
    "grade": 76,
    "rank": null,
-   "positionRank": 156,
+   "positionRank": 157,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:13Z"
+ "fetchedAt": "2026-11-06T06:43Z"
 }

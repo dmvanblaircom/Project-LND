@@ -16,7 +16,7 @@
    "city": "Denton",
    "state": "TX",
    "grade": 86,
-   "rank": 34,
+   "rank": 35,
    "positionRank": 2,
    "stateRank": 3,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Fort Gibson",
    "state": "OK",
    "grade": 86,
-   "rank": 42,
+   "rank": 43,
    "positionRank": 6,
    "stateRank": 1,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Orem",
    "state": "UT",
    "grade": 84,
-   "rank": 53,
+   "rank": 54,
    "positionRank": 7,
    "stateRank": 2,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Tustin",
    "state": "CA",
    "grade": 84,
-   "rank": 70,
+   "rank": 71,
    "positionRank": 1,
    "stateRank": 8,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Mustang",
    "state": "OK",
    "grade": 84,
-   "rank": 71,
+   "rank": 72,
    "positionRank": 9,
    "stateRank": 2,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Danville",
    "state": "KY",
    "grade": 83,
-   "rank": 86,
+   "rank": 87,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -94,7 +94,7 @@
    "city": "Bixby",
    "state": "OK",
    "grade": 83,
-   "rank": 113,
+   "rank": 114,
    "positionRank": 4,
    "stateRank": 4,
    "status": "Verbal"
@@ -107,7 +107,7 @@
    "city": "Montgomery",
    "state": "TX",
    "grade": 82,
-   "rank": 121,
+   "rank": 122,
    "positionRank": 6,
    "stateRank": 15,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Kaysville",
    "state": "UT",
    "grade": 82,
-   "rank": 137,
+   "rank": 138,
    "positionRank": 5,
    "stateRank": 4,
    "status": "Verbal"
@@ -133,7 +133,7 @@
    "city": "Inglewood",
    "state": "CA",
    "grade": 81,
-   "rank": 207,
+   "rank": 208,
    "positionRank": 17,
    "stateRank": 20,
    "status": "Verbal"
@@ -146,7 +146,7 @@
    "city": "Mobile",
    "state": "AL",
    "grade": 80,
-   "rank": 264,
+   "rank": 265,
    "positionRank": 20,
    "stateRank": 14,
    "status": "Verbal"
@@ -159,7 +159,7 @@
    "city": "Saraland",
    "state": "AL",
    "grade": 80,
-   "rank": 289,
+   "rank": 290,
    "positionRank": 6,
    "stateRank": 16,
    "status": "Verbal"
@@ -342,7 +342,7 @@
    "state": "MO",
    "grade": 76,
    "rank": null,
-   "positionRank": 132,
+   "positionRank": 133,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -360,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:44Z"
 }

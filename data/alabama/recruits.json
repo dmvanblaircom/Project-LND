@@ -16,7 +16,7 @@
    "city": "Baton Rouge",
    "state": "LA",
    "grade": 92,
-   "rank": 7,
+   "rank": 8,
    "positionRank": 1,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,9 +29,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 88,
-   "rank": 27,
-   "positionRank": 6,
-   "stateRank": 5,
+   "rank": 28,
+   "positionRank": 7,
+   "stateRank": 6,
    "status": "Verbal"
   },
   {
@@ -42,7 +42,7 @@
    "city": "Alabaster",
    "state": "AL",
    "grade": 81,
-   "rank": 238,
+   "rank": 239,
    "positionRank": 16,
    "stateRank": 12,
    "status": "Verbal"
@@ -108,7 +108,7 @@
    "state": "AL",
    "grade": 78,
    "rank": null,
-   "positionRank": 87,
+   "positionRank": 88,
    "stateRank": 28,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "AL",
    "grade": 78,
    "rank": null,
-   "positionRank": 58,
+   "positionRank": 59,
    "stateRank": 30,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:39Z"
+ "fetchedAt": "2026-11-06T06:39Z"
 }

@@ -30,7 +30,7 @@
    "state": "AZ",
    "grade": 76,
    "rank": null,
-   "positionRank": 147,
+   "positionRank": 148,
    "stateRank": 24,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 174,
-   "stateRank": 172,
+   "stateRank": 173,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "NV",
    "grade": 73,
    "rank": null,
-   "positionRank": 240,
+   "positionRank": 241,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -386,5 +386,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-06T06:46Z"
 }

@@ -16,7 +16,7 @@
    "city": "Ruston",
    "state": "LA",
    "grade": 89,
-   "rank": 23,
+   "rank": 24,
    "positionRank": 1,
    "stateRank": 3,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Stone Mountain",
    "state": "GA",
    "grade": 84,
-   "rank": 49,
+   "rank": 50,
    "positionRank": 6,
    "stateRank": 6,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Chesterfield",
    "state": "VA",
    "grade": 84,
-   "rank": 59,
+   "rank": 60,
    "positionRank": 8,
    "stateRank": 1,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Shreveport",
    "state": "LA",
    "grade": 83,
-   "rank": 94,
+   "rank": 95,
    "positionRank": 4,
    "stateRank": 5,
    "status": "Verbal"
@@ -68,8 +68,8 @@
    "city": "Cecilia",
    "state": "LA",
    "grade": 83,
-   "rank": 112,
-   "positionRank": 21,
+   "rank": 113,
+   "positionRank": 22,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -81,7 +81,7 @@
    "city": "Duncan",
    "state": "SC",
    "grade": 81,
-   "rank": 165,
+   "rank": 166,
    "positionRank": 9,
    "stateRank": 3,
    "status": "Verbal"
@@ -94,7 +94,7 @@
    "city": "Lansdale",
    "state": "PA",
    "grade": 81,
-   "rank": 198,
+   "rank": 199,
    "positionRank": 19,
    "stateRank": 7,
    "status": "Verbal"
@@ -107,7 +107,7 @@
    "city": "Winnsboro",
    "state": "LA",
    "grade": 81,
-   "rank": 214,
+   "rank": 215,
    "positionRank": 14,
    "stateRank": 9,
    "status": "Verbal"
@@ -121,8 +121,8 @@
    "state": "FL",
    "grade": 80,
    "rank": null,
-   "positionRank": 49,
-   "stateRank": 35,
+   "positionRank": 50,
+   "stateRank": 36,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "PA",
    "grade": 78,
    "rank": null,
-   "positionRank": 83,
+   "positionRank": 84,
    "stateRank": 20,
    "status": "Verbal"
   },
@@ -199,10 +199,10 @@
    "state": "LA",
    "grade": 76,
    "rank": null,
-   "positionRank": 154,
+   "positionRank": 155,
    "stateRank": 34,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:13Z"
+ "fetchedAt": "2026-11-06T06:42Z"
 }

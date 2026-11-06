@@ -16,7 +16,7 @@
    "city": "Hinsdale",
    "state": "IL",
    "grade": 81,
-   "rank": 243,
+   "rank": 244,
    "positionRank": 25,
    "stateRank": 11,
    "status": "Verbal"
@@ -121,7 +121,7 @@
    "state": "OH",
    "grade": 75,
    "rank": null,
-   "positionRank": 88,
+   "positionRank": 89,
    "stateRank": 42,
    "status": "Verbal"
   },
@@ -178,5 +178,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:12Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

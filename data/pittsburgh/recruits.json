@@ -69,8 +69,8 @@
    "state": "FL",
    "grade": 78,
    "rank": null,
-   "positionRank": 85,
-   "stateRank": 58,
+   "positionRank": 86,
+   "stateRank": 59,
    "status": "Verbal"
   },
   {
@@ -82,7 +82,7 @@
    "state": "MD",
    "grade": 78,
    "rank": null,
-   "positionRank": 52,
+   "positionRank": 53,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -122,7 +122,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 50,
-   "stateRank": 64,
+   "stateRank": 65,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 95,
-   "stateRank": 24,
+   "stateRank": 25,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 27,
-   "stateRank": 67,
+   "stateRank": 68,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "AZ",
    "grade": 77,
    "rank": null,
-   "positionRank": 129,
+   "positionRank": 130,
    "stateRank": 20,
    "status": "Verbal"
   },
@@ -187,7 +187,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 130,
-   "stateRank": 121,
+   "stateRank": 122,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "OH",
    "grade": 76,
    "rank": null,
-   "positionRank": 80,
+   "positionRank": 81,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -226,7 +226,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 115,
-   "stateRank": 123,
+   "stateRank": 124,
    "status": "Verbal"
   },
   {
@@ -252,7 +252,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 50,
-   "stateRank": 125,
+   "stateRank": 126,
    "status": "Verbal"
   },
   {
@@ -278,7 +278,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 138,
-   "stateRank": 128,
+   "stateRank": 129,
    "status": "Verbal"
   },
   {
@@ -291,7 +291,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 8,
-   "stateRank": 145,
+   "stateRank": 146,
    "status": "Verbal"
   },
   {
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:44Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

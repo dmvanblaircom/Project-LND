@@ -17,7 +17,7 @@
    "state": "TX",
    "grade": 79,
    "rank": null,
-   "positionRank": 64,
+   "positionRank": 65,
    "stateRank": 64,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "UT",
    "grade": 77,
    "rank": null,
-   "positionRank": 124,
+   "positionRank": 125,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "UT",
    "grade": 76,
    "rank": null,
-   "positionRank": 165,
+   "positionRank": 166,
    "stateRank": 25,
    "status": "Verbal"
   },
@@ -295,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

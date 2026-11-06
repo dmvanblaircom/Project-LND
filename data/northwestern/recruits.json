@@ -16,8 +16,8 @@
    "city": "Alabaster",
    "state": "AL",
    "grade": 81,
-   "rank": 245,
-   "positionRank": 37,
+   "rank": 246,
+   "positionRank": 38,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "PA",
    "grade": 77,
    "rank": null,
-   "positionRank": 103,
+   "positionRank": 104,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "DC",
    "grade": 75,
    "rank": null,
-   "positionRank": 93,
+   "positionRank": 94,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "NJ",
    "grade": 74,
    "rank": null,
-   "positionRank": 205,
+   "positionRank": 206,
    "stateRank": 42,
    "status": "Verbal"
   },
@@ -226,7 +226,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 139,
-   "stateRank": 148,
+   "stateRank": 149,
    "status": "Verbal"
   },
   {
@@ -238,8 +238,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 199,
-   "stateRank": 154,
+   "positionRank": 200,
+   "stateRank": 155,
    "status": "Verbal"
   },
   {
@@ -295,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:43Z"
+ "fetchedAt": "2026-11-06T06:44Z"
 }

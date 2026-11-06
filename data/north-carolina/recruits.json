@@ -16,7 +16,7 @@
    "city": "San Antonio",
    "state": "TX",
    "grade": 82,
-   "rank": 132,
+   "rank": 133,
    "positionRank": 16,
    "stateRank": 21,
    "status": "Verbal"
@@ -29,8 +29,8 @@
    "city": "Bluffton",
    "state": "SC",
    "grade": 81,
-   "rank": 164,
-   "positionRank": 30,
+   "rank": 165,
+   "positionRank": 31,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -44,7 +44,7 @@
    "grade": 80,
    "rank": null,
    "positionRank": 31,
-   "stateRank": 32,
+   "stateRank": 33,
    "status": "Verbal"
   },
   {
@@ -57,7 +57,7 @@
    "grade": 80,
    "rank": null,
    "positionRank": 22,
-   "stateRank": 34,
+   "stateRank": 35,
    "status": "Verbal"
   },
   {
@@ -82,7 +82,7 @@
    "state": "MI",
    "grade": 78,
    "rank": null,
-   "positionRank": 92,
+   "positionRank": 93,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 30,
-   "stateRank": 25,
+   "stateRank": 26,
    "status": "Verbal"
   },
   {
@@ -174,7 +174,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 95,
-   "stateRank": 103,
+   "stateRank": 104,
    "status": "Verbal"
   },
   {
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:14Z"
+ "fetchedAt": "2026-11-06T06:43Z"
 }

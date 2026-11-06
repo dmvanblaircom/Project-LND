@@ -16,7 +16,7 @@
    "city": "Richmond",
    "state": "TX",
    "grade": 84,
-   "rank": 48,
+   "rank": 49,
    "positionRank": 4,
    "stateRank": 5,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Prichard",
    "state": "AL",
    "grade": 84,
-   "rank": 51,
+   "rank": 52,
    "positionRank": 4,
    "stateRank": 1,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Chandler",
    "state": "AZ",
    "grade": 84,
-   "rank": 54,
+   "rank": 55,
    "positionRank": 5,
    "stateRank": 1,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Gilmer",
    "state": "TX",
    "grade": 84,
-   "rank": 60,
+   "rank": 61,
    "positionRank": 2,
    "stateRank": 8,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Chatsworth",
    "state": "CA",
    "grade": 84,
-   "rank": 63,
+   "rank": 64,
    "positionRank": 3,
    "stateRank": 7,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Libertyville",
    "state": "IL",
    "grade": 83,
-   "rank": 80,
+   "rank": 81,
    "positionRank": 3,
    "stateRank": 6,
    "status": "Verbal"
@@ -94,7 +94,7 @@
    "city": "Brookhaven",
    "state": "MS",
    "grade": 83,
-   "rank": 87,
+   "rank": 88,
    "positionRank": 12,
    "stateRank": 2,
    "status": "Verbal"
@@ -107,7 +107,7 @@
    "city": "Dallas",
    "state": "TX",
    "grade": 83,
-   "rank": 89,
+   "rank": 90,
    "positionRank": 8,
    "stateRank": 13,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Alabaster",
    "state": "AL",
    "grade": 83,
-   "rank": 104,
+   "rank": 105,
    "positionRank": 9,
    "stateRank": 3,
    "status": "Verbal"
@@ -133,8 +133,8 @@
    "city": "Forney",
    "state": "TX",
    "grade": 82,
-   "rank": 131,
-   "positionRank": 23,
+   "rank": 132,
+   "positionRank": 24,
    "stateRank": 20,
    "status": "Verbal"
   },
@@ -146,7 +146,7 @@
    "city": "Pearland",
    "state": "TX",
    "grade": 81,
-   "rank": 170,
+   "rank": 171,
    "positionRank": 19,
    "stateRank": 25,
    "status": "Verbal"
@@ -159,7 +159,7 @@
    "city": "Garland",
    "state": "TX",
    "grade": 81,
-   "rank": 182,
+   "rank": 183,
    "positionRank": 20,
    "stateRank": 26,
    "status": "Verbal"
@@ -172,7 +172,7 @@
    "city": "Arlington",
    "state": "TX",
    "grade": 81,
-   "rank": 224,
+   "rank": 225,
    "positionRank": 24,
    "stateRank": 30,
    "status": "Verbal"
@@ -185,9 +185,9 @@
    "city": "Wellington",
    "state": "FL",
    "grade": 80,
-   "rank": 299,
+   "rank": 300,
    "positionRank": 29,
-   "stateRank": 29,
+   "stateRank": 30,
    "status": "Verbal"
   },
   {
@@ -199,7 +199,7 @@
    "state": "TX",
    "grade": 79,
    "rank": null,
-   "positionRank": 43,
+   "positionRank": 44,
    "stateRank": 66,
    "status": "Verbal"
   },
@@ -239,7 +239,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 7,
-   "stateRank": 16,
+   "stateRank": 17,
    "status": "Verbal"
   },
   {
@@ -303,10 +303,10 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 117,
+   "positionRank": 118,
    "stateRank": 109,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:46Z"
 }

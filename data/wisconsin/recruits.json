@@ -16,7 +16,7 @@
    "city": "Germantown",
    "state": "WI",
    "grade": 81,
-   "rank": 242,
+   "rank": 243,
    "positionRank": 23,
    "stateRank": 1,
    "status": "Verbal"
@@ -30,7 +30,7 @@
    "state": "AZ",
    "grade": 80,
    "rank": null,
-   "positionRank": 48,
+   "positionRank": 49,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -83,7 +83,7 @@
    "grade": 80,
    "rank": null,
    "positionRank": 23,
-   "stateRank": 30,
+   "stateRank": 31,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "MT",
    "grade": 77,
    "rank": null,
-   "positionRank": 95,
+   "positionRank": 96,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -264,7 +264,7 @@
    "state": "IL",
    "grade": 76,
    "rank": null,
-   "positionRank": 85,
+   "positionRank": 86,
    "stateRank": 33,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-01T23:47Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

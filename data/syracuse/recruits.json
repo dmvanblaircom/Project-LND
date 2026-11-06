@@ -16,7 +16,7 @@
    "city": "Buffalo",
    "state": "NY",
    "grade": 80,
-   "rank": 288,
+   "rank": 289,
    "positionRank": 20,
    "stateRank": 1,
    "status": "Verbal"
@@ -30,7 +30,7 @@
    "state": "SC",
    "grade": 80,
    "rank": null,
-   "positionRank": 50,
+   "positionRank": 51,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -56,8 +56,8 @@
    "state": "FL",
    "grade": 78,
    "rank": null,
-   "positionRank": 55,
-   "stateRank": 59,
+   "positionRank": 56,
+   "stateRank": 60,
    "status": "Verbal"
   },
   {
@@ -70,7 +70,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 66,
-   "stateRank": 57,
+   "stateRank": 58,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 82,
-   "stateRank": 28,
+   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -122,7 +122,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 112,
-   "stateRank": 115,
+   "stateRank": 116,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 47,
-   "stateRank": 34,
+   "stateRank": 35,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 91,
-   "stateRank": 30,
+   "stateRank": 31,
    "status": "Verbal"
   },
   {
@@ -161,7 +161,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 113,
-   "stateRank": 117,
+   "stateRank": 118,
    "status": "Verbal"
   },
   {
@@ -186,8 +186,8 @@
    "state": "NJ",
    "grade": 76,
    "rank": null,
-   "positionRank": 163,
-   "stateRank": 33,
+   "positionRank": 164,
+   "stateRank": 34,
    "status": "Verbal"
   },
   {
@@ -199,8 +199,8 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 148,
-   "stateRank": 110,
+   "positionRank": 149,
+   "stateRank": 111,
    "status": "Verbal"
   },
   {
@@ -265,7 +265,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 122,
-   "stateRank": 144,
+   "stateRank": 145,
    "status": "Verbal"
   },
   {
@@ -303,7 +303,7 @@
    "state": "OH",
    "grade": 72,
    "rank": null,
-   "positionRank": 243,
+   "positionRank": 244,
    "stateRank": 81,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:44Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

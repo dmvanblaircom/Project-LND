@@ -16,7 +16,7 @@
    "city": "Douglasville",
    "state": "GA",
    "grade": 83,
-   "rank": 107,
+   "rank": 108,
    "positionRank": 9,
    "stateRank": 11,
    "status": "Verbal"
@@ -29,9 +29,9 @@
    "city": "Boca Raton",
    "state": "FL",
    "grade": 82,
-   "rank": 129,
+   "rank": 130,
    "positionRank": 10,
-   "stateRank": 14,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -42,7 +42,7 @@
    "city": "Cartersville",
    "state": "GA",
    "grade": 81,
-   "rank": 187,
+   "rank": 188,
    "positionRank": 5,
    "stateRank": 21,
    "status": "Verbal"
@@ -55,9 +55,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 81,
-   "rank": 251,
+   "rank": 252,
    "positionRank": 28,
-   "stateRank": 24,
+   "stateRank": 25,
    "status": "Verbal"
   },
   {
@@ -68,7 +68,7 @@
    "city": "Marietta",
    "state": "GA",
    "grade": 81,
-   "rank": 255,
+   "rank": 256,
    "positionRank": 17,
    "stateRank": 30,
    "status": "Verbal"
@@ -81,9 +81,9 @@
    "city": "Palmetto",
    "state": "FL",
    "grade": 80,
-   "rank": 291,
+   "rank": 292,
    "positionRank": 27,
-   "stateRank": 27,
+   "stateRank": 28,
    "status": "Verbal"
   },
   {
@@ -160,8 +160,8 @@
    "state": "FL",
    "grade": 78,
    "rank": null,
-   "positionRank": 57,
-   "stateRank": 60,
+   "positionRank": 58,
+   "stateRank": 61,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 24,
-   "stateRank": 55,
+   "stateRank": 56,
    "status": "Verbal"
   },
   {
@@ -238,8 +238,8 @@
    "state": "NJ",
    "grade": 77,
    "rank": null,
-   "positionRank": 110,
-   "stateRank": 23,
+   "positionRank": 111,
+   "stateRank": 24,
    "status": "Verbal"
   },
   {
@@ -290,7 +290,7 @@
    "state": "GA",
    "grade": 76,
    "rank": null,
-   "positionRank": 151,
+   "positionRank": 152,
    "stateRank": 131,
    "status": "Verbal"
   },
@@ -317,7 +317,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 60,
-   "stateRank": 111,
+   "stateRank": 112,
    "status": "Verbal"
   },
   {
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:41Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

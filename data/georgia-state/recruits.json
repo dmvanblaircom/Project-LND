@@ -16,7 +16,7 @@
    "city": "College Park",
    "state": "GA",
    "grade": 82,
-   "rank": 145,
+   "rank": 146,
    "positionRank": 6,
    "stateRank": 19,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Phenix City",
    "state": "AL",
    "grade": 80,
-   "rank": 298,
+   "rank": 299,
    "positionRank": 19,
    "stateRank": 17,
    "status": "Verbal"
@@ -135,7 +135,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 189,
-   "stateRank": 200,
+   "stateRank": 201,
    "status": "Verbal"
   },
   {
@@ -278,7 +278,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 198,
-   "stateRank": 217,
+   "stateRank": 218,
    "status": "Verbal"
   },
   {
@@ -303,7 +303,7 @@
    "state": "GA",
    "grade": 72,
    "rank": null,
-   "positionRank": 250,
+   "positionRank": 251,
    "stateRank": 216,
    "status": "Verbal"
   },
@@ -369,7 +369,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 147,
-   "stateRank": 237,
+   "stateRank": 238,
    "status": "Verbal"
   },
   {
@@ -386,5 +386,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:41Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

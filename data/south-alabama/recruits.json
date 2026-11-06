@@ -17,7 +17,7 @@
    "state": "LA",
    "grade": 77,
    "rank": null,
-   "positionRank": 131,
+   "positionRank": 132,
    "stateRank": 28,
    "status": "Verbal"
   },
@@ -30,7 +30,7 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 240,
+   "positionRank": 241,
    "stateRank": 83,
    "status": "Verbal"
   },
@@ -44,7 +44,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 129,
-   "stateRank": 199,
+   "stateRank": 200,
    "status": "Verbal"
   },
   {
@@ -56,7 +56,7 @@
    "state": "LA",
    "grade": 73,
    "rank": null,
-   "positionRank": 238,
+   "positionRank": 239,
    "stateRank": 54,
    "status": "Verbal"
   },
@@ -83,7 +83,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 91,
-   "stateRank": 190,
+   "stateRank": 191,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "AL",
    "grade": 72,
    "rank": null,
-   "positionRank": 242,
+   "positionRank": 243,
    "stateRank": 84,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 140,
-   "stateRank": 219,
+   "stateRank": 220,
    "status": "Verbal"
   },
   {
@@ -347,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:10Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

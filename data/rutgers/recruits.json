@@ -17,7 +17,7 @@
    "state": "PA",
    "grade": 78,
    "rank": null,
-   "positionRank": 82,
+   "positionRank": 83,
    "stateRank": 19,
    "status": "Verbal"
   },
@@ -43,8 +43,8 @@
    "state": "NJ",
    "grade": 77,
    "rank": null,
-   "positionRank": 104,
-   "stateRank": 22,
+   "positionRank": 105,
+   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -56,7 +56,7 @@
    "state": "DE",
    "grade": 77,
    "rank": null,
-   "positionRank": 130,
+   "positionRank": 131,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -69,8 +69,8 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 63,
-   "stateRank": 75,
+   "positionRank": 64,
+   "stateRank": 76,
    "status": "Verbal"
   },
   {
@@ -122,7 +122,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 35,
-   "stateRank": 32,
+   "stateRank": 33,
    "status": "Verbal"
   },
   {
@@ -187,7 +187,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 148,
-   "stateRank": 142,
+   "stateRank": 143,
    "status": "Verbal"
   },
   {
@@ -226,9 +226,9 @@
    "grade": 73,
    "rank": null,
    "positionRank": 148,
-   "stateRank": 183,
+   "stateRank": 184,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:44Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

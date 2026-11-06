@@ -16,7 +16,7 @@
    "city": "Long Beach",
    "state": "CA",
    "grade": 88,
-   "rank": 29,
+   "rank": 30,
    "positionRank": 6,
    "stateRank": 4,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Layton",
    "state": "UT",
    "grade": 84,
-   "rank": 67,
+   "rank": 68,
    "positionRank": 4,
    "stateRank": 3,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Fort Worth",
    "state": "TX",
    "grade": 83,
-   "rank": 93,
+   "rank": 94,
    "positionRank": 10,
    "stateRank": 14,
    "status": "Verbal"
@@ -55,8 +55,8 @@
    "city": "Pottstown",
    "state": "PA",
    "grade": 83,
-   "rank": 98,
-   "positionRank": 19,
+   "rank": 99,
+   "positionRank": 20,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -68,7 +68,7 @@
    "city": "Englewood",
    "state": "CO",
    "grade": 80,
-   "rank": 263,
+   "rank": 264,
    "positionRank": 8,
    "stateRank": 1,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Gardena",
    "state": "CA",
    "grade": 80,
-   "rank": 266,
+   "rank": 267,
    "positionRank": 21,
    "stateRank": 24,
    "status": "Verbal"
@@ -134,7 +134,7 @@
    "state": "CA",
    "grade": 79,
    "rank": null,
-   "positionRank": 66,
+   "positionRank": 67,
    "stateRank": 40,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "CA",
    "grade": 78,
    "rank": null,
-   "positionRank": 46,
+   "positionRank": 47,
    "stateRank": 43,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 120,
+   "positionRank": 121,
    "stateRank": 77,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 105,
+   "positionRank": 106,
    "stateRank": 62,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:16Z"
+ "fetchedAt": "2026-11-06T06:46Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "290",
  "classYear": 2027,
- "listed": 12,
+ "listed": 13,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -17,7 +17,7 @@
    "state": "GA",
    "grade": 75,
    "rank": null,
-   "positionRank": 189,
+   "positionRank": 190,
    "stateRank": 156,
    "status": "Verbal"
   },
@@ -70,7 +70,20 @@
    "grade": 73,
    "rank": null,
    "positionRank": 32,
-   "stateRank": 202,
+   "stateRank": 203,
+   "status": "Verbal"
+  },
+  {
+   "id": "274736",
+   "name": "Jamarian Clark",
+   "position": "WR",
+   "highSchool": "The Villages Charter High School",
+   "city": "The Villages",
+   "state": "FL",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -165,5 +178,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:41Z"
+ "fetchedAt": "2026-11-06T06:41Z"
 }

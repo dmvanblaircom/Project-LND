@@ -16,7 +16,7 @@
    "city": "Omaha",
    "state": "NE",
    "grade": 82,
-   "rank": 147,
+   "rank": 148,
    "positionRank": 9,
    "stateRank": 3,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Lee's Summit",
    "state": "MO",
    "grade": 81,
-   "rank": 162,
+   "rank": 163,
    "positionRank": 7,
    "stateRank": 2,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Saint Charles",
    "state": "MO",
    "grade": 81,
-   "rank": 195,
+   "rank": 196,
    "positionRank": 8,
    "stateRank": 3,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Memphis",
    "state": "TN",
    "grade": 80,
-   "rank": 271,
+   "rank": 272,
    "positionRank": 14,
    "stateRank": 11,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Kansas City",
    "state": "MO",
    "grade": 80,
-   "rank": 283,
+   "rank": 284,
    "positionRank": 9,
    "stateRank": 5,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Saint Louis",
    "state": "MO",
    "grade": 80,
-   "rank": 295,
+   "rank": 296,
    "positionRank": 21,
    "stateRank": 6,
    "status": "Verbal"
@@ -122,7 +122,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 45,
-   "stateRank": 44,
+   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -147,7 +147,7 @@
    "state": "IN",
    "grade": 78,
    "rank": null,
-   "positionRank": 56,
+   "positionRank": 57,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "MI",
    "grade": 77,
    "rank": null,
-   "positionRank": 122,
+   "positionRank": 123,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:43Z"
 }

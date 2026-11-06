@@ -16,7 +16,7 @@
    "city": "San Diego",
    "state": "CA",
    "grade": 90,
-   "rank": 20,
+   "rank": 21,
    "positionRank": 1,
    "stateRank": 2,
    "status": "Verbal"
@@ -29,8 +29,8 @@
    "city": "Corona",
    "state": "CA",
    "grade": 84,
-   "rank": 57,
-   "positionRank": 12,
+   "rank": 58,
+   "positionRank": 13,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -42,7 +42,7 @@
    "city": "Greenwich",
    "state": "CT",
    "grade": 83,
-   "rank": 78,
+   "rank": 79,
    "positionRank": 11,
    "stateRank": 1,
    "status": "Verbal"
@@ -55,8 +55,8 @@
    "city": "Chandler",
    "state": "AZ",
    "grade": 83,
-   "rank": 109,
-   "positionRank": 20,
+   "rank": 110,
+   "positionRank": 21,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -68,9 +68,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 82,
-   "rank": 123,
+   "rank": 124,
    "positionRank": 14,
-   "stateRank": 13,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -81,7 +81,7 @@
    "city": "Santa Ana",
    "state": "CA",
    "grade": 82,
-   "rank": 144,
+   "rank": 145,
    "positionRank": 16,
    "stateRank": 12,
    "status": "Verbal"
@@ -94,7 +94,7 @@
    "city": "La Verne",
    "state": "CA",
    "grade": 82,
-   "rank": 153,
+   "rank": 154,
    "positionRank": 13,
    "stateRank": 13,
    "status": "Verbal"
@@ -107,7 +107,7 @@
    "city": "Westlake Village",
    "state": "CA",
    "grade": 81,
-   "rank": 189,
+   "rank": 190,
    "positionRank": 14,
    "stateRank": 17,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Anaheim",
    "state": "CA",
    "grade": 81,
-   "rank": 201,
+   "rank": 202,
    "positionRank": 20,
    "stateRank": 19,
    "status": "Verbal"
@@ -134,7 +134,7 @@
    "state": "CA",
    "grade": 78,
    "rank": null,
-   "positionRank": 47,
+   "positionRank": 48,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "LA",
    "grade": 78,
    "rank": null,
-   "positionRank": 71,
+   "positionRank": 72,
    "stateRank": 20,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "SC",
    "grade": 77,
    "rank": null,
-   "positionRank": 70,
+   "positionRank": 71,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -204,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

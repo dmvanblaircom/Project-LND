@@ -17,7 +17,7 @@
    "state": "GA",
    "grade": 78,
    "rank": null,
-   "positionRank": 80,
+   "positionRank": 81,
    "stateRank": 91,
    "status": "Verbal"
   },
@@ -31,7 +31,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 113,
-   "stateRank": 105,
+   "stateRank": 106,
    "status": "Verbal"
   },
   {
@@ -44,7 +44,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 143,
-   "stateRank": 156,
+   "stateRank": 157,
    "status": "Verbal"
   },
   {
@@ -57,7 +57,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 113,
-   "stateRank": 196,
+   "stateRank": 197,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 157,
-   "stateRank": 178,
+   "stateRank": 179,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 142,
-   "stateRank": 228,
+   "stateRank": 229,
    "status": "Verbal"
   },
   {
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:42Z"
+ "fetchedAt": "2026-11-06T06:42Z"
 }

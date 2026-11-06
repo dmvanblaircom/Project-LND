@@ -16,8 +16,8 @@
    "city": "Westlake Village",
    "state": "CA",
    "grade": 85,
-   "rank": 45,
-   "positionRank": 10,
+   "rank": 46,
+   "positionRank": 11,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -29,8 +29,8 @@
    "city": "Westlake Village",
    "state": "CA",
    "grade": 83,
-   "rank": 96,
-   "positionRank": 18,
+   "rank": 97,
+   "positionRank": 19,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -42,8 +42,8 @@
    "city": "Mililani",
    "state": "HI",
    "grade": 82,
-   "rank": 142,
-   "positionRank": 25,
+   "rank": 143,
+   "positionRank": 26,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -55,7 +55,7 @@
    "city": "Chatsworth",
    "state": "CA",
    "grade": 81,
-   "rank": 191,
+   "rank": 192,
    "positionRank": 9,
    "stateRank": 18,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Las Vegas",
    "state": "NV",
    "grade": 81,
-   "rank": 236,
+   "rank": 237,
    "positionRank": 26,
    "stateRank": 2,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Huntington Beach",
    "state": "CA",
    "grade": 81,
-   "rank": 252,
+   "rank": 253,
    "positionRank": 13,
    "stateRank": 23,
    "status": "Verbal"
@@ -94,7 +94,7 @@
    "city": "Temecula",
    "state": "CA",
    "grade": 80,
-   "rank": 272,
+   "rank": 273,
    "positionRank": 18,
    "stateRank": 25,
    "status": "Verbal"
@@ -160,7 +160,7 @@
    "state": "TX",
    "grade": 78,
    "rank": null,
-   "positionRank": 51,
+   "positionRank": 52,
    "stateRank": 84,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 102,
+   "positionRank": 103,
    "stateRank": 101,
    "status": "Verbal"
   },
@@ -304,9 +304,9 @@
    "grade": 73,
    "rank": null,
    "positionRank": 16,
-   "stateRank": 206,
+   "stateRank": 207,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:40Z"
+ "fetchedAt": "2026-11-06T06:40Z"
 }

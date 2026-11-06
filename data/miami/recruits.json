@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2390",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -22,6 +22,19 @@
    "status": "Verbal"
   },
   {
+   "id": "261983",
+   "name": "Brysen Wright",
+   "position": "WR",
+   "highSchool": "Mandarin High School",
+   "city": "Jacksonville",
+   "state": "FL",
+   "grade": 92,
+   "rank": 7,
+   "positionRank": 1,
+   "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
    "id": "261538",
    "name": "Donte Wright",
    "position": "CB",
@@ -29,7 +42,7 @@
    "city": "Long Beach",
    "state": "CA",
    "grade": 88,
-   "rank": 26,
+   "rank": 27,
    "positionRank": 5,
    "stateRank": 3,
    "status": "Verbal"
@@ -42,9 +55,9 @@
    "city": "Miami",
    "state": "FL",
    "grade": 87,
-   "rank": 32,
-   "positionRank": 7,
-   "stateRank": 6,
+   "rank": 33,
+   "positionRank": 8,
+   "stateRank": 7,
    "status": "Verbal"
   },
   {
@@ -55,7 +68,7 @@
    "city": "Columbia",
    "state": "SC",
    "grade": 87,
-   "rank": 33,
+   "rank": 34,
    "positionRank": 4,
    "stateRank": 1,
    "status": "Verbal"
@@ -68,7 +81,7 @@
    "city": "Lombard",
    "state": "IL",
    "grade": 84,
-   "rank": 55,
+   "rank": 56,
    "positionRank": 3,
    "stateRank": 2,
    "status": "Verbal"
@@ -81,7 +94,7 @@
    "city": "Dothan",
    "state": "AL",
    "grade": 83,
-   "rank": 97,
+   "rank": 98,
    "positionRank": 11,
    "stateRank": 2,
    "status": "Verbal"
@@ -94,7 +107,7 @@
    "city": "Garner",
    "state": "NC",
    "grade": 83,
-   "rank": 114,
+   "rank": 115,
    "positionRank": 9,
    "stateRank": 5,
    "status": "Verbal"
@@ -107,9 +120,9 @@
    "city": "Fort Pierce",
    "state": "FL",
    "grade": 82,
-   "rank": 138,
+   "rank": 139,
    "positionRank": 11,
-   "stateRank": 16,
+   "stateRank": 17,
    "status": "Verbal"
   },
   {
@@ -120,7 +133,7 @@
    "city": "Poplarville",
    "state": "MS",
    "grade": 81,
-   "rank": 212,
+   "rank": 213,
    "positionRank": 13,
    "stateRank": 9,
    "status": "Verbal"
@@ -133,8 +146,8 @@
    "city": "Temecula",
    "state": "CA",
    "grade": 81,
-   "rank": 217,
-   "positionRank": 34,
+   "rank": 218,
+   "positionRank": 35,
    "stateRank": 21,
    "status": "Verbal"
   },
@@ -146,9 +159,9 @@
    "city": "Fort Lauderdale",
    "state": "FL",
    "grade": 81,
-   "rank": 228,
+   "rank": 229,
    "positionRank": 11,
-   "stateRank": 21,
+   "stateRank": 22,
    "status": "Verbal"
   },
   {
@@ -159,9 +172,9 @@
    "city": "Miami",
    "state": "FL",
    "grade": 81,
-   "rank": 232,
+   "rank": 233,
    "positionRank": 19,
-   "stateRank": 23,
+   "stateRank": 24,
    "status": "Verbal"
   },
   {
@@ -172,7 +185,7 @@
    "city": "Houston",
    "state": "TX",
    "grade": 81,
-   "rank": 249,
+   "rank": 250,
    "positionRank": 24,
    "stateRank": 33,
    "status": "Verbal"
@@ -185,7 +198,7 @@
    "city": "Haymarket",
    "state": "VA",
    "grade": 80,
-   "rank": 273,
+   "rank": 274,
    "positionRank": 20,
    "stateRank": 5,
    "status": "Verbal"
@@ -200,7 +213,7 @@
    "grade": 80,
    "rank": null,
    "positionRank": 37,
-   "stateRank": 38,
+   "stateRank": 39,
    "status": "Verbal"
   },
   {
@@ -226,7 +239,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 42,
-   "stateRank": 50,
+   "stateRank": 51,
    "status": "Verbal"
   },
   {
@@ -239,7 +252,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 70,
-   "stateRank": 78,
+   "stateRank": 79,
    "status": "Verbal"
   },
   {
@@ -265,9 +278,9 @@
    "grade": 76,
    "rank": null,
    "positionRank": 105,
-   "stateRank": 97,
+   "stateRank": 98,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:13Z"
+ "fetchedAt": "2026-11-06T06:43Z"
 }

@@ -16,7 +16,7 @@
    "city": "Tustin",
    "state": "CA",
    "grade": 81,
-   "rank": 166,
+   "rank": 167,
    "positionRank": 12,
    "stateRank": 14,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Spanish Fork",
    "state": "UT",
    "grade": 81,
-   "rank": 175,
+   "rank": 176,
    "positionRank": 20,
    "stateRank": 5,
    "status": "Verbal"
@@ -43,7 +43,7 @@
    "state": "CA",
    "grade": 80,
    "rank": null,
-   "positionRank": 53,
+   "positionRank": 54,
    "stateRank": 31,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "UT",
    "grade": 76,
    "rank": null,
-   "positionRank": 79,
+   "positionRank": 80,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -148,7 +148,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 117,
-   "stateRank": 35,
+   "stateRank": 36,
    "status": "Verbal"
   },
   {
@@ -199,7 +199,7 @@
    "state": "UT",
    "grade": 73,
    "rank": null,
-   "positionRank": 225,
+   "positionRank": 226,
    "stateRank": 30,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:40Z"
+ "fetchedAt": "2026-11-06T06:40Z"
 }

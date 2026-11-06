@@ -18,7 +18,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 48,
-   "stateRank": 71,
+   "stateRank": 72,
    "status": "Verbal"
   },
   {
@@ -43,7 +43,7 @@
    "state": "MA",
    "grade": 77,
    "rank": null,
-   "positionRank": 62,
+   "positionRank": 63,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "MD",
    "grade": 77,
    "rank": null,
-   "positionRank": 101,
+   "positionRank": 102,
    "stateRank": 20,
    "status": "Verbal"
   },
@@ -70,7 +70,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 112,
-   "stateRank": 119,
+   "stateRank": 120,
    "status": "Verbal"
   },
   {
@@ -82,7 +82,7 @@
    "state": "DC",
    "grade": 76,
    "rank": null,
-   "positionRank": 72,
+   "positionRank": 73,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -108,8 +108,8 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 144,
-   "stateRank": 108,
+   "positionRank": 145,
+   "stateRank": 109,
    "status": "Verbal"
   },
   {
@@ -121,7 +121,7 @@
    "state": "VA",
    "grade": 75,
    "rank": null,
-   "positionRank": 185,
+   "positionRank": 186,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "SC",
    "grade": 75,
    "rank": null,
-   "positionRank": 183,
+   "positionRank": 184,
    "stateRank": 32,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 118,
-   "stateRank": 126,
+   "stateRank": 127,
    "status": "Verbal"
   },
   {
@@ -238,7 +238,7 @@
    "state": "NC",
    "grade": 75,
    "rank": null,
-   "positionRank": 187,
+   "positionRank": 188,
    "stateRank": 41,
    "status": "Verbal"
   },
@@ -278,7 +278,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 142,
-   "stateRank": 130,
+   "stateRank": 131,
    "status": "Verbal"
   },
   {
@@ -291,7 +291,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 111,
-   "stateRank": 163,
+   "stateRank": 164,
    "status": "Verbal"
   },
   {
@@ -342,7 +342,7 @@
    "state": "NC",
    "grade": 74,
    "rank": null,
-   "positionRank": 214,
+   "positionRank": 215,
    "stateRank": 47,
    "status": "Verbal"
   },
@@ -438,5 +438,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

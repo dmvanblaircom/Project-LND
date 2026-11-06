@@ -16,7 +16,7 @@
    "city": "Arlington Heights",
    "state": "IL",
    "grade": 83,
-   "rank": 88,
+   "rank": 89,
    "positionRank": 3,
    "stateRank": 7,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Prattville",
    "state": "AL",
    "grade": 81,
-   "rank": 178,
+   "rank": 179,
    "positionRank": 13,
    "stateRank": 9,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Corbin",
    "state": "KY",
    "grade": 81,
-   "rank": 253,
+   "rank": 254,
    "positionRank": 25,
    "stateRank": 4,
    "status": "Verbal"
@@ -122,7 +122,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 29,
-   "stateRank": 10,
+   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 48,
-   "stateRank": 62,
+   "stateRank": 63,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 24,
-   "stateRank": 52,
+   "stateRank": 53,
    "status": "Verbal"
   },
   {
@@ -251,8 +251,8 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 111,
-   "stateRank": 77,
+   "positionRank": 112,
+   "stateRank": 78,
    "status": "Verbal"
   },
   {
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:42Z"
 }

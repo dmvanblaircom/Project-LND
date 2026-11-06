@@ -35,6 +35,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272702",
+   "name": "Jayden Paulino",
+   "position": "DT",
+   "highSchool": "Passaic County Tech High School",
+   "city": "Wayne",
+   "state": "NJ",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 40,
+   "stateRank": 10,
+   "status": "Verbal"
+  },
+  {
    "id": "262329",
    "name": "Jackson Tucker",
    "position": "S",
@@ -69,7 +82,7 @@
    "state": "IL",
    "grade": 76,
    "rank": null,
-   "positionRank": 75,
+   "positionRank": 76,
    "stateRank": 31,
    "status": "Verbal"
   },
@@ -96,7 +109,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 47,
-   "stateRank": 142,
+   "stateRank": 143,
    "status": "Verbal"
   },
   {
@@ -126,19 +139,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272702",
-   "name": "Jayden Paulino",
-   "position": "DT",
-   "highSchool": "Passaic County Tech High School",
-   "city": "Wayne",
-   "state": "NJ",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 95,
-   "stateRank": 36,
-   "status": "Verbal"
-  },
-  {
    "id": "272037",
    "name": "Mamadee Sangaray",
    "position": "S",
@@ -160,7 +160,7 @@
    "state": "GA",
    "grade": 74,
    "rank": null,
-   "positionRank": 197,
+   "positionRank": 198,
    "stateRank": 161,
    "status": "Verbal"
   },
@@ -238,8 +238,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 196,
-   "stateRank": 149,
+   "positionRank": 197,
+   "stateRank": 150,
    "status": "Verbal"
   },
   {
@@ -369,9 +369,9 @@
    "grade": 72,
    "rank": null,
    "positionRank": 30,
-   "stateRank": 233,
+   "stateRank": 234,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:40Z"
+ "fetchedAt": "2026-11-06T06:39Z"
 }

@@ -16,7 +16,7 @@
    "city": "Choctaw",
    "state": "OK",
    "grade": 81,
-   "rank": 210,
+   "rank": 211,
    "positionRank": 16,
    "stateRank": 6,
    "status": "Verbal"
@@ -69,7 +69,7 @@
    "state": "KS",
    "grade": 78,
    "rank": null,
-   "positionRank": 81,
+   "positionRank": 82,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "TN",
    "grade": 76,
    "rank": null,
-   "positionRank": 74,
+   "positionRank": 75,
    "stateRank": 33,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 176,
+   "positionRank": 177,
    "stateRank": 163,
    "status": "Verbal"
   },
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-04T13:40Z"
+ "fetchedAt": "2026-11-06T06:44Z"
 }

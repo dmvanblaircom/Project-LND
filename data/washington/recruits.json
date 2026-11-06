@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "264",
  "classYear": 2027,
- "listed": 23,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -16,8 +16,8 @@
    "city": "Pflugerville",
    "state": "TX",
    "grade": 81,
-   "rank": 194,
-   "positionRank": 33,
+   "rank": 195,
+   "positionRank": 34,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -29,22 +29,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 81,
-   "rank": 218,
+   "rank": 219,
    "positionRank": 24,
-   "stateRank": 20,
-   "status": "Verbal"
-  },
-  {
-   "id": "267636",
-   "name": "Blake Roskopf",
-   "position": "QB-PP",
-   "highSchool": "Desert Edge High School",
-   "city": "Goodyear",
-   "state": "AZ",
-   "grade": 81,
-   "rank": 222,
-   "positionRank": 15,
-   "stateRank": 5,
+   "stateRank": 21,
    "status": "Verbal"
   },
   {
@@ -55,7 +42,7 @@
    "city": "Seattle",
    "state": "WA",
    "grade": 80,
-   "rank": 284,
+   "rank": 285,
    "positionRank": 26,
    "stateRank": 1,
    "status": "Verbal"
@@ -69,7 +56,7 @@
    "state": "WA",
    "grade": 80,
    "rank": null,
-   "positionRank": 51,
+   "positionRank": 52,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -160,7 +147,7 @@
    "state": "AZ",
    "grade": 79,
    "rank": null,
-   "positionRank": 62,
+   "positionRank": 63,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -308,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-01T23:47Z"
+ "fetchedAt": "2026-11-06T06:47Z"
 }

@@ -29,7 +29,7 @@
    "city": "Chatsworth",
    "state": "CA",
    "grade": 90,
-   "rank": 13,
+   "rank": 14,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Jackson",
    "state": "MS",
    "grade": 90,
-   "rank": 14,
+   "rank": 15,
    "positionRank": 4,
    "stateRank": 1,
    "status": "Verbal"
@@ -55,8 +55,8 @@
    "city": "Huber Heights",
    "state": "OH",
    "grade": 89,
-   "rank": 24,
-   "positionRank": 5,
+   "rank": 25,
+   "positionRank": 6,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -68,9 +68,9 @@
    "city": "Fort Lauderdale",
    "state": "FL",
    "grade": 84,
-   "rank": 64,
+   "rank": 65,
    "positionRank": 9,
-   "stateRank": 8,
+   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -81,7 +81,7 @@
    "city": "Cibolo",
    "state": "TX",
    "grade": 82,
-   "rank": 124,
+   "rank": 125,
    "positionRank": 12,
    "stateRank": 16,
    "status": "Verbal"
@@ -94,7 +94,7 @@
    "city": "Birmingham",
    "state": "AL",
    "grade": 82,
-   "rank": 135,
+   "rank": 136,
    "positionRank": 11,
    "stateRank": 4,
    "status": "Verbal"
@@ -107,7 +107,7 @@
    "city": "Blue Springs",
    "state": "MO",
    "grade": 82,
-   "rank": 159,
+   "rank": 160,
    "positionRank": 13,
    "stateRank": 1,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Liberty Center",
    "state": "OH",
    "grade": 81,
-   "rank": 163,
+   "rank": 164,
    "positionRank": 16,
    "stateRank": 5,
    "status": "Verbal"
@@ -133,7 +133,7 @@
    "city": "Huntington Beach",
    "state": "CA",
    "grade": 81,
-   "rank": 185,
+   "rank": 186,
    "positionRank": 14,
    "stateRank": 15,
    "status": "Verbal"
@@ -146,7 +146,7 @@
    "city": "Massillon",
    "state": "OH",
    "grade": 81,
-   "rank": 223,
+   "rank": 224,
    "positionRank": 10,
    "stateRank": 9,
    "status": "Verbal"
@@ -159,7 +159,7 @@
    "city": "Pittsburgh",
    "state": "PA",
    "grade": 81,
-   "rank": 248,
+   "rank": 249,
    "positionRank": 24,
    "stateRank": 9,
    "status": "Verbal"
@@ -172,7 +172,7 @@
    "city": "Raleigh",
    "state": "NC",
    "grade": 80,
-   "rank": 281,
+   "rank": 282,
    "positionRank": 9,
    "stateRank": 11,
    "status": "Verbal"
@@ -226,7 +226,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 76,
-   "stateRank": 87,
+   "stateRank": 88,
    "status": "Verbal"
   },
   {
@@ -238,8 +238,8 @@
    "state": "FL",
    "grade": 77,
    "rank": null,
-   "positionRank": 121,
-   "stateRank": 86,
+   "positionRank": 122,
+   "stateRank": 87,
    "status": "Verbal"
   },
   {
@@ -252,7 +252,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 125,
-   "stateRank": 118,
+   "stateRank": 119,
    "status": "Verbal"
   },
   {
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:44Z"
 }

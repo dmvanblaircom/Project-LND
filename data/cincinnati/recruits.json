@@ -16,8 +16,8 @@
    "city": "East Saint Louis",
    "state": "IL",
    "grade": 81,
-   "rank": 233,
-   "positionRank": 36,
+   "rank": 234,
+   "positionRank": 37,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -96,7 +96,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 82,
-   "stateRank": 31,
+   "stateRank": 32,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 104,
-   "stateRank": 151,
+   "stateRank": 152,
    "status": "Verbal"
   },
   {
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:40Z"
+ "fetchedAt": "2026-11-06T06:40Z"
 }

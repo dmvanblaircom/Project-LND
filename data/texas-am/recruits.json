@@ -42,9 +42,9 @@
    "city": "Bradenton",
    "state": "FL",
    "grade": 90,
-   "rank": 16,
-   "positionRank": 2,
-   "stateRank": 3,
+   "rank": 17,
+   "positionRank": 3,
+   "stateRank": 4,
    "status": "Verbal"
   },
   {
@@ -55,7 +55,7 @@
    "city": "Baltimore",
    "state": "MD",
    "grade": 90,
-   "rank": 18,
+   "rank": 19,
    "positionRank": 3,
    "stateRank": 2,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Hampton",
    "state": "GA",
    "grade": 90,
-   "rank": 22,
+   "rank": 23,
    "positionRank": 2,
    "stateRank": 3,
    "status": "Verbal"
@@ -81,9 +81,9 @@
    "city": "Tampa",
    "state": "FL",
    "grade": 89,
-   "rank": 25,
+   "rank": 26,
    "positionRank": 1,
-   "stateRank": 4,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -94,7 +94,7 @@
    "city": "Houston",
    "state": "TX",
    "grade": 88,
-   "rank": 30,
+   "rank": 31,
    "positionRank": 3,
    "stateRank": 2,
    "status": "Verbal"
@@ -107,7 +107,7 @@
    "city": "Waxahachie",
    "state": "TX",
    "grade": 84,
-   "rank": 56,
+   "rank": 57,
    "positionRank": 6,
    "stateRank": 7,
    "status": "Verbal"
@@ -120,7 +120,7 @@
    "city": "Ramsey",
    "state": "NJ",
    "grade": 84,
-   "rank": 62,
+   "rank": 63,
    "positionRank": 5,
    "stateRank": 3,
    "status": "Verbal"
@@ -133,9 +133,9 @@
    "city": "Orlando",
    "state": "FL",
    "grade": 84,
-   "rank": 73,
+   "rank": 74,
    "positionRank": 6,
-   "stateRank": 9,
+   "stateRank": 10,
    "status": "Verbal"
   },
   {
@@ -146,8 +146,8 @@
    "city": "Leesburg",
    "state": "GA",
    "grade": 83,
-   "rank": 76,
-   "positionRank": 15,
+   "rank": 77,
+   "positionRank": 16,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -159,7 +159,7 @@
    "city": "Inglewood",
    "state": "CA",
    "grade": 83,
-   "rank": 99,
+   "rank": 100,
    "positionRank": 6,
    "stateRank": 10,
    "status": "Verbal"
@@ -172,7 +172,7 @@
    "city": "Valdosta",
    "state": "GA",
    "grade": 82,
-   "rank": 118,
+   "rank": 119,
    "positionRank": 4,
    "stateRank": 14,
    "status": "Verbal"
@@ -185,7 +185,7 @@
    "city": "Houston",
    "state": "TX",
    "grade": 82,
-   "rank": 126,
+   "rank": 127,
    "positionRank": 10,
    "stateRank": 17,
    "status": "Verbal"
@@ -198,7 +198,7 @@
    "city": "San Antonio",
    "state": "TX",
    "grade": 82,
-   "rank": 149,
+   "rank": 150,
    "positionRank": 13,
    "stateRank": 23,
    "status": "Verbal"
@@ -211,7 +211,7 @@
    "city": "Warner Robins",
    "state": "GA",
    "grade": 81,
-   "rank": 247,
+   "rank": 248,
    "positionRank": 23,
    "stateRank": 29,
    "status": "Verbal"
@@ -225,7 +225,7 @@
    "state": "NV",
    "grade": 80,
    "rank": null,
-   "positionRank": 46,
+   "positionRank": 47,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -303,7 +303,7 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 210,
+   "positionRank": 211,
    "stateRank": 58,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:16Z"
+ "fetchedAt": "2026-11-06T06:46Z"
 }

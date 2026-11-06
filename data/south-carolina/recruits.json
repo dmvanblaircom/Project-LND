@@ -16,7 +16,7 @@
    "city": "Cornelius",
    "state": "NC",
    "grade": 92,
-   "rank": 8,
+   "rank": 9,
    "positionRank": 1,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Cornelius",
    "state": "NC",
    "grade": 81,
-   "rank": 179,
+   "rank": 180,
    "positionRank": 14,
    "stateRank": 6,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Fayetteville",
    "state": "NC",
    "grade": 81,
-   "rank": 196,
+   "rank": 197,
    "positionRank": 16,
    "stateRank": 7,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Charlotte",
    "state": "NC",
    "grade": 81,
-   "rank": 235,
+   "rank": 236,
    "positionRank": 20,
    "stateRank": 10,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "Columbia",
    "state": "SC",
    "grade": 80,
-   "rank": 280,
+   "rank": 281,
    "positionRank": 30,
    "stateRank": 6,
    "status": "Verbal"
@@ -95,7 +95,7 @@
    "state": "GA",
    "grade": 79,
    "rank": null,
-   "positionRank": 65,
+   "positionRank": 66,
    "stateRank": 66,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "VA",
    "grade": 79,
    "rank": null,
-   "positionRank": 61,
+   "positionRank": 62,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "PA",
    "grade": 79,
    "rank": null,
-   "positionRank": 70,
+   "positionRank": 71,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 90,
-   "stateRank": 98,
+   "stateRank": 99,
    "status": "Verbal"
   },
   {
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

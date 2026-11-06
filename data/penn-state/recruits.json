@@ -16,7 +16,7 @@
    "city": "Euclid",
    "state": "OH",
    "grade": 82,
-   "rank": 140,
+   "rank": 141,
    "positionRank": 15,
    "stateRank": 3,
    "status": "Verbal"
@@ -29,7 +29,7 @@
    "city": "Philadelphia",
    "state": "PA",
    "grade": 81,
-   "rank": 237,
+   "rank": 238,
    "positionRank": 21,
    "stateRank": 8,
    "status": "Verbal"
@@ -42,7 +42,7 @@
    "city": "Painesville",
    "state": "OH",
    "grade": 80,
-   "rank": 256,
+   "rank": 257,
    "positionRank": 26,
    "stateRank": 10,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Pierre",
    "state": "SD",
    "grade": 80,
-   "rank": 292,
+   "rank": 293,
    "positionRank": 13,
    "stateRank": 1,
    "status": "Verbal"
@@ -82,7 +82,7 @@
    "state": "IA",
    "grade": 80,
    "rank": null,
-   "positionRank": 55,
+   "positionRank": 56,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 66,
-   "stateRank": 11,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -174,7 +174,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 61,
-   "stateRank": 14,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 8,
-   "stateRank": 18,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "UT",
    "grade": 77,
    "rank": null,
-   "positionRank": 68,
+   "positionRank": 69,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -226,7 +226,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 52,
-   "stateRank": 21,
+   "stateRank": 22,
    "status": "Verbal"
   },
   {
@@ -239,7 +239,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 91,
-   "stateRank": 26,
+   "stateRank": 27,
    "status": "Verbal"
   },
   {
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-29T13:08Z"
+ "fetchedAt": "2026-11-06T06:45Z"
 }

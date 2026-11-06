@@ -16,7 +16,7 @@
    "city": "Chattanooga",
    "state": "TN",
    "grade": 91,
-   "rank": 10,
+   "rank": 11,
    "positionRank": 2,
    "stateRank": 1,
    "status": "Verbal"
@@ -29,8 +29,8 @@
    "city": "Brentwood",
    "state": "TN",
    "grade": 85,
-   "rank": 43,
-   "positionRank": 9,
+   "rank": 44,
+   "positionRank": 10,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -42,7 +42,7 @@
    "city": "Oak Ridge",
    "state": "TN",
    "grade": 81,
-   "rank": 176,
+   "rank": 177,
    "positionRank": 7,
    "stateRank": 7,
    "status": "Verbal"
@@ -55,7 +55,7 @@
    "city": "Brentwood",
    "state": "TN",
    "grade": 81,
-   "rank": 197,
+   "rank": 198,
    "positionRank": 14,
    "stateRank": 9,
    "status": "Verbal"
@@ -68,7 +68,7 @@
    "city": "London, England",
    "state": "EUR",
    "grade": 81,
-   "rank": 215,
+   "rank": 216,
    "positionRank": 21,
    "stateRank": 1,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Murfreesboro",
    "state": "TN",
    "grade": 80,
-   "rank": 285,
+   "rank": 286,
    "positionRank": 31,
    "stateRank": 13,
    "status": "Verbal"
@@ -256,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:15Z"
+ "fetchedAt": "2026-11-06T06:46Z"
 }

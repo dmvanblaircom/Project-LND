@@ -43,7 +43,7 @@
    "state": "MD",
    "grade": 77,
    "rank": null,
-   "positionRank": 67,
+   "positionRank": 68,
    "stateRank": 23,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "VA",
    "grade": 76,
    "rank": null,
-   "positionRank": 138,
+   "positionRank": 139,
    "stateRank": 23,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "VA",
    "grade": 75,
    "rank": null,
-   "positionRank": 182,
+   "positionRank": 183,
    "stateRank": 33,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:41Z"
+ "fetchedAt": "2026-11-06T06:42Z"
 }

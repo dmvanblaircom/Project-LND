@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "151",
  "classYear": 2027,
- "listed": 21,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -82,7 +82,7 @@
    "state": "GA",
    "grade": 76,
    "rank": null,
-   "positionRank": 169,
+   "positionRank": 170,
    "stateRank": 144,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "SC",
    "grade": 74,
    "rank": null,
-   "positionRank": 212,
+   "positionRank": 213,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -148,7 +148,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 103,
-   "stateRank": 146,
+   "stateRank": 147,
    "status": "Verbal"
   },
   {
@@ -269,6 +269,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274735",
+   "name": "Jarelle Sims",
+   "position": "QB-PP",
+   "highSchool": "Sandalwood High School",
+   "city": "Jacksonville",
+   "state": "FL",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274698",
    "name": "Ryne Burks",
    "position": "TE-H",
@@ -282,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:41Z"
+ "fetchedAt": "2026-11-06T06:40Z"
 }
