@@ -1,7 +1,16 @@
 {
  "team": "syracuse",
- "updated": "2026-11-06T13:38:18.370559+00:00",
+ "updated": "2026-11-06T14:08:13.540950+00:00",
  "items": [
+  {
+   "title": "Untitled Story",
+   "link": "https://cuse.com/news/2026/11/6/untitled-story",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"Steve Angeli\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/31/16x9_9_16.jpeg\" /><br /><br />SYRACUSE vs. CLEMSON",
+   "image": "https://cuse.com/images/2026/10/31/16x9_9_16.jpeg?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-06T13:11:00+00:00"
+  },
   {
    "title": "Syracuse vs. Clemson Preview: 5 Keys for the Orange to Stay Hot in the JMA Dome",
    "link": "https://www.si.com/college/syracuse/football/syracuse-vs-clemson-preview-01m6psvn03ta?utm_source=RSS",
@@ -244,15 +253,6 @@
    "image": "https://cuse.com/images/2026/10/26/FranBrown_UNC_Action.png?width=800",
    "sourceLogo": "https://cuse.com/favicon.ico",
    "published": "2026-10-26T20:09:00+00:00"
-  },
-  {
-   "title": "Calvin Russell III Named ACC Rookie of the Week",
-   "link": "https://cuse.com/news/2026/10/26/football-calvin-russell-iii-named-acc-rookie-of-the-week",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Calvin Russell III Action vs. UNC\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/26/Calvin_Action_ROTW.png\" /><br /><br />Syracuse wide receiver Calvin Russell III has been named the ACC Rookie of the Week, the league announced Monday afternoon. The honor follows a career game for the freshman, who posted eight catches for 86 yards and a touchdown in the Orange's overtime win over North Carolina.",
-   "image": "https://cuse.com/images/2026/10/26/Calvin_Action_ROTW.png?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-10-26T19:01:00+00:00"
   }
  ]
 }
