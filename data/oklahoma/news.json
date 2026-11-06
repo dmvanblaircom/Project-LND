@@ -1,6 +1,6 @@
 {
  "team": "oklahoma",
- "updated": "2026-11-06T15:08:10.788672+00:00",
+ "updated": "2026-11-06T16:08:09.756455+00:00",
  "items": [
   {
    "title": "One Big Thing: Everybody Say Hi to the New Guy at Oklahoma, Jason Witten",
@@ -100,6 +100,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1755,h_987,x_0,y_57/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/all_sooners/01k41jspj2tg49dsv1n3.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-05T18:01:06+00:00"
+  },
+  {
+   "title": "Game Primer: OU at Florida",
+   "link": "https://soonersports.com/news/2026/11/5/football-game-primer-ou-at-florida",
+   "source": "Oklahoma Athletics",
+   "summary": "<img alt=\"Lead, FB 26 Blaylock\" src=\"https://soonersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/5/20261024_FB_Game_MississippiSt_BV_OUE09454.jpg\" /><br /><br />",
+   "image": "https://soonersports.com/images/2026/11/5/20261024_FB_Game_MississippiSt_BV_OUE09454.jpg?width=800",
+   "sourceLogo": "https://soonersports.com/favicon.ico",
+   "published": "2026-11-05T15:51:00+00:00"
   },
   {
    "title": "Sooners Commit Proving Why He's Nation's Best",
@@ -343,15 +352,6 @@
    "image": "https://soonersports.com/images/2026/10/21/101026-Game_5_Texas-167.jpg?width=800",
    "sourceLogo": "https://soonersports.com/favicon.ico",
    "published": "2026-10-21T17:04:00+00:00"
-  },
-  {
-   "title": "Kreul Named SEC Freshman of the Week",
-   "link": "https://soonersports.com/news/2026/10/19/football-kreul-named-sec-freshman-of-the-week",
-   "source": "Oklahoma Athletics",
-   "summary": "<img alt=\"Defensive end Jake Kreul, wearing OU's throwback football uniform, down in his stance in OU's game against Kentucky on Oct. 17, 2026 at Gaylord Family - Oklahoma Memorial Stadium\" src=\"https://soonersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/20261017_FB_Game_Kentucky_PJM_OUC03908.jpg\" /><br /><br />NORMAN \u2014 University of Oklahoma freshman defensive lineman Jake Kreul was named the SEC Freshman of the Week after his career night in OU's game against No. 15 Kentucky on Saturday, the conference office announced Monday.",
-   "image": "https://soonersports.com/images/2026/10/19/20261017_FB_Game_Kentucky_PJM_OUC03908.jpg?width=800",
-   "sourceLogo": "https://soonersports.com/favicon.ico",
-   "published": "2026-10-19T17:05:00+00:00"
   }
  ]
 }
