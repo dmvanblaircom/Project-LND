@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa",
- "updated": "2026-11-05T11:09:09.330682+00:00",
+ "updated": "2026-11-06T01:08:51.861633+00:00",
  "reports": [
   {
    "schema": 1,
@@ -275,10 +275,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:09:09.330682+00:00",
+   "fetchedAt": "2026-11-06T01:08:51.861633+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "at Northwestern",
    "players": [
@@ -314,7 +314,7 @@
      "pos": "WR",
      "no": "7",
      "name": "Dayton Howard",
-     "status": "doubtful",
+     "status": "questionable",
      "detail": ""
     },
     {

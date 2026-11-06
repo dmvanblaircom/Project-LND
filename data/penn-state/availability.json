@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:14.041043+00:00",
+ "fetchedAt": "2026-11-06T01:08:55.522751+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "at Washington",
  "players": [
@@ -19,6 +19,13 @@
    "no": "0",
    "name": "Chase Sowell",
    "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "2",
+   "name": "Zay Robinson",
+   "status": "questionable",
    "detail": ""
   },
   {

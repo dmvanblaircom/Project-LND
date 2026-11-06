@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:05.142407+00:00",
+ "fetchedAt": "2026-11-06T01:08:44.771510+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "vs. Louisville",
  "players": [
@@ -33,6 +33,13 @@
    "no": "6",
    "name": "Kelvin Hill",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "8",
+   "name": "Jordan Boyd",
+   "status": "doubtful",
    "detail": ""
   },
   {

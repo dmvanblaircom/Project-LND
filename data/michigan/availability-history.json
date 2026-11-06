@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan",
- "updated": "2026-11-05T11:09:11.525943+00:00",
+ "updated": "2026-11-06T01:08:53.572426+00:00",
  "reports": [
   {
    "schema": 1,
@@ -450,10 +450,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:09:11.525943+00:00",
+   "fetchedAt": "2026-11-06T01:08:53.572426+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "vs. Michigan State",
    "players": [
@@ -468,6 +468,13 @@
      "pos": "S",
      "no": "1",
      "name": "Rod Moore",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "2",
+     "name": "Shamari Earls",
      "status": "questionable",
      "detail": ""
     },
@@ -475,14 +482,14 @@
      "pos": "S",
      "no": "6",
      "name": "Jordan Young",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "DE",
      "no": "8",
      "name": "Dom Nichols",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -531,7 +538,7 @@
      "pos": "OL",
      "no": "70",
      "name": "Brady Norton",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -545,7 +552,7 @@
      "pos": "DE",
      "no": "90",
      "name": "John Henry Daley",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

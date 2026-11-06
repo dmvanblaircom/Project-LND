@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisville",
- "updated": "2026-11-05T11:09:10.493492+00:00",
+ "updated": "2026-11-06T01:08:52.765567+00:00",
  "reports": [
   {
    "schema": 1,
@@ -532,20 +532,13 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:09:10.493492+00:00",
+   "fetchedAt": "2026-11-06T01:08:52.765567+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "at Georgia Tech",
    "players": [
-    {
-     "pos": "WR",
-     "no": "0",
-     "name": "Tre Richardson",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "RB",
      "no": "1",
@@ -572,13 +565,6 @@
      "no": "21",
      "name": "Jaydin Broadnax",
      "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "27",
-     "name": "Myles Norwood",
-     "status": "questionable",
      "detail": ""
     },
     {

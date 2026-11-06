@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:02.409510+00:00",
+ "fetchedAt": "2026-11-06T01:08:42.538457+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "vs. Florida State",
  "players": [
@@ -68,13 +68,6 @@
    "no": "80",
    "name": "Reed Swanson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "86",
-   "name": "Danny Edgehille",
-   "status": "questionable",
    "detail": ""
   }
  ],

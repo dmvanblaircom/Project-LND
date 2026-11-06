@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "purdue",
- "updated": "2026-11-05T11:09:14.301891+00:00",
+ "updated": "2026-11-06T01:08:55.750321+00:00",
  "reports": [
   {
    "schema": 1,
@@ -268,10 +268,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:09:14.301891+00:00",
+   "fetchedAt": "2026-11-06T01:08:55.750321+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "vs. Maryland",
    "players": [

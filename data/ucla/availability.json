@@ -7,20 +7,13 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:17.445055+00:00",
+ "fetchedAt": "2026-11-06T01:08:58.334207+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "at Minnesota",
  "players": [
-  {
-   "pos": "WR",
-   "no": "2",
-   "name": "Brian Rowe Jr.",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "DB",
    "no": "2",
@@ -81,7 +74,14 @@
    "pos": "OL",
    "no": "68",
    "name": "Jordan Davis",
-   "status": "doubtful",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "86",
+   "name": "Jalen Saint Paul",
+   "status": "out-game",
    "detail": ""
   }
  ],

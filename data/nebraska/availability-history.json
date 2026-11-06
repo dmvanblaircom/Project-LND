@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-11-05T01:08:44.736503+00:00",
+ "updated": "2026-11-06T01:08:54.299536+00:00",
  "reports": [
   {
    "schema": 1,
@@ -401,10 +401,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T01:08:44.736503+00:00",
+   "fetchedAt": "2026-11-06T01:08:54.299536+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-06",
    "game": "at Illinois",
    "players": [
@@ -455,13 +455,6 @@
      "no": "54",
      "name": "Jacob Bower",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "77",
-     "name": "Gunnar Gottula",
-     "status": "probable",
      "detail": ""
     },
     {

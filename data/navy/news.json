@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-04T22:38:11.373437+00:00",
+ "updated": "2026-11-06T01:08:05.567074+00:00",
  "items": [
+  {
+   "title": "The Temple Preview",
+   "link": "https://on3.com/sites/the-mid-report/news/the-temple-preview-3/",
+   "source": "The Mid Report",
+   "summary": "Last week, Navy lost to Notre Dame, 35-13. How you view that game depends on what you\u2019re looking for. Are you encouraged by how the Mids controlled the first half? Or do you see it as another Notre Dame blowout loss in a long history of such losses? Do you like how the offense ran [&#8230;]",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/19082720/Temple-afi-hookly-3.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-06T01:02:34+00:00"
+  },
   {
    "title": "The Notre Dame Debrief",
    "link": "https://on3.com/sites/the-mid-report/news/the-notre-dame-debrief-3/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/15232012/2026-09-20T033917Z_1533172132_MT1USATODAY29868637_RTRMADP_3_NCAA-FOOTBALL-TEXAS-SAN-ANTONIO-AT-TEXAS.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-16T04:28:08+00:00"
-  },
-  {
-   "title": "Anchors Aweigh Podcast - Army-Navy Cup, Football over Tulsa",
-   "link": "https://on3.com/sites/the-mid-report/news/anchors-aweigh-podcast-army-navy-cup-football-over-tulsa/",
-   "source": "The Mid Report",
-   "summary": "We put the spotlight on Navy men\u2019s soccer and Navy volleyball, both of which beat Army in Star matches. We talk to men\u2019s soccer coach John Hackworth and volleyball coach Paco Labrador about the big wins. Mike James, publisher of The Mid Report and color commentator for the Navy Football Radio Network, joins to break [&#8230;]",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/15095144/2026-10-11T002637Z_94786281_MT1USATODAY30052292_RTRMADP_3_NCAA-FOOTBALL-TULSA-AT-NAVY.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-15T14:52:20+00:00"
   }
  ]
 }

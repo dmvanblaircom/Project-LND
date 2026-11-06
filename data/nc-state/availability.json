@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:12.342549+00:00",
+ "fetchedAt": "2026-11-06T01:08:54.199586+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "vs. Duke",
  "players": [
@@ -23,16 +23,9 @@
   },
   {
    "pos": "S",
-   "no": "2",
-   "name": "Ronnie Royal, III",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
    "no": "3",
    "name": "Tristan Teasdell",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -40,13 +33,6 @@
    "no": "4",
    "name": "Vander Ploog",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OLB",
-   "no": "5",
-   "name": "Harvey Dyson III",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -64,13 +50,6 @@
    "detail": ""
   },
   {
-   "pos": "DE",
-   "no": "13",
-   "name": "Joseph Adedire",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "ILB",
    "no": "15",
    "name": "AJ Richardson",
@@ -81,7 +60,7 @@
    "pos": "TE",
    "no": "19",
    "name": "Preston Douglas",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -124,13 +103,6 @@
    "no": "91",
    "name": "Nick Konieczynski",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "99",
-   "name": "AJ Prim",
-   "status": "probable",
    "detail": ""
   }
  ],

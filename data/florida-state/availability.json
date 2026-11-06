@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:04.535065+00:00",
+ "fetchedAt": "2026-11-06T01:08:44.233288+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "at Boston College",
  "players": [
@@ -137,7 +137,7 @@
    "pos": "K",
    "no": "93",
    "name": "Conor McAneney",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   }
  ],

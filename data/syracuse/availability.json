@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:15.689112+00:00",
+ "fetchedAt": "2026-11-06T01:08:56.896898+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "vs. Clemson",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "QB",
    "no": "16",
    "name": "Malachi Nelson",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "OL",
    "no": "74",
    "name": "Matthew Hawn",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -88,7 +88,7 @@
    "pos": "DL",
    "no": "93",
    "name": "Alex Haskell",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
