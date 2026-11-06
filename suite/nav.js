@@ -53,7 +53,8 @@ Suite.nav = (function () {
 
   var SCREENS = {
     home:     { hero: true,  title: "Home"     },
-    top25:    { title: "Top 25",
+    // Around (David, 2026-11-05): the route stays #top25.
+    top25:    { title: "Around",
                 views: [{ id: "games", label: "Games" }, { id: "rankings", label: "Rankings" }] },
     game:     { hero: true,  title: "Game"     },
     roster:   { title: "Roster",
@@ -65,9 +66,10 @@ Suite.nav = (function () {
     schedule: { title: "Schedule", owner: "more",
                 views: [{ id: "schedule", label: "Schedule" }, { id: "results", label: "Results" }],
                 item: /^[0-9]+$/, itemHero: true, itemTitle: "Game" },
-    // Season Outlook's full field (W18): Home's, reached from its Season
-    // Outlook section, so Home stays selected. Playoff | National Title.
-    outlook:  { title: "Season Outlook", owner: "home",
+    // Season Outlook's full field (W18): Around's since 2026-11-05 (Home's
+    // before), reached from its Season Outlook card, so Around stays
+    // selected. Playoff | National Title.
+    outlook:  { title: "Season Outlook", owner: "top25",
                 views: [{ id: "playoff", label: "Playoff" }, { id: "title", label: "National Title" }] },
     // More's other destinations (reference 10), each a secondary destination
     // that keeps More selected (decision 0028).
@@ -105,21 +107,20 @@ Suite.nav = (function () {
   function hasPrimary(screen) { return primary.indexOf(screen) > -1; }
 
   // The controller supplies league-calendar decisions independently of the
-  // team's phase: Top 25 lasts through the title game; Game may return
-  // before the preseason poll. No dates or phase inference belong here.
+  // team's phase: Game may return before the preseason poll. Around stays
+  // all year. No dates or phase inference belong here.
   // Omitted flags safely restore the current in-season destinations.
   function setSeasonNav(model) {
     model = model || {};
     var nav = $("navbar");
     if (!nav) return;
-    var next = ["home", model.top25 === false ? "news" : "top25",
-                model.game === false ? "schedule" : "game", "roster", "more"];
+    // Around stays all year (David, 2026-11-05); News lives on Home and More.
+    var next = ["home", "top25", model.game === false ? "schedule" : "game", "roster", "more"];
     if (next.join("|") === primary.join("|")) return;
     [].slice.call(nav.querySelectorAll(".nav-item[data-screen]")).forEach(function (a) {
       primaryNodes[a.getAttribute("data-screen")] = a;
     });
     var icons = {
-      news: '<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M7 8.5h10M7 12h4M7 15.5h4"/><rect x="13" y="11.5" width="4" height="4.5" rx=".6"/>',
       schedule: '<rect x="3.5" y="5.5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3.5v4M16 3.5v4M7.5 13.5h.01M12 13.5h.01M16.5 13.5h.01M7.5 17h.01M12 17h.01"/>'
     };
     next.forEach(function (screen, i) {
@@ -128,7 +129,7 @@ Suite.nav = (function () {
         node = document.createElement("a");
         node.className = "nav-item";
         node.setAttribute("data-screen", screen);
-        node.href = screen === "schedule" ? "#schedule/results" : "#news";
+        node.href = "#schedule/results";
         node.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
           icons[screen] + "</svg><span>" + SCREENS[screen].title + "</span>";
         primaryNodes[screen] = node;

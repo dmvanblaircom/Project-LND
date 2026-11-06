@@ -94,8 +94,6 @@ Suite.more = (function () {
     // Saved destinations remain reachable when seasonal primary tabs change.
     // The controller repaints More after setSeasonNav, as on route entry.
     if (Suite.nav && Suite.nav.hasPrimary) {
-      if (!Suite.nav.hasPrimary("top25")) items.splice(2, 0,
-        { id: "stats", href: "#top25/rankings", title: "Top 25", sub: "Rankings and national games" });
       if (!Suite.nav.hasPrimary("game")) items.splice(2, 0,
         { id: "schedule", href: "#game", title: "Game", sub: "Your team's game details and recap" });
     }

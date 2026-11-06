@@ -2,7 +2,7 @@
    0022, 0023, 0024).
 
    Order: Hero, a program milestone when one is near, Latest News, Schedule,
-   Season Outlook. No Current Game card. Once the season is complete (S4/S5):
+   Season Outlook's one line (its card is Around's). No Current Game card. Once the season is complete (S4/S5):
    Hero, Latest News, Recruiting, NFL Draft, then the rest.
 
    This file only draws. Every decision it shows was made in TeamOS - which
@@ -280,27 +280,25 @@ Suite.home = (function () {
   }
 
   // ---- Season Outlook -------------------------------------------------------
+  // One line, opening Around (David, 2026-11-05: Season Outlook answers
+  // "where do we stand", Around's question; the card and its full field
+  // live there now).
 
-  function outlookHtml(metrics) {
-    if (!metrics || !metrics.length) return "";                   // no supported market: no section
-    return '<div class="sec-head"><h2 class="sec-title" id="outHead">Season Outlook</h2>' +
-             '<a class="sec-link" href="#outlook">View Full Field' + CHEVRON + "</a></div>" +
-      '<div class="card outlook" role="group" aria-labelledby="outHead"><div class="out-metrics">' +
-      metrics.map(function (x) {
-        // A move that rounds to nothing is not shown as "0".
-        var step = x.change == null ? 0 : Math.round(Math.abs(x.change));
-        var chg = step >= 1
-          ? '<span class="out-chg ' + (x.change > 0 ? "up" : "down") + '"><span aria-hidden="true">' + (x.change > 0 ? "▲" : "▼") +
-            "</span>" + step + '<span class="sr-only"> points ' + (x.change > 0 ? "up" : "down") + "</span></span>"
-          : "";
-        return '<div class="out-metric"><span class="out-value">' + Math.round(x.value) + '<span class="pct">%</span></span>' + chg +
-               '<span class="out-label">' + esc(x.label) + " probability</span>" +
-               '<span class="out-bar" aria-hidden="true"><span style="width:' + Math.max(0, Math.min(100, x.value)) + '%"></span></span>' +
-               (x.stale && x.asOf ? '<span class="out-asof">As of ' + esc(new Date(x.asOf).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })) + "</span>" : "") +
-               "</div>";
-      }).join("") + "</div>" +
-      '<p class="out-credit">Market-implied odds. Powered by Kalshi</p></div>';
+  // Home's one line: the same two numbers, opening Around, where the card is.
+  function outlookLine(metrics) {
+    if (!metrics || !metrics.length) return "";
+    // "Title" on the line, where "National Title" would wrap a phone's width;
+    // the card in Around says it in full.
+    var parts = metrics.map(function (x) {
+      return '<span class="out-line-n">' + esc(x.key === "title" ? "Title" : x.label) + " " + Math.round(x.value) + "%</span>";
+    });
+    return '<a class="card out-line" href="#top25">' +
+             '<span class="out-line-t">Season Outlook</span>' +
+             '<span class="out-line-v">' + parts.join("") + "</span>" +
+             '<span class="sr-only">. Market-implied odds. Open Around.</span>' + CHEVRON + "</a>";
   }
+
+  function outlookHtml(metrics) { return outlookLine(metrics); }
 
   // ---- a program milestone (David, 2026-10-07: the 1,000th win) -------------
   // Only while one is near (TeamOS.milestones): the count, how many to go and

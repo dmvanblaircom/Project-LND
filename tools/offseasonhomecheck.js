@@ -96,28 +96,30 @@ function check(value,label){assert(value,label);checks++;}
   }),"S1/S3 existing presentation unchanged");
   await page.locator('#navbar [data-screen="game"]').focus();
   check(await page.evaluate(()=>{
-   Suite.nav.setGameState("live");Suite.nav.setSeasonNav({top25:false,game:false});
+   Suite.nav.setGameState("live");Suite.nav.setSeasonNav({game:false});
    const schedule=document.querySelector('#navbar [data-screen="schedule"]');
    const focused=document.activeElement===schedule,quiet=!document.getElementById("navbar").classList.contains("game-raised");
-   Suite.nav.setSeasonNav({top25:false,game:false});
+   Suite.nav.setSeasonNav({game:false});
    return focused&&quiet&&document.activeElement===schedule&&schedule===document.querySelector('#navbar [data-screen="schedule"]');
   }),"replaced tab receives focus; repeated flags keep node; absent Game never pulses");
-  for(const [route,selected] of [["#news","news"],["#schedule/results","schedule"],["#schedule/900001","schedule"],["#game","more"],["#top25/rankings","more"],["#settings",null],["#more/news","news"]]){
+  // Around stays all year (David, 2026-11-05): News is More's, Around is Around's.
+  for(const [route,selected] of [["#news","more"],["#schedule/results","schedule"],["#schedule/900001","schedule"],["#game","more"],["#top25/rankings","top25"],["#settings",null],["#more/news","more"]]){
    await page.evaluate(hash=>{location.hash=hash;},route);
    await page.waitForFunction(s=>(document.querySelector("#navbar [aria-current=page]")?.dataset.screen||null)===s,selected);
    check(true,"saved route "+route+" selected "+selected);
   }
   await page.evaluate(()=>Suite.nav.go("more"));
   await page.waitForSelector("#more:not([hidden])");
-  check(await page.locator('#more a[href="#game"]').count()===1&&await page.locator('#more a[href="#top25/rankings"]').count()===1,"More keeps both saved destinations");
-  // Game returns within 14 days even if AP has not yet published; Top 25
-  // can remain through the title game after the team's own season ends.
-  for(const flags of [{top25:false,game:true},{top25:true,game:false},{top25:true,game:true}]){
+  check(await page.locator('#more a[href="#game"]').count()===1&&await page.locator('#more a[href="#top25/rankings"]').count()===0,"More keeps Game's saved destination; Around needs none - it never leaves the nav");
+  // Game returns within 14 days even if AP has not yet published. Around
+  // stays whatever the flags say (David, 2026-11-05): an old top25:false
+  // never takes it out of the nav.
+  for(const flags of [{top25:false,game:true},{top25:true,game:false},{game:true}]){
    const tabs=await page.evaluate(f=>{
     Suite.nav.setSeasonNav(f);Suite.more.menu(document.getElementById("more"));
     return [...document.querySelectorAll("#navbar a")].map(a=>a.dataset.screen);
    },flags);
-   check(JSON.stringify(tabs)===JSON.stringify(["home",flags.top25?"top25":"news",flags.game?"game":"schedule","roster","more"]),"independent calendar flags "+JSON.stringify(flags));
+   check(JSON.stringify(tabs)===JSON.stringify(["home","top25",flags.game?"game":"schedule","roster","more"]),"calendar flags "+JSON.stringify(flags)+": Around stays, Game follows its flag");
   }
   check(await page.locator("#navbar").evaluate(e=>e.classList.contains("game-raised")),"restored Game preserves its normalized live state");
   await page.evaluate(()=>{Suite.nav.setGameState(null);Suite.nav.go("home");});

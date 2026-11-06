@@ -25,8 +25,8 @@ fs.mkdirSync(shots,{recursive:true});
       await page.goto(base+"/tools/fixtures/espn-news.json");
       await page.setContent('<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1">'+
         '<link rel="stylesheet" href="'+base+'/app.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap"></head>'+
-        '<body><main class="page-main"><div id="home"></div><div id="game"></div><div id="news"></div></main></body></html>');
-      for(var f of ["teams/"+team+".js","teamos/team.js","teamos/identity.js","teamos/espn.js","teamos/game.js","suite/ui.js","suite/schedule.js","suite/prospects.js", "suite/home.js","suite/game.js","suite/more.js"])
+        '<body><main class="page-main"><div id="home"></div><div id="around"></div><div id="game"></div><div id="news"></div></main></body></html>');
+      for(var f of ["teams/"+team+".js","teamos/team.js","teamos/identity.js","teamos/espn.js","teamos/game.js","suite/ui.js","suite/schedule.js","suite/prospects.js", "suite/home.js","suite/top25.js","suite/game.js","suite/more.js"])
         await page.addScriptTag({url:base+"/"+f});
       for(var style of ["team","suite"])for(var width of [320,375,390,768,1280]){
         await page.setViewportSize({width:width,height:844});
@@ -39,10 +39,12 @@ fs.mkdirSync(shots,{recursive:true});
         for(var scale of [1,2]){
           await page.evaluate(function(scale){
             document.documentElement.style.fontSize=(16*scale)+"px";
-            document.getElementById("game").hidden=true;document.getElementById("news").hidden=true;document.getElementById("home").hidden=false;
-            Suite.home.paint(document.getElementById("home"),{team:reviewTeam,oppMark:function(){return "";},art:{},hero:{},news:[],schedule:[],outlook:[
-              {label:"National title",value:42,change:0},
-              {label:"Make the playoffs",value:74,change:4,stale:true,asOf:"2026-10-02T14:30:00Z"}],fresh:null});
+            document.getElementById("game").hidden=true;document.getElementById("news").hidden=true;document.getElementById("home").hidden=true;
+            // Season Outlook's card is Around's (David, 2026-11-05)
+            var around=document.getElementById("around");around.hidden=false;
+            Suite.top25.paint(around,{view:"games",games:null,polls:null,outlook:[
+              {key:"title",label:"National title",value:42,change:0},
+              {key:"playoff",label:"Make the playoffs",value:74,change:4,stale:true,asOf:"2026-10-02T14:30:00Z"}],fresh:null,now:new Date()});
           },scale);
           await page.evaluate(function(){return document.fonts.ready;});
           var alignment=await page.evaluate(function(){
@@ -75,7 +77,7 @@ fs.mkdirSync(shots,{recursive:true});
         if(style==="team"&&(width===320||width===390))await page.locator(".gcard").screenshot({path:path.join(shots,team+"-"+width+"-matchup.png")});
         passed.push("PASS "+[team,style,width,"nine highlighted comparisons and arrows"].join(" | "));
         await page.evaluate(function(){
-          document.getElementById("game").hidden=true;document.getElementById("home").hidden=false;
+          document.getElementById("game").hidden=true;document.getElementById("home").hidden=false;document.getElementById("around").hidden=true;
           Suite.home.paint(document.getElementById("home"),{team:reviewTeam,oppMark:function(){return "";},art:{},hero:{},schedule:[],outlook:[],fresh:null,news:[0,1,2].map(function(i){return{title:"A full article headline remains readable",link:"https://publisher.test/story/"+i,source:"Land-Grant Holy Land",image:"",sourceLogo:""};})});
         });
         var railText=await audit.auditText(page,"news rail "+team+style+width);assert.deepStrictEqual(railText.failures,[]);

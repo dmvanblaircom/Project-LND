@@ -651,6 +651,14 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .out-bar span{display:block;height:100%;background:var(--t-accent)}
 .out-asof{grid-column:1 / -1;grid-row:4;font-size:.8rem;color:var(--s-muted)}
 .out-credit{margin:.85rem 0 0;font-size:.85rem;color:var(--s-muted)}
+/* Home's one line of Season Outlook, opening Around (David, 2026-11-05) */
+.out-line{display:flex;align-items:center;gap:.75rem;margin-top:1.4rem;padding:.85rem .9rem .85rem 1rem;color:var(--s-ink);text-decoration:none}
+.out-line-t{font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.02em;white-space:nowrap}
+.out-line-v{display:flex;flex-wrap:wrap;justify-content:flex-end;column-gap:.6rem;margin-left:auto;color:var(--s-ink-2);font-size:.92rem;font-variant-numeric:tabular-nums}
+.out-line-n{white-space:nowrap}
+.t25-outlook:empty{display:none}
+.t25-outlook .sec-head{margin-top:1.1rem}
+.t25-head{margin-bottom:0}
 .home-loading{padding:2rem 0}
 
 /* ---- Game ------------------------------------------------------------

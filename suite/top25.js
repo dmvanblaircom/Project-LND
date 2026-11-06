@@ -1,4 +1,6 @@
-/* Suite - Top 25, national college football inside the fan's Suite
+/* Suite - Around (the Top 25 tab until 2026-11-05; route #top25): the
+   team's Season Outlook, then Top 25 - national college football inside
+   the fan's Suite
    (reference 07; decisions 0024 §5, §6, 0025).
 
    Two peer views, both routes:
@@ -28,6 +30,7 @@
        model.heroId    the team's hero game - the one #game opens - or null
        model.mark      providerId -> logo URL for a light surface
        model.fresh     TeamOS.freshness.summary() output
+       model.outlook   TeamOS.outlook.metrics() - the team's Season Outlook card
        model.now       Date
 
    The selected team is highlighted where it appears; it is never moved. */
@@ -164,11 +167,14 @@ Suite.top25 = (function () {
     });
     // Within a day, what is happening now comes first (TeamOS.game.boardOrder).
     days.forEach(function (d) { d.games.sort(TeamOS.game.boardOrder); });
-    return '<p class="t25-intro">' + list.length + (list.length === 1 ? " game" : " games") +
+    // Under its own name in Around (David, 2026-11-05: "Top 25 ... is
+    // common across all"), below the team's Season Outlook.
+    return '<div class="sec-head t25-head"><h2 class="sec-title" id="t25Head">Top 25</h2></div>' +
+           '<p class="t25-intro">' + list.length + (list.length === 1 ? " game" : " games") +
              " with a ranked team · times in your time zone</p>" +
       days.map(function (d, i) {
         var id = "t25day" + i;
-        return '<section class="t25-day" aria-labelledby="' + id + '"><h2 class="t25-day-title" id="' + id + '">' + esc(d.label) + "</h2>" +
+        return '<section class="t25-day" aria-labelledby="' + id + '"><h3 class="t25-day-title" id="' + id + '">' + esc(d.label) + "</h3>" +
                '<ul class="card tg-list">' + d.games.map(function (g) { return gameRow(m, g); }).join("") + "</ul></section>";
       }).join("");
   }
@@ -507,16 +513,45 @@ Suite.top25 = (function () {
     if (html !== lastSheet) { ui.fill(host.querySelector(".sh-body"), html); lastSheet = html; }
   }
 
+  // The team's own two numbers, as a card with its full field one tap away
+  // (W18). Around's, since 2026-11-05 (David: Season Outlook answers "where
+  // do we stand", Around's question); before, Home's.
+  function outlookCard(metrics) {
+    if (!metrics || !metrics.length) return "";                   // no supported market: no section
+    return '<div class="sec-head"><h2 class="sec-title" id="outHead">Season Outlook</h2>' +
+             '<a class="sec-link" href="#outlook">View Full Field' + CHEVRON + "</a></div>" +
+      '<div class="card outlook" role="group" aria-labelledby="outHead"><div class="out-metrics">' +
+      metrics.map(function (x) {
+        // A move that rounds to nothing is not shown as "0".
+        var step = x.change == null ? 0 : Math.round(Math.abs(x.change));
+        var chg = step >= 1
+          ? '<span class="out-chg ' + (x.change > 0 ? "up" : "down") + '"><span aria-hidden="true">' + (x.change > 0 ? "▲" : "▼") +
+            "</span>" + step + '<span class="sr-only"> points ' + (x.change > 0 ? "up" : "down") + "</span></span>"
+          : "";
+        return '<div class="out-metric"><span class="out-value">' + Math.round(x.value) + '<span class="pct">%</span></span>' + chg +
+               '<span class="out-label">' + esc(x.label) + " probability</span>" +
+               '<span class="out-bar" aria-hidden="true"><span style="width:' + Math.max(0, Math.min(100, x.value)) + '%"></span></span>' +
+               (x.stale && x.asOf ? '<span class="out-asof">As of ' + esc(new Date(x.asOf).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })) + "</span>" : "") +
+               "</div>";
+      }).join("") + "</div>" +
+      '<p class="out-credit">Market-implied odds. Powered by Kalshi</p></div>';
+  }
+
+
   // ---- mount -------------------------------------------------------------------
 
   function paint(host, m) {
     if (!host) return;
     if (!host.querySelector("[data-t25]")) {
-      host.innerHTML = '<div data-t25="fresh" role="status"></div><div data-t25="strip"></div><div data-t25="body" class="t25-body"></div>';
+      host.innerHTML = '<div data-t25="fresh" role="status"></div><div data-t25="strip"></div>' +
+                       '<div data-t25="outlook" class="t25-outlook"></div><div data-t25="body" class="t25-body"></div>';
       last = {};
     }
-    var html = { fresh: ui.freshBanner(m.fresh), strip: strip(m.view), body: m.view === "rankings" ? rankings(m) : games(m) };
-    ["fresh", "strip", "body"].forEach(function (k) {
+    var html = { fresh: ui.freshBanner(m.fresh), strip: strip(m.view),
+                 // The team's Season Outlook leads Around's Games (David, 2026-11-05)
+                 outlook: m.view === "rankings" ? "" : outlookCard(m.outlook),
+                 body: m.view === "rankings" ? rankings(m) : games(m) };
+    ["fresh", "strip", "outlook", "body"].forEach(function (k) {
       if (last[k] === html[k]) return;
       ui.fill(host.querySelector('[data-t25="' + k + '"]'), html[k]);
       last[k] = html[k];
