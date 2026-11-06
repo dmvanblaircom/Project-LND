@@ -1,0 +1,43 @@
+# Temporary, for the Suite visual redesign's current-state audit (decision
+# 0040, Phase 1). Renders the real app from this branch's checkout of main,
+# on GitHub's network so provider-hosted team marks, headshots and story
+# images load as fans see them, and commits the screenshots back to this
+# branch. Not for main; the branch is deleted after the audit.
+name: Audit capture
+
+on:
+  push:
+    branches: [audit-capture]
+    paths: [".github/audit-capture/**", ".github/workflows/audit-capture.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npx playwright install --with-deps chromium
+      - name: Build the game-state fixtures
+        run: |
+          python3 tools/qa/game_states.py "$RUNNER_TEMP/fx-nd"
+          python3 .github/audit-capture/osu_states.py tools/fixtures "$RUNNER_TEMP/fx-osu"
+      - name: Capture
+        run: |
+          LIST=$(tr -d ' \n' < .github/audit-capture/list.txt)
+          CAPTURE_LIST="$LIST" node .github/audit-capture/capture.js . "$RUNNER_TEMP/shots" "$RUNNER_TEMP/fx-nd" "$RUNNER_TEMP/fx-osu"
+          mkdir -p .github/audit-capture/shots
+          cp "$RUNNER_TEMP"/shots/* .github/audit-capture/shots/
+      - name: Commit the screenshots to this branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/audit-capture/shots
+          git commit -m "Audit capture: screenshots from the runner" || exit 0
+          git push origin HEAD:audit-capture
