@@ -714,6 +714,24 @@ function top25Sources(){
                            : [s("scoreboard", AUTO.liveElsewhere ? 10*60e3 : 12*HOUR)];
 }
 
+// Around's layers (David, 2026-11-05): our conference, the games that matter
+// to us, then Top 25 - TeamOS.around decides which game goes where. The
+// conference of every FBS program comes from the registry, read once.
+var AROUND={ conferences:null };
+function aroundLayers(now){
+  if(!AROUND.conferences){
+    var list=typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : [];
+    AROUND.conferences={};
+    TeamOS.registry.create(list).all().forEach(function(t){ if(t.providerId) AROUND.conferences[t.providerId]=t.conference; });
+  }
+  var games=SB.games || T25.cachedGames;
+  if(!games) return null;
+  var me=TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []).get(TEAM.id);
+  return TeamOS.around.layers({ games:games, teamId:TEAM_CONFIG.sources.espn.teamId, teamName:TEAM.name,
+    conference: me ? me.conference : null, conferences:AROUND.conferences,
+    short: window.LEAGUE_CONFERENCES || {}, schedule:S.games||[], series:TEAM_CONFIG.series||[],
+    polls:T25.polls||[], now:now });
+}
 function paintTop25(){
   if(SHEET.id) paintSheet();
   var host=$("screenTop25");
@@ -731,6 +749,7 @@ function paintTop25(){
     pollsFailed: T25.pollsFailed, gamesFailed: T25.gamesFailed,
     heroId: hero ? hero.id : null,
     outlook: TeamOS.outlook.metrics(HOME.markets),   // Season Outlook's card (David, 2026-11-05)
+    around: aroundLayers(now),                        // our conference, the games that matter, then Top 25
     mark:   function(id){ return TeamOS.espn.mark(id, false); },
     fresh:  TeamOS.freshness.summary(top25Sources(), { now:now, online: navigator.onLine!==false }),
     calendar: TeamOS.season.calendar(window.LEAGUE_CALENDAR, seasonYear(), now),

@@ -35,6 +35,7 @@
   { "id": "pipelinecheck.py", "kind": "unit", "run": "python3 tools/pipelinecheck.py" },
   { "id": "freshnesscheck.py", "kind": "unit", "run": "python3 tools/freshnesscheck.py" },
   { "id": "healthcheck.py", "kind": "unit", "run": "python3 tools/healthcheck.py" },
+  { "id": "aroundcheck.js", "kind": "unit", "run": "node tools/aroundcheck.js" },
   { "id": "fpicheck.py", "kind": "unit", "run": "python3 tools/fpicheck.py" },
   { "id": "rankingshistorycheck.py", "kind": "unit", "run": "python3 tools/rankingshistorycheck.py" },
   { "id": "prospectsrefreshcheck.py", "kind": "unit", "run": "python3 tools/prospectsrefreshcheck.py" },

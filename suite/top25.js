@@ -31,6 +31,8 @@
        model.mark      providerId -> logo URL for a light surface
        model.fresh     TeamOS.freshness.summary() output
        model.outlook   TeamOS.outlook.metrics() - the team's Season Outlook card
+       model.around    TeamOS.around.layers() - our conference, the games that
+                       matter, Top 25; null before the team's data is in
        model.now       Date
 
    The selected team is highlighted where it appears; it is never moved. */
@@ -129,7 +131,7 @@ Suite.top25 = (function () {
   }
   function lastAt(g) { return lastPlay(g) && g.live.lastPlayAt ? g.live.lastPlayAt : ""; }
 
-  function gameRow(m, g) {
+  function gameRow(m, g, why) {
     var as = Number(g.away.score), hs = Number(g.home.score);
     var final = g.state === "post" && !isNaN(as) && !isNaN(hs) && as !== hs;
     var awayWon = final ? as > hs : null, homeWon = final ? hs > as : null;
@@ -143,8 +145,10 @@ Suite.top25 = (function () {
                  // At halftime, who gets the ball next says more than "End of 2nd quarter."
                  (receiver(g) ? '<span class="tg-last">' + esc(receiver(g).name) + " gets the ball to start the second half</span>"
                   : lastPlay(g) ? '<span class="tg-last">' + (lastAt(g) ? '<span class="tg-at">' + esc(lastAt(g)) + "</span> " : "") + esc(lastPlay(g)) + "</span>" : "") +
+               // Why this game is in "Games that matter" (TeamOS.around)
+               (why && why.length ? '<span class="tg-why">' + esc(why.join(" · ")) + "</span>" : "") +
                "</span>" +
-               '<span class="sr-only">' + esc(summary(g)) + "</span>";
+               '<span class="sr-only">' + esc(summary(g)) + (why && why.length ? ". " + esc(why.join(". ")) : "") + "</span>";
     // Every row is a way in (David, 2026-10-20): the team's own game - the
     // one #game opens - to Game, every other game to its sheet.
     var game = g.mine && m.heroId && g.id === m.heroId;
@@ -154,29 +158,49 @@ Suite.top25 = (function () {
            "</li>";
   }
 
+  // One section of Around's games: a heading, then the games by day, what
+  // is happening now first within a day (TeamOS.game.boardOrder).
+  function section(m, key, title, rows, intro) {
+    var days = [], byDay = {};
+    rows.forEach(function (r) {
+      var k = dayKey(r.game.date);
+      if (!byDay[k]) { byDay[k] = []; days.push({ key: k, label: dayLabel(r.game.date), rows: byDay[k] }); }
+      byDay[k].push(r);
+    });
+    days.forEach(function (d) { d.rows.sort(function (x, y) { return TeamOS.game.boardOrder(x.game, y.game); }); });
+    return '<section class="ar-sec" aria-labelledby="' + key + 'Head">' +
+             '<div class="sec-head t25-head"><h2 class="sec-title" id="' + key + 'Head">' + esc(title) + "</h2></div>" +
+             (intro ? '<p class="t25-intro">' + intro + "</p>" : "") +
+             days.map(function (d, i) {
+               var id = key + "Day" + i;
+               return '<div class="t25-day" role="group" aria-labelledby="' + id + '"><h3 class="t25-day-title" id="' + id + '">' + esc(d.label) + "</h3>" +
+                      '<ul class="card tg-list">' + d.rows.map(function (r) { return gameRow(m, r.game, r.why); }).join("") + "</ul></div>";
+             }).join("") +
+           "</section>";
+  }
+
+  // Around's Games (David, 2026-11-05): our conference, the games that
+  // matter to us, then Top 25 - each game once, in the first layer that
+  // claims it (TeamOS.around). Without layers (no team data yet), Top 25.
   function games(m) {
     if (m.games == null) return quiet(m.gamesFailed ? "This week’s games didn’t load. They appear when the connection returns."
                                                     : "Loading this week’s Top 25 games…");
-    var list = ranked(m.games);
-    if (!list.length) return quiet("No ranked teams play in this window.");
-    var days = [], byDay = {};
-    list.forEach(function (g) {
-      var k = dayKey(g.date);
-      if (!byDay[k]) { byDay[k] = []; days.push({ key: k, label: dayLabel(g.date), games: byDay[k] }); }
-      byDay[k].push(g);
-    });
-    // Within a day, what is happening now comes first (TeamOS.game.boardOrder).
-    days.forEach(function (d) { d.games.sort(TeamOS.game.boardOrder); });
-    // Under its own name in Around (David, 2026-11-05: "Top 25 ... is
-    // common across all"), below the team's Season Outlook.
-    return '<div class="sec-head t25-head"><h2 class="sec-title" id="t25Head">Top 25</h2></div>' +
-           '<p class="t25-intro">' + list.length + (list.length === 1 ? " game" : " games") +
-             " with a ranked team · times in your time zone</p>" +
-      days.map(function (d, i) {
-        var id = "t25day" + i;
-        return '<section class="t25-day" aria-labelledby="' + id + '"><h3 class="t25-day-title" id="' + id + '">' + esc(d.label) + "</h3>" +
-               '<ul class="card tg-list">' + d.games.map(function (g) { return gameRow(m, g); }).join("") + "</ul></section>";
-      }).join("");
+    var a = m.around || { conference: null, matter: [], top25: ranked(m.games) };
+    var out = "";
+    if (a.conference) {
+      out += a.conference.games.length
+        ? section(m, "arConf", a.conference.name, a.conference.games, "")
+        : '<section class="ar-sec"><div class="sec-head t25-head"><h2 class="sec-title">' + esc(a.conference.name) + "</h2></div>" +
+          quiet("No " + a.conference.name + " games in this window.") + "</section>";
+    }
+    if (a.matter.length) out += section(m, "arMatter", "Games that matter", a.matter, "");
+    var top = a.top25.map(function (g) { return { game: g, why: null }; });
+    out += top.length
+      ? section(m, "t25", "Top 25", top, top.length + (top.length === 1 ? " game" : " games") + " with a ranked team" +
+          (out ? " not listed above" : "") + " · times in your time zone")
+      : '<section class="ar-sec"><div class="sec-head t25-head"><h2 class="sec-title" id="t25Head">Top 25</h2></div>' +
+        quiet(out ? "Every ranked game this week is listed above." : "No ranked teams play in this window.") + "</section>";
+    return out;
   }
 
   // ---- Rankings ----------------------------------------------------------------

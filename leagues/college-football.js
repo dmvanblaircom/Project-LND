@@ -59,3 +59,19 @@ var LEAGUE_MARKETS = {
   title:   { series: "KXNCAAF",        offset: 1 },
   playoff: { series: "KXNCAAFPLAYOFF", offset: 0 }
 };
+
+// What fans call each conference (David, 2026-11-05: Around's "your
+// conference" layer). The registry (teams/index.js) carries the full names;
+// these are the names a heading uses. A conference not listed reads in full.
+var LEAGUE_CONFERENCES = {
+  "American Conference":       "American",
+  "Atlantic Coast Conference": "ACC",
+  "Big 12 Conference":         "Big 12",
+  "Big Ten Conference":        "Big Ten",
+  "Conference USA":            "Conference USA",
+  "Mid-American Conference":   "MAC",
+  "Mountain West Conference":  "Mountain West",
+  "Pac-12 Conference":         "Pac-12",
+  "Southeastern Conference":   "SEC",
+  "Sun Belt Conference":       "Sun Belt"
+};
