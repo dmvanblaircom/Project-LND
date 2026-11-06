@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T02:09:17.303331+00:00",
+ "fetchedAt": "2026-11-06T02:08:57.321925+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-06",
  "game": "at SMU",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "WR",
    "no": "15",
    "name": "Shamarius \"Snook\" Peterkin",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "CB",
    "no": "23",
    "name": "Thomas Williams",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "DL",
    "no": "36",
    "name": "Randy Adirika",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -67,14 +67,14 @@
    "pos": "OL",
    "no": "74",
    "name": "Marlen Bright",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "83",
    "name": "Luke Stuewe",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
