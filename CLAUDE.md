@@ -98,6 +98,7 @@ The repository is the shared source of truth. Decisions that matter after the cu
 From the Suite release (2026-09-27), per David's decision of 2026-09-25:
 
 - `main` = the product. Every piece of work gets a short branch and a pull request into `main`; the PR's checks are the gate.
+- Who merges (decision 0039, David, 2026-11-06): Claude merges on its own once CI is green, there is no conflict and no reviewer finding is open, for bug and data-source fixes, check fixes, monitoring and the refresh's plumbing, and building what David has already approved. David's "merge N" is still needed for product briefs and decisions (and amendments to them), a new design or visual direction, anything with money, keys or new paid services, and anything that removes a fan-facing feature. When unclear, it waits for David. Every merge is reported to him.
 - `project-lnd-platform` and `project-lnd-foundation` are retired to archive tags after the release. Stale branches are deleted once David approves the list (`docs/engineering/backlog.md`, C12).
 
 The open backlog, decisions and roadmap live in `docs/engineering/backlog.md`.
