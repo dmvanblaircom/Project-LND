@@ -1,0 +1,480 @@
+[
+ {
+  "name": "nd-pre-team-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1530
+ },
+ {
+  "name": "nd-pre-team-390-game-details",
+  "asked": "#game",
+  "hash": "#game",
+  "height": 1684
+ },
+ {
+  "job": "nd-pre-team-390",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/ranks"
+  ]
+ },
+ {
+  "name": "nd-pre-suite-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1530
+ },
+ {
+  "job": "nd-pre-suite-390",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/ranks"
+  ]
+ },
+ {
+  "name": "nd-pre-team-1280-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1473
+ },
+ {
+  "name": "nd-pre-team-1280-game-details",
+  "asked": "#game",
+  "hash": "#game",
+  "height": 1719
+ },
+ {
+  "job": "nd-pre-team-1280",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/ranks"
+  ]
+ },
+ {
+  "name": "nd-live-team-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1562
+ },
+ {
+  "name": "nd-live-team-390-game-drive",
+  "asked": "#game/drive",
+  "hash": "#game/drive",
+  "height": 1580
+ },
+ {
+  "name": "nd-live-team-390-game-box",
+  "asked": "#game/box",
+  "hash": "#game/box",
+  "height": 901
+ },
+ {
+  "name": "nd-live-team-390-game-plays",
+  "asked": "#game/plays",
+  "hash": "#game/plays",
+  "height": 1722
+ },
+ {
+  "name": "nd-live-team-390-game-stats",
+  "asked": "#game/stats",
+  "hash": "#game/stats",
+  "height": 1190
+ },
+ {
+  "job": "nd-live-team-390",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast"
+  ]
+ },
+ {
+  "name": "nd-live-suite-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1562
+ },
+ {
+  "job": "nd-live-suite-390",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast"
+  ]
+ },
+ {
+  "name": "nd-live-team-1280-game-drive",
+  "asked": "#game/drive",
+  "hash": "#game/drive",
+  "height": 1622
+ },
+ {
+  "job": "nd-live-team-1280",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast"
+  ]
+ },
+ {
+  "name": "nd-final-team-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1458
+ },
+ {
+  "name": "nd-final-team-390-game-box",
+  "asked": "#game/box",
+  "hash": "#game/box",
+  "height": 1897
+ },
+ {
+  "name": "nd-final-team-390-game-plays",
+  "asked": "#game/plays",
+  "hash": "#game/plays",
+  "height": 2081
+ },
+ {
+  "job": "nd-final-team-390",
+  "errors": [],
+  "blocked": []
+ },
+ {
+  "name": "nd-final-team-1280-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1403
+ },
+ {
+  "job": "nd-final-team-1280",
+  "errors": [],
+  "blocked": []
+ },
+ {
+  "name": "nd-pre-team-390-around-games",
+  "asked": "#top25/games",
+  "hash": "#top25/games",
+  "height": 3734
+ },
+ {
+  "name": "nd-pre-team-390-around-rankings",
+  "asked": "#top25/rankings",
+  "hash": "#top25/rankings",
+  "height": 1645
+ },
+ {
+  "name": "nd-pre-team-390-outlook",
+  "asked": "#outlook",
+  "hash": "#outlook",
+  "height": 4134
+ },
+ {
+  "name": "nd-pre-team-390-roster-depth",
+  "asked": "#roster/depth",
+  "hash": "#roster/depth",
+  "height": 3685
+ },
+ {
+  "name": "nd-pre-team-390-roster-list",
+  "asked": "#roster/roster",
+  "hash": "#roster/roster",
+  "height": 9473
+ },
+ {
+  "name": "nd-pre-team-390-roster-availability",
+  "asked": "#roster/availability",
+  "hash": "#roster/availability",
+  "height": 1103
+ },
+ {
+  "name": "nd-pre-team-390-roster-prospects",
+  "asked": "#roster/prospects",
+  "hash": "#roster/prospects",
+  "height": 1829
+ },
+ {
+  "name": "nd-pre-team-390-more",
+  "asked": "#more",
+  "hash": "#more",
+  "height": 844
+ },
+ {
+  "name": "nd-pre-team-390-schedule",
+  "asked": "#schedule",
+  "hash": "#schedule",
+  "height": 1753
+ },
+ {
+  "name": "nd-pre-team-390-schedule-results",
+  "asked": "#schedule/results",
+  "hash": "#schedule/results",
+  "height": 844
+ },
+ {
+  "name": "nd-pre-team-390-news",
+  "asked": "#news",
+  "hash": "#news",
+  "height": 3019
+ },
+ {
+  "name": "nd-pre-team-390-stats-team",
+  "asked": "#stats/team",
+  "hash": "#stats/team",
+  "height": 2548
+ },
+ {
+  "name": "nd-pre-team-390-stats-players",
+  "asked": "#stats/players",
+  "hash": "#stats/players",
+  "height": 2663
+ },
+ {
+  "name": "nd-pre-team-390-settings",
+  "asked": "#settings",
+  "hash": "#settings",
+  "height": 1090
+ },
+ {
+  "job": "nd-pre-team-390",
+  "errors": [],
+  "blocked": [
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/ranks",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/season"
+  ]
+ },
+ {
+  "name": "nd-off-team-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 2680
+ },
+ {
+  "name": "nd-off-team-390-around-games",
+  "asked": "#top25/games",
+  "hash": "#top25/games",
+  "height": 844
+ },
+ {
+  "name": "nd-off-team-390-schedule",
+  "asked": "#schedule",
+  "hash": "#schedule",
+  "height": 1524
+ },
+ {
+  "job": "nd-off-team-390",
+  "errors": [],
+  "blocked": []
+ },
+ {
+  "name": "nd-off-suite-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 2680
+ },
+ {
+  "job": "nd-off-suite-390",
+  "errors": [],
+  "blocked": []
+ },
+ {
+  "name": "nd-pre-team-1280-around-games",
+  "asked": "#top25/games",
+  "hash": "#top25/games",
+  "height": 3593
+ },
+ {
+  "name": "nd-pre-team-1280-news",
+  "asked": "#news",
+  "hash": "#news",
+  "height": 2488
+ },
+ {
+  "job": "nd-pre-team-1280",
+  "errors": [],
+  "blocked": [
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/ranks",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/season"
+  ]
+ },
+ {
+  "name": "nd-off-team-1280-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 2542
+ },
+ {
+  "job": "nd-off-team-1280",
+  "errors": [],
+  "blocked": []
+ },
+ {
+  "name": "osu-pre-team-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1548
+ },
+ {
+  "name": "osu-pre-team-390-game-details",
+  "asked": "#game",
+  "hash": "#game",
+  "height": 1307
+ },
+ {
+  "job": "osu-pre-team-390",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/season",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/ranks"
+  ]
+ },
+ {
+  "name": "osu-pre-suite-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1508
+ },
+ {
+  "job": "osu-pre-suite-390",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/season",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/ranks"
+  ]
+ },
+ {
+  "name": "osu-live-team-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1528
+ },
+ {
+  "name": "osu-live-team-390-game-drive",
+  "asked": "#game/drive",
+  "hash": "#game/drive",
+  "height": 1585
+ },
+ {
+  "name": "osu-live-team-390-game-box",
+  "asked": "#game/box",
+  "hash": "#game/box",
+  "height": 1860
+ },
+ {
+  "job": "osu-live-team-390",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast"
+  ]
+ },
+ {
+  "name": "osu-live-suite-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1490
+ },
+ {
+  "name": "osu-live-suite-390-game-drive",
+  "asked": "#game/drive",
+  "hash": "#game/drive",
+  "height": 1587
+ },
+ {
+  "job": "osu-live-suite-390",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast"
+  ]
+ },
+ {
+  "name": "osu-live-team-1280-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1433
+ },
+ {
+  "job": "osu-live-team-1280",
+  "errors": [],
+  "blocked": [
+   "https://api.open-meteo.com/v1/forecast"
+  ]
+ },
+ {
+  "name": "osu-final-team-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1477
+ },
+ {
+  "name": "osu-final-team-390-game-box",
+  "asked": "#game/box",
+  "hash": "#game/box",
+  "height": 1854
+ },
+ {
+  "job": "osu-final-team-390",
+  "errors": [],
+  "blocked": []
+ },
+ {
+  "name": "osu-final-suite-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 1437
+ },
+ {
+  "job": "osu-final-suite-390",
+  "errors": [],
+  "blocked": []
+ },
+ {
+  "name": "osu-pre-team-390-around-games",
+  "asked": "#top25/games",
+  "hash": "#top25/games",
+  "height": 3234
+ },
+ {
+  "name": "osu-pre-team-390-roster-list",
+  "asked": "#roster/roster",
+  "hash": "#roster/roster",
+  "height": 9239
+ },
+ {
+  "name": "osu-pre-team-390-roster-availability",
+  "asked": "#roster/availability",
+  "hash": "#roster/availability",
+  "height": 1103
+ },
+ {
+  "name": "osu-pre-team-390-news",
+  "asked": "#news",
+  "hash": "#news",
+  "height": 3175
+ },
+ {
+  "name": "osu-pre-team-390-settings",
+  "asked": "#settings",
+  "hash": "#settings",
+  "height": 1069
+ },
+ {
+  "job": "osu-pre-team-390",
+  "errors": [],
+  "blocked": [
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/season",
+   "https://suite-api.dmvanblaircom.workers.dev/v1/cfbd/ranks"
+  ]
+ },
+ {
+  "name": "osu-off-team-390-home",
+  "asked": "#home",
+  "hash": "#home",
+  "height": 2490
+ },
+ {
+  "job": "osu-off-team-390",
+  "errors": [],
+  "blocked": []
+ }
+]
