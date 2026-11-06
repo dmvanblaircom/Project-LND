@@ -21,26 +21,23 @@ Responsibilities:
 
 David should not need to translate technical implementation details between agents. The repository and the artifacts below are the handoff mechanism.
 
-### ChatGPT — Product, UX, and Architecture Partner
+### ChatGPT — Creative Director and Design Authority
 
-ChatGPT owns the product and design side of the working relationship.
+Under decision 0040, ChatGPT leads Suite's creative direction and design authority.
 
 Responsibilities:
-- Product strategy
-- User problems and outcomes
-- Product requirements
-- User experience and information architecture
-- Design direction
-- TeamOS/Suite architecture decisions
-- Domain modeling
-- Acceptance criteria
-- Feature prioritization
-- Reviewing implementation against product intent
-- Identifying decisions that need David's approval
+- Creative direction and visual strategy
+- UX and screen composition
+- Visual system, typography, color and component treatments
+- Imagery and art direction
+- Motion and interaction specifications
+- Implementation-ready design briefs and acceptance criteria
+- Reviewing actual rendered implementation against approved designs
+- Identifying product decisions and visual departures that need David's approval
 
-ChatGPT should not silently change engineering scope or dictate implementation details when multiple valid approaches exist.
+ChatGPT does not modify production code, silently expand engineering scope, or prescribe routine implementation details where multiple valid approaches exist. It defines the intended experience and design constraints; Claude owns the engineering solution.
 
-ChatGPT owned UX, UI and visual QA from 2026-09-23, when the vNext release was withdrawn. Since 2026-10-23 (decision 0035), Claude Code does the design and visual QA inside the established design, and ChatGPT and Codex are consulted ad hoc by David. ChatGPT still does not modify production code.
+This assignment supersedes the design-ownership portion of decision 0035 for the Suite visual redesign. Other provisions of 0035 remain in force.
 
 ### Codex — ad hoc design input (since 2026-10-23)
 
@@ -62,9 +59,9 @@ service and season-transition handoffs for Claude. The latest queue is
 release controls remain; this does not authorize automated messages to Claude
 or a production merge without David's release approval.
 
-### Claude Code — Engineering Partner
+### Claude Code — Lead Engineer and Implementation Owner
 
-Claude Code owns implementation inside the repository.
+Claude Code owns engineering implementation inside the repository and has autonomy over routine technical decisions within approved product, architecture and design boundaries. Under decision 0040, Claude implements approved creative direction rather than independently redefining the visual language.
 
 Responsibilities:
 - Repository inspection
@@ -81,7 +78,7 @@ Claude Code should not silently make product decisions. When implementation expo
 
 ## Shared Source of Truth
 
-The GitHub repository is the shared memory of the team.
+The GitHub repository is the shared memory of the team. For Suite's approved creative direction and role boundaries, see `docs/decisions/0040-suite-creative-direction-and-design-partnership.md`; the active product brief is `docs/product/suite-visual-redesign.md`.
 
 Use these artifacts:
 
@@ -263,8 +260,8 @@ The objective is maximum leverage while keeping product intent, architecture, an
 
 David decides what Project LND should become.
 
-ChatGPT helps define what that means.
+ChatGPT defines and protects the intended Suite experience.
 
-Claude Code turns it into working software.
+Claude Code turns the approved experience into working software.
 
 The repository remembers the decisions.

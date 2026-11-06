@@ -75,17 +75,19 @@ The initial TeamOS can be a domain layer inside the existing application/reposit
 
 ## Collaboration Boundaries
 
+The creative/engineering partnership for the Suite visual redesign is governed by [decision 0040](docs/decisions/0040-suite-creative-direction-and-design-partnership.md). The approved design brief is [Suite visual redesign](docs/product/suite-visual-redesign.md).
+
 ### David
 
 David is the Product Owner and final decision maker for product direction, scope, and meaningful architecture tradeoffs.
 
 ### ChatGPT
 
-ChatGPT is the Product, UX, and Architecture Partner, consulted ad hoc by David since 2026-10-23 (decision 0035). It helps define product requirements, user experience, domain models, acceptance criteria, and architecture direction. It should not silently prescribe implementation details when multiple valid approaches exist.
+ChatGPT is Suite's Creative Director and Design Authority under decision 0040. It leads creative direction, UX, screen composition, visual system, typography, color, imagery direction, motion concepts, implementation-ready design briefs and visual review. It does not modify production code or silently expand engineering scope. It specifies approved outcomes and design constraints, not routine implementation choices.
 
 ### Claude Code
 
-Claude Code is the Engineering Partner, and since 2026-10-23 the main developer and designer (decision 0035). It owns repository inspection, implementation, refactoring, testing, debugging, technical documentation, and production UI and design, including `app.js`, `app.css` and `suite/`. Design work stays inside the established design (decisions 0022 and 0024 and their amendments, the screens as built, and the contracts in `docs/design/`); a new visual direction is David's call. It should not silently invent product requirements or make unresolved product decisions.
+Claude Code is the Lead Engineer and Implementation Owner. It owns repository inspection, technical planning, production implementation, refactoring, testing, debugging, performance, accessibility, responsive behavior, technical documentation and delivery, including `app.js`, `app.css` and `suite/`. It implements approved designs within the existing architecture and has autonomy over routine engineering decisions inside approved design boundaries. It must surface technical constraints, material tradeoffs or proposed visual departures before proceeding. Decision 0040 supersedes the design-ownership portion of decision 0035; other provisions of 0035 remain in force.
 
 ### Codex
 
