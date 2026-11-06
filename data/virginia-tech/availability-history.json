@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "virginia-tech",
- "updated": "2026-11-06T02:08:57.321925+00:00",
+ "updated": "2026-11-06T22:08:48.173021+00:00",
  "reports": [
   {
    "schema": 1,
@@ -506,10 +506,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T02:08:57.321925+00:00",
+   "fetchedAt": "2026-11-06T22:08:48.173021+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-06",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-06",
    "game": "at SMU",
    "players": [
@@ -580,7 +580,7 @@
      "pos": "DL",
      "no": "99",
      "name": "Emmett Laws",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     }
    ],
