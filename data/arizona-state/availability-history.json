@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona-state",
- "updated": "2026-11-05T11:08:55.276818+00:00",
+ "updated": "2026-11-06T03:08:54.637664+00:00",
  "reports": [
   {
    "schema": 1,
@@ -324,10 +324,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:08:55.276818+00:00",
+   "fetchedAt": "2026-11-06T03:08:54.637664+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "vs. Colorado",
    "players": [
@@ -343,6 +343,13 @@
      "no": "12",
      "name": "Mikey Keene",
      "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Jason Brown Jr.",
+     "status": "questionable",
      "detail": ""
     },
     {

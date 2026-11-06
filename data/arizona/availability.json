@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T03:08:43.877468+00:00",
+ "fetchedAt": "2026-11-06T03:08:54.534285+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-06",
  "game": "vs. TCU",
  "players": [
@@ -43,30 +43,9 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "14",
-   "name": "Cole Rusk",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "20",
-   "name": "Caleb Smith",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "RB",
    "no": "21",
    "name": "Ismail Mahdi",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "28",
-   "name": "Swayde Griffin",
    "status": "questionable",
    "detail": ""
   },
@@ -81,7 +60,7 @@
    "pos": "OL",
    "no": "78",
    "name": "Grayson Stovall",
-   "status": "doubtful",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -89,13 +68,6 @@
    "no": "92",
    "name": "Ezra Funa",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "96",
-   "name": "Zac Siulepa",
-   "status": "probable",
    "detail": ""
   }
  ],

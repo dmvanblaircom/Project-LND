@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T17:09:19.891205+00:00",
+ "fetchedAt": "2026-11-06T03:09:01.221988+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Initial",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "vs. Boise State",
  "players": [
@@ -32,14 +32,7 @@
    "pos": "WR",
    "no": "",
    "name": "Makhi Johnson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Mukendi Wa-Kalonji",
-   "status": "probable",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -61,27 +54,6 @@
    "no": "",
    "name": "Pearce Spurlin",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Jaseim Mitchell",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Jordan Lessard",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Phil Ocon",
-   "status": "probable",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kansas-state",
- "updated": "2026-11-05T11:09:09.826255+00:00",
+ "updated": "2026-11-06T03:09:03.539974+00:00",
  "reports": [
   {
    "schema": 1,
@@ -219,10 +219,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:09:09.826255+00:00",
+   "fetchedAt": "2026-11-06T03:09:03.539974+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "vs. Oklahoma State",
    "players": [
@@ -258,6 +258,13 @@
      "pos": "LB",
      "no": "16",
      "name": "DJ Ackerson Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "26",
+     "name": "Sawyer Schilke",
      "status": "questionable",
      "detail": ""
     },

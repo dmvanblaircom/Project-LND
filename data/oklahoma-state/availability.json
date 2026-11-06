@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:13.431889+00:00",
+ "fetchedAt": "2026-11-06T03:09:06.387301+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "at Kansas State",
  "players": [
@@ -26,6 +26,20 @@
    "no": "7",
    "name": "Quinton Hammonds",
    "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "10",
+   "name": "Wyatt Young",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "19",
+   "name": "Dayvon Standard",
+   "status": "out-game",
    "detail": ""
   },
   {

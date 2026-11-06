@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "cincinnati",
- "updated": "2026-11-05T11:09:03.280756+00:00",
+ "updated": "2026-11-06T03:09:00.820946+00:00",
  "reports": [
   {
    "schema": 1,
@@ -226,10 +226,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:09:03.280756+00:00",
+   "fetchedAt": "2026-11-06T03:09:00.820946+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "at Houston",
    "players": [
@@ -273,13 +273,6 @@
      "no": "88",
      "name": "DaMari Witherspoon",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "92",
-     "name": "Elijah Gunn",
-     "status": "probable",
      "detail": ""
     }
    ],

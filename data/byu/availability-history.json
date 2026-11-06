@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "byu",
- "updated": "2026-11-05T11:09:02.777984+00:00",
+ "updated": "2026-11-06T03:09:00.404394+00:00",
  "reports": [
   {
    "schema": 1,
@@ -282,10 +282,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:09:02.777984+00:00",
+   "fetchedAt": "2026-11-06T03:09:00.404394+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "at Utah",
    "players": [
@@ -314,7 +314,7 @@
      "pos": "RB",
      "no": "4",
      "name": "LJ Martin",
-     "status": "doubtful",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -328,7 +328,7 @@
      "pos": "S",
      "no": "37",
      "name": "Joseph Douglas",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -356,14 +356,7 @@
      "pos": "DE",
      "no": "59",
      "name": "Siosefa Brown",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "K",
-     "no": "99",
-     "name": "Brody Laga",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     }
    ],

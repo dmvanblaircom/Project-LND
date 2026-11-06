@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:16.578932+00:00",
+ "fetchedAt": "2026-11-06T03:09:08.993587+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "vs. West Virginia",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "S",
    "no": "0",
    "name": "Mikal Harrison-Pilot",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "2",
    "name": "Kenny Johnson",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "WR",
    "no": "11",
    "name": "Malcolm Simmons",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -67,7 +67,7 @@
    "pos": "OLB",
    "no": "33",
    "name": "Ansel Nedore",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
