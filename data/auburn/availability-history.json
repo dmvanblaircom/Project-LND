@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "auburn",
- "updated": "2026-11-05T11:08:57.049713+00:00",
+ "updated": "2026-11-06T01:38:52.025849+00:00",
  "reports": [
   {
    "schema": 1,
@@ -238,10 +238,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:08:57.049713+00:00",
+   "fetchedAt": "2026-11-06T01:38:52.025849+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "vs. Arkansas",
    "players": [
@@ -277,7 +277,7 @@
      "pos": "TE",
      "no": "85",
      "name": "Hunter Herring",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     }
    ],

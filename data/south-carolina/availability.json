@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:15.187088+00:00",
+ "fetchedAt": "2026-11-06T01:39:05.588239+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "vs. Texas A&M",
  "players": [
@@ -18,21 +18,21 @@
    "pos": "WR",
    "no": "6",
    "name": "Donovan Murph",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "11",
    "name": "Jordan Thomas",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "14",
    "name": "J’Zavien Currence",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

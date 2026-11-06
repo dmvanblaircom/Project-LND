@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "alabama",
- "updated": "2026-11-05T11:08:48.832416+00:00",
+ "updated": "2026-11-06T01:38:47.683570+00:00",
  "reports": [
   {
    "schema": 1,
@@ -462,10 +462,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:08:48.832416+00:00",
+   "fetchedAt": "2026-11-06T01:38:47.683570+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "at LSU",
    "players": [
@@ -527,9 +527,23 @@
     },
     {
      "pos": "OL",
+     "no": "50",
+     "name": "Casey Poe",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
      "no": "55",
      "name": "Racin Delgatty",
      "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "66",
+     "name": "Jared Graham",
+     "status": "out-game",
      "detail": ""
     },
     {

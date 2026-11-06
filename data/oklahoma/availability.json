@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:13.301172+00:00",
+ "fetchedAt": "2026-11-06T01:39:03.686575+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
- "heading": "Initial",
+ "effectiveAt": "2026-11-05",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-07",
  "game": "at Florida",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "WR",
    "no": "5",
    "name": "Jer'Michael Carter",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "WR",
    "no": "14",
    "name": "Elijah Thomas",
-   "status": "doubtful",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "DB",
    "no": "23",
    "name": "Eli Bowen",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -89,13 +89,6 @@
    "no": "55",
    "name": "Eddy Pierre-Louis",
    "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "69",
-   "name": "Jake Maikkula",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -116,7 +109,7 @@
    "pos": "TE",
    "no": "81",
    "name": "Rocky Beers",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

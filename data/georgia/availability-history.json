@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia",
- "updated": "2026-11-05T11:09:04.786410+00:00",
+ "updated": "2026-11-06T01:38:55.706830+00:00",
  "reports": [
   {
    "schema": 1,
@@ -357,10 +357,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T11:09:04.786410+00:00",
+   "fetchedAt": "2026-11-06T01:38:55.706830+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-04",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-05",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-07",
    "game": "at Ole Miss",
    "players": [
@@ -376,13 +376,6 @@
      "no": "5",
      "name": "Chauncey Bowens",
      "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "6",
-     "name": "Isiah Canion",
-     "status": "probable",
      "detail": ""
     },
     {
