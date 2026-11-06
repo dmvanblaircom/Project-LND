@@ -1,7 +1,16 @@
 {
  "team": "middle-tennessee",
- "updated": "2026-11-05T23:38:09.243801+00:00",
+ "updated": "2026-11-06T17:38:07.906845+00:00",
  "items": [
+  {
+   "title": "Blue Raiders face WKU for Homecoming Saturday",
+   "link": "https://goblueraiders.com/news/2026/11/6/football-blue-raiders-face-wku-for-homecoming-saturday",
+   "source": "Middle Tennessee Athletics",
+   "summary": "<img alt=\"WKU preview\" src=\"https://goblueraiders.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/5/WKU_Preview.png\" /><br /><br />",
+   "image": "https://goblueraiders.com/images/2026/11/5/WKU_Preview.png?width=800",
+   "sourceLogo": "https://goblueraiders.com/favicon.ico",
+   "published": "2026-11-06T17:00:00+00:00"
+  },
   {
    "title": "MTSU football vs Western Kentucky: 3 things to know before kickoff",
    "link": "https://mtsusidelines.com/2026/11/05/mtsu-football-vs-western-kentucky-3-things-to-know-before-kickoff/",
@@ -109,15 +118,6 @@
    "image": "https://goblueraiders.com/images/2026/10/19/16_Roman_Gagliano_26FB_vsDelaware_JL_096_NxAla.jpg?width=800",
    "sourceLogo": "https://goblueraiders.com/favicon.ico",
    "published": "2026-10-19T21:55:00+00:00"
-  },
-  {
-   "title": "Logan named to Ray's 8 for Week 7",
-   "link": "https://goblueraiders.com/news/2026/10/19/football-logan-named-to-rays-8-for-week-7",
-   "source": "Middle Tennessee Athletics",
-   "summary": "<img alt=\"Ashton Logan Ray's 8\" src=\"https://goblueraiders.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/ashtonloganfb.png\" /><br /><br />AUGUSTA, Ga. \u2013 Middle Tennessee Football punter Ashton Logan has been named to Ray's 8 for Week 7 following a standout week against Delaware, the Ray Guy Award announced Monday.",
-   "image": "https://goblueraiders.com/images/2026/10/19/ashtonloganfb.png?width=800",
-   "sourceLogo": "https://goblueraiders.com/favicon.ico",
-   "published": "2026-10-19T20:37:00+00:00"
   }
  ]
 }

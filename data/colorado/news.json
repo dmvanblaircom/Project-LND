@@ -1,7 +1,34 @@
 {
  "team": "colorado",
- "updated": "2026-11-06T16:08:02.166986+00:00",
+ "updated": "2026-11-06T17:38:02.367301+00:00",
  "items": [
+  {
+   "title": "ASU Flashback: The Big Breakthrough",
+   "link": "https://cubuffs.com/news/2026/11/6/football-asu-flashback-the-big-breakthrough",
+   "source": "Colorado Athletics",
+   "summary": "<img alt=\"Lindsay-2016-ASU\" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/6/Lindsay-Phillip-2016-ASU-JB-03.jpg\" /><br /><br />Arizona State had won the first seven games in the series with Colorado, which didn't begin until 2006 with a home-and-home agreement.\u00a0 They didn't play again until CU joined the Pac-12 Conference in 2011.",
+   "image": "https://cubuffs.com/images/2026/11/6/Lindsay-Phillip-2016-ASU-JB-03.jpg?width=800",
+   "sourceLogo": "https://cubuffs.com/favicon.ico",
+   "published": "2026-11-06T17:26:00+00:00"
+  },
+  {
+   "title": "Video: Previewing and projecting Colorado Buffs football at Arizona State in Game 9",
+   "link": "https://on3.com/sites/buff-blitz/news/video-previewing-and-projecting-colorado-buffs-football-at-arizona-state-in-game-9/",
+   "source": "BuffBlitz",
+   "summary": "Colorado beat writer Brian Howell, from BuffBlitz.com, is joined by Leo Rivera of BuffStampede to preview Colorado's game at Arizona State.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31213426/CU-football-2026-10-31T203313.303.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-06T17:19:26+00:00"
+  },
+  {
+   "title": "Colorado football Game 9 preview: Buffs at Arizona State",
+   "link": "https://on3.com/sites/buff-blitz/news/colorado-football-game-9-preview-buffs-at-arizona-state/",
+   "source": "BuffBlitz",
+   "summary": "On Saturday evening, the Colorado football team will visit Arizona State and seek a second consecutive win.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/04054819/CU-football-83.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-06T17:13:34+00:00"
+  },
   {
    "title": "Colorado Buffaloes Projected Inactives vs. Arizona State",
    "link": "https://www.si.com/college/colorado/football/colorado-buffaloes-projected-inactives-arizona-state-sun-devils?utm_source=RSS",
@@ -327,24 +354,6 @@
    "published": "2026-11-01T16:47:09+00:00"
   },
   {
-   "title": "Inside Colorado football: Richard Young played starring role for Buffs",
-   "link": "https://on3.com/sites/buff-blitz/news/inside-colorado-football-richard-young-played-starring-role-for-buffs/",
-   "source": "BuffBlitz",
-   "summary": "Colorado running back Richard Young had a career-high 120 rushing yards and two touchdowns against Kansas State on Saturday.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31151320/CU-football-2026-10-31T140303.547.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T16:25:30+00:00"
-  },
-  {
-   "title": "Video: Analysis of Colorado football's 27-24 OT win vs. Kansas State",
-   "link": "https://on3.com/sites/buff-blitz/news/video-analysis-of-colorado-footballs-27-24-ot-win-vs-kansas-state/",
-   "source": "BuffBlitz",
-   "summary": "Colorado football beat writer Brian Howell is joined by Leo Rivera of BuffStampede to talk about the Buffaloes' 27-24 win against Kansas State on Saturday in Boulder.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31203717/CU-football-2026-10-31T193346.287.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T04:10:39+00:00"
-  },
-  {
    "title": "Buffs Win Halloween Overtime Thriller Against K-State",
    "link": "https://cubuffs.com/news/2026/10/31/football-buffs-win-halloween-overtime-thriller-against-k-state",
    "source": "Colorado Athletics",
@@ -352,15 +361,6 @@
    "image": "https://cubuffs.com/images/2026/10/31/BLE04760.jpeg?width=800",
    "sourceLogo": "https://cubuffs.com/favicon.ico",
    "published": "2026-11-01T01:06:00+00:00"
-  },
-  {
-   "title": "Running Backs Break Loose Against Kansas State",
-   "link": "https://cubuffs.com/news/2026/10/31/football-running-backs-break-loose-against-kansas-state",
-   "source": "Colorado Athletics",
-   "summary": "<img alt=\"Richard Young vs. Kansas State\" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/FB_2026_10_31_vs_Kansas_State_TD-342.jpg\" /><br /><br />BOULDER - Colorado's rushing attack stood out against Kansas State, with three rushing touchdowns and 222 yards.",
-   "image": "https://cubuffs.com/images/2026/10/31/FB_2026_10_31_vs_Kansas_State_TD-342.jpg?width=800",
-   "sourceLogo": "https://cubuffs.com/favicon.ico",
-   "published": "2026-11-01T00:54:00+00:00"
   }
  ]
 }
