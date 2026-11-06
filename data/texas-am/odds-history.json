@@ -1,6 +1,6 @@
 {
 "team": "texas-am",
-"updated": "2026-11-06T17:08Z",
+"updated": "2026-11-06T23:25Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -270,6 +270,13 @@
 },
 {
 "t": "2026-11-06T17:08Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-06T23:25Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 0.5,
