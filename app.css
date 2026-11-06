@@ -949,7 +949,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .tg + .tg{border-top:1px solid var(--s-line)}
 .tg-row{display:flex;align-items:center;gap:.4rem;padding:.7rem .9rem;color:inherit;text-decoration:none}
 a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
-.tg-body{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"sides status" "sides odds" "last last";align-items:center;column-gap:.75rem;row-gap:.15rem;flex:1;min-width:0}
+.tg-body{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"sides status" "sides odds" "last last" "why why";align-items:center;column-gap:.75rem;row-gap:.15rem;flex:1;min-width:0}
 .tg-sides{grid-area:sides;display:grid;gap:.4rem;min-width:0}
 .tg-side{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.55rem}
 .tg-side .mark{--mark:1.9rem}
@@ -966,6 +966,9 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .tg-live{font-size:.8rem;padding:.2rem .55rem}
 .tg.mine{background:var(--t-accent-tint-soft);box-shadow:inset 4px 0 0 var(--t-accent)}
 /* the latest play of a live game: secondary, under the matchup and status */
+/* Why a game is in Around's "Games that matter" (David, 2026-11-05) */
+.tg-why{grid-area:why;margin-top:.3rem;font-size:.85rem;font-weight:600;line-height:1.35;color:var(--t-accent-on-light)}
+.ar-sec + .ar-sec .sec-head{margin-top:1.8rem}
 .tg-last{grid-area:last;margin-top:.35rem;padding-top:.45rem;border-top:1px dashed var(--s-line);font-size:.85rem;line-height:1.35;color:var(--s-ink-2)}
 /* The snap's game clock, lifted out of the play text: a time, not words. */
 .tg-at,.lp-at{font-variant-numeric:tabular-nums;font-weight:700;color:var(--s-muted)}
@@ -1399,7 +1402,7 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .tg-status{min-width:0;padding-left:0;border-left:0;flex-direction:row;align-items:center;gap:.4rem;text-align:left}
   /* At 320px the status uses a second row, leaving whole team names and
      records beside the scores instead of an orphaned rank or clipped name. */
-  .tg-body{grid-template-areas:"sides sides" "status odds" "last last";row-gap:.5rem}
+  .tg-body{grid-template-areas:"sides sides" "status odds" "last last" "why why";row-gap:.5rem}
   /* the sheet's score card does the same: its card padding leaves no room
      for the status beside a long name ("Tennessee" ran into its score) */
   .sh-score{grid-template-columns:minmax(0,1fr);grid-template-areas:"sides" "status";row-gap:.5rem}
