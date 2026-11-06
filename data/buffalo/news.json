@@ -1,7 +1,16 @@
 {
  "team": "buffalo",
- "updated": "2026-11-06T20:07:59.577325+00:00",
+ "updated": "2026-11-06T21:37:55.201106+00:00",
  "items": [
+  {
+   "title": "Coach Lembo's Weekly Press Conference: Week 10",
+   "link": "https://ubbulls.com/news/2026/11/6/football-coach-lembos-weekly-press-conference-week-10",
+   "source": "UB Athletics",
+   "summary": "<img alt=\"Pete Lembo Speaking at Podium\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/6/LwmboPC.jpg\" /><br /><br />",
+   "image": "https://ubbulls.com/images/2026/11/6/LwmboPC.jpg?width=800",
+   "sourceLogo": "https://ubbulls.com/favicon.ico",
+   "published": "2026-11-06T20:57:00+00:00"
+  },
   {
    "title": "Midweek MACtion Continues on Wednesday at Ball State",
    "link": "https://ubbulls.com/news/2026/11/6/football-midweek-maction-continues-on-wednesday-at-ball-state",
@@ -73,15 +82,6 @@
    "image": "https://ubbulls.com/images/2026/10/20/LemboPC.jpg?width=800",
    "sourceLogo": "https://ubbulls.com/favicon.ico",
    "published": "2026-10-20T21:11:00+00:00"
-  },
-  {
-   "title": "Bulls Host Bowling Green on Saturday for Senior Day",
-   "link": "https://ubbulls.com/news/2026/10/20/football-bulls-host-bowling-green-on-saturday-for-senior-day",
-   "source": "UB Athletics",
-   "summary": "<img alt=\"CELEBRATION\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/HUDDLE-CELEB-20261017fb-1926-web.jpg\" /><br /><br />Buffalo (4-3, 2-1 MAC) vs. Bowling Green (2-4, 2-1 MAC)",
-   "image": "https://ubbulls.com/images/2026/10/17/HUDDLE-CELEB-20261017fb-1926-web.jpg?width=800",
-   "sourceLogo": "https://ubbulls.com/favicon.ico",
-   "published": "2026-10-20T18:59:00+00:00"
   }
  ]
 }
