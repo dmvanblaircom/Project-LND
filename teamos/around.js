@@ -43,11 +43,17 @@ TeamOS.around = (function () {
       var e = series[i], m = Array.isArray(e) ? { match: e[0], name: e[1], kind: "trophy" } : e;
       if (!m || !m.match || !m.match.test) continue;
       if (m.kind === "event") continue;              // a branded game is not a rival
-      // The whole name, not a part of it: Illinois's trophy is not Northern
-      // Illinois's (the series patterns are written for the team's own
-      // opponents; Around tests every team in the week's games).
-      var hit = String(name || "").match(m.match);
-      if (hit && hit[0].length === String(name).trim().length) return m.name;
+      // The name, from its start, and not a different school that merely
+      // begins or ends with it: Illinois's trophy is not Northern Illinois's,
+      // Texas's is not Texas A&M's - but a pattern written as a prefix
+      // ("michigan st") is Michigan State's (Codex, #232). The series
+      // patterns are written for the team's own opponents; Around tests
+      // every team in the week's games.
+      var full = String(name || "").trim(), hit = full.match(m.match);
+      if (hit && hit.index === 0) {
+        var end = hit[0].length;
+        if (end === full.length || (/\w/.test(full.charAt(end)) && /\w/.test(full.charAt(end - 1)))) return m.name;
+      }
     }
     return null;
   }

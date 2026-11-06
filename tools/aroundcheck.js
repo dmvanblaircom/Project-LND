@@ -45,6 +45,17 @@ ok(why.g6 && /Notre Dame: CFP No\. 4, near Ohio State/.test(why.g6.join()), "a t
 ok(why.g3 && /Georgia: CFP No\. 2/.test(why.g3.join()) && !/Branded/.test(why.g3.join()), "near us too - and a branded event is never a rival");
 ok(!why.g5, "Northern Illinois is not Illinois: a rival matches the whole name");
 
+console.log("rivals, by name (Codex, #232)");
+var R = function (name, re) {
+  var g = [game("r1", side("60", name), side("61", "Somebody"))];
+  var r = A.layers({ games: g, teamId: "1", conferences: {}, series: [{ match: re, name: "A Trophy", kind: "trophy" }] });
+  return r.matter.length === 1;
+};
+ok(R("Michigan State", /michigan st/i), "a pattern written as a prefix matches its school (michigan st -> Michigan State)");
+ok(!R("Texas A&M", /texas/i), "Texas's pattern is not Texas A&M");
+ok(!R("Northern Illinois", /illinois/i), "Illinois's pattern is not Northern Illinois");
+ok(R("Purdue", /purdue/i), "a whole name matches");
+
 console.log("Top 25, and each game once");
 ok(L.top25.map(function (g) { return g.id; }).join() === "", "every ranked game already listed above: nothing repeats in Top 25 (" + L.top25.map(function (g) { return g.id; }).join() + ")");
 var seen = {}, twice = false;
