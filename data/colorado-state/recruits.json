@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "36",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -165,6 +165,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273067",
+   "name": "Josh Alford",
+   "position": "S",
+   "highSchool": "Colquitt County High School",
+   "city": "Moultrie",
+   "state": "GA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273608",
    "name": "Aaron Henderson",
    "position": "OLB",
@@ -308,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:40Z"
+ "fetchedAt": "2026-11-07T23:40Z"
 }
