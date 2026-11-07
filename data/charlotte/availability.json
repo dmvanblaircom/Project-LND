@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T10:10:24.121053+00:00",
+ "fetchedAt": "2026-11-07T18:38:52.003319+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
+ "effectiveAt": "2026-11-07",
  "heading": "Game Day",
- "kickoffDate": "2026-10-30",
- "game": "vs. Tulane",
+ "kickoffDate": "2026-11-07",
+ "game": "UAB",
  "players": [
   {
    "pos": "RB",
@@ -22,10 +22,17 @@
    "detail": ""
   },
   {
+   "pos": "DL",
+   "no": "8",
+   "name": "Calif Spencer",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "10",
    "name": "Jerry Wall III",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,10 +50,24 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "26",
+   "name": "Devon St. Clair",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "32",
    "name": "Latrell Sellers",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "35",
+   "name": "Jamil Davis",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -60,6 +81,13 @@
    "pos": "WR",
    "no": "82",
    "name": "Shelden Golliday",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Jaylen Doss",
    "status": "out-game",
    "detail": ""
   }

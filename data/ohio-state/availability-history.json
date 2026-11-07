@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-11-07T01:08:57.252812+00:00",
+ "updated": "2026-11-07T18:38:58.776819+00:00",
  "reports": [
   {
    "schema": 1,
@@ -450,10 +450,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:08:57.252812+00:00",
+   "fetchedAt": "2026-11-07T18:38:58.776819+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Oregon",
    "players": [
@@ -461,7 +461,7 @@
      "pos": "WR",
      "no": "0",
      "name": "Brandon Inniss",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -475,7 +475,7 @@
      "pos": "WR",
      "no": "11",
      "name": "Brock Boyd",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -496,7 +496,7 @@
      "pos": "LB",
      "no": "33",
      "name": "Eli Lee",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

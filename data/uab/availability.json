@@ -7,13 +7,20 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-01T11:09:40.287825+00:00",
+ "fetchedAt": "2026-11-07T18:39:03.159023+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
+ "effectiveAt": "2026-11-07",
  "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at South Florida",
+ "kickoffDate": "2026-11-07",
+ "game": "Charlotte",
  "players": [
+  {
+   "pos": "OLB",
+   "no": "4",
+   "name": "Marlin Dean",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "DT",
    "no": "8",
@@ -26,13 +33,6 @@
    "no": "12",
    "name": "Jaylen Elder",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "15",
-   "name": "Elijah Hall",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -51,29 +51,8 @@
   },
   {
    "pos": "OL",
-   "no": "51",
-   "name": "Payton Kirkland",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "58",
-   "name": "J'Quan Mason",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "68",
-   "name": "Adam Lepkowski",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "75",
-   "name": "Calib Perez",
+   "no": "71",
+   "name": "Kyrik Mason",
    "status": "questionable",
    "detail": ""
   },
