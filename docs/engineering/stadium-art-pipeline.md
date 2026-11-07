@@ -22,7 +22,7 @@ The stage already has a slot for the art. No markup changes.
 - Setting `--s-art-env` puts one shared image under every team's light, field and scrim:
   - one value for phone and one for desktop, chosen with a container or media query;
   - day and night variants through `.art-day` and `.art-night` if the compositions call for them.
-- The drawn field (`--s-art-field`, `suite/ui.js` FIELD) is the fallback. It is the true NCAA projection and stays in place until approved photography replaces it.
+- The drawn field (`--s-art-field`, `suite/ui.js` FIELD) is the fallback. It is a geometrically controlled field treatment (lines and hash marks at the rulebook's spacing, in true perspective), a texture rather than a complete field: no boundaries, end zones or numbers. It stays in place until approved art replaces it.
 - Team photography (`identity.art`, `.art-slot.has-photo`) still takes precedence over shared art, behind its own scrim.
 
 ## Encoding and delivery

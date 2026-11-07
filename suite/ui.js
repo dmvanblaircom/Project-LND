@@ -46,8 +46,10 @@ Suite.ui = (function () {
      its accent, and its mark as a large, cropped watermark - the logo when
      the provider has it, the program's initials drawn as an outline when it
      does not. Decorative throughout: the team is named in text beside it. */
-  // The field under the stadium light, drawn to real NCAA geometry (Rule
-  // 1-2: a 160 ft wide field; yard lines every 5 yards, 4 in wide; hash
+  // The field under the stadium light: a geometrically controlled field
+  // treatment, a texture, not a rendering of a whole field - no boundaries,
+  // end zones or numbers. Its lines keep the rulebook's spacing (Rule 1-2:
+  // a 160 ft wide field; yard lines every 5 yards, 4 in wide; hash
   // marks at every yard, 24 in long, 60 ft from each sideline - 40 ft apart)
   // through a pinhole camera behind midfield, 24 ft up, looking down the
   // field: a point x ft across and z ft ahead lands at u = 400 + F*x/z,

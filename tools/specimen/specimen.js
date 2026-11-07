@@ -129,7 +129,7 @@
     function stage(T, style, st, variant, o) {
       var m = model(T, st, o); m.team.nick = nick(T);
       var cta = variant === "home" ? { href: "#scoreboard", label: st === "final" ? "Game Recap" : st === "live" ? "View Game" : "Game Details" } : null;
-      return Suite.scoreboard.stage(m, { variant: variant, cta: cta, outcome: o && o.outcome });
+      return Suite.scoreboard.stage(m, { variant: variant, cta: cta });
     }
     var sbh = "";
     [ND, OSU].forEach(function (T) {
@@ -162,19 +162,19 @@
       return "<div><span class=\"spx-label\">" + label + "</span>" + scope(T, style, "spx-phone", '<div class="stage ' + extra + '" style="height:320px">' +
              Suite.ui.art({ name: T.team.name, abbr: T.team.abbreviation, markUrl: TeamOS.espn.mark(T.cfg.sources.espn.teamId, true, true) }) + "</div>") + "</div>";
     }
-    at += bare(ND, "team", "art-night", "Night, NCAA field") + bare(ND, "team", "art-day", "Day, NCAA field") +
+    at += bare(ND, "team", "art-night", "Night, field treatment") + bare(ND, "team", "art-day", "Day, field treatment") +
           bare(OSU, "team", "art-night spx-nofield", "Night, no field") + bare(OSU, "suite", "art-night", "Suite Style, night");
-    at += '</div><h3 style="margin:1.2rem 0 .5rem">Field geometry at full strength, for inspection</h3>' +
+    at += '</div><h3 style="margin:1.2rem 0 .5rem">The field treatment at full strength, for inspection</h3>' +
           '<div style="width:1200px;height:360px;background:#07192F;background-image:var(--s-art-field);background-size:cover;background-position:center bottom;border-radius:12px"></div>' +
-          cap("<strong>Geometry.</strong> Pinhole camera 24 ft up behind midfield, looking down the field (suite/ui.js FIELD). Yard lines every 5 yards, 4 in wide; hash marks every yard, 24 in long, 40 ft apart (60 ft from each sideline). The light falls off before the numbers (47 ft from centre), so they are never drawn rather than drawn wrong. Verify against the NCAA Football Rules Book, Rule 1.");
-    html += sec("atmosphere", "5. Stadium atmosphere", "CSS/SVG only: floodlights with the team's accent halo and beams, a fine grain, and the field under the light - now real NCAA geometry in perspective, or none. This is the fallback under every approved art image, and the first paint. <strong>The text floor:</strong> every word on the stage now sits on the team's deepest surface or darker, because that is the only surface the identity gate proves its accent text on. Day and night differ in their light, not in how bright the ground is. Under the old ground, 42 of 138 teams had text below AA, measured from the rendered stage (tools/herocontrastcheck.js).", at);
+          cap("<strong>A geometrically controlled field treatment</strong>, a texture rather than a complete field: no boundaries, end zones or yard numbers. Pinhole camera 24 ft up behind midfield, looking down the field (suite/ui.js FIELD). Yard lines every 5 yards, 4 in wide; hash marks every yard, 24 in long, 40 ft apart (60 ft from each sideline). The light falls off before the numbers (47 ft from centre), so they are never drawn rather than drawn wrong. The spacing follows the NCAA Football Rules Book, Rule 1.");
+    html += sec("atmosphere", "5. Stadium atmosphere", "The fallback composition, CSS/SVG only, and the frame for the approved art (which brings the stands, the crowd and the stadium; nothing here draws them). <strong>Night:</strong> a dark sky, floodlight banks blazing at both upper corners with beams across the bowl, light over the upper stands, the lit field below. <strong>Day:</strong> an open sky, the team's colour bright, a high sun, the banks barely needed. <strong>The text floor</strong> is local: each block of words carries a feathered pool of the team's abyss, the only kind of surface the identity gate proves accent text on, so the light can live everywhere around it. Every team, both lights and every state, measured from the pixels (tools/herocontrastcheck.js).", at);
 
     // ---- 6. Final result ---------------------------------------------------
     var out = '<div class="spx-row">' +
-      "<div><span class=\"spx-label\">Team-neutral (2026-09-24)</span>" + scope(ND, "team", "spx-phone", stage(ND, "team", "final", "home")) + "</div>" +
-      "<div><span class=\"spx-label\">Team's side (spec §5.4)</span>" + scope(ND, "team", "spx-phone", stage(ND, "team", "final", "home", { outcome: true })) + "</div>" +
-      "<div><span class=\"spx-label\">Team's side, Suite Style</span>" + scope(OSU, "suite", "spx-phone", stage(OSU, "suite", "final", "home", { outcome: true })) + "</div></div>";
-    html += sec("outcome", "6. The final result: a decision for David", "The Game review of 2026-09-24 made finals team-neutral (\"no Win/Loss word\"); the approved spec asks for a clear outcome from the followed team's side. Both, rendered. The result line says only what the scores say: Win or Loss, the margin, and the record the source gives.", out);
+      "<div><span class=\"spx-label\">Notre Dame · Team Style</span>" + scope(ND, "team", "spx-phone", stage(ND, "team", "final", "home")) + "</div>" +
+      "<div><span class=\"spx-label\">Ohio State · Team Style</span>" + scope(OSU, "team", "spx-phone", stage(OSU, "team", "final", "home")) + "</div>" +
+      "<div><span class=\"spx-label\">Ohio State · Suite Style</span>" + scope(OSU, "suite", "spx-phone", stage(OSU, "suite", "final", "game")) + "</div></div>";
+    html += sec("outcome", "6. The final result: team-neutral", "Decided by David, 2026-11-07: the Game review of 2026-09-24 stands. No Win or Loss label; the score, the margin it shows, and the records the source gives communicate the outcome. The losing side reads quieter through the secondary ink.", out);
 
     // ---- 7. Desktop nav ----------------------------------------------------
     var CONCEPT = {

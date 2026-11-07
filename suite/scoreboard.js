@@ -12,9 +12,11 @@
        m      { team { name, nick, abbr, markUrl }, game (normalized Game),
                 oppMark(providerId) -> url, art (ui.art options), now (Date) }
        opts   { variant: "home" | "game",
-                outcome: true  - on a final, say the result from the team's
-                                 side (spec §5.4; see the note on outcome()),
                 cta: { href, label } - Home's way into Game }
+
+   A final is team-neutral (Game review, 2026-09-24; kept by David,
+   2026-11-07): no Win or Loss word - the scores, and the records the source
+   gives, say the outcome.
 
    It lays itself out from the width it is given (container queries), not
    the screen's, so the same board reads right in a phone column and in a
@@ -108,23 +110,6 @@ Suite.scoreboard = (function () {
            cell(d, d === 1 ? "Day" : "Days") + cell(h, h === 1 ? "Hr" : "Hrs") + cell(mi, "Min") + "</span></p>";
   }
 
-  // The result from the team's side (spec §5.4: "clear outcome from the
-  // followed team's perspective"). NOTE: the Game review of 2026-09-24 made
-  // finals team-neutral ("no Win/Loss word"); the approved spec reverses it.
-  // Off unless the caller asks, until David confirms which stands. Only what
-  // the scores say: a win or loss and its margin, and the record the source
-  // gives - nothing inferred.
-  function outcome(m, st) {
-    var g = m.game;
-    if (st !== "final" || !scored(g)) return "";
-    var a = Number(g.us), b = Number(g.them);
-    if (!isFinite(a) || !isFinite(b)) return "";
-    var r = a > b ? "Win" : a < b ? "Loss" : "Tie", by = Math.abs(a - b);
-    return '<p class="sb-out sb-out-' + r.toLowerCase() + '"><span class="sb-out-r">' + r + "</span>" +
-           (by ? '<span class="sb-out-by">by ' + by + "</span>" : "") +
-           (g.usRecord ? '<span class="sb-out-rec">' + esc(g.usRecord) + "</span>" : "") + "</p>";
-  }
-
   function top(m, st, variant) {
     var g = m.game, ko = ui.kickoff(g.date, g.timeSet), bits = "";
     if (st === "live") bits = '<span class="live-pill">Live</span>';
@@ -156,7 +141,7 @@ Suite.scoreboard = (function () {
     return '<section class="sb sb-' + v + " sb-st-" + st + '" aria-label="' + esc(summary(m, st)) + '" data-game="' + esc(g.id) + '">' +
              top(m, st, v) +
              '<div class="sb-board">' + side(m, true, st) + score(m, true, st) + middle(m, st) + score(m, false, st) + side(m, false, st) + "</div>" +
-             situation(m, st) + countdown(m, st) + (opts.outcome ? outcome(m, st) : "") +
+             situation(m, st) + countdown(m, st) +
            "</section>";
   }
 

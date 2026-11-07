@@ -59,6 +59,10 @@
      tabular by design and it is precached with the shell, so a live score
      never swaps faces after first paint. */
   --s-font-score:'Instrument Display','Instrument Sans',system-ui,sans-serif;
+  /* Its two weights (David, 2026-11-07): 700 for scores and the key
+     numerals, a lighter 500 for secondary figures (records) where it
+     helps the hierarchy. The face goes no heavier than 700. */
+  --s-num-primary:700;--s-num-secondary:500;
 
   /* Phase 2 foundation scales (docs/design/suite-home-game-approved-spec-v1.md
      §3.3). New and redesigned rules use these; older rules move onto them as
@@ -124,7 +128,9 @@
   --r-everyday-page:var(--s-page);--r-everyday-surface:var(--s-surface);
   --r-everyday-ink:var(--s-ink);--r-everyday-ink-2:var(--s-ink-2);
   --r-everyday-accent:var(--t-accent-on-light);
-  --r-signal-accent:var(--t-accent-text);      /* accent as text, on a stage */
+  --r-stage-mark:var(--t-accent-text);         /* whose stage: the school line, ranks, countdown figures */
+  --r-stage-glow-rgb:var(--t-accent-rgb);      /* the colour in the stage's light */
+  --r-signal-accent:var(--t-accent-text);      /* accent as feedback text, on a stage */
   --r-signal-action:var(--t-action,var(--t-accent));
   --r-signal-action-ink:var(--t-action-ink,var(--t-accent-ink));
   --r-signal-select:var(--t-accent);
@@ -434,10 +440,11 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .art-lights{position:absolute;inset:0;z-index:1;
   background:radial-gradient(16% 11% at 84% -3%,rgba(255,255,255,.5),transparent 72%),
              radial-gradient(10% 8% at 62% -4%,rgba(226,238,255,.22),transparent 75%),
-             radial-gradient(60% 48% at 84% 0%,rgba(var(--t-accent-rgb),.34),transparent 72%),
+             radial-gradient(60% 48% at 84% 0%,rgba(var(--r-stage-glow-rgb,var(--t-accent-rgb)),.34),transparent 72%),
              conic-gradient(from 196deg at 84% -6%,transparent 0deg,rgba(255,255,255,.075) 7deg,transparent 15deg,transparent 21deg,rgba(255,255,255,.05) 27deg,transparent 35deg,transparent 360deg);
   -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 30%,transparent 85%);mask-image:linear-gradient(180deg,#000 0%,#000 30%,transparent 85%)}
-/* The field (suite/ui.js FIELD: real NCAA geometry in perspective), lit
+/* The field (suite/ui.js FIELD: a geometrically controlled field treatment
+   in perspective - lines and hashes at the rulebook's spacing), lit
    from above and gone before it reaches the text. */
 .art-field{position:absolute;left:0;right:0;bottom:0;z-index:1;height:46%;opacity:.2;background:var(--s-art-field,none) center bottom/cover no-repeat;
   -webkit-mask-image:linear-gradient(0deg,#000 0%,transparent 92%);mask-image:linear-gradient(0deg,#000 0%,transparent 92%)}
@@ -585,7 +592,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gc-line{display:flex;align-items:center;gap:.55rem}
 .gc-side.them .gc-line{flex-direction:row-reverse}
 .gc-side .mark{--mark:3.5rem}
-.gc-score{font-family:var(--s-font-score);font-weight:800;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.gc-score{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
 .gc-name{max-width:calc(100% - .5rem);margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
 .gc-rank{color:var(--t-accent-text);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 /* Never an ellipsis: ui.fitNames tightens both names, then swaps both to
@@ -594,11 +601,11 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .fit-abbr .gc-abbr{display:inline}
 .fit-tight .gc-name{font-size:.92rem;letter-spacing:0}
 .gc-side.is-loser .gc-score,.gh-team.is-loser .gh-score{font-weight:500;color:var(--s-on-dark-2)}
-.gc-record{font-size:.95rem;color:var(--s-on-dark-2);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
+.gc-record{font-size:.95rem;color:var(--s-on-dark-2);font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums}
 .gc-mid{display:flex;flex-direction:column;align-items:center;gap:.1rem;font-family:var(--t-font-display);text-transform:uppercase}
 .gc-vs{font-weight:700;font-size:1.3rem;letter-spacing:.1em;color:var(--s-on-dark-2)}
-.gc-period{font-weight:700;font-size:1.1rem;letter-spacing:.04em;font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
-.gc-clock{font-weight:800;font-size:1.7rem;line-height:1;font-variant-numeric:tabular-nums;font-family:var(--s-font-score)}
+.gc-period{font-weight:var(--s-num-primary);font-size:1.1rem;letter-spacing:.04em;font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
+.gc-clock{font-weight:var(--s-num-primary);font-size:1.7rem;line-height:1;font-variant-numeric:tabular-nums;font-family:var(--s-font-score)}
 .gc-mid.is-held .gc-clock{color:var(--s-on-dark-2)}     /* stopped where play stopped */
 .gc-rule{width:1px;height:2.6rem;background:rgba(255,255,255,.32)}
 /* Score and football share a measured group; an absolutely positioned
@@ -747,12 +754,12 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gh-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr);align-items:center;gap:.4rem;margin-top:.5rem}
 .gh-team{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
 .gh-team .mark{--mark:3.4rem}
-.gh-score{display:flex;align-items:center;gap:.3rem;margin-top:.35rem;font-family:var(--s-font-score);font-weight:800;font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
+.gh-score{display:flex;align-items:center;gap:.3rem;margin-top:.35rem;font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
 .gh-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.02em;text-transform:uppercase}
 .gh-abbr,.fit-abbr .gh-full{display:none}
 .fit-abbr .gh-abbr{display:inline}
 .fit-tight .gh-name{font-size:.9rem;letter-spacing:0}
-.gh-record{font-size:.9rem;color:var(--s-on-dark-2);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
+.gh-record{font-size:.9rem;color:var(--s-on-dark-2);font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums}
 .gh-center{display:flex;flex-direction:column;align-items:center;gap:.25rem;min-width:0;text-align:center}
 .gh-where{font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--s-on-dark)}
 .gh-opp{max-width:100%;overflow:hidden;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.8rem,8.5vw,2.6rem);line-height:.95;text-transform:uppercase}
@@ -766,11 +773,11 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gh-countdown > span{display:flex;width:16rem;max-width:100%;justify-content:center;border:1px solid rgba(255,255,255,.3);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.55)}
 .cd-cell{display:flex;flex-direction:column;align-items:center;min-width:0;flex:1;padding:.3rem .5rem}
 .cd-cell + .cd-cell{border-left:1px solid rgba(255,255,255,.25)}
-.cd-n{font-family:var(--s-font-score);font-weight:800;font-size:1.7rem;line-height:1;color:var(--t-accent-text);font-variant-numeric:tabular-nums}
+.cd-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.7rem;line-height:1;color:var(--t-accent-text);font-variant-numeric:tabular-nums}
 .cd-l{max-width:100%;overflow:hidden;white-space:nowrap;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s-on-dark-2)}
 .lbl-short,.fit-short .lbl-long{display:none}
 .fit-short .lbl-short{display:inline}
-.gh-clock{font-family:var(--s-font-score);font-weight:700;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.gh-clock{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase;font-variant-numeric:tabular-nums}
 /* The FINAL label. Not .gh-final: that is the header's own state class at
    final, and the label's wide tracking spread across the whole header -
    records read "4 - 0" (live scan #9). */
@@ -803,7 +810,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .mu-row + .mu-row{border-top:1px solid var(--s-line)}
 .mu-v{display:flex;flex-direction:column;align-items:center;padding:.3rem .2rem;border-radius:6px;background:var(--s-inset)}
 .mu-v.better{background:rgba(var(--t-accent-rgb),.16)}
-.mu-n{font-family:var(--s-font-score);font-weight:700;font-size:1.1rem;color:var(--s-ink);font-variant-numeric:tabular-nums}
+.mu-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.1rem;color:var(--s-ink);font-variant-numeric:tabular-nums}
 .mu-rk{font-size:.75rem;color:var(--s-muted)}
 /* On the better side's team tint the muted grey falls below 4.5:1 (Ohio State's scarlet tint, 4.11:1); the rank reads in the darker ink there. */
 .mu-v.better .mu-rk{color:var(--s-ink-2)}
@@ -847,7 +854,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .ts-head{position:sticky;top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px));z-index:5;display:grid;grid-template-columns:minmax(3.5rem,auto) 1fr minmax(3.5rem,auto);column-gap:.5rem;margin:0 -1rem;padding:.4rem 1rem .35rem;background:var(--s-surface);border-bottom:1px solid var(--s-line)}
 .ts-t{justify-self:start;padding-bottom:.15rem;border-bottom:3px solid var(--t-accent);font-family:var(--t-font-display);font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-ink);white-space:nowrap}
 .ts-t.them{justify-self:end;border-bottom-color:var(--s-line-strong)}
-.ts-v{font-family:var(--s-font-score);font-weight:700;font-size:1.05rem;color:var(--s-ink-2);font-variant-numeric:tabular-nums}
+.ts-v{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.05rem;color:var(--s-ink-2);font-variant-numeric:tabular-nums}
 .ts-v.us{text-align:left}
 .ts-v.them{text-align:right}
 .ts-v.better{color:var(--s-ink)}
@@ -896,7 +903,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .sp-team{font-family:var(--t-font-display);font-weight:700;color:var(--s-ink)}
 .sp-list .mine .sp-team{color:var(--t-accent-on-light)}
 .sp-text{grid-column:1 / -1;font-size:.92rem;color:var(--s-ink-2)}
-.sp-score{grid-column:3;grid-row:1;font-family:var(--s-font-score);font-weight:700;color:var(--s-ink);font-variant-numeric:tabular-nums}
+.sp-score{grid-column:3;grid-row:1;font-family:var(--s-font-score);font-weight:var(--s-num-primary);color:var(--s-ink);font-variant-numeric:tabular-nums}
 .dr-list > li + li{border-top:1px solid var(--s-line)}
 .dr-list summary{display:grid;grid-template-columns:3rem 1fr auto auto;list-style:none;align-items:center;gap:.5rem;min-height:2.9rem;cursor:pointer}
 .dr-list summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:-2px}
@@ -1025,7 +1032,7 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .tg-name{min-width:0;font-weight:600;font-size:1rem;line-height:1.2;color:var(--s-ink)}
 .tg-rank{margin-right:.3rem;font-family:var(--t-font-display);font-weight:700;font-size:.9rem;color:var(--s-muted)}
 .tg-rec{display:inline-block;white-space:nowrap;font-weight:400;font-size:.82rem;color:var(--s-muted)}
-.tg-score{min-width:1.8rem;text-align:right;font-family:var(--s-font-score);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.tg-score{min-width:1.8rem;text-align:right;font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.3rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .tg-side.lost .tg-score,.tg-side.lost .tg-name{color:var(--s-muted)}
 .tg-status{grid-area:status;display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;min-width:5.6rem;padding-left:.75rem;border-left:1px solid var(--s-line);text-align:right}
 .tg-when{font-weight:600;font-size:.9rem;color:var(--s-ink)}
@@ -1113,7 +1120,7 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .sh-at{font-variant-numeric:tabular-nums;font-weight:700;color:var(--s-muted)}
 .sh-plays li.is-new .sh-at{color:var(--s-ink)}
 .sh-play{min-width:0;color:var(--s-ink)}
-.sh-gain{font-family:var(--s-font-score);font-weight:800;font-size:1.05rem;line-height:1.3;font-variant-numeric:tabular-nums;color:var(--s-ink-2)}
+.sh-gain{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.05rem;line-height:1.3;font-variant-numeric:tabular-nums;color:var(--s-ink-2)}
 .sh-gain.up{color:var(--s-win)}
 .sh-gain.loss{color:var(--s-loss)}
 /* leaders: the two teams side by side, the yards large */
@@ -1124,7 +1131,7 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .sh-ld-cat{grid-column:1 / -1;margin-bottom:.2rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
 .sh-ld-cell{display:flex;flex-direction:column;min-width:0}
 .sh-ld-who{font-weight:700;color:var(--s-ink);overflow-wrap:anywhere}
-.sh-ld-n{font-family:var(--s-font-score);font-weight:800;font-size:1.5rem;line-height:1.15;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.sh-ld-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.5rem;line-height:1.15;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .sh-ld-u{font-size:.8rem;font-weight:700;color:var(--s-ink-2)}
 .sh-ld-line{font-size:.85rem;color:var(--s-ink-2)}
 .sh-facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.35rem .9rem;margin:0 0 .5rem}
@@ -1164,7 +1171,7 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .rk-table thead th.rk-team{text-align:left}
 .rk-table td,.rk-table tbody th{padding:.5rem .3rem;border-top:1px solid var(--s-line);text-align:center;font-size:.95rem}
 .rk-table tbody th{font-weight:600;text-align:left}
-.rk-n{width:2.3rem;font-family:var(--s-font-score);font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.rk-n{width:2.3rem;font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.05rem;font-variant-numeric:tabular-nums}
 .rk-teamcell{display:flex;align-items:center;gap:.55rem;min-width:0}
 .rk-teamcell .mark{--mark:1.8rem}
 .rk-name{color:var(--s-ink)}
@@ -1563,7 +1570,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .ss-l{font-size:.95rem;line-height:1.35;overflow-wrap:break-word;color:var(--s-ink-2)}
 .ss-v{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 .ss-row.two .ss-v{align-items:center;text-align:center}
-.ss-n{font-family:var(--s-font-score);font-weight:700;font-size:1.12rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.ss-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.12rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .ss-rk{margin-top:.1rem;font-size:.75rem;line-height:1.3;color:var(--s-muted)}
 .ss-note{margin:1rem 0 0;font-size:.85rem;color:var(--s-muted)}
 @container (max-width:15rem){
@@ -1580,7 +1587,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .of-context{display:flex;flex-direction:column;gap:.1rem;min-width:0;overflow-wrap:anywhere}
 .of-name{font-size:1.05rem;font-weight:700;color:var(--s-ink)}
 .of-place{font-size:.85rem}
-.of-chance{font-family:var(--s-font-score);font-weight:700;font-size:2.3rem;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--s-ink)}
+.of-chance{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:2.3rem;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--s-ink)}
 .of-chance .pct{font-size:.6em}
 .of-source{margin:0;font-size:.8rem;line-height:1.5}
 .of-asof{display:block}
@@ -1599,7 +1606,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .of-num{display:grid;grid-template-columns:3.25rem 3rem;align-items:baseline;gap:.5rem;text-align:right;white-space:nowrap}
 .of-change{font-variant-numeric:tabular-nums}
 .of-change .out-chg{font-size:.8rem}
-.of-val{font-family:var(--s-font-score);font-weight:800;font-size:1.15rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.of-val{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.15rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .of-val .pct{font-size:.7em}
 .of-bar{grid-column:2 / -1;display:block;height:.3rem;overflow:hidden;border-radius:var(--s-radius-pill);background:var(--s-inset)}
 .of-row.mine .of-bar{background:var(--s-surface)}
@@ -1618,7 +1625,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
    official record as its source. */
 .ms{padding:1rem 1rem .85rem}
 .ms-count{display:flex;align-items:baseline;gap:.5rem;margin:0}
-.ms-n{font-family:var(--s-font-score);font-weight:800;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.ms-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .ms-l{font-size:.95rem;color:var(--s-ink-2)}
 .ms-line{margin:.45rem 0 0;font-size:1.05rem;font-weight:600;color:var(--s-ink)}
 .ms-next{display:block;margin-top:.15rem;font-size:.95rem;font-weight:400;color:var(--s-ink-2)}
@@ -1653,7 +1660,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .bn-list{list-style:none;margin:0;padding:0}
 .bn-list li{display:grid;grid-template-columns:3.6rem minmax(0,1fr);align-items:baseline;column-gap:.75rem;padding:.6rem 0}
 .bn-list li + li{border-top:1px solid var(--s-line)}
-.bn-n{font-family:var(--s-font-score);font-weight:800;font-size:1.7rem;line-height:1;text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:var(--t-surface)}
+.bn-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.7rem;line-height:1;text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:var(--t-surface)}
 .bn-t{font-size:.95rem;line-height:1.4;color:var(--s-ink)}
 .bn-more{border-top:1px solid var(--s-line)}
 .bn-more > summary{display:flex;align-items:center;gap:.3rem;min-height:2.75rem;cursor:pointer;list-style:none;font-weight:600;color:var(--t-surface)}
@@ -1671,10 +1678,10 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .os-hero h2{margin:.5rem 0 1.2rem;font-family:var(--t-font-display);font-size:1.875rem;line-height:1.08;font-weight:700;text-transform:uppercase}
 .os-totals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:0 0 1.25rem}
 .os-totals>div+div{border-left:1px solid rgba(255,255,255,.22);padding-left:1.25rem}
-.os-totals dd{margin:0;font-family:var(--s-font-score);font-size:3rem;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
+.os-totals dd{margin:0;font-family:var(--s-font-score);font-size:3rem;line-height:1;font-weight:var(--s-num-primary);font-variant-numeric:tabular-nums}
 .os-totals dt{margin-top:.3rem;color:var(--s-on-dark-2);font-size:.75rem;line-height:1.35}
 .os-result{display:grid;grid-template-columns:minmax(5.7rem,max-content) minmax(0,1fr);gap:.875rem;align-items:center;padding:.9rem 0;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2)}
-.os-result-score{font-family:var(--s-font-score);font-size:1.5rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.os-result-score{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.5rem;white-space:nowrap;font-variant-numeric:tabular-nums}
 .os-result-details{display:grid;gap:.125rem;min-width:0}
 .os-result-details span{font-size:.75rem;line-height:1.35;color:var(--s-on-dark-2)}
 .os-result-details b{color:var(--s-on-dark);font-size:.875rem;line-height:1.4;overflow-wrap:anywhere}
@@ -1692,37 +1699,90 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
    every figure. Home and Game adopt them in Stages 2 and 3.
    ==================================================================== */
 /* Suite Style's own detail: champagne, never the action colour (spec §3.1). */
-[data-style="suite"]{--r-stage-detail:rgba(212,184,150,.5)}
+/* Suite Style keeps its cobalt for actions, selection and feedback (David,
+   2026-11-07: "don't overuse it as a decorative color"); whose stage it is
+   and the colour in its light are champagne. */
+[data-style="suite"]{--r-stage-detail:rgba(212,184,150,.5);--r-stage-mark:#D4B896;--r-stage-glow-rgb:212,184,150}
 
 .stage{position:relative;isolation:isolate;overflow:hidden;container:stage / inline-size;color:var(--r-stage-ink);
   background:var(--r-stage-2)}
-/* The stage's text floor. The identity gate proves a team's accent text on
-   its DEEPEST surface (teamos/identity.js), so every word on the stage sits
-   on surfaceDeep or darker: the team's brighter surface and its raise are
-   light here, never the ground under text. Day and night differ in their
-   light - a warm, open sun by day, the floodlight banks at night - not in
-   how bright the floor is. Measured for every team, every state and both
-   lights by tools/herocontrastcheck.js; on the brighter surfaces (Texas,
-   Maryland, UNLV) the old ground took white text to 4.0:1. */
-.stage .art-slot{background:radial-gradient(80% 60% at 0% 100%,rgba(var(--t-raise-rgb),.3),transparent 60%),
+/* The stage's atmosphere, and its text floor (Stage 1b; David, 2026-11-07:
+   keep the accessible floor, give everything outside the text "much more
+   visual depth, illumination, and energy", and make day and night
+   meaningfully different).
+
+   The identity gate proves a team's accent text on its DEEPEST surface
+   (teamos/identity.js), so that is the floor under every word. The floor is
+   local: each block of text carries its own feathered pool of the team's
+   abyss, so the light, the team's brighter surfaces and the field can live
+   everywhere around and between them. Measured from the pixels for every
+   team, both lights and every state by tools/herocontrastcheck.js.
+
+   Light only - no drawn stands, crowd or stadium. Those are the approved
+   art's (--s-art-env, under the light), which this composition frames.
+
+     night  a dark sky; the banks of floodlights blazing at both upper
+            corners, their beams falling across the bowl, the light over the
+            upper stands, the lit field below
+     day    an open sky, the team's colour bright and warm, a high sun, the
+            field bright under it; the banks barely needed
+     none   (kickoff time not set) the team's colour, quietly lit */
+.stage .art-slot{background:
+             radial-gradient(70% 45% at 50% 108%,rgba(var(--t-raise-rgb),.55),transparent 70%),
              var(--s-art-env,none) center/cover no-repeat,
-             linear-gradient(172deg,var(--t-deep) 0%,var(--t-deep) 40%,var(--t-abyss) 100%)}
-.stage.art-day .art-slot{background:radial-gradient(45% 40% at 92% 0%,rgba(255,236,196,.16),transparent 70%),
-             radial-gradient(70% 45% at 100% 100%,rgba(var(--t-surface-rgb),.35),transparent 70%),
+             linear-gradient(172deg,var(--t-surface) 0%,var(--t-deep) 55%,var(--t-abyss) 100%)}
+.stage.art-night .art-slot{background:
+             linear-gradient(180deg,transparent 0%,rgba(255,244,226,.07) 7%,rgba(var(--r-stage-glow-rgb),.16) 13%,transparent 26%),
+             radial-gradient(80% 42% at 50% 104%,rgba(var(--t-raise-rgb),.8),rgba(var(--t-surface-rgb),.35) 45%,transparent 75%),
+             radial-gradient(60% 50% at 0% 55%,rgba(var(--t-surface-rgb),.45),transparent 70%),
+             radial-gradient(60% 50% at 100% 55%,rgba(var(--t-surface-rgb),.45),transparent 70%),
              var(--s-art-env,none) center/cover no-repeat,
-             linear-gradient(165deg,var(--t-deep) 0%,var(--t-deep) 50%,var(--t-abyss) 100%)}
-.stage.art-night .art-slot{background:radial-gradient(80% 60% at 0% 100%,rgba(var(--t-raise-rgb),.25),transparent 60%),
+             linear-gradient(180deg,var(--t-abyss) 0%,var(--t-deep) 30%,var(--t-deep) 62%,var(--t-abyss) 100%)}
+.stage.art-day .art-slot{background:
+             radial-gradient(50% 38% at 86% -6%,rgba(255,246,228,.5),rgba(255,236,200,.18) 45%,transparent 75%),
+             linear-gradient(180deg,rgba(236,242,255,.24) 0%,rgba(236,242,255,.08) 18%,transparent 34%),
+             radial-gradient(90% 45% at 50% 106%,rgba(255,255,255,.16),transparent 70%),
              var(--s-art-env,none) center/cover no-repeat,
-             linear-gradient(172deg,var(--t-deep) 0%,var(--t-abyss) 70%)}
-.stage .art-slot::after{background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.4) 0%,rgba(var(--t-abyss-rgb),.42) 45%,rgba(var(--t-abyss-rgb),.7) 100%)}
+             linear-gradient(170deg,var(--t-raise) 0%,var(--t-surface) 38%,var(--t-surface) 70%,var(--t-deep) 100%)}
+/* The banks: two, high in the corners, white-hot cores in the colour's
+   halo, beams fanning down across the bowl. By day the sun does the work. */
+.stage .art-lights{
+  background:radial-gradient(9% 7% at 12% -1%,rgba(255,255,255,.95),rgba(255,255,255,.4) 45%,transparent 75%),
+             radial-gradient(9% 7% at 88% -1%,rgba(255,255,255,.95),rgba(255,255,255,.4) 45%,transparent 75%),
+             radial-gradient(38% 34% at 12% 0%,rgba(var(--r-stage-glow-rgb),.45),transparent 72%),
+             radial-gradient(38% 34% at 88% 0%,rgba(var(--r-stage-glow-rgb),.45),transparent 72%),
+             conic-gradient(from 150deg at 12% -4%,transparent 0deg,rgba(255,255,255,.09) 5deg,transparent 11deg,transparent 17deg,rgba(255,255,255,.07) 22deg,transparent 29deg,transparent 36deg,rgba(255,255,255,.05) 41deg,transparent 48deg,transparent 360deg),
+             conic-gradient(from 162deg at 88% -4%,transparent 0deg,rgba(255,255,255,.05) 7deg,transparent 14deg,transparent 19deg,rgba(255,255,255,.07) 26deg,transparent 32deg,transparent 38deg,rgba(255,255,255,.09) 43deg,transparent 49deg,transparent 360deg);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 45%,transparent 95%);mask-image:linear-gradient(180deg,#000 0%,#000 45%,transparent 95%)}
+.stage.art-day .art-lights{opacity:.3}
+.stage:not(.art-day):not(.art-night) .art-lights{opacity:.5}
+.stage .art-field{opacity:.32;height:42%}
+.stage.art-day .art-field{opacity:.4}
+.stage .art-slot::after{background:linear-gradient(180deg,transparent 0%,transparent 60%,rgba(var(--t-abyss-rgb),.35) 100%)}
 /* The grain is texture, not light: blended as an overlay it shows in the
    mid-tones and leaves a black floor black (Cincinnati's red is 4.56:1 on
    pure black - plain white noise took it to 4.46). */
 .stage .art-slot::before{mix-blend-mode:overlay}
+/* The local floor: a feathered pool of the team's abyss under each block of
+   words, so they read on the surface the gate proves whatever the light is
+   doing around them. */
+.stage .stage-id{align-self:flex-start}
+.stage .stage-id,.stage .sb-status,.stage .sb-board,.stage .sb-sit,.stage .sb-cd{position:relative}
+.stage .stage-id::before,.stage .sb-status::before,.stage .sb-board::before,.stage .sb-sit::before,.stage .sb-cd::before{
+  content:"";position:absolute;inset:-1.4rem -2.6rem;z-index:-1;pointer-events:none;background:rgba(var(--t-abyss-rgb),.78);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 2.4rem,#000 calc(100% - 2.4rem),transparent),linear-gradient(180deg,transparent,#000 1.3rem,#000 calc(100% - 1.3rem),transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent,#000 2.4rem,#000 calc(100% - 2.4rem),transparent),linear-gradient(180deg,transparent,#000 1.3rem,#000 calc(100% - 1.3rem),transparent);
+  mask-composite:intersect}
+/* The board is one pool, not a patch per column. */
+.stage .sb-board::before{inset:-1rem -1.6rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 1.6rem,#000 calc(100% - 1.6rem),transparent),linear-gradient(180deg,transparent,#000 1rem,#000 calc(100% - 1rem),transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 1.6rem,#000 calc(100% - 1.6rem),transparent),linear-gradient(180deg,transparent,#000 1rem,#000 calc(100% - 1rem),transparent);background:rgba(var(--t-abyss-rgb),.62)}
+/* The school line sits nearest the banks: its pool is the deepest. */
+.stage .stage-id::before{background:var(--t-abyss)}
 .stage-inner{position:relative;z-index:1;display:flex;flex-direction:column;gap:var(--s-space-4);
   padding:var(--s-space-5) var(--gutter) var(--s-space-5)}
 .stage-id p{margin:0}
-.stage-school{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.22em;text-transform:uppercase;color:var(--r-signal-accent)}
+.stage-school{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.22em;text-transform:uppercase;color:var(--r-stage-mark)}
 .stage-nick{font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.1rem,11cqi,3.6rem);line-height:.95;text-transform:uppercase}
 .stage-cta{width:100%;background:var(--r-signal-action);color:var(--r-signal-action-ink)}
 .stage-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
@@ -1740,18 +1800,18 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .sb-label{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-lg);text-transform:uppercase;letter-spacing:.04em}
 .sb-when{color:var(--r-stage-ink-2);font-size:var(--s-type-md)}
 .sb-when .nb{white-space:nowrap}
-.sb-net{flex:none;padding:.2rem .55rem;border:1px solid var(--r-stage-line);border-radius:6px;background:rgba(var(--t-abyss-rgb),.6);font-family:var(--s-font-score);font-weight:700;font-size:var(--s-type-md);letter-spacing:.04em}
+.sb-net{flex:none;padding:.2rem .55rem;border:1px solid var(--r-stage-line);border-radius:6px;background:rgba(var(--t-abyss-rgb),.6);font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.04em}
 .sb-board{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"us mid them" "uss mid thems";align-items:center;column-gap:var(--s-space-3);row-gap:var(--s-space-1)}
 .sb-us{grid-area:us}.sb-them{grid-area:them}.sb-score-us{grid-area:uss}.sb-score-them{grid-area:thems}.sb-mid{grid-area:mid}
 .sb-team{display:flex;flex-direction:column;align-items:center;gap:var(--s-space-1);min-width:0;text-align:center}
 .sb-team p{margin:0}
 .sb .sb-mark{--mark:3.25rem}
 .sb-name{max-width:100%;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);text-transform:uppercase;letter-spacing:.02em}
-.sb-rank{color:var(--r-signal-accent);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
+.sb-rank{color:var(--r-stage-mark);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 .sb-abbr,.fit-abbr .sb-full{display:none}
 .fit-abbr .sb-abbr{display:inline}
-.sb-rec{font-family:var(--s-font-score);font-variant-numeric:tabular-nums;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
-.sb-score{position:relative;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--s-font-score);font-weight:700;
+.sb-rec{font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
+.sb-score{position:relative;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--s-font-score);font-weight:var(--s-num-primary);
   font-size:clamp(2.75rem,17cqi,5.5rem);line-height:.95;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .sb-score .sb-n{min-width:1.1ch;text-align:center}
 /* Who has the ball: a light rule under that side's score, the words in the
@@ -1762,14 +1822,14 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
    (tools/herocontrastcheck.js). */
 .sb-team.is-loser .sb-name,.sb-score.is-loser{color:var(--r-stage-ink-2)}
 .sb-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;min-width:3.5rem;text-align:center}
-.sb-period{font-family:var(--s-font-score);font-weight:700;font-size:var(--s-type-md);letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
-.sb-clock{font-family:var(--s-font-score);font-weight:700;font-size:var(--s-type-2xl);line-height:1;font-variant-numeric:tabular-nums}
-.sb-final{font-family:var(--s-font-score);font-weight:700;font-size:var(--s-type-lg);letter-spacing:.2em;text-transform:uppercase}
+.sb-period{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.sb-clock{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-2xl);line-height:1;font-variant-numeric:tabular-nums}
+.sb-final{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-lg);letter-spacing:.2em;text-transform:uppercase}
 .sb-vs{font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-xl);text-transform:uppercase;color:var(--r-stage-ink-2)}
 /* The situation: who has the ball, down and distance, the spot - one bar. */
 .sb-sit{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:var(--s-space-2) var(--s-space-3);align-self:center;margin:0;
   padding:.4rem .9rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(var(--t-abyss-rgb),.55);
-  font-family:var(--s-font-score);font-weight:700;font-size:var(--s-type-lg);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-lg);font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .sb-poss{display:inline-flex;align-items:center;gap:.35rem}
 .sb-sit-ball{width:1.15rem;height:1.15rem}
 .sb-sit-ball ellipse{fill:#B07A47;stroke:rgba(255,255,255,.85);stroke-width:1}
@@ -1779,14 +1839,8 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .sb-cd > span{display:flex;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.45)}
 .sb-cd-cell{display:flex;flex-direction:column;align-items:center;min-width:4.5rem;padding:.35rem .6rem}
 .sb-cd-cell + .sb-cd-cell{border-left:1px solid var(--r-stage-line)}
-.sb-cd-n{font-family:var(--s-font-score);font-weight:700;font-size:var(--s-type-2xl);line-height:1;font-variant-numeric:tabular-nums;color:var(--r-signal-accent)}
+.sb-cd-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-2xl);line-height:1;font-variant-numeric:tabular-nums;color:var(--r-stage-mark)}
 .sb-cd-l{font-size:var(--s-type-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--r-stage-ink-2)}
-/* The result from the team's side, when the caller asks (see
-   suite/scoreboard.js outcome()): words first, colour only reinforcing. */
-.sb-out{display:flex;align-items:baseline;justify-content:center;gap:var(--s-space-3);margin:0;font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
-.sb-out-r{font-weight:700;font-size:var(--s-type-xl);letter-spacing:.12em;text-transform:uppercase}
-.sb-out-win .sb-out-r{color:var(--r-signal-accent)}
-.sb-out-by,.sb-out-rec{font-size:var(--s-type-md);color:var(--r-stage-ink-2)}
 @container sb (min-width:34rem){
   .sb-board{grid-template-columns:minmax(0,1fr) auto auto auto minmax(0,1fr);grid-template-areas:"us uss mid thems them";column-gap:var(--s-space-5)}
   .sb .sb-mark{--mark:4.5rem}
