@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-style="team">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suite foundation specimen</title>
+<!-- The Stage 1b review surface (Phase 2): the real stylesheet and the real
+     components, rendered side by side for creative and technical review.
+     Development only: never linked from the app, never precached.
+     Open through any local server at the repository root, e.g.
+       node -e "require('./tools/lib/serve')('.').listen(8080)"
+     then http://localhost:8080/tools/specimen/index.html                -->
+<link rel="stylesheet" href="../../app.css">
+<link rel="stylesheet" href="specimen.css">
+</head>
+<body>
+<header class="spx-head">
+  <h1>Suite foundation specimen</h1>
+  <p>Stage 1b review surface. Real <code>app.css</code>, real <code>suite/scoreboard.js</code>, real team configs. Game values come from the
+     captured fixtures the audit used (Notre Dame vs Michigan State, Ohio State vs Illinois), never invented.</p>
+  <nav class="spx-toc" aria-label="Sections">
+    <a href="#numerals">1 Numerals</a><a href="#cobalt">2 Cobalt</a><a href="#scoreboard">3 Scoreboard</a>
+    <a href="#containers">4 Responsive</a><a href="#atmosphere">5 Atmosphere</a><a href="#outcome">6 Final result</a><a href="#nav">7 Desktop nav</a>
+  </nav>
+</header>
+<main id="spx"></main>
+<script src="../../teamos/team.js"></script>
+<script src="../../teamos/identity.js"></script>
+<script src="../../teamos/game.js"></script>
+<script src="../../teamos/espn.js"></script>
+<script src="../../teamos/moments.js"></script>
+<script src="../../suite/ui.js"></script>
+<script src="../../suite/home.js"></script>
+<script src="../../suite/scoreboard.js"></script>
+<script src="specimen.js"></script>
+</body>
+</html>
