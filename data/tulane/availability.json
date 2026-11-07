@@ -7,18 +7,18 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T10:10:34.086426+00:00",
+ "fetchedAt": "2026-11-07T15:08:47.690375+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
+ "effectiveAt": "2026-11-07",
  "heading": "Game Day",
- "kickoffDate": "2026-10-30",
- "game": "at Charlotte",
+ "kickoffDate": "2026-11-07",
+ "game": "Tulsa",
  "players": [
   {
-   "pos": "DB",
-   "no": "3",
-   "name": "TJ Smith",
-   "status": "questionable",
+   "pos": "CB",
+   "no": "0",
+   "name": "Shaun Nicholas",
+   "status": "out-half",
    "detail": ""
   },
   {
@@ -50,6 +50,13 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "16",
+   "name": "Garrett Mmahat",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "CB",
    "no": "22",
    "name": "Justin Agu",
@@ -65,16 +72,30 @@
   },
   {
    "pos": "RB",
+   "no": "24",
+   "name": "Jake Randle",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
    "no": "25",
    "name": "Jamauri McClure",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "51",
-   "name": "John Bock II",
+   "pos": "P",
+   "no": "34",
+   "name": "William Hudlow",
    "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "39",
+   "name": "John Barton",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -88,7 +109,14 @@
    "pos": "DL",
    "no": "70",
    "name": "Kameron Hamilton",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "71",
+   "name": "Riley Rushing",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -96,6 +124,20 @@
    "no": "73",
    "name": "Elijah Baker",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "90",
+   "name": "Jordyn Crites",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Josh Lewis",
+   "status": "questionable",
    "detail": ""
   }
  ],

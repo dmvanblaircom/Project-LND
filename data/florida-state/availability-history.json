@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida-state",
- "updated": "2026-11-07T01:08:51.898735+00:00",
+ "updated": "2026-11-07T15:08:40.878145+00:00",
  "reports": [
   {
    "schema": 1,
@@ -457,10 +457,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:08:51.898735+00:00",
+   "fetchedAt": "2026-11-07T15:08:40.878145+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Boston College",
    "players": [
@@ -483,13 +483,6 @@
      "no": "3",
      "name": "Samuel Singleton Jr.",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "5",
-     "name": "Quintrevion Wisner",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -524,7 +517,7 @@
      "pos": "DB",
      "no": "24",
      "name": "K.J. Kirkland",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -560,13 +553,6 @@
      "no": "55",
      "name": "Kevin Wynn",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "91",
-     "name": "Cam Brooks",
-     "status": "probable",
      "detail": ""
     },
     {

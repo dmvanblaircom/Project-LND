@@ -1,7 +1,16 @@
 {
  "team": "minnesota",
- "updated": "2026-11-07T11:38:05.807837+00:00",
+ "updated": "2026-11-07T15:08:06.241523+00:00",
  "items": [
+  {
+   "title": "Game Center: Gophers-Bruins",
+   "link": "https://gophersports.com/news/2026/11/7/football-game-center-gophers-bruins",
+   "source": "Minnesota Athletics",
+   "summary": "<img alt=\"team, celebration, endzone\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/25/team__Voss_Roman__celebration__touchdown_4340.jpg\" /><br /><br />The Golden Gophers return to Huntington Bank Stadium to host #5 UCLA. Kick off is set for 11AM on FOX.",
+   "image": "https://gophersports.com/images/2026/9/25/team__Voss_Roman__celebration__touchdown_4340.jpg?width=800",
+   "sourceLogo": "https://gophersports.com/favicon.ico",
+   "published": "2026-11-07T12:01:00+00:00"
+  },
   {
    "title": "Game Trailer: Gophers-#5 Bruins Meet in Minneapolis for First Time Since 1977",
    "link": "https://gophersports.com/news/2026/11/6/football-game-trailer-gophers-5-bruins-meet-in-minneapolis-for-first-time-since-1977",
@@ -163,15 +172,6 @@
    "image": "https://gophersports.com/images/2026/10/3/Baranowski_Maverick_5937.jpg?width=800",
    "sourceLogo": "https://gophersports.com/favicon.ico",
    "published": "2026-10-28T19:47:00+00:00"
-  },
-  {
-   "title": "Game 8 Preview: Minnesota at Indiana",
-   "link": "https://gophersports.com/news/2026/10/28/football-game-8-preview-minnesota-at-indiana",
-   "source": "Minnesota Athletics",
-   "summary": "<img alt=\"Team\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/Taylor_Darius_touchdown_celebration_team_5866.JPG\" /><br /><br />Meeting for the first time since 2021, RV/RV Minnesota visits defending national champion No. 4/4 Indiana Saturday. Kickoff is set for 2:30 p.m. on CBS and the Gopher Radio Network. The game will also be the site of ESPN's College Gameday, marking the third time Minnesota has been a part of the show (Michigan in 2020, Wisconsin in 2019).",
-   "image": "https://gophersports.com/images/2026/10/28/Taylor_Darius_touchdown_celebration_team_5866.JPG?width=800",
-   "sourceLogo": "https://gophersports.com/favicon.ico",
-   "published": "2026-10-28T14:58:00+00:00"
   },
   {
    "title": "Gophers football reclaims Floyd of Rosedale in rivalry upset",
