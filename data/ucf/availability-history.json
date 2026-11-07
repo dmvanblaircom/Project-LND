@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucf",
- "updated": "2026-11-07T03:07:22.578270+00:00",
+ "updated": "2026-11-07T19:38:55.050250+00:00",
  "reports": [
   {
    "schema": 1,
@@ -422,20 +422,13 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T03:07:22.578270+00:00",
+   "fetchedAt": "2026-11-07T19:38:55.050250+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Kansas",
    "players": [
-    {
-     "pos": "RB",
-     "no": "4",
-     "name": "Taevion Swint",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "5",
@@ -458,20 +451,6 @@
      "detail": ""
     },
     {
-     "pos": "WR",
-     "no": "13",
-     "name": "Caleb Rollerson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "QB",
-     "no": "14",
-     "name": "Alonza Barnett III",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "DB",
      "no": "14",
      "name": "Kahmel Johnson",
@@ -482,35 +461,14 @@
      "pos": "LB",
      "no": "20",
      "name": "Lewis Carter",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "21",
-     "name": "Ty Bartrum",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "38",
-     "name": "Jayden Jennings",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "EDG",
-     "no": "41",
-     "name": "Bruno Dall",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "55",
      "name": "Jacob Maiava",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

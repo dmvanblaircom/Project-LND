@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "rutgers",
- "updated": "2026-11-07T01:08:58.688650+00:00",
+ "updated": "2026-11-07T19:38:52.288842+00:00",
  "reports": [
   {
    "schema": 1,
@@ -373,20 +373,13 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:08:58.688650+00:00",
+   "fetchedAt": "2026-11-07T19:38:52.288842+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Wisconsin",
    "players": [
-    {
-     "pos": "WR",
-     "no": "0",
-     "name": "Dyzier Carter",
-     "status": "questionable",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "1",
@@ -398,14 +391,7 @@
      "pos": "LB",
      "no": "6",
      "name": "Abram Wright",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "7",
-     "name": "Kevin Levy",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -419,7 +405,7 @@
      "pos": "LB",
      "no": "10",
      "name": "Ty Morris",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -440,7 +426,7 @@
      "pos": "K",
      "no": "29",
      "name": "Dane Pizzaro",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -469,13 +455,6 @@
      "no": "94",
      "name": "J'Dan Burnett",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "99",
-     "name": "Rondo Porter",
-     "status": "questionable",
      "detail": ""
     }
    ],

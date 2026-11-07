@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T03:07:15.816414+00:00",
+ "fetchedAt": "2026-11-07T19:38:47.634542+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. UCF",
  "players": [
-  {
-   "pos": "CB",
-   "no": "2",
-   "name": "Syeed Gibbs",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "RB",
    "no": "4",
@@ -32,14 +25,14 @@
    "pos": "LB",
    "no": "7",
    "name": "Bam Crouch",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "8",
    "name": "Josh Galbreath",
-   "status": "doubtful",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -53,14 +46,14 @@
    "pos": "S",
    "no": "12",
    "name": "Jaden Harris",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "QB",
    "no": "15",
    "name": "Cole Ballard",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -75,13 +68,6 @@
    "no": "35",
    "name": "Jack Utz",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "44",
-   "name": "David Santiago",
-   "status": "probable",
    "detail": ""
   },
   {
