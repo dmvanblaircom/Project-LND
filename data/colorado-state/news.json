@@ -1,7 +1,16 @@
 {
  "team": "colorado-state",
- "updated": "2026-11-06T21:37:57.262390+00:00",
+ "updated": "2026-11-07T16:15:30.881861+00:00",
  "items": [
+  {
+   "title": "Game Day: vs. Boise State",
+   "link": "https://csurams.com/news/2026/11/7/football-game-day-vs-boise-state",
+   "source": "Colorado State Athletics",
+   "summary": "<img alt=\"Game Day Boise State Snow Days\" src=\"https://csurams.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/6/gameday-_16x9.jpg\" /><br /><br />It's Snow Days at Canvas Stadium as the Rams host the Broncos.",
+   "image": "https://csurams.com/images/2026/11/6/gameday-_16x9.jpg?width=800",
+   "sourceLogo": "https://csurams.com/favicon.ico",
+   "published": "2026-11-07T16:00:00+00:00"
+  },
   {
    "title": "Setting the Stage: Building a Mentoring Culture",
    "link": "https://csurams.com/news/2026/11/6/football-setting-the-stage-building-amentoring-culture",
@@ -109,15 +118,6 @@
    "image": "https://csurams.com/images/2026/10/31/gameday-_utst_16x9.jpg?width=800",
    "sourceLogo": "https://csurams.com/favicon.ico",
    "published": "2026-10-31T15:36:00+00:00"
-  },
-  {
-   "title": "Setting the Stage: Explosive Through the Changes",
-   "link": "https://csurams.com/news/2026/10/30/football-setting-the-stage-explosive-through-the-changes",
-   "source": "Colorado State Athletics",
-   "summary": "<img alt=\"Tommy Maher\" src=\"https://csurams.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/Tommy_Maher.jpg\" /><br /><br />Film, not numbers, tell the tale",
-   "image": "https://csurams.com/images/2026/10/28/Tommy_Maher.jpg?width=800",
-   "sourceLogo": "https://csurams.com/favicon.ico",
-   "published": "2026-10-30T21:00:00+00:00"
   },
   {
    "title": "CSU football aims to keep momentum in Week 9 matchup against Utah State",

@@ -7,39 +7,18 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T01:38:38.997771+00:00",
+ "fetchedAt": "2026-11-07T16:16:09.452472+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "at Auburn",
  "players": [
-  {
-   "pos": "RB",
-   "no": "0",
-   "name": "Braylen Russell",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "DB",
    "no": "3",
    "name": "Braydon Lee",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "6",
-   "name": "Chris Marshall",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "35",
-   "name": "Steven Soles Jr.",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -60,7 +39,7 @@
    "pos": "DL",
    "no": "97",
    "name": "Quincy Rhodes Jr.",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   }
  ],
