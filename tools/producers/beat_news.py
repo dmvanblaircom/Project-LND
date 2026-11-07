@@ -23,6 +23,7 @@ look like news and commit it.
 """
 import argparse
 import gzip
+import html
 import json
 import os
 import re
@@ -87,6 +88,15 @@ def when(s):
 
 def _text(node):
     return (node.text or "").strip() if node is not None else ""
+
+
+def _headline(node):
+    """A headline as words. The XML parser removes one layer of entities; a
+    feed that encodes twice (a WordPress title in CDATA, or "&amp;#038;")
+    leaves "Q&#038;A" or "&#8211;" behind, which Suite would show as typed
+    (26 live headlines, 2026-11-06). Suite escapes every headline it draws,
+    so decoding here never makes markup."""
+    return " ".join(html.unescape(_text(node)).split())
 
 
 # An ampersand that does not start an entity. Real feeds ship headlines like
@@ -234,7 +244,7 @@ def parse_feed(raw, source, source_logo=None):
     logo = image_url(source_logo or root.findtext("./channel/image/url") or root.findtext(ATOM + "logo") or root.findtext(ATOM + "icon"), "")
     items = []
     for it in root.iter("item"):
-        t, link = _text(it.find("title")), _text(it.find("link"))
+        t, link = _headline(it.find("title")), _text(it.find("link"))
         d = when(_text(it.find("pubDate")))
         if t and WEB.match(link or ""):
             items.append({"title": t, "link": link, "source": source,
@@ -243,7 +253,7 @@ def parse_feed(raw, source, source_logo=None):
                           "published": d.isoformat() if d else None,
                           "categories": [_text(c) for c in it.findall("category") if _text(c)]})
     for en in root.iter(ATOM + "entry"):
-        t = _text(en.find(ATOM + "title"))
+        t = _headline(en.find(ATOM + "title"))
         ln = next((n for n in en.findall(ATOM + "link") if n.get("rel", "alternate") == "alternate"), None)
         link = ln.get("href") if ln is not None else ""
         d = when(_text(en.find(ATOM + "updated")) or _text(en.find(ATOM + "published")))
