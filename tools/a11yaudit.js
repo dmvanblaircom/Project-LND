@@ -112,6 +112,23 @@ function dominant(img, x0, y0, x1, y1, keep) {
   return { color: [best[1] / best[0], best[2] / best[0], best[3] / best[0]], share: best[0] / total, n: total };
 }
 
+// The contrast the words get from the worst `share` of the pixels behind
+// them: every pixel in the box rated against the text colour blended over it,
+// and the value at that share from the bottom returned.
+function worstBehind(img, it, a, share) {
+  var x0 = Math.max(0, Math.floor(it.x)), y0 = Math.max(0, Math.floor(it.y));
+  var x1 = Math.min(img.width, Math.ceil(it.x + it.w)), y1 = Math.min(img.height, Math.ceil(it.y + it.h));
+  var all = [];
+  for (var y = y0; y < y1; y++) for (var x = x0; x < x1; x++) {
+    var o = (y * img.width + x) * 4, px = [img.data[o], img.data[o + 1], img.data[o + 2]];
+    var f = [0, 1, 2].map(function (c) { return it.fg[c] * a + px[c] * (1 - a); });
+    all.push({ ratio: ratio(f, px), bg: px, fg: f });
+  }
+  if (!all.length) return null;
+  all.sort(function (p, q) { return p.ratio - q.ratio; });
+  return all[Math.min(all.length - 1, Math.floor(all.length * share))];
+}
+
 // ---- in-page collection (runs in the browser) -----------------------------
 function collectTextInPage() {
   function rgba(s) {
@@ -298,11 +315,20 @@ async function auditText(page, label, opts) {
   var failures = [], checked = 0, unassessed = 0, skipped = [];
   items.forEach(function (it) {
     if (it.y >= img.height || it.x >= img.width) { unassessed++; skipped.push(it.sel + ' "' + it.text + '" (below the capture)'); return; }
-    var bg = dominant(img, it.x, it.y, it.x + it.w, it.y + it.h);
-    if (!bg || bg.share < 0.2) { unassessed++; skipped.push(it.sel + ' "' + it.text + '" (no clear background)'); return; }   // say so, do not guess
-    var a = Math.max(0, Math.min(1, it.alpha));
-    var fg = [0, 1, 2].map(function (c) { return it.fg[c] * a + bg.color[c] * (1 - a); });
-    var cr = ratio(fg, bg.color);
+    var a = Math.max(0, Math.min(1, it.alpha)), bg, fg, cr;
+    if (opts.worst) {
+      // Over a lit, graded ground there is no one background colour: rate
+      // the words by the worst of the pixels behind them (the given share of
+      // the box, darkest-contrast first), never by an average.
+      var w = worstBehind(img, it, a, opts.worst);
+      if (!w) { unassessed++; skipped.push(it.sel + ' "' + it.text + '" (outside the capture)'); return; }
+      bg = { color: w.bg }; fg = w.fg; cr = w.ratio;
+    } else {
+      bg = dominant(img, it.x, it.y, it.x + it.w, it.y + it.h);
+      if (!bg || bg.share < 0.2) { unassessed++; skipped.push(it.sel + ' "' + it.text + '" (no clear background)'); return; }   // say so, do not guess
+      fg = [0, 1, 2].map(function (c) { return it.fg[c] * a + bg.color[c] * (1 - a); });
+      cr = ratio(fg, bg.color);
+    }
     var large = it.px >= 24 || (it.weight >= 700 && it.px >= 18.66);
     var need = large ? 3 : 4.5;
     checked++;

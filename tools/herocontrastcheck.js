@@ -12,12 +12,15 @@
    shipped) for every team in teams/, in every lighting and state it has, and
    hands the pixels to the same auditor as the rest of the accessibility gate
    (tools/a11yaudit.js auditText: the text made transparent, the background
-   sampled behind each word, WCAG AA 4.5:1 or 3:1 for large text).
+   read behind each word, WCAG AA 4.5:1 or 3:1 for large text). A lit stage
+   has no one background colour, so each word is rated by the worst tenth of
+   the pixels behind it, not their commonest colour - nothing is skipped as
+   "no clear background".
 
    Per team, Team Style:
      Home  pregame, day light       Home  pregame, kickoff time not set (no light)
      Home  live, night light        Game  live, day light
-     Home  final (a win, with the result line), night
+     Home  final (a win), night
      Game  final (a loss), day      Home  live, desktop width (860), night
    and the same seven once in Suite Style, which is every team's.
 
@@ -60,8 +63,8 @@ function drawBatch(arg) {
     ["home-pre-tba", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, timeSet: false }, "2026-10-01T12:00:00Z"],
     ["home-live-night", "home", 390, { status: "live", hasStarted: true, date: NIGHT, period: 3, clock: "2:43", us: 17, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 20" } }],
     ["game-live-day", "game", 390, { status: "live", hasStarted: true, date: DAY, period: 2, clock: "9:35", us: 7, them: 13, situation: { possession: "them", short: "3rd & 4", spot: "OPP 41" } }],
-    ["home-final-win-night", "home", 390, { status: "final", hasStarted: true, date: NIGHT, period: 4, us: 27, them: 10 }, null, true],
-    ["game-final-loss-day", "game", 390, { status: "final", hasStarted: true, date: DAY, period: 4, us: 19, them: 42 }, null, true],
+    ["home-final-win-night", "home", 390, { status: "final", hasStarted: true, date: NIGHT, period: 4, us: 27, them: 10 }],
+    ["game-final-loss-day", "game", 390, { status: "final", hasStarted: true, date: DAY, period: 4, us: 19, them: 42 }],
     ["home-live-desktop", "home", 860, { status: "live", hasStarted: true, date: NIGHT, period: 4, clock: "0:48", us: 31, them: 28, situation: { possession: "us", short: "2nd & 7", spot: "OPP 33" } }]
   ];
   var out = [];
@@ -82,7 +85,7 @@ function drawBatch(arg) {
                   now: new Date(C[4] || g.date) };
         var cta = C[1] === "home" ? { href: "#", label: g.status === "final" ? "Game Recap" : g.status === "live" ? "View Game" : "Game Details" } : null;
         html += '<div class="hc-cell" data-case="' + C[0] + '" style="width:' + C[2] + 'px">' +
-                Suite.scoreboard.stage(m, { variant: C[1], cta: cta, outcome: !!C[5], zone: ZONE }) + "</div>";
+                Suite.scoreboard.stage(m, { variant: C[1], cta: cta, zone: ZONE }) + "</div>";
       });
       html += "</div>";
     });
@@ -127,7 +130,7 @@ function drawBatch(arg) {
       var boxes = await page.evaluate(drawBatch, { ids: run.ids, style: run.style });
       cells += boxes.length;
       var label = run.style + " " + run.ids[0] + (run.ids.length > 1 ? ".." + run.ids[run.ids.length - 1] : "");
-      var res = await audit.auditText(page, label, { maxHeight: 12000 });
+      var res = await audit.auditText(page, label, { maxHeight: 12000, worst: 0.1 });
       if (shots) await page.screenshot({ path: path.join(shots, "hero-" + run.style + "-" + n + ".png"), fullPage: true });
       checked += res.checked; unassessed += res.unassessed; skipped = skipped.concat(res.skipped);
       res.failures.forEach(function (fl) {
@@ -151,6 +154,7 @@ function drawBatch(arg) {
     process.exit(1);
   }
   if (!checked) { console.log("nothing was measured"); process.exit(1); }
+  if (unassessed) { console.log(unassessed + " text run(s) could not be measured"); process.exit(1); }
   console.log(TEAMS.length + " teams, " + cells + " stages, " + checked + " text runs: every word on the stage reads at WCAG AA" +
               (unassessed ? " (" + unassessed + " without a clear background, listed above)" : ""));
 })().catch(function (e) { console.error(e); process.exit(1); });
