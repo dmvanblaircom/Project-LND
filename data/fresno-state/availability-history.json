@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "fresno-state",
- "updated": "2026-11-06T03:09:01.968824+00:00",
+ "updated": "2026-11-07T03:07:11.180419+00:00",
  "reports": [
   {
    "schema": 1,
@@ -115,10 +115,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T03:09:01.968824+00:00",
+   "fetchedAt": "2026-11-07T03:07:11.180419+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-07",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "at Utah State",
    "players": [
@@ -144,6 +144,13 @@
      "detail": ""
     },
     {
+     "pos": "DL",
+     "no": "",
+     "name": "Sione Noa",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
      "pos": "OL",
      "no": "",
      "name": "Gino Quinones",
@@ -161,6 +168,13 @@
      "pos": "DL",
      "no": "",
      "name": "Jairus Satele",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Oscar Weigel",
      "status": "questionable",
      "detail": ""
     },

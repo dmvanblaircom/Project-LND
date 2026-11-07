@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:06.387301+00:00",
+ "fetchedAt": "2026-11-07T03:07:19.004749+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Kansas State",
  "players": [
@@ -18,21 +18,7 @@
    "pos": "LB",
    "no": "3",
    "name": "Tate Romney",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "7",
-   "name": "Quinton Hammonds",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "10",
-   "name": "Wyatt Young",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -53,14 +39,14 @@
    "pos": "DT",
    "no": "88",
    "name": "Landon Dean",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DE",
    "no": "95",
    "name": "Jaleel Johnson",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   }
  ],

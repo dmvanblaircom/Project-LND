@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "183",
  "classYear": 2027,
- "listed": 25,
+ "listed": 26,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "262170",
+   "name": "Sidney Rouleau",
+   "position": "OT",
+   "highSchool": "The Brook Hill School",
+   "city": "Bullard",
+   "state": "TX",
+   "grade": 81,
+   "rank": 255,
+   "positionRank": 25,
+   "stateRank": 34,
+   "status": "Verbal"
+  },
   {
    "id": "261530",
    "name": "Elijah Kimble",
@@ -334,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:45Z"
+ "fetchedAt": "2026-11-07T03:10Z"
 }

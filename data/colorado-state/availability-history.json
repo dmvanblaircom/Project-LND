@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado-state",
- "updated": "2026-11-06T03:09:01.221988+00:00",
+ "updated": "2026-11-07T03:07:10.371845+00:00",
  "reports": [
   {
    "schema": 1,
@@ -101,10 +101,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T03:09:01.221988+00:00",
+   "fetchedAt": "2026-11-07T03:07:10.371845+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-07",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "vs. Boise State",
    "players": [
@@ -118,22 +118,15 @@
     {
      "pos": "WR",
      "no": "",
-     "name": "Jaivyn Moore",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
      "name": "Makhi Johnson",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "RB",
      "no": "",
      "name": "Durell Robinson",
-     "status": "probable",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -175,7 +168,7 @@
      "pos": "TE",
      "no": "",
      "name": "Juice Vereen",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

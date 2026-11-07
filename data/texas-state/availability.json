@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:08.893427+00:00",
+ "fetchedAt": "2026-11-07T03:07:21.729913+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-07",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Oregon State",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "ILB",
    "no": "",
    "name": "Tice Williams",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -61,6 +61,20 @@
    "no": "",
    "name": "Jayden Lawton",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "SP",
+   "no": "",
+   "name": "Lincoln Petitjean",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Zechariah Sample",
+   "status": "probable",
    "detail": ""
   },
   {

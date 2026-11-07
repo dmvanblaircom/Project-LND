@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:03.244486+00:00",
+ "fetchedAt": "2026-11-07T03:07:15.606584+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Baylor",
  "players": [
@@ -19,13 +19,6 @@
    "no": "1",
    "name": "Keyon Washington",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "3",
-   "name": "Arnold Barnes III",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -43,38 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "9",
-   "name": "Omari Hayes",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "44",
-   "name": "Trey Verdon",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DT",
    "no": "95",
    "name": "Ka'Mori Moore",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "98",
-   "name": "Malaki Ta'ase",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DT",
-   "no": "99",
-   "name": "Bryson Lamb",
-   "status": "probable",
    "detail": ""
   }
  ],

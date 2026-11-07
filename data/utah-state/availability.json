@@ -7,24 +7,24 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:10.086139+00:00",
+ "fetchedAt": "2026-11-07T03:07:23.112709+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-07",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "vs. Fresno State",
  "players": [
   {
-   "pos": "WR",
+   "pos": "DB",
    "no": "",
-   "name": "Eli Wood",
+   "name": "Chapman Lewis",
    "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "WR",
    "no": "",
-   "name": "Chapman Lewis",
+   "name": "Eli Wood",
    "status": "doubtful",
    "detail": ""
   },
@@ -74,7 +74,7 @@
    "pos": "OL",
    "no": "",
    "name": "Jimmy Liston",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado",
- "updated": "2026-11-06T03:09:01.125558+00:00",
+ "updated": "2026-11-07T03:07:10.273932+00:00",
  "reports": [
   {
    "schema": 1,
@@ -331,10 +331,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T03:09:01.125558+00:00",
+   "fetchedAt": "2026-11-07T03:07:10.273932+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "at Arizona State",
    "players": [
@@ -342,7 +342,7 @@
      "pos": "DB",
      "no": "4",
      "name": "Naeten Mitchell",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -357,13 +357,6 @@
      "no": "18",
      "name": "Danny Scudero",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "20",
-     "name": "Cree Thomas",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -384,14 +377,7 @@
      "pos": "DL",
      "no": "45",
      "name": "Vili Taufatofua",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "62",
-     "name": "Sean Kinney",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {

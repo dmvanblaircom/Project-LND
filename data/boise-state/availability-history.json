@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "boise-state",
- "updated": "2026-11-06T03:08:56.539303+00:00",
+ "updated": "2026-11-07T03:07:04.814651+00:00",
  "reports": [
   {
    "schema": 1,
@@ -45,24 +45,24 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T03:08:56.539303+00:00",
+   "fetchedAt": "2026-11-07T03:07:04.814651+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-07",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "at Colorado State",
    "players": [
     {
-     "pos": "QB",
-     "no": "",
-     "name": "Maddux Madsen",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
      "pos": "RB",
      "no": "",
      "name": "Sire Gaines",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Maddux Madsen",
      "status": "out-game",
      "detail": ""
     },
