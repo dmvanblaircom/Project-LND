@@ -1,7 +1,16 @@
 {
  "team": "syracuse",
- "updated": "2026-11-07T21:08:14.513459+00:00",
+ "updated": "2026-11-07T21:38:13.068390+00:00",
  "items": [
+  {
+   "title": "Orange Rally Falls Short to Clemson",
+   "link": "https://cuse.com/news/2026/11/7/football-orange-rally-falls-short-to-clemson",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"Football line of scrimmage vs. Clemson \" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/11/7/20261107_VIS201_Hearns_untitled_0166.jpeg\" /><br /><br />Despite a late fourth quarter rally, Syracuse was topped by Clemson, 18-13, at the JMA Wireless Dome on Saturday afternoon.",
+   "image": "https://cuse.com/images/2026/11/7/20261107_VIS201_Hearns_untitled_0166.jpeg?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-07T20:59:00+00:00"
+  },
   {
    "title": "Syracuse winning streak snapped at two as offense struggles in an 18-13 loss to Clemson",
    "link": "https://www.si.com/college/syracuse/football/syracuse-winning-streak-snapped-01m6vf4tw9bf?utm_source=RSS",
@@ -271,15 +280,6 @@
    "image": "https://cuse.com/images/2026/10/27/web.jpg?width=800",
    "sourceLogo": "https://cuse.com/favicon.ico",
    "published": "2026-10-27T17:10:00+00:00"
-  },
-  {
-   "title": "Orange Set for Halloween Battle with #19 SMU",
-   "link": "https://cuse.com/news/2026/10/26/football-orange-set-for-halloween-battle-with-19-smu",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Fran Brown on Sideline vs. UNC\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/26/FranBrown_UNC_Action.png\" /><br /><br />After an overtime win at North Carolina last week, the Orange return home Saturday to host No. 19 SMU. Kickoff is set for noon, and the game will air on ESPN2.",
-   "image": "https://cuse.com/images/2026/10/26/FranBrown_UNC_Action.png?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-10-26T20:09:00+00:00"
   }
  ]
 }

@@ -1,7 +1,16 @@
 {
  "team": "arkansas",
- "updated": "2026-11-07T19:38:00.522800+00:00",
+ "updated": "2026-11-07T21:37:59.138000+00:00",
  "items": [
+  {
+   "title": "Social media reacts to Arkansas' 26-23 loss to Auburn",
+   "link": "https://on3.com/sites/hawg-beat/news/social-media-reacts-to-arkansas-26-23-loss-to-auburn/",
+   "source": "HawgBeat",
+   "summary": "HawgBeat compiles social media reactions \u2014 good and bad \u2014 to the Arkansas football team's loss to Auburn.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07151011/Untitled-Design-2-4.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T21:30:03+00:00"
+  },
   {
    "title": "Halftime Takeaways As Arkansas Leads Auburn 10-3",
    "link": "https://www.si.com/college/arkansas/football/halftime-takeaways-as-arkansas-leads-auburn-10-3-?utm_source=RSS",
@@ -280,15 +289,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02065315/KJ-SC-GAME.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-02T18:03:08+00:00"
-  },
-  {
-   "title": "Arkansas depth chart released for Auburn game",
-   "link": "https://on3.com/sites/hawg-beat/news/arkansas-depth-chart-released-for-auburn-game/",
-   "source": "HawgBeat",
-   "summary": "Arkansas depth chart for road matchup against the Auburn Tigers.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02071252/Shaw-DC.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-02T17:31:06+00:00"
   }
  ]
 }

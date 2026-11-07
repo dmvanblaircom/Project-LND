@@ -1,7 +1,16 @@
 {
  "team": "mississippi-state",
- "updated": "2026-11-07T20:26:10.202544+00:00",
+ "updated": "2026-11-07T21:38:07.978500+00:00",
  "items": [
+  {
+   "title": "Game Day: State vs. Vanderbilt",
+   "link": "https://hailstate.com/news/2026/11/7/football-game-day-state-vs-vanderbilt",
+   "source": "Mississippi State Athletics",
+   "summary": "<img alt=\"vandy pregame \" src=\"https://hailstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/MUD_1893.jpg\" /><br /><br />",
+   "image": "https://hailstate.com/images/2026/11/7/MUD_1893.jpg?width=800",
+   "sourceLogo": "https://hailstate.com/favicon.ico",
+   "published": "2026-11-07T21:15:00+00:00"
+  },
   {
    "title": "Mississippi State Pregame: Tyler Lockhart out, AJ Swann throwing in warm ups",
    "link": "https://on3.com/teams/mississippi-state-bulldogs/news/mississippi-state-pregame-tyler-lockhart-out-aj-swann-throwing-in-warm-ups/",
@@ -298,15 +307,6 @@
    "image": "https://hailstate.com/images/2026/10/28/kenny_rodriguezCleveland_Browns_copy.jpg?width=800",
    "sourceLogo": "https://hailstate.com/favicon.ico",
    "published": "2026-11-01T06:00:00+00:00"
-  },
-  {
-   "title": "State Falls On The Road To No. 11 Texas",
-   "link": "https://hailstate.com/news/2026/10/31/football-game-day-state-at-texas",
-   "source": "Mississippi State Athletics",
-   "summary": "<img alt=\"Marcus Williams at Texas 2026\" src=\"https://hailstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/1/_DSC9743.jpg\" /><br /><br />",
-   "image": "https://hailstate.com/images/2026/11/1/_DSC9743.jpg?width=800",
-   "sourceLogo": "https://hailstate.com/favicon.ico",
-   "published": "2026-11-01T00:30:00+00:00"
   },
   {
    "title": "Mississippi State Makes Unexpected QB1 Decision Just Hours Before Texas Game",
