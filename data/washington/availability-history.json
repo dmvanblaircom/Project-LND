@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-11-06T01:08:59.354200+00:00",
+ "updated": "2026-11-07T01:09:03.026205+00:00",
  "reports": [
   {
    "schema": 1,
@@ -387,10 +387,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:59.354200+00:00",
+   "fetchedAt": "2026-11-07T01:09:03.026205+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "vs. Penn State",
    "players": [
@@ -412,7 +412,7 @@
      "pos": "S",
      "no": "7",
      "name": "Alex McLaughlin",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -440,7 +440,7 @@
      "pos": "OL",
      "no": "55",
      "name": "Kolt Dieterich",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -454,7 +454,7 @@
      "pos": "OL",
      "no": "65",
      "name": "Jack Shaffer",
-     "status": "doubtful",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -468,14 +468,14 @@
      "pos": "OL",
      "no": "70",
      "name": "Justin Hylkema",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "73",
      "name": "Champ Taulealea",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

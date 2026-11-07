@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:08:54.602708+00:00",
+ "fetchedAt": "2026-11-07T01:08:56.995994+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "vs. Iowa",
  "players": [
@@ -18,14 +18,7 @@
    "pos": "QB",
    "no": "0",
    "name": "Aidan Chiles",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "6",
-   "name": "Robert Fitzgerald",
-   "status": "probable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -46,7 +39,7 @@
    "pos": "DB",
    "no": "29",
    "name": "Jon Jon Stevens Jr.",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -67,7 +60,7 @@
    "pos": "RB",
    "no": "41",
    "name": "Robby Preckel",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

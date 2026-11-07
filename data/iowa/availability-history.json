@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa",
- "updated": "2026-11-06T01:08:51.861633+00:00",
+ "updated": "2026-11-07T01:08:53.441094+00:00",
  "reports": [
   {
    "schema": 1,
@@ -275,20 +275,13 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:51.861633+00:00",
+   "fetchedAt": "2026-11-07T01:08:53.441094+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "at Northwestern",
    "players": [
-    {
-     "pos": "DB",
-     "no": "0",
-     "name": "Cody Haddad",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "2",
@@ -300,21 +293,21 @@
      "pos": "DB",
      "no": "3",
      "name": "Jaylen Watson",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "6",
      "name": "Zach Lutmer",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "7",
      "name": "Dayton Howard",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -329,13 +322,6 @@
      "no": "11",
      "name": "Brody Schaffer",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "13",
-     "name": "Brevin Doll",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -356,14 +342,14 @@
      "pos": "LB",
      "no": "31",
      "name": "Nolan DeLong",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "TE",
      "no": "48",
      "name": "Zach Ortwerth",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -392,13 +378,6 @@
      "no": "75",
      "name": "Cannon Leonard",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "81",
-     "name": "DJ Vonnahme",
-     "status": "probable",
      "detail": ""
     }
    ],

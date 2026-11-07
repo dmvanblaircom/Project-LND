@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan",
- "updated": "2026-11-06T01:08:53.572426+00:00",
+ "updated": "2026-11-07T01:08:55.626813+00:00",
  "reports": [
   {
    "schema": 1,
@@ -450,10 +450,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:53.572426+00:00",
+   "fetchedAt": "2026-11-07T01:08:55.626813+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "vs. Michigan State",
    "players": [

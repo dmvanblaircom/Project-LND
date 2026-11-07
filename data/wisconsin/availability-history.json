@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wisconsin",
- "updated": "2026-11-06T01:08:59.742746+00:00",
+ "updated": "2026-11-07T01:09:03.514899+00:00",
  "reports": [
   {
    "schema": 1,
@@ -247,10 +247,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:59.742746+00:00",
+   "fetchedAt": "2026-11-07T01:09:03.514899+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "vs. Rutgers",
    "players": [
@@ -272,7 +272,7 @@
      "pos": "OL",
      "no": "55",
      "name": "Kevin Heywood",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

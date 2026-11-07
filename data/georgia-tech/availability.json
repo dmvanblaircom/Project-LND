@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:08:44.771510+00:00",
+ "fetchedAt": "2026-11-07T01:08:52.532626+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "vs. Louisville",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "DE",
    "no": "8",
    "name": "Jordan Boyd",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -47,6 +47,13 @@
    "no": "13",
    "name": "Savion Riley",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "24",
+   "name": "Shane Marshall",
+   "status": "questionable",
    "detail": ""
   },
   {

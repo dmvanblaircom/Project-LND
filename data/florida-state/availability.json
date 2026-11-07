@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:08:44.233288+00:00",
+ "fetchedAt": "2026-11-07T01:08:51.898735+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Boston College",
  "players": [
@@ -39,13 +39,6 @@
    "pos": "RB",
    "no": "5",
    "name": "Quintrevion Wisner",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "6",
-   "name": "Ja’Bril Rawls",
    "status": "probable",
    "detail": ""
   },
@@ -82,13 +75,6 @@
    "no": "24",
    "name": "K.J. Kirkland",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "29",
-   "name": "Caleb LaVallee",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -130,7 +116,7 @@
    "pos": "DL",
    "no": "91",
    "name": "Cam Brooks",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

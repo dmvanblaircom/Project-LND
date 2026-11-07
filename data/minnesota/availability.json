@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:08:53.765845+00:00",
+ "fetchedAt": "2026-11-07T01:08:55.883521+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "vs. UCLA",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "LB",
    "no": "46",
    "name": "Mason Carrier",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -53,7 +53,7 @@
    "pos": "OL",
    "no": "77",
    "name": "Nick Spence",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

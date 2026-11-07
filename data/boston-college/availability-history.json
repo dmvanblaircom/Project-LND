@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "boston-college",
- "updated": "2026-11-06T01:08:42.538457+00:00",
+ "updated": "2026-11-07T01:08:49.704572+00:00",
  "reports": [
   {
    "schema": 1,
@@ -443,10 +443,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:42.538457+00:00",
+   "fetchedAt": "2026-11-07T01:08:49.704572+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "vs. Florida State",
    "players": [
@@ -482,6 +482,13 @@
      "pos": "RB",
      "no": "26",
      "name": "Sedric Addison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "51",
+     "name": "Amir Johnson",
      "status": "out-game",
      "detail": ""
     },

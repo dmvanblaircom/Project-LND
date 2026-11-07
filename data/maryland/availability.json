@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:08:53.069326+00:00",
+ "fetchedAt": "2026-11-07T01:08:54.981675+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Purdue",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "LB",
    "no": "3",
    "name": "Trey Reddick",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -74,14 +74,14 @@
    "pos": "TE",
    "no": "81",
    "name": "Javonte Williams",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "97",
    "name": "Jayvon Parker",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],

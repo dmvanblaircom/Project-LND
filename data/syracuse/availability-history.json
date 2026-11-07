@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "syracuse",
- "updated": "2026-11-06T01:08:56.896898+00:00",
+ "updated": "2026-11-07T01:08:59.893019+00:00",
  "reports": [
   {
    "schema": 1,
@@ -427,10 +427,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:56.896898+00:00",
+   "fetchedAt": "2026-11-07T01:08:59.893019+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "vs. Clemson",
    "players": [
@@ -445,7 +445,7 @@
      "pos": "QB",
      "no": "9",
      "name": "Steve Angeli",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -473,7 +473,7 @@
      "pos": "DL",
      "no": "30",
      "name": "Tunmise Adeleye",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -508,7 +508,7 @@
      "pos": "DL",
      "no": "93",
      "name": "Alex Haskell",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

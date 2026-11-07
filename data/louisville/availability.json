@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:08:52.765567+00:00",
+ "fetchedAt": "2026-11-07T01:08:54.579619+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Georgia Tech",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "RB",
    "no": "1",
    "name": "Isaac Brown",
-   "status": "probable",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "7",
    "name": "Lawayne McCoy",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -36,38 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "21",
-   "name": "Jaydin Broadnax",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "44",
-   "name": "Travis Egan",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "P",
    "no": "48",
    "name": "Jacob Baker",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "56",
-   "name": "Eryx Daugherty",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "58",
-   "name": "Evan Wibberley",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -103,13 +75,6 @@
    "no": "90",
    "name": "Hamilton Atkins",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "90",
-   "name": "Daylen Russell",
-   "status": "probable",
    "detail": ""
   },
   {

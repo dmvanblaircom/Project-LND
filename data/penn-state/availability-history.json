@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "penn-state",
- "updated": "2026-11-06T01:08:55.522751+00:00",
+ "updated": "2026-11-07T01:08:58.169776+00:00",
  "reports": [
   {
    "schema": 1,
@@ -646,10 +646,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:55.522751+00:00",
+   "fetchedAt": "2026-11-07T01:08:58.169776+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "at Washington",
    "players": [
@@ -671,7 +671,7 @@
      "pos": "WR",
      "no": "6",
      "name": "Koby Howard",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

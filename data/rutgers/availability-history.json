@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "rutgers",
- "updated": "2026-11-06T01:08:55.969484+00:00",
+ "updated": "2026-11-07T01:08:58.688650+00:00",
  "reports": [
   {
    "schema": 1,
@@ -373,10 +373,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:08:55.969484+00:00",
+   "fetchedAt": "2026-11-07T01:08:58.688650+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "at Wisconsin",
    "players": [
@@ -412,7 +412,7 @@
      "pos": "WR",
      "no": "8",
      "name": "KJ Duff",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -454,7 +454,7 @@
      "pos": "OL",
      "no": "56",
      "name": "Tyler Needham",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -468,7 +468,7 @@
      "pos": "DL",
      "no": "94",
      "name": "J'Dan Burnett",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
