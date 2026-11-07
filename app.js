@@ -1458,7 +1458,8 @@ function loadOffseasonNext(year){
   }).catch(function(){
     OFFSEASON.nextOutcome="failed";
   }).then(function(){
-    OFFSEASON.nextPending=false; paintHome();
+    // Game reads the S5 hero too (heroOf), and may be the screen showing
+    OFFSEASON.nextPending=false; paintHome(); paintGame();
   });
 }
 function loadOffseasonSelection(year){
@@ -1473,7 +1474,7 @@ function loadOffseasonSelection(year){
     // Unknown is not the same as an unselected team. Retry on a later paint.
     OFFSEASON.selectedAt[year]=0;
   }).then(function(){
-    OFFSEASON.boardPending[year]=false; paintHome();
+    OFFSEASON.boardPending[year]=false; paintHome(); paintGame();
   });
 }
 function offseasonModel(now){

@@ -46,7 +46,7 @@ function rankings(apLast) {
     var page = await ctx.newPage(), errors = [], seen = {};
     await page.clock.setSystemTime(new Date(o.now));
     page.on("pageerror", function (e) { errors.push(String(e)); });
-    await ctx.route("**/*", function (route) {
+    await ctx.route("**/*", async function (route) {
       var u = route.request().url(), body = null;
       if (u.startsWith(base)) return route.continue();
       if (/\/teams\/87\/schedule\?seasontype=2&season=2026/.test(u)) body = o.next2026 ? preseason2026() : '{"events":[]}';   // as ESPN lists it in January: nothing played
@@ -57,6 +57,8 @@ function rankings(apLast) {
       else if (/\/rankings/.test(u)) body = rankings(o.apLast);
       if (/\/schedule/.test(u)) seen.schedule = true;
       if (/\/rankings/.test(u)) seen.rankings = true;
+      // next season's schedule answering late, after the first screen is drawn
+      if (o.nextDelay && /schedule\?seasontype=2&season=2026/.test(u)) await new Promise(function (r) { setTimeout(r, o.nextDelay); });
       if (body) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: body });
       return route.abort();
     });
@@ -118,6 +120,13 @@ function rankings(apLast) {
     ok(/Wisconsin/.test(await e.page.evaluate(function () { return (document.querySelector("#screenGame .game-head") || document.querySelector("#screenGame") || {}).textContent || ""; })),
        "S5: Game shows the same opener");
     await e.ctx.close();
+    // Opened straight on Game: next season's schedule answers after Game was
+    // first drawn, with Home hidden, and Game must still show it (Codex, #236).
+    var e2 = await open({ now: "2026-01-25T17:00:00Z", hash: "#game", apLast: true, boardSet: true, next2026: true, nextDelay: 1500 });
+    await e2.page.waitForTimeout(2500);
+    ok(/Wisconsin/.test(await e2.page.evaluate(function () { return (document.querySelector("#screenGame .game-head") || {}).textContent || ""; })),
+       "S5, opened on Game: Game shows the opener once next season's schedule arrives");
+    await e2.ctx.close();
     // July: the app's season year is 2026 and its schedule is current, but
     // the preseason poll is not out - the offseason nav holds.
     var g = await open({ now: "2026-07-15T16:00:00Z", hash: "#home", apLast: true, boardSet: true, current2026: true });
