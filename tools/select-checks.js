@@ -23,8 +23,8 @@
      another team's config              the checks that read every team's
                                         config (boot, registry, chooser,
                                         worker, adapter, identity, pipeline,
-                                        recruiting refresh) and the team-font
-                                        check
+                                        recruiting refresh), the team-font
+                                        check and the stage contrast check
      a producer (tools/producers/)      the Python checks that import it, and
                                         the pipeline check; teamconfig.py,
                                         which every producer imports, all of
@@ -55,7 +55,8 @@ var EVERYTHING = [
   [/^teams\/(index|notre-dame|ohio-state)\.js$/, "a team the browser checks render, or the registry"]
 ];
 var TEAM_CHECKS = ["bootcheck.js", "registrycheck.js", "choosercheck.js", "swcheck.js", "adaptercheck.js",
-                   "identitycheck.js", "teamidentitycheck.js", "pipelinecheck.py", "prospectsrefreshcheck.py", "teamfontcheck.js"];
+                   "identitycheck.js", "teamidentitycheck.js", "pipelinecheck.py", "prospectsrefreshcheck.py", "teamfontcheck.js",
+                   "herocontrastcheck.js"];
 var REFRESH_CHECKS = ["pipelinecheck.py", "cadencecheck.py", "prospectsrefreshcheck.py", "freshnesscheck.py", "healthcheck.py"];
 
 // The Python checks that import a producer, read from the checks themselves.
