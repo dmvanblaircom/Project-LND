@@ -16,7 +16,7 @@ var fs = require("fs"), http = require("http"), path = require("path");
 
 var TYPES = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript",
               ".json": "application/json", ".webmanifest": "application/manifest+json",
-              ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp",
+              ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".avif": "image/avif",
               ".woff2": "font/woff2", ".txt": "text/plain" };
 function mime(file) { return TYPES[path.extname(file).toLowerCase()] || "application/octet-stream"; }
 

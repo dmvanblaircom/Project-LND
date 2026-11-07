@@ -46,10 +46,52 @@ Suite.ui = (function () {
      its accent, and its mark as a large, cropped watermark - the logo when
      the provider has it, the program's initials drawn as an outline when it
      does not. Decorative throughout: the team is named in text beside it. */
-  // The field under the stadium light: yard lines receding toward the
-  // stands, drawn once (Phase 2 spec §3.4). Decorative, like the slot.
-  var FIELD = '<svg class="art-field" viewBox="0 0 400 100" preserveAspectRatio="none" focusable="false">' +
-    '<line x1="-150" y1="100" x2="53" y2="0"/><line x1="-125" y1="100" x2="63.5" y2="0"/><line x1="-100" y1="100" x2="74" y2="0"/><line x1="-75" y1="100" x2="84.5" y2="0"/><line x1="-50" y1="100" x2="95" y2="0"/><line x1="-25" y1="100" x2="105.5" y2="0"/><line x1="0" y1="100" x2="116" y2="0"/><line x1="25" y1="100" x2="126.5" y2="0"/><line x1="50" y1="100" x2="137" y2="0"/><line x1="75" y1="100" x2="147.5" y2="0"/><line x1="100" y1="100" x2="158" y2="0"/><line x1="125" y1="100" x2="168.5" y2="0"/><line x1="150" y1="100" x2="179" y2="0"/><line x1="175" y1="100" x2="189.5" y2="0"/><line x1="200" y1="100" x2="200" y2="0"/><line x1="225" y1="100" x2="210.5" y2="0"/><line x1="250" y1="100" x2="221" y2="0"/><line x1="275" y1="100" x2="231.5" y2="0"/><line x1="300" y1="100" x2="242" y2="0"/><line x1="325" y1="100" x2="252.5" y2="0"/><line x1="350" y1="100" x2="263" y2="0"/><line x1="375" y1="100" x2="273.5" y2="0"/><line x1="400" y1="100" x2="284" y2="0"/><line x1="425" y1="100" x2="294.5" y2="0"/><line x1="450" y1="100" x2="305" y2="0"/><line x1="475" y1="100" x2="315.5" y2="0"/><line x1="500" y1="100" x2="326" y2="0"/><line x1="525" y1="100" x2="336.5" y2="0"/><line x1="550" y1="100" x2="347" y2="0"/><line x1="0" y1="36" x2="400" y2="36"/><line x1="0" y1="64" x2="400" y2="64"/></svg>';
+  // The field under the stadium light, drawn to real NCAA geometry (Rule
+  // 1-2: a 160 ft wide field; yard lines every 5 yards, 4 in wide; hash
+  // marks at every yard, 24 in long, 60 ft from each sideline - 40 ft apart)
+  // through a pinhole camera behind midfield, 24 ft up, looking down the
+  // field: a point x ft across and z ft ahead lands at u = 400 + F*x/z,
+  // v = H + F*CAM/z on an 800 x 240 view that crops, never stretches
+  // (xMidYMax slice), so nothing on it distorts at any width. The light
+  // falls off across the field (the mask) before the numbers, which begin
+  // 47 ft from the centre, so they are never drawn rather than drawn wrong;
+  // the yard lines run on into the dark. Decorative, like the slot.
+  var FIELD = (function () {
+    var CAM = 24, Z0 = 45, H = -40, F = (240 - H) * Z0 / CAM, W = 1 / 3;   // feet; a line is 4 in
+    function u(x, z) { return 400 + F * x / z; }
+    function v(z) { return H + F * CAM / z; }
+    function r(n) { return Math.round(n * 10) / 10; }
+    var out = [], z, k;
+    for (k = 0; (z = Z0 + k * 15) <= 450; k++)                       // yard lines, 5 yards apart
+      out.push('<line x1="' + r(u(-80, z)) + '" y1="' + r(v(z)) + '" x2="' + r(u(80, z)) + '" y2="' + r(v(z)) +
+               '" stroke-width="' + r(Math.max(0.3, F * W * CAM / (z * z))) + '"/>');
+    for (z = Z0; z <= 180; z += 3) [-1, 1].forEach(function (s) {      // hash marks, every yard
+      out.push('<line x1="' + r(u(s * 20, z)) + '" y1="' + r(v(z)) + '" x2="' + r(u(s * 22, z)) + '" y2="' + r(v(z)) +
+               '" stroke-width="' + r(Math.max(0.3, F * W * CAM / (z * z))) + '"/>');
+    });
+    // The light on the field: brightest between the hashes, gone by 42 ft
+    // out, each band a true trapezoid in perspective.
+    var bands = [[30, 1], [34, .6], [38, .3], [42, .12]].reverse().map(function (b) {
+      var zf = 2000;
+      return '<polygon fill="#fff" fill-opacity="' + b[1] + '" points="' + [[-b[0], Z0], [b[0], Z0], [b[0], zf], [-b[0], zf]].map(function (p) {
+        return r(u(p[0], p[1])) + "," + r(v(p[1]));
+      }).join(" ") + '"/>';
+    }).join("");
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" preserveAspectRatio="xMidYMax slice">' +
+              '<defs><mask id="l" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="240">' + bands + "</mask></defs>" +
+              '<g mask="url(#l)" stroke="#fff">' + out.join("") + "</g></svg>";
+    // Drawn once, as an image every art slot shares: one decoded picture,
+    // not two hundred elements in each hero's markup.
+    // In its own style element, not the root's inline style, which the boot
+    // replay copies into storage (app.js applyStyle).
+    try {
+      var el = document.createElement("style");
+      el.id = "art-field-style";
+      el.textContent = ':root{--s-art-field:url("data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg) + '")}';
+      (document.head || document.documentElement).appendChild(el);
+    } catch (e) {}
+    return '<span class="art-field"></span>';
+  })();
 
   function art(opts) {
     opts = opts || {};
