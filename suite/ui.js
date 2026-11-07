@@ -46,6 +46,11 @@ Suite.ui = (function () {
      its accent, and its mark as a large, cropped watermark - the logo when
      the provider has it, the program's initials drawn as an outline when it
      does not. Decorative throughout: the team is named in text beside it. */
+  // The field under the stadium light: yard lines receding toward the
+  // stands, drawn once (Phase 2 spec §3.4). Decorative, like the slot.
+  var FIELD = '<svg class="art-field" viewBox="0 0 400 100" preserveAspectRatio="none" focusable="false">' +
+    '<line x1="-150" y1="100" x2="53" y2="0"/><line x1="-125" y1="100" x2="63.5" y2="0"/><line x1="-100" y1="100" x2="74" y2="0"/><line x1="-75" y1="100" x2="84.5" y2="0"/><line x1="-50" y1="100" x2="95" y2="0"/><line x1="-25" y1="100" x2="105.5" y2="0"/><line x1="0" y1="100" x2="116" y2="0"/><line x1="25" y1="100" x2="126.5" y2="0"/><line x1="50" y1="100" x2="137" y2="0"/><line x1="75" y1="100" x2="147.5" y2="0"/><line x1="100" y1="100" x2="158" y2="0"/><line x1="125" y1="100" x2="168.5" y2="0"/><line x1="150" y1="100" x2="179" y2="0"/><line x1="175" y1="100" x2="189.5" y2="0"/><line x1="200" y1="100" x2="200" y2="0"/><line x1="225" y1="100" x2="210.5" y2="0"/><line x1="250" y1="100" x2="221" y2="0"/><line x1="275" y1="100" x2="231.5" y2="0"/><line x1="300" y1="100" x2="242" y2="0"/><line x1="325" y1="100" x2="252.5" y2="0"/><line x1="350" y1="100" x2="263" y2="0"/><line x1="375" y1="100" x2="273.5" y2="0"/><line x1="400" y1="100" x2="284" y2="0"/><line x1="425" y1="100" x2="294.5" y2="0"/><line x1="450" y1="100" x2="305" y2="0"/><line x1="475" y1="100" x2="315.5" y2="0"/><line x1="500" y1="100" x2="326" y2="0"/><line x1="525" y1="100" x2="336.5" y2="0"/><line x1="550" y1="100" x2="347" y2="0"/><line x1="0" y1="36" x2="400" y2="36"/><line x1="0" y1="64" x2="400" y2="64"/></svg>';
+
   function art(opts) {
     opts = opts || {};
     var photo = opts.photo && opts.photo.src
@@ -53,6 +58,7 @@ Suite.ui = (function () {
         (opts.photo.position ? ' style="object-position:' + esc(opts.photo.position) + '"' : "") + ">"
       : "";
     return '<div class="art-slot' + (photo ? " has-photo" : "") + '" aria-hidden="true" data-decorative>' + photo +
+             '<span class="art-lights"></span>' + FIELD +
              '<span class="art-watermark">' +
                '<span class="art-initials">' + esc(initials(opts.name, opts.abbr)) + "</span>" +
                // Eager: the watermark is at the top of the first screen.
@@ -261,23 +267,26 @@ Suite.ui = (function () {
      for every team, when the fan chooses it over Team Style. The same colour
      roles a team supplies, so TeamOS.identity checks it exactly as it checks
      a team (tools/suitecheck.js), and app.js applies it the same way.
-     Approved Ink actions and Pearl pages; Champagne and Bronze are small
-     accents. Instrument Sans is the UI face, Georgia stays editorial. */
+     Phase 2 (docs/design/suite-home-game-approved-spec-v1.md §3.1): midnight
+     navy surfaces, bright pearl pages and ink, and a vivid cobalt action
+     (white on it 5.15:1; its text tint on the deep surface 7.9:1; its light-UI
+     ink on white 6.7:1). Champagne and Bronze stay small details in the
+     chrome, never the action colour. Instrument Sans is the UI face. */
   var STYLE = {
     programLabel: "SUITE",
     colors: {
-      accent:         "#111D35",
-      accentText:     "#D4B896",
-      accentOnLight:  "#111D35",
-      accentInk:      "#F1F2F0",
-      accentSoft:     "#B6BEC7",
-      accentTint:     "#D9DEE3",
-      accentTintSoft: "#EDF0F2",
-      focus:          "#D4B896",
-      surface:        "#111D35",
-      surfaceDeep:    "#101A2D",
-      surfaceAbyss:   "#0B1322",
-      surfaceRaise:   "#223047"
+      accent:         "#2B5CFF",
+      accentText:     "#7FA6FF",
+      accentOnLight:  "#1D4ED8",
+      accentInk:      "#FFFFFF",
+      accentSoft:     "#9DB8FF",
+      accentTint:     "#DCE6FF",
+      accentTintSoft: "#EEF3FF",
+      focus:          "#7FA6FF",
+      surface:        "#0B1736",
+      surfaceDeep:    "#07102A",
+      surfaceAbyss:   "#040A1C",
+      surfaceRaise:   "#16275A"
     },
     fonts: {
       ui:      "'Instrument Sans',system-ui,-apple-system,sans-serif",
