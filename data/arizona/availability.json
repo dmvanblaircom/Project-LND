@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:08:54.534285+00:00",
+ "fetchedAt": "2026-11-07T02:08:45.425070+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-06",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-06",
  "game": "vs. TCU",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "LB",
    "no": "5",
    "name": "Max Harris",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "RB",
    "no": "21",
    "name": "Ismail Mahdi",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -60,7 +60,7 @@
    "pos": "OL",
    "no": "78",
    "name": "Grayson Stovall",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
