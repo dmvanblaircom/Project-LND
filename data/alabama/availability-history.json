@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "alabama",
- "updated": "2026-11-07T01:38:35.737829+00:00",
+ "updated": "2026-11-07T19:08:40.884291+00:00",
  "reports": [
   {
    "schema": 1,
@@ -462,32 +462,18 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:38:35.737829+00:00",
+   "fetchedAt": "2026-11-07T19:08:40.884291+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at LSU",
    "players": [
     {
-     "pos": "RB",
-     "no": "0",
-     "name": "AK Dear",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "1",
-     "name": "Ryan Coleman-Williams",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "DB",
      "no": "2",
      "name": "Zabien Brown",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -501,14 +487,14 @@
      "pos": "RB",
      "no": "13",
      "name": "EJ Crowell",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "QB",
      "no": "15",
      "name": "Jett Thomalla",
-     "status": "doubtful",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -534,13 +520,6 @@
     },
     {
      "pos": "OL",
-     "no": "55",
-     "name": "Racin Delgatty",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
      "no": "66",
      "name": "Jared Graham",
      "status": "out-game",
@@ -550,7 +529,7 @@
      "pos": "OL",
      "no": "70",
      "name": "William Sanders",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -558,13 +537,6 @@
      "no": "92",
      "name": "Jeremiah Beaman",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "99",
-     "name": "Terrance Green",
-     "status": "probable",
      "detail": ""
     }
    ],
