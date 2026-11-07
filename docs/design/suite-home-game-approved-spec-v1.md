@@ -356,7 +356,7 @@ Three zones:
 2. **Game navigation:** existing Game, Stats, Plays and Drive experiences as applicable to lifecycle.
 3. **Content stage:** the selected existing view, with hierarchy appropriate to its content.
 
-The Game tab strip must be redesigned for phone widths. The existing four equal-width, nowrap tabs cause the longer Drive Tracker label to crowd/cl ip at 390px.
+The Game tab strip must be redesigned for phone widths. The existing four equal-width, nowrap tabs cause the longer Drive Tracker label to crowd/clip at 390px.
 
 Design constraints:
 - Do not force four equal-width tabs when labels do not fit.
