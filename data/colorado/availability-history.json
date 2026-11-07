@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado",
- "updated": "2026-11-07T03:07:10.273932+00:00",
+ "updated": "2026-11-07T23:08:56.034533+00:00",
  "reports": [
   {
    "schema": 1,
@@ -331,10 +331,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T03:07:10.273932+00:00",
+   "fetchedAt": "2026-11-07T23:08:56.034533+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Arizona State",
    "players": [
@@ -391,7 +391,7 @@
      "pos": "DL",
      "no": "99",
      "name": "Dylan Manuel",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     }
    ],

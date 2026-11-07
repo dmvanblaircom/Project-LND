@@ -7,32 +7,18 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T01:38:42.224145+00:00",
+ "fetchedAt": "2026-11-07T23:08:57.220355+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "at Ole Miss",
  "players": [
   {
-   "pos": "WR",
-   "no": "2",
-   "name": "Thomas Blackshear",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "5",
-   "name": "Chauncey Bowens",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "10",
    "name": "Elyiss Williams",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
