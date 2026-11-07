@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan-state",
- "updated": "2026-11-07T01:08:55.756714+00:00",
+ "updated": "2026-11-07T22:38:47.338023+00:00",
  "reports": [
   {
    "schema": 1,
@@ -485,10 +485,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:08:55.756714+00:00",
+   "fetchedAt": "2026-11-07T22:38:47.338023+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Michigan",
    "players": [
@@ -504,13 +504,6 @@
      "no": "2",
      "name": "Cam Fancher",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "2",
-     "name": "Devin Vaught",
-     "status": "questionable",
      "detail": ""
     },
     {
@@ -542,24 +535,10 @@
      "detail": ""
     },
     {
-     "pos": "QB",
-     "no": "11",
-     "name": "Alessio Milivojevic",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
      "pos": "WR",
      "no": "19",
      "name": "Charles Taplin",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "20",
-     "name": "Keshawn Williams",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -567,13 +546,6 @@
      "no": "21",
      "name": "Marvis Parrish",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "22",
-     "name": "Tyran Chappell",
-     "status": "questionable",
      "detail": ""
     },
     {

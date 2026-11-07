@@ -1,7 +1,16 @@
 {
  "team": "iowa",
- "updated": "2026-11-07T21:08:06.031843+00:00",
+ "updated": "2026-11-07T22:38:02.901314+00:00",
  "items": [
+  {
+   "title": "Live from the Press Box",
+   "link": "https://on3.com/teams/iowa-hawkeyes/news/iowa-hawkeyes-football-live-press-box-3/",
+   "source": "On3",
+   "summary": "We have all the latest news Live from the Press Box at Ryan Field.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07163126/Ryan-Field-.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T22:34:12+00:00"
+  },
   {
    "title": "Iowa vs. Northwestern: Hawkeyes' 3 Most Important Keys to Victory",
    "link": "https://www.si.com/college/iowa/football/iowa-vs-northwestern-keys-to-victory-hawkeyes?utm_source=RSS",
@@ -352,15 +361,6 @@
    "image": "https://hawkeyesports.com/imgproxy/-cDEOQXVEb9MpEGvlRZ0YBNyLHf1x70pBlZP_Fbtv90/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzA0L3Bxa2ZmZ1pIQ2VTMks4aEQ0blA5WHhVcEZUYkgxY2tXc0pZc2FueVguanBn.jpg",
    "sourceLogo": "https://hawkeyesports.com/favicon.ico",
    "published": "2026-11-04T19:30:00+00:00"
-  },
-  {
-   "title": "PFF Deep Dive: Northwestern Wildcats",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/northwestern-wildcats-vs-iowa-hawkeyes-pff-deep-dive-2026/",
-   "source": "On3",
-   "summary": "We take an in-depth look at the Northwestern Wildcats and the Iowa Hawkeyes to preview the game this week using the latest Pro Football Focus grades, advance stats, and much more.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/03120111/Iowa-1.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-04T18:24:01+00:00"
   },
   {
    "title": "Iowa Football's Biggest Offensive Question vs. Northwestern: How Much is Too Much?",

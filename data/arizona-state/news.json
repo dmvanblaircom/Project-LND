@@ -1,7 +1,16 @@
 {
  "team": "arizona-state",
- "updated": "2026-11-07T08:38:03.348524+00:00",
+ "updated": "2026-11-07T22:37:58.127454+00:00",
  "items": [
+  {
+   "title": "Colorado at ASU Game Thread",
+   "link": "https://on3.com/sites/asu-devils/news/colorado-at-asu-game-thread/",
+   "source": "Devils Digest",
+   "summary": "Follow us here for all of your pregame, in-game, and postgame updates from the Sun Devils\u2019 home game https://www.on3.com/boards/threads/colorado-at-asu-game-thread.9125385",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01183401/BYU-Highlights-Mack.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T22:36:22+00:00"
+  },
   {
    "title": "Arizona State can\u2019t keep up with Denver, falling 6-3 in Dave Hakstol\u2019s home debut",
    "link": "https://on3.com/sites/asu-devils/news/arizona-state-cant-keep-up-with-denver-falling-6-3-in-dave-hakstols-home-debut/",
@@ -163,15 +172,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_656,h_369,x_320,y_100/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/all_sun_devils/01m6f1k87jj6vqjw25r3.webp",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-02T21:12:08+00:00"
-  },
-  {
-   "title": "Newcomer Report - BYU Game",
-   "link": "https://on3.com/sites/asu-devils/news/newcomer-report-byu-game/",
-   "source": "Devils Digest",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02070716/2026-Fette-BYU.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-02T13:14:26+00:00"
   },
   {
    "title": "Everything Kenny Dillingham Said After Arizona State's 27-20 Loss vs. No. 8 BYU",
