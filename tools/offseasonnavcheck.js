@@ -49,7 +49,7 @@ function rankings(apLast) {
     await ctx.route("**/*", function (route) {
       var u = route.request().url(), body = null;
       if (u.startsWith(base)) return route.continue();
-      if (/\/teams\/87\/schedule\?seasontype=2&season=2026/.test(u)) body = o.next2026 ? fixture("espn-schedule-nd-2026-reg.json") : '{"events":[]}';
+      if (/\/teams\/87\/schedule\?seasontype=2&season=2026/.test(u)) body = o.next2026 ? preseason2026() : '{"events":[]}';   // as ESPN lists it in January: nothing played
       else if (/\/teams\/87\/schedule\?seasontype=3/.test(u)) body = fixture("espn-schedule-nd-2025-post.json");
       else if (/\/teams\/87\/schedule/.test(u)) body = o.current2026 ? preseason2026() : fixture("espn-schedule-nd-2025-reg.json");
       else if (/\/scoreboard\?.*seasontype=3/.test(u)) body = o.boardSet ? fixture("espn-scoreboard-postboard-2025.json") : '{"events":[]}';
@@ -103,6 +103,20 @@ function rankings(apLast) {
     // offseason nav; within 14 days, Game comes back.
     var e = await open({ now: "2026-01-25T17:00:00Z", hash: "#home", apLast: true, boardSet: true, next2026: true });
     ok((await tabs(e.page)) === OFFSEASON, "an opener in September, seen in January: still the offseason nav");
+    // S5 (offseason UI contract): Home's hero is the upcoming-game card for
+    // the confirmed opener, not an empty band (redesign audit, 2026-11-06),
+    // and Game shows the same game.
+    var s5 = await e.page.evaluate(function () {
+      var card = document.querySelector("#screenHome .gamecard");
+      return { cls: card ? card.className : null, text: card ? card.textContent : "",
+               season: !!document.querySelector("#screenHome .os-hero") };
+    });
+    ok(s5.cls && /gc-upcoming/.test(s5.cls) && /Wisconsin/.test(s5.text) && !s5.season,
+       "S5: Home's hero is the next season's opener, Wisconsin (" + JSON.stringify(s5) + ")");
+    await e.page.evaluate(function () { location.hash = "#game"; });
+    await e.page.waitForTimeout(600);
+    ok(/Wisconsin/.test(await e.page.evaluate(function () { return (document.querySelector("#screenGame .game-head") || document.querySelector("#screenGame") || {}).textContent || ""; })),
+       "S5: Game shows the same opener");
     await e.ctx.close();
     // July: the app's season year is 2026 and its schedule is current, but
     // the preseason poll is not out - the offseason nav holds.
