@@ -1,0 +1,17 @@
+/* Concept A, rail. A persistent left rail of the five destinations, beside
+   the content and aligned with it; the SUITE header stays on top. */
+@media (min-width:64rem){
+  :root{--nv-rail:5.5rem;--nv-gap:1.5rem;--nv-col:var(--s-content-max);
+        --nv-start:max(var(--gutter),calc((100% - var(--nv-rail) - var(--nv-gap) - var(--nv-col)) / 2))}
+  .app-bar{padding-left:var(--nv-start) !important;padding-right:var(--nv-start) !important}
+  .navbar{top:var(--s-bar-h);bottom:0;left:var(--nv-start);right:auto;width:var(--nv-rail);transform:none;
+    display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:.35rem;
+    padding:1rem 0;border:0;border-right:1px solid var(--s-line);border-radius:0;box-shadow:none;background:var(--s-surface)}
+  .navbar::after{display:none}
+  .nav-item{min-height:4.25rem;font-size:.75rem}
+  .nav-item[aria-current="page"]::after{left:0;right:auto;top:22%;bottom:22%;width:3px;height:auto}
+  .navbar.game-raised .nav-game{align-self:center;width:3.9rem;height:3.9rem;margin:.2rem 0;box-shadow:0 6px 16px rgba(15,27,45,.22),0 0 0 4px var(--s-surface)}
+  .navbar.game-raised .nav-game[aria-current="page"]::after{left:-.8rem;top:22%;bottom:22%;width:3px;height:auto}
+  .page-main{margin-left:calc(var(--nv-start) + var(--nv-rail) + var(--nv-gap));margin-right:auto;
+    padding-bottom:3rem}
+}
