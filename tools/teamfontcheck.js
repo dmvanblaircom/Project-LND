@@ -73,6 +73,16 @@ function fixture(url) {
   var o = await open("/?team=ohio-state#roster", { width: 320 });
   ok(/^"?Nunito Sans"?/.test(await family(o.page, "body")), "text is set in Nunito Sans (" + await family(o.page, "body") + ")");
   ok(/^"?Nunito Sans"?/.test(await family(o.page, ".page-title")), "and so are the headings");
+  // Scores, clocks and countdowns are the Suite's numeric face whatever the
+  // team's own display face (Phase 2 spec §3.2).
+  var nums = await o.page.evaluate(function () {
+    return [".gc-score", ".gh-score", ".gc-clock", ".cd-n"].map(function (c) {
+      var el = document.createElement("span"); el.className = c.slice(1); document.body.appendChild(el);
+      var f = getComputedStyle(el).fontFamily; el.remove(); return f;
+    });
+  });
+  ok(nums.every(function (f) { return /^"?Instrument Display"?/.test(f); }),
+     "scores, clocks and countdowns use the Suite's numeric face, not Nunito (" + nums.join(" | ") + ")");
   ok(o.fonts.length > 0 && o.fonts.every(function (u) { return u.startsWith(base + "/assets/fonts/nunito-sans/"); }),
      "from the repository's own files (" + o.fonts.length + " requested), never a third party");
   ok(await o.page.evaluate(function () { return document.fonts.check('800 16px "Nunito Sans"'); }), "and the face really loaded");
@@ -115,7 +125,9 @@ function fixture(url) {
   ok(n.fonts.length === 0, "Notre Dame: no Nunito Sans request");
   ok((await family(n.page, "body")).includes("Instrument Sans"), "Notre Dame uses Instrument Sans");
   ok((await family(n.page, ".hh-nick")).includes("Instrument Display"), "display uses the native condensed instance");
-  ok((await family(n.page, ".sec-title")).startsWith("Georgia"), "News keeps Georgia");
+  var head = await family(n.page, ".sec-title");
+  ok(head.includes("Instrument Sans") && !/georgia/i.test(head),
+     "section titles are the UI sans, no Georgia (Phase 2 spec §3.2: " + head + ")");
   ok(await n.page.evaluate(function () { return document.fonts.check('700 16px "Instrument Sans"') && document.fonts.check('700 16px "Instrument Display"'); }), "both local Instrument faces really loaded");
   await n.ctx.close();
   var s = await open("/?team=ohio-state#home", { suiteStyle: true });
