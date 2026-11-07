@@ -1,7 +1,16 @@
 {
  "team": "rice",
- "updated": "2026-11-05T16:38:11.859041+00:00",
+ "updated": "2026-11-07T00:38:16.254127+00:00",
  "items": [
+  {
+   "title": "Rice Remembers Ray Alborn",
+   "link": "https://riceowls.com/news/2026/11/6/football-rice-remembers-ray-alborn",
+   "source": "Rice Athletics",
+   "summary": "<img alt=\"Ray Alborn\" src=\"https://riceowls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/6/20261106_In_Memoriam_Ray_Alborn.png\" /><br /><br />Star defensive tackle and team captain became the first former Owl to return as head coach",
+   "image": "https://riceowls.com/images/2026/11/6/20261106_In_Memoriam_Ray_Alborn.png?width=800",
+   "sourceLogo": "https://riceowls.com/favicon.ico",
+   "published": "2026-11-06T23:42:00+00:00"
+  },
   {
    "title": "Rice Athletics and First Community Honor Teachers at Tulane Game",
    "link": "https://riceowls.com/news/2026/11/5/football-rice-athletics-and-first-community-honor-teachers-at-tulane-game",
@@ -82,15 +91,6 @@
    "image": "https://riceowls.com/images/2026/10/11/RICE_VS_ECU__12_vq0Z4.JPG?width=800",
    "sourceLogo": "https://riceowls.com/favicon.ico",
    "published": "2026-10-12T17:58:00+00:00"
-  },
-  {
-   "title": "Owls Fall Late at East Carolina",
-   "link": "https://riceowls.com/news/2026/10/10/football-owls-fall-late-at-east-carolina",
-   "source": "Rice Athletics",
-   "summary": "<img alt=\"Tyvonn Byars\" src=\"https://riceowls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/RICE_VS_ECU__16.JPG\" /><br /><br />Rice went ahead early to open the second half, but couldn't maintain its lead as the Owls fell to East Carolina, 28-12, Saturday afternoon at Dowdy-Ficklen Stadium in Greenville, NC.",
-   "image": "https://riceowls.com/images/2026/10/10/RICE_VS_ECU__16.JPG?width=800",
-   "sourceLogo": "https://riceowls.com/favicon.ico",
-   "published": "2026-10-10T22:13:00+00:00"
   }
  ]
 }
