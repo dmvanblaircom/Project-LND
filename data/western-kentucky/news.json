@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-07T11:38:14.973971+00:00",
+ "updated": "2026-11-07T20:26:19.284685+00:00",
  "items": [
+  {
+   "title": "Football Pregame Show: Middle Tennessee",
+   "link": "https://wkusports.com/news/2026/11/7/football-pregame-show-middle-tennessee",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"MTSU Pregame Interview 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/7/pregame_interview_16x9.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/11/7/pregame_interview_16x9.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-07T20:11:00+00:00"
+  },
   {
    "title": "Gameday Guide: Middle Tennessee",
    "link": "https://wkusports.com/news/2026/11/7/football-gameday-guide-middle-tennessee",
@@ -91,15 +100,6 @@
    "image": "https://wkusports.com/images/2026/10/22/TYSON_PRESSER.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-10-22T17:49:00+00:00"
-  },
-  {
-   "title": "Hilltoppers Claim 16-3 Road Win At Sam Houston",
-   "link": "https://wkusports.com/news/2026/10/14/football-hilltoppers-claim-16-3-road-win-at-sam-houston",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"Westen Ard\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/10/14/ard_post.png\" /><br /><br />HUNTSVILLE, Texas \u2013 WKU Football held Sam Houston without a touchdown in a 16-3 win on Wednesday at Elliott T. Bowers Stadium in Huntsville, Texas.",
-   "image": "https://wkusports.com/images/2026/10/14/ard_post.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-10-15T05:50:00+00:00"
   }
  ]
 }

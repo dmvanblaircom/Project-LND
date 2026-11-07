@@ -1,6 +1,6 @@
 {
 "team": "ucla",
-"updated": "2026-11-07T20:07Z",
+"updated": "2026-11-07T20:25Z",
 "points": [
 {
 "t": "2026-10-28T01:37Z",
@@ -903,6 +903,13 @@
 "title": 2.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 62.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T20:25Z",
+"title": 3.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 67.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
