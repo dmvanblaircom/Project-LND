@@ -966,7 +966,7 @@ item is an opportunity for the Creative Director to accept, change or reject.
 ### 7.3 Genuine functional gaps (would need logic or data, and a product decision)
 
 1. **S5 Home hero** (next season published): no card today; see §8.1. This is a defect against the
-   offseason contract, not a design idea.
+   offseason contract, not a design idea. *Fixed in #236.*
 2. **Win-probability line on Game.** The series is in ESPN's summary; TeamOS keeps only the last
    value.
 3. **Player card.** Roster and season stats exist separately, with no per-player view.
@@ -1000,7 +1000,10 @@ These are not design items; they are bugs in current behavior. **None was fixed 
 assignment.** Each is small and, under decision 0039, a bug fix Claude may ship once David says
 work resumes.
 
-1. **S5 Home has no hero.**
+> **Status (2026-11-07):** 1 fixed in #236, 2 fixed in #235. 3 stays open for the redesign.
+
+1. **S5 Home has no hero.** *Fixed in #236:* in S5 the hero is next season's opener, on Home and
+   Game.
    - **Trigger:** the season is over (final AP poll published), the postseason is done, and ESPN
      already lists next season's schedule.
    - **What happens:**
@@ -1014,12 +1017,13 @@ work resumes.
    - **Fix:** feed the published opener (`offseason.phase.opener`) to the hero.
    - **When it matters:** fans see this every winter, as soon as ESPN publishes the next schedule.
      A Notre Dame 2027 schedule is already in the fixtures (`espn-schedule-nd-2027.json`).
-2. **HTML entities in headlines.**
+2. **HTML entities in headlines.** *Fixed in #235:* the producer decodes the second layer; the
+   next refresh rewrites every team's headlines.
    - 26 headlines across the current news snapshots show raw entities ("Q&#038;A",
      "&#8211;"), e.g. `data/notre-dame/news.json`.
    - The feeds double-encode (`&amp;#038;`). The XML parser in `tools/producers/beat_news.py` removes one layer, and nothing removes the second.
    - Visible on News ([render](audit/2026-11-06/nd-pre-team-390-news-full.jpg)).
-3. **Game view strip at 390px.** "Drive Tracker" overflows its quarter-width tab (`app.css:711-714`)
+3. **Game view strip at 390px.** *Open, left for the redesign.* "Drive Tracker" overflows its quarter-width tab (`app.css:711-714`)
    and touches the screen edge. It is minor and presentation-only, so it can wait for the
    redesign.
 

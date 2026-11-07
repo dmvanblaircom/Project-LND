@@ -1458,7 +1458,8 @@ function loadOffseasonNext(year){
   }).catch(function(){
     OFFSEASON.nextOutcome="failed";
   }).then(function(){
-    OFFSEASON.nextPending=false; paintHome();
+    // Game reads the S5 hero too (heroOf), and may be the screen showing
+    OFFSEASON.nextPending=false; paintHome(); paintGame();
   });
 }
 function loadOffseasonSelection(year){
@@ -1473,7 +1474,7 @@ function loadOffseasonSelection(year){
     // Unknown is not the same as an unselected team. Retry on a later paint.
     OFFSEASON.selectedAt[year]=0;
   }).then(function(){
-    OFFSEASON.boardPending[year]=false; paintHome();
+    OFFSEASON.boardPending[year]=false; paintHome(); paintGame();
   });
 }
 function offseasonModel(now){
@@ -1514,10 +1515,10 @@ function paintHome(){
   // offseason nav at once (Codex, #161).
   var offseason=S.games ? offseasonModel(now) : null;
   if(!host || host.hidden || !S.games) { if(host && !host.hidden && !S.games) paintHomeLoading(host); return; }
-  var h=TeamOS.game.hero(S.games, now, TEAM.timeZone), g=h.game;
+  var h=heroOf(now), g=h.game;
   // Our rank and record now, from the team feed, when the game's own
-  // competitor entry does not carry them.
-  if(g && HOME.status){
+  // competitor entry does not carry them - never on next season's opener.
+  if(g && HOME.status && !h.nextSeason){
     g=Object.assign({}, g);
     if(g.usRank==null && HOME.status.rank) g.usRank=HOME.status.rank;
     if(!g.usRecord && HOME.status.record) g.usRecord=HOME.status.record;
@@ -1651,9 +1652,25 @@ window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintR
 // on Game; SV a game opened from Schedule (#schedule/<id>).
 function gameState(id){ return { id:id, gd:null, preview:undefined, side:"us", at:0, loading:false, open:{} }; }
 var GV=gameState(null);
+// The hero, with one addition to TeamOS's rule: in S5 - this season over and
+// next season's schedule out - the opener is the hero (offseason UI contract:
+// S5 reuses the upcoming-game card; an empty band before, redesign audit
+// 2026-11-06). Only then: while the postseason is undecided the season card
+// owns Home and Game has nothing to show yet.
+function heroOf(now){
+  var h=TeamOS.game.hero(S.games||[], now, TEAM.timeZone);
+  if(h.game || h.reason!=="season-over") return h;
+  var next=OFFSEASON.nextSeason===seasonYear()+1 ? OFFSEASON.next : null;
+  if(!next || !next.length) return h;
+  var p=TeamOS.season.phase({games:S.games, next:next, selected:OFFSEASON.selected[seasonYear()], now:now});
+  if(p.state!=="next-published") return h;
+  var n=TeamOS.game.hero(next, now, TEAM.timeZone);
+  return n.game ? { game:n.game, reason:n.reason, nextSeason:true } : h;
+}
 function heroGame(){
-  var h=TeamOS.game.hero(S.games||[], new Date(), TEAM.timeZone), g=h.game;
-  if(g && HOME.status){
+  var h=heroOf(new Date()), g=h.game;
+  // last season's rank and record are not the new season's
+  if(g && HOME.status && !h.nextSeason){
     g=Object.assign({}, g);
     if(g.usRank==null && HOME.status.rank) g.usRank=HOME.status.rank;
     if(!g.usRecord && HOME.status.record) g.usRecord=HOME.status.record;
