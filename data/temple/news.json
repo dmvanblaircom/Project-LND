@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-06T14:38:14.105172+00:00",
+ "updated": "2026-11-07T05:08:08.638609+00:00",
  "items": [
+  {
+   "title": "Gameday preview: Temple at Navy",
+   "link": "https://on3.com/sites/owl-scoop/news/gameday-preview-temple-at-navy/",
+   "source": "OwlScoop",
+   "summary": "The Owls are looking to snap a three-game losing streak Saturday in Annapolis.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/06202246/JoJo-Bermudez.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T05:00:00+00:00"
+  },
   {
    "title": "The Scoop: S12, E14 - Shizz Alston and Ray Dunne break down Temple's season-opening win",
    "link": "https://on3.com/sites/owl-scoop/news/the-scoop-s12-e14-shizz-alston-and-ray-dunne-break-down-temples-season-opening-win/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/22080246/K.C.-Keeler-Penn-State-1.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-19T14:03:27+00:00"
-  },
-  {
-   "title": "Don Otto's Temple - Charlotte gallery",
-   "link": "https://on3.com/sites/owl-scoop/news/don-ottos-temple-charlotte-gallery-2/",
-   "source": "OwlScoop",
-   "summary": "View Don Otto's photos from Temple's 38-31 loss to Charlotte here.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/19082720/Temple-afi-hookly-3.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-19T13:28:01+00:00"
   }
  ]
 }
