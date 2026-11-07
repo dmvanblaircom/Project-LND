@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-07T04:38:21.676781+00:00",
+ "updated": "2026-11-07T11:38:14.973971+00:00",
  "items": [
+  {
+   "title": "Gameday Guide: Middle Tennessee",
+   "link": "https://wkusports.com/news/2026/11/7/football-gameday-guide-middle-tennessee",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"WKU FB 26 \u2013 Gameday Guide \u2013 Middle Tennessee\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/5/WKU_FB_26___Gameday_Guide___Middle_Tennessee.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/11/5/WKU_FB_26___Gameday_Guide___Middle_Tennessee.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-07T11:00:00+00:00"
+  },
   {
    "title": "WKU Football looks to rebound against Middle Tennessee State",
    "link": "https://wkuherald.com/98831/sports/wku-football-looks-to-rebound-against-middle-tennessee-state/",
@@ -91,15 +100,6 @@
    "image": "https://wkusports.com/images/2026/10/14/ard_post.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-10-15T05:50:00+00:00"
-  },
-  {
-   "title": "Football Pregame Show: Sam Houston",
-   "link": "https://wkusports.com/news/2026/10/14/football-pregame-show-sam-houston",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"Sam Houston Pregame Interview 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/10/14/pregame_show_16x9.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/10/14/pregame_show_16x9.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-10-14T22:40:00+00:00"
   }
  ]
 }
