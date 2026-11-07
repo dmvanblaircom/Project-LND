@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T01:08:56.449423+00:00",
+ "fetchedAt": "2026-11-07T15:38:55.681107+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Duke",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "RB",
    "no": "1",
    "name": "Jayden \"Duke\" Scott",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "QB",
    "no": "10",
    "name": "Will Wilson",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "OL",
    "no": "54",
    "name": "Teague Andersen",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

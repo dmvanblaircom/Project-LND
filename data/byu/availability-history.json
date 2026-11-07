@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "byu",
- "updated": "2026-11-07T03:07:09.503005+00:00",
+ "updated": "2026-11-07T15:38:49.467696+00:00",
  "reports": [
   {
    "schema": 1,
@@ -282,10 +282,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T03:07:09.503005+00:00",
+   "fetchedAt": "2026-11-07T15:38:49.467696+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Utah",
    "players": [
@@ -293,7 +293,7 @@
      "pos": "CB",
      "no": "0",
      "name": "Evan Johnson",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -307,14 +307,14 @@
      "pos": "TE",
      "no": "2",
      "name": "Roger Saleapaga II",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "RB",
      "no": "4",
      "name": "LJ Martin",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -336,13 +336,6 @@
      "no": "39",
      "name": "Seth Shigg",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "46",
-     "name": "Kendal Wall",
-     "status": "questionable",
      "detail": ""
     },
     {

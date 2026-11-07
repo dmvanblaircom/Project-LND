@@ -7,13 +7,20 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T01:40:46.960678+00:00",
+ "fetchedAt": "2026-11-07T15:38:58.312302+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Initial",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "at Louisiana",
  "players": [
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Johnson, Tirrell",
+   "status": "out-season",
+   "detail": ""
+  },
   {
    "pos": "OL",
    "no": "",
@@ -46,14 +53,28 @@
    "pos": "OL",
    "no": "",
    "name": "Hubbard, Shalik",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "OL",
    "no": "",
-   "name": "Lewis, Masey",
-   "status": "questionable",
+   "name": "Korchagin, Artem",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Moore, DJ",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Mosley, Demetress",
+   "status": "out-game",
    "detail": ""
   },
   {

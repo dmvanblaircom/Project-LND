@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T01:40:29.769861+00:00",
+ "fetchedAt": "2026-11-07T15:38:43.796732+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Initial",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Georgia State",
  "players": [
@@ -36,9 +36,37 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "",
+   "name": "Kamauri Austin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DL",
    "no": "",
    "name": "Aiden Benton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "J'Marion Burnette",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Darrin Fugitt",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Tyriq Poindexter",
    "status": "out-game",
    "detail": ""
   },
@@ -50,59 +78,17 @@
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "ILB",
    "no": "",
-   "name": "Kamauri Austin",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "J'Marion Burnette",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "",
-   "name": "Darrin Fugitt",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Tyriq Poindexter",
-   "status": "doubtful",
+   "name": "Brooks Yurachek",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Ja'Cari Henderson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Keshawn Thomas",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Dre Walker",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Brooks Yurachek",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],
