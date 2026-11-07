@@ -53,6 +53,16 @@ except ValueError:
 ok(amp == ["Q&A: depth chart & notes"],
    "a bare & in a headline is tolerated, as every feed reader does; a real entity is left alone")
 
+# A feed that encodes its headlines twice (WordPress titles in CDATA, or
+# "&amp;#038;"): the XML parser removes one layer, the headline must not show
+# the other ("Q&#038;A", 26 live headlines on 2026-11-06).
+twice = RSS.replace(b"Depth chart notes", b"<![CDATA[Q&#038;A with State Of The U]]>").replace(
+    b"</channel>", b"<item><title>Things I Think I Know &amp;#8211; Pitt</title><link>https://a.example/3</link></item></channel>")
+ok([i["title"] for i in bn.parse_feed(twice, "Site A")] == ["Q&A with State Of The U", "Things I Think I Know \u2013 Pitt"],
+   "a headline encoded twice reads as words, not entities (RSS)")
+atom_twice = ATOM.replace(b"Purdue preview", b"Purdue Q&amp;#038;A")
+ok([i["title"] for i in bn.parse_feed(atom_twice, "Site B")] == ["Purdue Q&A"], "and in Atom")
+
 print("only web links")
 evil = RSS.replace(b"</channel>", b"<item><title>Click me</title><link>javascript:alert(1)</link></item>"
                                    b"<item><title>Data</title><link>data:text/html,x</link></item>"
