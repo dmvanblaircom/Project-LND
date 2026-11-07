@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tennessee",
- "updated": "2026-11-06T01:39:06.485901+00:00",
+ "updated": "2026-11-07T01:38:48.122715+00:00",
  "reports": [
   {
    "schema": 1,
@@ -366,10 +366,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:39:06.485901+00:00",
+   "fetchedAt": "2026-11-07T01:38:48.122715+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "vs. Kentucky",
    "players": [

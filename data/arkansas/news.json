@@ -1,7 +1,16 @@
 {
  "team": "arkansas",
- "updated": "2026-11-06T17:08:18.991674+00:00",
+ "updated": "2026-11-07T01:37:57.166489+00:00",
  "items": [
+  {
+   "title": "Arkansas Football Availability Report: Auburn week (Friday)",
+   "link": "https://on3.com/sites/hawg-beat/news/arkansas-football-availability-report-auburn-week-friday/",
+   "source": "HawgBeat",
+   "summary": "The third SEC Availability Report for Arkansas versus Auburn was released on Friday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/18155042/Silvy-1.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T01:12:37+00:00"
+  },
   {
    "title": "Forcing, avoiding turnovers key for Razorbacks against Cavaliers",
    "link": "https://on3.com/sites/hawg-beat/news/forcing-avoiding-turnovers-key-for-razorbacks-against-cavaliers/",
@@ -253,15 +262,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02071252/Shaw-DC.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-02T17:31:06+00:00"
-  },
-  {
-   "title": "PFF grades from Arkansas' loss to Missouri",
-   "link": "https://on3.com/sites/hawg-beat/news/pff-grades-from-arkansas-loss-to-missouri/",
-   "source": "HawgBeat",
-   "summary": "HawgBeat goes in-depth on Arkansas' performance in its loss to Missouri with Pro Football Focus grades.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01125235/Untitled-design-2.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T20:30:00+00:00"
   }
  ]
 }

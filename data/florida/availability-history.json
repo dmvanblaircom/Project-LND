@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida",
- "updated": "2026-11-06T01:38:55.187754+00:00",
+ "updated": "2026-11-07T01:38:41.830195+00:00",
  "reports": [
   {
    "schema": 1,
@@ -217,10 +217,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:38:55.187754+00:00",
+   "fetchedAt": "2026-11-07T01:38:41.830195+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "vs. Oklahoma",
    "players": [
@@ -228,14 +228,14 @@
      "pos": "WR",
      "no": "1",
      "name": "Vernell Brown III",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "3",
      "name": "Bailey Stockton",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -270,7 +270,7 @@
      "pos": "DL",
      "no": "99",
      "name": "Emmanuel Oyebadejo",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

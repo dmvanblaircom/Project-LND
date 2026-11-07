@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:38:55.706830+00:00",
+ "fetchedAt": "2026-11-07T01:38:42.224145+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Ole Miss",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "WR",
    "no": "2",
    "name": "Thomas Blackshear",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "5",
    "name": "Chauncey Bowens",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "ILB",
    "no": "13",
    "name": "AJ Kruah",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -53,14 +53,14 @@
    "pos": "S",
    "no": "23",
    "name": "Tyriq Green",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "99",
    "name": "Joseph Jonah-Ajonye",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   }
  ],

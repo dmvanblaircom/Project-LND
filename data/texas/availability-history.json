@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas",
- "updated": "2026-11-06T01:39:06.629430+00:00",
+ "updated": "2026-11-07T01:38:48.237311+00:00",
  "reports": [
   {
    "schema": 1,
@@ -240,10 +240,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:39:06.629430+00:00",
+   "fetchedAt": "2026-11-07T01:38:48.237311+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "at Missouri",
    "players": [
@@ -258,7 +258,7 @@
      "pos": "WR",
      "no": "1",
      "name": "Ryan Wingo",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -279,14 +279,14 @@
      "pos": "DB",
      "no": "8",
      "name": "Kade Phillips",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "29",
      "name": "Graceson Littleton",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

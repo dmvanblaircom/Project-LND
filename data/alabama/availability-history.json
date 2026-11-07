@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "alabama",
- "updated": "2026-11-06T01:38:47.683570+00:00",
+ "updated": "2026-11-07T01:38:35.737829+00:00",
  "reports": [
   {
    "schema": 1,
@@ -462,10 +462,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T01:38:47.683570+00:00",
+   "fetchedAt": "2026-11-07T01:38:35.737829+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-06",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-07",
    "game": "at LSU",
    "players": [
@@ -473,14 +473,14 @@
      "pos": "RB",
      "no": "0",
      "name": "AK Dear",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "1",
      "name": "Ryan Coleman-Williams",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -536,7 +536,7 @@
      "pos": "OL",
      "no": "55",
      "name": "Racin Delgatty",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -564,7 +564,7 @@
      "pos": "DL",
      "no": "99",
      "name": "Terrance Green",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

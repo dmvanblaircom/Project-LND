@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:39:06.774846+00:00",
+ "fetchedAt": "2026-11-07T01:38:48.352570+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at South Carolina",
  "players": [
@@ -19,13 +19,6 @@
    "no": "0",
    "name": "KJ Edwards",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "0",
-   "name": "Noah Mikhail",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -39,7 +32,7 @@
    "pos": "WR",
    "no": "8",
    "name": "Ashton Bethel-Roman",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

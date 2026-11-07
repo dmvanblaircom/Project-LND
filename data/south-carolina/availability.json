@@ -7,20 +7,13 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:39:05.588239+00:00",
+ "fetchedAt": "2026-11-07T01:38:47.448870+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "vs. Texas A&M",
  "players": [
-  {
-   "pos": "WR",
-   "no": "6",
-   "name": "Donovan Murph",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "DL",
    "no": "11",

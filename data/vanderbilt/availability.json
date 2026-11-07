@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:39:08.616014+00:00",
+ "fetchedAt": "2026-11-07T01:38:49.780956+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Mississippi State",
  "players": [
@@ -19,13 +19,6 @@
    "no": "1",
    "name": "Blaze Berlowitz",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DT",
-   "no": "15",
-   "name": "Mike Diatta",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -67,14 +60,14 @@
    "pos": "DL",
    "no": "93",
    "name": "Nikhil Jefferson",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "EDG",
    "no": "96",
    "name": "Khalil Poteat",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],

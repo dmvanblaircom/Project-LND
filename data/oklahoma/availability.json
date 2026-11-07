@@ -7,20 +7,13 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T01:39:03.686575+00:00",
+ "fetchedAt": "2026-11-07T01:38:46.012646+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-06",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-07",
  "game": "at Florida",
  "players": [
-  {
-   "pos": "WR",
-   "no": "5",
-   "name": "Jer'Michael Carter",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "LB",
    "no": "7",
@@ -46,7 +39,7 @@
    "pos": "WR",
    "no": "14",
    "name": "Elijah Thomas",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -68,13 +61,6 @@
    "no": "22",
    "name": "Trynae Washington",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "23",
-   "name": "Eli Bowen",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -106,17 +92,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "81",
-   "name": "Rocky Beers",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "94",
    "name": "Kenny Ozowalu",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],
