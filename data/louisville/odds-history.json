@@ -1,6 +1,6 @@
 {
 "team": "louisville",
-"updated": "2026-11-07T04:07Z",
+"updated": "2026-11-07T05:37Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -588,6 +588,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 3.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T05:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 2.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

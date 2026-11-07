@@ -1,6 +1,6 @@
 {
 "team": "alabama",
-"updated": "2026-11-07T05:07Z",
+"updated": "2026-11-07T05:37Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -679,6 +679,13 @@
 "title": 5.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 66.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T05:37Z",
+"title": 5.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 65.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
