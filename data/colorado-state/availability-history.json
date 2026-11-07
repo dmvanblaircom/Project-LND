@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado-state",
- "updated": "2026-11-07T03:07:10.371845+00:00",
+ "updated": "2026-11-07T21:08:47.209450+00:00",
  "reports": [
   {
    "schema": 1,
@@ -101,10 +101,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T03:07:10.371845+00:00",
+   "fetchedAt": "2026-11-07T21:08:47.209450+00:00",
    "reported": true,
    "effectiveAt": "2026-11-07",
-   "heading": "Update 2",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Boise State",
    "players": [
@@ -112,7 +112,7 @@
      "pos": "TE",
      "no": "",
      "name": "Grant Houser",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -126,7 +126,7 @@
      "pos": "RB",
      "no": "",
      "name": "Durell Robinson",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -140,7 +140,7 @@
      "pos": "TE",
      "no": "",
      "name": "Pearce Spurlin",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -161,7 +161,7 @@
      "pos": "OL",
      "no": "",
      "name": "John Holthaus",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -188,7 +188,7 @@
     {
      "pos": "DB",
      "no": "",
-     "name": "Aj  Noland",
+     "name": "Aj Noland",
      "status": "out-game",
      "detail": ""
     }
