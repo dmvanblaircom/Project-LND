@@ -261,8 +261,11 @@ Suite.ui = (function () {
       el.style.minHeight = el.offsetHeight + "px"; held = true;
     }
     el.innerHTML = html;
-    if (y > 0 && window.scrollY !== y) window.scrollTo(0, y);
-    if (own > 0 && el.scrollTop !== own) el.scrollTop = own;     // a section that scrolls itself (Top 25's game sheet)
+    // Only a move back up is the engine's jump: a section above the fan that
+    // grew moves the page DOWN under the browser's own scroll anchoring, to
+    // keep what the fan is reading still - that is left alone (Codex review).
+    if (y > 0 && window.scrollY < y) window.scrollTo(0, y);
+    if (own > 0 && el.scrollTop < own) el.scrollTop = own;       // a section that scrolls itself (Top 25's game sheet)
     if (held) requestAnimationFrame(function () { el.style.minHeight = ""; });
     Array.prototype.forEach.call(el.querySelectorAll("img[data-mark]"), function (img) {
       var old = (keep[img.getAttribute("src")] || []).shift();

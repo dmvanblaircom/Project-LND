@@ -32,7 +32,7 @@ function ok(c, what) { console.log((c ? "  ok   " : "  FAIL ") + what); if (!c) 
     var page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.goto(base + "/tools/fixtures/espn-news.json");
     await page.setContent('<!doctype html><html><head><link rel="stylesheet" href="' + base + '/app.css"></head><body>' +
-      '<div id="top" style="height:300px">top</div><div id="sec"></div><div style="height:200px">foot</div></body></html>');
+      '<div id="top" style="height:300px">top</div><div id="sec"></div><div id="foot" style="height:900px">foot</div></body></html>');
     await page.addScriptTag({ url: base + "/suite/ui.js" });
     function rows(n) { var h = ""; for (var i = 0; i < n; i++) h += '<p style="height:50px;margin:0">row ' + i + "</p>"; return h; }
     var R40 = rows(40), R41 = rows(41), R10 = rows(10);
@@ -51,23 +51,34 @@ function ok(c, what) { console.log((c ? "  ok   " : "  FAIL ") + what); if (!c) 
       window.scrollTo(0, document.documentElement.scrollHeight);
       Suite.ui.fill(sec, a.R10);
       await new Promise(function (r) { requestAnimationFrame(function () { requestAnimationFrame(r); }); });
-      var max = document.documentElement.scrollHeight - innerHeight;
+      var max = document.documentElement.scrollHeight - innerHeight, shortY = window.scrollY;
       // At the top already: nothing to keep, nothing held.
       window.scrollTo(0, 0);
       Suite.ui.fill(sec, a.R40);
+      var topHold = sec.style.minHeight;
+      await new Promise(function (r) { requestAnimationFrame(function () { requestAnimationFrame(r); }); });
       // A section that scrolls by itself (the game sheet's body), its content swapped by a refresh.
       var box = document.createElement("div"); box.style.cssText = "height:300px;overflow-y:auto"; document.body.appendChild(box);
       Suite.ui.fill(box, a.R40); box.scrollTop = 600;
       new MutationObserver(function () {}).observe(box, { childList: true });
       Suite.ui.fill(box, a.R41);
-      return { before: before, after: after, hold: hold, released: released, shortY: window.scrollY, shortMax: max, topHold: sec.style.minHeight, boxTop: box.scrollTop };
+      // A section ABOVE the fan grows: the browser's own scroll anchoring moves
+      // the page down to keep what the fan reads still - fill must not undo it.
+      Suite.ui.fill(sec, a.R40);
+      window.scrollTo(0, 2400);                          // past the section, reading the foot
+      var anchorBefore = window.scrollY, footBefore = document.getElementById("foot").getBoundingClientRect().top;
+      Suite.ui.fill(sec, a.R40 + a.R10);                 // ten more rows above the reader
+      var footAfter = document.getElementById("foot").getBoundingClientRect().top;
+      return { before: before, after: after, hold: hold, released: released, shortY: shortY, shortMax: max, topHold: topHold, boxTop: box.scrollTop,
+               anchorBefore: anchorBefore, anchorAfter: window.scrollY, footMoved: Math.round(footAfter - footBefore) };
     }, { R40: R40, R41: R41, R10: R10 });
     ok(res.before === 1200 && res.after === 1200, "a refresh while scrolled down keeps the fan's place (" + res.before + " -> " + res.after + ")");
     ok(/^\d+px$/.test(res.hold || ""), "the section holds its height for the swap (" + res.hold + "), so the page cannot collapse under the fan");
     ok(res.released === "", "the hold is let go on the next frame");
-    ok(res.shortY <= res.shortMax + 1, "a section that really got shorter settles to its new size: no blank space held under it");
-    ok(res.topHold === "", "at the top of the page nothing is held");
+    ok(res.shortY <= res.shortMax + 1, "a section that really got shorter settles to its new size: no blank space held under it (" + res.shortY + " of " + res.shortMax + ")");
+    ok(res.topHold === "", "at the top of the page nothing is held (" + res.topHold + ")");
     ok(res.boxTop === 600, "a section that scrolls by itself keeps its own place through a refresh (" + res.boxTop + ")");
+    ok(res.anchorAfter > res.anchorBefore && Math.abs(res.footMoved) <= 1, "a section above the fan that grew: the browser's own anchoring keeps what they read still, and fill does not undo it (" + res.anchorBefore + " -> " + res.anchorAfter + ", the text moved " + res.footMoved + " px)");
   } finally { await browser.close(); server.close(); }
   console.log("");
   if (failures) { console.log(failures + " check(s) FAILED"); process.exit(1); }
