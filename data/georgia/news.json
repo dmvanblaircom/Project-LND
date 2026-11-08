@@ -1,7 +1,16 @@
 {
  "team": "georgia",
- "updated": "2026-11-08T05:08:01.583916+00:00",
+ "updated": "2026-11-08T05:38:06.434880+00:00",
  "items": [
+  {
+   "title": "Georgia-Ole Miss Postgame News and Notes",
+   "link": "https://on3.com/teams/georgia-bulldogs/news/georgia-ole-miss-postgame-news-and-notes/",
+   "source": "On3",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07223413/Taylor.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T05:13:53+00:00"
+  },
   {
    "title": "Georgia's defense bombards Ole Miss, Trinidad Chambliss",
    "link": "https://on3.com/teams/georgia-bulldogs/news/georgias-defense-bombards-ole-miss-trinidad-chambliss/",
@@ -28,15 +37,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07223607/2026-11-08T024447Z_1064525067_MT1USATODAY30308877_RTRMADP_3_NCAA-FOOTBALL-GEORGIA-AT-MISSISSIPPI.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T04:37:10+00:00"
-  },
-  {
-   "title": "Georgia 42, Ole Miss 7: \u2018Dawgs Turn the Rebs Every Way But Loose",
-   "link": "https://www.dawgsports.com/georgia-bulldogs-football/39502/georgia-42-ole-miss-7-dawgs-turn-the-rebs-every-way-but-loose",
-   "source": "Dawg Sports",
-   "summary": "Kirby Smart spent an entire week ruminating on how calm and steady Ole Miss quarterback Trinidad Chambliss has been this season. He then conspired with Glenn Schumann to put Chambliss in a blender and switch back and forth between the puree and smoothie settings for an entire college football game. Georgia pressured Chambliss early and [&#8230;]",
-   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/11/gettyimages-2304051629.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-08T04:32:55+00:00"
   },
   {
    "title": "Snap Judgments: Georgia checks 'complete game' box",
@@ -235,15 +235,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/05161448/Prediction-4.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-06T16:33:32+00:00"
-  },
-  {
-   "title": "Opposition Research: An expert's take on Ole Miss",
-   "link": "https://on3.com/teams/georgia-bulldogs/news/opposition-research-an-experts-take-on-ole-miss-3/",
-   "source": "On3",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/06102413/Opposition-research-17.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-06T16:28:36+00:00"
   },
   {
    "title": "Coaching Legend Urban Meyer Raises Eyebrows After Giant Statement About Georgia Football",
@@ -451,6 +442,15 @@
    "image": "https://georgiadogs.com/images/2026/11/3/Unknown-112.jpeg?width=800",
    "sourceLogo": "https://georgiadogs.com/favicon.ico",
    "published": "2026-11-03T18:05:00+00:00"
+  },
+  {
+   "title": "Tuesday \u2018Dawg Bites Is Ready To Turn The Page\u2026 Almost.",
+   "link": "https://www.dawgsports.com/georgia-bulldogs-dawg-bites/39444/tuesday-dawg-bites-is-ready-to-turn-the-page-almost",
+   "source": "Dawg Sports",
+   "summary": "Welcome to Tuesday, Bulldog fans! Your Georgia Bulldogs have played two-thirds of their regular season games, and two-thirds of their SEC conference games. And, two-thirds of the \u201ctraditional\u201d rivals on the schedule, with only Georgia Tech left in a few weeks. Are you still basking in the glow of a freshly flambe\u2019ed gator? You should [&#8230;]",
+   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/11/gettyimages-2302583417.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-03T03:21:24+00:00"
   }
  ]
 }
