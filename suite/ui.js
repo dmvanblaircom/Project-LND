@@ -245,8 +245,9 @@ Suite.ui = (function () {
      2026-11-08; reproduced in WebKit, 790 px -> 73 and 850 px -> 0, with no
      script scrolling). So for the swap the section holds its height, the
      page cannot collapse under the fan, and if the engine moved the page
-     anyway it goes back. The hold is let go on the next frame, so a section
-     that really did get shorter settles to its new size. */
+     anyway it goes back - and so does a section that scrolls by itself (the
+     Top 25 game sheet's body). The hold is let go on the next frame, so a
+     section that really did get shorter settles to its new size. */
   function fill(el, html) {
     if (!el) return;
     if (!el.querySelectorAll) { el.innerHTML = html; return; }   // no DOM to keep (a test's stand-in)
@@ -255,12 +256,13 @@ Suite.ui = (function () {
       var src = img.getAttribute("src");
       if (img.complete && img.naturalWidth > 0) (keep[src] = keep[src] || []).push(img);
     });
-    var y = typeof window !== "undefined" && window.scrollY || 0, held = false;
+    var y = typeof window !== "undefined" && window.scrollY || 0, held = false, own = el.scrollTop || 0;
     if (y > 0 && el.isConnected && el.style && !el.style.minHeight) {
       el.style.minHeight = el.offsetHeight + "px"; held = true;
     }
     el.innerHTML = html;
     if (y > 0 && window.scrollY !== y) window.scrollTo(0, y);
+    if (own > 0 && el.scrollTop !== own) el.scrollTop = own;     // a section that scrolls itself (Top 25's game sheet)
     if (held) requestAnimationFrame(function () { el.style.minHeight = ""; });
     Array.prototype.forEach.call(el.querySelectorAll("img[data-mark]"), function (img) {
       var old = (keep[img.getAttribute("src")] || []).shift();

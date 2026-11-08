@@ -55,13 +55,19 @@ function ok(c, what) { console.log((c ? "  ok   " : "  FAIL ") + what); if (!c) 
       // At the top already: nothing to keep, nothing held.
       window.scrollTo(0, 0);
       Suite.ui.fill(sec, a.R40);
-      return { before: before, after: after, hold: hold, released: released, shortY: window.scrollY, shortMax: max, topHold: sec.style.minHeight };
+      // A section that scrolls by itself (the game sheet's body), its content swapped by a refresh.
+      var box = document.createElement("div"); box.style.cssText = "height:300px;overflow-y:auto"; document.body.appendChild(box);
+      Suite.ui.fill(box, a.R40); box.scrollTop = 600;
+      new MutationObserver(function () {}).observe(box, { childList: true });
+      Suite.ui.fill(box, a.R41);
+      return { before: before, after: after, hold: hold, released: released, shortY: window.scrollY, shortMax: max, topHold: sec.style.minHeight, boxTop: box.scrollTop };
     }, { R40: R40, R41: R41, R10: R10 });
     ok(res.before === 1200 && res.after === 1200, "a refresh while scrolled down keeps the fan's place (" + res.before + " -> " + res.after + ")");
     ok(/^\d+px$/.test(res.hold || ""), "the section holds its height for the swap (" + res.hold + "), so the page cannot collapse under the fan");
     ok(res.released === "", "the hold is let go on the next frame");
     ok(res.shortY <= res.shortMax + 1, "a section that really got shorter settles to its new size: no blank space held under it");
     ok(res.topHold === "", "at the top of the page nothing is held");
+    ok(res.boxTop === 600, "a section that scrolls by itself keeps its own place through a refresh (" + res.boxTop + ")");
   } finally { await browser.close(); server.close(); }
   console.log("");
   if (failures) { console.log(failures + " check(s) FAILED"); process.exit(1); }
