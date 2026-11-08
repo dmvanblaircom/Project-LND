@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-07T20:26:19.284685+00:00",
+ "updated": "2026-11-08T02:08:19.661117+00:00",
  "items": [
+  {
+   "title": "Hilltoppers Drop Road Game At Middle Tennessee",
+   "link": "https://wkusports.com/news/2026/11/7/football-hilltoppers-drop-road-game-at-middle-tennessee",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"Rodney Tisdale Jr\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/7/rodney_post.png\" /><br /><br />MURFREESBORO, Tenn. \u2013 WKU Football lost at Middle Tennessee 51-42 on Saturday at Johnny &quot;Red&quot; Floyd Stadium.",
+   "image": "https://wkusports.com/images/2026/11/7/rodney_post.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-08T01:30:00+00:00"
+  },
   {
    "title": "Football Pregame Show: Middle Tennessee",
    "link": "https://wkusports.com/news/2026/11/7/football-pregame-show-middle-tennessee",
@@ -91,15 +100,6 @@
    "image": "https://wkusports.com/images/2026/10/25/WKU_FB_26___Game_Week___Delaware.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-10-25T20:15:00+00:00"
-  },
-  {
-   "title": "Head Coach Tyson Helton | Weekly Media Availability | 10-22-26",
-   "link": "https://wkusports.com/news/2026/10/22/football-head-coach-tyson-helton-weekly-media-availability-10-22-26",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"Tyson Presser\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/10/22/TYSON_PRESSER.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/10/22/TYSON_PRESSER.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-10-22T17:49:00+00:00"
   }
  ]
 }
