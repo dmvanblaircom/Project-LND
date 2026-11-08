@@ -1,7 +1,16 @@
 {
  "team": "colorado",
- "updated": "2026-11-08T04:08:03.228897+00:00",
+ "updated": "2026-11-08T04:38:00.446234+00:00",
  "items": [
+  {
+   "title": "Colorado Falls In Tempe",
+   "link": "https://cubuffs.com/news/2026/11/7/football-colorado-falls-in-tempe",
+   "source": "Colorado Athletics",
+   "summary": "<img alt=\"Lampron at ASU\" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/asu_q1-03.jpg\" /><br /><br />TEMPE, Ariz. \u2013 The Colorado Buffaloes football team fell to Arizona State on Saturday evening at Mountain America Stadium, 20-10.",
+   "image": "https://cubuffs.com/images/2026/11/7/asu_q1-03.jpg?width=800",
+   "sourceLogo": "https://cubuffs.com/favicon.ico",
+   "published": "2026-11-08T04:07:00+00:00"
+  },
   {
    "title": "Instant takeaways: Buffs fall flat in loss to Arizona State",
    "link": "https://on3.com/sites/buff-blitz/news/instant-takeaways-buffs-fall-flat-in-loss-to-arizona-state/",
@@ -12,8 +21,8 @@
    "published": "2026-11-08T03:43:03+00:00"
   },
   {
-   "title": "Three Things we Learned From Colorado's Loss to Arizona State",
-   "link": "https://www.si.com/college/colorado/football/colorado-buffaloes-arizona-state-sun-devils-live-score-updates?utm_source=RSS",
+   "title": "Three Things We Learned From Colorado's Loss to Arizona State",
+   "link": "https://www.si.com/college/colorado/football/colorado-buffaloes-arizona-state-sun-devils-three-things-we-learned?utm_source=RSS",
    "source": "Colorado On SI",
    "summary": "The Colorado Buffaloes battle the Arizona State Sun Devils in a Week 10 road contest.",
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2541,h_1429,x_2854,y_1320/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/buffs_beat/01m6wa388fj7agmx1d5e.jpg",
@@ -352,15 +361,6 @@
    "image": "https://cubuffs.com/images/2026/11/1/LAX_2026_10_27_New_York_alum_event_KB_-09306.jpg?width=800",
    "sourceLogo": "https://cubuffs.com/favicon.ico",
    "published": "2026-11-01T17:12:00+00:00"
-  },
-  {
-   "title": "Buffs Win Halloween Overtime Thriller Against K-State",
-   "link": "https://cubuffs.com/news/2026/10/31/football-buffs-win-halloween-overtime-thriller-against-k-state",
-   "source": "Colorado Athletics",
-   "summary": "<img alt=\"Richard Young\" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/BLE04760.jpeg\" /><br /><br />BOULDER \u2013\u00a0 The Colorado Buffaloes football team defeated the Kansas State Wildcats 27-24 in overtime to secure their first Big 12 win of the 2026 season on Saturday at Folsom Field.",
-   "image": "https://cubuffs.com/images/2026/10/31/BLE04760.jpeg?width=800",
-   "sourceLogo": "https://cubuffs.com/favicon.ico",
-   "published": "2026-11-01T01:06:00+00:00"
   }
  ]
 }
