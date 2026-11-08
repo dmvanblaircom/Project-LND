@@ -812,6 +812,13 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 
 .lp-dd{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;color:var(--t-surface)}
 .lp-text{margin:.25rem 0 0;color:var(--s-ink-2)}
+/* The play-by-play running behind the game clock (TeamOS.game.feedState):
+   a small, neutral, static note - no warning colour, no spinner, no motion.
+   The game is going on; only the record is behind. */
+.pbp-fresh{margin:0 0 .65rem;padding:.55rem .75rem;border-radius:var(--s-radius-ctl);background:var(--s-inset);border-left:3px solid var(--s-muted)}
+.pbp-fresh-title{margin:0;font-weight:700;font-size:.95rem;color:var(--s-ink)}
+.pbp-fresh-sub{margin:.15rem 0 0;font-size:.85rem;color:var(--s-ink-2)}
+.pbp-updating{font-weight:600}
 
 .sp-row{display:grid;grid-template-columns:auto 1fr auto;column-gap:.6rem;row-gap:.3rem;padding:.75rem 0}
 .sp-list > li + li{border-top:1px solid var(--s-line)}
