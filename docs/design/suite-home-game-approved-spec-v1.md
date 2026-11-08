@@ -1,6 +1,6 @@
 # Suite visual redesign — approved visual system and Home/Game specification
 
-**Version:** 1.0  
+**Version:** 1.1 (amended 2026-11-08: decisions 0041 and 0042)  
 **Status:** Approved design direction; implementation not yet authorized  
 **Creative authority:** ChatGPT (Creative Director)  
 **Product approval:** David, 2026-11-06  
@@ -26,6 +26,19 @@ David approved all eight recommendations:
 8. iOS Safari 16.4 is the oldest supported browser for the design.
 
 These approvals settle design direction. They do not override the product/engineering approval rules in Decision 0040 or Decision 0039.
+
+### 1.1 Decisions since approval (amendments, v1.1)
+
+David decided these after reviewing rendered evidence. Each is recorded in its decision document and applied in the sections it touches:
+
+| | Decision | Where |
+|---|---|---|
+| Numeric face | Instrument Display 700 for scores and key numerals; a lighter weight (500) for secondary figures where it helps the hierarchy. The same in both App Styles. | 0041; §3.2 |
+| Suite Style blue | `#2B5CFF`, for actions, selected states and meaningful interaction feedback only, never decoration. Suite Style's identity marks on the stage are champagne. | 0041; §3.1 |
+| Final results | Team-neutral: no Win or Loss label. The score, the margin it shows and the records communicate the outcome. | 0041; §5.4, §6.4 |
+| Hero contrast | The text floor is kept: every word on the team's deepest surface or darker. Depth, illumination and energy live outside the text zones, and day and night feel meaningfully different. | 0041; §3.4 |
+| Field treatment | Described as a geometrically controlled field treatment, a texture rather than a complete field rendering. | 0041; §3.4 |
+| Desktop navigation | The five destinations in the branded desktop header, from 1024 px, introduced with the wide desktop layouts. Phones and tablets are unchanged. | 0042; §4.1 |
 
 ## 2. Product feeling and design thesis
 
@@ -83,7 +96,7 @@ The system has three surface families.
 #### Suite Style
 - A genuinely distinct Suite house identity, not a minor tint swap from Team Style.
 - Foundation: midnight navy, bright pearl and ink.
-- Primary accent: a vivid, energetic blue/cobalt family with accessible foreground/background pairings.
+- Primary accent: a vivid, energetic blue/cobalt family with accessible foreground/background pairings. *Amended (0041):* `#2B5CFF`, kept to actions, selected states and meaningful interaction feedback; never decorative. The school line, ranks, countdown figures and the colour in the stage's light are champagne in Suite Style.
 - Secondary refinement: restrained champagne/bronze, never the dominant action color.
 - Primary CTA must have strong contrast against every surface. The existing navy-on-navy failure is unacceptable.
 - Team logos and team identity remain visible where product context requires them, but the surrounding color language remains recognizably Suite.
@@ -104,6 +117,7 @@ Reduce the current competing typographic voices to one coherent system.
 | Labels and status | Compact uppercase or sentence case according to function; never tracked to the point of hurting readability |
 
 Numeric requirements:
+- *Amended (0041):* the face is Instrument Display; 700 for scores and key numerals, 500 for secondary figures such as records.
 - The Suite numeric face is independent of `identity.fonts.display`.
 - Use tabular numerals for scores, clock values, period, rank, record and other aligned figures.
 - It must render reliably for all 138 teams and both App Styles.
@@ -137,6 +151,10 @@ CSS/SVG direction:
 - Light beams, field geometry, subtle grain, atmospheric glow, directional highlights and tonal overlays.
 - Prefer transform and opacity for animation. Avoid expensive continuous blur, animated filters or large backdrop-filter layers.
 - CSS/SVG alone must form a complete, attractive fallback if art does not load.
+- *Amended (0041):*
+  - **Text floor.** Every word on a stage sits on the team's deepest surface or darker, as a local, feathered floor under each block of text. Depth, illumination and energy (floodlights, beams, stands light, a lit field) live outside the text zones, and day and night feel meaningfully different.
+  - **Validation.** Every team's rendered stage is checked at WCAG AA (`tools/herocontrastcheck.js`).
+  - **Field.** The drawn field is a geometrically controlled field treatment, a texture rather than a complete field rendering: no boundaries, end zones or yard numbers.
 
 Asset and performance constraints:
 - No provider news/player imagery may be repurposed as hero art.
@@ -188,6 +206,13 @@ Phone remains the primary touch experience. Desktop is not a stretched phone col
 - Game: scoreboard across the content width; Drive Tracker/content stage as primary; box score, stats or play context as supporting column.
 - Maintain readable line lengths and a clear content maximum. Do not simply expand text and tables across the entire monitor.
 - Navigation should remain consistent with the app shell and not float over content in a way that obscures it.
+- *Amended (0042):* from 1024 px (64rem) the primary navigation moves into the branded SUITE header:
+  - the same five destinations (Home, Around, Game, Roster, More), as words, with the wordmark and team on the left and Settings on the right;
+  - the header is laid out on the wide grid, and the bottom bar is phone and tablet only;
+  - while the team's game is under way, Game carries a prominent Live chip (or Delayed or Suspended) and, from 1280 px, the score, from existing data only;
+  - the navigation moves into the header in the document, so keyboard and screen-reader order match what is seen;
+  - every team's name fits on one line at 1024 px;
+  - it ships together with the wide desktop Home and Game layouts, not before.
 
 Intermediate widths must transition naturally; avoid a single brittle breakpoint.
 
@@ -279,7 +304,7 @@ Below the hero, preserve existing milestone, champion, notes, news, schedule and
 Hero hierarchy:
 1. FINAL status.
 2. Both team identities and final scores.
-3. Clear outcome from the followed team's perspective.
+3. ~~Clear outcome from the followed team's perspective.~~ *Amended (0041):* team-neutral, with no Win or Loss label. The scores, the margin they show and the records communicate the outcome.
 4. Margin and record only when supported by existing data.
 5. Visual treatment responds to win/loss without inventing sentiment.
 6. CTA into the completed Game Center.
@@ -445,7 +470,7 @@ Scoreboard:
 - Both teams and final scores.
 - Winning side visually emphasized.
 - Losing score softened as existing behavior allows.
-- Clear result from the followed team's perspective, using available team and score data.
+- ~~Clear result from the followed team's perspective, using available team and score data.~~ *Amended (0041):* team-neutral, with no Win or Loss label. The scores and the records communicate the result.
 
 Default content remains Box Score. Plays/scoring drives and Stats remain accessible. Do not create an unsupported editorial recap or infer player performance beyond existing data.
 
@@ -528,7 +553,7 @@ Rules:
 - New player profiles or new product destinations.
 - New Around, Players, News, Schedule, More or Settings features/redesigns.
 - New framework or app rewrite.
-- Broad navigation or product information architecture changes.
+- Broad navigation or product information architecture changes. (The desktop header placement in §4.1, decision 0042, changes where the existing five destinations sit, not what they are.)
 
 ### Existing behavior to preserve
 - TeamOS/Suite separation: renderers consume normalized models and do not parse provider fields.
