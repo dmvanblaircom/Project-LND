@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-08T03:38:05.941161+00:00",
+ "updated": "2026-11-08T19:08:10.353955+00:00",
  "items": [
+  {
+   "title": "Navy vs Temple - Pregame Photo Gallery",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-temple-pregame-photo-gallery/",
+   "source": "The Mid Report",
+   "summary": "Pregame photos from the Mids\u2019 game vs the Temple Owls on Saturday, Nov 7, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08100824/DSC_1072.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T19:00:00+00:00"
+  },
   {
    "title": "Navy vs Temple - Pregame Warmup Photo Gallery",
    "link": "https://on3.com/sites/the-mid-report/news/navy-vs-temple-pregame-warmup-photo-gallery/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/22223722/2026-09-05T171535Z_1130097718_MT1USATODAY29746734_RTRMADP_3_NCAA-FOOTBALL-NORTH-TEXAS-AT-INDIANA.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-23T03:53:59+00:00"
-  },
-  {
-   "title": "The UTSA Debrief",
-   "link": "https://on3.com/sites/the-mid-report/news/the-utsa-debrief/",
-   "source": "The Mid Report",
-   "summary": "Navy's best performance of the season still leaves them short on the scoreboard",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/21203716/Screenshot-2026-10-21-at-9.37.02%E2%80%AFPM.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-22T01:38:58+00:00"
   }
  ]
 }
