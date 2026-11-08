@@ -1,6 +1,6 @@
 {
 "team": "iowa",
-"updated": "2026-11-07T23:51Z",
+"updated": "2026-11-08T00:37Z",
 "points": [
 {
 "t": "2026-10-28T01:37Z",
@@ -707,6 +707,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 21.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T00:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 23.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

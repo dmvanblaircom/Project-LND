@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "fresno-state",
- "updated": "2026-11-07T03:07:11.180419+00:00",
+ "updated": "2026-11-08T00:38:48.624821+00:00",
  "reports": [
   {
    "schema": 1,
@@ -115,10 +115,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T03:07:11.180419+00:00",
+   "fetchedAt": "2026-11-08T00:38:48.624821+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-07",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-08",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Utah State",
    "players": [
@@ -126,28 +126,28 @@
      "pos": "ILB",
      "no": "",
      "name": "Niko Baumgartner",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "ILB",
      "no": "",
      "name": "Lucas Blumling",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "DL",
      "no": "",
      "name": "Jahzon Jacks",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "DL",
      "no": "",
      "name": "Sione Noa",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -161,21 +161,21 @@
      "pos": "SP",
      "no": "",
      "name": "Ethan Rossetti",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "DL",
      "no": "",
      "name": "Jairus Satele",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "",
      "name": "Oscar Weigel",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

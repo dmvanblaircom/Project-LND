@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utah-state",
- "updated": "2026-11-07T03:07:23.112709+00:00",
+ "updated": "2026-11-08T00:38:56.701861+00:00",
  "reports": [
   {
    "schema": 1,
@@ -122,10 +122,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T03:07:23.112709+00:00",
+   "fetchedAt": "2026-11-08T00:38:56.701861+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-07",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-08",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Fresno State",
    "players": [
@@ -133,14 +133,14 @@
      "pos": "DB",
      "no": "",
      "name": "Chapman Lewis",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "",
      "name": "Eli Wood",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -174,22 +174,8 @@
     {
      "pos": "OL",
      "no": "",
-     "name": "John Randle",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
-     "name": "Bronson Olevao",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
      "name": "Jimmy Liston",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
