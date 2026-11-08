@@ -1,7 +1,16 @@
 {
  "team": "west-virginia",
- "updated": "2026-11-08T07:08:23.169887+00:00",
+ "updated": "2026-11-08T07:38:11.905557+00:00",
  "items": [
+  {
+   "title": "Texas Tech Rallies in Fourth Quarter to Defeat West Virginia 53-48",
+   "link": "https://wvusports.com/news/2026/11/8/football-texas-rallies-in-fourth-quarter-to-defeat-west-virginia",
+   "source": "West Virginia Athletics",
+   "summary": "<img alt=\"West Virginia quarterback Micheal Hawkins scores a 3-yard touchdown in the first quarter of West Virginia's game against 13th-ranked Texas Tech at Galaxy Stadium in Lubbock, Texas.\" src=\"https://wvusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/Hawkins-Main.jpg\" /><br /><br />Texas Tech used a 12-point fourth quarter rally to defeat upset-minded West Virginia 53-48 on Saturday night at Galaxy Stadium in Lubbock, Texas.",
+   "image": "https://wvusports.com/images/2026/11/7/Hawkins-Main.jpg?width=800",
+   "sourceLogo": "https://wvusports.com/favicon.ico",
+   "published": "2026-11-08T07:04:00+00:00"
+  },
   {
    "title": "West Virginia Falls Short Against No. 13 Texas Tech in Lubbock",
    "link": "https://www.si.com/college/westvirginia/football/west-virginia-falls-short-against-no-13-texas-tech-in-lubbock?utm_source=RSS",
@@ -271,15 +280,6 @@
    "image": "https://wvusports.com/images/2026/10/24/Cutter-Main.jpg?width=800",
    "sourceLogo": "https://wvusports.com/favicon.ico",
    "published": "2026-10-24T20:52:00+00:00"
-  },
-  {
-   "title": "Countdown to Kickoff: Mountaineers, Horned Frogs Tangle Today in Fort Worth",
-   "link": "https://wvusports.com/news/2026/10/24/football-countdown-to-kickoff-mountaineers-horned-frogs-tangle-today-in-fort-worth",
-   "source": "West Virginia Athletics",
-   "summary": "<img alt=\"Amon G. Carter Stadium\" src=\"https://wvusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2021/10/22/Amon_Stadium.jpg\" /><br /><br />MORGANTOWN, W.Va. \u2013 The popular expression \"an unstoppable force meeting an immovable object\" certainly applies to today's West Virginia-TCU football game being played at Amon G. Carter Stadium in Fort Worth, Texas.",
-   "image": "https://wvusports.com/images/2021/10/22/Amon_Stadium.jpg?width=800",
-   "sourceLogo": "https://wvusports.com/favicon.ico",
-   "published": "2026-10-24T12:00:00+00:00"
   }
  ]
 }
