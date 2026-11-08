@@ -1,6 +1,6 @@
 {
 "team": "indiana",
-"updated": "2026-11-08T01:37Z",
+"updated": "2026-11-08T06:37Z",
 "points": [
 {
 "t": "2026-10-27T15:07Z",
@@ -959,6 +959,62 @@
 "title": 8.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 85.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T03:07Z",
+"title": 8.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 86.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T04:07Z",
+"title": 8.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 86.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T04:37Z",
+"title": 8.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 86.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T05:07Z",
+"title": 8.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 83.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T05:37Z",
+"title": 8.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 86.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T05:41Z",
+"title": 8.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 85.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T06:07Z",
+"title": 8.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 86.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T06:37Z",
+"title": 8.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 86.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

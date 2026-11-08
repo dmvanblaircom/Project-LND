@@ -1,6 +1,6 @@
 {
 "team": "florida",
-"updated": "2026-11-08T02:07Z",
+"updated": "2026-11-08T06:37Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -644,6 +644,41 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 10.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T02:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 10.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T03:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 9.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T03:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 7.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T04:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T06:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 2.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

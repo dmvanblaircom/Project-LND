@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-08T02:08:08.050890+00:00",
+ "updated": "2026-11-08T03:38:05.941161+00:00",
  "items": [
+  {
+   "title": "Navy vs Temple - Pregame Warmup Photo Gallery",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-temple-pregame-warmup-photo-gallery/",
+   "source": "The Mid Report",
+   "summary": "Pregame warmup photos from the Mids\u2019 game vs the Temple Owls on Saturday, Nov 7, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07205539/DSC_1029.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T03:24:35+00:00"
+  },
   {
    "title": "Gutierrez Accounts for Six Touchdowns as Navy Holds Off Temple, 42-35",
    "link": "https://navysports.com/news/2026/11/7/football-gutierrez-accounts-for-six-touchdowns-as-navy-holds-off-temple-42-35.aspx",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/21203716/Screenshot-2026-10-21-at-9.37.02%E2%80%AFPM.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-22T01:38:58+00:00"
-  },
-  {
-   "title": "The UTSA Preview",
-   "link": "https://on3.com/sites/the-mid-report/news/the-utsa-preview/",
-   "source": "The Mid Report",
-   "summary": "On the road again",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/15232012/2026-09-20T033917Z_1533172132_MT1USATODAY29868637_RTRMADP_3_NCAA-FOOTBALL-TEXAS-SAN-ANTONIO-AT-TEXAS.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-16T04:28:08+00:00"
   }
  ]
 }

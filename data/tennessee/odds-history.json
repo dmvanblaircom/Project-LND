@@ -1,6 +1,6 @@
 {
 "team": "tennessee",
-"updated": "2026-11-08T02:07Z",
+"updated": "2026-11-08T06:37Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -609,6 +609,55 @@
 "title": 1.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 39.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T02:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 41.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T03:07Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 43.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T03:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 40.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T04:07Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 41.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T04:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 43.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T05:07Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 44.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T06:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 45.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

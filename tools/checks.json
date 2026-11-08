@@ -59,6 +59,7 @@
   { "id": "flickercheck.js", "kind": "browser", "secs": 1, "run": "node tools/flickercheck.js" },
   { "id": "homegamecheck.js", "kind": "browser", "secs": 20, "run": "node tools/homegamecheck.js" },
   { "id": "mobilefitcheck.js", "kind": "browser", "secs": 2, "run": "node tools/mobilefitcheck.js" },
+  { "id": "scrollkeepcheck.js", "kind": "browser", "secs": 2, "run": "node tools/scrollkeepcheck.js" },
   { "id": "statslayoutcheck.js", "kind": "browser", "secs": 34, "run": "node tools/statslayoutcheck.js" },
   { "id": "focuscheck.js", "kind": "browser", "secs": 10, "run": "node tools/focuscheck.js" },
   { "id": "togglecheck.js", "kind": "browser", "secs": 8, "run": "node tools/togglecheck.js" },
