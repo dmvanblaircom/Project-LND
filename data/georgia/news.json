@@ -1,9 +1,18 @@
 {
  "team": "georgia",
- "updated": "2026-11-08T17:38:01.940069+00:00",
+ "updated": "2026-11-08T18:08:00.148725+00:00",
  "items": [
   {
-   "title": "The Dashboard: Georgia proving you don't have to be fancy",
+   "title": "Georgia jumps to the top of Week 11 Coaches Poll",
+   "link": "https://on3.com/teams/georgia-bulldogs/news/georgia-jumps-to-the-top-of-week-11-coaches-poll/",
+   "source": "On3",
+   "summary": "Georgia is the new No. 1 team in the US LBM Coaches Poll. The Bulldogs jumped to the top after blowing out Ole Miss in Oxford.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08110339/2026-11-08T002540Z_1322301362_MT1USATODAY30306464_RTRMADP_3_NCAA-FOOTBALL-GEORGIA-AT-MISSISSIPPI.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T17:52:36+00:00"
+  },
+  {
+   "title": "The Dashboard: Bulldogs proving the \"Georgia Way\" works just fine",
    "link": "https://on3.com/teams/georgia-bulldogs/news/the-dashboard-georgia-proving-you-dont-have-to-be-fancy/",
    "source": "On3",
    "summary": "This is premium content.",
@@ -37,6 +46,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08084500/KM1_0662-1.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T16:34:07+00:00"
+  },
+  {
+   "title": "Bulldogs Started Fast And Never Let Up",
+   "link": "https://georgiadogs.com/news/2026/11/8/football-bulldogs-started-fast-and-never-let-up",
+   "source": "Georgia Athletics",
+   "summary": "<img alt=\"26FB Frierson Feature - Ole Miss\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/26FB_FriersonFeature_OleMiss.jpg\" /><br /><br />Georgia got off to a fast start Saturday night and dominated No. 10 Ole Miss in Oxford, 42-7",
+   "image": "https://georgiadogs.com/images/2026/11/8/26FB_FriersonFeature_OleMiss.jpg?width=800",
+   "sourceLogo": "https://georgiadogs.com/favicon.ico",
+   "published": "2026-11-08T15:20:00+00:00"
   },
   {
    "title": "PHOTOS: Georgia beats Ole Miss 42-7 in Oxford",
@@ -190,15 +208,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/21120122/IMG_1249.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T04:12:28+00:00"
-  },
-  {
-   "title": "Rapid Reaction: Georgia dominates Ole Miss in Oxford",
-   "link": "https://on3.com/teams/georgia-bulldogs/news/rapid-reaction-georgia-dominates-ole-miss-in-oxford/",
-   "source": "On3",
-   "summary": "UGASports has the rapid reaction from Georgia's resounding 42-7 win over Ole Miss on Saturday night in Oxford.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07203648/KM1_9793.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-08T04:08:35+00:00"
   },
   {
    "title": "Postgame Notes - Georgia vs. Ole Miss",
@@ -442,15 +451,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4358,h_2451,x_0,y_342/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/dawgs_daily/01m6kxqsb9b9rdhk5cvr.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-04T18:42:33+00:00"
-  },
-  {
-   "title": "Gaston, Griffin Look Ahead to Ole Miss",
-   "link": "https://georgiadogs.com/news/2026/11/3/football-gaston-griffin-look-ahead-to-ole-miss",
-   "source": "Georgia Athletics",
-   "summary": "<img alt=\"Georgia offensive lineman Juan Gaston (73) during Georgia\u2019s game against Alabama on Saban Field at Bryant-Denny Stadium in Tuscaloosa, Al., on Saturday, Oct. 10, 2026. (Conor Dillon/UGAAA)\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/261010_CJD_FB_BAMA_2413.jpg\" /><br /><br />ATHENS, Ga. - Sophomore offensive lineman Juan Gaston and sophomore defensive lineman Elijah Griffin spoke with the media on Tuesday afternoon ahead of Georgia's game against Ole Miss on Saturday night in Oxford.",
-   "image": "https://georgiadogs.com/images/2026/10/19/261010_CJD_FB_BAMA_2413.jpg?width=800",
-   "sourceLogo": "https://georgiadogs.com/favicon.ico",
-   "published": "2026-11-03T22:24:00+00:00"
   }
  ]
 }
