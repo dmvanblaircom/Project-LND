@@ -1,6 +1,6 @@
 {
  "team": "rutgers",
- "updated": "2026-11-08T00:38:07.783048+00:00",
+ "updated": "2026-11-08T01:08:20.538544+00:00",
  "items": [
   {
    "title": "Rutgers Football falls to Wisconsin, eliminated from Bowl Eligibility",
@@ -10,6 +10,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07174102/2026-11-07T221450Z_636742406_MT1USATODAY30302785_RTRMADP_3_NCAA-FOOTBALL-RUTGERS-AT-WISCONSIN-1.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T00:26:23+00:00"
+  },
+  {
+   "title": "Football Loses to Wisconsin",
+   "link": "https://scarletknights.com/news/2026/11/7/football-loses-to-wisconsin",
+   "source": "Rutgers Athletics",
+   "summary": "<img alt=\"Raymond Wisconsin\" src=\"https://scarletknights.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/_AAG1022.jpg\" /><br /><br />",
+   "image": "https://scarletknights.com/images/2026/11/7/_AAG1022.jpg?width=800",
+   "sourceLogo": "https://scarletknights.com/favicon.ico",
+   "published": "2026-11-08T00:18:00+00:00"
   },
   {
    "title": "Rutgers Football Injury Report: Latest ahead of the Wisconsin game",
@@ -226,15 +235,6 @@
    "image": "https://scarletknights.com/images/2026/10/19/Defense2422_web.jpg?width=800",
    "sourceLogo": "https://scarletknights.com/favicon.ico",
    "published": "2026-10-19T20:30:00+00:00"
-  },
-  {
-   "title": "Duff Jr. Named Big Ten Offensive Player of the Week",
-   "link": "https://scarletknights.com/news/2026/10/19/football-duff-jr-named-big-ten-offensive-player-of-the-week",
-   "source": "Rutgers Athletics",
-   "summary": "<img alt=\"KJ Duff\" src=\"https://scarletknights.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/Duff884432_web.jpg\" /><br /><br />",
-   "image": "https://scarletknights.com/images/2026/10/19/Duff884432_web.jpg?width=800",
-   "sourceLogo": "https://scarletknights.com/favicon.ico",
-   "published": "2026-10-19T20:00:00+00:00"
   },
   {
    "title": "Rutgers Powers Past Maryland in Thriller for 37-30 Victory",

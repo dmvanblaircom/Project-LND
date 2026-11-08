@@ -1,7 +1,16 @@
 {
  "team": "georgia-state",
- "updated": "2026-11-08T00:08:06.080937+00:00",
+ "updated": "2026-11-08T01:08:08.507337+00:00",
  "items": [
+  {
+   "title": "Defensive Surge Leads Panthers to Historical Win over App State",
+   "link": "https://georgiastatesports.com/news/2026/11/7/football-panthers-total-6-sacks-in-39-23-win-over-appalachian-state.aspx",
+   "source": "Georgia State Athletics",
+   "summary": "<img alt=\"DJ Riles vs. App State\" src=\"https://admin.georgiastatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/DSC00922.jpeg\" /><br /><br />",
+   "image": "https://admin.georgiastatesports.com/images/2026/11/7/DSC00922.jpeg?width=800",
+   "sourceLogo": "https://georgiastatesports.com/favicon.ico",
+   "published": "2026-11-07T23:48:00+00:00"
+  },
   {
    "title": "Georgia State Places 14 Student-Athletes Earn 2026 1A FAR Academic Excellence Award List",
    "link": "https://georgiastatesports.com/news/2026/11/5/athletics-georgia-state-places-14-student-athletes-earn-2026-1a-far-academic-excellence-award-list.aspx",
@@ -10,15 +19,6 @@
    "image": "https://admin.georgiastatesports.com/images/2026/11/5/ATH_2026_1AFAR.png?width=800",
    "sourceLogo": "https://georgiastatesports.com/favicon.ico",
    "published": "2026-11-05T15:24:00+00:00"
-  },
-  {
-   "title": "Panthers Head to High Country to Face Mountaineers",
-   "link": "https://georgiastatesports.com/news/2026/11/2/football-panthers-head-to-high-country-to-face-mountaineers.aspx",
-   "source": "Georgia State Athletics",
-   "summary": "<img alt=\"Game Preview- Appalachian State\" src=\"https://admin.georgiastatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/FB_2026_GAMEWEEK_16X9.png\" /><br /><br />GEORGIA STATE (4-4, 1-3\u00a0SBC) at APPALACHIAN STATE (5-3, 2-2 SBC)",
-   "image": "https://admin.georgiastatesports.com/images/2026/11/2/FB_2026_GAMEWEEK_16X9.png?width=800",
-   "sourceLogo": "https://georgiastatesports.com/favicon.ico",
-   "published": "2026-11-02T15:00:00+00:00"
   }
  ]
 }

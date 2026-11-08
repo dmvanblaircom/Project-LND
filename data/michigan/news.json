@@ -1,7 +1,16 @@
 {
  "team": "michigan",
- "updated": "2026-11-08T00:38:03.387682+00:00",
+ "updated": "2026-11-08T01:08:15.000335+00:00",
  "items": [
+  {
+   "title": "Michigan vs. Michigan State score, live updates, highlights",
+   "link": "https://on3.com/teams/michigan-wolverines/news/michigan-wolverines-football-msu-score-live-updates-highlights-stats-analysis/",
+   "source": "On3",
+   "summary": "ANN ARBOR, Mich. \u2014\u00a0Michigan Wolverines football\u00a0is playing Michigan State at Michigan Stadium. Follow along below for live updates, highlights, stats, analysis and more.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24165323/Copy-of-Michigan-Thumbnail-2026-10-24T175307.198.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T00:47:12+00:00"
+  },
   {
    "title": "Pregame observations, updates from The Big House: Michigan vs. Michigan State",
    "link": "https://on3.com/teams/michigan-wolverines/news/pregame-observations-updates-from-the-big-house-michigan-vs-michigan-state/",
@@ -219,15 +228,6 @@
    "published": "2026-11-06T19:14:56+00:00"
   },
   {
-   "title": "Heat Check: Where does Michigan stand with this weekend's visitors?",
-   "link": "https://on3.com/teams/michigan-wolverines/news/heat-check-where-does-michigan-stand-with-this-weekends-visitors-4/",
-   "source": "On3",
-   "summary": "Michigan will host a group of flip targets and a couple of five-star recruits this weekend. Here's a look at where the Wolverines stand.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/06104057/Michigan-Richardson-Wilkes-Hicks-Michigan-hookly.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-06T18:48:36+00:00"
-  },
-  {
    "title": "Friday Discussion: Is the Michigan-MSU football rivalry dead?",
    "link": "https://www.maizenbrew.com/football/127346/michigan-football-discussion-michigan-state-spartans-rivalry-dead-dying-paul-bunyan-trophy",
    "source": "Maize n Brew",
@@ -336,11 +336,11 @@
    "published": "2026-11-05T01:14:22+00:00"
   },
   {
-   "title": "What You Need to Know for Gameday: Michigan vs. Michigan State",
+   "title": "Football Gameday Central: Michigan vs. Michigan State",
    "link": "https://mgoblue.com/news/2026/11/4/football-what-you-need-to-know-for-gameday-michigan-vs-michigan-state",
    "source": "Michigan Athletics",
-   "summary": "<img alt=\"Michigan Football Gameday Central vs. Michigan State\" src=\"https://mgoblue.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/4/20261103-fbl-gameday.jpg\" /><br /><br />Everything you need for Saturday's Battle for the Paul Bunyan Trophy at the Big House, including gameday activities, the Blue Out, Military Appreciation Game, parking, stadium information and more.",
-   "image": "https://mgoblue.com/images/2026/11/4/20261103-fbl-gameday.jpg?width=800",
+   "summary": "<img alt=\"Paul Bunyan Trophy Pregame\" src=\"https://mgoblue.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/20261107-fbl-paul-bunyan-trophy2.jpg\" /><br /><br />The Wolverines host the Spartans at the Big House for another battle for possession of the Paul Bunyan Trophy.",
+   "image": "https://mgoblue.com/images/2026/11/7/20261107-fbl-paul-bunyan-trophy2.jpg?width=800",
    "sourceLogo": "https://mgoblue.com/favicon.ico",
    "published": "2026-11-04T16:00:00+00:00"
   },
