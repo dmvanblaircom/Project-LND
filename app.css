@@ -397,6 +397,8 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .nav-item[aria-current="page"]::after{content:"";position:absolute;left:22%;right:22%;bottom:-.1rem;height:3px;border-radius:3px;background:var(--t-accent)}
 .nav-item:focus-visible{outline-offset:-3px}
 .nav-live{display:none}
+/* The desktop header's Live chip and score (decision 0042): drawn only there. */
+.nav-state,.nav-score{display:none}
 
 /* While the team's game is under way, Game becomes the raised circle - even
    when another destination is selected. Raised is not selected (decision 0024
@@ -1404,6 +1406,48 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .game-tabs{margin-top:.6rem;border:1px solid var(--s-line)}
   .gh-inner{padding:1.1rem 1.5rem 1.4rem}
 }
+/* Desktop navigation (decision 0042): the five destinations in the branded
+   SUITE header - the wordmark and the team on the left, the destinations,
+   then Settings on the right - laid out on the wide desktop grid. suite/nav.js
+   moves the nav element into the header at this width, so this is ordinary
+   flow, and the keyboard meets it where it is seen. Phones and tablets keep
+   the bar at the foot of the screen, unchanged. Lands with Stage 2's wide
+   Home and Game (the grid is --s-content-wide). */
+@media (min-width:64rem){
+  html{scroll-padding-bottom:2.5rem}
+  .app-bar{padding-left:max(var(--gutter),calc((100% - var(--s-content-wide)) / 2 + var(--gutter)),env(safe-area-inset-left,0px));
+    padding-right:max(var(--gutter),calc((100% - var(--s-content-wide)) / 2 + var(--gutter)),env(safe-area-inset-right,0px))}
+  .bar-context:not([hidden]){flex:0 1 auto}
+  .app-bar .navbar{position:static;z-index:auto;display:flex;align-items:stretch;gap:.15rem;width:auto;height:var(--s-bar-h);margin:0 .5rem 0 auto;
+    padding:0;transform:none;border:0;border-radius:0;box-shadow:none;background:none}
+  .app-bar .navbar::after{display:none}
+  /* Words only: an editorial header, not an app toolbar - and the room
+     the team's name and a live score need. */
+  .app-bar .nav-item{flex-direction:row;gap:.5rem;min-height:var(--s-bar-h);padding:0 .9rem;border-radius:0;color:var(--s-on-dark-2);font-size:.95rem;font-weight:600}
+  .app-bar .nav-item svg,.app-bar .navbar.game-raised .nav-game svg{display:none}
+  .app-bar .nav-item:hover{color:var(--s-on-dark)}
+  .app-bar .nav-item[aria-current="page"]{color:var(--s-on-dark)}
+  .app-bar .nav-item[aria-current="page"]::after{left:.9rem;right:.9rem;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--r-signal-select,var(--t-accent))}
+  .app-bar .nav-item:focus-visible{outline:3px solid var(--r-signal-focus,var(--t-accent-text));outline-offset:-3px}
+  .page-main{padding-bottom:calc(3rem + env(safe-area-inset-bottom,0px))}
+  /* Game, while the team's game is under way: no raised circle here; the
+     control carries the state in words - a red Live chip with its light, or
+     a quiet Delayed / Suspended - and, from 80rem, the score. */
+  .app-bar .navbar.game-raised .nav-game{align-self:stretch;width:auto;height:auto;min-height:var(--s-bar-h);margin:0;padding:0 .9rem;border-radius:0;
+    background:none;box-shadow:none;color:var(--s-on-dark);font-family:var(--t-font-ui);font-size:.95rem;letter-spacing:0;text-transform:none}
+  .app-bar .navbar.game-raised .nav-game .nav-live{display:none}
+  .app-bar .navbar.game-raised .nav-game[aria-current="page"]::after{left:.9rem;right:.9rem;bottom:0;height:3px}
+  .app-bar .navbar.game-raised .nav-state{display:inline-flex;align-items:center;gap:.35rem;padding:.2rem .55rem;border-radius:999px;
+    border:1px solid rgba(255,255,255,.45);font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;color:var(--s-on-dark)}
+  .app-bar .navbar.game-live .nav-state{border-color:transparent;background:var(--s-live);color:#fff}
+  .app-bar .navbar.game-live .nav-state::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:#fff;animation:live-pulse 1.6s ease-in-out infinite}
+  .app-bar .navbar.game-raised .nav-score{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1rem;letter-spacing:.02em;font-variant-numeric:tabular-nums;color:var(--s-on-dark);white-space:nowrap}
+}
+/* The score joins the Live chip from 80rem; below it the chip alone, so the
+   header holds every team's name (tools/headerfitcheck.js). */
+@media (min-width:80rem){
+  .app-bar .navbar.game-raised .nav-score:not(:empty){display:inline}
+}
 /* Phones: the rankings table keeps every column, set tighter to fit. */
 @media (max-width:30rem){
   /* Roster rows: height, weight and class become one line under the name */
@@ -1504,7 +1548,7 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
    8. PREFERENCES - last, so they override everything above
    ==================================================================== */
 @media (prefers-reduced-motion:reduce){
-  .navbar.game-live .nav-game .nav-live,.live-pill::before{animation:none}
+  .navbar.game-live .nav-game .nav-live,.live-pill::before,.app-bar .navbar.game-live .nav-state::before{animation:none}
 }
 /* Swiping between a screen's peer views (suite/nav.js): the new view slides
    in from the side the fan swiped toward. David approved the gentler

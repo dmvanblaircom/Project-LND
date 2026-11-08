@@ -67,6 +67,7 @@
   { "id": "pullcheck.js", "kind": "browser", "secs": 32, "run": "node tools/pullcheck.js" },
   { "id": "teamfontcheck.js", "kind": "browser", "secs": 19, "run": "node tools/teamfontcheck.js" },
   { "id": "herocontrastcheck.js", "kind": "browser", "secs": 170, "run": "node tools/herocontrastcheck.js" },
+  { "id": "headerfitcheck.js", "kind": "browser", "secs": 40, "run": "node tools/headerfitcheck.js" },
   { "id": "moreflowcheck.js", "kind": "browser", "secs": 67, "run": "node tools/moreflowcheck.js" },
   { "id": "outlookcheck.js", "kind": "browser", "secs": 15, "run": "node tools/outlookcheck.js" },
   { "id": "milestonecheck.js", "kind": "browser", "secs": 25, "run": "node tools/milestonecheck.js" },

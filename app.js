@@ -2010,9 +2010,16 @@ function somethingLive(){
 // lifecycle, so a Drive Tracker route that stops existing at the final moves
 // to Box Score in place.
 var GAME_PHASE=null;
+// The hero game's score in the desktop header's Game control (decision
+// 0042): our abbreviation and score first, as Home's scoreboard reads, from
+// the normalized game alone - nothing until there is a score to show.
+function navScore(g){
+  if(!g || !TeamOS.game.scored(g)) return "";
+  return TEAM.abbreviation+" "+g.us+"\u2013"+g.them+" "+(g.oppAbbr||g.oppName||"");
+}
 function applyGameRules(){
   var h=TeamOS.game.hero(S.games||[], new Date(), TEAM.timeZone);
-  Suite.nav.setGameState(TeamOS.game.navState(h.game));
+  Suite.nav.setGameState(TeamOS.game.navState(h.game), navScore(h.game));
   var lc=TeamOS.game.lifecycle(h.game);
   if(lc.phase!==GAME_PHASE){
     var was=GAME_PHASE; GAME_PHASE=lc.phase;
