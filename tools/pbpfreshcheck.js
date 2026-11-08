@@ -101,8 +101,12 @@ function draw(det, feed, view) {
 console.log("Game, while the record is behind");
 var hb = draw(DET_BEHIND, s1);
 ok(/Play-by-play is catching up/.test(hb) && /The game clock is ahead of the latest recorded play\./.test(hb), "the Last Play card says the play-by-play is catching up, and why");
-ok(/<span class="lp-at">3rd · 15:00<\/span> M\. ?Drescher kickoff/.test(hb.replace(/&nbsp;| /g, " ")), "the latest logged play stays, with its own quarter and clock");
-ok(/Drive details updating/.test(hb) && !/0 plays, 0 yards/.test(hb), "the drive card: 'Drive details updating', not '0 plays, 0 yards'");
+ok(/<span class="lp-at">3rd · 15:00 · ND<\/span> M\. ?Drescher kickoff/.test(hb.replace(/&nbsp;|\u00A0/g, " ")), "the latest logged play stays, with its own quarter, clock and team as the record has them");
+ok(/Latest recorded drive/.test(hb) && /Drive details updating/.test(hb), "the drive card: 'Latest recorded drive', 'Drive details updating'");
+ok(!/Notre Dame drive|Miami drive/i.test(hb) && !/0 plays, 0 yards/.test(hb), "no team named as having the drive, and no count");
+ok(!/class="field"/.test(hb) && !/f-legend/.test(hb), "no field drawing and no legend: no stale ownership or field position");
+ok(/gcard-neutral/.test(hb) && !/--drive:/.test(hb), "the platform's neutral treatment, no team colour on the drive");
+ok(/Drive and field position return when the play-by-play catches up\./.test(hb), "a quiet placeholder says the drive comes back with the record");
 ok((hb.match(/catching up/g) || []).length === 1, "one indicator, in one place: the drive card does not repeat it");
 ok(!/lp-dd/.test(hb), "no down and distance from the record: it has not caught up with the situation");
 ok(!/animation|pbp-pulse|spinner/i.test(hb), "no spinner, nothing animated");
@@ -111,6 +115,7 @@ console.log("Game, the record caught up");
 var hc = draw(DET_CAUGHT, s2);
 ok(!/catching up/.test(hc) && !/Drive details updating/.test(hc), "the indicator is gone");
 ok(/Carr|C\.Carr|C\. Carr/.test(hc) && /3 plays, 30 yards/.test(hc), "the latest play and the drive's own description are back");
+ok(/Notre Dame drive/i.test(hc) && /class="field"/.test(hc) && !/gcard-neutral/.test(hc), "caught up: the team's drive card and its field are back");
 var hp = draw(DET_CAUGHT, s2, "plays").replace(/ /g, " ");
 var order = [], from = 0;
 ["M. Drescher kickoff 30 yards", "D. Mensah rush middle for 13 yards", "D. Joyce punt 59 yards", "M. Gilbert"].forEach(function (t) {
