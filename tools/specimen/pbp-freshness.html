@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-style="team">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Play-by-play freshness</title>
+<!-- Review specimen for the play-by-play freshness state (creative direction,
+     2026-11-08). The real stylesheet and the real Game component, on the
+     real ND-Miami payload (event 401858291). Development only: never linked
+     from the app, never precached. Open through any local server at the
+     repository root, e.g.
+       node -e "require('./tools/lib/serve')('.').listen(8080)"
+     then http://localhost:8080/tools/specimen/pbp-freshness.html        -->
+<link rel="stylesheet" href="../../app.css">
+<style>
+  body{margin:0;background:#E7E9EC;color:#111D35;font-family:'Instrument Sans',system-ui,sans-serif}
+  header{padding:1.5rem 2rem 1rem;background:#fff;border-bottom:1px solid #CDD3DC}
+  header h1{margin:0 0 .35rem;font-size:1.6rem} header p{margin:0;max-width:62rem;color:#485563}
+  .sec{padding:1.5rem 2rem 2rem;border-bottom:1px solid #CDD3DC}
+  .sec>h2{margin:0 0 .25rem;font-size:1.3rem} .sec>p{margin:0 0 1rem;max-width:62rem;color:#485563;line-height:1.45}
+  .row{display:flex;flex-wrap:wrap;gap:1.25rem;align-items:flex-start}
+  .label{display:inline-block;margin-bottom:.35rem;padding:.1rem .45rem;border-radius:4px;background:#111D35;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .frame{width:390px;overflow:hidden;border-radius:12px;box-shadow:0 2px 10px rgba(15,27,45,.12);background:var(--s-page)}
+  .frame .page-main{padding-bottom:1rem}
+</style>
+</head>
+<body>
+<header>
+  <h1>Play-by-play freshness</h1>
+  <p>The game going on normally while its play-by-play record runs behind. ND-Miami, November 7: at 12:05 of the 3rd the record held nothing after the 15:00 kickoff; then nine plays arrived at once, every one stamped 12:05. Real <code>app.css</code>, real <code>suite/game.js</code>, ESPN's real payload; the "behind" record is that capture cut back to the kickoff, as David's screenshot shows it.</p>
+</header>
+<main id="spx"></main>
+<script src="../../teams/notre-dame.js"></script>
+<script src="../../teamos/team.js"></script>
+<script src="../../teamos/identity.js"></script>
+<script src="../../teamos/espn.js"></script>
+<script src="../../teamos/game.js"></script>
+<script src="../../suite/ui.js"></script>
+<script src="../../suite/schedule.js"></script>
+<script src="../../suite/prospects.js"></script>
+<script src="../../suite/home.js"></script>
+<script src="../../suite/game.js"></script>
+<script src="pbp-freshness.js"></script>
+</body>
+</html>
