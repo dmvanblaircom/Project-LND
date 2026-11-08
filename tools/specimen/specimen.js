@@ -177,32 +177,17 @@
     html += sec("outcome", "6. The final result: team-neutral", "Decided by David, 2026-11-07: the Game review of 2026-09-24 stands. No Win or Loss label; the score, the margin it shows, and the records the source gives communicate the outcome. The losing side reads quieter through the secondary ink.", out);
 
     // ---- 7. Desktop nav ----------------------------------------------------
-    var CONCEPT = {
-      current: "",
-      docked: "@media (min-width:64rem){.navbar{left:0;right:0;width:auto;transform:none;border-radius:0;border-left:0;border-right:0;" +
-              "padding-left:max(1rem,calc((100% - var(--s-content-wide))/2));padding-right:max(1rem,calc((100% - var(--s-content-wide))/2));" +
-              "grid-template-columns:repeat(5,minmax(0,9rem));justify-content:center}.navbar::after{display:none}}",
-      header: "@media (min-width:64rem){.navbar{top:var(--s-bar-h);bottom:auto;left:0;right:0;width:auto;transform:none;border-radius:0;border:0;" +
-              "border-bottom:1px solid var(--s-line);padding:0 max(1rem,calc((100% - var(--s-content-wide))/2));grid-template-columns:repeat(5,auto);justify-content:start;column-gap:.5rem;align-items:center}" +
-              ".navbar::after{display:none}.nav-item{flex-direction:row;min-height:3rem;padding:0 .9rem;gap:.5rem}.nav-item svg{width:20px;height:20px}" +
-              ".navbar.game-raised .nav-game{width:auto;height:auto;min-height:3rem;margin:0;padding:0 .9rem;border-radius:var(--s-radius-ctl);background:none;color:var(--s-muted);box-shadow:none}" +
-              ".navbar.game-raised .nav-game svg{width:20px;height:20px}.navbar.game-raised .nav-game .nav-live{position:static;margin:0}" +
-              ".page-main{padding-top:3.25rem}}"
-    };
+    // Decided (decision 0042): the five destinations in the branded header.
+    // The real app, as shipped on this branch.
     var nav = '<div class="spx-row">';
-    [["current", "Today: the floating pill"], ["docked", "Concept A: docked, aligned to the grid"], ["header", "Concept B: tabs under the header"]].forEach(function (c) {
-      nav += '<div><span class="spx-label">' + c[1] + '</span><div class="spx-scale"><iframe class="spx-iframe" data-concept="' + c[0] + '" src="../../?team=notre-dame#home" title="' + c[1] + '"></iframe></div></div>';
+    [["1280", "Desktop, 1280 px"], ["1024", "Desktop, 1024 px"]].forEach(function (c) {
+      nav += '<div><span class="spx-label">' + c[1] + '</span><div class="spx-scale" style="width:' + c[0] / 2 + 'px"><iframe class="spx-iframe" style="width:' + c[0] + 'px" src="../../?team=notre-dame#home" title="' + c[1] + '"></iframe></div></div>';
     });
-    html += sec("nav", "7. Desktop navigation (1280 px, shown at half size)", "The real app in each frame, with the concept's CSS applied. Same five destinations, same behaviour and live Game state; only where the bar sits on a desktop screen changes.", nav + "</div>");
+    html += sec("nav", "7. Desktop navigation: in the header (shown at half size)", "Decision 0042 (David, 2026-11-08). From 64rem the five destinations sit in the SUITE header, between the team and Settings, as words; the bar at the foot of the screen is phone and tablet only. While the team's game is under way, Game carries a Live chip and, from 80rem, the score.", nav + "</div>");
 
     root.innerHTML = html;
     [].forEach.call(document.querySelectorAll(".spx-nofield .art-field"), function (e) { e.style.display = "none"; });
     [].forEach.call(document.querySelectorAll(".sb"), function (sb) { Suite.scoreboard.fit(sb.parentNode); });
-    [].forEach.call(document.querySelectorAll("iframe[data-concept]"), function (f) {
-      f.addEventListener("load", function () {
-        try { var st = f.contentDocument.createElement("style"); st.textContent = CONCEPT[f.dataset.concept]; f.contentDocument.head.appendChild(st); } catch (e) {}
-      });
-    });
     document.documentElement.setAttribute("data-ready", "1");
   }).catch(function (e) { root.textContent = "Specimen failed: " + e; document.documentElement.setAttribute("data-ready", "error"); });
 })();

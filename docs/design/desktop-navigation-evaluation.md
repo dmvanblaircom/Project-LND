@@ -1,6 +1,6 @@
 # Desktop navigation: side-by-side evaluation
 
-**Status: evaluation only.** David reopened the desktop navigation decision on 2026-11-07, after decision 0041 had recorded Concept A. Nothing here changes production. This document shows how each option looks and recommends one; David decides.
+**Status: decided.** David chose B on 2026-11-08 (decision 0042). The evaluation below is kept as the record of how it was decided. The implementation differs from the concept in two details: the destinations are words only at every desktop width, and Game carries a Live chip and, from 80rem, the score.
 
 Evidence is in `docs/design/review/2026-11-07-desktop-nav/`:
 
