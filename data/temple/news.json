@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-08T02:38:13.497732+00:00",
+ "updated": "2026-11-08T14:08:19.277250+00:00",
  "items": [
+  {
+   "title": "Snap Counts: Temple vs. Navy",
+   "link": "https://on3.com/sites/owl-scoop/news/snap-counts-temple-vs-navy-2/",
+   "source": "OwlScoop",
+   "summary": "Find out which Owls logged the most snaps in Temple's 42-35 loss to Navy here.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07193552/Temple-afi-hookly.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T14:00:00+00:00"
+  },
   {
    "title": "Temple's stunning comeback falls short in 42-35 loss at Navy",
    "link": "https://on3.com/sites/owl-scoop/news/temples-stunning-comeback-falls-short-in-42-35-loss-at-navy/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/20153625/Temple-afi-hookly-2-1.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-21T11:30:00+00:00"
-  },
-  {
-   "title": "K.C. Keeler talks through defensive staff changes",
-   "link": "https://on3.com/sites/owl-scoop/news/k-c-keeler-talks-through-defensive-staff-changes/",
-   "source": "OwlScoop",
-   "summary": "The veteran head coach spoke with reporters Tuesday about his decision to dismiss defensive line coach Cedric Calhoun and promote cornerbacks coach Henry Baker to interim defensive coordinator.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/09/29163011/Keeler.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-20T19:48:17+00:00"
   }
  ]
 }
