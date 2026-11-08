@@ -1,7 +1,16 @@
 {
  "team": "north-carolina",
- "updated": "2026-11-08T17:08:11.118534+00:00",
+ "updated": "2026-11-08T17:38:07.206224+00:00",
  "items": [
+  {
+   "title": "Taking Care Of Business",
+   "link": "https://goheels.com/news/2026/11/8/football-taking-care-of-business",
+   "source": "North Carolina Athletics",
+   "summary": "<img alt=\"Timir Hickman-Collins Interception Run\" src=\"https://goheels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/CM1088801107.JPG\" /><br /><br />Head coach Bill Belichick's team turned in one of its most well-rounded performances of the year in their 38-21 win at Connecticut, getting help from both the offense and defense in putting the Huskies away.",
+   "image": "https://goheels.com/images/2026/11/8/CM1088801107.JPG?width=800",
+   "sourceLogo": "https://goheels.com/favicon.ico",
+   "published": "2026-11-08T17:15:00+00:00"
+  },
   {
    "title": "UNC's Work Pays Off - The Day After UConn",
    "link": "https://on3.com/teams/north-carolina-tar-heels/news/unc-work-pays-off-the-day-after-uconn/",
@@ -406,15 +415,6 @@
    "image": "https://goheels.com/images/2026/10/30/Runout.syr.2297.JPG?width=800",
    "sourceLogo": "https://goheels.com/favicon.ico",
    "published": "2026-10-30T12:00:00+00:00"
-  },
-  {
-   "title": "Carolina Insider: Miami Preview, Trech Kekahuna, Joschi Schelb",
-   "link": "https://goheels.com/news/2026/10/30/general-carolina-insider-miami-preview-trech-kekahuna-joschi-schelb",
-   "source": "North Carolina Athletics",
-   "summary": "<img alt=\"Carolina Insider Kekahuna, Schelb\" src=\"https://goheels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/27/__ci_pod-two_guests-1.jpg\" /><br /><br />Preview Saturday night's football game with Miami and visit with Trech Kekahuna and Joschi Schelb on Friday's episode.",
-   "image": "https://goheels.com/images/2026/10/27/__ci_pod-two_guests-1.jpg?width=800",
-   "sourceLogo": "https://goheels.com/favicon.ico",
-   "published": "2026-10-30T10:59:00+00:00"
   }
  ]
 }

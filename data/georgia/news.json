@@ -1,7 +1,25 @@
 {
  "team": "georgia",
- "updated": "2026-11-08T17:08:05.725135+00:00",
+ "updated": "2026-11-08T17:38:01.940069+00:00",
  "items": [
+  {
+   "title": "The Dashboard: Georgia proving you don't have to be fancy",
+   "link": "https://on3.com/teams/georgia-bulldogs/news/the-dashboard-georgia-proving-you-dont-have-to-be-fancy/",
+   "source": "On3",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08090535/The-Dashboard-1.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T17:34:32+00:00"
+  },
+  {
+   "title": "Gameday Central - Missouri",
+   "link": "https://georgiadogs.com/news/2026/11/8/football-gameday-central",
+   "source": "Georgia Athletics",
+   "summary": "<img alt=\"26FB Gameday Central - Missouri\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/26FB_GameDay_Missouri.jpg\" /><br /><br />Georgia returns home to take on the Missouri Tigers this week. \u00a0Get all the information you need about tickets, parking, stadium policies, and much more with our Gameday Central page.",
+   "image": "https://georgiadogs.com/images/2026/11/8/26FB_GameDay_Missouri.jpg?width=800",
+   "sourceLogo": "https://georgiadogs.com/favicon.ico",
+   "published": "2026-11-08T17:00:00+00:00"
+  },
   {
    "title": "Stock Up: Georgia's stars shine in rout of Ole Miss in Oxford",
    "link": "https://on3.com/teams/georgia-bulldogs/news/stock-up-georgias-stars-shine-in-rout-of-ole-miss-in-oxford/",
@@ -181,15 +199,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07203648/KM1_9793.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T04:08:35+00:00"
-  },
-  {
-   "title": "Game time set for Georgia vs. Missouri",
-   "link": "https://on3.com/teams/georgia-bulldogs/news/game-time-set-for-georgia-vs-missouri/",
-   "source": "On3",
-   "summary": "Game time has been set for Georgia's November 14 matchup with Missouri per the broadcast of the Bulldogs at Ole Miss.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07213905/2021-11-06T155758Z_1907834909_MT1USATODAY17105121_RTRMADP_3_NCAA-FOOTBALL-MISSOURI-AT-GEORGIA.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-08T03:40:41+00:00"
   },
   {
    "title": "Postgame Notes - Georgia vs. Ole Miss",
@@ -442,15 +451,6 @@
    "image": "https://georgiadogs.com/images/2026/10/19/261010_CJD_FB_BAMA_2413.jpg?width=800",
    "sourceLogo": "https://georgiadogs.com/favicon.ico",
    "published": "2026-11-03T22:24:00+00:00"
-  },
-  {
-   "title": "Sinkwich Headlines Group Of Four To Be Inducted Into The Rose Bowl Hall of Fame Class of 2026",
-   "link": "https://georgiadogs.com/news/2026/11/3/football-sinkwich-headlines-group-of-four-to-be-inducted-into-the-rose-bowl-hall-of-fame-class-of-2026",
-   "source": "Georgia Athletics",
-   "summary": "<img alt=\"Frank Sinkwich - 2026 Rose Bowl Hall of Fame Class\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/Unknown-112.jpeg\" /><br /><br />The Tournament of Roses announced today that former Georgia running back Frank Sinkwich, Stanford quarterback Don Bunce, USC receiver Bob Chandler and Cal linebacker Les Richter will be inducted into the Rose Bowl Hall of Fame as the Class of 2026.",
-   "image": "https://georgiadogs.com/images/2026/11/3/Unknown-112.jpeg?width=800",
-   "sourceLogo": "https://georgiadogs.com/favicon.ico",
-   "published": "2026-11-03T18:05:00+00:00"
   }
  ]
 }
