@@ -1,7 +1,16 @@
 {
  "team": "tulsa",
- "updated": "2026-11-07T21:38:14.936596+00:00",
+ "updated": "2026-11-08T13:38:16.948711+00:00",
  "items": [
+  {
+   "title": "Tulsa put on a show in stunning 60-10 rout of Tulane",
+   "link": "https://on3.com/sites/inside-tulsa-sports/news/tulsa-football-60-10-win-tulane/",
+   "source": "Inside Tulsa Sports",
+   "summary": "Tulsa football dominated Tulane 60-10 behind Baylor Hayes' 338 yards and 4 touchdowns, Oran Singleton's 3 scores and a 6-sack defensive performance.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/11/09082256/USATSI_27343077-edit.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T13:21:22+00:00"
+  },
   {
    "title": "Tulsa Rolls Past Tulane, 60-10",
    "link": "https://tulsahurricane.com/news/2026/11/7/football-tulsa-rolls-past-tulane-60-10",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/18082716/HU4otiXX0AAY_iV.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-18T12:49:45+00:00"
-  },
-  {
-   "title": "Tulsa needs to rediscover its early-season form at Rice",
-   "link": "https://on3.com/sites/inside-tulsa-sports/news/tulsa-at-rice-preview-2026/",
-   "source": "Inside Tulsa Sports",
-   "summary": "Tulsa visits Rice needing a win to regain confidence after two heartbreaking losses. Tre Lamb\u2019s Golden Hurricane look to get back on track.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/15093043/Tulsa-WR-Oran-Singleton-by-Tommy-Gilligan-Imagn-Images-1200.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-16T16:10:00+00:00"
   }
  ]
 }
