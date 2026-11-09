@@ -1,7 +1,16 @@
 {
  "team": "buffalo",
- "updated": "2026-11-06T21:37:55.201106+00:00",
+ "updated": "2026-11-09T16:08:02.685463+00:00",
  "items": [
+  {
+   "title": "Morrow Named MAC Co-Offensive Player of the Week",
+   "link": "https://ubbulls.com/news/2026/11/9/football-morrow-named-mac-co-offensive-player-of-the-week",
+   "source": "UB Athletics",
+   "summary": "<img alt=\"MORROW\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/3/MORROW-20261003fb-4944-web.jpg\" /><br /><br />BUFFALO, NY \u2013 University at Buffalo wide receiver Chance Morrow was named the Mid-American Conference Co-Offensive Player of the Week, the league announced on Monday. He shared the award with UMass quarterback Pop Watson.",
+   "image": "https://ubbulls.com/images/2026/10/3/MORROW-20261003fb-4944-web.jpg?width=800",
+   "sourceLogo": "https://ubbulls.com/favicon.ico",
+   "published": "2026-11-09T16:00:00+00:00"
+  },
   {
    "title": "Coach Lembo's Weekly Press Conference: Week 10",
    "link": "https://ubbulls.com/news/2026/11/6/football-coach-lembos-weekly-press-conference-week-10",
@@ -73,15 +82,6 @@
    "image": "https://ubbulls.com/images/2026/10/23/2026_Inductees-20261023-0047-web.jpg?width=800",
    "sourceLogo": "https://ubbulls.com/favicon.ico",
    "published": "2026-10-24T02:28:00+00:00"
-  },
-  {
-   "title": "Coach Lembo's Weekly Press Conference: Week 8",
-   "link": "https://ubbulls.com/news/2026/10/20/football-coach-lembos-weekly-press-conference-week-8",
-   "source": "UB Athletics",
-   "summary": "<img alt=\"Coach Lembo speaking at a podium\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/20/LemboPC.jpg\" /><br /><br />",
-   "image": "https://ubbulls.com/images/2026/10/20/LemboPC.jpg?width=800",
-   "sourceLogo": "https://ubbulls.com/favicon.ico",
-   "published": "2026-10-20T21:11:00+00:00"
   }
  ]
 }
