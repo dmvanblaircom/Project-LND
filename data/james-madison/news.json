@@ -1,7 +1,16 @@
 {
  "team": "james-madison",
- "updated": "2026-11-06T06:38:09.053465+00:00",
+ "updated": "2026-11-09T21:38:04.615318+00:00",
  "items": [
+  {
+   "title": "Football: Suarez Earns Sun Belt Weekly Honor",
+   "link": "https://jmusports.com/news/2026/11/9/football-suarez-earns-sun-belt-weekly-honor",
+   "source": "JMU Athletics",
+   "summary": "<img alt=\"Morgan Suarez kicking at Southern Miss.\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/Morgan_Suarez_Kicking_vs_Southern_Miss_110526.JPG\" /><br /><br />HARRISONBURG, Va. \u2013 James Madison kicker Morgan Suarez has been named the Sun Belt Conference Special Teams Player of the Week, the league announced on Monday.",
+   "image": "https://jmusports.com/images/2026/11/9/Morgan_Suarez_Kicking_vs_Southern_Miss_110526.JPG?width=800",
+   "sourceLogo": "https://jmusports.com/favicon.ico",
+   "published": "2026-11-09T21:27:00+00:00"
+  },
   {
    "title": "Football: Evans Leads Dukes in Road Win at Southern Miss",
    "link": "https://jmusports.com/news/2026/11/6/football-evans-leads-dukes-in-road-win-at-southern-miss",
@@ -82,15 +91,6 @@
    "image": "https://jmusports.com/images/2026/10/20/Campus_Parking_Convo.jpg?width=800",
    "sourceLogo": "https://jmusports.com/favicon.ico",
    "published": "2026-10-20T18:15:00+00:00"
-  },
-  {
-   "title": "Football: Dukes Brace for Thursday Night Trip to App State",
-   "link": "https://jmusports.com/news/2026/10/20/football-dukes-brace-for-thursday-night-trip-to-app-state",
-   "source": "JMU Athletics",
-   "summary": "<img alt=\"app state game preview\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/app_st_Game_Preview.jpg\" /><br /><br />HARRISONBURG, Va. \u2013 James Madison hits the road for a quick turnaround at App State on Thursday, Oct. 22. Kickoff at Kidd Brewer Stadium in Boone, North Carolina, is set for 7 p.m. ET, and the game will be aired live on ESPNU.",
-   "image": "https://jmusports.com/images/2026/10/19/app_st_Game_Preview.jpg?width=800",
-   "sourceLogo": "https://jmusports.com/favicon.ico",
-   "published": "2026-10-20T15:40:00+00:00"
   }
  ]
 }
