@@ -19,9 +19,12 @@ var TEAM = TeamOS.createTeam(TEAM_CONFIG.team);
 // shown, and freshness says how old it is.
 var KALSHI_ROUTES = [];
 function localSnapshot(path){
-  // Test PLAYOFF first: KXNCAAF is a prefix of KXNCAAFPLAYOFF.
-  if(/KXNCAAFPLAYOFF/.test(path)) return "data/league/odds-playoff.json";
-  if(/KXNCAAF-/.test(path))       return "data/league/odds-title.json";
+  // The series names are the league's (LEAGUE_MARKETS), never written here
+  // (code review, 2026-11-09). The playoff series first: the title's name
+  // is a prefix of it (KXNCAAF, KXNCAAFPLAYOFF).
+  path=String(path||"");
+  if(path.indexOf(LEAGUE_MARKETS.playoff.series)>-1) return "data/league/odds-playoff.json";
+  if(path.indexOf(LEAGUE_MARKETS.title.series+"-")>-1) return "data/league/odds-title.json";
   return null;
 }
 KALSHI_ROUTES.push(function(path){
@@ -70,7 +73,7 @@ function paintIdentity(){
   // nickname - for Home's hero - is the registry's (the provider's
   // shortDisplayName), not a second copy typed into the team config; its
   // mark is TeamOS's to name.
-  var reg = TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []).get(TEAM.id);
+  var reg = registry().get(TEAM.id);
   text("#barTeam", TEAM.name);
   var bm = $("barMark");
   if(bm) bm.outerHTML = Suite.ui.mark(TeamOS.espn.mark(TEAM_CONFIG.sources.espn.teamId, true),
@@ -123,9 +126,17 @@ function fitBarTeam(){
 // to switch to, the name stays quiet context, as decision 0024 §6 drew it.
 // Switching keeps the screen the fan is on (its #route), and is the
 // chooser's own way in: the team stored, then ?team=<id>.
+// The registry, indexed once (code review, 2026-11-09: it was rebuilt from
+// all 138 programs on every Around paint, every live tick, to read one).
+var REG=null;
+function registry(){
+  if(REG) return REG;
+  if(typeof TEAM_REGISTRY==="undefined") return TeamOS.registry.create([]);   // not loaded yet: not kept
+  return (REG=TeamOS.registry.create(TEAM_REGISTRY));
+}
 var SWITCH={ open:false };
 function yourTeams(){
-  var reg=TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []);
+  var reg=registry();
   return Suite.favorites.list().map(function(id){ return reg.get(id); })
     .filter(function(t){ return t && t.available; });
 }
@@ -161,7 +172,7 @@ function switchHost(){
 // Suite.ui.fill, so a logo already loaded is kept, not fetched again.
 function drawSwitch(){
   var list=yourTeams(), mine=list.filter(function(t){ return t.id===TEAM.id; }).length;
-  var reg=TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []);
+  var reg=registry();
   // the team being viewed heads the list, starred or not
   if(!mine){ var cur=reg.get(TEAM.id); if(cur) list.unshift(cur); }
   else list.sort(function(a,b){ return (a.id===TEAM.id ? -1 : 0)-(b.id===TEAM.id ? -1 : 0); });
@@ -318,6 +329,7 @@ function sourceKey(url){
   if(url.split("?")[0]==="data/league/fpi.json") return "fpi";
   if(url.split("?")[0]===EDGE+"/v1/cfbd/sp") return "sp-plus";
   if(url===TeamOS.espn.rosterUrl(TEAM_CONFIG)) return "roster";
+  if(url===TeamOS.espn.teamUrl(TEAM_CONFIG)) return "team";
   var dep=TeamOS.snapshots.get(TEAM_CONFIG,"depth"), av=TeamOS.snapshots.get(TEAM_CONFIG,"availability"),
       gn=TeamOS.snapshots.get(TEAM_CONFIG,"notes");
   if(dep && url.split("?")[0]===dep.file) return "depth";
@@ -335,7 +347,9 @@ function noteSource(url, cached){
   var at=cached ? Date.parse(cached) : Date.now();
   // a kept copy of unknown age is old, not "fetched just now"
   SRC[k]={ fetchedAt: isNaN(at) ? (cached ? null : Date.now()) : at, cached: !!cached };
-  if(typeof paintMore==="function") paintMore();   // Settings' Last Updated, while it is open
+  // Settings' Last Updated, while it is open - not a redraw of News or Stats
+  // for every answer that arrives (code review, 2026-11-09)
+  if(typeof paintMore==="function" && Suite.nav.current().screen==="settings") paintMore();
 }
 
 // Offline shell. sw.js keeps the page itself and the last good copy of every
@@ -474,10 +488,8 @@ function kalshi(path){
     var url;
     try { url = KALSHI_ROUTES[i++](path); }
     catch(e){ return attempt(); }
-    return get(url).then(function(d){
-      if(!d || !d.markets) throw new Error("unexpected shape");
-      return d;
-    }).catch(attempt);
+    // the shape check is get()'s, so an unusable answer never counts as fresh
+    return get(url, function(d){ return !!d && !!d.markets; }).catch(attempt);
   }
   return attempt();
 }
@@ -726,7 +738,7 @@ function aroundLayers(now){
   }
   var games=SB.games || T25.cachedGames;
   if(!games) return null;
-  var me=TeamOS.registry.create(typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : []).get(TEAM.id);
+  var me=registry().get(TEAM.id);
   return TeamOS.around.layers({ games:games, teamId:TEAM_CONFIG.sources.espn.teamId, teamName:TEAM.name,
     conference: me ? me.conference : null, conferences:AROUND.conferences,
     short: window.LEAGUE_CONFERENCES || {}, schedule:S.games||[], series:TEAM_CONFIG.series||[],
@@ -1040,8 +1052,8 @@ function loadRosterScreen(force, warm){
       if(!roHas(src.key) && src.take(c.data)){ st.copyAt=c.at; paintRoster(); }
     }).catch(function(){});
     st.inflight=true; st.tried=true;
-    st.p=get(src.fresh(src.url)).then(function(d){
-      if(!src.take(d)){ st.failed=true; return; }
+    // take() is the usable check, run before the source is noted fresh
+    st.p=get(src.fresh(src.url), src.take).then(function(){
       var n=SRC[src.key], copy=!!(n && n.cached);             // noteSource(): the worker's cached copy says so
       st.failed=false; st.cached=copy; st.fetchedAt=n ? n.fetchedAt : Date.now();
       // Only a network answer starts the refresh clock. The worker's last good
@@ -1683,8 +1695,18 @@ function heroGame(){
 // two thresholds and so that going behind is announced once - politely,
 // never again on the refreshes that follow, and nothing when it catches up.
 // A catch-up is reconciliation: the plays it brings appear as plays, no more.
+// Behind is judged only against a summary fetched in the last 45 seconds
+// (a live game's is refreshed every 25): coming back to Game after a while,
+// the summary on hand is minutes old while the scoreboard moved on, and that
+// gap is ours, not the record's (code review, 2026-11-09). Until a fresh one
+// arrives the state stays as it was - never newly behind, never announced.
+var FEED_FRESH_MS=45e3;
 function feedOf(V, g){
   var f=TeamOS.game.feedState(g, V.gd, V.behind);
+  if(!(V.gdAt && Date.now()-V.gdAt < FEED_FRESH_MS)){
+    f.behind=!!V.behind && f.behind;
+    return f;
+  }
   if(f.behind && !V.behind) say("Play-by-play is catching up. The game clock is ahead of the latest recorded play.");
   V.behind=f.behind;
   return f;
@@ -1730,7 +1752,7 @@ function loadGameDetail(V, g, lc, repaint){
   }
   V.loading=true;
   V.p=summaryFor(g.id, live).then(function(raw){
-    V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
+    V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG); V.gdAt=Date.now();
     if(learnOpening(g.id, V.gd) && SB.games) SB.games=TeamOS.live.withOpening(SB.games, OPENING);
     if(lc.phase==="pregame" && (V.preview===undefined || V.previewFailed)) loadGamePreview(V, g, repaint);
     return "network";
@@ -2056,7 +2078,11 @@ function autoTick(){
   // their own clock.
   getScoreboard(0).catch(function(){ return null; }).then(function(){
     return refreshSchedule(false);
-  }).then(function(){
+  }).then(function(r){
+    // A schedule poll that failed reconciled nothing: the tick's scoreboard
+    // still reaches Home and Game, or their live score froze while Top 25's
+    // moved on (code review, 2026-11-09).
+    if(r && r.outcome==="failed" && SB.games) scoreboardArrived();
     paintGame();                         // the Game screen refreshes itself on its own clock
     paintTop25();
   }).catch(function(){});
@@ -2076,7 +2102,7 @@ function loadTeamStatus(){
   var url=TeamOS.espn.teamUrl(TEAM_CONFIG);
   return get(url, function(d){ return !!d && !!d.team; }).then(function(d){
     HOME.status=TeamOS.espn.teamStatus(d); paintHome();
-    return { key:"team", outcome:"network" };
+    return { key:"team", outcome:outcomeOf("team") };   // the worker's copy is not a refresh
   }).catch(function(){ return { key:"team", outcome:"failed" }; });
 }
 /* ---------- the week's game notes (David, 2026-10-09) ---------- */
@@ -2185,10 +2211,7 @@ function refreshSchedule(first){
     // A game under way before the first scoreboard tick: fetch it now, so
     // Home's hero has the clock, the ball and the down from the start.
     if(!SB.games && games.some(TeamOS.game.underWay)){
-      getScoreboard(0).then(function(){
-        S.games=TeamOS.live.reconcileAll(S.games, SB.games);
-        paintHome();
-      }).catch(function(){});
+      getScoreboard(0).then(scoreboardArrived).catch(function(){});   // the next game, the rules and Game too
     }
     if(announce) say("Schedule loaded, "+games.length+" games."+
       (S.next?" Next game is "+(S.next.home?"versus ":"at ")+S.next.oppName+".":""));
@@ -2465,7 +2488,10 @@ function refreshResult(outcomes){
 function manualRefresh(){
   if(MORE.p) return MORE.p;
   MORE.refreshing=true; paintMore();
-  MORE.p=refreshAll(false).then(function(outcomes){
+  // A step that throws while drawing must not leave the refresh running for
+  // the rest of the visit, Refresh Data dead and every pull joining it (code
+  // review, 2026-11-09): it ends, and says it could not refresh.
+  MORE.p=refreshAll(false).catch(function(){ return [{ key:"refresh", outcome:"failed" }]; }).then(function(outcomes){
     var r=refreshResult(outcomes);
     MORE.refreshing=false; MORE.p=null; MORE.result=r.note; paintMore();
     return r;
