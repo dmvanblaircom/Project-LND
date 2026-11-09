@@ -8,7 +8,7 @@
  "seasonType": 2,
  "week": 10,
  "weekText": "Week 10",
- "sourceUpdated": "2026-11-08T09:00Z",
+ "sourceUpdated": "2026-11-09T09:00Z",
  "teams": [
   {
    "espnId": "87",
@@ -1253,5 +1253,5 @@
    "record": "2-8"
   }
  ],
- "fetchedAt": "2026-11-08T10:37Z"
+ "fetchedAt": "2026-11-09T10:07Z"
 }
