@@ -38,14 +38,13 @@ This is the only active list. A brief or decision holds the detail; this file ho
 
 ## 1. In flight
 
+**Clean slate, 2026-11-09** (David: merge every open PR so the redesign is the sole focus). Merged: #237 spec v1.2, #243 this backlog, #241 play-by-play freshness, #238 Stage 1 foundation, #239 Stage 1b components, #244 `TeamOS.wire` groundwork. #135 (DEV/Lab environments) closed as paused, its branch kept.
+
 | PR | What | Status | Gate |
 |---|---|---|---|
-| #237 | Redesign spec v1.2: decisions 0041-0043, the wire in the redesign | in review | D merges |
-| #238 → #239 → #240 | Redesign Stage 1 foundation, 1b components, and desktop header navigation (0042) | in review | D merges. #240 ships with Stage 2 |
-| #241 | Play-by-play freshness state | in review: revised screenshots sent 2026-11-08 | CD reviews, then D merges |
-| `feat/wire-groundwork` | `TeamOS.wire`: classifier, article key, opponent lookup, measurement report. Not used by the app | building | Measurement goes to D (§3, F1) |
-| #243 | This backlog and the wire taxonomy | in review | D merges |
-| #135 | DEV/Lab environments | parked by David, Oct 13 | D resumes |
+| #240 | Desktop header navigation (0042) | open on purpose: it ships with Stage 2's wide Home and Game (0042 §6; David, 2026-11-09) | lands with R1 |
+
+**While the redesign is the focus** (David, 2026-11-09), the only other work is: live operations and bugs (F5, F6, §5), and the readers for every school's notes and depth charts (F4). Everything else in §3-§4 waits for the redesign.
 
 ## 2. The Suite redesign program (decision 0040)
 
@@ -63,7 +62,7 @@ The order below is the program. ChatGPT designs, David approves, and Claude buil
 
 | # | Item | Status | Gate |
 |---|---|---|---|
-| F1 | **The wire, Phase 1** ([brief](../product/wire-brief.md): taxonomy and decisions of 2026-11-09). Status-change headlines in seven categories: Injury, Availability, Suspension, Transfer, Coaching, Commitment, Drafted. Steps: **(a)** groundwork, building; **(b)** measurement, at least 90% precision, to David; **(c)** Home's row with R1; **(d)** Around's wire, first out of season, with R4; **(e)** alerts, off by default, with separate switches for the team and the opponent in game week. Alerts need the Worker to read the news snapshots and a per-article "already sent" key | approved | (b) D; (c) and (d) CD; (e) D approves the Worker change |
+| F1 | **The wire, Phase 1** ([brief](../product/wire-brief.md): taxonomy and decisions of 2026-11-09). Status-change headlines in seven categories: Injury, Availability, Suspension, Transfer, Coaching, Commitment, Drafted. Steps: **(a)** groundwork, merged (#244); **(b)** measurement, at least 90% precision, to David. First run, 2026-11-09 (`docs/engineering/wire-measurement-2026-11-09.md`): 88.1% on held-out headlines, so the gate is not met; the revised rule needs a fresh sample of headlines published after 2026-11-10; **(c)** Home's row with R1; **(d)** Around's wire, first out of season, with R4; **(e)** alerts, off by default, with separate switches for the team and the opponent in game week. Alerts need the Worker to read the news snapshots and a per-article "already sent" key | approved | (b) D; (c) and (d) CD; (e) D approves the Worker change |
 | F2 | **Around, the rest of the approved build** ([navigation brief](../product/navigation-brief.md) steps 3-4): **(a)** conference standings, after a source probe; **(b)** the out-of-season sections month by month, from data in hand (standings and bowls, Signing Day classes, Draft picks by school, next season's slate and opponents, final and preseason polls) | approved | (a) C probes; (b) CD designs with R4 |
 | F3 | **Live refresh on Around's Top 25 games** (David, 2026-11-08: no way to force a play update on a Top 25 game). Auto-refresh runs every 30 s while live; the visible refresh experience is the gap | approved need | CD: direction requested |
 | F4 | **Readers for every school's game notes and depth charts** (David, 2026-10-30: "soon"). Every team links its notes today; only Notre Dame and Ohio State are read. Generalise by layout family (mostly SIDEARM PDFs), school by school, behind a check. Depth: 12 sources found | approved | C, in batches; a review sheet per batch to D |
