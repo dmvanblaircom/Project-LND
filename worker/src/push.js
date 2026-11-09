@@ -56,10 +56,16 @@
    and cut short (playText). */
 
 import { RANKINGS_SHOWS, SELECTION_DAYS } from "./calendar.js";
+import { SUITE_IDS } from "./schools.js";
 
 const CORE = "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football";
 const SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football";
 export const APP_URL = "https://dmvanblaircom.github.io/Project-LND/";
+// An alert's link: the app, the team it is about, the screen.
+export function alertUrl(teamId, where) {
+  const id = SUITE_IDS[String(teamId)];
+  return APP_URL + (id ? "?team=" + encodeURIComponent(id) : "") + (where || "");
+}
 const MIN = 60 * 1000;
 export const LIMITS = { subscriptions: 5000, scheduleEvery: 60 * MIN, before: 20 * MIN, window: 8 * 60 * MIN,
                         tries: 10, kickoffLate: 15 * MIN, liveLate: 5 * MIN, settle: 3 * MIN, fold: 5 * MIN,
@@ -771,8 +777,19 @@ async function noPostLook(db, env, teamId, sel, now, log) {
 // One minute's work. Returns what it did, for the log and the tests.
 // `quick`: a look between minutes (minute()) - new alerts go, retries wait
 // for the minute, so LIMITS.tries still spans ten minutes (Codex, #119).
+// Finished deliveries are kept a month, for the log, then let go: each
+// carries its own copy of the game, and the store grew with every follower,
+// event and game, season after season (code review, 2026-11-09). Due and
+// sending ones are never touched; "sent" stays, as it is what never repeats
+// an alert.
+export const KEEP_DELIVERIES = 30 * 24 * 60 * MIN;
+export function prune(db, now) {
+  db.run("DELETE FROM deliveries WHERE state IN ('done', 'expired', 'failed', 'gone') AND at < ?", now - KEEP_DELIVERIES);
+}
+
 export async function tick(db, env, now, quick) {
   const log = [];
+  prune(db, now);
   let live = false;
   const teams = db.all("SELECT DISTINCT team_id FROM subs");
   for (const t of teams) {
@@ -1269,7 +1286,9 @@ async function deliver(db, env, teamId, now, log, retry) {
     // schedule itself, not a game that is not there (Codex, #152).
     const where = isFinite(kickoffAt) || /^post:/.test(d.event) ? "#schedule/" + d.game_id : /^postoff:/.test(d.event) ? "#schedule"
                 : /^(cfp|sel):/.test(d.event) ? "#top25/rankings/cfp" : /^nopost:/.test(d.event) ? "#home" : "#game";
-    const msg = { title: w.title, body: w.body, url: APP_URL + where, tag, renotify: live(d.event) };
+    // The link names its team: one phone can follow several, and the app
+    // otherwise opens whichever it saw last (code review, 2026-11-09).
+    const msg = { title: w.title, body: w.body, url: alertUrl(teamId, where), tag, renotify: live(d.event) };
     if (w.kickoff) { msg.kickoff = w.kickoff; if (w.network) msg.network = w.network; }
     // A final says whether the team won: the phone adds a program milestone
     // the game made (the 1,000th win), which only the app knows.

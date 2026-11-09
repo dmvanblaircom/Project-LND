@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-11-09data";
+var VERSION = "suite-2026-11-09data2";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -502,8 +502,13 @@ self.addEventListener("notificationclick", function (e) {
     for (var i = 0; i < list.length; i++) {
       var c = list[i];
       if (c.url.indexOf(scope) === 0 && "focus" in c) {
-        return (c.navigate && c.url !== url ? c.navigate(url).catch(function () { return c; }) : Promise.resolve(c))
-          .then(function (w) { return (w || c).focus(); });
+        // Focus inside the tap, then move: a focus() after the navigation
+        // has finished may no longer count as the fan's gesture, and the
+        // app would stay behind (code review, 2026-11-09).
+        return c.focus().then(function (w) {
+          w = w || c;
+          return w.navigate && w.url !== url ? w.navigate(url).catch(function () { return w; }) : w;
+        });
       }
     }
     return self.clients.openWindow ? self.clients.openWindow(url) : null;

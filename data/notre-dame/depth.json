@@ -3,11 +3,11 @@
  "team": "notre-dame",
  "capability": "depth",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/1aaae31d-807b-4dda-8e77-b903ddee6c50.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/47d53859-fc29-4b03-a78e-d2136de79026.pdf",
  "sourceLabel": "FightingIrish.com",
- "title": "DEPTH CHART - GAME 9 VS MIAMI",
- "game": "Miami FL",
- "fetchedAt": "2026-11-02T20:09:07.065752+00:00",
+ "title": "DEPTH CHART - GAME 10 VS BOSTON COLLEGE",
+ "game": "Boston College",
+ "fetchedAt": "2026-11-09T21:08:32.840428+00:00",
  "units": [
   {
    "unit": "Defense",
@@ -177,6 +177,16 @@
         {
          "no": "19",
          "name": "Madden Faraimo",
+         "cl": "So."
+        }
+       ]
+      },
+      {
+       "level": 3,
+       "players": [
+        {
+         "no": "16",
+         "name": "Ko’ o Kia",
          "cl": "So."
         }
        ]
@@ -651,14 +661,19 @@
        "level": 1,
        "players": [
         {
-         "no": "22",
-         "name": "Aneyas Williams",
-         "cl": "Jr."
-        },
-        {
          "no": "2",
          "name": "Nolan James Jr.",
          "cl": "So."
+        },
+        {
+         "no": "20",
+         "name": "Jonaz Walton",
+         "cl": "Fr."
+        },
+        {
+         "no": "22",
+         "name": "Aneyas Williams",
+         "cl": "Jr."
         }
        ]
       },
@@ -669,11 +684,6 @@
          "no": "21",
          "name": "Kedren Young",
          "cl": "Jr."
-        },
-        {
-         "no": "20",
-         "name": "Jonaz Walton",
-         "cl": "Fr."
         },
         {
          "no": "26",
@@ -966,8 +976,9 @@
    "ordinal": 1,
    "level": 1,
    "names": [
-    "Aneyas Williams",
-    "Nolan James Jr."
+    "Nolan James Jr.",
+    "Jonaz Walton",
+    "Aneyas Williams"
    ]
   },
   {
@@ -977,7 +988,6 @@
    "level": 2,
    "names": [
     "Kedren Young",
-    "Jonaz Walton",
     "Javian Osborne"
    ]
   },
@@ -1014,14 +1024,14 @@
  ],
  "changes": [
   {
-   "kind": "up",
-   "name": "Kyngstonn Viliamu-Asa",
-   "text": "Kyngstonn Viliamu-Asa moves up to first team at MIKE"
+   "kind": "enters",
+   "name": "Ko’ o Kia",
+   "text": "Ko’ o Kia enters the depth chart at MIKE, third team"
   },
   {
-   "kind": "leaves",
-   "name": "Drayk Bowen",
-   "text": "Drayk Bowen is off the depth chart"
+   "kind": "up",
+   "name": "Jonaz Walton",
+   "text": "Jonaz Walton moves up to first team at RB"
   }
  ]
 }

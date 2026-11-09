@@ -157,7 +157,7 @@ function fakeCaches() {
   // Sweep, 2026-10-29: Game's Matchup is warmed from Home, into the state
   // Game reads, so the tap opens it drawn.
   var w = previewScope(); w.statsFail = 0; w.edgeFail = 0;
-  vm.runInContext("var NEXT={ id:'g1', date:'2026-10-31T16:00Z' }, paints=0, SB={}, TEAM={}, TEAM_CONFIG={}, OPENING={};" +
+  vm.runInContext("var NEXT={ id:'g1', date:'2026-10-31T16:00Z' }, paints=0, SB={}, SUM={ mem:{} }, TEAM={}, TEAM_CONFIG={}, OPENING={};" +
     "TeamOS.espn.gameDetail=function(){ return {}; }; TeamOS.game.lifecycle=function(){ return { phase:'pregame' }; };" +
     "function learnOpening(){ return false; } function heroGame(){ return NEXT; } function paintGame(){ paints++; }" +
     "function gameState(id){ return { id:id, gd:null, preview:undefined, at:0, loading:false }; } var GV=gameState(null);" + lift("warmGame"), w);
