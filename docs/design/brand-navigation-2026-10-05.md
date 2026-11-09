@@ -1,5 +1,7 @@
 # Approved type and navigation rollout
 
+> **Superseded in part (2026-11-07):** Georgia is retired from section headings and headlines by the approved Phase 2 specification (`docs/design/suite-home-game-approved-spec-v1.md` §3.2, David 2026-11-06). Section titles and headlines now use the UI sans; scores and other key figures use the Suite numeric face for every team.
+
 David approved proceeding October 5 after reviewing the Home/Game/News reference. His October 4 correction supersedes the earlier Instrument Serif decision: use Instrument Sans for the main interface and retain Georgia for News headings and article headlines until another editorial face is chosen. Ohio State Team Style retains Nunito Sans. Preserve the unified SUITE/team header and compact depth-chart changes with movement arrows.
 
 The implementation self-hosts Instrument Sans with a native 80%-width display instance. Pearl pages surround white cards; Suite Style uses Ink actions, Champagne on dark surfaces, and a small Bronze header separator. The neutral secondary accent is lighter than the early preview's Slate value so it passes the existing identity contrast gate on dark surfaces. Team colors remain unchanged.

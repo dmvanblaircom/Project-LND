@@ -49,9 +49,31 @@
   --s-football:#7A4A21;        /* the possession football, one place */
 
   /* Type. Instrument Sans is the Suite's foundation; a team may bring its
-     own ui/display faces through --t-font-*. Editorial type (news headlines)
-     is the Suite's alone. */
-  --s-font-editorial:Georgia,Charter,"Times New Roman",serif;
+     own ui/display faces through --t-font-*. Section titles and headlines are
+     the configured UI sans at a confident weight - one modern sans system, no
+     editorial serif (Georgia retired: Phase 2 spec §3.2, David 2026-11-06). */
+  --s-font-heading:var(--t-font-ui);
+  /* The Suite's numeric face (Phase 2 spec §3.2): scores, clocks, periods,
+     ranks, records and countdowns, the same for every team in both App
+     Styles - never a team's display face. Instrument Display's figures are
+     tabular by design and it is precached with the shell, so a live score
+     never swaps faces after first paint. */
+  --s-font-score:'Instrument Display','Instrument Sans',system-ui,sans-serif;
+
+  /* Phase 2 foundation scales (docs/design/suite-home-game-approved-spec-v1.md
+     §3.3). New and redesigned rules use these; older rules move onto them as
+     their screens are redesigned, not in one sweep. */
+  --s-space-1:.25rem;--s-space-2:.5rem;--s-space-3:.75rem;--s-space-4:1rem;
+  --s-space-5:1.5rem;--s-space-6:2rem;--s-space-7:3rem;--s-space-8:4rem;
+  --s-type-xs:.75rem;--s-type-sm:.875rem;--s-type-md:1rem;--s-type-lg:1.25rem;
+  --s-type-xl:1.5rem;--s-type-2xl:2rem;--s-type-3xl:2.75rem;
+  --s-type-score:clamp(3rem,15vw,4.75rem);        /* the hero score, 320px to desktop */
+  --s-elev-1:var(--s-shadow-card);
+  --s-elev-2:var(--s-shadow-raise);
+  --s-elev-3:0 18px 48px rgba(4,10,28,.28);
+  --s-dur-fast:120ms;--s-dur-base:180ms;--s-dur-slow:320ms;
+  --s-ease-out:cubic-bezier(.2,.7,.2,1);
+  --s-ease-in-out:cubic-bezier(.65,0,.35,1);
 
   /* Shape and depth. */
   --s-radius-card:14px;
@@ -63,6 +85,7 @@
   /* Layout. */
   --gutter:1rem;
   --s-content-max:40rem;
+  --s-content-wide:72rem;      /* the desktop grid (>= 64rem viewport), Phase 2 spec §4.1 */
   --s-bar-h:3.5rem;            /* the compact SUITE header, without the safe area */
   --s-nav-h:4.1rem;            /* the bottom nav, without the safe area */
 
@@ -241,7 +264,8 @@ html{background:var(--s-surface);scroll-padding-top:calc(var(--s-bar-h) + env(sa
 @font-face{font-family:'Rubik';font-style:normal;font-weight:300 900;font-display:swap;src:url(assets/fonts/rubik/rubik-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 
 /* Self-hosted, native variable weights; Display pins the width axis at 80%.
-   Georgia remains the editorial face (David, October 4). No faux bold. */
+   Section titles and headlines use the UI sans since Phase 2 (Georgia
+   retired). No faux bold. */
 @font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/instrument-sans/instrument-sans.woff2) format('woff2')}
 @font-face{font-family:'Instrument Display';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/instrument-sans/instrument-display.woff2) format('woff2')}
 body{font-synthesis:none;margin:0;min-height:100vh;min-height:100dvh;background:var(--s-page);color:var(--s-ink);font-family:var(--t-font-ui);font-size:1rem;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
@@ -365,46 +389,68 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 /* ====================================================================
    5. COMPONENTS
    ==================================================================== */
-/* Art slot. Approved team art when a team has it; otherwise the fallback,
-   which is a finished composition in its own right: the team's own colours,
-   an atmospheric glow in its accent, and a quiet vignette. Never a stock
-   photo, never a grey box. */
+/* Art slot: the stadium atmosphere behind Home's hero and Game's
+   scoreboard (Phase 2 spec §3.4). A finished composition with no image at
+   all - the team's own surfaces, floodlights and their beams in light and the
+   team's accent, a field's lines receding below, a fine grain - so it is the
+   complete fallback when no art loads, and the first paint while art is on
+   its way. Approved team photography (identity.art) replaces it; shared
+   environment art, once approved, slots in under the light through
+   --s-art-env without any markup change. Never a stock photo, never a grey
+   box. Everything here is static: no animated filter, blur or backdrop. */
 .art-slot{position:absolute;inset:0;z-index:-1;overflow:hidden;
-  background:radial-gradient(70% 55% at 88% 8%,rgba(var(--t-accent-rgb),.30),transparent 70%),
-             radial-gradient(90% 70% at 8% 100%,rgba(var(--t-raise-rgb),.85),transparent 62%),
-             linear-gradient(165deg,var(--t-surface) 0%,var(--t-deep) 52%,var(--t-abyss) 100%)}
-/* A fine diagonal grain, strongest behind the watermark, gone behind text. */
-.art-slot::before{content:"";position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 1px,transparent 1px 13px);
-  -webkit-mask-image:linear-gradient(100deg,transparent 35%,#000 85%);mask-image:linear-gradient(100deg,transparent 35%,#000 85%)}
+  background:radial-gradient(90% 70% at 8% 100%,rgba(var(--t-raise-rgb),.7),transparent 62%),
+             var(--s-art-env,none) center/cover no-repeat,
+             linear-gradient(170deg,var(--t-surface) 0%,var(--t-deep) 48%,var(--t-abyss) 100%)}
+/* The lights: a floodlight bank above the right of the field, its halo in
+   the team's accent and a few beams falling from it, and a fainter bank off
+   centre. The top-left corner stays on the surface: the school's name sits
+   there in the team's accent (a light there once took Notre Dame's gold to
+   2.6:1 - visual gate, 2026-09-26). */
+.art-lights{position:absolute;inset:0;z-index:1;
+  background:radial-gradient(16% 11% at 84% -3%,rgba(255,255,255,.5),transparent 72%),
+             radial-gradient(10% 8% at 62% -4%,rgba(226,238,255,.22),transparent 75%),
+             radial-gradient(60% 48% at 84% 0%,rgba(var(--t-accent-rgb),.34),transparent 72%),
+             conic-gradient(from 196deg at 84% -6%,transparent 0deg,rgba(255,255,255,.075) 7deg,transparent 15deg,transparent 21deg,rgba(255,255,255,.05) 27deg,transparent 35deg,transparent 360deg);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 30%,transparent 85%);mask-image:linear-gradient(180deg,#000 0%,#000 30%,transparent 85%)}
+/* The field: yard lines receding toward the stands, lit from above and gone
+   before they reach the text. */
+.art-field{position:absolute;left:0;right:0;bottom:0;z-index:1;width:100%;height:46%;color:rgba(255,255,255,.14);
+  -webkit-mask-image:linear-gradient(0deg,#000 0%,transparent 92%);mask-image:linear-gradient(0deg,#000 0%,transparent 92%)}
+.art-field line{stroke:currentColor;stroke-width:1;vector-effect:non-scaling-stroke}
+/* A fine grain over the whole slot, static. */
+.art-slot::before{content:"";position:absolute;inset:0;z-index:1;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 /* The foreground's floor: text always sits on the deep end of the slot. */
-.art-slot::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.05) 0%,rgba(var(--t-abyss-rgb),.2) 45%,rgba(var(--t-abyss-rgb),.72) 100%)}
-/* The team's mark as a large, cropped watermark: the logo when it loads,
-   the program's initials drawn in outline when it does not. */
-.art-watermark{position:absolute;right:-14%;top:clamp(4rem,24%,9rem);display:flex;align-items:center;justify-content:center;width:min(25rem,86vw);aspect-ratio:1;transform:translateY(-50%) rotate(-9deg);opacity:.17}
+.art-slot::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.05) 0%,rgba(var(--t-abyss-rgb),.22) 45%,rgba(var(--t-abyss-rgb),.7) 100%)}
+/* The team's mark, small and quiet in the upper corner: the logo when it
+   loads, the program's initials drawn in outline when it does not. Never
+   large, and never behind a score, clock or game situation (spec §3.3), so
+   Game's scoreboard, which carries both marks itself, has none. */
+.art-watermark{position:absolute;right:-3%;top:.4rem;z-index:1;display:flex;align-items:center;justify-content:center;width:min(11rem,34vw);aspect-ratio:1;transform:rotate(-9deg);opacity:.11}
 .art-watermark img{position:relative;width:100%;height:100%;object-fit:contain}
-.art-initials{font-family:var(--t-font-display);font-weight:800;font-size:min(15rem,52vw);line-height:1;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:3px var(--s-on-dark)}
+.art-initials{font-family:var(--t-font-display);font-weight:800;font-size:min(6.5rem,21vw);line-height:1;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:2px var(--s-on-dark)}
+.game-head .art-watermark{display:none}
 /* The outlined initials are the fallback for a team with no logo, or whose
    logo failed (settle() removes the img). While a logo is on its way the
    watermark stays empty: showing the initials first made the hero flash
    "ND" on every load and repaint (David, 2026-09-28). */
 .art-watermark:has(img) .art-initials,.art-watermark.loaded .art-initials{display:none}
 .art-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.art-slot.has-photo .art-watermark,.art-slot.has-photo::before{display:none}
+.art-slot.has-photo .art-watermark,.art-slot.has-photo .art-lights,.art-slot.has-photo .art-field,.art-slot.has-photo::before{display:none}
 /* A photograph is not the team's flat colours: text on it gets a real
    scrim, top and bottom, whatever is bright in the picture. */
 .art-slot.has-photo::after{background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.72) 0%,rgba(var(--t-abyss-rgb),.45) 38%,rgba(var(--t-abyss-rgb),.82) 100%)}
-/* Kickoff atmosphere (decision 0022 #11): a warm, open sky for a day game;
-   stadium lights over a darker bowl at night. The day's sun and its lighter
-   band stay off the top-left, where the school name sits in the team's
-   accent: that corner starts on the surface, as the text floor requires
-   (a sun there took Notre Dame's gold to 2.6:1 - visual gate, 2026-09-26). */
-.art-day .art-slot{background:radial-gradient(45% 40% at 90% 0%,rgba(255,236,196,.22),transparent 70%),
-             radial-gradient(70% 55% at 88% 8%,rgba(var(--t-accent-rgb),.26),transparent 70%),
+/* Kickoff atmosphere (decision 0022 #11): a day game is open and warm, the
+   floodlights barely needed; a night game is a darker bowl under full
+   lights. */
+.art-day .art-slot{background:radial-gradient(45% 40% at 90% 0%,rgba(255,236,196,.2),transparent 70%),
+             var(--s-art-env,none) center/cover no-repeat,
              linear-gradient(165deg,var(--t-surface) 0%,var(--t-raise) 40%,var(--t-deep) 100%)}
-.art-night .art-slot{background:radial-gradient(22% 16% at 18% 0%,rgba(226,238,255,.26),transparent 80%),
-             radial-gradient(22% 16% at 82% 0%,rgba(226,238,255,.22),transparent 80%),
-             radial-gradient(70% 55% at 88% 12%,rgba(var(--t-accent-rgb),.24),transparent 70%),
-             linear-gradient(170deg,var(--t-deep) 0%,var(--t-abyss) 70%)}
+.art-day .art-lights{opacity:.55}
+.art-night .art-slot{background:radial-gradient(90% 70% at 8% 100%,rgba(var(--t-raise-rgb),.55),transparent 62%),
+             var(--s-art-env,none) center/cover no-repeat,
+             linear-gradient(172deg,var(--t-deep) 0%,var(--t-abyss) 72%)}
 
 /* A program's mark: the provider's logo when it loads, the program's
    initials in its own circle when it does not. */
@@ -427,7 +473,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 
 /* Section heading, with its optional "View All". */
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:1.6rem 0 .7rem}
-.sec-title{margin:0;font-family:var(--s-font-editorial);font-weight:700;font-size:1.7rem;line-height:1.1;color:var(--t-surface)}
+.sec-title{margin:0;font-family:var(--s-font-heading);font-weight:700;font-size:1.5rem;line-height:1.15;letter-spacing:-.015em;color:var(--t-surface)}
 .sec-link{display:inline-flex;align-items:center;gap:.15rem;min-height:2.75rem;font-weight:600;font-size:1rem;color:var(--t-surface);text-decoration:none;white-space:nowrap}
 .sec-link .chev{width:1.1rem;height:1.1rem;stroke:currentColor}
 .sec-quiet{margin:.2rem 0 1rem;color:var(--s-muted)}
@@ -516,20 +562,20 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gc-line{display:flex;align-items:center;gap:.55rem}
 .gc-side.them .gc-line{flex-direction:row-reverse}
 .gc-side .mark{--mark:3.5rem}
-.gc-score{font-family:var(--t-font-display);font-weight:800;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.gc-score{font-family:var(--s-font-score);font-weight:800;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
 .gc-name{max-width:calc(100% - .5rem);margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
-.gc-rank{color:var(--t-accent-text)}
+.gc-rank{color:var(--t-accent-text);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 /* Never an ellipsis: ui.fitNames tightens both names, then swaps both to
    the abbreviation, exactly as the Game header does. */
 .gc-abbr,.fit-abbr .gc-full{display:none}
 .fit-abbr .gc-abbr{display:inline}
 .fit-tight .gc-name{font-size:.92rem;letter-spacing:0}
 .gc-side.is-loser .gc-score,.gh-team.is-loser .gh-score{font-weight:500;color:var(--s-on-dark-2)}
-.gc-record{font-size:.95rem;color:var(--s-on-dark-2)}
+.gc-record{font-size:.95rem;color:var(--s-on-dark-2);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 .gc-mid{display:flex;flex-direction:column;align-items:center;gap:.1rem;font-family:var(--t-font-display);text-transform:uppercase}
 .gc-vs{font-weight:700;font-size:1.3rem;letter-spacing:.1em;color:var(--s-on-dark-2)}
-.gc-period{font-weight:700;font-size:1.1rem;letter-spacing:.04em}
-.gc-clock{font-weight:800;font-size:1.7rem;line-height:1;font-variant-numeric:tabular-nums}
+.gc-period{font-weight:700;font-size:1.1rem;letter-spacing:.04em;font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
+.gc-clock{font-weight:800;font-size:1.7rem;line-height:1;font-variant-numeric:tabular-nums;font-family:var(--s-font-score)}
 .gc-mid.is-held .gc-clock{color:var(--s-on-dark-2)}     /* stopped where play stopped */
 .gc-rule{width:1px;height:2.6rem;background:rgba(255,255,255,.32)}
 /* Score and football share a measured group; an absolutely positioned
@@ -584,7 +630,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .news-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;min-height:3.25rem;padding:.6rem .8rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
 .news-img.none .news-src{display:block;color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase}
 .news-body{display:flex;flex:1;flex-direction:column;gap:.4rem;padding:.7rem .85rem .8rem}
-.news-hl{display:-webkit-box;overflow:hidden;-webkit-line-clamp:3;-webkit-box-orient:vertical;font-family:var(--s-font-editorial);font-weight:700;font-size:1.12rem;line-height:1.28;color:var(--s-ink)}
+.news-hl{display:-webkit-box;overflow:hidden;-webkit-line-clamp:3;-webkit-box-orient:vertical;font-family:var(--s-font-heading);font-weight:700;font-size:1.08rem;line-height:1.3;letter-spacing:-.005em;color:var(--s-ink)}
 .news-meta{display:flex;align-items:center;gap:.35rem;margin-top:auto;font-size:.88rem;color:var(--s-muted)}
 .ext{flex:none;width:.95rem;height:.95rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
@@ -629,8 +675,8 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .sched-net,.sched-odds{font-size:.82rem;white-space:nowrap;color:var(--s-muted)}
 .sc-card{margin-top:.9rem;padding:.9rem .2rem .2rem;overflow:hidden}
 .sc-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:0 .8rem .5rem}
-.sc-title{margin:0;font-family:var(--s-font-editorial);font-weight:700;font-size:1.6rem;line-height:1.1;color:var(--t-surface)}
-.sc-record{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.15rem;color:var(--s-ink)}
+.sc-title{margin:0;font-family:var(--s-font-heading);font-weight:700;font-size:1.45rem;line-height:1.15;letter-spacing:-.015em;color:var(--t-surface)}
+.sc-record{margin:0;font-family:var(--s-font-score);font-weight:700;font-size:1.15rem;color:var(--s-ink);font-variant-numeric:tabular-nums}
 .sc-body{padding-bottom:.5rem}
 .sc-back{display:inline-flex;align-items:center;gap:.3rem;min-height:2.75rem;margin:.4rem 0 0;color:var(--t-surface);font-weight:600;text-decoration:none}
 .sc-back .chev{transform:rotate(180deg);width:1.1rem;height:1.1rem}
@@ -678,12 +724,12 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gh-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr);align-items:center;gap:.4rem;margin-top:.5rem}
 .gh-team{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
 .gh-team .mark{--mark:3.4rem}
-.gh-score{display:flex;align-items:center;gap:.3rem;margin-top:.35rem;font-family:var(--t-font-display);font-weight:800;font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
+.gh-score{display:flex;align-items:center;gap:.3rem;margin-top:.35rem;font-family:var(--s-font-score);font-weight:800;font-size:3.1rem;line-height:1;font-variant-numeric:tabular-nums}
 .gh-name{max-width:100%;margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.02em;text-transform:uppercase}
 .gh-abbr,.fit-abbr .gh-full{display:none}
 .fit-abbr .gh-abbr{display:inline}
 .fit-tight .gh-name{font-size:.9rem;letter-spacing:0}
-.gh-record{font-size:.9rem;color:var(--s-on-dark-2)}
+.gh-record{font-size:.9rem;color:var(--s-on-dark-2);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 .gh-center{display:flex;flex-direction:column;align-items:center;gap:.25rem;min-width:0;text-align:center}
 .gh-where{font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--s-on-dark)}
 .gh-opp{max-width:100%;overflow:hidden;font-family:var(--t-font-display);font-weight:800;font-size:clamp(1.8rem,8.5vw,2.6rem);line-height:.95;text-transform:uppercase}
@@ -697,11 +743,11 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gh-countdown > span{display:flex;width:16rem;max-width:100%;justify-content:center;border:1px solid rgba(255,255,255,.3);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.55)}
 .cd-cell{display:flex;flex-direction:column;align-items:center;min-width:0;flex:1;padding:.3rem .5rem}
 .cd-cell + .cd-cell{border-left:1px solid rgba(255,255,255,.25)}
-.cd-n{font-family:var(--t-font-display);font-weight:800;font-size:1.7rem;line-height:1;color:var(--t-accent-text)}
+.cd-n{font-family:var(--s-font-score);font-weight:800;font-size:1.7rem;line-height:1;color:var(--t-accent-text);font-variant-numeric:tabular-nums}
 .cd-l{max-width:100%;overflow:hidden;white-space:nowrap;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s-on-dark-2)}
 .lbl-short,.fit-short .lbl-long{display:none}
 .fit-short .lbl-short{display:inline}
-.gh-clock{font-family:var(--t-font-display);font-weight:700;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase}
+.gh-clock{font-family:var(--s-font-score);font-weight:700;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase;font-variant-numeric:tabular-nums}
 /* The FINAL label. Not .gh-final: that is the header's own state class at
    final, and the label's wide tracking spread across the whole header -
    records read "4 - 0" (live scan #9). */
@@ -734,7 +780,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .mu-row + .mu-row{border-top:1px solid var(--s-line)}
 .mu-v{display:flex;flex-direction:column;align-items:center;padding:.3rem .2rem;border-radius:6px;background:var(--s-inset)}
 .mu-v.better{background:rgba(var(--t-accent-rgb),.16)}
-.mu-n{font-family:var(--t-font-display);font-weight:700;font-size:1.1rem;color:var(--s-ink)}
+.mu-n{font-family:var(--s-font-score);font-weight:700;font-size:1.1rem;color:var(--s-ink);font-variant-numeric:tabular-nums}
 .mu-rk{font-size:.75rem;color:var(--s-muted)}
 /* On the better side's team tint the muted grey falls below 4.5:1 (Ohio State's scarlet tint, 4.11:1); the rank reads in the darker ink there. */
 .mu-v.better .mu-rk{color:var(--s-ink-2)}
@@ -778,7 +824,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .ts-head{position:sticky;top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px));z-index:5;display:grid;grid-template-columns:minmax(3.5rem,auto) 1fr minmax(3.5rem,auto);column-gap:.5rem;margin:0 -1rem;padding:.4rem 1rem .35rem;background:var(--s-surface);border-bottom:1px solid var(--s-line)}
 .ts-t{justify-self:start;padding-bottom:.15rem;border-bottom:3px solid var(--t-accent);font-family:var(--t-font-display);font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-ink);white-space:nowrap}
 .ts-t.them{justify-self:end;border-bottom-color:var(--s-line-strong)}
-.ts-v{font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;color:var(--s-ink-2);font-variant-numeric:tabular-nums}
+.ts-v{font-family:var(--s-font-score);font-weight:700;font-size:1.05rem;color:var(--s-ink-2);font-variant-numeric:tabular-nums}
 .ts-v.us{text-align:left}
 .ts-v.them{text-align:right}
 .ts-v.better{color:var(--s-ink)}
@@ -842,7 +888,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .sp-team{font-family:var(--t-font-display);font-weight:700;color:var(--s-ink)}
 .sp-list .mine .sp-team{color:var(--t-accent-on-light)}
 .sp-text{grid-column:1 / -1;font-size:.92rem;color:var(--s-ink-2)}
-.sp-score{grid-column:3;grid-row:1;font-family:var(--t-font-display);font-weight:700;color:var(--s-ink)}
+.sp-score{grid-column:3;grid-row:1;font-family:var(--s-font-score);font-weight:700;color:var(--s-ink);font-variant-numeric:tabular-nums}
 .dr-list > li + li{border-top:1px solid var(--s-line)}
 .dr-list summary{display:grid;grid-template-columns:3rem 1fr auto auto;list-style:none;align-items:center;gap:.5rem;min-height:2.9rem;cursor:pointer}
 .dr-list summary:focus-visible{outline:3px solid var(--t-surface);outline-offset:-2px}
@@ -969,9 +1015,9 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .tg-side{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.55rem}
 .tg-side .mark{--mark:1.9rem}
 .tg-name{min-width:0;font-weight:600;font-size:1rem;line-height:1.2;color:var(--s-ink)}
-.tg-rank{margin-right:.3rem;font-family:var(--t-font-display);font-weight:700;font-size:.9rem;color:var(--s-muted)}
-.tg-rec{display:inline-block;white-space:nowrap;font-weight:400;font-size:.82rem;color:var(--s-muted)}
-.tg-score{min-width:1.8rem;text-align:right;font-family:var(--t-font-display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.tg-rank{margin-right:.3rem;font-family:var(--s-font-score);font-weight:700;font-size:.9rem;color:var(--s-muted);font-variant-numeric:tabular-nums}
+.tg-rec{display:inline-block;white-space:nowrap;font-family:var(--s-font-score);font-weight:400;font-size:.82rem;color:var(--s-muted);font-variant-numeric:tabular-nums}
+.tg-score{min-width:1.8rem;text-align:right;font-family:var(--s-font-score);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .tg-side.lost .tg-score,.tg-side.lost .tg-name{color:var(--s-muted)}
 .tg-status{grid-area:status;display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;min-width:5.6rem;padding-left:.75rem;border-left:1px solid var(--s-line);text-align:right}
 .tg-when{font-weight:600;font-size:.9rem;color:var(--s-ink)}
@@ -1059,7 +1105,7 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .sh-at{font-variant-numeric:tabular-nums;font-weight:700;color:var(--s-muted)}
 .sh-plays li.is-new .sh-at{color:var(--s-ink)}
 .sh-play{min-width:0;color:var(--s-ink)}
-.sh-gain{font-family:var(--t-font-display);font-weight:800;font-size:1.05rem;line-height:1.3;font-variant-numeric:tabular-nums;color:var(--s-ink-2)}
+.sh-gain{font-family:var(--s-font-score);font-weight:800;font-size:1.05rem;line-height:1.3;font-variant-numeric:tabular-nums;color:var(--s-ink-2)}
 .sh-gain.up{color:var(--s-win)}
 .sh-gain.loss{color:var(--s-loss)}
 /* leaders: the two teams side by side, the yards large */
@@ -1070,7 +1116,7 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .sh-ld-cat{grid-column:1 / -1;margin-bottom:.2rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
 .sh-ld-cell{display:flex;flex-direction:column;min-width:0}
 .sh-ld-who{font-weight:700;color:var(--s-ink);overflow-wrap:anywhere}
-.sh-ld-n{font-family:var(--t-font-display);font-weight:800;font-size:1.5rem;line-height:1.15;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.sh-ld-n{font-family:var(--s-font-score);font-weight:800;font-size:1.5rem;line-height:1.15;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .sh-ld-u{font-size:.8rem;font-weight:700;color:var(--s-ink-2)}
 .sh-ld-line{font-size:.85rem;color:var(--s-ink-2)}
 .sh-facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.35rem .9rem;margin:0 0 .5rem}
@@ -1110,7 +1156,7 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .rk-table thead th.rk-team{text-align:left}
 .rk-table td,.rk-table tbody th{padding:.5rem .3rem;border-top:1px solid var(--s-line);text-align:center;font-size:.95rem}
 .rk-table tbody th{font-weight:600;text-align:left}
-.rk-n{width:2.3rem;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem}
+.rk-n{width:2.3rem;font-family:var(--s-font-score);font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
 .rk-teamcell{display:flex;align-items:center;gap:.55rem;min-width:0}
 .rk-teamcell .mark{--mark:1.8rem}
 .rk-name{color:var(--s-ink)}
@@ -1246,7 +1292,7 @@ button.mo-row{width:100%;margin:0;border:0;background:none;font:inherit;text-ali
 .nw-img.none{display:flex;align-items:flex-end;aspect-ratio:auto;min-height:4.875rem;padding:.45rem .55rem;background:linear-gradient(150deg,var(--t-surface),var(--t-abyss))}
 .nw-img.none .nw-src{display:block;overflow-wrap:anywhere;color:var(--s-on-dark);font-family:var(--t-font-display);font-weight:700;font-size:.82rem;line-height:1.1;letter-spacing:.08em;text-transform:uppercase}
 .nw-body{display:flex;flex:1;flex-direction:column;gap:.4rem;min-width:0}
-.nw-hl{font-family:var(--s-font-editorial);font-weight:700;font-size:1.08rem;line-height:1.28;color:var(--s-ink);overflow-wrap:anywhere}
+.nw-hl{font-family:var(--s-font-heading);font-weight:700;font-size:1.05rem;line-height:1.3;letter-spacing:-.005em;color:var(--s-ink);overflow-wrap:anywhere}
 .nw-meta{display:flex;align-items:center;gap:.35rem;font-size:.88rem;color:var(--s-muted)}
 .nw-more{width:100%;margin-top:.8rem}
 .btn[aria-disabled="true"]{cursor:progress;opacity:.7}
@@ -1509,7 +1555,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .ss-l{font-size:.95rem;line-height:1.35;overflow-wrap:break-word;color:var(--s-ink-2)}
 .ss-v{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 .ss-row.two .ss-v{align-items:center;text-align:center}
-.ss-n{font-family:var(--t-font-display);font-weight:700;font-size:1.12rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.ss-n{font-family:var(--s-font-score);font-weight:700;font-size:1.12rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .ss-rk{margin-top:.1rem;font-size:.75rem;line-height:1.3;color:var(--s-muted)}
 .ss-note{margin:1rem 0 0;font-size:.85rem;color:var(--s-muted)}
 @container (max-width:15rem){
@@ -1526,7 +1572,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .of-context{display:flex;flex-direction:column;gap:.1rem;min-width:0;overflow-wrap:anywhere}
 .of-name{font-size:1.05rem;font-weight:700;color:var(--s-ink)}
 .of-place{font-size:.85rem}
-.of-chance{font-family:var(--t-font-display);font-weight:700;font-size:2.3rem;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--s-ink)}
+.of-chance{font-family:var(--s-font-score);font-weight:700;font-size:2.3rem;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--s-ink)}
 .of-chance .pct{font-size:.6em}
 .of-source{margin:0;font-size:.8rem;line-height:1.5}
 .of-asof{display:block}
@@ -1545,7 +1591,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .of-num{display:grid;grid-template-columns:3.25rem 3rem;align-items:baseline;gap:.5rem;text-align:right;white-space:nowrap}
 .of-change{font-variant-numeric:tabular-nums}
 .of-change .out-chg{font-size:.8rem}
-.of-val{font-family:var(--t-font-display);font-weight:800;font-size:1.15rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.of-val{font-family:var(--s-font-score);font-weight:800;font-size:1.15rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .of-val .pct{font-size:.7em}
 .of-bar{grid-column:2 / -1;display:block;height:.3rem;overflow:hidden;border-radius:var(--s-radius-pill);background:var(--s-inset)}
 .of-row.mine .of-bar{background:var(--s-surface)}
@@ -1564,7 +1610,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
    official record as its source. */
 .ms{padding:1rem 1rem .85rem}
 .ms-count{display:flex;align-items:baseline;gap:.5rem;margin:0}
-.ms-n{font-family:var(--t-font-display);font-weight:800;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.ms-n{font-family:var(--s-font-score);font-weight:800;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .ms-l{font-size:.95rem;color:var(--s-ink-2)}
 .ms-line{margin:.45rem 0 0;font-size:1.05rem;font-weight:600;color:var(--s-ink)}
 .ms-next{display:block;margin-top:.15rem;font-size:.95rem;font-weight:400;color:var(--s-ink-2)}
@@ -1599,7 +1645,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .bn-list{list-style:none;margin:0;padding:0}
 .bn-list li{display:grid;grid-template-columns:3.6rem minmax(0,1fr);align-items:baseline;column-gap:.75rem;padding:.6rem 0}
 .bn-list li + li{border-top:1px solid var(--s-line)}
-.bn-n{font-family:var(--t-font-display);font-weight:800;font-size:1.7rem;line-height:1;text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:var(--t-surface)}
+.bn-n{font-family:var(--s-font-score);font-weight:800;font-size:1.7rem;line-height:1;text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:var(--t-surface)}
 .bn-t{font-size:.95rem;line-height:1.4;color:var(--s-ink)}
 .bn-more{border-top:1px solid var(--s-line)}
 .bn-more > summary{display:flex;align-items:center;gap:.3rem;min-height:2.75rem;cursor:pointer;list-style:none;font-weight:600;color:var(--t-surface)}
@@ -1617,10 +1663,10 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .os-hero h2{margin:.5rem 0 1.2rem;font-family:var(--t-font-display);font-size:1.875rem;line-height:1.08;font-weight:700;text-transform:uppercase}
 .os-totals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:0 0 1.25rem}
 .os-totals>div+div{border-left:1px solid rgba(255,255,255,.22);padding-left:1.25rem}
-.os-totals dd{margin:0;font-family:var(--t-font-display);font-size:3rem;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
+.os-totals dd{margin:0;font-family:var(--s-font-score);font-size:3rem;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
 .os-totals dt{margin-top:.3rem;color:var(--s-on-dark-2);font-size:.75rem;line-height:1.35}
 .os-result{display:grid;grid-template-columns:minmax(5.7rem,max-content) minmax(0,1fr);gap:.875rem;align-items:center;padding:.9rem 0;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2)}
-.os-result-score{font-family:var(--t-font-display);font-size:1.5rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.os-result-score{font-family:var(--s-font-score);font-size:1.5rem;white-space:nowrap;font-variant-numeric:tabular-nums}
 .os-result-details{display:grid;gap:.125rem;min-width:0}
 .os-result-details span{font-size:.75rem;line-height:1.35;color:var(--s-on-dark-2)}
 .os-result-details b{color:var(--s-on-dark);font-size:.875rem;line-height:1.4;overflow-wrap:anywhere}
