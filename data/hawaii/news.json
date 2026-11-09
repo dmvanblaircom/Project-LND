@@ -1,7 +1,16 @@
 {
  "team": "hawaii",
- "updated": "2026-11-08T08:08:04.751781+00:00",
+ "updated": "2026-11-09T18:38:03.324765+00:00",
  "items": [
+  {
+   "title": "Lacaden Named Mountain West Freshman of the Week",
+   "link": "https://hawaiiathletics.com/news/2026/11/9/football-lacaden-named-mountain-west-freshman-of-the-week.aspx",
+   "source": "Hawai'i Athletics",
+   "summary": "<img alt=\"Titan Lacaden Freshman of the Week\" src=\"https://hawaiiathletics.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/POW_16x9.jpg\" /><br /><br />LAS VEGAS\u00a0 \u2013 University of Hawai'i wide receiver Titan Lacaden was selected as the Mountain West Freshman of the Week after leading the Rainbow Warriors to a 17-14 road victory over UTEP on Saturday. The victory marked Hawai'i's second consecutive road win of the season.",
+   "image": "https://hawaiiathletics.com/images/2026/11/8/POW_16x9.jpg?width=800",
+   "sourceLogo": "https://hawaiiathletics.com/favicon.ico",
+   "published": "2026-11-09T07:00:00+00:00"
+  },
   {
    "title": "Warriors Get Past UTEP To Pick Up Second Straight Road Win",
    "link": "https://hawaiiathletics.com/news/2026/11/7/football-warriors-get-past-utep-to-pick-up-second-straight-road-win.aspx",
@@ -82,15 +91,6 @@
    "image": "https://hawaiiathletics.com/images/2026/10/12/Lacaden_flag.jpg?width=800",
    "sourceLogo": "https://hawaiiathletics.com/favicon.ico",
    "published": "2026-10-12T12:08:00+00:00"
-  },
-  {
-   "title": "Warriors Fall to Sun Devils, 30-12",
-   "link": "https://hawaiiathletics.com/news/2026/10/10/football-warriors-fall-to-sun-devils-30-12.aspx",
-   "source": "Hawai'i Athletics",
-   "summary": "<img alt=\"Offense Huddle at Arizona State\" src=\"https://hawaiiathletics.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/OS_09802-2_TuiAK.jpg\" /><br /><br />TEMPE, Ariz. \u2013 The University of Hawai'i football team dropped its third straight game, falling 30-12 Saturday night in a nonconference contest at Arizona State.",
-   "image": "https://hawaiiathletics.com/images/2026/10/10/OS_09802-2_TuiAK.jpg?width=800",
-   "sourceLogo": "https://hawaiiathletics.com/favicon.ico",
-   "published": "2026-10-10T21:47:00+00:00"
   }
  ]
 }

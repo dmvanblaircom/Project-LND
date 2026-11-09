@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-09T16:08:03.777489+00:00",
+ "updated": "2026-11-09T18:38:00.995346+00:00",
  "items": [
+  {
+   "title": "129th Big Game Kickoff Time Announced",
+   "link": "https://calbears.com/news/2026/11/9/football-129th-big-game-kickoff-time-announced",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Databricks Field at California Memorial Stadium Sept. 5, 2026\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/20260905FB_Cal_vs_UCLA_C.Hayne-400106.jpg\" /><br /><br />Bears, Cardinal To Meet In Berkeley At 4:30 p.m. PT On ACCN",
+   "image": "https://calbears.com/images/2026/11/9/20260905FB_Cal_vs_UCLA_C.Hayne-400106.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-09T17:30:00+00:00"
+  },
   {
    "title": "Cal Is a Big Underdog Against a Team That's Lost Three in a Row",
    "link": "https://www.si.com/college/cal/football/cal-is-a-big-underdog-against-a-team-that-s-lost-three-in-a-row-01m6ypscp90a?utm_source=RSS",
@@ -235,15 +244,6 @@
    "image": "https://calbears.com/images/2026/10/24/DSC09683.JPG?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-10-24T21:09:00+00:00"
-  },
-  {
-   "title": "No. 23 SMU Pulls Away In Second Half To Defeat Cal",
-   "link": "https://calbears.com/news/2026/10/24/football-no-23-smu-pulls-away-in-second-half-to-defeat-cal",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Ian Strong\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC09329.JPG\" /><br /><br />Bears Stay On Road Next Week To Face NC State",
-   "image": "https://calbears.com/images/2026/10/24/DSC09329.JPG?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-10-24T20:56:00+00:00"
   }
  ]
 }

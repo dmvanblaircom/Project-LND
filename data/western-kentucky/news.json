@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-09T03:38:31.268075+00:00",
+ "updated": "2026-11-09T18:38:21.066297+00:00",
  "items": [
+  {
+   "title": "WKU FB: Head Coach Tyson Helton | Weekly Media Availability | 11-9-26",
+   "link": "https://wkusports.com/news/2026/11/9/football-wku-fb-head-coach-tyson-helton-weekly-media-availability-11-9-26",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"Tyson Helton Press Conference\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/9/tyson.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/11/9/tyson.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-09T17:42:00+00:00"
+  },
   {
    "title": "Tops Live Coaches Show Returns Monday, Nov. 9",
    "link": "https://wkusports.com/news/2026/11/8/football-tops-live-coaches-show-returns-monday-nov-9",
@@ -100,15 +109,6 @@
    "image": "https://wkusports.com/images/2026/10/27/pregame_interview_16x9.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-10-27T20:30:00+00:00"
-  },
-  {
-   "title": "Gameday Guide: Delaware",
-   "link": "https://wkusports.com/news/2026/10/27/football-gameday-guide-delaware",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"WKU FB 26 \u2013 Gameday Guide \u2013 Delaware\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/10/27/WKU_FB_26___Gameday_Guide___Delaware.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/10/27/WKU_FB_26___Gameday_Guide___Delaware.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-10-27T16:30:00+00:00"
   }
  ]
 }
