@@ -300,6 +300,44 @@ One story in the News tab. **Implemented in Phase 4C**, produced by `TeamOS.espn
 
 Exactly the fields the News tab shows. Not modelled: id, summary, byline, categories, team/league association. Merging the two sources, dropping duplicate headlines, ordering newest-first and the "show more" fold are presentation and stay in the application; ESPN does not deliver its feed in date order, so that sort is load-bearing.
 
+### WireItem (`TeamOS.wire`)
+
+**Groundwork, not yet consumed** (decision 0043; `docs/product/wire-brief.md`). `teamos/wire.js` is not loaded by the page; nothing a fan sees uses it yet. NewsItem is unchanged: a wire item wraps one, it never adds fields to it.
+
+```
+{ story: NewsItem, kind, side: "team" | "opponent", key }
+```
+
+| Field | Meaning |
+|---|---|
+| `story` | the NewsItem as it came: the outlet's own headline, link and source, never edited |
+| `kind` | one of seven, the taxonomy David set on 2026-11-09 (below) |
+| `side` | whose feed the story came from: the team's or this game week's opponent's. Not who it is about: Suite has no player identity |
+| `key` | the article key (`TeamOS.wire.key(link)`) |
+
+Kinds, most specific first; a headline that fits two takes the earlier:
+
+| Kind | Covers |
+|---|---|
+| `drafted` | picked in the NFL Draft, or signed by an NFL team as an undrafted free agent |
+| `suspension` | suspensions, and reinstatement from one (a player reinstated is `suspension`, not `availability`) |
+| `coaching` | hires, firings, resignations, departures, coordinator changes, interim appointments, contract extensions |
+| `transfer` | portal entries and withdrawals, and a transfer's commitment |
+| `commitment` | a recruit's commitment, decommitment or flip |
+| `availability` | out, questionable, doubtful, ruled out, game-time decisions, expected to play, and returns to practice or play |
+| `injury` | injuries, surgery, rehabilitation and other injury developments |
+
+**Analysis is not news.** A headline that discusses a status change is not a wire item; one that reports it is. "What Toney's injury means for the Irish" stays an ordinary story; "Malachi Toney set to undergo surgery" is a wire item. The kind is a label beside the headline and never claims more than the headline says. No player identity, story linking or timeline.
+
+The rest of `TeamOS.wire`, all pure:
+
+- `classify(title)` -> `{ kind, cue }` or `null`: `cue` is the words that decided it, for auditing.
+- `key(link)` -> the article's key: host and path lower-cased, without `www.`, a fragment, a trailing slash or tracking parameters (`utm_*`, `fbclid`, `gclid` and the like); other parameters kept. `null` for anything not a web address. For keeping a wire item out of Latest News.
+- `opponentOf(providerId, registry)` -> `{ id, providerId }`, `id` null when Suite does not carry the program (most FCS opponents), whose news is then the provider's alone.
+- `gameWeek(games, now)` -> `{ gameId, opponentProviderId, from, to }` or `null`: from the previous game's final (its kickoff, as Game records no end time; `null` before the first game) until the next game's kickoff. None while a game is under way, after the season, or when the opponent is not known.
+
+Measured on Suite's kept beat news in `docs/engineering/wire-measurement-2026-11-09.md` (`tools/wiremeasure.js`); checked by `tools/wirecheck.js`.
+
 ### Media Item
 
 Represents podcasts, videos, social content, or other media sources.
