@@ -1632,8 +1632,10 @@ TeamOS.espn = (function () {
           var cid=c.id||(c.team&&c.team.id);
           if(str(cid)===id) us=c; else them=c;
         });
-        var st=(comp.status&&comp.status.type)||(ev.status&&ev.status.type)||{};
-        return { state: st.state||"pre", us: scoreOf(us), them: scoreOf(them) };
+        var stat=comp.status||ev.status||{}, st=stat.type||{};
+        // the status too, so a canceled or postponed game (ESPN's state
+        // "post") is never averaged as played (Codex, #248)
+        return { state: st.state||"pre", status: gameStatus(stat).status, us: scoreOf(us), them: scoreOf(them) };
       });
     }
   };

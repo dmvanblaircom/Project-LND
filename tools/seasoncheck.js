@@ -28,6 +28,17 @@ var reg = [g({ date: "2026-11-01T19:30:00Z" }), g({ date: "2026-11-22T19:30:00Z"
 var ph2 = SE.phase({ games: reg, now: new Date("2026-11-10T12:00:00Z") });
 ok(ph2 && ph2.state === "in-season", "a postponed game still dated ahead keeps the season in-season (" + (ph2 && ph2.state) + ")");
 
+// an opponent's score lines carry the status (Codex, #248)
+var ex = vm.createContext({ console: console, Date: Date });
+vm.runInContext(fs.readFileSync(path.join(root, "teamos/espn.js"), "utf8"), ex);
+function ev(id, name, state, ours, theirs) {
+  return { id: id, competitions: [{ status: { type: { name: name, state: state } },
+    competitors: [{ id: "5", score: ours }, { id: "6", score: theirs }] }] };
+}
+var lines = ex.TeamOS.espn.scoreLines({ events: [ev("1", "STATUS_FINAL", "post", "30", "14"), ev("2", "STATUS_CANCELED", "post", "0", "0"), ev("3", "STATUS_FINAL", "post", "28", "20")] }, "5");
+ok(lines[1].status === "canceled", "a canceled game's line says so (" + lines[1].status + ")");
+ok(SE.pointsAllowedPerGame(lines) === 17, "an opponent's points allowed leave the canceled game out (" + SE.pointsAllowedPerGame(lines) + ")");
+
 console.log("");
 if (failures) { console.log(failures + " check(s) FAILED"); process.exit(1); }
 console.log("a game never played is never counted as one");
