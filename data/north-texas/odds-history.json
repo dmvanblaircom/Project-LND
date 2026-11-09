@@ -1,6 +1,6 @@
 {
 "team": "north-texas",
-"updated": "2026-11-09T05:07Z",
+"updated": "2026-11-09T11:07Z",
 "points": [
 {
 "t": "2026-10-29T15:37Z",
@@ -648,6 +648,13 @@
 },
 {
 "t": "2026-11-09T05:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 5.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T11:07Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 5.5,
