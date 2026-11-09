@@ -9,10 +9,13 @@
                                        the board on it - Home's hero or
                                        Game's scoreboard, by opts.variant
 
-       m      { team { name, nick, abbr, markUrl }, game (normalized Game),
-                oppMark(providerId) -> url, art (ui.art options), now (Date) }
+       m      { team { name, nick, abbr, markUrl, timeZone }, game (normalized
+                Game), oppMark(providerId) -> url, art (ui.art options), now (Date) }
        opts   { variant: "home" | "game",
-                cta: { href, label } - Home's way into Game }
+                cta: { href, label } - Home's way into Game,
+                zone: the venue's IANA zone, when the caller knows it better
+                (a forecast's); otherwise the venue's state decides, then the
+                team's own zone (TeamOS.game.venueZone) }
 
    A final is team-neutral (Game review, 2026-09-24; kept by David,
    2026-11-07): no Win or Loss word - the scores, and the records the source
@@ -124,7 +127,10 @@ Suite.scoreboard = (function () {
 
   function summary(m, st) {
     var g = m.game, t = m.team, opp = (g.oppRank ? "number " + g.oppRank + " " : "") + g.oppName;
-    var line = t.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0) + ".";
+    // A score the source has not given is never read out as 0 (Codex, #239):
+    // the board hides it, and so does what a screen reader hears.
+    var line = scored(g) ? t.name + " " + g.us + ", " + opp + " " + g.them + "."
+                         : t.name + (g.home || g.neutral ? " versus " : " at ") + opp + ".";
     if (st === "final") return "Final. " + line;
     if (st === "live" || st === "paused") return (st === "paused" ? (g.status === "suspended" ? "Suspended. " : "Delayed. ") : "Live. ") +
       (g.period ? ui.period(g.period) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " : "") + line;
@@ -151,7 +157,10 @@ Suite.scoreboard = (function () {
   function stage(m, opts) {
     opts = opts || {};
     var v = opts.variant === "game" ? "game" : "home", t = m.team, g = m.game;
-    var atm = g && TeamOS.game.atmosphere ? TeamOS.game.atmosphere(g, opts.zone) : null;
+    // Day or night needs the venue's zone; without one given, the venue's
+    // state decides, then the team's own (Codex, #239: no zone, no lighting).
+    var zone = opts.zone || (g && TeamOS.game.venueZone ? TeamOS.game.venueZone(g, t.timeZone) : null);
+    var atm = g && TeamOS.game.atmosphere ? TeamOS.game.atmosphere(g, zone) : null;
     var id = v === "home" ? '<div class="stage-id"><p class="stage-school">' + esc(t.name) + "</p>" +
                               (t.nick ? '<p class="stage-nick">' + esc(t.nick) + "</p>" : "") + "</div>" : "";
     var cta = opts.cta ? '<a class="btn btn-primary stage-cta" href="' + esc(opts.cta.href) + '">' + esc(opts.cta.label) + CHEVRON + "</a>" : "";
