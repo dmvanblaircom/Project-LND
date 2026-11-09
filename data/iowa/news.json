@@ -1,7 +1,16 @@
 {
  "team": "iowa",
- "updated": "2026-11-09T01:53:59.604227+00:00",
+ "updated": "2026-11-09T02:08:00.830551+00:00",
  "items": [
+  {
+   "title": "The Chuck Long Podcast",
+   "link": "https://on3.com/teams/iowa-hawkeyes/news/chuck-long-podcast-iowa-hawkeyes-football-3/",
+   "source": "On3",
+   "summary": "We visit with Chuck Long about Iowa's win over Northwestern and the Hawkeyes next game against Purdue.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07213310/Hank-Brown8.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-09T02:02:48+00:00"
+  },
   {
    "title": "#2 Iowa goes 2-1 atop USS Yorktown, takes second-ever dual loss",
    "link": "https://on3.com/teams/iowa-hawkeyes/news/number-2-iowa-goes-2-1-atop-uss-yorktown-takes-second-ever-dual-loss/",
@@ -181,15 +190,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08020535/Hank-Brown9.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T08:08:51+00:00"
-  },
-  {
-   "title": "Iowa defense continues strong play",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/iowa-hawkeyes-defense-strong-play/",
-   "source": "On3",
-   "summary": "The Iowa defense was once again dominant on the field, this time against Northwestern.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08015526/Bryce-Hawthorne-2.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-08T07:59:24+00:00"
   },
   {
    "title": "Hawkeyes Handle Wildcats, 24-10",
@@ -469,15 +469,6 @@
    "image": "https://hawkeyesports.com/imgproxy/61zPA5j333AMPCls6_1LdCalAA2mOFWawaKNBOw0XoM/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzA4L1NJRUZ3b2xmTG93Wmp0T3kxSURhcTVPbEJaRlltR1JwbVI5bTBZRHUuanBn.jpg",
    "sourceLogo": "https://hawkeyesports.com/favicon.ico",
    "published": "2026-11-05T00:20:23+00:00"
-  },
-  {
-   "title": "Iowa Hawkeyes Football: Northwestern Wildcats Game Preview",
-   "link": "https://www.blackheartgoldpants.com/football/71970/iowa-hawkeyes-football-northwestern-wildcats-game-preview",
-   "source": "Black Heart Gold Pants",
-   "summary": "This Saturday, the 6-2 Iowa Hawkeyes travel to the new Ryan Field to take on the surprisingly competitive 6-2 Northwestern Wildcats. The winner of this matchup keeps their (slim) playoff hopes alive while the loser will be left with a consolation-prize bowl game.&#160; Iowa beat Michigan, but even though I think Michigan played Iowa well, [&#8230;]",
-   "image": "https://platform.blackheartgoldpants.com/wp-content/uploads/sites/31/chorus/uploads/chorus_asset/file/25598972/usa_today_24125229.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-04T23:26:30+00:00"
   }
  ]
 }
