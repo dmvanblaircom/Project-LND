@@ -3,7 +3,8 @@
 **Status:** Phase 1 approved by David, 2026-11-05 ("Yes approved on phase 1"),
 with the Around tab (`docs/product/navigation-brief.md`): out of season the
 wire comes first in Around. Phase 2 (a paid or partner source) is not
-decided. Nothing is built yet.
+decided. Nothing is built yet. David, 2026-11-09: the wire is designed
+into the Suite redesign (decision 0043): Home in Phase 2, Around in Phase 3.
 From the backlog item "The wire" (David, 2026-11-05).
 
 ## The ask

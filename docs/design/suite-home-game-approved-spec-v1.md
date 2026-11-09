@@ -1,6 +1,6 @@
 # Suite visual redesign — approved visual system and Home/Game specification
 
-**Version:** 1.1 (amended 2026-11-08: decisions 0041 and 0042)  
+**Version:** 1.2 (amended 2026-11-08: decisions 0041 and 0042; 2026-11-09: decision 0043)  
 **Status:** Approved design direction; implementation not yet authorized  
 **Creative authority:** ChatGPT (Creative Director)  
 **Product approval:** David, 2026-11-06  
@@ -39,6 +39,7 @@ David decided these after reviewing rendered evidence. Each is recorded in its d
 | Hero contrast | The text floor is kept: every word on the team's deepest surface or darker. Depth, illumination and energy live outside the text zones, and day and night feel meaningfully different. | 0041; §3.4 |
 | Field treatment | Described as a geometrically controlled field treatment, a texture rather than a complete field rendering. | 0041; §3.4 |
 | Desktop navigation | The five destinations in the branded desktop header, from 1024 px, introduced with the wide desktop layouts. Phones and tablets are unchanged. | 0042; §4.1 |
+| The wire | The wire (`docs/product/wire-brief.md`, Phase 1) is designed into Home in Phase 2, above the news, with its game-week and out-of-season states and its alert opt-in. Around's wire follows with Around in Phase 3. `TeamOS.wire` is the one new TeamOS model the redesign admits. | 0043; §5, §8 |
 
 ## 2. Product feeling and design thesis
 
@@ -249,8 +250,9 @@ Existing model sources, as listed by the audit:
 - `TeamOS.freshness.summary`
 - `TeamOS.season.offseason`
 - `TeamOS.prospects`
+- `TeamOS.wire` (new, decision 0043; the only exception)
 
-No new TeamOS fields are permitted in Phase 2.
+No other new TeamOS fields are permitted in Phase 2.
 
 ### 5.1 Shared Home structure
 
@@ -259,9 +261,10 @@ No new TeamOS fields are permitted in Phase 2.
 3. Existing milestone card when applicable.
 4. Existing defending champion context when applicable.
 5. By the Numbers from existing game notes.
-6. Latest News rail (three existing stories).
-7. Schedule preview (last result and next three, per current behavior).
-8. Season Outlook summary.
+6. The wire: the team's newest status-change items, above the news (decision 0043). In game week the opponent's items join, marked as the opponent's. With no items, it draws nothing.
+7. Latest News rail (three existing stories).
+8. Schedule preview (last result and next three, per current behavior).
+9. Season Outlook summary.
 
 Preserve existing content and navigation. Improve visual rhythm and hierarchy rather than adding duplicate widgets. The content below the hero should retain energy through section typography and varied editorial composition without turning every surface into a stadium graphic.
 
@@ -539,6 +542,7 @@ Rules:
 - Removal of Georgia from interface headings/headlines.
 - Shared original stadium art family and CSS/SVG fallback atmosphere.
 - Home lifecycle redesign: pregame, live, final, S2, S4 and S5.
+- The wire on Home, its alert opt-in, and `TeamOS.wire` from existing sources (decision 0043). Shown to fans only once its detection rule is measured and reported to David.
 - Game redesign: pregame, live and final, including existing subviews.
 - Responsive phone, tablet and desktop compositions.
 - Approved game moments and the minimum renderer-side state comparison needed to support them.
@@ -546,7 +550,7 @@ Rules:
 - Necessary tests, screenshot baselines, performance and accessibility validation.
 
 ### Not included without separate approval
-- New TeamOS fields or changes to normalized contracts.
+- New TeamOS fields or changes to normalized contracts, other than `TeamOS.wire` (decision 0043).
 - Win-probability series on Game.
 - New data sources, APIs, backend services or paid assets.
 - Per-team photography or identity configuration additions.
