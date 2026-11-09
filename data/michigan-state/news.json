@@ -1,6 +1,6 @@
 {
  "team": "michigan-state",
- "updated": "2026-11-09T02:08:03.899545+00:00",
+ "updated": "2026-11-09T02:38:04.471261+00:00",
  "items": [
   {
    "title": "Michigan State OL Trent Fraley, Nick Sharpe help establish physical identity in rivalry win",
@@ -10,6 +10,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08195028/Untitled-design-14-1.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-09T02:06:53+00:00"
+  },
+  {
+   "title": "Post-Game Notes: Michigan",
+   "link": "https://msuspartans.com/news/2026/11/8/football-post-game-notes-michigan",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Liam Boyd kicked five field goals in the win over Michigan on Nov. 7, 2026, in Ann Arbor.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/20261108_Game9_Michigan_Boyd_Liam_07536.jpg\" /><br /><br />SERIES / GAME NOTES",
+   "image": "https://msuspartans.com/images/2026/11/8/20261108_Game9_Michigan_Boyd_Liam_07536.jpg?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-11-09T01:58:00+00:00"
   },
   {
    "title": "Michigan State kicker Liam Boyd leaves mark on rivalry by scoring every point vs Michigan",
@@ -397,15 +406,6 @@
    "image": "https://msuspartans.com/images/2026/10/24/DSC02246_j6gWu.JPG?width=800",
    "sourceLogo": "https://msuspartans.com/favicon.ico",
    "published": "2026-10-25T01:27:00+00:00"
-  },
-  {
-   "title": "Aaron Zeigler Makes $10M Commitment to FOR SPARTA, Supporting Future of Spartan Football",
-   "link": "https://msuspartans.com/news/2026/10/22/aaron-zeigler-makes-10m-commitment-to-for-sparta-supporting-future-of-spartan-football",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Ziegler gift announcement\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/Zeigler_Gift_Ann_web_1.jpg\" /><br /><br />EAST LANSING, Mich. - Longtime Michigan State University supporter and alum Aaron Zeigler has made a $10 million commitment to FOR SPARTA, building on his long-standing relationship with the university and his dedication to Spartan Athletics. The commitment reflects Zeigler's belief in the future of Michigan State and his continued investment in the success of Spartan student-athletes.",
-   "image": "https://msuspartans.com/images/2026/10/22/Zeigler_Gift_Ann_web_1.jpg?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-10-22T18:00:00+00:00"
   }
  ]
 }
