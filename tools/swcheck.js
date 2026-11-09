@@ -248,7 +248,7 @@ function dataWaitChecks() {
 // opens Suite - only ever a Suite page, whatever the push says.
 function alertsChecks() {
   console.log("game alerts");
-  var w = boot(), shown = [], opened = [], focused = [];
+  var w = boot(), shown = [], opened = [], focused = [], win = null, steps = [];
   w.sandbox.self.registration = { scope: "https://example.test/Project-LND/",
     showNotification: function (t, o) { shown.push([t, o]); return Promise.resolve(); } };
   w.sandbox.self.clients.openWindow = function (u) { opened.push(u); return Promise.resolve(null); };
@@ -289,8 +289,8 @@ function alertsChecks() {
     return fireWith("notificationclick", { notification: { data: { url: "https://evil.example/" }, close: function () {} } });
   }).then(function () {
     ok(opened[0] === "https://example.test/Project-LND/", "a push pointing anywhere else opens Suite's front page instead");
-    var steps = [];
-    var win = { url: "https://example.test/Project-LND/#home", focus: function () { focused.push(this.url); steps.push("focus"); return Promise.resolve(this); },
+    steps = [];
+    win = { url: "https://example.test/Project-LND/#home", focus: function () { focused.push(this.url); steps.push("focus"); return Promise.resolve(this); },
                 navigate: function (u) { this.url = u; steps.push("navigate"); return Promise.resolve(this); } };
     w.sandbox.self.clients.matchAll = function () { return Promise.resolve([win]); };
     opened.length = 0;
