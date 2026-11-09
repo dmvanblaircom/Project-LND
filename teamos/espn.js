@@ -152,6 +152,7 @@ TeamOS.espn = (function () {
   // for that game, so it can never contradict the feed and disappears on its
   // own once the feed catches up.
   function fallbackBroadcast(fallback, oppName){
+    fallback = fallback || [];      // a team that declares none has none, not a crash (code review, 2026-11-09)
     for(var i=0;i<fallback.length;i++){
       if(fallback[i][0].test(oppName||"")) return fallback[i][1];
     }

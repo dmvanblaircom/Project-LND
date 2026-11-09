@@ -36,7 +36,7 @@ def ok(cond, what):
         failures += 1
 
 
-def run(fail_notes_for):
+def run(fail_notes_for, fail_depth_for=()):
     """The producer on a fresh copy of the data; `fail_notes_for` is the set of
     games whose game-notes link cannot be resolved this run."""
     root = tempfile.mkdtemp()
@@ -62,7 +62,11 @@ def run(fail_notes_for):
     od.chart_links = lambda index, season: rows
     od.pdf_url = pdf_url
     od.pdf_text = lambda url: url                      # the parser below is handed the address
-    twodeep.parse_two_deep = lambda text: {"title": by_depth[text]["title"], "units": by_depth[text]["units"]}
+    def parse_two_deep(text):
+        if by_depth[text]["game"] in fail_depth_for:
+            raise ValueError("a chart that will not read")
+        return {"title": by_depth[text]["title"], "units": by_depth[text]["units"]}
+    twodeep.parse_two_deep = parse_two_deep
     try:
         sys.argv = ["official_depth.py", "--team", "notre-dame", "--season", "2026"]
         with contextlib.redirect_stdout(io.StringIO()) as out:
@@ -93,6 +97,21 @@ ok("keeping the recorded report" in log, "and the run says what happened")
 print("an older week's game notes fail")
 av, hist, _ = run({games[1]})
 ok(hist == games, "the history keeps %s" % games[1])
+
+print("an older week's depth chart will not read, and is not on file (code review, 2026-11-09)")
+real_load = od.load
+def without_chart(path, empty):
+    d = real_load(path, empty)
+    if isinstance(d, dict) and "snapshots" in d:
+        d = dict(d, snapshots=[x for x in d["snapshots"] if x.get("game") != games[1]])
+    return d
+od.load = without_chart
+try:
+    av, hist, log = run(set(), {games[1]})
+finally:
+    od.load = real_load
+ok(hist == games, "the history still keeps %s's availability report" % games[1])
+ok(av["game"] == current, "and availability.json is this week's")
 
 print("this week fails and nothing was recorded for it")
 real = od.load

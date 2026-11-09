@@ -39,6 +39,7 @@
   { "id": "momentscheck.js", "kind": "unit", "run": "node tools/momentscheck.js" },
   { "id": "scoreboardcheck.js", "kind": "unit", "run": "node tools/scoreboardcheck.js" },
   { "id": "pbpfreshcheck.js", "kind": "unit", "run": "node tools/pbpfreshcheck.js" },
+  { "id": "seasoncheck.js", "kind": "unit", "run": "node tools/seasoncheck.js" },
   { "id": "wirecheck.js", "kind": "unit", "run": "node tools/wirecheck.js" },
   { "id": "fpicheck.py", "kind": "unit", "run": "python3 tools/fpicheck.py" },
   { "id": "rankingshistorycheck.py", "kind": "unit", "run": "python3 tools/rankingshistorycheck.py" },

@@ -29,11 +29,17 @@ TeamOS.season = (function () {
   // "17" -> 17, "1,223" -> 1223, null/"" /"-" -> null. A 0 survives.
   function num(v) {
     if (v == null) return null;
-    var n = Number(String(v).replace(/,/g, "").trim());
+    var t = String(v).replace(/,/g, "").trim();
+    if (t === "") return null;                    // Number("") is 0: an empty score is no score
+    var n = Number(t);
     return isFinite(n) ? n : null;
   }
 
-  function isFinal(g) { return !!g && g.state === "post"; }
+  // Played to the end. ESPN puts postponed and canceled games in state
+  // "post" too, so the status decides where there is one, as TeamOS.game
+  // does (code review, 2026-11-09): a canceled game is no 0-0 in the
+  // average, and a canceled bowl is no loss.
+  function isFinal(g) { return !!g && (g.status ? g.status === "final" : g.state === "post"); }
 
   // The games that can answer a season-to-date question at all.
   function completed(games) {
@@ -102,7 +108,9 @@ TeamOS.season = (function () {
   function dated(list) { return (list || []).filter(function (g) { return g && g.date && isFinite(at(g)); }).sort(byDate); }
 
   function toCome(g, t) {
-    if (g.state === "post" || g.status === "final" || g.status === "canceled") return false;
+    if (g.status === "final" || g.status === "canceled") return false;
+    // postponed is "post" in ESPN's state, but it is still to be played: its date decides
+    if (g.state === "post" && g.status !== "postponed") return false;
     if (g.state === "in") return true;
     if (g.status === "delayed" && !g.hasStarted) return true;
     return at(g) >= t - GRACE_MS;

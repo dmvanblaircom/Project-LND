@@ -81,5 +81,12 @@ s = {"champion|league": {"since": "2026-11-05T01:00:00Z", "runs": 4, "reason": "
 ok(health.update(s, lok, lfail, "2026-11-05T03:00:00Z")["champion|league"]["runs"] == 4,
    "a skipped champion step keeps its failure streak, so its issue stays open")
 
+# an open issue is found by its own marker, whatever the source (code review, 2026-11-09)
+found = health.sources_in([{"number": 7, "body": health.MARK % "wire" + "\n\nnew source"},
+                           {"number": 8, "body": health.MARK % "news" + " ..."}, {"number": 9, "body": "unrelated"}])
+ok(found == {"wire": 7, "news": 8}, "a source missing from NAMES still finds its open issue, so it is updated, not opened again (%r)" % found)
+ok(("open", "wire") not in health.plan({"wire|team": {"runs": 5, "since": "2026-11-05T00:00:00Z", "reason": "x"}}, found),
+   "and the plan updates issue 7 rather than opening another")
+
 print("\n" + ("%d check(s) FAILED" % failures if failures else "a broken source is told once, for its teams, for its reason"))
 sys.exit(1 if failures else 0)

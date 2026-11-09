@@ -64,13 +64,19 @@ TeamOS.notes = (function () {
   // The opponent the notes were written for is the game's opponent, by
   // name: case, spaces and punctuation aside, and "State" the same as
   // ESPN's "St." ("Michigan State" / "Michigan St").
-  function sameOpp(a, b) {
+  // A trailing parenthetical is set aside on both sides: the notes reader
+  // keeps "Miami" of "Miami (OH)" (it strips "Wisconsin (Shamrock Series)"),
+  // while ESPN's name keeps it (code review, 2026-11-09). The notes are this
+  // week's, matched to this week's game, so "Miami" cannot be the wrong one.
+  function bare(n) { return str(n).replace(/\s*\([^)]*\)\s*$/, ""); }
+  function sameName(a, b) {
     var x = key(a).replace(/'/g, ""), y = key(b).replace(/'/g, "");
     if (!x || !y) return false;
     if (x === y) return true;
     var sx = x.replace(/state$/, "st"), sy = y.replace(/state$/, "st");
     return sx === sy;
   }
+  function sameOpp(a, b) { return sameName(a, b) || sameName(bare(a), bare(b)); }
   function forGame(notes, game) {
     if (!notes || !game || !notes.game) return null;
     if (game.status === "final" || game.status === "canceled" || game.status === "postponed") return null;
