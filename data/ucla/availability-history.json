@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucla",
- "updated": "2026-11-07T01:09:01.729908+00:00",
+ "updated": "2026-11-07T15:08:48.079402+00:00",
  "reports": [
   {
    "schema": 1,
@@ -352,10 +352,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:09:01.729908+00:00",
+   "fetchedAt": "2026-11-07T15:08:48.079402+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Minnesota",
    "players": [
@@ -419,7 +419,7 @@
      "pos": "OL",
      "no": "68",
      "name": "Jordan Davis",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-state",
- "updated": "2026-11-06T03:09:08.893427+00:00",
+ "updated": "2026-11-08T01:39:02.610304+00:00",
  "reports": [
   {
    "schema": 1,
@@ -80,10 +80,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T03:09:08.893427+00:00",
+   "fetchedAt": "2026-11-08T01:39:02.610304+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-08",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Oregon State",
    "players": [
@@ -109,30 +109,16 @@
      "detail": ""
     },
     {
-     "pos": "ILB",
-     "no": "",
-     "name": "Tice Williams",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Chris Jones",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Tymere Jackson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "DB",
      "no": "",
      "name": "Jayden Lawton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "SP",
+     "no": "",
+     "name": "Lincoln Petitjean",
      "status": "out-game",
      "detail": ""
     },

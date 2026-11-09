@@ -1,33 +1,186 @@
 {
  "team": "arizona",
- "updated": "2026-11-07T01:37:59.132158+00:00",
+ "updated": "2026-11-09T16:08:03.122635+00:00",
  "items": [
   {
-   "title": "Live Game Updates: Arizona vs. TCU",
+   "title": "Arizona football: Wins over ranked teams at home a common November occurrence",
+   "link": "https://www.azdesertswarm.com/football/85332/arizona-wildcats-football-history-ranked-wins-november-upsets-utah-utes-2026-big12",
+   "source": "Arizona Desert Swarm",
+   "summary": "November is one of the best months in Tucson. The weather has finally cooled down, college basketball has begun and the biggest college town in America lives up to that billing. But for many visiting ranked football teams, November is a month they&#8217;d like to avoid. When the UA hosts No. 2 Utah on Saturday [&#8230;]",
+   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/reuters-tagreuters.com2015newsml_MT1USATODAY892758341984668.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-09T06:25:40+00:00"
+  },
+  {
+   "title": "Monday Morning QB: Arizona finds a way to win",
+   "link": "https://on3.com/teams/arizona-wildcats/news/monday-morning-qb-arizona-finds-a-way-to-win/",
+   "source": "On3",
+   "summary": "We take a look at Arizona's win over TCU on Friday",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08220707/Screenshot-2026-11-08-at-9.03.52-PM.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-09T04:08:58+00:00"
+  },
+  {
+   "title": "Arizona triathlon wins 3rd consecutive national championship",
+   "link": "https://www.azdesertswarm.com/other-sports/85323/arizona-wildcats-triathlon-national-championship-2026-kelly-wetteland",
+   "source": "Arizona Desert Swarm",
+   "summary": "The three-peat is complete. Arizona triathlon won its third straight national championship on Sunday with a dominant showing, led by Kelly Wetteland winning the individual title. Wetteland, a fifth-year senior competing in her last collegiate event, won the Women&#8217;s Collegiate National Championship for the second year in row. She completed the race with a time [&#8230;]",
+   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/HWojPfkbUAAoXbA.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-09T03:14:32+00:00"
+  },
+  {
+   "title": "Arizona projected to face surging SEC team in latest CBS Sports bowl predictions",
+   "link": "https://www.si.com/college/arizona/football/arizona-projected-to-face-surging-sec-team-in-latest-cbs-sports-bowl-predictions?utm_source=RSS",
+   "source": "Arizona On SI",
+   "summary": "Brent Brennan and the Arizona Wildcats avoided what would have been a disastrous home loss to TCU on Friday night, thanks to a perfectly executed pooch kick tha",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1676,h_942,x_0,y_521/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_wildcats/01m6yk9yc21v793c6hgj.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-09T00:44:08+00:00"
+  },
+  {
+   "title": "Arizona to host FOX\u2019s Big Noon Kickoff morning show ahead of matchup with Utah",
+   "link": "https://www.azdesertswarm.com/football/85307/arizona-wildcats-football-utah-utes-fox-big-noon-kickoff-gus-johnson-joel-klatt-jenny-taft-big12-2026",
+   "source": "Arizona Desert Swarm",
+   "summary": "This biggest game of the Brent Brennan era just got even bigger. Arizona is set to host Utah on Saturday for a ranked Big 12 matchup. The Wildcats (7-2, 4-2 Big 12) moved back up to No. 22 in the AP Top 25 Poll with the Utes (9-0, 6-0 Big 12) coming in at No. [&#8230;]",
+   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/Screenshot-2026-11-08-at-2.56.03-PM.png?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-08T22:05:34+00:00"
+  },
+  {
+   "title": "FOX Big Noon Kickoff Heads to Tucson",
+   "link": "https://arizonawildcats.com/news/2026/11/8/football-big-noon-kickoff-heads-to-tucson",
+   "source": "Arizona Athletics",
+   "summary": "<img alt=\"FOX Big Noon Kickoff\" src=\"https://arizonawildcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/BIG_NOON_16x9.jpg\" /><br /><br />TUCSON, Ariz. \u2014 XXX",
+   "image": "https://arizonawildcats.com/images/2026/11/8/BIG_NOON_16x9.jpg?width=800",
+   "sourceLogo": "https://arizonawildcats.com/favicon.ico",
+   "published": "2026-11-08T21:26:00+00:00"
+  },
+  {
+   "title": "Kickoff time, TV network, odds announced for Arizona football\u2019s game vs. Utah",
+   "link": "https://www.azdesertswarm.com/football/85290/kickoff-time-tv-network-odds-announced-for-arizona-footballs-game-vs-utah",
+   "source": "Arizona Desert Swarm",
+   "summary": "Arizona football will get a primetime billing for one of its biggest home games in years. Arizona and Utah will kick off at 5:30 p.m. MST at Casino Del Stadium, and the game will be televised on Fox, the Big 12 announced Sunday. Utah has opened as a 2.5-point favorite, according to FanDuel Sportsbook. The [&#8230;]",
+   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/gettyimages-2303442249.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-08T19:30:03+00:00"
+  },
+  {
+   "title": "Arizona football moves up in AP poll ahead of top-25 matchup with Utah",
+   "link": "https://www.azdesertswarm.com/football/85293/arizona-wildcats-football-ap-poll-week-10-utah-big-12",
+   "source": "Arizona Desert Swarm",
+   "summary": "For the second time in three weeks, Arizona will take part in a top-25 showdown with a Big 12 foe. Arizona (7-2) is ranked No. 22 in this week\u2019s Associated Press poll, two spots above last week. The Wildcats did just enough to beat TCU on Friday and win the confidence of AP voters, who [&#8230;]",
+   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/gettyimages-2303929677.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-08T19:17:53+00:00"
+  },
+  {
+   "title": "Game Time and TV Coverage Announced for #22 Arizona vs. #3 Utah",
+   "link": "https://arizonawildcats.com/news/2026/11/8/football-game-time-and-tv-coverage-announced-for-22-arizona-vs-3-utah",
+   "source": "Arizona Athletics",
+   "summary": "<img alt=\"TUCSON, ARIZ. -- Football vs. Iowa State for Homecoming Weekend 2026 at Casino Del Sol Stadium.\n\nOct. 25, 2026. \nPhoto by Dean Kelly / SkyPod Images\" src=\"https://arizonawildcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/UA_vs_Iowa_St_Oct_2026--51.jpg\" /><br /><br />Wildcats and Utes will kick off at 5:30 p.m. MST on Saturday, Nov. 14",
+   "image": "https://arizonawildcats.com/images/2026/11/2/UA_vs_Iowa_St_Oct_2026--51.jpg?width=800",
+   "sourceLogo": "https://arizonawildcats.com/favicon.ico",
+   "published": "2026-11-08T15:45:00+00:00"
+  },
+  {
+   "title": "No. 22 Arizona football rallies past TCU in 29-28 comeback victory",
+   "link": "https://wildcat.arizona.edu/167148/sports/no-22-arizona-football-rallies-past-tcu-in-29-28-comeback-victory/",
+   "source": "Arizona Daily Wildcat",
+   "summary": "The No. 22 University of Arizona football team seals a dramatic home victory against TCU on Friday night at Casino del Sol stadium.",
+   "image": "https://wildcat.arizona.edu/wp-content/uploads/2026/11/TCU-FB-9857.jpg",
+   "sourceLogo": null,
+   "published": "2026-11-08T04:48:48+00:00"
+  },
+  {
+   "title": "Arizona football with chance at historic win vs. Utah",
+   "link": "https://www.azdesertswarm.com/football/85273/arizona-wildcats-football-utah-utes-top3-matchup-tucson-history-big12-2026",
+   "source": "Arizona Desert Swarm",
+   "summary": "There have been some big wins in Arizona football history, but when it comes to ones against the top-ranked teams in the country the examples are scant. But now comes a golden opportunity to change that. The Wildcats will host a Top 3 team for the first time since 2007 when unbeaten Utah comes to [&#8230;]",
+   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/gettyimages-2303930940.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-07T20:37:22+00:00"
+  },
+  {
+   "title": "Wildcat Scoop Podcast: Arizona shocks TCU in last moments",
+   "link": "https://on3.com/teams/arizona-wildcats/news/wildcat-scoop-podcast-arizona-shocks-tcu-in-last-moments/",
+   "source": "On3",
+   "summary": "In this episode, we review Arizona's win over TCU.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07141021/Screenshot-2026-11-07-at-1.10.53-PM.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T20:15:14+00:00"
+  },
+  {
+   "title": "Tracking snap counts and PFF grades from Arizona\u2019s win over TCU",
+   "link": "https://www.azdesertswarm.com/football/85269/arizona-wildcats-football-tcu-horned-frogs-pff-grades-snap-counts-analysis-big12-2026",
+   "source": "Arizona Desert Swarm",
+   "summary": "Arizona pulled off some midnight magic in a 29-26 win over TCU. Pro Football Focus gave the Wildcats (7-2, 4-2 Big 12) an overall mark of 77.9. The offense was given an overall mark of 69.3 and the defense was given a 71.2 overall mark.&#160; The best aspect of Arizona\u2019s performance was the run defense [&#8230;]",
+   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/Screenshot-2026-11-07-at-12.19.40-PM.png?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-07T19:51:49+00:00"
+  },
+  {
+   "title": "STRIPE THE SOL",
+   "link": "https://arizonawildcats.com/news/2026/11/7/football-stripe-the-sol",
+   "source": "Arizona Athletics",
+   "summary": "<img alt=\"Stripe the Sol\" src=\"https://arizonawildcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/Stripe_Out_16x9.jpg\" /><br /><br />",
+   "image": "https://arizonawildcats.com/images/2026/11/7/Stripe_Out_16x9.jpg?width=800",
+   "sourceLogo": "https://arizonawildcats.com/favicon.ico",
+   "published": "2026-11-07T17:28:00+00:00"
+  },
+  {
+   "title": "Postgame Notebook: Noah Fifita helps save Wildcats",
+   "link": "https://on3.com/teams/arizona-wildcats/news/postgame-notebook-noah-fifita-helps-save-wildcats/",
+   "source": "On3",
+   "summary": "Arizona head coach Brent Brennan discusses Quincy Craig's catch, Noah Fifita's play, and more.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07034339/Screenshot-2026-11-07-at-2.44.59-AM.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T09:50:27+00:00"
+  },
+  {
+   "title": "Salgado-Medina quiets criticism with game-winning field goal",
+   "link": "https://on3.com/teams/arizona-wildcats/news/salgado-medina-quiets-criticism-with-game-winning-field-goal/",
+   "source": "On3",
+   "summary": "Michael Salgado-Medina and Brent Brennan discusses Arizona's win.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07033753/Screenshot-2026-11-07-at-2.36.15-AM.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T09:40:33+00:00"
+  },
+  {
+   "title": "Brent Brennan Reflects on Arizona\u2019s Late Magic in win over TCU",
+   "link": "https://on3.com/teams/arizona-wildcats/news/brent-brennan-reflects-on-arizonas-late-magic-in-win-over-tcu/",
+   "source": "On3",
+   "summary": "Brent Brennan discusses Arizona's win over TCU.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07032330/Screenshot-2026-11-07-at-2.24.24-AM.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T09:25:33+00:00"
+  },
+  {
+   "title": "Salgado-Medina Late Field Goal Pushes No. 22 Arizona Over TCU, 29-28",
+   "link": "https://arizonawildcats.com/news/2026/11/7/football-salgado-medina-late-field-goal-pushes-no-22-arizona-over-tcu-29-28",
+   "source": "Arizona Athletics",
+   "summary": "<img alt=\"Salgado-Medina field goal against TCU\" src=\"https://arizonawildcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/0B7A4670.JPG\" /><br /><br />TUCSON, Ariz. (AP) \u2014 Michael Salgado-Medina kicked a 37-yard field goal with 39 seconds left after No. 22\u00a0Arizona recovered an onside pooch kick and the Wildcats pulled out an improbable 29-28 victory over TCU early Saturday.",
+   "image": "https://arizonawildcats.com/images/2026/11/7/0B7A4670.JPG?width=800",
+   "sourceLogo": "https://arizonawildcats.com/favicon.ico",
+   "published": "2026-11-07T07:36:00+00:00"
+  },
+  {
+   "title": "Arizona stuns TCU with last minute comeback: 3 takeaways",
+   "link": "https://www.si.com/college/arizona/football/arizona-stuns-tcu-last-minute-comeback-3-takeaways?utm_source=RSS",
+   "source": "Arizona On SI",
+   "summary": "Brent Brennan and the Arizona Wildcats were on the verge of disaster Friday evening against TCU, missing on a two point conversion that would have tied the game",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2092,h_1176,x_0,y_346/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_wildcats/01m6t9vwxd7xktxvsqhd.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-07T07:19:20+00:00"
+  },
+  {
+   "title": "FINAL: Arizona 29, TCU 28",
    "link": "https://on3.com/teams/arizona-wildcats/news/live-game-updates-arizona-vs-tcu/",
    "source": "On3",
    "summary": "We have live updates of Friday's matchup between Arizona and TCU.",
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/06192643/Screenshot-2026-11-06-at-6.27.48-PM-1.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-07T01:27:39+00:00"
-  },
-  {
-   "title": "SB Nation Reacts: Arizona fans see clear choice for biggest football surprise",
-   "link": "https://www.azdesertswarm.com/football/85224/arizona-wildcats-football-sbnation-reacts-isaiah-mizell-top-surprise-results-poll-survey-big12-2026-bobby-wade-fanduel",
-   "source": "Arizona Desert Swarm",
-   "summary": "Arizona came into this season with a lot of well-known returners, led by quarterback Noah Fifita and several other veterans from the 9-win team of 2026. But there were some holes to fill, and while there was plenty of promising options on the roster it was uncertain who was going to step up and become [&#8230;]",
-   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/reuters-tagreuters.com2026newsml_MT1USATODAY30071069596775664.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-06T20:20:28+00:00"
-  },
-  {
-   "title": "Arizona football vs. TCU: Game time, TV schedule, odds, streaming and more",
-   "link": "https://www.azdesertswarm.com/football/85188/arizona-wildcats-football-tcu-horned-frogs-tv-info-streaming-start-time-odds-radio-big12-2026-tucson",
-   "source": "Arizona Desert Swarm",
-   "summary": "It\u2019s Game Day! The Arizona Wildcats are back home but on short rest to take on the TCU Horned Frogs in a Friday night clash. Here\u2019s everything you need to know to watch or listen to the game, as well as our pregame coverage. Arizona-TCU game time, details: How can I watch Arizona-TCU? Arizona-TCU will [&#8230;]",
-   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/10/Screenshot-2026-10-22-at-2.02.30-PM.png?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-06T17:23:32+00:00"
   },
   {
    "title": "Arizona vs. TCU: Prediction and matchup notes",
@@ -48,15 +201,6 @@
    "published": "2026-11-06T04:58:51+00:00"
   },
   {
-   "title": "What to watch for when Arizona football hosts TCU",
-   "link": "https://www.azdesertswarm.com/football/85183/arizona-wildcats-football-tcu-horned-frogs-preview-friday-big12-2026-analysis",
-   "source": "Arizona Desert Swarm",
-   "summary": "To this point in the 2026 season, on paper Arizona has won the games it was supposed to and lost the ones it wasn&#8217;t. The Wildcats have been favored six times, coming out on top each time, and road underdogs to ranked opponents twice with those producing the two losses. That&#8217;s led to a No. [&#8230;]",
-   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/10/gettyimages-2299566264.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-05T21:21:37+00:00"
-  },
-  {
    "title": "Arizona vs. TCU betting odds: Point spread, moneyline and over/under for Week 10",
    "link": "https://www.si.com/college/arizona/football/arizona-vs-tcu-betting-odds-point-spread-moneyline-and-over-under-for-week-10?utm_source=RSS",
    "source": "Arizona On SI",
@@ -75,15 +219,6 @@
    "published": "2026-11-05T16:58:43+00:00"
   },
   {
-   "title": "Losses need not define a good team\u2019s story",
-   "link": "https://www.azdesertswarm.com/basketball/85123/arizona-wildcats-football-mens-basketball-perspective-column-opinion-analysis-2026",
-   "source": "Arizona Desert Swarm",
-   "summary": "How unfortunate that the seasons for both Arizona football and men\u2019s basketball ended within days of each other. The former\u2019s defeat at Texas Tech on Halloween and the latter\u2019s loss to UCLA just two days later marked the end of the line for each program, because nothing that happens from here truly matters. Nah, that [&#8230;]",
-   "image": "https://platform.azdesertswarm.com/wp-content/uploads/sites/15/2026/11/gettyimages-2303292551.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-05T05:00:20+00:00"
-  },
-  {
    "title": "Intel: Brennan on Arizona's play-calling, donating tickets, and more",
    "link": "https://on3.com/teams/arizona-wildcats/news/intel-brennan-on-arizonas-play-calling-donating-tickets-and-more/",
    "source": "On3",
@@ -91,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/11/03171842/Brent-Brennan-1200.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-04T05:01:02+00:00"
-  },
-  {
-   "title": "Brent Brennan previews Arizona vs. TCU",
-   "link": "https://on3.com/teams/arizona-wildcats/news/brent-brennan-previews-arizona-vs-tcu/",
-   "source": "On3",
-   "summary": "Brent Brennan discusses Friday's matchup against TCU.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/01/01143314/Brent-Brennan.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-04T04:25:56+00:00"
   },
   {
    "title": "Where did Arizona land in the first College Football Playoff rankings?",
@@ -291,24 +417,6 @@
    "published": "2026-10-21T18:16:35+00:00"
   },
   {
-   "title": "No. 25 Wildcats Welcome Cyclones for Homecoming",
-   "link": "https://arizonawildcats.com/news/2026/10/19/football-no-25-wildcats-welcome-cyclones-for-homecoming",
-   "source": "Arizona Athletics",
-   "summary": "<img alt=\"Noah Fifita\" src=\"https://arizonawildcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/261003_FB_vs_Cincinnati_Marison_Bilagody1086.jpg\" /><br /><br />",
-   "image": "https://arizonawildcats.com/images/2026/10/19/261003_FB_vs_Cincinnati_Marison_Bilagody1086.jpg?width=800",
-   "sourceLogo": "https://arizonawildcats.com/favicon.ico",
-   "published": "2026-10-19T22:09:00+00:00"
-  },
-  {
-   "title": "Game Time and TV Coverage Announced for Arizona at Texas Tech",
-   "link": "https://arizonawildcats.com/news/2026/10/19/football-game-time-and-tv-coverage-announced-for-arizona-at-texas-tech",
-   "source": "Arizona Athletics",
-   "summary": "<img alt=\"\u2014 TUCSON, ARIZ. -- Football vs. University of Cincinnati at Casino Del Sol Stadium.\n\nOct. 3, 2026. \nPhoto by Catherine Regan / for Arizona Athletics\" src=\"https://arizonawildcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/261003_FB_vs_Cincinnati_Catherine_Regan0893.jpg\" /><br /><br />Wildcats and Cyclones will kick off at 9:00 a.m. MST on Saturday, Oct. 31",
-   "image": "https://arizonawildcats.com/images/2026/10/19/261003_FB_vs_Cincinnati_Catherine_Regan0893.jpg?width=800",
-   "sourceLogo": "https://arizonawildcats.com/favicon.ico",
-   "published": "2026-10-19T15:23:00+00:00"
-  },
-  {
    "title": "Arizona ranked in the AP Top 25 for first time in 2026",
    "link": "https://www.si.com/college/arizona/football/arizona-ranked-ap-top-25-first-time-2026?utm_source=RSS",
    "source": "Arizona On SI",
@@ -316,15 +424,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4441,h_2498,x_0,y_698/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_wildcats/01m584rfy9ymmy6fbqj5.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-18T19:12:13+00:00"
-  },
-  {
-   "title": "Game Time and TV Coverage Announced for Arizona vs. Iowa State",
-   "link": "https://arizonawildcats.com/news/2026/10/18/football-game-time-and-tv-coverage-announced-for-arizona-vs-iowa-state",
-   "source": "Arizona Athletics",
-   "summary": "<img alt=\"\u2014 TUCSON, ARIZ. -- Football vs. Cincinnati at Casino Del Sol Stadium.\n\nOct. 3, 2026. \nPhoto by Mike Christy / Arizona Athletics\" src=\"https://arizonawildcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/18/261003_FB_vs_Cincinnati_Mike_Christy0683.jpg\" /><br /><br />Wildcats and Cyclones will kick off at 4:30 p.m. MST on Saturday, Oct. 24",
-   "image": "https://arizonawildcats.com/images/2026/10/18/261003_FB_vs_Cincinnati_Mike_Christy0683.jpg?width=800",
-   "sourceLogo": "https://arizonawildcats.com/favicon.ico",
-   "published": "2026-10-18T14:57:00+00:00"
   },
   {
    "title": "Five takeaways from Arizona football\u2019s surgical win at West Virginia University",
@@ -352,42 +451,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4190,h_2356,x_0,y_654/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_wildcats/01m4pg0y8ng2j7yd52yh.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-11T22:17:44+00:00"
-  },
-  {
-   "title": "Cats Rewind: Arizona Storms Past West Virginia",
-   "link": "https://arizonawildcats.com/news/2026/10/10/football-cats-rewind-arizona-storms-past-west-virginia",
-   "source": "Arizona Athletics",
-   "summary": "<img alt=\"wide receiver Isaiah Mizell (17) \u2014 MORGANTOWN, W.VA. -- Football vs. West Virginia at Milan Puskar Stadium.\n\nOct. 10, 2026. \nPhoto by Marison Bilagody / Arizona Athletics\" src=\"https://arizonawildcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/261010_FB_vs_West_Virginia_Marison_Bilagody3669.JPG\" /><br /><br />The Wildcats broke open a close game late to defeat West Virginia 52-31 in Morgantown.",
-   "image": "https://arizonawildcats.com/images/2026/10/10/261010_FB_vs_West_Virginia_Marison_Bilagody3669.JPG?width=800",
-   "sourceLogo": "https://arizonawildcats.com/favicon.ico",
-   "published": "2026-10-10T21:48:00+00:00"
-  },
-  {
-   "title": "Brent Brennan gushes over Arizona receiver Isaiah Mizell's breakout performance vs. West Virginia",
-   "link": "https://www.si.com/college/arizona/football/brent-brennan-gushes-over-arizona-receiver-isaiah-mizell-breakout-performance-west-virginia?utm_source=RSS",
-   "source": "Arizona On SI",
-   "summary": "Arizona Wildcats wide receiver Isaiah Mizell came into Saturday's road matchup at West Virginia with 13 receptions, 176 receiving yards, and two touchdowns thro",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_5064,h_2848,x_0,y_71/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_wildcats/01m4kq1zg0gekgrmzwws.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-10T21:33:10+00:00"
-  },
-  {
-   "title": "Arizona's offense explodes in dominant road win over West Virginia",
-   "link": "https://www.si.com/college/arizona/football/arizona-offense-explodes-dominant-road-win-over-west-virginia?utm_source=RSS",
-   "source": "Arizona On SI",
-   "summary": "The Arizona Wildcats offense exploded on Saturday morning in Morgantown, West Virginia, with Brent Brennan's club ultimately coasting to a 52-31 victory to move",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6189,h_3481,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_wildcats/01m4kncgr8jfwj2q7aas.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-10T19:45:46+00:00"
-  },
-  {
-   "title": "Arizona travels to West Virginia for Big 12 road test",
-   "link": "https://wildcat.arizona.edu/166529/sports/football/arizona-travels-to-west-virginia-for-big-12-road-test/",
-   "source": "Arizona Daily Wildcat",
-   "summary": "The Wildcats look for their fourth straight win, while the Mountaineers try to avoid a 0-3 start in Big 12 play.",
-   "image": "https://wildcat.arizona.edu/wp-content/uploads/2026/10/WILD-THINGGGG-9.jpg",
-   "sourceLogo": null,
-   "published": "2026-10-10T02:19:34+00:00"
   }
  ]
 }

@@ -1650,7 +1650,7 @@ window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintR
 // One game on screen, wherever it is drawn: its summary, its pregame
 // matchup, the fan's team toggle and open disclosures. GV is the hero game
 // on Game; SV a game opened from Schedule (#schedule/<id>).
-function gameState(id){ return { id:id, gd:null, preview:undefined, side:"us", at:0, loading:false, open:{} }; }
+function gameState(id){ return { id:id, gd:null, preview:undefined, side:"us", at:0, loading:false, open:{}, behind:false }; }
 var GV=gameState(null);
 // The hero, with one addition to TeamOS's rule: in S5 - this season over and
 // next season's schedule out - the opener is the hero (offseason UI contract:
@@ -1677,9 +1677,22 @@ function heroGame(){
   }
   return g;
 }
+// Whether the play-by-play is behind the game clock (TeamOS.game.feedState;
+// creative direction 2026-11-08). One state per game view, so the Last Play
+// and drive cards never disagree; it remembers where it was, for the rule's
+// two thresholds and so that going behind is announced once - politely,
+// never again on the refreshes that follow, and nothing when it catches up.
+// A catch-up is reconciliation: the plays it brings appear as plays, no more.
+function feedOf(V, g){
+  var f=TeamOS.game.feedState(g, V.gd, V.behind);
+  if(f.behind && !V.behind) say("Play-by-play is catching up. The game clock is ahead of the latest recorded play.");
+  V.behind=f.behind;
+  return f;
+}
 function gameModel(V, g, lc, view, base){
   var espnId=TEAM_CONFIG.sources.espn.teamId;
   return {
+    feed: feedOf(V, g),
     team:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true) },
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
     photo:ID.art, game:g, detail:V.gd, lifecycle:lc, base:base,

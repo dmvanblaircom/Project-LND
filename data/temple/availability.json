@@ -7,13 +7,20 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-01T11:09:39.365701+00:00",
+ "fetchedAt": "2026-11-08T11:08:51.526395+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
+ "effectiveAt": "2026-11-07",
  "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at East Carolina",
+ "kickoffDate": "2026-11-07",
+ "game": "at Navy",
  "players": [
+  {
+   "pos": "TE",
+   "no": "0",
+   "name": "Peter Clarke",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "RB",
    "no": "5",
@@ -25,13 +32,34 @@
    "pos": "LB",
    "no": "8",
    "name": "Eric Stuart",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "12",
+   "name": "Willy Love",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "13",
+   "name": "Ajani Sheppard",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "20",
+   "name": "Jett White",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "17",
-   "name": "JoJo Bermudez",
+   "pos": "RB",
+   "no": "21",
+   "name": "De'Carlos Young",
    "status": "questionable",
    "detail": ""
   },
@@ -40,6 +68,13 @@
    "no": "27",
    "name": "Devontae Ward-Grant",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "29",
+   "name": "Hunter Smith",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,7 +88,7 @@
    "pos": "LB",
    "no": "44",
    "name": "Tyree Alualu",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -72,13 +107,6 @@
   },
   {
    "pos": "OL",
-   "no": "71",
-   "name": "Giakoby Hills",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "75",
    "name": "Luke Watson",
    "status": "out-game",
@@ -89,6 +117,13 @@
    "no": "83",
    "name": "Kenedy Uzoma",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "85",
+   "name": "Rameir Hardy",
+   "status": "questionable",
    "detail": ""
   },
   {

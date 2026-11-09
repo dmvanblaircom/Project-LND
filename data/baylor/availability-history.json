@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "baylor",
- "updated": "2026-11-06T03:08:56.205689+00:00",
+ "updated": "2026-11-07T15:38:48.230380+00:00",
  "reports": [
   {
    "schema": 1,
@@ -282,10 +282,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T03:08:56.205689+00:00",
+   "fetchedAt": "2026-11-07T15:38:48.230380+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Iowa State",
    "players": [
@@ -294,13 +294,6 @@
      "no": "8",
      "name": "Jacob Redding",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "12",
-     "name": "Kyler Beaty",
-     "status": "probable",
      "detail": ""
     },
     {

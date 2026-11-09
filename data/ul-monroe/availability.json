@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T01:40:48.855007+00:00",
+ "fetchedAt": "2026-11-07T15:39:00.879519+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Initial",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "at Arkansas State",
  "players": [
@@ -19,20 +19,6 @@
    "no": "",
    "name": "RJ Hall",
    "status": "out-season",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Kaliem Croswell",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OLB",
-   "no": "",
-   "name": "Le'kell McGowan",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,28 +39,21 @@
    "pos": "OL",
    "no": "",
    "name": "Van Martinez",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "",
    "name": "Zach Palmer Smith",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "",
    "name": "Claude Phillip",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Darrian Gilliam",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

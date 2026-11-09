@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2226",
  "classYear": 2027,
- "listed": 19,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -152,6 +152,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274747",
+   "name": "Solomon Efunbajo",
+   "position": "DE",
+   "highSchool": "The St. James Performance Academy",
+   "city": "Fairfax",
+   "state": "VA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274385",
    "name": "Alex Sansom",
    "position": "OG",
@@ -256,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:41Z"
+ "fetchedAt": "2026-11-07T23:40Z"
 }

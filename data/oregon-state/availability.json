@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:06.793827+00:00",
+ "fetchedAt": "2026-11-08T01:39:00.058895+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-08",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Texas State",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "DL",
    "no": "",
    "name": "Tevita Pome'e",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -40,20 +40,6 @@
    "no": "",
    "name": "Kai Wheaton",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Isaiah Houi",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Jacob Anderson",
-   "status": "probable",
    "detail": ""
   },
   {

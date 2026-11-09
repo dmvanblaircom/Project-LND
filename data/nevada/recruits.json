@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2440",
  "classYear": 2027,
- "listed": 12,
+ "listed": 13,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -100,6 +100,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274748",
+   "name": "Braden McDonald",
+   "position": "TE-H",
+   "highSchool": "Spanish Springs High School",
+   "city": "Sparks",
+   "state": "NV",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273373",
    "name": "Connor Strand",
    "position": "S",
@@ -165,5 +178,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:43Z"
+ "fetchedAt": "2026-11-07T23:42Z"
 }

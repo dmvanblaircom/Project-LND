@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T01:08:41.940744+00:00",
+ "fetchedAt": "2026-11-07T15:38:51.624093+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Initial",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Marshall",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "OL",
    "no": "",
    "name": "Colin Alexander",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -32,21 +32,14 @@
    "pos": "ILB",
    "no": "",
    "name": "Jacob Hammonds",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
+   "pos": "DB",
    "no": "",
-   "name": "Matt Williams",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Kam Mikell",
-   "status": "questionable",
+   "name": "Carlo Thompson",
+   "status": "out-game",
    "detail": ""
   },
   {

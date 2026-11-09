@@ -1,6 +1,6 @@
 {
 "team": "auburn",
-"updated": "2026-11-07T01:07Z",
+"updated": "2026-11-09T14:07Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -357,6 +357,83 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T07:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T13:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T19:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T01:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T02:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T08:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T14:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T20:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T02:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T08:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T14:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

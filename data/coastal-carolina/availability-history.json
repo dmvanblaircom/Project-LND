@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "coastal-carolina",
- "updated": "2026-11-05T01:40:36.599931+00:00",
+ "updated": "2026-11-07T15:38:50.220035+00:00",
  "reports": [
   {
    "schema": 1,
@@ -80,10 +80,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T01:40:36.599931+00:00",
+   "fetchedAt": "2026-11-07T15:38:50.220035+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Old Dominion",
    "players": [
@@ -98,35 +98,35 @@
      "pos": "OL",
      "no": "",
      "name": "Dom Rijos",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "RB",
      "no": "",
      "name": "Breyhan Townsend",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "",
      "name": "Jayden Johnson",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "",
      "name": "Mason Barton",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "",
-     "name": "Travis Roman",
-     "status": "questionable",
+     "name": "King White",
+     "status": "out-game",
      "detail": ""
     }
    ],

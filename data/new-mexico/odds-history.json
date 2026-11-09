@@ -1,6 +1,6 @@
 {
 "team": "new-mexico",
-"updated": "2026-11-06T20:37Z",
+"updated": "2026-11-09T12:37Z",
 "points": [
 {
 "t": "2026-10-29T15:37Z",
@@ -812,6 +812,279 @@
 "title": null,
 "titleEvent": "KXNCAAF-27",
 "playoff": 22.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T02:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 22.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T04:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 25.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T05:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T05:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 31.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T06:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T06:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T07:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T08:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T12:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T16:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T18:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 32.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T20:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 31.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T21:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-07T23:51Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 26.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T00:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 33.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T00:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T01:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 34.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T01:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T02:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 34.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T03:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T04:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T04:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T05:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T06:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T07:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T07:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T08:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T08:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 25.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T09:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 26.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T12:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T13:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T14:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T15:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T17:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T20:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T00:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T01:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T07:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T12:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

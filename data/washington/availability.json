@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T01:09:03.026205+00:00",
+ "fetchedAt": "2026-11-07T18:39:04.785198+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Penn State",
  "players": [
@@ -29,27 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "7",
-   "name": "Alex McLaughlin",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "10",
-   "name": "Xe'ree Alexander",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "EDG",
-   "no": "11",
-   "name": "Ramzak Fruean",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "RB",
    "no": "21",
    "name": "Quaid Carr",
@@ -58,44 +37,9 @@
   },
   {
    "pos": "OL",
-   "no": "55",
-   "name": "Kolt Dieterich",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "56",
-   "name": "Geirean Hatchett",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "65",
-   "name": "Jack Shaffer",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "66",
    "name": "Landen Hatchett",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "70",
-   "name": "Justin Hylkema",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "73",
-   "name": "Champ Taulealea",
-   "status": "probable",
    "detail": ""
   },
   {

@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T01:08:57.927832+00:00",
+ "fetchedAt": "2026-11-07T18:38:59.462722+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "at Ohio State",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "WR",
    "no": "3",
    "name": "Jeremiah McClellan",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {

@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:00.820946+00:00",
+ "fetchedAt": "2026-11-07T19:08:47.755967+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "at Houston",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "ILB",
    "no": "31",
    "name": "Simeon Coleman",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -32,7 +32,7 @@
    "pos": "OL",
    "no": "77",
    "name": "Taran Tyo",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

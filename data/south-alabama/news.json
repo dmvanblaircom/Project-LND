@@ -1,7 +1,16 @@
 {
  "team": "south-alabama",
- "updated": "2026-11-04T22:38:16.884468+00:00",
+ "updated": "2026-11-08T03:08:17.497243+00:00",
  "items": [
+  {
+   "title": "South Alabama Rally Falls Short at Cajun Field",
+   "link": "https://usajaguars.com/news/2026/11/7/football-south-alabama-rally-falls-short-at-cajun-field.aspx",
+   "source": "South Alabama Athletics",
+   "summary": "<img alt=\"UL Recap\" src=\"https://usajaguars.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/RaginCajuns-088.jpg\" /><br /><br />LAFAYETTE, La. \u2013 South Alabama rallied from an 11-point second-half deficit to pull within two, but fell to Louisiana 28-26 Saturday at Our Lady of Lourdes Stadium. The Jags dropped to 4-5 overall and 2-3 in Sun Belt play, while the Cajuns improved to 6-3 on the year and 3-2 in conference action.",
+   "image": "https://usajaguars.com/images/2026/11/7/RaginCajuns-088.jpg?width=800",
+   "sourceLogo": "https://usajaguars.com/favicon.ico",
+   "published": "2026-11-08T02:19:00+00:00"
+  },
   {
    "title": "Jags and Cajuns Lined Up for 4 p.m. Saturday Kick in Lafayette",
    "link": "https://usajaguars.com/news/2026/11/4/football-jags-travel-to-louisiana-for-4-pm-kick.aspx",
@@ -82,15 +91,6 @@
    "image": "https://usajaguars.com/images/2026/10/12/20261008_USAFootball_Q4_vsArkansasSt_BIGGS_0066.jpg?width=800",
    "sourceLogo": "https://usajaguars.com/favicon.ico",
    "published": "2026-10-12T19:00:00+00:00"
-  },
-  {
-   "title": "Keenan Phillips Powers South Alabama Past Arkansas State in Road Win",
-   "link": "https://usajaguars.com/news/2026/10/8/football-keenan-phillips-powers-south-alabama-past-arkansas-state-in-road-win.aspx",
-   "source": "South Alabama Athletics",
-   "summary": "<img alt=\"Keenan Phillips dives for the end zone in South Alabama's win over Arkansas State\" src=\"https://usajaguars.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/8/SD_ARKST_10826_1339.jpg\" /><br /><br />JONESBORO, Ark. \u2013 South Alabama (4-2, 2-0 SBC) beat Arkansas State (2-4, 0-2 SBC) 56-49 at Centennial Bank Stadium on Thursday night to move to 2-0 in Sun Belt play. Keenan Phillips scampered for 284 all-purpose yards and scored four touchdowns as the Jags ran out the final 6:51 to secure the victory.",
-   "image": "https://usajaguars.com/images/2026/10/8/SD_ARKST_10826_1339.jpg?width=800",
-   "sourceLogo": "https://usajaguars.com/favicon.ico",
-   "published": "2026-10-09T05:26:00+00:00"
   }
  ]
 }

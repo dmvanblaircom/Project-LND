@@ -1,7 +1,16 @@
 {
  "team": "unlv",
- "updated": "2026-11-03T01:38:14.142888+00:00",
+ "updated": "2026-11-08T09:08:13.682347+00:00",
  "items": [
+  {
+   "title": "Cowboys Hold Off Rebel Rally",
+   "link": "https://unlvrebels.com/news/2026/11/8/football-cowboys-hold-off-rebel-rally",
+   "source": "UNLV Athletics",
+   "summary": "<img alt=\"Alex Orji vs. Wyoming\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/Alex_Orji_Wyo.jpg\" /><br /><br />LAS VEGAS (UNLVRebels.com) \u2013 Driving for the potential game-winning touchdown, UNLV (5-4/3-2) threw an interception in the end zone and Wyoming (6-3/5-1) did enough to hold on for a 41-35 win on Saturday night before a crowd of 25,277 fans at Allegiant Stadium.",
+   "image": "https://unlvrebels.com/images/2026/11/8/Alex_Orji_Wyo.jpg?width=800",
+   "sourceLogo": "https://unlvrebels.com/favicon.ico",
+   "published": "2026-11-08T08:49:00+00:00"
+  },
   {
    "title": "GAME 9: Rebels Host Cowboys Saturday Night In Key MW Battle",
    "link": "https://unlvrebels.com/news/2026/11/2/football-game-9-rebels-host-cowboys-saturday-night-in-key-mw-battle",
@@ -82,15 +91,6 @@
    "image": "https://unlvrebels.com/images/2026/10/12/UNLVFBALL_MW_Defensive_Player_of_the_Week_Andre_Porter.png?width=800",
    "sourceLogo": "https://unlvrebels.com/favicon.ico",
    "published": "2026-10-12T01:31:00+00:00"
-  },
-  {
-   "title": "Rebel Football Announces Halloween Special",
-   "link": "https://unlvrebels.com/news/2026/10/11/rebel-football-announces-halloween-special",
-   "source": "UNLV Athletics",
-   "summary": "<img alt=\"Allegiant Stadium\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2025/6/27/ALLEGIANT_STADIUM.png\" /><br /><br />Your UNLV Rebels will return to Allegiant Stadium for a\u00a0Halloween\u00a0showdown against the NIU Huskies on Saturday, Oct. 31. For a limited time, fans can lock in\u00a0$25 lower bowl tickets\u00a0as part of the\u00a0Halloween\u00a0Special.",
-   "image": "https://unlvrebels.com/images/2025/6/27/ALLEGIANT_STADIUM.png?width=800",
-   "sourceLogo": "https://unlvrebels.com/favicon.ico",
-   "published": "2026-10-12T00:20:00+00:00"
   }
  ]
 }

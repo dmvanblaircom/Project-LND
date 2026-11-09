@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2751",
  "classYear": 2027,
- "listed": 17,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -204,19 +204,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273507",
-   "name": "Noah Reid",
-   "position": "OT",
-   "highSchool": "Shawnee Mission North High School",
-   "city": "Shawnee Mission",
-   "state": "KS",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "273506",
    "name": "Thomas Prescott",
    "position": "TE-Y",
@@ -230,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:48Z"
+ "fetchedAt": "2026-11-07T23:46Z"
 }

@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:03.438667+00:00",
+ "fetchedAt": "2026-11-07T19:38:47.634542+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. UCF",
  "players": [
-  {
-   "pos": "CB",
-   "no": "2",
-   "name": "Syeed Gibbs",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "RB",
    "no": "4",
@@ -32,63 +25,35 @@
    "pos": "LB",
    "no": "7",
    "name": "Bam Crouch",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "8",
-   "name": "Isaiah Marshall",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "8",
    "name": "Josh Galbreath",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "9",
-   "name": "Jailen Butler",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "10",
-   "name": "Elijah Cannon",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "10",
-   "name": "Chase Jenkins",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "12",
    "name": "Bryson Hayes",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "12",
    "name": "Jaden Harris",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "QB",
    "no": "15",
    "name": "Cole Ballard",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -99,24 +64,10 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "27",
-   "name": "Taylor Davis",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "35",
    "name": "Jack Utz",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "44",
-   "name": "David Santiago",
-   "status": "questionable",
    "detail": ""
   },
   {

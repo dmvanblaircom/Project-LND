@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "9",
  "classYear": 2027,
- "listed": 11,
+ "listed": 12,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -150,7 +150,20 @@
    "positionRank": 141,
    "stateRank": 118,
    "status": "Verbal"
+  },
+  {
+   "id": "273507",
+   "name": "Noah Reid",
+   "position": "OT",
+   "highSchool": "Shawnee Mission North High School",
+   "city": "Shawnee Mission",
+   "state": "KS",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:39Z"
+ "fetchedAt": "2026-11-07T23:39Z"
 }

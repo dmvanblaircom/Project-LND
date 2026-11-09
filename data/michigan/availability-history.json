@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan",
- "updated": "2026-11-07T01:08:55.626813+00:00",
+ "updated": "2026-11-07T22:38:47.210965+00:00",
  "reports": [
   {
    "schema": 1,
@@ -450,10 +450,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:08:55.626813+00:00",
+   "fetchedAt": "2026-11-07T22:38:47.210965+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Michigan State",
    "players": [
@@ -465,31 +465,10 @@
      "detail": ""
     },
     {
-     "pos": "S",
-     "no": "1",
-     "name": "Rod Moore",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "CB",
      "no": "2",
      "name": "Shamari Earls",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "6",
-     "name": "Jordan Young",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "8",
-     "name": "Dom Nichols",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -522,37 +501,16 @@
     },
     {
      "pos": "OL",
-     "no": "53",
-     "name": "Jake Guarnera",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
      "no": "54",
      "name": "Andrew Sprague",
      "status": "out-game",
      "detail": ""
     },
     {
-     "pos": "OL",
-     "no": "70",
-     "name": "Brady Norton",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "TE",
      "no": "80",
      "name": "Hogan Hansen",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "90",
-     "name": "John Henry Daley",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     }
    ],

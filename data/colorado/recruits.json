@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "38",
  "classYear": 2027,
- "listed": 20,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -217,19 +217,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272723",
-   "name": "Ryan Ferdinand",
-   "position": "WR",
-   "highSchool": "Palm Beach Lakes High School",
-   "city": "West Palm Beach",
-   "state": "FL",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 210,
-   "stateRank": 162,
-   "status": "Verbal"
-  },
-  {
    "id": "266481",
    "name": "Will Rasmussen",
    "position": "CB",
@@ -269,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:40Z"
+ "fetchedAt": "2026-11-07T03:08Z"
 }

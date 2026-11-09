@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "68",
  "classYear": 2027,
- "listed": 14,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -178,6 +178,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272765",
+   "name": "Bryson Ford",
+   "position": "CB",
+   "highSchool": "North Gwinnett High School",
+   "city": "Suwanee",
+   "state": "GA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274541",
    "name": "Beaux Sauve",
    "position": "DE",
@@ -191,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:39Z"
+ "fetchedAt": "2026-11-07T03:07Z"
 }

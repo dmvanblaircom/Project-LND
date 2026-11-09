@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ole-miss",
- "updated": "2026-11-07T01:38:46.306596+00:00",
+ "updated": "2026-11-07T23:09:02.716721+00:00",
  "reports": [
   {
    "schema": 1,
@@ -497,25 +497,18 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:38:46.306596+00:00",
+   "fetchedAt": "2026-11-07T23:09:02.716721+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Georgia",
    "players": [
     {
-     "pos": "CB",
-     "no": "0",
-     "name": "Jalyn Crawford",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "DE",
      "no": "5",
      "name": "Kam Franklin",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -523,13 +516,6 @@
      "no": "5",
      "name": "Kewan Lacy",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "11",
-     "name": "Keaton Thomas",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -544,13 +530,6 @@
      "no": "14",
      "name": "Edwin Joseph",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "19",
-     "name": "MJ Preston",
-     "status": "probable",
      "detail": ""
     },
     {

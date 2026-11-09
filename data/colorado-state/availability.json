@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:01.221988+00:00",
+ "fetchedAt": "2026-11-07T21:08:47.209450+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Boise State",
  "players": [
@@ -18,28 +18,21 @@
    "pos": "TE",
    "no": "",
    "name": "Grant Houser",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Jaivyn Moore",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "Makhi Johnson",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "",
    "name": "Durell Robinson",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -53,7 +46,7 @@
    "pos": "TE",
    "no": "",
    "name": "Pearce Spurlin",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -64,24 +57,17 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "",
-   "name": "Mel Brown",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "",
    "name": "John Holthaus",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "",
    "name": "Juice Vereen",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -101,7 +87,7 @@
   {
    "pos": "DB",
    "no": "",
-   "name": "Aj  Noland",
+   "name": "Aj Noland",
    "status": "out-game",
    "detail": ""
   }

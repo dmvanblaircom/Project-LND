@@ -7,41 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T03:09:02.489987+00:00",
+ "fetchedAt": "2026-11-07T19:08:49.786002+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Cincinnati",
- "players": [
-  {
-   "pos": "DB",
-   "no": "3",
-   "name": "JD Rhym",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "8",
-   "name": "Tyson Turner",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "24",
-   "name": "Keany Parks",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "90",
-   "name": "De'Marion Thomas",
-   "status": "probable",
-   "detail": ""
-  }
- ],
+ "players": [],
  "current": true
 }
