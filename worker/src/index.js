@@ -45,7 +45,7 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-10-27fbsranks";
+export const VERSION = "edge-2026-11-09review";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
@@ -107,8 +107,8 @@ async function cfbdSeason(url, env, origin, ctx) {
   if (!TEAM.test(team)) return fail(400, "team is required", origin);
   if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
   if (!KNOWN.has(team.toLowerCase())) return fail(404, "not a school Suite covers", origin);
-  const now = new Date(env.NOW ? env.NOW() : Date.now()).getUTCFullYear();
-  if (year !== now && year !== now - 1) return fail(400, "only this season or last", origin);
+  // seasons, not calendar years: in February the season is last year's (code review, 2026-11-09)
+  if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
   if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
 
   const cache = env.CACHE || caches.default;

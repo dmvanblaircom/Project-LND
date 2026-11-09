@@ -11,7 +11,7 @@ import worker, { fbsRanks, RANKED, pickSeason, pickSp, schoolIds, wholeSp, SP_TO
 import { migrateSp, keepSp, spWeeks, spWeek, spIdOf, spDue, weekOf, SP_DUE, SP_KEEP_MAX } from "../worker/src/sp.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
          words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease,
-         stageOf, postGames, fieldSet, selectionFor } from "../worker/src/push.js";
+         stageOf, postGames, fieldSet, selectionFor, alertUrl, prune, KEEP_DELIVERIES } from "../worker/src/push.js";
 import { RANKINGS_SHOWS, SELECTION_DAYS } from "../worker/src/calendar.js";
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
@@ -395,7 +395,7 @@ console.log("game alerts: a whole game, minute by minute (Ohio State at Iowa, Oc
   e.status = st("in", 1, "STATUS_IN_PROGRESS");
   log = await tick(db, e, KICK + 2 * 60e3);
   const k = e.pushes.length === 1 ? await openPush(e.pushes[0].init.body, b.kp, b.sub.keys.auth) : {};
-  eq([k.title, k.body, k.url, k.tag], ["Kickoff: Ohio State at Iowa", "On CBS", APP_URL + "#game", GAME + "-kickoff"], "kickoff, once, in the team's own words, with the game's network from the schedule");
+  eq([k.title, k.body, k.url, k.tag], ["Kickoff: Ohio State at Iowa", "On CBS", APP_URL + "?team=ohio-state#game", GAME + "-kickoff"], "kickoff, once, in the team's own words, with the game's network from the schedule");
   await tick(db, e, KICK + 3 * 60e3); await tick(db, e, KICK + 40 * 60e3);
   ok(e.pushes.length === 1, "never twice, however many minutes pass");
   e.status = st("post", 4, "STATUS_FINAL", true); e.scores = { 194: 31, 2294: 17 };
@@ -1057,7 +1057,7 @@ console.log("game alerts: kickoff time set or moved (brief §2b, edge case 12)")
   const opp = future.competitions[0].competitors.filter((c) => String(c.team.id) !== "194")[0];
   const home = future.competitions[0].competitors.filter((c) => String(c.team.id) === "194")[0].homeAway === "home";
   eq([m.title, m.body, m.kickoff, m.tag, m.url], ["Ohio State" + (home ? " vs. " : " at ") + (opp.team.location || opp.team.shortDisplayName), "Kickoff time set.",
-     new Date(SET).toISOString(), future.id + "-time", APP_URL + "#schedule/" + future.id], "it carries the new kickoff as ISO, opens that game, and has its own card");
+     new Date(SET).toISOString(), future.id + "-time", APP_URL + "?team=ohio-state#schedule/" + future.id], "it carries the new kickoff as ISO, opens that game, and has its own card");
   ok(!/\d:\d\d|[AP]M\b/.test(m.title + m.body), "the Worker writes no clock time: the phone does, in its own time zone");
   e.pushes.length = 0; await tick(db, e, T0 + 122 * 60e3);
   ok(e.pushes.length === 0, "the same time read again: nothing");
@@ -1362,7 +1362,7 @@ console.log("game alerts: the CFP rankings are out (postseason events, brief §1
      "the release appears: one alert to each fan who chose it");
   ok(to(f.ndOff).length === 0 && to(f.old).length === 0, "none to a choice without it, or to a device from before there were choices");
   const nd = await open(f.nd), osu = await open(f.osu), lsu = await open(f.lsu);
-  eq([nd.title, nd.body, nd.url], ["CFP rankings", "The CFP rankings are out: Notre Dame is No. 11.", APP_URL + "#top25/rankings/cfp"],
+  eq([nd.title, nd.body, nd.url], ["CFP rankings", "The CFP rankings are out: Notre Dame is No. 11.", APP_URL + "?team=notre-dame#top25/rankings/cfp"],
      "the approved words, opening the CFP rankings");
   eq(osu.body, "The CFP rankings are out: Ohio State is No. 2.", "each team its own rank");
   eq(lsu.body, "The CFP rankings are out: LSU is not in the top 25.", "a team outside the 25 is told so, not left out");
@@ -1485,7 +1485,7 @@ console.log("game alerts: Selection Day, the postseason set, a game declined, no
   await tick(db, e, S0 - 2 * 3600e3);
   ok(to(f.nd).length === 1 && to(f.lsu).length === 1 && to(f.ndOld).length === 0, "the morning of: the reminder to each fan who chose it, none to a choice from before it existed");
   const r = await open(f.nd);
-  eq([r.title, r.kickoff, r.network, r.url], ["Selection Day", new Date(S0).toISOString(), "ESPN", APP_URL + "#top25/rankings/cfp"], "the reminder: the show's time, opening the CFP rankings");
+  eq([r.title, r.kickoff, r.network, r.url], ["Selection Day", new Date(S0).toISOString(), "ESPN", APP_URL + "?team=notre-dame#top25/rankings/cfp"], "the reminder: the show's time, opening the CFP rankings");
   await tick(db, e, S0 - 3600e3);
   ok(to(f.nd).length === 1, "once");
 
@@ -1497,7 +1497,7 @@ console.log("game alerts: Selection Day, the postseason set, a game declined, no
   await tick(db, e, S0 + 40 * 60e3);
   ok(to(f.nd).length === 1 && to(f.ndOld).length === 0 && to(f.lsu).length === 1, "named minutes later: each team's game, read every few minutes on Selection Day");
   const nm = await open(f.nd), lm = await open(f.lsu);
-  eq([nm.body, nm.url], ["Notre Dame is in the College Football Playoff: the No. 7 seed hosts No. 10 Indiana in the First Round.", APP_URL + "#schedule/401677179"],
+  eq([nm.body, nm.url], ["Notre Dame is in the College Football Playoff: the No. 7 seed hosts No. 10 Indiana in the First Round.", APP_URL + "?team=notre-dame#schedule/401677179"],
      "Notre Dame: the First Round, opening that game");
   eq(lm.body, "LSU will play Baylor in the Kinder's Texas Bowl.", "LSU: its bowl");
   await tick(db, e, S0 + 41 * 60e3);
@@ -1535,7 +1535,7 @@ console.log("game alerts: Selection Day, the postseason set, a game declined, no
   ok(to(f.lsu).length === 1 && to(f.lsuNoNo).length === 1 && to(f.lsuLate).length === 0,
      "gone on two reads in a row: withdrawn, to each device told it was set - not to one that never heard of it");
   const off = await open(f.lsu);
-  eq([off.body, off.url], ["LSU will not play in the Kinder's Texas Bowl.", APP_URL + "#schedule"],
+  eq([off.body, off.url], ["LSU will not play in the Kinder's Texas Bowl.", APP_URL + "?team=lsu#schedule"],
      "in plain words, opening the schedule - not a game no longer on it (Codex, #152)");
   await tick(db, e, S0 + 80 * 60e3);
   ok(to(f.lsu).length === 1, "withdrawn once");
@@ -1710,6 +1710,21 @@ function statRows(year, skip) {
   ok((await get("/v1/cfbd/ranks?year=2026", ranksEnv({ down: true }), SITE)).r.status === 502, "and with none kept, a 502, not a crash");
   ok((await get("/v1/cfbd/ranks?year=2019", ranksEnv(), SITE)).r.status === 400, "only this season or last");
   ok((await get("/v1/cfbd/ranks", ranksEnv(), SITE)).r.status === 400, "no year: 400"); }
+
+console.log("code review, 2026-11-09");
+ok(alertUrl("194", "#game") === APP_URL + "?team=ohio-state#game" && alertUrl("87", "#home") === APP_URL + "?team=notre-dame#home",
+   "an alert opens the team it is about, whichever the phone saw last");
+ok(alertUrl("999999", "#game") === APP_URL + "#game", "a team Suite does not know: the app's own choice, as before");
+{ const db = dbOf(), now = Date.parse("2026-11-09T12:00:00Z"), old = now - KEEP_DELIVERIES - 1;
+  const row = (ev, state, at) => db.run("INSERT INTO deliveries (team_id, game_id, event, endpoint, state, tries, at, data) VALUES (?,?,?,?,?,?,?,?)", "87", "g", ev, "e", state, 0, at, "{}");
+  row("a", "done", old); row("b", "expired", old); row("c", "due", old); row("d", "done", now); row("e", "sending", old);
+  prune(db, now);
+  const left = db.all("SELECT event FROM deliveries ORDER BY event").map((r) => r.event).join();
+  ok(left === "c,d,e", "finished deliveries older than a month are let go; due, sending and recent ones stay (" + left + ")"); }
+{ const feb = Object.assign(env(), { NOW: () => Date.parse("2027-02-10T12:00:00Z") });
+  const last = await get("/v1/cfbd/season?team=Notre%20Dame&year=2025", feb, SITE);
+  const next = await get("/v1/cfbd/season?team=Notre%20Dame&year=2027", feb, SITE);
+  ok(last.r.status === 200 && next.r.status === 400, "in February the season is 2026: last season (2025) is answered, 2027 not yet (" + last.r.status + ", " + next.r.status + ")"); }
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the edge API answers only what a screen shows"));
 process.exit(failures ? 1 : 0);
