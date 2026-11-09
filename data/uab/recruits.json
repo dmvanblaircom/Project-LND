@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "5",
  "classYear": 2027,
- "listed": 8,
+ "listed": 9,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -100,6 +100,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274749",
+   "name": "Cam Ballinger",
+   "position": "WR",
+   "highSchool": "Albertville High School",
+   "city": "Albertville",
+   "state": "AL",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274489",
    "name": "Jshawn Jinks",
    "position": "DT",
@@ -113,5 +126,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:46Z"
+ "fetchedAt": "2026-11-08T20:16Z"
 }

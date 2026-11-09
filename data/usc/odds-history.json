@@ -1,6 +1,6 @@
 {
 "team": "usc",
-"updated": "2026-11-08T05:07Z",
+"updated": "2026-11-09T13:07Z",
 "points": [
 {
 "t": "2026-10-28T01:37Z",
@@ -1022,6 +1022,104 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 25.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T07:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 25.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T13:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 25.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T14:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 23.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T17:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 22.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T18:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 22.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T21:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 22.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T22:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 22.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T00:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 21.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T00:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 21.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T05:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 22.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T09:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 21.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T11:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 21.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T12:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 21.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T13:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 20.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

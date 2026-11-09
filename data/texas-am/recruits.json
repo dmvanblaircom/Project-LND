@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "245",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,19 +19,6 @@
    "rank": 5,
    "positionRank": 2,
    "stateRank": 1,
-   "status": "Verbal"
-  },
-  {
-   "id": "261582",
-   "name": "Mark Matthews",
-   "position": "OT",
-   "highSchool": "Saint Thomas Aquinas High School",
-   "city": "Fort Lauderdale",
-   "state": "FL",
-   "grade": 92,
-   "rank": 6,
-   "positionRank": 3,
-   "stateRank": 2,
    "status": "Verbal"
   },
   {
@@ -321,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:46Z"
+ "fetchedAt": "2026-11-08T20:15Z"
 }

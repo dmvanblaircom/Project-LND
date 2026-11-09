@@ -1,6 +1,6 @@
 {
 "team": "ole-miss",
-"updated": "2026-11-08T06:37Z",
+"updated": "2026-11-09T12:37Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -1204,6 +1204,209 @@
 "title": 1.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 35.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T07:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 36.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T08:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T09:07Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T15:07Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 38.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T15:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T16:07Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 33.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T16:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 32.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T17:07Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 33.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T17:37Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 35.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T18:07Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 34.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T18:27Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 34.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T19:37Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T20:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T20:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T21:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T22:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T22:22Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 31.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T22:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 31.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T23:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 31.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T23:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 31.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T00:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 29.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T01:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T01:37Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T03:07Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T04:37Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 31.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T05:07Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T05:37Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T11:37Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T12:37Z",
+"title": 1.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 30.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

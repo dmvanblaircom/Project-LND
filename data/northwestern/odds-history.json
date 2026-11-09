@@ -1,6 +1,6 @@
 {
 "team": "northwestern",
-"updated": "2026-11-08T04:37Z",
+"updated": "2026-11-09T11:37Z",
 "points": [
 {
 "t": "2026-10-28T01:37Z",
@@ -805,6 +805,55 @@
 "title": null,
 "titleEvent": "KXNCAAF-27",
 "playoff": 7.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T10:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 7.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T12:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 4.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T15:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 4.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T21:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 4.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T03:38Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 4.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T05:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 3.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T11:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 3.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

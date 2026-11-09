@@ -3,13 +3,13 @@
  "team": "ohio-state",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/11/3/9_Oregon.pdf",
+ "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/11/8/10_Northwestern.pdf",
  "sourceLabel": "ohiostatebuckeyes.com",
- "pdf": "https://ohiostatebuckeyes.com/documents/download/2026/11/3/9_Oregon.pdf",
+ "pdf": "https://ohiostatebuckeyes.com/documents/download/2026/11/8/10_Northwestern.pdf",
  "parser": 2,
- "fetchedAt": "2026-11-03T20:39:24.790465+00:00",
- "publishedAt": "2026-11-03",
- "game": "Oregon",
+ "fetchedAt": "2026-11-08T21:09:20.692609+00:00",
+ "publishedAt": "2026-11-08",
+ "game": "Northwestern",
  "pronounce": {
   "Jeremiah Smith": "leads all players in",
   "Bennett Christian": "TE",
@@ -157,21 +157,20 @@
   ]
  },
  "glance": [
-  "This marks just the fourth time that Ohio State has played Oregon in the Day era, holding a 1-2 record.",
-  "The Buckeyes are 10-2-0 all-time against Oregon and marks the first time the two teams have played since Ohio State won the 2025 Rose Bowl, 41-21."
+  "This marks just the fifth time that Ohio State has played Northwestern in the Day era, holding a 4-0 record."
  ],
  "numbers": [
   {
-   "n": "100-102",
-   "text": "Ryan Day has coached 102 games at Ohio State and in 100 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 89 of those games."
+   "n": "100",
+   "text": "Ryan Day has coached 103 games at Ohio State and in 100 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 89 of those games."
   },
   {
    "n": "48",
    "text": " Under Day’s direction since the start of the 2019 season, Ohio State has 48 home wins at which is tied for the highest total in the country."
   },
   {
-   "n": ".863",
-   "text": "Coach Ryan Day’s win percentage of .863 (88-14) is No. 1 nationally among all Division I head coaches and it is currently No. 3 all-time."
+   "n": ".854",
+   "text": "Coach Ryan Day’s win percentage of .854 (88-15) is No. 1 nationally among all Division I head coaches and it is currently No. 3 all-time."
   }
  ]
 }

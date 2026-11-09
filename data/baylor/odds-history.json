@@ -1,6 +1,6 @@
 {
 "team": "baylor",
-"updated": "2026-11-08T06:37Z",
+"updated": "2026-11-09T14:07Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -343,6 +343,55 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 5.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T07:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 4.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T13:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 4.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T19:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 4.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T20:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 3.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T02:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 3.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T08:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 3.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T14:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 3.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

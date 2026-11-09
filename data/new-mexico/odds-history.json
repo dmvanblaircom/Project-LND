@@ -1,6 +1,6 @@
 {
 "team": "new-mexico",
-"updated": "2026-11-08T06:07Z",
+"updated": "2026-11-09T12:37Z",
 "points": [
 {
 "t": "2026-10-29T15:37Z",
@@ -980,6 +980,111 @@
 "title": null,
 "titleEvent": "KXNCAAF-27",
 "playoff": 29.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T07:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T07:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T08:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T08:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 25.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T09:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 26.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T12:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T13:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T14:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T15:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T17:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T20:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T00:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T01:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T07:07Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T12:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 28.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]

@@ -1,6 +1,6 @@
 {
 "team": "oklahoma",
-"updated": "2026-11-08T06:37Z",
+"updated": "2026-11-09T15:07Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -455,6 +455,55 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 1.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T12:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T14:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-08T20:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T02:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T08:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T14:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-09T15:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
