@@ -86,27 +86,33 @@ TeamOS.moments = (function () {
 
     var dUs = (num(b.us) != null && num(a.us) != null) ? num(b.us) - num(a.us) : 0;
     var dThem = (num(b.them) != null && num(a.them) != null) ? num(b.them) - num(a.them) : 0;
-    var fresh = newScoring(prev, next);
+    // A previous look with no summary yet knows nothing of the plays: every
+    // scoring play and the last play would look new (Codex review, 2026-11-09).
+    var known = !!prev.detail;
+    var fresh = known ? newScoring(prev, next) : [];
 
     if (dUs > 0 || dThem > 0) {
       var side = dUs > 0 && dThem > 0 ? null : (dUs > 0 ? "us" : "them");
       var points = side === "us" ? dUs : side === "them" ? dThem : null;
       // One new scoring play, agreeing with the score that moved: its own
-      // classification may be said. Anything else is the generic update.
+      // classification may be said, and only when the points the score moved
+      // by are that kind's (a touchdown 6-8, a field goal 3, a safety 2): a
+      // scoring list a score behind, or a fake field goal run in, is the
+      // generic update. Anything else is the generic update.
       if (fresh.length === 1 && side && sideOfPlay(fresh[0]) === side) {
         var p = fresh[0], text = String(p.text || "");
         var lp = next.detail && next.detail.lastPlay, tags = (lp && lp.tags) || [];
-        if (tags.indexOf("Touchdown") > -1 && lastPlayKey(next.detail) !== lastPlayKey(prev.detail))
+        if (tags.indexOf("Touchdown") > -1 && lastPlayKey(next.detail) !== lastPlayKey(prev.detail) && points >= 6 && points <= 8)
           return moment("touchdown", side, points, 1);
-        if (/\bfield goal\b/i.test(text) && !/\bno good\b|\bmissed\b|\bblocked\b/i.test(text))
+        if (points === 3 && /\bfield goal\b/i.test(text) && !/\bno good\b|\bmissed\b|\bblocked\b|\bfake\b/i.test(text))
           return moment("fieldgoal", side, points, 1);
-        if (/\bsafety\b/i.test(text)) return moment("safety", side, points, 1);
+        if (points === 2 && /\bsafety\b/i.test(text)) return moment("safety", side, points, 1);
       }
       return moment("score", side, points, fresh.length);
     }
 
     // No score changed: a turnover only when the provider tagged the new play so.
-    if (lastPlayKey(next.detail) && lastPlayKey(next.detail) !== lastPlayKey(prev.detail)) {
+    if (known && lastPlayKey(next.detail) && lastPlayKey(next.detail) !== lastPlayKey(prev.detail)) {
       var t = (next.detail.lastPlay.tags) || [];
       if (t.indexOf("Turnover") > -1 || t.indexOf("Turnover on downs") > -1) {
         return moment("turnover", null, null, 0);
