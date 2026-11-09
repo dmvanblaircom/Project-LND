@@ -1752,7 +1752,11 @@ function loadGameDetail(V, g, lc, repaint){
   }
   V.loading=true;
   V.p=summaryFor(g.id, live).then(function(raw){
-    V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG); V.gdAt=Date.now();
+    V.gd=TeamOS.espn.gameDetail(raw, TEAM, TEAM_CONFIG);
+    // the summary's own age: the worker's kept copy is as old as when it was
+    // stored, not fresh (Codex, #247), so it never judges the record behind
+    var kept=SUM.mem[String(g.id)];
+    V.gdAt=kept && kept.keptAt!=null ? kept.keptAt : Date.now();
     if(learnOpening(g.id, V.gd) && SB.games) SB.games=TeamOS.live.withOpening(SB.games, OPENING);
     if(lc.phase==="pregame" && (V.preview===undefined || V.previewFailed)) loadGamePreview(V, g, repaint);
     return "network";
@@ -2284,7 +2288,7 @@ function summaryFor(id, live){
   var p = stored.catch(function(){
     return fetch(url,{cache:"no-store"}).then(function(r){
       if(!r.ok) throw new Error("HTTP "+r.status);
-      var fromWorker=!!r.headers.get("X-IW-Cached");
+      var kept=r.headers.get("X-IW-Cached"), fromWorker=!!kept;
       return r.json().then(function(d){
         var done=isFinal && !fromWorker && TeamOS.espn.summaryFinal(d);
         if(done && typeof caches!=="undefined"){
@@ -2292,11 +2296,12 @@ function summaryFor(id, live){
             return c.put(url, new Response(JSON.stringify(d), { headers:{ "content-type":"application/json" } }));
           }).catch(function(){});
         }
-        return { d:d, final:done };
+        // when the worker's copy was stored, so its age is its own, not now's
+        return { d:d, final:done, keptAt: fromWorker ? (Date.parse(kept) || 0) : null };
       });
     });
   }).then(function(x){
-    SUM.mem[id]={ d:x.d, at:Date.now(), final:x.final };
+    SUM.mem[id]={ d:x.d, at:Date.now(), final:x.final, keptAt:x.keptAt==null ? null : x.keptAt };
     return x.d;
   });
   SUM.inflight[id]=p;

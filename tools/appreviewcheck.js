@@ -57,6 +57,24 @@ console.log("the play-by-play is judged behind only against a recent summary");
   ok(f.behind && said.length === 1, "behind already, the summary aging: still behind, not announced again");
 })();
 
+console.log("the worker's kept copy of a summary keeps its own age (Codex, #247)");
+(function () {
+  var old = Date.now() - 5 * 60e3;
+  var ctx = vm.createContext({ Date: Date, SB: {}, SUM: { mem: { "9": { keptAt: old } } }, TEAM: {}, TEAM_CONFIG: {},
+    TeamOS: { game: { underWay: function () { return true; } }, espn: { gameDetail: function () { return {}; } } },
+    learnOpening: function () { return false; }, loadGamePreview: function () {},
+    summaryFor: function () { return Promise.resolve({}); } });
+  run(ctx, ["loadGameDetail"]);
+  var V = {};
+  ctx.loadGameDetail(V, { id: 9 }, { phase: "live" }, function () {});
+  return V.p.then(function () {
+    ok(V.gdAt === old, "a summary from the worker's copy is as old as when it was kept, not fresh (" + (Date.now() - V.gdAt) + " ms)");
+    ctx.SUM.mem["9"] = { keptAt: null };
+    var V2 = {};
+    ctx.loadGameDetail(V2, { id: 9 }, { phase: "live" }, function () {});
+    return V2.p.then(function () { ok(Date.now() - V2.gdAt < 1000, "a summary from the network is fresh"); });
+  });
+})().then(function () {
 console.log("a tick whose schedule poll failed still brings its scoreboard to Home and Game");
 (function () {
   var calls = [];
@@ -71,7 +89,7 @@ console.log("a tick whose schedule poll failed still brings its scoreboard to Ho
   return new Promise(function (r) { setTimeout(r, 20); }).then(function () {
     ok(calls.indexOf("arrived") > -1 && calls.indexOf("arrived") < calls.indexOf("game"), "the schedule failed: the scoreboard is reconciled before Game redraws (" + calls.join(", ") + ")");
   });
-})().then(function () {
+})(); }).then(function () {
   console.log("a manual refresh that throws still ends");
   var painted = 0;
   var ctx = vm.createContext({ Date: Date, MORE: { p: null, refreshing: false, result: null },

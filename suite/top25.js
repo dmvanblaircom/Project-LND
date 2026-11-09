@@ -188,8 +188,8 @@ Suite.top25 = (function () {
     var a = m.around || { conference: null, matter: [], top25: ranked(m.games) };
     // Whether a layer above Top 25 actually lists games: a conference with
     // none this week says so, and then nothing is "listed above" (sweep,
-    // 2026-11-09: Ohio State's offseason Around said "Every ranked game this
-    // week is listed above" under "No Big Ten games in this window").
+    // 2026-11-09: an offseason Around said "Every ranked game this week is
+    // listed above" under its conference's "No games in this window").
     var out = "", listed = false;
     if (a.conference) {
       listed = listed || a.conference.games.length > 0;
