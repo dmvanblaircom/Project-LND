@@ -1,0 +1,2126 @@
+{
+ "_doc": "Hand grades for tools/wiremeasure.js. Every story here is from the held-out half (never read while tuning the rule). 'v1' is what the frozen rule said when graded (2026-11-09); 'kind' is the truth under David's taxonomy of 2026-11-09 (null: ordinary news). 'sample': 'tagged' (up to 40 per kind v1 tagged) or 'untagged' (200 at random of those v1 left).",
+ "graded": "2026-11-09",
+ "stories": {
+  "tomahawknation.com/florida-state-football/139843/names-ernie-sims-as-interim-defensive-coordinator-tony-white-legend-mike-norvell-fired-season": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Florida State names Ernie Sims as interim defensive coordinator"
+  },
+  "thelantern.com/2026/11/ohio-state-fires-special-teams-coordinator-robby-discher": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Ohio State fires special teams coordinator Robby Discher"
+  },
+  "ecupirates.com/news/2026/10/13/ecu-coastal-carolina-announce-football-series-extension-through-2034": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": null,
+   "title": "ECU, Coastal Carolina Announce Football Series Extension Through 2034",
+   "note": "a scheduling series, not a coach's contract"
+  },
+  "si.com/college/maryland/football/breaking-maryland-fires-head-coach-mike-locksley-01m3n7cf3750": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Maryland Football Fires Head Coach Mike Locksley"
+  },
+  "tomahawknation.com/florida-state-football/120897/replacement-losing-record-fired-fsu-seminoles": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "FSU fires head coach Mike Norvell"
+  },
+  "mtsusidelines.com/2026/11/01/former-mtsu-football-head-coach-rick-stockstill-named-interim-head-coach-at-florida-state": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Former MTSU football head coach Rick Stockstill named interim head coach at Florida State"
+  },
+  "on3.com/teams/michigan-wolverines/news/michigan-offense-coordinator-jason-beck-fired": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Michigan offense coordinator Jason Beck fired - Jim Harding will call plays"
+  },
+  "on3.com/teams/nebraska-cornhuskers/news/nebraska-fires-dana-holgorsen-promotes-glenn-thomas-to-oc": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Nebraska fires Dana Holgorsen, promotes Glenn Thomas to OC"
+  },
+  "si.com/college/oklahoma/football/oklahoma-fires-offensive-coordinator-ben-arbuckle-per-reports-01m6aekxgdva": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Confirmed: Oklahoma Fires Offensive Coordinator Ben Arbuckle"
+  },
+  "usctrojans.com/news/2026/11/2/football-usc-head-coach-lincoln-riley-named-paul-bear-bryant-national-coach-of-the-week": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": null,
+   "title": "USC Head Coach Lincoln Riley Named Paul “Bear” Bryant National Coach of the Week",
+   "note": "an award, not a coaching change"
+  },
+  "hawkeyesports.com/news/2026/11/2/kirk-ferentz-named-dodd-trophy-coach-of-the-week-26": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": null,
+   "title": "Kirk Ferentz Named Dodd Trophy Coach of the Week",
+   "note": "an award"
+  },
+  "maizenbrew.com/football/126318/michigan-football-fires-offensive-coordinator-jason-beck-kyle-whittingham-michigan-state-2026-season": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Michigan Football fires offensive coordinator Jason Beck"
+  },
+  "dailyiowan.com/2026/11/02/iowa-head-coach-kirk-ferentz-named-dodd-trophy-coach-of-the-week": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": null,
+   "title": "Iowa head coach Kirk Ferentz named Dodd Trophy Coach of the Week",
+   "note": "an award"
+  },
+  "si.com/college/purdue/football/purdue-coach-barry-odom-fires-defensive-coordinator-kevin-kane-football": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Purdue Coach Barry Odom Fires Defensive Coordinator Kevin Kane"
+  },
+  "tomahawknation.com/florida-state-football/139834/fires-safeties-coach-evan-cooper-tony-white-mike-norvell-clemson-nebraska": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Florida State fires safeties coach Evan Cooper"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-buckeyes-football-special-teams-coordinator-robbie-discher-fired": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Ohio State fires special teams coordinator Robby Discher"
+  },
+  "tomahawknation.com/florida-state-football/137368/fsu-seminoles-fires-defensive-coordinator-tony-white": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Florida State fires defensive coordinator Tony White"
+  },
+  "backingthepack.com/nc-state-football/41973/nc-state-fires-dave-doeren": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "NC State fires Dave Doeren"
+  },
+  "on3.com/teams/purdue-boilermakers/news/purdue-parts-ways-with-dc-kevin-kane": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Purdue parts ways with DC Kevin Kane"
+  },
+  "si.com/college/oklahoma/football/oklahoma-officially-names-jason-witten-as-interim-offensive-coordinator-01m6f5f4z680": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Oklahoma Officially Names Jason Witten as Interim Offensive Coordinator"
+  },
+  "dbknews.com/2026/10/18/maryland-football-firing-ted-monachino": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "Maryland football fires defensive coordinator Ted Monachino amid dismal second season"
+  },
+  "si.com/college/michigan/football/report-michigan-names-interim-offensive-coordinator-after-firing-jason-beck": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "REPORT: Michigan Names Interim Offensive Coordinator After Firing Jason Beck"
+  },
+  "upressonline.com/2026/10/fau-parts-ways-with-wide-receivers-coach-dj-mccarthy": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "coaching",
+   "kind": "coaching",
+   "title": "FAU parts ways with wide receivers coach DJ McCarthy"
+  },
+  "on3.com/rivals/news/in-state-lb-james-conrad-commits-to-ohio-state-james-laurinaitis-was-the-closer-for-ryan-day": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "In-state LB James Conrad commits to Ohio State: James Laurinaitis was the closer for Ryan Day"
+  },
+  "onthebanks.com/rutgers-football/57623/2027-3-star-defensive-tackle-dennis-glenn-decommits-from-rutgers-football": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "2027 3 Star Defensive Tackle Dennis Glenn Jr. Decommits From Rutgers Football"
+  },
+  "on3.com/teams/maryland-terrapins/news/maryland-football-2027-3-star-pledges-remain-committed-to-terps": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": null,
+   "title": "Maryland football 2027 3-star pledges remain committed to Terps",
+   "note": "pledges staying committed: no change"
+  },
+  "on3.com/sites/the-knight-report/news/three-star-dennis-glenn-decommits-from-rutgers-football": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Three-Star DL Dennis Glenn Jr. decommits from Rutgers Football"
+  },
+  "on3.com/sites/pitt-sports-news/news/pat-narduzzi-pitt-get-1st-commitment-for-2028-class": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Pat Narduzzi, Pitt Get 1st Commitment for 2028 Class"
+  },
+  "on3.com/sites/o-state-illustrated/news/oklahoma-state-flips-former-iowa-state-commit-demarion-williams": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Oklahoma State flips former Iowa State commit De'Marion Williams"
+  },
+  "on3.com/sites/buff-blitz/news/colorado-football-a-look-at-buffs-2027-recruiting-after-two-decommits": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": null,
+   "title": "Colorado football: A look at Buffs' 2027 recruiting after two decommits",
+   "note": "a look at recruiting: analysis"
+  },
+  "buckys5thquarter.com/wisconsin-badgers-football/91499/wisconsin-badgers-football-news-flip-4-star-wr-dontay-tyson-from-big-ten-school-washington-huskies-recruiting-commitment": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Badgers flip four star from Big Ten school for 2nd straight week"
+  },
+  "on3.com/teams/south-carolina-gamecocks/news/skylar-alston-commits-south-carolina-gamecocks-football": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Four-star linebacker commits to South Carolina"
+  },
+  "on3.com/teams/nc-state-wolfpack/news/amir-moore-remains-committed-to-nc-state-but-watching-coaching-search": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": null,
+   "title": "Amir Moore remains committed to NC State but watching coaching search",
+   "note": "remains committed: no change"
+  },
+  "si.com/college/wisconsin/recruiting/badgers-flip-blue-chip-wr-from-big-ten-rival-immediately-after-abysmal-performance-at-iowa": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Badgers Flip Blue-Chip WR From Big Ten Rival Immediately After Abysmal Performance at Iowa"
+  },
+  "si.com/college/tamu/football/mark-matthews-who-was-1000-committed-to-texas-am-decommits-from-aggies": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Mark Matthews, Who Was '1000%' Committed to Texas A&M, Decommits From Aggies"
+  },
+  "si.com/college/oklahomastate/football/oklahoma-state-flips-iowa-state-commit-dj-williams-ahead-of-saturday-showdown": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Oklahoma State Flips Iowa State Commit DJ Williams Ahead of Saturday Showdown"
+  },
+  "tomahawknation.com/florida-state-football/139740/2028-edge-rusher-meshi-dobson-decommits-2027-defensive-end-nick-williams-roster-depth-chart-tribe28": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "2028 edge rusher Meshi Dobson decommits from FSU"
+  },
+  "on3.com/teams/miami-hurricanes/news/miami-lands-commitment-from-five-star-brysen-wright-nations-no-1-ranked-wr": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Five-star WR Brysen Wright commits to Miami, reclassifies to 2027"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-recruiting-2028-linebacker-julian-bruno-commitment": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "California LB Julian Bruno commits to Notre Dame football"
+  },
+  "si.com/college/georgia/kirby-smart-s-georgia-football-gets-game-changing-commitment-for-2027-season-01m70cgt91pf": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Kirby Smart’s Georgia Football Gets Game-Changing Commitment for 2027 Season"
+  },
+  "si.com/college/miami/recruiting/five-star-wr-brysen-wright-commits-to-miami-over-texas-florida-01m6mb7hr8qr": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Five-Star WR Brysen Wright Commits to Miami over Texas and Florida"
+  },
+  "on3.com/sites/cardinal-sports-report/news/2028-4-star-qb-hunter-fujikawa-commits-to-stanford": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "2028 4-star QB Hunter Fujikawa commits to Stanford"
+  },
+  "burntorangenation.com/texas-longhorns-football/106496/jason-crenshaw-flips-texas-longhorns-georgia-tech-yellow-jackets": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Three-star LB Jason Crenshaw Jr. flips from Georgia Tech to Texas"
+  },
+  "on3.com/teams/purdue-boilermakers/news/gianni-porfilio-no-longer-committed-to-purdue": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Huntington Beach (Calif.) cornerback Gianni Porfilio decommits from Purdue"
+  },
+  "si.com/college/michigan/recruiting/michigan-recruiting-wolverines-plan-following-sidney-rouleau-decommitment": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": null,
+   "title": "Michigan Recruiting: Wolverines' Plan Following Sidney Rouleau Decommitment",
+   "note": "a plan following a decommitment: analysis"
+  },
+  "buckys5thquarter.com/wisconsin-badgers-football/91398/wisconsin-badgers-football-news-flip-4-star-linebacker-blake-betton-recruiting-from-penn-state-nittany-lions-commitment": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Badgers flip 4 star LB from Big Ten school after big win"
+  },
+  "si.com/college/bostoncollege/recruiting/louisville-flips-2027-boston-college-defensive-line-commit": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Louisville Flips 2027 Boston College Defensive Line Commit"
+  },
+  "thetigercu.com/32003/sports/clemson-football-decommitment-commits-to-texas": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Clemson football decommitment commits to Texas"
+  },
+  "on3.com/teams/georgia-bulldogs/news/5-star-ot-mark-matthews-lands-with-georgia-after-decommitment-from-texas-am": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Nation's No. 1 offensive tackle, 5-Star Mark Matthews, flips to Georgia"
+  },
+  "si.com/college/oregon-state/football/oregon-state-star-freshman-jesse-legree-commits-to-beavers-through-2027-2028-season": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": null,
+   "title": "Oregon State Star Freshman Jesse Legree Commits To Beavers Through 2027-2028 Season",
+   "note": "a current player staying, not a recruit's commitment"
+  },
+  "si.com/college/clemson/football/former-clemson-commit-flips-to-texas-longhorns-r-j-hudson-": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Former Clemson Commit Flips to Texas Longhorns"
+  },
+  "si.com/college/georgiatech/football-recruiting/georgia-tech-lb-commit-jason-crenshaw-flips-to-major-sec-school-01m63zg309xy": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "commitment",
+   "kind": "commitment",
+   "title": "Georgia Tech LB Commit Jason Crenshaw Flips To Major SEC School"
+  },
+  "on3.com/teams/south-carolina-gamecocks/news/south-carolina-db-rb-ruled-out-for-oklahoma-game": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "South Carolina DB, RB ruled out for Oklahoma game"
+  },
+  "on3.com/teams/kansas-state-wildcats/news/kansas-state-quarterback-avery-johnson-will-not-play-at-colorado": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Kansas State quarterback Avery Johnson will not play at Colorado"
+  },
+  "wildcat.arizona.edu/166436/football/arizona-wide-receiver-tre-spivey-out-for-year-with-broken-foot": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Arizona wide receiver Tre Spivey out for year with broken foot"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-buckeyes-oregon-game-ian-moore-jay-timmons-injury-report-update": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Ian Moore questionable for Buckeyes vs. Oregon"
+  },
+  "on3.com/teams/texas-longhorns/news/texas-edge-colin-simmons-listed-as-out-for-texas-vs-mississippi-state": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Texas EDGE Colin Simmons listed as OUT for Texas vs. Mississippi State"
+  },
+  "tigernet.com/clemson-football/story/wounded-tigers-head-to-surging-syracuse-with-starters-sidelined-24984": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": null,
+   "title": "Wounded Tigers head to surging Syracuse with starters sidelined",
+   "note": "a game preview; no specific status reported"
+  },
+  "tomahawknation.com/florida-state-football/139983/fsu-receiver-duce-robinson-out-for-rest-season": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "FSU receiver Duce Robinson out for rest of season"
+  },
+  "si.com/college/auburn/football/top-auburn-wr-listed-as-questionable-ahead-of-ole-miss-matchup": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Top Auburn WR Listed as Questionable Ahead of Ole Miss Matchup"
+  },
+  "on3.com/teams/mississippi-state-bulldogs/news/mississippi-state-lb-jalen-smith-out-for-the-season": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Mississippi State LB Jalen Smith out for the season"
+  },
+  "on3.com/teams/mississippi-state-bulldogs/news/pregame-update-smith-and-lockhart-out-vs-no-11-texas": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Pregame Update: Smith and Lockhart Out vs. No. 11 Texas"
+  },
+  "si.com/college/bostoncollege/football/boston-college-football-tight-end-kaelan-chudzinski-confirmed-available-for-duke-game": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Boston College Football Tight End Kaelan Chudzinski Confirmed Available for Duke Game"
+  },
+  "on3.com/teams/georgia-bulldogs/news/georgia-gets-two-players-back-one-game-time-decision-for-ole-miss": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Georgia gets two players back, one game-time decision for Ole Miss"
+  },
+  "ragincajuns.com/news/2026/10/19/football-michael-desormeaux-media-availability-the-southern-miss-game": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": null,
+   "title": "Football: Michael Desormeaux Media Availability - The Southern Miss Game",
+   "note": "a coach's media availability before the Southern Miss game"
+  },
+  "si.com/college/olemiss/football/ole-miss-star-rb-kewan-lacy-to-miss-auburn-game-with-injury": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Ole Miss Star RB Kewan Lacy to Miss Auburn Game With Shoulder Injury"
+  },
+  "si.com/college/michigan/injury-report-michigan-football-lists-john-henry-daley-dom-nichols-as-questionable-vs-michigan-state": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Injury Report: Michigan Football Lists John Henry Daley, Dom Nichols as 'Questionable' vs. Michigan State"
+  },
+  "on3.com/teams/alabama-crimson-tide/news/final-availability-report-four-alabama-players-are-game-time-decisions-at-lsu": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Final Availability Report: Four Alabama players are game-time decisions at LSU"
+  },
+  "on3.com/teams/usc-trojans/news/usc-football-ol-hayden-treter-likely-to-miss-rest-of-season": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "USC Football: OL Hayden Treter likely to miss rest of season"
+  },
+  "si.com/college/tennessee/football/tennessee-football-star-suffers-season-ending-injury-during-kentucky-game-01m70d79ar2f": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Tennessee Football Star Suffers Season-Ending Injury During Kentucky Game"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/luke-talich-update-notre-dame-safety-ruled-out-for-week-4-at-purdue": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Luke Talich update: Notre Dame safety ruled OUT for Week 4 at Purdue"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-injury-report-stanford-cardinal-game-week-6-2026": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Notre Dame football injury report vs. Stanford: Two key starters listed as questionable for Week 6"
+  },
+  "reflector-online.com/43505/sports/kamario-taylor-ruled-out-for-remainder-of-season-with-a-toe-injury": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Kamario Taylor ruled out for remainder of season with a toe injury"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-indiana-injury-availability-report-brock-boyd-austin-siereveld": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Ohio State WR Brock Boyd is game-time decision for Indiana clash"
+  },
+  "si.com/college/alabama/football/seven-alabama-football-players-questionable-to-face-lsu": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Three Injured Alabama Starters Expected to be Available for LSU"
+  },
+  "si.com/college/arkansas/football/chris-marshall-a-game-time-decision-for-battle-line-rivalry-": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Chris Marshall A Game Time Decision For Battle Line Rivalry"
+  },
+  "thedailytexan.com/2026/11/06/tight-end-nick-townsend-set-to-miss-rest-of-season-with-knee-injury": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Tight end Nick Townsend set to miss rest of season with knee injury"
+  },
+  "si.com/college/auburn/football/auburn-football-trio-remain-questionable-for-arkansas-contest": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Auburn Football Trio Remain Questionable For Arkansas Contest"
+  },
+  "si.com/college/arizonastate/football/breaking-s-lyrik-rawls-is-done-for-the-season-won-t-return-for-arizona-state-01m6m3186np7": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "ASU Safety Lyrik Rawls is Done For The Season, Won't Return For Arizona State"
+  },
+  "on3.com/teams/alabama-crimson-tide/news/three-injured-alabama-starters-cleared-to-play-against-lsu": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Three injured Alabama starters cleared to play against LSU"
+  },
+  "thedailytexan.com/2026/10/26/trevor-goosby-to-miss-rest-of-2026-season-after-suffering-knee-injury": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Trevor Goosby to miss rest of 2026 season after suffering knee injury"
+  },
+  "hoosierhuddle.com/2026/10/28/josh-hoover-probable-kellan-wyatt-out-on-initial-availability-report-ahead-of-minnesota-game": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Josh Hoover Probable, Kellan Wyatt Out on Initial Availability Report Ahead of Minnesota Game"
+  },
+  "burntorangenation.com/texas-longhorns-football/106822/nick-townsend-injury-texas-longhorns": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Texas TE Nick Townsend out for remainder of season"
+  },
+  "si.com/college/texas/football/5-texas-longhorns-starters-questionable-on-initial-injury-report-vs-missouri": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "5 Texas Starters Questionable on Initial Injury Report vs. Missouri"
+  },
+  "on3.com/teams/georgia-bulldogs/news/georgia-football-injury-report-another-bulldog-ruled-out-for-florida": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Georgia Football Injury Report: Another Bulldog ruled out for Florida"
+  },
+  "on3.com/sites/the-knight-report/news/rutgers-football-standout-ol-kobe-asamoah-ruled-out-for-season": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Rutgers Football standout OL Kobe Asamoah ruled out for season"
+  },
+  "on3.com/teams/florida-gators/news/vernell-brown-iii-misses-fourth-game-after-setback-with-knee-injury": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Vernell Brown III misses fourth game after setback with knee injury"
+  },
+  "si.com/college/michigan/football/injury-report-michigan-football-has-3-starters-as-game-time-decisions-vs-rutgers-2026": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Injury report: Michigan Football Has 3 Starters as 'Game Time Decisions' vs. Rutgers"
+  },
+  "landgrantholyland.com/ohio-state-news/124946/jackson-siereveld-wilder-set-to-return-against-usc-timmons-inniss-questionable": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Jackson, Siereveld, Wilder set to return against USC; Timmons, Inniss questionable"
+  },
+  "aseaofblue.com/kentucky-wildcats-football/186762/kentucky-vs-tennessee-injury-report-cj-baxter-desean-bishop-sam-greene": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Kentucky vs. Tennessee Injury Report: CJ Baxter and DeSean Bishop are good to go"
+  },
+  "on3.com/teams/nebraska-cornhuskers/news/nebraska-availability-report-mozee-and-van-poppel-probable-conn-ruled-out": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "Nebraska availability report: Mozee and Van Poppel probable; Conn ruled out"
+  },
+  "si.com/college/byu/football/lj-martin-and-evan-johnson-officially-ruled-out-for-byu-against-asu": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "availability",
+   "kind": "availability",
+   "title": "LJ Martin and Evan Johnson Officially Ruled Out for BYU Against ASU"
+  },
+  "on3.com/sites/pitt-sports-news/news/pitt-qb-mason-heintschel-actually-suffered-two-serious-injuries": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "injury",
+   "title": "Pitt QB Mason Heintschel Actually Suffered Two Serious Injuries"
+  },
+  "landgrantholyland.com/ohio-state-news/124473/jakobi-jackson-reportedly-undergoes-surgery": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "injury",
+   "title": "Ja’Kobi Jackson reportedly undergoes surgery"
+  },
+  "si.com/college/tennessee/football/tyree-weathersby-suffered-an-injury-during-tennessee-vs-kentucky-01m6wez2w3xy": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "injury",
+   "title": "Tyree Weathersby Suffered an Injury During Tennessee vs. Kentucky"
+  },
+  "si.com/college/tennessee/football/dasaahn-brame-exits-tennessee-vs-kentucky-game-with-an-injury-01m6wcqy1y08": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "injury",
+   "title": "DaSaahn Brame Exits Tennessee vs. Kentucky Game With an Injury"
+  },
+  "on3.com/teams/tennessee-volunteers/news/dasaahn-brame-update-tennessee-football-kentucky-injury": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "injury",
+   "title": "DaSaahn Brame injured in Tennessee football vs Kentucky"
+  },
+  "si.com/college/miami/football/malachi-toney-surgery-missing-notre-dame-game": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "availability",
+   "title": "Malachi Toney Set to Undergo Surgery, Missing Notre Dame and Potentially the Rest of the Regular Season",
+   "note": "surgery and missing the game: availability outranks injury"
+  },
+  "si.com/college/clemson/football/clemson-defensive-lineman-medically-retires-after-six-seasons-armon-mason": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "injury",
+   "title": "Clemson Defensive Lineman Medically Retires After Six Seasons"
+  },
+  "si.com/college/san-diego-state/football/san-diego-state-qb-jayden-denegal-exits-fresno-state-game-with-injury-as-aztecs-lead-at-halftime": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "injury",
+   "title": "San Diego State QB Jayden Denegal exits Fresno State game with injury as Aztecs lead at halftime"
+  },
+  "on3.com/news/ohio-state-qb-julian-sayin-leaves-indiana-game-with-injury-goes-to-locker-room": {
+   "half": "held",
+   "sample": "tagged",
+   "v1": "injury",
+   "kind": "injury",
+   "title": "Ohio State QB Julian Sayin leaves Indiana game with injury, goes to locker room"
+  },
+  "on3.com/teams/kentucky-wildcats/news/the-early-line-for-kentucky-vs-tennessee": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "The Early Line for Kentucky vs. Tennessee"
+  },
+  "si.com/college/tennessee/recruiting/tennessee-commit-david-gabriel-georges-chasing-another-mr-football-award-01m6pam7ktsm": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Tennessee Commit David Gabriel Georges Chasing Another Mr. Football Award"
+  },
+  "reflector-online.com/43386/life/stone-embarks-on-quest-to-try-every-starkville-mexican-restaurant": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Stone embarks on quest to try every Starkville Mexican restaurant"
+  },
+  "maizenbrew.com/football/127128/michigan-football-schedule-michigan-state-oregon-ucla-ohio-state-kyle-whittingham-big-ten": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "How many wins will Michigan Football have in November?"
+  },
+  "hammerandrails.com/purdue-football/61986/purdue-football-building-for-the-future-volume-1": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Purdue Football: Building For the Future &#8211; Volume 1"
+  },
+  "widerightnattylite.com/iowa-state-football/54415/2026-game-ix-iowa-state-versus-baylor-preview": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "2026 Game IX: Iowa State versus Baylor preview"
+  },
+  "on3.com/sites/red-raider-sports/news/kenny-perry-doesnt-hold-back-on-texas-techs-special-teams-struggles-against-cincinnati": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Kenny Perry Doesn't Hold Back on Texas Tech's Special Teams Struggles Against Cincinnati"
+  },
+  "arkansasrazorbacks.com/prohogs-in-the-nfl-week-7-3": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "#ProHogs In The NFL – Week 7"
+  },
+  "libertyflames.com/news/2026/10/21/football-game-day-kennesaw-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Game Day: Kennesaw State"
+  },
+  "okstate.com/news/2026/11/1/eric-morris-postgame-press-conference-after-cowboy-footballs-matchup-with-iowa-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Eric Morris postgame press conference after Cowboy Football's matchup with Iowa State"
+  },
+  "slapthesign.com/notre-dame-football-dontaye-day-thompson-jeremiyah-love-2028-recruiting-offer": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Jeremiyah Love helped make Notre Dame a dream offer for Dontaye Day-Thompson"
+  },
+  "si.com/college/arkansas/football/cam-settles-throws-back-to-john-l-smith-with-rallying-cry-for-auburn-game": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Cam Settles Throws Back To John L. Smith With Rallying Cry For Auburn Game"
+  },
+  "crimsonquarry.com/indiana-football/31475/indiana-beats-minnesota-23-16-3-observations": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Indiana football beats Minnesota 23-16: 3 Observations"
+  },
+  "uhnd.com/football/2026/09/11/cj-carrs-notre-dame-football-opener-was-the-game-plan-not-the-ceiling": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "CJ Carr’s Notre Dame Football Opener Was the Game Plan, Not the Ceiling"
+  },
+  "si.com/college/vanderbilt/football/vanderbilt-football-stock-exchange-after-loss-to-no-12-kentucky": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Vanderbilt Football Stock Exchange After Loss to No. 12 Kentucky"
+  },
+  "kstatecollegian.com/2026/11/01/wildcats-halloween-comeback-ends-in-overtime-nightmare": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Wildcats’ Halloween comeback ends in overtime nightmare"
+  },
+  "si.com/college/florida/football/where-dl-jeramiah-mccloud-s-gators-future-stands-after-suspension-01m6xz8vms0w": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Where DL Jeramiah McCloud's Gators Future Stands After Suspension"
+  },
+  "aseaofblue.com/kentucky-wildcats-news/187271/college-football-playoff-projections-tennessee-vols-bowl-games": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "College Football Playoff Projections: Where do the Kentucky Wildcats stand after lopsided loss vs. Vols?"
+  },
+  "rollbamaroll.com/jumbo-package/85747/jumbo-package-alabama-gets-some-much-needed-rest": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Jumbo Package: Alabama gets some much needed rest"
+  },
+  "on3.com/teams/ole-miss-rebels/news/on-the-road-latest-ole-miss-football-recruiting-intel-after-dominant-win": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "On the Road: Latest Ole Miss football recruiting intel after dominant win"
+  },
+  "insidenu.com/northwestern-football/72746/stock-up-stock-down-from-northwesterns-explosive-42-14-defeat-of-rutgers": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Stock up, stock down from Northwestern’s explosive 42-14 defeat of Rutgers"
+  },
+  "on3.com/sites/go-black-knights/news/army-jeff-monken-week-8-tulsa-preview": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Army HC Jeff Monken Previews Week 8 Matchup Against Tulsa"
+  },
+  "bcheights.com/234264/sports/bc-seeks-bounce-back-win-against-florida-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "BC Seeks Bounce-Back Win Against Florida State"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/notre-dame-cb-target-daveon-belhomme-schedules-two-official-visits": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Notre Dame CB target Daveon Belhomme schedules two official visits"
+  },
+  "theonlycolors.com/football/49343/game-thread-michigan-state-um": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Game Thread: Michigan State @ um"
+  },
+  "si.com/college/oregon/football/oregon-ducks-northwestern-wildcats-preview-tv-channel-betting-odds-how-to-watch": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "How to Watch Oregon vs. Northwestern: Preview, TV Channel, Betting Odds"
+  },
+  "slapthesign.com/notre-dame-football-cj-carr-sp-plus-no-1-offense-paper-tiger": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Notre Dame’s No. 1 offense is making the paper tiger talk look silly"
+  },
+  "on3.com/teams/florida-gators/news/live-blog-no-17-florida-gators-vs-no-3-georgia": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "No. 3 Georgia beats No. 17 Florida Gators, 27-8"
+  },
+  "tulanehullabaloo.com/76321/sports/from-the-basement-playoffs-why-the-saints-should-shoot-for-the-stars-this-season": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "From the Basement: Playoffs? Why the Saints should shoot for the stars this season"
+  },
+  "si.com/college/baylor/football/keys-to-a-baylor-homecoming-win-over-iowa-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Keys to a Baylor Homecoming Win Over Iowa State"
+  },
+  "landgrantholyland.com/ohio-state-mens-basketball/123234/josh-ojianwuna-is-ready-to-give-his-all-after-watching-tournament-from-bench": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "After watching NCAA Tournament from bench, Josh Ojianwuna is ready to “give his all” for Buckeyes this season"
+  },
+  "landgrantholyland.com/ohio-state-football/123419/3-and-out-ohio-state-buckeyes-maryland-terrapins-college-football-2026-big-ten-julian-sayin-ryan-day": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "3 &#038; Out: What to watch for when Ohio State hosts Maryland"
+  },
+  "on3.com/teams/utah-utes/news/there-is-still-room-for-cyrus-polu-to-grow": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "There is Still Room For Cyrus Polu to Grow"
+  },
+  "si.com/college/colorado/football/colorado-buffaloes-live-score-updates-kansas-state-wildcats": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Colorado Buffaloes Live Score Updates vs. Kansas State Wildcats"
+  },
+  "thedmonline.com/pick-your-treat-ideal-matchups-for-the-rebels-this-postseason": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Pick your treat: Ideal matchups for the Rebels this postseason"
+  },
+  "addictedtoquack.com/football/64851/oregon-ducks-football-duck-tape-film-review-ohio-state-buckeyes-2026": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Oregon Ducks Football: Duck Tape Film Review Ohio State Buckeyes 2026"
+  },
+  "cubuffs.com/news/2026/10/24/football-buffs-fall-in-stillwater": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Buffs Fall In Stillwater"
+  },
+  "si.com/college/mississippistate/football/mississippi-state-qb-kamario-taylor-out-for-season-in-crushing-blow-to-bulldogs": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": "availability",
+   "title": "Mississippi State QB Kamario Taylor Out for Season in Crushing Blow to Bulldogs",
+   "note": "out for the season: missed (the rule read 'Crushing Blow to' as analysis)"
+  },
+  "on3.com/teams/tennessee-volunteers/news/tennessee-football-arion-carter-defense-kentucky": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Inside Arion Carter, Tennessee's defense dominating in win over Kentucky"
+  },
+  "si.com/college/virginia/football/who-should-close-games-for-virginia-basketball-the-toughest-decision-facing-ryan-odom-01m5yvk9dpxq": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Who Should Close Games for Virginia Basketball? The Toughest Decision Facing Ryan Odom"
+  },
+  "aseaofblue.com/kentucky-wildcats-football/186859/tennessee-injury-report-sam-greene": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Kentucky vs. Tennessee Injury Report: Sam Greene trending toward playing"
+  },
+  "arkansasrazorbacks.com/jackson-and-osborne-preview-battle-line-rivalry-matchup-vs-missouri": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Jackson and Osborne preview Battle Line Rivalry matchup vs. Missouri"
+  },
+  "si.com/college/olemiss/football/five-star-recruit-plans-ole-miss-visit-for-massive-georgia-showdown": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Five-Star Recruit Plans Ole Miss Visit For Massive Georgia Showdown"
+  },
+  "on3.com/teams/mississippi-state-bulldogs/news/mississippi-state-defense-improved-against-the-run-but-problems-persist-in-the-air": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Mississippi State defense improved against the run, but problems persist in the air"
+  },
+  "mtsusidelines.com/2026/11/07/follow-live-mtsu-football-looks-to-snap-seven-game-100-miles-of-hate-losing-streak-to-wku": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "FINAL: MTSU football tops Western Kentucky for first time in seven games"
+  },
+  "onthebanks.com/rutgers-football/57881/rutgers-football-history-vs-wisconsin-shows-another-lopsided-matchup": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Rutgers Football History vs. Wisconsin Shows Another Lopsided Matchup"
+  },
+  "tulanegreenwave.com/news/2026/10/19/footballs-kevin-adams-iii-honored-by-the-american-conference": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Football’s Kevin Adams III Honored By The American Conference"
+  },
+  "byucougars.com/news/2026/10/25/football-lands-at-no-8-in-ap-top-25": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Football lands at No. 8 in AP Top 25"
+  },
+  "msuspartans.com/news/2026/11/8/football-michigan-state-reclaims-paul-bunyan-trophy-downs-michigan-15-6": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Michigan State Reclaims Paul Bunyan Trophy, Downs Michigan, 15-6"
+  },
+  "landgrantholyland.com/ohio-state-football/123029/ohio-state-buckeyes-football-iowa-hawkeyes-week-5-previews-podcasts-analysis-more": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "OHIO STATE GAMEDAY: It’s a bad day to be an Iowa Hawkeye"
+  },
+  "hawkeyesports.com/news/2026/11/2/saturday-night-at-rv23-northwestern": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "NOTES: Saturday Night at RV/#23 Northwestern"
+  },
+  "si.com/college/alabama/football/fourth-quarter-fury-no-5-alabama-dominates-no-14-lsu-late-to-knock-out-tigers": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Fourth-Quarter Fury: No. 5 Alabama Dominates No. 14 LSU Late to Knock Out Tigers"
+  },
+  "on3.com/teams/florida-state-seminoles/news/clemson-offense-all-22-tait-reynolds-run": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Third-and-Lang: QB run the primary hope for Clemson's struggling offense (All-22 Film)"
+  },
+  "si.com/college/oklahoma/football/oklahoma-south-carolina-ou-stock-report-see-who-s-up-who-s-down-01m69tj4x090": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Oklahoma-South Carolina OU Stock Report: See Who's Up, Who's Down"
+  },
+  "si.com/college/oklahoma/football/how-oklahoma-db-courtland-guillory-made-a-play-for-his-team-against-florida-01m6y8hbr5x9": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "How Oklahoma DB Courtland Guillory 'Made a Play for His Team' Against Florida"
+  },
+  "si.com/college/byu/football/advanced-metrics-that-give-byu-the-upper-hand-against-arizona-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Advanced Metrics That Give BYU the Upper Hand Against Arizona State"
+  },
+  "on3.com/teams/ole-miss-rebels/news/no-margin-for-error-blake-purchase-knows-whats-at-stake-for-ole-miss": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "‘No margin for error’: Blake Purchase knows what’s at stake for Ole Miss"
+  },
+  "on3.com/teams/michigan-wolverines/news/michigan-wolverines-football-vs-msu-pat-fitzgerald-talks-kyle-whittingham-tommy-carr": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "What Michigan State's Pat Fitzgerald said about Kyle Whittingham, Tommy Carr, more before playing Michigan"
+  },
+  "owlsports.com/news/2026/11/2/football-game-guide-navy": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Game Guide: Navy"
+  },
+  "on3.com/teams/miami-hurricanes/news/miami-hurricanes-prepare-for-up-and-down-but-still-dangerous-bill-belichick-team": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Miami Hurricanes Prepare for Up-and-Down But Still Dangerous Bill Belichick Team"
+  },
+  "libertyflames.com/news/2026/10/29/football-game-day-fiu": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Game Day: FIU"
+  },
+  "si.com/college/usc/football/usc-trojans-stock-report-three-players-rising-falling-ohio-state-buckeyes-upset": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "USC Trojans Stock Report: Three Players Rising and Falling After Ohio State Upset"
+  },
+  "si.com/college/ohiostate/football/ryan-day-teases-ohio-state-star-jeremiah-smith-over-unstoppable-trait-01m44rq6tpqp": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Ryan Day Teases Ohio State Star Jeremiah Smith Over Unstoppable Trait"
+  },
+  "on3.com/sites/tiger-illustrated/news/our-final-word-on-clemson-football-ahead-of-kickoff-2": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Our final word on Clemson Football ahead of kickoff"
+  },
+  "si.com/college/colorado/football/colorado-buffaloes-ticket-prices-take-surprising-turn-kansas-state-wildcats": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Colorado Buffaloes Ticket Prices Take Surprising Turn Before Kansas State"
+  },
+  "si.com/college/kansas/football/drama-in-lawrence-kansas-falls-to-ucf-after-lengthy-review-of-walk-off-td": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Drama in Lawrence: Kansas Falls to UCF After Lengthy Review of Walk-Off TD"
+  },
+  "stateoftheu.com/miami-hurricanes-football/89690/monday-musings-miami-hurricanes-revisiting-an-old-mantra-notre-dame-look-ahead": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Monday Musings: Revisiting an old mantra; Notre Dame has an obvious issue"
+  },
+  "on3.com/teams/texas-longhorns/news/change-will-come-to-texas-2027-defense-but-how-much": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Change Will Come to Texas' 2027 Defense, but How Much?"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/point-counterpoint-which-notre-dame-player-had-a-quiet-first-half-of-2026-but-wont-have-a-quiet-second-half": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Point/counterpoint: Which Notre Dame player had a quiet first half of 2026, but won't have a quiet second half?"
+  },
+  "landgrantholyland.com/ohio-state-football/124924/3-and-out-ohio-state-buckeyes-usc-trojans-college-football-big-ten-players-to-watch-keys-prediction": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "3 &#038; Out: Ohio State seeks first win at USC since 1946"
+  },
+  "si.com/college/tcu/footballtcu-football-west-virginia-ea-sports-college-football-27-simulation-2026": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "TCU vs WVU Gets the College Football 27 Simulation Treatment"
+  },
+  "si.com/college/bostoncollege/football/bo-maccormack-breakout-comes-perfect-time-boston-college-football": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Bo MacCormack III's Breakout Comes at the Perfect Time for Boston College Football"
+  },
+  "on3.com/teams/nc-state-wolfpack/news/backup-qb-will-wilson-isnt-worried-about-making-nc-state-history-he-just-wants-to-win": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Backup QB Will Wilson isn't worried about making NC State history. He just wants to win"
+  },
+  "deseret.com/sports/2026/10/26/whats-got-mcafee-so-fired-up-about-the-university-of-utah": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "What’s got McAfee so fired up about the University of Utah?"
+  },
+  "si.com/college/olemiss/football/ole-miss-georgia-could-be-decided-by-an-overlooked-matchup": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Ole Miss Georgia Could Be Decided By An Overlooked Matchup"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-football-recruiting-jett-harrison-marvin-harrison-jr-five-star-commit-cortez-hankton-buckeyes": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Jett Harrison chose Ohio State on his own terms, not his brother's"
+  },
+  "slapthesign.com/notre-dame-football-joey-obrien-first-start-luke-talich-injury-purdue": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Notre Dame gives Joey O'Brien a one-game audition to make himself impossible to bench"
+  },
+  "goheels.com/news/2026/10/22/football-extra-points-keep-up-the-fight": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Extra Points: Keep Up The Fight"
+  },
+  "on3.com/sites/hawg-beat/news/arkansas-football-availability-report-missouri-week-wednesday-2": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Arkansas Football Availability Report: Missouri week (Wednesday)"
+  },
+  "ulmwarhawks.com/news/2026/11/6/football-preview-road-test-sends-ulm-to-arkansas-state-for-rice-bowl.aspx": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Football Preview: Road Test Sends ULM to Arkansas State for Rice Bowl"
+  },
+  "on3.com/teams/north-carolina-tar-heels/news/can-carolina-make-uconn-earn-its-points": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Can Carolina Make UConn Earn Its Points?"
+  },
+  "on3.com/teams/nc-state-wolfpack/news/nc-states-2027-commits-face-pivotal-stretch-amid-coaching-search": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "NC State's 2027 commits face pivotal stretch amid coaching search"
+  },
+  "tulanegreenwave.com/news/2026/11/2/footballs-start-time-and-network-announced-for-rice": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Football’s Start Time and Network Announced for Rice"
+  },
+  "landgrantholyland.com/ohio-state-football/124264/celebrate-jeremiah-smiths-record-breaking-season-with-a-trio-of-bobbleheads": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Celebrate Jeremiah Smith’s record-breaking season with a trio of bobbleheads"
+  },
+  "si.com/college/nebraska/football/five-takeaways--clester-johnson-huskers-2026-home-stretch": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Five Takeaways From Clester Johnson as Nebraska Football Enters the Home Stretch"
+  },
+  "on3.com/teams/auburn-tigers/news/auburn-recruiting-intel-moves-being-made-in-2027-class-with-1-month-before-early-signing-period-begins": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Auburn recruiting intel: Moves being made in 2027 class with 1 month before early signing period begins"
+  },
+  "umassathletics.com/news/2026/10/17/massachusetts-football-drops-25-18-contest-to-buffalo-in-overtime": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Massachusetts Football Drops 25-18 Contest At Buffalo In Overtime"
+  },
+  "uhcougars.com/news/2026/10/29/football-cougars-in-the-nfl-presented-by-bud-light-week-7": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Cougars in the NFL Presented by Bud Light: Week 7"
+  },
+  "herdzone.com/news/2026/10/3/marshall-football-falls-to-jmu-on-saturday": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Marshall Football Falls To JMU On Saturday"
+  },
+  "si.com/college/notredame/football/notre-dame-outslugs-north-carolina-moves-to-5-0-instant-takeaways": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Notre Dame Outslugs North Carolina, Moves to 5-0: Instant Takeaways"
+  },
+  "utsports.com/news/2026/11/6/football-fb-preview-13-vols-kick-off-november-slate-with-ranked-matchup-against-border-rival-6-kentucky": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "FB PREVIEW: #13 Vols Kick Off November Slate with Ranked Matchup Against Border Rival #6 Kentucky"
+  },
+  "nusports.com/news/2026/11/7/cats-set-to-face-no-1-maryland-in-big-ten-tournament-championship": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "‘Cats Set to Face No. 1 Maryland in Big Ten Tournament Championship"
+  },
+  "si.com/college/nebraska/football/tad-stryker-darkness-falls-the-nebraska-offense-vs-washington-01m6azchw1nt": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Darkness Falls on the Nebraska Offense"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-buckeyes-freshman-class-legend-bey-khary-wilder-usc-game": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Ohio State freshmen aren't freshmen anymore and can help during critical stretch"
+  },
+  "onthebanks.com/big-ten-football/57463/contract-buyouts-thanks-pat-great-job-on-that-extension": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Contract buyouts: thanks, Pat &#8211; great job on that extension"
+  },
+  "on3.com/teams/iowa-hawkeyes/news/kirk-ferentz-iowa-hawkeyes-preview-northwestern-wildcats": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Kirk Ferentz talks Wildcats, updates injuries"
+  },
+  "collegian.com/articles/featured/2026/10/live-updates-csu-tsu": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Live updates: CSU football looks to bounce back in road matchup against Texas State"
+  },
+  "on3.com/teams/florida-state-seminoles/news/florida-state-hosts-clemson-matchup-analysis-and-score-predictions": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Florida State hosts Clemson: Matchup Analysis and score predictions"
+  },
+  "theonlycolors.com/football/49225/michigan-state-football-show-me-the-nil-money": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Michigan State Football: Show Me the NIL Money"
+  },
+  "gamecocksonline.com/news/2026/11/03/videos-tuesday-football-media-availability-texas-am-11-03-26": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Videos: Tuesday Football Media Availability (Texas A&M) 11/03/26"
+  },
+  "si.com/college/michigan/football/keys-to-michigan-beating-rival-michigan-state-keeping-paul-bunyan-trophy-2026": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Keys to Michigan Beating Rival Michigan State, Keeping Paul Bunyan Trophy"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/without-home-night-game-ohio-state-and-fans-delivered-another-slap-in-face": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Without home night game, Ohio State and fans delivered another slap in face"
+  },
+  "utahutes.com/news/2026/11/2/football-no-3-utah-hosts-no-7-byu-on-abc": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "No. 3 Utah Hosts No. 9 BYU on ABC"
+  },
+  "si.com/college/indiana/football/indiana-grant-wilson-stars-in-win-over-minnesota": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Indiana's Grant Wilson Goes From Understudy To Star In Win Over Minnesota"
+  },
+  "cyclones.com/news/2026/11/7/football-cyclones-drop-road-contest-to-baylor": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Cyclones Drop Road Contest to Baylor"
+  },
+  "si.com/college/auburn/football/three-offensive-auburn-tigers-to-watch-against-arkansas": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Three Offensive Auburn Tigers to Watch Against Arkansas"
+  },
+  "si.com/college/olemiss/football/the-french-canadian-revolution-who-is-ole-miss-rb-shekai-mills-knight": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "The French-Canadian Revolution: Who Is Ole Miss RB Shekai Mills-Knight?"
+  },
+  "si.com/college/indiana/football/college-gameday-minnesota-guest-picker": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Who Will Be the Guest Picker for ‘College GameDay’ at Indiana vs. Minnesota?"
+  },
+  "gamecocksonline.com/news/2026/11/06/brown-ii-named-burlsworth-trophy-nominee": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Brown II Named Burlsworth Trophy Nominee"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-buckeyes-buckeye-leaves-indiana-game-win-jay-timmons-jaylen-mcclain-jeremiah-smith": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Jay Timmons, Jeremiah Smith headline six standout performances that carried Ohio State past Indiana"
+  },
+  "navysports.com/news/2026/10/20/football-media-links-and-videos-for-tuesday.aspx": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Media Links and Videos for Tuesday"
+  },
+  "fightingillini.com/news/2026/11/3/football-illinois-and-notre-dame-schedule-home-and-home-for-2027-and-2028": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Illinois and Notre Dame Schedule Home-And-Home for 2027 and 2028"
+  },
+  "ohiostatebuckeyes.com/news/2026/10/21/football-mcclain-and-smith-placed-on-the-athletic-midseason-all-america-teams": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "McClain and Smith Placed on The Athletic Midseason All-America Teams"
+  },
+  "blackheartgoldpants.com/football/71857/hawkeyes-football-wound-up-rewind-iowa-dominates-wisconsin-30-0-in-complete-team-victory-hank-brown-tony-diaz-reece-vander-zee-cam-buffington-phil-parker-tim-lester": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Hawkeyes Football: Wound Up &#038; Rewind Iowa Dominates Wisconsin 30-0 in Complete Team Victory"
+  },
+  "nunesmagician.com/syracuse-orange-football-fran/114957/syracuse-football-orange-fight-back-to-500": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Syracuse football: Orange fight back to .500"
+  },
+  "si.com/college/oklahoma/football/jason-witten-s-wild-week-with-john-mateer-helped-propel-oklahoma-to-a-road-win-01m6yzc4a3h2": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Jason Witten's 'Wild Week' With John Mateer Helped Propel Oklahoma to a Road Win"
+  },
+  "si.com/college/tennessee/football/what-josh-heupel-said-during-the-bye-week-media-availability-01m61nrmjp6h": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "What Josh Heupel Said During The Bye Week Media Availability"
+  },
+  "on3.com/sites/o-state-illustrated/news/ask-the-expert-oklahoma-state-heads-to-kansas-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Ask the Expert: Oklahoma State heads to Kansas State"
+  },
+  "si.com/college/tennessee/football/tennessee-volunteers-made-a-statement-in-the-win-vs-kentucky-01m6xptnb8hv": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Tennessee Volunteers Made a Statement In the Win vs. Kentucky"
+  },
+  "on3.com/teams/south-carolina-gamecocks/news/south-carolina-football-on3-impact-rankings-10-28-26": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Updated look at South Carolina's top roster talent in On3 Impact Rankings"
+  },
+  "on3.com/teams/miami-hurricanes/news/the-pulse-miami-hurricanes-get-ultimate-respect-from-bill-belichick": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "THE PULSE: Miami Hurricanes Get Ultimate Respect From Bill Belichick"
+  },
+  "on3.com/teams/auburn-tigers/news/auburn-recruiting-insider-big-official-visit-for-auburn": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Auburn Recruiting Insider: Big official visit for Auburn, 4-star OL target"
+  },
+  "si.com/college/houston/football/houston-found-a-way-to-win-but-willie-fritz-still-has-a-problem-to-solve": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Houston Found a Way to Win but Willie Fritz Still Has a Problem to Solve"
+  },
+  "si.com/college/unc/tar-heels-3-key-watch-saturday-against-uconn": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "3 Key Tar Heels To Watch on Saturday Against UConn"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-head-coach-marcus-freeman-press-conference-miami": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Live updates: Notre Dame HC Marcus Freeman Nov. 2 press conference before Miami game"
+  },
+  "smumustangs.com/news/2026/11/3/football-smu-set-for-friday-night-showdown-with-virginia-tech": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "SMU Set For Friday Night Showdown With Virginia Tech"
+  },
+  "on3.com/teams/florida-state-seminoles/news/warchant-tv-clemson-vs-fsu-preview-warchant-report": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Warchant TV: Clemson vs. FSU preview (Warchant Report)"
+  },
+  "si.com/college/nebraska/football/nebraska-future-opponent-illinois-shows-it-will-be-tough-test-for-huskers": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Nebraska Future Opponent Illinois Shows It Will Be Tough Test for Huskers"
+  },
+  "si.com/college/wake-forest/football/how-to-watch-wake-forest-football-face-california-time-weather-stats-and-more-01m53mkfk3vk": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "How to Watch Wake Forest Football face California: Time, Weather, Stats, and More"
+  },
+  "tomahawknation.com/florida-state-football/139712/florida-state-seminoles-clemson-tigers-open-thread-live-game-discussion-mike-norvell-dabo-swinney-acc-duce-robinson-micahi-danzy-ashton-daniels": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Florida State Seminoles vs. Clemson Tigers: Open thread and live game discussion"
+  },
+  "si.com/college/wisconsin/football/luke-fickell-loves-what-he-seeing-from-young-badgers-defender-just-scratching-the-surface": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Luke Fickell Loves What he Sees From Young Badgers Defender: 'Just Scratching the Surface'"
+  },
+  "byucougars.com/news/2026/10/30/safe-to-say-we-took-halloween-practice-very-seriously": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "safe to say we took halloween practice very seriously 🫡"
+  },
+  "si.com/college/auburn/football/who-are-auburn-football-captains-for-the-ole-miss-game": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Who Are Auburn Football’s Captains for the Ole Miss Game?"
+  },
+  "uwdawgpound.com/washington-huskies-news/78160/wednesday-dots-qb-controversy": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Wednesday Dots: QB Controversy"
+  },
+  "on3.com/teams/georgia-bulldogs/news/georgia-football-news-and-notes-for-tuesday-15": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Georgia Football News and Notes for Tuesday"
+  },
+  "si.com/college/notredame/football/marcus-freeman-anti-pj-fleck-route-north-carolina": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "How Marcus Freeman Went the Anti-PJ Fleck Route vs. North Carolina"
+  },
+  "on3.com/teams/mississippi-state-bulldogs/news/jeff-lebby-leaves-door-open-for-qb2-battle-behind-kamario-taylor": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Jeff Lebby leaves door open for QB2 battle behind Kamario Taylor"
+  },
+  "si.com/college/olemiss/football/what-texas-just-exposed-about-ole-miss-after-tough-loss": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "What Texas Just Exposed About Ole Miss After Tough Loss"
+  },
+  "landgrantholyland.com/ohio-state-football/124081/ohio-states-front-seven-vs-indianas-run-game-decided-the-game": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Ohio State’s front seven vs. Indiana’s run game decided the game"
+  },
+  "thedmonline.com/column-kewan-lacy-to-play-or-not-to-play": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Column: Kewan Lacy, to play or not to play?"
+  },
+  "on3.com/teams/ole-miss-rebels/news/ole-miss-live-the-cadillac-finally-found-the-ditch-bring-on-the-questions": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Ole Miss LIVE: The Cadillac finally found the ditch. Bring on the questions."
+  },
+  "si.com/college/texas/football/arch-manning-edgy-play-proves-to-be-the-difference-the-longhorns-need": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Arch Manning's 'Edgy' Play Proves to Be the Difference the Longhorns Need"
+  },
+  "on3.com/pro/news/indiana-vs-ohio-state-polymarket-odds-opening-point-spread-revealed-how-to-watch": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Indiana vs. Ohio State Polymarket odds: Opening point spread revealed, how to watch"
+  },
+  "on3.com/teams/arizona-wildcats/news/physicality-the-difference-in-arizonas-win-over-iowa-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Physicality the difference in Arizona's win over Iowa State"
+  },
+  "si.com/college/oklahoma/football/how-oklahoma-is-preparing-for-south-carolina-s-collection-of-freak-athletes-01m62kb88wj3": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "How Oklahoma is Preparing for South Carolina’s ‘Collection’ of Freak Athletes"
+  },
+  "jaxstatesports.com/news/2026/10/13/football-gamecocks-host-fiu-for-weekday-cusa": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Gamecocks Host FIU for Weekday CUSA"
+  },
+  "redcuprebellion.com/ole-miss-rebels-football/41917/ole-miss-uses-explosive-second-half-to-blow-out-auburn-45-15": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Ole Miss uses explosive second half to blow out Auburn, 45-15"
+  },
+  "on3.com/teams/maryland-terrapins/news/for-maryland-football-players-its-a-fresh-new-feeling": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "For Maryland football players, it's a 'fresh new feeling.'"
+  },
+  "si.com/college/alabama/football/bubble-watch-alabama-fans-rooting-guide-week-10-college-football-season": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Bubble Watch: Alabama Fans' Rooting Guide for Week 10 of the College Football Season"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-buckeyes-football-iowa-game-win-10-things-i-think-i-know": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "10 things I think I know about Ohio State after road win over Iowa"
+  },
+  "on3.com/teams/oregon-ducks/news/scoopduck-roundtable-score-predictions-vs-northwestern-2": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "ScoopDuck Roundtable: Score Predictions vs Northwestern"
+  },
+  "on3.com/sites/tiger-illustrated/news/the-book-on-tait-reynolds-through-eight-games": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "The book on Tait Reynolds through eight games"
+  },
+  "si.com/college/usc/football/usc-trojans-learn-valuable-lesson-during-bye-week": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "USC Trojans Learn Valuable Lesson During the Bye Week"
+  },
+  "on3.com/teams/michigan-wolverines/news/michigan-football-five-things-we-think-we-learned-in-a-28-21-win-at-rutgers": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Michigan football: Five things we think we learned in a 28-21 win at Rutgers"
+  },
+  "on3.com/teams/kansas-state-wildcats/news/kansas-state-vs-colorado-preview-and-predictions": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Kansas State vs Colorado preview and predictions"
+  },
+  "thedailycougar.com/2026/10/17/no-20-houston-cougars-welcome-no-18-oklahoma-state-in-top-25-matchup": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "No. 20 Houston Cougars welcome No. 18 Oklahoma State in top 25 matchup"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/what-theyre-saying-about-notre-dames-49-10-victory-against-purdue": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "What they’re saying about Notre Dame’s 49-10 victory against Purdue"
+  },
+  "olemisssports.com/news/2026/10/23/football-vs-texas-what-to-watch-for": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Football vs. Texas: What To Watch For"
+  },
+  "on3.com/teams/michigan-wolverines/news/doug-karsch-talks-about-michigans-heartbreaking-loss-to-indiana": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Karsch from the booth, on Michigan's inability to finish the job"
+  },
+  "nusports.com/news/2026/11/9/northwestern-hosts-boston-university-in-monday-night-showdown": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Northwestern Hosts Boston University in Monday Night Showdown"
+  },
+  "cornnation.com/football/104205/change-coming-to-huskers-football-2027-schedule": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Change Coming to Huskers 2027 Football Schedule"
+  },
+  "goaztecs.com/news/2026/10/26/halloween-festivities-announced-for-sdsus-football-game-vs-washington-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Halloween Festivities Announced for SDSU’s Football Game vs. Washington State"
+  },
+  "on3.com/teams/kentucky-wildcats/news/ksr-show-11-2-live-from-lexington-to-kick-off-a-busy-week-in-bbn": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "KSR Show, 11/2: Live from Lexington to kick off a busy week in BBN"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-football-recruiting-top-defensive-end-target-george-parkinson-larry-johnson-ryan-day-buckeyes": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "George Parkinson IV keeps returning to Columbus and Larry Johnson is the reason why"
+  },
+  "on3.com/sites/jackets-online/news/pff-grades-georgia-tech-vs-bc": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "PFF Grades: Georgia Tech vs Boston College"
+  },
+  "on3.com/teams/oregon-ducks/news/down-14-in-the-horseshoe-oregon-didnt-blink-and-dan-lanning-called-his-best-game-were-like-cockroaches-we-wont-die": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Down 14 in the Horseshoe, Oregon Didn't Blink and Dan Lanning Called his Best Game: \"We're like cockroaches. We won't die.\""
+  },
+  "rollbamaroll.com/alabama-crimson-tide-stats/86217/11-red-zone-only-graphs-from-the-lsu-win": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "11 “Red Zone only” graphs from the LSU win"
+  },
+  "on3.com/news/college-football-rankings-espn-shakes-up-fpi-top-25-after-week-5-slate": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "College Football Rankings: ESPN shakes up FPI Top 25 after Week 5 slate"
+  },
+  "thedailytexan.com/2026/11/05/english-texas-is-facing-two-battles-this-week-a-trap-game-and-a-long-injury-report": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "English: Texas is facing two battles this week — a trap game and a long injury report"
+  },
+  "si.com/college/kstate/latest-news/live-game-thread-updates-for-k-state-football-vs-colorado-01m69g4h5vae": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Live Game Thread & Updates for K-State football vs. Colorado"
+  },
+  "onefootdown.com/notre-dame-fighting-irish-football/86737/photo-gallery-notre-dame-31-miami-24": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "PHOTO GALLERY: Notre Dame 31, Miami 24"
+  },
+  "on3.com/sites/hawg-beat/news/how-to-watch-betsaracen-odds-arkansas-vs-auburn-2": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "How to Watch, BetSaracen odds: Arkansas vs. Auburn"
+  },
+  "on3.com/teams/georgia-bulldogs/news/xs-and-os-good-and-bad-from-georgias-win-over-florida-3": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Xs and Os: Good and bad from Georgia's win over Florida"
+  },
+  "dailytrojan.com/2026/11/06/del-aula-a-la-clinica-el-espanol-que-no-se-aprende-en-la-clase": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Del aula a la clínica: el español que no se aprende en la clase"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/sweet-revenge-no-11-notre-dame-knocks-off-no-1-miami": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Sweet Revenge: No. 11 Notre Dame knocks off No. 1 Miami"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-byu-cougars-kalani-sitake-bear-bachmeier-comments": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "BYU QB Bear Bachmeier added context to his charged Notre Dame comments"
+  },
+  "addictedtoquack.com/football/64486/reacts-who-will-dan-lanning-fire-next": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Reacts: Who Will Dan Lanning Fire Next?"
+  },
+  "smumustangs.com/news/2026/11/8/football-mustangs-back-at-23-in-ap-poll": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Mustangs Back At 25 In AP Poll"
+  },
+  "si.com/college/usc/football/ap-top-25-poll-shuffles-usc-trojans-upset-ohio-state-buckeyes": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "AP Top 25 Poll Shuffles After USC's Upset Over Ohio State"
+  },
+  "umassathletics.com/news/2026/10/13/massachusetts-football-prepares-for-flagship-cup-matchup-at-buffalo": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Massachusetts Football Prepares For Flagship Cup Matchup At Buffalo"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/how-ol-anthonie-knapp-turned-miami-misery-into-fuel-notre-dames-title-chase": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "How OL Anthonie Knapp turned Miami misery into fuel for Notre Dame's title chase"
+  },
+  "on3.com/sites/buff-blitz/news/colorado-football-buffs-aim-for-second-straight-win": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Colorado football: Buffs aim for second straight win"
+  },
+  "landgrantholyland.com/ohio-state-football/124087/players-of-the-game-ohio-state-buckeyes-win-indiana-hoosiers-2026-big-ten-jeremiah-smith-jay-timmons": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Players of the game from Ohio State’s 19-15 win over Indiana"
+  },
+  "si.com/college/kstate/latest-news/live-game-thread-updates-for-k-state-football-vs-oklahoma-state-01m6vhqkv0aw": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Live Game Thread & Updates for K-State Football vs. Oklahoma State"
+  },
+  "si.com/college/virginiatech/football/three-biggest-storylines-for-virginia-tech-vs-stanford-01m6z45g59sr": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Three Biggest Storylines for Virginia Tech vs. Stanford"
+  },
+  "on3.com/teams/ohio-state-buckeyes/news/ohio-state-football-recruiting-flip-target-james-conrad-buffalo-james-laurinaitis-linebacker-buckeyes": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Thoughts on Ohio State flipping LB James Conrad adding a playmaker who fits multiple roles"
+  },
+  "on3.com/sites/buff-blitz/news/video-previewing-and-projecting-colorado-buffs-football-vs-kansas-state": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Video: Previewing and projecting Colorado Buffs football vs. Kansas State"
+  },
+  "blackheartgoldpants.com/football/71742/iowa-hawkeyes-wisconsin-badgers-game-score-predictions-line-spread-bhgp": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "The Pants Predicts: Iowa vs Wisconsin"
+  },
+  "mndaily.com/campus/live-umn-community-members-hit-polls-for-midterm-elections/11/03/2026/eicmndaily-com": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Democrats win out across Minnesota amid national swing"
+  },
+  "on3.com/teams/lsu-tigers/news/espn-fpi-lsus-playoff-chances-rise-as-november-football-arrives": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "ESPN FPI: LSU's playoff chances rise as November football arrives"
+  },
+  "scarletknights.com/news/2026/11/2/football-vs-nebraska-12-30-pm-kickoff": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Football vs. Nebraska: 12:30 p.m. Kickoff"
+  },
+  "si.com/college/vanderbilt/football/column-vanderbilt-football-s-season-looks-bleak-but-there-still-is-jared-curtis": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Column: Vanderbilt Football’s Season Looks Bleak, But There Still is Jared Curtis"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/four-takeaways-brady-koehler-shows-star-potential-in-notre-dame-exhibition-win-over-depaul": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Four takeaways: Brady Koehler shows star potential in Notre Dame exhibition win over DePaul"
+  },
+  "si.com/college/ucf/football/a-ucf-knights-fan-guide-to-the-bye-weekend-byu-cougars-lj-martin-baylor-bears-kansas-jayhawks-south-florida-bulls-01m54bt9qfre": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "A UCF Fan's Guide to the Knights' BYE Weekend"
+  },
+  "tomahawknation.com/florida-state-football/140101/2027-fsu-seminoles-schedule-louisiana-monroe-conference-opponents-latest-news": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Noles News: FBSchedules reports FSU will open 2027 vs. ULM"
+  },
+  "on3.com/sites/tiger-illustrated/news/wednesday-evening-clemson-football-insider-2": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Wednesday Evening Clemson Football Insider: Backup O-linemen, Clemson’s gradual descent, Graham Neff, Gideon Davidson, how change can come about"
+  },
+  "on3.com/teams/iowa-hawkeyes/news/iowa-football-opponent-preview-25-wisconsin-badgers": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Iowa Football Opponent Preview: #25 Wisconsin Badgers"
+  },
+  "si.com/college/michigan/football/coaching-decision-kyle-whittingham-got-wrong-against-michigan-state-2026": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "Coaching Decision Kyle Whittingham Got Wrong Against Michigan State"
+  },
+  "on3.com/sites/bruin-report-online/news/ucla-footballs-kickoff-time-for-minnesota-on-nov-7-announced": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "UCLA football's kickoff time for Minnesota on Nov. 7 announced"
+  },
+  "on3.com/teams/notre-dame-fighting-irish/news/unlikely-heroes-who-helped-make-notre-dames-1988-team-unforgettable": {
+   "half": "held",
+   "sample": "untagged",
+   "v1": null,
+   "kind": null,
+   "title": "The unlikely heroes who helped make Notre Dame's 1988 team unforgettable"
+  }
+ }
+}
