@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2247",
  "classYear": 2027,
- "listed": 29,
+ "listed": 27,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,32 +32,6 @@
    "rank": 299,
    "positionRank": 19,
    "stateRank": 17,
-   "status": "Verbal"
-  },
-  {
-   "id": "271496",
-   "name": "Donterrius Mincey",
-   "position": "RB",
-   "highSchool": "Toombs High School",
-   "city": "Lyons",
-   "state": "GA",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 49,
-   "stateRank": 95,
-   "status": "Verbal"
-  },
-  {
-   "id": "272607",
-   "name": "Courtney Acoff",
-   "position": "DT",
-   "highSchool": "Bessemer City High School",
-   "city": "Bessemer",
-   "state": "AL",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 107,
-   "stateRank": 64,
    "status": "Verbal"
   },
   {
@@ -386,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:41Z"
+ "fetchedAt": "2026-11-09T16:39Z"
 }

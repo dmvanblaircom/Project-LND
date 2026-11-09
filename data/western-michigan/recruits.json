@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2711",
  "classYear": 2027,
- "listed": 20,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -119,19 +119,6 @@
    "highSchool": "Batavia High School",
    "city": "Batavia",
    "state": "IL",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "273458",
-   "name": "De'von Dallas",
-   "position": "S",
-   "highSchool": "Westerville North High School",
-   "city": "Westerville",
-   "state": "OH",
    "grade": 43,
    "rank": null,
    "positionRank": null,
@@ -269,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T17:11Z"
+ "fetchedAt": "2026-11-09T16:40Z"
 }

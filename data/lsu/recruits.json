@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "99",
  "classYear": 2027,
- "listed": 15,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -202,7 +202,20 @@
    "positionRank": 155,
    "stateRank": 34,
    "status": "Verbal"
+  },
+  {
+   "id": "272763",
+   "name": "JaMarquis Hudson",
+   "position": "OLB",
+   "highSchool": "Memorial High School",
+   "city": "Port Arthur",
+   "state": "TX",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 65,
+   "stateRank": 128,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:42Z"
+ "fetchedAt": "2026-11-09T16:39Z"
 }
