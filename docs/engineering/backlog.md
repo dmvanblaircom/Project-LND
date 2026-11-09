@@ -1,246 +1,171 @@
-# Project LND: active delivery queue
+# Project LND backlog
 
-Reconciled October 21, 2026 against main after #142–#154 merged and were
-production-verified (the last, #153, at 859f8ff); updated October 23 after
-#155–#160, and for decision 0035 (Claude owns development and design). This is the current queue;
-the [prior queue](backlog-archive-2026-10-11.md) is historical, not instructions
-to rebuild completed work.
+**Refreshed 2026-11-09** from every source we have:
+- the previous queue ([archived](backlog-archive-2026-10-23.md));
+- the product briefs, decisions 0001-0043 and the redesign spec (v1.2, #237);
+- the open pull requests;
+- David's requests since September 21, from this project's session and its context summaries.
 
-The ownership split in [the October 14 handoff](claude-handoff-2026-10-14.md)
-still holds. Main continues receiving data refreshes, so inspect it and open
-PRs before work.
+Conflicting and finished items are removed, and each removal is listed under [Removed or superseded](#removed-or-superseded) with the reason.
 
-## Built for review, not yet shipped
+This is the only active list. A brief or decision holds the detail; this file holds the order, the status and the gate.
 
-| Item | Owner | Evidence | Remaining gate |
+## How to read it
+
+**Status:**
+- *approved*: David has approved the item.
+- *proposed*: needs David's decision.
+- *in review*: built and waiting on review.
+- *blocked*: waits on someone outside the project.
+- *parked*: David set it aside, with a reason.
+
+**Gate,** the one thing that must happen before work moves:
+- **D:** David decides or merges.
+- **CD:** ChatGPT, as Creative Director, designs or reviews (decision 0040).
+- **C:** Claude can proceed on its own and merge on green under decision 0039.
+- **X:** someone outside the project.
+
+**Standing rules** (unchanged):
+- Notre Dame is data, not code.
+- Parity is the floor, then each Suite becomes its own (0038).
+- Merges follow decision 0039; the redesign follows decision 0040.
+- No fabricated data, and no new source, key or cost without David.
+- Secrets live only in repository secrets.
+- Email is drafted only, never sent.
+- Branches are deleted by David.
+
+---
+
+## 1. In flight
+
+| PR | What | Status | Gate |
 |---|---|---|---|
-| Offseason Home and seasonal navigation (W16) | Claude (from Codex, decision 0035) | PR #161 (draft; replaces #134, closed): the S2/S4 Home cards and seasonal navigation. The season data it needs is merged: `TeamOS.season.offseason` (#153), contract in [offseason-season-data.md](offseason-season-data.md) | David approved the S2/S4 preview on 2026-10-23 ([offseason UI contract](../design/offseason-ui-contract-2026-10-12.md), *Acceptance before production integration*); Claude finishes the wiring on current main; merge, production verification |
+| #237 | Redesign spec v1.2: decisions 0041-0043, the wire in the redesign | in review | D merges |
+| #238 → #239 → #240 | Redesign Stage 1 foundation, 1b components, and desktop header navigation (0042) | in review | D merges. #240 ships with Stage 2 |
+| #241 | Play-by-play freshness state | in review: revised screenshots sent 2026-11-08 | CD reviews, then D merges |
+| `feat/wire-groundwork` | `TeamOS.wire`: classifier, article key, opponent lookup, measurement report. Not used by the app | building | Measurement goes to D (§3, F1) |
+| `docs/backlog-refresh` | This backlog and the wire taxonomy | in review | D merges |
+| #135 | DEV/Lab environments | parked by David, Oct 13 | D resumes |
 
-## Ordered remaining implementation
+## 2. The Suite redesign program (decision 0040)
 
-| Order | Item | Owner / remaining scope |
-|---|---|---|
-| 1 | Offseason and rollover (W16), due mid-November | Claude: S2/S4 (#161) and the Recruiting and NFL Draft cards (#163) are live. ESPN's stars, credited to ESPN, on each recruit (#164), and the same two cards all year in Roster's Prospects view (David, 2026-10-24). 247Sports/On3 stars wait on their permission (requests sent 2026-10-24 to their support addresses); a projected NFL team waits on a usable mock-draft source (none today; David's §7 row 6 rule stands until then). |
-| 2 | Postseason notifications (W19): first live runs | Claude: watch the first CFP release (November 3, 7 PM ET), the weekly releases through December 1 and Selection Day (December 6, noon ET), and fix from what the real payloads show. Built in #147 and #152. |
-| 3 | Photography (W13) and targeted visual finish (W14) | Claude: deployable Home/Game imagery, focal points/crops, responsive fallback; review Outlook, alert Settings and recent notes/badges. No broad brand reset. |
-| 4 | Ohio State remainder (W20) | Claude: conference-only availability freshness expectations; depth chart only after Ourlads permission. Claude: team parity. News, history and Big Ten availability already ship. |
-| 5 | Historical Stats (W27 phase 3) | Claude: verify past-season sources/caching and athlete identity. Claude: season selection and career pages. Current Team and Players views already ship. |
-| 6 | Bounded reliability (W10) | Claude: repeated same-version worker install; simplify source/refresh ownership only where useful. Preserve existing recovery and negative controls. |
-| 7 | Release evidence (W09) | Claude: resolve pending-design-review item 4 against current outage/upgrade evidence. David: physical iPhone/Safari/PWA observations. Do not mark a device pass from desktop CI. |
+The order below is the program. ChatGPT designs, David approves, and Claude builds against the approved design.
 
-## Later product-scoped work
+| # | Item | Status | Gate |
+|---|---|---|---|
+| R1 | **Stage 2: Home.** Every lifecycle state (pregame, live, final, S2, S4, S5) on phone, tablet and desktop. Includes: the desktop header navigation (#240); the wire's place above the news (0043, F1); Season Outlook's one-line standing that opens Around; Suite Style's hero marks in champagne (0041) | approved scope; waiting on design | CD: the wide Home composition and the wire row |
+| R2 | **Stage 3: Game.** Scoreboard, tab strip, pregame, live and final. Moments wired from `TeamOS.moments`. A refresh that ends a play-by-play catch-up is reconciliation, never a moment (#241) | approved scope | CD per stage; after R1 |
+| R3 | **Stadium art.** Night Bowl, The Tunnel, Under the Lights: original art to the NCAA accuracy standard. The pipeline (`--s-art-env`) is ready | approved | CD creates. Claude integrates; no substitutes |
+| R4 | **Phase 3: propagation.** The approved visual language on Around, Roster/Players, News, Schedule, More and Settings. Each destination's own items are in §4 | approved direction; screens not designed | CD, tab by tab |
+| R5 | **Phase 4: validation.** Notre Dame and Ohio State, both styles, every state and width, accessibility, offline, PWA install and update, and a physical iPhone | approved | D: device observations |
 
-- **W22:** smallest useful My Teams/personalization scope and prototype before
-  persistence work. Current selected-team/style preferences already work.
-- **W23:** choose one participation feature based on a fan need; define the
-  service/moderation scope before building. Alternatives are not four approvals.
-- **W24:** concrete fan-validation and measurement plan; no analytics vendor
-  or telemetry implementation is approved merely by listing the task.
-- **Structured feedback (David, 2026-09-28, sent through Feedback from Top 25):**
-  a form in the app instead of a blank email: a star rating, what the
-  feedback is about, the message, and the fan's email so David can write
-  back. Today Feedback opens the fan's mail app with the team, screen and
-  version filled in (`feedbackHref` in `app.js`, `Suite.more.feedback`).
-  Open decision for David: the smallest version keeps the mail app and only
-  structures the message (no new service); sending from the app itself needs
-  the edge Worker to accept, store or forward it, plus spam protection and a
-  privacy note for the email address. Feedback arrives at
-  suiteappfeedback@gmail.com.
-- **The wire: in-the-moment updates for a team (David, 2026-11-05).** Short,
-  fast, attributed updates, all year, not only articles: "After further
-  testing, Miami WR Malachi Toney is expected to undergo surgery on the ankle
-  he hurt in practice today, per CBS Sports" (Sleeper's CFB feed, Nov 5). A
-  fan wants it the moment it posts. It is personal twice over: Miami's news
-  for a Miami fan, and big news for a Notre Dame fan in the week ND plays
-  Miami, so an opponent's updates belong in the wire in the week of the game.
-  Sources to weigh, none chosen:
-  - Sleeper's in-app CFB feed carries these, but its public API (as far as
-    known) is NFL data only; its feed sits behind the app's private backend.
-    Reading that without Sleeper's permission is off the table, as Faktor's
-    embed was. A partnership or licensed access is the clean way.
-  - Licensed player-news feeds that cover college football (RotoWire,
-    SportsDataIO, Sportradar and similar): legitimate, paid; prices not yet
-    known - quote before deciding.
-  - The reporters themselves: X's API is paid; Bluesky's is free but
-    reporter coverage varies by team and needs a per-team sourcing pass.
-  - Faster reading of what Suite already has (beat RSS every run since
-    #221; ESPN news): fastest to ship, slower than a wire.
-  Next step: a brief with sources, costs and what each covers for a sample
-  of teams. A product and money decision for David.
-- **The team's former players in the NFL (David, 2026-11-05).** For example
-  "Irish in the NFL": each alum's NFL team, role and injury status. Sleeper's
-  public API (no key, read-only) has NFL players with injury status, injury
-  notes and practice participation; its college field would tie an NFL
-  player to the program. Not verified from this session (its docs host is
-  outside the session's network); a read-only probe from Actions comes
-  first. New scope: a brief before building.
-- **In-game injuries (parked, David, 2026-11-02).** ESPN's play-by-play,
-  which Suite already polls in a live game, tags injuries in the play text
-  ("#9 Z.Grady injured on the play"); Suite does not read them yet. Parked
-  because the feed cannot say whether a player is back: most players are
-  never named in play text (linemen, most defenders), so "not seen since"
-  would tell fans a player is out who played the rest of the game. If
-  picked up: report the event only ("2nd Q 4:12 - LG #70 P. Daniels
-  injured on the play"), both teams, a notification for the fan's own
-  team (David's answers, 2026-11-02), and never an inferred status. A real
-  status (out for the game, questionable to return) needs a source that
-  reports it - the official game-day update or beat writers - and none has
-  a feed Suite can read in-game today.
-- **Game notes and depth chart readers for every school (David, 2026-10-30:
-  "soon").** Today Game links each program's notes page, or its schedule
-  where each game's notes are posted (`links.gameNotes`, all 138 teams);
-  only Notre Dame's and Ohio State's notes are read into Suite
-  (`tools/producers/gamenotes.py`, built for their layouts). A survey of 17
-  schools' notes on 2026-10-29 found `gamenotes.parse` usable for 2. The
-  work: generalise the reader by layout family (most schools' notes are
-  SIDEARM-built PDFs), school by school behind a check like
-  `tools/notescheck.py`, starting with the programs whose notes are linked
-  from a maintained notes page (30). Depth charts the same way: a
-  published PDF or page found for 12 teams on 2026-10-30, most of them one
-  week's file rather than a page that stays current.
-- **Mountain West and Conference USA availability.** Both publish through
-  Faktor Sports' embedded viewer, which answers only a browser: a plain
-  request gets an empty page (probe, 2026-10-30). David's call (2026-10-30):
-  link the conference's report page (`links.availability`, 20 teams; Roster
-  says where the reports are and links them). Reading them would take a
-  feed from Faktor or the conferences.
-- **The rest of FBS, in phases (David, 2026-10-27).** 132 teams left after
-  the first six. Phase 0 first: checks that run what a change needs, in
-  parallel (#186); every team's palette and faces checked in CI
-  (`tools/teamidentitycheck.js`); the data refresh made to scale; tooling to
-  add a conference at a time; one review sheet per phase. Then, by
-  conference: 1, the rest of the Big Ten (15, its availability reports
-  already built); 2, the SEC (16); 3, the Big 12 and ACC (32); 4a, the
-  American, Mountain West and Pac-12 (31); 4b, the Sun Belt, MAC, Conference
-  USA and UConn (38). David's rules for every phase:
-  - **Colours:** the school's official palette, checked for contrast.
-  - **Type:** the closest free face to the school's own for the Power 4;
-    the Suite's own faces for the Group of Five, a matched face later on
-    request.
-  - **Beat news:** the athletics site, SB Nation, On SI, On3 and the student
-    paper, wherever each works from GitHub's network; nothing stale (no
-    story in 30 days) or paywalled. Exceptions go on the phase's sheet.
-  - **Approval:** one review sheet per phase - every team's Home, palette,
-    faces and feeds - approved in one pass.
-- **The four teams added 2026-10-27 (Indiana, Minnesota, North Dakota
-  State, BYU):** each has ESPN's schedule, scores, roster, stats and news,
-  its own colours and type, beat news, price history (Kalshi lists no
-  Minnesota or North Dakota State market yet; both start when one is
-  listed) and its recruiting class; Indiana and Minnesota have the Big Ten's
-  availability reports. Not yet: game notes readers (each school's notes
-  are a different PDF layout), depth charts (none of the four is checked),
-  and an availability source for the two outside the Big Ten. NDSU's beat
-  coverage is thin: The Forum and the student paper publish no usable feed.
-- **W25:** each owner updates current docs with accepted changes. Old branches
-  remain by David's decision; no manual branch-deletion campaign.
+## 3. Approved product features
 
-- **Performance: near-zero latency (David, 2026-10-27), after the FBS
-  phases.** "Batch feed as much into the app as we can": every source, image
-  and request reviewed for what can be prepared ahead and served from Suite's
-  own origin or the worker's cache instead of asked for on demand. Done
-  first: team marks at 180 pixels, kept by the worker across versions
-  (decision 0037's PR set). Next, from David's notes:
-  - **Matchup, batched:** both teams' season figures for the game the Game
-    tab will show, written by the data refresh as a snapshot and read in one
-    request, regenerated when the tab moves on from the last game's box score
-    to the next game's Matchup (a final), and otherwise daily. Today it waits
-    on the game summary, then two ESPN season reads, two schedules and the
-    edge API, in sequence.
-  - **An inventory:** each screen's requests, what each source's figures
-    change with (a play, a game, a week, a season), and for each: batch,
-    stale-while-revalidate, or live. Measured on a phone before and after.
-  - **The referee:** a scheduled check of ESPN's figures against CFBD's,
-    flagging drift (decision 0037).
+| # | Item | Status | Gate |
+|---|---|---|---|
+| F1 | **The wire, Phase 1** ([brief](../product/wire-brief.md): taxonomy and decisions of 2026-11-09). Status-change headlines in seven categories: Injury, Availability, Suspension, Transfer, Coaching, Commitment, Drafted. Steps: **(a)** groundwork, building; **(b)** measurement, at least 90% precision, to David; **(c)** Home's row with R1; **(d)** Around's wire, first out of season, with R4; **(e)** alerts, off by default, with separate switches for the team and the opponent in game week. Alerts need the Worker to read the news snapshots and a per-article "already sent" key | approved | (b) D; (c) and (d) CD; (e) D approves the Worker change |
+| F2 | **Around, the rest of the approved build** ([navigation brief](../product/navigation-brief.md) steps 3-4): **(a)** conference standings, after a source probe; **(b)** the out-of-season sections month by month, from data in hand (standings and bowls, Signing Day classes, Draft picks by school, next season's slate and opponents, final and preseason polls) | approved | (a) C probes; (b) CD designs with R4 |
+| F3 | **Live refresh on Around's Top 25 games** (David, 2026-11-08: no way to force a play update on a Top 25 game). Auto-refresh runs every 30 s while live; the visible refresh experience is the gap | approved need | CD: direction requested |
+| F4 | **Readers for every school's game notes and depth charts** (David, 2026-10-30: "soon"). Every team links its notes today; only Notre Dame and Ohio State are read. Generalise by layout family (mostly SIDEARM PDFs), school by school, behind a check. Depth: 12 sources found | approved | C, in batches; a review sheet per batch to D |
+| F5 | **Offseason rollover** (W16), live this season. S2/S4 Home and the Recruiting and Draft cards are live; S5 hero fixed (#236). Verify the real transition when each team's season ends (late November to January) | approved; verify live | C watches and fixes |
+| F6 | **Postseason alerts, first live season.** Weekly CFP releases through Dec 1, Selection Day Dec 6, bowl and playoff set or declined (2025: ND declined its bowl). Fix from what the real payloads show | approved; live | C watches |
 
-## Completed implementation: do not rebuild
+## 4. Proposed: needs a brief, a design or a decision
 
-| Work | Merged evidence |
+Grouped by where it would live, for the tab-by-tab creative review. Within each group, rough value order.
+
+### Home
+- **Last Time Out** (game notes #4). Last game's notables in one card until kickoff. Data: the notes.
+- **A countdown that ticks** on Home, where today it shows the date (audit).
+- **Coach's press conference** in the game week (notes #5). Data: the notes.
+
+### Game
+- **"The last time…" during a live game** (notes #16): "First 300-yard rushing game since Syracuse, 2025." The most distinctive idea we have; large.
+- **Win-probability line** (audit). ESPN's summary carries it. Excluded from Phase 2 by the spec, so it needs approval.
+- **Assistant coaches' game-day spots** (notes #6); **stadium and travel facts** (notes #25).
+- **In-game injuries: parked** (David, 2026-11-02). The feed can't say when a player returns. If picked up: report the event only, for both teams, and alert for mine.
+
+### Around
+- **Former players in the NFL** (David, 2026-11-05 and 2026-11-09; notes #24 "Irish in the NFL"). Lower priority, in Around (my team), not Home. Step 1 uses headlines Suite already reads: beat feeds keep NFL stories by design. Step 2, NFL team, role and injury status, needs a source: Sleeper's public API is unverified, so a read-only probe comes first.
+- **The wire, Phase 2 sources** (wire brief). Recommended: a free Bluesky pass, plus quote requests to Sleeper, RotoWire and SportsDataIO, drafted for David to send.
+
+### Roster / Players
+- **Player card:** tap a player for their season line. The stats exist; nothing joins them to the roster (audit).
+- **From the notes:** award watch lists (#10), player notes (#11), starts and streaks (#12), hometown and previous school (#13), NFL legacy (#14).
+- **Recruit stars from 247Sports and On3**, credited, beside ESPN's. Blocked: permission requested 2026-10-24.
+- **Projected NFL team for draft prospects.** Blocked: no usable mock-draft source.
+
+### Stats and Schedule
+- **From the notes:** record watch (#15), streak tracker (#17), big plays (#19), money downs (#20), scoring drives (#21), leaders per result (#22), official season stats (#23).
+- **Historical stats** (W27 phase 3): past seasons and career pages, after verifying sources and athlete identity.
+- **Coach file** (#18) and **program facts** (#26), under More → Team.
+
+### News
+- **"New since you last looked"**, with a stored timestamp (audit).
+- **Filter by source** (audit).
+
+### Settings and More
+- **Wire alert switches** (F1e).
+- **Structured feedback** (David, 2026-09-28). The smallest version structures the mail-app message; sending from the app needs the Worker, spam protection and a privacy note. Decision for David: which.
+- **A first-time push confirmation** instead of the repeated test alert, before any wider launch (decided earlier; not built).
+
+### Platform and program
+- **Every Suite its own** (0038; David, 2026-10-29). After parity: traditions, rivalries, voices and rhythms, from data and declared capabilities, never conditionals. Needs a brief, and a first team to prove it on.
+- **Personalisation (W22).** Favorites shipped (#187); anything further needs a scoped brief.
+- **One participation feature (W23)** and **a fan validation and measurement plan (W24)**. Each needs a brief; no analytics vendor is approved.
+- **Performance, remainder** (David, 2026-10-27/28: near-zero latency). Matchup prefetch and the first-paint font fix shipped (#210). Remaining:
+  - the matchup batch snapshot;
+  - a per-screen request inventory measured on a phone;
+  - the referee, a scheduled ESPN versus CFBD drift check (0037).
+
+## 5. Reliability and operations (Claude, ongoing)
+
+- **W10 bounded reliability.** Repeated same-version worker install; simplify refresh ownership only where it helps.
+- **W09 release evidence and physical device checks.** David's iPhone observations, push latency, the old shared-link launch. Never claimed from CI.
+- **Ohio State remainder (W20).** Conference-only availability freshness expectations. The depth chart waits on Ourlads' permission (X).
+- **January verification** of polls and markets against live payloads. Keep capturing real delayed, suspended and canceled games; never label invented fixtures as real.
+- **Cosmetic:** skipped-job names show a raw `${{ }}` in Actions.
+- **Recheck only if it recurs:** the Top 25 table 2 px wide at Ohio State, 320 px (#154).
+
+## 6. Blocked outside the project
+
+| Item | Waiting on |
 |---|---|
-| SP+ week by week (kept by the edge API, never a file) and FPI weeks filled in from ESPN's core API | #156, #157 |
-| Recruiting classes and the draft board, refreshed daily | #158 |
-| Season Outlook: one season's Kalshi markets at a time, never last season's | #160 |
-| Postseason alerts: CFP rankings released; Selection Day, postseason game set, withdrawn (a declined bowl), no postseason | #147, #152 (Worker edge-2026-10-21post); kinds added later start off for existing subscribers |
-| Offseason season data for the after-season Home | #153: `TeamOS.season.offseason`, ESPN's own final-poll mark for the AP; [contract](offseason-season-data.md) |
-| Top 25 week picker (every kept week of AP, Coaches, CFP and FPI) and the game sheet on every row | #149; the visual check reads sample weeks, #154 |
-| SP+ in Rankings | #142 (edge `/v1/cfbd/sp`); 320px selector #145 (Codex) |
-| Data requests fall back to the kept copy after 8 seconds | #151 |
-| News: football only; On3 by team path only | #146, #150 |
-| Launch check: no real network for the test browser | #148 |
-| Mobile Top 25 / Home / Game narrow-layout fixes | #126 (merged October 12) |
-| Core type, Ink/Pearl, Home/Game, Stats presentation and motion | #100, #104, #105, #106 |
-| Unified header; Settings gear; Full Schedule links | #76, #120, #72 |
-| Team Stats and Players season leaders | #82/#84, #92; presentation #104 |
-| Full-field Season Outlook | #109; targeted presentation review remains |
-| Game alerts and October 10 live delivery | #102/#103, #116, #119, #121; 34 completed deliveries, relative latency not measured after the speed fix |
-| OSU beat news/odds history and conference availability | #89, #118 |
-| FPI producer, model, scheduled refresh and Rankings UI | #35, #53, #90; UI #130 (Codex; replaced #127) |
-| Season phase model, source-supplied bowl labels, prospects foundations | #9, #94, #101; production offseason integration remains |
-| Battle/open-job framing limited to preseason/Game 1; OR retained | #39 |
-| Game notes and complete roster fetching | #114, #122 |
-| Unknown live-drive duration (Oct 10 scan #6) | #139 |
-| Kickoff time set/changed alerts and one delivery per device when it follows both teams | #140 (Worker edge-2026-10-14a); Settings switch #143 |
-| Game Alerts Settings: master switch and unified rows | #137 (Codex) |
-| Halftime: no possession football; who gets the ball to start the second half stays | #141 (David, October 14) |
-| Game team-toggle scroll stability | #123 |
-| Safe play text including overturned/no-play fixes | #78, #125; recheck the scan example before any new rewrite |
-| Refresh-clock setup, public-relay removal, source recovery fixes | #47, #46 and subsequent fixes including #58/#110 |
-| Shared browser-check server (W26) | #57; no repeat consolidation project |
-| Typed rivalry/trophy/event records (W21) | #62 |
-| Final flat Suite icons/wordmark and Share Suite | Released identity assets; sharing #87 |
+| Ohio State depth chart | Ourlads' permission |
+| 247Sports / On3 recruit stars | their permission (requested 2026-10-24) |
+| Projected NFL team | a usable mock-draft source |
+| Mountain West and Conference USA availability, read rather than linked | a feed from Faktor or the conferences |
+| DEV/Lab environments (#135) | David resuming; Cloudflare sign-in |
 
-## Superseded instructions
+## 7. Housekeeping
 
-- W06's larger depth-change disclosure was withdrawn October 1. Preserve
-  compact changes, arrows, official OR and Week by week. Issue #30 was closed as not planned on October 12; do not rebuild it.
-- Instrument Sans/Display with **Georgia**, not Instrument Serif (October 4/5).
-  OSU Team Style uses Nunito Sans. ND retains Suite type.
-- Unified SUITE/team header stands; Settings is the header gear, with no
-  selected bottom tab while open (0031, 0034).
-- The halftime receiver football approved in #23 is gone: David, October
-  14, "Drop the football but keep the 'gets the ball' line" (#141). The
-  "X gets the ball to start the second half" text stays on Top 25, the Game
-  header and Home.
-- The edge API and push service already exist. Do not commission a backend
-  proposal or replace SQLite Durable Objects with a new database by default.
+- **Branches for David to delete.** These are probe, capture and finished work, none needed:
+  - nd-probe, tests-fixture-clock, avail-window, news-timing, backlog-wire, pac12-probe, pac12-advance, source-health, around-brief, nav-brief, wire-brief, merge-rule, around-tab, around-layers;
+  - audit-capture, design/suite-current-state-audit, fix/headline-entities, fix/s5-home-hero, p2s1-capture, p2s1b-capture;
+  - design/nav-evaluation (decided; the evaluation lives on #240), capture/nd-mia-live, probe/scroll-webkit, fix/game-scroll-refresh;
+  - confav-probe, and the older probe/* and scan/* branches.
 
-## External and conditional follow-ups
+  Keep: open PR branches, `claude/lnd-implementation-status-owqyo9`, and anything David chose to keep (branch-cleanup.md).
+- **Docs that contradict decisions,** to correct when next touched:
+  - `suite-product-blueprint.md` still calls notifications deferred; they shipped (W19).
+  - `CLAUDE.md`'s branch strategy still says the retired branches go to archive tags. David chose to keep them, with GitHub deleting merged branches automatically (branch-cleanup.md).
+  - `codex-review-queue.md` is inactive since Codex's role changed (0035, 0040).
+  - `current-architecture.md` gains `TeamOS.wire` and the redesign components as they land.
 
-- **Ohio State game notes are published, on the Media Center page.** The
-  October 11–15 probes (`probe/osu-notes`) looked at the Game Centers and the
-  schedule page and found none; the 2026 Ohio State Football Media Center
-  (ohiostatebuckeyes.com) links each week's "Ohio State Notes" PDF (probe of
-  2026-10-26, `probe-osu-media`). They carry By the Numbers, the series,
-  captains, a pronunciation guide and the all-time record; no depth chart.
-  Ohio State's Road to 1,000 uses the record, and `official_notes.py` reads
-  the notes into `data/ohio-state/notes.json` with the same parser as Notre
-  Dame's, taught the second layout (David, 2026-10-26).
-- Ourlads permission for OSU depth remains external. No projected chart on
-  assumed permission; official OR designations stay as supplied.
-- January live provider verification for polls/markets remains dated; use
-  existing real historical fixtures to build before then.
-- Keep capturing real exceptional delayed/suspended/canceled payloads when
-  available. Do not label invented fixtures as real captures.
-- Before a broader public launch, replace the repeated test push with an
-  on-screen confirmation or first-time-only push, as David already decided.
-  Preserve current licensing/data decisions; revisit before monetization or
-  wider promotion. No new licensing outreach is authorized by this queue.
-- Physical iPhone checks, the old shared-link Safari launch observation and
-  measured push latency need David's observations; do not assume completion.
-- CI once reported the Top 25 table 2px wider than its card at Ohio State
-  320px on real Week 8 data (#154). It did not reproduce locally; recheck
-  only if it recurs.
-- Codex's review credits ran out on October 21: the last commits of #152
-  and #153 were not re-reviewed by Codex.
-- Internal iw- identifiers and optional old Cloudflare GitHub App cleanup
-  are not fan-facing build blockers. More teams/sports and transfer sources
-  stay discovery, not unlimited implementation scope.
+## Removed or superseded
 
-## Delivery contract
-
-One owner per slice, short branch and PR, preserve TeamOS/Suite boundaries.
-Claude owns implementation and design, inside the established design
-(decision 0035); Codex is consulted ad hoc by David for design questions, and
-nothing waits on it.
-Required checks, concrete visual review and David's release approval precede
-merge. A source blocker blocks its item only. Update this queue after accepted
-merges; built, tested, approved, merged and production-verified are distinct.
+| Was | Why it is gone |
+|---|---|
+| W13 photography and W14 "targeted visual finish, no broad brand reset" | Superseded by the redesign (0040): R1-R4, art by the Creative Director (R3). No licensed photography exists |
+| "Claude owns implementation and design" (0035) | The design ownership is superseded by 0040. Claude implements; ChatGPT directs design |
+| Instrument Sans/Display with Georgia | Georgia retired from interface headings (spec §3.2, Stage 1) |
+| The wire as "sources to weigh, none chosen; next step a brief" | The brief exists; Phase 1 is approved; the taxonomy is decided (F1) |
+| Former players in the NFL, and notes #24 "Irish in the NFL", as two items | One item, in Around (§4) |
+| Return as its own wire category; Surgery as its own | Return folds into Availability; Surgery into Injury (David, 2026-11-09) |
+| Offseason W16 "Claude finishes #161" | Shipped (S2/S4, Recruiting and Draft cards, S5 fix). Only live verification remains (F5) |
+| The Top 25 tab, "Games", out-of-season News in the nav slot | Decided: Around all year (#228, #232); News lives on Home and More |
+| Performance "matchup batched" as fully open | Prefetch shipped (#210); the remainder is listed in §4 |
+| Playwright upgrade and the ubuntu-24.04 pins | Done (Playwright 1.64.1) |
+| The 1,000th-win dry run, logo sizing, the white launch flash, Top 25 sheet flicker, availability publishing schedule, source-health emails | Done and shipped (Oct 25 to Nov 6) |
+| W25 "old branches remain; no deletion campaign" | Replaced by §7: David deletes the listed temporary branches; GitHub deletes merged PR branches automatically |
+| Codex review of #152/#153 tails | Codex is ad hoc only; nothing waits on it |
