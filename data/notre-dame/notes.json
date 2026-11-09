@@ -3,13 +3,13 @@
  "team": "notre-dame",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/40b2008d-c89c-423c-8fc6-b7f0a2262422.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/44c65fb4-d237-418a-9e4b-ebed301dbc22.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/05/b9v8hrW8jexbcee5StKXJeeRllUgDNDruB3sQuWE.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/09/otfCHTQK5L0Seo4I7320Lji0Ordvz2HMb2YhsO3n.pdf",
  "parser": 2,
- "fetchedAt": "2026-11-05T17:36:25.031347+00:00",
- "publishedAt": "2026-11-05",
- "game": "Miami",
+ "fetchedAt": "2026-11-09T21:08:32.840428+00:00",
+ "publishedAt": "2026-11-09",
+ "game": "Boston College",
  "pronounce": {
   "Khary Adams": "CAR-ee",
   "Matty Augustine": "August-EEN",
@@ -69,6 +69,9 @@
  },
  "captains": [],
  "honors": {
+  "Sullivan Absher": [
+   "Outland Trophy National Player of the Week (Nov. 3)"
+  ],
   "Will Black": [
    "Shaun Alexander Freshman of the Year Award Watch List"
   ],
@@ -84,6 +87,7 @@
    "Davey O’Brien Great 8 (Oct. 5)",
    "ESPN Preseason All-America Second Team",
    "Johnny Unitas Golden Arm Award Watch List",
+   "Johnny Unitas Golden Arm Award Top 10 (Nov. 6)",
    "Manning Award Watch List",
    "Manning Award Star of the Week (Oct. 5)",
    "Maxwell Award Watch List",
@@ -95,9 +99,11 @@
   ],
   "Ashton Craig": [
    "College Football Comeback Player of the Year Pre-Season Watch List",
+   "College Football Comeback Player of the Year Midseason Watch List",
    "Rimington Trophy Watch List"
   ],
   "Jordan Faison": [
+   "Burlsworth Trophy Nominee",
    "Pony Express Award Watch List"
   ],
   "Devin Fitzgerald": [
@@ -106,6 +112,7 @@
   "Jaden Greathouse": [
    "College Football Comeback Player of the Year Pre-Season Watch List",
    "Comeback Player of the Week (Oct. 20)",
+   "College Football Comeback Player of the Year Midseason Watch List",
    "Earl Campbell Tyler Rose Award Watch List"
   ],
   "Charles Jagusah": [
@@ -170,12 +177,16 @@
   "Spencer Porath": [
    "Lou Groza Award Watch List"
   ],
+  "Jasper Scaife": [
+   "Ray Guy Award Midseason Watch List"
+  ],
   "Adon Shuler": [
    "Chuck Bednarik Award Watch List"
   ],
   "Luke Talich": [
    "William V. Campbell Trophy Nominee",
-   "William V. Campbell Trophy Semifinalist"
+   "William V. Campbell Trophy Semifinalist",
+   "Burlsworth Trophy Walk-On of the Week (Nov. 3)"
   ],
   "Boubacar Traore": [
    "Associated Press Midseason All-America Second Team",
@@ -202,7 +213,8 @@
   "Jonaz Walton": [
    "Paul Hornung Award Weekly Honor Roll (Oct. 6)",
    "Shaun Alexander Award Freshman of the Week (Oct. 13)",
-   "On3 Midseason True Freshman All-America Team"
+   "On3 Midseason True Freshman All-America Team",
+   "Shaun Alexander Award Freshman of the Year Semifinalist"
   ],
   "Aneyas Williams": [
    "Paul Hornung Award Weekly Honor Roll (Sept. 9)"
@@ -213,12 +225,12 @@
   ]
  },
  "glance": [
-  "Saturday night will mark the 29th meeting between Notre Dame and Miami. The series stands at an 18-9-1 all-time advantage for Notre Dame.",
-  "It is the second meeting between Marcus Freeman and Mario Cristobal as head coaches. Both are in their fifth season at the helm of their respective programs.",
-  "Notre Dame is 9-1-0 against Miami at Notre Dame Stadium.",
-  "The Irish have won three straight agianst the Hurricanes at Notre Dame Stadium, starting with the 1988 meeting between Notre Dame and Miami, when the Irish won a classic 31-30.",
-  "The two sides have entered the contest both ranked in the Top 25 on ten previous occasions, as this year’s meeting will mark the 11th such instance.",
-  "The last meeting between the Irish and the Hurricanes came last season in 2025. No. 10 Miami took a 27-24 decision over No. 5 Notre Dame at Hard Rock Stadium."
+  "Saturday afternoon will mark the 29th meeting between Notre Dame and Boston College. The series stands with a 19-9-0 Notre Dame advantage all-time.",
+  "The Irish are 9-5-0 all-time in home games against the Eagles.",
+  "The first meeting between Notre Dame and Boston College inside Notre Dame Stadium came in 1987, when the Irish defeated the Eagles 32-25.",
+  "Notre Dame has won ten consecutive games against Boston College. The current Irish streak started in 2009, ending a six-game winning streak in the series for the Eagles, which started in 2001.",
+  "It is the second meeting between Marcus Freeman and Bill O'Brien as head coaches.",
+  "The Irish are 2-0 against the Eagles under Freeman."
  ],
  "numbers": [
   {
@@ -226,64 +238,68 @@
    "text": "Points opponents have scored off Notre Dame turnovers this season."
   },
   {
-   "n": "1",
-   "text": "Boubacar Traore became the first Irish player since at least 1998 to record both a strip sack and an interception in the same game, accomplishing the feat against Stanford."
+   "n": "2",
+   "text": "Career-high touchdown receptions for Micah Gilbert against No. 1 Miami."
   },
   {
    "n": "2",
    "text": "Drayk Bowen and Adon Shuler are the 28th and 29th players to be elected captain twice."
   },
   {
+   "n": "3",
+   "text": "Interceptions for Luke Talich this season, leading the Irish."
+  },
+  {
    "n": "5",
    "text": "Luke Talich is the fifth NDFB player to have a receiving touchdown, an interception-return touchdown and a punt-return touchdown."
   },
   {
-   "n": "7",
-   "text": "Career interceptions for Leonard Moore, most among all returning Irish defenders."
-  },
-  {
-   "n": "8",
-   "text": "Career-high receptions for Jaden Greathouse at BYU, totaling 125 receiving yards."
+   "n": "6",
+   "text": "Consecutive games without allowing a sack."
   },
   {
    "n": "9",
-   "text": "Notre Dame victories over the AP’s No. 1 team, tied with Miami for second-most nationally behind Alabama’s 11."
+   "text": "Games with a touchdown for Nolan James Jr. in 2026—every game this season."
   },
   {
-   "n": "13",
-   "text": "College GameDay visits to South Bend, including Saturday’s matchup with Miami."
+   "n": "10",
+   "text": "Notre Dame victories over AP No. 1 teams following the 31-24 win over Miami."
   },
   {
-   "n": "16",
-   "text": "Takeaways by the Irish through eight games, including eight interceptions and eight fumble recoveries."
+   "n": "12",
+   "text": "Consecutive November victories for Marcus Freeman."
   },
   {
-   "n": "29",
-   "text": "Consecutive games with a reception for Jordan Faison, three shy of TJ Jones’ program-record 32."
+   "n": "18",
+   "text": "Takeaways through nine games, including nine interceptions and nine fumble recoveries."
   },
   {
-   "n": "32",
-   "text": "Career field goals for Spencer Porath (32-for-39, 82.1%), who is 77-for78 on career extra points."
+   "n": "21",
+   "text": "Consecutive games in which Notre Dame has scored at least 24 points, a program record."
   },
   {
-   "n": "33",
-   "text": "Non-offensive touchdowns scored by Notre Dame since the start of the 2021 season."
+   "n": "26",
+   "text": "Consecutive home wins over ACC opponents, a program record."
   },
   {
-   "n": "42",
+   "n": "30",
+   "text": "Consecutive games with a reception for Jordan Faison, two shy of T.J. Jones’ 32-game streak."
+  },
+  {
+   "n": "45",
    "text": "Career touchdown passes for CJ Carr, seventh in Notre Dame history."
   },
   {
-   "n": "50",
-   "text": "Wins for Marcus Freeman at Notre Dame after the victory over Navy."
-  },
-  {
-   "n": "97",
-   "text": "Yards on Jonaz Walton's first career touchdown run, a second-quarter score against Stanford."
+   "n": "172",
+   "text": "Consecutive pass attempts without an interception for CJ Carr, the longest streak of his career."
   },
   {
    "n": "181",
-   "text": "Rushing yards for Jonaz Walton against Stanford, the most in a game by a Notre Dame true freshman, surpassing Josh Adams’ 168 at Stanford in 2015."
+   "text": "Rushing yards for Jonaz Walton against Stanford, the most in a game by a Notre Dame true freshman."
+  },
+  {
+   "n": "319",
+   "text": "Passing yards for CJ Carr against No. 1 Miami, his first 300-yard game of 2026 and third of his career."
   }
  ]
 }
