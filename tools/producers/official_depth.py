@@ -243,9 +243,13 @@ def main():
             except Exception as e:                       # noqa: BLE001
                 if latest:
                     sys.exit("current chart (%s) failed: %s - leaving files alone" % (row["game"], e))
-                log("  skip:", str(e)[:140])
-                continue
-        charts.append(chart)
+                # A past week's chart that will not read costs that chart
+                # only: its availability report below is still kept, so the
+                # history never loses a week (code review, 2026-11-09).
+                log("  skip chart:", str(e)[:140])
+                chart = None
+        if chart is not None:
+            charts.append(chart)
 
         # ---- the availability report, from that week's game notes ----
         if not row["notes"]:

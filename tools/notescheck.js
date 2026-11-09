@@ -51,6 +51,8 @@ ok(N.forGame(notes, stanford) === notes, "the notes belong to the Stanford game"
 ok(N.forGame(notes, { oppName: "Stanford", status: "live" }) === notes, "and still while it is played");
 eq(N.forGame(notes, { oppName: "Stanford", status: "final" }), null, "not once it is final: last week's numbers never sit beside next week's game");
 eq(N.forGame(notes, { oppName: "BYU", status: "scheduled" }), null, "not for another opponent");
+eq(N.forGame(N.model(Object.assign({}, snap, { game: "Miami" }), CFG), { oppName: "Miami (OH)", status: "scheduled" }) !== null, true,
+   "the notes' \"Miami\" (the reader drops \"(OH)\") is the Miami (OH) game ESPN names (code review, 2026-11-09)");
 eq(N.forGame(N.model(Object.assign({}, snap, { game: "Michigan State" }), CFG), { oppName: "Michigan St", status: "scheduled" }) !== null, true,
    "\"Michigan State\" in the notes is ESPN's \"Michigan St\"");
 eq(N.model(Object.assign({}, snap, { team: "ohio-state" }), CFG), null, "another team's snapshot: nothing");

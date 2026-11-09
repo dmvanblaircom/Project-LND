@@ -99,4 +99,12 @@ ok(H.append({"points": [last]}, same, now) is None, "the same price from the sam
 switched = dict(same, titleEvent="KXNCAAF-28")
 ok(H.append({"points": [last]}, switched, now) is not None, "the same price from next season's event: kept, as a new season's first point")
 
+# the market's own name decides, as Season Outlook reads it (code review, 2026-11-09)
+_k = {"namePattern": {"source": "Ohio St", "flags": "i"}}
+_ms = [{"ticker": "X-AAA", "yes_sub_title": "Alabama", "title": "Will Ohio St or Alabama win?", "yes_bid": 40, "yes_ask": 42, "last_price": 41},
+       {"ticker": "X-BBB", "yes_sub_title": "Ohio St.", "title": "Champion", "yes_bid": 20, "yes_ask": 22, "last_price": 21}]
+_p = H.team_price(_ms, _k)
+_m = [m for m in _ms if m["ticker"] == "X-BBB"][0]
+ok(_p is not None and _p == H.team_price([_m], _k), "a title mentioning the team is not the team's market; its own name is (got %r)" % _p)
+
 print("\n%d checks: one season's markets at a time, never last season's" % checks)

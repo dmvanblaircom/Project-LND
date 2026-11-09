@@ -24,6 +24,7 @@ failed team keeps its last good files and every other team updates.
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -179,13 +180,24 @@ def github(path, method="GET", data=None):
         return json.load(r) if r.status != 204 else None
 
 
-def open_issues():
+# The source an issue is about, read from its own marker - any source, not
+# only those NAMES spells out, or a source missing from NAMES opened a new
+# issue every run and never closed one (code review, 2026-11-09).
+MARK_RE = re.compile(re.escape(MARK).replace(re.escape("%s"), r"([^\s>]+)"))
+
+
+def sources_in(issues):
+    """open issues (GitHub's JSON) -> {source: issue number}."""
     out = {}
-    for i in github("/issues?state=open&labels=%s&per_page=100" % LABEL):
-        for source in NAMES:
-            if (MARK % source) in (i.get("body") or ""):
-                out[source] = i["number"]
+    for i in issues or []:
+        m = MARK_RE.search(i.get("body") or "")
+        if m:
+            out[m.group(1)] = i["number"]
     return out
+
+
+def open_issues():
+    return sources_in(github("/issues?state=open&labels=%s&per_page=100" % LABEL))
 
 
 def main():

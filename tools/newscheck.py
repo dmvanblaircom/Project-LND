@@ -37,6 +37,14 @@ rss = bn.parse_feed(RSS, "Site A")
 ok([(i["title"], i["published"]) for i in rss] == [("Depth chart notes", "2026-09-22T14:00:00+00:00")],
    "RSS: stories with a title and a link, dated in UTC; the linkless one dropped")
 atom = bn.parse_feed(ATOM, "Site B")
+# RSS 1.0 (RDF): items in their own namespace, a Dublin Core date (code review, 2026-11-09)
+RDF = b"""<?xml version="1.0"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel rdf:about="https://site.example/"><title>Site C</title><link>https://site.example/</link></channel>
+<item rdf:about="https://site.example/a"><title>Irish land a commitment</title><link>https://site.example/a</link><description>Short.</description><dc:date>2026-11-08T14:00:00Z</dc:date></item>
+</rdf:RDF>"""
+rdf = bn.parse_feed(RDF, "Site C")
+ok(len(rdf) == 1 and rdf[0]["title"] == "Irish land a commitment" and rdf[0]["link"] == "https://site.example/a" and (rdf[0]["published"] or "").startswith("2026-11-08"),
+   "an RSS 1.0 feed gives its stories, dated, instead of reading as a working feed with none (%r)" % rdf)
 ok([(i["title"], i["link"]) for i in atom] == [("Purdue preview", "https://b.example/2")], "Atom entries too")
 for bad, what in ((b"<html><body>404 Not Found</body></html>", "an HTML error page"), (b"not xml", "garbage")):
     try:
@@ -219,6 +227,19 @@ ok(items[0]["image"] == "https://p.example/feed.jpg" and "https://p.example/has"
 ok(items[1]["image"] == "https://p.example/old.jpg" and "https://p.example/kept" not in asked, "a story already pictured last run is not read again")
 ok(not items[2].get("image") and items[3]["image"] == "https://p.example/n0.jpg", "a page that does not answer leaves its story as it was; the next is read")
 ok(read == 4 and len(asked) == 4 and not items[-1].get("image"), "at most four pages a run here (eight in production)")
+# a page read once that shares no picture is not read again every run (code review, 2026-11-09)
+asked[:] = []
+def bare(url):
+    asked.append(url)
+    return "<p>no share image here"
+one = [{"link": "https://p.example/plain"}]
+bn.fill_images(one, [], bare)
+again = [{"link": "https://p.example/plain"}]
+bn.fill_images(again, one, bare)
+ok(asked == ["https://p.example/plain"] and again[0].get("imageTried"), "a page with no picture is read once, then remembered (%r)" % asked)
+dead = [{"link": "https://p.example/dead"}]
+bn.fill_images(dead, [], reader)
+ok(not dead[0].get("imageTried"), "a page that did not answer is tried again next run")
 import teamconfig  # noqa: E402
 # Every config: a feed that is a whole sports section (".../category/sports/
 # feed/", ".../sports/feed/") is marked so, or it would bring in every sport

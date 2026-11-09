@@ -45,6 +45,8 @@ KEEP = 60
 PER_SOURCE = 15     # no one outlet fills the list (David, 2026-09-24)
 COMMON_PATHS = ("feed/", "feed", "rss", "rss/", "rss.xml", "feed.xml", "index.xml", "rss/current.xml", "atom.xml")
 ATOM = "{http://www.w3.org/2005/Atom}"
+RSS1 = "{http://purl.org/rss/1.0/}"
+DC = "{http://purl.org/dc/elements/1.1/}"
 FEED_TYPES = ("application/rss+xml", "application/atom+xml", "application/xml", "text/xml")
 
 # The league's other sports, by the words a headline, address or category
@@ -168,6 +170,9 @@ def fill_images(items, old_items, read_page, limit=8):
     from the page, at most `limit` pages a run. A page that does not answer
     leaves the story as it was. -> the number of pages read."""
     known = {it.get("link"): it.get("image") for it in (old_items or []) if it.get("image")}
+    # A page already read that shares no picture is not read again every run
+    # (code review, 2026-11-09: up to 8 pages a team, every half hour).
+    tried = {it.get("link") for it in (old_items or []) if it.get("imageTried")}
     read = 0
     for it in items:
         if it.get("image"):
@@ -175,13 +180,18 @@ def fill_images(items, old_items, read_page, limit=8):
         if it.get("link") in known:
             it["image"] = known[it["link"]]
             continue
+        if it.get("link") in tried:
+            it["imageTried"] = True
+            continue
         if read >= limit:
             continue
         read += 1
         try:
             it["image"] = page_image(read_page(it["link"]), it["link"])
+            if not it["image"]:
+                it["imageTried"] = True
         except Exception:                               # noqa: BLE001 - one page never stops the run
-            pass
+            pass                                        # a page that did not answer is tried again
     return read
 
 
@@ -243,12 +253,17 @@ def parse_feed(raw, source, source_logo=None):
         raise ValueError("XML, but not a feed (<%s>)" % root.tag)
     logo = image_url(source_logo or root.findtext("./channel/image/url") or root.findtext(ATOM + "logo") or root.findtext(ATOM + "icon"), "")
     items = []
-    for it in root.iter("item"):
-        t, link = _headline(it.find("title")), _text(it.find("link"))
-        d = when(_text(it.find("pubDate")))
+    # RSS 2.0's items, and RSS 1.0's, which live in their own namespace with
+    # a Dublin Core date (code review, 2026-11-09: an RSS 1.0 feed read as
+    # working and gave nothing).
+    rss1 = root.tag.endswith("}RDF")
+    for it in root.iter(RSS1 + "item" if rss1 else "item"):
+        ns = RSS1 if rss1 else ""
+        t, link = _headline(it.find(ns + "title")), _text(it.find(ns + "link"))
+        d = when(_text(it.find("pubDate")) or _text(it.find(DC + "date")))
         if t and WEB.match(link or ""):
             items.append({"title": t, "link": link, "source": source,
-                          "summary": _text(it.find("description"))[:600],
+                          "summary": _text(it.find(ns + "description"))[:600],
                           "image": article_image(it, link), "sourceLogo": logo,
                           "published": d.isoformat() if d else None,
                           "categories": [_text(c) for c in it.findall("category") if _text(c)]})

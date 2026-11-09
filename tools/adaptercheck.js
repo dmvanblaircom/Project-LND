@@ -696,11 +696,11 @@ eq(stubsOnly.map(function (r) { return r.rank; }), [null,null,null,null,null,nul
 console.log("scoreLines()");
 var lines = TeamOS.espn.scoreLines(fixture, "87");
 eq(lines.length, 4, "one line per event on the schedule");
-eq(lines[1], { state:"post", us:"41", them:"13" }, "a finished game, from this team's point of view");
-eq(lines[0], { state:"pre", us:null, them:null }, "an unplayed one carries no score");
-eq(TeamOS.espn.scoreLines(fixture, "275")[1], { state:"post", us:"13", them:"41" },
+eq(lines[1], { state:"post", status:"final", us:"41", them:"13" }, "a finished game, from this team's point of view");
+eq(lines[0], { state:"pre", status:"scheduled", us:null, them:null }, "an unplayed one carries no score");
+eq(TeamOS.espn.scoreLines(fixture, "275")[1], { state:"post", status:"final", us:"13", them:"41" },
    "the same game read for the other team is the mirror");
-eq(TeamOS.espn.scoreLines(fixture, "999")[1], { state:"post", us:null, them:"13" },
+eq(TeamOS.espn.scoreLines(fixture, "999")[1], { state:"post", status:"final", us:null, them:"13" },
    "a team not in the game has no score of its own");
 eq(TeamOS.espn.scoreLines(null, "87"), [], "no payload -> no lines");
 ok(!/competitions|competitors|displayValue|homeAway/.test(JSON.stringify(lines)), "carries no ESPN keys");

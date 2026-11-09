@@ -54,7 +54,10 @@ def team_price(markets, kalshi):
     match a look-alike listed first: "Western Michigan" for Michigan,
     2026-10-29). teamos/markets.js picks the same way."""
     suffix, pattern = kalshi.get("tickerSuffix"), teamconfig.regex(kalshi.get("namePattern"))
-    def name(m): return " ".join(str(m.get(k, "")) for k in ("yes_sub_title", "subtitle", "title"))
+    # the first name a market has, as teamos/markets.js reads it: joined, a
+    # title that mentions the team matched a market whose own name does not
+    # (code review, 2026-11-09)
+    def name(m): return next((str(m[k]) for k in ("yes_sub_title", "subtitle", "title", "ticker") if m.get(k)), "")
     own = next((m for m in markets if suffix and str(m.get("ticker", "")).endswith(suffix)), None)
     if own is None and pattern:
         own = next((m for m in markets if pattern.search(name(m))), None)
