@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "98",
  "classYear": 2027,
- "listed": 27,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -71,19 +71,6 @@
    "rank": null,
    "positionRank": 109,
    "stateRank": 41,
-   "status": "Verbal"
-  },
-  {
-   "id": "262679",
-   "name": "Velon Henderson",
-   "position": "ATH",
-   "highSchool": "Oakland High School",
-   "city": "Murfreesboro",
-   "state": "TN",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 81,
-   "stateRank": 55,
    "status": "Verbal"
   },
   {
@@ -282,19 +269,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273499",
-   "name": "Kamron Smith",
-   "position": "RB",
-   "highSchool": "Mary G. Montgomery High School",
-   "city": "Semmes",
-   "state": "AL",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "271595",
    "name": "Kevin Gilyard",
    "position": "OT",
@@ -314,19 +288,6 @@
    "highSchool": "Pearl-Cohn High School",
    "city": "Nashville",
    "state": "TN",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "273073",
-   "name": "Langston Abernathy",
-   "position": "WR",
-   "highSchool": "Peachtree Ridge High School",
-   "city": "Suwanee",
-   "state": "GA",
    "grade": 43,
    "rank": null,
    "positionRank": null,
@@ -360,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:47Z"
+ "fetchedAt": "2026-11-09T16:40Z"
 }

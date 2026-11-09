@@ -5,22 +5,9 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "328",
  "classYear": 2027,
- "listed": 7,
+ "listed": 6,
  "committedElsewhere": 0,
  "recruits": [
-  {
-   "id": "273537",
-   "name": "Noah Fiefia",
-   "position": "RB",
-   "highSchool": "Ridgeline High School",
-   "city": "Millville",
-   "state": "UT",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 84,
-   "stateRank": 21,
-   "status": "Verbal"
-  },
   {
    "id": "273272",
    "name": "Brayden Hanks",
@@ -100,5 +87,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:16Z"
+ "fetchedAt": "2026-11-09T16:40Z"
 }

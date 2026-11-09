@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "265",
  "classYear": 2027,
- "listed": 22,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -230,19 +230,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271835",
-   "name": "Landon Guenter",
-   "position": "OT",
-   "highSchool": "Redwood High School",
-   "city": "Visalia",
-   "state": "CA",
-   "grade": 72,
-   "rank": null,
-   "positionRank": 171,
-   "stateRank": 181,
-   "status": "Verbal"
-  },
-  {
    "id": "273080",
    "name": "Randolph Santiago",
    "position": "OT",
@@ -295,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-07T03:11Z"
+ "fetchedAt": "2026-11-09T16:40Z"
 }

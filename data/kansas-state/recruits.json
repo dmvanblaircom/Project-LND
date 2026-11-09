@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2306",
  "classYear": 2027,
- "listed": 27,
+ "listed": 26,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -149,19 +149,6 @@
    "rank": null,
    "positionRank": 87,
    "stateRank": 14,
-   "status": "Verbal"
-  },
-  {
-   "id": "272556",
-   "name": "Finn Walker",
-   "position": "DE",
-   "highSchool": "Oak Ridge High School",
-   "city": "Conroe",
-   "state": "TX",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 94,
-   "stateRank": 106,
    "status": "Verbal"
   },
   {
@@ -360,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:42Z"
+ "fetchedAt": "2026-11-09T16:39Z"
 }
