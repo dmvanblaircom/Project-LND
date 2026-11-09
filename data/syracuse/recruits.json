@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "183",
  "classYear": 2027,
- "listed": 25,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "262170",
+   "name": "Sidney Rouleau",
+   "position": "OT",
+   "highSchool": "The Brook Hill School",
+   "city": "Bullard",
+   "state": "TX",
+   "grade": 81,
+   "rank": 255,
+   "positionRank": 25,
+   "stateRank": 34,
+   "status": "Verbal"
+  },
   {
    "id": "261530",
    "name": "Elijah Kimble",
@@ -84,19 +97,6 @@
    "rank": null,
    "positionRank": 68,
    "stateRank": 25,
-   "status": "Verbal"
-  },
-  {
-   "id": "265350",
-   "name": "Travis Miles",
-   "position": "CB",
-   "highSchool": "Hillside High School",
-   "city": "Hillside",
-   "state": "NJ",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 82,
-   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -201,19 +201,6 @@
    "rank": null,
    "positionRank": 149,
    "stateRank": 111,
-   "status": "Verbal"
-  },
-  {
-   "id": "272726",
-   "name": "Dylan Northcutt",
-   "position": "CB",
-   "highSchool": "Notre Dame High School",
-   "city": "Sherman Oaks",
-   "state": "CA",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 133,
-   "stateRank": 113,
    "status": "Verbal"
   },
   {
@@ -334,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:45Z"
+ "fetchedAt": "2026-11-08T20:15Z"
 }

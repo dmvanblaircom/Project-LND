@@ -1,7 +1,70 @@
 {
  "team": "louisiana-tech",
- "updated": "2026-11-06T16:08:05.740408+00:00",
+ "updated": "2026-11-09T14:38:06.311044+00:00",
  "items": [
+  {
+   "title": "Six Chapters, One Story. Chapter Five: One More",
+   "link": "https://latechsports.com/news/2026/11/9/football-six-chapters-one-story-chapter-five-one-more",
+   "source": "LA Tech Athletics",
+   "summary": "<img alt=\"Chapter Five Hero\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/250919_FTB_Southern_Miss_047.jpg\" /><br /><br />RUSTON\u00a0| On Saturday, November 14, Ruston turns red, and the day starts early.",
+   "image": "https://latechsports.com/images/2026/11/9/250919_FTB_Southern_Miss_047.jpg?width=800",
+   "sourceLogo": "https://latechsports.com/favicon.ico",
+   "published": "2026-11-09T14:18:00+00:00"
+  },
+  {
+   "title": "Monday Morning Hype: LA Tech Looks to Clinch West with Win over Southern Miss",
+   "link": "https://on3.com/sites/bleed-tech-blue/news/monday-morning-hype-la-tech-looks-to-clinch-west-with-win-over-southern-miss/",
+   "source": "Bleed Tech Blue",
+   "summary": "Louisiana Tech (7-2, 5-0) returns home Saturday to face Southern Miss (3-6, 2-3), riding a six-game winning streak and looking to clinch the Sun Belt West Division with a victory.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08133626/Burnette.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-09T11:30:00+00:00"
+  },
+  {
+   "title": "PFF Player Grades & Snap Count Totals: Backup QB Kukuk Sparks Tech to Sixth Straight Win",
+   "link": "https://on3.com/sites/bleed-tech-blue/news/pff-player-grades-snap-count-totals-backup-qb-kukuk-sparks-tech-to-sixth-straight-win/",
+   "source": "Bleed Tech Blue",
+   "summary": "Quarterback Blake Baker left after the opening drive of the second half with an injury, but Trey Kukuk stepped in and delivered, steering Tech the rest of the way.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08071422/Kukuk-1.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T14:05:00+00:00"
+  },
+  {
+   "title": "PFF Player Grades & Snap Count Totals: Five Turnovers Fuel Louisiana Tech\u2019s Rout of Troy",
+   "link": "https://on3.com/sites/bleed-tech-blue/news/pff-player-grades-snap-count-totals-five-turnovers-fuel-louisiana-techs-rout-of-troy/",
+   "source": "Bleed Tech Blue",
+   "summary": "Luke Olson\u2019s defense was once again the story, forcing five turnovers and holding the Trojans to just 262 total yards.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08065505/Lockhardt.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T14:00:00+00:00"
+  },
+  {
+   "title": "Around the Schedule: How Louisiana Tech's Future Opponents Fared in Week 10",
+   "link": "https://on3.com/sites/bleed-tech-blue/news/around-the-schedule-how-louisiana-techs-future-opponents-fared-in-week-10/",
+   "source": "Bleed Tech Blue",
+   "summary": "So how did the rest of Tech\u2019s 2026 opponents fare in Week 10?",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08072002/White.webp",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-08T13:20:59+00:00"
+  },
+  {
+   "title": "Bulldogs Showcase Defensively, Down Troy To Remain Undefeated In Sun Belt Play",
+   "link": "https://latechsports.com/news/2026/11/7/football-bulldogs-showcase-defensively-down-troy-to-remain-undefeated-in-sun-belt-play",
+   "source": "LA Tech Athletics",
+   "summary": "<img alt=\"Alonzo Jackson Jr. at Troy\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/recap_image_Troy_FB.png\" /><br /><br />TROY, Ala. -- Louisiana Tech continued its unbeaten start to Sun Belt Conference play Saturday afternoon, forcing five turnovers and scoring 21 unanswered points in the second half to defeat Troy, 41-17, in the first-ever meeting between the two programs at Veterans Memorial Stadium.",
+   "image": "https://latechsports.com/images/2026/11/7/recap_image_Troy_FB.png?width=800",
+   "sourceLogo": "https://latechsports.com/favicon.ico",
+   "published": "2026-11-08T01:58:00+00:00"
+  },
+  {
+   "title": "GAME DAY PRIMER: Louisiana Tech vs Troy",
+   "link": "https://on3.com/sites/bleed-tech-blue/news/game-day-primer-louisiana-tech-vs-troy/",
+   "source": "Bleed Tech Blue",
+   "summary": "Louisiana Tech (6-2, 4-0 Sun Belt) heads to Troy (4-4, 2-2) for a Sun Belt matchup on Saturday afternoon.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/03155332/Finley.webp",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-07T12:00:00+00:00"
+  },
   {
    "title": "BleedTechBlue Staff Predictions: Louisiana Tech vs. Troy",
    "link": "https://on3.com/sites/bleed-tech-blue/news/bleedtechblue-staff-predictions-louisiana-tech-vs-troy/",
@@ -102,51 +165,6 @@
    "published": "2026-11-03T12:00:00+00:00"
   },
   {
-   "title": "Monday Morning Hype: A Win in Troy Nearly Seals the West for Louisiana Tech",
-   "link": "https://on3.com/sites/bleed-tech-blue/news/monday-morning-hype-a-win-in-troy-nearly-seals-the-west-for-louisiana-tech/",
-   "source": "Bleed Tech Blue",
-   "summary": "The Bulldogs now hit the road for another Alabama matchup, this time at Troy (4-4, 2-2).",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02063545/Baker.webp",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-02T11:30:00+00:00"
-  },
-  {
-   "title": "Good Enough Now? Louisiana Tech Is Keys-in-Hand in the Sun Belt West",
-   "link": "https://on3.com/sites/bleed-tech-blue/news/good-enough-now-louisiana-tech-is-keys-in-hand-in-the-sun-belt-west/",
-   "source": "Bleed Tech Blue",
-   "summary": "Tech is now 6-2, 4-0 in Sun Belt play\u2014the only team without a conference loss. Every other West contender already has at least two league losses.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01115155/Franklin.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T17:53:09+00:00"
-  },
-  {
-   "title": "Around the Schedule: How Louisiana Tech's Future Opponents Fared in Week 9",
-   "link": "https://on3.com/sites/bleed-tech-blue/news/around-the-schedule-how-louisiana-techs-future-opponents-fared-in-week-9/",
-   "source": "Bleed Tech Blue",
-   "summary": "The Bulldogs have two game lead in the West Division of the Sun Belt and will travel to Troy next weekend.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01072031/Merriweather.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T13:20:45+00:00"
-  },
-  {
-   "title": "PFF Grades: Hurt, Calwise Lead Bulldogs Past South Alabama",
-   "link": "https://on3.com/sites/bleed-tech-blue/news/pff-grades-hurt-calwise-lead-bulldogs-past-south-alabama/",
-   "source": "Bleed Tech Blue",
-   "summary": "The Bulldogs turned a third-quarter takeaway into a touchdown on a short field and piled up 35 points away from home.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01071137/Kukuk.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T13:11:57+00:00"
-  },
-  {
-   "title": "PFF Grades: Bulldogs\u2019 Defense Slams the Door in Second Half at South Alabama",
-   "link": "https://on3.com/sites/bleed-tech-blue/news/pff-grades-bulldogs-defense-slams-the-door-in-second-half-at-south-alabama/",
-   "source": "Bleed Tech Blue",
-   "summary": "South Alabama put up 20 points in the first half, but Luke Olson\u2019s defense slammed the door after the break, blanking the Jaguars and forcing two second-half turnovers.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01064755/Condry.webp",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T12:48:59+00:00"
-  },
-  {
    "title": "Bulldogs Blank South Alabama In Second Half, Secure Halloween Victory On The Road",
    "link": "https://latechsports.com/news/2026/10/31/football-bulldogs-blank-south-alabama-in-second-half-secure-halloween-victory-on-the-road",
    "source": "LA Tech Athletics",
@@ -208,24 +226,6 @@
    "image": "https://latechsports.com/images/2026/10/18/IMG_1004.jpg?width=800",
    "sourceLogo": "https://latechsports.com/favicon.ico",
    "published": "2026-10-19T14:00:00+00:00"
-  },
-  {
-   "title": "Bulldogs Blank Warhawks In First Meeting Since 2000",
-   "link": "https://latechsports.com/news/2026/10/17/football-bulldogs-blank-warhawks-in-first-meeting-since-2000",
-   "source": "LA Tech Athletics",
-   "summary": "<img alt=\"LA Tech defense vs. ULM\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/story_image_ULM_recap_FB.png\" /><br /><br />MONROE, La. -- Louisiana Tech used a dominant defensive performance and three second-half touchdowns to shut out in-state rival ULM, 24-0, Saturday night at FMOL Health | St. Francis Stadium, extending its winning streak to three games while remaining unbeaten in Sun Belt Conference play.",
-   "image": "https://latechsports.com/images/2026/10/17/story_image_ULM_recap_FB.png?width=800",
-   "sourceLogo": "https://latechsports.com/favicon.ico",
-   "published": "2026-10-18T05:22:00+00:00"
-  },
-  {
-   "title": "Preview: LA Tech at ULM",
-   "link": "https://latechsports.com/news/2026/10/15/football-preview-la-tech-at-ulm",
-   "source": "LA Tech Athletics",
-   "summary": "<img alt=\"Talyn Shettron vs. ULL\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/15/story_image_FB_preview_ULM.png\" /><br /><br />RUSTON \u2013 Coming off a big win over one rival, Louisiana Tech hits the road for Monroe on Saturday for the first edition of the Radiance Technologies I-20 Showdown, taking on the ULM Warhawks for the first time since the 2000 season on Saturday, October 17. Kickoff is set for 7 p.m. CT on ESPN+ at FMOL Health | St. Francis Stadium.",
-   "image": "https://latechsports.com/images/2026/10/15/story_image_FB_preview_ULM.png?width=800",
-   "sourceLogo": "https://latechsports.com/favicon.ico",
-   "published": "2026-10-15T20:53:00+00:00"
   }
  ]
 }

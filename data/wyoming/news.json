@@ -1,7 +1,16 @@
 {
  "team": "wyoming",
- "updated": "2026-11-07T00:08:25.187356+00:00",
+ "updated": "2026-11-08T07:38:12.670690+00:00",
  "items": [
+  {
+   "title": "Cowboys hang on for dramatic 41-35 victory over UNLV",
+   "link": "https://gowyo.com/news/2026/11/8/football-cowboys-hang-on-for-dramatic-41-35-victory-over-unlv",
+   "source": "Wyoming Athletics",
+   "summary": "<img alt=\"Wyoming at UNLV\" src=\"https://gowyo.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/Frendt_at_UNLV.jpg\" /><br /><br />LAS VEGAS \u2013 It looked like the Cowboys' Mountain West title hopes were about to go bust in Sin City.",
+   "image": "https://gowyo.com/images/2026/11/7/Frendt_at_UNLV.jpg?width=800",
+   "sourceLogo": "https://gowyo.com/favicon.ico",
+   "published": "2026-11-08T07:23:00+00:00"
+  },
   {
    "title": "Cowboy Classics: UNLV",
    "link": "https://gowyo.com/news/2026/11/5/football-cowboy-classics-unlv",
@@ -100,15 +109,6 @@
    "image": "https://i0.wp.com/www.uwbrandingiron.com/wp-content/uploads/2026/10/3-1.jpg?fit=1200%2C800&ssl=1",
    "sourceLogo": "https://i0.wp.com/www.uwbrandingiron.com/wp-content/uploads/2024/04/cropped-Asset-1-1.png?fit=32%2C32&ssl=1",
    "published": "2026-10-23T20:50:56+00:00"
-  },
-  {
-   "title": "Cowboy Classics: Air Force",
-   "link": "https://gowyo.com/news/2026/10/22/football-cowboy-classics-air-force",
-   "source": "Wyoming Athletics",
-   "summary": "<img alt=\"Epps, Marcus vs. Air Force 2017\" src=\"https://gowyo.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2018/11/5/Epps_Marcus_UW_at_AF_11_11_2017_TB_01.jpg\" /><br /><br />",
-   "image": "https://gowyo.com/images/2018/11/5/Epps_Marcus_UW_at_AF_11_11_2017_TB_01.jpg?width=800",
-   "sourceLogo": "https://gowyo.com/favicon.ico",
-   "published": "2026-10-22T23:10:00+00:00"
   }
  ]
 }

@@ -19,6 +19,8 @@
                                the next three, never without the hero
      halftime(game)            live, and between the halves: no clock, and
                                no one has the ball
+     feedState(g, detail, was) whether the play-by-play is behind the
+                               game clock, and the latest play it has logged
      boardOrder(a, b)          the order of a day's games on a board: live,
                                then still to come, then final; by kickoff
 
@@ -240,6 +242,49 @@ TeamOS.game = (function () {
     return !!g && g.status === "live" && /\bhalf/i.test(g.detail || "");
   }
 
+  // ---- play-by-play freshness ----
+  // The game going on normally while its play-by-play record runs behind
+  // (creative direction, 2026-11-08; ND-Miami 2026-11-07: the clock ran from
+  // 15:00 to 12:05 in the 3rd with nothing logged after the kickoff, then
+  // nine plays arrived at once, every one stamped 12:05).
+  //
+  //   feedState(game, detail, wasBehind) -> { behind, gap, play }
+  //
+  // From the normalized game's clock and quarter (the scoreboard) and the
+  // latest play the summary has logged (its drives), both as game time
+  // elapsed - so a quarter that has simply turned over (the last play at
+  // 0:00 of the 2nd, the clock at 15:00 of the 3rd) is no gap at all, and a
+  // new quarter counts only as far as its clock has actually run. Behind
+  // when the clock is 90 seconds or more of game time ahead; caught up again
+  // under 60, so a gap hovering near the line does not flicker. Nothing here
+  // estimates a play: `play` is the latest one logged, as logged.
+  // Regulation only (15-minute quarters with a clock); overtime has none.
+  var FEED_BEHIND = 90, FEED_CAUGHT_UP = 60, QUARTER = 900;
+  function clockSecs(c) {
+    var m = /^(\d{1,2}):(\d{2})$/.exec(String(c == null ? "" : c).trim());
+    return m ? +m[1] * 60 + +m[2] : null;
+  }
+  function elapsed(period, clock) {
+    var p = +period, c = clockSecs(clock);
+    return p >= 1 && p <= 4 && c != null && c <= QUARTER ? (p - 1) * QUARTER + (QUARTER - c) : null;
+  }
+  function latestPlay(detail) {
+    var list = detail && detail.drives && detail.drives.list || [];
+    for (var i = list.length - 1; i >= 0; i--) {
+      var plays = list[i].plays || [];
+      for (var j = plays.length - 1; j >= 0; j--) if (elapsed(plays[j].period, plays[j].clock) != null) return plays[j];
+    }
+    return null;
+  }
+  function feedState(g, detail, wasBehind) {
+    var off = { behind: false, gap: null, play: null };
+    if (!g || g.status !== "live" || halftime(g) || !detail) return off;
+    var now = elapsed(g.period, g.clock), play = latestPlay(detail);
+    if (now == null || !play) return off;
+    var gap = now - elapsed(play.period, play.clock);
+    return { behind: gap >= (wasBehind ? FEED_CAUGHT_UP : FEED_BEHIND), gap: gap, play: play };
+  }
+
   // A board of games (Top 25) reads what is happening now first: within a
   // day, live games, then those still to come, then finals, each by kickoff
   // (live scan #10). A league game's state is "in", "pre" or "post".
@@ -255,6 +300,6 @@ TeamOS.game = (function () {
   return { navState: navState, underWay: underWay, lifecycle: lifecycle, hero: hero,
            recentFinal: recentFinal, atmosphere: atmosphere, venueZone: venueZone,
            localDay: localDay, schedulePreview: schedulePreview, results: results, scored: scored, season: season,
-           halftime: halftime, boardOrder: boardOrder,
+           halftime: halftime, boardOrder: boardOrder, feedState: feedState,
            NIGHT_FROM: NIGHT_FROM };
 })();

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utah",
- "updated": "2026-11-06T03:09:09.992755+00:00",
+ "updated": "2026-11-07T15:39:01.129263+00:00",
  "reports": [
   {
    "schema": 1,
@@ -191,10 +191,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T03:09:09.992755+00:00",
+   "fetchedAt": "2026-11-07T15:39:01.129263+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. BYU",
    "players": [

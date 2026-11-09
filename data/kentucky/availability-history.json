@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kentucky",
- "updated": "2026-11-07T01:38:43.688353+00:00",
+ "updated": "2026-11-07T22:08:56.522985+00:00",
  "reports": [
   {
    "schema": 1,
@@ -392,20 +392,13 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:38:43.688353+00:00",
+   "fetchedAt": "2026-11-07T22:08:56.522985+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Tennessee",
    "players": [
-    {
-     "pos": "OLB",
-     "no": "2",
-     "name": "Sam Greene",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "ILB",
      "no": "4",
@@ -425,13 +418,6 @@
      "no": "24",
      "name": "Jaden Smith",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "27",
-     "name": "Isaiah McMillian",
-     "status": "probable",
      "detail": ""
     },
     {

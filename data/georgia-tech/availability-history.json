@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-tech",
- "updated": "2026-11-07T01:08:52.532626+00:00",
+ "updated": "2026-11-07T22:38:44.385550+00:00",
  "reports": [
   {
    "schema": 1,
@@ -716,10 +716,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:08:52.532626+00:00",
+   "fetchedAt": "2026-11-07T22:38:44.385550+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Louisville",
    "players": [
@@ -762,7 +762,7 @@
      "pos": "RB",
      "no": "24",
      "name": "Shane Marshall",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

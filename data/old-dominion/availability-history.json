@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "old-dominion",
- "updated": "2026-11-05T01:40:45.906734+00:00",
+ "updated": "2026-11-07T15:38:56.820332+00:00",
  "reports": [
   {
    "schema": 1,
@@ -87,39 +87,18 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-05T01:40:45.906734+00:00",
+   "fetchedAt": "2026-11-07T15:38:56.820332+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-05",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Coastal Carolina",
    "players": [
     {
-     "pos": "QB",
-     "no": "",
-     "name": "Quinn Henicle",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Zion Frink",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Lucas Struck",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "WR",
      "no": "",
      "name": "JJ Harrell",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

@@ -288,6 +288,16 @@ Suite.ui = (function () {
      rank, line and weather arrived; every tick of a live game). A logo that
      has loaded is moved into the new markup in place of its fresh copy:
      same address, same picture, nothing to reload. */
+  /* And the fan's place on the page stays where it was. Safari's engine
+     (WebKit) moves the page back to the top when a section is replaced
+     while the fan is scrolled down it - Game's Drive Tracker and Plays
+     jumped to the top on every live refresh of the play-by-play (David,
+     2026-11-08; reproduced in WebKit, 790 px -> 73 and 850 px -> 0, with no
+     script scrolling). So for the swap the section holds its height, the
+     page cannot collapse under the fan, and if the engine moved the page
+     anyway it goes back - and so does a section that scrolls by itself (the
+     Top 25 game sheet's body). The hold is let go on the next frame, so a
+     section that really did get shorter settles to its new size. */
   function fill(el, html) {
     if (!el) return;
     if (!el.querySelectorAll) { el.innerHTML = html; return; }   // no DOM to keep (a test's stand-in)
@@ -296,7 +306,17 @@ Suite.ui = (function () {
       var src = img.getAttribute("src");
       if (img.complete && img.naturalWidth > 0) (keep[src] = keep[src] || []).push(img);
     });
+    var y = typeof window !== "undefined" && window.scrollY || 0, held = false, own = el.scrollTop || 0;
+    if (y > 0 && el.isConnected && el.style && !el.style.minHeight) {
+      el.style.minHeight = el.offsetHeight + "px"; held = true;
+    }
     el.innerHTML = html;
+    // Only a move back up is the engine's jump: a section above the fan that
+    // grew moves the page DOWN under the browser's own scroll anchoring, to
+    // keep what the fan is reading still - that is left alone (Codex review).
+    if (y > 0 && window.scrollY < y) window.scrollTo(0, y);
+    if (own > 0 && el.scrollTop < own) el.scrollTop = own;       // a section that scrolls itself (Top 25's game sheet)
+    if (held) requestAnimationFrame(function () { el.style.minHeight = ""; });
     Array.prototype.forEach.call(el.querySelectorAll("img[data-mark]"), function (img) {
       var old = (keep[img.getAttribute("src")] || []).shift();
       if (!old || !img.parentNode) return;

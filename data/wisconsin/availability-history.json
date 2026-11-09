@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wisconsin",
- "updated": "2026-11-07T01:09:03.514899+00:00",
+ "updated": "2026-11-07T19:38:56.916633+00:00",
  "reports": [
   {
    "schema": 1,
@@ -247,10 +247,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:09:03.514899+00:00",
+   "fetchedAt": "2026-11-07T19:38:56.916633+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Rutgers",
    "players": [
@@ -265,7 +265,7 @@
      "pos": "RB",
      "no": "15",
      "name": "Nate Palmer",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -279,7 +279,7 @@
      "pos": "OL",
      "no": "70",
      "name": "Barrett Nelson",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

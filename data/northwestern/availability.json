@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T01:08:56.995994+00:00",
+ "fetchedAt": "2026-11-07T22:38:48.536514+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Iowa",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "QB",
    "no": "0",
    "name": "Aidan Chiles",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

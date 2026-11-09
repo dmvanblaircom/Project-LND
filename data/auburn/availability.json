@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T01:38:39.576662+00:00",
+ "fetchedAt": "2026-11-07T16:16:10.715094+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. Arkansas",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "WR",
    "no": "4",
    "name": "Jeremiah Koger",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "CB",
    "no": "22",
    "name": "Andre Jordan Jr.",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

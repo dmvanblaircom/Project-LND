@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-11-07T01:38:46.012646+00:00",
+ "updated": "2026-11-07T23:39:12.867794+00:00",
  "reports": [
   {
    "schema": 1,
@@ -450,10 +450,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:38:46.012646+00:00",
+   "fetchedAt": "2026-11-07T23:39:12.867794+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "at Florida",
    "players": [
@@ -479,13 +479,6 @@
      "detail": ""
     },
     {
-     "pos": "WR",
-     "no": "14",
-     "name": "Elijah Thomas",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "LB",
      "no": "18",
      "name": "Cole Sullivan",
@@ -496,7 +489,7 @@
      "pos": "DB",
      "no": "22",
      "name": "Peyton Bowen",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -517,7 +510,7 @@
      "pos": "OL",
      "no": "55",
      "name": "Eddy Pierre-Louis",
-     "status": "doubtful",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -532,13 +525,6 @@
      "no": "72",
      "name": "Fred Hinton",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "94",
-     "name": "Kenny Ozowalu",
-     "status": "probable",
      "detail": ""
     }
    ],

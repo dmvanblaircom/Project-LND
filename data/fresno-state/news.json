@@ -1,7 +1,16 @@
 {
  "team": "fresno-state",
- "updated": "2026-11-03T03:08:07.851075+00:00",
+ "updated": "2026-11-08T07:08:04.541960+00:00",
  "items": [
+  {
+   "title": "Bulldogs drop road test to Aggies",
+   "link": "https://gobulldogs.com/news/2026/11/7/football-bulldogs-drop-road-test-to-aggies",
+   "source": "Fresno State Athletics",
+   "summary": "<img alt=\"Jayden Mandal at Utah State\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/IMG_8452.JPG\" /><br /><br />LOGAN, Utah \u2013 Fresno State mounted a fourth-quarter comeback behind a late touchdown from Jayden Mandal to Ezekiel Avit, but the Bulldogs fell to Utah State 17-10 on Saturday night at Merlin Olsen Field at Maverik Stadium.",
+   "image": "https://gobulldogs.com/images/2026/11/7/IMG_8452.JPG?width=800",
+   "sourceLogo": "https://gobulldogs.com/favicon.ico",
+   "published": "2026-11-08T06:58:00+00:00"
+  },
   {
    "title": "2026 Bulldogs in the NFL: Week 8",
    "link": "https://gobulldogs.com/news/2026/11/2/football-2026-bulldogs-in-the-nfl-week-8",
@@ -82,15 +91,6 @@
    "image": "https://gobulldogs.com/images/2026/10/17/DSC00122.JPG?width=800",
    "sourceLogo": "https://gobulldogs.com/favicon.ico",
    "published": "2026-10-18T07:34:00+00:00"
-  },
-  {
-   "title": "2026 Bulldogs in the NFL: Week 5",
-   "link": "https://gobulldogs.com/news/2026/10/14/football-2026-bulldogs-in-the-nfl-week-5",
-   "source": "Fresno State Athletics",
-   "summary": "<img alt=\"NFL: Chicago Bears at Green Bay Packers\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/14/img_tag_reuters.com_2026_newsml_MT1USATODAY30060238_1391093_6ZAbA.jpg\" /><br /><br />",
-   "image": "https://gobulldogs.com/images/2026/10/14/img_tag_reuters.com_2026_newsml_MT1USATODAY30060238_1391093_6ZAbA.jpg?width=800",
-   "sourceLogo": "https://gobulldogs.com/favicon.ico",
-   "published": "2026-10-14T21:39:00+00:00"
   }
  ]
 }

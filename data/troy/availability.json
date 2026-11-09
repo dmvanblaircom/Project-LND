@@ -7,32 +7,18 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T02:09:15.719559+00:00",
+ "fetchedAt": "2026-11-07T15:39:00.118547+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Initial",
+ "effectiveAt": "2026-11-07",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-07",
  "game": "vs. LA Tech",
  "players": [
   {
-   "pos": "QB",
-   "no": "",
-   "name": "Goose Crowder",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Kam Curry",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "",
    "name": "Marquis Harris",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -46,7 +32,7 @@
    "pos": "TE",
    "no": "",
    "name": "Jayvin Bennett",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

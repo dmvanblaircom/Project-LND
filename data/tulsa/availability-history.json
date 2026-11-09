@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tulsa",
- "updated": "2026-10-30T13:28:06.185967+00:00",
+ "updated": "2026-11-08T11:08:52.356819+00:00",
  "reports": [
   {
    "schema": 1,
@@ -351,6 +351,81 @@
     }
    ],
    "current": false
+  },
+  {
+   "schema": 1,
+   "team": "tulsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-08T11:08:52.356819+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-07",
+   "game": "at Tulane",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "7",
+     "name": "Elijah Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "33",
+     "name": "William Alexander",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "34",
+     "name": "Elijah Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "35",
+     "name": "C.J. Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "43",
+     "name": "Raymir Coney",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Hunter Erb",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "73",
+     "name": "Cam East",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "88",
+     "name": "Xavier Green",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
   }
  ]
 }

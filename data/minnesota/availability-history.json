@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "minnesota",
- "updated": "2026-11-07T01:08:55.883521+00:00",
+ "updated": "2026-11-07T15:08:43.691042+00:00",
  "reports": [
   {
    "schema": 1,
@@ -394,10 +394,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:08:55.883521+00:00",
+   "fetchedAt": "2026-11-07T15:08:43.691042+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. UCLA",
    "players": [
@@ -412,7 +412,7 @@
      "pos": "TE",
      "no": "19",
      "name": "Pierce Walsh",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -423,24 +423,10 @@
      "detail": ""
     },
     {
-     "pos": "LB",
-     "no": "46",
-     "name": "Mason Carrier",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "OL",
      "no": "56",
      "name": "Brett Carroll",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "77",
-     "name": "Nick Spence",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -454,7 +440,7 @@
      "pos": "TE",
      "no": "82",
      "name": "Julian Johnson",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

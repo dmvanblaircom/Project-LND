@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "syracuse",
- "updated": "2026-11-07T01:08:59.893019+00:00",
+ "updated": "2026-11-07T15:08:46.675088+00:00",
  "reports": [
   {
    "schema": 1,
@@ -427,10 +427,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:08:59.893019+00:00",
+   "fetchedAt": "2026-11-07T15:08:46.675088+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Clemson",
    "players": [
@@ -439,13 +439,6 @@
      "no": "7",
      "name": "Darien Williams",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "QB",
-     "no": "9",
-     "name": "Steve Angeli",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -470,31 +463,10 @@
      "detail": ""
     },
     {
-     "pos": "DL",
-     "no": "30",
-     "name": "Tunmise Adeleye",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "50",
-     "name": "Kahlil Stewart",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "OL",
      "no": "62",
      "name": "Jackson Iak",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "74",
-     "name": "Matthew Hawn",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -509,13 +481,6 @@
      "no": "93",
      "name": "Alex Haskell",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "95",
-     "name": "Dillan Fontus",
-     "status": "probable",
      "detail": ""
     }
    ],

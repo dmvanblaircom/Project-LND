@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-florida",
- "updated": "2026-11-06T22:38:51.651109+00:00",
+ "updated": "2026-11-07T11:09:10.302930+00:00",
  "reports": [
   {
    "schema": 1,
@@ -389,12 +389,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-06T22:38:51.651109+00:00",
+   "fetchedAt": "2026-11-07T11:09:10.302930+00:00",
    "reported": true,
    "effectiveAt": "2026-11-06",
    "heading": "Game Day",
    "kickoffDate": "2026-11-06",
-   "game": "East Carolina",
+   "game": "at East Carolina",
    "players": [
     {
      "pos": "QB",

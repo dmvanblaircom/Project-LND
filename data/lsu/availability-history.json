@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "lsu",
- "updated": "2026-11-07T01:38:44.063406+00:00",
+ "updated": "2026-11-07T19:08:51.539801+00:00",
  "reports": [
   {
    "schema": 1,
@@ -275,25 +275,18 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-07T01:38:44.063406+00:00",
+   "fetchedAt": "2026-11-07T19:08:51.539801+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-06",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-07",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-07",
    "game": "vs. Alabama",
    "players": [
     {
-     "pos": "TE",
-     "no": "7",
-     "name": "Trey'Dez Green",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
      "pos": "LB",
      "no": "7",
      "name": "Whit Weeks",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
