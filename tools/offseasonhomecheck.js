@@ -61,9 +61,10 @@ function check(value,label){assert(value,label);checks++;}
    await page.evaluate(()=>document.documentElement.style.fontSize="");
   }
   await page.setViewportSize({width:320,height:844});
-  // News has Georgia in both styles; actual painted contrast, including
-  // the new hero and two replacement navigation controls, must pass.
-  check(await page.locator(".news-hl").evaluate(e=>getComputedStyle(e).fontFamily.includes("Georgia")),"Georgia preserved");
+  // Headlines are the UI sans in both styles, Georgia retired (Phase 2
+  // spec §3.2); actual painted contrast, including the new hero and two
+  // replacement navigation controls, must pass.
+  check(await page.locator(".news-hl").evaluate(e=>!/georgia/i.test(getComputedStyle(e).fontFamily)),"headlines are the UI sans, no Georgia");
   const text=await audit.auditText(page,team+" "+style+" offseason");
   check(text.failures.length===0,JSON.stringify(text.failures));
   // Freeze fixture timestamps while measuring identical refreshes.

@@ -414,13 +414,30 @@ Suite.game = (function () {
 
   function driveLabel(d, m, los) {
     var who = d.mine ? m.team.name : m.game.oppName;
-    if (d.result) return "Last drive: " + who + ", " + (d.summary || "") + ". Result: " + d.result + ".";
-    return "Current drive: " + who + ", " + (d.summary || "") + ". Ball at the " + (los <= 50 ? "own " + los : "opponent's " + (100 - los)) + ".";
+    var sum = d.summary ? ", " + d.summary : "";
+    if (d.result) return "Last drive: " + who + sum + ". Result: " + d.result + ".";
+    return "Current drive: " + who + sum + ". Ball at the " + (los <= 50 ? "own " + los : "opponent's " + (100 - los)) + ".";
   }
+
+  // The play-by-play running behind the game clock (TeamOS.game.feedState,
+  // computed once per draw by the host as m.feed): the Last Play card says
+  // so, and the drive card stops quoting a description and counts the
+  // record has not caught up with. One state for both; never an estimate.
+  function behind(m) { return !!(m.feed && m.feed.behind); }
 
   function driveCard(m) {
     var d = m.detail && m.detail.drives && m.detail.drives.current;
     if (!d) return "";
+    // While the record is behind, nothing of the drive it holds is shown as
+    // current - not whose drive it is, not where the ball is, not a count
+    // (David, 2026-11-08: at 12:05 the record called it Notre Dame's drive
+    // while Miami had the ball). A neutral card in the platform's own
+    // colours says the drive will be back; the field returns with the record.
+    if (behind(m)) {
+      return card("Latest recorded drive",
+        '<div class="pbp-drive-wait"><p>Drive and field position return when the play-by-play catches up.</p></div>',
+        '<span class="gcard-note pbp-updating">Drive details updating</span>', "gcard-drive gcard-neutral");
+    }
     var svg = field(d, m);
     if (!svg) return "";
     var color = driveColor(d, m), who = d.mine ? m.team.name : (m.game.oppName || "Opponent");
@@ -435,6 +452,22 @@ Suite.game = (function () {
 
   function lastPlay(m) {
     var lp = m.detail && m.detail.lastPlay;
+    if (behind(m)) {
+      // The latest play the record holds, with its own quarter and clock -
+      // not the situation after it, which the record has not caught up with.
+      // Its team is the record's attribution, as recorded (a kickoff is the
+      // kicking team's), said as the record has it - with the play, not as
+      // whose ball it is now.
+      var p = m.feed.play, gd = m.detail || {}, tid = p.start && p.start.teamId;
+      var side = tid && gd.home && gd.home.key === tid ? gd.home : tid && gd.away && gd.away.key === tid ? gd.away : null;
+      return card("Last play", '<div class="pbp-fresh"><p class="pbp-fresh-title">Play-by-play is catching up</p>' +
+          '<p class="pbp-fresh-sub">The game clock is ahead of the latest recorded play.</p></div>' +
+        '<p class="lp-text"><span class="lp-at">' + esc(ordinal(+p.period)) + " \u00B7 " + esc(p.clock) +
+          (side && side.abbreviation ? " \u00B7 " + esc(side.abbreviation) : "") + "</span> " + keepNames(p.text) +
+          (p.tags && p.tags.length ? " " + playTags(p.tags) : "") + "</p>" +
+        playNotes(p.notes) +
+        '<a class="sec-link" href="' + esc(base(m)) + '/plays">View play-by-play' + CHEVRON + "</a>");
+    }
     if (!lp) return "";
     return card("Last play", (lp.downDistance ? '<p class="lp-dd">' + esc(lp.downDistance) + "</p>" : "") +
       '<p class="lp-text">' + (lp.at ? '<span class="lp-at">' + esc(lp.at) + "</span> " : "") + keepNames(lp.text) + (lp.tags && lp.tags.length ? " " + playTags(lp.tags) : "") + "</p>" +

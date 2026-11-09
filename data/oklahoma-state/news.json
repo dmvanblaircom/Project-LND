@@ -1,7 +1,16 @@
 {
  "team": "oklahoma-state",
- "updated": "2026-11-09T15:38:16.664913+00:00",
+ "updated": "2026-11-09T17:38:09.745223+00:00",
  "items": [
+  {
+   "title": "Photo Gallery: Cowboy Football at Kansas State",
+   "link": "https://okstate.com/news/2026/11/9/photo-gallery-cowboy-football-at-kansas-state",
+   "source": "Oklahoma State Athletics",
+   "summary": "<img alt=\"Image Taken at the Kansas State Wildcats vs Oklahoma State Cowboys Football Game, Saturday, November 7, 2026, Bill Snyder Family Stadium, Manhattan, KS. OSU Athletics\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/261107_football_kansas_state_bw_329.jpg\" /><br /><br />",
+   "image": "https://okstate.com/images/2026/11/9/261107_football_kansas_state_bw_329.jpg?width=800",
+   "sourceLogo": "https://okstate.com/favicon.ico",
+   "published": "2026-11-09T16:30:00+00:00"
+  },
   {
    "title": "OSI Breakdown Week 10 | Oklahoma State @ Kansas State",
    "link": "https://on3.com/sites/o-state-illustrated/news/osi-breakdown-week-10-osu-ksu/",
@@ -334,24 +343,6 @@
    "image": "https://okstate.com/images/2026/11/2/261031_football_iowa_state_bw_339.jpg?width=800",
    "sourceLogo": "https://okstate.com/favicon.ico",
    "published": "2026-11-02T17:23:00+00:00"
-  },
-  {
-   "title": "Eric Morris postgame press conference after Cowboy Football's matchup with Iowa State",
-   "link": "https://okstate.com/news/2026/11/1/eric-morris-postgame-press-conference-after-cowboy-footballs-matchup-with-iowa-state",
-   "source": "Oklahoma State Athletics",
-   "summary": "<img alt=\"Eric Morris, Iowa State\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/1/261031_football_iowa_state_bw_11.jpg\" /><br /><br />STILLWATER -\u00a0Oklahoma State's football coach Eric Morris spoke with the media after a 51-49 loss to the Iowa State Cyclones. See the video and hear his comments here:",
-   "image": "https://okstate.com/images/2026/11/1/261031_football_iowa_state_bw_11.jpg?width=800",
-   "sourceLogo": "https://okstate.com/favicon.ico",
-   "published": "2026-11-01T22:35:00+00:00"
-  },
-  {
-   "title": "10 Thoughts from Oklahoma State's loss in Ames",
-   "link": "https://on3.com/sites/o-state-illustrated/news/10-thoughts-from-oklahoma-states-loss-in-ames/",
-   "source": "OState Illustrated",
-   "summary": "OState Illustrated publisher Jeff Johnson with his weekly 10 postgame thoughts following Oklahoma State's walk-off loss to Iowa State in Ames on Halloween night.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01121325/2026-11-01T015938Z_1068713634_MT1USATODAY30245016_RTRMADP_3_NCAA-FOOTBALL-OKLAHOMA-STATE-AT-IOWA-STATE.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-01T18:15:00+00:00"
   }
  ]
 }
