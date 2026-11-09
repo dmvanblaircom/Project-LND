@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-09T17:38:07.447006+00:00",
+ "updated": "2026-11-09T19:08:14.527810+00:00",
  "items": [
+  {
+   "title": "Navy vs Temple - Game Photo Gallery Part 1",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-temple-game-photo-gallery-part-1/",
+   "source": "The Mid Report",
+   "summary": "Photos from the first quarter of Navy\u2019s 42-35 win over the Temple Owls on November 7, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08140112/DSC_1169.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-09T19:00:00+00:00"
+  },
   {
    "title": "2027 Army-Navy Game Presented by USAA Moved to Dec. 4",
    "link": "https://navysports.com/news/2026/11/9/football-2027-army-navy-game-presented-by-usaa-moved-to-dec-4.aspx",
@@ -208,15 +217,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24203806/DSC_9975.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-25T01:59:13+00:00"
-  },
-  {
-   "title": "The North Texas Preview",
-   "link": "https://on3.com/sites/the-mid-report/news/the-north-texas-preview-2/",
-   "source": "The Mid Report",
-   "summary": "Just how Mean are the Green?",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/22223722/2026-09-05T171535Z_1130097718_MT1USATODAY29746734_RTRMADP_3_NCAA-FOOTBALL-NORTH-TEXAS-AT-INDIANA.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-23T03:53:59+00:00"
   }
  ]
 }
