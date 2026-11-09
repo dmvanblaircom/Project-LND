@@ -1,7 +1,16 @@
 {
  "team": "oklahoma",
- "updated": "2026-11-09T15:08:10.201453+00:00",
+ "updated": "2026-11-09T17:38:09.568633+00:00",
  "items": [
+  {
+   "title": "Fasusi Named SEC Offensive Lineman of the Week",
+   "link": "https://soonersports.com/news/2026/11/9/football-fasusi-named-sec-offensive-lineman-of-the-week",
+   "source": "Oklahoma Athletics",
+   "summary": "<img alt=\"Michael Fasusi blocks a Florida defender in Oklahoma's 23-7 win at UF at Ben Hill Griffin Stadium in Gainesville, Fla., on Nov. 7, 2026.\" src=\"https://soonersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/20261107_FB_Game_Florida_BV_OUJ09156.jpg\" /><br /><br />NORMAN \u2014 University of Oklahoma sophomore Michael Fasusi was named SEC Offensive Lineman of the Week after his performance in OU's 23-7 win at No. 25 Florida on Saturday, the conference office announced Monday.",
+   "image": "https://soonersports.com/images/2026/11/9/20261107_FB_Game_Florida_BV_OUJ09156.jpg?width=800",
+   "sourceLogo": "https://soonersports.com/favicon.ico",
+   "published": "2026-11-09T17:05:00+00:00"
+  },
   {
    "title": "Jason Witten's 'Wild Week' With John Mateer Helped Propel Oklahoma to a Road Win",
    "link": "https://www.si.com/college/oklahoma/football/jason-witten-s-wild-week-with-john-mateer-helped-propel-oklahoma-to-a-road-win-01m6yzc4a3h2?utm_source=RSS",
@@ -352,15 +361,6 @@
    "image": "https://soonersports.com/images/2026/10/24/mateer-recap-lead_p62Dw.jpg?width=800",
    "sourceLogo": "https://soonersports.com/favicon.ico",
    "published": "2026-10-25T00:32:00+00:00"
-  },
-  {
-   "title": "Game Primer: OU at Mississippi State",
-   "link": "https://soonersports.com/news/2026/10/22/football-game-primer-ou-at-mississippi-state",
-   "source": "Oklahoma Athletics",
-   "summary": "<img alt=\"Kip Lewis looks on before the snap at Georgia\" src=\"https://soonersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/26/football-georgia-recap.png\" /><br /><br />",
-   "image": "https://soonersports.com/images/2026/9/26/football-georgia-recap.png?width=800",
-   "sourceLogo": "https://soonersports.com/favicon.ico",
-   "published": "2026-10-22T19:36:00+00:00"
   }
  ]
 }
