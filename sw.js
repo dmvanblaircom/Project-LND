@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-11-09p2s1";
+var VERSION = "suite-2026-11-09p2s1b";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -70,9 +70,10 @@ function fresh(req) {
 // The shell's code and page are `required`: an install that could not fetch
 // all of them fails, and the browser keeps the working version and tries
 // again later - rather than activating half an app and deleting the whole
-// one it replaced. Its images (favicons, the wordmark) are not: a missing
-// icon never holds back an update or a first offline install.
-function essential(f) { return !/\.(png|svg)$/i.test(f); }
+// one it replaced. Its images (favicons, the wordmark, stadium art) are
+// not: a missing icon or photograph never holds back an update or a first
+// offline install - the stage draws its own light and field without one.
+function essential(f) { return !/\.(png|svg|jpe?g|webp|avif)$/i.test(f); }
 function addAll(cacheName, files, required) {
   return caches.open(cacheName).then(function (c) {
     return Promise.all(files.map(function (f) {

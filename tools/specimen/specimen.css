@@ -1,0 +1,44 @@
+/* The specimen's own page chrome only: layout of the review sheet. Nothing
+   here styles a product component; those come from app.css as shipped. */
+body{margin:0;background:#E7E9EC;color:#111D35;font-family:'Instrument Sans',system-ui,sans-serif}
+.spx-head{padding:1.5rem 2rem 1rem;background:#fff;border-bottom:1px solid #CDD3DC}
+.spx-head h1{margin:0 0 .35rem;font-size:1.6rem}
+.spx-head p{margin:0;max-width:60rem;color:#485563}
+.spx-toc{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.8rem}
+.spx-toc a{color:#1D4ED8;font-weight:600;text-decoration:none}
+.spx-sec{padding:1.5rem 2rem 2rem;border-bottom:1px solid #CDD3DC}
+.spx-sec > h2{margin:0 0 .25rem;font-size:1.35rem}
+.spx-sec > p{margin:0 0 1rem;max-width:62rem;color:#485563;line-height:1.45}
+.spx-row{display:flex;flex-wrap:wrap;gap:1.25rem;align-items:flex-start}
+.spx-cap{margin:.4rem 0 0;font-size:.8rem;color:#485563;max-width:24rem}
+.spx-cap strong{color:#111D35}
+.spx-frame{position:relative;overflow:hidden;border-radius:12px;box-shadow:0 2px 10px rgba(15,27,45,.12);background:var(--s-page)}
+.spx-phone{width:390px}
+.spx-narrow{width:320px}
+.spx-wide{width:860px}
+.spx-label{display:inline-block;margin-bottom:.35rem;padding:.1rem .45rem;border-radius:4px;background:#111D35;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+/* numerals */
+.spx-face{width:420px}
+.spx-face h3{margin:0 0 .35rem;font-size:1rem}
+.spx-num-stage{padding:1rem 1.1rem;border-radius:12px;background:linear-gradient(170deg,#0C2340,#07192F);color:#fff}
+.spx-num-light{margin-top:.6rem;padding:.8rem 1.1rem;border-radius:12px;background:#fff;color:#111D35}
+.spx-num-row{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.spx-w{margin-top:.6rem;font-size:.75rem;color:#485563}
+.spx-table{width:100%;border-collapse:collapse;font-size:.95rem}
+.spx-table td{padding:.25rem .2rem;border-top:1px solid #E3E6EC}
+/* cobalt */
+.spx-swatch{display:grid;grid-template-columns:3rem 1fr;gap:.6rem;align-items:center;margin:.3rem 0}
+.spx-chip{width:3rem;height:2rem;border-radius:6px;border:1px solid rgba(0,0,0,.12)}
+.spx-ratio{font-variant-numeric:tabular-nums;color:#485563;font-size:.85rem}
+.spx-bad{color:#B42318;font-weight:700}
+.spx-demo{padding:1.1rem;border-radius:12px;width:400px}
+.spx-demo-dark{background:var(--r-stage-2);color:#fff}
+.spx-demo-light{background:var(--s-page);color:var(--s-ink)}
+.spx-demo > * + *{margin-top:.8rem}
+.spx-tabs{display:flex;gap:.25rem;padding:.25rem;border-radius:10px}
+.spx-tab{flex:1;padding:.55rem .4rem;border-radius:8px;text-align:center;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem}
+.spx-focus{outline:3px solid var(--r-signal-focus);outline-offset:3px}
+/* nav concepts */
+.spx-iframe{display:block;width:1280px;height:820px;border:0;background:#fff}
+.spx-scale{width:640px;height:410px;overflow:hidden;border-radius:12px;box-shadow:0 2px 10px rgba(15,27,45,.12)}
+.spx-scale iframe{transform:scale(.5);transform-origin:0 0}
