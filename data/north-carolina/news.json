@@ -1,7 +1,16 @@
 {
  "team": "north-carolina",
- "updated": "2026-11-09T16:38:07.086730+00:00",
+ "updated": "2026-11-09T19:38:08.406257+00:00",
  "items": [
+  {
+   "title": "Hickman-Collins Named ACC Linebacker Of The Week",
+   "link": "https://goheels.com/news/2026/11/9/football-hickman-collins-named-acc-linebacker-of-the-week",
+   "source": "North Carolina Athletics",
+   "summary": "<img alt=\"Timir Hickman-Collins at UConn\" src=\"https://goheels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/Timir_Hickman-Collins.jpeg\" /><br /><br />North Carolina's Timir Hickman-Collins has been named ACC Linebacker of the Week, the conference office announced on Monday.",
+   "image": "https://goheels.com/images/2026/11/7/Timir_Hickman-Collins.jpeg?width=800",
+   "sourceLogo": "https://goheels.com/favicon.ico",
+   "published": "2026-11-09T19:00:00+00:00"
+  },
   {
    "title": "UNC Red Zone Report: Why Drives Succeeded or Stalled",
    "link": "https://www.si.com/college/unc/tar-heels-red-zone-report-why-drives-succeeded-stalled?utm_source=RSS",
@@ -406,15 +415,6 @@
    "image": "https://goheels.com/images/2026/11/1/ShippJordan_Miami_fb_08447001.jpg?width=800",
    "sourceLogo": "https://goheels.com/favicon.ico",
    "published": "2026-11-01T04:26:00+00:00"
-  },
-  {
-   "title": "Football Hosts No. 1 Miami Saturday Night",
-   "link": "https://goheels.com/news/2026/10/30/football-hosts-no-1-miami-saturday-night",
-   "source": "North Carolina Athletics",
-   "summary": "<img alt=\"Team Runout from Syracuse Game\" src=\"https://goheels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/Runout.syr.2297.JPG\" /><br /><br />For the sixth time in program history, Carolina will host the nation's top-ranked team, as the Miami Hurricanes head to Chapel Hill for Saturday's ACC matchup.",
-   "image": "https://goheels.com/images/2026/10/30/Runout.syr.2297.JPG?width=800",
-   "sourceLogo": "https://goheels.com/favicon.ico",
-   "published": "2026-10-30T12:00:00+00:00"
   }
  ]
 }

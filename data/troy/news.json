@@ -1,7 +1,16 @@
 {
  "team": "troy",
- "updated": "2026-11-09T15:38:21.888537+00:00",
+ "updated": "2026-11-09T19:38:12.131666+00:00",
  "items": [
+  {
+   "title": "Gerad Parker Press Conference - South Alabama Game",
+   "link": "https://troytrojans.com/news/2026/11/9/football-gerad-parker-press-conference-south-alabama-game",
+   "source": "Troy Athletics",
+   "summary": "<img alt=\"Parker\" src=\"https://troytrojans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/20261107-Troy-LA_Tech-JM-57.jpg\" /><br /><br />",
+   "image": "https://troytrojans.com/images/2026/11/9/20261107-Troy-LA_Tech-JM-57.jpg?width=800",
+   "sourceLogo": "https://troytrojans.com/favicon.ico",
+   "published": "2026-11-09T19:17:00+00:00"
+  },
   {
    "title": "Trojan Talk TONIGHT at Baumhower\u2019s Tonight; 81 Cent Wings",
    "link": "https://troytrojans.com/news/2026/11/9/football-trojan-talk-tonight-at-baumhowers-tonight-81-cent-wings",
@@ -82,15 +91,6 @@
    "image": "https://troytrojans.com/images/2026/11/3/Troy_26_FB_Powe_08_National_POTW_Recognitions_1920x1080.jpeg?width=800",
    "sourceLogo": "https://troytrojans.com/favicon.ico",
    "published": "2026-11-03T17:00:00+00:00"
-  },
-  {
-   "title": "Gerad Parker Press Conference - Louisiana Tech Game",
-   "link": "https://troytrojans.com/news/2026/11/2/football-gerad-parker-press-confernece-louisiana-tech-game",
-   "source": "Troy Athletics",
-   "summary": "<img alt=\"Parker\" src=\"https://troytrojans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/20261029-TROY_BEATS_JMU-284.jpg\" /><br /><br />",
-   "image": "https://troytrojans.com/images/2026/11/2/20261029-TROY_BEATS_JMU-284.jpg?width=800",
-   "sourceLogo": "https://troytrojans.com/favicon.ico",
-   "published": "2026-11-02T19:47:00+00:00"
   }
  ]
 }
