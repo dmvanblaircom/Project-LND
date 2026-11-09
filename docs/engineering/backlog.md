@@ -44,7 +44,7 @@ This is the only active list. A brief or decision holds the detail; this file ho
 | #238 → #239 → #240 | Redesign Stage 1 foundation, 1b components, and desktop header navigation (0042) | in review | D merges. #240 ships with Stage 2 |
 | #241 | Play-by-play freshness state | in review: revised screenshots sent 2026-11-08 | CD reviews, then D merges |
 | `feat/wire-groundwork` | `TeamOS.wire`: classifier, article key, opponent lookup, measurement report. Not used by the app | building | Measurement goes to D (§3, F1) |
-| `docs/backlog-refresh` | This backlog and the wire taxonomy | in review | D merges |
+| #243 | This backlog and the wire taxonomy | in review | D merges |
 | #135 | DEV/Lab environments | parked by David, Oct 13 | D resumes |
 
 ## 2. The Suite redesign program (decision 0040)
