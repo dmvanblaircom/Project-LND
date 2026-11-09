@@ -186,20 +186,25 @@ Suite.top25 = (function () {
     if (m.games == null) return quiet(m.gamesFailed ? "This week’s games didn’t load. They appear when the connection returns."
                                                     : "Loading this week’s Top 25 games…");
     var a = m.around || { conference: null, matter: [], top25: ranked(m.games) };
-    var out = "";
+    // Whether a layer above Top 25 actually lists games: a conference with
+    // none this week says so, and then nothing is "listed above" (sweep,
+    // 2026-11-09: an offseason Around said "Every ranked game this week is
+    // listed above" under its conference's "No games in this window").
+    var out = "", listed = false;
     if (a.conference) {
+      listed = listed || a.conference.games.length > 0;
       out += a.conference.games.length
         ? section(m, "arConf", a.conference.name, a.conference.games, "")
         : '<section class="ar-sec"><div class="sec-head t25-head"><h2 class="sec-title">' + esc(a.conference.name) + "</h2></div>" +
           quiet("No " + a.conference.name + " games in this window.") + "</section>";
     }
-    if (a.matter.length) out += section(m, "arMatter", "Games that matter", a.matter, "");
+    if (a.matter.length) { out += section(m, "arMatter", "Games that matter", a.matter, ""); listed = true; }
     var top = a.top25.map(function (g) { return { game: g, why: null }; });
     out += top.length
       ? section(m, "t25", "Top 25", top, top.length + (top.length === 1 ? " game" : " games") + " with a ranked team" +
-          (out ? " not listed above" : "") + " · times in your time zone")
+          (listed ? " not listed above" : "") + " · times in your time zone")
       : '<section class="ar-sec"><div class="sec-head t25-head"><h2 class="sec-title" id="t25Head">Top 25</h2></div>' +
-        quiet(out ? "Every ranked game this week is listed above." : "No ranked teams play in this window.") + "</section>";
+        quiet(listed ? "Every ranked game this week is listed above." : "No ranked teams play in this window.") + "</section>";
     return out;
   }
 

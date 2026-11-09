@@ -70,5 +70,24 @@ ok(ind.top25.map(function (g) { return g.id; }).join() === "g1,g3,g6", "and sees
 var none = A.layers({});
 ok(none.conference === null && none.matter.length === 0 && none.top25.length === 0, "no games: three empty layers, no error");
 
+// What Around says when a layer above Top 25 has nothing (sweep, 2026-11-09:
+// "Every ranked game this week is listed above" under "No Big Ten games").
+(function () {
+  var sx = vm.createContext({ console: console, Date: Date, Intl: Intl, document: { addEventListener: function () {}, fonts: null }, window: { addEventListener: function () {} } });
+  ["teamos/game.js", "teamos/freshness.js", "suite/ui.js", "suite/top25.js"].forEach(function (f) { vm.runInContext(fs.readFileSync(path.join(root, f), "utf8"), sx, { filename: f }); });
+  function draw(around) {
+    var parts = {}, host = { innerHTML: "", querySelector: function (q) {
+      if (q === "[data-t25]") return Object.keys(parts).length ? {} : null;
+      var k = (/data-t25="(\w+)"/.exec(q) || [])[1];
+      return k ? (parts[k] || (parts[k] = { innerHTML: "", style: {}, scrollTop: 0, getBoundingClientRect: function () { return { top: 0 }; } })) : null;
+    } };
+    sx.Suite.top25.paint(host, { view: "games", games: [], around: around, mark: function () { return null; }, now: new Date("2026-11-09T12:00:00Z") });
+    return parts.body ? parts.body.innerHTML : "";
+  }
+  var empty = draw({ conference: { name: "Big Ten", games: [] }, matter: [], top25: [] });
+  ok(/No Big Ten games in this window/.test(empty) && !/listed above/.test(empty) && /No ranked teams play in this window/.test(empty),
+     "an empty conference layer lists nothing, so Top 25 never says its games are listed above");
+})();
+
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "each game once, in the layer that matters most"));
 process.exit(failures ? 1 : 0);
