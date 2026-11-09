@@ -95,11 +95,15 @@ TeamOS.wire = (function () {
       re("\\b(suspended|suspends|reinstated|reinstates|suspension (for|of|lifted))\\b")
     ],
     coaching: [
-      re("\\bfires\\b(?! (up|back|away|off|on|at|shots?)\\b)"),
+      // "fires" a coach, never a pass: "fires three touchdown passes" is a
+      // game story (Codex review, 2026-11-09).
+      re("\\bfires\\b(?! (up|back|away|off|on|at|shots?)\\b)(?![^;?!]{0,30}\\b(touchdowns?|tds?|pass(es)?|strikes?|darts?|bullets?|shots?|yards?|interceptions?|picks?|completions?)\\b)"),
       re("\\b(relieves|relieved)\\b[^;?!]{0,50}\\bof (his |her |their )?(duties|role|position)\\b"),
       re("\\b(fired|dismisses|dismissed|parts? ways with|relieved of)\\b(?! up\\b)[^;?!]{0,50}\\b(coach|coordinator|coordinators|oc|dc|hc|staff|assistant|play-?calling)\\b"),
       re("\\b(coach|coordinator|oc|dc|assistant)\\b[^;?!]{0,40}\\b(fired|dismissed|resigns|resigned|steps down|stepping down|retires|retiring|leaves|leaving|departs|out at)\\b"),
-      re("\\b(hires|hired|names|named|promotes|promoted|tabs|tabbed|elevates|elevated)\\b[^;?!]{0,50}\\b(head coach|interim|coordinator|oc|dc|assistant coach|coach)\\b"),
+      // a hire, not an honour that mentions the coach ("named team captain by
+      // head coach ..."; Codex review, 2026-11-09)
+      re("\\b(hires|hired|names|named|promotes|promoted|tabs|tabbed|elevates|elevated)\\b(?![^;?!]{0,50}\\b(captains?|by|player|award|honou?rs?|all-|semifinalists?|finalists?|watch list|week|month)\\b)[^;?!]{0,50}\\b(head coach|interim|coordinator|oc|dc|assistant coach|coach)\\b"),
       re("^(?!.*\\b(series|schedule|home-and-home|rivalry|game|games)\\b).*\\b(contract extension|extends? [^;?!]{0,40}contract|(coach|coordinator)[^;?!]{0,40}(signs?|agrees? to|gets?|receives?|lands?) [^;?!]{0,20}extension|(signs?|agrees? to|gets?|receives?|lands?) [^;?!]{0,20}extension[^;?!]{0,40}(coach|coordinator))\\b"),
       re("\\b(accepts?|takes) (the )?[^;?!]{0,20}(head coaching|coordinator) (job|position|role)\\b")
     ],
@@ -131,7 +135,16 @@ TeamOS.wire = (function () {
       re("\\b(surgery|injury|injured|fracture|tear|sprain|concussion)\\b[^;?!]{0,40}\\b(missing|will miss|to miss|set to miss|expected to miss|likely to miss)\\b"),
       re("\\b(removed from|off) (the |thursday['’]?s? |friday['’]?s? |wednesday['’]?s? |final |latest )?(injury|availability) report\\b"),
       re("\\b(unlikely to (play|return)|not expected to return|will not return|won['’]t return|ready to return|loses [^;?!]{0,40} for the (season|year))\\b"),
-      re("\\b(expected to play|will play|cleared to (play|return|practice)|good to go|available (for|vs\\.?|against)|set to return|expected to return|nearing (a )?return|returns? to (practice|action|the lineup|play)|back at practice|back in practice|returns? from (injury|suspension)|back from injury|activated)\\b")
+      re("\\b(cleared to (play|return|practice)|nearing (a )?return|returns? to (practice|action|the lineup)|back at practice|back in practice|returns? from (injury|suspension)|back from injury|activated)\\b"),
+      // These read as a player's status only where the headline is about one:
+      // "Notre Dame will play Ohio State in 2027", "expected to play in the
+      // Orange Bowl" and "tickets available for" are not (Codex review, 2026-11-09).
+      re("^(?=.*\\b(injur\\w*|ankle|knee|foot|shoulder|hamstring|concussion|illness|surgery|questionable|doubtful|status|sidelined|after missing|despite|health|healthy|banged[- ]up|ailing|limited|qb|rb|wr|te|ol|ot|og|lb|cb|db|dl|de|dt|edge|quarterback|running back|receiver|tight end|linebacker|cornerback|lineman|kicker|punter|starter|starting)\\b).*\\b(expected to play|will play|good to go|available (for|vs\\.?|against)|set to return|expected to return|returns? to play)\\b"),
+      // ...or where the phrase is a game's status, not a schedule's: followed
+      // by the game ("for BYU against Utah", "vs. Duke", "Saturday") or ending
+      // the headline, with no tickets, broadcast, title or season in it.
+      re("^(?!.*\\b(tickets?|stream(ing)?|tv|channel|watch|how to|where to|broadcast|title|championship|trophy|bowl|playoffs?|cfp|schedule|opener|program|uniforms?|helmets?|merch\\w*|on sale|\\d{4})\\b).*(\\b(expected to play|will play|good to go)\\b( (for|vs\\.?|against|on|saturday|sunday|friday|thursday|tonight|this week)\\b|\\s*$)|\\bavailable (for|vs\\.?|against)\\b)"),
+      re("\\b(set to|expected to) return\\b(?! (\\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|several|most|all|both|starters?|letterwinners?|production|home|to (campus|school)))")
     ],
     injury: [
       re("\\b(undergo|undergoes|underwent|undergoing|had|has|have|needs?|will need|to have|requires?|scheduled for|set for|successful|season-ending|undergo) [^;?!]{0,30}\\bsurgery\\b"),

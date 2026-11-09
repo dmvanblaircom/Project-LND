@@ -48,6 +48,21 @@ ok(kind(M.detect(base, mismatch)) === "score/us", "the new play is theirs but ou
 var noDetail = { game: game({ us: 10 }), detail: null };
 ok(kind(M.detect(base, noDetail)) === "score/us", "no detail yet: the score alone, generic");
 
+// Codex review, 2026-11-09: the points must be the kind's, and a first look
+// with no summary knows nothing of the plays.
+var lagTD = { game: game({ us: 17 }), detail: detail(base.detail.scoring.concat([play("c", true, "K. Kick 30 Yd Field Goal")]), { at: "1:00", text: "x 5 yd run, TOUCHDOWN", tags: ["Touchdown"] }) };
+ok(kind(M.detect(base, lagTD)) === "score/us", "the score moved 10, the list holds only the field goal, the last play a touchdown: generic, not a touchdown");
+var fakeFG = { game: game({ us: 14 }), detail: detail(base.detail.scoring.concat([play("c", true, "H. Older 12 Yd pass on fake field goal (K. Kick)")]), base.detail.lastPlay) };
+ok(kind(M.detect(base, fakeFG)) !== "fieldgoal/us", "a fake field goal run in for 7 is never called a field goal");
+var fgSeven = { game: game({ them: 10 }), detail: detail(base.detail.scoring.concat([play("c", false, "R. Leg 41 Yd Field Goal")]), base.detail.lastPlay) };
+ok(kind(M.detect(base, fgSeven)) === "score/them", "field goal words but the score moved 7: generic");
+var first = { game: game(), detail: null };
+var oldTO = { game: game(), detail: detail(base.detail.scoring, { at: "11:00", text: "Pass intercepted", tags: ["Turnover"] }) };
+ok(M.detect(first, oldTO) === null, "the first summary arrives carrying an old interception: no turnover moment");
+var oldTD = { game: game({ us: 14 }), detail: detail(base.detail.scoring, { at: "9:00", text: "x TOUCHDOWN", tags: ["Touchdown"] }) };
+var mm = M.detect(first, oldTD);
+ok(kind(mm) === "score/us" && mm.count === 0, "the score moved before any summary: generic, no play counted as new (" + JSON.stringify(mm) + ")");
+
 console.log("turnovers need the provider's word");
 var to = { game: base.game, detail: detail(base.detail.scoring, { at: "4:40", text: "Pass intercepted", tags: ["Turnover"] }) };
 ok(kind(M.detect(base, to)) === "turnover", "a new play tagged Turnover: turnover");

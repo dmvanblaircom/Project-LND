@@ -155,6 +155,20 @@ ok((W.classify("Malachi Toney Set to Undergo Surgery, Missing Notre Dame and Pot
    "surgery reported with the absence it causes: availability, by the precedence (Codex, #244)");
 ok((W.classify("Miami WR Malachi Toney to undergo ankle surgery") || {}).kind === "injury", "surgery alone stays injury");
 
+// Codex review, 2026-11-09: game recaps, schedules, tickets and honours that
+// merely share a word with a status change are not wire items.
+["Riley Leonard fires three touchdown passes as Notre Dame routs Navy",
+ "Notre Dame will play Ohio State in 2027 season opener",
+ "Notre Dame expected to play in Orange Bowl",
+ "Tickets available for Notre Dame vs. Navy in Baltimore",
+ "Linebacker named team captain by head coach Marcus Freeman"].forEach(function (h) {
+  ok(W.classify(h) === null, "not a wire item: \"" + h + "\" (got " + JSON.stringify(W.classify(h)) + ")");
+});
+[["Iowa fires offensive coordinator Brian Ferentz", "coaching"], ["Iowa names Tim Lester offensive coordinator", "coaching"],
+ ["Star RB expected to play Saturday despite ankle injury", "availability"]].forEach(function (x) {
+  ok((W.classify(x[0]) || {}).kind === x[1], x[1] + " still: \"" + x[0] + "\"");
+});
+
 console.log("the article key");
 var k = W.key("https://www.slapthesign.com/notre-dame-x?utm_source=RSS&utm_medium=feed#comments");
 ok(k === "slapthesign.com/notre-dame-x", "tracking, fragment and www. dropped (" + k + ")");

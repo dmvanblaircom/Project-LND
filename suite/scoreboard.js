@@ -40,12 +40,8 @@ Suite.scoreboard = (function () {
   function scored(g) { return TeamOS.game.scored(g); }
   function shows(st, g) { return st === "live" || st === "paused" || (st === "final" && scored(g)); }
 
-  function tone(g, us, st) {
-    if (st !== "final" || !scored(g)) return "";
-    var a = Number(g.us), b = Number(g.them);
-    if (!isFinite(a) || !isFinite(b) || a === b) return "";
-    return (us ? a > b : b > a) ? " is-winner" : " is-loser";
-  }
+  // The winner rule is Home's and Game's, not a copy (Codex review, 2026-11-09).
+  function tone(g, us) { return Suite.home.scoreTone(g, us); }
 
   function ball(g, us, st) {
     return (st === "live" || st === "paused") && g.situation && !TeamOS.game.halftime(g) &&
@@ -58,7 +54,7 @@ Suite.scoreboard = (function () {
     var rank = us ? g.usRank : g.oppRank, record = us ? g.usRecord : g.oppRecord;
     var mark = us ? ui.mark(t.markUrl, t.name, t.abbr, "bare sb-mark")
                   : ui.mark(m.oppMark ? m.oppMark(g.oppProviderId) : null, g.oppName, g.oppAbbr, "bare sb-mark");
-    return '<div class="sb-team sb-' + (us ? "us" : "them") + tone(g, us, st) + '">' + mark +
+    return '<div class="sb-team sb-' + (us ? "us" : "them") + tone(g, us) + '">' + mark +
              '<p class="sb-name">' + (rank ? '<span class="sb-rank">#' + esc(rank) + "</span> " : "") +
                '<span class="sb-full">' + esc(name) + '</span><span class="sb-abbr">' + esc(abbr) + "</span></p>" +
              '<p class="sb-rec">' + (record ? esc(record) : " ") + "</p>" +
@@ -70,7 +66,7 @@ Suite.scoreboard = (function () {
     if (!shows(st, g)) return "";
     // Possession is said once, in the situation bar under the board, where
     // it sits with down and distance; the score stays clean.
-    return '<p class="sb-score sb-score-' + (us ? "us" : "them") + tone(g, us, st) + (ball(g, us, st) ? " has-ball" : "") +
+    return '<p class="sb-score sb-score-' + (us ? "us" : "them") + tone(g, us) + (ball(g, us, st) ? " has-ball" : "") +
              '" data-side="' + (us ? "us" : "them") + '"><span class="sb-n">' + esc(v == null ? "0" : v) + "</span></p>";
   }
 
@@ -109,7 +105,8 @@ Suite.scoreboard = (function () {
     if (!(ms > 0)) return "";
     var d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), mi = Math.floor(ms % 36e5 / 6e4);
     function cell(n, l) { return '<span class="sb-cd-cell"><span class="sb-cd-n">' + n + '</span><span class="sb-cd-l">' + l + "</span></span>"; }
-    return '<p class="sb-cd" aria-label="Kickoff in ' + d + " days, " + h + " hours, " + mi + ' minutes"><span aria-hidden="true">' +
+    function said(n, one) { return n + " " + one + (n === 1 ? "" : "s"); }
+    return '<p class="sb-cd" aria-label="Kickoff in ' + said(d, "day") + ", " + said(h, "hour") + ", " + said(mi, "minute") + '"><span aria-hidden="true">' +
            cell(d, d === 1 ? "Day" : "Days") + cell(h, h === 1 ? "Hr" : "Hrs") + cell(mi, "Min") + "</span></p>";
   }
 
@@ -127,16 +124,23 @@ Suite.scoreboard = (function () {
 
   function summary(m, st) {
     var g = m.game, t = m.team, opp = (g.oppRank ? "number " + g.oppRank + " " : "") + g.oppName;
-    // A score the source has not given is never read out as 0 (Codex, #239):
-    // the board hides it, and so does what a screen reader hears.
-    var line = scored(g) ? t.name + " " + g.us + ", " + opp + " " + g.them + "."
-                         : t.name + (g.home || g.neutral ? " versus " : " at ") + opp + ".";
+    // What a screen reader hears is what the board shows (Codex reviews of
+    // #239 and 2026-11-09): a final's score only when the source gave it -
+    // never a made-up 0-0 - and a live game's as the board draws it.
+    var live = st === "live" || st === "paused", shown = live || (st === "final" && scored(g));
+    function n(v) { return v == null || v === "" ? 0 : v; }
+    var line = shown ? t.name + " " + n(g.us) + ", " + opp + " " + n(g.them) + "."
+                     : t.name + (g.home || g.neutral ? " versus " : " at ") + opp + ".";
     if (st === "final") return "Final. " + line;
-    if (st === "live" || st === "paused") return (st === "paused" ? (g.status === "suspended" ? "Suspended. " : "Delayed. ") : "Live. ") +
-      (g.period ? ui.period(g.period) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " : "") + line;
+    if (live) {
+      var p = +g.period, when = TeamOS.game.halftime(g) ? "Halftime. "
+        : p >= 5 ? (p === 5 ? "Overtime" : "Overtime " + (p - 4)) + ". "
+        : p ? ui.period(p) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " : "";
+      return (st === "paused" ? (g.status === "suspended" ? "Suspended. " : "Delayed. ") : "Live. ") + when + line;
+    }
     var ko = ui.kickoff(g.date, g.timeSet);
     return (st === "upcoming" ? "Next game: " : st.charAt(0).toUpperCase() + st.slice(1) + ". ") + t.name + (g.home || g.neutral ? " versus " : " at ") + opp +
-           (ko ? ", " + ko.day + (g.timeSet === false ? "" : ", " + ko.time) : "") + (g.net ? ", on " + g.net : "") + ".";
+           (ko && ko.day ? ", " + ko.day + (g.timeSet === false || !ko.time ? "" : ", " + ko.time) : "") + (g.net ? ", on " + g.net : "") + ".";
   }
 
   function board(m, opts) {
