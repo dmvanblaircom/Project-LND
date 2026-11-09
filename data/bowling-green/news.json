@@ -1,7 +1,16 @@
 {
  "team": "bowling-green",
- "updated": "2026-11-05T21:07:58.416427+00:00",
+ "updated": "2026-11-09T03:38:09.627482+00:00",
  "items": [
+  {
+   "title": "At the Game: Kent State",
+   "link": "https://bgsufalcons.com/news/2026/11/8/football-at-the-game-kent-state",
+   "source": "Bowling Green Athletics",
+   "summary": "<img alt=\"BGSU Crowd Shot - Ball State\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/DSC07760_Cayman_VFX.jpg\" /><br /><br />BOWLING GREEN, Ohio \u2014 Bowling Green continues MAC play on Tuesday night with MACtion against the Kent State Golden Flashes. Kickoff at Doyt Perry Stadium is set for 7 p.m.",
+   "image": "https://bgsufalcons.com/images/2026/11/8/DSC07760_Cayman_VFX.jpg?width=800",
+   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
+   "published": "2026-11-09T03:08:00+00:00"
+  },
   {
    "title": "Sanders Ellis\u2019 Road to Bowling Green",
    "link": "https://bgsufalcons.com/news/2026/11/5/football-sanders-ellis-road-to-bowling-green",
@@ -82,15 +91,6 @@
    "image": "https://bgsufalcons.com/images/2026/10/17/Kate_Laney_Photo_Oct_16_2026__11_25_14_PM.jpg?width=800",
    "sourceLogo": "https://bgsufalcons.com/favicon.ico",
    "published": "2026-10-17T21:04:00+00:00"
-  },
-  {
-   "title": "At the Game: Ball State",
-   "link": "https://bgsufalcons.com/news/2026/10/15/football-at-the-game-ball-state",
-   "source": "Bowling Green Athletics",
-   "summary": "<img alt=\"BGSU Fan shot USF\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/15/LucasSeg_194_Lucas_Segulin.jpg\" /><br /><br />BOWLING GREEN, Ohio \u2014 Bowling Green will complete their in-conference homestand on Saturday as they square off against the Ball State Cardinals. Kickoff at Doyt Perry Stadium is set for Saturday at 12 p.m.",
-   "image": "https://bgsufalcons.com/images/2026/10/15/LucasSeg_194_Lucas_Segulin.jpg?width=800",
-   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
-   "published": "2026-10-16T01:28:00+00:00"
   }
  ]
 }

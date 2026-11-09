@@ -1,7 +1,16 @@
 {
  "team": "georgia-tech",
- "updated": "2026-11-09T01:53:58.526172+00:00",
+ "updated": "2026-11-09T03:38:13.228809+00:00",
  "items": [
+  {
+   "title": "JOL TV: Overreaction Sunday talking Tech after another loss",
+   "link": "https://on3.com/sites/jackets-online/news/jol-tv-overreaction-sunday-talking-tech-after-another-loss/",
+   "source": "Jackets Online",
+   "summary": "Join JOL publisher Kelly Quinlan and staff writer Alex Farrer as they answer questions and discuss another rough outing for the Yellow Jackets, Brent Key's awkward post-game press conference, and other topics about Tech.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08211521/2026-11-08T023927Z_1359982447_MT1USATODAY30307250_RTRMADP_3_NCAA-FOOTBALL-LOUISVILLE-AT-GEORGIA-TECH.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-09T03:16:03+00:00"
+  },
   {
    "title": "ACC Power Rankings: How did week 10's results shape the conference picture?",
    "link": "https://www.si.com/college/georgiatech/football/acc-power-rankings-how-did-week-10-s-results-shape-the-conference-picture-01m6y45t6971?utm_source=RSS",
@@ -127,15 +136,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6650,h_3740,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_yellow_jackets/01m6sjs2vy4bvsyrv9yx.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-07T18:30:00+00:00"
-  },
-  {
-   "title": "Georgia Tech vs. Louisville Where To Watch/Game Thread",
-   "link": "https://www.fromtherumbleseat.com/georgia-tech-football/37683/georgia-tech-vs-louisville-where-to-watch-game-thread",
-   "source": "From the Rumble Seat",
-   "summary": "Good morning from lovely Grant Park in Atlanta. Yes, Georgia Tech football must again field a team in this desolate, forgettable 2026 season where Tech is sitting at 2-6 and welcome the 5-3 Louisville Cardinals who still have an outside shot at making the ACC Championship game. To put it lightly, Tech is severely overmatched [&#8230;]",
-   "image": "https://platform.fromtherumbleseat.com/wp-content/uploads/sites/85/2026/11/gettyimages-2302465055.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-07T14:19:03+00:00"
   },
   {
    "title": "Georgia Tech vs Louisville: Game Preview and Final Score Prediction",
@@ -291,15 +291,6 @@
    "published": "2026-11-03T00:02:53+00:00"
   },
   {
-   "title": "Following the Future: GT commits help teams clinch region crowns",
-   "link": "https://on3.com/sites/jackets-online/news/following-the-future-gt-commits-help-teams-clinch-region-crowns/",
-   "source": "Jackets Online",
-   "summary": "Several GT commits were in action in high school games in the last few days. Here is a look at how they performed in those contests.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/06/15211119/Screenshot_20260615-2203152.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-02T15:15:00+00:00"
-  },
-  {
    "title": "Scions E335: There\u2019s No Return From This",
    "link": "https://www.fromtherumbleseat.com/georgia-tech-football/37662/scions-e335-theres-no-return-from-this",
    "source": "From the Rumble Seat",
@@ -343,6 +334,15 @@
    "image": "https://platform.fromtherumbleseat.com/wp-content/uploads/sites/85/2026/10/1222-ultramax400-8437.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-10-26T23:17:05+00:00"
+  },
+  {
+   "title": "Georgia Tech decimated 49-27 by Boston College",
+   "link": "https://www.fromtherumbleseat.com/georgia-tech-football/37632/georgia-tech-decimated-49-27-by-boston-college",
+   "source": "From the Rumble Seat",
+   "summary": "BOBBY DODD STADIUM \u2014 Georgia Tech football suffered a humiliating defeat to Boston College, losing 49-27 while allowing 399 rushing yards to the Eagles. Tech falls to 2-5 on the season and 1-3 in ACC play. Tech started with a 10-0 lead on an opening drive touchdown by tight end Kevin Roche, Jr. and an [&#8230;]",
+   "image": "https://platform.fromtherumbleseat.com/wp-content/uploads/sites/85/2026/10/gettyimages-2301380718.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-10-25T00:28:34+00:00"
   }
  ]
 }
