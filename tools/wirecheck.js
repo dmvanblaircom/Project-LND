@@ -165,6 +165,7 @@ ok((W.classify("Miami WR Malachi Toney to undergo ankle surgery") || {}).kind ==
   ok(W.classify(h) === null, "not a wire item: \"" + h + "\" (got " + JSON.stringify(W.classify(h)) + ")");
 });
 [["Iowa fires offensive coordinator Brian Ferentz", "coaching"], ["Iowa names Tim Lester offensive coordinator", "coaching"],
+ ["Tim Lester named offensive coordinator by Iowa", "coaching"],
  ["Star RB expected to play Saturday despite ankle injury", "availability"]].forEach(function (x) {
   ok((W.classify(x[0]) || {}).kind === x[1], x[1] + " still: \"" + x[0] + "\"");
 });

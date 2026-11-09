@@ -103,7 +103,7 @@ TeamOS.wire = (function () {
       re("\\b(coach|coordinator|oc|dc|assistant)\\b[^;?!]{0,40}\\b(fired|dismissed|resigns|resigned|steps down|stepping down|retires|retiring|leaves|leaving|departs|out at)\\b"),
       // a hire, not an honour that mentions the coach ("named team captain by
       // head coach ..."; Codex review, 2026-11-09)
-      re("\\b(hires|hired|names|named|promotes|promoted|tabs|tabbed|elevates|elevated)\\b(?![^;?!]{0,50}\\b(captains?|by|player|award|honou?rs?|all-|semifinalists?|finalists?|watch list|week|month)\\b)[^;?!]{0,50}\\b(head coach|interim|coordinator|oc|dc|assistant coach|coach)\\b"),
+      re("\\b(hires|hired|names|named|promotes|promoted|tabs|tabbed|elevates|elevated)\\b(?![^;?!]{0,50}\\b(captains?|player|award|honou?rs?|all-|semifinalists?|finalists?|watch list|week|month)\\b)[^;?!]{0,50}\\b(head coach|interim|coordinator|oc|dc|assistant coach|coach)\\b"),
       re("^(?!.*\\b(series|schedule|home-and-home|rivalry|game|games)\\b).*\\b(contract extension|extends? [^;?!]{0,40}contract|(coach|coordinator)[^;?!]{0,40}(signs?|agrees? to|gets?|receives?|lands?) [^;?!]{0,20}extension|(signs?|agrees? to|gets?|receives?|lands?) [^;?!]{0,20}extension[^;?!]{0,40}(coach|coordinator))\\b"),
       re("\\b(accepts?|takes) (the )?[^;?!]{0,20}(head coaching|coordinator) (job|position|role)\\b")
     ],
