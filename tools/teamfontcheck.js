@@ -76,13 +76,14 @@ function fixture(url) {
   // Scores, clocks and countdowns are the Suite's numeric face whatever the
   // team's own display face (Phase 2 spec §3.2).
   var nums = await o.page.evaluate(function () {
-    return [".gc-score", ".gh-score", ".gc-clock", ".cd-n"].map(function (c) {
+    // ranks and records too, on Around and Schedule (Codex, #238)
+    return [".gc-score", ".gh-score", ".gc-clock", ".cd-n", ".tg-rank", ".tg-rec", ".sc-record"].map(function (c) {
       var el = document.createElement("span"); el.className = c.slice(1); document.body.appendChild(el);
       var f = getComputedStyle(el).fontFamily; el.remove(); return f;
     });
   });
   ok(nums.every(function (f) { return /^"?Instrument Display"?/.test(f); }),
-     "scores, clocks and countdowns use the Suite's numeric face, not Nunito (" + nums.join(" | ") + ")");
+     "scores, clocks, countdowns, ranks and records use the Suite's numeric face, not Nunito (" + nums.join(" | ") + ")");
   ok(o.fonts.length > 0 && o.fonts.every(function (u) { return u.startsWith(base + "/assets/fonts/nunito-sans/"); }),
      "from the repository's own files (" + o.fonts.length + " requested), never a third party");
   ok(await o.page.evaluate(function () { return document.fonts.check('800 16px "Nunito Sans"'); }), "and the face really loaded");
