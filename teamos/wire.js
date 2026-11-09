@@ -126,6 +126,9 @@ TeamOS.wire = (function () {
       re("\\b(questionable|doubtful|probable)\\b(?! (decision|decisions|call|calls|choice|choices|offseason|coaching|play|move|moves|officiating|strategy|timeout|fourth))"),
       re("\\b(game[- ]time decisions?|gametime decisions?|day[- ]to[- ]day|week[- ]to[- ]week)\\b"),
       re("\\b(will miss|to miss|set to miss|expected to miss|likely to miss|misses|missed) (the )?(rest|remainder|season|year|game|games|week|weeks|saturday|time|\\w+ (game|weeks|matchup|clash|contest|battle|showdown|rivalry))\\b"),
+      // An absence reported alongside the injury: "Set to Undergo Surgery,
+      // Missing Notre Dame" is availability by the precedence (Codex, #244).
+      re("\\b(surgery|injury|injured|fracture|tear|sprain|concussion)\\b[^;?!]{0,40}\\b(missing|will miss|to miss|set to miss|expected to miss|likely to miss)\\b"),
       re("\\b(removed from|off) (the |thursday['’]?s? |friday['’]?s? |wednesday['’]?s? |final |latest )?(injury|availability) report\\b"),
       re("\\b(unlikely to (play|return)|not expected to return|will not return|won['’]t return|ready to return|loses [^;?!]{0,40} for the (season|year))\\b"),
       re("\\b(expected to play|will play|cleared to (play|return|practice)|good to go|available (for|vs\\.?|against)|set to return|expected to return|nearing (a )?return|returns? to (practice|action|the lineup|play)|back at practice|back in practice|returns? from (injury|suspension)|back from injury|activated)\\b")
@@ -164,14 +167,15 @@ TeamOS.wire = (function () {
   var TRACKING = /^(utm_[a-z_]*|fbclid|gclid|dclid|msclkid|mc_cid|mc_eid|igshid|ref|ref_src|ref_url|source|src|cmpid|cmp|icid|ito|sr_share|smid|cid|_hsenc|_hsmi|oly_enc_id|oly_anon_id|vero_id|wt\.mc_id|at_medium|at_campaign|guccounter|partner|via|amp)$/i;
 
   // A link -> the key one article keeps however it is shared, or null when it
-  // is not a web address. Lower-cased host and path, no "www.", no fragment,
+  // is not a web address. Lower-cased host (the path keeps its case: on most
+  // servers /Story/1 and /story/1 are different pages; Codex, #244), no "www.", no fragment,
   // no trailing slash, no tracking parameters; other parameters are kept,
   // sorted, because some sites tell their articles apart by them.
   function key(link) {
     var m = /^https?:\/\/([^\/?#\s]+)([^?#\s]*)(\?[^#\s]*)?(#\S*)?$/i.exec(typeof link === "string" ? link.trim() : "");
     if (!m) return null;
     var host = m[1].toLowerCase().replace(/^www\./, "").replace(/:(80|443)$/, "");
-    var path = (m[2] || "/").toLowerCase().replace(/\/+$/, "").replace(/\/amp$/, "") || "";
+    var path = (m[2] || "/").replace(/\/+$/, "").replace(/\/amp$/i, "") || "";
     var params = (m[3] || "").slice(1).split("&").filter(function (p) {
       var name = p.split("=")[0];
       return p && !TRACKING.test(decodeSafe(name));

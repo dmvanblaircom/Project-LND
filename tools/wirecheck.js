@@ -151,10 +151,15 @@ ok(it.story === story && it.story.title === "Iowa star RB ruled out for season a
 ok(W.item(story, "surgery", "team") === null && W.item(null, "injury") === null, "no item for a kind outside the taxonomy, or for no story");
 ok(W.classify("") === null && W.classify(null) === null && W.classify(42) === null, "nothing to read, nothing tagged");
 
+ok((W.classify("Malachi Toney Set to Undergo Surgery, Missing Notre Dame and Potentially the Rest of the Regular Season") || {}).kind === "availability",
+   "surgery reported with the absence it causes: availability, by the precedence (Codex, #244)");
+ok((W.classify("Miami WR Malachi Toney to undergo ankle surgery") || {}).kind === "injury", "surgery alone stays injury");
+
 console.log("the article key");
 var k = W.key("https://www.slapthesign.com/notre-dame-x?utm_source=RSS&utm_medium=feed#comments");
 ok(k === "slapthesign.com/notre-dame-x", "tracking, fragment and www. dropped (" + k + ")");
-ok(W.key("https://slapthesign.com/notre-dame-x/") === k && W.key("HTTP://SlapTheSign.com/Notre-Dame-X?fbclid=abc") === k, "the same article shared three ways is one key");
+ok(W.key("https://slapthesign.com/notre-dame-x/") === k && W.key("HTTP://SlapTheSign.com/notre-dame-x?fbclid=abc") === k, "the same article shared three ways is one key");
+ok(W.key("https://site.com/Story/1") !== W.key("https://site.com/story/1"), "the path keeps its case: /Story/1 and /story/1 can be two articles (Codex, #244)");
 ok(W.key("https://site.com/story?id=12&utm_campaign=x") === "site.com/story?id=12" && W.key("https://site.com/story?id=13") !== W.key("https://site.com/story?id=12"),
    "a parameter that names the article is kept; two articles stay two");
 ok(W.key("https://a.com/one") !== W.key("https://a.com/two") && W.key("https://a.com/x") !== W.key("https://b.com/x"), "different paths or sites, different keys");

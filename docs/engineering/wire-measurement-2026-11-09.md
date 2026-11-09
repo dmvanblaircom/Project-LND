@@ -142,3 +142,12 @@ v1 and v2 differ on 11 of the 301 graded stories; on the whole corpus, v2 tags 2
 - "DaSaahn Brame Exits Tennessee vs. Kentucky Game With an Injury" (Tennessee On SI; cue "Exits Tennessee vs. Kentucky Game With an Injury")
 - "Sayin reportedly had surgery to repair fractured elbow" (Land-Grant Holy Land; cue "had surgery")
 
+
+## Addendum, after Codex's review of #244 (2026-11-09)
+
+Two rule changes after the measurement above:
+
+- **Absence reported with the injury is Availability**, by the precedence. Across the corpus this changes 3 stories, each now correctly Availability: the Toney surgery headline that "misses Notre Dame", and two "to miss" headlines that had no tag.
+- **The article key keeps the path's case.** The host is still lower-cased. On most servers `/Story/1` and `/story/1` are different pages. The distinct-story count rises to 14,084, which also includes snapshots committed since.
+
+Neither changes the v1 precision reported above, which was measured on the rule as it was frozen. The fresh-sample re-measure decides v2.
