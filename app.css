@@ -706,7 +706,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .sc-card{margin-top:.9rem;padding:.9rem .2rem .2rem;overflow:hidden}
 .sc-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:0 .8rem .5rem}
 .sc-title{margin:0;font-family:var(--s-font-heading);font-weight:700;font-size:1.45rem;line-height:1.15;letter-spacing:-.015em;color:var(--t-surface)}
-.sc-record{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.15rem;color:var(--s-ink)}
+.sc-record{margin:0;font-family:var(--s-font-score);font-weight:700;font-size:1.15rem;color:var(--s-ink);font-variant-numeric:tabular-nums}
 .sc-body{padding-bottom:.5rem}
 .sc-back{display:inline-flex;align-items:center;gap:.3rem;min-height:2.75rem;margin:.4rem 0 0;color:var(--t-surface);font-weight:600;text-decoration:none}
 .sc-back .chev{transform:rotate(180deg);width:1.1rem;height:1.1rem}
@@ -1045,8 +1045,8 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .tg-side{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.55rem}
 .tg-side .mark{--mark:1.9rem}
 .tg-name{min-width:0;font-weight:600;font-size:1rem;line-height:1.2;color:var(--s-ink)}
-.tg-rank{margin-right:.3rem;font-family:var(--t-font-display);font-weight:700;font-size:.9rem;color:var(--s-muted)}
-.tg-rec{display:inline-block;white-space:nowrap;font-weight:400;font-size:.82rem;color:var(--s-muted)}
+.tg-rank{margin-right:.3rem;font-family:var(--s-font-score);font-weight:700;font-size:.9rem;color:var(--s-muted);font-variant-numeric:tabular-nums}
+.tg-rec{display:inline-block;white-space:nowrap;font-family:var(--s-font-score);font-weight:400;font-size:.82rem;color:var(--s-muted);font-variant-numeric:tabular-nums}
 .tg-score{min-width:1.8rem;text-align:right;font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.3rem;font-variant-numeric:tabular-nums;color:var(--s-ink)}
 .tg-side.lost .tg-score,.tg-side.lost .tg-name{color:var(--s-muted)}
 .tg-status{grid-area:status;display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;min-width:5.6rem;padding-left:.75rem;border-left:1px solid var(--s-line);text-align:right}
