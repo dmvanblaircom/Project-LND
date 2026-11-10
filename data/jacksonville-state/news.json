@@ -1,7 +1,16 @@
 {
  "team": "jacksonville-state",
- "updated": "2026-11-08T05:08:01.782661+00:00",
+ "updated": "2026-11-10T22:38:00.145492+00:00",
  "items": [
+  {
+   "title": "Jax State Football Press Conference 2026--WKU",
+   "link": "https://jaxstatesports.com/news/2026/11/10/jax-state-football-press-conference-2026-wku",
+   "source": "Jax State Athletics",
+   "summary": "<img alt=\"ck-presse-111026\" src=\"https://jaxstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/press__7__1_.jpg\" /><br /><br />Coach Charles Kelly",
+   "image": "https://jaxstatesports.com/images/2026/11/10/press__7__1_.jpg?width=800",
+   "sourceLogo": "https://jaxstatesports.com/favicon.ico",
+   "published": "2026-11-10T22:05:00+00:00"
+  },
   {
    "title": "Gamecocks romp past Sam Houston on Homecoming for Sixth Straight Win",
    "link": "https://jaxstatesports.com/news/2026/11/7/football-gamecocks-romp-past-sam-houston-on-homecoming-for-sixth-straight-win",
@@ -82,15 +91,6 @@
    "image": "https://jaxstatesports.com/images/2026/10/14/10132026_Jax_State_Football_v_FIU_-_EK-23.jpg?width=800",
    "sourceLogo": "https://jaxstatesports.com/favicon.ico",
    "published": "2026-10-14T05:56:00+00:00"
-  },
-  {
-   "title": "Gamecocks Host FIU for Weekday CUSA",
-   "link": "https://jaxstatesports.com/news/2026/10/13/football-gamecocks-host-fiu-for-weekday-cusa",
-   "source": "Jax State Athletics",
-   "summary": "<img alt=\"mtsu-runout\" src=\"https://jaxstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/12/09262026_Jax_State_Football_v_Middle_Tennessee___EK_71.jpg\" /><br /><br />JACKSONVILLE\u2014Jax State will play host to the only Conference USA team to defeat them during the 2025 regular season Tuesday night at AmFirst Stadium.",
-   "image": "https://jaxstatesports.com/images/2026/10/12/09262026_Jax_State_Football_v_Middle_Tennessee___EK_71.jpg?width=800",
-   "sourceLogo": "https://jaxstatesports.com/favicon.ico",
-   "published": "2026-10-13T13:00:00+00:00"
   }
  ]
 }
