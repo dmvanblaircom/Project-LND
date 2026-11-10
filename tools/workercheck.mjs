@@ -7,8 +7,8 @@
    fails, and never passes CFBD's raw payload or errors through.
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
-import worker, { fbsRanks, RANKED, pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts, Ratings, spClock } from "../worker/src/index.js";
-import { migrateSp, keepSp, spWeeks, spWeek, spIdOf, spDue, weekOf, SP_DUE, SP_KEEP_MAX } from "../worker/src/sp.js";
+import worker, { cfbdCache, fbsRanks, RANKED, pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts, Ratings, spClock } from "../worker/src/index.js";
+import { migrateSp, keepSp, spWeeks, spWeek, spIdOf, spDue, weekOf, SP_DUE, SP_KEEP_MAX, keptOp, KEPT_MAX } from "../worker/src/sp.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
          words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease,
          stageOf, postGames, fieldSet, selectionFor, alertUrl, prune, KEEP_DELIVERIES } from "../worker/src/push.js";
@@ -1725,6 +1725,47 @@ ok(alertUrl("999999", "#game") === APP_URL + "#game", "a team Suite does not kno
   const last = await get("/v1/cfbd/season?team=Notre%20Dame&year=2025", feb, SITE);
   const next = await get("/v1/cfbd/season?team=Notre%20Dame&year=2027", feb, SITE);
   ok(last.r.status === 200 && next.r.status === 400, "in February the season is 2026: last season (2025) is answered, 2027 not yet (" + last.r.status + ", " + next.r.status + ")"); }
+
+console.log("CFBD's answers, kept in the Worker's own store (David, 2026-11-10: the allowance ran out)");
+{ // One read of every team's season serves every team's Matchup, and the ranks.
+  const e = env();
+  await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, SITE);
+  const two = await get("/v1/cfbd/season?team=Ohio%20State&year=2026", e, SITE);
+  ok(e.calls.length === 1 && !/[?&]team=/.test(e.calls[0].url) && two.r.status === 200 && two.body.stats.rushingYards === 800,
+     "two teams' Matchups, one CFBD read of every team's season (" + e.calls.length + " call)");
+  const big = Array.from({ length: 4000 }, (_, i) => ({ season: 2026, team: "T" + (i % 130), conference: "C", statName: i % 2 ? "games" : "tacklesForLoss", statValue: i }));
+  const e2 = Object.assign(env(), { FETCH: async (u) => { e2.calls.push({ url: u }); return new Response(JSON.stringify(big), { status: 200 }); } });
+  await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e2, SITE);
+  const keptRows = JSON.parse([...e2.CACHE.map.values()][0]).rows;
+  ok(keptRows.length === 2000 && keptRows.every((r) => r.statName === "games" && !("conference" in r)), "kept slim: the statistics a route uses, nothing else (" + keptRows.length + " of 4000 rows)"); }
+{ // With no Cache (workers.dev), the Ratings store keeps them.
+  const obj = new Ratings({ storage: { sql: fakeSql() } }, {});
+  const RATINGS = { idFromName: () => "ratings", get: () => ({ fetch: (u, init) => obj.fetch(new Request(u, init)) }) };
+  const e = Object.assign(env(), { RATINGS }); delete e.CACHE;
+  const first = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, SITE);
+  const again = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, SITE);
+  ok(first.r.status === 200 && again.r.status === 200 && e.calls.length === 1 && again.body.stats.rushingYards === 1100,
+     "no Cache API: the second fan's Matchup is answered from the Worker's store, not CFBD (" + e.calls.length + " call)");
+  const down = Object.assign(env({ down: true }), { RATINGS, NOW: () => Date.parse("2026-10-02T12:00:00Z") }); delete down.CACHE;
+  const c = cfbdCache(down), k = new Request("https://edge.cache/x");
+  await c.put(k, new Response("{\"a\":1}", { headers: { "cache-control": "max-age=1" } }));
+  ok(await (await c.match(k)).text() === "{\"a\":1}", "the store gives back what it kept");
+  const broken = cfbdCache({ RATINGS: { idFromName: () => "x", get: () => ({ fetch: async () => { throw new Error("down"); } }) } });
+  ok(await broken.match(k) === undefined, "a store that does not answer is no copy, not an error"); }
+{ const db = (() => { const sql = fakeSql(); const d = { exec: (q) => sql.exec(q), all: (q, ...b) => sql.exec(q, ...b).toArray(), run: (q, ...b) => { sql.exec(q, ...b); } }; migrateSp(d); return d; })();
+  const now = 1000000;
+  keptOp(db, "kept-put", { k: "a", body: "{}", seconds: 10 }, now);
+  ok(keptOp(db, "kept", { k: "a" }, now + 9000).status === 200 && keptOp(db, "kept", { k: "a" }, now + 10001).status === 404, "an answer kept 10 s is there for 10 s, then gone");
+  ok(keptOp(db, "kept-put", { k: "b", body: "x".repeat(KEPT_MAX + 1), seconds: 10 }, now).status === 413, "an answer too big for one row is refused, not truncated");
+  keptOp(db, "kept-put", { k: "c", body: "{}", seconds: 10 }, now + 20000);
+  ok(db.all("SELECT k FROM cfbd_kept").map((r) => r.k).join() === "c", "expired answers are let go when the next is kept"); }
+{ // The ranks read the same kept season: no second /stats/season call.
+  const calls = [];
+  const e = { calls, NOW: () => Date.parse("2026-10-27T12:00:00Z"), CACHE: memoryCache(), CFBD_API_KEY: "test-key",
+    FETCH: async (url) => { calls.push(url); return new Response(JSON.stringify(/\/stats\/season\?/.test(url) ? statRows(2026) : fbs(2026)), { status: 200 }); } };
+  await get("/v1/cfbd/season?team=" + encodeURIComponent(SP_SCHOOLS[0]) + "&year=2026", e, SITE);
+  const rk = await get("/v1/cfbd/ranks?year=2026", e, SITE);
+  ok(rk.r.status === 200 && calls.filter((u) => /\/stats\/season/.test(u)).length === 1, "the FBS ranks reuse the season Matchup already read (" + calls.join(" | ").replace(/https:\/\/[^/]+/g, "") + ")"); }
 
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the edge API answers only what a screen shows"));
 process.exit(failures ? 1 : 0);

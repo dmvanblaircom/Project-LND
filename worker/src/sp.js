@@ -27,6 +27,33 @@ export function migrateSp(db) {
           " seen TEXT NOT NULL, ranks TEXT NOT NULL, PRIMARY KEY (year, id))");
   // The last table read for a season, when, and the edition it is.
   db.exec("CREATE TABLE IF NOT EXISTS sp_last (year INTEGER PRIMARY KEY, at INTEGER NOT NULL, id TEXT, ranks TEXT NOT NULL)");
+  // CFBD's answers, kept here rather than in the Cache API, which keeps
+  // nothing on a workers.dev address: every fan's Matchup was a CFBD call and
+  // the key's monthly allowance ran out (429s from 2026-11-06; David,
+  // 2026-11-10, option 2). One row per answer, until it expires.
+  db.exec("CREATE TABLE IF NOT EXISTS cfbd_kept (k TEXT PRIMARY KEY, body TEXT NOT NULL, exp INTEGER NOT NULL)");
+}
+
+// The CFBD answers kept for the routes (index.js cfbdCache):
+//   GET  /kept?k=                    -> the answer kept under k, or 404
+//   POST /kept-put { k, body, seconds }  keep it for that long
+export const KEPT_MAX = 1500000;          // characters: one SQLite row stays well under its 2 MB limit
+export function keptOp(db, op, input, now) {
+  if (op === "kept") {
+    const row = db.all("SELECT body, exp FROM cfbd_kept WHERE k = ?", String(input.k || ""))[0];
+    if (!row || row.exp <= now) return { status: 404, body: null };
+    return { status: 200, body: row.body, raw: true };
+  }
+  if (op === "kept-put") {
+    const k = String(input.k || ""), body = typeof input.body === "string" ? input.body : "", secs = Number(input.seconds);
+    if (!k || !body || !(secs > 0)) return { status: 400, body: { error: "k, body and seconds are required" } };
+    if (body.length > KEPT_MAX) return { status: 413, body: { error: "too large to keep" } };
+    db.run("DELETE FROM cfbd_kept WHERE exp <= ?", now);
+    db.run("INSERT INTO cfbd_kept (k, body, exp) VALUES (?, ?, ?) ON CONFLICT (k) DO UPDATE SET body = excluded.body, exp = excluded.exp",
+           k, body, now + secs * 1000);
+    return { status: 200, body: { kept: true } };
+  }
+  return null;
 }
 
 // ESPN's scoreboard -> the football week it is now, for `year`'s season, or
@@ -146,6 +173,8 @@ export class Ratings {
   async fetch(request) {
     const url = new URL(request.url), op = url.pathname.slice(1);
     const input = request.method === "POST" ? await request.json() : Object.fromEntries(url.searchParams);
+    const kept = keptOp(this.db, op, input, Date.now());
+    if (kept) return new Response(kept.raw ? kept.body : JSON.stringify(kept.body), { status: kept.status, headers: { "content-type": "application/json" } });
     const out = await spOp(this.db, this.env, op, input, Date.now());
     return new Response(JSON.stringify(out.body), { status: out.status, headers: { "content-type": "application/json" } });
   }
