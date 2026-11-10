@@ -1,7 +1,16 @@
 {
  "team": "notre-dame",
- "updated": "2026-11-10T08:38:08.648993+00:00",
+ "updated": "2026-11-10T12:08:12.464048+00:00",
  "items": [
+  {
+   "title": "Newsstand: Notre Dame officially announces season 3 of Here Come The Irish",
+   "link": "https://on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-docuseries-here-come-the-irish-peacock-marcus-freeman/",
+   "source": "Blue & Gold",
+   "summary": "Notre Dame's hit sports docuseries 'Here Come The Irish' returns to Peacock on Dec. 14, 2026, the school announced.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/08/16213306/Free.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-10T11:48:00+00:00"
+  },
   {
    "title": "WEATHER REPORT: Notre Dame Fighting Irish VS Boston College Eagles",
    "link": "https://www.onefootdown.com/notre-dame-fighting-irish-football/86927/weather-report-notre-dame-fighting-irish-vs-boston-college-eagles",
@@ -532,15 +541,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4961,h_2790,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/167/01m6md5s67vk2zc0mbs0.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/favicon_2-7584840191d9f13dce826391650b7201.ico",
    "published": "2026-11-04T23:15:12+00:00"
-  },
-  {
-   "title": "Malachi Toney injury gives Notre Dame exactly the kind of CFP problem it doesn\u2019t need",
-   "link": "https://slapthesign.com/notre-dame-football-malachi-toney-injury-miami-cfp-ranking-hunter-yurachek?utm_source=RSS",
-   "source": "Slap the Sign",
-   "summary": "Notre Dame football needs a signature Miami win, but Malachi Toney\u2019s injury could muddy it.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4711,h_2649,x_685,y_490/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/167/01m6m2ggrbth5vz843g2.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/favicon_2-7584840191d9f13dce826391650b7201.ico",
-   "published": "2026-11-04T20:59:03+00:00"
   }
  ]
 }
