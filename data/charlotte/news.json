@@ -1,7 +1,16 @@
 {
  "team": "charlotte",
- "updated": "2026-11-08T01:08:06.237662+00:00",
+ "updated": "2026-11-10T21:08:01.800446+00:00",
  "items": [
+  {
+   "title": "Charlotte Battles East Carolina on Saturday Afternoon",
+   "link": "https://charlotte49ers.com/news/2026/11/10/football-charlotte-battles-east-carolina-on-saturday-afternoon",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Gavin Willis and CJ Clinkscales celebrate a stop\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/20261110_FB_Willis.jpg\" /><br /><br />CHARLOTTE, N.C. -- Charlotte Football returns home to Jerry Richardson Stadium this Saturday (Nov. 14) to take on in-state rival East Carolina.",
+   "image": "https://charlotte49ers.com/images/2026/11/10/20261110_FB_Willis.jpg?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-11-10T20:32:00+00:00"
+  },
   {
    "title": "Niners Fall in Defensive Slugfest",
    "link": "https://charlotte49ers.com/news/2026/11/7/football-niners-fall-in-defensive-slugfest",
@@ -82,15 +91,6 @@
    "image": "https://charlotte49ers.com/images/2026/10/6/20261006_FB_Perteet.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-10-06T20:25:00+00:00"
-  },
-  {
-   "title": "Charlotte Falls to Memphis in Soggy Homecoming Contest",
-   "link": "https://charlotte49ers.com/news/2026/10/3/football-charlotte-falls-to-memphis-in-soggy-homecoming-contest",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"Henry Rutledge running for a touchdown\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/3/20261003_FB_Rutledge.jpg\" /><br /><br />CHARLOTTE, N.C. --\u00a0Charlotte Football dropped its homecoming contest on Saturday (Oct. 3) with a 59-8 loss to Memphis.",
-   "image": "https://charlotte49ers.com/images/2026/10/3/20261003_FB_Rutledge.jpg?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-10-03T21:12:00+00:00"
   }
  ]
 }
