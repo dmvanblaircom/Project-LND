@@ -1,7 +1,16 @@
 {
  "team": "central-michigan",
- "updated": "2026-11-09T01:53:55.004307+00:00",
+ "updated": "2026-11-10T03:38:01.579257+00:00",
  "items": [
+  {
+   "title": "Watch: Central Michigan Football Coaches Show No. 10 (Sacramento State Week)",
+   "link": "https://cmuchippewas.com/news/2026/11/9/central-michigan-football-coaches-show-no-10-november-9-2026",
+   "source": "CMU Athletics",
+   "summary": "<img alt=\"Coaches Show Graphic No. 10\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/11-SacState-3.jpg\" /><br /><br />",
+   "image": "https://cmuchippewas.com/images/2026/11/9/11-SacState-3.jpg?width=800",
+   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
+   "published": "2026-11-10T03:07:00+00:00"
+  },
   {
    "title": "Chippewas Host Sacramento State for MACtion Wednesday Night at 7:30 p.m.",
    "link": "https://cmuchippewas.com/news/2026/11/8/football-chippewas-host-sacramento-state-for-maction-wednesday-night-at-7-30-pm",
@@ -82,15 +91,6 @@
    "image": "https://cmuchippewas.com/images/2026/10/17/_fans_fb_BPG.jpg?width=800",
    "sourceLogo": "https://cmuchippewas.com/favicon.ico",
    "published": "2026-11-01T13:19:00+00:00"
-  },
-  {
-   "title": "News & Notes: Motor City MACtion Wednesday Night Versus Eastern Michigan at Ford Field",
-   "link": "https://cmuchippewas.com/news/2026/10/31/football-news-notes-motor-city-maction-wednesday-night-versus-eastern-michigan-at-ford-field",
-   "source": "CMU Athletics",
-   "summary": "<img alt=\"Eastern Michigan Football Game Preview Graphic\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/10-Eastern-2.jpg\" /><br /><br />GAME 9: CENTRAL MICHIGAN (3-5, 1-3 MAC) VS. EASTERN MICHIGAN (4-5, 3-2 MAC)",
-   "image": "https://cmuchippewas.com/images/2026/10/31/10-Eastern-2.jpg?width=800",
-   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
-   "published": "2026-10-31T17:21:00+00:00"
   }
  ]
 }
