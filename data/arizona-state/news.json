@@ -1,7 +1,16 @@
 {
  "team": "arizona-state",
- "updated": "2026-11-10T22:08:01.682172+00:00",
+ "updated": "2026-11-10T23:07:56.982862+00:00",
  "items": [
+  {
+   "title": "Know Your Foe: UCF",
+   "link": "https://on3.com/sites/asu-devils/news/know-your-foe-ucf-2/",
+   "source": "Devils Digest",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/04081108/Scott-Frost-2-1200.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-10T22:47:53+00:00"
+  },
   {
    "title": "Tuesday's Practice Report",
    "link": "https://on3.com/sites/asu-devils/news/tuesdays-practice-report-36/",
@@ -235,15 +244,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1080,h_607,x_0,y_44/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/all_sun_devils/01m6mhcfzq4tq57bp4pj.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-05T00:44:03+00:00"
-  },
-  {
-   "title": "Wednesday\u2019s Practice Report",
-   "link": "https://on3.com/sites/asu-devils/news/wednesdays-practice-report-27/",
-   "source": "Devils Digest",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/27163822/Fette1.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-04T22:19:34+00:00"
   },
   {
    "title": "ASU Safety Lyrik Rawls is Done For The Season, Won't Return For Arizona State",

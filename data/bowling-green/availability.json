@@ -7,13 +7,20 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T15:11:02.652945+00:00",
+ "fetchedAt": "2026-11-10T23:08:37.494763+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
+ "effectiveAt": "2026-11-10",
  "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "Western Michigan",
+ "kickoffDate": "2026-11-10",
+ "game": "Kent State",
  "players": [
+  {
+   "pos": "TE",
+   "no": "0",
+   "name": "Jeremiah Scoby",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "RB",
    "no": "1",
@@ -29,10 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "9",
-   "name": "Preston EstoEsta",
-   "status": "questionable",
+   "pos": "WR",
+   "no": "6",
+   "name": "Isaiah Dawson",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -43,16 +50,16 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "18",
-   "name": "Nick Sawyer",
-   "status": "questionable",
+   "pos": "QB",
+   "no": "17",
+   "name": "Jay Kastantin",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "22",
-   "name": "Julian Holt",
+   "pos": "WR",
+   "no": "18",
+   "name": "Winn Sharp",
    "status": "out-game",
    "detail": ""
   },
@@ -85,6 +92,20 @@
    "detail": ""
   },
   {
+   "pos": "DL",
+   "no": "55",
+   "name": "Timothy Taylor Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LS",
+   "no": "56",
+   "name": "Quillan Jimenez",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DT",
    "no": "57",
    "name": "Dayln White",
@@ -113,24 +134,10 @@
    "detail": ""
   },
   {
-   "pos": "OG",
-   "no": "77",
-   "name": "James Thomas Jr.",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "84",
    "name": "Trent Taylor",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "88",
-   "name": "Selah Brown",
-   "status": "questionable",
    "detail": ""
   }
  ],

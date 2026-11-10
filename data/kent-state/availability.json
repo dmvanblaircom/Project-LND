@@ -7,25 +7,39 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T10:10:27.321374+00:00",
+ "fetchedAt": "2026-11-10T23:08:40.585378+00:00",
  "reported": true,
- "effectiveAt": "2026-10-30",
+ "effectiveAt": "2026-11-10",
  "heading": "Game Day",
- "kickoffDate": "2026-10-30",
- "game": "at Sacramento State",
+ "kickoffDate": "2026-11-10",
+ "game": "Bowling Green",
  "players": [
   {
-   "pos": "RB",
-   "no": "0",
-   "name": "Mason King",
-   "status": "out-game",
+   "pos": "DB",
+   "no": "1",
+   "name": "A'tiq Muhammad",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
-   "no": "8",
-   "name": "Da'Realyst Clark",
-   "status": "questionable",
+   "no": "4",
+   "name": "Jared Kelley",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "7",
+   "name": "Angelo Stockstill",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "77",
+   "name": "Rico Steele",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -36,9 +50,16 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "89",
-   "name": "Terik Mulder",
+   "pos": "DL",
+   "no": "83",
+   "name": "Garrett Long",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "91",
+   "name": "Dion'Dre Taylor",
    "status": "out-game",
    "detail": ""
   }

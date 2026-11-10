@@ -7,17 +7,24 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T15:11:13.262861+00:00",
+ "fetchedAt": "2026-11-10T23:08:47.172487+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
+ "effectiveAt": "2026-11-10",
  "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "Bowling Green",
+ "kickoffDate": "2026-11-10",
+ "game": "Akron",
  "players": [
   {
-   "pos": "S",
-   "no": "6",
-   "name": "Joey Pope",
+   "pos": "WR",
+   "no": "2",
+   "name": "Aveion Chenault",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "5",
+   "name": "Justyce Betts",
    "status": "questionable",
    "detail": ""
   },
@@ -29,16 +36,9 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "15",
-   "name": "Adam Parks",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "18",
-   "name": "Micah Davis",
+   "pos": "K",
+   "no": "20",
+   "name": "Palmer Domschke",
    "status": "questionable",
    "detail": ""
   },
@@ -47,13 +47,6 @@
    "no": "24",
    "name": "Ofa \"Lolo\" Mataele",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LS",
-   "no": "46",
-   "name": "Drew Doyle",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -67,6 +60,13 @@
    "pos": "OL",
    "no": "67",
    "name": "Ryan Westrich",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "80",
+   "name": "Harper Hughes",
    "status": "out-game",
    "detail": ""
   },

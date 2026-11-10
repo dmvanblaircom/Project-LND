@@ -1,7 +1,16 @@
 {
  "team": "james-madison",
- "updated": "2026-11-09T21:38:04.615318+00:00",
+ "updated": "2026-11-10T23:08:04.079619+00:00",
  "items": [
+  {
+   "title": "Football: Dukes Travel to UConn for Final Regular-Season Road Trip",
+   "link": "https://jmusports.com/news/2026/11/10/football-dukes-travel-to-uconn-for-final-regular-season-road-trip",
+   "source": "JMU Athletics",
+   "summary": "<img alt=\"uconn game preview\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/2526_Game_Preview_uconn.jpg\" /><br /><br />HARRISONBURG, Va. \u2013 James Madison embarks on its final road trip of the 2026 regular season at UConn on Saturday, Nov. 14. Kickoff at Rentschler Field in East Hartford, Connecticut, is set for noon ET, and the game will air live on CBS Sports Network.",
+   "image": "https://jmusports.com/images/2026/11/10/2526_Game_Preview_uconn.jpg?width=800",
+   "sourceLogo": "https://jmusports.com/favicon.ico",
+   "published": "2026-11-10T22:27:00+00:00"
+  },
   {
    "title": "Football: Suarez Earns Sun Belt Weekly Honor",
    "link": "https://jmusports.com/news/2026/11/9/football-suarez-earns-sun-belt-weekly-honor",
@@ -82,15 +91,6 @@
    "image": "https://jmusports.com/images/2026/10/21/091226_Wagner_656.JPG?width=800",
    "sourceLogo": "https://jmusports.com/favicon.ico",
    "published": "2026-10-21T16:19:00+00:00"
-  },
-  {
-   "title": "Football, Administration: Impacts to Game Day and Campus Operations for Thursday Night JMU Football Game (Oct. 29)",
-   "link": "https://jmusports.com/news/2026/10/20/impacts-to-game-day-and-campus-operations-for-thursday-night-jmu-football-game-oct-29",
-   "source": "JMU Athletics",
-   "summary": "<img alt=\"Aerial Shot of Convo during football Tailgating\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/20/Campus_Parking_Convo.jpg\" /><br /><br />JMU and JMU Athletics announces campus operational plan for Oct. 29 Thursday Night football game. Game day parking will begin at 4:30pm.",
-   "image": "https://jmusports.com/images/2026/10/20/Campus_Parking_Convo.jpg?width=800",
-   "sourceLogo": "https://jmusports.com/favicon.ico",
-   "published": "2026-10-20T18:15:00+00:00"
   }
  ]
 }

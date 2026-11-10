@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "akron",
- "updated": "2026-11-04T11:08:47.711898+00:00",
+ "updated": "2026-11-10T23:08:31.232594+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1029,6 +1029,130 @@
      "pos": "DL",
      "no": "94",
      "name": "Malakai Ross-Graves",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "akron",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-10T23:08:31.232594+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-10",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-10",
+   "game": "Western Michigan",
+   "players": [
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Daymon David",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "3",
+     "name": "Alex Branch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "12",
+     "name": "Iesa Jarmon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "12",
+     "name": "Cameron Monteiro",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Jaborree Riggins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "16",
+     "name": "Paul Davis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "21",
+     "name": "Catrell White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Chris Gee",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "31",
+     "name": "Gavin James",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "65",
+     "name": "Logan Hindmarch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Dayne Shor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "81",
+     "name": "Luke Sivon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "83",
+     "name": "Elijah Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "Malakai Ross-Graves",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "97",
+     "name": "Vann Kavals",
      "status": "out-game",
      "detail": ""
     }
