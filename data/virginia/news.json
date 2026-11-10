@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-10T14:08:21.238377+00:00",
+ "updated": "2026-11-10T17:38:16.359178+00:00",
  "items": [
+  {
+   "title": "CavsCorner 4-3-4 Breakdown: The State of Play",
+   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-4-3-4-breakdown-the-state-of-play/",
+   "source": "CavsCorner",
+   "summary": "In his latest feature for CavsCorner, Deuce Prince breaks down the stakes of UVa's do-or-die matchup against Cal at Scott Stadium this Saturday and the massive implications for the future of Cavalier football.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09193132/Deuce-Prince-blue.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-10T17:30:00+00:00"
+  },
   {
    "title": "No. 6 Virginia vs Bucknell: Game Preview and Final Score Prediction",
    "link": "https://www.si.com/college/virginia/no-6-virginia-vs-bucknell-game-preview-and-final-score-prediction-01m71m5zt076?utm_source=RSS",
@@ -262,15 +271,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09193132/Deuce-Prince-blue.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-23T12:08:35+00:00"
-  },
-  {
-   "title": "Preview: Cavaliers host Duke Friday night at Scott Stadium",
-   "link": "https://on3.com/sites/cavs-corner/news/preview-cavaliers-host-duke-friday-night-at-scott-stadium/",
-   "source": "CavsCorner",
-   "summary": "We break down the matchup between Duke and UVa on Friday night in Charlottesville (7 p.m., ESPN).",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/21191607/2026-10-17T235240Z_550211546_MT1USATODAY30116748_RTRMADP_3_NCAA-FOOTBALL-NORTH-CAROLINA-AT-DUKE.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-22T16:30:00+00:00"
   }
  ]
 }
