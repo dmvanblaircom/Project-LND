@@ -1,7 +1,16 @@
 {
  "team": "louisiana-tech",
- "updated": "2026-11-09T19:38:04.666384+00:00",
+ "updated": "2026-11-10T11:38:10.208915+00:00",
  "items": [
+  {
+   "title": "Know Your Opponent: Southern Miss",
+   "link": "https://on3.com/sites/bleed-tech-blue/news/know-your-opponent-southern-miss/",
+   "source": "Bleed Tech Blue",
+   "summary": "Here\u2019s what you need to know about the Golden Eagles.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/09202125/Anderson.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-10T11:30:00+00:00"
+  },
   {
    "title": "Alonzo Jackson Jr. Named SBC Defensive Player of the Week",
    "link": "https://latechsports.com/news/2026/11/9/football-alonzo-jackson-jr-named-sbc-defensive-player-of-the-week",
@@ -163,15 +172,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02143821/cover-1.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-03T15:00:00+00:00"
-  },
-  {
-   "title": "Know Your Opponent: Troy",
-   "link": "https://on3.com/sites/bleed-tech-blue/news/know-your-opponent-troy/",
-   "source": "Bleed Tech Blue",
-   "summary": "Here\u2019s what you need to know about the Trojans.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02165340/Parker.webp",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-03T12:00:00+00:00"
   },
   {
    "title": "Bulldogs Blank South Alabama In Second Half, Secure Halloween Victory On The Road",
