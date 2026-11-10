@@ -45,7 +45,7 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-11-09review";
+export const VERSION = "edge-2026-11-10cfbdstore";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
@@ -111,37 +111,37 @@ async function cfbdSeason(url, env, origin, ctx) {
   if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
   if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
 
-  const cache = env.CACHE || caches.default;
+  const cache = cfbdCache(env);
   const fields = env.FIELDS || CFBD_FIELDS;
-  // The allowed fields are part of the key: after the list changes, a copy
-  // saved under the old list is never served as the answer to the new one.
-  const key = new Request("https://edge.cache/v1/cfbd/season?team=" + encodeURIComponent(team.toLowerCase()) +
-                          "&year=" + year + "&f=" + encodeURIComponent(fields.join(",")));
-  const held = await cache.match(key);
-  let heldBody = null;
-  if (held) {
-    heldBody = await held.json();
-    if (Date.now() - Date.parse(heldBody.fetchedAt) < FRESH_SECONDS * 1000) return json(heldBody, 200, origin);
-  }
-
-  let rows = null;
-  try {
-    const r = await (env.FETCH || fetch)(CFBD + "/stats/season?year=" + year + "&team=" + encodeURIComponent(team), {
-      headers: { "authorization": "Bearer " + env.CFBD_API_KEY, "accept": "application/json" }
-    });
-    if (r.ok) rows = await r.json();
-  } catch (e) { rows = null; }
-
-  if (!Array.isArray(rows)) {
-    if (heldBody) return json(Object.assign({}, heldBody, { stale: true }), 200, origin);
-    return fail(502, "CFBD could not be reached", origin);
-  }
-  const body = { source: "cfbd", team: team, year: year, fetchedAt: new Date().toISOString(),
-                 stats: pickSeason(rows, team, year, fields) };
-  const put = cache.put(key, new Response(JSON.stringify(body), {
-    headers: { "content-type": "application/json", "cache-control": "max-age=" + KEEP_SECONDS } }));
-  if (ctx && ctx.waitUntil) ctx.waitUntil(put); else await put;
+  // Every team's season from one read, shared by every team's Matchup and by
+  // the FBS ranks: a read per team spent the key's monthly allowance (David,
+  // 2026-11-10). The answer is this team's allowed fields only.
+  const s = await seasonRows(year, env, cache, ctx, fields);
+  if (!s) return fail(502, "CFBD could not be reached", origin);
+  const body = { source: "cfbd", team: team, year: year, fetchedAt: s.fetchedAt, stats: pickSeason(s.rows, team, year, fields) };
+  if (s.stale) body.stale = true;
   return json(body, 200, origin);
+}
+
+// The season statistics every route reads, for every team, from CFBD's one
+// all-teams read (/stats/season?year=), kept FRESH_SECONDS and stood in for
+// up to KEEP_SECONDS when CFBD fails. Kept slim: only the statistics a route
+// shows or ranks, so the copy stays small. The fields are part of the key:
+// after the allowed list changes, a copy without them is never reused.
+// -> { rows, fetchedAt, stale } or null.
+const RANK_FIELDS = ["games", "netPassingYards", "turnovers", "turnoversOpponent"];
+async function seasonRows(year, env, cache, ctx, fields) {
+  const want = Array.from(new Set((fields || env.FIELDS || CFBD_FIELDS).concat(RANK_FIELDS))).sort();
+  const key = new Request("https://edge.cache/v1/cfbd/season-all?year=" + year + "&f=" + encodeURIComponent(want.join(",")));
+  const old = await held(cache, key);
+  if (old && Date.now() - Date.parse(old.fetchedAt) < FRESH_SECONDS * 1000) return { rows: old.rows, fetchedAt: old.fetchedAt, stale: false };
+  const rows = await cfbdJson("/stats/season?year=" + year, env);
+  if (!Array.isArray(rows)) return old ? { rows: old.rows, fetchedAt: old.fetchedAt, stale: true } : null;
+  const slim = rows.filter(function (r) { return r && Number(r.season) === year && want.indexOf(r.statName) > -1; })
+                   .map(function (r) { return { season: r.season, team: r.team, statName: r.statName, statValue: r.statValue }; });
+  const body = { fetchedAt: new Date().toISOString(), rows: slim };
+  await keep(cache, key, body, KEEP_SECONDS, ctx);
+  return { rows: slim, fetchedAt: body.fetchedAt, stale: false };
 }
 
 // SP+ (W07, issue #29; handoff 2026-10-14, slice 4). Bill's permission
@@ -210,6 +210,32 @@ async function cfbdJson(path, env) {
     });
     return r.ok ? await r.json() : null;
   } catch (e) { return null; }
+}
+
+// Where CFBD's answers are kept: the Ratings Durable Object's SQLite
+// (./sp.js keptOp). The Cache API keeps nothing on a workers.dev address,
+// so every fan's request was a CFBD call (David, 2026-11-10, option 2). The
+// same match/put shape as a Cache, so the routes do not change; a test passes
+// its own (env.CACHE). A store that does not answer is no copy, never an error.
+export function cfbdCache(env) {
+  if (env && env.CACHE) return env.CACHE;
+  const store = ratingsStore(env);
+  if (!store) return typeof caches !== "undefined" ? caches.default : { match: async function () {}, put: async function () {} };
+  return {
+    match: async function (key) {
+      try {
+        const r = await store.fetch("https://ratings/kept?k=" + encodeURIComponent(key.url));
+        return r.ok ? new Response(await r.text(), { headers: { "content-type": "application/json" } }) : undefined;
+      } catch (e) { return undefined; }
+    },
+    put: async function (key, res) {
+      try {
+        const m = /max-age=(\d+)/.exec(res.headers.get("cache-control") || "");
+        await store.fetch("https://ratings/kept-put", { method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ k: key.url, body: await res.text(), seconds: m ? Number(m[1]) : KEEP_SECONDS }) });
+      } catch (e) { /* kept next time */ }
+    }
+  };
 }
 
 async function held(cache, key) {
@@ -306,7 +332,7 @@ async function cfbdSp(url, env, origin, ctx) {
   if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
   if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
 
-  const cache = env.CACHE || caches.default;
+  const cache = cfbdCache(env);
   const key = new Request("https://edge.cache/v1/cfbd/sp?year=" + year + "&top=" + SP_TOP);
   const heldBody = await held(cache, key);
   if (heldBody && Date.now() - Date.parse(heldBody.fetchedAt) < SP_FRESH * 1000) return json(await withWeeks(heldBody, env, false), 200, origin);
@@ -378,13 +404,14 @@ async function cfbdRanks(url, env, origin, ctx) {
   if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
   if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
 
-  const cache = env.CACHE || caches.default;
+  const cache = cfbdCache(env);
   const key = new Request("https://edge.cache/v1/cfbd/ranks?year=" + year + "&r=" + RANKED.join(","));
   const heldBody = await held(cache, key);
   if (heldBody && Date.now() - Date.parse(heldBody.fetchedAt) < FRESH_SECONDS * 1000) return json(heldBody, 200, origin);
 
-  const rows = await cfbdJson("/stats/season?year=" + year, env);
-  const ids = Array.isArray(rows) ? await fbsIds(year, env, cache, ctx) : null;
+  const s = await seasonRows(year, env, cache, ctx);
+  const rows = s && !s.stale ? s.rows : null;          // ranks from a fresh read only; a stale one is the kept answer below
+  const ids = rows ? await fbsIds(year, env, cache, ctx) : null;
   const ranked = ids ? fbsRanks(rows, ids, year) : null;
   if (!ranked) {
     if (heldBody) return json(Object.assign({}, heldBody, { stale: true }), 200, origin);
