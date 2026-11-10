@@ -1,6 +1,6 @@
 {
 "team": "houston",
-"updated": "2026-11-10T01:37Z",
+"updated": "2026-11-10T03:07Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -714,6 +714,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 14.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-10T03:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 15.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
