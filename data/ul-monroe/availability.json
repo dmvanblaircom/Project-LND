@@ -7,52 +7,80 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:39:00.879519+00:00",
+ "fetchedAt": "2026-11-10T01:08:59.608239+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Arkansas State",
+ "effectiveAt": "2026-11-10",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-12",
+ "game": "vs. Louisiana",
  "players": [
   {
-   "pos": "DB",
+   "pos": "OL",
    "no": "",
-   "name": "RJ Hall",
-   "status": "out-season",
+   "name": "Van Martinez",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "SP",
    "no": "",
-   "name": "Korian Wilson",
-   "status": "out-game",
+   "name": "Max Larson",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "SP",
    "no": "",
-   "name": "Javon Campbell",
-   "status": "out-game",
+   "name": "Makenzie Ryan",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
-   "name": "Van Martinez",
-   "status": "out-game",
+   "name": "Kaliem Croswell",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "RB",
+   "pos": "ILB",
    "no": "",
-   "name": "Zach Palmer Smith",
-   "status": "out-game",
+   "name": "Ricky Banks",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Zyrian Jackson",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "",
    "name": "Claude Phillip",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Zyan Tremont",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Korian Wilson",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Javon Campbell",
    "status": "out-game",
    "detail": ""
   },
@@ -74,6 +102,13 @@
    "pos": "ILB",
    "no": "",
    "name": "Jackson Parker",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "RJ Hall",
    "status": "out-season",
    "detail": ""
   }

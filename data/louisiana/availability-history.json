@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisiana",
- "updated": "2026-11-07T15:38:53.615145+00:00",
+ "updated": "2026-11-10T01:08:53.556173+00:00",
  "reports": [
   {
    "schema": 1,
@@ -65,6 +65,53 @@
      "pos": "RB",
      "no": "",
      "name": "Darrell Smith",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "louisiana",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-10T01:08:53.556173+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-10",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-12",
+   "game": "at ULM",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Ja'Corian Norris",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "J'Marion Gooch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Landon Strother",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Anthony Reagan",
      "status": "out-season",
      "detail": ""
     }

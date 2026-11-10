@@ -1,7 +1,16 @@
 {
  "team": "uconn",
- "updated": "2026-11-09T21:38:15.519104+00:00",
+ "updated": "2026-11-10T01:08:19.779678+00:00",
  "items": [
+  {
+   "title": "WATCH: Game 10 Football Press Conference",
+   "link": "https://uconnhuskies.com/news/2026/11/9/watch-game-9-football-press-conference",
+   "source": "UConn Athletics",
+   "summary": "<img alt=\"Jason Candle Press Conference Thumbnail\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/22/Candle_ThumbnailforPressers.jpg\" /><br /><br />STORRS, CT - The UConn Huskies are back at home this Saturday playing host to the James Madison Dukes.\u00a0Watch Head Coach Jason Candle's press conference previewing this week's match-up.",
+   "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
+   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
+   "published": "2026-11-10T00:34:00+00:00"
+  },
   {
    "title": "Football: UConn falls to Belichick\u2019s UNC, 38-21, in New England reunion",
    "link": "https://dailycampus.com/2026/11/09/football-uconn-falls-to-belichicks-unc-38-21-in-new-england-reunion/",
@@ -109,15 +118,6 @@
    "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
    "sourceLogo": "https://uconnhuskies.com/favicon.ico",
    "published": "2026-10-19T01:22:00+00:00"
-  },
-  {
-   "title": "HUSKIES GO ON THE ROAD AND BEAT TEMPLE",
-   "link": "https://uconnhuskies.com/news/2026/10/10/football-huskies-go-on-the-road-and-beat-temple",
-   "source": "UConn Athletics",
-   "summary": "<img alt=\"Trey Cornist\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/Temple_T_Cornist_1.jpg\" /><br /><br />PHILADELPHIA, PA \u2013 The UConn Huskies went on the road and came away with a 34-20 win over the Temple Owls on Saturday afternoon in front of 21,112 at Lincoln Financial Field in Philadelphia.",
-   "image": "https://uconnhuskies.com/images/2026/10/10/Temple_T_Cornist_1.jpg?width=800",
-   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
-   "published": "2026-10-11T00:52:00+00:00"
   }
  ]
 }
