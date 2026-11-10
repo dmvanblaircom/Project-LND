@@ -1,7 +1,16 @@
 {
  "team": "louisiana-tech",
- "updated": "2026-11-10T11:38:10.208915+00:00",
+ "updated": "2026-11-10T13:08:05.519043+00:00",
  "items": [
+  {
+   "title": "Stat Attack - Southern Miss",
+   "link": "https://on3.com/sites/bleed-tech-blue/news/stat-attack-southern-miss-2/",
+   "source": "Bleed Tech Blue",
+   "summary": "What do the numbers say about where both Louisiana Tech and Southern Miss can capitalize on this weekend",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/09223208/cover-2.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-10T12:46:44+00:00"
+  },
   {
    "title": "Know Your Opponent: Southern Miss",
    "link": "https://on3.com/sites/bleed-tech-blue/news/know-your-opponent-southern-miss/",
@@ -163,15 +172,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/03235117/images-15.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-04T11:30:00+00:00"
-  },
-  {
-   "title": "Stat Attack - Troy",
-   "link": "https://on3.com/sites/bleed-tech-blue/news/stat-attack-troy/",
-   "source": "Bleed Tech Blue",
-   "summary": "What do the numbers say about Troy's passing game and how they were able to steal a win from James Madison?",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02143821/cover-1.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-03T15:00:00+00:00"
   },
   {
    "title": "Bulldogs Blank South Alabama In Second Half, Secure Halloween Victory On The Road",

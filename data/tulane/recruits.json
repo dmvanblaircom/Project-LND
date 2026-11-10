@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2655",
  "classYear": 2027,
- "listed": 24,
+ "listed": 26,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -136,6 +136,19 @@
    "rank": null,
    "positionRank": 77,
    "stateRank": 55,
+   "status": "Verbal"
+  },
+  {
+   "id": "272794",
+   "name": "Special Henry",
+   "position": "ATH",
+   "highSchool": "Melissa High School",
+   "city": "Melissa",
+   "state": "TX",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 78,
+   "stateRank": 181,
    "status": "Verbal"
   },
   {
@@ -319,7 +332,20 @@
    "positionRank": 84,
    "stateRank": 75,
    "status": "Verbal"
+  },
+  {
+   "id": "274775",
+   "name": "Trevor Caudle",
+   "position": "CB",
+   "highSchool": "James Clemens High School",
+   "city": "Madison",
+   "state": "AL",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:46Z"
+ "fetchedAt": "2026-11-10T13:10Z"
 }

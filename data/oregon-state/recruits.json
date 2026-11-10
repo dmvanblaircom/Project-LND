@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "204",
  "classYear": 2027,
- "listed": 19,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -243,6 +243,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274779",
+   "name": "Cade Wilson",
+   "position": "OG",
+   "highSchool": "Banks High School",
+   "city": "Banks",
+   "state": "OR",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273288",
    "name": "Hudson Harbuck",
    "position": "DE",
@@ -256,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:44Z"
+ "fetchedAt": "2026-11-10T13:10Z"
 }

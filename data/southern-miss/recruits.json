@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2572",
  "classYear": 2027,
- "listed": 9,
+ "listed": 10,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -113,6 +113,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274776",
+   "name": "Antonio Ross",
+   "position": "OG",
+   "highSchool": null,
+   "city": "Summit",
+   "state": "MS",
+   "grade": 4,
+   "rank": 1,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "268416",
    "name": "Waymond Jenerette Jr.",
    "position": "WR",
@@ -126,5 +139,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:44Z"
+ "fetchedAt": "2026-11-10T13:10Z"
 }

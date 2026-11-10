@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "9",
  "classYear": 2027,
- "listed": 12,
+ "listed": 14,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -45,6 +45,32 @@
    "rank": null,
    "positionRank": 23,
    "stateRank": 54,
+   "status": "Verbal"
+  },
+  {
+   "id": "262167",
+   "name": "C.J. Cowley",
+   "position": "RB",
+   "highSchool": "Thompson High School",
+   "city": "Alabaster",
+   "state": "AL",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 51,
+   "stateRank": 33,
+   "status": "Verbal"
+  },
+  {
+   "id": "264803",
+   "name": "Khing Thibodeaux",
+   "position": "DE",
+   "highSchool": "DeSoto High School",
+   "city": "DeSoto",
+   "state": "TX",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 76,
+   "stateRank": 89,
    "status": "Verbal"
   },
   {
@@ -165,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-07T23:39Z"
+ "fetchedAt": "2026-11-10T13:09Z"
 }
