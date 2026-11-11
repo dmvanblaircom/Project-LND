@@ -1,6 +1,6 @@
 # Suite visual redesign — approved visual system and Home/Game specification
 
-**Version:** 1.2 (amended 2026-11-08: decisions 0041 and 0042; 2026-11-09: decision 0043)  
+**Version:** 1.3 (amended 2026-11-11: Home experience review closeout)  
 **Status:** Approved design direction; implementation not yet authorized  
 **Creative authority:** ChatGPT (Creative Director)  
 **Product approval:** David, 2026-11-06  
@@ -27,7 +27,7 @@ David approved all eight recommendations:
 
 These approvals settle design direction. They do not override the product/engineering approval rules in Decision 0040 or Decision 0039.
 
-### 1.1 Decisions since approval (amendments, v1.1)
+### 1.1 Decisions since approval (amendments, v1.1–v1.3)
 
 David decided these after reviewing rendered evidence. Each is recorded in its decision document and applied in the sections it touches:
 
@@ -40,6 +40,12 @@ David decided these after reviewing rendered evidence. Each is recorded in its d
 | Field treatment | Described as a geometrically controlled field treatment, a texture rather than a complete field rendering. | 0041; §3.4 |
 | Desktop navigation | The five destinations in the branded desktop header, from 1024 px, introduced with the wide desktop layouts. Phones and tablets are unchanged. | 0042; §4.1 |
 | The wire | The wire (`docs/product/wire-brief.md`, Phase 1) is designed into Home in Phase 2, above the news, with its game-week and out-of-season states and its alert opt-in. Around's wire follows with Around in Phase 3. `TeamOS.wire` is the one new TeamOS model the redesign admits. | 0043; §5, §8 |
+| Home hierarchy | Home is a team-first command center with a stable section order. The hero is the complete game-day information center; no standalone By the Numbers section; full Season Outlook moves to Around. | Home review, 2026-11-11; §5.1–§5.2 |
+| Home actions and updates | Matchup and Availability are the two core actions; Availability covers both teams in the next game. Wire and Latest News remain distinct sections. Contextual actions appear only when supported. | Home review, 2026-11-11; §5.1 |
+| Schedule emphasis | Preserve the existing previous result plus next three upcoming games. Emphasize the next game over the following two. | Home review, 2026-11-11; §5.1 |
+| Team Style appearance | Team Style Light and Dark palettes are intentionally composed from each team's identity tokens. Team atmosphere may extend into major surfaces where appropriate; readability and contrast govern each composition. | Home review, 2026-11-11; §3.1 |
+| Appearance preference | Follow device appearance by default; if no device preference is available, default to Light. A manual Light/Dark choice overrides System. | Home review, 2026-11-11; §3.1 |
+| Stable Home structure | Keep Home section order stable for the initial release. Lifecycle-aware content changes within sections; dynamic reordering is deferred. | Home review, 2026-11-11; §5.1 |
 
 ## 2. Product feeling and design thesis
 
@@ -89,10 +95,11 @@ The system has three surface families.
 
 #### Team Style
 - Existing 12 team identity color tokens remain the source of truth.
-- Team colors influence hero lighting, atmospheric tints, selected states and action accents.
-- Team colors do not automatically color every card or every data visualization.
-- Neutral everyday surfaces preserve readability.
-- All text, controls, focus indicators and status treatments must pass contrast checks for Notre Dame, Ohio State and the wider team set.
+- Team Style is the default appearance. Its Light and Dark modes are intentionally composed from the selected team's identity; they are not a universal Suite palette with a team accent, and Dark is not produced by simply inverting Light.
+- The team's atmosphere should be unmistakable throughout the experience. Team colors may influence the hero, major surfaces, lighting, accents, navigation and selected states where they strengthen immersion.
+- Do not force every team's experience onto midnight navy. Ohio State's scarlet-and-gray identity, for example, must remain recognizable in both Light and Dark modes.
+- Neutral content surfaces may be used where they improve reading and information density. The balance between immersive team surfaces and neutral reading surfaces is a creative decision, governed by hierarchy, contrast and accessibility rather than a fixed percentage or rigid color recipe.
+- All text, controls, focus indicators and status treatments must pass contrast checks for Notre Dame, Ohio State and the wider 138-team set.
 
 #### Suite Style
 - A genuinely distinct Suite house identity, not a minor tint swap from Team Style.
@@ -101,6 +108,13 @@ The system has three surface families.
 - Secondary refinement: restrained champagne/bronze, never the dominant action color.
 - Primary CTA must have strong contrast against every surface. The existing navy-on-navy failure is unacceptable.
 - Team logos and team identity remain visible where product context requires them, but the surrounding color language remains recognizably Suite.
+- Suite Style retains its own universal Light and Dark palette; it is not recolored to mimic the selected team's identity.
+
+#### Appearance preference
+- The default appearance preference is **System**: follow the device's Light/Dark setting.
+- If no device appearance preference is available, default to **Light**.
+- A user's explicit Light or Dark selection overrides System.
+- The selected appearance mode is applied to the active style: team-composed palettes in Team Style, Suite's universal palette in Suite Style.
 
 Do not finalize token hex values by intuition alone. Claude should propose concrete tokens in implementation planning, test them against the contrast gate and both reference teams, and return any material departure for review.
 
@@ -256,33 +270,44 @@ No other new TeamOS fields are permitted in Phase 2.
 
 ### 5.1 Shared Home structure
 
-1. Team identity and current lifecycle hero.
-2. Existing trophy/rivalry context when available.
-3. Existing milestone card when applicable.
-4. Existing defending champion context when applicable.
-5. By the Numbers from existing game notes.
-6. The wire: the team's newest status-change items, above the news (decision 0043). In game week the opponent's items join, marked as the opponent's. With no items, it draws nothing.
-7. Latest News rail (three existing stories).
-8. Schedule preview (last result and next three, per current behavior).
-9. Season Outlook summary.
+**Experience role:** Home is the team's command center. It answers: how is my team doing, what's happening around the team right now, and what should I pay attention to next? It is team-first; broader sport-wide context belongs in Around.
 
-Preserve existing content and navigation. Improve visual rhythm and hierarchy rather than adding duplicate widgets. The content below the hero should retain energy through section typography and varied editorial composition without turning every surface into a stadium graphic.
+**Stable structure:** Keep the Home section order consistent for the initial release. The content within sections adapts to the team's lifecycle (pregame, live, final and offseason), but sections do not dynamically reorder based on moment-to-moment importance. Dynamic prioritization is a future enhancement, not Phase 2 scope.
+
+1. **Team Hero:** the dominant, lifecycle-aware team and game-day information center.
+2. **Team Identity & Context:** established rivalry/series identity, trophy context, relevant milestones and defending-champion context when supported. Do not invent rivalry or trophy names.
+3. **Quick Actions:** Matchup and Availability are the two core actions. Matchup opens comparative context, relevant rankings/statistics, strengths, weaknesses and trends. Availability covers both teams in the selected team's next game, including injuries, suspensions, returns and status changes. Add contextual shortcuts such as Series History or Tickets only when supported by reliable existing data. Do not force a fixed four-action layout. Game Info is removed because the hero already provides the game information and the existing Game destination remains available.
+4. **Team Updates:** a shared area with two distinct sections, **The Wire** and **Latest News**. The Wire contains verified status/development items under decision 0043 and the wire brief; Latest News contains reporting, analysis, features and editorial coverage. Do not merge them into one feed or duplicate stories. The Wire is omitted entirely when there are no qualifying items and remains gated by the approved precision threshold. In game week, qualifying opponent items may join with clear opponent attribution under the wire brief.
+5. **Schedule:** preserve the existing sequence of the most recent result followed by the next three upcoming games. The next game receives the strongest visual emphasis; the following two upcoming games are secondary. Keep opponent, date and kickoff visible where available, and retain access to the full schedule.
+6. **Compact contextual information:** show a statistic, milestone or season fact only when reliable, relevant and useful to the current team/game/story context. Do not create a generic stats strip or a standalone **By the Numbers** section. Do not repeat record, rank or point differential merely to fill a slot.
+
+**Moved to Around:** the full Season Outlook and broader national/playoff picture live in Around. Home may show a concise, relevant standings or playoff-context line when available, linking to Around; it must not reproduce the full outlook.
+
+**Desktop supporting column:** preserve the two distinct panels shown in the approved Home reference: **Season Context** and **Conference Standing**. Do not combine, rename or restructure them as part of this redesign. Their content must use supported existing data and remain readable at desktop widths.
+
+Preserve the approved Home reference composition, existing navigation and functionality. Improve visual rhythm and hierarchy without adding duplicate widgets or turning every surface into a stadium graphic.
 
 ### 5.2 Pregame
 
 **Emotional goal:** anticipation. The upcoming matchup should feel like an event.
 
-Hero hierarchy:
-1. Team identity and program name.
-2. Opposing matchup: two sides with meaningful visual presence, facing one another.
-3. Kickoff countdown using existing countdown information; do not invent a ticking second-by-second timer.
-4. Date, kickoff time, network and venue when present.
-5. Clear primary action into the existing Game experience.
-6. Shared stadium environment art and team-tinted lighting.
+Hero hierarchy and information contract:
+1. Selected team's identity and program name.
+2. Both teams' logos/marks, names, rankings and records when available, with balanced visual presence.
+3. Official/established rivalry or series title when one exists, with dedicated visual treatment. Never invent a trophy, rivalry or series name.
+4. Date, kickoff time and timezone.
+5. Broadcast network/channel when confirmed.
+6. Weather at kickoff when available: temperature and conditions, with wind/precipitation when useful.
+7. Pregame market odds (spread and over/under) only when a reliable market source is available; identify source/freshness as supported. Never present a projection or model estimate as market odds.
+8. Venue, stadium and location when available.
+9. Prominent **Game Details** action into the existing Game experience.
+10. Shared stadium environment art and team-aware lighting.
 
-The opponent must have enough visual presence to feel like a real contest. Avoid a tiny opponent logo beside an oversized home-team wordmark. Keep school identity expressive without allowing long names to crowd the matchup.
+Omit unavailable fields rather than fabricating or inferring them. The opponent must have enough visual presence to feel like a real contest. Avoid a tiny opponent mark beside an oversized home-team wordmark. Keep school identity expressive without allowing long names to crowd the matchup.
 
-Below the hero, preserve existing trophy/rivalry, milestone, champion, notes, news, schedule and outlook information.
+The hero is the complete game-day information center, not merely a matchup banner. It should reduce the need for a separate Game Info shortcut. The primary CTA opens the existing Game experience; the separate quick action is removed as redundant.
+
+Below the hero, preserve the approved Team Identity & Context, Quick Actions, Team Updates and Schedule structure. The full Season Outlook is in Around, not repeated on Home.
 
 ### 5.3 Live
 
