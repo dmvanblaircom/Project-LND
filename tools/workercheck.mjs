@@ -375,6 +375,14 @@ console.log("game alerts: subscribing");
   eq([msg.title, msg.body], ["Ohio State", "Game alerts are on."], "the browser reads the confirmation");
   const again = await subscribe(db, e, { subscription: b.sub, team: { id: "194", name: "Ohio State" } }, KICK - 3 * 3600e3);
   ok(again.status === 200 && db.all("SELECT COUNT(*) AS n FROM subs")[0].n === 1, "subscribing twice keeps one row");
+  // First time only (notifications brief §3; David, 2026-11-11): a device
+  // that has had its test alert turns alerts on again in silence.
+  const qb = await browserSub(), sent0 = e.pushes.length;
+  const quiet = await subscribe(db, e, { subscription: qb.sub, team: { id: "194", name: "Ohio State" }, confirm: false }, KICK - 3 * 3600e3);
+  ok(quiet.status === 200 && quiet.body.confirmation === "quiet" && e.pushes.length === sent0 &&
+     db.all("SELECT 1 FROM subs WHERE endpoint = ?", qb.sub.endpoint).length === 1,
+     "confirm: false - stored, and no test alert sent");
+  unsubscribe(db, { endpoint: qb.sub.endpoint, team: { id: "194" } });
   const key1 = await vapidKey(db, e), key2 = await vapidKey(db, e);
   ok(key1.d && key1.d === key2.d, "one VAPID key pair, made once and kept");
   ok((await subscribe(db, e, { subscription: { endpoint: "https://evil.example/x" }, team: { id: "194", name: "Ohio State" } }, 0)).status === 400, "a bad subscription: 400");

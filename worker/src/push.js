@@ -504,8 +504,12 @@ export async function subscribe(db, env, body, now) {
          " ON CONFLICT (endpoint, team_id) DO UPDATE SET team_name = excluded.team_name, p256dh = excluded.p256dh, auth = excluded.auth, opts = COALESCE(excluded.opts, subs.opts)",
          sub.endpoint, team.id, team.name, sub.p256dh, sub.auth, now, given ? JSON.stringify(opts) : null);
   // A confirmation, so the fan knows at once that alerts reach this device -
-  // only when they are turned on: changing a choice sends nothing.
+  // only when they are turned on: changing a choice sends nothing. And only
+  // the first time this device turns them on: a page that has had one says
+  // confirm: false, and turning alerts off and on again stays silent
+  // (notifications brief §3; David, 2026-11-11).
   if (had) return { status: 200, body: { ok: true, team: team.id, confirmation: "updated" } };
+  if (body && body.confirm === false) return { status: 200, body: { ok: true, team: team.id, confirmation: "quiet" } };
   const status = await sendPush(env, await vapidKey(db, env), sub,
     { title: team.name, body: "Game alerts are on.", url: APP_URL, tag: "alerts-on-" + team.id }, now);
   if (status === 404 || status === 410) {

@@ -2517,6 +2517,22 @@ Suite.nav.pull(function(){ return manualRefresh().then(function(r){ say(r.say); 
 // Worker keeps the subscription and a copy of the choice.
 var ALERTS={ busy:false, note:null, sync:null, chain:Promise.resolve() };
 var ALERT_KEY="iw-alerts-"+TEAM.id, ALERT_OPTS_KEY="iw-alert-opts-"+TEAM.id;
+// This device has had its one test alert (any team): turning alerts on again
+// confirms on screen only (notifications brief §3; David, 2026-11-11).
+var ALERT_CONFIRMED_KEY="iw-alerts-confirmed";
+function alertsConfirmed(){ try{ return localStorage.getItem(ALERT_CONFIRMED_KEY)==="1"; }catch(e){ return false; } }
+// A device that had alerts on for any team before this was kept has had its
+// test alert too (Codex, #254). Marked once, at load - before turning alerts
+// off could remove the team's "iw-alerts-<team>" flag it is known by.
+(function(){
+  try{
+    if(alertsConfirmed()) return;
+    for(var i=0;i<localStorage.length;i++){
+      var k=localStorage.key(i);
+      if(/^iw-alerts-(?!confirmed$)[a-z0-9-]+$/.test(k||"") && localStorage.getItem(k)==="1"){ localStorage.setItem(ALERT_CONFIRMED_KEY,"1"); return; }
+    }
+  }catch(e){}
+})();
 var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false, cfp:false,
                      selection:true, postseason:true, nopost:false };
 // Kinds of alert added after a fan may already have chosen: a choice saved
@@ -2628,11 +2644,13 @@ function alertsTurnOn(){
     // there were choices.
     var o=alertOpts(); if(!alertsAnyOn(o)) o=Object.assign({}, ALERT_DEFAULTS);
     saveAlertOpts(o);
-    return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:o });
+    return postEdge("/v1/push/subscribe", { subscription:sub.toJSON(), team:alertTeam(), options:o, confirm:!alertsConfirmed() });
   }).then(function(r){
     if(r.status!==200) throw { why:"server" };
-    alertsDone(r.body.confirmation==="sent" ? "Game alerts are on. A test alert is on its way."
-             : r.body.confirmation==="updated" ? "Game alerts are on."
+    var c=r.body.confirmation;
+    if(c==="sent"){ try{ localStorage.setItem(ALERT_CONFIRMED_KEY,"1"); }catch(e){} }
+    alertsDone(c==="sent" ? "Game alerts are on. A test alert is on its way."
+             : c==="updated" || c==="quiet" ? "Game alerts are on."
              : "Game alerts are on, but the test alert didn’t go through. Try switching alerts off, then on.", true);
   }).catch(function(e){
     alertsDone(e && e.why==="denied" ? "Notifications weren’t allowed, so game alerts are off."

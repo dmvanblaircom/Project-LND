@@ -67,9 +67,10 @@ var STUB = "(" + function () {
           posts.push({ path: "subscribe", options: body.options || null, at: Date.now() });
           return route.fulfill({ status: slow.status, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ ok: true, confirmation: "updated" }) });
         });
-        posts.push({ path: /unsubscribe/.test(u) ? "unsubscribe" : "subscribe", options: body.options || null, at: Date.now() });
+        posts.push({ path: /unsubscribe/.test(u) ? "unsubscribe" : "subscribe", options: body.options || null, confirm: body.confirm, at: Date.now() });
         return route.fulfill({ status: slow.status, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
-                               body: JSON.stringify(/unsubscribe/.test(u) ? { ok: true } : { ok: true, confirmation: posts.filter(function (p) { return p.path === "subscribe"; }).length === 1 ? "sent" : "updated" }) });
+                               body: JSON.stringify(/unsubscribe/.test(u) ? { ok: true }
+                                 : { ok: true, confirmation: body.confirm === false ? "quiet" : posts.filter(function (p) { return p.path === "subscribe"; }).length === 1 ? "sent" : "updated" }) });
       }
       if (u.startsWith(base)) return route.continue();
       if (/\/schedule(\?|$)/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: fs.readFileSync(path.join(root, "tools/fixtures/espn-schedule-nd-oct08.json")) });
@@ -100,7 +101,7 @@ var STUB = "(" + function () {
   eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false,
                                                           selection: true, postseason: true, nopost: false }],
      "Turn On sends the defaults: kickoff, final and delays - Kickoff time set off; Selection Day and the postseason set on (brief §1)");
-  ok(s1.on === "On" && /test alert is on its way/.test(s1.note), "On, and the test alert is promised");
+  ok(s1.on === "On" && /test alert is on its way/.test(s1.note) && a.posts[0].confirm === true, "On, and the test alert is asked for and promised: this device's first time");
   eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp", "+selection", "+postseason", "-nopost"], "off"], "the choices show, set to the defaults");
   await shot(a.page, "alerts-on");
 
@@ -155,7 +156,28 @@ var STUB = "(" + function () {
      "the last switch off: alerts off, unsubscribed, and the screen says why");
   await a.page.click('#screenSettings [data-alerts="on"]'); await a.page.waitForTimeout(500);
   eq(a.posts[a.posts.length - 1].options.kickoff && a.posts[a.posts.length - 1].options.final, true, "on again: from the defaults, not from nothing");
+  // First time only (notifications brief §3; David, 2026-11-11).
+  var s4b = await state(a.page);
+  ok(a.posts[a.posts.length - 1].confirm === false && s4b.on === "On" && s4b.note === "Game alerts are on.",
+     "on again on this device: no second test alert asked for, and the screen says only that alerts are on (" + s4b.note + ")");
   await a.ctx.close();
+
+  console.log("4a. A device that had alerts on before the test alert was first-time-only (Codex, #254)");
+  var m = await open(390, function () { try { localStorage.setItem("iw-alerts-ohio-state", "1"); } catch (e) {} });
+  await m.page.click('#screenSettings [data-alerts="on"]'); await m.page.waitForTimeout(500);
+  var sm = await state(m.page);
+  ok(m.posts[0] && m.posts[0].confirm === false && sm.note === "Game alerts are on.",
+     "alerts already on for another team on this device: it has had its test alert, so none is asked for (" + sm.note + ")");
+  await m.ctx.close();
+  // The same team, turned off and on again: turning off removes the team's
+  // flag, so the device is marked at load, before that can happen.
+  var m2 = await open(390, function () { try { if (!sessionStorage.getItem("seeded")) { localStorage.setItem("iw-alerts-notre-dame", "1"); sessionStorage.setItem("seeded", "1"); } } catch (e) {} });
+  await m2.page.click('#screenSettings [data-alerts="off"]'); await m2.page.waitForTimeout(800);
+  ok(await m2.page.evaluate(function () { return localStorage.getItem("iw-alerts-notre-dame"); }) === null, "turned off: the team's flag is gone");
+  await m2.page.click('#screenSettings [data-alerts="on"]'); await m2.page.waitForTimeout(500);
+  var m2on = m2.posts.filter(function (p) { return p.path === "subscribe"; });
+  ok(m2on.length && m2on[m2on.length - 1].confirm === false, "alerts on for this team before, then turned off: still no second test alert");
+  await m2.ctx.close();
 
   console.log("4b. Turn Off right after a change (Codex, #116)");
   var c = await open();
