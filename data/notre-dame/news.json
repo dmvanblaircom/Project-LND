@@ -1,7 +1,16 @@
 {
  "team": "notre-dame",
- "updated": "2026-11-11T16:08:11.227357+00:00",
+ "updated": "2026-11-11T16:38:07.574913+00:00",
  "items": [
+  {
+   "title": "Joe Montana Interview Series: How to Fix College Football NIL",
+   "link": "https://www.si.com/college/notredame/football/joe-montana-interview-fix-nil-college-notre-dame?utm_source=RSS",
+   "source": "Notre Dame On SI",
+   "summary": "Joe Montana is still very much a football fan himself, but sees one thing college football desperately needs to add.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6493,h_3652,x_0,y_102/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/irish_breakdown/01m73gvqnhxzqe9x0gfw.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-11T16:18:09+00:00"
+  },
   {
    "title": "Notre Dame commit tracker: New Irish pledge hits major milestone in Week 12",
    "link": "https://on3.com/teams/notre-dame-fighting-irish/news/notre-dame-fighting-irish-football-recruiting-commit-tracker-week-12-2026/",
@@ -532,15 +541,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2391,h_1344,x_980,y_139/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/167/01m6sh0zaxq0dnj7p3v2.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/favicon_2-7584840191d9f13dce826391650b7201.ico",
    "published": "2026-11-06T22:56:52+00:00"
-  },
-  {
-   "title": "Leonard Moore\u2019s reality check leaves Miami little room to complain about Malachi Toney",
-   "link": "https://slapthesign.com/notre-dame-football-leonard-moore-malachi-toney-miami-injury-excuses?utm_source=RSS",
-   "source": "Slap the Sign",
-   "summary": "Notre Dame football has plenty of injuries too, and Leonard Moore says that\u2019s life in November.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2201,h_1238,x_225,y_74/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/167/01m6sc2vqpb31bd678bg.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/favicon_2-7584840191d9f13dce826391650b7201.ico",
-   "published": "2026-11-06T21:27:55+00:00"
   }
  ]
 }

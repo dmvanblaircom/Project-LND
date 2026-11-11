@@ -1,6 +1,6 @@
 {
  "team": "michigan-state",
- "updated": "2026-11-11T16:08:07.275559+00:00",
+ "updated": "2026-11-11T16:38:04.371934+00:00",
  "items": [
   {
    "title": "'He is ready for a bigger role': Michigan State seeing rapid growth in WR Bryson Williams",
@@ -10,6 +10,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08001102/Copy-of-On3-Matt-Zenitz-don-meyer-leadership-5.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-11T15:49:08+00:00"
+  },
+  {
+   "title": "Spartans Host Washington Saturday on Military Appreciation Day",
+   "link": "https://msuspartans.com/news/2026/11/11/football-spartans-host-washington-saturday-on-military-appreciation-day",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Charlie Baker prepares to lead the Spartans out of the tunnel against Illinois on Oct. 10, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/20261011_Game6_Illinois_Baker_Charlie_0303.jpg\" /><br /><br />",
+   "image": "https://msuspartans.com/images/2026/11/11/20261011_Game6_Illinois_Baker_Charlie_0303.jpg?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-11-11T15:35:00+00:00"
   },
   {
    "title": "3 Big Storylines for MSU's Interesting Test vs. Washington",
@@ -406,15 +415,6 @@
    "image": "https://msuspartans.com/images/2026/10/17/MMR36231_ZqdH8.JPG?width=800",
    "sourceLogo": "https://msuspartans.com/favicon.ico",
    "published": "2026-11-01T02:04:00+00:00"
-  },
-  {
-   "title": "Post-Game Quotes: UCLA",
-   "link": "https://msuspartans.com/news/2026/10/24/football-post-game-quotes-ucla",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Devin Vaught vs UCLA at Rose Bowl Stadium on Oct. 24, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/24/DSC01735_8zAjq.JPG\" /><br /><br />Michigan State Head Coach Pat Fitzgerald",
-   "image": "https://msuspartans.com/images/2026/10/24/DSC01735_8zAjq.JPG?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-10-25T04:16:00+00:00"
   }
  ]
 }
