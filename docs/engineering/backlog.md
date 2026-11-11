@@ -145,7 +145,7 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 
 ## 7. Housekeeping
 
-- **Branches for David to delete** (approved 2026-11-11; this session's GitHub access refuses branch deletion). David deleted 19 of the 22 on 2026-11-11. Left: probe/alerts-live, scan/oct10, scan/sep26; and, his call, noop-temp (marked Delete in branch-cleanup.md, but among the old branches he chose to keep).
+- **Branch cleanup: done** (David, 2026-11-11). He deleted the 22 listed probe, capture and audit branches, and noop-temp. What remains is main, open PR branches and the old branches he chose to keep.
 
   Keep: open PR branches, `claude/lnd-implementation-status-owqyo9`, and anything David chose to keep (branch-cleanup.md).
 - **Docs that contradict decisions,** to correct when next touched:
