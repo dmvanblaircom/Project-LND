@@ -639,8 +639,7 @@ TeamOS.espn = (function () {
     return {
       key:          str(t.id),
       name:         t.shortDisplayName||t.displayName||t.name ? programName(t) : "TBA",
-      // the school as ESPN lists it ("North Carolina"), which is how
-      // CollegeFootballData names a program too (TeamOS.cfbd)
+      // the school as ESPN lists it ("North Carolina")
       school:       str(t.location||""),
       abbreviation: str(t.abbreviation||t.shortDisplayName),
       record:       str(c.records&&c.records[0]&&c.records[0].summary),
@@ -1093,8 +1092,8 @@ TeamOS.espn = (function () {
     // Unranked: ESPN ranks it across all of Division I ("258th"; 2026-10-27).
     ["passOffense",   "Passing offense",  ["passing.netpassingyardspergame","netpassingyardspergame","passingyardspergame"], { unranked:true }],
     // Yards allowed per game: ESPN's yardsAllowed is an unpopulated stub
-    // (above), so these come from CollegeFootballData through Suite's edge
-    // API (TeamOS.cfbd, W15). They replace Yards per play and Tackles for
+    // (above), so these are added up from its box scores (TeamOS.fbs; W15,
+    // 2026-11-11). They replace Yards per play and Tackles for
     // loss (David, 2026-10-01): the card stays nine rows.
     ["rushDefense",   "Rushing defense",  []],
     ["passDefense",   "Passing defense",  []],
@@ -1102,7 +1101,7 @@ TeamOS.espn = (function () {
     // Not ESPN's to answer: its margin matched the NCAA's own table for 10%
     // of FBS teams, and its rank for it does not follow the margin (Notre
     // Dame +8 "Tied-60th", Ohio State +8 "44th"; 2026-10-27). It comes from
-    // CollegeFootballData (TeamOS.cfbd.turnovers), with no rank.
+    // ESPN's box scores, added up (TeamOS.fbs.turnovers: 99% agreement).
     ["turnoverMargin","Turnover margin",  []]
   ];
   // Flatten every category into one map so lookups do not care where ESPN
@@ -1157,7 +1156,7 @@ TeamOS.espn = (function () {
     ]],
     // Turnover margin, takeaways and giveaways are not ESPN's: its fumble
     // counts are short (Notre Dame 2026: 10 takeaways to the NCAA's 16), so
-    // they come from CollegeFootballData (TeamOS.cfbd.withTurnovers).
+    // they are added up from its box scores (TeamOS.fbs.withTurnovers).
     ["turnovers", "Turnovers and penalties", [
       ["penalties",     "Penalties per game",   function(c){ return perGame(c, "miscellaneous.totalpenalties", "miscellaneous.totalpenaltyyards"); }]
     ]]
@@ -1379,8 +1378,8 @@ TeamOS.espn = (function () {
     teamStatsUrl: function(key){
       return SITE+"/teams/"+key+"/statistics";
     },
-    // The school the site API's team statistics are for ("Notre Dame"), as
-    // CollegeFootballData names it too (TeamOS.cfbd); "" when it says none.
+    // The school the site API's team statistics are for ("Notre Dame"); ""
+    // when it says none.
     teamSchool: function(site){
       return str((site && site.team && site.team.location) || "");
     },

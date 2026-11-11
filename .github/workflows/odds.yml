@@ -278,6 +278,28 @@ jobs:
           echo "ran=true" >> "$GITHUB_OUTPUT"
           exit $fail
 
+      # Every FBS team's turnovers, yards allowed and the two FBS ranks ESPN
+      # gets wrong, added up from ESPN's own box scores (David, 2026-11-10:
+      # CollegeFootballData only where nothing else will do). Once a day:
+      # they move only when a team plays. A snapshot that fails validation
+      # is refused and the last good one stays.
+      - name: Season figures from ESPN's box scores
+        id: seasonstats
+        continue-on-error: true      # a refused snapshot must never block the odds
+        env:
+          BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
+        run: |
+          mkdir -p .cadence
+          if [ "$BY_HAND" != true ]; then
+            rc=0; python3 tools/producers/season_stats.py due --last .cadence/season-stats || rc=$?
+            if [ $rc -eq 3 ]; then echo "ran=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          fi
+          Y=$(date -u +%Y); M=$(date -u +%-m)
+          [ "$M" -lt 7 ] && Y=$((Y - 1))
+          python3 tools/producers/season_stats.py --season "$Y"
+          date -u +%Y-%m-%dT%H:%M:%SZ > .cadence/season-stats
+          echo "ran=true" >> "$GITHUB_OUTPUT"
+
       # Which sources failed, for which teams, and why - told once
       # (tools/producers/health.py; David, 2026-11-05: the "Run failed"
       # emails were constant and said nothing). One issue per source once a
@@ -294,7 +316,7 @@ jobs:
         run: |
           mkdir -p .cadence
           python3 tools/producers/health.py --dir "$RUNNER_TEMP/health" --state .cadence/health.json --open-issues \
-            --steps "kalshi=${{ steps.kalshi.outcome }},odds=${{ steps.odds.outcome }},oddshistory=${{ steps.oddshistory.outcome }},news=${{ steps.news.outcome }},depth=${{ steps.depth.outcome }},confav=${{ steps.confav.outcome }},notes=${{ steps.notes.outcome }},fpi=${{ steps.fpi.outcome }},rankhistory=${{ steps.rankhistory.outcome }},prospects=${{ steps.prospects.outcome == 'failure' && 'failure' || (steps.prospects.outputs.ran == 'true' && 'success' || 'skipped') }},champion=${{ steps.champion.outcome == 'failure' && 'failure' || (steps.champion.outputs.ran == 'true' && 'success' || 'skipped') }}"
+            --steps "kalshi=${{ steps.kalshi.outcome }},odds=${{ steps.odds.outcome }},oddshistory=${{ steps.oddshistory.outcome }},news=${{ steps.news.outcome }},depth=${{ steps.depth.outcome }},confav=${{ steps.confav.outcome }},notes=${{ steps.notes.outcome }},fpi=${{ steps.fpi.outcome }},rankhistory=${{ steps.rankhistory.outcome }},prospects=${{ steps.prospects.outcome == 'failure' && 'failure' || (steps.prospects.outputs.ran == 'true' && 'success' || 'skipped') }},champion=${{ steps.champion.outcome == 'failure' && 'failure' || (steps.champion.outputs.ran == 'true' && 'success' || 'skipped') }},seasonstats=${{ steps.seasonstats.outcome == 'failure' && 'failure' || (steps.seasonstats.outputs.ran == 'true' && 'success' || 'skipped') }}"
 
       - name: Remember the depth chart checks
         if: always() && hashFiles('.cadence/*') != ''
@@ -318,6 +340,7 @@ jobs:
           PROSPECTS: ${{ steps.prospects.outputs.ran }}
           NOTES_PATHS: ${{ steps.notes.outputs.paths }}
           CHAMPION: ${{ steps.champion.outputs.ran }}
+          SEASONSTATS: ${{ steps.seasonstats.outputs.ran }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -348,6 +371,7 @@ jobs:
           [ "$PROSPECTS" = true ]  && add "recruiting" 'data/*/recruits.json'
           [ "$PROSPECTS" = true ]  && add "draft board" 'data/league/draft.json'
           [ "$CHAMPION" = true ]   && add "national champion" 'data/league/champion.json'
+          [ "$SEASONSTATS" = true ] && add "season figures" 'data/league/season-stats.json'
           if [ -z "$moved" ]; then echo "nothing moved"; exit 0; fi
           git commit -q -m "Refresh team data: $moved"
           echo "committed: $moved"

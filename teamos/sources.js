@@ -26,7 +26,7 @@ TeamOS.sources = (function () {
 
     if (src.espn) {
       out.push({ id: "espn", name: "ESPN", url: "https://www.espn.com/college-football/",
-                 supplies: ["scores", "schedule", "rankings", "rosters", "news"] });
+                 supplies: ["scores", "schedule", "rankings", "rosters", "news", "matchup", "turnovers"] });
     }
 
     // The official documents (decision 0019), under the label the team's
@@ -53,10 +53,10 @@ TeamOS.sources = (function () {
       out.push({ id: "kalshi", name: "Kalshi", url: "https://kalshi.com/", supplies: ["outlook"] });
     }
 
-    // Yards allowed on the Matchup card, and the turnover figures there and on
-    // Stats, for any team: CollegeFootballData, through Suite's edge API
-    // (decision 0030).
-    out.push({ id: "cfbd", name: "CollegeFootballData", url: "https://collegefootballdata.com/", supplies: ["matchup", "turnovers"] });
+    // SP+ in Rankings, for any team: CollegeFootballData, through Suite's edge
+    // API (decision 0030). Yards allowed and turnovers are ESPN's box scores,
+    // added up (TeamOS.fbs; David, 2026-11-10).
+    out.push({ id: "cfbd", name: "CollegeFootballData", url: "https://collegefootballdata.com/", supplies: ["sp"] });
 
     // Kickoff weather, for any team: it is looked up by the venue.
     out.push({ id: "weather", name: "Open-Meteo", url: "https://open-meteo.com/", supplies: ["weather"] });
