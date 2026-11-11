@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "houston",
- "updated": "2026-11-07T19:08:49.786002+00:00",
+ "updated": "2026-11-11T03:08:52.806242+00:00",
  "reports": [
   {
    "schema": 1,
@@ -254,6 +254,67 @@
    "kickoffDate": "2026-11-07",
    "game": "vs. Cincinnati",
    "players": [],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "houston",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-11T03:08:52.806242+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-10",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-13",
+   "game": "Colorado",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "3",
+     "name": "JD Rhym",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "25",
+     "name": "Carmycah Glass",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "50",
+     "name": "Ejiro Egodogbare",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Aaron Wolford",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "90",
+     "name": "De'Marion Thomas",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "92",
+     "name": "Travis Buhake",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
    "current": true
   }
  ]
