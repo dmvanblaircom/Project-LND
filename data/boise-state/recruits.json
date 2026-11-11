@@ -69,7 +69,7 @@
    "state": "CA",
    "grade": 76,
    "rank": null,
-   "positionRank": 110,
+   "positionRank": 111,
    "stateRank": 88,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "ID",
    "grade": 75,
    "rank": null,
-   "positionRank": 123,
+   "positionRank": 124,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -204,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-07T03:07Z"
+ "fetchedAt": "2026-11-11T03:39Z"
 }

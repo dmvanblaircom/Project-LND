@@ -160,7 +160,7 @@
    "state": "UT",
    "grade": 74,
    "rank": null,
-   "positionRank": 151,
+   "positionRank": 152,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -399,5 +399,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:45Z"
+ "fetchedAt": "2026-11-11T03:44Z"
 }

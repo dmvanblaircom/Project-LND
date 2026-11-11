@@ -30,7 +30,7 @@
    "state": "MN",
    "grade": 79,
    "rank": null,
-   "positionRank": 58,
+   "positionRank": 59,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "CO",
    "grade": 74,
    "rank": null,
-   "positionRank": 148,
+   "positionRank": 149,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-09T16:39Z"
+ "fetchedAt": "2026-11-11T03:41Z"
 }

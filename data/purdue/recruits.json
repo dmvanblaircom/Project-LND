@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2509",
  "classYear": 2027,
- "listed": 17,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -95,7 +95,7 @@
    "state": "AZ",
    "grade": 77,
    "rank": null,
-   "positionRank": 90,
+   "positionRank": 91,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "IL",
    "grade": 75,
    "rank": null,
-   "positionRank": 134,
+   "positionRank": 135,
    "stateRank": 40,
    "status": "Verbal"
   },
@@ -191,19 +191,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271965",
-   "name": "Gianni Porfilio",
-   "position": "CB",
-   "highSchool": "Huntington Beach High School",
-   "city": "Huntington Beach",
-   "state": "CA",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 141,
-   "stateRank": 117,
-   "status": "Verbal"
-  },
-  {
    "id": "271947",
    "name": "Izayveon Moore",
    "position": "RB",
@@ -230,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:45Z"
+ "fetchedAt": "2026-11-11T03:43Z"
 }

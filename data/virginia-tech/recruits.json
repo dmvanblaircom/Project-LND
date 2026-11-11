@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "259",
  "classYear": 2027,
- "listed": 26,
+ "listed": 25,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -139,19 +139,6 @@
    "status": "Verbal"
   },
   {
-   "id": "262585",
-   "name": "Anthony Roberts",
-   "position": "WR",
-   "highSchool": "Rolesville High School",
-   "city": "Rolesville",
-   "state": "NC",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 76,
-   "stateRank": 21,
-   "status": "Verbal"
-  },
-  {
    "id": "268541",
    "name": "Austin Barrett",
    "position": "CB",
@@ -161,7 +148,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 54,
-   "stateRank": 14,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -291,7 +278,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 52,
-   "stateRank": 30,
+   "stateRank": 31,
    "status": "Verbal"
   },
   {
@@ -342,10 +329,10 @@
    "state": "MD",
    "grade": 76,
    "rank": null,
-   "positionRank": 111,
+   "positionRank": 112,
    "stateRank": 29,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:47Z"
+ "fetchedAt": "2026-11-11T03:46Z"
 }

@@ -43,7 +43,7 @@
    "state": "MD",
    "grade": 75,
    "rank": null,
-   "positionRank": 138,
+   "positionRank": 139,
    "stateRank": 35,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:42Z"
+ "fetchedAt": "2026-11-11T03:41Z"
 }

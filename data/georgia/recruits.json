@@ -173,7 +173,7 @@
    "state": "GA",
    "grade": 79,
    "rank": null,
-   "positionRank": 48,
+   "positionRank": 49,
    "stateRank": 57,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "GA",
    "grade": 78,
    "rank": null,
-   "positionRank": 70,
+   "positionRank": 71,
    "stateRank": 81,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-09T16:39Z"
+ "fetchedAt": "2026-11-11T03:40Z"
 }

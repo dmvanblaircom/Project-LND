@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "218",
  "classYear": 2027,
- "listed": 16,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -57,7 +57,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 58,
-   "stateRank": 41,
+   "stateRank": 42,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 95,
-   "stateRank": 44,
+   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 29,
-   "stateRank": 45,
+   "stateRank": 46,
    "status": "Verbal"
   },
   {
@@ -191,6 +191,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274780",
+   "name": "Raliel Wiggins",
+   "position": "WR",
+   "highSchool": "Pleasantville High School",
+   "city": "Pleasantville",
+   "state": "NJ",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "271875",
    "name": "Ta'kiesse Barnes",
    "position": "RB",
@@ -217,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:46Z"
+ "fetchedAt": "2026-11-11T03:44Z"
 }

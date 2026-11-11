@@ -108,7 +108,7 @@
    "state": "KS",
    "grade": 79,
    "rank": null,
-   "positionRank": 63,
+   "positionRank": 64,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:47Z"
+ "fetchedAt": "2026-11-11T03:46Z"
 }

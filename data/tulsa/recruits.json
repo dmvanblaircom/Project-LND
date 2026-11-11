@@ -95,7 +95,7 @@
    "state": "OK",
    "grade": 73,
    "rank": null,
-   "positionRank": 177,
+   "positionRank": 178,
    "stateRank": 24,
    "status": "Verbal"
   },
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:46Z"
+ "fetchedAt": "2026-11-11T03:45Z"
 }
