@@ -1,7 +1,16 @@
 {
  "team": "syracuse",
- "updated": "2026-11-11T20:08:16.875508+00:00",
+ "updated": "2026-11-11T21:08:18.955878+00:00",
  "items": [
+  {
+   "title": "5 Things to Know: 'Cuse at NC State",
+   "link": "https://cuse.com/news/2026/11/11/football-5-things-to-know-cuse-at-nc-state",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"Umari Hatcher\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/11/11/web.png\" /><br /><br />Syracuse hits the road to face NC State for a 12 p.m. kickoff on ACC Network Saturday. Here's five things to know about the matchup:",
+   "image": "https://cuse.com/images/2026/11/11/web.png?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-11T20:00:00+00:00"
+  },
   {
    "title": "In his second NFL season, ex-Syracuse star Kyle McCord is ready for his shot at being a starting QB",
    "link": "https://www.si.com/college/syracuse/football/in-his-second-nfl-season-ex-syracuse-01m75s4tm6b5?utm_source=RSS",
@@ -280,15 +289,6 @@
    "image": "https://cuse.com/images/2026/10/31/16x9_9_16.jpeg?width=800",
    "sourceLogo": "https://cuse.com/favicon.ico",
    "published": "2026-10-31T20:49:00+00:00"
-  },
-  {
-   "title": "Syracuse Hosts #19 SMU on Saturday",
-   "link": "https://cuse.com/news/2026/10/30/football-syracuse-hosts-19-smu-on-saturday",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Calvin Russell III Action vs. UNC\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/26/Calvin_Action_ROTW.png\" /><br /><br />SYRACUSE vs. SMU",
-   "image": "https://cuse.com/images/2026/10/26/Calvin_Action_ROTW.png?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-10-30T13:41:00+00:00"
   }
  ]
 }
