@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida-state",
- "updated": "2026-11-11T01:08:33.603895+00:00",
+ "updated": "2026-11-11T11:08:42.406226+00:00",
  "reports": [
   {
    "schema": 1,
@@ -574,12 +574,12 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-11T01:08:33.603895+00:00",
+   "fetchedAt": "2026-11-11T11:08:42.406226+00:00",
    "reported": true,
    "effectiveAt": "2026-11-10",
    "heading": "Initial",
    "kickoffDate": "2026-11-13",
-   "game": "Pittsburgh",
+   "game": "at Pittsburgh",
    "players": [
     {
      "pos": "DB",

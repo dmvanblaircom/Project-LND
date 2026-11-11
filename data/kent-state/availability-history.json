@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kent-state",
- "updated": "2026-11-10T23:08:40.585378+00:00",
+ "updated": "2026-11-11T11:08:46.569230+00:00",
  "reports": [
   {
    "schema": 1,
@@ -568,12 +568,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-10T23:08:40.585378+00:00",
+   "fetchedAt": "2026-11-11T11:08:46.569230+00:00",
    "reported": true,
    "effectiveAt": "2026-11-10",
    "heading": "Game Day",
    "kickoffDate": "2026-11-10",
-   "game": "Bowling Green",
+   "game": "at Bowling Green",
    "players": [
     {
      "pos": "DB",
