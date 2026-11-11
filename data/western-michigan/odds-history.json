@@ -1,6 +1,6 @@
 {
 "team": "western-michigan",
-"updated": "2026-11-11T00:37Z",
+"updated": "2026-11-11T06:37Z",
 "points": [
 {
 "t": "2026-10-29T16:37Z",
@@ -347,6 +347,13 @@
 },
 {
 "t": "2026-11-11T00:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 0.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-11T06:37Z",
 "title": null,
 "titleEvent": "KXNCAAF-27",
 "playoff": 0.5,
