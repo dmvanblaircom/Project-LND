@@ -1130,45 +1130,39 @@ function pointsAllowedFor(key, ourGames){
   return p.then(function(v){ PTS_ALLOWED[key]=v; return v; }, function(){ return null; });
 }
 
-// One side's season from CollegeFootballData, through Suite's edge API
-// (decision 0030): yards allowed per game (W15) - ESPN's own figure is an
-// empty stub - and turnovers, which ESPN miscounts (2026-10-27). Keyed by
-// school name. An answer is kept for the session (a school CFBD does not know
-// answers with null figures); a failure resolves to null without being kept,
-// so the next ask tries again. Either way its rows show a dash for that
-// side, and the card stands.
 var EDGE="https://suite-api.dmvanblaircom.workers.dev";
-var CFBD_FOR={};                  // school -> { yards, turnovers } | null
 
-function cfbdFor(school){
-  if(!school) return Promise.resolve(null);
-  if(CFBD_FOR.hasOwnProperty(school)) return Promise.resolve(CFBD_FOR[school]);
-  return get(EDGE+TeamOS.cfbd.seasonPath(school, seasonYear()))
-    .then(function(d){ var v={ yards:TeamOS.cfbd.yardsAllowed(d), turnovers:TeamOS.cfbd.turnovers(d) }; CFBD_FOR[school]=v; return v; },
-          function(){ return null; });            // a failure is not kept: the next ask tries again
-}
-
-// The FBS ranks Suite computes on the edge API (decision 0037), for passing
-// offense and the turnover margin: one answer for every team, kept for the
-// session; a failure is not kept, and those rows show no rank meanwhile.
-var FBS_RANKS=null;
-function fbsRanks(){
-  if(FBS_RANKS) return FBS_RANKS;
-  var p=get(EDGE+TeamOS.cfbd.ranksPath(seasonYear())).catch(function(){ if(FBS_RANKS===p) FBS_RANKS=null; return null; });
-  FBS_RANKS=p;
+// The FBS-wide season figures Suite adds up from ESPN's box scores once a
+// day (data/league/season-stats.json, TeamOS.fbs): yards allowed (ESPN's own
+// figure is an empty stub), turnovers (its season totals miscount them) and
+// the two FBS ranks it gets wrong. One file for every team, asked once a
+// session; a failure is not kept, so the next ask tries again, and meanwhile
+// those rows show a dash and the card stands.
+var SEASON_FIG=null;
+function seasonFigures(){
+  if(SEASON_FIG) return SEASON_FIG;
+  var p=get(TeamOS.fbs.PATH).catch(function(){ if(SEASON_FIG===p) SEASON_FIG=null; return null; });
+  SEASON_FIG=p;
   return p;
 }
+// One side's figures from that file, by its ESPN id: { yards, turnovers }
+// or null (an FCS opponent, another season, or no file).
+function figuresFor(snap, key){
+  var row=TeamOS.fbs.teamRow(snap, key, seasonYear());
+  return row ? { yards:TeamOS.fbs.yardsAllowed(row), turnovers:TeamOS.fbs.turnovers(row) } : null;
+}
 
-// The rows no ESPN feed fills: points allowed (from results), yards allowed
-// and the turnover margin (from CFBD), and the two ranks ESPN gets wrong
-// (`ranks`, TeamOS.cfbd.ranksFor). Copies rather than writes, because the
-// rows themselves are cached in SEASON_STATS and shared between renders.
-function withDerived(rows, perGame, cfbd, ranks){
-  var yards=cfbd && cfbd.yards, tov=cfbd && cfbd.turnovers;
+// The rows ESPN's season feeds do not fill: points allowed (from results),
+// yards allowed and the turnover margin (from its box scores, TeamOS.fbs),
+// and the two ranks it gets wrong (`ranks`, TeamOS.fbs.ranksFor). Copies
+// rather than writes, because the rows themselves are cached in SEASON_STATS
+// and shared between renders.
+function withDerived(rows, perGame, fig, ranks){
+  var yards=fig && fig.yards, tov=fig && fig.turnovers;
   var fill={ pointsAllowed: perGame==null ? null : perGame.toFixed(1),
              rushDefense: yards && yards.rush!=null ? yards.rush.toFixed(1) : null,
              passDefense: yards && yards.pass!=null ? yards.pass.toFixed(1) : null,
-             turnoverMargin: tov ? TeamOS.cfbd.signed(tov.margin) : null };
+             turnoverMargin: tov ? TeamOS.fbs.signed(tov.margin) : null };
   return rows.map(function(r){
     var v=fill[r.key], rk=ranks && ranks[r.key];
     if(v==null && !rk) return r;
@@ -1209,8 +1203,8 @@ function teamSeasonStats(key){
 // network, the worker's kept copy, or failed.
 var ST={ us:null, them:null, opp:null, oppFor:null, type:null, p:null, again:false, failed:false, outcome:null };
 function statsType(){ return TeamOS.espn.seasonTypeFor(POST); }
-// The turnover rows are CFBD's (cfbdFor), asked for by the school the site
-// API's answer names; without that answer, or CFBD's, they are left out.
+// The turnover rows come from the season figures (TeamOS.fbs), by the
+// team's ESPN id; without that file they are left out.
 function teamSeasonFor(key, type){
   var year=seasonYear(), how=[];
   function one(url){
@@ -1222,9 +1216,9 @@ function teamSeasonFor(key, type){
       if(!r[0] && !r[1]) throw new Error("no season stats");
       var outcome=how.every(function(h){ return h==="network"; }) ? "network" : "cached";
       var season=TeamOS.espn.teamSeason(r[0], r[1]);
-      return Promise.all([cfbdFor(TeamOS.espn.teamSchool(r[1])), fbsRanks()]).then(function(c){
-        var s=TeamOS.cfbd.withTurnovers(season, c[0] && c[0].turnovers);
-        return { season: TeamOS.cfbd.withRanks(s, TeamOS.cfbd.ranksFor(c[1], key, year)), outcome: outcome };
+      return seasonFigures().then(function(snap){
+        var f=figuresFor(snap, key), s=TeamOS.fbs.withTurnovers(season, f && f.turnovers);
+        return { season: TeamOS.fbs.withRanks(s, TeamOS.fbs.ranksFor(snap, key, year)), outcome: outcome };
       });
     });
 }
@@ -1776,11 +1770,11 @@ function loadGamePreview(V, g, repaint){
   V.previewLoading=true; V.previewAt=Date.now();
   Promise.all([teamSeasonStats(s.us.key), teamSeasonStats(s.them.key),
                pointsAllowedFor(s.us.key, S.games), pointsAllowedFor(s.them.key, null),
-               cfbdFor(s.us.school), cfbdFor(s.them.school), fbsRanks()])
+               seasonFigures()])
     .then(function(r){
-      var year=seasonYear();
-      V.preview={ us:withDerived(r[0], r[2], r[4], TeamOS.cfbd.ranksFor(r[6], s.us.key, year)),
-                  them:withDerived(r[1], r[3], r[5], TeamOS.cfbd.ranksFor(r[6], s.them.key, year)) };
+      var year=seasonYear(), snap=r[4];
+      V.preview={ us:withDerived(r[0], r[2], figuresFor(snap, s.us.key), TeamOS.fbs.ranksFor(snap, s.us.key, year)),
+                  them:withDerived(r[1], r[3], figuresFor(snap, s.them.key), TeamOS.fbs.ranksFor(snap, s.them.key, year)) };
       V.previewFailed=false; })
     .catch(function(){ if(V.preview===undefined) V.preview=null; V.previewFailed=true; })
     .then(function(){ V.previewLoading=false; repaint(); });

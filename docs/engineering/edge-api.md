@@ -130,22 +130,17 @@ table leaves the Worker.
   deploy by the *SP+ answers through it* step in `worker.yml`, which prints
   counts, key names and week ids only.
 
-## CFBD's allowance (2026-11-10)
+## CFBD's allowance (2026-11-10; decision 0044, 2026-11-11)
 
-The key's tier allows about 1,000 calls a month (decision 0012; David, 2026-11-10). Every CFBD answer is kept
-in the `Ratings` Durable Object (`cfbd_kept`), one store for every
-Cloudflare location; the Cache API does nothing on a `workers.dev` address,
-so nothing was ever reused before #250. Season stats come from one
-all-teams read (`/stats/season?year=`) that serves `/v1/cfbd/season` for
-every school and `/v1/cfbd/ranks`, fresh for a day (they move only when a
-team plays) and kept a week. SP+ is read at most once a day.
+The key's tier allows about 1,000 calls a month (decision 0012; David, 2026-11-10). Since decision 0044 the app reads **only SP+** from CFBD. Turnovers, yards allowed and the two FBS ranks come from ESPN's box scores, added up once a day by `tools/producers/season_stats.py` into `data/league/season-stats.json`.
+
+Every CFBD answer is kept in the `Ratings` Durable Object (`cfbd_kept`), one store for every Cloudflare location. The Cache API does nothing on a `workers.dev` address, so before #250 nothing was ever reused. `/v1/cfbd/season` and `/v1/cfbd/ranks` remain, with the same one-a-day all-teams read, but nothing calls them; a cleanup removes them.
 
 | Read | Calls a month |
 |---|---|
-| Season stats, all teams | about 30 |
-| SP+ | about 30 |
-| FBS team list | about 4 |
-| Deploy smoke tests | a few per deploy |
+| SP+ (at most once a day) | about 30 |
+| FBS team list (SP+'s school ids) | about 4 |
+| Deploy smoke test (SP+) | one per deploy |
 
 How it ran dry: from Oct 29 the experience sweep (`tools/sweep.js`) opened
 all 138 teams at two widths every morning against production, and each

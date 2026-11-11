@@ -4,8 +4,8 @@
    The card has three sources and they meet in the Suite. Six rows come from
    the provider's season statistics; points allowed is derived by
    TeamOS.season from the team's own results (decision 0011); rushing and
-   passing defense - yards allowed per game - come from CollegeFootballData
-   through Suite's edge API (TeamOS.cfbd, W15, decision 0030). tools/adaptercheck.js proves each side
+   passing defense - yards allowed per game - and the turnover margin are
+   added up from ESPN's box scores (TeamOS.fbs, data/league/season-stats.json). tools/adaptercheck.js proves each side
    produces the right numbers. This proves the card built from them is right:
    the rows in order, the derived row filled, the national rank shown only
    where one exists, and the better-rank marker landing on the better rank.
@@ -39,7 +39,7 @@ function lift(name) {
 }
 
 var ctx = vm.createContext({ console: console, Intl: Intl, Date: Date });
-["teams/notre-dame.js", "teamos/team.js", "teamos/season.js", "teamos/espn.js", "teamos/game.js", "teamos/cfbd.js"]
+["teams/notre-dame.js", "teamos/team.js", "teamos/season.js", "teamos/espn.js", "teamos/game.js", "teamos/fbs.js"]
   .forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 ctx.document = { addEventListener: function () {}, fonts: null };
 ctx.window = { addEventListener: function () {} };
@@ -47,12 +47,12 @@ ctx.window = { addEventListener: function () {} };
 vm.runInContext(lift("withDerived"), ctx, { filename: "withDerived" });
 
 // A pregame game, painted the way app.js paints Game before kickoff.
-// Yards allowed as the edge API answers them, through TeamOS.cfbd.
-// Turnovers too (2026-10-27): what each side gave away and took away.
+// Yards allowed and turnovers as the season-figures file carries them,
+// through TeamOS.fbs: per game, and what each side gave away and took away.
 function yards(games, rush, pass, given, taken) {
-  var json = { stats: { games: games, rushingYardsOpponent: rush, netPassingYardsOpponent: pass, turnovers: given, turnoversOpponent: taken },
-               fetchedAt: "2026-10-01T12:00:00Z" };
-  return { yards: ctx.TeamOS.cfbd.yardsAllowed(json), turnovers: ctx.TeamOS.cfbd.turnovers(json) };
+  var row = { games: games, rushAllowed: Math.round(rush / games * 10) / 10, passAllowed: Math.round(pass / games * 10) / 10,
+              giveaways: given, takeaways: taken };
+  return { yards: ctx.TeamOS.fbs.yardsAllowed(row), turnovers: ctx.TeamOS.fbs.turnovers(row) };
 }
 var YA = yards(4, 420, 780, 2, 8), YB = yards(4, 610, 905, 7, 5);
 function card(a, b, pa, pb, ya, yb) {
@@ -118,17 +118,18 @@ eq([rows[1].away.win, rows[1].home.win], [true, false],
 console.log(" the rows the feed answers");
 eq([rows[0].away.value, rows[0].away.rank], ["40.0", "Tied-28th"], "points per game carries its rank");
 eq([rows[7].away.value, rows[7].home.value], ["7", "3"], "sacks is the defence's, both sides");
-eq([rows[8].away.value, rows[8].home.value], ["+6", "-2"], "turnover margin is CFBD's, taken away less given away: a positive one says so, a negative one keeps its sign");
+eq([rows[8].away.value, rows[8].home.value], ["+6", "-2"], "turnover margin is the box scores', taken away less given away: a positive one says so, a negative one keeps its sign");
 eq([rows[8].away.rank, rows[8].home.rank], [null, null], "with no national rank: ESPN's does not follow the margin");
 eq(rowsOf(card(ND, OP, ndPA, 24.7, yards(4, 420, 780, 3, 3), YB))[8].away.value, "0", "an even margin prints 0, not a dash");
 var noTov = rowsOf(card(ND, OP, ndPA, 24.7, yards(4, 420, 780), yards(4, 610, 905)));
-ok(noTov.every(function (r) { return r.label !== "Turnover margin"; }), "no CFBD turnovers: the row goes rather than show ESPN's miscounted margin");
+ok(noTov.every(function (r) { return r.label !== "Turnover margin"; }), "no turnovers in the file: the row goes rather than show ESPN's miscounted margin");
 
 console.log(" the FBS ranks Suite computes (decision 0037)");
 eq([rows[4].away.rank, rows[4].home.rank], [null, null], "without them, passing offense shows no rank: ESPN's counts all of Division I");
-var RB = { source: "cfbd-ranks", year: 2026, ranks: { "87": { passOffense: { rank: 48, tied: false }, turnoverMargin: { rank: 2, tied: true } },
-                                                      "127": { passOffense: { rank: 101, tied: false }, turnoverMargin: { rank: 88, tied: false } } } };
-card.ranks = [ctx.TeamOS.cfbd.ranksFor(RB, "87", 2026), ctx.TeamOS.cfbd.ranksFor(RB, "127", 2026)];
+var RB = { source: "espn-box-scores", season: 2026, teams: {
+  "87": { games: 4, ranks: { passOffense: { rank: 48, tied: false }, turnoverMargin: { rank: 2, tied: true } } },
+  "127": { games: 4, ranks: { passOffense: { rank: 101, tied: false }, turnoverMargin: { rank: 88, tied: false } } } } };
+card.ranks = [ctx.TeamOS.fbs.ranksFor(RB, "87", 2026), ctx.TeamOS.fbs.ranksFor(RB, "127", 2026)];
 var withR = rowsOf(card(ND, OP, ndPA, 24.7));
 card.ranks = null;
 eq([withR[4].away.rank, withR[4].home.rank, withR[8].away.rank, withR[8].home.rank], ["48th", "101st", "Tied-2nd", "88th"],
@@ -161,7 +162,7 @@ eq(zero.length, 8, "week zero: nothing to average, so no row");
 eq(rowsOf(card(ND, OP, 0, 17.5))[1].away.value, "0.0",
    "but a real shutout season prints 0.0 rather than vanishing");
 
-console.log(" yards allowed, from CFBD (W15)");
+console.log(" yards allowed, from the box scores (W15)");
 eq([rows[5].away.value, rows[5].home.value, rows[6].away.value, rows[6].home.value], ["105.0", "152.5", "195.0", "226.3"],
    "per game: the opponents' season totals over the games played");
 eq([rows[5].away.rank, rows[6].home.rank, rows[5].away.win, rows[6].home.win], [null, null, true, false],
@@ -171,7 +172,7 @@ eq(noYards.length, 6, "the edge API unreachable: its three rows go, the card sta
 ok(noYards.every(function (r) { return !/defense|Turnover/.test(r.label); }), "and it is those three that went: the yards allowed and the turnover margin");
 var oneYards = rowsOf(card(ND, OP, ndPA, 24.7, YA, null));
 eq([oneYards[5].away.value, oneYards[5].home.value], ["105.0", "–"],
-   "a school CFBD does not know: that side shows a dash, the row stays");
+   "a team the file does not list (an FCS opponent): that side shows a dash, the row stays");
 eq(rowsOf(card(ND, OP, ndPA, 24.7, yards(4, 0, 600), YB))[5].away.value, "0.0",
    "a defence that has allowed no rushing yards prints 0.0, not a dash");
 eq([yards(0, 0, 0).rush, yards(null, 100, 100).pass, yards(4, null, 100).rush], [null, null, null],

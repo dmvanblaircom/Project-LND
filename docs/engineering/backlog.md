@@ -125,6 +125,9 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 - **January verification** of polls and markets against live payloads. Keep capturing real delayed, suspended and canceled games; never label invented fixtures as real.
 - **Cosmetic:** skipped-job names show a raw `${{ }}` in Actions.
 - **Recheck only if it recurs:** the Top 25 table 2 px wide at Ohio State, 320 px (#154).
+- **Season figures, postseason ranks (decision 0044).** The passing-offense FBS rank is computed from regular-season values; in bowl season Stats shows the whole season's value. Rank the postseason values too, once a team has played one.
+- **Edge API cleanup (decision 0044).** `/v1/cfbd/season` and `/v1/cfbd/ranks` have no caller; remove them and their checks.
+- **ESPN against the NCAA, again.** Re-run the 2026-11-11 audit (`docs/engineering/espn-accuracy-2026-11-11.md`) after the regular season, before trusting the figures through the bowls.
 
 ## 6. Blocked outside the project
 
@@ -142,7 +145,8 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
   - nd-probe, tests-fixture-clock, avail-window, news-timing, backlog-wire, pac12-probe, pac12-advance, source-health, around-brief, nav-brief, wire-brief, merge-rule, around-tab, around-layers;
   - audit-capture, design/suite-current-state-audit, fix/headline-entities, fix/s5-home-hero, p2s1-capture, p2s1b-capture;
   - design/nav-evaluation (decided; the evaluation lives on #240), capture/nd-mia-live, probe/scroll-webkit, fix/game-scroll-refresh;
-  - confav-probe, and the older probe/* and scan/* branches.
+  - confav-probe, and the older probe/* and scan/* branches;
+  - audit-espn-accuracy (the 2026-11-11 audit), fix/cfbd-daily, fix/cfbd-store.
 
   Keep: open PR branches, `claude/lnd-implementation-status-owqyo9`, and anything David chose to keep (branch-cleanup.md).
 - **Docs that contradict decisions,** to correct when next touched:

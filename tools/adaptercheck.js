@@ -22,7 +22,7 @@ function read(p) { return fs.readFileSync(path.join(root, p), "utf8"); }
 // A context with nothing but the two globals the scripts define.
 function load(teamFile) {
   var c = vm.createContext({});
-  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js", "teamos/cfbd.js"].forEach(function (f) {
+  [teamFile, "teamos/team.js", "teamos/snapshots.js", "teamos/identity.js", "teamos/live.js", "teamos/season.js", "teamos/espn.js", "teamos/fbs.js"].forEach(function (f) {
     vm.runInContext(read(f), c, { filename: f });
   });
   return c;
@@ -642,9 +642,9 @@ function row(rows, key) { return rows.filter(function (r) { return r.key === key
 eq([row(nd, "totalOffense").value, row(nd, "rushOffense").value, row(nd, "passOffense").value], ["407.7","130.0","277.7"],
    "the yardage rows");
 eq([row(nd, "rushDefense").value, row(nd, "passDefense").value, row(nd, "rushDefense").rank], [null, null, null],
-   "yards allowed is not ESPN's to answer (its yardsAllowed is a stub): null, for TeamOS.cfbd to fill");
+   "yards allowed is not ESPN's season feed's to answer (its yardsAllowed is a stub): null, for TeamOS.fbs to fill");
 eq([nd[8].value, nd[8].rank, nd[8].rankText, op[8].value], [null, null, null, null],
-   "turnover margin is not ESPN's to answer (its margin matched the NCAA's for 10% of FBS teams; its rank, +8 \"Tied-60th\" and \"44th\"): null, for TeamOS.cfbd to fill");
+   "turnover margin is not ESPN's to answer (its margin matched the NCAA's for 10% of FBS teams; its rank, +8 \"Tied-60th\" and \"44th\"): null, for TeamOS.fbs to fill");
 eq([row(nd, "passOffense").value, row(nd, "passOffense").rank, row(nd, "passOffense").rankText], ["277.7", null, null],
    "passing offense keeps its figure and drops ESPN's rank, which counts all of Division I (\"258th\")");
 eq([row(nd, "rushOffense").rank !== null, row(nd, "totalOffense").rank !== null], [true, true], "while the ranks that are FBS ranks stay");
@@ -1520,32 +1520,42 @@ var tsOSU = TeamOS.espn.teamSeason(fx("espn-teamstats-osu-2026-reg.json"), null)
 eq(tsOSU.groups.map(function (g) { return g.label + ":" + g.rows.length; }), ["Offense:12", "Defense:4", "Special teams:6", "Turnovers and penalties:1"],
    "Ohio State, the same code; without the site payload only the allowed rows are missing, never shown as 0");
 
-console.log("teamos/cfbd.js: turnovers");
-var cf = TeamOS.cfbd;
-eq(cf.turnovers({ stats: { games: 7, turnovers: 2, turnoversOpponent: 16 } }), { margin: 14, takeaways: 16, giveaways: 2 },
+console.log("teamos/fbs.js: turnovers");
+var cf = TeamOS.fbs;
+var SNAP = { source: "espn-box-scores", season: 2026, teams: {
+  "87": { games: 7, takeaways: 16, giveaways: 2, rushAllowed: 88.4, passAllowed: 170.1,
+          ranks: { passOffense: { rank: 55, tied: false }, turnoverMargin: { rank: 2, tied: true } } },
+  "2426": { games: 9, takeaways: 8, giveaways: 14, rushAllowed: 0, passAllowed: 251,
+            ranks: { passOffense: { rank: 113, tied: false }, turnoverMargin: { rank: 111, tied: true } } },
+  "9": { games: 0 } } };
+eq(cf.turnovers(cf.teamRow(SNAP, "87", 2026)), { margin: 14, takeaways: 16, giveaways: 2 },
    "taken away less given away (Notre Dame 2026, as the NCAA counts it)");
-eq(cf.turnovers({ stats: { turnovers: 10 } }), { margin: null, takeaways: null, giveaways: 10 }, "half a margin is no margin: nothing is guessed");
-eq(cf.turnovers(null), { margin: null, takeaways: null, giveaways: null }, "no answer: nothing");
+eq(cf.turnovers({ games: 3, giveaways: 10 }), { margin: null, takeaways: null, giveaways: 10 }, "half a margin is no margin: nothing is guessed");
+eq(cf.turnovers(null), { margin: null, takeaways: null, giveaways: null }, "no row: nothing");
+eq([cf.yardsAllowed(cf.teamRow(SNAP, 87, 2026)), cf.yardsAllowed(cf.teamRow(SNAP, "2426", 2026)).rush, cf.yardsAllowed(null)],
+   [{ rush: 88.4, pass: 170.1, games: 7 }, 0, { rush: null, pass: null, games: null }], "yards allowed per game; a real 0 is kept; no row, nothing");
+eq([cf.teamRow(SNAP, "87", 2025), cf.teamRow(SNAP, "9999", 2026), cf.teamRow(SNAP, "9", 2026),
+    cf.teamRow({ source: "cfbd-ranks", season: 2026, teams: SNAP.teams }, "87", 2026), cf.teamRow(null, "87")],
+   [null, null, null, null, null], "another season, a team it does not list (an FCS opponent), one with no games, another file, or none: no row");
 eq([cf.signed(14), cf.signed(-6), cf.signed(0), cf.signed(null)], ["+14", "-6", "0", null], "a margin is printed with its sign; an even one is 0");
 var withT = cf.withTurnovers(tsND, { margin: 14, takeaways: 16, giveaways: 2 });
 eq(withT.groups.filter(function (g) { return g.id === "turnovers"; })[0].rows.map(function (r) { return [r.key, r.value, r.rank]; }),
    [["turnoverMargin", "+14", null], ["takeaways", "16", null], ["giveaways", "2", null], ["penalties", "2.5 for 26.5 yards", null]],
-   "CFBD's rows go first in the turnovers group, with no rank, ahead of ESPN's penalties");
+   "the box-score rows go first in the turnovers group, with no rank, ahead of ESPN's penalties");
 ok(tsND.groups.filter(function (g) { return g.id === "turnovers"; })[0].rows.length === 1, "and the season it was given is not changed");
-eq(cf.withTurnovers(tsND, { margin: null, takeaways: null, giveaways: null }), tsND, "no CFBD figures: the season as it was");
-eq(cf.withTurnovers(tsND, null), tsND, "no CFBD answer: the same");
+eq(cf.withTurnovers(tsND, { margin: null, takeaways: null, giveaways: null }), tsND, "no figures: the season as it was");
+eq(cf.withTurnovers(tsND, null), tsND, "no row: the same");
 var noGroup = cf.withTurnovers({ games: 7, groups: [{ id: "offense", label: "Offense", rows: [] }] }, { margin: -6, takeaways: 4, giveaways: 10 });
 eq(noGroup.groups.map(function (g) { return g.id + ":" + g.rows.length; }), ["offense:0", "turnovers:3"], "a season without the group gets one, last");
 
-console.log("teamos/cfbd.js: the FBS ranks Suite computes");
-var RB = { source: "cfbd-ranks", year: 2026, teams: 138, ranks: { "87": { passOffense: { rank: 55, tied: false }, turnoverMargin: { rank: 2, tied: true } },
-                                                                    "2426": { passOffense: { rank: 113, tied: false }, turnoverMargin: { rank: 111, tied: true } } } };
+console.log("teamos/fbs.js: the FBS ranks Suite computes");
+var RB = SNAP;
 eq(cf.ranksFor(RB, "87", 2026), { passOffense: { rank: 55, rankText: "55th" }, turnoverMargin: { rank: 2, rankText: "Tied-2nd" } },
    "an ESPN team id's places, printed as ESPN prints its own");
 eq([cf.ranksFor(RB, 2426, 2026).passOffense.rankText, cf.ranksFor(RB, 2426, 2026).turnoverMargin.rankText], ["113th", "Tied-111th"], "113th and 111th, not 113rd");
-eq([cf.ranksFor(RB, "87", 2025), cf.ranksFor(RB, "9999", 2026), cf.ranksFor({ source: "cfbd-sp", year: 2026, ranks: {} }, "87", 2026), cf.ranksFor(null, "87")],
+eq([cf.ranksFor(RB, "87", 2025), cf.ranksFor(RB, "9999", 2026), cf.ranksFor({ source: "cfbd-sp", season: 2026, teams: {} }, "87", 2026), cf.ranksFor(null, "87")],
    [null, null, null, null], "another season, a team it does not place, another answer, or none: no ranks");
-eq(cf.ranksFor({ source: "cfbd-ranks", year: 2026, ranks: { "87": { passOffense: { rank: 0 }, turnoverMargin: { rank: 1.5 } } } }, "87", 2026), {},
+eq(cf.ranksFor({ source: "espn-box-scores", season: 2026, teams: { "87": { games: 7, ranks: { passOffense: { rank: 0 }, turnoverMargin: { rank: 1.5 } } } } }, "87", 2026), {},
    "a place that is not a place is dropped");
 var ranked2 = cf.withRanks(withT, cf.ranksFor(RB, "87", 2026));
 eq([rowOf(ranked2, "passYards").rank, rowOf(ranked2, "turnoverMargin").rank, rowOf(ranked2, "rushYards").rank],
