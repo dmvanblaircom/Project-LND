@@ -169,13 +169,22 @@ def rank(values):
 
 
 def build(season, figures, passing, yards=None):
-    """Per-team figures -> the snapshot, or Refused."""
+    """Per-team figures -> the snapshot, or Refused.
+
+    `figures` has an entry for every program asked about (None for one left
+    out). A rank is an FBS rank only when every program is in it, so each
+    rank is published only when its whole population is: one missing box
+    score withholds the margin's places for everyone that day, one missing
+    passing figure the passing places (Codex, #252). The figures themselves
+    still publish."""
     have = {tid: f for tid, f in figures.items() if f and f.get("games")}
     if len(have) < MIN_TEAMS:
         raise Refused("%d teams with a whole season of box scores, fewer than %d" % (len(have), MIN_TEAMS))
-    margin = {tid: f["takeaways"] - f["giveaways"] for tid, f in have.items()}
-    pass_rank = rank({tid: v for tid, v in passing.items() if v is not None and tid in have})
-    margin_rank = rank(margin)
+    everyone = [tid for tid, f in figures.items() if f is None or f.get("games")]
+    margin_rank = (rank({tid: f["takeaways"] - f["giveaways"] for tid, f in have.items()})
+                   if len(have) == len(everyone) else {})
+    pass_values = {tid: passing.get(tid) for tid in everyone}
+    pass_rank = (rank(pass_values) if pass_values and all(v is not None for v in pass_values.values()) else {})
     out = {}
     for tid, f in sorted(have.items(), key=lambda kv: int(kv[0])):
         row = dict(f)
@@ -187,10 +196,12 @@ def build(season, figures, passing, yards=None):
         r = {}
         if tid in pass_rank:
             r["passOffense"] = pass_rank[tid]
-        r["turnoverMargin"] = margin_rank[tid]
+        if tid in margin_rank:
+            r["turnoverMargin"] = margin_rank[tid]
         row["ranks"] = r
         out[tid] = row
-    return {"source": "espn-box-scores", "season": season, "teams": out}
+    return {"source": "espn-box-scores", "season": season, "teams": out,
+            "ranked": {"passOffense": bool(pass_rank), "turnoverMargin": bool(margin_rank)}}
 
 
 # --- run --------------------------------------------------------------------

@@ -78,7 +78,6 @@ ok(r == {"a": {"rank": 1, "tied": False}, "b": {"rank": 2, "tied": True}, "c": {
 print("the snapshot")
 many = {str(i): {"games": 9, "takeaways": i % 13, "giveaways": 6} for i in range(1, ss.MIN_TEAMS + 5)}
 many["87"] = {"games": 9, "takeaways": 16, "giveaways": 2}
-many["5"] = None
 passing = {k: 200.0 + int(k) % 50 for k in many}
 passing["87"] = 275.0
 yards = {"87": (53.8, 145.5)}
@@ -87,7 +86,20 @@ nd = snap["teams"]["87"]
 ok(snap["source"] == "espn-box-scores" and snap["season"] == 2026, "names its source and season")
 ok(nd["takeaways"] == 16 and nd["giveaways"] == 2 and nd["rushAllowed"] == 53.8 and nd["passAllowed"] == 145.5, "a team's row: %s" % {k: nd[k] for k in nd if k != "ranks"})
 ok(nd["ranks"]["turnoverMargin"] == {"rank": 1, "tied": False} and nd["ranks"]["passOffense"]["rank"] == 1, "+14 and 275 yards lead the FBS")
-ok("5" not in snap["teams"], "a team left out is not in the file (its rows show a dash)")
+ok(snap["ranked"] == {"passOffense": True, "turnoverMargin": True}, "every program counted: both ranks are FBS ranks")
+
+print("a program left out: no subset ranks (Codex, #252)")
+short = dict(many); short["5"] = None
+part = ss.build(2026, short, passing, yards)
+ok("5" not in part["teams"], "a team left out is not in the file (its rows show a dash)")
+ok(part["teams"]["87"]["takeaways"] == 16 and part["teams"]["87"]["ranks"].get("turnoverMargin") is None,
+   "its absence withholds the margin's places for everyone; the figures still publish")
+ok(part["teams"]["87"]["ranks"]["passOffense"]["rank"] == 1 and part["ranked"] == {"passOffense": True, "turnoverMargin": False},
+   "the passing places, whose figures are all in, still stand")
+nopass = dict(passing); nopass["3"] = None
+np_ = ss.build(2026, many, nopass, yards)
+ok("passOffense" not in np_["teams"]["87"]["ranks"] and np_["teams"]["87"]["ranks"]["turnoverMargin"]["rank"] == 1,
+   "one passing figure missing: no passing places, the margin's stand")
 ok("rushAllowed" not in snap["teams"]["1"], "no yards-allowed answer: the field is absent, never 0")
 try:
     ss.build(2026, dict(list(many.items())[:ss.MIN_TEAMS - 1]), passing)
