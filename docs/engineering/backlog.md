@@ -1,6 +1,6 @@
 # Project LND backlog
 
-**Refreshed 2026-11-09** from every source we have:
+**Refreshed 2026-11-09**, clean-slate answers 2026-11-11, from every source we have:
 - the previous queue ([archived](backlog-archive-2026-10-23.md));
 - the product briefs, decisions 0001-0043 and the redesign spec (v1.2, #237);
 - the open pull requests;
@@ -44,6 +44,8 @@ This is the only active list. A brief or decision holds the detail; this file ho
 |---|---|---|---|
 | #240 | Desktop header navigation (0042) | open on purpose: it ships with Stage 2's wide Home and Game (0042 §6; David, 2026-11-09) | lands with R1 |
 
+**Also in flight, approved 2026-11-11:** a first-time push confirmation, so a fan who turns on alerts sees one confirmation instead of a test alert each time (C).
+
 **While the redesign is the focus** (David, 2026-11-09), the only other work is: live operations and bugs (F5, F6, §5), and the readers for every school's notes and depth charts (F4). Everything else in §3-§4 waits for the redesign.
 
 ## 2. The Suite redesign program (decision 0040)
@@ -62,7 +64,7 @@ The order below is the program. ChatGPT designs, David approves, and Claude buil
 
 | # | Item | Status | Gate |
 |---|---|---|---|
-| F1 | **The wire, Phase 1** ([brief](../product/wire-brief.md): taxonomy and decisions of 2026-11-09). Status-change headlines in seven categories: Injury, Availability, Suspension, Transfer, Coaching, Commitment, Drafted. Steps: **(a)** groundwork, merged (#244); **(b)** measurement, at least 90% precision, to David. First run, 2026-11-09 (`docs/engineering/wire-measurement-2026-11-09.md`): 88.1% on held-out headlines, so the gate is not met; the revised rule needs a fresh sample of headlines published after 2026-11-10; **(c)** Home's row with R1; **(d)** Around's wire, first out of season, with R4; **(e)** alerts, off by default, with separate switches for the team and the opponent in game week. Alerts need the Worker to read the news snapshots and a per-article "already sent" key | approved | (b) D; (c) and (d) CD; (e) D approves the Worker change |
+| F1 | **The wire, Phase 1** ([brief](../product/wire-brief.md): taxonomy and decisions of 2026-11-09). Status-change headlines in seven categories: Injury, Availability, Suspension, Transfer, Coaching, Commitment, Drafted. Steps: **(a)** groundwork, merged (#244); **(b)** measurement, at least 90% precision, to David. First run, 2026-11-09 (`docs/engineering/wire-measurement-2026-11-09.md`): 88.1% on held-out headlines, so the gate is not met. David, 2026-11-11: it ships only after a fresh sample of headlines published after 2026-11-10 clears 90%; bare "Availability Report" headlines stay off; the opponent's items stay up through the final; **(c)** Home's row with R1; **(d)** Around's wire, first out of season, with R4; **(e)** alerts, off by default, with separate switches for the team and the opponent in game week. Alerts need the Worker to read the news snapshots and a per-article "already sent" key | approved | (b) D; (c) and (d) CD; (e) D approves the Worker change |
 | F2 | **Around, the rest of the approved build** ([navigation brief](../product/navigation-brief.md) steps 3-4): **(a)** conference standings, after a source probe; **(b)** the out-of-season sections month by month, from data in hand (standings and bowls, Signing Day classes, Draft picks by school, next season's slate and opponents, final and preseason polls) | approved | (a) C probes; (b) CD designs with R4 |
 | F3 | **Live refresh on Around's Top 25 games** (David, 2026-11-08: no way to force a play update on a Top 25 game). Auto-refresh runs every 30 s while live; the visible refresh experience is the gap | approved need | CD: direction requested |
 | F4 | **Readers for every school's game notes and depth charts** (David, 2026-10-30: "soon"). Every team links its notes today; only Notre Dame and Ohio State are read. Generalise by layout family (mostly SIDEARM PDFs), school by school, behind a check. Depth: 12 sources found | approved | C, in batches; a review sheet per batch to D |
@@ -70,6 +72,8 @@ The order below is the program. ChatGPT designs, David approves, and Claude buil
 | F6 | **Postseason alerts, first live season.** Weekly CFP releases through Dec 1, Selection Day Dec 6, bowl and playoff set or declined (2025: ND declined its bowl). Fix from what the real payloads show | approved; live | C watches |
 
 ## 4. Proposed: needs a brief, a design or a decision
+
+**Parked during the redesign (David, 2026-11-11).** Nothing here is built ahead of the design: each item comes up in its own tab's creative review (R4), or after it.
 
 Grouped by where it would live, for the tab-by-tab creative review. Within each group, rough value order.
 
@@ -85,8 +89,8 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 - **In-game injuries: parked** (David, 2026-11-02). The feed can't say when a player returns. If picked up: report the event only, for both teams, and alert for mine.
 
 ### Around
-- **Former players in the NFL** (David, 2026-11-05 and 2026-11-09; notes #24 "Irish in the NFL"). Lower priority, in Around (my team), not Home. Step 1 uses headlines Suite already reads: beat feeds keep NFL stories by design. Step 2, NFL team, role and injury status, needs a source: Sleeper's public API is unverified, so a read-only probe comes first.
-- **The wire, Phase 2 sources** (wire brief). Recommended: a free Bluesky pass, plus quote requests to Sleeper, RotoWire and SportsDataIO, drafted for David to send.
+- **Former players in the NFL** (David, 2026-11-05 and 2026-11-09; notes #24 "Irish in the NFL"). Parked until after Stage 2 (David, 2026-11-11), the Sleeper probe included. Lower priority, in Around (my team), not Home. Step 1 uses headlines Suite already reads: beat feeds keep NFL stories by design. Step 2, NFL team, role and injury status, needs a source: Sleeper's public API is unverified, so a read-only probe comes first.
+- **The wire, Phase 2 sources** (wire brief). Parked until after Stage 2 (David, 2026-11-11). Recommended when picked up: a free Bluesky pass, plus quote requests to Sleeper, RotoWire and SportsDataIO, drafted for David to send.
 
 ### Roster / Players
 - **Player card:** tap a player for their season line. The stats exist; nothing joins them to the roster (audit).
@@ -106,7 +110,7 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 ### Settings and More
 - **Wire alert switches** (F1e).
 - **Structured feedback** (David, 2026-09-28). The smallest version structures the mail-app message; sending from the app needs the Worker, spam protection and a privacy note. Decision for David: which.
-- **A first-time push confirmation** instead of the repeated test alert, before any wider launch (decided earlier; not built).
+- **A first-time push confirmation** instead of the repeated test alert. Approved to build now (David, 2026-11-11); see §1.
 
 ### Platform and program
 - **Every Suite its own** (0038; David, 2026-10-29). After parity: traditions, rivalries, voices and rhythms, from data and declared capabilities, never conditionals. Needs a brief, and a first team to prove it on.
@@ -115,7 +119,7 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 - **Performance, remainder** (David, 2026-10-27/28: near-zero latency). Matchup prefetch and the first-paint font fix shipped (#210). Remaining:
   - the matchup batch snapshot;
   - a per-screen request inventory measured on a phone;
-  - the referee, a scheduled ESPN versus CFBD drift check (0037).
+  - the referee is now a re-run of the ESPN-versus-NCAA audit after the regular season (§5; decision 0044 replaced the ESPN-versus-CFBD drift check of 0037; David, 2026-11-11).
 
 ## 5. Reliability and operations (Claude, ongoing)
 
@@ -141,19 +145,16 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 
 ## 7. Housekeeping
 
-- **Branches for David to delete.** These are probe, capture and finished work, none needed:
-  - nd-probe, tests-fixture-clock, avail-window, news-timing, backlog-wire, pac12-probe, pac12-advance, source-health, around-brief, nav-brief, wire-brief, merge-rule, around-tab, around-layers;
-  - audit-capture, design/suite-current-state-audit, fix/headline-entities, fix/s5-home-hero, p2s1-capture, p2s1b-capture;
-  - design/nav-evaluation (decided; the evaluation lives on #240), capture/nd-mia-live, probe/scroll-webkit, fix/game-scroll-refresh;
-  - confav-probe, and the older probe/* and scan/* branches;
-  - audit-espn-accuracy (the 2026-11-11 audit), fix/cfbd-daily, fix/cfbd-store.
+- **Branches for David to delete** (approved 2026-11-11). This session's GitHub access refuses branch deletion, so David deletes them in GitHub's Branches page. These 22 still exist; the rest of the earlier list is already gone:
+  - nd-probe, pac12-probe, confav-probe, audit-capture, audit-espn-accuracy, p2s1-capture, p2s1b-capture, design/nav-evaluation, capture/nd-mia-live;
+  - probe/alerts-live, probe/b1g-availability, probe/cfbd-sp, probe/cfp-rankings, probe/fpi-weeks, probe/kalshi-seasons, probe/launchcheck, probe/osu-notes, probe/osu-parity, probe/roster-limit, probe/scroll-webkit;
+  - scan/oct10, scan/sep26.
 
   Keep: open PR branches, `claude/lnd-implementation-status-owqyo9`, and anything David chose to keep (branch-cleanup.md).
 - **Docs that contradict decisions,** to correct when next touched:
-  - `suite-product-blueprint.md` still calls notifications deferred; they shipped (W19).
-  - `CLAUDE.md`'s branch strategy still says the retired branches go to archive tags. David chose to keep them, with GitHub deleting merged branches automatically (branch-cleanup.md).
   - `codex-review-queue.md` is inactive since Codex's role changed (0035, 0040).
   - `current-architecture.md` gains `TeamOS.wire` and the redesign components as they land.
+  - Fixed 2026-11-11: `CLAUDE.md`'s branch strategy and the blueprint's "notifications deferred".
 
 ## Removed or superseded
 

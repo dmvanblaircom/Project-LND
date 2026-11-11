@@ -216,13 +216,15 @@ TeamOS.wire = (function () {
   function ms(d) { var t = d instanceof Date ? d.getTime() : typeof d === "number" ? d : Date.parse(d); return isNaN(t) ? null : t; }
 
   // The team's schedule (Game[]) and the time -> this game week:
-  //   { gameId, opponentProviderId, from, to }   (from and to in epoch ms)
+  //   { gameId, opponentProviderId, from, kickoff, live }   (epoch ms)
   // or null outside one. Game week runs from the previous game's final - the
-  // start of the season when there is none - until the next game's kickoff.
-  // A previous game counts as final once its state is "post"; Game has no
-  // time it ended, so `from` is that game's kickoff, which it is already
-  // past. A canceled or postponed game is no one's game week. A game under
-  // way has no game week: it has kicked off.
+  // start of the season when there is none - through the next game's final
+  // (David, 2026-11-11: the opponent's items stay up through the game, not
+  // only until kickoff). A game counts as final once its state is "post";
+  // Game has no time it ended, so `from` is the previous game's kickoff,
+  // which it is already past, and the window closes when the next game goes
+  // final. A kickoff delayed past its time is still that game's week. A
+  // canceled or postponed game is no one's game week.
   function gameWeek(games, now) {
     var t = ms(now == null ? Date.now() : now);
     if (t == null || !Array.isArray(games)) return null;
@@ -234,11 +236,12 @@ TeamOS.wire = (function () {
       if (g.state === "post") { prev = g; continue; }
       next = g; break;
     }
-    if (!next || next.state !== "pre" || ms(next.date) <= t) return null;
+    if (!next || (next.state !== "pre" && next.state !== "in")) return null;
     if (!next.oppProviderId) return null;
     var from = prev ? ms(prev.date) : null;
     if (from != null && from > t) return null;
-    return { gameId: next.id == null ? null : String(next.id), opponentProviderId: String(next.oppProviderId), from: from, to: ms(next.date) };
+    return { gameId: next.id == null ? null : String(next.id), opponentProviderId: String(next.oppProviderId),
+             from: from, kickoff: ms(next.date), live: next.state === "in" };
   }
 
   // A story and its kind -> a wire item. The story is not changed: its

@@ -114,7 +114,9 @@ Rules:
    names the player, so an ND outlet's story on a Miami injury is an ND item
    whose headline says Miami.
 2. **Game week:** from the previous game's final (or the season's start)
-   until the next game's kickoff. In that window the opponent's items join.
+   through the next game's final. In that window the opponent's items join,
+   and they stay up through the game, not only until kickoff (David,
+   2026-11-11).
 3. **The measurement bar:** at least 90% precision on a hand-graded sample of
    the kept headlines, reported to David before any item reaches a fan. The
    history is shorter than a season (Notre Dame from 2026-09-11, Ohio State
@@ -126,13 +128,28 @@ Rules:
    separate, lower-priority item for Around (my team), not Home, starting
    from the headlines Suite already reads (backlog).
 
+## Decided (David, 2026-11-11), after the first measurement
+
+The first run (`docs/engineering/wire-measurement-2026-11-09.md`) scored
+88.1% on held-out headlines, short of the bar.
+
+1. **The wire ships only after a fresh sample clears 90%.** The revised rule
+   is measured on headlines published after 2026-11-10, and the number goes
+   to David before any item reaches a fan.
+2. **Bare "Availability Report" headlines stay off the wire.** A report's
+   title says nothing about who changed status; the report itself is already
+   on Home.
+3. **The opponent's items stay up through the final** (Decided 2026-11-09,
+   item 2, as amended).
+
 ## Open decisions for David
 
 1. ~~Phase 1 as above?~~ Approved 2026-11-05.
-2. **Phase 2: which to pursue.** Recommendation: the Bluesky pass first
-   (free; it shows which teams it can serve), and quote requests to Sleeper,
-   RotoWire and SportsDataIO in parallel - drafted for David to send, never
-   sent by Claude.
+2. **Phase 2: which to pursue.** Parked until after Stage 2 (David,
+   2026-11-11). When it is picked up, the recommendation stands: the Bluesky
+   pass first (free; it shows which teams it can serve), and quote requests
+   to Sleeper, RotoWire and SportsDataIO in parallel - drafted for David to
+   send, never sent by Claude.
 3. ~~Notifications on by default?~~ Off (2026-11-09, above).
 
 ## Not in scope

@@ -190,7 +190,7 @@ ok(fcs && fcs.id === null && fcs.providerId === "999999", "an opponent Suite doe
 ok(W.opponentOf("", REG) === null && W.opponentOf(null, REG) === null && W.opponentOf("abc", REG) === null, "no id, no opponent");
 ok(W.opponentOf("87", null).id === null, "no registry: not found, nothing thrown");
 
-console.log("game week: from the previous game's final until the next kickoff");
+console.log("game week: from the previous game's final through the next game's final (David, 2026-11-11)");
 function g(id, date, state, opp, status) { return { id: id, date: date, state: state, status: status || (state === "post" ? "final" : state === "in" ? "live" : "scheduled"), oppProviderId: opp }; }
 var season = [
   g("1", "2026-09-05T23:30:00Z", "post", "100"),
@@ -199,13 +199,18 @@ var season = [
   g("4", "2026-10-03T19:30:00Z", "pre", "400")
 ];
 var wk = W.gameWeek(season, "2026-09-20T12:00:00Z");
-ok(wk && wk.gameId === "3" && wk.opponentProviderId === "300" && wk.from === Date.parse("2026-09-12T19:30:00Z") && wk.to === Date.parse("2026-09-26T23:30:00Z"),
-   "between a final and the next kickoff, a bye week included: the next opponent, from the last game to kickoff");
+ok(wk && wk.gameId === "3" && wk.opponentProviderId === "300" && wk.from === Date.parse("2026-09-12T19:30:00Z") && wk.kickoff === Date.parse("2026-09-26T23:30:00Z") && wk.live === false,
+   "between a final and the next kickoff, a bye week included: the next opponent, from the last game");
 var first = [g("1", "2026-09-05T23:30:00Z", "pre", "100"), g("2", "2026-09-12T19:30:00Z", "pre", "200")];
 var fw = W.gameWeek(first, "2026-08-20T12:00:00Z");
 ok(fw && fw.gameId === "1" && fw.from === null, "before the first game: game week runs from the season's start (from: null)");
-ok(W.gameWeek([g("1", "2026-09-05T23:30:00Z", "in", "100"), g("2", "2026-09-12T19:30:00Z", "pre", "200")], "2026-09-05T23:50:00Z") === null,
-   "a game under way: it has kicked off, so no game week");
+var live = W.gameWeek([g("0", "2026-08-29T23:30:00Z", "post", "50"), g("1", "2026-09-05T23:30:00Z", "in", "100"), g("2", "2026-09-12T19:30:00Z", "pre", "200")], "2026-09-05T23:50:00Z");
+ok(live && live.gameId === "1" && live.opponentProviderId === "100" && live.live === true,
+   "a game under way: still its game week, through the final - the opponent's items stay up");
+var late = W.gameWeek([g("1", "2026-09-05T23:30:00Z", "pre", "100")], "2026-09-06T00:10:00Z");
+ok(late && late.gameId === "1", "a kickoff delayed past its time: still that game's week");
+var after = W.gameWeek([g("1", "2026-09-05T23:30:00Z", "post", "100"), g("2", "2026-09-12T19:30:00Z", "pre", "200")], "2026-09-06T03:00:00Z");
+ok(after && after.gameId === "2", "once it is final, the window moves to the next game");
 ok(W.gameWeek([g("1", "2026-09-05T23:30:00Z", "post", "100")], "2026-09-06T12:00:00Z") === null, "the season over: none");
 ok(W.gameWeek([g("1", "2026-09-05T23:30:00Z", "post", "100"), g("2", "2026-09-12T19:30:00Z", "pre", "200", "canceled"), g("3", "2026-09-19T19:30:00Z", "pre", "300")], "2026-09-08T12:00:00Z").gameId === "3",
    "a canceled game is no one's game week");

@@ -108,9 +108,7 @@ The first consumer MVP should prioritize:
 
 ### Notifications
 
-Notifications are an intentional future Suite capability, but are **deferred from the current implementation and current canonical UI work**. Do not introduce notification controls, bells, settings, permission prompts, or implied notification behavior until this capability is explicitly brought forward for product design and implementation.
-
-When revisited, notification use cases, preference controls, delivery mechanics, platform constraints, and TeamOS responsibilities should be defined before UI implementation begins.
+Game alerts shipped in October 2026 (W19; `docs/product/notifications-brief.md`): opt-in per team, sent by Web Push from Suite's edge API, with the fan's choice of score, quarter, halftime, close-finish and postseason alerts. Wire alerts are approved as off by default (`docs/product/wire-brief.md`). Any new alert kind follows the same rule: a brief, preference controls and TeamOS responsibilities before UI.
 
 ## Explicitly Not MVP
 
