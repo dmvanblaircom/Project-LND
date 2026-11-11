@@ -169,6 +169,15 @@ var STUB = "(" + function () {
   ok(m.posts[0] && m.posts[0].confirm === false && sm.note === "Game alerts are on.",
      "alerts already on for another team on this device: it has had its test alert, so none is asked for (" + sm.note + ")");
   await m.ctx.close();
+  // The same team, turned off and on again: turning off removes the team's
+  // flag, so the device is marked at load, before that can happen.
+  var m2 = await open(390, function () { try { if (!sessionStorage.getItem("seeded")) { localStorage.setItem("iw-alerts-notre-dame", "1"); sessionStorage.setItem("seeded", "1"); } } catch (e) {} });
+  await m2.page.click('#screenSettings [data-alerts="off"]'); await m2.page.waitForTimeout(800);
+  ok(await m2.page.evaluate(function () { return localStorage.getItem("iw-alerts-notre-dame"); }) === null, "turned off: the team's flag is gone");
+  await m2.page.click('#screenSettings [data-alerts="on"]'); await m2.page.waitForTimeout(500);
+  var m2on = m2.posts.filter(function (p) { return p.path === "subscribe"; });
+  ok(m2on.length && m2on[m2on.length - 1].confirm === false, "alerts on for this team before, then turned off: still no second test alert");
+  await m2.ctx.close();
 
   console.log("4b. Turn Off right after a change (Codex, #116)");
   var c = await open();

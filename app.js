@@ -2520,18 +2520,19 @@ var ALERT_KEY="iw-alerts-"+TEAM.id, ALERT_OPTS_KEY="iw-alert-opts-"+TEAM.id;
 // This device has had its one test alert (any team): turning alerts on again
 // confirms on screen only (notifications brief §3; David, 2026-11-11).
 var ALERT_CONFIRMED_KEY="iw-alerts-confirmed";
+function alertsConfirmed(){ try{ return localStorage.getItem(ALERT_CONFIRMED_KEY)==="1"; }catch(e){ return false; } }
 // A device that had alerts on for any team before this was kept has had its
-// test alert too (Codex, #254): its "iw-alerts-<team>" flag counts.
-function alertsConfirmed(){
+// test alert too (Codex, #254). Marked once, at load - before turning alerts
+// off could remove the team's "iw-alerts-<team>" flag it is known by.
+(function(){
   try{
-    if(localStorage.getItem(ALERT_CONFIRMED_KEY)==="1") return true;
+    if(alertsConfirmed()) return;
     for(var i=0;i<localStorage.length;i++){
       var k=localStorage.key(i);
-      if(/^iw-alerts-(?!confirmed$)[a-z0-9-]+$/.test(k||"") && localStorage.getItem(k)==="1") return true;
+      if(/^iw-alerts-(?!confirmed$)[a-z0-9-]+$/.test(k||"") && localStorage.getItem(k)==="1"){ localStorage.setItem(ALERT_CONFIRMED_KEY,"1"); return; }
     }
   }catch(e){}
-  return false;
-}
+})();
 var ALERT_DEFAULTS={ kickoff:true, final:true, delays:true, scoring:"off", quarters:false, halftime:false, close:false, timeset:false, cfp:false,
                      selection:true, postseason:true, nopost:false };
 // Kinds of alert added after a fan may already have chosen: a choice saved
