@@ -145,10 +145,7 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 
 ## 7. Housekeeping
 
-- **Branches for David to delete** (approved 2026-11-11). This session's GitHub access refuses branch deletion, so David deletes them in GitHub's Branches page. These 22 still exist; the rest of the earlier list is already gone:
-  - nd-probe, pac12-probe, confav-probe, audit-capture, audit-espn-accuracy, p2s1-capture, p2s1b-capture, design/nav-evaluation, capture/nd-mia-live;
-  - probe/alerts-live, probe/b1g-availability, probe/cfbd-sp, probe/cfp-rankings, probe/fpi-weeks, probe/kalshi-seasons, probe/launchcheck, probe/osu-notes, probe/osu-parity, probe/roster-limit, probe/scroll-webkit;
-  - scan/oct10, scan/sep26.
+- **Branches for David to delete** (approved 2026-11-11; this session's GitHub access refuses branch deletion). David deleted 19 of the 22 on 2026-11-11. Left: probe/alerts-live, scan/oct10, scan/sep26; and, his call, noop-temp (marked Delete in branch-cleanup.md, but among the old branches he chose to keep).
 
   Keep: open PR branches, `claude/lnd-implementation-status-owqyo9`, and anything David chose to keep (branch-cleanup.md).
 - **Docs that contradict decisions,** to correct when next touched:
