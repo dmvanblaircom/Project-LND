@@ -129,6 +129,7 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 - **January verification** of polls and markets against live payloads. Keep capturing real delayed, suspended and canceled games; never label invented fixtures as real.
 - **Cosmetic:** skipped-job names show a raw `${{ }}` in Actions.
 - **Recheck only if it recurs:** the Top 25 table 2 px wide at Ohio State, 320 px (#154).
+- **SP+ through November: ride it out (David, 2026-11-11, option A).** CFBD refuses the key until its allowance resets (calendar month assumed, decision 0012). Fans see the newest kept table (Week 9), marked as a saved copy (#255). No paid tier, SP+ not hidden. Claude checks on December 2 that the clock read a fresh table and the deploy's SP+ smoke shows `stale=False`.
 - **Season figures, postseason ranks (decision 0044).** The passing-offense FBS rank is computed from regular-season values; in bowl season Stats shows the whole season's value. Rank the postseason values too, once a team has played one.
 - **Edge API cleanup (decision 0044).** `/v1/cfbd/season` and `/v1/cfbd/ranks` have no caller; remove them and their checks.
 - **ESPN against the NCAA, again.** Re-run the 2026-11-11 audit (`docs/engineering/espn-accuracy-2026-11-11.md`) after the regular season, before trusting the figures through the bowls.
