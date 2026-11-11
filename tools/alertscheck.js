@@ -67,9 +67,10 @@ var STUB = "(" + function () {
           posts.push({ path: "subscribe", options: body.options || null, at: Date.now() });
           return route.fulfill({ status: slow.status, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify({ ok: true, confirmation: "updated" }) });
         });
-        posts.push({ path: /unsubscribe/.test(u) ? "unsubscribe" : "subscribe", options: body.options || null, at: Date.now() });
+        posts.push({ path: /unsubscribe/.test(u) ? "unsubscribe" : "subscribe", options: body.options || null, confirm: body.confirm, at: Date.now() });
         return route.fulfill({ status: slow.status, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
-                               body: JSON.stringify(/unsubscribe/.test(u) ? { ok: true } : { ok: true, confirmation: posts.filter(function (p) { return p.path === "subscribe"; }).length === 1 ? "sent" : "updated" }) });
+                               body: JSON.stringify(/unsubscribe/.test(u) ? { ok: true }
+                                 : { ok: true, confirmation: body.confirm === false ? "quiet" : posts.filter(function (p) { return p.path === "subscribe"; }).length === 1 ? "sent" : "updated" }) });
       }
       if (u.startsWith(base)) return route.continue();
       if (/\/schedule(\?|$)/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: fs.readFileSync(path.join(root, "tools/fixtures/espn-schedule-nd-oct08.json")) });
@@ -100,7 +101,7 @@ var STUB = "(" + function () {
   eq(a.posts.map(function (p) { return p.options; }), [{ kickoff: true, final: true, delays: true, scoring: "off", quarters: false, halftime: false, close: false, timeset: false, cfp: false,
                                                           selection: true, postseason: true, nopost: false }],
      "Turn On sends the defaults: kickoff, final and delays - Kickoff time set off; Selection Day and the postseason set on (brief §1)");
-  ok(s1.on === "On" && /test alert is on its way/.test(s1.note), "On, and the test alert is promised");
+  ok(s1.on === "On" && /test alert is on its way/.test(s1.note) && a.posts[0].confirm === true, "On, and the test alert is asked for and promised: this device's first time");
   eq([s1.switches, s1.scoring], [["+kickoff", "+final", "+delays", "-timeset", "-quarters", "-halftime", "-close", "-cfp", "+selection", "+postseason", "-nopost"], "off"], "the choices show, set to the defaults");
   await shot(a.page, "alerts-on");
 
@@ -155,6 +156,10 @@ var STUB = "(" + function () {
      "the last switch off: alerts off, unsubscribed, and the screen says why");
   await a.page.click('#screenSettings [data-alerts="on"]'); await a.page.waitForTimeout(500);
   eq(a.posts[a.posts.length - 1].options.kickoff && a.posts[a.posts.length - 1].options.final, true, "on again: from the defaults, not from nothing");
+  // First time only (notifications brief §3; David, 2026-11-11).
+  var s4b = await state(a.page);
+  ok(a.posts[a.posts.length - 1].confirm === false && s4b.on === "On" && s4b.note === "Game alerts are on.",
+     "on again on this device: no second test alert asked for, and the screen says only that alerts are on (" + s4b.note + ")");
   await a.ctx.close();
 
   console.log("4b. Turn Off right after a change (Codex, #116)");
