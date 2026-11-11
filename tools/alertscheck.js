@@ -162,6 +162,14 @@ var STUB = "(" + function () {
      "on again on this device: no second test alert asked for, and the screen says only that alerts are on (" + s4b.note + ")");
   await a.ctx.close();
 
+  console.log("4a. A device that had alerts on before the test alert was first-time-only (Codex, #254)");
+  var m = await open(390, function () { try { localStorage.setItem("iw-alerts-ohio-state", "1"); } catch (e) {} });
+  await m.page.click('#screenSettings [data-alerts="on"]'); await m.page.waitForTimeout(500);
+  var sm = await state(m.page);
+  ok(m.posts[0] && m.posts[0].confirm === false && sm.note === "Game alerts are on.",
+     "alerts already on for another team on this device: it has had its test alert, so none is asked for (" + sm.note + ")");
+  await m.ctx.close();
+
   console.log("4b. Turn Off right after a change (Codex, #116)");
   var c = await open();
   await c.page.click('#screenSettings [data-alerts="on"]'); await c.page.waitForTimeout(500);
