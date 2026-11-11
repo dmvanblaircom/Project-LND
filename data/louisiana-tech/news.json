@@ -1,7 +1,16 @@
 {
  "team": "louisiana-tech",
- "updated": "2026-11-11T11:38:00.430987+00:00",
+ "updated": "2026-11-11T12:08:08.195759+00:00",
  "items": [
+  {
+   "title": "Know Before You Go | Southern Miss Game Day Guide",
+   "link": "https://latechsports.com/news/2026/11/11/football-know-before-you-go-southern-miss-game-day-guide",
+   "source": "LA Tech Athletics",
+   "summary": "<img alt=\"Know Before You Go | Southern Miss Red Out\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/KBYG_16x9.png\" /><br /><br />RUSTON \u2013\u00a0A rivalry renewed. A stadium dressed in red. Another Saturday in Ruston.",
+   "image": "https://latechsports.com/images/2026/11/10/KBYG_16x9.png?width=800",
+   "sourceLogo": "https://latechsports.com/favicon.ico",
+   "published": "2026-11-11T12:00:00+00:00"
+  },
   {
    "title": "Scouting Southern Miss QB John White",
    "link": "https://on3.com/sites/bleed-tech-blue/news/scouting-southern-miss-qb-john-white/",
@@ -217,15 +226,6 @@
    "image": "https://latechsports.com/images/2026/10/24/story_image_ODU_FB_recap.png?width=800",
    "sourceLogo": "https://latechsports.com/favicon.ico",
    "published": "2026-10-25T03:00:00+00:00"
-  },
-  {
-   "title": "Preview: LA Tech vs. Old Dominion",
-   "link": "https://latechsports.com/news/2026/10/22/football-preview-la-tech-vs-old-dominion",
-   "source": "LA Tech Athletics",
-   "summary": "<img alt=\"Blake Baker vs. ULL\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/story_image_ODU_FB_preview.png\" /><br /><br />RUSTON -- Louisiana Tech returns to Origin Bank Field at Joe Aillet Stadium Saturday afternoon as the Bulldogs welcome Old Dominion for Homecoming and look to extend their three-game winning streak while remaining unbeaten in Sun Belt Conference play. Kickoff is scheduled for 4 p.m. CT, with the contest airing on ESPN+.",
-   "image": "https://latechsports.com/images/2026/10/22/story_image_ODU_FB_preview.png?width=800",
-   "sourceLogo": "https://latechsports.com/favicon.ico",
-   "published": "2026-10-22T20:53:00+00:00"
   }
  ]
 }
