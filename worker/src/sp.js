@@ -20,7 +20,8 @@ const SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-foo
 export const SP_KEEP_MAX = 40;
 // The half-hourly clock reads SP+ itself only when no read has filed a
 // table for this long, so a week is kept even when no fan opens SP+.
-export const SP_DUE = 12 * 3600e3;
+// A day: one read a day at most, about 30 of CFBD's calls a month.
+export const SP_DUE = 24 * 3600e3;
 
 export function migrateSp(db) {
   db.exec("CREATE TABLE IF NOT EXISTS sp_weeks (year INTEGER NOT NULL, id TEXT NOT NULL, label TEXT NOT NULL," +
