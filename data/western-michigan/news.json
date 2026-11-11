@@ -1,7 +1,16 @@
 {
  "team": "western-michigan",
- "updated": "2026-11-11T04:38:25.073536+00:00",
+ "updated": "2026-11-11T15:38:20.288948+00:00",
  "items": [
+  {
+   "title": "Football Home Game Against Eastern Michigan Shifted to 6 p.m.",
+   "link": "https://wmubroncos.com/news/2026/11/11/football-home-game-against-eastern-michigan-shifted-to-6-pm.aspx",
+   "source": "WMU Athletics",
+   "summary": "<img alt=\"EMU Time Change\" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/Game_Time_Update_EMU.jpg\" /><br /><br />KALAMAZOO, Mich. -- The Western Michigan football game against Eastern Michigan at Stafford-Smith Field at Waldo Stadium on Tuesday, Nov. 17 has been moved to 6 p.m.",
+   "image": "https://wmubroncos.com/images/2026/11/11/Game_Time_Update_EMU.jpg?width=800",
+   "sourceLogo": "https://wmubroncos.com/favicon.ico",
+   "published": "2026-11-11T15:06:00+00:00"
+  },
   {
    "title": "Broncos Roll Past Akron, 42-14",
    "link": "https://wmubroncos.com/news/2026/11/10/football-broncos-roll-past-akron-42-14.aspx",
@@ -82,15 +91,6 @@
    "image": "https://wmubroncos.com/images/2026/10/12/CMoss261010-490A3441.JPG?width=800",
    "sourceLogo": "https://wmubroncos.com/favicon.ico",
    "published": "2026-10-13T20:00:00+00:00"
-  },
-  {
-   "title": "Broncos Roll Past Kent State on Homecoming",
-   "link": "https://wmubroncos.com/news/2026/10/10/football-broncos-roll-past-kent-state-on-homecoming.aspx",
-   "source": "WMU Athletics",
-   "summary": "<img alt=\"Baylin Brooks celebrates his touchdown catch, puting the Broncos up 21-7 over Kent State. \" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/CMoss261010-490A5004.JPG\" /><br /><br />KALAMAZOO, Mich. -- The Western Michigan football team improved to 2-0 in Mid-American Conference play after an emphatic 38-7 win over Kent State on Homecoming/Hall of Fame Weekend at Stafford-Smith Field at Waldo Stadium.",
-   "image": "https://wmubroncos.com/images/2026/10/10/CMoss261010-490A5004.JPG?width=800",
-   "sourceLogo": "https://wmubroncos.com/favicon.ico",
-   "published": "2026-10-11T01:16:00+00:00"
   }
  ]
 }
