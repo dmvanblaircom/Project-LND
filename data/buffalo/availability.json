@@ -7,24 +7,17 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-04T11:09:01.422477+00:00",
+ "fetchedAt": "2026-11-11T23:38:49.438878+00:00",
  "reported": true,
- "effectiveAt": "2026-11-03",
+ "effectiveAt": "2026-11-11",
  "heading": "Game Day",
- "kickoffDate": "2026-11-03",
- "game": "at Miami",
+ "kickoffDate": "2026-11-11",
+ "game": "Ball State",
  "players": [
   {
    "pos": "CB",
    "no": "8",
    "name": "Ramari Taylor",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "9",
-   "name": "Alvin Jones III",
    "status": "out-game",
    "detail": ""
   },
@@ -43,37 +36,9 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "17",
-   "name": "Jeremiah Watkins",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "18",
-   "name": "Jake Forburger",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "19",
    "name": "Mathew Hilty",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "20",
-   "name": "DJ Mangan",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "26",
-   "name": "Zae Jennings",
    "status": "out-game",
    "detail": ""
   },
@@ -95,6 +60,13 @@
    "pos": "LB",
    "no": "52",
    "name": "Jack Garbolino",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "69",
+   "name": "Jackson Bellamy",
    "status": "out-game",
    "detail": ""
   },

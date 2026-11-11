@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "central-michigan",
- "updated": "2026-11-05T11:09:03.028996+00:00",
+ "updated": "2026-11-11T23:38:49.717010+00:00",
  "reports": [
   {
    "schema": 1,
@@ -778,6 +778,137 @@
      "no": "95",
      "name": "Joey VanWetzinga",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "central-michigan",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-11T23:38:49.717010+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-11",
+   "game": "Sacramento State",
+   "players": [
+    {
+     "pos": "DL",
+     "no": "5",
+     "name": "Korver Demma",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "6",
+     "name": "Hunter Zirkle",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "7",
+     "name": "Angel Flores",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "8",
+     "name": "Victor Earl",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Jeremiah Alston",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "11",
+     "name": "Xavier White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Tommy McIntosh",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "16",
+     "name": "Shawn Foster II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "20",
+     "name": "Langston Lewis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "20",
+     "name": "JaJuan Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "25",
+     "name": "Trey Liebhardt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "27",
+     "name": "Tysen Campbell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "32",
+     "name": "James Reinbold",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "64",
+     "name": "Rory Callahan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "95",
+     "name": "Joey VanWetzinga",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "97",
+     "name": "Max Van Fleet",
+     "status": "questionable",
      "detail": ""
     }
    ],

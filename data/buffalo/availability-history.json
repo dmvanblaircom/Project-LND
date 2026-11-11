@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "buffalo",
- "updated": "2026-11-04T11:09:01.422477+00:00",
+ "updated": "2026-11-11T23:38:49.438878+00:00",
  "reports": [
   {
    "schema": 1,
@@ -994,6 +994,95 @@
      "pos": "LB",
      "no": "52",
      "name": "Jack Garbolino",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Nino Francavilla",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "96",
+     "name": "Charlton Goodell",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "buffalo",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-11T23:38:49.438878+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-11",
+   "game": "Ball State",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "8",
+     "name": "Ramari Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "10",
+     "name": "Mark-Anthony Scott, Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "16",
+     "name": "Elijah Holmes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "19",
+     "name": "Mathew Hilty",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "30",
+     "name": "Jacari Bennett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "38",
+     "name": "Dylan Cleary",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "52",
+     "name": "Jack Garbolino",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Jackson Bellamy",
      "status": "out-game",
      "detail": ""
     },

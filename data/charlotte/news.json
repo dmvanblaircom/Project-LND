@@ -1,7 +1,16 @@
 {
  "team": "charlotte",
- "updated": "2026-11-10T21:08:01.800446+00:00",
+ "updated": "2026-11-11T23:37:59.881952+00:00",
  "items": [
+  {
+   "title": "Listen Live: Charlotte Football Coaches Show",
+   "link": "https://charlotte49ers.com/news/2026/11/11/listen-live-charlotte-football-coaches-show",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Football coaches show graphic\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/GENATH_ALBIN_CoachesShow26_16x9.png\" /><br /><br />",
+   "image": "https://charlotte49ers.com/images/2026/10/28/GENATH_ALBIN_CoachesShow26_16x9.png?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-11-11T23:25:00+00:00"
+  },
   {
    "title": "Charlotte Battles East Carolina on Saturday Afternoon",
    "link": "https://charlotte49ers.com/news/2026/11/10/football-charlotte-battles-east-carolina-on-saturday-afternoon",
@@ -82,15 +91,6 @@
    "image": "https://charlotte49ers.com/images/2026/10/10/20261010_FB_Eley.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-10-11T00:44:00+00:00"
-  },
-  {
-   "title": "Niners Hit the Road to Face North Texas",
-   "link": "https://charlotte49ers.com/news/2026/10/6/football-niners-hit-the-road-to-face-north-texas",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"D'Mariun Perteet running with the ball\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/6/20261006_FB_Perteet.jpg\" /><br /><br />CHARLOTTE, N.C. \u2013 Charlotte Football heads back out on the road this weekend at North Texas for the first of two consecutive games away from home.",
-   "image": "https://charlotte49ers.com/images/2026/10/6/20261006_FB_Perteet.jpg?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-10-06T20:25:00+00:00"
   }
  ]
 }

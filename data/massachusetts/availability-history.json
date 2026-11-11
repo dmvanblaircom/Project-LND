@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "massachusetts",
- "updated": "2026-11-05T11:09:11.009276+00:00",
+ "updated": "2026-11-11T23:38:53.191267+00:00",
  "reports": [
   {
    "schema": 1,
@@ -588,6 +588,81 @@
      "pos": "TE",
      "no": "18",
      "name": "Matt Ogunniyi",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Greg Klingensmith",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "massachusetts",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-11T23:38:53.191267+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-11",
+   "game": "Toledo",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "0",
+     "name": "Isaiah Reed",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "Jordan Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Joseph Griffin Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "4",
+     "name": "Chris Stanley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Dallas Elliott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "17",
+     "name": "Zachary Betts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LS",
+     "no": "51",
+     "name": "Grant Mills",
      "status": "out-game",
      "detail": ""
     },

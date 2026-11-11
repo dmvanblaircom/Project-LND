@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:16.714599+00:00",
+ "fetchedAt": "2026-11-11T23:38:57.303994+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
+ "effectiveAt": "2026-11-11",
  "heading": "Game Day",
- "kickoffDate": "2026-11-04",
- "game": "at Sacramento State",
+ "kickoffDate": "2026-11-11",
+ "game": "Massachusetts",
  "players": [
   {
    "pos": "WR",
@@ -26,13 +26,6 @@
    "no": "6",
    "name": "Langston Long",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "8",
-   "name": "Connor Walendzak",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -86,13 +79,6 @@
   },
   {
    "pos": "OL",
-   "no": "50",
-   "name": "Luke Rector",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "63",
    "name": "Grant Zimmerly",
    "status": "out-game",
@@ -102,6 +88,20 @@
    "pos": "OL",
    "no": "65",
    "name": "Stephen Gales",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "70",
+   "name": "Nick Thomas",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "78",
+   "name": "Dylan Senda",
    "status": "out-game",
    "detail": ""
   },

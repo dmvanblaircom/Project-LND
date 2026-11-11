@@ -7,17 +7,31 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:14.675642+00:00",
+ "fetchedAt": "2026-11-11T23:38:55.806396+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
+ "effectiveAt": "2026-11-11",
  "heading": "Game Day",
- "kickoffDate": "2026-11-04",
- "game": "vs. Toledo",
+ "kickoffDate": "2026-11-11",
+ "game": "Central Michigan",
  "players": [
   {
    "pos": "CB",
    "no": "2",
    "name": "Dionte Thornton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "3",
+   "name": "Amari Wallace",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "8",
+   "name": "Jackson Sharman",
    "status": "out-game",
    "detail": ""
   },
@@ -46,7 +60,7 @@
    "pos": "TE",
    "no": "16",
    "name": "Jordan Williams",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -60,13 +74,6 @@
    "pos": "OLB",
    "no": "17",
    "name": "Dylan Gooden",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "25",
-   "name": "Davion Godley",
    "status": "out-game",
    "detail": ""
   },
@@ -92,6 +99,27 @@
    "detail": ""
   },
   {
+   "pos": "DL",
+   "no": "45",
+   "name": "Xavier Williams",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "49",
+   "name": "Grant Meadors",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "54",
+   "name": "Brodie Tagaloa",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "68",
    "name": "Davis May",
@@ -103,6 +131,13 @@
    "no": "71",
    "name": "Bryson Summers",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "76",
+   "name": "Alex Kenward",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -138,13 +173,6 @@
    "no": "86",
    "name": "Jack Hodge",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "90",
-   "name": "Austin Chambers",
-   "status": "questionable",
    "detail": ""
   },
   {

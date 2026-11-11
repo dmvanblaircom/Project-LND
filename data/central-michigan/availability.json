@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:09:03.028996+00:00",
+ "fetchedAt": "2026-11-11T23:38:49.717010+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
+ "effectiveAt": "2026-11-11",
  "heading": "Game Day",
- "kickoffDate": "2026-11-04",
- "game": "vs. Eastern Michigan",
+ "kickoffDate": "2026-11-11",
+ "game": "Sacramento State",
  "players": [
   {
    "pos": "DL",
@@ -29,16 +29,23 @@
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "QB",
    "no": "7",
-   "name": "Ed Conoran",
+   "name": "Angel Flores",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "7",
-   "name": "Angel Flores",
+   "pos": "LB",
+   "no": "8",
+   "name": "Victor Earl",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "10",
+   "name": "Jeremiah Alston",
    "status": "out-game",
    "detail": ""
   },
@@ -58,16 +65,51 @@
   },
   {
    "pos": "WR",
+   "no": "16",
+   "name": "Shawn Foster II",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "20",
    "name": "Langston Lewis",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "69",
-   "name": "Jacob Booth",
-   "status": "questionable",
+   "pos": "DB",
+   "no": "20",
+   "name": "JaJuan Jones",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "25",
+   "name": "Trey Liebhardt",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "27",
+   "name": "Tysen Campbell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "32",
+   "name": "James Reinbold",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "64",
+   "name": "Rory Callahan",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -75,6 +117,13 @@
    "no": "95",
    "name": "Joey VanWetzinga",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "97",
+   "name": "Max Van Fleet",
+   "status": "questionable",
    "detail": ""
   }
  ],

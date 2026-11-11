@@ -7,17 +7,31 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T11:08:57.169701+00:00",
+ "fetchedAt": "2026-11-11T23:38:48.387747+00:00",
  "reported": true,
- "effectiveAt": "2026-11-04",
+ "effectiveAt": "2026-11-11",
  "heading": "Game Day",
- "kickoffDate": "2026-11-04",
- "game": "at Massachusetts",
+ "kickoffDate": "2026-11-11",
+ "game": "Buffalo",
  "players": [
   {
    "pos": "DB",
    "no": "2",
    "name": "Tobi Adewoyin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "2",
+   "name": "Jalen Bonds",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "7",
+   "name": "Ben Marsh",
    "status": "out-game",
    "detail": ""
   },
@@ -29,9 +43,9 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "60",
-   "name": "Blake Scriber",
+   "pos": "DT",
+   "no": "52",
+   "name": "Michael Thacker",
    "status": "out-game",
    "detail": ""
   },
@@ -43,9 +57,23 @@
    "detail": ""
   },
   {
+   "pos": "DT",
+   "no": "74",
+   "name": "Khristian Zachary",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "75",
    "name": "Zach Bandy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "78",
+   "name": "Kaden Mayle",
    "status": "out-game",
    "detail": ""
   },
@@ -79,8 +107,8 @@
   },
   {
    "pos": "DT",
-   "no": "99",
-   "name": "Kendrick Gilbert",
+   "no": "96",
+   "name": "Joshua Coleman",
    "status": "out-game",
    "detail": ""
   }
