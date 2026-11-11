@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-04T11:09:08.657879+00:00",
+ "fetchedAt": "2026-11-11T00:08:40.387778+00:00",
  "reported": true,
- "effectiveAt": "2026-11-03",
+ "effectiveAt": "2026-11-10",
  "heading": "Game Day",
- "kickoffDate": "2026-11-03",
- "game": "vs. Buffalo",
+ "kickoffDate": "2026-11-10",
+ "game": "Ohio",
  "players": [
   {
    "pos": "WR",
@@ -36,6 +36,13 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "12",
+   "name": "Kaleb Martin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "QB",
    "no": "13",
    "name": "Thomas Gotkowski",
@@ -53,7 +60,21 @@
    "pos": "RB",
    "no": "20",
    "name": "Cade Yacamelli",
-   "status": "questionable",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "25",
+   "name": "Ike Steward",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "33",
+   "name": "Harrison Brewster",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -67,6 +88,13 @@
    "pos": "DL",
    "no": "49",
    "name": "Anthony Ludington",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "57",
+   "name": "Evan Gilder",
    "status": "out-game",
    "detail": ""
   },
