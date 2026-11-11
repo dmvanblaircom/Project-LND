@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T23:08:34.776777+00:00",
+ "fetchedAt": "2026-11-11T01:08:34.496821+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Game Day",
- "kickoffDate": "2026-11-06",
- "game": "vs. Nebraska",
+ "effectiveAt": "2026-11-10",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-13",
+ "game": "UCLA",
  "players": [
   {
    "pos": "WR",
    "no": "1",
    "name": "Jayshon Platt",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "2",
+   "name": "RJ Jones III",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -33,6 +40,27 @@
    "no": "7",
    "name": "Michael Clayton II",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "8",
+   "name": "Jacob Eberhart",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "24",
+   "name": "Javari Barnett",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "24",
+   "name": "Will Holmes",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -67,7 +95,7 @@
    "pos": "DL",
    "no": "54",
    "name": "Demetrius John",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -78,10 +106,17 @@
    "detail": ""
   },
   {
+   "pos": "OL",
+   "no": "59",
+   "name": "Jake Renfro",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "TE",
    "no": "87",
    "name": "BJ Thurman",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

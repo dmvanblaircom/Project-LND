@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:41:11.724263+00:00",
+ "fetchedAt": "2026-11-11T01:08:37.866165+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Georgia Tech",
+ "effectiveAt": "2026-11-10",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-13",
+ "game": "Florida State",
  "players": [
   {
    "pos": "QB",
@@ -22,17 +22,24 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "7",
+   "name": "DeMarco Ward",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "9",
    "name": "Ja'Kyrian Turner",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "16",
    "name": "Eliyt Nairne",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -71,13 +78,6 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "36",
-   "name": "Ben Kauffman",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "41",
    "name": "Isaac Patterson",
@@ -85,16 +85,16 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "81",
-   "name": "Rodney Dunbar",
-   "status": "out-game",
+   "pos": "DL",
+   "no": "55",
+   "name": "Sean FitzSimmons",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "90",
-   "name": "Trevor Sommers",
+   "pos": "WR",
+   "no": "81",
+   "name": "Rodney Dunbar",
    "status": "out-game",
    "detail": ""
   }

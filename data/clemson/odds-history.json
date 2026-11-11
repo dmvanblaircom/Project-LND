@@ -1,6 +1,6 @@
 {
 "team": "clemson",
-"updated": "2026-11-10T19:07Z",
+"updated": "2026-11-11T01:07Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -480,6 +480,13 @@
 },
 {
 "t": "2026-11-10T19:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 1.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-11T01:07Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 1.5,

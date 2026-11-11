@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucla",
- "updated": "2026-11-07T15:08:48.079402+00:00",
+ "updated": "2026-11-11T01:08:40.170155+00:00",
  "reports": [
   {
    "schema": 1,
@@ -420,6 +420,88 @@
      "no": "68",
      "name": "Jordan Davis",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "86",
+     "name": "Jalen Saint Paul",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "ucla",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-11T01:08:40.170155+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-10",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-13",
+   "game": "Illinois",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "7",
+     "name": "Mikey Matthews",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "9",
+     "name": "Nico Iamaleava",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "19",
+     "name": "Ryan McCulloch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "24",
+     "name": "Jonah Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "44",
+     "name": "Ashton Sanders",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "51",
+     "name": "Riley Robell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "64",
+     "name": "Sam Yoon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Hall Schmidt",
+     "status": "out-game",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "illinois",
- "updated": "2026-11-06T23:08:34.776777+00:00",
+ "updated": "2026-11-11T01:08:34.496821+00:00",
  "reports": [
   {
    "schema": 1,
@@ -581,6 +581,130 @@
      "no": "87",
      "name": "BJ Thurman",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "illinois",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-11T01:08:34.496821+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-10",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-13",
+   "game": "UCLA",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Jayshon Platt",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "RJ Jones III",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "5",
+     "name": "Ca'Lil Valentine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "7",
+     "name": "Michael Clayton II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "8",
+     "name": "Jacob Eberhart",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Javari Barnett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "24",
+     "name": "Will Holmes",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "32",
+     "name": "Tywan Cox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "33",
+     "name": "Grant Beerman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "48",
+     "name": "Carter Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "53",
+     "name": "Kai Pritchard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "54",
+     "name": "Demetrius John",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "TJ McMillen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "59",
+     "name": "Jake Renfro",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "BJ Thurman",
+     "status": "questionable",
      "detail": ""
     }
    ],
