@@ -97,6 +97,11 @@ async function main() {
   // (capture-fixture.yml) - once per run, and hands the page the answer:
   // the browser checks' fixtures, captured live for every team.
   var PROVIDER = /^https:\/\/(site|sports\.core|site\.web)\.api\.espn\.com\//;
+  // The edge API's CFBD routes, the same way: one live answer per address
+  // per run, shared by every team and width. Each page asking for itself
+  // spent about 800 of CFBD's 1,000 monthly calls in one sweep and ran the
+  // key dry (2026-11-10); now a sweep costs a handful.
+  var EDGE_CFBD = /^https:\/\/suite-api\.[a-z0-9-]+\.workers\.dev\/v1\/cfbd\//;
   var cache = {};
   function provider(url) {
     if (!cache[url]) cache[url] = (async function () {
@@ -133,12 +138,14 @@ async function main() {
         // headless name away from a datacenter address (first sweep, 2026-10-29)
         userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" });
       var page = await context.newPage();
-      await page.route(PROVIDER, async function (route) {
+      var handOver = async function (route) {
         var a = await provider(route.request().url());
         if (a.status === 599) return route.abort();
         return route.fulfill({ status: a.status, contentType: a.type, body: a.body,
                                headers: { "access-control-allow-origin": "*" } });
-      });
+      };
+      await page.route(PROVIDER, handOver);
+      await page.route(EDGE_CFBD, handOver);
       var screen = "load", own = base.replace(/\/$/, "");
       page.on("pageerror", function (e) { find("error", screen + " " + width, "script: " + e.message); });
       page.on("console", function (m) {

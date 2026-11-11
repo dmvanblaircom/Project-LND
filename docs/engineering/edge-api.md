@@ -10,9 +10,12 @@ keys server-side, fetches, caches, and returns only what a screen shows.
   green with a notice.
 - Routes: `GET /v1/health`; `GET /v1/cfbd/sp?year=` and `GET /v1/cfbd/sp/week?year=&id=` (SP+, below); `GET /v1/cfbd/season?team=&year=` (CFBD season
   stats for one team, only the fields in `CFBD_FIELDS`: `games`,
-  `rushingYardsOpponent`, `netPassingYardsOpponent`, for W15's yards
-  allowed. The names come from a real response, read with *Probe CFBD
-  field names* on 2026-10-01.) It answers only for a school in the
+  `rushingYardsOpponent`, `netPassingYardsOpponent` for Matchup's yards
+  allowed, `turnovers`, `turnoversOpponent` for the turnover rows (decision
+  0037). The names come from a real response, read with *Probe CFBD
+  field names* on 2026-10-01.); `GET /v1/cfbd/ranks?year=` (FBS ranks for
+  passing offense and the turnover margin, computed from the same read;
+  only places leave the Worker). It answers only for a school in the
   registry, by the name the app sends, and only for this season or last;
   anything else is refused before CFBD is asked (404 / 400), so no script
   can spend the key's monthly allowance on made-up names (bug hunt,
@@ -93,12 +96,12 @@ table leaves the Worker.
 - **Time.** CFBD publishes no edition time, so the answer has none:
   `fetchedAt` is when the Worker read it. There is no change history, so
   the screen has no Change column.
-- **Cache and failure.** SP+ is fresh for 12 hours and the FBS list for a
+- **Cache and failure.** SP+ is fresh for a day and the FBS list for a
   week (kept 60 days). When CFBD fails, or sends a table that is not a
   whole top 25, the last whole table is served with `stale: true`. With
   nothing saved, the answer is 502. An empty list from CFBD means "not
   published for that season" and is answered as `ranks: []`.
-- **Allowance.** About two CFBD calls a day for SP+, plus one a week for
+- **Allowance.** About one CFBD call a day for SP+, plus one a week for
   the FBS list.
 - **Weeks kept (David, 2026-10-21).** CFBD publishes only the current
   table, so earlier weeks exist only if they are kept as they appear. They
@@ -126,3 +129,27 @@ table leaves the Worker.
 - Tested by `tools/workercheck.mjs` (SP+ sections). Checked after every
   deploy by the *SP+ answers through it* step in `worker.yml`, which prints
   counts, key names and week ids only.
+
+## CFBD's allowance (2026-11-10)
+
+The key's tier allows about 1,000 calls a month (decision 0012; David, 2026-11-10). Every CFBD answer is kept
+in the `Ratings` Durable Object (`cfbd_kept`), one store for every
+Cloudflare location; the Cache API does nothing on a `workers.dev` address,
+so nothing was ever reused before #250. Season stats come from one
+all-teams read (`/stats/season?year=`) that serves `/v1/cfbd/season` for
+every school and `/v1/cfbd/ranks`, fresh for a day (they move only when a
+team plays) and kept a week. SP+ is read at most once a day.
+
+| Read | Calls a month |
+|---|---|
+| Season stats, all teams | about 30 |
+| SP+ | about 30 |
+| FBS team list | about 4 |
+| Deploy smoke tests | a few per deploy |
+
+How it ran dry: from Oct 29 the experience sweep (`tools/sweep.js`) opened
+all 138 teams at two widths every morning against production, and each
+page asked for its own CFBD answers - about 800 calls a sweep, with the
+cache doing nothing. The sweep now fetches each CFBD route once per run and
+hands every page the same answer, as it does ESPN's. Any new tool that
+drives the live app must do the same.

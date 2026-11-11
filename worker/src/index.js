@@ -10,6 +10,9 @@
      GET /v1/cfbd/season?team=&year=        CFBD season stats for one team,
                                             only the fields in CFBD_FIELDS; a school in
                                             the registry, this season or last
+     GET /v1/cfbd/ranks?year=               FBS ranks for passing offense and
+                                            the turnover margin, from the same
+                                            all-teams read: places only
      GET /v1/cfbd/sp?year=                  the SP+ top 25: rank, school, rating
                                             and the school's id - nothing else -
                                             and the weeks kept (./sp.js)
@@ -45,12 +48,15 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-11-10cfbdstore";
+export const VERSION = "edge-2026-11-11cfbddaily";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
 const CFBD = "https://api.collegefootballdata.com";
-const FRESH_SECONDS = 6 * 3600;        // season stats move once a week
+// Season stats move only when a team plays (Saturdays, the odd weeknight),
+// so one read a day is enough: about 30 of CFBD's calls a month (David,
+// 2026-11-10: "are they actually even changing that we need that many?").
+const FRESH_SECONDS = 24 * 3600;
 const KEEP_SECONDS = 7 * 24 * 3600;    // a stale copy may stand in for a week
 
 // The CFBD stat names a screen may show, read from a real response by the
@@ -160,7 +166,7 @@ async function seasonRows(year, env, cache, ctx, fields) {
 // CFBD says nothing about when an edition was published, so neither does
 // this: `fetchedAt` is when the Worker read it, nothing more.
 export const SP_TOP = 25;
-const SP_FRESH = 12 * 3600;              // SP+ moves once a week
+const SP_FRESH = 24 * 3600;              // SP+ moves once a week; a day late is fine
 const TEAMS_FRESH = 7 * 24 * 3600;       // the FBS list moves once a year
 const TEAMS_KEEP = 60 * 24 * 3600;
 

@@ -126,7 +126,7 @@ console.log("when CFBD fails");
 { const cache = memoryCache();
   await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", env({ cache }), SITE);
   const k = [...cache.map.keys()][0], old = JSON.parse(cache.map.get(k));
-  old.fetchedAt = new Date(Date.now() - 7 * 3600 * 1000).toISOString(); cache.map.set(k, JSON.stringify(old));
+  old.fetchedAt = new Date(Date.now() - 25 * 3600 * 1000).toISOString(); cache.map.set(k, JSON.stringify(old));
   const down = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", env({ cache, down: true }), SITE);
   ok(down.r.status === 200 && down.body.stale === true && down.body.stats.rushingYards === 1100 && down.body.fetchedAt === old.fetchedAt,
      "past the fresh window and CFBD down: the saved copy, marked stale, with its own time");
@@ -243,13 +243,16 @@ console.log("SP+: the route");
   const k = [...e.CACHE.map.keys()].find((x) => /\/sp\?/.test(x)), aged = JSON.parse(e.CACHE.map.get(k));
   aged.fetchedAt = new Date(Date.now() - 13 * 3600e3).toISOString(); e.CACHE.map.set(k, JSON.stringify(aged));
   await get("/v1/cfbd/sp?year=2026", e, SITE);
-  ok(e.calls.length === 3 && /ratings\/sp/.test(e.calls[2].url), "after 12 hours SP+ is asked again - and the FBS list, kept for a week, is not"); }
+  ok(e.calls.length === 2, "13 hours on, SP+ is still fresh: once a day is enough");
+  aged.fetchedAt = new Date(Date.now() - 25 * 3600e3).toISOString(); e.CACHE.map.set(k, JSON.stringify(aged));
+  await get("/v1/cfbd/sp?year=2026", e, SITE);
+  ok(e.calls.length === 3 && /ratings\/sp/.test(e.calls[2].url), "after a day SP+ is asked again - and the FBS list, kept for a week, is not"); }
 
 console.log("SP+: when CFBD fails or has nothing");
 { const cache = memoryCache();
   await get("/v1/cfbd/sp?year=2026", spEnv({ cache }), SITE);
   const k = [...cache.map.keys()].find((x) => /\/sp\?/.test(x)), old = JSON.parse(cache.map.get(k));
-  old.fetchedAt = new Date(Date.now() - 13 * 3600e3).toISOString(); cache.map.set(k, JSON.stringify(old));
+  old.fetchedAt = new Date(Date.now() - 25 * 3600e3).toISOString(); cache.map.set(k, JSON.stringify(old));
   const down = await get("/v1/cfbd/sp?year=2026", spEnv({ cache, spDown: true }), SITE);
   ok(down.r.status === 200 && down.body.stale === true && down.body.ranks.length === 26 && down.body.fetchedAt === old.fetchedAt,
      "past the fresh window and CFBD down: the saved table, marked stale, with its own time");
@@ -265,7 +268,7 @@ console.log("SP+: when CFBD fails or has nothing");
   const cache2 = memoryCache();
   await get("/v1/cfbd/sp?year=2026", spEnv({ cache: cache2 }), SITE);
   const k2 = [...cache2.map.keys()].find((x) => /\/sp\?/.test(x)), o2 = JSON.parse(cache2.map.get(k2));
-  o2.fetchedAt = new Date(Date.now() - 13 * 3600e3).toISOString(); cache2.map.set(k2, JSON.stringify(o2));
+  o2.fetchedAt = new Date(Date.now() - 25 * 3600e3).toISOString(); cache2.map.set(k2, JSON.stringify(o2));
   const broken = await get("/v1/cfbd/sp?year=2026", spEnv({ cache: cache2, sp: (y) => { const r = spRows(y); r[25].rating = null; return r; } }), SITE);
   ok(broken.body.stale === true && broken.body.ranks.length === 26, "a tied table missing a row never replaces the saved whole one (Codex, #142)");
   const empty = spEnv({ sp: () => [] });
@@ -1594,7 +1597,7 @@ console.log("SP+ week by week (David, 2026-10-21): kept in the Worker, never as 
   eq(keepSp(db, 2026, t1, D("2026-10-20T15:00:00Z"), W(8)), "w8", "the first table is filed under ESPN's week");
   eq(keepSp(db, 2026, t1, D("2026-10-21T03:00:00Z"), W(9)), "w8", "the same table read again is the same edition, whatever the week now");
   eq(spWeeks(db, 2026).length, 1, "and is not kept twice");
-  ok(!spDue(db, 2026, D("2026-10-21T03:00:00Z") + SP_DUE - 1) && spDue(db, 2026, D("2026-10-21T03:00:00Z") + SP_DUE), "the clock reads SP+ again only after 12 hours without a read");
+  ok(!spDue(db, 2026, D("2026-10-21T03:00:00Z") + SP_DUE - 1) && spDue(db, 2026, D("2026-10-21T03:00:00Z") + SP_DUE), "the clock reads SP+ again only after a day without a read");
   eq(keepSp(db, 2026, t2, D("2026-10-21T04:00:00Z"), W(8)), "w8-2026-10-21", "a different table the next day, ESPN still on that week: a second edition, by its day");
   const sq2 = fakeSql(), db2 = { exec: (q) => sq2.exec(q), all: (q, ...b) => sq2.exec(q, ...b).toArray(), run: (q, ...b) => { sq2.exec(q, ...b); } };
   migrateSp(db2);
@@ -1651,7 +1654,7 @@ console.log("SP+ week by week: the routes and the clock");
   const bk = await get("/v1/cfbd/sp?year=2026", broken, SITE);
   ok(bk.r.status === 200 && bk.body.ranks.length === 26 && !("weeks" in bk.body), "the store down: the current table still stands, without weeks");
 
-  // The clock: a read only when no table has been kept for 12 hours.
+  // The clock: a read only when no table has been kept for a day.
   const c = Object.assign(spEnv(), { RATINGS: store(8) });
   await spClock(c, null);
   ok(c.calls.filter((x) => /ratings\/sp/.test(x.url)).length === 1, "nothing kept yet: the clock reads SP+ once");
