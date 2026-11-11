@@ -56,8 +56,8 @@
    "state": "NJ",
    "grade": 78,
    "rank": null,
-   "positionRank": 80,
-   "stateRank": 21,
+   "positionRank": 81,
+   "stateRank": 22,
    "status": "Verbal"
   },
   {
@@ -69,7 +69,7 @@
    "state": "PA",
    "grade": 78,
    "rank": null,
-   "positionRank": 78,
+   "positionRank": 79,
    "stateRank": 21,
    "status": "Verbal"
   },
@@ -238,8 +238,8 @@
    "state": "NJ",
    "grade": 73,
    "rank": null,
-   "positionRank": 158,
-   "stateRank": 43,
+   "positionRank": 159,
+   "stateRank": 44,
    "status": "Verbal"
   },
   {
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:46Z"
+ "fetchedAt": "2026-11-11T03:45Z"
 }

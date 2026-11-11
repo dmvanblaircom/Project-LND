@@ -199,7 +199,7 @@
    "state": "LA",
    "grade": 79,
    "rank": null,
-   "positionRank": 56,
+   "positionRank": 57,
    "stateRank": 19,
    "status": "Verbal"
   },
@@ -212,7 +212,7 @@
    "state": "CT",
    "grade": 79,
    "rank": null,
-   "positionRank": 61,
+   "positionRank": 62,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "GA",
    "grade": 78,
    "rank": null,
-   "positionRank": 71,
+   "positionRank": 72,
    "stateRank": 85,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:44Z"
+ "fetchedAt": "2026-11-11T03:43Z"
 }

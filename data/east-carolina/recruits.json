@@ -96,7 +96,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 146,
-   "stateRank": 37,
+   "stateRank": 38,
    "status": "Verbal"
   },
   {
@@ -121,7 +121,7 @@
    "state": "SC",
    "grade": 74,
    "rank": null,
-   "positionRank": 153,
+   "positionRank": 154,
    "stateRank": 35,
    "status": "Verbal"
   },
@@ -295,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:40Z"
+ "fetchedAt": "2026-11-11T03:39Z"
 }

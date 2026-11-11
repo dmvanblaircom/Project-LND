@@ -251,7 +251,7 @@
    "state": "WA",
    "grade": 78,
    "rank": null,
-   "positionRank": 74,
+   "positionRank": 75,
    "stateRank": 7,
    "status": "Verbal"
   },
@@ -316,7 +316,7 @@
    "state": "OR",
    "grade": 75,
    "rank": null,
-   "positionRank": 133,
+   "positionRank": 134,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:44Z"
+ "fetchedAt": "2026-11-11T03:43Z"
 }

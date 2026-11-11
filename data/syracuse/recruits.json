@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "183",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -121,7 +121,7 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 112,
+   "positionRank": 113,
    "stateRank": 116,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 47,
-   "stateRank": 35,
+   "stateRank": 36,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 91,
-   "stateRank": 31,
+   "stateRank": 32,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 113,
+   "positionRank": 114,
    "stateRank": 118,
    "status": "Verbal"
   },
@@ -187,20 +187,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 164,
-   "stateRank": 34,
-   "status": "Verbal"
-  },
-  {
-   "id": "259346",
-   "name": "Tank White",
-   "position": "WR",
-   "highSchool": "Central Catholic High School",
-   "city": "Melbourne",
-   "state": "FL",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 149,
-   "stateRank": 111,
+   "stateRank": 35,
    "status": "Verbal"
   },
   {
@@ -321,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-08T20:15Z"
+ "fetchedAt": "2026-11-11T03:44Z"
 }

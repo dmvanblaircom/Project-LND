@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "154",
  "classYear": 2027,
- "listed": 33,
+ "listed": 34,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "262585",
+   "name": "Anthony Roberts",
+   "position": "WR",
+   "highSchool": "Rolesville High School",
+   "city": "Rolesville",
+   "state": "NC",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 76,
+   "stateRank": 21,
+   "status": "Verbal"
+  },
   {
    "id": "261895",
    "name": "Aiden Hartnett",
@@ -212,7 +225,7 @@
    "state": "NY",
    "grade": 75,
    "rank": null,
-   "positionRank": 126,
+   "positionRank": 127,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -264,7 +277,7 @@
    "state": "PA",
    "grade": 75,
    "rank": null,
-   "positionRank": 119,
+   "positionRank": 120,
    "stateRank": 35,
    "status": "Verbal"
   },
@@ -303,8 +316,8 @@
    "state": "NJ",
    "grade": 74,
    "rank": null,
-   "positionRank": 140,
-   "stateRank": 40,
+   "positionRank": 141,
+   "stateRank": 41,
    "status": "Verbal"
   },
   {
@@ -438,5 +451,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:47Z"
+ "fetchedAt": "2026-11-11T03:46Z"
 }

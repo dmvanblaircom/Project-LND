@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -110,6 +110,19 @@
    "rank": 168,
    "positionRank": 18,
    "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
+   "id": "266328",
+   "name": "Jatori Williams",
+   "position": "OG",
+   "highSchool": "Central High School",
+   "city": "Phenix City",
+   "state": "AL",
+   "grade": 81,
+   "rank": 178,
+   "positionRank": 5,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -308,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:39Z"
+ "fetchedAt": "2026-11-11T03:38Z"
 }

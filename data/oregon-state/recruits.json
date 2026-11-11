@@ -134,7 +134,7 @@
    "state": "KY",
    "grade": 74,
    "rank": null,
-   "positionRank": 143,
+   "positionRank": 144,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-10T13:10Z"
+ "fetchedAt": "2026-11-11T03:43Z"
 }

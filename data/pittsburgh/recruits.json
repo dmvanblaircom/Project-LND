@@ -30,7 +30,7 @@
    "state": "OH",
    "grade": 79,
    "rank": null,
-   "positionRank": 53,
+   "positionRank": 54,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -121,8 +121,8 @@
    "state": "NJ",
    "grade": 77,
    "rank": null,
-   "positionRank": 95,
-   "stateRank": 25,
+   "positionRank": 96,
+   "stateRank": 26,
    "status": "Verbal"
   },
   {
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-09T16:40Z"
+ "fetchedAt": "2026-11-11T03:43Z"
 }

@@ -95,7 +95,7 @@
    "state": "RI",
    "grade": 79,
    "rank": null,
-   "positionRank": 64,
+   "positionRank": 65,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -134,8 +134,8 @@
    "state": "NJ",
    "grade": 78,
    "rank": null,
-   "positionRank": 66,
-   "stateRank": 12,
+   "positionRank": 67,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -174,7 +174,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 61,
-   "stateRank": 15,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 8,
-   "stateRank": 19,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 52,
-   "stateRank": 22,
+   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -239,7 +239,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 91,
-   "stateRank": 27,
+   "stateRank": 28,
    "status": "Verbal"
   },
   {
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:45Z"
+ "fetchedAt": "2026-11-11T03:43Z"
 }

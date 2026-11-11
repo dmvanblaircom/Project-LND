@@ -96,7 +96,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 41,
-   "stateRank": 13,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "EUR",
    "grade": 78,
    "rank": null,
-   "positionRank": 67,
+   "positionRank": 68,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "NC",
    "grade": 77,
    "rank": null,
-   "positionRank": 98,
+   "positionRank": 99,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:47Z"
+ "fetchedAt": "2026-11-11T03:45Z"
 }

@@ -108,7 +108,7 @@
    "state": "NE",
    "grade": 70,
    "rank": null,
-   "positionRank": 198,
+   "positionRank": 199,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:43Z"
+ "fetchedAt": "2026-11-11T03:42Z"
 }

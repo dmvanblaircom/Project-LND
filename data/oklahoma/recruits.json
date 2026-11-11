@@ -329,7 +329,7 @@
    "state": "AR",
    "grade": 77,
    "rank": null,
-   "positionRank": 85,
+   "positionRank": 86,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -360,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:44Z"
+ "fetchedAt": "2026-11-11T03:43Z"
 }
