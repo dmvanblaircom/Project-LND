@@ -48,7 +48,7 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-11-11quietconfirm";
+export const VERSION = "edge-2026-11-11spkept";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
@@ -332,6 +332,17 @@ export async function spClock(env, ctx) {
   } catch (e) { /* the next half hour tries again */ }
 }
 
+async function lastSp(env, year) {
+  const store = ratingsStore(env);
+  if (!store) return null;
+  try {
+    const r = await store.fetch("https://ratings/last?year=" + year);
+    if (!r.ok) return null;
+    const t = await r.json();
+    return t && Array.isArray(t.ranks) && t.ranks.length && t.seen ? t : null;
+  } catch (e) { return null; }
+}
+
 async function cfbdSp(url, env, origin, ctx) {
   const year = Number(url.searchParams.get("year"));
   if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
@@ -356,6 +367,12 @@ async function cfbdSp(url, env, origin, ctx) {
   }
   if (!ranks) {
     if (heldBody) return json(await withWeeks(Object.assign({}, heldBody, { stale: true }), env, false), 200, origin);
+    // No copy of the route's own (it expires in a week): the newest table
+    // the store filed, marked stale with when it was read. Without it the
+    // app would fall back to last season's table (2026-11-11: CFBD refused
+    // the key for the rest of the month).
+    const kept = await lastSp(env, year);
+    if (kept) return json(await withWeeks({ source: "cfbd-sp", year: year, fetchedAt: kept.seen, ranks: kept.ranks, stale: true }, env, false), 200, origin);
     return fail(502, "CFBD could not be reached", origin);
   }
   const body = { source: "cfbd-sp", year: year, fetchedAt: new Date().toISOString(), ranks: ranks };

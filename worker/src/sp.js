@@ -119,6 +119,22 @@ export function spIdOf(db, year, ranks) {
   return last && last.id && last.ranks === JSON.stringify(ranks) ? last.id : null;
 }
 
+// The newest table kept for `year`, for when CFBD cannot answer and the
+// route has no copy of its own (the allowance ran out, 2026-11-11): the
+// whole top 25 as last read, the edition it was filed as, and when it was
+// first seen. null when nothing was ever kept.
+export function spLast(db, year) {
+  const w = db.all("SELECT id, seen, ranks FROM sp_weeks WHERE year = ? ORDER BY seen DESC LIMIT 1", year)[0];
+  const last = db.all("SELECT at, id, ranks FROM sp_last WHERE year = ?", year)[0];
+  let ranks = null, id = null, seen = null;
+  try {
+    if (last) { ranks = JSON.parse(last.ranks); id = last.id || null; seen = new Date(last.at).toISOString(); }
+    if (w && id && w.id === id) seen = w.seen;
+    if (!ranks && w) { ranks = JSON.parse(w.ranks); id = w.id; seen = w.seen; }
+  } catch (e) { return null; }
+  return Array.isArray(ranks) && ranks.length ? { id: id, seen: seen, ranks: ranks } : null;
+}
+
 // Whether the clock should read SP+ for `year`: no table filed for SP_DUE.
 export function spDue(db, year, now) {
   const last = db.all("SELECT at, id FROM sp_last WHERE year = ?", year)[0];
@@ -146,6 +162,7 @@ function sqlite(sql) {
 //   POST /which { year, ranks }  -> { id, weeks } for a table being served
 //   GET  /week?year=&id=         -> one kept edition, or 404
 //   GET  /due?year=              -> { due }
+//   GET  /last?year=             -> the newest table kept, or 404
 export async function spOp(db, env, op, input, now) {
   const year = Number(input.year);
   if (!Number.isInteger(year)) return { status: 400, body: { error: "year is required" } };
@@ -162,6 +179,10 @@ export async function spOp(db, env, op, input, now) {
     return w ? { status: 200, body: w } : { status: 404, body: { error: "no such week" } };
   }
   if (op === "due") return { status: 200, body: { due: spDue(db, year, now) } };
+  if (op === "last") {
+    const t = spLast(db, year);
+    return t ? { status: 200, body: t } : { status: 404, body: { error: "nothing kept" } };
+  }
   return { status: 404, body: { error: "no such operation" } };
 }
 
