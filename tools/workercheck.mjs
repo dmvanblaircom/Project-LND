@@ -1655,6 +1655,16 @@ console.log("SP+ week by week: the routes and the clock");
   eq([(await get("/v1/cfbd/sp/week?year=2026&id=w3", e, SITE)).r.status, (await get("/v1/cfbd/sp/week?year=2026&id=../x", e, SITE)).r.status,
       (await get("/v1/cfbd/sp/week?year=2023&id=w8", e, SITE)).r.status, (await get("/v1/cfbd/sp/week?year=2026&id=w8", spEnv(), SITE)).r.status],
      [404, 400, 400, 503], "a week not kept: 404; a malformed week or another season: 400; no store: 503");
+  // CFBD refusing the key with no copy of the route's own (2026-11-11): the
+  // newest table the store filed, marked stale - not a 502, which sent the
+  // app to last season's table.
+  const refused = Object.assign(spEnv({ spDown: true }), { RATINGS: e.RATINGS });
+  const rf = await get("/v1/cfbd/sp?year=2026", refused, SITE);
+  ok(rf.r.status === 200 && rf.body.stale === true && JSON.stringify(rf.body.ranks) === JSON.stringify(body.ranks) &&
+     rf.body.week === "w8" && rf.body.fetchedAt === body.weeks[0].seen,
+     "CFBD down and no copy of its own: the store's newest table, marked stale, with when it was first seen");
+  const none = await get("/v1/cfbd/sp?year=2026", Object.assign(spEnv({ spDown: true }), { RATINGS: store(8) }), SITE);
+  ok(none.r.status === 502, "and with nothing ever filed, still a plain 502");
   const blind = Object.assign(spEnv(), { RATINGS: store(null) });
   const b = await get("/v1/cfbd/sp?year=2026", blind, SITE);
   ok(b.r.status === 200 && b.body.week === null && b.body.weeks.length === 0 && b.body.ranks.length === 26, "ESPN unable to say the week: the table is served, not yet filed");
