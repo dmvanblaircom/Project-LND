@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-11T21:08:05.213086+00:00",
+ "updated": "2026-11-11T23:07:57.756607+00:00",
  "items": [
+  {
+   "title": "Richter Selected For Rose Bowl Hall of Fame",
+   "link": "https://calbears.com/news/2026/11/11/football-richter-selected-for-rose-bowl-hall-of-fame",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Les Richter\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/Richter-Les.jpg\" /><br /><br />The Tournament of Roses announced last week that former California football star Les Richter will be inducted into the Rose Bowl Hall of Fame as a member of the Class of 2026.",
+   "image": "https://calbears.com/images/2026/11/11/Richter-Les.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-11T22:28:00+00:00"
+  },
   {
    "title": "Will Jaron-Keawe Sagapolutele Be at Cal in 2027 After Disappointing 2026?",
    "link": "https://www.si.com/college/cal/football/will-jaron-keawe-sagapolutele-be-at-cal-in-2027-after-disappointing-2026-01m742zmmsyw?utm_source=RSS",
@@ -262,15 +271,6 @@
    "image": "https://calbears.com/images/2026/9/16/2026_Pro_Bears_1920x1080.png?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-10-28T21:30:00+00:00"
-  },
-  {
-   "title": "Cal Continues Road Stretch At NC State",
-   "link": "https://calbears.com/news/2026/10/27/football-cal-continues-road-stretch-at-nc-state",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Cal FB at NC State (10.31.2026) Web Preview Graphic\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/27/GAMEWEEK_WEBnc_state.jpg\" /><br /><br />Bears To Meet Wolfpack For First Time In Raleigh, N.C.",
-   "image": "https://calbears.com/images/2026/10/27/GAMEWEEK_WEBnc_state.jpg?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-10-27T22:00:00+00:00"
   }
  ]
 }
