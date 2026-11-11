@@ -1,7 +1,16 @@
 {
  "team": "western-michigan",
- "updated": "2026-11-09T19:08:26.159932+00:00",
+ "updated": "2026-11-11T04:38:25.073536+00:00",
  "items": [
+  {
+   "title": "Broncos Roll Past Akron, 42-14",
+   "link": "https://wmubroncos.com/news/2026/11/10/football-broncos-roll-past-akron-42-14.aspx",
+   "source": "WMU Athletics",
+   "summary": "<img alt=\"Baylin Brooks celebrates with Nate Levicki on WMU's first touchdown of the game. \" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/TD_Celebration_copy.jpg\" /><br /><br />AKRON, Ohio -- The Western Michigan football team picked up its seventh win of the season after drubbing Akron, 42-14 on the road at InfoCision Stadium on Tuesday night.",
+   "image": "https://wmubroncos.com/images/2026/11/10/TD_Celebration_copy.jpg?width=800",
+   "sourceLogo": "https://wmubroncos.com/favicon.ico",
+   "published": "2026-11-11T04:17:00+00:00"
+  },
   {
    "title": "Football Opens #MACtion on the Road at Akron on Tuesday",
    "link": "https://wmubroncos.com/news/2026/11/9/football-opens-maction-on-the-road-at-akron-on-tuesday.aspx",
@@ -82,15 +91,6 @@
    "image": "https://wmubroncos.com/images/2026/10/10/CMoss261010-490A5004.JPG?width=800",
    "sourceLogo": "https://wmubroncos.com/favicon.ico",
    "published": "2026-10-11T01:16:00+00:00"
-  },
-  {
-   "title": "Robin Hook Set for 500th WMU Football Radio Broadcast on Saturday",
-   "link": "https://wmubroncos.com/news/2026/10/9/robin-hook-set-for-500th-wmu-football-radio-broadcast-on-saturday.aspx",
-   "source": "WMU Athletics",
-   "summary": "<img alt=\"Robin Hook and Family\" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/9/hook_retirement_group_photo.jpg\" /><br /><br />On Saturday, the Voice of the Broncos will be broadcasting his 500th WMU football game. He began his football broadcasting career for WMU in 1984 and has been going strong since then, bringing southwest Michigan fans the play-by-play on WKMI-AM at the start and now broadcasting on 106.5 Jack FM, where he can be heard over the air and on the internet.",
-   "image": "https://wmubroncos.com/images/2026/10/9/hook_retirement_group_photo.jpg?width=800",
-   "sourceLogo": "https://wmubroncos.com/favicon.ico",
-   "published": "2026-10-09T18:39:00+00:00"
   }
  ]
 }
