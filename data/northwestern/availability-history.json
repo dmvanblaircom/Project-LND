@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "northwestern",
- "updated": "2026-11-12T01:08:39.403678+00:00",
+ "updated": "2026-11-12T11:09:25.834673+00:00",
  "reports": [
   {
    "schema": 1,
@@ -742,12 +742,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:08:39.403678+00:00",
+   "fetchedAt": "2026-11-12T11:09:25.834673+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Initial",
    "kickoffDate": "2026-11-14",
-   "game": "Ohio State",
+   "game": "at Ohio State",
    "players": [
     {
      "pos": "QB",

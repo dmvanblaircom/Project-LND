@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "rutgers",
- "updated": "2026-11-12T01:08:40.792589+00:00",
+ "updated": "2026-11-12T11:09:27.520874+00:00",
  "reports": [
   {
    "schema": 1,
@@ -469,12 +469,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:08:40.792589+00:00",
+   "fetchedAt": "2026-11-12T11:09:27.520874+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Initial",
    "kickoffDate": "2026-11-14",
-   "game": "Nebraska",
+   "game": "vs. Nebraska",
    "players": [
     {
      "pos": "WR",

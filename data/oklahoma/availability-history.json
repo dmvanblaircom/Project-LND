@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-11-12T01:38:54.200383+00:00",
+ "updated": "2026-11-12T11:09:26.242300+00:00",
  "reports": [
   {
    "schema": 1,
@@ -539,12 +539,12 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:54.200383+00:00",
+   "fetchedAt": "2026-11-12T11:09:26.242300+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Initial",
    "kickoffDate": "2026-11-14",
-   "game": "Ole Miss",
+   "game": "vs. Ole Miss",
    "players": [
     {
      "pos": "RB",

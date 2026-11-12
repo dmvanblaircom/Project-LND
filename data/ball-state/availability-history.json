@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ball-state",
- "updated": "2026-11-11T23:38:48.387747+00:00",
+ "updated": "2026-11-12T11:09:17.861632+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1051,12 +1051,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-11T23:38:48.387747+00:00",
+   "fetchedAt": "2026-11-12T11:09:17.861632+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Game Day",
    "kickoffDate": "2026-11-11",
-   "game": "Buffalo",
+   "game": "vs. Buffalo",
    "players": [
     {
      "pos": "DB",

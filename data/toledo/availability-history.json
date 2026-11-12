@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "toledo",
- "updated": "2026-11-11T23:38:57.303994+00:00",
+ "updated": "2026-11-12T11:09:29.787241+00:00",
  "reports": [
   {
    "schema": 1,
@@ -904,12 +904,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-11T23:38:57.303994+00:00",
+   "fetchedAt": "2026-11-12T11:09:29.787241+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Game Day",
    "kickoffDate": "2026-11-11",
-   "game": "Massachusetts",
+   "game": "vs. Massachusetts",
    "players": [
     {
      "pos": "WR",

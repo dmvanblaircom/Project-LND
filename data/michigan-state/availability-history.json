@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan-state",
- "updated": "2026-11-12T01:08:38.397826+00:00",
+ "updated": "2026-11-12T11:09:24.621204+00:00",
  "reports": [
   {
    "schema": 1,
@@ -602,12 +602,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:08:38.397826+00:00",
+   "fetchedAt": "2026-11-12T11:09:24.621204+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Initial",
    "kickoffDate": "2026-11-14",
-   "game": "Washington",
+   "game": "vs. Washington",
    "players": [
     {
      "pos": "RB",

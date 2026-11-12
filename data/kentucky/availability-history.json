@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kentucky",
- "updated": "2026-11-12T01:38:52.022913+00:00",
+ "updated": "2026-11-12T11:09:23.042521+00:00",
  "reports": [
   {
    "schema": 1,
@@ -439,12 +439,12 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:52.022913+00:00",
+   "fetchedAt": "2026-11-12T11:09:23.042521+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Initial",
    "kickoffDate": "2026-11-14",
-   "game": "Florida",
+   "game": "vs. Florida",
    "players": [
     {
      "pos": "WR",

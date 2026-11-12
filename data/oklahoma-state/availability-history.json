@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma-state",
- "updated": "2026-11-12T03:08:51.607551+00:00",
+ "updated": "2026-11-12T11:09:26.366928+00:00",
  "reports": [
   {
    "schema": 1,
@@ -294,12 +294,12 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T03:08:51.607551+00:00",
+   "fetchedAt": "2026-11-12T11:09:26.366928+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Initial",
    "kickoffDate": "2026-11-14",
-   "game": "Texas Tech",
+   "game": "vs. Texas Tech",
    "players": [
     {
      "pos": "LB",

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "north-carolina",
- "updated": "2026-11-12T01:08:39.193577+00:00",
+ "updated": "2026-11-12T11:09:25.581000+00:00",
  "reports": [
   {
    "schema": 1,
@@ -492,12 +492,12 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:08:39.193577+00:00",
+   "fetchedAt": "2026-11-12T11:09:25.581000+00:00",
    "reported": true,
    "effectiveAt": "2026-11-11",
    "heading": "Initial",
    "kickoffDate": "2026-11-14",
-   "game": "Louisville",
+   "game": "vs. Louisville",
    "players": [
     {
      "pos": "DB",
