@@ -1,7 +1,16 @@
 {
  "team": "miami-oh",
- "updated": "2026-11-11T06:08:02.928228+00:00",
+ "updated": "2026-11-12T20:08:11.694066+00:00",
  "items": [
+  {
+   "title": "RedHawks Hold Weekly Press Conference",
+   "link": "https://miamiredhawks.com/news/2026/11/12/football-redhawks-hold-weekly-press-conference",
+   "source": "Miami Athletics",
+   "summary": "<img alt=\"Chuck Martin\" src=\"https://miamiredhawks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/12/IMG_7016.jpeg\" /><br /><br />OXFORD, Ohio -- Miami University head football coach Chuck Martin, along with running back D'Shawntae Jones spoke with the local media on Thursday morning as the RedHawks prepare to face Kent State on Tuesday, Nov. 17.",
+   "image": "https://miamiredhawks.com/images/2026/11/12/IMG_7016.jpeg?width=800",
+   "sourceLogo": "https://miamiredhawks.com/favicon.ico",
+   "published": "2026-11-12T19:25:00+00:00"
+  },
   {
    "title": "'Crazy, Crazy, Crazy': Miami's 34-Point Outburst Stuns Ohio",
    "link": "https://miamiredhawks.com/news/2026/11/11/football-crazy-crazy-crazy-miamis-34-point-outburst-stuns-ohio",
@@ -82,15 +91,6 @@
    "image": "https://miamiredhawks.com/images/2026/10/24/KBR02308.jpg?width=800",
    "sourceLogo": "https://miamiredhawks.com/favicon.ico",
    "published": "2026-10-24T22:41:00+00:00"
-  },
-  {
-   "title": "RedHawks Face CMU on Saturday Afternoon",
-   "link": "https://miamiredhawks.com/news/2026/10/20/football-redhawks-face-cmu-on-saturday-afternoon",
-   "source": "Miami Athletics",
-   "summary": "<img alt=\"No alternative text provided.\" src=\"https://miamiredhawks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/20261017Akron_LC-21.jpg\" /><br /><br />The Miami University football team hits the road to face the Central Michigan Chippewas on Saturday, Oct. 24. Opening kick is slated for 1 p.m. on ESPN+",
-   "image": "https://miamiredhawks.com/images/2026/10/17/20261017Akron_LC-21.jpg?width=800",
-   "sourceLogo": "https://miamiredhawks.com/favicon.ico",
-   "published": "2026-10-20T12:30:00+00:00"
   }
  ]
 }
