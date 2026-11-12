@@ -38,4 +38,9 @@ jobs:
           TEAMS: ${{ inputs.teams }}
           KIND: ${{ inputs.kind || 'index' }}
           SAMPLE: ${{ github.event_name == 'push' || inputs.sample }}
-        run: python3 tools/notes_survey.py --teams "$TEAMS" --kind "$KIND" $([ "$SAMPLE" = true ] && echo --sample)
+        run: |
+          if [ "${{ github.event_name }}" = push ]; then
+            python3 tools/notes_survey.py --dump --teams arizona,troy,massachusetts,virginia-tech,tulane,akron,pittsburgh,kentucky,coastal-carolina
+          else
+            python3 tools/notes_survey.py --teams "$TEAMS" --kind "$KIND" $([ "$SAMPLE" = true ] && echo --sample)
+          fi

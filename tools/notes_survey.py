@@ -161,6 +161,15 @@ def survey(team):
                    "unread": len(p["unread"]), "game": bool(p["game"]), "usable": bool(gamenotes.usable(p))}
     head = text[:4000].lower()
     row["names us"] = sum(head.count(w.lower()) for w in who[:2] if w)
+    if DUMP:
+        rows = gamenotes.lines_of(text)
+        at = next((i for i, x in enumerate(rows) if re.match(r"^PRONUNCIATIONS?(?: GUIDE)?\b", x)), None)
+        row["s:dump"] = rows[max(0, at - 6):at + 170] if at is not None else None
+        by = {}
+        for d, label, u in sorted(season):
+            by[label] = "%s %s" % (d, u.rsplit("/", 1)[-1][:50])
+        row["s:newest by label"] = ["%s -> %s" % kv for kv in list(by.items())[:10]]
+        return row
     if SAMPLE:
         row["s:pronounce"] = sample(text, r"^PRONUNCIATIONS?(?: GUIDE)?\b", 5)
         row["s:numbers"] = sample(text, r"^(?:BY THE NUMBERS|NUMBERS OF NOTE|THE NUMBERS)\b", 5)
@@ -175,16 +184,18 @@ def survey(team):
     return row
 
 
-REG, SAMPLE, TODAY, SEASON_FROM = {}, False, "", ""
+REG, SAMPLE, DUMP, TODAY, SEASON_FROM = {}, False, False, "", ""
 
 
 def main():
-    global REG, SAMPLE, TODAY, SEASON_FROM
+    global REG, SAMPLE, DUMP, TODAY, SEASON_FROM
     ap = argparse.ArgumentParser()
     ap.add_argument("--teams", default="")
     ap.add_argument("--kind", default="index")
     ap.add_argument("--sample", action="store_true", help="print a few lines of each section the app shows, not the headings")
+    ap.add_argument("--dump", action="store_true", help="print the whole pronunciation guide and each label's newest document")
     a = ap.parse_args()
+    DUMP = a.dump
     from datetime import datetime, timezone
     now = datetime.now(timezone.utc)
     TODAY = now.strftime("%Y-%m-%d")
@@ -204,7 +215,8 @@ def main():
         rows.append(r)
         print("\n== %s" % t)
         for k in ("error", "links", "labels", "own", "doc", "day", "chars", "names us", "read",
-                  "s:pronounce", "s:numbers", "s:lasttime", "s:series", "s:captain", "s:roster"):
+                  "s:pronounce", "s:numbers", "s:lasttime", "s:series", "s:captain", "s:roster",
+                  "s:newest by label", "s:dump"):
             v = r.get(k)
             if v in (None, ""):
                 continue
