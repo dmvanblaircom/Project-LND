@@ -1,7 +1,16 @@
 {
  "team": "ul-monroe",
- "updated": "2026-11-08T02:08:16.402951+00:00",
+ "updated": "2026-11-12T02:26:38.373866+00:00",
  "items": [
+  {
+   "title": "Football Preview: Warhawks Prepare for Battle on the Bayou in Nationally-Televised Contest",
+   "link": "https://ulmwarhawks.com/news/2026/11/11/football-preview-warhawks-prepare-for-battle-on-the-bayou-in-nationally-televised-contest.aspx",
+   "source": "ULM Athletics",
+   "summary": "<img alt=\"ChaneyPreview\" src=\"https://ulmwarhawks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/ChaneyPreview.png\" /><br /><br />The Warhawks come off a tight 19-17 win over Arkansas State.",
+   "image": "https://ulmwarhawks.com/images/2026/11/11/ChaneyPreview.png?width=800",
+   "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
+   "published": "2026-11-12T02:04:00+00:00"
+  },
   {
    "title": "Warhawks Top Red Wolves in Jonesboro for the First Time Since 2001",
    "link": "https://ulmwarhawks.com/news/2026/11/7/football-warhawks-top-red-wolves-in-jonesboro-for-the-first-time-since-2001.aspx",
@@ -82,15 +91,6 @@
    "image": "https://ulmwarhawks.com/images/2026/10/3/TrujilloRecap.png?width=800",
    "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
    "published": "2026-10-04T04:52:00+00:00"
-  },
-  {
-   "title": "Football Preview: Warhawks Hit the Road to Open Sun Belt Play",
-   "link": "https://ulmwarhawks.com/news/2026/10/2/football-preview-warhawks-hit-the-road-to-open-sun-belt-play.aspx",
-   "source": "ULM Athletics",
-   "summary": "<img alt=\"JacksonPreview\" src=\"https://ulmwarhawks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/2/USAPreview.png\" /><br /><br />The Warhawks travel to Mobile to face the South Alabama Jaguars.",
-   "image": "https://ulmwarhawks.com/images/2026/10/2/USAPreview.png?width=800",
-   "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
-   "published": "2026-10-02T15:32:00+00:00"
   }
  ]
 }
