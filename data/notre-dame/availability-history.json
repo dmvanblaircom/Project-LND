@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-11-09T21:08:32.840428+00:00",
+ "updated": "2026-11-12T18:32:51.976998+00:00",
  "reports": [
   {
    "schema": 1,
@@ -764,14 +764,14 @@
    "capability": "availability",
    "tier": "official",
    "game": "Boston College",
-   "sourceUrl": "https://fightingirish.com/documents/44c65fb4-d237-418a-9e4b-ebed301dbc22.pdf",
+   "sourceUrl": "https://fightingirish.com/documents/ebc57b77-d28c-4533-989d-9ed8103f3f5c.pdf",
    "sourceLabel": "FightingIrish.com",
-   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/09/otfCHTQK5L0Seo4I7320Lji0Ordvz2HMb2YhsO3n.pdf",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/12/YcAvZXjXw7bfcQWXTrx8ZLg3QLc9PCbLNKNIXBZe.pdf",
    "parser": 2,
-   "fetchedAt": "2026-11-09T21:08:32.840428+00:00",
+   "fetchedAt": "2026-11-12T18:32:51.976998+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-09",
-   "heading": "AVAILABILITY UPDATE (NOV. 9)",
+   "effectiveAt": "2026-11-12",
+   "heading": "AVAILABILITY UPDATE (NOV. 12)",
    "players": [
     {
      "no": "",
