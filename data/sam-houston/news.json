@@ -1,7 +1,16 @@
 {
  "team": "sam-houston",
- "updated": "2026-11-08T05:08:08.400895+00:00",
+ "updated": "2026-11-12T20:38:07.268351+00:00",
  "items": [
+  {
+   "title": "Game 10 Preview: vs Kennesaw State",
+   "link": "https://gobearkats.com/news/2026/11/12/football-game-10-preview-vs-kennesaw-state",
+   "source": "Sam Houston Athletics",
+   "summary": "<img alt=\"Josh Alexander-Felton vs NMSU 2026\" src=\"https://gobearkats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/12/1J4A7231.jpg\" /><br /><br />Game 10 \u2022 vs Kennesaw State",
+   "image": "https://gobearkats.com/images/2026/11/12/1J4A7231.jpg?width=800",
+   "sourceLogo": "https://gobearkats.com/favicon.ico",
+   "published": "2026-11-12T20:10:00+00:00"
+  },
   {
    "title": "Jax State downs Kats",
    "link": "https://gobearkats.com/news/2026/11/7/football-jax-state-downs-kats",
@@ -82,15 +91,6 @@
    "image": "https://gobearkats.com/images/2026/10/21/10343.JPG?width=800",
    "sourceLogo": "https://gobearkats.com/favicon.ico",
    "published": "2026-10-22T05:25:00+00:00"
-  },
-  {
-   "title": "Game 7 Preview: vs NM State",
-   "link": "https://gobearkats.com/news/2026/10/20/football-game-7-preview-vs-nm-state",
-   "source": "Sam Houston Athletics",
-   "summary": "<img alt=\"FB Run Out vs WKU 2026\" src=\"https://gobearkats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/DSC00859.jpg\" /><br /><br />Game 7 \u2022 vs NM State",
-   "image": "https://gobearkats.com/images/2026/10/19/DSC00859.jpg?width=800",
-   "sourceLogo": "https://gobearkats.com/favicon.ico",
-   "published": "2026-10-20T16:00:00+00:00"
   }
  ]
 }
