@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2638",
  "classYear": 2027,
- "listed": 10,
+ "listed": 12,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -45,6 +45,32 @@
    "rank": null,
    "positionRank": 112,
    "stateRank": 234,
+   "status": "Verbal"
+  },
+  {
+   "id": "274788",
+   "name": "Yusuf Adegbite",
+   "position": "OLB",
+   "highSchool": "Duncanville High School",
+   "city": "Duncanville",
+   "state": "TX",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "274789",
+   "name": "Andrew Johnson",
+   "position": "K",
+   "highSchool": "John H. Guyer High School",
+   "city": "Denton",
+   "state": "TX",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -139,5 +165,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:16Z"
+ "fetchedAt": "2026-11-12T00:13Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2641",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -267,7 +267,20 @@
    "positionRank": 9,
    "stateRank": 271,
    "status": "Verbal"
+  },
+  {
+   "id": "274784",
+   "name": "Roman Flugence",
+   "position": "ILB",
+   "highSchool": "Boerne-Samuel V. Champion High School",
+   "city": "Boerne",
+   "state": "TX",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-09T16:40Z"
+ "fetchedAt": "2026-11-12T00:13Z"
 }

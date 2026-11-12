@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "204",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -256,6 +256,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274786",
+   "name": "Derek Earl",
+   "position": "CB",
+   "highSchool": "Willamette High School",
+   "city": "Eugene",
+   "state": "OR",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273288",
    "name": "Hudson Harbuck",
    "position": "DE",
@@ -269,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:43Z"
+ "fetchedAt": "2026-11-12T00:12Z"
 }

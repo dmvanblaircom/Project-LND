@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2393",
  "classYear": 2027,
- "listed": 7,
+ "listed": 8,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -74,6 +74,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274785",
+   "name": "Gavin Willis",
+   "position": "TE-H",
+   "highSchool": "Russellville High School",
+   "city": "Russellville",
+   "state": "AL",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273568",
    "name": "Jayden Johnson",
    "position": "RB",
@@ -100,5 +113,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-09T16:39Z"
+ "fetchedAt": "2026-11-12T00:11Z"
 }

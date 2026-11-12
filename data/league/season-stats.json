@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-11-11T03:52:35Z",
+ "builtAt": "2026-11-12T00:16:38Z",
  "ranked": {
   "passOffense": true,
   "turnoverMargin": true
@@ -30,7 +30,7 @@
    "passAllowed": 181.9,
    "ranks": {
     "passOffense": {
-     "rank": 99,
+     "rank": 100,
      "tied": true
     },
     "turnoverMargin": {
@@ -81,7 +81,7 @@
    "passAllowed": 194.3,
    "ranks": {
     "passOffense": {
-     "rank": 117,
+     "rank": 118,
      "tied": false
     },
     "turnoverMargin": {
@@ -115,7 +115,7 @@
    "passAllowed": 192.7,
    "ranks": {
     "passOffense": {
-     "rank": 93,
+     "rank": 92,
      "tied": false
     },
     "turnoverMargin": {
@@ -183,7 +183,7 @@
    "passAllowed": 194.7,
    "ranks": {
     "passOffense": {
-     "rank": 110,
+     "rank": 111,
      "tied": false
     },
     "turnoverMargin": {
@@ -255,7 +255,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 42,
      "tied": true
     }
    },
@@ -268,7 +268,7 @@
    "passAllowed": 182.5,
    "ranks": {
     "passOffense": {
-     "rank": 109,
+     "rank": 110,
      "tied": false
     },
     "turnoverMargin": {
@@ -302,7 +302,7 @@
    "passAllowed": 213.9,
    "ranks": {
     "passOffense": {
-     "rank": 96,
+     "rank": 97,
      "tied": false
     },
     "turnoverMargin": {
@@ -350,10 +350,10 @@
   "189": {
    "games": 10,
    "giveaways": 13,
-   "passAllowed": 165.9,
+   "passAllowed": 182.5,
    "ranks": {
     "passOffense": {
-     "rank": 122,
+     "rank": 119,
      "tied": false
     },
     "turnoverMargin": {
@@ -361,25 +361,25 @@
      "tied": true
     }
    },
-   "rushAllowed": 212.0,
+   "rushAllowed": 198.5,
    "takeaways": 12
   },
   "193": {
-   "games": 9,
-   "giveaways": 7,
-   "passAllowed": 279.7,
+   "games": 10,
+   "giveaways": 8,
+   "passAllowed": 274.6,
    "ranks": {
     "passOffense": {
-     "rank": 92,
+     "rank": 95,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 32,
      "tied": true
     }
    },
-   "rushAllowed": 95.6,
-   "takeaways": 10
+   "rushAllowed": 101.2,
+   "takeaways": 12
   },
   "194": {
    "games": 9,
@@ -399,21 +399,21 @@
    "takeaways": 11
   },
   "195": {
-   "games": 9,
-   "giveaways": 11,
-   "passAllowed": 202.0,
+   "games": 10,
+   "giveaways": 13,
+   "passAllowed": 197.1,
    "ranks": {
     "passOffense": {
-     "rank": 119,
+     "rank": 116,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 98,
+     "rank": 105,
      "tied": true
     }
    },
-   "rushAllowed": 137.9,
-   "takeaways": 8
+   "rushAllowed": 144.9,
+   "takeaways": 9
   },
   "197": {
    "games": 9,
@@ -442,7 +442,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 42,
      "tied": true
     }
    },
@@ -469,18 +469,18 @@
   "2006": {
    "games": 10,
    "giveaways": 17,
-   "passAllowed": 223.6,
+   "passAllowed": 221.8,
    "ranks": {
     "passOffense": {
-     "rank": 84,
-     "tied": true
+     "rank": 87,
+     "tied": false
     },
     "turnoverMargin": {
      "rank": 132,
      "tied": true
     }
    },
-   "rushAllowed": 183.6,
+   "rushAllowed": 201.2,
    "takeaways": 9
   },
   "201": {
@@ -574,7 +574,7 @@
    "passAllowed": 246.7,
    "ranks": {
     "passOffense": {
-     "rank": 105,
+     "rank": 106,
      "tied": false
     },
     "turnoverMargin": {
@@ -591,7 +591,7 @@
    "passAllowed": 219.6,
    "ranks": {
     "passOffense": {
-     "rank": 121,
+     "rank": 122,
      "tied": false
     },
     "turnoverMargin": {
@@ -629,7 +629,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 42,
      "tied": true
     }
    },
@@ -646,7 +646,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 42,
      "tied": true
     }
    },
@@ -710,7 +710,7 @@
    "passAllowed": 235.7,
    "ranks": {
     "passOffense": {
-     "rank": 97,
+     "rank": 98,
      "tied": false
     },
     "turnoverMargin": {
@@ -748,7 +748,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 42,
      "tied": true
     }
    },
@@ -795,7 +795,7 @@
    "passAllowed": 212.6,
    "ranks": {
     "passOffense": {
-     "rank": 116,
+     "rank": 117,
      "tied": false
     },
     "turnoverMargin": {
@@ -812,7 +812,7 @@
    "passAllowed": 194.8,
    "ranks": {
     "passOffense": {
-     "rank": 103,
+     "rank": 104,
      "tied": false
     },
     "turnoverMargin": {
@@ -877,10 +877,10 @@
   "2309": {
    "games": 10,
    "giveaways": 19,
-   "passAllowed": 216.4,
+   "passAllowed": 217.7,
    "ranks": {
     "passOffense": {
-     "rank": 111,
+     "rank": 96,
      "tied": false
     },
     "turnoverMargin": {
@@ -888,7 +888,7 @@
      "tied": false
     }
    },
-   "rushAllowed": 144.2,
+   "rushAllowed": 141.6,
    "takeaways": 9
   },
   "2335": {
@@ -897,7 +897,7 @@
    "passAllowed": 185.8,
    "ranks": {
     "passOffense": {
-     "rank": 95,
+     "rank": 94,
      "tied": false
     },
     "turnoverMargin": {
@@ -1067,7 +1067,7 @@
    "passAllowed": 263.4,
    "ranks": {
     "passOffense": {
-     "rank": 98,
+     "rank": 99,
      "tied": false
     },
     "turnoverMargin": {
@@ -1084,7 +1084,7 @@
    "passAllowed": 210.1,
    "ranks": {
     "passOffense": {
-     "rank": 101,
+     "rank": 102,
      "tied": false
     },
     "turnoverMargin": {
@@ -1101,7 +1101,7 @@
    "passAllowed": 197.3,
    "ranks": {
     "passOffense": {
-     "rank": 99,
+     "rank": 100,
      "tied": true
     },
     "turnoverMargin": {
@@ -1118,7 +1118,7 @@
    "passAllowed": 157.3,
    "ranks": {
     "passOffense": {
-     "rank": 129,
+     "rank": 130,
      "tied": false
     },
     "turnoverMargin": {
@@ -1135,7 +1135,7 @@
    "passAllowed": 124.4,
    "ranks": {
     "passOffense": {
-     "rank": 106,
+     "rank": 107,
      "tied": false
     },
     "turnoverMargin": {
@@ -1152,7 +1152,7 @@
    "passAllowed": 190.1,
    "ranks": {
     "passOffense": {
-     "rank": 104,
+     "rank": 105,
      "tied": false
     },
     "turnoverMargin": {
@@ -1169,7 +1169,7 @@
    "passAllowed": 216.8,
    "ranks": {
     "passOffense": {
-     "rank": 87,
+     "rank": 86,
      "tied": false
     },
     "turnoverMargin": {
@@ -1275,7 +1275,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 106,
+     "rank": 105,
      "tied": true
     }
    },
@@ -1360,7 +1360,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 106,
+     "rank": 105,
      "tied": true
     }
    },
@@ -1411,7 +1411,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 42,
      "tied": true
     }
    },
@@ -1492,7 +1492,7 @@
    "passAllowed": 172.1,
    "ranks": {
     "passOffense": {
-     "rank": 120,
+     "rank": 121,
      "tied": false
     },
     "turnoverMargin": {
@@ -1594,7 +1594,7 @@
    "passAllowed": 202.6,
    "ranks": {
     "passOffense": {
-     "rank": 108,
+     "rank": 109,
      "tied": false
     },
     "turnoverMargin": {
@@ -1611,7 +1611,7 @@
    "passAllowed": 214.4,
    "ranks": {
     "passOffense": {
-     "rank": 118,
+     "rank": 120,
      "tied": false
     },
     "turnoverMargin": {
@@ -1628,7 +1628,7 @@
    "passAllowed": 222.1,
    "ranks": {
     "passOffense": {
-     "rank": 107,
+     "rank": 108,
      "tied": false
     },
     "turnoverMargin": {
@@ -1642,10 +1642,10 @@
   "2711": {
    "games": 10,
    "giveaways": 8,
-   "passAllowed": 208.9,
+   "passAllowed": 205.3,
    "ranks": {
     "passOffense": {
-     "rank": 130,
+     "rank": 129,
      "tied": false
     },
     "turnoverMargin": {
@@ -1653,7 +1653,7 @@
      "tied": true
     }
    },
-   "rushAllowed": 149.2,
+   "rushAllowed": 140.3,
    "takeaways": 12
   },
   "275": {
@@ -1683,7 +1683,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 106,
+     "rank": 105,
      "tied": true
     }
    },
@@ -1714,7 +1714,7 @@
    "ranks": {
     "passOffense": {
      "rank": 84,
-     "tied": true
+     "tied": false
     },
     "turnoverMargin": {
      "rank": 50,
@@ -1730,7 +1730,7 @@
    "passAllowed": 220.6,
    "ranks": {
     "passOffense": {
-     "rank": 86,
+     "rank": 85,
      "tied": false
     },
     "turnoverMargin": {
@@ -1836,7 +1836,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 106,
+     "rank": 105,
      "tied": true
     }
    },
@@ -1904,7 +1904,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 106,
+     "rank": 105,
      "tied": true
     }
    },
@@ -2121,7 +2121,7 @@
    "passAllowed": 234.6,
    "ranks": {
     "passOffense": {
-     "rank": 94,
+     "rank": 93,
      "tied": false
     },
     "turnoverMargin": {
@@ -2172,7 +2172,7 @@
    "passAllowed": 231.0,
    "ranks": {
     "passOffense": {
-     "rank": 102,
+     "rank": 103,
      "tied": false
     },
     "turnoverMargin": {
@@ -2193,7 +2193,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 42,
      "tied": true
     }
    },
@@ -2227,7 +2227,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 106,
+     "rank": 105,
      "tied": true
     }
    },
@@ -2244,7 +2244,7 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 41,
+     "rank": 42,
      "tied": true
     }
    },
@@ -2346,7 +2346,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 106,
+     "rank": 105,
      "tied": true
     }
    },
