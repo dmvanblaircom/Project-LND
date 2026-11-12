@@ -1,7 +1,16 @@
 {
  "team": "louisiana-tech",
- "updated": "2026-11-12T18:38:09.934131+00:00",
+ "updated": "2026-11-12T22:08:05.005620+00:00",
  "items": [
+  {
+   "title": "Preview: LA Tech vs. Southern Miss",
+   "link": "https://latechsports.com/news/2026/11/12/football-preview-la-tech-vs-southern-miss",
+   "source": "LA Tech Athletics",
+   "summary": "<img alt=\"LA Tech defense at Troy\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/12/FB_preview_Southern_Miss.png\" /><br /><br />RUSTON -- Louisiana Tech returns to Origin Bank Field at Joe Aillet Stadium on Saturday as the Bulldogs welcome longtime rival Southern Miss for a Sun Belt Conference showdown. The upcoming matchup will be the first time LA Tech and Southern Miss meet as conference opponents since the 2021 season.",
+   "image": "https://latechsports.com/images/2026/11/12/FB_preview_Southern_Miss.png?width=800",
+   "sourceLogo": "https://latechsports.com/favicon.ico",
+   "published": "2026-11-12T21:46:00+00:00"
+  },
   {
    "title": "Eli Finley Named John Mackey Award Semifinalist",
    "link": "https://latechsports.com/news/2026/11/12/football-eli-finley-named-john-mackey-award-semifinalist",
@@ -217,15 +226,6 @@
    "image": "https://latechsports.com/images/2026/10/29/story_image_FB_preview_South_AL.png?width=800",
    "sourceLogo": "https://latechsports.com/favicon.ico",
    "published": "2026-10-29T18:34:00+00:00"
-  },
-  {
-   "title": "Finley Tabbed With Pair Of Career Honors Following Career Performance vs. Old Dominion",
-   "link": "https://latechsports.com/news/2026/10/27/football-finley-tabbed-with-pair-of-career-honors-following-career-performance-vs-old-dominion",
-   "source": "LA Tech Athletics",
-   "summary": "<img alt=\"Eli Finley vs. ODU\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/27/story_image_Eli_Finley_POTW.png\" /><br /><br />RUSTON \u2013 Following a dominant performance on the field against Old Dominion, Eli Finley was named the Week 8 John Mackey Award Player of the Week and an Earl Campbell Tyler Rose Award Player of the Week Honorable Mention.",
-   "image": "https://latechsports.com/images/2026/10/27/story_image_Eli_Finley_POTW.png?width=800",
-   "sourceLogo": "https://latechsports.com/favicon.ico",
-   "published": "2026-10-27T18:00:00+00:00"
   }
  ]
 }
