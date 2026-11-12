@@ -1,7 +1,16 @@
 {
  "team": "duke",
- "updated": "2026-11-12T14:38:03.555723+00:00",
+ "updated": "2026-11-12T17:08:08.348634+00:00",
  "items": [
+  {
+   "title": "The Nate Sheppard Mentality",
+   "link": "https://goduke.com/news/2026/11/12/football-the-nate-sheppard-mentality",
+   "source": "Duke Athletics",
+   "summary": "<img alt=\"Duke running back Nate Sheppard, wearing a black helmet, blue jersey and black pants, runs up field with the ball tucked in his arms during Duke's 35-7 victory against Stanford on September 19, 2026.\" src=\"https://goduke.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/20/fb_duke_stanford_ledonne_20260919-23_pH6Or.jpg\" /><br /><br />Maxwell Award and Walter Camp Player of the Year semifinalist Nate Sheppard talks through his mentality when the ball is in his hands.",
+   "image": "https://goduke.com/images/2026/9/20/fb_duke_stanford_ledonne_20260919-23_pH6Or.jpg?width=800",
+   "sourceLogo": "https://goduke.com/favicon.ico",
+   "published": "2026-11-12T16:32:00+00:00"
+  },
   {
    "title": "David Shumate Sits Down with Jonathan Patke",
    "link": "https://goduke.com/news/2026/11/12/football-david-shumate-sits-down-with-jonathan-patke",
@@ -289,15 +298,6 @@
    "image": "https://goduke.com/images/2026/11/9/fb_duke_ncsu_20261107_0082.jpg?width=800",
    "sourceLogo": "https://goduke.com/favicon.ico",
    "published": "2026-11-07T21:24:00+00:00"
-  },
-  {
-   "title": "Duke Visits NC State for In-State Clash",
-   "link": "https://goduke.com/news/2026/11/6/football-duke-visits-nc-state-for-in-state-clash",
-   "source": "Duke Athletics",
-   "summary": "<img alt=\"Duke hosts Boston College on Halloween. October 31, 2026\" src=\"https://goduke.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/FH-7_3.jpg\" /><br /><br />Duke football goes for its seventh win as it heads to Raleigh to face NC State for an in-state clash at 12:30 p.m. Saturday on The CW.",
-   "image": "https://goduke.com/images/2026/10/31/FH-7_3.jpg?width=800",
-   "sourceLogo": "https://goduke.com/favicon.ico",
-   "published": "2026-11-06T19:39:00+00:00"
   }
  ]
 }

@@ -1,7 +1,16 @@
 {
  "team": "missouri",
- "updated": "2026-11-12T16:38:14.844141+00:00",
+ "updated": "2026-11-12T17:08:15.721238+00:00",
  "items": [
+  {
+   "title": "Previewing Mizzou vs. Georgia on the 'All Things Mizzou' Podcast",
+   "link": "https://www.si.com/college/missouri/podcasts/previewing-mizzou-vs-georgia-on-the-all-things-mizzou-podcast?utm_source=RSS",
+   "source": "Missouri On SI",
+   "summary": "Previewing Mizzou vs. Georgia, recapping Mizzou's loss to Texas and giving takeaways on Mizzou basketball's games against Saint Louis and SIUE.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1920,h_1080,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/mizzou_central/01m78bb8frqkvraszvvt.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-12T17:03:52+00:00"
+  },
   {
    "title": "Race for the CFP Week 11: Two Unbeatens Remain",
    "link": "https://www.rockmnation.com/missouri-tigers-football/163126/race-for-the-cfp-week-11-two-unbeatens-remain",
@@ -199,15 +208,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_5184,h_2916,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mizzou_central/01m6v8nm8xesk3daa5fe.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-07T15:39:29+00:00"
-  },
-  {
-   "title": "Mizzou QB Austin Simmons re-signs for 2027 season, per report",
-   "link": "https://www.si.com/college/missouri/football/mizzou-qb-austin-simmons-re-signs-for-2027-season-per-report?utm_source=RSS",
-   "source": "Missouri On SI",
-   "summary": "Missouri has re-signed quarterback Austin Simmons for the 2027 season, per reports. Simmons' contract still allows him to enter the 2027 NFL Draft.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3312,h_1863,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mizzou_central/01m6s7fhyak06n16712t.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-11-06T20:28:25+00:00"
   }
  ]
 }
