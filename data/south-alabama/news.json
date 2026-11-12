@@ -1,7 +1,16 @@
 {
  "team": "south-alabama",
- "updated": "2026-11-09T20:38:12.598610+00:00",
+ "updated": "2026-11-12T16:08:12.698792+00:00",
  "items": [
+  {
+   "title": "Battle for the Belt Returns to Mobile Saturday Night",
+   "link": "https://usajaguars.com/news/2026/11/12/football-battle-for-the-belt-returns-to-mobile-saturday-night.aspx",
+   "source": "South Alabama Athletics",
+   "summary": "<img alt=\"Troy Game Preview\" src=\"https://usajaguars.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/12/Game_Week_G10-_Web.png\" /><br /><br />Game 10",
+   "image": "https://usajaguars.com/images/2026/11/12/Game_Week_G10-_Web.png?width=800",
+   "sourceLogo": "https://usajaguars.com/favicon.ico",
+   "published": "2026-11-12T15:10:00+00:00"
+  },
   {
    "title": "Final Road Trip Slated for 3 p.m. Kick at Southern Miss",
    "link": "https://usajaguars.com/news/2026/11/9/football-final-road-trip-slated-for-3-pm-kick-at-southern-miss.aspx",
@@ -82,15 +91,6 @@
    "image": "https://usajaguars.com/images/2026/10/19/ANW_116.jpg?width=800",
    "sourceLogo": "https://usajaguars.com/favicon.ico",
    "published": "2026-10-19T20:00:00+00:00"
-  },
-  {
-   "title": "Jags Head to Marshall for Tuesday Night Game",
-   "link": "https://usajaguars.com/news/2026/10/17/football-jags-head-to-marshall-for-tuesday-night-game.aspx",
-   "source": "South Alabama Athletics",
-   "summary": "<img alt=\"Game Week Marshall\" src=\"https://usajaguars.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/Game_Week_7_-_Web.png\" /><br /><br />Game 7",
-   "image": "https://usajaguars.com/images/2026/10/17/Game_Week_7_-_Web.png?width=800",
-   "sourceLogo": "https://usajaguars.com/favicon.ico",
-   "published": "2026-10-17T20:57:00+00:00"
   }
  ]
 }

@@ -7,18 +7,25 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-10T01:08:53.556173+00:00",
+ "fetchedAt": "2026-11-12T16:09:05.044914+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-12",
  "game": "at ULM",
  "players": [
   {
+   "pos": "OLB",
+   "no": "",
+   "name": "Princeton Malbrue",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "",
    "name": "Ja'Corian Norris",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-10T01:08:59.608239+00:00",
+ "fetchedAt": "2026-11-12T16:09:12.852553+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-12",
  "game": "vs. Louisiana",
  "players": [
@@ -18,69 +18,27 @@
    "pos": "OL",
    "no": "",
    "name": "Van Martinez",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "SP",
-   "no": "",
-   "name": "Max Larson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "SP",
-   "no": "",
-   "name": "Makenzie Ryan",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Kaliem Croswell",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Ricky Banks",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Zyrian Jackson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "Claude Phillip",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Zyan Tremont",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Korian Wilson",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "Javon Campbell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Taijh Overton",
    "status": "out-game",
    "detail": ""
   },
