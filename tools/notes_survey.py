@@ -12,10 +12,16 @@ the production runner's network (F4: readers for every school's notes):
      roster rows, pronunciations, captains, honors, glance bullets and By
      the Numbers items it finds, and whether the reading is usable;
   4. the document's own section headings (its short ALL-CAPS lines), so
-     layouts can be grouped into families.
+     layouts can be grouped into families; or, with --sample, the first few
+     lines of each section the app shows (pronunciations, By the Numbers,
+     the last time, the series, captains, the roster), to write a reader.
 
-Prints counts, link labels and headings only - never the notes' prose - and
-stores and commits nothing. Names no team: the list comes from the configs.
+A school's page often links its opponents' notes, the conference's and old
+seasons' beside its own: only this season's links whose label names the
+team, or names no one, are taken as its own.
+
+Prints counts, link labels, headings and those few sample lines - never a
+whole document - and stores and commits nothing. Names no team: the list comes from the configs.
 """
 import argparse
 import html
@@ -36,6 +42,43 @@ DOC_DATE = re.compile(r"/(?:documents|sports|news)/(\d{4})/(\d{1,2})/(\d{1,2})/"
 ANCHOR = re.compile(r'<a\b[^>]*\bhref="([^"]+)"[^>]*>(.*?)</a>', re.S | re.I)
 RAW_PDF = re.compile(r'https?:\\?/\\?/[^"\'\s<>]+?\.pdf', re.I)
 HEADING = re.compile(r"^[A-Z0-9][A-Z0-9 &'’./:,()-]{3,48}$")
+
+
+def registry():
+    """{team id: (name, short, abbr, nick)} from teams/index.js."""
+    text = open(os.path.join(HERE, "..", "teams", "index.js"), encoding="utf-8").read()
+    return {m[0]: m[1:] for m in re.findall(
+        r'id:\s*"([^"]+)",\s*name:\s*"([^"]+)",\s*short:\s*"([^"]*)".*?abbr:\s*"([^"]*)",\s*nick:\s*"([^"]*)"', text)}
+
+
+OTHER = re.compile(r"\b(?:opp(?:onent)?\.?|postgame|post-game|quotes|depth|acc|sec|big ten|big 12|cusa|aac|mac|sun belt|mountain west|conference)\b", re.I)
+
+
+def own(label, who):
+    """Whether a link's label is the team's own notes: it names the team, or
+    names no one ("Game Notes", "Notes", "Week 3")."""
+    low = label.lower()
+    if OTHER.search(low):
+        return False
+    if any(w and re.search(r"\b" + re.escape(w.lower()) + r"\b", low) for w in who):
+        return True
+    return bool(re.fullmatch(r"(?:game |football )?notes(?: \(pdf\))?|(?:week|game) \d+.*|(?:vs\.?|at) .*", low))
+
+
+def sample(text, start, n, stop=None):
+    """Up to n lines after the first line matching `start`."""
+    rows = gamenotes.lines_of(text)
+    for i, x in enumerate(rows):
+        if re.match(start, x):
+            out = []
+            for y in rows[i + 1:i + 1 + n * 3]:
+                if stop and re.match(stop, y):
+                    break
+                out.append(y[:110])
+                if len(out) == n:
+                    break
+            return out
+    return None
 
 
 def note_links(page, base):
@@ -92,8 +135,13 @@ def survey(team):
     links = note_links(page, final)
     row["links"] = len(links)
     row["raw"] = len(raw_pdfs(page))
-    row["labels"] = [x[1] for x in links[:4]] + (["..."] if len(links) > 5 else []) + [x[1] for x in links[-1:]]
-    best = pick(links)
+    who = REG.get(team, ())
+    season = [x for x in links if not x[0] or SEASON_FROM <= x[0] <= TODAY]
+    mine = [x for x in season if own(x[1], who)]
+    labels = Counter(x[1] for x in season)
+    row["labels"] = "; ".join("%s x%d%s" % (k, n, "" if own(k, who) else " (not ours)") for k, n in labels.most_common(8))
+    row["own"] = "%d of %d this season" % (len(mine), len(season))
+    best = pick(mine) or pick(season)
     if not best and row["raw"]:
         best = ("", "(from the page source)", raw_pdfs(page)[-1])
     if not best:
@@ -111,15 +159,37 @@ def survey(team):
     row["read"] = {"roster": len(p["roster"]), "pronounce": len(p["pronounce"]), "captains": len(p["captains"]),
                    "honors": len(p["honors"]), "glance": len(p["glance"]), "numbers": len(p["numbers"]),
                    "unread": len(p["unread"]), "game": bool(p["game"]), "usable": bool(gamenotes.usable(p))}
-    row["headings"] = headings(text)
+    head = text[:4000].lower()
+    row["names us"] = sum(head.count(w.lower()) for w in who[:2] if w)
+    if SAMPLE:
+        row["s:pronounce"] = sample(text, r"^PRONUNCIATIONS?(?: GUIDE)?\b", 5)
+        row["s:numbers"] = sample(text, r"^(?:BY THE NUMBERS|NUMBERS OF NOTE|THE NUMBERS)\b", 5)
+        row["s:lasttime"] = sample(text, r"^(?:THE )?LAST TIME\b", 3)
+        row["s:series"] = sample(text, r"^(?:SERIES HISTORY|THE SERIES)\b", 3)
+        caps = [x[:120] for x in gamenotes.lines_of(text) if re.search(r"\bcaptains?\b", x, re.I)]
+        row["s:captain"] = caps[:3] or None
+        rost = [x[:90] for x in gamenotes.lines_of(text) if gamenotes.ROSTER_ROW.match(x)]
+        row["s:roster"] = rost[:2] or sample(text, r"^(?:NUMERICAL ROSTER|.*\bROSTER\b.*)$", 3)
+    else:
+        row["headings"] = headings(text)
     return row
 
 
+REG, SAMPLE, TODAY, SEASON_FROM = {}, False, "", ""
+
+
 def main():
+    global REG, SAMPLE, TODAY, SEASON_FROM
     ap = argparse.ArgumentParser()
     ap.add_argument("--teams", default="")
     ap.add_argument("--kind", default="index")
+    ap.add_argument("--sample", action="store_true", help="print a few lines of each section the app shows, not the headings")
     a = ap.parse_args()
+    from datetime import datetime, timezone
+    now = datetime.now(timezone.utc)
+    TODAY = now.strftime("%Y-%m-%d")
+    SEASON_FROM = "%d-07-01" % (now.year if now.month >= 7 else now.year - 1)
+    REG, SAMPLE = registry(), a.sample
     teams = [t for t in a.teams.split(",") if t] or teamconfig.teams()
     rows, everywhere = [], Counter()
     for t in teams:
@@ -133,9 +203,19 @@ def main():
             traceback.print_exc(limit=1)
         rows.append(r)
         print("\n== %s" % t)
-        for k in ("kind", "page", "error", "links", "raw", "labels", "doc", "day", "chars", "read"):
-            if r.get(k) not in (None, ""):
-                print("   %-8s %s" % (k, r[k]))
+        for k in ("error", "links", "labels", "own", "doc", "day", "chars", "names us", "read",
+                  "s:pronounce", "s:numbers", "s:lasttime", "s:series", "s:captain", "s:roster"):
+            v = r.get(k)
+            if v in (None, ""):
+                continue
+            if isinstance(v, list):
+                print("   %s" % k)
+                for line in v:
+                    print("      | %s" % line)
+            elif k == "read":
+                print("   read     " + " ".join("%s=%s" % (a, b) for a, b in v.items()))
+            else:
+                print("   %-8s %s" % (k, v))
         hs = r.get("headings") or Counter()
         for h in hs:
             everywhere[h] += 1
