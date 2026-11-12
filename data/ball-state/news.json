@@ -1,7 +1,16 @@
 {
  "team": "ball-state",
- "updated": "2026-11-09T18:37:59.163924+00:00",
+ "updated": "2026-11-12T05:08:02.770713+00:00",
  "items": [
+  {
+   "title": "Cardinals Fall to Bulls at Rainy Scheumann",
+   "link": "https://ballstatesports.com/news/2026/11/11/football-cardinals-fall-to-the-bulls-at-home",
+   "source": "Ball State Athletics",
+   "summary": "<img alt=\"The Ball State football team competes against Buffalo University at Scheumann Stadium in Muncie, Indiana on November 11, 2026. Photo by Bobby Ellis/Ball State University\n\" src=\"https://ballstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/BE_FootballvsBuffalo_GameEdits_45.jpeg\" /><br /><br />MUNCIE, Ind. -- After a 10-minute weather delay to open Wednesday night's midweek #MACtion game, the Cardinals suffered its second loss at home in 2026, falling to Buffalo 28-7.",
+   "image": "https://ballstatesports.com/images/2026/11/11/BE_FootballvsBuffalo_GameEdits_45.jpeg?width=800",
+   "sourceLogo": "https://ballstatesports.com/favicon.ico",
+   "published": "2026-11-12T04:32:00+00:00"
+  },
   {
    "title": "FOOTBALL GAMEDAY: #MACtion Slate Continues: Ball State vs. Buffalo on Wednesday Night at the Scheu",
    "link": "https://ballstatesports.com/news/2026/11/9/football-football-gameday-maction-slate-continues-ball-state-vs-buffalo-on-wednesday-night-at-the-scheu",
@@ -82,15 +91,6 @@
    "image": "https://ballstatesports.com/images/2026/10/24/McDougle_BE_FootballvsSacState_GameEdits_88_qVdYz.jpg?width=800",
    "sourceLogo": "https://ballstatesports.com/favicon.ico",
    "published": "2026-10-24T23:39:00+00:00"
-  },
-  {
-   "title": "Lewis Finds New Rhythm at Ball State After Long Road Back",
-   "link": "https://ballstatesports.com/news/2026/10/22/football-lewis-finds-new-rhythm-at-ball-state-after-long-road-back",
-   "source": "Ball State Athletics",
-   "summary": "<img alt=\"Cincear Lewis sits on field prior to game seven at Bowling Green \" src=\"https://ballstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/BSUFB_at_Bowling_Green_105.jpg\" /><br /><br />MUNCIE, Ind. -- For Ball State linebacker Cincear Lewis, finding his rhythm means more than making plays on the football field. When Lewis isn't brining opposing ball carriers to the turf, he trades his helmet for a bow.",
-   "image": "https://ballstatesports.com/images/2026/10/22/BSUFB_at_Bowling_Green_105.jpg?width=800",
-   "sourceLogo": "https://ballstatesports.com/favicon.ico",
-   "published": "2026-10-22T16:31:00+00:00"
   }
  ]
 }
