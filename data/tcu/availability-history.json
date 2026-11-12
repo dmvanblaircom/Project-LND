@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tcu",
- "updated": "2026-11-07T02:08:56.338982+00:00",
+ "updated": "2026-11-12T03:08:53.735296+00:00",
  "reports": [
   {
    "schema": 1,
@@ -455,6 +455,88 @@
      "no": "26",
      "name": "Jeremy Payne",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Cade Bennett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "83",
+     "name": "Keagan Cunningham",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "84",
+     "name": "Cooper Reid",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "89",
+     "name": "Braden Bach",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "tcu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T03:08:53.735296+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Kansas State",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "2",
+     "name": "Jon Denman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Ace Theus",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "7",
+     "name": "Julius Simms",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "15",
+     "name": "Devyn Hidrogo",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "17",
+     "name": "Devondre McGee",
+     "status": "out-game",
      "detail": ""
     },
     {

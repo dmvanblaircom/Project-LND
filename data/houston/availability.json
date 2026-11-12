@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-11T11:08:42.922437+00:00",
+ "fetchedAt": "2026-11-12T03:08:46.917081+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
- "heading": "Initial",
+ "effectiveAt": "2026-11-11",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-13",
  "game": "at Colorado",
  "players": [
@@ -19,13 +19,6 @@
    "no": "3",
    "name": "JD Rhym",
    "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "25",
-   "name": "Carmycah Glass",
-   "status": "out-game",
    "detail": ""
   },
   {
@@ -39,7 +32,7 @@
    "pos": "OL",
    "no": "50",
    "name": "Aaron Wolford",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

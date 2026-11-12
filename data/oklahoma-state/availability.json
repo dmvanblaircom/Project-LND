@@ -7,18 +7,18 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T16:38:41.981695+00:00",
+ "fetchedAt": "2026-11-12T03:08:51.607551+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Kansas State",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Texas Tech",
  "players": [
   {
    "pos": "LB",
    "no": "3",
    "name": "Tate Romney",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -36,16 +36,23 @@
    "detail": ""
   },
   {
-   "pos": "DT",
-   "no": "88",
-   "name": "Landon Dean",
-   "status": "out-game",
+   "pos": "OL",
+   "no": "54",
+   "name": "Johnny Dickson III",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "DE",
-   "no": "95",
-   "name": "Jaleel Johnson",
+   "pos": "OL",
+   "no": "76",
+   "name": "Desmond Magiya",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "88",
+   "name": "Landon Dean",
    "status": "out-game",
    "detail": ""
   }

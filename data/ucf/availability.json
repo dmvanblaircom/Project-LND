@@ -7,12 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T19:38:55.050250+00:00",
+ "fetchedAt": "2026-11-12T03:08:55.086527+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Kansas",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Arizona State",
  "players": [
   {
    "pos": "DB",
@@ -23,16 +23,30 @@
   },
   {
    "pos": "DB",
+   "no": "7",
+   "name": "Antione Jackson",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "8",
    "name": "Demari Henderson",
    "status": "out-game",
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "9",
+   "name": "Waden Charles",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
    "pos": "QB",
    "no": "12",
    "name": "Keyone Jenkins",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,23 +57,65 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "18",
+   "name": "Caden Piening",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "20",
    "name": "Lewis Carter",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "21",
+   "name": "Ty Bartrum",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "26",
+   "name": "Duke Watson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "38",
+   "name": "Jayden Jennings",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "41",
+   "name": "Bruno Dall",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "55",
    "name": "Jacob Maiava",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "75",
    "name": "Tyler Gibson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "83",
+   "name": "Dylan Burk",
    "status": "out-game",
    "detail": ""
   }

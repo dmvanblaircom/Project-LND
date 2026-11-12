@@ -7,73 +7,52 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:49.467696+00:00",
+ "fetchedAt": "2026-11-12T03:08:44.683115+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Utah",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Baylor",
  "players": [
   {
    "pos": "CB",
    "no": "0",
    "name": "Evan Johnson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "2",
-   "name": "Jonathan Kabeya",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "2",
    "name": "Roger Saleapaga II",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "4",
    "name": "LJ Martin",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "LB",
-   "no": "23",
-   "name": "Pierson Watson",
-   "status": "out-game",
+   "no": "16",
+   "name": "Isaiah Glasker",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "S",
-   "no": "37",
-   "name": "Joseph Douglas",
-   "status": "out-game",
+   "no": "28",
+   "name": "Crew Clark",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "39",
-   "name": "Seth Shigg",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "52",
-   "name": "Vincent Tautua",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "59",
-   "name": "Siosefa Brown",
+   "pos": "TE",
+   "no": "83",
+   "name": "Will Zundel",
    "status": "out-game",
    "detail": ""
   }

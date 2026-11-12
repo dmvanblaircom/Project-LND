@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T16:38:39.265788+00:00",
+ "fetchedAt": "2026-11-12T03:08:48.514957+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Oklahoma State",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "TCU",
  "players": [
-  {
-   "pos": "S",
-   "no": "0",
-   "name": "Koy Beasley",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "QB",
    "no": "2",
@@ -36,16 +29,23 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "26",
-   "name": "Sawyer Schilke",
+   "pos": "WR",
+   "no": "14",
+   "name": "Max Lovett",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "19",
+   "name": "De'Arieun Hicks",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "87",
-   "name": "Lawson McGraw",
+   "pos": "LB",
+   "no": "26",
+   "name": "Sawyer Schilke",
    "status": "out-game",
    "detail": ""
   },

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa-state",
- "updated": "2026-11-07T15:38:52.878962+00:00",
+ "updated": "2026-11-12T03:08:48.196608+00:00",
  "reports": [
   {
    "schema": 1,
@@ -287,6 +287,60 @@
      "no": "5",
      "name": "Beni Ngoyi",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "95",
+     "name": "Ka'Mori Moore",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "iowa-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T03:08:48.196608+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Cincinnati",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "1",
+     "name": "Keyon Washington",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "Cody Jackson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "5",
+     "name": "Connor Moberly",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "5",
+     "name": "Beni Ngoyi",
+     "status": "probable",
      "detail": ""
     },
     {

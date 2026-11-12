@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "west-virginia",
- "updated": "2026-11-08T01:09:17.865609+00:00",
+ "updated": "2026-11-12T03:08:56.535972+00:00",
  "reports": [
   {
    "schema": 1,
@@ -335,6 +335,81 @@
      "pos": "RB",
      "no": "28",
      "name": "Lawrence Autry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "91",
+     "name": "Darius Wiley",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "west-virginia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T03:08:56.535972+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Kansas",
+   "players": [
+    {
+     "pos": "S",
+     "no": "3",
+     "name": "Matt Sieg",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "6",
+     "name": "Da'Mare Williams",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "10",
+     "name": "Cam Ball",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "N/S",
+     "no": "23",
+     "name": "Emory Snyder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "26",
+     "name": "Andre Devine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "54",
+     "name": "Amare Grayson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Lamarcus Dillard",
      "status": "out-game",
      "detail": ""
     },

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "cincinnati",
- "updated": "2026-11-07T19:08:47.755967+00:00",
+ "updated": "2026-11-12T03:08:45.127937+00:00",
  "reports": [
   {
    "schema": 1,
@@ -273,6 +273,74 @@
      "no": "88",
      "name": "DaMari Witherspoon",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "cincinnati",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T03:08:45.127937+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Iowa State",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "3",
+     "name": "Cole Tabb",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Malachi Henry",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "JV Gibson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "12",
+     "name": "Filip Maciorowski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "44",
+     "name": "Montay Weedon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Grant Edgington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "99",
+     "name": "Stephen Rusnak",
+     "status": "probable",
      "detail": ""
     }
    ],

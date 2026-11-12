@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-11T11:08:41.762034+00:00",
+ "fetchedAt": "2026-11-12T03:08:45.459225+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
- "heading": "Initial",
+ "effectiveAt": "2026-11-11",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-13",
  "game": "vs. Houston",
  "players": [
@@ -60,7 +60,7 @@
    "pos": "DL",
    "no": "45",
    "name": "Vili Taufatofua",
-   "status": "doubtful",
+   "status": "questionable",
    "detail": ""
   },
   {
