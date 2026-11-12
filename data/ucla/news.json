@@ -1,7 +1,16 @@
 {
  "team": "ucla",
- "updated": "2026-11-12T04:38:21.152918+00:00",
+ "updated": "2026-11-12T12:08:15.046128+00:00",
  "items": [
+  {
+   "title": "UCLA Report Card vs. Arkansas-Pine Bluff: Who Starred, Who Bombed",
+   "link": "https://www.si.com/college/ucla/bruins-report-card-arkansas-pine-bluff-who-starred-bombed?utm_source=RSS",
+   "source": "UCLA On SI",
+   "summary": "UCLA received star grades for its 69-point win over the Golden Lions.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2045,h_1150,x_465,y_247/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_bruins/01m77rezg6f4vnxryx8d.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-12T12:00:00+00:00"
+  },
   {
    "title": "Bruin Nation Reacts to UCLA\u2019s Obliteration of Arkansas-Pine Bluff",
    "link": "https://www.si.com/college/ucla/bruin-nation-reacts-obliteration-of-arkansas-pine-bluff?utm_source=RSS",
@@ -235,15 +244,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2667,h_1500,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_bruins/01m6zq6ycr0zy82h1t5j.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-09T12:30:00+00:00"
-  },
-  {
-   "title": "3 Bruins Who Made Statement in Win Over Minnesota",
-   "link": "https://www.si.com/college/ucla/bruins-3-who-made-statement-win-over-minnesota?utm_source=RSS",
-   "source": "UCLA On SI",
-   "summary": "Three players whose stock is trending upwards from Week 10.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4659,h_2620,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_bruins/01m6zg0z8a1ta5w8z1yz.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-11-09T11:32:46+00:00"
   }
  ]
 }
