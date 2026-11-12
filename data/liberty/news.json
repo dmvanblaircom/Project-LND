@@ -1,7 +1,16 @@
 {
  "team": "liberty",
- "updated": "2026-11-11T13:58:06.450279+00:00",
+ "updated": "2026-11-12T15:38:09.477140+00:00",
  "items": [
+  {
+   "title": "Game Day: MTSU",
+   "link": "https://libertyflames.com/news/2026/11/12/football-game-day-mtsu",
+   "source": "Liberty Athletics",
+   "summary": "<img alt=\"Football - Liberty vs. MTSU line of scimmrage (10-17-23) - Liberty University football takes on the Middle Tennessee Blue Raiders at Williams Stadium on October 17, 2023. (Photo by: Chase Gyles)\" src=\"https://libertyflames.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/12/Football_-_Liberty_vs._MTSU_line_of_scimmrage__10-17-23_.jpg\" /><br /><br />CUSA co-leader Liberty (8-1, 5-0 CUSA) will play host to Middle Tennessee (5-4, 3-2 CUSA) on Saturday for a battle between two of the three CUSA teams with winning conference records.",
+   "image": "https://libertyflames.com/images/2026/11/12/Football_-_Liberty_vs._MTSU_line_of_scimmrage__10-17-23_.jpg?width=800",
+   "sourceLogo": "https://libertyflames.com/favicon.ico",
+   "published": "2026-11-12T15:29:00+00:00"
+  },
   {
    "title": "Liberty Football Show with Head Coach Jamey Chadwell Set for Thursday, November 12",
    "link": "https://libertyflames.com/news/2026/11/11/liberty-football-show-with-head-coach-jamey-chadwell-set-for-thursday-november-12",
@@ -82,15 +91,6 @@
    "image": "https://libertyflames.com/images/2026/10/29/Football_-_Liberty_vs._FIU_line_of_scrimmage_photo_for_game_day_central__2026_.jpg?width=800",
    "sourceLogo": "https://libertyflames.com/favicon.ico",
    "published": "2026-10-29T19:05:00+00:00"
-  },
-  {
-   "title": "Liberty Football Show with Head Coach Jamey Chadwell Set for Wednesday, October 29",
-   "link": "https://libertyflames.com/news/2026/10/28/liberty-football-show-with-head-coach-jamey-chadwell-set-for-wednesday-october-29",
-   "source": "Liberty Athletics",
-   "summary": "<img alt=\"Graphic providing details about the Liberty Football Show Graphic for 2026 season. The show will air each week on Thursday from 6:30 to 7:30 p.m. from the Mellow Mushroom in Lynchburg\" src=\"https://libertyflames.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/8/26/2025_Radio_Show_Video_Board.png\" /><br /><br />The Liberty Football Show with Head Coach\u00a0Jamey Chadwell, presented by Freedom First Credit Union, returns to the airwaves on Wednesday, October 29.",
-   "image": "https://libertyflames.com/images/2026/8/26/2025_Radio_Show_Video_Board.png?width=800",
-   "sourceLogo": "https://libertyflames.com/favicon.ico",
-   "published": "2026-10-28T13:35:00+00:00"
   }
  ]
 }
