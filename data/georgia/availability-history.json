@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia",
- "updated": "2026-11-07T23:08:57.220355+00:00",
+ "updated": "2026-11-12T01:38:50.621959+00:00",
  "reports": [
   {
    "schema": 1,
@@ -397,6 +397,39 @@
      "no": "99",
      "name": "Joseph Jonah-Ajonye",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "georgia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:50.621959+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Missouri",
+   "players": [
+    {
+     "pos": "OLB",
+     "no": "17",
+     "name": "Amaris Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "81",
+     "name": "Josh Horton",
+     "status": "questionable",
      "detail": ""
     }
    ],

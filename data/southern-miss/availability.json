@@ -7,18 +7,32 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T15:38:47.487659+00:00",
+ "fetchedAt": "2026-11-12T01:38:55.693277+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Game Day",
- "kickoffDate": "2026-11-05",
- "game": "vs. James Madison",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "at LA Tech",
  "players": [
   {
    "pos": "WR",
    "no": "",
    "name": "Jaylen Himes",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Aloalii Maui",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Dante Devine",
+   "status": "probable",
    "detail": ""
   },
   {

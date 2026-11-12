@@ -7,25 +7,39 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T18:39:00.954257+00:00",
+ "fetchedAt": "2026-11-12T01:38:55.530762+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Texas A&M",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Arkansas",
  "players": [
   {
-   "pos": "DL",
-   "no": "11",
-   "name": "Jordan Thomas",
-   "status": "out-game",
+   "pos": "WR",
+   "no": "1",
+   "name": "Nitro Tuggle",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "8",
+   "name": "Nyck Harbor",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "14",
    "name": "J’Zavien Currence",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "16",
+   "name": "LaNorris Sellers",
+   "status": "questionable",
    "detail": ""
   },
   {

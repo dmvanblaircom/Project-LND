@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:50.220035+00:00",
+ "fetchedAt": "2026-11-12T01:38:49.713111+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Old Dominion",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "vs. Arkansas State",
  "players": [
   {
    "pos": "OL",
@@ -24,15 +24,15 @@
   {
    "pos": "OL",
    "no": "",
-   "name": "Dom Rijos",
-   "status": "out-game",
+   "name": "Mason Barton",
+   "status": "out-season",
    "detail": ""
   },
   {
-   "pos": "RB",
+   "pos": "DB",
    "no": "",
-   "name": "Breyhan Townsend",
-   "status": "out-game",
+   "name": "Ryan Grayson",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,17 +43,31 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "",
-   "name": "Mason Barton",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "",
    "name": "King White",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Tristian Gardner",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Breyahn Townsend",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Dom Rijos",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -7,66 +7,38 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:51.741186+00:00",
+ "fetchedAt": "2026-11-12T01:38:50.784453+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at App State",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "vs. Georgia Southern",
  "players": [
   {
    "pos": "DB",
    "no": "",
-   "name": "Deuce Walker",
-   "status": "gtd",
+   "name": "Curtis Walker",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "TE",
    "no": "",
-   "name": "Coby Owens",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Toby Bolton",
-   "status": "gtd",
+   "name": "Matt Buron",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "QB",
    "no": "",
    "name": "Cameran Brown",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Jamari Miller",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "",
    "name": "Kelze Howard",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Malique Harrell",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Owen Dupree",
    "status": "out-game",
    "detail": ""
   },
@@ -78,9 +50,16 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "",
+   "name": "Owen Dupree",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "",
-   "name": "Derrick Maxey",
+   "name": "Malique Harrell",
    "status": "out-game",
    "detail": ""
   },

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "coastal-carolina",
- "updated": "2026-11-07T15:38:50.220035+00:00",
+ "updated": "2026-11-12T01:38:49.713111+00:00",
  "reports": [
   {
    "schema": 1,
@@ -127,6 +127,81 @@
      "no": "",
      "name": "King White",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "coastal-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:49.713111+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "vs. Arkansas State",
+   "players": [
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Gavin McLaughlin",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Mason Barton",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Ryan Grayson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Jayden Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "King White",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Tristian Gardner",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Breyahn Townsend",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Dom Rijos",
+     "status": "questionable",
      "detail": ""
     }
    ],

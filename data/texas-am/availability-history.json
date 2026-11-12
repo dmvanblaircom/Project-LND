@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-am",
- "updated": "2026-11-07T18:39:02.246476+00:00",
+ "updated": "2026-11-12T01:38:56.351877+00:00",
  "reports": [
   {
    "schema": 1,
@@ -245,6 +245,60 @@
      "no": "52",
      "name": "Blake Ivy",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "texas-am",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:56.351877+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Tennessee",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Mario Craver",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Terry Bussey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Kelshaun Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "52",
+     "name": "Blake Ivy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "76",
+     "name": "Trovon Baugh",
+     "status": "doubtful",
      "detail": ""
     }
    ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida",
- "updated": "2026-11-07T23:39:08.128914+00:00",
+ "updated": "2026-11-12T01:38:50.251441+00:00",
  "reports": [
   {
    "schema": 1,
@@ -257,6 +257,67 @@
      "no": "91",
      "name": "Jeramiah McCloud",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "florida",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:50.251441+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Kentucky",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Vernell Brown III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "1",
+     "name": "Bryce Thornton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "JCK",
+     "no": "22",
+     "name": "Kofi Asare",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "29",
+     "name": "Jaden Robinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "85",
+     "name": "Evan Chieca",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "93",
+     "name": "DK Kalu",
+     "status": "questionable",
      "detail": ""
     }
    ],

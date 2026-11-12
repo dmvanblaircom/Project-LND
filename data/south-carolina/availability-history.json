@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-carolina",
- "updated": "2026-11-07T18:39:00.954257+00:00",
+ "updated": "2026-11-12T01:38:55.530762+00:00",
  "reports": [
   {
    "schema": 1,
@@ -411,6 +411,95 @@
      "no": "14",
      "name": "J’Zavien Currence",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Jayden Sellers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "Matt Fuller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "41",
+     "name": "Kobby Sakyi-Prah",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Josiah Thompson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Dayne Arnett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Seth Smith",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "south-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:55.530762+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Arkansas",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Nitro Tuggle",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "Nyck Harbor",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "14",
+     "name": "J’Zavien Currence",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "16",
+     "name": "LaNorris Sellers",
+     "status": "questionable",
      "detail": ""
     },
     {

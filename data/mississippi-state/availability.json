@@ -7,12 +7,12 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T20:09:10.170526+00:00",
+ "fetchedAt": "2026-11-12T01:38:53.279845+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Vanderbilt",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Auburn",
  "players": [
   {
    "pos": "QB",
@@ -29,6 +29,13 @@
    "detail": ""
   },
   {
+   "pos": "EDG",
+   "no": "4",
+   "name": "Amaree Williams",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "10",
    "name": "Jalen Smith",
@@ -39,13 +46,13 @@
    "pos": "LB",
    "no": "11",
    "name": "Tyler Lockhart",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "16",
-   "name": "Derion Gullette",
+   "pos": "WR",
+   "no": "11",
+   "name": "Ayden Williams",
    "status": "out-game",
    "detail": ""
   },

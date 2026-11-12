@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kentucky",
- "updated": "2026-11-07T22:08:56.522985+00:00",
+ "updated": "2026-11-12T01:38:52.022913+00:00",
  "reports": [
   {
    "schema": 1,
@@ -410,6 +410,53 @@
      "pos": "ILB",
      "no": "17",
      "name": "Justyn Hartley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "24",
+     "name": "Jaden Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "30",
+     "name": "Grant Grayton",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "kentucky",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:52.022913+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Florida",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Nic Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "4",
+     "name": "Antwan Smith",
      "status": "out-game",
      "detail": ""
     },

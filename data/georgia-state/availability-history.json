@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-state",
- "updated": "2026-11-07T15:38:51.741186+00:00",
+ "updated": "2026-11-12T01:38:50.784453+00:00",
  "reports": [
   {
    "schema": 1,
@@ -168,6 +168,81 @@
      "pos": "DB",
      "no": "",
      "name": "Derrick Maxey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jordan Brown",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "georgia-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:50.784453+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "vs. Georgia Southern",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Curtis Walker",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Matt Buron",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Cameran Brown",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Kelze Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Ryan Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Owen Dupree",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Malique Harrell",
      "status": "out-game",
      "detail": ""
     },

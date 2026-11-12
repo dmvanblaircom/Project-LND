@@ -7,31 +7,31 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:58.312302+00:00",
+ "fetchedAt": "2026-11-12T01:38:55.429231+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Louisiana",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "vs. Troy",
  "players": [
   {
-   "pos": "OLB",
+   "pos": "RB",
    "no": "",
-   "name": "Johnson, Tirrell",
+   "name": "Crow, Donovan",
    "status": "out-season",
    "detail": ""
   },
   {
-   "pos": "OL",
+   "pos": "DL",
    "no": "",
-   "name": "Kidd, Julius",
+   "name": "Hines, Andrew",
    "status": "out-season",
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "DB",
    "no": "",
-   "name": "Woods, Micah",
+   "name": "Moore, DJ",
    "status": "out-season",
    "detail": ""
   },
@@ -52,13 +52,6 @@
   {
    "pos": "OL",
    "no": "",
-   "name": "Hubbard, Shalik",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
    "name": "Korchagin, Artem",
    "status": "out-game",
    "detail": ""
@@ -66,15 +59,15 @@
   {
    "pos": "DB",
    "no": "",
-   "name": "Moore, DJ",
+   "name": "Mosley, Demetress",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "WR",
    "no": "",
-   "name": "Mosley, Demetress",
-   "status": "out-game",
+   "name": "Jones-Thomas, Jeremiah",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -116,6 +109,27 @@
    "pos": "DB",
    "no": "",
    "name": "Laseter, Matt",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Kidd, Julius",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Woods, Micah",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Johnson, Tirrell",
    "status": "out-season",
    "detail": ""
   }

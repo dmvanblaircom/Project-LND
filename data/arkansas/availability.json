@@ -7,12 +7,12 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T16:16:09.452472+00:00",
+ "fetchedAt": "2026-11-12T01:38:46.125637+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Auburn",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "South Carolina",
  "players": [
   {
    "pos": "DB",
@@ -29,17 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "89",
-   "name": "Gavin Garretson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "97",
    "name": "Quincy Rhodes Jr.",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   }
  ],

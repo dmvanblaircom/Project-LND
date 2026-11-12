@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "auburn",
- "updated": "2026-11-07T16:16:10.715094+00:00",
+ "updated": "2026-11-12T01:38:47.893412+00:00",
  "reports": [
   {
    "schema": 1,
@@ -284,6 +284,39 @@
      "pos": "TE",
      "no": "85",
      "name": "Hunter Herring",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "auburn",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:47.893412+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Mississippi State",
+   "players": [
+    {
+     "pos": "LB",
+     "no": "6",
+     "name": "De'marcus Riddick",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "16",
+     "name": "Bryce Deas",
      "status": "out-game",
      "detail": ""
     }

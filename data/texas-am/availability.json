@@ -7,24 +7,24 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T18:39:02.246476+00:00",
+ "fetchedAt": "2026-11-12T01:38:56.351877+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at South Carolina",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Tennessee",
  "players": [
   {
    "pos": "WR",
-   "no": "6",
-   "name": "Terry Bussey",
-   "status": "out-game",
+   "no": "1",
+   "name": "Mario Craver",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
-   "no": "8",
-   "name": "Ashton Bethel-Roman",
+   "no": "6",
+   "name": "Terry Bussey",
    "status": "out-game",
    "detail": ""
   },
@@ -40,6 +40,13 @@
    "no": "52",
    "name": "Blake Ivy",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "76",
+   "name": "Trovon Baugh",
+   "status": "doubtful",
    "detail": ""
   }
  ],

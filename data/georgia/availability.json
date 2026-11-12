@@ -7,27 +7,13 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T23:08:57.220355+00:00",
+ "fetchedAt": "2026-11-12T01:38:50.621959+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Ole Miss",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Missouri",
  "players": [
-  {
-   "pos": "TE",
-   "no": "10",
-   "name": "Elyiss Williams",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "13",
-   "name": "AJ Kruah",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "OLB",
    "no": "17",
@@ -36,17 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "23",
-   "name": "Tyriq Green",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "99",
-   "name": "Joseph Jonah-Ajonye",
-   "status": "out-game",
+   "pos": "DT",
+   "no": "81",
+   "name": "Josh Horton",
+   "status": "questionable",
    "detail": ""
   }
  ],

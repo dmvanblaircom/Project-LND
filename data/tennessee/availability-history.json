@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tennessee",
- "updated": "2026-11-07T22:09:02.396042+00:00",
+ "updated": "2026-11-12T01:38:56.150686+00:00",
  "reports": [
   {
    "schema": 1,
@@ -398,6 +398,74 @@
      "pos": "DB",
      "no": "15",
      "name": "Edrees Farooq",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "24",
+     "name": "Dylan Lewis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Wendell Moe Jr.",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "tennessee",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:56.150686+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Texas A&M",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "0",
+     "name": "Ethan Davis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Joakim Dodson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "12",
+     "name": "Jaedon Harmon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "15",
+     "name": "Edrees Farooq",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "18",
+     "name": "Tyree Weathersby",
      "status": "out-game",
      "detail": ""
     },

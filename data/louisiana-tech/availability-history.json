@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisiana-tech",
- "updated": "2026-11-07T15:38:53.730317+00:00",
+ "updated": "2026-11-12T01:38:52.178753+00:00",
  "reports": [
   {
    "schema": 1,
@@ -92,6 +92,53 @@
      "no": "",
      "name": "Za'Qwaun Nunn",
      "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "louisiana-tech",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:52.178753+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "vs. Southern Miss",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Dane Benedix",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Za'Qwaun Nunn",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Dylone Brooks",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Blake Baker",
+     "status": "probable",
      "detail": ""
     }
    ],

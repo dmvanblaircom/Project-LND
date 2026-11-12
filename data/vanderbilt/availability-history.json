@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "vanderbilt",
- "updated": "2026-11-07T20:09:16.428857+00:00",
+ "updated": "2026-11-12T01:38:57.612480+00:00",
  "reports": [
   {
    "schema": 1,
@@ -398,6 +398,81 @@
      "pos": "DL",
      "no": "93",
      "name": "Nikhil Jefferson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "vanderbilt",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:57.612480+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Alabama",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Blaze Berlowitz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "17",
+     "name": "Edwin Kolenge",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "18",
+     "name": "Josiah Broxton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "23",
+     "name": "Evan Hampton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "34",
+     "name": "Daniel Vollmer Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Gunner Givens",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Aaron Bryant",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "71",
+     "name": "Ted Gregoire",
      "status": "out-game",
      "detail": ""
     }

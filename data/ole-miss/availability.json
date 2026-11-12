@@ -7,24 +7,52 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T23:09:02.716721+00:00",
+ "fetchedAt": "2026-11-12T01:38:54.460853+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Georgia",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Oklahoma",
  "players": [
+  {
+   "pos": "WR",
+   "no": "1",
+   "name": "Deuce Alexander",
+   "status": "probable",
+   "detail": ""
+  },
   {
    "pos": "DE",
    "no": "5",
    "name": "Kam Franklin",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "5",
    "name": "Kewan Lacy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "6",
+   "name": "Trinidad Chambliss",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "7",
+   "name": "Sharif Denson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "11",
+   "name": "Keaton Thomas",
    "status": "out-game",
    "detail": ""
   },
@@ -43,6 +71,13 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "19",
+   "name": "MJ Preston",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "26",
    "name": "Ant Davis Jr.",
@@ -53,6 +88,13 @@
    "pos": "WR",
    "no": "27",
    "name": "Kervin Johnson Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "30",
+   "name": "JaMichael Garrett",
    "status": "out-game",
    "detail": ""
   },
@@ -71,6 +113,13 @@
    "detail": ""
   },
   {
+   "pos": "DT",
+   "no": "52",
+   "name": "Will Echoles",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "57",
    "name": "Carius Curne",
@@ -78,9 +127,9 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "81",
-   "name": "Samari Reed",
+   "pos": "OL",
+   "no": "75",
+   "name": "Patrick Kutas",
    "status": "out-game",
    "detail": ""
   }

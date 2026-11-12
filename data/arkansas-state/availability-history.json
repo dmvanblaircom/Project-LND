@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arkansas-state",
- "updated": "2026-11-07T15:38:47.047594+00:00",
+ "updated": "2026-11-12T01:38:46.207058+00:00",
  "reports": [
   {
    "schema": 1,
@@ -45,6 +45,53 @@
      "no": "",
      "name": "Nigel Nelson",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "arkansas-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:46.207058+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "at Coastal Carolina",
+   "players": [
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Baker North",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Devin Spencer",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Sterling Wiggins",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Nigel Nelson",
+     "status": "probable",
      "detail": ""
     }
    ],

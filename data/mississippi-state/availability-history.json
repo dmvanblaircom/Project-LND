@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "mississippi-state",
- "updated": "2026-11-07T20:09:10.170526+00:00",
+ "updated": "2026-11-12T01:38:53.279845+00:00",
  "reports": [
   {
    "schema": 1,
@@ -382,6 +382,81 @@
      "pos": "LB",
      "no": "16",
      "name": "Derion Gullette",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "23",
+     "name": "Trevion Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Diesel Moye",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "mississippi-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:53.279845+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Auburn",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Kamario Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Isaac Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "4",
+     "name": "Amaree Williams",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Jalen Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "11",
+     "name": "Tyler Lockhart",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Ayden Williams",
      "status": "out-game",
      "detail": ""
     },

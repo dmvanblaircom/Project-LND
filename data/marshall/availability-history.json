@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "marshall",
- "updated": "2026-11-07T15:38:54.122836+00:00",
+ "updated": "2026-11-12T01:38:52.462864+00:00",
  "reports": [
   {
    "schema": 1,
@@ -85,6 +85,81 @@
      "no": "",
      "name": "Carlos Del Rio Wilson",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "marshall",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:52.462864+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "vs. App State",
+   "players": [
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Xavier Bausley",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Louikenzy Jules",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Brysen Davies",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Mikailin Warren",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Tariq Montgomery",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Braydin Ward",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Javae Gilmore",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Judah Price",
+     "status": "probable",
      "detail": ""
     }
    ],

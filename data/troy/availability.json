@@ -7,32 +7,25 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:39:00.118547+00:00",
+ "fetchedAt": "2026-11-12T01:38:56.671094+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. LA Tech",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "at South Alabama",
  "players": [
   {
-   "pos": "TE",
+   "pos": "WR",
    "no": "",
-   "name": "Marquis Harris",
-   "status": "out-game",
+   "name": "Jace Petty",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "RB",
    "no": "",
-   "name": "Tai Terrell",
-   "status": "out-season",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "",
-   "name": "Jayvin Bennett",
-   "status": "out-game",
+   "name": "Jaheim Merriweather",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,6 +46,13 @@
    "pos": "DL",
    "no": "",
    "name": "Jermaine Paramore",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Tai Terrell",
    "status": "out-season",
    "detail": ""
   }

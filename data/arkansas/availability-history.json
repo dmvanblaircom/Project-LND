@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arkansas",
- "updated": "2026-11-07T16:16:09.452472+00:00",
+ "updated": "2026-11-12T01:38:46.125637+00:00",
  "reports": [
   {
    "schema": 1,
@@ -266,6 +266,46 @@
      "no": "97",
      "name": "Quincy Rhodes Jr.",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "arkansas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:38:46.125637+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "South Carolina",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "3",
+     "name": "Braydon Lee",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "47",
+     "name": "Maddox Lassiter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "97",
+     "name": "Quincy Rhodes Jr.",
+     "status": "probable",
      "detail": ""
     }
    ],

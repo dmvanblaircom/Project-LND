@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:54.122836+00:00",
+ "fetchedAt": "2026-11-12T01:38:52.462864+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Georgia Southern",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "vs. App State",
  "players": [
   {
    "pos": "OL",
@@ -36,10 +36,38 @@
    "detail": ""
   },
   {
-   "pos": "QB",
+   "pos": "DL",
    "no": "",
-   "name": "Carlos Del Rio Wilson",
-   "status": "gtd",
+   "name": "Mikailin Warren",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Tariq Montgomery",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Braydin Ward",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Javae Gilmore",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Judah Price",
+   "status": "probable",
    "detail": ""
   }
  ],
