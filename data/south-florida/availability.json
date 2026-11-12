@@ -7,13 +7,27 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T11:09:10.302930+00:00",
+ "fetchedAt": "2026-11-12T23:08:47.148542+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
+ "effectiveAt": "2026-11-12",
  "heading": "Game Day",
- "kickoffDate": "2026-11-06",
- "game": "at East Carolina",
+ "kickoffDate": "2026-11-12",
+ "game": "Memphis",
  "players": [
+  {
+   "pos": "LB",
+   "no": "0",
+   "name": "Grayson Howard",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "1",
+   "name": "C.J. Hicks",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "QB",
    "no": "3",
@@ -26,6 +40,20 @@
    "no": "4",
    "name": "Arhmad Branch",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "5",
+   "name": "D.J. Crowther",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "8",
+   "name": "Amarion Fortenberry",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -50,9 +78,23 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "38",
-   "name": "Derrick \"Tre\" Nichols III",
+   "pos": "DT",
+   "no": "28",
+   "name": "Ryan Jenkins",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "JCK",
+   "no": "33",
+   "name": "Ashton Mosley",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "34",
+   "name": "Keyshaun Birks",
    "status": "questionable",
    "detail": ""
   },
