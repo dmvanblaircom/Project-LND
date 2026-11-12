@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington-state",
- "updated": "2026-10-31T21:11:56.569606+00:00",
+ "updated": "2026-11-12T03:39:01.194644+00:00",
  "reports": [
   {
    "schema": 1,
@@ -24,6 +24,39 @@
      "no": "",
      "name": "Darrius Clemons",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Nylan Brown",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "washington-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T03:39:01.194644+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "vs. Colorado State",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Darrius Clemons",
+     "status": "questionable",
      "detail": ""
     },
     {

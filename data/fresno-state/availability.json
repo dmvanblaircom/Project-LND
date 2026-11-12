@@ -7,32 +7,18 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T00:38:48.624821+00:00",
+ "fetchedAt": "2026-11-12T03:38:50.537870+00:00",
  "reported": true,
- "effectiveAt": "2026-11-08",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Utah State",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "at Texas State",
  "players": [
   {
    "pos": "ILB",
    "no": "",
    "name": "Niko Baumgartner",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Lucas Blumling",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Jahzon Jacks",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,21 +39,21 @@
    "pos": "SP",
    "no": "",
    "name": "Ethan Rossetti",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "",
    "name": "Jairus Satele",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
    "name": "Oscar Weigel",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {

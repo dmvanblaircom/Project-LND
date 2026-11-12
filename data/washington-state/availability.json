@@ -7,18 +7,18 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:11:56.569606+00:00",
+ "fetchedAt": "2026-11-12T03:39:01.194644+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at San Diego State",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "vs. Colorado State",
  "players": [
   {
    "pos": "WR",
    "no": "",
    "name": "Darrius Clemons",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

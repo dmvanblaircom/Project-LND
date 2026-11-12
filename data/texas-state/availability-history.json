@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-state",
- "updated": "2026-11-08T01:39:02.610304+00:00",
+ "updated": "2026-11-12T03:38:58.795252+00:00",
  "reports": [
   {
    "schema": 1,
@@ -120,6 +120,88 @@
      "no": "",
      "name": "Lincoln Petitjean",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Mekhi Buchanan",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "texas-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T03:38:58.795252+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "vs. Fresno State",
+   "players": [
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Ayden Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Cole Snodgrass",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "JP Deeter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "SP",
+     "no": "",
+     "name": "Joshua Selmes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jayden Lawton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Javante Mackey",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "SP",
+     "no": "",
+     "name": "Lincoln Petitjean",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Trez Moore",
+     "status": "probable",
      "detail": ""
     },
     {

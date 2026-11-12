@@ -7,24 +7,45 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T00:38:56.701861+00:00",
+ "fetchedAt": "2026-11-12T03:39:00.258246+00:00",
  "reported": true,
- "effectiveAt": "2026-11-08",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Fresno State",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "at San Diego State",
  "players": [
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Chapman Lewis",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "",
    "name": "Eli Wood",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Jimmy Liston",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Chapman Lewis",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "K'Leyone Iosua",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Harrison Taggart",
    "status": "out-game",
    "detail": ""
   },
@@ -32,20 +53,6 @@
    "pos": "ILB",
    "no": "",
    "name": "John McClellan",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "SP",
-   "no": "",
-   "name": "Landon Rehkow",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Harrison Taggart",
    "status": "out-game",
    "detail": ""
   },
@@ -59,8 +66,22 @@
   {
    "pos": "OL",
    "no": "",
-   "name": "Jimmy Liston",
+   "name": "Jackson Nelson",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "SP",
+   "no": "",
+   "name": "Landon Rehkow",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Javen Jacobs",
+   "status": "questionable",
    "detail": ""
   },
   {

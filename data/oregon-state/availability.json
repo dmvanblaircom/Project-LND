@@ -7,13 +7,27 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T01:39:00.058895+00:00",
+ "fetchedAt": "2026-11-12T03:38:56.171333+00:00",
  "reported": true,
- "effectiveAt": "2026-11-08",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Texas State",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "at Boise State",
  "players": [
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Braden Atkinson",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Jacob Anderson",
+   "status": "doubtful",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "",
@@ -24,28 +38,28 @@
   {
    "pos": "DB",
    "no": "",
-   "name": "Ryan RJ Whitten",
+   "name": "Sailasa Vadrawale",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "DB",
    "no": "",
-   "name": "Tevita Pome'e",
-   "status": "gtd",
+   "name": "Ryan Whitten",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Will Haverland",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Kai Wheaton",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Sailasa Vadrawale",
    "status": "out-game",
    "detail": ""
   },

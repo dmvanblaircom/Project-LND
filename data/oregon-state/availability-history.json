@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oregon-state",
- "updated": "2026-11-08T01:39:00.058895+00:00",
+ "updated": "2026-11-12T03:38:56.171333+00:00",
  "reports": [
   {
    "schema": 1,
@@ -98,6 +98,81 @@
      "pos": "DB",
      "no": "",
      "name": "Sailasa Vadrawale",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Kord Shaw",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "oregon-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T03:38:56.171333+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "at Boise State",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Braden Atkinson",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jacob Anderson",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Eddie Freauff",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Sailasa Vadrawale",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Ryan Whitten",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Will Haverland",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Kai Wheaton",
      "status": "out-game",
      "detail": ""
     },

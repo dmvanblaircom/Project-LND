@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "boise-state",
- "updated": "2026-11-07T21:08:42.359933+00:00",
+ "updated": "2026-11-12T03:38:41.689355+00:00",
  "reports": [
   {
    "schema": 1,
@@ -64,6 +64,53 @@
      "no": "",
      "name": "Maddux Madsen",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Carson Rasmussen",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "boise-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T03:38:41.689355+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-12",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "vs. Oregon State",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Travis Anderson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Sire Gaines",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Maddux Madsen",
+     "status": "questionable",
      "detail": ""
     },
     {

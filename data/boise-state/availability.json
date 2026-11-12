@@ -7,25 +7,32 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T21:08:42.359933+00:00",
+ "fetchedAt": "2026-11-12T03:38:41.689355+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Colorado State",
+ "effectiveAt": "2026-11-12",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "vs. Oregon State",
  "players": [
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Travis Anderson",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "RB",
    "no": "",
    "name": "Sire Gaines",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "QB",
    "no": "",
    "name": "Maddux Madsen",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
