@@ -1,6 +1,6 @@
 {
 "team": "wake-forest",
-"updated": "2026-11-12T13:07Z",
+"updated": "2026-11-12T13:38Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -1239,6 +1239,13 @@
 "title": 1.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 40.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-12T13:38Z",
+"title": 1.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 40.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
