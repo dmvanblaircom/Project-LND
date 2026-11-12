@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wake-forest",
- "updated": "2026-10-31T18:11:09.594369+00:00",
+ "updated": "2026-11-12T02:09:24.360499+00:00",
  "reports": [
   {
    "schema": 1,
@@ -265,6 +265,74 @@
      "pos": "OL",
      "no": "69",
      "name": "Dalton DeBoer",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T02:09:24.360499+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "SMU",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "3",
+     "name": "Gio Lopez",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "15",
+     "name": "Devin Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "20",
+     "name": "Elijah Otieno",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "21",
+     "name": "Aiden Hall",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Tolu Olajide",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Dalton DeBoer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Landon Morris",
      "status": "out-game",
      "detail": ""
     }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "smu",
- "updated": "2026-11-06T22:08:45.760675+00:00",
+ "updated": "2026-11-12T02:09:20.454811+00:00",
  "reports": [
   {
    "schema": 1,
@@ -627,6 +627,116 @@
      "pos": "OL",
      "no": "58",
      "name": "Abel Hoopii",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "smu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T02:09:20.454811+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Wake Forest",
+   "players": [
+    {
+     "pos": "S",
+     "no": "7",
+     "name": "Ahmaad Moses",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "9",
+     "name": "Ira Singleton IV",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "10",
+     "name": "Tyren Polley Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Carterrious Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "11",
+     "name": "Jaden Milliner-Jones",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "12",
+     "name": "Caden Marshall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "13",
+     "name": "Jaelyn Davis-Robinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "14",
+     "name": "Trey Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Link Rhodes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "25",
+     "name": "I'Zayah Young",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "52",
+     "name": "Jahkai Lang",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Abel Hoopii",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Evan Goodwin",
      "status": "out-game",
      "detail": ""
     }

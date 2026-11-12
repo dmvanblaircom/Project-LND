@@ -7,13 +7,20 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T18:11:09.594369+00:00",
+ "fetchedAt": "2026-11-12T02:09:24.360499+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Virginia",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "SMU",
  "players": [
+  {
+   "pos": "QB",
+   "no": "3",
+   "name": "Gio Lopez",
+   "status": "probable",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "15",
@@ -29,9 +36,30 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "21",
+   "name": "Aiden Hall",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "55",
+   "name": "Tolu Olajide",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "69",
    "name": "Dalton DeBoer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "81",
+   "name": "Landon Morris",
    "status": "out-game",
    "detail": ""
   }
