@@ -1,0 +1,36 @@
+# Survey other schools' game notes with the reader as it stands (F4: readers
+# for every school's notes; tools/notes_survey.py). Prints counts, link
+# labels and section headings only; stores and commits nothing.
+name: Survey game notes
+
+on:
+  workflow_dispatch:
+    inputs:
+      teams:
+        description: "Team ids, comma-separated (empty: every team of the kind below)"
+        default: ""
+        type: string
+      kind:
+        description: "links.gameNotes kind to survey when no teams are named: index or schedule"
+        default: "index"
+        type: string
+  # While batch 1 is built (removed before the pull request merges).
+  push:
+    branches: [feat/notes-readers-batch1]
+    paths: ["tools/notes_survey.py", ".github/workflows/notes-survey.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  survey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet beautifulsoup4 pypdf
+      - name: Survey
+        env:
+          TEAMS: ${{ inputs.teams }}
+          KIND: ${{ inputs.kind || 'index' }}
+        run: python3 tools/notes_survey.py --teams "$TEAMS" --kind "$KIND"
