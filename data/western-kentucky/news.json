@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-12T05:38:13.454827+00:00",
+ "updated": "2026-11-12T17:38:26.091440+00:00",
  "items": [
+  {
+   "title": "Hilltoppers Host Jax State For Homecoming On Saturday",
+   "link": "https://wkusports.com/news/2026/11/12/football-hilltoppers-host-jax-state-for-homecoming-on-saturday",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"WKU FB 26 \u2013 Game Week \u2013 Jax State\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/12/WKU_FB_26___Game_Week___Jax_State.png\" /><br /><br />BOWLING GREEN, Ky. \u2013 WKU Football will face Jax State on Saturday, Nov. 14, in the annual Homecoming game at Houchens-Smith Stadium. Kickoff is scheduled for 2:30 p.m. CT and the game will be streamed on ESPN+.",
+   "image": "https://wkusports.com/images/2026/11/12/WKU_FB_26___Game_Week___Jax_State.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-12T16:32:00+00:00"
+  },
   {
    "title": "WKU FB: Head Coach Tyson Helton | Weekly Media Availability | 11-9-26",
    "link": "https://wkusports.com/news/2026/11/9/football-wku-fb-head-coach-tyson-helton-weekly-media-availability-11-9-26",
@@ -82,15 +91,6 @@
    "image": "https://wkusports.com/images/2026/10/27/Zion_Taylor.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-10-28T04:21:00+00:00"
-  },
-  {
-   "title": "Football Pregame Show: Delaware",
-   "link": "https://wkusports.com/news/2026/10/27/football-pregame-show-delaware",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"Delaware Pregame Interview 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/10/27/pregame_interview_16x9.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/10/27/pregame_interview_16x9.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-10-27T20:30:00+00:00"
   }
  ]
 }
