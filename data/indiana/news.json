@@ -1,7 +1,16 @@
 {
  "team": "indiana",
- "updated": "2026-11-12T18:32:31.732671+00:00",
+ "updated": "2026-11-12T19:38:13.159730+00:00",
  "items": [
+  {
+   "title": "Indiana vs USC Weather Forecast: How Cold Will It Get in Bloomington",
+   "link": "https://www.si.com/college/indiana/football/indiana-vs-usc-weather-forecast-2026?utm_source=RSS",
+   "source": "Indiana On SI",
+   "summary": "November Big Ten weather has arrived in the midwest. Just how cold will it get in Bloomington for a late afternoon kickoff for Indiana and USC.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2046,h_1150,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/hoosiers_now/01m785ctk2cm91jw5eat.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-12T19:18:03+00:00"
+  },
   {
    "title": "Keys to the game: Three things Indiana must do to beat USC",
    "link": "https://on3.com/teams/indiana-hoosiers/news/keys-to-the-game-three-things-indiana-must-do-to-beat-usc/",
@@ -532,15 +541,6 @@
    "image": "https://snworksceo.imgix.net/ids/ce47f6cd-7937-45c5-9edd-4061beab9955.sized-1000x1000.jpg?w=800&h=800",
    "sourceLogo": null,
    "published": "2026-11-01T19:40:57+00:00"
-  },
-  {
-   "title": "Indiana Football's Biggest Winners and Losers From Overtime Win Over Minnesota",
-   "link": "https://www.si.com/college/indiana/football/indiana-football-biggest-winners-losers-from-overtime-win-over-minnesota?utm_source=RSS",
-   "source": "Indiana On SI",
-   "summary": "Grant Wilson and Paddy McAteer helped Indiana escape Minnesota, but the Hoosiers' quarterback situation and special teams remain concerns.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2000,h_1125,x_0,y_175/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/hoosiers_now/01m6atsxjb1x2mn5mf2h.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-11-01T15:52:00+00:00"
   }
  ]
 }
