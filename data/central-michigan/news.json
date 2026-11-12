@@ -1,7 +1,16 @@
 {
  "team": "central-michigan",
- "updated": "2026-11-12T06:08:04.645980+00:00",
+ "updated": "2026-11-12T21:08:03.227599+00:00",
  "items": [
+  {
+   "title": "Football Notebook: Special Night for Chippewas, Award-Winner Darrell Bryant",
+   "link": "https://cmuchippewas.com/news/2026/11/12/football-notebook-special-night-for-chippewas-award-winner-darrell-bryant",
+   "source": "CMU Athletics",
+   "summary": "<img alt=\"Darrell Bryant, Jr.\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/12/Bryant.jpg\" /><br /><br />MOUNT PLEASANT, Mich. \u2013 It was a big night for Central Michigan Football.",
+   "image": "https://cmuchippewas.com/images/2026/11/12/Bryant.jpg?width=800",
+   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
+   "published": "2026-11-12T20:59:00+00:00"
+  },
   {
    "title": "Run Game in High Gear; Chippewas Roll to 28-7 Win Over Sacramento State",
    "link": "https://cmuchippewas.com/news/2026/11/12/football-run-game-in-high-gear-chippewas-roll-to-28-7-win-over-sacramento-state",
@@ -82,15 +91,6 @@
    "image": "https://cmuchippewas.com/images/2026/11/4/_celebration_fb09_JPR_1099.jpg?width=800",
    "sourceLogo": "https://cmuchippewas.com/favicon.ico",
    "published": "2026-11-05T06:02:00+00:00"
-  },
-  {
-   "title": "125 years of CMU Football: Rivalry Against Eastern Michigan",
-   "link": "https://cmuchippewas.com/news/2026/11/3/125-years-of-cmu-football-rivalry-against-eastern-michigan",
-   "source": "CMU Athletics",
-   "summary": "<img alt=\"CMU EMU Rivalry Graphic\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/EMU_Rivalry_Graphic.jpg\" /><br /><br />DETROIT, Mich.\u2014Since 1902, the Central Michigan-Eastern Michigan football rivalry is the longest running rivalry in the Mid-American Conference. The two schools will play for the 104th time tomorrow night at Ford Field. Here is information on the EMU-CMU matchup that began on Nov. 1, 1902.",
-   "image": "https://cmuchippewas.com/images/2026/11/3/EMU_Rivalry_Graphic.jpg?width=800",
-   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
-   "published": "2026-11-03T22:19:00+00:00"
   }
  ]
 }

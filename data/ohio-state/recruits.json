@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "194",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -217,6 +217,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272737",
+   "name": "Daylon Gordon",
+   "position": "RB",
+   "highSchool": "Wylie High School",
+   "city": "Wylie",
+   "state": "TX",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 66,
+   "stateRank": 110,
+   "status": "Verbal"
+  },
+  {
    "id": "261588",
    "name": "Jaden Carey",
    "position": "CB",
@@ -269,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:44Z"
+ "fetchedAt": "2026-11-12T21:14Z"
 }

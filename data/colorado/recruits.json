@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "38",
  "classYear": 2027,
- "listed": 18,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -241,7 +241,20 @@
    "positionRank": 153,
    "stateRank": 192,
    "status": "Verbal"
+  },
+  {
+   "id": "274790",
+   "name": "Tavarren Wade",
+   "position": "S",
+   "highSchool": "Lancaster High School",
+   "city": "Lancaster",
+   "state": "TX",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:39Z"
+ "fetchedAt": "2026-11-12T21:10Z"
 }

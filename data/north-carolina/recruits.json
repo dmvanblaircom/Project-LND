@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "153",
  "classYear": 2027,
- "listed": 16,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -215,7 +215,20 @@
    "positionRank": 105,
    "stateRank": 10,
    "status": "Verbal"
+  },
+  {
+   "id": "274794",
+   "name": "Treveon Lewis",
+   "position": "ILB",
+   "highSchool": "East Paulding High School",
+   "city": "Dallas",
+   "state": "GA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:42Z"
+ "fetchedAt": "2026-11-12T21:13Z"
 }

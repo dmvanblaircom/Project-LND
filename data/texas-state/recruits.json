@@ -9,19 +9,6 @@
  "committedElsewhere": 0,
  "recruits": [
   {
-   "id": "272737",
-   "name": "Daylon Gordon",
-   "position": "RB",
-   "highSchool": "Wylie High School",
-   "city": "Wylie",
-   "state": "TX",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 66,
-   "stateRank": 110,
-   "status": "Verbal"
-  },
-  {
    "id": "272764",
    "name": "Kyle Horde",
    "position": "ILB",
@@ -230,6 +217,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274792",
+   "name": "Jeremy Rawls",
+   "position": "OT",
+   "highSchool": "Dr. Thomas E. Randle High School",
+   "city": "Richmond",
+   "state": "TX",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273270",
    "name": "Michael Keen",
    "position": "OG",
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:44Z"
+ "fetchedAt": "2026-11-12T21:15Z"
 }

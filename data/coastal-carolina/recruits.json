@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "324",
  "classYear": 2027,
- "listed": 18,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -45,19 +45,6 @@
    "rank": null,
    "positionRank": 181,
    "stateRank": 31,
-   "status": "Verbal"
-  },
-  {
-   "id": "271371",
-   "name": "Aiden Toney",
-   "position": "OT",
-   "highSchool": "Sebring High School",
-   "city": "Sebring",
-   "state": "FL",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 130,
-   "stateRank": 154,
    "status": "Verbal"
   },
   {
@@ -243,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:40Z"
+ "fetchedAt": "2026-11-12T21:10Z"
 }

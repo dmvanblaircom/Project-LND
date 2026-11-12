@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "195",
  "classYear": 2027,
- "listed": 14,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "272552",
+   "name": "Darin Graham",
+   "position": "DE",
+   "highSchool": "Mount Carmel High School",
+   "city": "Chicago",
+   "state": "IL",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 118,
+   "stateRank": 36,
+   "status": "Verbal"
+  },
   {
    "id": "271600",
    "name": "Griffin Benke",
@@ -191,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:43Z"
+ "fetchedAt": "2026-11-12T21:14Z"
 }
