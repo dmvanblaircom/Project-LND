@@ -1,6 +1,6 @@
 {
 "team": "texas-tech",
-"updated": "2026-11-12T20:07Z",
+"updated": "2026-11-12T21:37Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -1288,6 +1288,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 29.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-12T21:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 27.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
