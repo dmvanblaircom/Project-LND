@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nc-state",
- "updated": "2026-11-07T15:38:55.681107+00:00",
+ "updated": "2026-11-12T01:08:38.968009+00:00",
  "reports": [
   {
    "schema": 1,
@@ -616,6 +616,165 @@
      "no": "91",
      "name": "Nick Konieczynski",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "nc-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:38.968009+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Syracuse",
+   "players": [
+    {
+     "pos": "ILB",
+     "no": "0",
+     "name": "Popo Aguirre",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Ronnie Royal, III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "3",
+     "name": "Tristan Teasdell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "4",
+     "name": "Vander Ploog",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "5",
+     "name": "Harvey Dyson III",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "NCK",
+     "no": "8",
+     "name": "Isaiah Crowell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "Keenan Jackson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "10",
+     "name": "Will Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "14",
+     "name": "Jaren Sensabaugh",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "15",
+     "name": "AJ Richardson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "45",
+     "name": "Tex Vaughn",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Daniel Cruz",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "54",
+     "name": "Teague Andersen",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "64",
+     "name": "Rico Jackson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "71",
+     "name": "Yousef Mugharbil",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "Spike Sowells Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "86",
+     "name": "Hunter Provience",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "Ian Flynt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "91",
+     "name": "Nick Konieczynski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "94",
+     "name": "Kanoah Vinesett",
+     "status": "probable",
      "detail": ""
     }
    ],

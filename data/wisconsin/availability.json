@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T19:38:56.916633+00:00",
+ "fetchedAt": "2026-11-12T01:08:44.727440+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Rutgers",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Maryland",
  "players": [
   {
    "pos": "CB",
@@ -22,10 +22,24 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "11",
+   "name": "Carson Van Dinter",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "15",
    "name": "Nate Palmer",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "6",
+   "name": "Jai'mier Scott",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,7 +53,7 @@
    "pos": "OL",
    "no": "70",
    "name": "Barrett Nelson",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -47,6 +61,13 @@
    "no": "82",
    "name": "Emmett Bork",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "97",
+   "name": "Junior Poyser",
+   "status": "probable",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "north-carolina",
- "updated": "2026-10-31T21:41:10.765225+00:00",
+ "updated": "2026-11-12T01:08:39.193577+00:00",
  "reports": [
   {
    "schema": 1,
@@ -478,6 +478,95 @@
      "no": "92",
      "name": "Jimmy-Phrisco Alo-Suliafu",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "north-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:39.193577+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Louisville",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "Tre Miller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Peyton Waters",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "8",
+     "name": "Jonathan Agumadu",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "25",
+     "name": "Joseph Mupoyi",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "35",
+     "name": "Ashton Blatt",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "45",
+     "name": "Jelani Thurman",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "56",
+     "name": "Viliami Moala",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "82",
+     "name": "Keeyun Chapman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "88",
+     "name": "Vodney Cleveland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "92",
+     "name": "Jimmy-Phrisco Alo-Suliafu",
+     "status": "questionable",
      "detail": ""
     }
    ],

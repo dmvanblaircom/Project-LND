@@ -7,27 +7,13 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T18:38:59.716507+00:00",
+ "fetchedAt": "2026-11-12T01:08:40.354616+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Washington",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Minnesota",
  "players": [
-  {
-   "pos": "WR",
-   "no": "0",
-   "name": "Chase Sowell",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "2",
-   "name": "Zay Robinson",
-   "status": "gtd",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "6",
@@ -67,21 +53,14 @@
    "pos": "OL",
    "no": "78",
    "name": "Malachi Goodman",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DT",
-   "no": "91",
-   "name": "Armstrong Nnodim",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "K",
    "no": "95",
    "name": "Cristiano Rosa",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   }
  ],

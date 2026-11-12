@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "california",
- "updated": "2026-10-31T14:12:00.994906+00:00",
+ "updated": "2026-11-12T01:08:33.980450+00:00",
  "reports": [
   {
    "schema": 1,
@@ -399,6 +399,53 @@
      "no": "33",
      "name": "JD McKinley",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "Nate Burrell",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "california",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:33.980450+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Virginia",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "0",
+     "name": "Dorian Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "1",
+     "name": "Carter Vargas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "33",
+     "name": "JD McKinley",
+     "status": "questionable",
      "detail": ""
     },
     {

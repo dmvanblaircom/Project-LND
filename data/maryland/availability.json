@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:54.246640+00:00",
+ "fetchedAt": "2026-11-12T01:08:37.749209+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Purdue",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Wisconsin",
  "players": [
   {
-   "pos": "TE",
-   "no": "8",
-   "name": "Preston Howard",
-   "status": "gtd",
+   "pos": "DB",
+   "no": "4",
+   "name": "Jamare Glasker",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "7",
+   "name": "Malik Washington",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -26,6 +33,20 @@
    "no": "9",
    "name": "Zahir Mathis",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "13",
+   "name": "DD Holmes",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "16",
+   "name": "Dontay Joyner",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -50,10 +71,24 @@
    "detail": ""
   },
   {
+   "pos": "RB",
+   "no": "29",
+   "name": "Liam Willson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "36",
+   "name": "Sean O'Haire",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "48",
    "name": "Darius Grimes",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -64,10 +99,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "81",
-   "name": "Javonte Williams",
-   "status": "out-game",
+   "pos": "K",
+   "no": "98",
+   "name": "Daniel Leahy",
+   "status": "questionable",
    "detail": ""
   }
  ],

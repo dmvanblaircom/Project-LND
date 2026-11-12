@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-11-06T23:08:37.577228+00:00",
+ "updated": "2026-11-12T01:08:39.072385+00:00",
  "reports": [
   {
    "schema": 1,
@@ -434,6 +434,102 @@
      "no": "19",
      "name": "Kahmir Prescott",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "30",
+     "name": "Vincent Genatone",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "52",
+     "name": "Jase Reynolds",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "54",
+     "name": "Jacob Bower",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "95",
+     "name": "Gabe Moore",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "nebraska",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:39.072385+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Rutgers",
+   "players": [
+    {
+     "pos": "LB",
+     "no": "0",
+     "name": "Owen Chambliss",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "4",
+     "name": "Jamir Conn",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "5",
+     "name": "Anthony Jones Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Andrew Marshall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Larry Miles",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "19",
+     "name": "Kahmir Prescott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "26",
+     "name": "Dwayne McDougle III",
+     "status": "questionable",
      "detail": ""
     },
     {

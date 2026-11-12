@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "duke",
- "updated": "2026-11-07T15:38:50.591964+00:00",
+ "updated": "2026-11-12T01:08:34.815460+00:00",
  "reports": [
   {
    "schema": 1,
@@ -517,6 +517,123 @@
      "pos": "DT",
      "no": "44",
      "name": "David Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Kai Jacobowitz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Reagan McCranie",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "79",
+     "name": "Roman Fina",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "duke",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:34.815460+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Miami",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Jamien Little",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Patrick Smith-Young",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "5",
+     "name": "Kimari Robinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "7",
+     "name": "Kavon Simmons",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "13",
+     "name": "Terry Walker III",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "21",
+     "name": "Qeanu Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "31",
+     "name": "Elliott Schaper",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "39",
+     "name": "Cosme Salas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "44",
+     "name": "David Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "44",
+     "name": "Nate Kurisky",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "62",
+     "name": "Cole Allen",
      "status": "out-game",
      "detail": ""
     },

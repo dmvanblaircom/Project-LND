@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-tech",
- "updated": "2026-11-07T22:38:44.385550+00:00",
+ "updated": "2026-11-12T01:08:35.896040+00:00",
  "reports": [
   {
    "schema": 1,
@@ -819,6 +819,179 @@
      "no": "82",
      "name": "Kentrell Davis",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "88",
+     "name": "A.J. Hoffler",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "96",
+     "name": "Shymeik Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "97",
+     "name": "Landen Marshall",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "georgia-tech",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:35.896040+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Clemson",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "Malachi Hosley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "3",
+     "name": "Rahkeem Smith",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "6",
+     "name": "Kelvin Hill",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "8",
+     "name": "Jordan Boyd",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "11",
+     "name": "Chad Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "13",
+     "name": "Savion Riley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "21",
+     "name": "Darnell Collins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "21",
+     "name": "Jaedyn Terry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "23",
+     "name": "Trae Stevenson, Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Shane Marshall",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "31",
+     "name": "Fenix Felton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "39",
+     "name": "Will Kiker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "44",
+     "name": "Kyle Efford",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "52",
+     "name": "Kevin Peay, Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Courtney Heard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "71",
+     "name": "Markell Samuel",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Ethan Mackenny",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "82",
+     "name": "Kentrell Davis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "86",
+     "name": "Kevin Roche, Jr.",
+     "status": "questionable",
      "detail": ""
     },
     {

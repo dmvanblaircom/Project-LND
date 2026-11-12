@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oregon",
- "updated": "2026-11-07T18:38:59.462722+00:00",
+ "updated": "2026-11-12T01:08:40.155612+00:00",
  "reports": [
   {
    "schema": 1,
@@ -461,6 +461,95 @@
      "pos": "ILB",
      "no": "23",
      "name": "Brayden Platt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Matthew Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Trent Ferguson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Dave Iuli",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "oregon",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:40.155612+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Michigan",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "Jordon Davison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "5",
+     "name": "Dante Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "19",
+     "name": "Andrew Olesh",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "21",
+     "name": "Aaron Flowers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "23",
+     "name": "Brayden Platt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "31",
+     "name": "Nasir Wyatt",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "44",
+     "name": "Teitum Tuioti",
      "status": "out-game",
      "detail": ""
     },

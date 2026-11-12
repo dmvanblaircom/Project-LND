@@ -7,20 +7,13 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:41:13.947525+00:00",
+ "fetchedAt": "2026-11-12T01:08:43.428945+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Ohio State",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Indiana",
  "players": [
-  {
-   "pos": "DT",
-   "no": "4",
-   "name": "Jahkeem Stewart",
-   "status": "gtd",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "9",
@@ -36,23 +29,23 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "19",
-   "name": "Mark Bowman",
-   "status": "gtd",
+   "pos": "S",
+   "no": "23",
+   "name": "Kendarius Reddick",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "22",
-   "name": "Shahn Alston",
-   "status": "gtd",
+   "pos": "TE",
+   "no": "23",
+   "name": "Walter Matthews",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "S",
-   "no": "23",
-   "name": "Kendarius Reddick",
+   "no": "37",
+   "name": "Trestin Castro",
    "status": "out-game",
    "detail": ""
   },
@@ -82,13 +75,6 @@
    "no": "68",
    "name": "Hayden Treter",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DT",
-   "no": "99",
-   "name": "Jamaal Jarrett",
-   "status": "gtd",
    "detail": ""
   }
  ],

@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T14:12:00.994906+00:00",
+ "fetchedAt": "2026-11-12T01:08:33.980450+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at NC State",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Virginia",
  "players": [
   {
    "pos": "TE",
@@ -29,24 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "4",
-   "name": "Jordan King",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "15",
-   "name": "Mark Hamper",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "ILB",
    "no": "33",
    "name": "JD McKinley",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

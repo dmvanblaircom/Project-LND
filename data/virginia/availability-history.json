@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "virginia",
- "updated": "2026-10-31T18:11:09.363896+00:00",
+ "updated": "2026-11-12T01:08:43.974111+00:00",
  "reports": [
   {
    "schema": 1,
@@ -959,6 +959,123 @@
      "no": "87",
      "name": "Justin Zames",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "91",
+     "name": "Jason Hammond",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "96",
+     "name": "Bull Richardson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "99",
+     "name": "Devon Baxter",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "virginia",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:43.974111+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "California",
+   "players": [
+    {
+     "pos": "S",
+     "no": "4",
+     "name": "Corey Costner",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "11",
+     "name": "Maddox Marcellus",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Rico Flores Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "20",
+     "name": "Omillio Agard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "26",
+     "name": "Caleb Hardy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "27",
+     "name": "Alex Dunn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "32",
+     "name": "Landon Danley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "42",
+     "name": "Isaiah Reese",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "46",
+     "name": "Chase Morrison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Noah Hartsoe",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Grant Ellinger",
+     "status": "questionable",
      "detail": ""
     },
     {

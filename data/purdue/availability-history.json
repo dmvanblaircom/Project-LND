@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "purdue",
- "updated": "2026-11-07T15:38:57.588373+00:00",
+ "updated": "2026-11-12T01:08:40.580520+00:00",
  "reports": [
   {
    "schema": 1,
@@ -280,6 +280,53 @@
      "no": "2",
      "name": "Jaden Mangham",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "16",
+     "name": "Kylan Fox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "24",
+     "name": "Raderrion Daniels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "Rodney Lora",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "purdue",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:40.580520+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Iowa",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Jaden Mangham",
+     "status": "questionable",
      "detail": ""
     },
     {

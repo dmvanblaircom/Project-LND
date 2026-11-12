@@ -7,17 +7,24 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:50.591964+00:00",
+ "fetchedAt": "2026-11-12T01:08:34.815460+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at NC State",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Miami",
  "players": [
   {
    "pos": "WR",
    "no": "1",
    "name": "Jamien Little",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "2",
+   "name": "Patrick Smith-Young",
    "status": "out-game",
    "detail": ""
   },
@@ -33,6 +40,13 @@
    "no": "7",
    "name": "Kavon Simmons",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "13",
+   "name": "Terry Walker III",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -60,6 +74,20 @@
    "pos": "DT",
    "no": "44",
    "name": "David Anderson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "44",
+   "name": "Nate Kurisky",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "62",
+   "name": "Cole Allen",
    "status": "out-game",
    "detail": ""
   },

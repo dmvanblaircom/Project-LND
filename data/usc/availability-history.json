@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "usc",
- "updated": "2026-10-31T21:41:13.947525+00:00",
+ "updated": "2026-11-12T01:08:43.428945+00:00",
  "reports": [
   {
    "schema": 1,
@@ -546,6 +546,88 @@
      "no": "99",
      "name": "Jamaal Jarrett",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "usc",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:43.428945+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Indiana",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Terrell Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "10",
+     "name": "Corey Simms",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "23",
+     "name": "Kendarius Reddick",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "23",
+     "name": "Walter Matthews",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "37",
+     "name": "Trestin Castro",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "50",
+     "name": "Taylor \"Taybo\" Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "57",
+     "name": "Roman Marchetti",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "Kilian O'Connor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "68",
+     "name": "Hayden Treter",
+     "status": "out-game",
      "detail": ""
     }
    ],

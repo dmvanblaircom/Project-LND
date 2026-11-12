@@ -7,18 +7,32 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T17:41:21.993195+00:00",
+ "fetchedAt": "2026-11-12T01:08:36.387901+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Minnesota",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "USC",
  "players": [
   {
-   "pos": "WR",
-   "no": "4",
-   "name": "Davion Chandler",
+   "pos": "RB",
+   "no": "1",
+   "name": "Turbo Richard",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "4",
+   "name": "A.J. Harris",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "5",
+   "name": "Rolijah Hardy",
+   "status": "questionable",
    "detail": ""
   },
   {

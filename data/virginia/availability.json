@@ -7,39 +7,25 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T18:11:09.363896+00:00",
+ "fetchedAt": "2026-11-12T01:08:43.974111+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Wake Forest",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "California",
  "players": [
-  {
-   "pos": "RB",
-   "no": "3",
-   "name": "Noah Vaughn",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "S",
    "no": "4",
    "name": "Corey Costner",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "5",
-   "name": "Kameron Courtney",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "6",
-   "name": "Brandyn Hillman",
-   "status": "out-game",
+   "pos": "LB",
+   "no": "11",
+   "name": "Maddox Marcellus",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -50,44 +36,9 @@
    "detail": ""
   },
   {
-   "pos": "K",
-   "no": "14",
-   "name": "Tim Hamann",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ATH",
-   "no": "17",
-   "name": "Jae’Oyn Williams",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "CB",
    "no": "20",
    "name": "Omillio Agard",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "21",
-   "name": "Jekail Middlebrook",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "21",
-   "name": "Keke Adams",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "23",
-   "name": "Triston Ward",
    "status": "out-game",
    "detail": ""
   },
@@ -106,16 +57,9 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "30",
-   "name": "Ethan Minter",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "37",
-   "name": "Jack Stevens",
+   "pos": "LB",
+   "no": "32",
+   "name": "Landon Danley",
    "status": "out-game",
    "detail": ""
   },
@@ -134,13 +78,6 @@
    "detail": ""
   },
   {
-   "pos": "DT",
-   "no": "56",
-   "name": "Tyler Simmons",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "58",
    "name": "Noah Hartsoe",
@@ -151,14 +88,7 @@
    "pos": "OL",
    "no": "65",
    "name": "Grant Ellinger",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "87",
-   "name": "Justin Zames",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

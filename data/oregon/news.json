@@ -1,7 +1,25 @@
 {
  "team": "oregon",
- "updated": "2026-11-12T00:08:17.400612+00:00",
+ "updated": "2026-11-12T01:08:07.712445+00:00",
  "items": [
+  {
+   "title": "Initial Availability Report for No. 16 Oregon vs. Michigan",
+   "link": "https://on3.com/teams/oregon-ducks/news/initial-availability-report-for-no-16-oregon-vs-michigan/",
+   "source": "On3",
+   "summary": "The latest availability details for Oregon Football's Week 11 home matchup against the Michigan Wolverines.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/08/12111249/Untitled-design-31-3.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-12T01:02:23+00:00"
+  },
+  {
+   "title": "Oregon Football Game 10 Uniform Reveal",
+   "link": "https://goducks.com/news/2026/11/11/oregon-football-game-10-uniform-reveal",
+   "source": "Oregon Athletics",
+   "summary": "<img alt=\"Game 10 Uni\" src=\"https://goducks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/UOFB_MichiganUniform_9.jpg\" /><br /><br />Oregon revealed its uniform combination for its game against Michigan this Saturday, Nov. 14, in Autzen Stadium (12:30 p.m. PT, FS1).",
+   "image": "https://goducks.com/images/2026/11/11/UOFB_MichiganUniform_9.jpg?width=800",
+   "sourceLogo": "https://goducks.com/favicon.ico",
+   "published": "2026-11-12T01:00:00+00:00"
+  },
   {
    "title": "Oregon's Biggest Concerns Ahead of Michigan: What\u2019s Real, What\u2019s an Overreaction",
    "link": "https://www.si.com/college/oregon/football/oregon-ducks-biggest-concerns-michigan-wolverines-real-overreaction?utm_source=RSS",
@@ -361,15 +379,6 @@
    "image": "https://goducks.com/images/2026/11/2/BrandonSmith_NW_EE.JPG?width=800",
    "sourceLogo": "https://goducks.com/favicon.ico",
    "published": "2026-11-03T01:37:00+00:00"
-  },
-  {
-   "title": "Oregon vs. Michigan Set For 12:30 PM On Nov. 14",
-   "link": "https://goducks.com/news/2026/11/2/football-oregon-vs-michigan-set-for-12-30-pm-on-nov-14",
-   "source": "Oregon Athletics",
-   "summary": "<img alt=\"Captains_NW_EE\" src=\"https://goducks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/Captains_NW_EE__1_.JPG\" /><br /><br />The Oregon football team will kick off at 12:30 p.m. PT for the third week in a row when the Ducks return home to host Michigan in Autzen Stadium on Saturday, Nov. 14. The game will be broadcast on FS1.",
-   "image": "https://goducks.com/images/2026/11/2/Captains_NW_EE__1_.JPG?width=800",
-   "sourceLogo": "https://goducks.com/favicon.ico",
-   "published": "2026-11-02T22:03:00+00:00"
   }
  ]
 }

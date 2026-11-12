@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-11-07T18:39:04.785198+00:00",
+ "updated": "2026-11-12T01:08:44.318702+00:00",
  "reports": [
   {
    "schema": 1,
@@ -420,6 +420,109 @@
      "no": "66",
      "name": "Landen Hatchett",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "",
+     "name": "CJ Christian",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "washington",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:44.318702+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Michigan State",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Demond Williams Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "4",
+     "name": "Jordan Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "5",
+     "name": "Christian Moss",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "7",
+     "name": "Alex McLaughlin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "12",
+     "name": "Logan George",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Quaid Carr",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Trey Cooley",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "52",
+     "name": "Devin Hyde",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "66",
+     "name": "Landen Hatchett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "90",
+     "name": "Elinneus Davis",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "91",
+     "name": "Isaiah Ward",
+     "status": "questionable",
      "detail": ""
     },
     {

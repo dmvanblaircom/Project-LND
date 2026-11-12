@@ -7,25 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T18:38:59.462722+00:00",
+ "fetchedAt": "2026-11-12T01:08:40.155612+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Ohio State",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Michigan",
  "players": [
   {
    "pos": "RB",
    "no": "0",
    "name": "Jordon Davison",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "3",
-   "name": "Jeremiah McClellan",
-   "status": "gtd",
    "detail": ""
   },
   {
@@ -36,17 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "15",
-   "name": "Messiah Hampton",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "19",
    "name": "Andrew Olesh",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -60,6 +46,20 @@
    "pos": "ILB",
    "no": "23",
    "name": "Brayden Platt",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "31",
+   "name": "Nasir Wyatt",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "44",
+   "name": "Teitum Tuioti",
    "status": "out-game",
    "detail": ""
   },

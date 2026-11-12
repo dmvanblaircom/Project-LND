@@ -7,13 +7,20 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:41:09.890868+00:00",
+ "fetchedAt": "2026-11-12T01:08:38.076833+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at North Carolina",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Duke",
  "players": [
+  {
+   "pos": "WR",
+   "no": "1",
+   "name": "Malachi Toney",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "3",

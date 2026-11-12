@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T22:38:48.536514+00:00",
+ "fetchedAt": "2026-11-12T01:08:39.403678+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Iowa",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Ohio State",
  "players": [
   {
    "pos": "QB",
@@ -36,13 +36,6 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "29",
-   "name": "Jon Jon Stevens Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "37",
    "name": "Max Mohring",
@@ -57,13 +50,6 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "41",
-   "name": "Robby Preckel",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "50",
    "name": "Qayvier Johnson",
@@ -74,13 +60,6 @@
    "pos": "OL",
    "no": "62",
    "name": "Ezomo Oratokhai",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "79",
-   "name": "Jacob Miller",
    "status": "out-game",
    "detail": ""
   },

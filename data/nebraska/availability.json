@@ -7,24 +7,38 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T23:08:37.577228+00:00",
+ "fetchedAt": "2026-11-12T01:08:39.072385+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Game Day",
- "kickoffDate": "2026-11-06",
- "game": "at Illinois",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Rutgers",
  "players": [
+  {
+   "pos": "LB",
+   "no": "0",
+   "name": "Owen Chambliss",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "4",
    "name": "Jamir Conn",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "5",
    "name": "Anthony Jones Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "7",
+   "name": "Andrew Marshall",
    "status": "out-game",
    "detail": ""
   },
@@ -40,6 +54,13 @@
    "no": "19",
    "name": "Kahmir Prescott",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "26",
+   "name": "Dwayne McDougle III",
+   "status": "questionable",
    "detail": ""
   },
   {

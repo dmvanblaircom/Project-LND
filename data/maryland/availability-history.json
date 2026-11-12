@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "maryland",
- "updated": "2026-11-07T15:38:54.246640+00:00",
+ "updated": "2026-11-12T01:08:37.749209+00:00",
  "reports": [
   {
    "schema": 1,
@@ -665,6 +665,116 @@
      "no": "81",
      "name": "Javonte Williams",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "maryland",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:37.749209+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Wisconsin",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "4",
+     "name": "Jamare Glasker",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "7",
+     "name": "Malik Washington",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "9",
+     "name": "Zahir Mathis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "13",
+     "name": "DD Holmes",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "16",
+     "name": "Dontay Joyner",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Josiah Teasley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "20",
+     "name": "DJ Samuels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Harry Dalton III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "29",
+     "name": "Liam Willson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "36",
+     "name": "Sean O'Haire",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "48",
+     "name": "Darius Grimes",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Trevor Szymanski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "98",
+     "name": "Daniel Leahy",
+     "status": "questionable",
      "detail": ""
     }
    ],

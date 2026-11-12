@@ -7,13 +7,20 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:08:46.675088+00:00",
+ "fetchedAt": "2026-11-12T01:08:41.756956+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Clemson",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "NC State",
  "players": [
+  {
+   "pos": "LB",
+   "no": "6",
+   "name": "Chris D'Appolonia",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "7",
@@ -39,6 +46,13 @@
    "pos": "QB",
    "no": "16",
    "name": "Malachi Nelson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "23",
+   "name": "Shavane Anderson Jr.",
    "status": "out-game",
    "detail": ""
   },
@@ -47,6 +61,20 @@
    "no": "62",
    "name": "Jackson Iak",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "71",
+   "name": "Jayden Mann",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "75",
+   "name": "Trevion Mack",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -60,7 +88,14 @@
    "pos": "DL",
    "no": "93",
    "name": "Alex Haskell",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "95",
+   "name": "Dillan Fontus",
+   "status": "questionable",
    "detail": ""
   }
  ],

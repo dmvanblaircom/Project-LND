@@ -7,25 +7,32 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:08:40.031445+00:00",
+ "fetchedAt": "2026-11-12T01:08:34.407534+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Syracuse",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Georgia Tech",
  "players": [
+  {
+   "pos": "CB",
+   "no": "0",
+   "name": "Donovan Starr",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "6",
    "name": "Tyler Brown",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "8",
    "name": "Gideon Davidson",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,14 +60,7 @@
    "pos": "WR",
    "no": "19",
    "name": "Gordon Sellars III",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "21",
-   "name": "Kobe McCloud",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {

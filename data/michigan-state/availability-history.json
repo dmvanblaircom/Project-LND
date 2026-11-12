@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan-state",
- "updated": "2026-11-07T22:38:47.338023+00:00",
+ "updated": "2026-11-12T01:08:38.397826+00:00",
  "reports": [
   {
    "schema": 1,
@@ -574,6 +574,130 @@
      "no": "55",
      "name": "Ben Roberts",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "79",
+     "name": "Tristan Comer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "Joe Caudill",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "michigan-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:38.397826+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Washington",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "Cam Edwards",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "2",
+     "name": "Cam Fancher",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Devin Vaught",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "3",
+     "name": "Rodney Bullard Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "3",
+     "name": "Tre Bell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "4",
+     "name": "Jaziun Patterson",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "4",
+     "name": "Charles Brantley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "5",
+     "name": "Jordan Hall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Marvis Parrish",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "28",
+     "name": "Brayden Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "31",
+     "name": "Jayden Savoury",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "FB",
+     "no": "44",
+     "name": "Jay Coyne",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Ben Roberts",
+     "status": "questionable",
      "detail": ""
     },
     {

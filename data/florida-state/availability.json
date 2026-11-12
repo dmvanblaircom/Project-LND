@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-11T11:08:42.406226+00:00",
+ "fetchedAt": "2026-11-12T01:08:35.373350+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
- "heading": "Initial",
+ "effectiveAt": "2026-11-11",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-13",
  "game": "at Pittsburgh",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "DL",
    "no": "8",
    "name": "Deante McCray",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -60,7 +60,7 @@
    "pos": "DB",
    "no": "18",
    "name": "Jamari Howard",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -81,7 +81,7 @@
    "pos": "LB",
    "no": "29",
    "name": "Caleb LaVallee",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -130,7 +130,7 @@
    "pos": "K",
    "no": "93",
    "name": "Conor McAneney",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],

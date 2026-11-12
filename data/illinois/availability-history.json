@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "illinois",
- "updated": "2026-11-11T11:08:45.967734+00:00",
+ "updated": "2026-11-12T01:08:36.274753+00:00",
  "reports": [
   {
    "schema": 1,
@@ -595,10 +595,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-11T11:08:45.967734+00:00",
+   "fetchedAt": "2026-11-12T01:08:36.274753+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-10",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-11",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-13",
    "game": "at UCLA",
    "players": [
@@ -607,13 +607,6 @@
      "no": "1",
      "name": "Jayshon Platt",
      "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "2",
-     "name": "RJ Jones III",
-     "status": "questionable",
      "detail": ""
     },
     {
@@ -634,7 +627,7 @@
      "pos": "DB",
      "no": "8",
      "name": "Jacob Eberhart",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

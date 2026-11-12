@@ -7,25 +7,18 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T22:08:48.173021+00:00",
+ "fetchedAt": "2026-11-12T01:08:44.093413+00:00",
  "reported": true,
- "effectiveAt": "2026-11-06",
- "heading": "Game Day",
- "kickoffDate": "2026-11-06",
- "game": "at SMU",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Stanford",
  "players": [
   {
    "pos": "WR",
    "no": "15",
    "name": "Shamarius \"Snook\" Peterkin",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "23",
-   "name": "Thomas Williams",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -39,7 +32,7 @@
    "pos": "DL",
    "no": "36",
    "name": "Randy Adirika",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -60,7 +53,7 @@
    "pos": "OL",
    "no": "72",
    "name": "Justin Terry",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -74,14 +67,7 @@
    "pos": "WR",
    "no": "83",
    "name": "Luke Stuewe",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "99",
-   "name": "Emmett Laws",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   }
  ],

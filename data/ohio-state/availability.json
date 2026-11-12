@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T18:38:58.776819+00:00",
+ "fetchedAt": "2026-11-12T01:08:39.612467+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Oregon",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Northwestern",
  "players": [
   {
    "pos": "WR",
    "no": "0",
    "name": "Brandon Inniss",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "7",
+   "name": "Phillip Bell",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -29,10 +36,17 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "11",
+   "name": "Terry Moore",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "11",
    "name": "Brock Boyd",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,6 +67,13 @@
    "pos": "LB",
    "no": "33",
    "name": "Eli Lee",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "34",
+   "name": "Brennen Schramm",
    "status": "out-game",
    "detail": ""
   },
@@ -61,6 +82,20 @@
    "no": "60",
    "name": "Jaxon Powell",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "72",
+   "name": "Deontae Armstrong",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "78",
+   "name": "Max Riley",
+   "status": "questionable",
    "detail": ""
   },
   {

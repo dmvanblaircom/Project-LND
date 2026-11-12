@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:08:43.691042+00:00",
+ "fetchedAt": "2026-11-12T01:08:38.503278+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. UCLA",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Penn State",
  "players": [
   {
    "pos": "DB",
@@ -22,16 +22,37 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "17",
+   "name": "John Nestor",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "TE",
    "no": "19",
    "name": "Pierce Walsh",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "20",
    "name": "Ryan Estrada",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "46",
+   "name": "Mason Carrier",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "55",
+   "name": "Jaylin Hicks",
    "status": "out-game",
    "detail": ""
   },
@@ -53,7 +74,7 @@
    "pos": "TE",
    "no": "82",
    "name": "Julian Johnson",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -61,6 +82,27 @@
    "no": "84",
    "name": "Hayden Moore",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "93",
+   "name": "Riley Sunram",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "98",
+   "name": "Adam Kissayi",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Theorin Randle",
+   "status": "questionable",
    "detail": ""
   }
  ],

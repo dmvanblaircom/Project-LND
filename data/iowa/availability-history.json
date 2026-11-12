@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa",
- "updated": "2026-11-07T22:38:45.034189+00:00",
+ "updated": "2026-11-12T01:08:36.493863+00:00",
  "reports": [
   {
    "schema": 1,
@@ -336,6 +336,88 @@
      "no": "65",
      "name": "Trent Wilson",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Cannon Leonard",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "iowa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:36.493863+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Purdue",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Tyler Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Burke Gautcher",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "11",
+     "name": "Jacob Wallace",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Brody Schaffer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "19",
+     "name": "Kyler Gerardy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "Kamari Moulton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Lucas Allgeyer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "61",
+     "name": "Cael Winter",
+     "status": "doubtful",
      "detail": ""
     },
     {

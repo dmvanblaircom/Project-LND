@@ -7,25 +7,32 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T22:38:46.144164+00:00",
+ "fetchedAt": "2026-11-12T01:08:37.428193+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Georgia Tech",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "North Carolina",
  "players": [
   {
    "pos": "RB",
    "no": "1",
    "name": "Isaac Brown",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "2",
+   "name": "Demeco Kennedy",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "7",
    "name": "Lawayne McCoy",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -33,6 +40,20 @@
    "no": "9",
    "name": "Antonio Watts",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "23",
+   "name": "Benjamin Perry",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "27",
+   "name": "Myles Norwood",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -53,7 +74,7 @@
    "pos": "OL",
    "no": "67",
    "name": "James Glover-Tyson",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -61,6 +82,20 @@
    "no": "70",
    "name": "Anwar O'neal",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "71",
+   "name": "Cason Henry",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "78",
+   "name": "Charlie Edgeworth",
+   "status": "questionable",
    "detail": ""
   },
   {

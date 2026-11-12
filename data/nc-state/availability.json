@@ -7,18 +7,25 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:55.681107+00:00",
+ "fetchedAt": "2026-11-12T01:08:38.968009+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Duke",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Syracuse",
  "players": [
   {
-   "pos": "RB",
-   "no": "1",
-   "name": "Jayden \"Duke\" Scott",
-   "status": "gtd",
+   "pos": "ILB",
+   "no": "0",
+   "name": "Popo Aguirre",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "2",
+   "name": "Ronnie Royal, III",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -36,6 +43,13 @@
    "detail": ""
   },
   {
+   "pos": "OLB",
+   "no": "5",
+   "name": "Harvey Dyson III",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "NCK",
    "no": "8",
    "name": "Isaiah Crowell",
@@ -43,10 +57,24 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "8",
+   "name": "Keenan Jackson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "QB",
    "no": "10",
    "name": "Will Wilson",
-   "status": "gtd",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "14",
+   "name": "Jaren Sensabaugh",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -58,23 +86,30 @@
   },
   {
    "pos": "TE",
-   "no": "19",
-   "name": "Preston Douglas",
-   "status": "out-game",
+   "no": "45",
+   "name": "Tex Vaughn",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "50",
    "name": "Daniel Cruz",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "54",
    "name": "Teague Andersen",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "64",
+   "name": "Rico Jackson",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -93,6 +128,13 @@
   },
   {
    "pos": "TE",
+   "no": "86",
+   "name": "Hunter Provience",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
    "no": "87",
    "name": "Ian Flynt",
    "status": "out-game",
@@ -103,6 +145,13 @@
    "no": "91",
    "name": "Nick Konieczynski",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "94",
+   "name": "Kanoah Vinesett",
+   "status": "probable",
    "detail": ""
   }
  ],

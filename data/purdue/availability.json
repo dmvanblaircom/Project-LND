@@ -7,18 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:57.588373+00:00",
+ "fetchedAt": "2026-11-12T01:08:40.580520+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Maryland",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Iowa",
  "players": [
   {
    "pos": "DB",
    "no": "2",
    "name": "Jaden Mangham",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {

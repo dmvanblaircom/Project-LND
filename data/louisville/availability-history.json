@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisville",
- "updated": "2026-11-07T22:38:46.144164+00:00",
+ "updated": "2026-11-12T01:08:37.428193+00:00",
  "reports": [
   {
    "schema": 1,
@@ -586,6 +586,130 @@
      "no": "70",
      "name": "Anwar O'neal",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "84",
+     "name": "Payton Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "90",
+     "name": "Hamilton Atkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "Sam Dawson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "louisville",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:37.428193+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "North Carolina",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "1",
+     "name": "Isaac Brown",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "2",
+     "name": "Demeco Kennedy",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "7",
+     "name": "Lawayne McCoy",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "9",
+     "name": "Antonio Watts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "23",
+     "name": "Benjamin Perry",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "27",
+     "name": "Myles Norwood",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "P",
+     "no": "48",
+     "name": "Jacob Baker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OT",
+     "no": "63",
+     "name": "Bryten Close",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "James Glover-Tyson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Anwar O'neal",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "71",
+     "name": "Cason Henry",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Charlie Edgeworth",
+     "status": "questionable",
      "detail": ""
     },
     {

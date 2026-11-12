@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T22:38:44.385550+00:00",
+ "fetchedAt": "2026-11-12T01:08:35.896040+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Louisville",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Clemson",
  "players": [
   {
    "pos": "RB",
@@ -25,7 +25,7 @@
    "pos": "WR",
    "no": "3",
    "name": "Rahkeem Smith",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,6 +43,13 @@
    "detail": ""
   },
   {
+   "pos": "RB",
+   "no": "11",
+   "name": "Chad Alexander",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "S",
    "no": "13",
    "name": "Savion Riley",
@@ -50,10 +57,31 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "21",
+   "name": "Darnell Collins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "21",
+   "name": "Jaedyn Terry",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "23",
+   "name": "Trae Stevenson, Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "24",
    "name": "Shane Marshall",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -110,6 +138,13 @@
    "no": "82",
    "name": "Kentrell Davis",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "86",
+   "name": "Kevin Roche, Jr.",
+   "status": "questionable",
    "detail": ""
   },
   {

@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T17:41:28.006541+00:00",
+ "fetchedAt": "2026-11-12T01:08:41.637244+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Louisville",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Virginia Tech",
  "players": [
   {
    "pos": "CB",
@@ -44,6 +44,13 @@
   },
   {
    "pos": "CB",
+   "no": "26",
+   "name": "Chris Garland",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
    "no": "27",
    "name": "Breylan Thompson",
    "status": "out-game",
@@ -53,7 +60,7 @@
    "pos": "CB",
    "no": "28",
    "name": "Sam Neely III",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -61,6 +68,13 @@
    "no": "35",
    "name": "Matt Rose",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "44",
+   "name": "Ernest Cooper",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -102,6 +116,20 @@
    "pos": "LS",
    "no": "93",
    "name": "Peyton Warford",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "94",
+   "name": "Daniel Ogiozee",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "98",
+   "name": "Max Meier",
    "status": "out-game",
    "detail": ""
   }

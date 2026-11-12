@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T22:38:47.338023+00:00",
+ "fetchedAt": "2026-11-12T01:08:38.397826+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Michigan",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Washington",
  "players": [
   {
    "pos": "RB",
@@ -25,6 +25,20 @@
    "pos": "QB",
    "no": "2",
    "name": "Cam Fancher",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "2",
+   "name": "Devin Vaught",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "3",
+   "name": "Rodney Bullard Jr.",
    "status": "out-game",
    "detail": ""
   },
@@ -32,34 +46,27 @@
    "pos": "CB",
    "no": "3",
    "name": "Tre Bell",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "4",
    "name": "Jaziun Patterson",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "CB",
    "no": "4",
    "name": "Charles Brantley",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "5",
    "name": "Jordan Hall",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "19",
-   "name": "Charles Taplin",
    "status": "out-game",
    "detail": ""
   },
@@ -95,7 +102,7 @@
    "pos": "DL",
    "no": "55",
    "name": "Ben Roberts",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

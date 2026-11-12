@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-10-31T21:41:10.765225+00:00",
+ "fetchedAt": "2026-11-12T01:08:39.193577+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
- "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "vs. Miami",
+ "effectiveAt": "2026-11-11",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-14",
+ "game": "Louisville",
  "players": [
   {
    "pos": "DB",
@@ -25,7 +25,7 @@
    "pos": "DB",
    "no": "7",
    "name": "Peyton Waters",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -37,23 +37,30 @@
   },
   {
    "pos": "DL",
-   "no": "56",
-   "name": "Viliami Moala",
+   "no": "25",
+   "name": "Joseph Mupoyi",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "66",
-   "name": "Jordan Hall",
-   "status": "gtd",
+   "pos": "LB",
+   "no": "35",
+   "name": "Ashton Blatt",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "75",
-   "name": "Andrew Threatt",
-   "status": "gtd",
+   "pos": "TE",
+   "no": "45",
+   "name": "Jelani Thurman",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "56",
+   "name": "Viliami Moala",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,7 +81,7 @@
    "pos": "DL",
    "no": "92",
    "name": "Jimmy-Phrisco Alo-Suliafu",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

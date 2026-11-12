@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "stanford",
- "updated": "2026-10-31T17:41:28.006541+00:00",
+ "updated": "2026-11-12T01:08:41.637244+00:00",
  "reports": [
   {
    "schema": 1,
@@ -727,6 +727,144 @@
      "pos": "LS",
      "no": "93",
      "name": "Peyton Warford",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "stanford",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-12T01:08:41.637244+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-11",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-14",
+   "game": "Virginia Tech",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "9",
+     "name": "Brandon Nicholson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Langdon Horace",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "19",
+     "name": "London Bironas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "22",
+     "name": "Zaiden McDonald",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "26",
+     "name": "Chris Garland",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "27",
+     "name": "Breylan Thompson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "28",
+     "name": "Sam Neely III",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "35",
+     "name": "Matt Rose",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "44",
+     "name": "Ernest Cooper",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "52",
+     "name": "Aidan Kilstrom",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "53",
+     "name": "Nathan Mejia",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "54",
+     "name": "Preston Jernegan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "58",
+     "name": "Brendan Delaney",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "83",
+     "name": "Reiman Zebert",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LS",
+     "no": "93",
+     "name": "Peyton Warford",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "Daniel Ogiozee",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "Max Meier",
      "status": "out-game",
      "detail": ""
     }
