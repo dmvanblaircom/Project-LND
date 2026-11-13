@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:08:52.737970+00:00",
+ "fetchedAt": "2026-11-13T22:08:46.370043+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-13",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-13",
  "game": "at Pittsburgh",
  "players": [
@@ -109,7 +109,7 @@
    "pos": "K",
    "no": "93",
    "name": "Conor McAneney",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   }
  ],

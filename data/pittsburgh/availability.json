@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:08:58.316948+00:00",
+ "fetchedAt": "2026-11-13T22:08:52.723819+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-13",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-13",
  "game": "vs. Florida State",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "DB",
    "no": "3",
    "name": "Shawn Lee Jr.",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -32,28 +32,28 @@
    "pos": "LB",
    "no": "7",
    "name": "DeMarco Ward",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "9",
    "name": "Ja'Kyrian Turner",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "QB",
    "no": "15",
    "name": "Holden Geriner",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "16",
    "name": "Eliyt Nairne",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -102,7 +102,7 @@
    "pos": "DL",
    "no": "55",
    "name": "Sean FitzSimmons",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
