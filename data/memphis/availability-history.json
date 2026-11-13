@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "memphis",
- "updated": "2026-11-12T23:08:42.963544+00:00",
+ "updated": "2026-11-13T11:08:51.242951+00:00",
  "reports": [
   {
    "schema": 1,
@@ -282,12 +282,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T23:08:42.963544+00:00",
+   "fetchedAt": "2026-11-13T11:08:51.242951+00:00",
    "reported": true,
    "effectiveAt": "2026-11-12",
    "heading": "Game Day",
    "kickoffDate": "2026-11-12",
-   "game": "South Florida",
+   "game": "at South Florida",
    "players": [
     {
      "pos": "LB",
