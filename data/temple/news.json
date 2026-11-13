@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-13T13:08:09.477834+00:00",
+ "updated": "2026-11-13T13:38:11.325426+00:00",
  "items": [
+  {
+   "title": "The Scoop: S12, E15 - Can Temple's problems be fixed?",
+   "link": "https://on3.com/sites/owl-scoop/news/the-scoop-s12-e15-can-temples-problems-be-fixed/",
+   "source": "OwlScoop",
+   "summary": "We put OwlScoop assistant editor\u00a0Kyle Gauss\u00a0in the role of the fixer as we dissected the problems of the football and men's basketball teams and looked at some potential solutions.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/13071859/K.C.-Adam.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-13T13:21:34+00:00"
+  },
   {
    "title": "The Next Play: Ajani Sheppard's Approach to Football and Life",
    "link": "https://owlsports.com/news/2026/11/13/the-next-play-ajani-sheppards-approach-to-football-and-life",
@@ -208,15 +217,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/19120944/K.C.-Keeler.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-26T22:00:41+00:00"
-  },
-  {
-   "title": "The Scoop - S12, E12: Will Temple's defensive staff shake-up save the season?",
-   "link": "https://on3.com/sites/owl-scoop/news/the-scoop-s12-e12-will-temples-defensive-staff-shake-up-save-the-season/",
-   "source": "OwlScoop",
-   "summary": "We talked about K.C. Keeler's staff changes and played our 1-on-1 interview with Temple men's basketball guard Cam Scott on this week's podcast.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/22082846/K.C.-Keeler-UConn.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-22T13:30:02+00:00"
   }
  ]
 }

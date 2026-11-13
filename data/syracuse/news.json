@@ -1,6 +1,6 @@
 {
  "team": "syracuse",
- "updated": "2026-11-13T11:08:17.280757+00:00",
+ "updated": "2026-11-13T13:38:11.419758+00:00",
  "items": [
   {
    "title": "5 Keys for Syracuse to Beat NC State and Keep Its Bowl Hopes Alive",
@@ -19,6 +19,15 @@
    "image": "https://platform.nunesmagician.com/wp-content/uploads/sites/116/2026/11/gettyimages-2302893204.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-11-13T01:20:51+00:00"
+  },
+  {
+   "title": "'Cuse Heads to NC State for Saturday Showdown",
+   "link": "https://cuse.com/news/2026/11/12/-cuse-heads-to-nc-state-for-saturday-showdown",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"Calvin Russell III\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/11/12/web.png\" /><br /><br />SYRACUSE at NC STATE",
+   "image": "https://cuse.com/images/2026/11/12/web.png?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-12T15:28:00+00:00"
   },
   {
    "title": "Syracuse football: Orange offensive line in flux again",
@@ -280,15 +289,6 @@
    "image": "https://cuse.com/images/2026/10/31/1920x1080_81_01.jpeg?width=800",
    "sourceLogo": "https://cuse.com/favicon.ico",
    "published": "2026-11-02T17:02:00+00:00"
-  },
-  {
-   "title": "\u2019Cuse Rallies Past #19 SMU in Fourth",
-   "link": "https://cuse.com/news/2026/10/31/football-cuse-rallies-past-19-smu-in-fourth",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Steve Angeli\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/31/16x9_9_16.jpeg\" /><br /><br />Behind a scary good fourth-quarter offense and four sacks on defense, Syracuse football rallied past No. 19 SMU for a 30-27 Halloween win at the JMA Wireless Dome Saturday afternoon.",
-   "image": "https://cuse.com/images/2026/10/31/16x9_9_16.jpeg?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-10-31T20:49:00+00:00"
   }
  ]
 }
