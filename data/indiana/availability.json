@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:22.142203+00:00",
+ "fetchedAt": "2026-11-13T01:08:54.175540+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. USC",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "DB",
    "no": "4",
    "name": "A.J. Harris",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,6 +39,13 @@
    "pos": "DL",
    "no": "18",
    "name": "Kellan Wyatt",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "56",
+   "name": "Joe Brunner",
    "status": "out-game",
    "detail": ""
   }

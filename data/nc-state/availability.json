@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:25.308895+00:00",
+ "fetchedAt": "2026-11-13T01:08:56.789743+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Syracuse",
  "players": [
@@ -60,7 +60,7 @@
    "pos": "WR",
    "no": "8",
    "name": "Keenan Jackson",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "CB",
    "no": "14",
    "name": "Jaren Sensabaugh",
-   "status": "probable",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -85,24 +85,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "45",
-   "name": "Tex Vaughn",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "50",
    "name": "Daniel Cruz",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "54",
-   "name": "Teague Andersen",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -145,13 +131,6 @@
    "no": "91",
    "name": "Nick Konieczynski",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "K",
-   "no": "94",
-   "name": "Kanoah Vinesett",
-   "status": "probable",
    "detail": ""
   }
  ],

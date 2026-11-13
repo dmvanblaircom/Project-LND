@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "stanford",
- "updated": "2026-11-12T11:09:28.574223+00:00",
+ "updated": "2026-11-13T01:08:59.507687+00:00",
  "reports": [
   {
    "schema": 1,
@@ -742,10 +742,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:28.574223+00:00",
+   "fetchedAt": "2026-11-13T01:08:59.507687+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at Virginia Tech",
    "players": [
@@ -781,7 +781,7 @@
      "pos": "CB",
      "no": "26",
      "name": "Chris Garland",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -795,7 +795,7 @@
      "pos": "CB",
      "no": "28",
      "name": "Sam Neely III",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

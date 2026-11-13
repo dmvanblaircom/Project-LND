@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:25.581000+00:00",
+ "fetchedAt": "2026-11-13T01:08:57.021350+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Louisville",
  "players": [
@@ -65,6 +65,13 @@
   },
   {
    "pos": "WR",
+   "no": "81",
+   "name": "Kymistrii Young",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "82",
    "name": "Keeyun Chapman",
    "status": "out-game",
@@ -79,8 +86,29 @@
   },
   {
    "pos": "DL",
+   "no": "89",
+   "name": "Emmanuel Nwaiwu",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "92",
    "name": "Jimmy-Phrisco Alo-Suliafu",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "P",
+   "no": "93",
+   "name": "Jacob Horvath",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "96",
+   "name": "Nicco Maggio",
    "status": "questionable",
    "detail": ""
   }

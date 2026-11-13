@@ -7,20 +7,13 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:26.093222+00:00",
+ "fetchedAt": "2026-11-13T01:08:57.446919+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Northwestern",
  "players": [
-  {
-   "pos": "WR",
-   "no": "0",
-   "name": "Brandon Inniss",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "7",
@@ -75,6 +68,20 @@
    "no": "34",
    "name": "Brennen Schramm",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "44",
+   "name": "Epi Sitanilei",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "51",
+   "name": "Luke Montgomery",
+   "status": "questionable",
    "detail": ""
   },
   {

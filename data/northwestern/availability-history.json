@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "northwestern",
- "updated": "2026-11-12T11:09:25.834673+00:00",
+ "updated": "2026-11-13T01:08:57.233015+00:00",
  "reports": [
   {
    "schema": 1,
@@ -742,10 +742,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:25.834673+00:00",
+   "fetchedAt": "2026-11-13T01:08:57.233015+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at Ohio State",
    "players": [
@@ -760,6 +760,13 @@
      "pos": "DB",
      "no": "13",
      "name": "Josh Fussell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "16",
+     "name": "J.J. Lewis",
      "status": "out-game",
      "detail": ""
     },

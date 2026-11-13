@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "miami",
- "updated": "2026-11-12T11:09:24.242261+00:00",
+ "updated": "2026-11-13T01:08:55.887564+00:00",
  "reports": [
   {
    "schema": 1,
@@ -364,10 +364,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:24.242261+00:00",
+   "fetchedAt": "2026-11-13T01:08:55.887564+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "vs. Duke",
    "players": [
@@ -390,6 +390,13 @@
      "no": "6",
      "name": "CharMar Brown",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Zechariah Poyser",
+     "status": "questionable",
      "detail": ""
     },
     {

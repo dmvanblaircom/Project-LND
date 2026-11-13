@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "illinois",
- "updated": "2026-11-12T01:08:36.274753+00:00",
+ "updated": "2026-11-13T01:08:54.068443+00:00",
  "reports": [
   {
    "schema": 1,
@@ -595,10 +595,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:08:36.274753+00:00",
+   "fetchedAt": "2026-11-13T01:08:54.068443+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-13",
    "game": "at UCLA",
    "players": [
@@ -606,7 +606,7 @@
      "pos": "WR",
      "no": "1",
      "name": "Jayshon Platt",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -641,7 +641,7 @@
      "pos": "DL",
      "no": "24",
      "name": "Will Holmes",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -676,7 +676,7 @@
      "pos": "DL",
      "no": "54",
      "name": "Demetrius John",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

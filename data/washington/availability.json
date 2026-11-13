@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:31.876171+00:00",
+ "fetchedAt": "2026-11-13T01:09:02.273546+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "at Michigan State",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "QB",
    "no": "1",
    "name": "Demond Williams Jr.",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -81,14 +81,14 @@
    "pos": "DL",
    "no": "90",
    "name": "Elinneus Davis",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "EDG",
    "no": "91",
    "name": "Isaiah Ward",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

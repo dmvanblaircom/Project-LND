@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wisconsin",
- "updated": "2026-11-12T11:09:32.369809+00:00",
+ "updated": "2026-11-13T01:09:02.688641+00:00",
  "reports": [
   {
    "schema": 1,
@@ -301,10 +301,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:32.369809+00:00",
+   "fetchedAt": "2026-11-13T01:09:02.688641+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at Maryland",
    "players": [
@@ -313,6 +313,13 @@
      "no": "3",
      "name": "Cai Bates",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "6",
+     "name": "Jai'mier Scott",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -327,13 +334,6 @@
      "no": "15",
      "name": "Nate Palmer",
      "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "6",
-     "name": "Jai'mier Scott",
-     "status": "probable",
      "detail": ""
     },
     {

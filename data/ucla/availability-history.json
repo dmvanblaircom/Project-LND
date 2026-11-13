@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucla",
- "updated": "2026-11-12T01:08:43.230897+00:00",
+ "updated": "2026-11-13T01:09:01.159807+00:00",
  "reports": [
   {
    "schema": 1,
@@ -441,10 +441,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:08:43.230897+00:00",
+   "fetchedAt": "2026-11-13T01:09:01.159807+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-13",
    "game": "vs. Illinois",
    "players": [

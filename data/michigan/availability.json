@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:24.494456+00:00",
+ "fetchedAt": "2026-11-13T01:08:56.101129+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "at Oregon",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "WR",
    "no": "9",
    "name": "Channing Goodwin",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {

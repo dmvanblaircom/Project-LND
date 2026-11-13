@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:23.449559+00:00",
+ "fetchedAt": "2026-11-13T01:08:55.231344+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "at North Carolina",
  "players": [
@@ -43,13 +43,6 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "23",
-   "name": "Benjamin Perry",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "27",
    "name": "Myles Norwood",
@@ -72,13 +65,6 @@
   },
   {
    "pos": "OL",
-   "no": "67",
-   "name": "James Glover-Tyson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "70",
    "name": "Anwar O'neal",
    "status": "out-game",
@@ -89,13 +75,6 @@
    "no": "71",
    "name": "Cason Henry",
    "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "78",
-   "name": "Charlie Edgeworth",
-   "status": "questionable",
    "detail": ""
   },
   {

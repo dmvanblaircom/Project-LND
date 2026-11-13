@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida-state",
- "updated": "2026-11-12T01:08:35.373350+00:00",
+ "updated": "2026-11-13T01:08:52.737970+00:00",
  "reports": [
   {
    "schema": 1,
@@ -574,10 +574,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:08:35.373350+00:00",
+   "fetchedAt": "2026-11-13T01:08:52.737970+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-13",
    "game": "at Pittsburgh",
    "players": [
@@ -628,27 +628,6 @@
      "no": "18",
      "name": "Jamari Howard",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "20",
-     "name": "Blake Nichelson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "24",
-     "name": "K.J. Kirkland",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "29",
-     "name": "Caleb LaVallee",
-     "status": "probable",
      "detail": ""
     },
     {

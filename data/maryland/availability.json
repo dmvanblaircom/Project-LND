@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:23.845534+00:00",
+ "fetchedAt": "2026-11-13T01:08:55.555537+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Wisconsin",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "DB",
    "no": "4",
    "name": "Jamare Glasker",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "LB",
    "no": "13",
    "name": "DD Holmes",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -64,6 +64,13 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "23",
+   "name": "Jordan Williams",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "25",
    "name": "Harry Dalton III",
@@ -74,13 +81,20 @@
    "pos": "RB",
    "no": "29",
    "name": "Liam Willson",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "K",
    "no": "36",
    "name": "Sean O'Haire",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "40",
+   "name": "Nahsir Taylor",
    "status": "questionable",
    "detail": ""
   },
@@ -88,7 +102,7 @@
    "pos": "LB",
    "no": "48",
    "name": "Darius Grimes",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -102,7 +116,7 @@
    "pos": "K",
    "no": "98",
    "name": "Daniel Leahy",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],

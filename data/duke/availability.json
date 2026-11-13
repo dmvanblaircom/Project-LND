@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:20.273688+00:00",
+ "fetchedAt": "2026-11-13T01:08:52.166811+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "at Miami",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "QB",
    "no": "13",
    "name": "Terry Walker III",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -75,13 +75,6 @@
    "no": "44",
    "name": "David Anderson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "44",
-   "name": "Nate Kurisky",
-   "status": "probable",
    "detail": ""
   },
   {

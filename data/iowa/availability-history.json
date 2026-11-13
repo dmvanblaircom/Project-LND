@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa",
- "updated": "2026-11-12T11:09:22.271206+00:00",
+ "updated": "2026-11-13T01:08:54.278768+00:00",
  "reports": [
   {
    "schema": 1,
@@ -357,10 +357,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:22.271206+00:00",
+   "fetchedAt": "2026-11-13T01:08:54.278768+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "vs. Purdue",
    "players": [
