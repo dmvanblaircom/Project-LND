@@ -1,33 +1,35 @@
 # Around: data availability and implementation feasibility audit
 
-**Status:** research only, for David's review. 2026-11-13. Nothing here is approved scope, and nothing was built, changed or added to produce it.
+**Status:** research only, for David's review. 2026-11-13, updated the same day with the results of the runner probe David approved. Nothing here is approved scope, and nothing was built, changed or added to produce it.
 
 **How to read it.** Every claim carries a label:
 
 - **FACT (repo):** verified in this repository on 2026-11-13 (file path given).
 - **FACT (captured):** verified in a real provider payload kept in `tools/fixtures/` or in a committed snapshot under `data/`.
+- **FACT (probed):** returned by the provider to the production runner on 2026-11-13 (`probe-sources.yml`, runs 43436311504 and 43436472570; the reads are listed in `tools/probe-urls.txt` and its previous commit). The probe prints and stores nothing.
 - **REPORTED:** stated by an outside source found by web search. The primary page could not be opened from this session (its network policy blocks those hosts), so the wording comes from search-result extracts. Treat as a strong lead, not as verified.
 - **ASSUMPTION** and **RECOMMENDATION** are marked as such.
 
-**Limits of this audit.** The development environment cannot reach ESPN, Kalshi or CollegeFootballData. Endpoints Suite does not already read have not been called. Six ESPN endpoints need one read-only probe from the production runner before anything is designed on them (section 10, item 1).
+**Limits of this audit.** The development environment cannot reach ESPN, Kalshi or CollegeFootballData. The ESPN reads Around would add were probed from the production runner on 2026-11-13 (section 4.13). Kalshi, CollegeFootballData, Sportradar and SportsDataIO were not called, and their pages could not be opened: everything about them is **REPORTED**.
 
 ---
 
 ## 1. Executive summary
 
 1. **Around → My Team can be built almost entirely from data Suite already has.** Schedule, conference games, games that matter, rankings context, playoff and title odds, the team's recruiting class, news and the game-notes facts are all in hand for all 138 teams (notes for 9).
-2. **Around → College Football is realistic as five sections, not eleven.** Scoreboard, rankings, the playoff field and the national markets are in hand today. Conference standings and a national headline feed are a modest extension, pending the probe. That is a coherent national product.
-3. **Three proposed areas have no structured source in hand: the transfer portal, the coaching carousel and recruiting targets.** Today Suite has headlines about them, not data. A structured portal needs a new integration: CollegeFootballData's portal endpoint (cheap, terms and freshness unverified) or a licensed feed such as Sportradar's (contract pricing). A structured coaching carousel does not appear to exist as a feed at any price found.
-4. **Awards are seasonal and thin.** ESPN lists winners after the fact (unprobed). In season the only live signal found is Kalshi's Heisman market.
-5. **Two licensing risks sit under the whole product, and Around → College Football deepens both.**
+2. **Around → College Football is realistic as five sections, not eleven.** Scoreboard, rankings, the playoff field and the national markets are in hand today. Conference standings and a national headline feed are a modest extension, and the probe confirmed ESPN serves both. That is a coherent national product.
+3. **Three proposed areas have no structured source in hand: the transfer portal, the coaching carousel and recruiting targets.** Today Suite has headlines about them, not data. The probe confirmed ESPN has no transactions feed for college football (both routes answer with zero items). A structured portal needs a new integration: CollegeFootballData's portal endpoint (cheap, terms and freshness unverified) or a licensed feed such as Sportradar's (contract pricing). A structured coaching carousel does not appear to exist as a feed at any price found.
+4. **Awards are seasonal and thin.** ESPN lists 32 awards with winners for last season and none for this one until they are given (probed). In season the only live signal found is Kalshi's Heisman market.
+5. **The probe found one thing nobody had asked for:** the FPI feed Suite already downloads carries ESPN's projected record and its odds to win out, win the conference, make the playoff, make the title game and win the title, for every team. The producer discards them today.
+6. **Two licensing risks sit under the whole product, and Around → College Football deepens both.**
    - **ESPN.** Its terms allow "personal, noncommercial use" and bar automated extraction without written permission (**FACT (repo)**: `docs/engineering/offseason-sources.md`). David's rule of 2026-10-02 stands: keep the app as is while it is free, revisit before monetization or wider promotion. A national destination is nearly 100% ESPN data.
    - **Kalshi.** **REPORTED:** Kalshi's Developer Agreement v1.1 limits API use to "facilitating a member's own trading" and bars sharing API data with third parties "without prior written authorization". Suite already publishes Kalshi prices as files in a public repository and on the public site. No review of Kalshi's terms is recorded in the repository. This needs David's attention before any more Kalshi markets are added (section 10, item 2).
-6. **Where Suite must not make claims:** clinching and elimination in conference races, a projected playoff bracket before Selection Day, "verified" developments, a national recruiting class ranking of its own, and why a player left a roster.
+7. **Where Suite must not make claims:** clinching and elimination in conference races, a projected playoff bracket before Selection Day, "verified" developments, a national recruiting class ranking of its own, and why a player left a roster.
 
 **Recommended scope in one line each** (sections 8 and 9):
 
-- **My Team:** Season Outlook and standing, our conference (standings after the probe), games that matter, rankings and playoff context, the recruiting class, the wire once it clears its 90% gate.
-- **College Football:** Scoreboard, Rankings, Playoff (CFP rankings, seeds and bracket once set, the odds field), Conferences (after the probe), Headlines (after the probe). Transfer portal, coaching carousel, recruiting and awards are not sections yet.
+- **My Team:** Season Outlook and standing, our conference with its standings, games that matter, rankings and playoff context, the recruiting class, the wire once it clears its 90% gate.
+- **College Football:** Scoreboard, Rankings, Playoff (CFP rankings, seeds and bracket once set, the odds field), Conferences, Headlines. Transfer portal, coaching carousel, recruiting and awards are not sections yet.
 
 ---
 
@@ -78,7 +80,7 @@ All **FACT (repo)** unless marked.
 
 ### 2.4 Work already in progress that touches Around
 
-- **F2** (backlog): conference standings "after a source probe" and the out-of-season sections. The probe has not been run.
+- **F2** (backlog): conference standings "after a source probe" and the out-of-season sections. The probe ran on 2026-11-13 (section 4.13).
 - **F1**: the wire. Measured at 88.1% precision on 2026-11-09; the gate is 90% on headlines published after 2026-11-10. Not shipped.
 - **F3**: live refresh on Around's games.
 - **Parked for Around** (backlog §4): former players in the NFL; the wire's Phase 2 sources (Bluesky, Sleeper, RotoWire, SportsDataIO quotes).
@@ -113,34 +115,34 @@ Categories as the brief defines them: **Now** (available now), **Reuse** (reusab
 | Content area | My Team | College Football |
 |---|---|---|
 | Scoreboard and schedules | **Now** | **Reuse** |
-| News and editorial | **Now** | **Extend** (probe) |
-| The wire | **Extend** (gated at 90%) | **Uncertain** |
+| News and editorial | **Now** | **Extend** (probed) |
+| The wire | **Extend** (gated at 90%) | **Uncertain**, less so: ESPN's national headlines name their teams |
 | Playoff picture | **Now** / **Reuse** | **Reuse**; a projected bracket is **Not practical** |
-| Conference standings and races | **Extend** (probe) | **Extend** (probe) |
+| Conference standings and races | **Extend** (probed); the one-line standing is **Now** | **Extend** (probed) |
 | National rankings | **Now** | **Now** |
 | Recruiting | **Now** for commits; targets **Not practical** | **Extend** for a national board; class rankings **Uncertain** |
 | Transfer portal | Headlines only; structured is **New** | **New** |
-| Coaching changes | Headlines only; current coach **Extend** (probe) | **Not practical** as structured data |
-| Awards and honors | **Extend** (probe); notes honors for 2 teams | **Extend** (probe), seasonal |
+| Coaching changes | Headlines only; current head coach **Extend** (probed) | **Not practical** as structured data |
+| Awards and honors | **Extend** (probed): winners only; notes honors for 2 teams | **Extend** (probed), December only |
 | Kalshi markets | **Now** (59 teams) | **Now**; more markets **Extend**, subject to terms |
 
 ### 4.1 Scoreboard and schedules
 
 - **My Team: Now.** The team's schedule is a screen (`suite/schedule.js`); Around already lists the conference's games and the games that matter (`teamos/around.js`).
 - **College Football: Reuse.** **FACT (repo):** the app already downloads the whole FBS week (up to 400 games) and throws most of it away, keeping ranked, conference and "matter" games. Showing all of it is a presentation change. Any row can open the full game sheet.
-- **What is missing:** other weeks. The scoreboard is fetched for the current week only; week-by-week browsing needs a `week=` or `dates=` request (**Extend**; the postseason board already does this, `postseasonBoardUrl()`). FCS games are not in `groups=80`.
+- **Other weeks: Extend. FACT (probed):** the scoreboard answers for a named week (`seasontype=2&week=5&dates=2026` returned week 5's games) and lists the season's weeks with their start dates. Each week is about 0.9 MB, the same weight the app already downloads for the current week. FCS games are not in `groups=80`.
 - **Risk:** a 60-game list with no lens is ESPN's scoreboard, done better by ESPN (**FACT (repo)**: the argument in `docs/product/around-your-team-brief.md`). Grouping by conference, with the fan's teams marked, is what Suite adds.
 
 ### 4.2 News and editorial
 
 - **My Team: Now.** ESPN team news plus 1 to 6 beat feeds per team, filtered to football.
-- **College Football: Extend, after a probe.** **ASSUMPTION:** ESPN's news endpoint without the `team` filter returns national college football headlines; Suite reads it only with `?team=` today (`newsUrl()`), and no national payload has been captured. National RSS feeds can go through the existing producer, but there is no league-level news snapshot: every news file is a team's.
+- **College Football: Extend. FACT (probed):** ESPN's news read without the `team` filter returns national college football headlines: 50 on request (about 320 KB), each with a headline, time, link, a type and the teams it is about by ESPN id. About half are video clips (`Media`); the rest are `Story`, `HeadlineNews` and `Recap`, so a headline list keeps those three. National RSS feeds can also go through the existing producer. There is no league-level news snapshot: every news file is a team's.
 - **Headline versus data:** this is headlines and links out. Suite has no editorial of its own and should not present it as such.
 
 ### 4.3 The wire
 
 - **My Team: Extend, gated.** The classifier exists and is tested but not shipped: 88.1% against a 90% gate. Its sources are the team's own stories, so which team a headline is about is never in question.
-- **College Football: Uncertain.** Three gaps: no national headline source in hand (4.2); the classifier has never been measured on national headlines; and nothing resolves which team or player a national headline is about, which a national wire needs for filtering and for marking a fan's teams.
+- **College Football: Uncertain, with two of three gaps narrowed by the probe.** A national headline source exists (4.2), and ESPN tags each headline with the teams it is about, which answers "whose news is this" for ESPN's own stories. The gap that remains is the one that decides it: the classifier has never been measured on national headlines. The sample probed did carry wire-type items (a coach's contract extension, a player's decision to return).
 - **Claim to avoid:** "verified". The wire labels an outlet's headline; it verifies nothing (`teamos/wire.js`: "the kind is a label beside it, never a claim of its own").
 
 ### 4.4 Playoff picture
@@ -152,13 +154,18 @@ Categories as the brief defines them: **Now** (available now), **Reuse** (reusab
   - The postseason board gives every bowl and playoff game once set (`postseasonBoardUrl()`).
   - Kalshi's playoff field: 61 teams priced.
 - **Not practical: a projected bracket before Selection Day.** "If the season ended today" needs each conference's champion, which nobody publishes as data before the title games. Suite would be making its own projection and presenting it beside the committee's rankings.
-- **Uncertain:** ESPN's FPI playoff probabilities. ESPN publishes them on its site; whether the feed Suite reads carries them is unverified (the producer keeps only rating and rank).
+- **Extend: ESPN's own projections. FACT (probed):** the FPI feed Suite already reads (`tools/producers/fpi.py`) carries, for every team, projected wins and losses and the probability to win out, win six, win the division, win the conference, make the playoff, make the title game and win the title. The producer keeps only rating, rank and change. Keeping more is a producer change with no new request. It would put ESPN's playoff odds beside Kalshi's: two numbers that will disagree, each to be named for what it is and never blended.
 
 ### 4.5 Conference standings and races
 
 - **Partly in hand. FACT (captured):** every team on the week's scoreboard carries its conference record (`records[]`, type `vsconf`) and each game says whether it is a conference game (`conferenceCompetition`) (`tools/fixtures/espn-scoreboard-*.json`). The registry knows every team's conference.
 - **Why that is not enough:** a team on a bye is not on that week's scoreboard, so a table built from it has holes.
-- **The complete source needs the probe.** **REPORTED:** ESPN serves standings at `sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/{year}/types/{type}/groups/{group}/standings` (the cfbfastR package documents it, with overall, home, away and conference splits). A second route on the site API is documented for other sports only. Neither has been called by us. Backlog F2 already says "after a source probe".
+- **The complete source exists. FACT (probed):**
+  - `site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026` returns the FBS as 11 groups (the ten conferences and the independents), every team with its overall and conference record, home and away splits, streak and points for and against. It lists seasons back to at least 2022.
+  - It is heavy: 2.6 MB for the FBS, 353 KB for one conference (`&group=5`). That is a job for the half-hourly refresh writing a small snapshot, not a read from a phone.
+  - The core route (`.../seasons/2026/types/2/groups/5/standings`) works too, with the same splits plus the record against ranked teams, at 525 KB a conference.
+  - **The team's own line needs nothing new:** the team read Suite already makes carries `standingSummary` ("3rd in Big Ten" for the team probed).
+- **A caution the probe exposed:** for that same team, ESPN's summary said 3rd while its position in ESPN's own list was 6th. The list's order is not a ranking Suite can rely on. Suite would sort by conference record itself and show ties as ties.
 - **Claims to avoid:** "clinched", "eliminated", "controls its destiny", and tiebreaker order. Each conference has its own tiebreak rules and Suite has no authoritative source for their outcome. Show the table; let the fan read it.
 - Independents (Notre Dame, UConn) have no table. That is already handled as a state (`around.js`).
 
@@ -185,22 +192,22 @@ Categories as the brief defines them: **Now** (available now), **Reuse** (reusab
 | **CollegeFootballData** `/player/portal` | **REPORTED:** portal entries by year: player, origin, destination, rating, eligibility | Existing key and Worker. **REPORTED:** free 1,000 calls a month; paid $1 (5,000) to $30 (500,000); commercial use allowed on every tier; redistribution as a standalone dataset, bulk download or substitute API forbidden | Upstream source and update speed unverified. Must be served through the Worker, never as committed files |
 | **Sportradar NCAA Football v7** | **REPORTED:** a Transfer Portal endpoint ("all players currently in the NCAA Transfer Portal", 4-hour cache) and a Daily Transactions endpoint (portal moves, commitments, releases, suspensions) | Licensed; trial key; price by contract, not published | Cost unknown. A money and keys decision (David's, decision 0039) |
 | **On3, 247Sports** | The trackers fans use | Written permission required; automated access barred (**FACT (repo)**) | Permission requested for recruiting stars, unanswered |
-| **ESPN** | No portal endpoint known | | |
+| **ESPN** | **FACT (probed):** both transactions routes answer for college football with zero items. ESPN has no portal or transactions feed | | Settled: not a source |
 | **Roster difference** | Suite could notice a player leaving ESPN's roster | In hand | Cannot say why he left. Suite must not call it a transfer |
 
 - **Freshness matters more here than anywhere.** Portal windows move by the hour. A source that trails by a day is worse than a headline.
 
 ### 4.9 Coaching changes
 
-- **My Team: headlines** (the wire's "coaching" kind). **Current head coach: Extend, after a probe.** **FACT (captured):** ESPN's core team record links a `coaches` resource (`tools/fixtures/espn-coreteam-miami-2026.json`); its contents have not been read.
-- **National carousel: Not practical as structured data.** **REPORTED:** no API or dataset was found; the trackers are editorial pages (FootballScoop, CBS Sports, ESPN, AP), and their terms bar collection. Comparing ESPN's coach for 138 teams day to day would detect that a head coach changed, late, with no reason, no interim, no coordinators and no candidates. That is not a carousel.
+- **My Team: headlines** (the wire's "coaching" kind). **Current head coach: Extend. FACT (probed):** ESPN's core API gives one coach per team, the head coach, with name, birth date and record, and lists 270 coaches for the season. No staff, no coordinators, no start date and no status.
+- **National carousel: Not practical as structured data.** **REPORTED:** no API or dataset was found; the trackers are editorial pages (FootballScoop, CBS Sports, ESPN, AP), and their terms bar collection. Comparing ESPN's head coach for 138 teams day to day would detect that one changed, late, with no reason, no interim, no coordinators and no candidates (the probe confirmed the record holds none of these). That is not a carousel.
 - **RECOMMENDATION:** coaching changes are wire content, not a section.
 
 ### 4.10 Awards and honors
 
-- **My Team:** honors and watch lists from the game notes for the 2 teams read whole. **Extend, after a probe:** the core team record links an `awards` resource (**FACT (captured)**, same fixture; contents unread).
-- **College Football: Extend, after a probe.** **REPORTED:** ESPN's core API lists a season's awards (about 32, the Heisman among them) with each winner, at `.../seasons/{year}/awards`.
-- **Limits:** winners only, after the fact, concentrated in one week of December. No finalists, semifinalists or watch lists as data. In season this section would be empty.
+- **My Team:** honors and watch lists from the game notes for the 2 teams read whole. **Extend. FACT (probed):** a team's awards are the national awards its players won: two for the team probed in 2025, each naming the award, the player and the team.
+- **College Football: Extend. FACT (probed):** ESPN's core API lists 32 awards for 2025, the Heisman among them, each with its name, what it is for and its winner (player and team), at `.../seasons/{year}/awards`.
+- **Limits, confirmed:** for 2026 the same read returns no awards at all today. Winners only, after the fact, concentrated in one week of December. No finalists, semifinalists or watch lists. In season this section would be empty.
 - **In season:** Kalshi lists a Heisman market (**REPORTED:** about 49 priced candidates, series `KXHEISMAN`). Subject to section 5.
 
 ### 4.11 Kalshi markets
@@ -221,6 +228,22 @@ Categories as the brief defines them: **Now** (available now), **Reuse** (reusab
 | Next opponents' recruiting classes and records | In hand (brief) | My Team, out of season |
 | Your Teams | `suite/favorites.js` | Marks a fan's teams in every national list |
 
+### 4.13 What the runner probe settled (2026-11-13)
+
+All **FACT (probed)**. Every read answered HTTP 200 with JSON.
+
+| Question | Answer |
+|---|---|
+| Does ESPN serve conference standings? | Yes, on both routes. All of FBS in one read (2.6 MB) or one conference (353 KB), with conference records |
+| Is the team's standing available cheaply? | Yes: `standingSummary` on the team read Suite already makes |
+| Is the list's order a reliable ranking? | No: it disagreed with ESPN's own summary for the team checked |
+| Does ESPN serve national headlines? | Yes: 50 per request, each tagged with its teams; about half are video clips |
+| Awards? | 32 for 2025 with winners; none for 2026 yet |
+| Coaches? | The head coach per team, name and record only; 270 listed |
+| Does the FPI feed carry playoff and conference odds? | Yes, for every team, in the payload Suite already downloads |
+| Can the scoreboard be read for another week? | Yes, with the season's list of weeks |
+| Does ESPN have a transactions or portal feed? | No: zero items on both routes |
+
 ---
 
 ## 5. Source references and licensing considerations
@@ -228,8 +251,8 @@ Categories as the brief defines them: **Now** (available now), **Reuse** (reusab
 | Source | Finding | Label | Reference |
 |---|---|---|---|
 | ESPN | "personal, noncommercial use"; no automated access without "express written permission". Every ESPN endpoint is unofficial and undocumented by ESPN, and can change without notice | **FACT (repo)** | `docs/engineering/offseason-sources.md`; Disney Terms of Use |
-| ESPN standings (core route) | Documented by a community package, with record splits | **REPORTED** | <https://rdrr.io/cran/cfbfastR/man/espn_cfb_standings.html> |
-| ESPN awards | Season index of about 32 awards with winners; per-team awards | **REPORTED** | <https://rdrr.io/cran/cfbfastR/man/espn_cfb_awards.html> |
+| ESPN standings | Both routes answer, with conference records | **FACT (probed)** | section 4.13; first documented by <https://rdrr.io/cran/cfbfastR/man/espn_cfb_standings.html> |
+| ESPN awards | 32 awards with winners for 2025; none yet for 2026; per-team awards | **FACT (probed)** | section 4.13; first documented by <https://rdrr.io/cran/cfbfastR/man/espn_cfb_awards.html> |
 | Kalshi market data | Public REST reads (`/markets`, `/events`, `/series`) need no authentication | **REPORTED** | <https://docs.kalshi.com/getting_started/quick_start_market_data> |
 | Kalshi Developer Agreement v1.1 | "Use of Kalshi APIs is expressly limited to facilitating a member's own trading"; no "collecting, caching, aggregating, or storing" API data except for that purpose; no sharing with third parties "without prior written authorization from Kalshi" | **REPORTED** | <https://assets.kalshi.com/Kalshi-Developer-Agreement.pdf> |
 | CollegeFootballData terms | Commercial use allowed on all tiers; caching allowed; redistribution of the data itself as a dataset, bulk download, mirror or substitute API forbidden | **REPORTED** (consistent with decision 0030) | <https://collegefootballdata.com/terms> |
@@ -262,8 +285,11 @@ Categories as the brief defines them: **Now** (available now), **Reuse** (reusab
 | Kalshi title and playoff | 53 and 61 teams | Every 30 minutes | Odds history, 59 teams | Data yes; permission unconfirmed |
 | Team news | 138 teams | Every 30 minutes | 2 to 60 stories kept | Varies by team: one team has 2 stories |
 | Recruiting class | 138 teams | Daily | None kept | Yes for commits. ESPN can trail a flip; the producer leaves a mismatched commitment out |
-| Conference record | Teams on this week's scoreboard | Live | No | Incomplete alone (byes) |
-| Standings, national news, awards, coaches | Unknown until probed | Unknown | Unknown | Unverified |
+| Conference standings | All FBS, ten conferences and the independents | With results | Seasons back to at least 2022 | Yes for records. Not for order: sort it ourselves |
+| National headlines | 50 per request, tagged by team | Continuous | The newest only | Yes as headlines; half of the feed is video to filter out |
+| ESPN's projections (FPI) | 138 teams | Daily edition | Not kept today | Yes, as ESPN's model, named as such |
+| Awards | 32 awards | Once, in December | Past seasons | Yes for winners; nothing in season |
+| Head coach | One per team | Unknown how fast after a change | No | Too thin for a carousel |
 | The wire | Per team | With the news | n/a | Not yet: 88.1% against a 90% gate |
 | Transfer portal, coaching carousel | None in hand | n/a | n/a | No source |
 
@@ -278,18 +304,20 @@ Sizes are relative, not estimates. S: a presentation change on data in hand. M: 
 | Capability | Size | Depends on |
 |---|---|---|
 | National scoreboard, grouped by conference | S | Design (R4); F3 live refresh |
-| Scoreboard for other weeks | M | A fixture of a `week=` request |
+| Scoreboard for other weeks | M | Probed: works. A fixture and a check |
 | Rankings, as today | S | Design |
 | Playoff: rankings, odds field, calendar | S | Design; Kalshi terms |
 | Playoff: seeds and bracket once set | M | A normalized seeding and bracket model (gap); the December payloads |
-| Conference standings | M | **The probe.** Then an adapter, fixtures, a check |
-| National headlines | M | **The probe**; a league-level news snapshot (gap) |
+| Conference standings | M | Probed: works. A producer and a small league snapshot (the read is 2.6 MB), an adapter, fixtures, a check |
+| The team's one-line standing | S | Already in the team read |
+| ESPN's playoff and conference odds | M | Probed: already in the FPI feed. A producer change and a decision on showing them beside Kalshi's |
+| National headlines | M | Probed: works. A league-level news snapshot (gap); filter out video |
 | National recruiting board | M | A league-level recruits snapshot (gap); a cap on records fetched |
 | More Kalshi markets (conference, Heisman) | M | **Kalshi terms**; tickers verified |
-| Awards winners | M | **The probe**; seasonal |
-| Current head coach per team | M | **The probe** |
+| Awards winners | M | Probed: works; December only |
+| Current head coach per team | M | Probed: works; name and record only |
 | The wire, My Team | M | The 90% re-measure |
-| The wire, national | L | National headlines; a new measurement; team and player resolution (gap) |
+| The wire, national | L | A new measurement on national headlines; ESPN's team tags cover its own stories only |
 | Transfer portal, structured | L | A provider decision (money, keys, terms); served through the Worker |
 | Coaching carousel, structured | Not practical | No source |
 | Recruiting targets, composite rankings | Not practical now | 247Sports or On3 permission |
@@ -309,14 +337,15 @@ Sizes are relative, not estimates. S: a presentation change on data in hand. M: 
 **Include with confidence (in hand):**
 
 1. **Where we stand:** Season Outlook (playoff %, title %), rank and its trend, the next CFP rankings show.
-2. **Our conference:** this week's conference games (today), and the standings table once the probe confirms the source. No clinch or elimination language.
+2. **Our conference:** this week's conference games (today), the team's one-line standing (already in hand), and the standings table (source confirmed by the probe). Sorted by conference record with ties shown as ties. No clinch or elimination language.
 3. **Games that matter:** opponents past and future, rivals, the teams around us in the poll (today).
 4. **Recruiting:** the class, as the Recruiting card shows it, moved or mirrored here out of season.
 
 **Worth extending:**
 
 5. **The wire**, when it clears 90%. It carries transfer, coaching and commitment news as labelled headlines, which is the honest form of those three areas for one team.
-6. **Awards and honors** for the team, only if the probe shows ESPN's team awards are populated.
+6. **Awards and honors** for the team: ESPN has national award winners only, so this is a line in December, not a standing card.
+7. **ESPN's projections** (projected record, odds to win the conference and make the playoff) beside the market odds in Season Outlook, if David wants two sources there. Every team has them, including the 79 with no Kalshi match.
 
 **Wait:**
 
@@ -337,13 +366,13 @@ Sizes are relative, not estimates. S: a presentation change on data in hand. M: 
 | **Scoreboard** | Every FBS game this week, grouped by conference, the fan's teams marked, each row opening the game | In hand |
 | **Rankings** | CFP, AP, Coaches, FPI, SP+, with kept weeks | In hand |
 | **Playoff** | The CFP rankings and the next show; the odds field; from Selection Day, the seeds and the bracket; the defending champion | In hand, plus a seeding model in December |
-| **Conferences** | Standings for all ten conferences | After the probe |
-| **Headlines** | National college football headlines, linked out | After the probe |
+| **Conferences** | Standings for all ten conferences | Source confirmed; a modest build |
+| **Headlines** | National college football headlines, linked out, the fan's teams marked | Source confirmed; a modest build |
 
 **Secondary, inside a section rather than a section of its own:**
 
 - **Markets** belong inside Playoff (title and playoff fields), with conference title markets inside Conferences if Kalshi's terms allow. A separate "Markets" section would duplicate both.
-- **Awards** belong in Headlines in season and as a short winners list in December, if the probe supports it.
+- **Awards** belong in Headlines in season and as a short winners list in December (the probe confirmed winners are all ESPN has).
 - **Draft picks by school** in spring, in place of Scoreboard's emptiness.
 
 **Defer:**
@@ -363,17 +392,11 @@ Sizes are relative, not estimates. S: a presentation change on data in hand. M: 
 
 ## 10. Open questions and items requiring further validation
 
-1. **One read-only probe from the production runner** (David's go-ahead needed: it is a push to a probe branch, which the brief's guardrails exclude). It prints what each URL returns and stores nothing, as `probe-sources.yml` has done before. Six ESPN reads:
-   - conference standings (both documented routes);
-   - national news (the news endpoint without a team);
-   - a season's awards, and one team's awards;
-   - one team's coaches;
-   - the FPI feed's projection fields (playoff and conference odds);
-   - the scoreboard for a named week.
-   Every "after the probe" in this document turns into a fact, either way, within the hour.
-2. **Kalshi's terms** (David's decision; money, keys and services are his under decision 0039). The agreement as reported would not cover what Suite already does with Kalshi's prices. Options: read the agreement in full and ask Kalshi for written permission to display prices with credit; or hold Kalshi at today's two markets until that is answered. **RECOMMENDATION:** ask, and add no Kalshi market until answered.
+1. **The runner probe: done** (2026-11-13, David's go-ahead). Results in section 4.13. What it leaves open: how quickly ESPN's coach record follows a change, and whether the standings list's order means anything.
+2. **Kalshi's terms** (David's decision; money, keys and services are his under decision 0039). The agreement as reported would not cover what Suite already does with Kalshi's prices. Options: read the agreement in full and ask Kalshi for written permission to display prices with credit; or hold Kalshi at today's two markets until that is answered. **RECOMMENDATION:** ask, and add no Kalshi market until answered. David, 2026-11-13: ask Kalshi for permission; the request is being drafted.
 3. **ESPN and a national destination.** The Oct 2 rule covers the app while it is free. Does a national college football destination change who the app is promoted to? If so, the ESPN question comes forward with it.
 4. **Transfer portal provider.** If the portal matters enough to be a section: a CollegeFootballData paid tier ($1 to $30 a month, **REPORTED**) tested for freshness in the December window, or a Sportradar quote. Neither is worth pursuing before the product decision that the portal is a section.
 5. **247Sports and On3 permission** (sent 2026-10-24): still unanswered. Targets and composite rankings depend on it.
 6. **The wire's 90% gate:** re-measure on headlines published after 2026-11-10 (already planned).
-7. **Not verified in this audit:** every **REPORTED** row in section 5. The primary pages should be read by a person, or from an environment that can reach them, before any of them carries a decision.
+7. **Two sources of playoff odds.** If ESPN's projections are shown, do they sit beside Kalshi's in Season Outlook or replace them for teams Kalshi does not price?
+8. **Not verified in this audit:** every **REPORTED** row in section 5. The primary pages should be read by a person, or from an environment that can reach them, before any of them carries a decision.
