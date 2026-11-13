@@ -1,7 +1,16 @@
 {
  "team": "duke",
- "updated": "2026-11-13T19:38:04.470979+00:00",
+ "updated": "2026-11-13T20:08:03.577870+00:00",
  "items": [
+  {
+   "title": "Blue Devils Visit Miami Saturday",
+   "link": "https://goduke.com/news/2026/11/13/football-blue-devils-visit-miami-saturday",
+   "source": "Duke Athletics",
+   "summary": "<img alt=\"Duke Travels to NC State for In-State Clash. November 7, 2026.\" src=\"https://goduke.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/20261107_FB_NCST_JF-36.jpg\" /><br /><br />Duke football goes for its eighth win as it heads to Miami to face the fifth-ranked Hurricanes at 12 noon\u00a0on ABC.",
+   "image": "https://goduke.com/images/2026/11/7/20261107_FB_NCST_JF-36.jpg?width=800",
+   "sourceLogo": "https://goduke.com/favicon.ico",
+   "published": "2026-11-13T19:51:00+00:00"
+  },
   {
    "title": "Football preview: Duke at No. 5 Miami",
    "link": "https://on3.com/sites/devils-illustrated/news/football-preview-duke-at-no-5-miami/",
@@ -289,15 +298,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1713,h_963,x_620,y_10/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/blue_devil_country/01m6w2345mm0g6qx555y.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-08T12:30:00+00:00"
-  },
-  {
-   "title": "Duke Explodes in Second Quarter, Tops NCSU 41-3",
-   "link": "https://goduke.com/news/2026/11/7/football-duke-explodes-in-second-quarter-tops-ncsu-41-3",
-   "source": "Duke Athletics",
-   "summary": "<img alt=\"Duke running back Nate Sheppard, wearing a black helmet, white jersey and black pants, holds the ball and runs down the field during Duke's 41-3 victory at NC State on November 7, 2026.\" src=\"https://goduke.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/fb_duke_ncsu_20261107_0082.jpg\" /><br /><br />A week after setting the school record with five rushing touchdowns, sophomore Nate Sheppard added three more to carry Duke to a 41-3 victory at NC State.",
-   "image": "https://goduke.com/images/2026/11/9/fb_duke_ncsu_20261107_0082.jpg?width=800",
-   "sourceLogo": "https://goduke.com/favicon.ico",
-   "published": "2026-11-07T21:24:00+00:00"
   }
  ]
 }

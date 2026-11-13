@@ -1,7 +1,16 @@
 {
  "team": "ohio",
- "updated": "2026-11-11T06:08:05.282704+00:00",
+ "updated": "2026-11-13T20:08:11.826676+00:00",
  "items": [
+  {
+   "title": "Bobcats vs. Hunger: Game Day Food Drive",
+   "link": "https://ohiobobcats.com/news/2026/11/13/football-bobcats-vs-hunger-game-day-food-drive",
+   "source": "Ohio Athletics",
+   "summary": "<img alt=\"SAAC x Joe Burrow \" src=\"https://ohiobobcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/SAACFOODDRIVE.jpeg\" /><br /><br />ATHENS, Ohio\u2014 As the holiday season approaches, Ohio Athletics and the Student-Athlete Advisory Committee (SAAC) are teaming up with the Joe Burrow Foundation to host the annual Bobcats vs. Hunger Food Drive, benefiting Cats' Cupboard and the SE Ohio Food Pantry.",
+   "image": "https://ohiobobcats.com/images/2026/11/13/SAACFOODDRIVE.jpeg?width=800",
+   "sourceLogo": "https://ohiobobcats.com/favicon.ico",
+   "published": "2026-11-13T19:30:00+00:00"
+  },
   {
    "title": "Ohio Football Falls on The Road to Miami (OH)",
    "link": "https://ohiobobcats.com/news/2026/11/11/football-ohio-falls-on-the-road-to-miami-oh",
@@ -73,15 +82,6 @@
    "image": "https://ohiobobcats.com/images/2026/10/24/FBvsEMU_10_24_26_AM_4.jpeg?width=800",
    "sourceLogo": "https://ohiobobcats.com/favicon.ico",
    "published": "2026-10-25T01:28:00+00:00"
-  },
-  {
-   "title": "Ohio Football Looks to Continue Momentum against EMU",
-   "link": "https://ohiobobcats.com/news/2026/10/20/ohio-football-looks-to-win-17th-straight-at-home",
-   "source": "Ohio Athletics",
-   "summary": "<img alt=\"Touchdown Celebration\" src=\"https://ohiobobcats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/20/FB_VS_SAC_10_17_2026_AD_53.JPG\" /><br /><br />FOLLOW OHIO FOOTBALL:\u00a0Facebook\u00a0|\u00a0Twitter\u00a0|\u00a0Instagram",
-   "image": "https://ohiobobcats.com/images/2026/10/20/FB_VS_SAC_10_17_2026_AD_53.JPG?width=800",
-   "sourceLogo": "https://ohiobobcats.com/favicon.ico",
-   "published": "2026-10-20T19:27:00+00:00"
   }
  ]
 }
