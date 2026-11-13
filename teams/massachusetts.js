@@ -30,6 +30,12 @@ var TEAM_CONFIG = {
 
     // The MAC's availability reports (tools/producers/conference_availability.py).
     official: {
+      // This season's game notes, linked from the notes page under this label
+      // (survey of 2026-11-12; tools/producers/official_notes.py). Read for the
+      // pronunciation guide only (F4, batch 1): the rest of the layout is not read yet.
+      notesIndex: "https://umassathletics.com/sports/2026/8/10/2026-umass-football-weekly-information",
+      notesLink: "Game Notes",
+      notesReads: ["pronounce"],
       availabilityReportIndex: "https://getsomemaction.com/sports/football",
       availabilityReportLabel: "GetSomeMACtion.com",
       availabilityFeed: { provider: "hdintelligence", conference: "MAC", sport: "Football", team: "Massachusetts" }
@@ -88,6 +94,8 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for Massachusetts, each because a
   // source exists for it.
   snapshots: {
+    // How to say the players' names, from the week's game notes.
+    notes:        { file: "data/massachusetts/notes.json", label: "umassathletics.com" },
     availability: { file: "data/massachusetts/availability.json", history: "data/massachusetts/availability-history.json", label: "GetSomeMACtion.com" },
     beatNews:     { file: "data/massachusetts/news.json" },
     recruits:     { file: "data/massachusetts/recruits.json", label: "ESPN recruiting" }

@@ -21,7 +21,7 @@ on:
   # While batch 1 is built (removed before the pull request merges).
   push:
     branches: [feat/notes-readers-batch1]
-    paths: ["tools/notes_survey.py", ".github/workflows/notes-survey.yml"]
+    paths: ["tools/notes_survey.py", "tools/producers/official_notes.py", "tools/producers/pronunciations.py", ".github/workflows/notes-survey.yml"]
 
 permissions:
   contents: read
@@ -40,7 +40,9 @@ jobs:
           SAMPLE: ${{ github.event_name == 'push' || inputs.sample }}
         run: |
           if [ "${{ github.event_name }}" = push ]; then
-            python3 tools/notes_survey.py --dump --teams arizona,troy,massachusetts,virginia-tech,tulane,akron,pittsburgh,kentucky,coastal-carolina
+            for t in arizona troy massachusetts tulane akron pittsburgh coastal-carolina; do
+              echo "== $t"; python3 tools/producers/official_notes.py --team "$t" --dry-run || echo "FAILED $t"
+            done
           else
             python3 tools/notes_survey.py --teams "$TEAMS" --kind "$KIND" $([ "$SAMPLE" = true ] && echo --sample)
           fi

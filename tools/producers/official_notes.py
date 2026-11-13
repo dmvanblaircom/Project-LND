@@ -14,7 +14,16 @@ and the snapshot (snapshots.notes: file, label).
 The newest notes document on the index that is not dated in the future is
 the week's. It is read only when it is a different document or a new
 reading (gamenotes.PARSER); a reading too thin to use keeps last week's
-facts. Names no team.
+facts.
+
+A team may declare which sections are read (sources.official.notesReads).
+["pronounce"] is the reading for any school's layout (F4, batch 1; David,
+2026-11-12): only the pronunciation guide, and only names on the provider's
+roster (pronunciations.py). A notes page often files the opponent's notes
+under the same label, so the three newest of this season are tried, newest
+first, and the first that names at least MIN_SAID of our players is the
+week's; one that names none of them is remembered and not downloaded again.
+Names no team.
 """
 import argparse
 import os
@@ -25,9 +34,16 @@ from urllib.parse import urljoin
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+import json  # noqa: E402
 import teamconfig  # noqa: E402
 import gamenotes  # noqa: E402
+import pronunciations  # noqa: E402
 from official_depth import ROOT, declared, fetch, load, log, pdf_text, pdf_url, write_if_changed  # noqa: E402
+
+SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football"
+SAY_PARSER = "say-1"     # bumped when pronunciations.py's reading changes
+MIN_SAID = 5             # fewer of our players named: not our notes
+TRY = 3                  # documents tried, newest first
 
 DOC_DATE = re.compile(r"/documents/(\d{4})/(\d{1,2})/(\d{1,2})/")
 
@@ -52,20 +68,114 @@ def latest(links, today):
     return next(((d, u) for d, u in links if d <= today), None)
 
 
+def this_season(links, today):
+    """This season's documents, not dated after today, newest first."""
+    year = int(today[:4]) if today[5:7] >= "07" else int(today[:4]) - 1
+    return [(d, u) for d, u in links if "%d-07-01" % year <= d <= today]
+
+
+def roster_names(payload):
+    """The provider's roster payload -> every player's name, as the app shows it."""
+    out = []
+    for group in (payload or {}).get("athletes") or []:
+        for a in group.get("items") or []:
+            name = a.get("displayName") or a.get("fullName")
+            if name:
+                out.append(name)
+    return out
+
+
+def choose(candidates, old, skipped, read):
+    """Which document is the week's, by reading: -> (day, doc, said, unmatched,
+    newly skipped) or None when the kept one still stands or none qualifies.
+    `read(doc)` gives (said, unmatched) for one document."""
+    new = []
+    for day, doc in candidates[:TRY]:
+        if old and old.get("sourceUrl") == doc and old.get("parser") == SAY_PARSER:
+            return ("kept", new)
+        if doc in skipped:
+            continue
+        said, unmatched = read(doc)
+        if len(said) >= MIN_SAID:
+            return ("read", new, day, doc, said, unmatched)
+        new.append(doc)
+    return ("none", new)
+
+
+def say_only(args, cfg, snap, index, label, now):
+    """The reading for any school's layout: the pronunciation guide, checked
+    against the provider's roster."""
+    NOTES = snap["file"]
+    old = load(NOTES, None)
+    memo = os.path.join(ROOT, ".cadence", "notes-skipped-%s.json" % args.team)
+    kept = load(memo, None) or {}
+    skipped = set(kept.get("skipped") or []) if kept.get("parser") == SAY_PARSER else set()
+
+    html, final, _ = fetch(index)
+    links = this_season(notes_links(html.decode("utf-8", "replace"), final, label), now.strftime("%Y-%m-%d"))
+    if not links:
+        log("no %r document from this season on %s; keeping what there was" % (label, index))
+        return
+    team_id = ((cfg.get("sources") or {}).get("espn") or {}).get("teamId")
+    data, _, _ = fetch("%s/teams/%s/roster?limit=200" % (SITE, team_id))
+    names = roster_names(json.loads(data))
+    if len(names) < 40:
+        log("the provider's roster did not answer (%d names); keeping what there was" % len(names))
+        return
+    pdfs = {}
+
+    def read(doc):
+        pdfs[doc] = pdf_url(doc)
+        return pronunciations.read(pdf_text(pdfs[doc]), names)
+
+    got = choose(links, None if args.dry_run else old, set() if args.dry_run else skipped, read)
+    if got[1] and not args.dry_run:
+        os.makedirs(os.path.dirname(memo), exist_ok=True)
+        with open(memo, "w", encoding="utf-8") as f:
+            json.dump({"parser": SAY_PARSER, "skipped": sorted(skipped | set(got[1]))}, f)
+    for doc in got[1]:
+        log("not our notes (fewer than %d of our players named):" % MIN_SAID, doc.rsplit("/", 1)[-1])
+    if got[0] == "kept":
+        log("already read; nothing to do")
+        return
+    if got[0] == "none":
+        log("no document of the newest %d names our players; keeping what there was" % TRY)
+        return
+    _, _, day, doc, said, unmatched = got
+    log("notes:", doc.rsplit("/", 1)[-1], day, "- %d names said, %d lines not on the roster" % (len(said), len(unmatched)))
+    out = {"schema": 1, "team": args.team, "capability": "notes", "tier": "official",
+           "sourceUrl": doc, "sourceLabel": snap.get("label") or label, "pdf": pdfs[doc],
+           "parser": SAY_PARSER, "reads": ["pronounce"], "fetchedAt": now.isoformat(), "publishedAt": day,
+           "game": None, "pronounce": said, "captains": [], "honors": {}, "glance": [], "numbers": []}
+    if args.dry_run:
+        print("SNAPSHOT %s %s" % (args.team, json.dumps(out, ensure_ascii=False, sort_keys=True)))
+        for line in unmatched[:12]:
+            log("not on the roster:", line)
+        return
+    log("wrote:", NOTES if write_if_changed(NOTES, out, old) else "nothing - no change")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--team", required=True)
+    ap.add_argument("--dry-run", action="store_true", help="the pronunciation reading only: print the snapshot, write nothing")
     args = ap.parse_args()
 
     config = open(os.path.join(ROOT, "teams", args.team + ".js"), encoding="utf-8").read()
     index = declared(config, "notesIndex")
     label = declared(config, "notesLink")
-    snap = teamconfig.snapshot(teamconfig.load(args.team), "notes")
+    cfg = teamconfig.load(args.team)
+    snap = teamconfig.snapshot(cfg, "notes")
     if not snap:
         sys.exit("teams/%s.js declares no notes snapshot" % args.team)
+    now = datetime.now(timezone.utc)
+    reads = ((cfg.get("sources") or {}).get("official") or {}).get("notesReads")
+    if reads == ["pronounce"]:
+        return say_only(args, cfg, snap, index, label, now)
+    if reads:
+        sys.exit("teams/%s.js: notesReads %r is not a reading this producer has" % (args.team, reads))
     NOTES = snap["file"]
     old = load(NOTES, None)
-    now = datetime.now(timezone.utc)
 
     html, final, _ = fetch(index)
     links = notes_links(html.decode("utf-8", "replace"), final, label)

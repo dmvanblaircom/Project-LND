@@ -28,6 +28,12 @@ var TEAM_CONFIG = {
     // page draws (tools/producers/conference_availability.py; David,
     // 2026-10-30). The team as the file names it, seen there on 2026-10-30.
     official: {
+      // This season's game notes, linked from the notes page under this label
+      // (survey of 2026-11-12; tools/producers/official_notes.py). Read for the
+      // pronunciation guide only (F4, batch 1): the rest of the layout is not read yet.
+      notesIndex: "https://goccusports.com/sports/2026/9/3/2026-football-game-notes",
+      notesLink: "Notes",
+      notesReads: ["pronounce"],
       availabilityReportIndex: "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
       availabilityReportLabel: "SunBeltSports.org",
       availabilityFeed: { provider: "reportjson", url: "https://sbcautostorage.blob.core.windows.net/availability-reports/sunbelt-football/prod/report.json", team: "Coastal Carolina" }
@@ -94,6 +100,8 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for Coastal Carolina, each because a
   // source exists for it.
   snapshots: {
+    // How to say the players' names, from the week's game notes.
+    notes:        { file: "data/coastal-carolina/notes.json", label: "goccusports.com" },
     availability: { file: "data/coastal-carolina/availability.json", history: "data/coastal-carolina/availability-history.json", label: "SunBeltSports.org" },
     beatNews:     { file: "data/coastal-carolina/news.json" },
     recruits:     { file: "data/coastal-carolina/recruits.json", label: "ESPN recruiting" }
