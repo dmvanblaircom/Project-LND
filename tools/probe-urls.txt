@@ -1,15 +1,12 @@
-# 2026-10-27: four new teams (David: Indiana, Minnesota, North Dakota State,
-# BYU). Each one's ESPN name, colors and home venue, as ESPN spells them.
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|groups\.id|franchise\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252 | ^team\.(id|displayName|abbreviation|location|nickname|color|alternateColor|franchise\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/84/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/135/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/252/schedule | ^events\[[0-9]+\]\.(name|competitions\[0\]\.venue\.(fullName|address\.(city|state))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2449/schedule | ^events\[[0-9]+\]\.(name|date|competitions\[0\]\.venue\.fullName) = 
-# The defending national champion (David, 2026-10-27): which postseason game
-# is the title game, as ESPN labels it.
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | National Championship|Playoff
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2025&groups=80&limit=300 | ^events\[45\]\.(id|date|name|status\.type\.(completed|state)|competitions\[0\]\.(notes\[0\]\.headline|competitors\[[01]\]\.(winner|score|homeAway|team\.(id|location|displayName|shortDisplayName|abbreviation)))) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?seasontype=3&dates=2026&groups=80&limit=300 | National Championship
+# 2026-11-13: the Around data-availability audit, round 3 (David: "How different
+# are the odds between what ESPN writes and what Kalshi has?"). ESPN's own
+# playoff and title odds from the FPI feed Suite already reads, for the 78
+# teams it rates highest, to set beside Kalshi's prices in data/league/.
+# values[8] is "Prob Make Playoffs", values[10] "Prob Win Title" (round 2,
+# run 43436472570). Prints only.
+https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=80 | ^teams\[(0|1|2|3|4|5|6|7|8|9|10|11|12)\]\.(team\.displayName|categories\[0\]\.values\[(8|10)\]) = 
+https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=80 | ^teams\[(13|14|15|16|17|18|19|20|21|22|23|24|25)\]\.(team\.displayName|categories\[0\]\.values\[(8|10)\]) = 
+https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=80 | ^teams\[(26|27|28|29|30|31|32|33|34|35|36|37|38)\]\.(team\.displayName|categories\[0\]\.values\[(8|10)\]) = 
+https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=80 | ^teams\[(39|40|41|42|43|44|45|46|47|48|49|50|51)\]\.(team\.displayName|categories\[0\]\.values\[(8|10)\]) = 
+https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=80 | ^teams\[(52|53|54|55|56|57|58|59|60|61|62|63|64)\]\.(team\.displayName|categories\[0\]\.values\[(8|10)\]) = 
+https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=80 | ^teams\[(65|66|67|68|69|70|71|72|73|74|75|76|77)\]\.(team\.displayName|categories\[0\]\.values\[(8|10)\]) = 
