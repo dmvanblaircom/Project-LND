@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida",
- "updated": "2026-11-12T11:09:20.671429+00:00",
+ "updated": "2026-11-13T01:38:52.672509+00:00",
  "reports": [
   {
    "schema": 1,
@@ -271,10 +271,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:20.671429+00:00",
+   "fetchedAt": "2026-11-13T01:38:52.672509+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at Kentucky",
    "players": [
@@ -297,6 +297,13 @@
      "no": "22",
      "name": "Kofi Asare",
      "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "27",
+     "name": "Dijon Johnson",
+     "status": "doubtful",
      "detail": ""
     },
     {

@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:29.270681+00:00",
+ "fetchedAt": "2026-11-13T01:39:01.374109+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "at LSU",
  "players": [
@@ -19,6 +19,13 @@
    "no": "2",
    "name": "Hollywood Smothers",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "54",
+   "name": "Cole Hutson",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -39,7 +46,7 @@
    "pos": "DL",
    "no": "93",
    "name": "Hero Kanu",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

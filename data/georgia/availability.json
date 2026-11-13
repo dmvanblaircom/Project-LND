@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:21.198464+00:00",
+ "fetchedAt": "2026-11-13T01:38:53.207814+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Missouri",
  "players": [
@@ -19,6 +19,13 @@
    "no": "17",
    "name": "Amaris Williams",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "74",
+   "name": "Drew Bobo",
+   "status": "questionable",
    "detail": ""
   },
   {

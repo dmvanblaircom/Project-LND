@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-carolina",
- "updated": "2026-11-12T11:09:28.178135+00:00",
+ "updated": "2026-11-13T01:39:00.283337+00:00",
  "reports": [
   {
    "schema": 1,
@@ -467,10 +467,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:28.178135+00:00",
+   "fetchedAt": "2026-11-13T01:39:00.283337+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at Arkansas",
    "players": [
@@ -478,28 +478,28 @@
      "pos": "WR",
      "no": "1",
      "name": "Nitro Tuggle",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "8",
      "name": "Nyck Harbor",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "14",
      "name": "J’Zavien Currence",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "QB",
      "no": "16",
      "name": "LaNorris Sellers",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

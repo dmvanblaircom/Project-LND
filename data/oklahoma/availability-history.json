@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-11-12T11:09:26.242300+00:00",
+ "updated": "2026-11-13T01:38:58.329573+00:00",
  "reports": [
   {
    "schema": 1,
@@ -539,10 +539,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:26.242300+00:00",
+   "fetchedAt": "2026-11-13T01:38:58.329573+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "vs. Ole Miss",
    "players": [
@@ -589,24 +589,10 @@
      "detail": ""
     },
     {
-     "pos": "DB",
-     "no": "24",
-     "name": "Jacobe Johnson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "LB",
      "no": "47",
      "name": "James Nesta",
      "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "55",
-     "name": "Eddy Pierre-Louis",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -628,6 +614,13 @@
      "no": "72",
      "name": "Fred Hinton",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "Kenny Ozowalu",
+     "status": "questionable",
      "detail": ""
     }
    ],

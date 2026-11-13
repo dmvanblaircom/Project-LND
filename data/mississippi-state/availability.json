@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:24.892273+00:00",
+ "fetchedAt": "2026-11-13T01:38:56.963174+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Auburn",
  "players": [
@@ -40,13 +40,6 @@
    "no": "10",
    "name": "Jalen Smith",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "11",
-   "name": "Tyler Lockhart",
-   "status": "probable",
    "detail": ""
   },
   {
