@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "team": "notre-dame",
- "updated": "2026-11-09T21:08:32.840428+00:00",
+ "updated": "2026-11-13T12:38:39.402816+00:00",
  "snapshots": [
   {
    "schema": 2,
@@ -9702,7 +9702,7 @@
    "sourceLabel": "FightingIrish.com",
    "title": "DEPTH CHART - GAME 10 VS BOSTON COLLEGE",
    "game": "Boston College",
-   "fetchedAt": "2026-11-09T21:08:32.840428+00:00",
+   "fetchedAt": "2026-11-13T12:38:39.402816+00:00",
    "units": [
     {
      "unit": "Defense",
@@ -9881,7 +9881,7 @@
          "players": [
           {
            "no": "16",
-           "name": "Ko’ o Kia",
+           "name": "Ko’o Kia",
            "cl": "So."
           }
          ]
@@ -10720,8 +10720,8 @@
    "changes": [
     {
      "kind": "enters",
-     "name": "Ko’ o Kia",
-     "text": "Ko’ o Kia enters the depth chart at MIKE, third team"
+     "name": "Ko’o Kia",
+     "text": "Ko’o Kia enters the depth chart at MIKE, third team"
     },
     {
      "kind": "up",
