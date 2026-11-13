@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wake-forest",
- "updated": "2026-11-12T11:09:31.748424+00:00",
+ "updated": "2026-11-13T02:08:54.950002+00:00",
  "reports": [
   {
    "schema": 1,
@@ -280,10 +280,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:31.748424+00:00",
+   "fetchedAt": "2026-11-13T02:08:54.950002+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at SMU",
    "players": [
@@ -312,7 +312,7 @@
      "pos": "LB",
      "no": "21",
      "name": "Aiden Hall",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
