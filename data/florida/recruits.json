@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "57",
  "classYear": 2027,
- "listed": 26,
+ "listed": 27,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -334,6 +334,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272646",
+   "name": "Moreno Fisher",
+   "position": "OT",
+   "highSchool": "Hough High School",
+   "city": "Cornelius",
+   "state": "NC",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 117,
+   "stateRank": 40,
+   "status": "Verbal"
+  },
+  {
    "id": "272647",
    "name": "Jaydee Lane",
    "position": "LS",
@@ -347,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:40Z"
+ "fetchedAt": "2026-11-13T17:40Z"
 }

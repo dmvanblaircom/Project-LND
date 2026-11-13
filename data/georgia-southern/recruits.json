@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "290",
  "classYear": 2027,
- "listed": 13,
+ "listed": 14,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "266367",
+   "name": "Gregory Batson",
+   "position": "ILB",
+   "highSchool": "Lee County High School",
+   "city": "Leesburg",
+   "state": "GA",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 12,
+   "stateRank": 47,
+   "status": "Verbal"
+  },
   {
    "id": "272599",
    "name": "La'Gracion Little",
@@ -178,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:41Z"
+ "fetchedAt": "2026-11-13T17:40Z"
 }

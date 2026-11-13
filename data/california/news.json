@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-13T17:08:01.482613+00:00",
+ "updated": "2026-11-13T17:38:03.683176+00:00",
  "items": [
+  {
+   "title": "The Beauty Of All The Steps",
+   "link": "https://calbears.com/news/2026/11/13/football-the-beauty-of-all-the-steps",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Inside Cal Football: The Beauty Of All The Steps\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/Inside_Cal_FB_Feature_WebOKOYE.jpg\" /><br /><br />Emmanuel Okoye's Sees Beauty In His Journey From Nigera To Berkeley",
+   "image": "https://calbears.com/images/2026/11/13/Inside_Cal_FB_Feature_WebOKOYE.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-13T17:30:00+00:00"
+  },
   {
    "title": "Cal Football Game Preview: Slumping Bears Vs. Slumping Virginia",
    "link": "https://www.si.com/college/cal/football/cal-football-game-preview-slumping-bears-vs-slumping-virginia-01m78ke5h72q?utm_source=RSS",
@@ -280,15 +289,6 @@
    "image": "https://calbears.com/images/2026/10/31/DSC08085.JPG?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-10-31T20:27:00+00:00"
-  },
-  {
-   "title": "The Riverboat Way",
-   "link": "https://calbears.com/news/2026/10/29/football-the-riverboat-way",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Inside Cal Football: The Riverboat Way \" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/29/Inside_Cal_FB_Feature_WebRIV.jpg\" /><br /><br />Ron Rivera Reflects On Seeking Advice From John Madden And How It Influenced His Career",
-   "image": "https://calbears.com/images/2026/10/29/Inside_Cal_FB_Feature_WebRIV.jpg?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-10-29T20:15:00+00:00"
   }
  ]
 }

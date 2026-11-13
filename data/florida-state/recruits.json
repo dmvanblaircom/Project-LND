@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "52",
  "classYear": 2027,
- "listed": 14,
+ "listed": 13,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -58,19 +58,6 @@
    "rank": 288,
    "positionRank": 43,
    "stateRank": 34,
-   "status": "Verbal"
-  },
-  {
-   "id": "267514",
-   "name": "Za'Kari Johnson",
-   "position": "ATH",
-   "highSchool": "Carol City High School",
-   "city": "Miami",
-   "state": "FL",
-   "grade": 80,
-   "rank": 294,
-   "positionRank": 15,
-   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -191,5 +178,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:40Z"
+ "fetchedAt": "2026-11-13T17:40Z"
 }

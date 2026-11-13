@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "277",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,19 +19,6 @@
    "rank": null,
    "positionRank": 57,
    "stateRank": 11,
-   "status": "Verbal"
-  },
-  {
-   "id": "271868",
-   "name": "Jacobi Pasley",
-   "position": "WR",
-   "highSchool": "Bradwell Institute",
-   "city": "Hinesville",
-   "state": "GA",
-   "grade": 80,
-   "rank": null,
-   "positionRank": 53,
-   "stateRank": 42,
    "status": "Verbal"
   },
   {
@@ -321,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:46Z"
+ "fetchedAt": "2026-11-13T17:46Z"
 }
