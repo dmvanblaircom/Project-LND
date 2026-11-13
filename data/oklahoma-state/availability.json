@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:26.366928+00:00",
+ "fetchedAt": "2026-11-13T03:08:40.447248+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Texas Tech",
  "players": [
@@ -33,13 +33,6 @@
    "no": "44",
    "name": "Carson Kolb",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "54",
-   "name": "Johnny Dickson III",
-   "status": "probable",
    "detail": ""
   },
   {

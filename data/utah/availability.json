@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:30.909638+00:00",
+ "fetchedAt": "2026-11-13T03:08:44.111719+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "at Arizona",
  "players": [
@@ -22,24 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "11",
-   "name": "Elijah Reed",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DT",
    "no": "51",
    "name": "Karson Kaufusi",
    "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "LS",
-   "no": "65",
-   "name": "Logan Castor",
-   "status": "probable",
    "detail": ""
   }
  ],

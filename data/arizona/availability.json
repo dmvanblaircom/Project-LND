@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:16.198900+00:00",
+ "fetchedAt": "2026-11-13T03:08:23.016512+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Utah",
  "players": [
@@ -32,14 +32,14 @@
    "pos": "TE",
    "no": "8",
    "name": "Shane King",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "13",
    "name": "Cam Chapa",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -67,7 +67,7 @@
    "pos": "S",
    "no": "35",
    "name": "Quinn Olson",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

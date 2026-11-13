@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado-state",
- "updated": "2026-11-12T03:38:49.616332+00:00",
+ "updated": "2026-11-13T03:08:30.500534+00:00",
  "reports": [
   {
    "schema": 1,
@@ -197,102 +197,25 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T03:38:49.616332+00:00",
+   "fetchedAt": "2026-11-13T03:08:30.500534+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at Washington State",
    "players": [
     {
      "pos": "ILB",
      "no": "",
-     "name": "TREY VINCENT",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
-     "name": "OUMAR DIOMANDE",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
      "name": "ANTARRON TURNER",
-     "status": "probable",
+     "status": "questionable",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "",
      "name": "MAKIH JOHNSON",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "",
-     "name": "DURELL ROBINSON",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "",
-     "name": "MEL BROWN",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "JACE BELLAH",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "JAYDEN CORTELL",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "DAGAN MYERS",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "PHIL OCON",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "AJ NOLAND",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "ALTON TARBOR",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
-     "name": "JACKSON HARPER",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -328,13 +251,6 @@
      "no": "",
      "name": "ELIJAH MCCANTOS",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "JORDAN LESSARD",
-     "status": "probable",
      "detail": ""
     }
    ],

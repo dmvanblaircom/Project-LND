@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "houston",
- "updated": "2026-11-12T03:08:46.917081+00:00",
+ "updated": "2026-11-13T03:08:31.789994+00:00",
  "reports": [
   {
    "schema": 1,
@@ -265,10 +265,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T03:08:46.917081+00:00",
+   "fetchedAt": "2026-11-13T03:08:31.789994+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-13",
    "game": "at Colorado",
    "players": [
@@ -304,7 +304,7 @@
      "pos": "DL",
      "no": "92",
      "name": "Travis Buhake",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

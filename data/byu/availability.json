@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:19.045237+00:00",
+ "fetchedAt": "2026-11-13T03:08:29.664800+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Initial",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-14",
  "game": "vs. Baylor",
  "players": [
@@ -39,20 +39,27 @@
    "pos": "LB",
    "no": "16",
    "name": "Isaiah Glasker",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "28",
    "name": "Crew Clark",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "83",
    "name": "Will Zundel",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "84",
+   "name": "Kila Keone",
    "status": "out-game",
    "detail": ""
   }

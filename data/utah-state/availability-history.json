@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utah-state",
- "updated": "2026-11-12T03:39:00.258246+00:00",
+ "updated": "2026-11-13T03:08:44.204762+00:00",
  "reports": [
   {
    "schema": 1,
@@ -218,10 +218,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T03:39:00.258246+00:00",
+   "fetchedAt": "2026-11-13T03:08:44.204762+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at San Diego State",
    "players": [
@@ -250,7 +250,7 @@
      "pos": "OL",
      "no": "",
      "name": "K'Leyone Iosua",
-     "status": "doubtful",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -292,7 +292,7 @@
      "pos": "RB",
      "no": "",
      "name": "Javen Jacobs",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

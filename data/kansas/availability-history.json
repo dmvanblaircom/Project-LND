@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kansas",
- "updated": "2026-11-12T11:09:22.636012+00:00",
+ "updated": "2026-11-13T03:08:37.461233+00:00",
  "reports": [
   {
    "schema": 1,
@@ -476,10 +476,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T11:09:22.636012+00:00",
+   "fetchedAt": "2026-11-13T03:08:37.461233+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-11",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-12",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-14",
    "game": "at West Virginia",
    "players": [
@@ -494,7 +494,7 @@
      "pos": "WR",
      "no": "12",
      "name": "Bryson Hayes",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -543,14 +543,7 @@
      "pos": "OL",
      "no": "79",
      "name": "Connor Stroh",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "DT",
-     "no": "88",
-     "name": "Kevin Oatis",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     }
    ],

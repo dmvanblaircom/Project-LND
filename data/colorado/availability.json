@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T03:08:45.459225+00:00",
+ "fetchedAt": "2026-11-13T03:08:30.405841+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-12",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-13",
  "game": "vs. Houston",
  "players": [
@@ -67,7 +67,7 @@
    "pos": "K",
    "no": "46",
    "name": "Elliot Arnold",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
