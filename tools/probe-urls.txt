@@ -1,34 +1,20 @@
 # 2026-11-13: the Around data-availability audit (David: "Probe to settle
-# standings, national news, etc."; docs/product/around-data-availability-audit.md
-# section 10 item 1). ESPN reads Suite does not make today. Prints only.
+# standings, national news, etc."; docs/product/around-data-availability-audit.md).
+# ESPN reads Suite does not make today. Prints only.
+# Round 1 (run 43436311504, this file's previous commit): standings on both
+# routes, the team's standing line, national news, awards, coaches, the FPI
+# feed, a named week's scoreboard, transactions. Round 2, below: what round 1
+# left open.
 #
-# Conference standings: the site route, then the core route for one
-# conference (group 5) and the FBS's conferences (group 80's children).
-https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^(name|abbreviation|seasons?\b.*year|children\[\d+\]\.(name|abbreviation|id)) = 
-https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^children\[0\]\.(children\[0\]\.)?standings\.entries\[0\]\.(team\.(id|displayName)|stats\[\d+\]\.(name|displayValue)) = 
-https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026&group=80 | ^children\[(0|1)\]\.(children\[0\]\.)?standings\.entries\[(0|1)\]\.(team\.(id|displayName)|stats\[\d+\]\.(name|displayValue)) = .*(vs\. Conf|conf|overall|wins|losses|streak|playoffSeed|rank|[0-9]+-[0-9]+)
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/groups/80/children?limit=50 | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/groups/5/standings | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/types/2/groups/5/standings/1 | ^(name|displayName|standings\[(0|1)\]\.(team\.\$ref|records\[\d+\]\.(name|type|summary|displayValue))) = 
-# One team's own standing line, from the team read Suite already makes.
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/194 | ^team\.(standingSummary|record\.items\[\d+\]\.(type|description|summary)|groups\.(id|parent\.id|isConference)) = 
-# National headlines: the news read without a team.
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/news?limit=30 | ^articles\[\d+\]\.(headline|published|type) = 
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/news?limit=30 | ^articles\[(0|1|2)\]\.(categories\[\d+\]\.(type|description|teamId|athleteId)|links\.web\.href|premium) = 
-# Awards: last season's (winners known), this season's so far, one team's.
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/awards?limit=100 | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/awards/9 | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/awards?limit=100 | ^(count|items\[(0|1)\]\.\$ref) = 
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/teams/194/awards | .
-# Coaches: one team's, and the league's.
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/teams/194/coaches | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/coaches?limit=200 | ^(count|pageCount|items\[(0|1|2)\]\.\$ref) = 
-# FPI: what the feed Suite reads carries beyond the rating (playoff and
-# conference odds), and the core route's version for one team.
-https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=2 | ^(categories\[\d+\]\.(name|labels\[\d+\]|descriptions\[\d+\])|teams\[0\]\.(team\.displayName|categories\[\d+\]\.(name|values\[\d+\]))) = 
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/powerindex/194 | ^stats\[\d+\]\.(name|displayName|displayValue) = 
-# The scoreboard for a named week, and the season's list of weeks.
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&limit=400&seasontype=2&week=5&dates=2026 | ^(week\.number|season\.(year|type)|events\[(0|1)\]\.(date|shortName)|leagues\[0\]\.calendar\[0\]\.entries\[\d+\]\.(label|startDate)) = 
-# A transactions feed, if ESPN has one for college football.
-https://site.api.espn.com/apis/site/v2/sports/football/college-football/transactions | .
-https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/transactions?limit=5 | .
+# What the FPI feed's columns are, beyond the rating.
+https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?region=us&lang=en&season=2026&limit=2 | ^categories\[0\]\.(labels|descriptions|displayNames|names)\[\d+\] = 
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/powerindex/194 | ^predictives\[\d+\]\.(name|displayName|displayValue) = 
+# One conference from the site route: is it lighter, and in what order.
+https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026&group=5 | ^(name|children\[\d+\]\.name|standings\.entries\[\d+\]\.team\.displayName) = 
+https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026&group=5 | ^standings\.entries\[(0|1|2)\]\.stats\[\d+\]\.(displayValue|name) = .*("overall"|"vs\. Conf\."|"[0-9]+-[0-9]+"|"playoffSeed"|"streak"|"[WL][0-9]+")
+# A coach's record, and what one team's awards are.
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2026/coaches/4369610 | ^(id|firstName|lastName|experience|team\.\$ref|records\.\$ref|careerRecords|college\.\$ref|coachSeasons) = 
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/awards/10 | ^(name|description|winners\[\d+\]\.(athlete|team)\.\$ref) = 
+https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/2025/awards/30 | ^(name|description|winners\[\d+\]\.(athlete|team)\.\$ref) = 
+# How many national headlines one request returns, and of what kinds.
+https://site.api.espn.com/apis/site/v2/sports/football/college-football/news?limit=50 | ^articles\[(1[4-9]|[2-4][0-9])\]\.type = 
