@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-12T23:08:13.311963+00:00",
+ "updated": "2026-11-13T11:38:15.334184+00:00",
  "items": [
+  {
+   "title": "Preview: Cavaliers set to host Cal in must-win game",
+   "link": "https://on3.com/sites/cavs-corner/news/preview-cavaliers-set-to-host-cal-in-must-win-game/",
+   "source": "CavsCorner",
+   "summary": "We break down the matchup between Cal and UVa on Saturday afternoon in Charlottesville (3:30 p.m., ACC Network).",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/12160322/2026-10-24T165939Z_392047244_MT1USATODAY30173669_RTRMADP_3_NCAA-FOOTBALL-CALIFORNIA-AT-SOUTHERN-METHODIST.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-13T11:30:00+00:00"
+  },
   {
    "title": "Three Virginia players who must step up against California on Saturday",
    "link": "https://www.si.com/college/virginia/football/three-virginia-players-who-must-step-up-against-california-on-saturday-01m783apx62w?utm_source=RSS",
@@ -262,15 +271,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/09/17052747/USATSI_27072439-scaled.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-28T10:30:00+00:00"
-  },
-  {
-   "title": "CavsCorner 4-3-4 Breakdown: The Final Drive",
-   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-4-3-4-breakdown-the-final-drive/",
-   "source": "CavsCorner",
-   "summary": "In his latest feature for CavsCorner, Deuce Prince breaks down the good, the bad, and the ugly of UVa's ultimately unsuccessful 2-minute drive against Duke.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09193132/Deuce-Prince-blue.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-27T10:52:06+00:00"
   }
  ]
 }
