@@ -119,6 +119,15 @@ reads.clear()
 none = N.choose([("2026-11-09", "theirs-a"), ("2026-11-08", "theirs-b"), ("2026-11-07", "theirs-c"), ("2026-11-01", "ours-old")], None, set(), read)
 ok(none == ("none", ["theirs-a", "theirs-b", "theirs-c"]) and len(reads) == N.TRY, "only the newest three are tried; with none ours, what there was stays")
 ok(N.choose(season, {"sourceUrl": "ours-g10", "parser": "say-0"}, set(), read)[0] == "read", "a changed reading reads the same document again")
+def no_roster(doc):
+    raise N.NoRoster(3)
+
+
+try:
+    N.choose(season, None, set(), no_roster)
+    ok(False, "a roster that did not answer stops the reading")
+except N.NoRoster:
+    ok(True, "a roster that did not answer stops the reading: no document is judged, none remembered as skipped")
 ok(N.roster_names({"athletes": [{"items": [{"displayName": "A B"}, {"fullName": "C D"}]}, {"items": [{}]}]}) == ["A B", "C D"],
    "the provider's roster, every group")
 

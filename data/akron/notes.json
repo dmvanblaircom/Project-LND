@@ -1,0 +1,35 @@
+{
+ "capability": "notes",
+ "captains": [],
+ "fetchedAt": "2026-11-13T05:41:23.719884+00:00",
+ "game": null,
+ "glance": [],
+ "honors": {},
+ "numbers": [],
+ "parser": "say-1",
+ "pdf": "https://gozips.com/documents/download/2026/11/9/26_UA_FB_Notes_10-WMU.pdf",
+ "pronounce": {
+  "Austin Wondolowski": "Austin JUAN-DOE-LAU-SKI",
+  "Brayden Roggow": "Brayden ROW-GO",
+  "Cibastian Broughton": "SEBASTIAN BROUGHT-TON",
+  "Dahvon Frazier": "DUH-VON FRAY-ZURE",
+  "Iesa Jarmon": "EEE-SUH JAR-MUN",
+  "Jahvon Frazier": "JUH-VON FRAY-ZURE",
+  "Jean Louis III": "Jean LOUIE",
+  "Keyveon Johnson": "KAY-VEE-ON Johnson",
+  "Luke Sivon": "Luke SUH-von",
+  "Matthew Schramm": "Matthew SURE-AMM",
+  "Nick Stopiak": "Nick STOW-PI-ACK",
+  "Semaj Beals": "suh-MAJH Beals",
+  "Yaseen DeReese": "YAH-seen DUH-Reese"
+ },
+ "publishedAt": "2026-11-09",
+ "reads": [
+  "pronounce"
+ ],
+ "schema": 1,
+ "sourceLabel": "gozips.com",
+ "sourceUrl": "https://gozips.com/documents/2026/11/9/26_UA_FB_Notes_10-WMU.pdf",
+ "team": "akron",
+ "tier": "official"
+}

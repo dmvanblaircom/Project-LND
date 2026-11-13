@@ -1,6 +1,8 @@
 # Survey other schools' game notes with the reader as it stands (F4: readers
 # for every school's notes; tools/notes_survey.py). Prints counts, link
-# labels and section headings only; stores and commits nothing.
+# labels and section headings only. With "reader", runs the notes producer
+# for the named teams as a dry run instead: the snapshot it would write and
+# the lines it found no player for. Either way it stores and commits nothing.
 name: Survey game notes
 
 on:
@@ -18,10 +20,10 @@ on:
         description: "Print a few lines of each section the app shows, not the headings"
         default: true
         type: boolean
-  # While batch 1 is built (removed before the pull request merges).
-  push:
-    branches: [feat/notes-readers-batch1]
-    paths: ["tools/notes_survey.py", "tools/producers/official_notes.py", "tools/producers/pronunciations.py", ".github/workflows/notes-survey.yml"]
+      reader:
+        description: "Dry-run the notes producer for the teams named above (they must declare notesReads), not the survey"
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -36,11 +38,13 @@ jobs:
       - name: Survey
         env:
           TEAMS: ${{ inputs.teams }}
-          KIND: ${{ inputs.kind || 'index' }}
-          SAMPLE: ${{ github.event_name == 'push' || inputs.sample }}
+          KIND: ${{ inputs.kind }}
+          SAMPLE: ${{ inputs.sample }}
+          READER: ${{ inputs.reader }}
         run: |
-          if [ "${{ github.event_name }}" = push ]; then
-            for t in arizona troy massachusetts tulane akron pittsburgh coastal-carolina; do
+          if [ "$READER" = true ]; then
+            for t in $(printf '%s' "$TEAMS" | tr ',' ' '); do
+              case "$t" in *[!a-z0-9-]*) echo "not a team id: skipped"; continue;; esac
               echo "== $t"; python3 tools/producers/official_notes.py --team "$t" --dry-run || echo "FAILED $t"
             done
           else

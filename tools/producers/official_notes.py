@@ -44,6 +44,8 @@ SITE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football"
 SAY_PARSER = "say-1"     # bumped when pronunciations.py's reading changes
 MIN_SAID = 5             # fewer of our players named: not our notes
 TRY = 3                  # documents tried, newest first
+# a roster shorter than this is an answer that failed, not a team
+MIN_ROSTER = 40
 
 DOC_DATE = re.compile(r"/documents/(\d{4})/(\d{1,2})/(\d{1,2})/")
 
@@ -85,6 +87,10 @@ def roster_names(payload):
     return out
 
 
+class NoRoster(Exception):
+    """The provider's roster came back too short to referee a reading."""
+
+
 def choose(candidates, old, skipped, read):
     """Which document is the week's, by reading: -> (day, doc, said, unmatched,
     newly skipped) or None when the kept one still stands or none qualifies.
@@ -117,18 +123,26 @@ def say_only(args, cfg, snap, index, label, now):
         log("no %r document from this season on %s; keeping what there was" % (label, index))
         return
     team_id = ((cfg.get("sources") or {}).get("espn") or {}).get("teamId")
-    data, _, _ = fetch("%s/teams/%s/roster?limit=200" % (SITE, team_id))
-    names = roster_names(json.loads(data))
-    if len(names) < 40:
-        log("the provider's roster did not answer (%d names); keeping what there was" % len(names))
-        return
-    pdfs = {}
+    pdfs, roster = {}, []
 
     def read(doc):
+        # the roster is asked for only when there is a document to read: on
+        # most runs the week's notes are already read and nothing is fetched
+        if not roster:
+            data, _, _ = fetch("%s/teams/%s/roster?limit=200" % (SITE, team_id))
+            roster.extend(roster_names(json.loads(data)))
+            if len(roster) < MIN_ROSTER:
+                raise NoRoster(len(roster))
         pdfs[doc] = pdf_url(doc)
-        return pronunciations.read(pdf_text(pdfs[doc]), names)
+        return pronunciations.read(pdf_text(pdfs[doc]), roster)
 
-    got = choose(links, None if args.dry_run else old, set() if args.dry_run else skipped, read)
+    try:
+        got = choose(links, None if args.dry_run else old, set() if args.dry_run else skipped, read)
+    except NoRoster as e:
+        # without the referee no document can be judged ours or not: nothing
+        # is remembered as skipped, and what there was stays
+        log("the provider's roster did not answer (%s names); keeping what there was" % e)
+        return
     if got[1] and not args.dry_run:
         os.makedirs(os.path.dirname(memo), exist_ok=True)
         with open(memo, "w", encoding="utf-8") as f:
