@@ -1,6 +1,6 @@
 {
 "team": "notre-dame",
-"updated": "2026-11-13T02:07Z",
+"updated": "2026-11-13T06:07Z",
 "points": [
 {
 "t": "2026-09-16T04:28Z",
@@ -3497,6 +3497,13 @@
 "title": 16.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 93.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-13T06:07Z",
+"title": 16.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 93.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
