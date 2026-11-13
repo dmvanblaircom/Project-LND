@@ -1,6 +1,6 @@
 {
 "team": "oklahoma-state",
-"updated": "2026-11-13T04:07Z",
+"updated": "2026-11-13T10:07Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -795,6 +795,13 @@
 },
 {
 "t": "2026-11-13T04:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 6.0,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-13T10:07Z",
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 6.0,
