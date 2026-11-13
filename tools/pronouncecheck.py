@@ -119,6 +119,13 @@ reads.clear()
 none = N.choose([("2026-11-09", "theirs-a"), ("2026-11-08", "theirs-b"), ("2026-11-07", "theirs-c"), ("2026-11-01", "ours-old")], None, set(), read)
 ok(none == ("none", ["theirs-a", "theirs-b", "theirs-c"]) and len(reads) == N.TRY, "only the newest three are tried; with none ours, what there was stays")
 ok(N.choose(season, {"sourceUrl": "ours-g10", "parser": "say-0"}, set(), read)[0] == "read", "a changed reading reads the same document again")
+ok(N.refused("ohio-state", None, True) and "nothing was read or written" in N.refused("ohio-state", None, True),
+   "a dry run of a team read whole is refused before anything is fetched or written (Codex, #258)")
+ok(N.refused("ohio-state", None, False) is None and N.refused("arizona", ["pronounce"], True) is None
+   and N.refused("arizona", ["pronounce"], False) is None, "the whole reading, and the pronunciation reading dry or not, go on")
+ok("not a reading" in N.refused("arizona", ["numbers"], False), "a reading this producer does not have is refused")
+
+
 def no_roster(doc):
     raise N.NoRoster(3)
 

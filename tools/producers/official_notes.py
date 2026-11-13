@@ -169,6 +169,17 @@ def say_only(args, cfg, snap, index, label, now):
     log("wrote:", NOTES if write_if_changed(NOTES, out, old) else "nothing - no change")
 
 
+def refused(team, reads, dry_run):
+    """Why this run must not go on, or None. A dry run exists only for the
+    pronunciation reading: the whole reading has none, and would write its
+    snapshot under a flag that promises it writes nothing (Codex, #258)."""
+    if reads and reads != ["pronounce"]:
+        return "teams/%s.js: notesReads %r is not a reading this producer has" % (team, reads)
+    if dry_run and reads != ["pronounce"]:
+        return "teams/%s.js is read whole: --dry-run is the pronunciation reading's only, and nothing was read or written" % team
+    return None
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--team", required=True)
@@ -184,10 +195,11 @@ def main():
         sys.exit("teams/%s.js declares no notes snapshot" % args.team)
     now = datetime.now(timezone.utc)
     reads = ((cfg.get("sources") or {}).get("official") or {}).get("notesReads")
+    no = refused(args.team, reads, args.dry_run)
+    if no:
+        sys.exit(no)
     if reads == ["pronounce"]:
         return say_only(args, cfg, snap, index, label, now)
-    if reads:
-        sys.exit("teams/%s.js: notesReads %r is not a reading this producer has" % (args.team, reads))
     NOTES = snap["file"]
     old = load(NOTES, None)
 
