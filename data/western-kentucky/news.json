@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-12T17:38:26.091440+00:00",
+ "updated": "2026-11-13T19:38:21.878497+00:00",
  "items": [
+  {
+   "title": "Know Before You Go: 2026 Football Gameday Information",
+   "link": "https://wkusports.com/news/2026/11/13/know-before-you-go-2026-football-gameday-information",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"WKU FB 26 \u2013 Gameday Guide\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/8/3/WKU_FB_26___Gameday_Guide.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/8/3/WKU_FB_26___Gameday_Guide.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-13T19:30:00+00:00"
+  },
   {
    "title": "Hilltoppers Host Jax State For Homecoming On Saturday",
    "link": "https://wkusports.com/news/2026/11/12/football-hilltoppers-host-jax-state-for-homecoming-on-saturday",
@@ -82,15 +91,6 @@
    "image": "https://wkusports.com/images/2026/11/2/Tyson.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-02T17:22:00+00:00"
-  },
-  {
-   "title": "Hilltoppers Fall To Delaware",
-   "link": "https://wkusports.com/news/2026/10/27/football-hilltoppers-fall-to-delaware",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"Zion Taylor\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/10/27/Zion_Taylor.png\" /><br /><br />BOWLING GREEN, Ky. \u2013 WKU Football lost to Delaware 35-21 on Tuesday at Houchens-Smith Stadium.",
-   "image": "https://wkusports.com/images/2026/10/27/Zion_Taylor.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-10-28T04:21:00+00:00"
   }
  ]
 }

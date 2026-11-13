@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-12T16:38:14.594389+00:00",
+ "updated": "2026-11-13T19:38:10.378336+00:00",
  "items": [
+  {
+   "title": "Anchors Aweigh Podcast: Michael Kelly Talks Playoff, Army-Navy",
+   "link": "https://on3.com/sites/the-mid-report/news/anchors-aweigh-podcast-michael-kelly-talks-playoff-army-navy/",
+   "source": "The Mid Report",
+   "summary": "The Army-Navy Game, presented by USAA, will shift to the first Saturday of December starting in 2027. Navy athletic director Michael Kelly talks about the date change and maintaining an exclusive window for \u201cAmerica\u2019s Game.\u201d We break down the wild 42-35 defeat of Temple with Mike James, publisher of The Mid Report and color commentator [&#8230;]",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/03/25154630/AnchorsAweigh-e1774471802992.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-13T19:30:26+00:00"
+  },
   {
    "title": "Navy Athletics and Under Armour Unveil 2026 Army-Navy Uniform Honoring Naval Special Warfare",
    "link": "https://navysports.com/news/2026/11/12/football-navy-athletics-and-under-armour-unveil-2026-army-navy-uniform-honoring-naval-special-warfare.aspx",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25121242/DSC_0110.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-26T18:00:00+00:00"
-  },
-  {
-   "title": "Navy vs North Texas - Pregame Photo Gallery",
-   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-north-texas-pregame-photo-gallery/",
-   "source": "The Mid Report",
-   "summary": "Pregame photos from the Mids\u2019 game vs the North Texas Mean Green on Saturday, October 24, 2026, as seen through the lens of staff photographer Alison Althouse.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24211302/DSC_0001.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-25T18:00:00+00:00"
   }
  ]
 }
