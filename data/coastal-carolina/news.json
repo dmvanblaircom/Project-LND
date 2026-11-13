@@ -1,7 +1,16 @@
 {
  "team": "coastal-carolina",
- "updated": "2026-11-13T16:08:07.205099+00:00",
+ "updated": "2026-11-13T19:08:02.085216+00:00",
  "items": [
+  {
+   "title": "Chanticleers Host Arkansas State In Home Finale",
+   "link": "https://goccusports.com/news/2026/11/13/football-chanticleers-host-arkansas-state-in-home-finale",
+   "source": "Coastal Carolina Athletics",
+   "summary": "<img alt=\"Karmello English\" src=\"https://goccusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/FB_vs_GSU_CB6.jpg\" /><br /><br />",
+   "image": "https://goccusports.com/images/2026/11/13/FB_vs_GSU_CB6.jpg?width=800",
+   "sourceLogo": "https://goccusports.com/favicon.ico",
+   "published": "2026-11-13T17:00:00+00:00"
+  },
   {
    "title": "What He Wrote on the Mirror",
    "link": "https://goccusports.com/news/2026/11/13/football-what-he-wrote-on-the-mirror",
@@ -82,15 +91,6 @@
    "image": "https://goccusports.com/images/2026/11/2/D64A2463.jpg?width=800",
    "sourceLogo": "https://goccusports.com/favicon.ico",
    "published": "2026-10-31T23:07:00+00:00"
-  },
-  {
-   "title": "Chanticleers Return To The Gridiron Against Georgia State",
-   "link": "https://goccusports.com/news/2026/10/30/football-chanticleers-return-to-the-gridiron-against-georgia-state",
-   "source": "Coastal Carolina Athletics",
-   "summary": "<img alt=\"Deuce Bailey\" src=\"https://goccusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/FB_vsFordham_NM_9_12_26_155.jpg\" /><br /><br />",
-   "image": "https://goccusports.com/images/2026/10/28/FB_vsFordham_NM_9_12_26_155.jpg?width=800",
-   "sourceLogo": "https://goccusports.com/favicon.ico",
-   "published": "2026-10-30T17:00:00+00:00"
   }
  ]
 }
