@@ -255,7 +255,7 @@ David: "How different are the odds between what ESPN writes and what Kalshi has?
 |---|---|---|
 | Teams compared (either source gives a real chance) | 31 | 14 |
 | Typical gap | 3 points (median), 5 (mean) | 2 points (mean) |
-| Within 5 points | 20 of 31 | 11 of 14 |
+| Within 5 points | 20 of 31 | 12 of 14 |
 | More than 10 points apart | 6 of 31 | 1 of 14 |
 | Same order of teams | rank correlation 0.94 | |
 
