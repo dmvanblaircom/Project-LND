@@ -34,6 +34,12 @@ var TEAM_CONFIG = {
 
     // The ACC's availability reports (tools/producers/conference_availability.py).
     official: {
+      // This season's game notes, linked from the notes page under this label
+      // (survey of 2026-11-12; tools/producers/official_notes.py). Read for the
+      // pronunciation guide only (F4, batch 1): the rest of the layout is not read yet.
+      notesIndex: "https://pittsburghpanthers.com/sports/2026/8/31/2026-pitt-football-game-notes-stats",
+      notesLink: "Game Notes",
+      notesReads: ["pronounce"],
       availabilityReportIndex: "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
       availabilityReportLabel: "TheACC.com",
       availabilityFeed: { provider: "hdintelligence", conference: "ACC", sport: "Football", team: "Pittsburgh", aliases: ["Pitt"] }
@@ -94,6 +100,8 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for Pittsburgh, each because a
   // source exists for it.
   snapshots: {
+    // How to say the players' names, from the week's game notes.
+    notes:        { file: "data/pittsburgh/notes.json", label: "pittsburghpanthers.com" },
     availability: { file: "data/pittsburgh/availability.json", history: "data/pittsburgh/availability-history.json", label: "TheACC.com" },
     oddsHistory:  { file: "data/pittsburgh/odds-history.json" },
     beatNews:     { file: "data/pittsburgh/news.json" },

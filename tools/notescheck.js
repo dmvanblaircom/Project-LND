@@ -17,7 +17,12 @@
         Indiana, read by the same parser; tools/fixtures/osu-notes-g7.json):
         the same three screens (David, 2026-10-26).
 
-   tools/notescheck.py holds the parser that writes the snapshot.
+     5. A school read for its pronunciations only (F4 batch 1; Pittsburgh's
+        real snapshot, tools/fixtures/pitt-notes-say.json): Roster says each
+        name; nothing else is claimed anywhere.
+
+   tools/notescheck.py holds the parser that writes the snapshot;
+   tools/pronouncecheck.py the pronunciation-only reading.
 
    Usage: node tools/notescheck.js     (exit 1 on failure) */
 "use strict";
@@ -83,6 +88,9 @@ console.log("2-3. on screen");
       if (u.startsWith(base)) return route.continue();
       if (/\/teams\/87\/roster/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/espn-roster-nd-oct02.json") });
       if (/\/teams\/194\/roster/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/espn-roster-osu-oct02.json") });
+      if (/\/data\/pittsburgh\/notes\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: read("tools/fixtures/pitt-notes-say.json") });
+      if (/\/teams\/221\/roster/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: opts.roster });
+      if (/\/schedule(\?|$)/.test(u) && opts.noSchedule) return route.abort();
       if (/\/schedule(\?|$)/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: opts.scheduleBody || read(opts.schedule || "tools/fixtures/espn-schedule-nd-oct08.json") });
       return route.abort();
     });
@@ -235,6 +243,39 @@ console.log("2-3. on screen");
   ok(await o2.page.evaluate(function () { var s = document.querySelector('#screenHome [data-home="numbers"]'); return !s || s.hidden; }),
      "after the Indiana final (19-15): Indiana's numbers are gone until the next notes");
   await o2.ctx.close();
+
+  // ---- a school read for its pronunciations only (F4 batch 1): Pittsburgh's
+  // own snapshot as it was read on 2026-11-13, pinned, and a provider roster
+  // carrying five of its players as ESPN spells them and one it does not name
+  var pitt = JSON.parse(read("tools/fixtures/espn-roster-nd-oct02.json"));
+  var names = ["Keylen Davis", "D'Angelo Stocker", "Netinho Olivieri", "Ryan Baer", "Ja'Kyrian Turner", "Nobody Here"];
+  pitt.athletes.forEach(function (g, gi) { g.items = gi ? [] : g.items.slice(0, names.length); });
+  pitt.athletes[0].items.forEach(function (x, i) {
+    var parts = names[i].split(" ");
+    x.displayName = x.fullName = names[i]; x.firstName = parts[0]; x.lastName = parts.slice(1).join(" "); x.shortName = parts[0][0] + ". " + x.lastName;
+  });
+  var p = await open("pittsburgh", { roster: JSON.stringify(pitt), noSchedule: true, at: new Date("2026-11-13T16:00:00Z") });
+  var ph = await p.page.evaluate(function () { var s = document.querySelector('#screenHome [data-home="numbers"]'); return !s || s.hidden; });
+  await go(p.page, "#game");
+  var pg = await p.page.evaluate(function () { return document.querySelectorAll("#screenGame .gn-facts, #screenGame .gcard-numbers, #screenGame .gn-src").length; });
+  await go(p.page, "#roster/roster");
+  var pr = await p.page.evaluate(function () {
+    var rows = [].slice.call(document.querySelectorAll("#screenRoster .ro-row.roster"));
+    var out = {};
+    rows.forEach(function (r) { out[(r.querySelector(".ro-name") || {}).textContent.replace(/\s+/g, " ").trim()] = (r.querySelector(".ro-say") || {}).textContent || ""; });
+    return { said: out, marks: document.querySelectorAll("#screenRoster .ro-capt, #screenRoster .ro-honor, #screenRoster details.ro-honors").length,
+             wide: document.documentElement.scrollWidth > document.documentElement.clientWidth };
+  });
+  await shot(p.page, "notes-pitt-roster");
+  function saidFor(n) { var k = Object.keys(pr.said).filter(function (x) { return x.indexOf(n) === 0; })[0]; return k ? pr.said[k] : null; }
+  eq([saidFor("Keylen Davis"), saidFor("D'Angelo Stocker"), saidFor("Netinho Olivieri"), saidFor("Ryan Baer"), saidFor("Ja'Kyrian Turner")],
+     ["Say KEY-len", "Say dee-AN-juh-loh STOCK-er", "Say neh-TEEN-yo oh-liv-ee-AIR-ee", "Say Bear", "Say jah-KY-ree-uhn"],
+     "Pittsburgh, Roster: how to say each name its notes give, apostrophes and all");
+  eq(saidFor("Nobody Here"), "", "a player the notes do not name has none");
+  ok(pr.marks === 0, "this reading claims no captains and no honors");
+  ok(ph && pg === 0, "nor numbers on Home, a series card or a source line on Game: only what was read is shown");
+  ok(!pr.wide, "nothing runs off the screen");
+  await p.ctx.close();
 
   await browser.close(); server.close();
   console.log("\n" + (failures ? failures + " check(s) FAILED" : "the week's notes, where a fan looks, and only for their game"));

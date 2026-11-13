@@ -1,0 +1,39 @@
+{
+ "capability": "notes",
+ "captains": [],
+ "fetchedAt": "2026-11-13T05:41:15.354465+00:00",
+ "game": null,
+ "glance": [],
+ "honors": {},
+ "numbers": [],
+ "parser": "say-1",
+ "pdf": "https://tulanegreenwave.com/documents/download/2026/11/10/2026_Game_Notes_at_Rice_-_FULL.pdf",
+ "pronounce": {
+  "Armondous Cooley": "Ar-MAHN-dus",
+  "Cash Semonza": "Se-MAHN-za",
+  "Cooper Helmke": "Helm-KEE",
+  "DJ Dugar": "DOO-GAR",
+  "Dickson Agu": "Uh-goo",
+  "E'zaiah Shine": "E-zy-uh",
+  "Gabe Lovorn": "Low-VORN",
+  "Garrett Mmahat": "Mom-uh-hat",
+  "Geordan Guidry": "Jordan",
+  "Gerrod Henderson": "Ger-ROD",
+  "Jack Tchienchou": "Chen-choo",
+  "Juelz Baptiste": "Joo-els",
+  "Kadin Semonza": "Se-MAHN-za",
+  "Leo Wulffraat": "WOLF-rat",
+  "Michael Igbinoghene": "Ig-bin-ah-go-knee",
+  "PaLanding Drammeh": "Drah-may",
+  "Ryan Mickow": "Mick-OW"
+ },
+ "publishedAt": "2026-11-10",
+ "reads": [
+  "pronounce"
+ ],
+ "schema": 1,
+ "sourceLabel": "tulanegreenwave.com",
+ "sourceUrl": "https://tulanegreenwave.com/documents/2026/11/10/2026_Game_Notes_at_Rice_-_FULL.pdf",
+ "team": "tulane",
+ "tier": "official"
+}

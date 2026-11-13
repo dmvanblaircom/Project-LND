@@ -34,6 +34,12 @@ var TEAM_CONFIG = {
 
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
+      // This season's game notes, linked from the notes page under this label
+      // (survey of 2026-11-12; tools/producers/official_notes.py). Read for the
+      // pronunciation guide only (F4, batch 1): the rest of the layout is not read yet.
+      notesIndex: "https://arizonawildcats.com/sports/2018/8/30/2017-arizona-football-game-notes.aspx",
+      notesLink: "Arizona",
+      notesReads: ["pronounce"],
       availabilityReportIndex: "https://big12sports.com/sports/football",
       availabilityReportLabel: "Big12Sports.com",
       availabilityFeed: { provider: "hdintelligence", conference: "B12", sport: "Football", team: "Arizona" }
@@ -94,6 +100,8 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for Arizona, each because a
   // source exists for it.
   snapshots: {
+    // How to say the players' names, from the week's game notes.
+    notes:        { file: "data/arizona/notes.json", label: "arizonawildcats.com" },
     availability: { file: "data/arizona/availability.json", history: "data/arizona/availability-history.json", label: "Big12Sports.com" },
     oddsHistory:  { file: "data/arizona/odds-history.json" },
     beatNews:     { file: "data/arizona/news.json" },

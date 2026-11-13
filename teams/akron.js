@@ -30,6 +30,12 @@ var TEAM_CONFIG = {
 
     // The MAC's availability reports (tools/producers/conference_availability.py).
     official: {
+      // This season's game notes, linked from the notes page under this label
+      // (survey of 2026-11-12; tools/producers/official_notes.py). Read for the
+      // pronunciation guide only (F4, batch 1): the rest of the layout is not read yet.
+      notesIndex: "https://gozips.com/sports/2025/8/26/2025-football-game-notes",
+      notesLink: "Akron Notes",
+      notesReads: ["pronounce"],
       availabilityReportIndex: "https://getsomemaction.com/sports/football",
       availabilityReportLabel: "GetSomeMACtion.com",
       availabilityFeed: { provider: "hdintelligence", conference: "MAC", sport: "Football", team: "Akron" }
@@ -88,6 +94,8 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for Akron, each because a
   // source exists for it.
   snapshots: {
+    // How to say the players' names, from the week's game notes.
+    notes:        { file: "data/akron/notes.json", label: "gozips.com" },
     availability: { file: "data/akron/availability.json", history: "data/akron/availability-history.json", label: "GetSomeMACtion.com" },
     beatNews:     { file: "data/akron/news.json" },
     recruits:     { file: "data/akron/recruits.json", label: "ESPN recruiting" }

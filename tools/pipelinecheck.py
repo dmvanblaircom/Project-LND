@@ -47,8 +47,15 @@ def declares(t, *keys):
     for k in keys:
         c = (c or {}).get(k)
     return bool(c)
-ok(with_kind["depth"] == ["notre-dame"] and with_kind["notes"] == ["notre-dame", "ohio-state"] and with_kind["beatNews"] == ALL,
-   "the workflow's loops run for the teams that declare each kind - every team's beat news, two teams' game notes, one depth chart: %s" % with_kind)
+# Game notes: the two whole readings, and every team that declares the
+# pronunciation-only reading with where its notes are (F4, from batch 1 on).
+SAY = [t for t in ALL if (teamconfig.load(t).get("sources", {}).get("official") or {}).get("notesReads") == ["pronounce"]]
+ok(with_kind["depth"] == ["notre-dame"] and with_kind["notes"] == sorted(["notre-dame", "ohio-state"] + SAY) and with_kind["beatNews"] == ALL,
+   "the workflow's loops run for the teams that declare each kind - every team's beat news, the game notes of the two read whole "
+   "and of the %d read for pronunciations, one depth chart: %s" % (len(SAY), with_kind))
+ok(len(SAY) >= 7 and all(declares(t, "sources", "official", "notesIndex") and declares(t, "sources", "official", "notesLink") and
+                         declares(t, "sources", "espn", "teamId") for t in SAY),
+   "each of them declares its notes page, its own link's label and the roster that referees the names: %s" % SAY)
 ok(with_kind["oddsHistory"] == [t for t in ALL if declares(t, "sources", "kalshi")] and "maryland" not in with_kind["oddsHistory"],
    "price history for exactly the teams Kalshi prices (none yet for Maryland): %s" % with_kind["oddsHistory"])
 ok(with_kind["availability"] == [t for t in ALL if declares(t, "sources", "official", "availabilityReportIndex")] and "byu" in with_kind["availability"],

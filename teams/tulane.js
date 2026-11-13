@@ -34,6 +34,12 @@ var TEAM_CONFIG = {
 
     // The American's availability reports (tools/producers/conference_availability.py).
     official: {
+      // This season's game notes, linked from the notes page under this label
+      // (survey of 2026-11-12; tools/producers/official_notes.py). Read for the
+      // pronunciation guide only (F4, batch 1): the rest of the layout is not read yet.
+      notesIndex: "https://tulanegreenwave.com/sports/2019/5/1/tulane-football-game-notes",
+      notesLink: "Tulane Notes",
+      notesReads: ["pronounce"],
       availabilityReportIndex: "https://theamerican.org/sports/football",
       availabilityReportLabel: "TheAmerican.org",
       availabilityFeed: { provider: "hdintelligence", conference: "American", sport: "Football", team: "Tulane" }
@@ -92,6 +98,8 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for Tulane, each because a
   // source exists for it.
   snapshots: {
+    // How to say the players' names, from the week's game notes.
+    notes:        { file: "data/tulane/notes.json", label: "tulanegreenwave.com" },
     availability: { file: "data/tulane/availability.json", history: "data/tulane/availability-history.json", label: "TheAmerican.org" },
     oddsHistory:  { file: "data/tulane/odds-history.json" },
     beatNews:     { file: "data/tulane/news.json" },
