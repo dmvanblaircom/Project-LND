@@ -7,18 +7,25 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T11:08:51.526395+00:00",
+ "fetchedAt": "2026-11-14T16:08:54.096400+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Navy",
+ "kickoffDate": "2026-11-14",
+ "game": "UAB",
  "players": [
   {
    "pos": "TE",
    "no": "0",
    "name": "Peter Clarke",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "2",
+   "name": "Saboor Karriem",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -32,13 +39,6 @@
    "pos": "LB",
    "no": "8",
    "name": "Eric Stuart",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "12",
-   "name": "Willy Love",
    "status": "questionable",
    "detail": ""
   },
@@ -57,9 +57,16 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "21",
-   "name": "De'Carlos Young",
+   "pos": "S",
+   "no": "22",
+   "name": "Jaeden Gould",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "25",
+   "name": "Orel Gray",
    "status": "questionable",
    "detail": ""
   },
@@ -71,9 +78,23 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "29",
-   "name": "Hunter Smith",
+   "pos": "LB",
+   "no": "30",
+   "name": "Jayvant Brown",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "32",
+   "name": "Adrian Laing",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "33",
+   "name": "Curly Ordonez",
    "status": "questionable",
    "detail": ""
   },
@@ -92,6 +113,13 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "53",
+   "name": "Reggie Jones",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "55",
    "name": "Kevin Terry",
@@ -102,7 +130,14 @@
    "pos": "OL",
    "no": "63",
    "name": "John Watkins",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "70",
+   "name": "Zach Aamland",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -137,13 +172,6 @@
    "pos": "WR",
    "no": "89",
    "name": "Zander Baptiste",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "93",
-   "name": "Kevin Hornbeak Jr.",
    "status": "out-game",
    "detail": ""
   }

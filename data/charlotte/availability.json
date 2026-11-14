@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T11:08:41.950310+00:00",
+ "fetchedAt": "2026-11-14T16:08:46.184195+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at UAB",
+ "kickoffDate": "2026-11-14",
+ "game": "East Carolina",
  "players": [
   {
    "pos": "RB",
@@ -22,16 +22,9 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "8",
-   "name": "Calif Spencer",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "10",
-   "name": "Jerry Wall III",
+   "pos": "DB",
+   "no": "12",
+   "name": "CJ Clinkscales, Jr.",
    "status": "questionable",
    "detail": ""
   },
@@ -39,6 +32,20 @@
    "pos": "DL",
    "no": "14",
    "name": "Kendal Brown",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "15",
+   "name": "Ayo Tifase",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "18",
+   "name": "Seth Franklin",
    "status": "out-game",
    "detail": ""
   },
@@ -65,8 +72,8 @@
   },
   {
    "pos": "DL",
-   "no": "35",
-   "name": "Jamil Davis",
+   "no": "51",
+   "name": "Jamarrion Solomon",
    "status": "questionable",
    "detail": ""
   },
@@ -74,6 +81,13 @@
    "pos": "OL",
    "no": "55",
    "name": "Mathias Nielsen",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "55",
+   "name": "Shaku Sangarie",
    "status": "out-game",
    "detail": ""
   },

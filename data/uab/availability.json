@@ -7,20 +7,13 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T11:08:52.450403+00:00",
+ "fetchedAt": "2026-11-14T16:08:55.204493+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Charlotte",
+ "kickoffDate": "2026-11-14",
+ "game": "Temple",
  "players": [
-  {
-   "pos": "OLB",
-   "no": "4",
-   "name": "Marlin Dean",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "DT",
    "no": "8",
@@ -47,13 +40,6 @@
    "no": "32",
    "name": "Colby Archie",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "71",
-   "name": "Kyrik Mason",
-   "status": "questionable",
    "detail": ""
   },
   {

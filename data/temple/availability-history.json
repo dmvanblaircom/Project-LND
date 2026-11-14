@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "temple",
- "updated": "2026-11-08T11:08:51.526395+00:00",
+ "updated": "2026-11-14T16:08:54.096400+00:00",
  "reports": [
   {
    "schema": 1,
@@ -575,6 +575,186 @@
      "pos": "DL",
      "no": "93",
      "name": "Kevin Hornbeak Jr.",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "temple",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-14T16:08:54.096400+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-14",
+   "game": "UAB",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "0",
+     "name": "Peter Clarke",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Saboor Karriem",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "5",
+     "name": "Sam Brown V",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "8",
+     "name": "Eric Stuart",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "13",
+     "name": "Ajani Sheppard",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "20",
+     "name": "Jett White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "22",
+     "name": "Jaeden Gould",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "25",
+     "name": "Orel Gray",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "27",
+     "name": "Devontae Ward-Grant",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "30",
+     "name": "Jayvant Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "32",
+     "name": "Adrian Laing",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "33",
+     "name": "Curly Ordonez",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "34",
+     "name": "Brandon Enarusai",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "44",
+     "name": "Tyree Alualu",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "53",
+     "name": "Reggie Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Kevin Terry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "63",
+     "name": "John Watkins",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Zach Aamland",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Luke Watson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "83",
+     "name": "Kenedy Uzoma",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "85",
+     "name": "Rameir Hardy",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "87",
+     "name": "Kaegan Chambers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "89",
+     "name": "Zander Baptiste",
      "status": "out-game",
      "detail": ""
     }

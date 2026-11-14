@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "uab",
- "updated": "2026-11-08T11:08:52.450403+00:00",
+ "updated": "2026-11-14T16:08:55.204493+00:00",
  "reports": [
   {
    "schema": 1,
@@ -331,6 +331,60 @@
      "no": "71",
      "name": "Kyrik Mason",
      "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "85",
+     "name": "Antonio Ferguson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "uab",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-14T16:08:55.204493+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-14",
+   "game": "Temple",
+   "players": [
+    {
+     "pos": "DT",
+     "no": "8",
+     "name": "Nigel Tate",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "12",
+     "name": "Jaylen Elder",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "23",
+     "name": "Mykale Hrabowski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "32",
+     "name": "Colby Archie",
+     "status": "out-game",
      "detail": ""
     },
     {
