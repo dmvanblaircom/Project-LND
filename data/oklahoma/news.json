@@ -1,6 +1,6 @@
 {
  "team": "oklahoma",
- "updated": "2026-11-14T06:38:10.172606+00:00",
+ "updated": "2026-11-14T07:08:11.483804+00:00",
  "items": [
   {
    "title": "OU-Ole Miss Football Game Moved to Sunday at Noon",
@@ -282,15 +282,6 @@
    "published": "2026-11-12T01:16:02+00:00"
   },
   {
-   "title": "Game Primer: OU vs. Ole Miss",
-   "link": "https://soonersports.com/news/2026/11/11/football-game-primer-ou-vs-ole-miss",
-   "source": "Oklahoma Athletics",
-   "summary": "<img alt=\"Lead, FB 26 Ole Miss Primer\" src=\"https://soonersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/20260919_FB_Game_NewMexico_PJM_OUG03245.jpg\" /><br /><br />",
-   "image": "https://soonersports.com/images/2026/11/13/20260919_FB_Game_NewMexico_PJM_OUG03245.jpg?width=800",
-   "sourceLogo": "https://soonersports.com/favicon.ico",
-   "published": "2026-11-11T20:22:00+00:00"
-  },
-  {
    "title": "Beers Named Mackey Award Semifinalist",
    "link": "https://soonersports.com/news/2026/11/11/football-beers-named-mackey-award-semifinalist",
    "source": "Oklahoma Athletics",
@@ -361,6 +352,15 @@
    "image": "https://soonersports.com/images/2026/10/30/20260919_FB_Game_NewMexico_BV_OUE00518.jpg?width=800",
    "sourceLogo": "https://soonersports.com/favicon.ico",
    "published": "2026-10-30T16:45:00+00:00"
+  },
+  {
+   "title": "Heinecke Named Butkus Award Semifinalist",
+   "link": "https://soonersports.com/news/2026/10/28/football-heinecke-named-butkus-award-semifinalist",
+   "source": "Oklahoma Athletics",
+   "summary": "<img alt=\"Lead, FB 26 Heinecke Butkus Semifinalist\" src=\"https://soonersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/20261010_FB_Game_Texas_BV_OUJ09501__1_.JPG\" /><br /><br />NORMAN \u2014 University of Oklahoma linebacker Owen Heinecke has been named one of 15 semifinalists for the 2026 Butkus Award, which recognizes the nation's outstanding linebacker, the Butkus Foundation announced Wednesday.",
+   "image": "https://soonersports.com/images/2026/10/28/20261010_FB_Game_Texas_BV_OUJ09501__1_.JPG?width=800",
+   "sourceLogo": "https://soonersports.com/favicon.ico",
+   "published": "2026-10-29T01:32:00+00:00"
   }
  ]
 }
