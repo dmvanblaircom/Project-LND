@@ -7,20 +7,13 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:08:59.631019+00:00",
+ "fetchedAt": "2026-11-14T01:08:46.422524+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at NC State",
  "players": [
-  {
-   "pos": "LB",
-   "no": "6",
-   "name": "Chris D'Appolonia",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "7",
@@ -40,13 +33,6 @@
    "no": "12",
    "name": "Amari Odom",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "16",
-   "name": "Malachi Nelson",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -74,7 +60,7 @@
    "pos": "OL",
    "no": "75",
    "name": "Trevion Mack",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -82,20 +68,6 @@
    "no": "88",
    "name": "Terrell Wilfong",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "93",
-   "name": "Alex Haskell",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "95",
-   "name": "Dillan Fontus",
-   "status": "questionable",
    "detail": ""
   }
  ],

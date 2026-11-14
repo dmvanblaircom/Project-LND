@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:08:56.312815+00:00",
+ "fetchedAt": "2026-11-14T01:08:43.836112+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at Penn State",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "TE",
    "no": "19",
    "name": "Pierce Walsh",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "LB",
    "no": "46",
    "name": "Mason Carrier",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "TE",
    "no": "82",
    "name": "Julian Johnson",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -88,7 +88,7 @@
    "pos": "DL",
    "no": "93",
    "name": "Riley Sunram",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -102,7 +102,7 @@
    "pos": "DL",
    "no": "99",
    "name": "Theorin Randle",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   }
  ],

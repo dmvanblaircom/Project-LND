@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:09:02.688641+00:00",
+ "fetchedAt": "2026-11-14T01:08:48.779959+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at Maryland",
  "players": [
@@ -22,13 +22,6 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "6",
-   "name": "Jai'mier Scott",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "S",
    "no": "11",
    "name": "Carson Van Dinter",
@@ -36,10 +29,17 @@
    "detail": ""
   },
   {
+   "pos": "OLB",
+   "no": "15",
+   "name": "Sebastian Cheeks",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "15",
    "name": "Nate Palmer",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -53,7 +53,7 @@
    "pos": "OL",
    "no": "70",
    "name": "Barrett Nelson",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -61,13 +61,6 @@
    "no": "82",
    "name": "Emmett Bork",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "97",
-   "name": "Junior Poyser",
-   "status": "probable",
    "detail": ""
   }
  ],

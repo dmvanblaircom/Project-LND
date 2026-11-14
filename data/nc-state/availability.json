@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:08:56.789743+00:00",
+ "fetchedAt": "2026-11-14T01:08:44.212159+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "vs. Syracuse",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "OLB",
    "no": "5",
    "name": "Harvey Dyson III",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "CB",
    "no": "14",
    "name": "Jaren Sensabaugh",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

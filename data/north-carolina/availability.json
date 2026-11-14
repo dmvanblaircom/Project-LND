@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:08:57.021350+00:00",
+ "fetchedAt": "2026-11-14T01:08:44.387986+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "vs. Louisville",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "DB",
    "no": "7",
    "name": "Peyton Waters",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -43,17 +43,10 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "35",
-   "name": "Ashton Blatt",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "45",
    "name": "Jelani Thurman",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -103,13 +96,6 @@
    "no": "93",
    "name": "Jacob Horvath",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "96",
-   "name": "Nicco Maggio",
-   "status": "questionable",
    "detail": ""
   }
  ],

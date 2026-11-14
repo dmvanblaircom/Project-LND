@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-11-13T01:09:02.273546+00:00",
+ "updated": "2026-11-14T01:08:48.462670+00:00",
  "reports": [
   {
    "schema": 1,
@@ -441,10 +441,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T01:09:02.273546+00:00",
+   "fetchedAt": "2026-11-14T01:08:48.462670+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "at Michigan State",
    "players": [
@@ -473,14 +473,14 @@
      "pos": "S",
      "no": "7",
      "name": "Alex McLaughlin",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "EDG",
      "no": "12",
      "name": "Logan George",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -494,14 +494,14 @@
      "pos": "RB",
      "no": "22",
      "name": "Trey Cooley",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "EDG",
      "no": "52",
      "name": "Devin Hyde",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

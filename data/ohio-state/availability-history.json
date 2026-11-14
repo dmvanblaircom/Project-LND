@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-11-13T01:08:57.446919+00:00",
+ "updated": "2026-11-14T01:08:44.720034+00:00",
  "reports": [
   {
    "schema": 1,
@@ -525,10 +525,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T01:08:57.446919+00:00",
+   "fetchedAt": "2026-11-14T01:08:44.720034+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "vs. Northwestern",
    "players": [
@@ -536,7 +536,7 @@
      "pos": "WR",
      "no": "7",
      "name": "Phillip Bell",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -550,14 +550,14 @@
      "pos": "S",
      "no": "11",
      "name": "Terry Moore",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "11",
      "name": "Brock Boyd",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -578,7 +578,7 @@
      "pos": "LB",
      "no": "33",
      "name": "Eli Lee",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -592,14 +592,14 @@
      "pos": "DE",
      "no": "44",
      "name": "Epi Sitanilei",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "51",
      "name": "Luke Montgomery",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -611,9 +611,16 @@
     },
     {
      "pos": "OL",
+     "no": "70",
+     "name": "Phillip Daniels",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
      "no": "72",
      "name": "Deontae Armstrong",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {

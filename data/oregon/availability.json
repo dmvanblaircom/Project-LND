@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:08:57.994750+00:00",
+ "fetchedAt": "2026-11-14T01:08:45.154986+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "vs. Michigan",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "TE",
    "no": "19",
    "name": "Andrew Olesh",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -47,13 +47,6 @@
    "no": "23",
    "name": "Brayden Platt",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OLB",
-   "no": "31",
-   "name": "Nasir Wyatt",
-   "status": "probable",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "virginia",
- "updated": "2026-11-13T01:09:01.924011+00:00",
+ "updated": "2026-11-14T01:08:48.190259+00:00",
  "reports": [
   {
    "schema": 1,
@@ -994,10 +994,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T01:09:01.924011+00:00",
+   "fetchedAt": "2026-11-14T01:08:48.190259+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "vs. California",
    "players": [
@@ -1005,14 +1005,14 @@
      "pos": "S",
      "no": "4",
      "name": "Corey Costner",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "LB",
      "no": "11",
      "name": "Maddox Marcellus",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -1075,7 +1075,7 @@
      "pos": "OL",
      "no": "65",
      "name": "Grant Ellinger",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

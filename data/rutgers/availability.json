@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:08:58.634550+00:00",
+ "fetchedAt": "2026-11-14T01:08:45.652015+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "vs. Nebraska",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "WR",
    "no": "0",
    "name": "Dyzier Carter",
-   "status": "doubtful",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -88,7 +88,7 @@
    "pos": "OL",
    "no": "56",
    "name": "Tyler Needham",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -102,14 +102,14 @@
    "pos": "DL",
    "no": "94",
    "name": "J'Dan Burnett",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "96",
    "name": "Keshon Griffin",
-   "status": "doubtful",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-tech",
- "updated": "2026-11-13T01:08:53.271840+00:00",
+ "updated": "2026-11-14T01:08:41.682778+00:00",
  "reports": [
   {
    "schema": 1,
@@ -854,10 +854,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T01:08:53.271840+00:00",
+   "fetchedAt": "2026-11-14T01:08:41.682778+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "at Clemson",
    "players": [
@@ -933,6 +933,13 @@
     },
     {
      "pos": "S",
+     "no": "26",
+     "name": "Chris Hewitt, Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
      "no": "31",
      "name": "Fenix Felton",
      "status": "out-game",
@@ -991,7 +998,7 @@
      "pos": "TE",
      "no": "86",
      "name": "Kevin Roche, Jr.",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
