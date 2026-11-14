@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "virginia-tech",
- "updated": "2026-11-14T01:08:48.284761+00:00",
+ "updated": "2026-11-14T22:38:46.686041+00:00",
  "reports": [
   {
    "schema": 1,
@@ -595,18 +595,25 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:48.284761+00:00",
+   "fetchedAt": "2026-11-14T22:38:46.686041+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Stanford",
    "players": [
     {
+     "pos": "WR",
+     "no": "2",
+     "name": "Takye Heath",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
      "pos": "CB",
      "no": "5",
      "name": "Joshua Clarke",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -620,7 +627,7 @@
      "pos": "DL",
      "no": "36",
      "name": "Randy Adirika",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -641,7 +648,7 @@
      "pos": "OL",
      "no": "72",
      "name": "Justin Terry",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -655,7 +662,7 @@
      "pos": "WR",
      "no": "83",
      "name": "Luke Stuewe",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     }
    ],

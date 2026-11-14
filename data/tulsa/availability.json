@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T11:08:52.356819+00:00",
+ "fetchedAt": "2026-11-14T22:38:45.764372+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Tulane",
+ "kickoffDate": "2026-11-14",
+ "game": "Florida Atlantic",
  "players": [
   {
    "pos": "CB",
@@ -22,16 +22,16 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "33",
-   "name": "William Alexander",
-   "status": "questionable",
+   "pos": "WR",
+   "no": "19",
+   "name": "Grayson Tempest",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "LB",
-   "no": "34",
-   "name": "Elijah Wilson",
+   "no": "33",
+   "name": "William Alexander",
    "status": "out-game",
    "detail": ""
   },
@@ -64,10 +64,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "88",
-   "name": "Xavier Green",
-   "status": "out-game",
+   "pos": "OL",
+   "no": "78",
+   "name": "Davis Dotson",
+   "status": "questionable",
    "detail": ""
   }
  ],

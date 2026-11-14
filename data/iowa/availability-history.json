@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa",
- "updated": "2026-11-14T01:08:42.243162+00:00",
+ "updated": "2026-11-14T22:38:40.680427+00:00",
  "reports": [
   {
    "schema": 1,
@@ -357,10 +357,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:42.243162+00:00",
+   "fetchedAt": "2026-11-14T22:38:40.680427+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Purdue",
    "players": [
@@ -376,13 +376,6 @@
      "no": "10",
      "name": "Burke Gautcher",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "11",
-     "name": "Jacob Wallace",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -417,7 +410,7 @@
      "pos": "OL",
      "no": "61",
      "name": "Cael Winter",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

@@ -7,24 +7,17 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T11:08:40.902976+00:00",
+ "fetchedAt": "2026-11-14T22:38:39.592219+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-05",
- "game": "vs. UTSA",
+ "kickoffDate": "2026-11-14",
+ "game": "Tulsa",
  "players": [
   {
-   "pos": "TE",
-   "no": "1",
-   "name": "AJ Johnson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "2",
-   "name": "Kelby Valsin",
+   "pos": "DB",
+   "no": "4",
+   "name": "Damarius McGhee",
    "status": "questionable",
    "detail": ""
   },
@@ -36,13 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "8",
-   "name": "Chris Tooley III",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "11",
    "name": "Brooks Johnson",
@@ -50,16 +36,23 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "21",
-   "name": "Nate Fischer",
+   "pos": "WR",
+   "no": "26",
+   "name": "Chase Hanning",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "30",
-   "name": "Justin Weatherall",
+   "pos": "RB",
+   "no": "28",
+   "name": "Kaden Shields-Dutton",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "41",
+   "name": "Collin Rogers",
    "status": "questionable",
    "detail": ""
   },
@@ -72,8 +65,8 @@
   },
   {
    "pos": "OL",
-   "no": "57",
-   "name": "Ja'Kavion Nonar",
+   "no": "58",
+   "name": "Aiden Jones",
    "status": "out-game",
    "detail": ""
   },
@@ -81,7 +74,7 @@
    "pos": "OL",
    "no": "71",
    "name": "Landon Rapkiewicz",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -102,6 +95,13 @@
    "pos": "DL",
    "no": "91",
    "name": "Lebron Edmond",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "98",
+   "name": "Blake Burris",
    "status": "out-game",
    "detail": ""
   }
