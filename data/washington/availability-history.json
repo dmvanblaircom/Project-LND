@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-11-14T01:08:48.462670+00:00",
+ "updated": "2026-11-14T20:34:37.490934+00:00",
  "reports": [
   {
    "schema": 1,
@@ -441,20 +441,13 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:48.462670+00:00",
+   "fetchedAt": "2026-11-14T20:34:37.490934+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at Michigan State",
    "players": [
-    {
-     "pos": "QB",
-     "no": "1",
-     "name": "Demond Williams Jr.",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "RB",
      "no": "4",
@@ -467,20 +460,6 @@
      "no": "5",
      "name": "Christian Moss",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "7",
-     "name": "Alex McLaughlin",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "EDG",
-     "no": "12",
-     "name": "Logan George",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -498,31 +477,10 @@
      "detail": ""
     },
     {
-     "pos": "EDG",
-     "no": "52",
-     "name": "Devin Hyde",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "OL",
      "no": "66",
      "name": "Landen Hatchett",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "90",
-     "name": "Elinneus Davis",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "EDG",
-     "no": "91",
-     "name": "Isaiah Ward",
-     "status": "probable",
      "detail": ""
     },
     {

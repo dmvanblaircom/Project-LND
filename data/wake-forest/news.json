@@ -1,7 +1,16 @@
 {
  "team": "wake-forest",
- "updated": "2026-11-14T19:38:11.858896+00:00",
+ "updated": "2026-11-14T20:33:49.046677+00:00",
  "items": [
+  {
+   "title": "Wake Forest stays hot, demolishes SMU",
+   "link": "https://on3.com/sites/deacons-illustrated/news/wake-forest-stays-hot-demolishes-smu/",
+   "source": "Deacons Illustrated",
+   "summary": "Wake Forest steamrolled SMU on Saturday, en route to its seventh straight and sixth straight by at least three touchdowns.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14133202/2026-11-14T170821Z_429911690_MT1USATODAY30352826_RTRMADP_3_NCAA-FOOTBALL-WAKE-FOREST-AT-SOUTHERN-METHODIST.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-14T20:30:14+00:00"
+  },
   {
    "title": "The Demon Deacons Bludgeon the Mustangs in the First Half",
    "link": "https://www.si.com/college/wake-forest/football/demon-deacons-bludgeon-the-mustangs-in-the-first-half-01m7dknkxe4d?utm_source=RSS",
@@ -217,15 +226,6 @@
    "image": "https://godeacs.com/images/2026/11/10/261031_EPB_FB_vs_UVA-68.jpg?width=800",
    "sourceLogo": "https://godeacs.com/favicon.ico",
    "published": "2026-11-10T20:59:00+00:00"
-  },
-  {
-   "title": "How PFF graded Wake Forest's defense against Merrimack",
-   "link": "https://on3.com/sites/deacons-illustrated/news/how-pff-graded-wake-forests-defense-against-merrimack/",
-   "source": "Deacons Illustrated",
-   "summary": "Breaking down Wake Forest's defense against Merrimack using Pro Football Focus grades, snap counts and analysis.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/10083423/2026-11-08T002335Z_1645107586_MT1USATODAY30304459_RTRMADP_3_NCAA-FOOTBALL-MERRIMACK-AT-WAKE-FOREST-e1794321582252.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-10T20:13:25+00:00"
   },
   {
    "title": "Wake Forest's Gio Lopez Named Maxwell Award Semifinalist",

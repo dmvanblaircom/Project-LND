@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan-state",
- "updated": "2026-11-14T01:08:43.754433+00:00",
+ "updated": "2026-11-14T20:34:31.503907+00:00",
  "reports": [
   {
    "schema": 1,
@@ -602,10 +602,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:43.754433+00:00",
+   "fetchedAt": "2026-11-14T20:34:31.503907+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Washington",
    "players": [
@@ -614,13 +614,6 @@
      "no": "0",
      "name": "Cam Edwards",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "QB",
-     "no": "2",
-     "name": "Cam Fancher",
-     "status": "questionable",
      "detail": ""
     },
     {
@@ -641,21 +634,14 @@
      "pos": "CB",
      "no": "3",
      "name": "Tre Bell",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "RB",
      "no": "4",
      "name": "Jaziun Patterson",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "4",
-     "name": "Charles Brantley",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -697,7 +683,7 @@
      "pos": "DL",
      "no": "55",
      "name": "Ben Roberts",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
