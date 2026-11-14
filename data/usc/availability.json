@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:08:47.758686+00:00",
+ "fetchedAt": "2026-11-14T18:39:08.134335+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "at Indiana",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "TE",
    "no": "23",
    "name": "Walter Matthews",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

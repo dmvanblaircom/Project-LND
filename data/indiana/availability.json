@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:08:42.161499+00:00",
+ "fetchedAt": "2026-11-14T18:39:01.137096+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "vs. USC",
  "players": [
@@ -22,17 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "4",
-   "name": "A.J. Harris",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "5",
    "name": "Rolijah Hardy",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

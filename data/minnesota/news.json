@@ -1,7 +1,16 @@
 {
  "team": "minnesota",
- "updated": "2026-11-14T11:08:06.879850+00:00",
+ "updated": "2026-11-14T18:38:06.239143+00:00",
  "items": [
+  {
+   "title": "Game Trailer: Gophers at Penn State",
+   "link": "https://gophersports.com/news/2026/11/14/football-game-trailer-gophers-at-penn-state",
+   "source": "Minnesota Athletics",
+   "summary": "<img alt=\"Penn State line, Gophers Football\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/lead-penn-state-trailer.jpg\" /><br /><br />The Golden Gophers head to Happy Valley for the first time since 2022 to face Penn State. Kickoff is set for 6PM on FS1.",
+   "image": "https://gophersports.com/images/2026/11/13/lead-penn-state-trailer.jpg?width=800",
+   "sourceLogo": "https://gophersports.com/favicon.ico",
+   "published": "2026-11-14T18:00:00+00:00"
+  },
   {
    "title": "Minnesota Football vs. Penn State: Staff Predictions",
    "link": "https://www.thedailygopher.com/minnesota-golden-gophers-football/41692/minnesota-football-vs-penn-state-staff-predictions",
@@ -163,15 +172,6 @@
    "image": "https://gophersports.com/images/2026/10/31/Drzewiecki_Luke_011.jpg?width=800",
    "sourceLogo": "https://gophersports.com/favicon.ico",
    "published": "2026-11-02T20:00:00+00:00"
-  },
-  {
-   "title": "Coach Fleck Previews Saturday's Game Against #5 UCLA",
-   "link": "https://gophersports.com/news/2026/11/2/football-coach-fleck-previews-saturdays-game-against-5-ucla",
-   "source": "Minnesota Athletics",
-   "summary": "<img alt=\"Fleck_PJ\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/Fleck_PJ_6794.jpg\" /><br /><br />Coach Fleck met the media on Monday morning to preview Saturday's game against the fifth-ranked Bruins. Kickoff is set for 11AM on FOX.",
-   "image": "https://gophersports.com/images/2026/11/2/Fleck_PJ_6794.jpg?width=800",
-   "sourceLogo": "https://gophersports.com/favicon.ico",
-   "published": "2026-11-02T16:53:00+00:00"
   },
   {
    "title": "Gophers football falls short in overtime loss to No. 4 Indiana",

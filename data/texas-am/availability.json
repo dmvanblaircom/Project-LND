@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:39:00.631767+00:00",
+ "fetchedAt": "2026-11-14T18:39:07.032620+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "vs. Tennessee",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "WR",
    "no": "1",
    "name": "Mario Craver",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

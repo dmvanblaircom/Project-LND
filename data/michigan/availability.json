@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:08:43.673221+00:00",
+ "fetchedAt": "2026-11-14T18:39:03.003799+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "at Oregon",
  "players": [
@@ -22,24 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "1",
-   "name": "Rod Moore",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "8",
-   "name": "Dom Nichols",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "WR",
    "no": "9",
    "name": "Channing Goodwin",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -64,13 +50,6 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "42",
-   "name": "Jalen Hoffman",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "52",
    "name": "Ace Hamilton",
@@ -88,28 +67,21 @@
    "pos": "OL",
    "no": "70",
    "name": "Brady Norton",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "77",
    "name": "Blake Frazier",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "80",
-   "name": "Hogan Hansen",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DE",
-   "no": "90",
-   "name": "John Henry Daley",
-   "status": "questionable",
+   "no": "94",
+   "name": "Nate Marshall",
+   "status": "out-game",
    "detail": ""
   }
  ],
