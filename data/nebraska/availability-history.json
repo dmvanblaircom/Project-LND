@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-11-14T01:08:44.294438+00:00",
+ "updated": "2026-11-14T15:39:07.253558+00:00",
  "reports": [
   {
    "schema": 1,
@@ -476,10 +476,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:44.294438+00:00",
+   "fetchedAt": "2026-11-14T15:39:07.253558+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at Rutgers",
    "players": [
@@ -488,13 +488,6 @@
      "no": "0",
      "name": "Owen Chambliss",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "4",
-     "name": "Jamir Conn",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -529,7 +522,7 @@
      "pos": "DB",
      "no": "26",
      "name": "Dwayne McDougle III",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

@@ -7,32 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:08:45.652015+00:00",
+ "fetchedAt": "2026-11-14T15:39:09.352644+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "vs. Nebraska",
  "players": [
-  {
-   "pos": "WR",
-   "no": "0",
-   "name": "Dyzier Carter",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "DB",
    "no": "1",
    "name": "Kaj Sanders",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "6",
-   "name": "Abram Wright",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,17 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "10",
-   "name": "Ty Morris",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "QB",
    "no": "10",
    "name": "AJ Surace",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -75,13 +54,6 @@
    "no": "20",
    "name": "Chris Joines",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "K",
-   "no": "29",
-   "name": "Dane Pizzaro",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -109,7 +81,7 @@
    "pos": "DL",
    "no": "96",
    "name": "Keshon Griffin",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "app-state",
- "updated": "2026-11-12T01:38:41.579198+00:00",
+ "updated": "2026-11-14T15:38:46.312393+00:00",
  "reports": [
   {
    "schema": 1,
@@ -197,10 +197,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:41.579198+00:00",
+   "fetchedAt": "2026-11-14T15:38:46.312393+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at Marshall",
    "players": [
@@ -226,6 +226,13 @@
      "detail": ""
     },
     {
+     "pos": "RB",
+     "no": "",
+     "name": "J'Marion Burnette",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
      "pos": "ILB",
      "no": "",
      "name": "Alex Mitchell",
@@ -233,52 +240,24 @@
      "detail": ""
     },
     {
-     "pos": "RB",
-     "no": "",
-     "name": "J'Marion Burnette",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
      "pos": "OL",
      "no": "",
      "name": "Tyriq Poindexter",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "",
      "name": "Jayden Thomas",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "DL",
      "no": "",
      "name": "Aiden Benton",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "",
-     "name": "Darrin Fugitt",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Caleb Pitts",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
-     "name": "Brooks Yurachek",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     }
    ],

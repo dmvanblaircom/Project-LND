@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "coastal-carolina",
- "updated": "2026-11-12T01:38:49.713111+00:00",
+ "updated": "2026-11-14T15:39:01.841773+00:00",
  "reports": [
   {
    "schema": 1,
@@ -141,10 +141,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:49.713111+00:00",
+   "fetchedAt": "2026-11-14T15:39:01.841773+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Arkansas State",
    "players": [
@@ -163,13 +163,6 @@
      "detail": ""
     },
     {
-     "pos": "DB",
-     "no": "",
-     "name": "Ryan Grayson",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
      "pos": "WR",
      "no": "",
      "name": "Jayden Johnson",
@@ -180,28 +173,28 @@
      "pos": "DB",
      "no": "",
      "name": "King White",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
-     "name": "Tristian Gardner",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "RB",
      "no": "",
      "name": "Breyahn Townsend",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "",
      "name": "Dom Rijos",
-     "status": "questionable",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Mitchell Toney",
+     "status": "gtd",
      "detail": ""
     }
    ],

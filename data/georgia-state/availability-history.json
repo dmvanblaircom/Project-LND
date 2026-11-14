@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-state",
- "updated": "2026-11-12T01:38:50.784453+00:00",
+ "updated": "2026-11-14T15:39:03.381366+00:00",
  "reports": [
   {
    "schema": 1,
@@ -190,32 +190,39 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:50.784453+00:00",
+   "fetchedAt": "2026-11-14T15:39:03.381366+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Georgia Southern",
    "players": [
     {
+     "pos": "RB",
+     "no": "",
+     "name": "Dennis Murray Jr",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
      "pos": "DB",
      "no": "",
      "name": "Curtis Walker",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "TE",
      "no": "",
      "name": "Matt Buron",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "QB",
      "no": "",
      "name": "Cameran Brown",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

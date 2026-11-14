@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "clemson",
- "updated": "2026-11-14T01:08:40.493428+00:00",
+ "updated": "2026-11-14T15:39:01.728368+00:00",
  "reports": [
   {
    "schema": 1,
@@ -602,10 +602,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:40.493428+00:00",
+   "fetchedAt": "2026-11-14T15:39:01.728368+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Georgia Tech",
    "players": [

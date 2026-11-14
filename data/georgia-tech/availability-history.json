@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-tech",
- "updated": "2026-11-14T01:08:41.682778+00:00",
+ "updated": "2026-11-14T15:39:03.524252+00:00",
  "reports": [
   {
    "schema": 1,
@@ -854,10 +854,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:41.682778+00:00",
+   "fetchedAt": "2026-11-14T15:39:03.524252+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at Clemson",
    "players": [
@@ -872,7 +872,7 @@
      "pos": "WR",
      "no": "3",
      "name": "Rahkeem Smith",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -928,14 +928,14 @@
      "pos": "RB",
      "no": "24",
      "name": "Shane Marshall",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "S",
      "no": "26",
      "name": "Chris Hewitt, Jr.",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

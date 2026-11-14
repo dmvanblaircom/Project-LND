@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-southern",
- "updated": "2026-11-12T01:38:50.700712+00:00",
+ "updated": "2026-11-14T15:39:03.268960+00:00",
  "reports": [
   {
    "schema": 1,
@@ -169,10 +169,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:50.700712+00:00",
+   "fetchedAt": "2026-11-14T15:39:03.268960+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at Georgia State",
    "players": [
@@ -209,6 +209,13 @@
      "no": "",
      "name": "Kru Casey",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Aidan Mccowan",
+     "status": "gtd",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-alabama",
- "updated": "2026-11-12T01:38:55.429231+00:00",
+ "updated": "2026-11-14T15:39:09.843445+00:00",
  "reports": [
   {
    "schema": 1,
@@ -232,34 +232,13 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:55.429231+00:00",
+   "fetchedAt": "2026-11-14T15:39:09.843445+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Troy",
    "players": [
-    {
-     "pos": "RB",
-     "no": "",
-     "name": "Crow, Donovan",
-     "status": "out-season",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Hines, Andrew",
-     "status": "out-season",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Moore, DJ",
-     "status": "out-season",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "",
@@ -282,7 +261,7 @@
      "detail": ""
     },
     {
-     "pos": "DB",
+     "pos": "ILB",
      "no": "",
      "name": "Mosley, Demetress",
      "status": "out-game",
@@ -292,7 +271,7 @@
      "pos": "WR",
      "no": "",
      "name": "Jones-Thomas, Jeremiah",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -355,6 +334,27 @@
      "pos": "OLB",
      "no": "",
      "name": "Johnson, Tirrell",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Crow, Donovan",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Hines, Andrew",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Moore, DJ",
      "status": "out-season",
      "detail": ""
     }

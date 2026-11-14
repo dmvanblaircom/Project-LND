@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "southern-miss",
- "updated": "2026-11-12T01:38:55.693277+00:00",
+ "updated": "2026-11-14T15:39:10.248778+00:00",
  "reports": [
   {
    "schema": 1,
@@ -169,10 +169,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:55.693277+00:00",
+   "fetchedAt": "2026-11-14T15:39:10.248778+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at LA Tech",
    "players": [
@@ -194,7 +194,7 @@
      "pos": "OL",
      "no": "",
      "name": "Dante Devine",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {

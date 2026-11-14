@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "marshall",
- "updated": "2026-11-12T01:38:52.462864+00:00",
+ "updated": "2026-11-14T15:39:05.552365+00:00",
  "reports": [
   {
    "schema": 1,
@@ -99,10 +99,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-12T01:38:52.462864+00:00",
+   "fetchedAt": "2026-11-14T15:39:05.552365+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. App State",
    "players": [
@@ -145,21 +145,7 @@
      "pos": "DL",
      "no": "",
      "name": "Braydin Ward",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
-     "name": "Javae Gilmore",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "",
-     "name": "Judah Price",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     }
    ],
