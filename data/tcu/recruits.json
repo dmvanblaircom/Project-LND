@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2628",
  "classYear": 2027,
- "listed": 19,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -230,6 +230,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273288",
+   "name": "Hudson Harbuck",
+   "position": "DE",
+   "highSchool": "All Saints Episcopal School",
+   "city": "Fort Worth",
+   "state": "TX",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273309",
    "name": "Jacobie Wilkerson",
    "position": "DE",
@@ -256,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:44Z"
+ "fetchedAt": "2026-11-14T14:10Z"
 }
