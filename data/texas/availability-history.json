@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas",
- "updated": "2026-11-14T01:39:00.503399+00:00",
+ "updated": "2026-11-14T23:09:00.270609+00:00",
  "reports": [
   {
    "schema": 1,
@@ -301,10 +301,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:39:00.503399+00:00",
+   "fetchedAt": "2026-11-14T23:09:00.270609+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at LSU",
    "players": [
@@ -313,13 +313,6 @@
      "no": "2",
      "name": "Hollywood Smothers",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "54",
-     "name": "Cole Hutson",
-     "status": "questionable",
      "detail": ""
     },
     {
@@ -334,13 +327,6 @@
      "no": "81",
      "name": "Nick Townsend",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "93",
-     "name": "Hero Kanu",
-     "status": "probable",
      "detail": ""
     },
     {

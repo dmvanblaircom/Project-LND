@@ -1,7 +1,16 @@
 {
  "team": "georgia",
- "updated": "2026-11-14T21:38:07.965094+00:00",
+ "updated": "2026-11-14T23:08:07.807155+00:00",
  "items": [
+  {
+   "title": "Georgia Jumps Out to 31-7 Halftime Lead Over Missouri",
+   "link": "https://georgiadogs.com/news/2026/11/14/football-postgame-notes-georgia-vs-missouri",
+   "source": "Georgia Athletics",
+   "summary": "<img alt=\"Nov 14, 2026; Athens, Georgia, USA; Georgia running back Nate Frazier (3) runs for a touchdown during the first quarter against Missouri at Sanford Stadium. Mandatory Credit: Dale Zanine-Imagn Images\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/26FB_Missouri_Frazier.jpg\" /><br /><br />Georgia leads Missouri 31-7 at the half in Sanford Stadium. \u00a0Georgia's offense has talled 264 yards of offense (92-rushing, 172-passing) on 37 plays while the defense has held Missouri to 115 yards of offense on 26 plays.",
+   "image": "https://georgiadogs.com/images/2026/11/14/26FB_Missouri_Frazier.jpg?width=800",
+   "sourceLogo": "https://georgiadogs.com/favicon.ico",
+   "published": "2026-11-14T22:26:00+00:00"
+  },
   {
    "title": "Georgia/Missouri Live Thread",
    "link": "https://www.dawgsports.com/georgia-bulldogs-football/39587/georgia-missouri-live-thread",
@@ -442,15 +451,6 @@
    "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/11/gettyimages-2302583406.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-11-10T02:03:58+00:00"
-  },
-  {
-   "title": "Kirby Smart All Access - Ole Miss",
-   "link": "https://georgiadogs.com/news/2026/11/9/football-kirby-smart-all-access-ole-miss",
-   "source": "Georgia Athletics",
-   "summary": "<img alt=\"Kirby Smart All Access - Ole Miss\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/KSAA_OleMiss_16x9.png\" /><br /><br />Watch this week's Kirby Smart All Access presented by Piedmont Healthcare and get highlights and more from Georgia's win over Ole Miss!",
-   "image": "https://georgiadogs.com/images/2026/11/9/KSAA_OleMiss_16x9.png?width=800",
-   "sourceLogo": "https://georgiadogs.com/favicon.ico",
-   "published": "2026-11-10T01:00:00+00:00"
   }
  ]
 }
