@@ -1,7 +1,16 @@
 {
  "team": "washington",
- "updated": "2026-11-14T04:08:16.750681+00:00",
+ "updated": "2026-11-14T05:08:14.753962+00:00",
  "items": [
+  {
+   "title": "Football At MSU Moved To 2:30 p.m. PT Kickoff On Saturday",
+   "link": "https://gohuskies.com/news/2026/11/13/football-at-msu-moved-to-2-30-pm-pt-kickoff-on-saturday",
+   "source": "Washington Athletics",
+   "summary": "<img alt=\"Washington Football game time at Michigan State moved to 2:30 p.m. PT\" src=\"https://gohuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/FinalKickoffWide.jpg\" /><br /><br />Due to travel delays from the FAA ground stoppage, Washington football's game at Michigan State has been moved to Saturday, Nov. 14 at 2:30 p.m. PT on Big Ten Network.",
+   "image": "https://gohuskies.com/images/2026/11/13/FinalKickoffWide.jpg?width=800",
+   "sourceLogo": "https://gohuskies.com/favicon.ico",
+   "published": "2026-11-14T04:40:00+00:00"
+  },
   {
    "title": "The Prediction: Michigan State Spartans",
    "link": "https://www.uwdawgpound.com/big-ten-conference-news/78818/the-prediction-michigan-state-spartans-uw-football",
@@ -307,15 +316,6 @@
    "image": "https://gohuskies.com/images/2026/11/2/uw-fball-nebraska-2026-229.JPG?width=800",
    "sourceLogo": "https://gohuskies.com/favicon.ico",
    "published": "2026-11-02T18:00:00+00:00"
-  },
-  {
-   "title": "Two Late Scores Give UW 17-10 Win At Nebraska",
-   "link": "https://gohuskies.com/news/2026/10/31/football-two-late-scores-give-uw-17-10-win-at-nebraska",
-   "source": "Washington Athletics",
-   "summary": "<img alt=\"Chris Lawson and Jayden Limar celebrate touchdown\" src=\"https://gohuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/SEE_7007.JPG\" /><br /><br />LINCOLN, Neb. (AP) \u2014 Chris Lawson scored the go-ahead touchdown on a 25-yard catch-and-run with 1:30 left and Alex McLaughlin returned Anthony Colandrea's third interception of the game 48 yards for the clinching score as Washington came from behind to beat Nebraska 17-10 on Saturday night.",
-   "image": "https://gohuskies.com/images/2026/10/31/SEE_7007.JPG?width=800",
-   "sourceLogo": "https://gohuskies.com/favicon.ico",
-   "published": "2026-11-01T05:15:00+00:00"
   }
  ]
 }
