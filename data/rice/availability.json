@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T11:08:50.432067+00:00",
+ "fetchedAt": "2026-11-14T19:38:49.195930+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at North Texas",
+ "kickoffDate": "2026-11-14",
+ "game": "Tulane",
  "players": [
   {
    "pos": "CB",
@@ -43,10 +43,24 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "19",
+   "name": "Jordan Clark",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "S",
    "no": "27",
    "name": "Michael Amey III",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "27",
+   "name": "Dionne Sims",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -58,23 +72,9 @@
   },
   {
    "pos": "RB",
-   "no": "33",
-   "name": "Justin Powell",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "71",
-   "name": "Cole Principe",
+   "no": "30",
+   "name": "Carson Morgan",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "74",
-   "name": "Clay Mitchell",
-   "status": "out-game",
    "detail": ""
   },
   {
@@ -89,6 +89,13 @@
    "no": "82",
    "name": "Colten Cole",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "88",
+   "name": "Keenan Arcega-Whiteside",
+   "status": "questionable",
    "detail": ""
   }
  ],

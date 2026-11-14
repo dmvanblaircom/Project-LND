@@ -7,25 +7,32 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T11:08:52.264093+00:00",
+ "fetchedAt": "2026-11-14T19:38:51.372246+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Tulsa",
+ "kickoffDate": "2026-11-14",
+ "game": "Rice",
  "players": [
-  {
-   "pos": "CB",
-   "no": "0",
-   "name": "Shaun Nicholas",
-   "status": "out-half",
-   "detail": ""
-  },
   {
    "pos": "LB",
    "no": "4",
    "name": "Chris Rodgers",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "6",
+   "name": "Johnnie Daniels",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "7",
+   "name": "Kevin Adams III",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -50,13 +57,6 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "16",
-   "name": "Garrett Mmahat",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "CB",
    "no": "22",
    "name": "Justin Agu",
@@ -67,13 +67,6 @@
    "pos": "DB",
    "no": "23",
    "name": "Orion Saunders",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "24",
-   "name": "Jake Randle",
    "status": "questionable",
    "detail": ""
   },
@@ -100,6 +93,13 @@
   },
   {
    "pos": "OL",
+   "no": "51",
+   "name": "John Bock II",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "58",
    "name": "Ryan Mickow",
    "status": "out-game",
@@ -109,34 +109,41 @@
    "pos": "DL",
    "no": "70",
    "name": "Kameron Hamilton",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "71",
    "name": "Riley Rushing",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "73",
    "name": "Elijah Baker",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "81",
+   "name": "Deuce Hadley Jr.",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "90",
    "name": "Jordyn Crites",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DL",
-   "no": "99",
-   "name": "Josh Lewis",
+   "no": "98",
+   "name": "PaLanding Drammeh",
    "status": "questionable",
    "detail": ""
   }
