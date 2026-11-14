@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:38:48.884575+00:00",
+ "fetchedAt": "2026-11-14T16:38:30.301770+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "at Vanderbilt",
  "players": [
@@ -19,13 +19,6 @@
    "no": "0",
    "name": "AK Dear",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "2",
-   "name": "Zabien Brown",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -39,21 +32,14 @@
    "pos": "QB",
    "no": "12",
    "name": "Keelon Russell",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "13",
-   "name": "EJ Crowell",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "19",
    "name": "Chuck McDonald III",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -89,13 +75,6 @@
    "no": "50",
    "name": "Casey Poe",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "70",
-   "name": "William Sanders",
-   "status": "probable",
    "detail": ""
   },
   {
