@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-14T02:08:15.198403+00:00",
+ "updated": "2026-11-14T06:08:11.813308+00:00",
  "items": [
+  {
+   "title": "Gameday preview: UAB at Temple",
+   "link": "https://on3.com/sites/owl-scoop/news/gameday-preview-uab-at-temple/",
+   "source": "OwlScoop",
+   "summary": "Everything you need to know about Saturday's game, one that presents a great opportunity for the Owls to snap a four-game losing streak.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/13092447/Untitled-Design-1-1.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-14T06:00:00+00:00"
+  },
   {
    "title": "Temple Football vs. UAB Remains Unchanged Ahead of Saturday\u2019s Contest",
    "link": "https://owlsports.com/news/2026/11/13/temple-football-vs-uab-remains-unchanged-ahead-of-saturdays-contest",
@@ -208,15 +217,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/06/08100902/Keegan-Gray-Wyckoff.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-27T16:04:16+00:00"
-  },
-  {
-   "title": "K.C. Keeler talks roster updates, resources and injuries ahead of ECU",
-   "link": "https://on3.com/sites/owl-scoop/news/k-c-keeler-talks-roster-updates-resources-and-injuries-ahead-of-ecu/",
-   "source": "OwlScoop",
-   "summary": "Temple's veteran head coach said he dismissed defensive end Quante Gillians from the team, and he refuted a report that said he was facing an uphill battle with resources.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/19120944/K.C.-Keeler.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-26T22:00:41+00:00"
   }
  ]
 }
