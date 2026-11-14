@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kansas-state",
- "updated": "2026-11-14T03:09:05.803940+00:00",
+ "updated": "2026-11-14T17:39:11.252853+00:00",
  "reports": [
   {
    "schema": 1,
@@ -280,10 +280,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T03:09:05.803940+00:00",
+   "fetchedAt": "2026-11-14T17:39:11.252853+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at TCU",
    "players": [
@@ -291,7 +291,7 @@
      "pos": "S",
      "no": "0",
      "name": "Koy Beasley",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -312,7 +312,7 @@
      "pos": "WR",
      "no": "14",
      "name": "Max Lovett",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
