@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "san-diego-state",
- "updated": "2026-11-13T03:08:41.580004+00:00",
+ "updated": "2026-11-14T03:39:08.521573+00:00",
  "reports": [
   {
    "schema": 1,
@@ -115,10 +115,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T03:08:41.580004+00:00",
+   "fetchedAt": "2026-11-14T03:39:08.521573+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-14",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "vs. Utah State",
    "players": [
@@ -196,6 +196,13 @@
      "pos": "SP",
      "no": "",
      "name": "Luke Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Charlie Stewart",
      "status": "out-game",
      "detail": ""
     }

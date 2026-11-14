@@ -1,7 +1,16 @@
 {
  "team": "west-virginia",
- "updated": "2026-11-14T03:08:19.904678+00:00",
+ "updated": "2026-11-14T03:38:19.345244+00:00",
  "items": [
+  {
+   "title": "WVU vs. Kansas Game Time Changed to 3:30 p.m. on ESPN2",
+   "link": "https://wvusports.com/news/2026/11/13/football-wvu-vs-kansas-game-time-changed-to-3-30-pm-on-espn2",
+   "source": "West Virginia Athletics",
+   "summary": "<img alt=\"KUTimeChange3:30\" src=\"https://wvusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/UpdatedKUTimeWebsize.jpeg\" /><br /><br />MORGANTOWN, W.Va.\u00a0\u2013\u00a0The Big 12 Conference has announced that due to the national FAA ground stop impacting team travel, WVU's Nov. 14 home football game against Kansas will now be played on Saturday at 3:30 p.m. ET. and will be televised on ESPN2.",
+   "image": "https://wvusports.com/images/2026/11/13/UpdatedKUTimeWebsize.jpeg?width=800",
+   "sourceLogo": "https://wvusports.com/favicon.ico",
+   "published": "2026-11-14T03:08:00+00:00"
+  },
   {
    "title": "Big 12 To Monitor Saturday\u2019s Football Schedule",
    "link": "https://wvusports.com/news/2026/11/13/big-12-to-monitor-saturdays-football-schedule",
@@ -201,7 +210,7 @@
    "published": "2026-11-09T17:43:00+00:00"
   },
   {
-   "title": "Kansas Game to be Televised on ESPNU at 5:30 p.m., ET",
+   "title": "Kansas Game to be Televised on ESPNU at p.m., ET",
    "link": "https://wvusports.com/news/2026/11/8/football-kansas-game-to-be-televised-on-espnu-at-5-30-pm-et",
    "source": "West Virginia Athletics",
    "summary": "<img alt=\"West Virginia faces Pitt in the Backyard Brawl at Milan Puskar Stadium on Sept. 13, 2025, in Morgantown, W.Va.\" src=\"https://wvusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/8/12/20250913_FBvsPITT-5_F1CCJ.jpg\" /><br /><br />MORGANTOWN, W.Va. \u2013\u00a0The Big 12 Conference has announced that WVU's\u00a0Nov. 14 Big 12 Conference football game against Kansas at Milan Puskar Stadium will be televised on ESPNU at 5:30 p.m., ET.",
@@ -280,15 +289,6 @@
    "image": "https://platform.smokingmusket.com/wp-content/uploads/sites/147/2026/11/gettyimages-2300195102.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-11-05T00:57:52+00:00"
-  },
-  {
-   "title": "Mountaineers in the NFL \u2013 Week 8",
-   "link": "https://wvusports.com/news/2026/11/4/football-mountaineers-in-the-nfl-week-8",
-   "source": "West Virginia Athletics",
-   "summary": "<img alt=\"Dante Stills\" src=\"https://wvusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2023/10/10/stills_1.jpg\" /><br /><br />In Week 8 of the 2026 NFL season, six former Mountaineers saw action. Three former Mountaineers Geno Smith, Zach Frazier, and Dante Stills started for their respective teams.",
-   "image": "https://wvusports.com/images/2023/10/10/stills_1.jpg?width=800",
-   "sourceLogo": "https://wvusports.com/favicon.ico",
-   "published": "2026-11-04T19:37:00+00:00"
   }
  ]
 }

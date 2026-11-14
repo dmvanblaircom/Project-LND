@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utah-state",
- "updated": "2026-11-13T03:08:44.204762+00:00",
+ "updated": "2026-11-14T03:39:11.706587+00:00",
  "reports": [
   {
    "schema": 1,
@@ -218,10 +218,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T03:08:44.204762+00:00",
+   "fetchedAt": "2026-11-14T03:39:11.706587+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-14",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "at San Diego State",
    "players": [
@@ -229,28 +229,21 @@
      "pos": "WR",
      "no": "",
      "name": "Eli Wood",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "",
      "name": "Jimmy Liston",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "",
      "name": "Chapman Lewis",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "K'Leyone Iosua",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -285,7 +278,7 @@
      "pos": "SP",
      "no": "",
      "name": "Landon Rehkow",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -293,6 +286,13 @@
      "no": "",
      "name": "Javen Jacobs",
      "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "K'Leyone Iosua",
+     "status": "questionable",
      "detail": ""
     },
     {
