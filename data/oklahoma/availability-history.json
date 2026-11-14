@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-11-13T01:38:58.329573+00:00",
+ "updated": "2026-11-14T01:38:58.010867+00:00",
  "reports": [
   {
    "schema": 1,
@@ -539,10 +539,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T01:38:58.329573+00:00",
+   "fetchedAt": "2026-11-14T01:38:58.010867+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "vs. Ole Miss",
    "players": [
@@ -578,7 +578,7 @@
      "pos": "LB",
      "no": "18",
      "name": "Cole Sullivan",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -599,7 +599,7 @@
      "pos": "OL",
      "no": "60",
      "name": "Caleb Nitta",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

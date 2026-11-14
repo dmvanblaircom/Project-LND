@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:39:00.283337+00:00",
+ "fetchedAt": "2026-11-14T01:38:59.596973+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at Arkansas",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "WR",
    "no": "8",
    "name": "Nyck Harbor",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T01:38:58.722618+00:00",
+ "fetchedAt": "2026-11-14T01:38:58.331639+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at Oklahoma",
  "players": [
@@ -60,7 +60,7 @@
    "pos": "S",
    "no": "19",
    "name": "MJ Preston",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
