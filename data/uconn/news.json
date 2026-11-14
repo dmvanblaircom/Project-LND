@@ -1,7 +1,16 @@
 {
  "team": "uconn",
- "updated": "2026-11-14T21:08:15.704240+00:00",
+ "updated": "2026-11-14T22:08:20.098650+00:00",
  "items": [
+  {
+   "title": "Huskies Rout James Madison",
+   "link": "https://uconnhuskies.com/news/2026/11/14/football-huskies-rout-james-madison",
+   "source": "UConn Athletics",
+   "summary": "<img alt=\"Kalieb Osborne\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/JMU_K_Osborne_4.jpg\" /><br /><br />EAST HARTFORD, CT \u2013 UConn quarterback Kalieb Osborne threw for 274 yards and three touchdowns and had 88 yards rushing to lead the Huskies to a 46-22 win over James Madison in front of 25,530 at Pratt & Whitney Stadium at Rentschler Field Saturday afternoon.",
+   "image": "https://uconnhuskies.com/images/2026/11/14/JMU_K_Osborne_4.jpg?width=800",
+   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
+   "published": "2026-11-14T21:43:00+00:00"
+  },
   {
    "title": "JMU vs. UConn: TV info, keys to the game, behind the numbers",
    "link": "https://www.theuconnblog.com/uconn-huskies-football/64832/jmu-vs-uconn-tv-info-keys-to-the-game-behind-the-numbers",
@@ -100,15 +109,6 @@
    "image": "https://uconnhuskies.com/images/2026/10/23/UMass_C_Bowers_5.jpg?width=800",
    "sourceLogo": "https://uconnhuskies.com/favicon.ico",
    "published": "2026-10-24T04:31:00+00:00"
-  },
-  {
-   "title": "Huskies Host UMass Under the Friday Night Lights",
-   "link": "https://uconnhuskies.com/news/2026/10/20/football-huskies-host-umass-under-the-friday-night-lights",
-   "source": "UConn Athletics",
-   "summary": "<img alt=\"UConn Football\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/30/TK_FBVSUM-74.jpg\" /><br /><br />Media Coverage",
-   "image": "https://uconnhuskies.com/images/2026/9/30/TK_FBVSUM-74.jpg?width=800",
-   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
-   "published": "2026-10-20T23:11:00+00:00"
   }
  ]
 }

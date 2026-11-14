@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:08:43.836112+00:00",
+ "fetchedAt": "2026-11-14T22:08:56.173173+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "at Penn State",
  "players": [
@@ -25,14 +25,7 @@
    "pos": "DB",
    "no": "17",
    "name": "John Nestor",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "19",
-   "name": "Pierce Walsh",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -71,13 +64,6 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "82",
-   "name": "Julian Johnson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "WR",
    "no": "84",
    "name": "Hayden Moore",
@@ -89,13 +75,6 @@
    "no": "93",
    "name": "Riley Sunram",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "98",
-   "name": "Adam Kissayi",
-   "status": "probable",
    "detail": ""
   },
   {

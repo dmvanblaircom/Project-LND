@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisville",
- "updated": "2026-11-14T01:08:42.976835+00:00",
+ "updated": "2026-11-14T22:08:55.258098+00:00",
  "reports": [
   {
    "schema": 1,
@@ -621,46 +621,18 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:42.976835+00:00",
+   "fetchedAt": "2026-11-14T22:08:55.258098+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at North Carolina",
    "players": [
-    {
-     "pos": "RB",
-     "no": "1",
-     "name": "Isaac Brown",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "2",
-     "name": "Demeco Kennedy",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "7",
-     "name": "Lawayne McCoy",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "9",
      "name": "Antonio Watts",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "27",
-     "name": "Myles Norwood",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -682,13 +654,6 @@
      "no": "70",
      "name": "Anwar O'neal",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "71",
-     "name": "Cason Henry",
-     "status": "probable",
      "detail": ""
     },
     {

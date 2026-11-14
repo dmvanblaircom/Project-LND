@@ -1,7 +1,16 @@
 {
  "team": "iowa",
- "updated": "2026-11-14T20:33:39.214945+00:00",
+ "updated": "2026-11-14T22:08:10.128683+00:00",
  "items": [
+  {
+   "title": "Live from the Press Box",
+   "link": "https://on3.com/teams/iowa-hawkeyes/news/live-press-box-iowa-hawkeyes-football-purdue/",
+   "source": "On3",
+   "summary": "It's Iowa hosting Purdue at Kinnick Stadium and we have all your news and notes leading up to kickoff and during the game, Live from the Press Box.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14155557/Kinnick-Stadium-3.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-14T21:58:35+00:00"
+  },
   {
    "title": "Iowa vs. Purdue: Hawkeyes' 3 Keys to Victory Against the Boilermakers",
    "link": "https://www.si.com/college/iowa/football/iowa-vs-purdue-keys-to-victory-hawkeyes?utm_source=RSS",
@@ -469,15 +478,6 @@
    "image": "https://platform.blackheartgoldpants.com/wp-content/uploads/sites/31/2026/11/gettyimages-2304022773.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-11-11T18:58:33+00:00"
-  },
-  {
-   "title": "NCAA Tournament Preview: Iowa set for showdown with Duke",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/ncaa-tournament-preview-iowa-set-for-showdown-with-duke/",
-   "source": "On3",
-   "summary": "As the short 15-minute Field Hockey Selection Show played out on Sunday night, there were some unexpected twists and turns. The biggest shock was the committee\u2019s decision to put North Carolina in the field over Wake Forest, despite nearly every metric saying the opposite. Meanwhile, UMass, deservedly, was in though some argued how strong their [&#8230;]",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/11090125/Iowa-Field-Hockey-Duke-1.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-11T17:16:43+00:00"
   }
  ]
 }

@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:08:45.310277+00:00",
+ "fetchedAt": "2026-11-14T22:08:57.831257+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "vs. Minnesota",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "CB",
    "no": "0",
    "name": "Jahmir Joseph",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "4",
    "name": "Jeremiah Cooper",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "DE",
    "no": "10",
    "name": "Caleb Bacon",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "OL",
    "no": "78",
    "name": "Malachi Goodman",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   }
  ],

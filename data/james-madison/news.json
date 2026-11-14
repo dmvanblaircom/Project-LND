@@ -1,7 +1,16 @@
 {
  "team": "james-madison",
- "updated": "2026-11-12T18:08:03.037373+00:00",
+ "updated": "2026-11-14T22:08:09.533910+00:00",
  "items": [
+  {
+   "title": "Football: JMU Falls at UConn",
+   "link": "https://jmusports.com/news/2026/11/14/football-jmu-falls-at-uconn",
+   "source": "JMU Athletics",
+   "summary": "<img alt=\"Several JMU defenders work to complete a tackle in a game at UConn.\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/DSC_3993.JPG\" /><br /><br />EAST HARTFORD, Conn. \u2013 James Madison went on the road for the final time in the 2026 regular season, falling to UConn, 46-22, on Saturday afternoon at Rentschler Field.",
+   "image": "https://jmusports.com/images/2026/11/14/DSC_3993.JPG?width=800",
+   "sourceLogo": "https://jmusports.com/favicon.ico",
+   "published": "2026-11-14T21:52:00+00:00"
+  },
   {
    "title": "Football: Scott Becomes Jet Award Finalist",
    "link": "https://jmusports.com/news/2026/11/12/football-scott-becomes-jet-award-finalist",
@@ -82,15 +91,6 @@
    "image": "https://jmusports.com/images/2026/10/26/2526_Game_Preview-troy.jpg?width=800",
    "sourceLogo": "https://jmusports.com/favicon.ico",
    "published": "2026-10-27T16:01:00+00:00"
-  },
-  {
-   "title": "Football: Dukes Fall to App State in Overtime",
-   "link": "https://jmusports.com/news/2026/10/23/football-dukes-fall-to-app-state-in-overtime",
-   "source": "JMU Athletics",
-   "summary": "<img alt=\"JMU's offense huddles during a game at App State on Oct. 22.\" src=\"https://jmusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/23/JMU_Offense_vs_App_State_102226_1.png\" /><br /><br />BOONE, N.C. \u2013 James Madison suffered its first loss of the 2026 campaign on Thursday night at App State, falling 34-31 in overtime.",
-   "image": "https://jmusports.com/images/2026/10/23/JMU_Offense_vs_App_State_102226_1.png?width=800",
-   "sourceLogo": "https://jmusports.com/favicon.ico",
-   "published": "2026-10-23T06:08:00+00:00"
   }
  ]
 }
