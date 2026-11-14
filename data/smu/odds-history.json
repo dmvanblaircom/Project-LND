@@ -1,6 +1,6 @@
 {
 "team": "smu",
-"updated": "2026-11-14T10:37Z",
+"updated": "2026-11-14T11:37Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -910,6 +910,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 8.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-14T11:37Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 9.0,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
