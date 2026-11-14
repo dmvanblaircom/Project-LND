@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:08:44.720034+00:00",
+ "fetchedAt": "2026-11-14T15:08:50.808547+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "vs. Northwestern",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "WR",
    "no": "7",
    "name": "Phillip Bell",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -32,14 +32,14 @@
    "pos": "S",
    "no": "11",
    "name": "Terry Moore",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "11",
    "name": "Brock Boyd",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -60,7 +60,7 @@
    "pos": "LB",
    "no": "33",
    "name": "Eli Lee",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,14 +74,14 @@
    "pos": "DE",
    "no": "44",
    "name": "Epi Sitanilei",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "51",
    "name": "Luke Montgomery",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -95,21 +95,21 @@
    "pos": "OL",
    "no": "70",
    "name": "Phillip Daniels",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "72",
    "name": "Deontae Armstrong",
-   "status": "doubtful",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "78",
    "name": "Max Riley",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

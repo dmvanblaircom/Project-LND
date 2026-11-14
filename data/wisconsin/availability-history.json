@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wisconsin",
- "updated": "2026-11-14T01:08:48.779959+00:00",
+ "updated": "2026-11-14T15:08:55.642003+00:00",
  "reports": [
   {
    "schema": 1,
@@ -301,10 +301,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:48.779959+00:00",
+   "fetchedAt": "2026-11-14T15:08:55.642003+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at Maryland",
    "players": [
@@ -319,7 +319,7 @@
      "pos": "S",
      "no": "11",
      "name": "Carson Van Dinter",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

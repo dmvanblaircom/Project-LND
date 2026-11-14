@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "maryland",
- "updated": "2026-11-14T01:38:56.028734+00:00",
+ "updated": "2026-11-14T15:08:48.953469+00:00",
  "reports": [
   {
    "schema": 1,
@@ -679,25 +679,18 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T01:08:43.245516+00:00",
+   "fetchedAt": "2026-11-14T15:08:48.953469+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Wisconsin",
    "players": [
     {
-     "pos": "DB",
-     "no": "4",
-     "name": "Jamare Glasker",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "QB",
      "no": "7",
      "name": "Malik Washington",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -705,20 +698,6 @@
      "no": "9",
      "name": "Zahir Mathis",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "13",
-     "name": "DD Holmes",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "29",
-     "name": "Dontay Joyner",
-     "status": "doubtful",
      "detail": ""
     },
     {
@@ -750,31 +729,17 @@
      "detail": ""
     },
     {
+     "pos": "DB",
+     "no": "29",
+     "name": "Dontay Joyner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
      "pos": "RB",
      "no": "29",
      "name": "Liam Willson",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "K",
-     "no": "36",
-     "name": "Sean O'Haire",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "40",
-     "name": "Nahsir Taylor",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "48",
-     "name": "Darius Grimes",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -785,10 +750,10 @@
      "detail": ""
     },
     {
-     "pos": "K",
-     "no": "98",
-     "name": "Daniel Leahy",
-     "status": "probable",
+     "pos": "TE",
+     "no": "81",
+     "name": "Javonte Williams",
+     "status": "out-game",
      "detail": ""
     }
    ],

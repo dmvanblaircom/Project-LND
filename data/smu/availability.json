@@ -7,20 +7,13 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T02:08:59.330880+00:00",
+ "fetchedAt": "2026-11-14T15:08:52.203257+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "vs. Wake Forest",
  "players": [
-  {
-   "pos": "S",
-   "no": "7",
-   "name": "Ahmaad Moses",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "DE",
    "no": "9",
@@ -46,7 +39,7 @@
    "pos": "S",
    "no": "11",
    "name": "Jaden Milliner-Jones",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

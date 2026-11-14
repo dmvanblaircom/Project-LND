@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T01:08:44.212159+00:00",
+ "fetchedAt": "2026-11-14T15:08:50.207045+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "vs. Syracuse",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "OLB",
    "no": "5",
    "name": "Harvey Dyson III",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -54,13 +54,6 @@
    "no": "8",
    "name": "Isaiah Crowell",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "8",
-   "name": "Keenan Jackson",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -74,7 +67,7 @@
    "pos": "CB",
    "no": "14",
    "name": "Jaren Sensabaugh",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -95,7 +88,7 @@
    "pos": "OL",
    "no": "64",
    "name": "Rico Jackson",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
