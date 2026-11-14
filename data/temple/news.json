@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-14T22:08:17.874255+00:00",
+ "updated": "2026-11-14T23:38:15.145050+00:00",
  "items": [
+  {
+   "title": "K.C. Keeler sees a 'fragile' Temple team in 36-10 loss to UAB",
+   "link": "https://on3.com/sites/owl-scoop/news/k-c-keeler-sees-a-fragile-temple-team-in-36-10-loss-to-uab/",
+   "source": "OwlScoop",
+   "summary": "The Owls trailed by three at halftime before getting shut out in the second half. They're 2-8 now with two games remaining.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14164227/Ajani-Sheppard-UAB.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-14T23:26:46+00:00"
+  },
   {
    "title": "Temple Football Ousted by UAB",
    "link": "https://owlsports.com/news/2026/11/14/temple-football-ousted-by-uab",
@@ -208,15 +217,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28090352/Sam-Brown-Army.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-28T14:05:46+00:00"
-  },
-  {
-   "title": "Recruiting Roundup: Keegan Gray-Wyckoff finishes senior season with DPOY honors",
-   "link": "https://on3.com/sites/owl-scoop/news/recruiting-roundup-keegan-gray-wyckoff-finishes-senior-season-with-dpoy-honors/",
-   "source": "OwlScoop",
-   "summary": "Find out how Temple's commits performed last week in this week's edition of OwlScoop's recruiting roundup.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/06/08100902/Keegan-Gray-Wyckoff.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-27T16:04:16+00:00"
   }
  ]
 }

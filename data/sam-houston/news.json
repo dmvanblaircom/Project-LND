@@ -1,7 +1,16 @@
 {
  "team": "sam-houston",
- "updated": "2026-11-12T20:38:07.268351+00:00",
+ "updated": "2026-11-14T23:38:12.931969+00:00",
  "items": [
+  {
+   "title": "Kats fall to Kennesaw State",
+   "link": "https://gobearkats.com/news/2026/11/14/football-kats-fall-to-kennesaw-state",
+   "source": "Sam Houston Athletics",
+   "summary": "<img alt=\"Chris Reed vs Kennesaw State 2026\" src=\"https://gobearkats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/12639.jpg\" /><br /><br />HUNTSVILLE\u00a0\u2013 Chris Reed caught a 10-yard touchdown pass from Landyn Locke in the second quarter, but Kennesaw State answered with a touchdown of its own and went on to beat Sam Houston 26\u20137 on Saturday at Bowers Stadium.",
+   "image": "https://gobearkats.com/images/2026/11/14/12639.jpg?width=800",
+   "sourceLogo": "https://gobearkats.com/favicon.ico",
+   "published": "2026-11-14T23:24:00+00:00"
+  },
   {
    "title": "Game 10 Preview: vs Kennesaw State",
    "link": "https://gobearkats.com/news/2026/11/12/football-game-10-preview-vs-kennesaw-state",
@@ -82,15 +91,6 @@
    "image": "https://gobearkats.com/images/2026/10/22/Locke_Warmups.jpg?width=800",
    "sourceLogo": "https://gobearkats.com/favicon.ico",
    "published": "2026-10-23T16:00:00+00:00"
-  },
-  {
-   "title": "NM State pushes past Sam Houston 30-24",
-   "link": "https://gobearkats.com/news/2026/10/21/football-nm-state-pushes-past-sam-houston-30-24",
-   "source": "Sam Houston Athletics",
-   "summary": "<img alt=\"Tim Burns Jr. outraces a NM State defensive back to the end zone\" src=\"https://gobearkats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/21/10343.JPG\" /><br /><br />HUNTSVILLE - NM State leaned on Conference USA's leading rusher to edge Sam Houston 30-24 on Wednesday night at Bowers Stadium.",
-   "image": "https://gobearkats.com/images/2026/10/21/10343.JPG?width=800",
-   "sourceLogo": "https://gobearkats.com/favicon.ico",
-   "published": "2026-10-22T05:25:00+00:00"
   }
  ]
 }
