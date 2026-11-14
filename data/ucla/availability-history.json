@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucla",
- "updated": "2026-11-13T01:09:01.159807+00:00",
+ "updated": "2026-11-14T00:08:57.012461+00:00",
  "reports": [
   {
    "schema": 1,
@@ -441,10 +441,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T01:09:01.159807+00:00",
+   "fetchedAt": "2026-11-14T00:08:57.012461+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-13",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-13",
    "game": "vs. Illinois",
    "players": [
@@ -473,7 +473,7 @@
      "pos": "WR",
      "no": "20",
      "name": "Shane Rosenthal",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -494,7 +494,7 @@
      "pos": "OL",
      "no": "51",
      "name": "Riley Robell",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

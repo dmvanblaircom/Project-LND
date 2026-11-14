@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "illinois",
- "updated": "2026-11-13T01:08:54.068443+00:00",
+ "updated": "2026-11-14T00:08:48.299479+00:00",
  "reports": [
   {
    "schema": 1,
@@ -595,10 +595,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T01:08:54.068443+00:00",
+   "fetchedAt": "2026-11-14T00:08:48.299479+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-13",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-13",
    "game": "at UCLA",
    "players": [
@@ -641,7 +641,7 @@
      "pos": "DL",
      "no": "24",
      "name": "Will Holmes",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -676,7 +676,7 @@
      "pos": "DL",
      "no": "54",
      "name": "Demetrius John",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -690,14 +690,14 @@
      "pos": "OL",
      "no": "59",
      "name": "Jake Renfro",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "TE",
      "no": "87",
      "name": "BJ Thurman",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     }
    ],
