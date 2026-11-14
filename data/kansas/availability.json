@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T03:09:05.702867+00:00",
+ "fetchedAt": "2026-11-14T19:08:56.294122+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "at West Virginia",
  "players": [
@@ -22,17 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "15",
-   "name": "Cole Ballard",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "S",
    "no": "23",
    "name": "Mason Ellis",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
