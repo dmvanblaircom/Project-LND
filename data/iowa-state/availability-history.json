@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa-state",
- "updated": "2026-11-13T03:08:37.269146+00:00",
+ "updated": "2026-11-14T03:09:05.510519+00:00",
  "reports": [
   {
    "schema": 1,
@@ -308,20 +308,13 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T03:08:37.269146+00:00",
+   "fetchedAt": "2026-11-14T03:09:05.510519+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "vs. Cincinnati",
    "players": [
-    {
-     "pos": "CB",
-     "no": "1",
-     "name": "Keyon Washington",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "WR",
      "no": "2",
@@ -334,13 +327,6 @@
      "no": "5",
      "name": "Connor Moberly",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "5",
-     "name": "Beni Ngoyi",
-     "status": "probable",
      "detail": ""
     },
     {

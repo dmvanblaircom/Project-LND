@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:43.107349+00:00",
+ "fetchedAt": "2026-11-14T03:09:11.384115+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at Oklahoma State",
  "players": [
@@ -39,35 +39,35 @@
    "pos": "RB",
    "no": "8",
    "name": "Cameron Dickey",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "11",
    "name": "Malcolm Simmons",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "15",
    "name": "Austin Romaine",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "17",
    "name": "Leyton Stone",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "21",
    "name": "Miquel Dingle Jr.",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -75,13 +75,6 @@
    "no": "33",
    "name": "Ansel Nedore",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "79",
-   "name": "Howard Sampson",
-   "status": "probable",
    "detail": ""
   }
  ],

@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:29.664800+00:00",
+ "fetchedAt": "2026-11-14T03:08:58.155194+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "vs. Baylor",
  "players": [
@@ -18,35 +18,21 @@
    "pos": "CB",
    "no": "0",
    "name": "Evan Johnson",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "2",
    "name": "Roger Saleapaga II",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "4",
-   "name": "LJ Martin",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "16",
    "name": "Isaiah Glasker",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "28",
-   "name": "Crew Clark",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {

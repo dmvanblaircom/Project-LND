@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-state",
- "updated": "2026-11-13T03:08:43.004246+00:00",
+ "updated": "2026-11-14T03:09:11.283616+00:00",
  "reports": [
   {
    "schema": 1,
@@ -141,10 +141,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T03:08:43.004246+00:00",
+   "fetchedAt": "2026-11-14T03:09:11.283616+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-14",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "vs. Fresno State",
    "players": [

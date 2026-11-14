@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:44.111719+00:00",
+ "fetchedAt": "2026-11-14T03:09:12.383933+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at Arizona",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "RB",
    "no": "1",
    "name": "Wayshawn Parker",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "DT",
    "no": "51",
    "name": "Karson Kaufusi",
-   "status": "doubtful",
+   "status": "questionable",
    "detail": ""
   }
  ],

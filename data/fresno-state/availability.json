@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:31.265009+00:00",
+ "fetchedAt": "2026-11-14T03:08:59.741558+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-14",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at Texas State",
  "players": [
@@ -18,6 +18,13 @@
    "pos": "ILB",
    "no": "",
    "name": "Niko Baumgartner",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Julius Gillick",
    "status": "questionable",
    "detail": ""
   },

@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:45.079307+00:00",
+ "fetchedAt": "2026-11-14T03:09:13.358951+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "vs. Kansas",
  "players": [
-  {
-   "pos": "S",
-   "no": "6",
-   "name": "Da'Mare Williams",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "TE",
    "no": "10",

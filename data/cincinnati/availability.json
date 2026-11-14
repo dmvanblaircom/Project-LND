@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:30.093164+00:00",
+ "fetchedAt": "2026-11-14T03:08:58.577931+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at Iowa State",
  "players": [
-  {
-   "pos": "RB",
-   "no": "3",
-   "name": "Cole Tabb",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "9",
@@ -40,27 +33,6 @@
    "no": "12",
    "name": "Filip Maciorowski",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "44",
-   "name": "Montay Weedon",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "78",
-   "name": "Grant Edgington",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "K",
-   "no": "99",
-   "name": "Stephen Rusnak",
-   "status": "probable",
    "detail": ""
   }
  ],

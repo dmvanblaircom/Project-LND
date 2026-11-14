@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona",
- "updated": "2026-11-13T03:08:23.016512+00:00",
+ "updated": "2026-11-14T03:08:53.831046+00:00",
  "reports": [
   {
    "schema": 1,
@@ -413,10 +413,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T03:08:23.016512+00:00",
+   "fetchedAt": "2026-11-14T03:08:53.831046+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "vs. Utah",
    "players": [
@@ -428,24 +428,17 @@
      "detail": ""
     },
     {
-     "pos": "CB",
-     "no": "8",
-     "name": "Jay'Vion Cole",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
      "pos": "TE",
      "no": "8",
      "name": "Shane King",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "S",
      "no": "13",
      "name": "Cam Chapa",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -467,13 +460,6 @@
      "no": "28",
      "name": "Swayde Griffin",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "35",
-     "name": "Quinn Olson",
-     "status": "probable",
      "detail": ""
     },
     {

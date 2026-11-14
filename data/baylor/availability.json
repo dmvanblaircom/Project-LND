@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:25.330685+00:00",
+ "fetchedAt": "2026-11-14T03:08:55.995880+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at BYU",
  "players": [
@@ -25,7 +25,14 @@
    "pos": "CB",
    "no": "12",
    "name": "Kyler Beaty",
-   "status": "questionable",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "13",
+   "name": "Quinn Murphy",
+   "status": "out-game",
    "detail": ""
   },
   {

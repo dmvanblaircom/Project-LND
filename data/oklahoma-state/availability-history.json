@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma-state",
- "updated": "2026-11-13T03:08:40.447248+00:00",
+ "updated": "2026-11-14T03:09:08.712624+00:00",
  "reports": [
   {
    "schema": 1,
@@ -294,10 +294,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-13T03:08:40.447248+00:00",
+   "fetchedAt": "2026-11-14T03:09:08.712624+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-12",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-13",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-14",
    "game": "vs. Texas Tech",
    "players": [
@@ -305,7 +305,7 @@
      "pos": "LB",
      "no": "3",
      "name": "Tate Romney",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -313,6 +313,13 @@
      "no": "19",
      "name": "Dayvon Standard",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "23",
+     "name": "Oscar Hammond",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -326,7 +333,7 @@
      "pos": "OL",
      "no": "76",
      "name": "Desmond Magiya",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
