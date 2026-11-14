@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-14T10:38:27.188606+00:00",
+ "updated": "2026-11-14T20:08:21.077679+00:00",
  "items": [
+  {
+   "title": "Football Pregame Show: Jax State",
+   "link": "https://wkusports.com/news/2026/11/14/football-pregame-show-jax-state",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"Pregame Interview 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/14/pregame_16x9.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/11/14/pregame_16x9.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-14T19:42:00+00:00"
+  },
   {
    "title": "Gameday Guide: Jax State",
    "link": "https://wkusports.com/news/2026/11/14/football-gameday-guide-jax-state",
@@ -91,15 +100,6 @@
    "image": "https://wkusports.com/images/2026/11/3/Christian_White.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-05T15:00:00+00:00"
-  },
-  {
-   "title": "Hilltoppers Travel to Middle Tennessee for Rivalry Game",
-   "link": "https://wkusports.com/news/2026/11/4/football-hilltoppers-travel-to-middle-tennessee-for-rivalry-game",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"WKU FB 26 \u2013 Game Week \u2013 MTSU 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/3/WKU_FB_26___Game_Week___MTSU_16x9.png\" /><br /><br />BOWLING GREEN, Ky. \u2013 WKU Football will be on the road to face rival Middle Tennessee on Saturday, Nov. 7, at Johnny \"Red\" Floyd Stadium in Murfreesboro, Tennessee. Kickoff is scheduled for 2:30 p.m. CT and the game will be streamed on ESPN+.",
-   "image": "https://wkusports.com/images/2026/11/3/WKU_FB_26___Game_Week___MTSU_16x9.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-04T13:30:00+00:00"
   }
  ]
 }
