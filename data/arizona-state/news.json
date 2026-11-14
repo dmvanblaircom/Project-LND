@@ -1,7 +1,16 @@
 {
  "team": "arizona-state",
- "updated": "2026-11-14T19:37:56.495315+00:00",
+ "updated": "2026-11-14T21:38:03.883423+00:00",
  "items": [
+  {
+   "title": "ASU at UCF Game Thread",
+   "link": "https://on3.com/sites/asu-devils/news/asu-at-ucf-game-thread/",
+   "source": "Devils Digest",
+   "summary": "Follow us here for all of your pregame, in-game, and postgame updates from the Sun Devils\u2019 road game https://www.on3.com/boards/threads/asu-at-ucf-game-thread.9146078/#post-193393816",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/09191152/2026-Fette-CU1.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-14T21:35:59+00:00"
+  },
   {
    "title": "LANDED: 17 Hours Later, Arizona State Football Arrives in Orlando For Postponed Kickoff",
    "link": "https://www.si.com/college/arizonastate/football/landed-17-hours-later-arizona-state-football-arrives-in-orlando-for-postponed-kickoff-01m7dp31wfvp?utm_source=RSS",
@@ -235,15 +244,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/09080212/2026-Fette-CU.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-09T14:05:38+00:00"
-  },
-  {
-   "title": "Colorado at ASU Postgame Thoughts",
-   "link": "https://on3.com/sites/asu-devils/news/colorado-at-asu-postgame-thoughts/",
-   "source": "Devils Digest",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08143100/2026-Albert-Smith-CU.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-08T20:50:30+00:00"
   }
  ]
 }
