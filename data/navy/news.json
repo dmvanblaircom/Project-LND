@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-14T16:08:04.105390+00:00",
+ "updated": "2026-11-14T21:08:06.787378+00:00",
  "items": [
+  {
+   "title": "The Temple Debrief",
+   "link": "https://on3.com/sites/the-mid-report/news/the-temple-debrief-2/",
+   "source": "The Mid Report",
+   "summary": "Sometimes, Navy looked much better than their record. Other times, they looked exactly like a team still figuring out how to win.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14144330/2026-11-07T210035Z_1070151780_MT1USATODAY30302378_RTRMADP_3_NCAA-FOOTBALL-TEMPLE-AT-NAVY-e1794689043150.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-14T20:45:18+00:00"
+  },
   {
    "title": "'College GameDay' will travel to MetLife Stadium for the historic 127th Army-Navy game presented by USAA, marking 10th all-time visit to 'America's Game'",
    "link": "https://navysports.com/news/2026/11/14/football-college-gameday-will-travel-to-metlife-stadium-for-historic-127th-army-navy-game-presented-by-usaa-marking-10th-all-time-visit-to-americas-game.aspx",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25180448/DSC_0315.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-27T18:00:00+00:00"
-  },
-  {
-   "title": "Navy vs North Texas - Game Photo Gallery Part 1",
-   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-north-texas-game-photo-gallery-part-1/",
-   "source": "The Mid Report",
-   "summary": "Photos from the first quarter of Navy\u2019s 49-39 loss to the North Texas Mean Green on October 24, 2026, as seen through the lens of staff photographer Alison Althouse.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25121242/DSC_0110.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-26T18:00:00+00:00"
   }
  ]
 }

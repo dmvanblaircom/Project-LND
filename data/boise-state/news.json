@@ -1,7 +1,16 @@
 {
  "team": "boise-state",
- "updated": "2026-11-14T17:08:04.812430+00:00",
+ "updated": "2026-11-14T21:07:59.279778+00:00",
  "items": [
+  {
+   "title": "Gameday Availability Report",
+   "link": "https://broncosports.com/news/2026/11/14/football-gameday-availability-report",
+   "source": "Boise State Athletics",
+   "summary": "<img alt=\"Oregon State Availability\" src=\"https://broncosports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/Oregon_State_Availability.png\" /><br /><br />All Pac-12 availability reports can be found at Pac-12.com.",
+   "image": "https://broncosports.com/images/2026/11/11/Oregon_State_Availability.png?width=800",
+   "sourceLogo": "https://broncosports.com/favicon.ico",
+   "published": "2026-11-14T21:00:00+00:00"
+  },
   {
    "title": "ESPN College GameDay makes its picks for No. 24 Boise State vs. Oregon State",
    "link": "https://www.si.com/college/boise-state/football/espn-college-gameday-makes-its-picks-for-no-24-boise-state-vs-oregon-state?utm_source=RSS",
@@ -154,15 +163,6 @@
    "image": "https://broncosports.com/images/2026/11/11/ESPN_CGD_HOMEDEPOT_SHIELD_WEB_.jpg?width=800",
    "sourceLogo": "https://broncosports.com/favicon.ico",
    "published": "2026-11-11T23:00:00+00:00"
-  },
-  {
-   "title": "NFL Broncos: Week 10",
-   "link": "https://broncosports.com/news/2026/11/11/football-nfl-broncos-week-10",
-   "source": "Boise State Athletics",
-   "summary": "<img alt=\"NFL Broncos Week 10 webslider\" src=\"https://broncosports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/FB26_Broncos_In_NFL_W10.jpg\" /><br /><br />Nine former Broncos in action across three days",
-   "image": "https://broncosports.com/images/2026/11/11/FB26_Broncos_In_NFL_W10.jpg?width=800",
-   "sourceLogo": "https://broncosports.com/favicon.ico",
-   "published": "2026-11-11T22:00:00+00:00"
   },
   {
    "title": "Boise State's defense has a glaring problem, and Oregon State could make it worse",

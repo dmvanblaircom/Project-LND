@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona-state",
- "updated": "2026-11-14T03:08:53.934440+00:00",
+ "updated": "2026-11-14T21:08:39.623475+00:00",
  "reports": [
   {
    "schema": 1,
@@ -378,32 +378,18 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T03:08:53.934440+00:00",
+   "fetchedAt": "2026-11-14T21:08:39.623475+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at UCF",
    "players": [
     {
-     "pos": "RB",
-     "no": "22",
-     "name": "Jason Brown Jr.",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "57",
-     "name": "Filiva'a Lokotui",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "OL",
      "no": "64",
      "name": "Wade Helton",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucf",
- "updated": "2026-11-14T03:09:11.987629+00:00",
+ "updated": "2026-11-14T21:08:50.338599+00:00",
  "reports": [
   {
    "schema": 1,
@@ -490,10 +490,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T03:09:11.987629+00:00",
+   "fetchedAt": "2026-11-14T21:08:50.338599+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Arizona State",
    "players": [
@@ -502,13 +502,6 @@
      "no": "5",
      "name": "DJ Bell",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "7",
-     "name": "Antione Jackson",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -529,7 +522,7 @@
      "pos": "QB",
      "no": "12",
      "name": "Keyone Jenkins",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -537,27 +530,6 @@
      "no": "14",
      "name": "Kahmel Johnson",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "18",
-     "name": "Caden Piening",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "20",
-     "name": "Lewis Carter",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "21",
-     "name": "Ty Bartrum",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -569,23 +541,16 @@
     },
     {
      "pos": "LB",
-     "no": "38",
-     "name": "Jayden Jennings",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "EDG",
-     "no": "41",
-     "name": "Bruno Dall",
-     "status": "probable",
+     "no": "32",
+     "name": "Matthew Occhipinti",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "55",
      "name": "Jacob Maiava",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oregon-state",
- "updated": "2026-11-14T03:09:09.122085+00:00",
+ "updated": "2026-11-14T21:08:48.052090+00:00",
  "reports": [
   {
    "schema": 1,
@@ -120,10 +120,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T03:09:09.122085+00:00",
+   "fetchedAt": "2026-11-14T21:08:48.052090+00:00",
    "reported": true,
    "effectiveAt": "2026-11-14",
-   "heading": "Update 2",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "at Boise State",
    "players": [
