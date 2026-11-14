@@ -7,20 +7,13 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T02:08:54.950002+00:00",
+ "fetchedAt": "2026-11-14T02:09:03.091699+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-13",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-14",
  "game": "at SMU",
  "players": [
-  {
-   "pos": "QB",
-   "no": "3",
-   "name": "Gio Lopez",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "DB",
    "no": "15",
@@ -33,13 +26,6 @@
    "no": "20",
    "name": "Elijah Otieno",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "21",
-   "name": "Aiden Hall",
-   "status": "probable",
    "detail": ""
   },
   {

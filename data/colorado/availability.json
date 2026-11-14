@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:30.405841+00:00",
+ "fetchedAt": "2026-11-14T02:08:43.773422+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-13",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-13",
  "game": "vs. Houston",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "DB",
    "no": "26",
    "name": "Braylon Edwards",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -50,24 +50,10 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "35",
-   "name": "Tyler Martinez",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "45",
-   "name": "Vili Taufatofua",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "K",
    "no": "46",
    "name": "Elliot Arnold",
-   "status": "doubtful",
+   "status": "gtd",
    "detail": ""
   },
   {

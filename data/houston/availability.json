@@ -7,46 +7,18 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T03:08:31.789994+00:00",
+ "fetchedAt": "2026-11-14T02:08:45.458897+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-13",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-13",
  "game": "at Colorado",
  "players": [
-  {
-   "pos": "DB",
-   "no": "3",
-   "name": "JD Rhym",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "50",
-   "name": "Ejiro Egodogbare",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "OL",
    "no": "50",
    "name": "Aaron Wolford",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "90",
-   "name": "De'Marion Thomas",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "92",
-   "name": "Travis Buhake",
-   "status": "probable",
    "detail": ""
   }
  ],
