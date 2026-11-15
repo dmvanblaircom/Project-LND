@@ -1,6 +1,6 @@
 {
 "team": "boise-state",
-"updated": "2026-11-15T16:07Z",
+"updated": "2026-11-15T17:37Z",
 "points": [
 {
 "t": "2026-10-29T15:37Z",
@@ -1414,6 +1414,13 @@
 "title": null,
 "titleEvent": "KXNCAAF-27",
 "playoff": 81.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-15T17:37Z",
+"title": null,
+"titleEvent": "KXNCAAF-27",
+"playoff": 80.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
