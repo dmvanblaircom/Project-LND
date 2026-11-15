@@ -1,7 +1,16 @@
 {
  "team": "missouri-state",
- "updated": "2026-11-11T21:08:12.342922+00:00",
+ "updated": "2026-11-15T02:08:03.808032+00:00",
  "items": [
+  {
+   "title": "Bears Walk Off Aggies in Thrilling Homecoming Win",
+   "link": "https://missouristatebears.com/news/2026/11/14/football-bears-walk-off-aggies-in-thrilling-homecoming-win",
+   "source": "Missouri State Athletics",
+   "summary": "<img alt=\"Joel Boamah vs. NM State\" src=\"https://missouristatebears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/CAS_5254.JPG\" /><br /><br />An 88-yard interception return by Joel Boamah in overtime secured a remarkable comeback win for Missouri State here Saturday as the Bears rallied for a 27-21 homecoming victory over visiting New Mexico State.",
+   "image": "https://missouristatebears.com/images/2026/11/14/CAS_5254.JPG?width=800",
+   "sourceLogo": "https://missouristatebears.com/favicon.ico",
+   "published": "2026-11-15T01:32:00+00:00"
+  },
   {
    "title": "Football Hosts NM State in Homecoming Clash at Plaster",
    "link": "https://missouristatebears.com/news/2026/11/11/football-hosts-nm-state-in-homecoming-clash-at-plaster",
@@ -82,15 +91,6 @@
    "image": "https://missouristatebears.com/images/2026/10/22/FB_Preview_-_Game_8.jpg?width=800",
    "sourceLogo": "https://missouristatebears.com/favicon.ico",
    "published": "2026-10-23T18:10:00+00:00"
-  },
-  {
-   "title": "Strong Second Half Pushes Delaware Past Bears in Newark",
-   "link": "https://missouristatebears.com/news/2026/10/20/football-strong-second-half-pushes-delaware-past-bears-in-newark",
-   "source": "Missouri State Athletics",
-   "summary": "<img alt=\"Isaiah Myers at Delaware\" src=\"https://missouristatebears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/20/CAS_1946.JPG\" /><br /><br />A strong second half and good field position helped home-standing Delaware to a 61-38 victory over visiting Missouri State here Tuesday in the highest-scoring Conference USA game since 2017.",
-   "image": "https://missouristatebears.com/images/2026/10/20/CAS_1946.JPG?width=800",
-   "sourceLogo": "https://missouristatebears.com/favicon.ico",
-   "published": "2026-10-21T03:53:00+00:00"
   }
  ]
 }

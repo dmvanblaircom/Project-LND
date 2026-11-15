@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona",
- "updated": "2026-11-14T03:08:53.831046+00:00",
+ "updated": "2026-11-15T02:08:32.314909+00:00",
  "reports": [
   {
    "schema": 1,
@@ -413,10 +413,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T03:08:53.831046+00:00",
+   "fetchedAt": "2026-11-15T02:08:32.314909+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-13",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Utah",
    "players": [
@@ -445,13 +445,20 @@
      "pos": "S",
      "no": "15",
      "name": "Malcolm Hartzog Jr.",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "RB",
      "no": "21",
      "name": "Ismail Mahdi",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "27",
+     "name": "Keytrin Harris",
      "status": "out-game",
      "detail": ""
     },
