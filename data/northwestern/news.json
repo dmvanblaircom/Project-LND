@@ -1,25 +1,7 @@
 {
  "team": "northwestern",
- "updated": "2026-11-15T07:08:11.986277+00:00",
+ "updated": "2026-11-15T07:38:16.618056+00:00",
  "items": [
-  {
-   "title": "\u2018Cats Ride Dominant Fourth Quarter To 75-61 Win Over App State",
-   "link": "https://nusports.com/news/2026/11/14/cats-ride-dominant-fourth-quarter-to-75-61-win-over-app-state",
-   "source": "Northwestern Athletics",
-   "summary": "",
-   "image": "https://nusports.com/imgproxy/vGEap7KEurQ2Q3hdm-Wa7cCHjkvG-sXqQIXDT0-2wyQ/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL251c3BvcnRzLWNvbS1wcm9kLzIwMjYvMTEvMTUvRzdsNU9PSlZKOUhlbDVXSEp2UHRlQXVqaDBQOG9zdmI4YkNsWU5BUi5qcGc.jpg",
-   "sourceLogo": "https://nusports.com/favicon.ico",
-   "published": "2026-11-15T02:15:00+00:00"
-  },
-  {
-   "title": "\u2018Cats to Face No. 8 UNC in NCAA Quarterfinal on Sunday",
-   "link": "https://nusports.com/news/2026/11/14/cats-to-face-no-8-unc-in-ncaa-quarterfinal-on-sunday",
-   "source": "Northwestern Athletics",
-   "summary": "",
-   "image": "https://nusports.com/imgproxy/l96nZAyMoNTicnetN85gY9QcSJwe9zOgCH39O9U5nRQ/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL251c3BvcnRzLWNvbS1wcm9kLzIwMjYvMTEvMTMvMllLU0llZW51bGNqSmdZR1BmM3lDRm5JQ0pUejVibG94aUFBTXQ0TC5qcGc.jpg",
-   "sourceLogo": "https://nusports.com/favicon.ico",
-   "published": "2026-11-15T01:34:10+00:00"
-  },
   {
    "title": "Ohio State Postgame Press Conference",
    "link": "https://nusports.com/news/2026/11/14/ohio-state-postgame-press-conference",
@@ -48,6 +30,15 @@
    "published": "2026-11-14T22:05:00+00:00"
   },
   {
+   "title": "Stock up, stock down from Northwestern\u2019s 28-19 loss to No. 20 Ohio State.",
+   "link": "https://www.insidenu.com/northwestern-football/74541/stock-up-stock-down-from-northwesterns-28-19-loss-to-no-20-ohio-state",
+   "source": "Inside NU",
+   "summary": "Sitting in the postgame press conference at Ohio Stadium, David Braun repeatedly said how special this Northwestern team is. He repeatedly said that he wants to honor this group the right way. Well, after Northwestern\u2019s 28-19 loss to No. 20 Ohio State, the \u2018Cats have lost three straight, and the season is spiraling out of [&#8230;]",
+   "image": "https://platform.insidenu.com/wp-content/uploads/sites/94/2026/11/gettyimages-2304629867.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-14T21:13:04+00:00"
+  },
+  {
    "title": "Football at Ohio State",
    "link": "https://nusports.com/news/2026/11/14/football-at-ohio-state",
    "source": "Northwestern Athletics",
@@ -55,6 +46,15 @@
    "image": "https://nusports.com/imgproxy/EiVDKzd_57fnDpuHvKf3l-89zw93AW35QCUUPpXqcM0/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL251c3BvcnRzLWNvbS1wcm9kLzIwMjYvMTEvMTQvQzN5NTRQVUdoazI1MWtKcEVlbjF6R2k3SkNFcURFcVRESkFQdmo4SC5qcGc.jpg",
    "sourceLogo": "https://nusports.com/favicon.ico",
    "published": "2026-11-14T21:04:04+00:00"
+  },
+  {
+   "title": "Rapid Reaction: Northwestern falls 28-19, fading late at No. 20 Ohio State",
+   "link": "https://www.insidenu.com/northwestern-football/74531/rapid-reaction-northwestern-falls-28-19-fading-late-at-no-20-ohio-state",
+   "source": "Inside NU",
+   "summary": "Northwestern (6-4, 3-4 B1G) football continues to spiral, dropping its third straight game on Saturday at No. 20 Ohio State (7-3, 5-2 B1G), 28-19, after getting the game as close as 14-13 in the third quarter. Against a Buckeyes team that had struggled in recent weeks, the Wildcats&#8217; late-game mistakes cost them.&#160; Redshirt junior quarterback [&#8230;]",
+   "image": "https://platform.insidenu.com/wp-content/uploads/sites/94/2026/11/HXG9WBrXgAAan-2.jpeg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-14T20:39:35+00:00"
   },
   {
    "title": "\u2019Cats Fall Short at No. 20 Ohio State, 28-19",
@@ -172,6 +172,24 @@
    "image": "https://nusports.com/imgproxy/4Rd6s7xg_LPsawp8kic8wZq9-kRh34O1pMmzrb7whCk/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL251c3BvcnRzLWNvbS1wcm9kLzIwMjYvMTEvMTMvWnNhZjd4dGhqTEtIbkN0Uk91TWJiWlBZVTRkVnU2TW95OHdHWGxacy5qcGc.jpg",
    "sourceLogo": "https://nusports.com/favicon.ico",
    "published": "2026-11-13T04:54:00+00:00"
+  },
+  {
+   "title": "Drohan Welcomes Five Signees to Class of 2031",
+   "link": "https://nusports.com/news/2026/11/12/drohan-welcomes-five-signees-to-class-of-2031",
+   "source": "Northwestern Athletics",
+   "summary": "",
+   "image": "https://nusports.com/imgproxy/0GU-xoBqs594xDfNbh-XKYfTTsucP-edFR5U_ie75_Y/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL251c3BvcnRzLWNvbS1wcm9kLzIwMjYvMTEvMTMvOVZqSnhuaFU4OHROeU1LcjlXMVVJbU5PeUJmcGNsWHA1blpnMUljWi5qcGc.jpg",
+   "sourceLogo": "https://nusports.com/favicon.ico",
+   "published": "2026-11-13T02:54:30+00:00"
+  },
+  {
+   "title": "\u2018Cats Jet East For GoMart Greenbrier Tip-Off",
+   "link": "https://nusports.com/news/2026/11/12/cats-jet-east-for-gomart-greenbrier-tip-off",
+   "source": "Northwestern Athletics",
+   "summary": "",
+   "image": "https://nusports.com/imgproxy/c6V9X9pWYi5gKqAo55-kVuX03k15DrrLIx6oelXO7nI/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL251c3BvcnRzLWNvbS1wcm9kLzIwMjYvMTEvMTIvSWZNbmlhYll0TjZUUmE0Y3FpSHk4ZTFiZ1MwZExUNjUwTFdQdzYzTy5qcGc.jpg",
+   "sourceLogo": "https://nusports.com/favicon.ico",
+   "published": "2026-11-12T23:00:00+00:00"
   },
   {
    "title": "Football: Q&A with The Lantern ahead of Northwestern, No. 20 Ohio State matchup",
