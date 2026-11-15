@@ -1,7 +1,16 @@
 {
  "team": "nebraska",
- "updated": "2026-11-15T10:08:05.685141+00:00",
+ "updated": "2026-11-15T12:08:06.180497+00:00",
  "items": [
+  {
+   "title": "PFF snap counts and grades for Nebraska's defense vs. Rutgers",
+   "link": "https://on3.com/teams/nebraska-cornhuskers/news/pff-snap-counts-and-grades-for-nebraskas-defense-vs-rutgers-5/",
+   "source": "On3",
+   "summary": "Here are the final snap counts and grades for Nebraska's defense in its 31-0 win over Rutgers on Saturday, courtesy of PFF\u2026",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15033313/Nebraska-Jordan-Ochoa-Nebraska-hookly-3.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-15T11:51:16+00:00"
+  },
   {
    "title": "PFF snap counts and grades for Nebraska's offense at Rutgers",
    "link": "https://on3.com/teams/nebraska-cornhuskers/news/pff-snap-counts-and-grades-for-nebraskas-offense-at-rutgers/",
@@ -316,15 +325,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/11193606/Nebraska-2-images-hookly-45.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-12T01:03:58+00:00"
-  },
-  {
-   "title": "Nebraska Recruiting Scoreboard: Future Huskers chasing state championship berths",
-   "link": "https://on3.com/teams/nebraska-cornhuskers/news/nebraska-recruiting-scoreboard-future-huskers-chasing-state-championship-berths/",
-   "source": "On3",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/11124204/Nebraska-2-images-hookly-44.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-11T21:00:00+00:00"
   }
  ]
 }
