@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T03:38:56.509705+00:00",
+ "fetchedAt": "2026-11-15T01:38:46.611168+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-15",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "at Washington State",
  "players": [
@@ -25,28 +25,28 @@
    "pos": "OL",
    "no": "",
    "name": "JOHN HOLTHAUS",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "",
    "name": "GRANT HOUSER",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "",
    "name": "PEARCE SPURLIN",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "",
    "name": "JUICE VAREEN",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -60,7 +60,21 @@
    "pos": "DB",
    "no": "",
    "name": "JAYDEN CORTELL",
-   "status": "doubtful",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "AJ NOLAND",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "JACKSON HARPER",
+   "status": "gtd",
    "detail": ""
   }
  ],

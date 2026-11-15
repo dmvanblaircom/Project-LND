@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:08.077201+00:00",
+ "fetchedAt": "2026-11-15T01:38:51.278959+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-14",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-15",
  "game": "vs. Ole Miss",
  "players": [
@@ -60,13 +60,6 @@
    "pos": "LB",
    "no": "47",
    "name": "James Nesta",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "60",
-   "name": "Caleb Nitta",
    "status": "probable",
    "detail": ""
   },

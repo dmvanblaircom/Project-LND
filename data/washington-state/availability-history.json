@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington-state",
- "updated": "2026-11-14T03:39:12.652671+00:00",
+ "updated": "2026-11-15T01:38:55.258075+00:00",
  "reports": [
   {
    "schema": 1,
@@ -45,10 +45,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T03:39:12.652671+00:00",
+   "fetchedAt": "2026-11-15T01:38:55.258075+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-14",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-15",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-14",
    "game": "vs. Colorado State",
    "players": [
@@ -56,7 +56,7 @@
      "pos": "WR",
      "no": "",
      "name": "Darrius Clemons",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
