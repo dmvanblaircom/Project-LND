@@ -1,7 +1,16 @@
 {
  "team": "georgia",
- "updated": "2026-11-15T17:38:03.217729+00:00",
+ "updated": "2026-11-15T18:08:02.492485+00:00",
  "items": [
+  {
+   "title": "The Dashboard: Taking stock of the Bulldogs",
+   "link": "https://on3.com/teams/georgia-bulldogs/news/the-dashboard-taking-stock-of-the-bulldogs/",
+   "source": "On3",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15094935/The-Dashboard-2.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-15T17:56:35+00:00"
+  },
   {
    "title": "Snap Count: Georgia vs. Missouri",
    "link": "https://on3.com/teams/georgia-bulldogs/news/snap-count-georgia-versus-missouri/",
@@ -199,15 +208,6 @@
    "image": "https://georgiadogs.com/images/2026/11/14/26FB_Score_Missouri.jpg?width=800",
    "sourceLogo": "https://georgiadogs.com/favicon.ico",
    "published": "2026-11-15T00:04:00+00:00"
-  },
-  {
-   "title": "Georgia postgame 3-2-1 report: Bulldogs throttle Missouri",
-   "link": "https://on3.com/teams/georgia-bulldogs/news/georgia-postgame-3-2-1-report-bulldogs-throttle-missouri/",
-   "source": "On3",
-   "summary": "UGASports breaks down three key moments, two MVPs, and one burning question after Georgia's win over Missouri on Saturday afternoon.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14163049/KM1_2659.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-14T23:59:22+00:00"
   },
   {
    "title": "Listen to Bulldogs Brunch",
