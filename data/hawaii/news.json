@@ -1,7 +1,16 @@
 {
  "team": "hawaii",
- "updated": "2026-11-10T04:08:06.713752+00:00",
+ "updated": "2026-11-15T08:08:06.576451+00:00",
  "items": [
+  {
+   "title": "Warriors Fall Short Against North Dakota State",
+   "link": "https://hawaiiathletics.com/news/2026/11/14/football-warriors-fall-short-against-north-dakota-state.aspx",
+   "source": "Hawai'i Athletics",
+   "summary": "<img alt=\"FB Devon Rice TD vs. NDSU\" src=\"https://hawaiiathletics.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/METZ8977.jpg\" /><br /><br />HONOLULU \u2014\u00a0On a rainy night in Manoa, the University of Hawai'i football team's postseason hopes were doused by a 21-13 loss to North Dakota State on Saturday at the Clarence T.C. Complex.",
+   "image": "https://hawaiiathletics.com/images/2026/11/14/METZ8977.jpg?width=800",
+   "sourceLogo": "https://hawaiiathletics.com/favicon.ico",
+   "published": "2026-11-14T21:54:00+00:00"
+  },
   {
    "title": "Warriors Host North Dakota State Looking For Third Straight Win",
    "link": "https://hawaiiathletics.com/news/2026/11/9/football-warriors-host-north-dakota-state-looking-for-third-straight-win.aspx",
@@ -82,15 +91,6 @@
    "image": "https://hawaiiathletics.com/images/2026/10/19/Uiliata__Tama_Hawaii_H-72_iyK0U.jpg?width=800",
    "sourceLogo": "https://hawaiiathletics.com/favicon.ico",
    "published": "2026-10-19T11:33:00+00:00"
-  },
-  {
-   "title": "Warriors Surrender Halftime Lead in 21-10 loss to New Mexico",
-   "link": "https://hawaiiathletics.com/news/2026/10/17/football-warriors-surrender-halftime-lead-in-21-10-loss-to-new-mexico.aspx",
-   "source": "Hawai'i Athletics",
-   "summary": "<img alt=\"FB Titan Lacaden vs. UNM\" src=\"https://hawaiiathletics.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/METZ3801.jpg\" /><br /><br />HONOLULU \u2014\u00a0The University of Hawai'i football team saw an upset opportunity slip out of the Rainbow Warriors' grasp in the fourth quarter of a 21-10 Mountain West Conference loss to New Mexico on Saturday at the Clarence T.C. Ching Complex.",
-   "image": "https://hawaiiathletics.com/images/2026/10/17/METZ3801.jpg?width=800",
-   "sourceLogo": "https://hawaiiathletics.com/favicon.ico",
-   "published": "2026-10-17T20:22:00+00:00"
   }
  ]
 }
