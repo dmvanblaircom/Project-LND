@@ -7,81 +7,67 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T03:39:11.706587+00:00",
+ "fetchedAt": "2026-11-15T00:39:05.237459+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-15",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "at San Diego State",
  "players": [
   {
-   "pos": "WR",
+   "pos": "",
    "no": "",
    "name": "Eli Wood",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
+   "pos": "",
    "no": "",
    "name": "Jimmy Liston",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "",
    "no": "",
    "name": "Chapman Lewis",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "",
    "no": "",
    "name": "Harrison Taggart",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "",
    "no": "",
    "name": "John McClellan",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "",
    "no": "",
    "name": "Tevita Tuha",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
+   "pos": "",
    "no": "",
    "name": "Jackson Nelson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "SP",
-   "no": "",
-   "name": "Landon Rehkow",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "Javen Jacobs",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
+   "pos": "",
    "no": "",
    "name": "K'Leyone Iosua",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

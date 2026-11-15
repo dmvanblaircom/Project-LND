@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-15T00:08:01.238634+00:00",
+ "updated": "2026-11-15T00:38:05.883210+00:00",
  "items": [
+  {
+   "title": "Postgame Notes: Virginia 36, California 7",
+   "link": "https://calbears.com/news/2026/11/14/football-postgame-notes-virginia-36-california-7",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Solomon Williams Forces A Fumble\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/DSC06972.JPG\" /><br /><br />CAL FOOTBALL POSTGAME NOTES",
+   "image": "https://calbears.com/images/2026/11/14/DSC06972.JPG?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-15T00:08:00+00:00"
+  },
   {
    "title": "Cal Falls 36-7 at Virginia",
    "link": "https://calbears.com/news/2026/11/14/football-cal-falls-36-7-at-virginia",
@@ -15,7 +24,7 @@
    "title": "Cal Football Game Summary: Virginia Dominates the Bears",
    "link": "https://www.si.com/college/cal/football/cal-football-game-summary-virginia-dominates-the-bears-01m7b5d62hw5?utm_source=RSS",
    "source": "Cal On SI",
-   "summary": "Cal suffered its fourth straight defeat in a 36-7 loss to Virginia on Saturday afternoon in Charlottesville, Virginia. Virginia twice returned interceptions for",
+   "summary": "Bears lose fourth straight game and are shut out in the second half for the third straight game",
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4771,h_2683,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m7e23dn0zssgxz5hma.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-14T23:47:57+00:00"
@@ -298,15 +307,6 @@
    "image": "https://calbears.com/images/2026/11/2/_NC_St_10.31.26_MW_17226-3__1_.jpg?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-11-02T17:00:00+00:00"
-  },
-  {
-   "title": "Postgame Notes: NC State 31, California 10",
-   "link": "https://calbears.com/news/2026/10/31/football-postgame-notes-nc-state-31-california-10",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Odera Okaka\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/DSC06943.JPG\" /><br /><br />",
-   "image": "https://calbears.com/images/2026/10/31/DSC06943.JPG?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-10-31T20:47:00+00:00"
   }
  ]
 }
