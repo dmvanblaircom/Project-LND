@@ -1,7 +1,16 @@
 {
  "team": "central-michigan",
- "updated": "2026-11-12T21:08:03.227599+00:00",
+ "updated": "2026-11-15T21:37:59.529980+00:00",
  "items": [
+  {
+   "title": "Chippewas Play at Buffalo on Wednesday at 7:30 p.m. on ESPNU",
+   "link": "https://cmuchippewas.com/news/2026/11/15/football-chippewas-play-at-buffalo-on-wednesday-at-7-30-pm-on-espnu",
+   "source": "CMU Athletics",
+   "summary": "<img alt=\"CMU Football vs Sac State \" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/12/_team_fb10_KNS__1_.jpg\" /><br /><br />GAME 11: CENTRAL MICHIGAN (5-5, 3-3 MAC) AT BUFFALO (7-3, 5-1 MAC)",
+   "image": "https://cmuchippewas.com/images/2026/11/12/_team_fb10_KNS__1_.jpg?width=800",
+   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
+   "published": "2026-11-15T20:53:00+00:00"
+  },
   {
    "title": "Football Notebook: Special Night for Chippewas, Award-Winner Darrell Bryant",
    "link": "https://cmuchippewas.com/news/2026/11/12/football-notebook-special-night-for-chippewas-award-winner-darrell-bryant",
@@ -82,15 +91,6 @@
    "image": "https://cmuchippewas.com/images/2026/11/5/woodford_nick_fb09_JPR_0239.jpg?width=800",
    "sourceLogo": "https://cmuchippewas.com/favicon.ico",
    "published": "2026-11-05T18:17:00+00:00"
-  },
-  {
-   "title": "Chippewas Roll Past Eastern in Motor City MACtion, 35-7",
-   "link": "https://cmuchippewas.com/news/2026/11/5/football-chippewas-roll-past-eastern-in-motor-city-maction",
-   "source": "CMU Athletics",
-   "summary": "<img alt=\"FB vs. Eastern at Ford Field (11/2/26)\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/4/_celebration_fb09_JPR_1099.jpg\" /><br /><br />DETROIT \u2013 A dominant performance and it couldn't have come at a better time.",
-   "image": "https://cmuchippewas.com/images/2026/11/4/_celebration_fb09_JPR_1099.jpg?width=800",
-   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
-   "published": "2026-11-05T06:02:00+00:00"
   }
  ]
 }
