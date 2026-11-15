@@ -1,6 +1,6 @@
 {
  "team": "oklahoma",
- "updated": "2026-11-15T00:08:09.449573+00:00",
+ "updated": "2026-11-15T03:08:13.498837+00:00",
  "items": [
   {
    "title": "Oklahoma Figures to Prioritize Establishing the Run vs. Ole Miss",
@@ -291,6 +291,15 @@
    "published": "2026-11-13T01:12:34+00:00"
   },
   {
+   "title": "Game Primer: OU vs. Ole Miss",
+   "link": "https://soonersports.com/news/2026/11/11/football-game-primer-ou-vs-ole-miss",
+   "source": "Oklahoma Athletics",
+   "summary": "<img alt=\"Lead, FB 26 Ole Miss Primer\" src=\"https://soonersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/20260919_FB_Game_NewMexico_PJM_OUG03245.jpg\" /><br /><br />",
+   "image": "https://soonersports.com/images/2026/11/13/20260919_FB_Game_NewMexico_PJM_OUG03245.jpg?width=800",
+   "sourceLogo": "https://soonersports.com/favicon.ico",
+   "published": "2026-11-11T20:22:00+00:00"
+  },
+  {
    "title": "Beers Named Mackey Award Semifinalist",
    "link": "https://soonersports.com/news/2026/11/11/football-beers-named-mackey-award-semifinalist",
    "source": "Oklahoma Athletics",
@@ -352,15 +361,6 @@
    "image": "https://soonersports.com/images/2026/10/31/Kip-Lewis-South-Carolina-Lead.jpg?width=800",
    "sourceLogo": "https://soonersports.com/favicon.ico",
    "published": "2026-11-01T03:04:00+00:00"
-  },
-  {
-   "title": "Game Primer: OU vs. South Carolina",
-   "link": "https://soonersports.com/news/2026/10/30/football-game-primer-ou-vs-south-carolina",
-   "source": "Oklahoma Athletics",
-   "summary": "<img alt=\"Lead, FB 26 Team\" src=\"https://soonersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/20260919_FB_Game_NewMexico_BV_OUE00518.jpg\" /><br /><br />",
-   "image": "https://soonersports.com/images/2026/10/30/20260919_FB_Game_NewMexico_BV_OUE00518.jpg?width=800",
-   "sourceLogo": "https://soonersports.com/favicon.ico",
-   "published": "2026-10-30T16:45:00+00:00"
   }
  ]
 }

@@ -1,9 +1,18 @@
 {
  "team": "florida",
- "updated": "2026-11-15T02:38:02.808987+00:00",
+ "updated": "2026-11-15T03:08:04.325631+00:00",
  "items": [
   {
-   "title": "Live blog: Florida Gators 21, No. 11 Kentucky 14 (4th quarter)",
+   "title": "FINAL: Gators 21, No. 13 Kentucky 14",
+   "link": "https://floridagators.com/news/2026/11/14/football-final-gators-21-kentucky-14-florida-gators-kentucky-wildcats-southeastern-conference",
+   "source": "Florida Athletics",
+   "summary": "<img alt=\"Scott Carter's Quick Slant powered by Ticketmaster\" src=\"https://floridagators.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/9/QuickSlant_SC_DallasWilson.jpg\" /><br /><br />A quick wrap of the Florida-Kentucky game on Saturday night at Kroger Field.",
+   "image": "https://floridagators.com/images/2026/10/9/QuickSlant_SC_DallasWilson.jpg?width=800",
+   "sourceLogo": "https://floridagators.com/favicon.ico",
+   "published": "2026-11-15T02:50:00+00:00"
+  },
+  {
+   "title": "Florida Gators upset No. 11 Kentucky 21-14",
    "link": "https://on3.com/teams/florida-gators/news/live-blog-florida-gators-at-no-11-kentucky/",
    "source": "On3",
    "summary": "After losing four of their last five games, can the Florida Gators get back on track Saturday night in Lexington, Ky.?",
@@ -352,15 +361,6 @@
    "image": "https://floridagators.com/images/2026/11/8/img_tag_reuters.com_2026_newsml_MT1USATODAY30307141_1266475320_tkWZU.jpg?width=800",
    "sourceLogo": "https://floridagators.com/favicon.ico",
    "published": "2026-11-08T23:00:00+00:00"
-  },
-  {
-   "title": "Meyer Honored For Florida's Past, Confident In Gators' Future",
-   "link": "https://floridagators.com/news/2026/11/8/football-meyer-honored-for-floridas-past-confident-in-gators-future",
-   "source": "Florida Athletics",
-   "summary": "<img alt=\"Meyer, Urban (2026 vs. Oklahoma)\" src=\"https://floridagators.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/261107_FBOklahoma_1729_HannahWhite.jpg\" /><br /><br />Urban Meyer helped build Florida into a national champion. Now he's pulling for Jon Sumrall to restore that standard.",
-   "image": "https://floridagators.com/images/2026/11/7/261107_FBOklahoma_1729_HannahWhite.jpg?width=800",
-   "sourceLogo": "https://floridagators.com/favicon.ico",
-   "published": "2026-11-08T18:59:00+00:00"
   }
  ]
 }

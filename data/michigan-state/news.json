@@ -1,7 +1,16 @@
 {
  "team": "michigan-state",
- "updated": "2026-11-15T02:38:08.162172+00:00",
+ "updated": "2026-11-15T03:08:10.088674+00:00",
  "items": [
+  {
+   "title": "Washington Defeats Michigan State, 21-14",
+   "link": "https://msuspartans.com/news/2026/11/14/football-washington-defeats-michigan-state-21-14",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Fred Moore earns yards after the catch against Washington at Spartan Stadium\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/_EY12546.jpg\" /><br /><br />EAST LANSING, Mich. \u2013 Making its return to Spartan Stadium on Saturday night, Michigan State was defeated by Washington, 21-14. Tied at 14-14 late in the fourth quarter, Washington rushed for the game-winning 1-yard touchdown with 2:24 to play.",
+   "image": "https://msuspartans.com/images/2026/11/14/_EY12546.jpg?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-11-15T02:44:00+00:00"
+  },
   {
    "title": "3 Winners, Losers from MSU's Self-Inflicted Loss to Washington",
    "link": "https://www.si.com/college/michiganstate/football/three-winners-losers-msu-self-inflicted-loss-to-washington?utm_source=RSS",
@@ -73,6 +82,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1499,h_843,x_17,y_22/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/spartan_nation/01m7ak1ktfbq8v5xwj5h.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-14T14:30:00+00:00"
+  },
+  {
+   "title": "Game Thread: Michigan State Vs. Washington",
+   "link": "https://www.theonlycolors.com/football/49488/game-thread-michigan-state-vs-washington",
+   "source": "The Only Colors",
+   "summary": "It\u2019s mid-November and today\u2019s game represents the final Saturday of the season at Spartan Stadium (next week is a Friday night game). MSU is hosting the Washington Huskies and looking to pick up a win for the second weekend in a row and keep bowl eligibility a mathematical possibility. The game was pushed back due [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/11/gettyimages-2304062371.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-14T13:44:15+00:00"
   },
   {
    "title": "3 Players To Watch During MSU's Next Test vs. Washington",
@@ -336,15 +354,6 @@
    "published": "2026-11-11T12:00:00+00:00"
   },
   {
-   "title": "Michigan State Film Room: Growing Up at the Big House",
-   "link": "https://www.theonlycolors.com/football/49398/michigan-state-film-room-growing-up-at-the-big-house",
-   "source": "The Only Colors",
-   "summary": "I\u2019ve been smiling all week. I still can\u2019t quite believe Michigan State went into Ann Arbor and beat michigan. What a feeling. After everything we\u2019ve endured this season, this one feels especially sweet. It\u2019s amazing how sports can make you feel so miserable after a loss, only to turn around and deliver this kind of [&#8230;]",
-   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/11/gettyimages-2304062835.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-11T05:17:55+00:00"
-  },
-  {
    "title": "Liam Boyd, NiJhay Burt Earn Big Ten Player of the Week Honors",
    "link": "https://msuspartans.com/news/2026/11/9/football-liam-boyd-nijhay-burt-earn-big-ten-player-of-the-week-honors",
    "source": "Michigan State Athletics",
@@ -397,15 +406,6 @@
    "image": "https://msuspartans.com/images/2026/11/3/20261017_Game7_Northwestern_Gash_Samson_09088.jpg?width=800",
    "sourceLogo": "https://msuspartans.com/favicon.ico",
    "published": "2026-11-03T19:28:00+00:00"
-  },
-  {
-   "title": "Michigan State-Washington Kick Time Set for 4:15 p.m. on Nov. 14",
-   "link": "https://msuspartans.com/news/2026/11/2/football-michigan-state-washington-kick-time-set-for-4-15-pm-on-nov-14",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Spartan Stadium - 2026 Toledo\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/22/09.04.26_MSU_FTBL_VS_TOLEDO_0332.JPG\" /><br /><br />EAST LANSING, Mich. \u2013 The Big Ten Conference has announced that the Michigan State-Washington game on Saturday, Nov. 14 in Spartan Stadium will kick off at 4:15 p.m.",
-   "image": "https://msuspartans.com/images/2026/9/22/09.04.26_MSU_FTBL_VS_TOLEDO_0332.JPG?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-11-03T02:28:00+00:00"
   }
  ]
 }
