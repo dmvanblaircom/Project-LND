@@ -1,7 +1,16 @@
 {
  "team": "air-force",
- "updated": "2026-11-12T16:38:02.702140+00:00",
+ "updated": "2026-11-15T05:07:55.939737+00:00",
  "items": [
+  {
+   "title": "Season high rushing game leads Air Force to 24-3 win over SJSU",
+   "link": "https://goairforcefalcons.com/news/2026/11/14/football-season-high-rushing-game-leads-air-force-to-24-3-win-over-sjsu",
+   "source": "Air Force Athletics",
+   "summary": "<img alt=\"Kemper Hodges rushing vs. San Jose State\" src=\"https://goairforcefalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/Hodges_vs_SJSU_261114-F-KE700-1005.jpg\" /><br /><br />By Tanner Evans",
+   "image": "https://goairforcefalcons.com/images/2026/11/14/Hodges_vs_SJSU_261114-F-KE700-1005.jpg?width=800",
+   "sourceLogo": "https://goairforcefalcons.com/favicon.ico",
+   "published": "2026-11-15T04:35:00+00:00"
+  },
   {
    "title": "Air Force-San Jose State digital game program available",
    "link": "https://goairforcefalcons.com/news/2026/11/12/football-air-force-san-jose-state-digital-game-program-available",
@@ -82,15 +91,6 @@
    "image": "https://goairforcefalcons.com/images/2026/11/3/NFF_POTW_Kemper_Web.png?width=800",
    "sourceLogo": "https://goairforcefalcons.com/favicon.ico",
    "published": "2026-11-03T14:31:00+00:00"
-  },
-  {
-   "title": "Game 9: Air Force at Army West Point",
-   "link": "https://goairforcefalcons.com/news/2026/11/2/football-game-9-air-force-at-army-west-point",
-   "source": "Air Force Athletics",
-   "summary": "<img alt=\"Alma mater vs. Navy\" src=\"https://goairforcefalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/Alma_Mater_vs_Navy_10.03.26_Dave_Devore-217.jpg\" /><br /><br />Game 9: Air Force at Army West Point",
-   "image": "https://goairforcefalcons.com/images/2026/10/26/Alma_Mater_vs_Navy_10.03.26_Dave_Devore-217.jpg?width=800",
-   "sourceLogo": "https://goairforcefalcons.com/favicon.ico",
-   "published": "2026-11-02T18:14:00+00:00"
   }
  ]
 }
