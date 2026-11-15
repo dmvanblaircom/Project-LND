@@ -1,6 +1,6 @@
 {
  "team": "michigan-state",
- "updated": "2026-11-15T05:08:04.480811+00:00",
+ "updated": "2026-11-15T05:38:04.711953+00:00",
  "items": [
   {
    "title": "Michigan State HC Pat Fitzgerald gives health update on Alessio Milivojevic",
@@ -10,6 +10,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14223609/alessio-1200.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-15T04:36:33+00:00"
+  },
+  {
+   "title": "Post-Game Quotes: Washington",
+   "link": "https://msuspartans.com/news/2026/11/14/football-post-game-quotes-washington",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Cam Fancher action photo vs Washington\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/15/_EY12277.jpg\" /><br /><br />Michigan State Head Coach Pat Fitzgerald",
+   "image": "https://msuspartans.com/images/2026/11/15/_EY12277.jpg?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-11-15T04:25:00+00:00"
   },
   {
    "title": "Pat Fitzgerald: Michigan State got 'ass kicked' up front when it mattered in loss to Washington",
@@ -397,15 +406,6 @@
    "image": "https://msuspartans.com/images/2026/11/5/20261024_Game8_UCLA_Dakin_Rhys_DSC02564.jpg?width=800",
    "sourceLogo": "https://msuspartans.com/favicon.ico",
    "published": "2026-11-05T20:07:00+00:00"
-  },
-  {
-   "title": "Spartans, Wolverines Battle for Paul Bunyan Trophy Saturday Night",
-   "link": "https://msuspartans.com/news/2026/11/3/football-spartans-wolverines-battle-for-paul-bunyan-trophy-saturday-night",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Samson Gash runs out of the tunnel for the Spartans vs. Northwestern on Oct. 17, 2025.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/20261017_Game7_Northwestern_Gash_Samson_09088.jpg\" /><br /><br />",
-   "image": "https://msuspartans.com/images/2026/11/3/20261017_Game7_Northwestern_Gash_Samson_09088.jpg?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-11-03T19:28:00+00:00"
   }
  ]
 }
