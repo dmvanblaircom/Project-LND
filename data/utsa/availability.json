@@ -7,17 +7,17 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-06T11:08:50.861349+00:00",
+ "fetchedAt": "2026-11-15T00:08:56.209745+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-05",
- "game": "at Florida Atlantic",
+ "kickoffDate": "2026-11-14",
+ "game": "North Texas",
  "players": [
   {
-   "pos": "CB",
-   "no": "10",
-   "name": "Lawrence Brown Jr.",
+   "pos": "LB",
+   "no": "4",
+   "name": "Brandon Tucker",
    "status": "questionable",
    "detail": ""
   },
@@ -25,6 +25,13 @@
    "pos": "S",
    "no": "12",
    "name": "Marcellus Wilkerson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "15",
+   "name": "DJ Allen Jr.",
    "status": "out-game",
    "detail": ""
   },
@@ -43,24 +50,10 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "21",
-   "name": "Jarvse \"Duece\" Dickerson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "RB",
    "no": "22",
    "name": "Bryson Donnell",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "23",
-   "name": "Brandon Tucker",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -71,9 +64,16 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "34",
+   "name": "James Walley Jr.",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
-   "no": "53",
-   "name": "Sekope Wallace",
+   "no": "74",
+   "name": "Darrell Jones",
    "status": "questionable",
    "detail": ""
   }

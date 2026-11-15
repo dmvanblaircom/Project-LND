@@ -1,9 +1,36 @@
 {
  "team": "california",
- "updated": "2026-11-14T23:08:05.474805+00:00",
+ "updated": "2026-11-15T00:08:01.238634+00:00",
  "items": [
   {
-   "title": "Live Game Blog: Cal Football down 19-7 at end of Q3 vs Virginia",
+   "title": "Cal Falls 36-7 at Virginia",
+   "link": "https://calbears.com/news/2026/11/14/football-cal-falls-36-7-at-virginia",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Kingston Lopa Tackle\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/DSC06949.JPG\" /><br /><br />Bears Host Stanford in the Big Game Next Saturday",
+   "image": "https://calbears.com/images/2026/11/14/DSC06949.JPG?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-14T23:53:00+00:00"
+  },
+  {
+   "title": "Cal Football Game Summary: Virginia Dominates the Bears",
+   "link": "https://www.si.com/college/cal/football/cal-football-game-summary-virginia-dominates-the-bears-01m7b5d62hw5?utm_source=RSS",
+   "source": "Cal On SI",
+   "summary": "Cal suffered its fourth straight defeat in a 36-7 loss to Virginia on Saturday afternoon in Charlottesville, Virginia. Virginia twice returned interceptions for",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4771,h_2683,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m7e23dn0zssgxz5hma.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-14T23:47:57+00:00"
+  },
+  {
+   "title": "Cal Football's Soulless Season Continues with Whimper at Virginia",
+   "link": "https://on3.com/sites/golden-bear-report/news/cal-footballs-soulless-season-continues-with-whimper-at-virginia/",
+   "source": "Golden Bear Report",
+   "summary": "The train wreck of a Cal Football season entered another station with a loss against Virginia in Charlottesville",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14165544/Hamper-at-UVA.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-14T23:39:42+00:00"
+  },
+  {
+   "title": "Live Game Blog: Cal Football blown out 36-7 vs Virginia",
    "link": "https://on3.com/sites/golden-bear-report/news/live-game-blog-cal-vs-virginia/",
    "source": "Golden Bear Report",
    "summary": "Everything from Cal at Virginia as it happens today in our live game blog on Golden Bear Report. Its the last road game of the season",
@@ -12,10 +39,10 @@
    "published": "2026-11-14T20:39:18+00:00"
   },
   {
-   "title": "Cal vs. Virginia Thread: Bears Trail 16-7 at Halftime After Late TD",
+   "title": "Cal vs. Virginia Thread: Another Second-Half Collapse as Bears Fall, 36-7",
    "link": "https://www.si.com/college/cal/football/cal-vs-virginia-thread-both-teams-seeking-to-halt-3-game-skids-01m7cceety75?utm_source=RSS",
    "source": "Cal On SI",
-   "summary": "Bears must win their final three games to secure bowl eligibility in Tosh Lupoi's debut season",
+   "summary": "Cal has been outscored 83-0 in the second of its past three games",
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3100,h_1743,x_0,y_69/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m7ccjyrkv895mqxawb.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-14T20:29:06+00:00"
@@ -255,15 +282,6 @@
    "published": "2026-11-08T02:17:54+00:00"
   },
   {
-   "title": "What Does a Rough Start Suggest for Coach Tosh Lupoi's Career Arc?",
-   "link": "https://www.si.com/college/cal/football/what-does-a-rough-start-suggest-for-coach-tosh-lupoi-s-career-arc-01m6sqbg945n?utm_source=RSS",
-   "source": "Cal On SI",
-   "summary": "The Bears' rookie coach is 3-6 with three games left this season; can Cal overcome those early struggles?",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2935,h_1650,x_0,y_124/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m6sqqvvxcnemmvxxdj.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-11-07T16:51:27+00:00"
-  },
-  {
    "title": "Pro Bears Week 8: Goff Leads Lions To Victory Over Vikings",
    "link": "https://calbears.com/news/2026/11/4/football-pro-bears-week-8-goff-leads-lions-to-victory-over-vikings",
    "source": "Cal Athletics",
@@ -289,15 +307,6 @@
    "image": "https://calbears.com/images/2026/10/31/DSC06943.JPG?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-10-31T20:47:00+00:00"
-  },
-  {
-   "title": "Bears Fall To Wolfpack, 31-10",
-   "link": "https://calbears.com/news/2026/10/31/football-bears-fall-to-wolfpack-31-10",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Chase Hendricks\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/DSC08085.JPG\" /><br /><br />Cal Completes Road Schedule At Virginia On Nov. 14 Following Bye Week",
-   "image": "https://calbears.com/images/2026/10/31/DSC08085.JPG?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-10-31T20:27:00+00:00"
   }
  ]
 }

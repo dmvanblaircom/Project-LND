@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "north-texas",
- "updated": "2026-11-08T11:08:49.169601+00:00",
+ "updated": "2026-11-15T00:08:50.695601+00:00",
  "reports": [
   {
    "schema": 1,
@@ -512,6 +512,137 @@
      "pos": "DL",
      "no": "92",
      "name": "Grady Holmes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Avion Carter",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "north-texas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-15T00:08:50.695601+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-14",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-14",
+   "game": "UTSA",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Corri Milliner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Taye Seymore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Josiah Martin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "Shandon King",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "8",
+     "name": "Caden Jenkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "9",
+     "name": "Chaston Ditta",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "14",
+     "name": "Kyle Koch",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "22",
+     "name": "Julian Knox Sr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Colin Page",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "27",
+     "name": "Zach Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "31",
+     "name": "Aaden Little",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "40",
+     "name": "Kailer Pettijohn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "85",
+     "name": "Drew Clemens",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "97",
+     "name": "Roberto Rodriguez",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "98",
+     "name": "Amarion Berry",
      "status": "out-game",
      "detail": ""
     },

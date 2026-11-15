@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T11:08:49.169601+00:00",
+ "fetchedAt": "2026-11-15T00:08:50.695601+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
+ "effectiveAt": "2026-11-14",
  "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Rice",
+ "kickoffDate": "2026-11-14",
+ "game": "UTSA",
  "players": [
   {
    "pos": "WR",
@@ -22,9 +22,23 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "2",
+   "name": "Taye Seymore",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "6",
    "name": "Josiah Martin",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "8",
+   "name": "Shandon King",
    "status": "out-game",
    "detail": ""
   },
@@ -92,9 +106,16 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "92",
-   "name": "Grady Holmes",
+   "pos": "OL",
+   "no": "97",
+   "name": "Roberto Rodriguez",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "98",
+   "name": "Amarion Berry",
    "status": "out-game",
    "detail": ""
   },
