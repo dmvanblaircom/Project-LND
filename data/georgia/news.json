@@ -1,7 +1,25 @@
 {
  "team": "georgia",
- "updated": "2026-11-15T15:08:06.184602+00:00",
+ "updated": "2026-11-15T15:38:06.182326+00:00",
  "items": [
+  {
+   "title": "Snap Count: Georgia vs. Missouri",
+   "link": "https://on3.com/teams/georgia-bulldogs/news/snap-count-georgia-versus-missouri/",
+   "source": "On3",
+   "summary": "We dive into the snap counts from Georgia\u2018s 48-21 win over Missouri. Georgia played 62 offensive snaps and 61 defensive snaps.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15025814/SNAP-Count-2.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-15T15:26:37+00:00"
+  },
+  {
+   "title": "Georgia Late Hits: Closing time",
+   "link": "https://on3.com/teams/georgia-bulldogs/news/georgia-late-hits-closing-time/",
+   "source": "On3",
+   "summary": "In today's edition of Georgia Late Hits, UGASports takes a look at the mentality permeating this Georgia team as the season rolls on.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15092047/Late-Hits-9.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-15T15:21:03+00:00"
+  },
   {
    "title": "Even After Another Dominant Win, Kirby Smart Wants More From His Georgia Football Team",
    "link": "https://www.si.com/college/georgia/football/even-after-another-dominant-win-kirby-smart-wants-more-from-his-georgia-football-team-01m7ecg08q5e?utm_source=RSS",
@@ -12,13 +30,13 @@
    "published": "2026-11-15T14:53:25+00:00"
   },
   {
-   "title": "Another Fast Start Dooms Mizzou",
-   "link": "https://www.dawgsports.com/georgia-bulldogs-football/39598/another-fast-start-dooms-mizzou",
-   "source": "Dawg Sports",
-   "summary": "Georgia flexes once again, whipping the Missouri Tigers 48-21. I have to admit I felt a little bit of &#8220;home field&#8221; trepidation considering the last time the Red &#8216;n Black graced Dooley Field at Sanford Stadium the outcome wasn&#8217;t very pleasant. It took all of 1 play to set the &#8216;ol mind at ease when [&#8230;]",
-   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/11/gettyimages-2305147147.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-15T13:03:25+00:00"
+   "title": "Gameday Central - South Carolina",
+   "link": "https://georgiadogs.com/news/2026/11/15/football-gameday-central",
+   "source": "Georgia Athletics",
+   "summary": "<img alt=\"26FB Gameday Central - South Carolina\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/15/26FB_GameDay_SouthCarolina.jpg\" /><br /><br />Georgia makes the short trip to Columbia this week to take on the South Carolina Gamecocks. \u00a0Get all the information you need about tickets, parking, stadium policies, and much more with our Gameday Central page.",
+   "image": "https://georgiadogs.com/images/2026/11/15/26FB_GameDay_SouthCarolina.jpg?width=800",
+   "sourceLogo": "https://georgiadogs.com/favicon.ico",
+   "published": "2026-11-15T14:00:00+00:00"
   },
   {
    "title": "Grades for Georgia Football Units in Huge Win at Home Over Missouri Tigers",
@@ -174,15 +192,6 @@
    "published": "2026-11-14T23:59:22+00:00"
   },
   {
-   "title": "Rapid Reaction: Georgia tames Tigers in blowout victory",
-   "link": "https://on3.com/teams/georgia-bulldogs/news/rapid-reaction-georgia-tames-tigers-in-blowout-victory/",
-   "source": "On3",
-   "summary": "UGASports has its Rapid Reaction from Georgia's 48-21 victory over Missouri on Saturday afternoon at Sanford Stadium.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14163003/KM1_2895.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-14T23:59:18+00:00"
-  },
-  {
    "title": "Listen to Bulldogs Brunch Live Sunday at 10AM",
    "link": "https://georgiadogs.com/news/2026/11/14/football-listen-to-bulldogs-brunch",
    "source": "Georgia Athletics",
@@ -199,15 +208,6 @@
    "image": "https://georgiadogs.com/images/2026/11/14/26FB_Missouri_Griffin.jpg?width=800",
    "sourceLogo": "https://georgiadogs.com/favicon.ico",
    "published": "2026-11-14T22:26:00+00:00"
-  },
-  {
-   "title": "Halftime Notes: Georgia leads Missouri 31-7",
-   "link": "https://on3.com/teams/georgia-bulldogs/news/halftime-notes-georgia-leads-missouri-31-7/",
-   "source": "On3",
-   "summary": "Georgia is having no trouble with Missouri thus far. The Bulldogs lead 31-7 at halftime, and UGASports has some thoughts to share.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14162116/2026-11-14T213211Z_9516534_MT1USATODAY30353493_RTRMADP_3_NCAA-FOOTBALL-MISSOURI-AT-GEORGIA.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-14T22:00:00+00:00"
   },
   {
    "title": "Georgia/Missouri Live Thread",
@@ -435,6 +435,15 @@
    "published": "2026-11-11T05:03:33+00:00"
   },
   {
+   "title": "2026 College Football Playoff Rankings: Week 2",
+   "link": "https://www.dawgsports.com/college-football/39550/2026-college-football-playoff-rankings-week-2",
+   "source": "Dawg Sports",
+   "summary": "AP Poll Georgia Update Georgia stormed into Oxford an annihilated Ole Miss 42-7, exacting revenge on the Rebels from last year\u2019s playoff game. Georgia\u2019s dominant win, coupled with Miami\u2019s loss to Notre Dame, saw the Dawgs rise to #1 in the latest CFP Ranking ahead of their game this weekend in Athens against #22 Missouri. [&#8230;]",
+   "image": "https://platform.dawgsports.com/wp-content/uploads/sites/74/2026/11/gettyimages-2304361435.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-11T03:14:15+00:00"
+  },
+  {
    "title": "Bulldogs In The NFL: Week Nine Recap",
    "link": "https://georgiadogs.com/news/2026/11/10/football-bulldogs-in-the-nfl-week-nine-recap",
    "source": "Georgia Athletics",
@@ -442,15 +451,6 @@
    "image": "https://georgiadogs.com/images/2026/10/1/GettyImages-2297465107.jpg?width=800",
    "sourceLogo": "https://georgiadogs.com/favicon.ico",
    "published": "2026-11-10T23:21:00+00:00"
-  },
-  {
-   "title": "Bulldogs Have Two Bednarik Semifinalists, One Maxwell Semifinalist",
-   "link": "https://georgiadogs.com/news/2026/11/10/football-bulldogs-have-two-bednarik-semifinalists-one-maxwell-semifinalist",
-   "source": "Georgia Athletics",
-   "summary": "<img alt=\"Gunner Stockton\" src=\"https://georgiadogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/26_Gunner_16x9.jpg\" /><br /><br />Georgia had a trio of players named to either the semifinalists list for the Bednarik Award or the Maxwell Award, according to an announcement Tuesday.",
-   "image": "https://georgiadogs.com/images/2026/11/10/26_Gunner_16x9.jpg?width=800",
-   "sourceLogo": "https://georgiadogs.com/favicon.ico",
-   "published": "2026-11-10T19:29:00+00:00"
   }
  ]
 }
