@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "145",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,6 +32,19 @@
    "rank": 120,
    "positionRank": 8,
    "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
+   "id": "266172",
+   "name": "Tavares Harrington",
+   "position": "CB",
+   "highSchool": "Mount Carmel High School",
+   "city": "Chicago",
+   "state": "IL",
+   "grade": 82,
+   "rank": 121,
+   "positionRank": 13,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -308,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:43Z"
+ "fetchedAt": "2026-11-15T10:43Z"
 }

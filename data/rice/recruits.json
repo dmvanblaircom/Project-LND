@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "242",
  "classYear": 2027,
- "listed": 8,
+ "listed": 7,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -87,19 +87,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272471",
-   "name": "Brody Diel",
-   "position": "WR",
-   "highSchool": "Central High School",
-   "city": "Baton Rouge",
-   "state": "LA",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "273406",
    "name": "Jacobe Cherry",
    "position": "OG",
@@ -113,5 +100,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:45Z"
+ "fetchedAt": "2026-11-15T10:43Z"
 }
