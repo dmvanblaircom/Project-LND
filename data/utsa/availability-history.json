@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utsa",
- "updated": "2026-11-15T00:08:56.209745+00:00",
+ "updated": "2026-11-15T11:09:05.917907+00:00",
  "reports": [
   {
    "schema": 1,
@@ -429,12 +429,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-15T00:08:56.209745+00:00",
+   "fetchedAt": "2026-11-15T11:09:05.917907+00:00",
    "reported": true,
    "effectiveAt": "2026-11-14",
    "heading": "Game Day",
    "kickoffDate": "2026-11-14",
-   "game": "North Texas",
+   "game": "vs. North Texas",
    "players": [
     {
      "pos": "LB",

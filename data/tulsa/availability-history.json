@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tulsa",
- "updated": "2026-11-14T22:38:45.764372+00:00",
+ "updated": "2026-11-15T11:09:04.983468+00:00",
  "reports": [
   {
    "schema": 1,
@@ -436,12 +436,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T22:38:45.764372+00:00",
+   "fetchedAt": "2026-11-15T11:09:04.983468+00:00",
    "reported": true,
    "effectiveAt": "2026-11-14",
    "heading": "Game Day",
    "kickoffDate": "2026-11-14",
-   "game": "Florida Atlantic",
+   "game": "vs. Florida Atlantic",
    "players": [
     {
      "pos": "CB",

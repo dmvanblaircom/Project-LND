@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "temple",
- "updated": "2026-11-14T16:08:54.096400+00:00",
+ "updated": "2026-11-15T11:09:03.858949+00:00",
  "reports": [
   {
    "schema": 1,
@@ -590,12 +590,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T16:08:54.096400+00:00",
+   "fetchedAt": "2026-11-15T11:09:03.858949+00:00",
    "reported": true,
    "effectiveAt": "2026-11-14",
    "heading": "Game Day",
    "kickoffDate": "2026-11-14",
-   "game": "UAB",
+   "game": "vs. UAB",
    "players": [
     {
      "pos": "TE",

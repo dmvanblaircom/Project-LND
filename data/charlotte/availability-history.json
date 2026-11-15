@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "charlotte",
- "updated": "2026-11-14T16:08:46.184195+00:00",
+ "updated": "2026-11-15T11:08:50.796406+00:00",
  "reports": [
   {
    "schema": 1,
@@ -492,12 +492,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T16:08:46.184195+00:00",
+   "fetchedAt": "2026-11-15T11:08:50.796406+00:00",
    "reported": true,
    "effectiveAt": "2026-11-14",
    "heading": "Game Day",
    "kickoffDate": "2026-11-14",
-   "game": "East Carolina",
+   "game": "vs. East Carolina",
    "players": [
     {
      "pos": "RB",

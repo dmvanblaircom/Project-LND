@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida-atlantic",
- "updated": "2026-11-14T22:38:39.592219+00:00",
+ "updated": "2026-11-15T11:08:52.049658+00:00",
  "reports": [
   {
    "schema": 1,
@@ -520,12 +520,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T22:38:39.592219+00:00",
+   "fetchedAt": "2026-11-15T11:08:52.049658+00:00",
    "reported": true,
    "effectiveAt": "2026-11-14",
    "heading": "Game Day",
    "kickoffDate": "2026-11-14",
-   "game": "Tulsa",
+   "game": "at Tulsa",
    "players": [
     {
      "pos": "DB",

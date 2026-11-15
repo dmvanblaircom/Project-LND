@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "uab",
- "updated": "2026-11-14T16:08:55.204493+00:00",
+ "updated": "2026-11-15T11:09:05.108122+00:00",
  "reports": [
   {
    "schema": 1,
@@ -352,12 +352,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-14T16:08:55.204493+00:00",
+   "fetchedAt": "2026-11-15T11:09:05.108122+00:00",
    "reported": true,
    "effectiveAt": "2026-11-14",
    "heading": "Game Day",
    "kickoffDate": "2026-11-14",
-   "game": "Temple",
+   "game": "at Temple",
    "players": [
     {
      "pos": "DT",
