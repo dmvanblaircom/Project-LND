@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T01:38:51.278959+00:00",
+ "fetchedAt": "2026-11-15T16:38:44.635706+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-15",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-15",
  "game": "vs. Ole Miss",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "RB",
    "no": "6",
    "name": "Tory Blaylock",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -43,13 +43,6 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "18",
-   "name": "Cole Sullivan",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "22",
    "name": "Trynae Washington",
@@ -57,17 +50,10 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "47",
-   "name": "James Nesta",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "70",
    "name": "Ryan Fodje",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -81,7 +67,7 @@
    "pos": "DL",
    "no": "94",
    "name": "Kenny Ozowalu",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   }
  ],
