@@ -1,7 +1,16 @@
 {
  "team": "georgia-state",
- "updated": "2026-11-13T02:08:01.635593+00:00",
+ "updated": "2026-11-15T01:08:06.501158+00:00",
  "items": [
+  {
+   "title": "Panthers Come up Short in 34-17 Loss to Georgia Southern",
+   "link": "https://georgiastatesports.com/news/2026/11/14/football-panthers-come-up-short-in-a-34-17-loss-to-georgia-southern.aspx",
+   "source": "Georgia State Athletics",
+   "summary": "<img alt=\"FB vs. GS\" src=\"https://georgiastatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/DSC00070.jpeg\" /><br /><br />",
+   "image": "https://georgiastatesports.com/images/2026/11/14/DSC00070.jpeg?width=800",
+   "sourceLogo": "https://georgiastatesports.com/favicon.ico",
+   "published": "2026-11-14T23:51:00+00:00"
+  },
   {
    "title": "Panthers Add Mississippi Valley State to Future Slate",
    "link": "https://georgiastatesports.com/news/2026/11/11/football-panthers-add-mississippi-valley-state-to-future-slate.aspx",
@@ -19,15 +28,6 @@
    "image": "https://georgiastatesports.com/images/2026/11/9/FB_2026_GAMETIMEUPDATE_MARSHALL_16X9.png?width=800",
    "sourceLogo": "https://georgiastatesports.com/favicon.ico",
    "published": "2026-11-09T20:00:00+00:00"
-  },
-  {
-   "title": "Panthers Host In-State Rivals for Georgia Grown Bowl",
-   "link": "https://georgiastatesports.com/news/2026/11/9/football-panthers-host-in-state-rivals-for-georgia-grown-bowl.aspx",
-   "source": "Georgia State Athletics",
-   "summary": "<img alt=\"Game Week Graphic- vs. Southern\" src=\"https://georgiastatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/FB_2026_GAMEWEEK_16X9_22_.png\" /><br /><br />GEORGIA STATE (5-4, 2-3\u00a0SBC) at GEORGIA SOUTHERN (5-4, 4-1\u00a0SBC)",
-   "image": "https://georgiastatesports.com/images/2026/11/9/FB_2026_GAMEWEEK_16X9_22_.png?width=800",
-   "sourceLogo": "https://georgiastatesports.com/favicon.ico",
-   "published": "2026-11-09T15:19:00+00:00"
   }
  ]
 }

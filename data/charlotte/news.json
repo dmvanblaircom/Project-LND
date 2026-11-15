@@ -1,7 +1,16 @@
 {
  "team": "charlotte",
- "updated": "2026-11-11T23:37:59.881952+00:00",
+ "updated": "2026-11-15T01:08:04.321061+00:00",
  "items": [
+  {
+   "title": "Sluggish Second Half Hurts Niners Against ECU",
+   "link": "https://charlotte49ers.com/news/2026/11/14/football-sluggish-second-half-hurts-niners-against-ecu",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Defense makes a stop\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/20261114_FB_Defense.jpg\" /><br /><br />CHARLOTTE, N.C. -- Charlotte Football suffered a 17-16 loss to East Carolina on Saturday afternoon (Nov. 14) at Jerry Richardson Stadium.",
+   "image": "https://charlotte49ers.com/images/2026/11/14/20261114_FB_Defense.jpg?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-11-15T00:29:00+00:00"
+  },
   {
    "title": "Listen Live: Charlotte Football Coaches Show",
    "link": "https://charlotte49ers.com/news/2026/11/11/listen-live-charlotte-football-coaches-show",
@@ -82,15 +91,6 @@
    "image": "https://charlotte49ers.com/images/2026/10/13/20261013_FB_Willis.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-10-13T19:21:00+00:00"
-  },
-  {
-   "title": "Niners Fall at North Texas",
-   "link": "https://charlotte49ers.com/news/2026/10/10/football-niners-fall-at-north-texas",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"Derrick Eley running for a touchdown\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/10/20261010_FB_Eley.jpg\" /><br /><br />DENTON, Texas --\u00a0Charlotte Football suffered a 50-10 loss at North Texas on Saturday afternoon (Oct. 10) at DATCU Stadium in Denton, Texas.",
-   "image": "https://charlotte49ers.com/images/2026/10/10/20261010_FB_Eley.jpg?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-10-11T00:44:00+00:00"
   }
  ]
 }

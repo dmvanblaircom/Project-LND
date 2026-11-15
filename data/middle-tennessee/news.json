@@ -1,7 +1,16 @@
 {
  "team": "middle-tennessee",
- "updated": "2026-11-15T00:38:13.641927+00:00",
+ "updated": "2026-11-15T01:08:12.646865+00:00",
  "items": [
+  {
+   "title": "Blue Raiders fall in tight road contest with Liberty",
+   "link": "https://goblueraiders.com/news/2026/11/14/football-blue-raiders-fall-in-tight-road-contest-with-liberty",
+   "source": "Middle Tennessee Athletics",
+   "summary": "<img alt=\"FB RECAP @ LU\" src=\"https://goblueraiders.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/lu_fb_recap.png\" /><br /><br />LYNCHBURG, Va.- Middle Tennessee football (5-5, 3-3 CUSA) dropped its penultimate road contest of 2026 to the Liberty Flames (9-1, 6-0 CUSA), 28-23.",
+   "image": "https://goblueraiders.com/images/2026/11/14/lu_fb_recap.png?width=800",
+   "sourceLogo": "https://goblueraiders.com/favicon.ico",
+   "published": "2026-11-15T00:19:00+00:00"
+  },
   {
    "title": "FINAL: Liberty outlasts MTSU football behind big rushing performance",
    "link": "https://mtsusidelines.com/2026/11/14/follow-live-mtsu-football-travels-to-top-seeded-liberty/",
@@ -118,15 +127,6 @@
    "image": "https://goblueraiders.com/images/2026/10/27/16x9__2_.png?width=800",
    "sourceLogo": "https://goblueraiders.com/favicon.ico",
    "published": "2026-10-27T17:00:00+00:00"
-  },
-  {
-   "title": "Countdown to Kickoff Luncheon set for Tuesday",
-   "link": "https://goblueraiders.com/news/2026/10/26/football-countdown-to-kickoff-luncheon-set-for-tuesday",
-   "source": "Middle Tennessee Athletics",
-   "summary": "<img alt=\"Countdown to Kickoff Luncheon\" src=\"https://goblueraiders.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/16x9__2_.png\" /><br /><br />MURFREESBORO, Tenn. \u2014 Middle Tennessee football fans will have an opportunity to get an inside look at Wednesday's conference matchup with Kennesaw State when the Blue Raiders host the Countdown to Kickoff Luncheon Tuesday, Oct. 27, at 11:45 a.m. in the SRM Concrete Club at Floyd Stadium.",
-   "image": "https://goblueraiders.com/images/2026/10/26/16x9__2_.png?width=800",
-   "sourceLogo": "https://goblueraiders.com/favicon.ico",
-   "published": "2026-10-26T21:26:00+00:00"
   }
  ]
 }

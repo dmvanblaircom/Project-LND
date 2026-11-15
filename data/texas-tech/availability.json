@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T03:09:11.384115+00:00",
+ "fetchedAt": "2026-11-15T01:09:12.523298+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-14",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-14",
  "game": "at Oklahoma State",
  "players": [
@@ -33,27 +33,6 @@
    "no": "6",
    "name": "Jalen Jones",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "8",
-   "name": "Cameron Dickey",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "11",
-   "name": "Malcolm Simmons",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "15",
-   "name": "Austin Romaine",
-   "status": "probable",
    "detail": ""
   },
   {
