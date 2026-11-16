@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-16T17:38:21.677718+00:00",
+ "updated": "2026-11-16T18:08:22.159479+00:00",
  "items": [
+  {
+   "title": "Westen Ard Named CUSA Freshman of the Week",
+   "link": "https://wkusports.com/news/2026/11/16/football-westen-ard-named-cusa-freshman-of-the-week",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"Westen Ard\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/16/Westen_Ard.png\" /><br /><br />BOWLING GREEN, Ky. \u2013 WKU Football linebacker Westen Ard has been named the Conference USA Freshman of the Week, CUSA announced Monday.",
+   "image": "https://wkusports.com/images/2026/11/16/Westen_Ard.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-16T18:00:00+00:00"
+  },
   {
    "title": "WKU FB: Head Coach Tyson Helton | Weekly Media Availability | 11-16-26",
    "link": "https://wkusports.com/news/2026/11/16/football-wku-fb-head-coach-tyson-helton-weekly-media-availability-11-16-26",
@@ -100,15 +109,6 @@
    "image": "https://wkusports.com/images/2026/11/7/rodney_post.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-08T01:30:00+00:00"
-  },
-  {
-   "title": "Football Pregame Show: Middle Tennessee",
-   "link": "https://wkusports.com/news/2026/11/7/football-pregame-show-middle-tennessee",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"MTSU Pregame Interview 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/7/pregame_interview_16x9.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/11/7/pregame_interview_16x9.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-07T20:11:00+00:00"
   }
  ]
 }
