@@ -1,7 +1,16 @@
 {
  "team": "iowa",
- "updated": "2026-11-16T18:38:10.517512+00:00",
+ "updated": "2026-11-16T19:08:05.521890+00:00",
  "items": [
+  {
+   "title": "The Chuck Long Podcast",
+   "link": "https://on3.com/teams/iowa-hawkeyes/news/iowa-hawkeyes-football-chuck-long-podcast/",
+   "source": "On3",
+   "summary": "We have our weekly Chuck Long Podcast, reviewing the win over Purdue and previewing the game against Illinois.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15092538/Snaps-cover-O-e1794756355283.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-16T18:42:10+00:00"
+  },
   {
    "title": "Inside the rankings on Iowa's 2027 recruiting class",
    "link": "https://on3.com/teams/iowa-hawkeyes/news/inside-the-rankings-on-the-iowa-hawkeyes-2027-recruiting-class-keyon-thomas/",
@@ -210,15 +219,6 @@
    "published": "2026-11-15T12:15:26+00:00"
   },
   {
-   "title": "Hawkeye Report Podcast",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/iowa-hawkeyes-football-purdue-podcast/",
-   "source": "On3",
-   "summary": "On our post game podcast, Tom Kakert and Matt Randazzo talk about the win over Purdue.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15020127/LJ-Phillips-2.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-15T08:06:06+00:00"
-  },
-  {
    "title": "Photos: Iowa football defeats Purdue",
    "link": "https://dailyiowan.com/2026/11/15/photos-iowa-football-defeats-purdue/",
    "source": "The Daily Iowan",
@@ -244,15 +244,6 @@
    "image": "https://dailyiowan.com/wp-content/uploads/2026/11/2026_11_14_PurdueFootball_SD_TC05.jpg",
    "sourceLogo": null,
    "published": "2026-11-15T06:29:28+00:00"
-  },
-  {
-   "title": "Kirk Ferentz on the win over Purdue",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/kirk-ferentz-iowa-football-purdue-game/",
-   "source": "On3",
-   "summary": "Kirk Ferentz is seeing steady growth and improvement with his football team. That included Saturday's win over Purdue. He talks about the victory, his tumble into the kicking net, and bus travel stories.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15001337/Kirk-Ferentz-28.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-15T06:15:44+00:00"
   },
   {
    "title": "Hawkeyes Roll Past Boilermakers, 28-7",

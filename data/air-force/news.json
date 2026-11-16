@@ -1,7 +1,16 @@
 {
  "team": "air-force",
- "updated": "2026-11-15T05:07:55.939737+00:00",
+ "updated": "2026-11-16T19:07:58.285877+00:00",
  "items": [
+  {
+   "title": "Game 11: Air Force vs. UTEP",
+   "link": "https://goairforcefalcons.com/news/2026/11/16/football-game-11-air-force-vs-utep",
+   "source": "Air Force Athletics",
+   "summary": "<img alt=\"Alma Mater vs. UNLV\" src=\"https://goairforcefalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/19/261017-F-XS730-1041.jpg\" /><br /><br />Game 11: Air Force vs. UTEP",
+   "image": "https://goairforcefalcons.com/images/2026/10/19/261017-F-XS730-1041.jpg?width=800",
+   "sourceLogo": "https://goairforcefalcons.com/favicon.ico",
+   "published": "2026-11-16T18:39:00+00:00"
+  },
   {
    "title": "Season high rushing game leads Air Force to 24-3 win over SJSU",
    "link": "https://goairforcefalcons.com/news/2026/11/14/football-season-high-rushing-game-leads-air-force-to-24-3-win-over-sjsu",
@@ -82,15 +91,6 @@
    "image": "https://goairforcefalcons.com/images/2026/11/3/Great8_Kemper_Web.png?width=800",
    "sourceLogo": "https://goairforcefalcons.com/favicon.ico",
    "published": "2026-11-03T17:03:00+00:00"
-  },
-  {
-   "title": "Kemper Hodges earns National Football Foundation, Colorado Chapter Player of the Week honors for performance vs. UConn",
-   "link": "https://goairforcefalcons.com/news/2026/11/3/kemper-hodges-earns-national-football-foundation-colorado-chapter-player-of-the-week-honors-for-performance-vs-uconn",
-   "source": "Air Force Athletics",
-   "summary": "<img alt=\"Hodges NFF\" src=\"https://goairforcefalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/3/NFF_POTW_Kemper_Web.png\" /><br /><br />Air Force senior quarterback Kemper Hodges earned National Football Foundation, Colorado Chapter, Player of the Week honors for his performance in Air Force's 35-26 win over UConn last week.",
-   "image": "https://goairforcefalcons.com/images/2026/11/3/NFF_POTW_Kemper_Web.png?width=800",
-   "sourceLogo": "https://goairforcefalcons.com/favicon.ico",
-   "published": "2026-11-03T14:31:00+00:00"
   }
  ]
 }
