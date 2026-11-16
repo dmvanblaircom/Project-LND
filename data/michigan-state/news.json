@@ -1,7 +1,16 @@
 {
  "team": "michigan-state",
- "updated": "2026-11-16T19:08:08.713087+00:00",
+ "updated": "2026-11-16T20:08:09.375825+00:00",
  "items": [
+  {
+   "title": "Pat Fitzgerald Weekly Press Conference Coverage",
+   "link": "https://msuspartans.com/news/2026/11/16/football-pat-fitzgerald-weekly-press-conference-coverage",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Pat Fitzgerald \" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/20261114_Washington_Fitzgerald_Pat_0138.jpg\" /><br /><br />EAST LANSING, Mich. \u2013\u00a0Michigan State head football coach\u00a0Pat Fitzgerald\u00a0held his weekly press conference Monday inside the Spartan Stadium North End Zone Media Center to preview this Friday's game against Oregon.",
+   "image": "https://msuspartans.com/images/2026/11/16/20261114_Washington_Fitzgerald_Pat_0138.jpg?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-11-16T19:45:00+00:00"
+  },
   {
    "title": "Kickoff Time, TV Channel Set for MSU Football's Finale at Rutgers",
    "link": "https://www.si.com/college/michiganstate/football/kickoff-time-tv-channel-set-msu-finale-rutgers?utm_source=RSS",
@@ -390,15 +399,6 @@
    "published": "2026-11-09T21:24:00+00:00"
   },
   {
-   "title": "Pat Fitzgerald Weekly Press Conference Coverage",
-   "link": "https://msuspartans.com/news/2026/11/9/football-pat-fitzgerald-weekly-press-conference-coverage",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Pat Fitzgerald walks the field with the Spartans prior to MSU's 15-6 win at Michigan on Nov. 7, 2026.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/20261107_MICHIGAN_Fitzgerald_Pat_TEAM_DSC07398_NA.jpg\" /><br /><br />EAST LANSING, Mich. \u2013\u00a0Michigan State head football coach\u00a0Pat Fitzgerald\u00a0held his weekly press conference Monday inside the Spartan Stadium North End Zone Media Center to recap the win over Michigan and to preview this Saturday's game against Washington.",
-   "image": "https://msuspartans.com/images/2026/11/9/20261107_MICHIGAN_Fitzgerald_Pat_TEAM_DSC07398_NA.jpg?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-11-09T19:28:00+00:00"
-  },
-  {
    "title": "Michigan State Reclaims Paul Bunyan Trophy, Downs Michigan, 15-6",
    "link": "https://msuspartans.com/news/2026/11/8/football-michigan-state-reclaims-paul-bunyan-trophy-downs-michigan-15-6",
    "source": "Michigan State Athletics",
@@ -406,15 +406,6 @@
    "image": "https://msuspartans.com/images/2026/11/8/Paul_Bunyan_Trophy.jpg?width=800",
    "sourceLogo": "https://msuspartans.com/favicon.ico",
    "published": "2026-11-08T06:37:00+00:00"
-  },
-  {
-   "title": "Post-Game Notes: Michigan",
-   "link": "https://msuspartans.com/news/2026/11/7/football-post-game-notes-michigan",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Liam Boyd kicked five field goals in the win over Michigan on Nov. 7, 2026, in Ann Arbor.\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/20261108_Game9_Michigan_Boyd_Liam_07536.jpg\" /><br /><br />SERIES / GAME NOTES",
-   "image": "https://msuspartans.com/images/2026/11/8/20261108_Game9_Michigan_Boyd_Liam_07536.jpg?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-11-08T04:58:00+00:00"
   }
  ]
 }

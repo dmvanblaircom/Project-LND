@@ -1,7 +1,16 @@
 {
  "team": "bowling-green",
- "updated": "2026-11-16T18:37:58.940490+00:00",
+ "updated": "2026-11-16T20:08:01.111040+00:00",
  "items": [
+  {
+   "title": "BGSU-UMass Football Moved Back To 3:30 p.m. Kickoff Time",
+   "link": "https://bgsufalcons.com/news/2026/11/16/bgsu-umass-football-moved-back-to-3-30-pm-kickoff-time",
+   "source": "Bowling Green Athletics",
+   "summary": "<img alt=\"BGSU-UMass Kick Time 2026\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/2026_FB_ball_TIMEumassweb.jpeg\" /><br /><br />BOWLING GREEN, Ohio - Bowling Green State University Athletics in partnership with the Mid-American Conference has announced an adjustment to the kickoff time for the football game between Bowling Green and UMass. The Falcons and Minutemen will now start at 3:30 p.m. on Saturday, Nov. 28 with the game being broadcast on ESPN+.",
+   "image": "https://bgsufalcons.com/images/2026/11/16/2026_FB_ball_TIMEumassweb.jpeg?width=800",
+   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
+   "published": "2026-11-16T19:43:00+00:00"
+  },
   {
    "title": "Two Falcons named MAC Players of the Week",
    "link": "https://bgfalconmedia.com/184339/sports/football/two-falcons-named-mac-players-of-the-week/",
@@ -91,15 +100,6 @@
    "image": "https://bgsufalcons.com/images/2026/10/26/BGSUvsUB_028_Lucas_Dembski.jpg?width=800",
    "sourceLogo": "https://bgsufalcons.com/favicon.ico",
    "published": "2026-10-26T21:37:00+00:00"
-  },
-  {
-   "title": "The Falcons Nest Coaches Show Returns Monday Night With Fenelon, Chmiel, Snelling",
-   "link": "https://bgsufalcons.com/news/2026/10/26/general-the-falcons-nest-coaches-show-returns-monday-night-with-fenelon-chmiel-snelling",
-   "source": "Bowling Green Athletics",
-   "summary": "<img alt=\"Coaches Show -- Fenelon, Chmiel, Snelling\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/COACHES-SHOW-26.jpg\" /><br /><br />BOWLING GREEN, Ohio \u2013 The weekly Falcons Nest Coaches Show presented by Fricker's, returns Monday night (Oct. 26) on Falcon Sports Radio Network stations with a trio of guests. The show will begin at 6 p.m. with head football strength and conditioning coach Chris Fenelon joining the Voice of the Falcons, Todd Walker. Walker will then be joined by head women's basketball coach Fred Chmiel at ",
-   "image": "https://bgsufalcons.com/images/2026/10/26/COACHES-SHOW-26.jpg?width=800",
-   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
-   "published": "2026-10-26T15:30:00+00:00"
   }
  ]
 }
