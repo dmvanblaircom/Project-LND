@@ -1,7 +1,25 @@
 {
  "team": "syracuse",
- "updated": "2026-11-16T21:08:19.543925+00:00",
+ "updated": "2026-11-16T21:38:14.226491+00:00",
  "items": [
+  {
+   "title": "'Cuse and Notre Dame Set for Noon Kick on ABC",
+   "link": "https://cuse.com/news/2026/11/16/football-cuse-and-notre-dame-set-for-noon-kick-on-abc",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"Chris D'Appolonia\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/11/16/Web_2.jpg\" /><br /><br />Syracuse's regular season finale has been set for a Noon start on ABC, the ACC announced on Monday.",
+   "image": "https://cuse.com/images/2026/11/16/Web_2.jpg?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-16T21:31:00+00:00"
+  },
+  {
+   "title": "Angeli Earns Manning Award Star of the Week",
+   "link": "https://cuse.com/news/2026/11/16/football-angeli-earns-manning-award-star-of-the-week",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"Steve Angeli\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/11/16/web__1.jpg\" /><br /><br />After leading the Syracuse football team back from a 15-point deficit in the final minutes at NC State, quarterback Steve Angeli has been named one of the Manning Award Stars of the Week, the Allstate Sugar Bowl announced Monday.",
+   "image": "https://cuse.com/images/2026/11/16/web__1.jpg?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-16T21:25:00+00:00"
+  },
   {
    "title": "Orange Set to Battle Boston College Saturday",
    "link": "https://cuse.com/news/2026/11/16/football-orange-set-to-battle-boston-college-saturday",
@@ -64,15 +82,6 @@
    "image": "https://platform.nunesmagician.com/wp-content/uploads/sites/116/2026/11/gettyimages-2304631083.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-11-15T14:59:09+00:00"
-  },
-  {
-   "title": "Syracuse football: takeaways from the Orange\u2019s win over NC State",
-   "link": "https://www.nunesmagician.com/syracuse-orange-football-fran/115766/syracuse-football-takeaways-from-the-oranges-win-over-nc-state",
-   "source": "Troy Nunes Is an Absolute Magician",
-   "summary": "The Syracuse Orange football team was certainly down, but in the end, proved to not be out Saturday against the NC State Wolfpack. Despite being down multiple scores entering the fourth quarter, the Orange rallied for its fifth win of the season, beating the Wolfpack 34-31 in Raleigh. Here are your takeaways from quite a [&#8230;]",
-   "image": "https://platform.nunesmagician.com/wp-content/uploads/sites/116/2026/11/gettyimages-2304630949.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-15T12:43:58+00:00"
   },
   {
    "title": "Syracuse Football overcomes their toughest opponent\u2026themselves",
@@ -253,24 +262,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1536,h_864,x_0,y_343/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/all_syracuse/01m6zf77jkwnxv92qsd1.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-09T17:00:00+00:00"
-  },
-  {
-   "title": "Orange Rally Falls Short to Clemson",
-   "link": "https://cuse.com/news/2026/11/7/football-orange-rally-falls-short-to-clemson",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Football line of scrimmage vs. Clemson \" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/11/7/20261107_VIS201_Hearns_untitled_0166.jpeg\" /><br /><br />Despite a late fourth quarter rally, Syracuse was topped by Clemson, 18-13, at the JMA Wireless Dome on Saturday afternoon.",
-   "image": "https://cuse.com/images/2026/11/7/20261107_VIS201_Hearns_untitled_0166.jpeg?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-11-07T20:59:00+00:00"
-  },
-  {
-   "title": "'Cuse Hosts Clemson Saturday",
-   "link": "https://cuse.com/news/2026/11/6/untitled-story",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Steve Angeli\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/31/16x9_9_16.jpeg\" /><br /><br />SYRACUSE vs. CLEMSON",
-   "image": "https://cuse.com/images/2026/10/31/16x9_9_16.jpeg?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-11-06T13:11:00+00:00"
   }
  ]
 }
