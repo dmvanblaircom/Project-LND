@@ -1,7 +1,16 @@
 {
  "team": "wake-forest",
- "updated": "2026-11-15T23:08:16.970398+00:00",
+ "updated": "2026-11-16T00:08:11.550553+00:00",
  "items": [
+  {
+   "title": "Wake Forest Commit Tracker: How the Deacons\u2019 Class of 2027 played this weekend",
+   "link": "https://on3.com/sites/deacons-illustrated/news/wake-forest-commit-tracker-how-the-deacons-class-of-2027-played-this-weekend/",
+   "source": "Deacons Illustrated",
+   "summary": "Wake Forest had just about all of its Class of 2027 commits in action this weekend, and we've run down performances and results.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31213642/2026-10-31T194603Z_1580692641_MT1USATODAY30238903_RTRMADP_3_NCAA-FOOTBALL-VIRGINIA-AT-WAKE-FOREST.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-15T23:58:38+00:00"
+  },
   {
    "title": "Wake Forest Kickoff Time and Schedule Announced Against Georgia Tech",
    "link": "https://www.si.com/college/wake-forest/football/wake-forest-kickoff-time-and-schedule-announced-against-georgia-tech-01m7ghbwwwg0?utm_source=RSS",
@@ -235,15 +244,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/11162313/2026-11-07T012701Z_833989818_MT1USATODAY30294686_RTRMADP_3_NCAA-FOOTBALL-VIRGINIA-TECH-AT-SOUTHERN-METHODIST-e1794435812173.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-11T22:46:31+00:00"
-  },
-  {
-   "title": "How PFF graded Wake's offense against Merrimack",
-   "link": "https://on3.com/sites/deacons-illustrated/news/how-pff-graded-wakes-offense-against-merrimack/",
-   "source": "Deacons Illustrated",
-   "summary": "Diving into the numbers on Wake Forest's offensive performance during the Deacons' 77-0 blowout victory against Merrimack.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/11141023/2026-11-07T223512Z_62660065_MT1USATODAY30302992_RTRMADP_3_NCAA-FOOTBALL-MERRIMACK-AT-WAKE-FOREST-e1794427910890.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-11T21:12:53+00:00"
   },
   {
    "title": "Wake Forest\u2019s Gio Lopez Named Walter Camp Award Semifinalist",
