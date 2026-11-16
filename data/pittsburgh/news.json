@@ -1,7 +1,16 @@
 {
  "team": "pittsburgh",
- "updated": "2026-11-16T14:38:29.085264+00:00",
+ "updated": "2026-11-16T16:08:24.068957+00:00",
  "items": [
+  {
+   "title": "Pitt Faces First Real Test Against Villanova",
+   "link": "https://www.si.com/college/pittsburgh/news/pitt-panthers-face-first-real-test-against-villanova?utm_source=RSS",
+   "source": "Pitt On SI",
+   "summary": "The Pittsburgh Panthers are off to a hot start, and now they have the chance to prove they are legit.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3040,h_1710,x_1333,y_217/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_panthers/01m7er45v0mmmbe3sqk1.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-16T15:41:32+00:00"
+  },
   {
    "title": "Kickoff Time, TV Channel Announced for Pitt vs. Louisville",
    "link": "https://on3.com/sites/pitt-sports-news/news/kickoff-time-tv-channel-announced-for-pitt-vs-louisville/",
@@ -343,15 +352,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6050,h_3403,x_0,y_15/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_panthers/01m5k3wxf9v42282s1gr.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-23T01:02:21+00:00"
-  },
-  {
-   "title": "Pitt OC Addresses QB Situation Ahead of Miami Matchup",
-   "link": "https://www.si.com/college/pittsburgh/football/pitt-panthers-kade-bell-quarterback-situation-ahead-miami-matchup?utm_source=RSS",
-   "source": "Pitt On SI",
-   "summary": "The Pitt Panthers have options for their passing attack against the top team in the nation.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3760,h_2115,x_0,y_50/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/inside_the_panthers/01m5jarf89befqvpgzq4.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-22T18:35:59+00:00"
   }
  ]
 }
