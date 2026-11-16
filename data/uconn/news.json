@@ -1,7 +1,16 @@
 {
  "team": "uconn",
- "updated": "2026-11-16T19:38:21.754563+00:00",
+ "updated": "2026-11-16T21:08:22.583226+00:00",
  "items": [
+  {
+   "title": "Kick-Off and TV Info Announced for Wyoming Game",
+   "link": "https://uconnhuskies.com/news/2026/11/16/football-kick-off-and-tv-info-announced-for-wyoming-game",
+   "source": "UConn Athletics",
+   "summary": "<img alt=\"Hayden Pegg\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/C06A7700.jpg\" /><br /><br />STORRS, CT\u00a0- The kick-off time and TV broadcast information for UConn\u00a0at Wyoming on Saturday, November 28 was announced on Monday.\u00a0 The Huskies and Cowboys will kick-off at 12:00 pm\u00a0EST with the game being broadcast on FS1.",
+   "image": "https://uconnhuskies.com/images/2026/11/16/C06A7700.jpg?width=800",
+   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
+   "published": "2026-11-16T20:30:00+00:00"
+  },
   {
    "title": "WATCH: Game 11 Football Press Conference",
    "link": "https://uconnhuskies.com/news/2026/11/16/watch-game-11-football-press-conference",
@@ -100,15 +109,6 @@
    "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
    "sourceLogo": "https://uconnhuskies.com/favicon.ico",
    "published": "2026-11-02T22:31:00+00:00"
-  },
-  {
-   "title": "Air Force Runs Past Huskies",
-   "link": "https://uconnhuskies.com/news/2026/10/31/football-air-force-runs-past-huskies",
-   "source": "UConn Athletics",
-   "summary": "<img alt=\"Kenji Christian\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/AF_K_Christian_1.JPG\" /><br /><br />COLORADO SPRINGS, CO \u2013 The Air Force Falcons ran for 366 yards on the way to a 35-26 win over the visting UConn Huskies Saturday afternoon in front of 20,062 at Falcon Stadium.",
-   "image": "https://uconnhuskies.com/images/2026/10/31/AF_K_Christian_1.JPG?width=800",
-   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
-   "published": "2026-11-01T00:06:00+00:00"
   }
  ]
 }

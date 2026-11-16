@@ -1,7 +1,16 @@
 {
  "team": "bowling-green",
- "updated": "2026-11-16T20:08:01.111040+00:00",
+ "updated": "2026-11-16T21:08:05.096317+00:00",
  "items": [
+  {
+   "title": "Friday Night Lights: Falcons Set Eyes On Rival Rockets For National TV Road Game",
+   "link": "https://bgsufalcons.com/news/2026/11/16/football-friday-night-lights-falcons-set-eyes-on-rival-rockets-for-national-tv-road-game",
+   "source": "Bowling Green Athletics",
+   "summary": "<img alt=\"Toledo at Bowling Green\nOctober 11, 2025\nDoyt L. Perry Stadium\nBowling Green, Ohio\n\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/GRAU_10112025_Toledo_at_BGSU_04_BGSU_Falcons.JPG\" /><br /><br />",
+   "image": "https://bgsufalcons.com/images/2026/11/16/GRAU_10112025_Toledo_at_BGSU_04_BGSU_Falcons.JPG?width=800",
+   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
+   "published": "2026-11-16T20:41:00+00:00"
+  },
   {
    "title": "BGSU-UMass Football Moved Back To 3:30 p.m. Kickoff Time",
    "link": "https://bgsufalcons.com/news/2026/11/16/bgsu-umass-football-moved-back-to-3-30-pm-kickoff-time",
@@ -91,15 +100,6 @@
    "image": "https://bgsufalcons.com/images/2026/10/31/20261101HaileyPM72.jpg?width=800",
    "sourceLogo": "https://bgsufalcons.com/favicon.ico",
    "published": "2026-10-31T21:25:00+00:00"
-  },
-  {
-   "title": "Bowling Green, Western Michigan Set For Halloween Clash In Kalamazoo Saturday",
-   "link": "https://bgsufalcons.com/news/2026/10/26/football-bowling-green-western-michigan-set-for-halloween-clash-in-kalamazoo-saturday",
-   "source": "Bowling Green Athletics",
-   "summary": "<img alt=\"Kade Kostus vs. Buffalo\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/BGSUvsUB_028_Lucas_Dembski.jpg\" /><br /><br />",
-   "image": "https://bgsufalcons.com/images/2026/10/26/BGSUvsUB_028_Lucas_Dembski.jpg?width=800",
-   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
-   "published": "2026-10-26T21:37:00+00:00"
   }
  ]
 }
