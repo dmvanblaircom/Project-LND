@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "189",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -178,6 +178,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274800",
+   "name": "Brayden Johnson",
+   "position": "RB",
+   "highSchool": "Bloomington North High School",
+   "city": "Bloomington",
+   "state": "IN",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273333",
    "name": "Chancelor Adams",
    "position": "S",
@@ -308,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:40Z"
+ "fetchedAt": "2026-11-16T07:09Z"
 }
