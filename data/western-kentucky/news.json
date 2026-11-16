@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-16T14:38:40.206110+00:00",
+ "updated": "2026-11-16T17:38:21.677718+00:00",
  "items": [
+  {
+   "title": "WKU FB: Head Coach Tyson Helton | Weekly Media Availability | 11-16-26",
+   "link": "https://wkusports.com/news/2026/11/16/football-wku-fb-head-coach-tyson-helton-weekly-media-availability-11-16-26",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"Tyson Presser\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/16/Tyson.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/11/16/Tyson.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-16T17:17:00+00:00"
+  },
   {
    "title": "Late game heroics elevate WKU Football to victory over Jacksonville State",
    "link": "https://wkuherald.com/99328/sports/late-game-heroics-elevate-wku-football-to-victory-over-jacksonville-state/",
@@ -100,15 +109,6 @@
    "image": "https://wkusports.com/images/2026/11/7/pregame_interview_16x9.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-07T20:11:00+00:00"
-  },
-  {
-   "title": "Gameday Guide: Middle Tennessee",
-   "link": "https://wkusports.com/news/2026/11/7/football-gameday-guide-middle-tennessee",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"WKU FB 26 \u2013 Gameday Guide \u2013 Middle Tennessee\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/5/WKU_FB_26___Gameday_Guide___Middle_Tennessee.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/11/5/WKU_FB_26___Gameday_Guide___Middle_Tennessee.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-07T11:00:00+00:00"
   }
  ]
 }
