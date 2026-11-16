@@ -1,7 +1,16 @@
 {
  "team": "uconn",
- "updated": "2026-11-16T18:08:19.815476+00:00",
+ "updated": "2026-11-16T19:38:21.754563+00:00",
  "items": [
+  {
+   "title": "WATCH: Game 11 Football Press Conference",
+   "link": "https://uconnhuskies.com/news/2026/11/16/watch-game-11-football-press-conference",
+   "source": "UConn Athletics",
+   "summary": "<img alt=\"Jason Candle Press Conference Thumbnail\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/22/Candle_ThumbnailforPressers.jpg\" /><br /><br />STORRS, CT -\u00a0The UConn Huskies close out their home scheudle this\u00a0Saturday playing host to the Old Dominion Monarchs.\u00a0Watch Head Coach Jason Candle's press conference previewing this week's match-up.",
+   "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
+   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
+   "published": "2026-11-16T19:07:00+00:00"
+  },
   {
    "title": "Osborne Named to Week 11 Manning Award Stars of the Week",
    "link": "https://uconnhuskies.com/news/2026/11/16/football-osborne-named-to-week-11-manning-award-stars-of-the-week",
@@ -100,15 +109,6 @@
    "image": "https://uconnhuskies.com/images/2026/10/31/AF_K_Christian_1.JPG?width=800",
    "sourceLogo": "https://uconnhuskies.com/favicon.ico",
    "published": "2026-11-01T00:06:00+00:00"
-  },
-  {
-   "title": "Huskies Headed West to Face Air Force on Saturday",
-   "link": "https://uconnhuskies.com/news/2026/10/27/football-huskies-headed-west-to-face-air-force-on-saturday",
-   "source": "UConn Athletics",
-   "summary": "<img alt=\"Esean Carter\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/27/UMass_E_Carter_1.jpg\" /><br /><br />Media Coverage:",
-   "image": "https://uconnhuskies.com/images/2026/10/27/UMass_E_Carter_1.jpg?width=800",
-   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
-   "published": "2026-10-27T20:15:00+00:00"
   }
  ]
 }
