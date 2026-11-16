@@ -5363,6 +5363,13 @@
    "week": 11,
    "label": "Week 11",
    "updated": "2026-11-16T09:00Z"
+  },
+  {
+   "id": "w12",
+   "type": 2,
+   "week": 12,
+   "label": "Week 12",
+   "updated": "2026-11-16T09:00Z"
   }
  ],
  "teams": {
