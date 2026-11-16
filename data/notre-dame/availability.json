@@ -3,22 +3,36 @@
  "team": "notre-dame",
  "capability": "availability",
  "tier": "official",
- "game": "Boston College",
- "sourceUrl": "https://fightingirish.com/documents/ebc57b77-d28c-4533-989d-9ed8103f3f5c.pdf",
+ "game": "SMU",
+ "sourceUrl": "https://fightingirish.com/documents/66dfd7ee-6b2b-4794-9d5e-268b9457c90b.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/12/YcAvZXjXw7bfcQWXTrx8ZLg3QLc9PCbLNKNIXBZe.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/16/AvQGxqi4wBRcqbOcS4ei7t2cKTS29pBnwPnfSC6A.pdf",
  "parser": 2,
- "fetchedAt": "2026-11-12T18:32:51.976998+00:00",
+ "fetchedAt": "2026-11-16T22:08:37.307405+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
- "heading": "AVAILABILITY UPDATE (NOV. 12)",
+ "effectiveAt": "2026-11-16",
+ "heading": "AVAILABILITY UPDATE (NOV. 16)",
  "players": [
+  {
+   "no": "",
+   "pos": "OL",
+   "name": "Will Black",
+   "status": "questionable",
+   "detail": "Concussion"
+  },
   {
    "no": "",
    "pos": "DL",
    "name": "Francis Brewu",
    "status": "questionable",
    "detail": "Left Knee"
+  },
+  {
+   "no": "",
+   "pos": "S",
+   "name": "Brauntae Johnson",
+   "status": "questionable",
+   "detail": "Left Foot"
   },
   {
    "no": "",
@@ -50,31 +64,10 @@
   },
   {
    "no": "",
-   "pos": "OL",
-   "name": "Charles Jagusah",
-   "status": "out-game",
-   "detail": "Left Humerus"
-  },
-  {
-   "no": "",
-   "pos": "S",
-   "name": "Brauntae Johnson",
-   "status": "out-game",
-   "detail": "Left Foot"
-  },
-  {
-   "no": "",
    "pos": "CB",
    "name": "DJ McKinney",
    "status": "out-game",
    "detail": "Right Ankle"
-  },
-  {
-   "no": "",
-   "pos": "OL",
-   "name": "Chris Terek",
-   "status": "out-game",
-   "detail": "Right Knee"
   }
  ]
 }

@@ -3,13 +3,13 @@
  "team": "notre-dame",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/ebc57b77-d28c-4533-989d-9ed8103f3f5c.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/66dfd7ee-6b2b-4794-9d5e-268b9457c90b.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/12/YcAvZXjXw7bfcQWXTrx8ZLg3QLc9PCbLNKNIXBZe.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/16/AvQGxqi4wBRcqbOcS4ei7t2cKTS29pBnwPnfSC6A.pdf",
  "parser": 2,
- "fetchedAt": "2026-11-12T18:32:51.976998+00:00",
- "publishedAt": "2026-11-12",
- "game": "Boston College",
+ "fetchedAt": "2026-11-16T22:08:37.307405+00:00",
+ "publishedAt": "2026-11-16",
+ "game": "SMU",
  "pronounce": {
   "Khary Adams": "CAR-ee",
   "Matty Augustine": "August-EEN",
@@ -25,6 +25,7 @@
   "Kaydon Finley": "KAY-den",
   "Preston Fryzel": "fry-ZELL",
   "Henry Garrity": "GARE [like stare]-itty",
+  "Michael Giovacco": "Geo-VAH-coe",
   "Tionne Gray": "TEE-on",
   "Jaden Greathouse": "JAY-den",
   "Blake Hebert": "HEE-bert",
@@ -83,19 +84,28 @@
    "Sporting News Preseason All-America Second Team"
   ],
   "CJ Carr": [
+   "Associated Press National Player of the Week (Nov. 9)",
    "Davey O’Brien Award Preseason Watch List",
-   "Davey O’Brien Great 8 (Oct. 5)",
+   "Davey O’Brien Great 8 (Oct. 5, Nov. 9)",
+   "Davey O’Brien National Quarterback of the Week (Nov. 10)",
+   "Davey O’Brien Quarterback Class of 2026 (Nov. 10)",
    "ESPN Preseason All-America Second Team",
    "Johnny Unitas Golden Arm Award Watch List",
+   "Johnny Unitas Golden Arm Award Top 15 (Oct. 8)",
    "Johnny Unitas Golden Arm Award Top 10 (Nov. 6)",
+   "Johnny Unitas Golden Arm Award Player of the Week (Nov. 10)",
    "Manning Award Watch List",
-   "Manning Award Star of the Week (Oct. 5)",
+   "Manning Award Star of the Week (Oct. 5, Nov. 9)",
    "Maxwell Award Watch List",
+   "Maxwell Award Player of the Week (Nov. 10)",
+   "Maxwell Award Semifinalist (Nov. 10)",
+   "Panini Senior Bowl Offensive Player of the Week (Nov. 9)",
    "Phil Steele Preseason All-America Fourth Team",
    "Pony Express Award Watch List",
    "Senior Bowl Top 300",
    "Shriners Children’s East-West Shrine Bowl 1000",
-   "Walter Camp Player of the Year Award Watch List"
+   "Walter Camp Player of the Year Award Watch List",
+   "Walter Camp Player of the Year Award Semifinalist (Nov. 11)"
   ],
   "Ashton Craig": [
    "College Football Comeback Player of the Year Pre-Season Watch List",
@@ -104,10 +114,15 @@
   ],
   "Jordan Faison": [
    "Burlsworth Trophy Nominee",
-   "Pony Express Award Watch List"
+   "Burlsworth Trophy Semifinalist (Nov. 10)",
+   "Pony Express Award Watch List",
+   "Senior Bowl Top 300"
   ],
   "Devin Fitzgerald": [
    "Hispanic College Football Player of the Year Award Watch List"
+  ],
+  "Christian Gray": [
+   "Senior Bowl Top 300"
   ],
   "Jaden Greathouse": [
    "College Football Comeback Player of the Year Pre-Season Watch List",
@@ -126,6 +141,7 @@
    "Sporting News Preseason All-America First Team"
   ],
   "Anthonie Knapp": [
+   "The Athletic Preseason All-America First Team",
    "CBS Sports Preseason All-America First Team",
    "ESPN Preseason All-America First Team",
    "Lombardi Award Watch List",
@@ -144,7 +160,7 @@
   ],
   "Leonard Moore": [
    "Allstate AFCA Good Works Team Watch List",
-   "AFCA Good Works Team",
+   "Allstate AFCA Good Works Team",
    "Allstate Wuerffel Trophy Watch List",
    "Allstate Wuerffel Trophy Semifinalist",
    "Associated Press Preseason All-America First Team",
@@ -152,10 +168,12 @@
    "Bronko Nagurski Trophy Watch List",
    "CBS Sports Preseason All-America First Team",
    "Chuck Bednarik Award Watch List",
+   "Chuck Bednarik Award Semifinalist (Nov. 10)",
    "ESPN Preseason All-America First Team",
    "Jason Witten Collegiate Man of the Year Award Semifinalist",
    "Lott IMPACT Trophy Watch List",
    "Lott IMPACT Trophy Quarterfinalist",
+   "Lott IMPACT Trophy Semifinalist (Nov. 13)",
    "Maxwell Award Watch List",
    "On3 Preseason All-America First Team",
    "Paycom Jim Thorpe Award Watch List",
@@ -167,11 +185,12 @@
    "Senior Bowl Top 300",
    "Shriners Children’s East-West Shrine Bowl 1000",
    "Sporting News Preseason All-America First Team",
-   "Sporting News Midseason All-America Team",
+   "Sporting News Midseason All-America First Team",
    "The Athletic Preseason All-America First Team",
    "The Athletic Midseason All-America First Team",
    "USA TODAY Sports Preseason All-America First Team",
    "Walter Camp Player of the Year Award Watch List",
+   "Walter Camp Player of the Year Award Semifinalist (Nov. 11)",
    "Walter Camp Preseason All-America First Team"
   ],
   "Spencer Porath": [
@@ -195,9 +214,11 @@
    "College Football Comeback Player of the Year Pre-Season Watch List",
    "On3 Midseason All-America First Team",
    "Phil Steele Preseason All-America Third Team",
-   "Senior Bowl Top 300"
+   "Senior Bowl Top 300",
+   "Sports Illustrated Midseason All-America Second Team"
   ],
   "Kyngstonn Viliamu-Asa": [
+   "The Athletic Preseason All-America First Team",
    "Associated Press Preseason All-America Second Team",
    "Bronko Nagurski Trophy Watch List",
    "Butkus Award Watch List",
@@ -225,81 +246,77 @@
   ]
  },
  "glance": [
-  "Saturday afternoon will mark the 29th meeting between Notre Dame and Boston College. The series stands with a 19-9-0 Notre Dame advantage all-time.",
-  "The Irish are 9-5-0 all-time in home games against the Eagles.",
-  "The first meeting between Notre Dame and Boston College inside Notre Dame Stadium came in 1987, when the Irish defeated the Eagles 32-25.",
-  "Notre Dame has won ten consecutive games against Boston College. The current Irish streak started in 2009, ending a six-game winning streak in the series for the Eagles, which started in 2001.",
-  "It is the second meeting between Marcus Freeman and Bill O'Brien as head coaches.",
-  "The Irish are 2-0 against the Eagles under Freeman."
+  "Saturday evening will mark the 14th meeting between Notre Dame and SMU. The series stands with a 10-3-0 Notre Dame advantage all-time.",
+  "Saturday night against SMU will be Notre Dame's 2026 senior night.",
+  "The Irish are 6-1-0 all-time in home games against the Mustangs.",
+  "The first meeting between Notre Dame and SMU inside Notre Dame Stadium came in 1930, when the Irish defeated the Mustangs 20-14.",
+  "It is the first meeting between SMU and Notre Dame since the Mustangs joined the ACC in 2024.",
+  "The Irish claimed a 59-6 win inside Notre Dame Stadium over the Mustangs 1989. The Irish were the number one team in the nation at the time."
  ],
  "numbers": [
-  {
-   "n": "0",
-   "text": "Points opponents have scored off Notre Dame turnovers this season."
-  },
-  {
-   "n": "2",
-   "text": "Career-high touchdown receptions for Micah Gilbert against No. 1 Miami."
-  },
   {
    "n": "2",
    "text": "Drayk Bowen and Adon Shuler are the 28th and 29th players to be elected captain twice."
   },
   {
    "n": "3",
-   "text": "Interceptions for Luke Talich this season, leading the Irish."
+   "text": "Touchdown catches for Micah Gilbert over the last two games."
+  },
+  {
+   "n": "3",
+   "text": "Interceptions for Luke Talich, who leads the Irish."
   },
   {
    "n": "5",
    "text": "Luke Talich is the fifth NDFB player to have a receiving touchdown, an interception-return touchdown and a punt-return touchdown."
   },
   {
-   "n": "6",
-   "text": "Consecutive games without allowing a sack."
-  },
-  {
-   "n": "9",
-   "text": "Games with a touchdown for Nolan James Jr. in 2026—every game this season."
+   "n": "10",
+   "text": "Consecutive games with a touchdown for Nolan James Jr., tying Creighton Miller and Autry Denson for the eighth-longest streak in program history."
   },
   {
    "n": "10",
    "text": "Notre Dame victories over AP No. 1 teams following the 31-24 win over Miami."
   },
   {
-   "n": "12",
+   "n": "13",
    "text": "Consecutive November victories for Marcus Freeman."
   },
   {
-   "n": "18",
-   "text": "Takeaways through nine games, including nine interceptions and nine fumble recoveries."
+   "n": "20",
+   "text": "Takeaways through 10 games, with 10 interceptions and 10 fumble recoveries."
   },
   {
-   "n": "21",
+   "n": "22",
    "text": "Consecutive games in which Notre Dame has scored at least 24 points, a program record."
   },
   {
-   "n": "26",
+   "n": "27",
    "text": "Consecutive home wins over ACC opponents, a program record."
   },
   {
-   "n": "30",
-   "text": "Consecutive games with a reception for Jordan Faison, two shy of T.J. Jones’ 32-game streak."
+   "n": "31",
+   "text": "Consecutive games with a reception for Jordan Faison, who extended the streak with a four-yard catch on Notre Dame’s first offensive play against Boston College."
   },
   {
-   "n": "45",
-   "text": "Career touchdown passes for CJ Carr, seventh in Notre Dame history."
+   "n": "34",
+   "text": "Non-offensive touchdowns for Notre Dame since 2021, the most in the FBS."
   },
   {
-   "n": "172",
-   "text": "Consecutive pass attempts without an interception for CJ Carr, the longest streak of his career."
+   "n": "47",
+   "text": "Career touchdown passes for CJ Carr, sixth in Notre Dame history."
   },
   {
-   "n": "181",
-   "text": "Rushing yards for Jonaz Walton against Stanford, the most in a game by a Notre Dame true freshman."
+   "n": "76",
+   "text": "Points Notre Dame has scored off 20 takeaways this season."
   },
   {
    "n": "319",
-   "text": "Passing yards for CJ Carr against No. 1 Miami, his first 300-yard game of 2026 and third of his career."
+   "text": "Passing yards for CJ Carr in Notre Dame’s 31-24 win over No. 1 Miami."
+  },
+  {
+   "n": "655",
+   "text": "Rushing yards for Jonaz Walton, fifth among Notre Dame true freshmen."
   }
  ]
 }
