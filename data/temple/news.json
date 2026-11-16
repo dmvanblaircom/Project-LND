@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-14T23:38:15.145050+00:00",
+ "updated": "2026-11-16T14:08:10.938882+00:00",
  "items": [
+  {
+   "title": "Snap Counts: Temple vs. UAB",
+   "link": "https://on3.com/sites/owl-scoop/news/snap-counts-temple-vs-uab/",
+   "source": "OwlScoop",
+   "summary": "Find out which Temple players logged the most snaps in the Owls' 36-10 loss to UAB here.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/16080135/Temple-afi-hookly-1.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-16T14:02:37+00:00"
+  },
   {
    "title": "K.C. Keeler sees a 'fragile' Temple team in 36-10 loss to UAB",
    "link": "https://on3.com/sites/owl-scoop/news/k-c-keeler-sees-a-fragile-temple-team-in-36-10-loss-to-uab/",
@@ -208,15 +217,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/30172934/Ajani-Sheppard-Charlotte-1.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-31T04:00:00+00:00"
-  },
-  {
-   "title": "The Scoop: S12, E13 - Can the Owls rally at ECU after a week of changes?",
-   "link": "https://on3.com/sites/owl-scoop/news/the-scoop-s12-e13-can-the-owls-bounce-back-at-ecu-after-a-week-of-changes/",
-   "source": "OwlScoop",
-   "summary": "Will interim defensive coordinator Henry Baker make a difference on the road this weekend? And what's ahead for the basketball teams with Monday's openers coming up? We talked about all of that and more on this week's OwlScoop podcast.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28090352/Sam-Brown-Army.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-28T14:05:46+00:00"
   }
  ]
 }
