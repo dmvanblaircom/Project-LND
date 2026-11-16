@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-16T15:38:05.286504+00:00",
+ "updated": "2026-11-16T18:37:59.661106+00:00",
  "items": [
+  {
+   "title": "Pitt Game Time Announced",
+   "link": "https://calbears.com/news/2026/11/16/football-pitt-game-time-announced",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Adam Mohammed at Virginia (11.14.2026)\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/Adam_Mohammed_vs_Virginia__11.14.26_BA_0117.JPG\" /><br /><br />Bears, Panthers To Meet In Berkeley At 4:30 p.m. PT On ACCN",
+   "image": "https://calbears.com/images/2026/11/16/Adam_Mohammed_vs_Virginia__11.14.26_BA_0117.JPG?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-16T18:00:00+00:00"
+  },
   {
    "title": "PFF Grades, Snap Counts from Cal in its 36-7 loss at Virginia",
    "link": "https://on3.com/sites/golden-bear-report/news/pff-grades-snap-counts-from-cal-in-its-36-7-loss-at-virginia/",
@@ -325,15 +334,6 @@
    "image": "https://calbears.com/images/2026/11/9/20260905FB_Cal_vs_UCLA_C.Hayne-400106.jpg?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-11-09T17:30:00+00:00"
-  },
-  {
-   "title": "Pro Bears Week 8: Goff Leads Lions To Victory Over Vikings",
-   "link": "https://calbears.com/news/2026/11/4/football-pro-bears-week-8-goff-leads-lions-to-victory-over-vikings",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"2026 Pro Bears Title Slide\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/16/2026_Pro_Bears_1920x1080.png\" /><br /><br />Aaron Rodgers Helps Pittsburgh Win Fourth-Straight Game",
-   "image": "https://calbears.com/images/2026/9/16/2026_Pro_Bears_1920x1080.png?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-11-04T20:00:00+00:00"
   }
  ]
 }
