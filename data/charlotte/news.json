@@ -1,6 +1,6 @@
 {
  "team": "charlotte",
- "updated": "2026-11-16T19:08:01.003467+00:00",
+ "updated": "2026-11-16T20:38:06.206954+00:00",
  "items": [
   {
    "title": "Charlotte and Navy to Play at Noon",
@@ -28,15 +28,6 @@
    "image": "https://charlotte49ers.com/images/2026/11/14/20261114_FB_Defense.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-11-15T00:29:00+00:00"
-  },
-  {
-   "title": "Listen Live: Charlotte Football Coaches Show",
-   "link": "https://charlotte49ers.com/news/2026/11/11/listen-live-charlotte-football-coaches-show",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"Football coaches show graphic\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/GENATH_ALBIN_CoachesShow26_16x9.png\" /><br /><br />",
-   "image": "https://charlotte49ers.com/images/2026/10/28/GENATH_ALBIN_CoachesShow26_16x9.png?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-11-11T23:25:00+00:00"
   },
   {
    "title": "Charlotte Battles East Carolina on Saturday Afternoon",
@@ -91,6 +82,15 @@
    "image": "https://charlotte49ers.com/images/2026/10/27/20261027_FB_Team.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-10-27T18:08:00+00:00"
+  },
+  {
+   "title": "Niners Topple Temple for First Win of Season",
+   "link": "https://charlotte49ers.com/news/2026/10/17/football-niners-topple-temple-for-first-win-of-season",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Conner Harrell runs in for a touchdown\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/20261017_FB_Harrell.jpg\" /><br /><br />PHILADELPHIA --\u00a0Charlotte Football put up 449 yards of offense, its second-highest total of the season, and came up with multiple stops on defense when it mattered in a 38-31 victory over Temple on Saturday afternoon (Oct. 17) at Lincoln Financial Field.",
+   "image": "https://charlotte49ers.com/images/2026/10/17/20261017_FB_Harrell.jpg?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-10-17T22:59:00+00:00"
   }
  ]
 }

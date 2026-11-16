@@ -1,7 +1,16 @@
 {
  "team": "syracuse",
- "updated": "2026-11-16T20:08:16.415847+00:00",
+ "updated": "2026-11-16T20:38:19.971760+00:00",
  "items": [
+  {
+   "title": "Orange Set to Battle Boston College Saturday",
+   "link": "https://cuse.com/news/2026/11/16/football-orange-set-to-battle-boston-college-saturday",
+   "source": "Syracuse Athletics",
+   "summary": "<img alt=\"Fran Brown On-Field at NC State\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/11/16/Fran_Action_vs._NC_State.png\" /><br /><br />Syracuse is set to play its final road game of the regular season on Saturday afternoon when it travels to Chestnut Hill, Mass., to face Boston College. The game is slated for a noon kickoff and will air on ACC Network.",
+   "image": "https://cuse.com/images/2026/11/16/Fran_Action_vs._NC_State.png?width=800",
+   "sourceLogo": "https://cuse.com/favicon.ico",
+   "published": "2026-11-16T20:24:00+00:00"
+  },
   {
    "title": "Fran Brown talks 2027 roster, Calvin Russell's future, and beating Boston College",
    "link": "https://www.si.com/college/syracuse/football/fran-brown-talks-2027-roster-01m7jqkx8jwz?utm_source=RSS",
@@ -253,15 +262,6 @@
    "image": "https://cuse.com/images/2026/10/31/16x9_9_16.jpeg?width=800",
    "sourceLogo": "https://cuse.com/favicon.ico",
    "published": "2026-11-06T13:11:00+00:00"
-  },
-  {
-   "title": "5 Things to Know: 'Cuse vs. Clemson",
-   "link": "https://cuse.com/news/2026/11/4/football-5-things-to-know-cuse-vs-clemson",
-   "source": "Syracuse Athletics",
-   "summary": "<img alt=\"Demetres Samuel\" src=\"https://cuse.com/common/controls/image_handler.aspx?thumb_prefix=player&image_path=/images/2026/10/31/16x9_1_32.jpeg\" /><br /><br />The Syracuse football team hosts Clemson on Saturday for homecoming in the final home conference contest of the season. Here are five things to know about the matchup:",
-   "image": "https://cuse.com/images/2026/10/31/16x9_1_32.jpeg?width=800",
-   "sourceLogo": "https://cuse.com/favicon.ico",
-   "published": "2026-11-04T17:56:00+00:00"
   }
  ]
 }
