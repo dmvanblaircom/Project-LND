@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-11-17T03:12:26Z",
+ "builtAt": "2026-11-17T23:43:28Z",
  "ranked": {
   "passOffense": true,
   "turnoverMargin": true
@@ -140,7 +140,7 @@
      "tied": true
     }
    },
-   "rushAllowed": 104.4,
+   "rushAllowed": 107.2,
    "takeaways": 16
   },
   "145": {
@@ -310,7 +310,7 @@
      "tied": false
     }
    },
-   "rushAllowed": 134.0,
+   "rushAllowed": 134.1,
    "takeaways": 11
   },
   "167": {
