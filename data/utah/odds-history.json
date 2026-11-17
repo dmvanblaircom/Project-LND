@@ -1,6 +1,6 @@
 {
 "team": "utah",
-"updated": "2026-11-16T21:37Z",
+"updated": "2026-11-17T01:37Z",
 "points": [
 {
 "t": "2026-10-29T14:07Z",
@@ -1300,6 +1300,13 @@
 {
 "t": "2026-11-16T21:37Z",
 "title": 3.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 93.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-17T01:37Z",
+"title": 2.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 93.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
