@@ -1,7 +1,16 @@
 {
  "team": "arizona-state",
- "updated": "2026-11-17T01:37:58.366135+00:00",
+ "updated": "2026-11-17T15:08:02.452281+00:00",
  "items": [
+  {
+   "title": "Know Your Foe: Oklahoma State",
+   "link": "https://on3.com/sites/asu-devils/news/know-your-foe-oklahoma-state-3/",
+   "source": "Devils Digest",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/29093107/2026-10-24T224500Z_1058255804_MT1USATODAY30176187_RTRMADP_3_OKLAHOMA-STATE-COACH-ERIC-MORRIS-STANDS-ON-THE-FIELD-BEFORE.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-17T14:43:35+00:00"
+  },
   {
    "title": "Podcast: ASU shows perseverance amidst unusual circumstances",
    "link": "https://on3.com/sites/asu-devils/news/podcast-asu-shows-perseverance-amidst-unusual-circumstances/",
@@ -253,15 +262,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/08143100/2026-Albert-Smith-CU.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-11T15:13:34+00:00"
-  },
-  {
-   "title": "Know Your Foe: UCF",
-   "link": "https://on3.com/sites/asu-devils/news/know-your-foe-ucf-2/",
-   "source": "Devils Digest",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/04081108/Scott-Frost-2-1200.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-10T22:47:53+00:00"
   }
  ]
 }
