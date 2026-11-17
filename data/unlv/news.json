@@ -1,7 +1,16 @@
 {
  "team": "unlv",
- "updated": "2026-11-16T22:08:24.981480+00:00",
+ "updated": "2026-11-17T02:08:08.804285+00:00",
  "items": [
+  {
+   "title": "GAME 11: Rebs Off To San Jose State For Road Finale",
+   "link": "https://unlvrebels.com/news/2026/11/16/football-game-11-rebs-off-to-san-jose-state-for-road-finale",
+   "source": "UNLV Athletics",
+   "summary": "<img alt=\"Mullen walk\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/_LKP1046.jpg\" /><br /><br />GAME 10: Road Finale",
+   "image": "https://unlvrebels.com/images/2026/11/16/_LKP1046.jpg?width=800",
+   "sourceLogo": "https://unlvrebels.com/favicon.ico",
+   "published": "2026-11-17T01:37:00+00:00"
+  },
   {
    "title": "UNLV To Open 2027 Season At Home Against CSU",
    "link": "https://unlvrebels.com/news/2026/11/16/football-unlv-to-open-2027-season-at-home-against-csu",
@@ -82,15 +91,6 @@
    "image": "https://unlvrebels.com/images/2025/10/6/A250906_175.jpg?width=800",
    "sourceLogo": "https://unlvrebels.com/favicon.ico",
    "published": "2026-10-27T18:15:00+00:00"
-  },
-  {
-   "title": "GAME 8: Home Halloween Vs. Huskies",
-   "link": "https://unlvrebels.com/news/2026/10/26/football-game-8-home-halloween-vs-huskies",
-   "source": "UNLV Athletics",
-   "summary": "<img alt=\"Team runout\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/_LKP4324.jpg\" /><br /><br />GAME 8: Halloween",
-   "image": "https://unlvrebels.com/images/2026/10/26/_LKP4324.jpg?width=800",
-   "sourceLogo": "https://unlvrebels.com/favicon.ico",
-   "published": "2026-10-27T02:22:00+00:00"
   }
  ]
 }
