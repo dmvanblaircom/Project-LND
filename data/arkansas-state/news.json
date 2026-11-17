@@ -1,7 +1,16 @@
 {
  "team": "arkansas-state",
- "updated": "2026-11-14T23:08:02.708532+00:00",
+ "updated": "2026-11-17T22:08:02.018925+00:00",
  "items": [
+  {
+   "title": "A-State Announces Change in Football Leadership",
+   "link": "https://astateredwolves.com/news/2026/11/17/a-state-announces-change-in-football-leadership.aspx",
+   "source": "A-State Athletics",
+   "summary": "<img alt=\"Butch Jones\" src=\"https://astateredwolves.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/Game_307.jpg\" /><br /><br />JONESBORO, Ark. (11/17/26) \u2013 Arkansas State Vice Chancellor for Intercollegiate Athletics Chris Pezman announced Tuesday that Butch Jones will not return as head football coach in 2027. A-State's change in leadership of the football program is effective immediately.",
+   "image": "https://astateredwolves.com/images/2026/11/17/Game_307.jpg?width=800",
+   "sourceLogo": "https://astateredwolves.com/favicon.ico",
+   "published": "2026-11-17T21:00:00+00:00"
+  },
   {
    "title": "A-State Drops 28-21 Decision at Coastal Carolina",
    "link": "https://astateredwolves.com/news/2026/11/14/football-a-state-drops-28-21-decision-at-coastal-carolina.aspx",
@@ -82,15 +91,6 @@
    "image": "https://astateredwolves.com/images/2026/10/24/ASU12511_bwIAd.JPG?width=800",
    "sourceLogo": "https://astateredwolves.com/favicon.ico",
    "published": "2026-10-25T05:08:00+00:00"
-  },
-  {
-   "title": "Gameday Guide: A-State vs Georgia State",
-   "link": "https://astateredwolves.com/news/2026/10/21/football-gameday-2026-georgia-state.aspx",
-   "source": "A-State Athletics",
-   "summary": "<img alt=\"Gameday Guide Georgia State\" src=\"https://astateredwolves.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/21/FB_Gameday_Guide_Georgia_State.png\" /><br /><br />",
-   "image": "https://astateredwolves.com/images/2026/10/21/FB_Gameday_Guide_Georgia_State.png?width=800",
-   "sourceLogo": "https://astateredwolves.com/favicon.ico",
-   "published": "2026-10-21T21:49:00+00:00"
   }
  ]
 }

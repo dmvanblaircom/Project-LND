@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "western-michigan",
- "updated": "2026-11-11T11:08:53.089792+00:00",
+ "updated": "2026-11-17T22:09:49.606511+00:00",
  "reports": [
   {
    "schema": 1,
@@ -832,6 +832,102 @@
      "no": "80",
      "name": "Harper Hughes",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "88",
+     "name": "August Johanningsmeier",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "97",
+     "name": "Noah Bishop",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "western-michigan",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-17T22:09:49.606511+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-17",
+   "game": "Eastern Michigan",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Emazon Littlejohn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "Aveion Chenault",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "5",
+     "name": "Justyce Betts",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "10",
+     "name": "Trey Petty",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Ofa \"Lolo\" Mataele",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Jeremy Schleicher",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "Ryan Westrich",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "80",
+     "name": "Harper Hughes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "83",
+     "name": "Ryan Brotherton",
+     "status": "questionable",
      "detail": ""
     },
     {

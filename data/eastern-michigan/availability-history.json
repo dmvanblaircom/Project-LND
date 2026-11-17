@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "eastern-michigan",
- "updated": "2026-11-05T11:09:04.135943+00:00",
+ "updated": "2026-11-17T22:09:38.225903+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1468,6 +1468,109 @@
      "pos": "DL",
      "no": "97",
      "name": "Jahbarri Frost",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "eastern-michigan",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-17T22:09:38.225903+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-17",
+   "game": "Western Michigan",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Noah Kim",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "3",
+     "name": "Barry Manning",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "8",
+     "name": "Jaivian Norman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "13",
+     "name": "Jason Marshall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "16",
+     "name": "Caleb Coley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Joey Mattord",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "53",
+     "name": "Alijah Lacey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Javon Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "66",
+     "name": "Joshua Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Samuel Adjin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Cole Powell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "Tanner Lemaster",
      "status": "out-game",
      "detail": ""
     }
