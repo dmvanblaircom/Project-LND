@@ -1,7 +1,16 @@
 {
  "team": "fresno-state",
- "updated": "2026-11-16T21:38:05.025743+00:00",
+ "updated": "2026-11-17T00:59:48.717198+00:00",
  "items": [
+  {
+   "title": "Bulldogs return home to host Colorado State",
+   "link": "https://gobulldogs.com/news/2026/11/16/football-bulldogs-return-home-to-host-colorado-state",
+   "source": "Fresno State Athletics",
+   "summary": "<img alt=\"Valley Children's Stadium - Arial Shot\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/DRONE_SELECTS.00_07_29_05.Still001.jpg\" /><br /><br />Fresno State (5-5, 2-4 Pac-12) vs Colorado State (3-7, 1-5 Pac-12)",
+   "image": "https://gobulldogs.com/images/2026/11/16/DRONE_SELECTS.00_07_29_05.Still001.jpg?width=800",
+   "sourceLogo": "https://gobulldogs.com/favicon.ico",
+   "published": "2026-11-17T00:30:00+00:00"
+  },
   {
    "title": "Explosive return earns Luke Pac-12 Special Teams Player of the Week nod",
    "link": "https://gobulldogs.com/news/2026/11/16/football-explosive-return-earns-luke-pac-12-special-teams-player-of-the-week-nod",
@@ -82,15 +91,6 @@
    "image": "https://gobulldogs.com/images/2026/11/1/IMG_8356.JPG?width=800",
    "sourceLogo": "https://gobulldogs.com/favicon.ico",
    "published": "2026-11-01T07:59:00+00:00"
-  },
-  {
-   "title": "The Pawd: Checkerboard Chats (Chase Perino, Bo Ausmus)",
-   "link": "https://gobulldogs.com/news/2026/10/29/football-the-pawd-checkerboard-chats-chase-perino-bo-ausmus",
-   "source": "Fresno State Athletics",
-   "summary": "<img alt=\"The Pawd_Perino_Ausmus\" src=\"https://gobulldogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/29/website_bo_chase.png\" /><br /><br />",
-   "image": "https://gobulldogs.com/images/2026/10/29/website_bo_chase.png?width=800",
-   "sourceLogo": "https://gobulldogs.com/favicon.ico",
-   "published": "2026-10-29T23:23:00+00:00"
   }
  ]
 }
