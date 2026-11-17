@@ -8,7 +8,7 @@
 2. **Around → College Football is not built.** Around is one experience, centred on the selected team.
 3. **Desktop is the phone column.** At 1440 px every screen is a 640 px column in the middle of the window. The desktop header navigation (decision 0042) is still PR #240 and not on `main`.
 4. **The approved Home (spec §5) is not built.** What is on `main` is the Stage 1 and 1b foundation applied to the earlier Home.
-5. **These renders come from the development sandbox**, which cannot reach ESPN's image host. Team logos, player headshots and story photos are their fallbacks here. Everything about layout, type, density and states is real; anything about logos and photos needs the runner pass (section 9).
+5. **These renders were drawn on a GitHub runner** with real team logos, player headshots and story photos (2026-11-17 pass; section 9).
 
 ---
 
@@ -19,7 +19,7 @@
 | Branch and commit | `main` at `53b11d3c12c97bf5cd55a761ef5fa2d2933e1611` (merge of #259, 2026-11-13) |
 | Release | service worker `VERSION` `suite-2026-11-13say`; production confirmed serving it (`verify-production.yml`, run 43446411649) |
 | Build | None: a static page. Served from this checkout by `tools/lib/serve.js` |
-| Runs | Yes. 400 screens rendered with no page error and no horizontal overflow at 390 or 1440 px (`audit/2026-11-13/capture-log.json`). The full check suite passed on this code (PR #258: 82 of 82) |
+| Runs | Yes. 400 screens rendered with no page error and no horizontal overflow at 390 or 1440 px (`audit/2026-11-13/capture-log.json`; the runner pass, `capture-log-runner.json`, repeats it with real images and also logs page errors for every interaction and chooser capture: none). The full check suite passed on this code (PR #258: 82 of 82) |
 | How rendered | The real app in Chromium. Provider requests answered from the repository's own captured ESPN payloads, the clock pinned to each moment (the scenarios are `tools/capture.js`'s, unchanged). Script: [`audit/2026-11-13/capture-audit.js`](audit/2026-11-13/capture-audit.js) |
 
 **The moments rendered**
@@ -85,7 +85,7 @@ Shots: pregame [phone](audit/2026-11-13/nd-pre-team-390-home-full.jpg) · [deskt
 3. **Hierarchy and density.** The hero leads clearly. Below it the page is three equal-weight blocks (News, Schedule, Season Outlook) with no difference in emphasis. Offseason Home is long: Recruiting and NFL Draft together run about three screens before the Schedule.
 4. **Type, spacing, alignment.** Stage 1's numeric face is in place on scores and dates. Section headings ("Latest News", "Schedule") are sentence case in the body face, while every other screen's title is condensed capitals: Home reads as a different product from Around or Roster.
 5. **Navigation.** One button in the hero; each section has a "View All" at its right. The news row scrolls sideways with the second card cut off as the cue.
-6. **Mobile.** The betting line sits in the hero between the series name and the button, at the same size as the series name. **V:** news cards are tall with a large empty middle when a story has no photo; in this sandbox every card is in that state, so its real frequency needs the runner pass.
+6. **Mobile.** The betting line sits in the hero between the series name and the button, at the same size as the series name. **V:** news cards are tall; most carry a story photo, but a story without one (UHND's, for Notre Dame) is a large dark tile with the source's name.
 7. **Desktop.** **V:** the phone layout in a 640 px column; more than half of a 1440 px window is empty. No supporting column (the spec's Season Context and Conference Standing panels are not built). The bottom nav becomes a floating bar at the foot of the window.
 8. **Team Style and Suite Style.** For Notre Dame the two differ by accent only (gold or blue): same navy stage, same type. For Ohio State, Team Style changes the stage to charcoal and the type to its own face. **V:** Ohio State's Team Style stage is near-black with scarlet only on the button and accents. The spec asks that scarlet and gray stay recognisable; today the page reads as black and white with a red button.
 9. **Light and Dark.** Not built (see the top of this document).
@@ -138,7 +138,7 @@ Shots: [Depth Chart](audit/2026-11-13/nd-pre-team-390-roster-depth-full.jpg) · 
 5. **Navigation.** **F / D:** a player's row opens nothing. There is no player screen; season stats exist but nothing joins them to the roster.
 6. **Mobile.** Honors fold under a count ("4 honors"); one honor shows in line.
 7. **Desktop.** Better than elsewhere: rows become a table with height, weight and class columns. Still one 640 px column.
-10. **Data and fallbacks.** Headshots fall back to initials (all of them here). Loading is a line of text ("Loading the roster…", [shot](audit/2026-11-13/nd-x-team-390-loading-roster-top.jpg)).
+10. **Data and fallbacks.** Real headshots; initials only when one is missing. Loading is a line of text ("Loading the roster…", [shot](audit/2026-11-13/nd-x-team-390-loading-roster-top.jpg)).
 12. **Improvements.** (a) A player screen. (b) One control row. (c) A denser roster row on phones. (d) Prospects repeats offseason Home: decide which owns it.
 
 ### 3.5 News
@@ -147,7 +147,7 @@ Shots: [ND](audit/2026-11-13/nd-pre-team-390-news-full.jpg) · [OSU](audit/2026-
 
 - **Purpose.** The team's stories, newest first, opening the publisher.
 - **Preserve.** Source named on every row; the external-link mark; 20 rows then "Show 69 more".
-- **Issues.** **V:** every row has the same weight: no lead story, no grouping by day, no way to tell a video or a recap from a report. A story with no photo shows a dark tile with the source's name (every row here; needs the runner pass). **D:** no filter by source, no "new since you last looked", no wire.
+- **Issues.** **V:** every row has the same weight: no lead story, no grouping by day, no way to tell a video or a recap from a report. Most rows carry the story's photo; a story without one shows a dark tile with the source's name (UHND's three of the first 20 for Notre Dame), which reads as a hole in the list. **D:** no filter by source, no "new since you last looked", no wire.
 - **Desktop.** **V:** a single column of small rows.
 - **Improvements.** A lead story; video marked as video; the wire above it when it ships.
 
@@ -179,7 +179,7 @@ Shots: [More](audit/2026-11-13/nd-pre-team-390-more-top.jpg) · [desktop](audit/
 
 Shots: [chooser](audit/2026-11-13/chooser-390-top.jpg) · [search](audit/2026-11-13/chooser-390-search-top.jpg) · [no match](audit/2026-11-13/chooser-390-search-none-top.jpg) · [desktop](audit/2026-11-13/chooser-1440-top.jpg) · [Your Teams](audit/2026-11-13/nd-x-team-390-your-teams-sheet-full.jpg) · [desktop](audit/2026-11-13/nd-x-team-1440-your-teams-sheet-top.jpg) · launch [ND](audit/2026-11-13/launch-390-top.jpg) · [OSU](audit/2026-11-13/launch-osu-390-top.jpg)
 
-- **Chooser.** A search field and 138 teams in one alphabetical list, each with a star. Search works on team, conference and mascot. **V:** the first impression of the product is a plain list of monograms; no conference grouping, no sense of the product a fan is about to enter. On desktop it is the same narrow list.
+- **Chooser.** A search field and 138 teams in one alphabetical list, each with a star. Search works on team, conference and mascot. **V:** each team is a card with its logo, which reads well, but the first impression is still 138 cards in one alphabetical list: no conference grouping, no sense of the product a fan is about to enter. On desktop it is the same narrow list.
 - **Your Teams.** A sheet from the header's team name once a second team is starred. Clear.
 - **Launch.** The Suite wordmark on the team's stage. It also covers Home's loading: the launch lifts onto a finished screen, so Home has no visible loading state of its own. The launch shots here were caught mid-fade and are not a fair picture of it.
 
@@ -274,7 +274,6 @@ None of these was fixed: the brief excludes code changes. F1 and F2 are small en
 | Light and Dark in either style | Not built. The system's dark setting was tried and changes nothing |
 | Around → College Football | Not built |
 | Player details | Not built |
-| Team logos, headshots and story photos | The sandbox cannot reach ESPN's image host; fallbacks are drawn. Needs the runner pass (section 9) |
 | Weather in the Game hero | The weather provider was not answered |
 | SP+ rankings with data | The edge API is unreachable from the sandbox; its failure state was captured |
 | A real offline refresh | The capture answers provider requests itself, so "offline" could not stop them; that shot was discarded. The offline banner and Settings status are real |
@@ -294,6 +293,6 @@ Nothing here reopens a decision. Home is assessed against the approved spec, not
 
 ---
 
-## 9. One step that would complete the evidence
+## 9. The runner pass (done, 2026-11-17)
 
-The same script run on a GitHub runner draws real logos, headshots and story photos, as the Nov 6 set did. It needs a temporary branch and a workflow that commits the images back, which the brief's boundaries exclude, so it was not done. On David's word it is about an hour, and the fallback-art caveats in sections 3 and 7 go away.
+On David's word the same script ran on a GitHub runner, which reaches ESPN's image host. Every cited image was replaced with its runner render: 400 screens, no page error, no horizontal overflow (`audit/2026-11-13/capture-log-runner.json`). The interaction and chooser captures now log page errors too; none. The temporary workflow that drew them was removed before merge. The findings above are revised where real images changed them (Home news cards, Roster headshots, News rows, the chooser).

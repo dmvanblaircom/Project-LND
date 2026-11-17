@@ -109,6 +109,12 @@ async function open(browser, base, sc, width, style, hash, opts) {
   }
   return { ctx: ctx, page: page, errors: errors, blocked: blocked };
 }
+// Every context's page errors go in the log, whatever it captured (Codex,
+// #260: the interaction and state captures closed without recording them).
+async function done(o, job, log) {
+  log.push({ job: job, errors: o.errors, blocked: Object.keys(o.blocked || {}) });
+  await o.ctx.close();
+}
 async function go(page, hash, wait) {
   await page.evaluate(function (h) { location.hash = h; window.scrollTo(0, 0); }, hash);
   await page.waitForTimeout(wait || 1200);
@@ -156,19 +162,19 @@ async function go(page, hash, wait) {
       await snap(a.page, tag + "roster-search-none", log, "search with no match");
       await a.page.fill("#rosterQ", "").catch(function () {});
       await a.page.evaluate(function () { var d = document.querySelector("#screenRoster details.ro-honors"); if (d) d.open = true; });
-      await a.ctx.close();
+      await done(a, tag + "around-roster", log);
       var f = await open(browser, base, fin, w, "team", "#schedule/results");
       var rid = await f.page.evaluate(function () { var l = document.querySelector('#screenSchedule a[href^="#schedule/4"]'); return l ? l.getAttribute("href") : null; });
       if (rid) { await go(f.page, rid, 1800); await snap(f.page, tag + "schedule-game-opened", log, rid); }
       else log.push({ name: tag + "schedule-game-opened", missing: "no result link" });
-      await f.ctx.close();
+      await done(f, tag + "schedule-opened", log);
       // Your Teams: the header's switcher, with two more teams starred
       var s = await open(browser, base, pre, w, "team", "#home", { favs: ["notre-dame", "ohio-state", "toledo"] });
       await s.page.waitForTimeout(2200);
       await s.page.click("#barContext").catch(function () {});
       await s.page.waitForTimeout(700);
       await snap(s.page, tag + "your-teams-sheet", log, "header team switcher");
-      await s.ctx.close();
+      await done(s, tag + "your-teams", log);
       // nothing reachable on a first visit: every provider and snapshot fails
       var c = await open(browser, base, pre, w, "team", "#home", { mode: "cold" });
       await c.page.waitForTimeout(2500);
@@ -177,7 +183,7 @@ async function go(page, hash, wait) {
                      ["#schedule", "schedule"], ["#settings", "settings"]]) {
         await go(c.page, r[0], 1500); await snap(c.page, tag + "unavailable-" + r[1], log, "no provider or snapshot reachable");
       }
-      await c.ctx.close();
+      await done(c, tag + "unavailable", log);
       // loading: the first second of a slow network
       var l = await open(browser, base, pre, w, "team", "#home", { mode: "slow", early: true });
       await l.page.waitForFunction(function () { return !document.getElementById("launch"); }, null, { timeout: 15000 }).catch(function () {});
@@ -185,7 +191,7 @@ async function go(page, hash, wait) {
       await snap(l.page, tag + "loading-home", log, "providers answering after 6 s");
       await go(l.page, "#top25/games", 400); await snap(l.page, tag + "loading-around", log, "");
       await go(l.page, "#roster/roster", 400); await snap(l.page, tag + "loading-roster", log, "");
-      await l.ctx.close();
+      await done(l, tag + "loading", log);
       // offline after a good load
       var of = await open(browser, base, pre, w, "team", "#home");
       await of.ctx.setOffline(true);
@@ -195,20 +201,21 @@ async function go(page, hash, wait) {
       await of.page.waitForTimeout(2500);
       await snap(of.page, tag + "offline-refresh-result", log, "Refresh Data while offline");
       await go(of.page, "#home", 1200); await snap(of.page, tag + "offline-home", log, "");
-      await of.ctx.close();
+      await done(of, tag + "offline", log);
       // the system's dark setting: does anything change?
       var d = await open(browser, base, pre, w, "team", "#home", { ctx: { colorScheme: "dark" } });
       await snap(d.page, tag + "os-dark-home", log, "prefers-color-scheme: dark");
       await go(d.page, "#roster/roster"); await snap(d.page, tag + "os-dark-roster", log, "prefers-color-scheme: dark");
-      await d.ctx.close();
+      await done(d, tag + "os-dark", log);
       var ds = await open(browser, base, pre, w, "suite", "#home", { ctx: { colorScheme: "dark" } });
       await snap(ds.page, "nd-x-suite-" + w + "-os-dark-home", log, "prefers-color-scheme: dark, Suite Style");
-      await ds.ctx.close();
+      await done(ds, "nd-x-suite-" + w + "-os-dark", log);
     }
     // the chooser and the launch
     if (want("chooser") || want("launch")) {
       var c2 = await browser.newContext(ctxOpts(w));
-      var p2 = await c2.newPage();
+      var p2 = await c2.newPage(), cErrors = [];
+      p2.on("pageerror", function (e) { cErrors.push(String(e).slice(0, 200)); });
       await c2.route("**/*", function (r) { var u = r.request().url(); return u.startsWith(base) || /fonts\.(googleapis|gstatic)|espncdn/.test(u) ? r.continue() : r.abort(); });
       await p2.goto(base + "/", { waitUntil: "domcontentloaded" });
       await p2.waitForTimeout(2500);
@@ -223,6 +230,7 @@ async function go(page, hash, wait) {
       await p2.goto(base + "/?team=ohio-state", { waitUntil: "commit" });
       await p2.waitForTimeout(450);
       await p2.screenshot({ path: path.join(out, "launch-osu-" + w + "-top.jpg"), type: "jpeg", quality: 72 });
+      log.push({ job: "chooser-launch-" + w, errors: cErrors, blocked: [] });
       await c2.close();
     }
   }
