@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-17T20:08:00.861388+00:00",
+ "updated": "2026-11-17T22:38:02.785742+00:00",
  "items": [
+  {
+   "title": "Bears Set For Clash With Cardinal In 129th Big Game",
+   "link": "https://calbears.com/news/2026/11/17/football-bears-set-for-clash-with-cardinal-in-129th-big-game",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Cal Football vs. Stanford (11.21.2026) Web Preview\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/GAMEWEEK_WEBstanford.jpg\" /><br /><br />Cal To Renew Rivalry With Stanford In Berkeley",
+   "image": "https://calbears.com/images/2026/11/17/GAMEWEEK_WEBstanford.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-17T22:00:00+00:00"
+  },
   {
    "title": "Should the Big Game Still be an Institutional Bench Mark?",
    "link": "https://on3.com/sites/golden-bear-report/news/should-the-big-game-still-be-an-institutional-bench-mark/",
@@ -307,15 +316,6 @@
    "image": "https://calbears.com/images/2026/11/10/GAMEWEEK_WEBvirginia.jpg?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-11-10T22:00:00+00:00"
-  },
-  {
-   "title": "129th Big Game Kickoff Time Announced",
-   "link": "https://calbears.com/news/2026/11/9/football-129th-big-game-kickoff-time-announced",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Databricks Field at California Memorial Stadium Sept. 5, 2026\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/20260905FB_Cal_vs_UCLA_C.Hayne-400106.jpg\" /><br /><br />Bears, Cardinal To Meet In Berkeley At 4:30 p.m. PT On ACCN",
-   "image": "https://calbears.com/images/2026/11/9/20260905FB_Cal_vs_UCLA_C.Hayne-400106.jpg?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-11-09T17:30:00+00:00"
   }
  ]
 }
