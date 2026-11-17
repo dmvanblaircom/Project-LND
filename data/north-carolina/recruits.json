@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "153",
  "classYear": 2027,
- "listed": 17,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -217,6 +217,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271352",
+   "name": "Connail Jackson",
+   "position": "RB",
+   "highSchool": "Cardinal Mooney High School",
+   "city": "Sarasota",
+   "state": "FL",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274794",
    "name": "Treveon Lewis",
    "position": "ILB",
@@ -230,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-12T21:13Z"
+ "fetchedAt": "2026-11-17T03:40Z"
 }

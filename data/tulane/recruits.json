@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2655",
  "classYear": 2027,
- "listed": 26,
+ "listed": 25,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -162,19 +162,6 @@
    "rank": null,
    "positionRank": 116,
    "stateRank": 145,
-   "status": "Verbal"
-  },
-  {
-   "id": "273211",
-   "name": "Devin Lavalais",
-   "position": "S",
-   "highSchool": "Marksville High School",
-   "city": "Marksville",
-   "state": "LA",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 169,
-   "stateRank": 49,
    "status": "Verbal"
   },
   {
@@ -347,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:45Z"
+ "fetchedAt": "2026-11-17T03:41Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "55",
  "classYear": 2027,
- "listed": 26,
+ "listed": 27,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -97,6 +97,19 @@
    "rank": null,
    "positionRank": 53,
    "stateRank": 61,
+   "status": "Verbal"
+  },
+  {
+   "id": "273231",
+   "name": "Quentin Lewis",
+   "position": "WR",
+   "highSchool": "Russell County High School",
+   "city": "Seale",
+   "state": "AL",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 214,
+   "stateRank": 67,
    "status": "Verbal"
   },
   {
@@ -347,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:41Z"
+ "fetchedAt": "2026-11-17T03:39Z"
 }

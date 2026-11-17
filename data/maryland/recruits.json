@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "120",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -267,7 +267,20 @@
    "positionRank": 123,
    "stateRank": 42,
    "status": "Verbal"
+  },
+  {
+   "id": "274802",
+   "name": "Christopher Griffin",
+   "position": "S",
+   "highSchool": "St. Frances Academy",
+   "city": "Baltimore",
+   "state": "MD",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:41Z"
+ "fetchedAt": "2026-11-17T03:40Z"
 }

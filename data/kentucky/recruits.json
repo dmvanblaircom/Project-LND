@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "96",
  "classYear": 2027,
- "listed": 25,
+ "listed": 26,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,6 +32,19 @@
    "rank": 179,
    "positionRank": 13,
    "stateRank": 9,
+   "status": "Verbal"
+  },
+  {
+   "id": "271482",
+   "name": "Trace Washington",
+   "position": "OLB",
+   "highSchool": "Woodstock High School",
+   "city": "Woodstock",
+   "state": "GA",
+   "grade": 81,
+   "rank": 207,
+   "positionRank": 15,
+   "stateRank": 23,
    "status": "Verbal"
   },
   {
@@ -334,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:41Z"
+ "fetchedAt": "2026-11-17T03:39Z"
 }

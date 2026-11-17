@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2623",
  "classYear": 2027,
- "listed": 23,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -269,19 +269,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273310",
-   "name": "Sean Keyes",
-   "position": "CB",
-   "highSchool": "Edmond Santa Fe High School",
-   "city": "Edmond",
-   "state": "OK",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "273093",
    "name": "Terriun Jones",
    "position": "S",
@@ -308,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-07T03:09Z"
+ "fetchedAt": "2026-11-17T03:40Z"
 }

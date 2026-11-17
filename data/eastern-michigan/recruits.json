@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2199",
  "classYear": 2027,
- "listed": 18,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -119,6 +119,19 @@
    "highSchool": "Lafayette Jefferson High School",
    "city": "Lafayette",
    "state": "IN",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "274810",
+   "name": "Donovan Evans",
+   "position": "ATH",
+   "highSchool": "Montini Catholic High School",
+   "city": "Lombard",
+   "state": "IL",
    "grade": 43,
    "rank": null,
    "positionRank": null,
@@ -241,7 +254,20 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
+  },
+  {
+   "id": "274803",
+   "name": "Kamren Greene",
+   "position": "S",
+   "highSchool": null,
+   "city": "Tallahassee",
+   "state": "FL",
+   "grade": 4,
+   "rank": 1,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:40Z"
+ "fetchedAt": "2026-11-17T03:39Z"
 }

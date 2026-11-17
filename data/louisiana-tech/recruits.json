@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2348",
  "classYear": 2027,
- "listed": 7,
+ "listed": 8,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -42,6 +42,19 @@
    "city": "Mont Belvieu",
    "state": "TX",
    "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "273295",
+   "name": "Elijah Collum",
+   "position": "TE-H",
+   "highSchool": "Conway High School",
+   "city": "Conway",
+   "state": "AR",
+   "grade": 43,
    "rank": null,
    "positionRank": null,
    "stateRank": null,
@@ -100,5 +113,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-03T16:42Z"
+ "fetchedAt": "2026-11-17T03:39Z"
 }
