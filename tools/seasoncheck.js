@@ -39,6 +39,31 @@ var lines = ex.TeamOS.espn.scoreLines({ events: [ev("1", "STATUS_FINAL", "post",
 ok(lines[1].status === "canceled", "a canceled game's line says so (" + lines[1].status + ")");
 ok(SE.pointsAllowedPerGame(lines) === 17, "an opponent's points allowed leave the canceled game out (" + SE.pointsAllowedPerGame(lines) + ")");
 
+// The polls in force between two CFP releases (David, 2026-11-17: "CFP
+// rankings are missing today"). ESPN's feed carries only the latest week's
+// polls, so from the AP's Sunday to the committee's Tuesday it has no CFP
+// at all (probe run 44087445993). The committee's last word still stands.
+var CFG = { sources: { espn: { teamId: "87" } } };
+var kept = ex.TeamOS.espn.rankingsHistory(JSON.parse(fs.readFileSync(path.join(root, "tools/fixtures/rankings-2026-cfp-tuesday.json"), "utf8")), CFG);
+var feed = ex.TeamOS.espn.rankings(JSON.parse(fs.readFileSync(path.join(root, "tools/fixtures/espn-rankings-no-cfp.json"), "utf8")), CFG);
+ok(feed.length === 2 && !feed.some(function (p) { return p.key === "CFP"; }), "the feed on a CFP Tuesday: AP and Coaches, no CFP (" + feed.map(function (p) { return p.key; }) + ")");
+var TUE = new Date("2026-11-17T15:00:00Z");
+var force = SE.standingPolls ? SE.standingPolls(feed, kept, TUE) : feed;
+ok(force[0] && force[0].key === "CFP" && force[0].asOf === "Week 11" && force[0].kept === true,
+   "the committee's newest kept week stands, first, marked kept (" + (force[0] && [force[0].key, force[0].asOf, force[0].kept]) + ")");
+ok(force[0] && force[0].ranks.length === 25 && force[0].ranks.some(function (r) { return r.mine; }), "with its 25 teams, ours marked");
+ok(force.filter(function (p) { return p.key === "AP"; })[0] === feed.filter(function (p) { return p.key === "AP"; })[0],
+   "the live AP is the feed's own, never replaced by a kept copy");
+ok(SE.standingPolls && SE.standingPolls(null, kept, TUE) === null, "no feed yet: still nothing (loading and failure stay what they were)");
+ok(SE.standingPolls && SE.standingPolls(feed, null, TUE).length === 2, "no kept weeks: the feed as it is");
+var withCfp = ex.TeamOS.espn.rankings(JSON.parse(fs.readFileSync(path.join(root, "tools/fixtures/espn-rankings-cfp-20260114.json"), "utf8")), CFG);
+var both = SE.standingPolls ? SE.standingPolls(withCfp, kept, TUE) : withCfp;
+ok(both.filter(function (p) { return p.key === "CFP"; }).length === 1 && !both[0].kept, "a feed that has the CFP keeps its own");
+var early = SE.standingPolls ? SE.standingPolls(feed, kept, new Date("2026-11-08T12:00:00Z")) : feed;
+ok(early[0] && early[0].key === "CFP" && early[0].asOf === "Week 10", "on Nov 8 the newest kept week not dated after the clock stands: week 10 (" + (early[0] && early[0].asOf) + ")");
+var sept = SE.standingPolls ? SE.standingPolls(feed, kept, new Date("2026-09-20T12:00:00Z")) : feed;
+ok(sept.length === 2 && !sept.some(function (p) { return p.key === "CFP"; }), "in September no kept CFP week is a ranking yet: the feed as it is");
+
 console.log("");
 if (failures) { console.log(failures + " check(s) FAILED"); process.exit(1); }
 console.log("a game never played is never counted as one");

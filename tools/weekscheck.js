@@ -36,13 +36,13 @@ fs.mkdirSync(shots, { recursive: true });
     var ctx = await browser.newContext(Object.assign({ viewport: { width: opts.width || 390, height: 844 }, timezoneId: "America/New_York", serviceWorkers: "block" },
                                                      opts.touch ? { isMobile: true, hasTouch: true } : {}));
     var page = await ctx.newPage(), st = { weeks: 0, fpiWeeks: 0, spWeek: [], errors: [] };
-    await page.clock.setSystemTime(new Date("2026-10-20T16:00:00Z"));
+    await page.clock.setSystemTime(new Date(opts.at || "2026-10-20T16:00:00Z"));
     page.on("pageerror", function (e) { st.errors.push(String(e)); });
     await ctx.route("**/*", function (route) {
       var u = route.request().url();
       if (/\/data\/league\/rankings-2026\.json/.test(u)) {
         st.weeks++;
-        return opts.noWeeks ? route.fulfill({ status: 404, body: "" }) : route.fulfill({ status: 200, contentType: "application/json", body: fixture("rankings-2026-sample.json") });
+        return opts.noWeeks ? route.fulfill({ status: 404, body: "" }) : route.fulfill({ status: 200, contentType: "application/json", body: fixture(opts.kept || "rankings-2026-sample.json") });
       }
       // FPI as it stood on Oct 20 (week 8), not the file the refresh moves.
       if (/\/data\/league\/fpi\.json/.test(u)) return route.fulfill({ status: 200, contentType: "application/json", body: fixture("fpi-2026-w8-sample.json") });
@@ -60,7 +60,7 @@ fs.mkdirSync(shots, { recursive: true });
         return route.fulfill({ status: 200, contentType: "application/json", headers: cors, body: JSON.stringify(sp) });
       }
       if (u.startsWith(base)) return route.continue();
-      var body = /\/rankings/.test(u) ? fixture("espn-rankings-sep20.json") : /\/scoreboard\?/.test(u) ? fixture("espn-scoreboard-sep26.json")
+      var body = /\/rankings/.test(u) ? fixture(opts.feed || "espn-rankings-sep20.json") : /\/scoreboard\?/.test(u) ? fixture("espn-scoreboard-sep26.json")
                : /\/teams\/87\/schedule/.test(u) ? fixture("espn-schedule-nd-sep24.json") : null;
       if (body) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: body });
       return route.abort();
@@ -171,6 +171,24 @@ fs.mkdirSync(shots, { recursive: true });
     await n.page.waitForFunction(function () { return document.querySelector("#screenTop25 .rk-table tbody .rk-name"); }, null, { timeout: 8000 });
     ok(!(await state(n.page)).picker, "an SP+ answer with no kept weeks (an edge API from before): no picker");
     await n.ctx.close();
+
+    // A CFP Tuesday (David, 2026-11-17: "CFP rankings are missing today").
+    // From the AP's Sunday to the committee's release ESPN's feed carries no
+    // CFP (probe run 44087445993); the committee's last ranking still stands.
+    var c = await open("#top25/rankings", { at: "2026-11-17T15:00:00Z", feed: "espn-rankings-no-cfp.json", kept: "rankings-2026-cfp-tuesday.json" });
+    await c.page.waitForFunction(function () { var t = document.querySelector("#screenTop25 .rk-title"); return t && /Committee/.test(t.textContent); }, null, { timeout: 8000 }).catch(function () {});
+    s = await state(c.page);
+    var seg = await c.page.evaluate(function () { var a = document.querySelector('.poll-seg a[aria-current="page"]'); return a ? a.textContent : ""; });
+    ok(seg === "CFP" && /Committee/.test(s.title) && /Week 11/.test(s.title) && s.first,
+       "the committee's newest kept ranking leads Rankings while the feed has none (" + seg + ": " + s.title + ", No. 1 " + s.first + ")");
+    ok(s.picker && /^Week 11 \(latest\)$/.test(s.options[0]) && /^Week 10$/.test(s.options[1]),
+       "with its earlier week offered (" + s.options.join(" | ") + ")");
+    await c.page.click('.poll-seg a[href="#top25/rankings/ap"]'); await c.page.waitForTimeout(300);
+    s = await state(c.page);
+    ok(/AP/.test(s.title) && /Week 12/.test(s.title) && s.value === "", "AP is still the feed's own week 12, the latest (" + s.title + ")");
+    await c.page.screenshot({ path: path.join(shots, "cfp-tuesday-390.png") });
+    ok(!c.st.errors.length, "no page errors on a CFP Tuesday (" + c.st.errors.join(" | ") + ")");
+    await c.ctx.close();
   } finally {
     await browser.close(); server.close();
   }
