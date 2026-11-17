@@ -743,7 +743,7 @@ ok(!/\bfetch\s*\(/.test(seasonSrc), "does not call fetch()");
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(seasonSrc), "does not touch the DOM or browser storage");
 ok(!/espn|kalshi|open-meteo/i.test(uncomment(seasonSrc)), "names no provider");
 ok(!/notre|irish|ohio|buckeye/i.test(uncomment(seasonSrc)), "names no team");
-eq(Object.keys(TeamOS.season).sort(), ["calendar","gamesCounted","offseason","phase","pointsAllowedPerGame","pointsPerGame"],
+eq(Object.keys(TeamOS.season).sort(), ["calendar","gamesCounted","offseason","phase","pointsAllowedPerGame","pointsPerGame","standingPolls"],
    "exactly the documented functions");
 
 var season = [ { state:"post", us:"56", them:"13" },

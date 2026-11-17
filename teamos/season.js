@@ -19,7 +19,12 @@
    lines TeamOS.espn.scoreLines() reads from a team's schedule payload, which
    is how the preview asks the same question about an opponent it has no team
    configuration for. `us` and `them` are the scores as the provider printed
-   them, so they are read as text and parsed here; a 0 is a score. */
+   them, so they are read as text and parsed here; a 0 is a score.
+
+   It also says which polls are in force: standingPolls(live, kept) is the
+   feed's polls, with one the feed has stopped carrying (the CFP between the
+   AP's Sunday and the committee's Tuesday) standing at this season's newest
+   kept week. */
 
 var TeamOS = TeamOS || {};
 
