@@ -1,7 +1,25 @@
 {
  "team": "texas-tech",
- "updated": "2026-11-17T17:08:19.627638+00:00",
+ "updated": "2026-11-17T17:38:15.392051+00:00",
  "items": [
+  {
+   "title": "Stuff I Noticed: Oklahoma State",
+   "link": "https://on3.com/sites/red-raider-sports/news/stuff-i-noticed-oklahoma-state-2/",
+   "source": "Red Raider Sports",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/17113717/IMG_5488.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-17T17:25:05+00:00"
+  },
+  {
+   "title": "Castellanos named Walter Camp National Offensive Player of the Week",
+   "link": "https://texastech.com/news/2026/11/17/football-castellanos-named-walter-camp-national-offensive-player-of-the-week",
+   "source": "Texas Tech Athletics",
+   "summary": "<img alt=\"Thomas Castellanos drops back to pass at Oklahoma State\" src=\"https://texastech.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/JR_FBvsOSU_261114_267.jpg\" /><br /><br />Castellanos earned the national honor after accounting for four touchdowns in No. 12 Texas Tech's 52-27 road rout of No. 25 Oklahoma State",
+   "image": "https://texastech.com/images/2026/11/17/JR_FBvsOSU_261114_267.jpg?width=800",
+   "sourceLogo": "https://texastech.com/favicon.ico",
+   "published": "2026-11-17T17:00:00+00:00"
+  },
   {
    "title": "LB Jhadyn Nelson has Big Day in Week 11 Playoff Win",
    "link": "https://on3.com/sites/red-raider-sports/news/lb-jhadyn-nelson-has-big-day-in-week-11-playoff-win/",
@@ -55,6 +73,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/16152928/2025-12-06T212920Z_920140303_MT1USATODAY27757017_RTRMADP_3_TEXAS-TECH-HEAD-COACH-JOEY-MCGUIRE-STANDS-WITH-COMMISSIONER-e1794864589199.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-16T21:30:54+00:00"
+  },
+  {
+   "title": "Simmons recognized as Big 12 Special Teams Player of the Week",
+   "link": "https://texastech.com/news/2026/11/16/football-simmons-recognized-as-big-12-special-teams-player-of-the-week",
+   "source": "Texas Tech Athletics",
+   "summary": "<img alt=\"Malcolm Simmons celebrates with Jett Carpenter after a 45-yard touchdown catch early in the second half of Texas Tech's win at Oklahoma State.\" src=\"https://texastech.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/GH_FBvsOSU_261114-419.jpg\" /><br /><br />Texas Tech junior wide receiver Malcolm Simmons was named the Big 12 Special Teams Player of the Week on Monday following his performance in the Red Raiders' 52-27 rout over No. 25 Oklahoma State.",
+   "image": "https://texastech.com/images/2026/11/17/GH_FBvsOSU_261114-419.jpg?width=800",
+   "sourceLogo": "https://texastech.com/favicon.ico",
+   "published": "2026-11-16T18:13:00+00:00"
   },
   {
    "title": "Texas Tech commits see big updates in the latest Rivals300",
@@ -181,24 +208,6 @@
    "image": "https://texastech.com/images/2026/11/10/AO_FBvsWestVirginia_261107_0116.JPG?width=800",
    "sourceLogo": "https://texastech.com/favicon.ico",
    "published": "2026-11-10T17:22:00+00:00"
-  },
-  {
-   "title": "Holmes named Bednarik Award Semifinalist",
-   "link": "https://texastech.com/news/2026/11/10/football-holmes-named-bednarik-award-semifinalist",
-   "source": "Texas Tech Athletics",
-   "summary": "<img alt=\"A.J. Holmes Jr. postgame West Virginia\" src=\"https://texastech.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/MM__FB-vs_WVU_261107-90.jpg\" /><br /><br />A.J. Holmes Jr. is one of 18 players honored Tuesday for the award presented annually to the nation's top defensive player",
-   "image": "https://texastech.com/images/2026/11/10/MM__FB-vs_WVU_261107-90.jpg?width=800",
-   "sourceLogo": "https://texastech.com/favicon.ico",
-   "published": "2026-11-10T17:00:00+00:00"
-  },
-  {
-   "title": "Castellanos, offensive line honored with Big 12 weekly awards",
-   "link": "https://texastech.com/news/2026/11/9/football-castellanos-offensive-line-honored-with-big-12-weekly-awards",
-   "source": "Texas Tech Athletics",
-   "summary": "<img alt=\"Thomas Castellanos jumps to avoid a West Virginia defender in Texas Tech's victory over the Mountaineers. \" src=\"https://texastech.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/MM__FB_vs_WVU_261107-92.jpg\" /><br /><br />Texas Tech earned multiple Big 12 Conference weekly honors Monday as quarterback Thomas Castellanos with tabbed as one of the league's top offensive performers, while his offensive line was recognized as the conference's top unit up front.",
-   "image": "https://texastech.com/images/2026/11/10/MM__FB_vs_WVU_261107-92.jpg?width=800",
-   "sourceLogo": "https://texastech.com/favicon.ico",
-   "published": "2026-11-09T23:15:00+00:00"
   },
   {
    "title": "5 Observations from Texas Tech's Dramatic Victory over West Virginia",
