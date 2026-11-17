@@ -24,7 +24,7 @@
    It also says which polls are in force: standingPolls(live, kept) is the
    feed's polls, with one the feed has stopped carrying (the CFP between the
    AP's Sunday and the committee's Tuesday) standing at this season's newest
-   kept week. */
+   kept week that is not dated after now. */
 
 var TeamOS = TeamOS || {};
 
@@ -265,15 +265,17 @@ TeamOS.season = (function () {
   // feed does not carry is filled from this season's kept weeks
   // (TeamOS.espn.rankingsHistory), its newest, marked `kept`; a poll the
   // feed does carry is always the feed's own. The CFP leads, as the feed
-  // orders it. No feed yet (loading, or failed) stays exactly that.
+  // orders it. No feed yet (loading, or failed) stays exactly that. A kept
+  // week dated after `now` (default: the clock) is not yet a ranking.
   var STANDING = ["cfp", "ap", "coaches"];
-  function standingPolls(live, kept) {
+  function standingPolls(live, kept, now) {
     if (!live) return live;
+    var t = now == null ? Date.now() : +now;
     var key = function (p) { return String(p.key || p.label || "").toLowerCase(); };
     var have = {}, out = live.slice();
     live.forEach(function (p) { have[key(p)] = true; });
     STANDING.forEach(function (k) {
-      var weeks = (kept && kept[k]) || [];
+      var weeks = ((kept && kept[k]) || []).filter(function (w) { var d = Date.parse(w.date || ""); return !isFinite(d) || d <= t; });
       if (have[k] || !weeks.length) return;
       var newest = weeks.slice().sort(function (a, b) { return String(a.date).localeCompare(String(b.date)); })[weeks.length - 1];
       if (newest && newest.poll && (newest.poll.ranks || []).length) out.push(Object.assign({}, newest.poll, { kept: true }));

@@ -58,6 +58,10 @@ fs.mkdirSync(shots,{recursive:true});
         return route.fulfill({status:200,contentType:"application/json",body:JSON.stringify(b),
           headers:Object.assign({"access-control-allow-origin":"*","access-control-expose-headers":"X-IW-Cached"},st.spMode==="cached"?{"X-IW-Cached":"2026-10-01T12:00:00Z"}:{})});
       }
+      // The kept weeks as they stood in September, to match the September
+      // feed below: the repository's own file moves every week (2026-11-17:
+      // its November CFP weeks lead Rankings once kept weeks stand in).
+      if(u.startsWith(base+"/data/league/rankings-2026.json"))return route.fulfill({status:200,contentType:"application/json",body:fixture("rankings-2026-sample.json")});
       if(u.startsWith(base))return route.continue();
       var f=/\/rankings/.test(u)?"espn-rankings-sep20.json":/\/scoreboard\?/.test(u)?"espn-scoreboard-sep26.json":/\/schedule\?seasontype=3/.test(u)?"espn-schedule-nd-2025-post.json":/\/teams\/194\/schedule/.test(u)?"espn-schedule-osu-2026.json":/\/schedule/.test(u)?"espn-schedule-nd-sep24.json":null;
       return f?route.fulfill({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:fixture(f)}):route.abort();

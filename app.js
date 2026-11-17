@@ -651,7 +651,7 @@ function dayOf(iso){ return String(iso||"").slice(0,10); }
 // The polls in force: the feed's, with a poll it has stopped carrying (the
 // CFP from Sunday to the committee's Tuesday) standing at its newest kept
 // week (TeamOS.season.standingPolls; David, 2026-11-17).
-function polls(){ return TeamOS.season.standingPolls(T25.polls, WEEKS.polls); }
+function polls(){ return TeamOS.season.standingPolls(T25.polls, WEEKS.polls, new Date()); }
 // One source's weeks, oldest first: the kept ones, and the current one from
 // the live source - in its kept week's place when it is that week (same
 // release day or same name), else after them. `current` marks it.
