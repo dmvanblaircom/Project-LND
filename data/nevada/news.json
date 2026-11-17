@@ -1,7 +1,16 @@
 {
  "team": "nevada",
- "updated": "2026-11-17T01:08:11.733072+00:00",
+ "updated": "2026-11-17T17:08:13.920550+00:00",
  "items": [
+  {
+   "title": "Nevada hosts Hawai'i for Senior Night Saturday",
+   "link": "https://nevadawolfpack.com/news/2026/11/17/football-nevada-hosts-hawai-i-for-senior-night-saturday.aspx",
+   "source": "Nevada Athletics",
+   "summary": "<img alt=\"Nevada football team huddled wearing light-colored uniforms\" src=\"https://nevadawolfpack.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/0V5A5371.JPG\" /><br /><br />Nevada celebrates Senior Night and closes its 2026 home slate Saturday, hosting Hawai'i at Mackay Stadium.",
+   "image": "https://nevadawolfpack.com/images/2026/11/17/0V5A5371.JPG?width=800",
+   "sourceLogo": "https://nevadawolfpack.com/favicon.ico",
+   "published": "2026-11-17T16:08:00+00:00"
+  },
   {
    "title": "Wolf Pack cruises past NIU, 28-7",
    "link": "https://nevadawolfpack.com/news/2026/11/14/football-wolf-pack-cruises-past-niu-28-7.aspx",
@@ -82,15 +91,6 @@
    "image": "https://nevadawolfpack.com/images/2026/9/7/0V5A2886.JPG?width=800",
    "sourceLogo": "https://nevadawolfpack.com/favicon.ico",
    "published": "2026-10-20T00:59:00+00:00"
-  },
-  {
-   "title": "Wolf Pack drops road matchup at North Dakota State",
-   "link": "https://nevadawolfpack.com/news/2026/10/17/football-wolf-pack-drops-road-matchup-at-north-dakota-state.aspx",
-   "source": "Nevada Athletics",
-   "summary": "<img alt=\"A Nevada player in a light uniform runs with the football at an opposing player\" src=\"https://nevadawolfpack.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/0V5A3543.JPG\" /><br /><br />North Dakota State's Jackson Williams returned a failed Nevada field-goal attempt 100 yards on the final play of the first half, one of a handful of wild plays that cost the Wolf Pack in its 31-17 loss to the Bison at the Fargodome.",
-   "image": "https://nevadawolfpack.com/images/2026/10/17/0V5A3543.JPG?width=800",
-   "sourceLogo": "https://nevadawolfpack.com/favicon.ico",
-   "published": "2026-10-18T02:49:00+00:00"
   }
  ]
 }
