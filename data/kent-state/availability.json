@@ -7,20 +7,13 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-11T11:08:46.569230+00:00",
+ "fetchedAt": "2026-11-17T23:09:38.977445+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
+ "effectiveAt": "2026-11-17",
  "heading": "Game Day",
- "kickoffDate": "2026-11-10",
- "game": "at Bowling Green",
+ "kickoffDate": "2026-11-17",
+ "game": "Miami",
  "players": [
-  {
-   "pos": "DB",
-   "no": "1",
-   "name": "A'tiq Muhammad",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "4",
@@ -36,6 +29,48 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "11",
+   "name": "Zy'aire Fletcher",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "14",
+   "name": "Tyler Bivens",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "20",
+   "name": "Rafael Terrero Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "25",
+   "name": "Donovan Delaney Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "44",
+   "name": "Holtz Maine",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "50",
+   "name": "Ben Midea",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "77",
    "name": "Rico Steele",
@@ -43,23 +78,23 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "78",
-   "name": "Tyler Meadows",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "83",
    "name": "Garrett Long",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "91",
    "name": "Dion'Dre Taylor",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "96",
+   "name": "Sean Leonard",
    "status": "out-game",
    "detail": ""
   }

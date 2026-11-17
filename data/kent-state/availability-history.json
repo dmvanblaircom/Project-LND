@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kent-state",
- "updated": "2026-11-11T11:08:46.569230+00:00",
+ "updated": "2026-11-17T23:09:38.977445+00:00",
  "reports": [
   {
    "schema": 1,
@@ -621,6 +621,109 @@
      "pos": "DL",
      "no": "91",
      "name": "Dion'Dre Taylor",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "kent-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-17T23:09:38.977445+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-17",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-17",
+   "game": "Miami",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Jared Kelley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Angelo Stockstill",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "11",
+     "name": "Zy'aire Fletcher",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "14",
+     "name": "Tyler Bivens",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "Rafael Terrero Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Donovan Delaney Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "44",
+     "name": "Holtz Maine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Ben Midea",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Rico Steele",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "83",
+     "name": "Garrett Long",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "91",
+     "name": "Dion'Dre Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "96",
+     "name": "Sean Leonard",
      "status": "out-game",
      "detail": ""
     }

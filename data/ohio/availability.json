@@ -7,20 +7,13 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-11T11:08:48.690253+00:00",
+ "fetchedAt": "2026-11-17T23:09:41.858312+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
+ "effectiveAt": "2026-11-17",
  "heading": "Game Day",
- "kickoffDate": "2026-11-10",
- "game": "at Miami",
+ "kickoffDate": "2026-11-17",
+ "game": "Ball State",
  "players": [
-  {
-   "pos": "RB",
-   "no": "4",
-   "name": "Victor Rosa",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "S",
    "no": "6",
@@ -64,13 +57,6 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "31",
-   "name": "Khamani Debrow",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "K",
    "no": "47",
    "name": "Will Hryszko",
@@ -92,9 +78,23 @@
    "detail": ""
   },
   {
+   "pos": "OL",
+   "no": "70",
+   "name": "Joshua Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "80",
    "name": "Kaden Page",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "87",
+   "name": "Tim Boals",
    "status": "out-game",
    "detail": ""
   }

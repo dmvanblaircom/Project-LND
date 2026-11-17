@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-11T11:08:47.575285+00:00",
+ "fetchedAt": "2026-11-17T23:09:40.329590+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
+ "effectiveAt": "2026-11-17",
  "heading": "Game Day",
- "kickoffDate": "2026-11-10",
- "game": "vs. Ohio",
+ "kickoffDate": "2026-11-17",
+ "game": "Kent State",
  "players": [
   {
    "pos": "WR",
@@ -36,6 +36,13 @@
    "detail": ""
   },
   {
+   "pos": "QB",
+   "no": "6",
+   "name": "Caleb Heavner",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "12",
    "name": "Kaleb Martin",
@@ -50,9 +57,23 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "13",
+   "name": "Desmon Yharbrough",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "QB",
    "no": "16",
    "name": "David McComb",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "19",
+   "name": "Luke Berry",
    "status": "out-game",
    "detail": ""
   },
@@ -64,10 +85,10 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "25",
-   "name": "Ike Steward",
-   "status": "out-game",
+   "pos": "DL",
+   "no": "32",
+   "name": "James Schott",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -92,16 +113,16 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "57",
-   "name": "Evan Gilder",
+   "pos": "OL",
+   "no": "74",
+   "name": "Greg Smith Jr.",
    "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
-   "no": "74",
-   "name": "Greg Smith Jr.",
+   "no": "76",
+   "name": "Brian Beidatsch",
    "status": "out-game",
    "detail": ""
   },

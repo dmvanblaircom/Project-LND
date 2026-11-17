@@ -1,5 +1,13 @@
 {
- "team": "north-dakota-state",
- "updated": null,
- "points": []
+"team": "north-dakota-state",
+"updated": "2026-11-17T23:07Z",
+"points": [
+{
+"t": "2026-11-17T23:07Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": null,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+}
+]
 }
