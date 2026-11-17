@@ -648,6 +648,10 @@ function loadSpWeek(id){
   }).catch(function(){ WEEKS.spFailed[id]=true; }).then(function(){ delete WEEKS.spP[id]; paintTop25(); });
 }
 function dayOf(iso){ return String(iso||"").slice(0,10); }
+// The polls in force: the feed's, with a poll it has stopped carrying (the
+// CFP from Sunday to the committee's Tuesday) standing at its newest kept
+// week (TeamOS.season.standingPolls; David, 2026-11-17).
+function polls(){ return TeamOS.season.standingPolls(T25.polls, WEEKS.polls); }
 // One source's weeks, oldest first: the kept ones, and the current one from
 // the live source - in its kept week's place when it is that week (same
 // release day or same name), else after them. `current` marks it.
@@ -670,7 +674,7 @@ function weekList(key){
       if(!list.some(function(w){ return w.current; })) list.push({ id:"latest", label:"Latest", date:sp.fetchedAt, current:true });
     }
   } else if(!RATINGS[key]){
-    var live=(T25.polls||[]).filter(function(p){ return String(p.key).toLowerCase()===key; })[0]||null;
+    var live=(polls()||[]).filter(function(p){ return String(p.key).toLowerCase()===key; })[0]||null;
     list=((WEEKS.polls && WEEKS.polls[key])||[]).map(function(w){ return { id:w.id, label:w.label, date:w.date, poll:w.poll }; });
     if(live){
       var same=list.filter(function(w){ return (live.released && dayOf(w.date)===dayOf(live.released)) || (live.asOf && w.label===live.asOf); })[0];
@@ -742,7 +746,7 @@ function aroundLayers(now){
   return TeamOS.around.layers({ games:games, teamId:TEAM_CONFIG.sources.espn.teamId, teamName:TEAM.name,
     conference: me ? me.conference : null, conferences:AROUND.conferences,
     short: window.LEAGUE_CONFERENCES || {}, schedule:S.games||[], series:TEAM_CONFIG.series||[],
-    polls:T25.polls||[], now:now });
+    polls:polls()||[], now:now });
 }
 function paintTop25(){
   if(SHEET.id) paintSheet();
@@ -753,7 +757,7 @@ function paintTop25(){
   var m={
     view:   route.view==="rankings" ? "rankings" : "games",
     poll:   route.view==="rankings" ? (route.path[1]||null) : null,
-    polls:  T25.polls,
+    polls:  polls(),
     ratingSources: Object.keys(RATINGS).map(function(k){ return {key:k,label:RATINGS[k].label}; }),
     ratings: Object.keys(RATINGS).map(ratingModel).filter(Boolean),
     ratingsFailed: Object.keys(RATINGS).reduce(function(o,k){ o[k]=RATINGS[k].failed; return o; },{}),
@@ -851,7 +855,10 @@ document.addEventListener("change", function(e){
 
 function loadTop25(){
   var route=Suite.nav.current();
-  if(route.view==="rankings") loadWeeks();
+  // The kept weeks on every visit, not only Rankings': a poll the feed has
+  // stopped carrying stands at its newest kept week everywhere Around uses
+  // the polls (the games near us in the leading poll included).
+  loadWeeks();
   if(ratingKey(route)) loadRating(ratingKey(route));
   if(T25.polls==null) cachedJSON(TeamOS.espn.rankingsUrl()).then(function(d){
     if(T25.polls==null && d){ T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); paintTop25(); }

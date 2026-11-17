@@ -253,6 +253,32 @@ TeamOS.season = (function () {
     var final = src === "CFP" ? !!sel && at >= sel : p.last === true;
     return { rank: mine.rank, source: src, season: season, final: final };
   }
+  // The polls in force (David, 2026-11-17: "CFP rankings are missing
+  // today"). ESPN's feed carries only the latest week's polls, so from the
+  // AP's Sunday release to the committee's Tuesday one it has no CFP, while
+  // the committee's last ranking is still the one that stands. A poll the
+  // feed does not carry is filled from this season's kept weeks
+  // (TeamOS.espn.rankingsHistory), its newest, marked `kept`; a poll the
+  // feed does carry is always the feed's own. The CFP leads, as the feed
+  // orders it. No feed yet (loading, or failed) stays exactly that.
+  var STANDING = ["cfp", "ap", "coaches"];
+  function standingPolls(live, kept) {
+    if (!live) return live;
+    var key = function (p) { return String(p.key || p.label || "").toLowerCase(); };
+    var have = {}, out = live.slice();
+    live.forEach(function (p) { have[key(p)] = true; });
+    STANDING.forEach(function (k) {
+      var weeks = (kept && kept[k]) || [];
+      if (have[k] || !weeks.length) return;
+      var newest = weeks.slice().sort(function (a, b) { return String(a.date).localeCompare(String(b.date)); })[weeks.length - 1];
+      if (newest && newest.poll && (newest.poll.ranks || []).length) out.push(Object.assign({}, newest.poll, { kept: true }));
+    });
+    var rank = function (p) { var i = STANDING.indexOf(key(p)); return i < 0 ? STANDING.length : i; };
+    return out.map(function (p, i) { return [p, i]; })
+      .sort(function (a, b) { return rank(a[0]) - rank(b[0]) || a[1] - b[1]; })
+      .map(function (x) { return x[0]; });
+  }
+
   function offseason(o) {
     o = o || {};
     var p = o.phase;
@@ -272,6 +298,7 @@ TeamOS.season = (function () {
 
   return {
     calendar: calendar,
+    standingPolls: standingPolls,
 
     // Points this team has allowed per finished game: the opponent's score,
     // averaged. `them` is the opponent's score from this team's point of
