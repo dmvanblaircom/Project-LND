@@ -1,7 +1,16 @@
 {
  "team": "boston-college",
- "updated": "2026-11-17T19:08:10.123222+00:00",
+ "updated": "2026-11-17T19:38:02.034943+00:00",
  "items": [
+  {
+   "title": "Week 12 Media: BC vs. Syracuse",
+   "link": "https://bceagles.com/news/2026/11/17/football-week-12-media-bc-vs-syracuse",
+   "source": "Boston College Athletics",
+   "summary": "<img alt=\"Football: Zeke Moore at Notre Dame\" src=\"https://bceagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/20261114_FB_JS_NOTREDAME-403.jpg\" /><br /><br />",
+   "image": "https://bceagles.com/images/2026/11/17/20261114_FB_JS_NOTREDAME-403.jpg?width=800",
+   "sourceLogo": "https://bceagles.com/favicon.ico",
+   "published": "2026-11-17T18:43:00+00:00"
+  },
   {
    "title": "Boston College Football Starting Linebacker Ruled Out for Season",
    "link": "https://www.si.com/college/bostoncollege/football/boston-college-football-starting-linebacker-ruled-out-for-season?utm_source=RSS",
@@ -307,15 +316,6 @@
    "image": "https://bcheights.com/wp-content/uploads/2026/10/Untitled-Design-16.png",
    "sourceLogo": "https://bcheights.com/wp-content/uploads/2025/08/cropped-blacklogo-copy-32x32.webp",
    "published": "2026-11-01T00:07:19+00:00"
-  },
-  {
-   "title": "Eagles Fall at Duke",
-   "link": "https://bceagles.com/news/2026/10/31/football-eagles-fall-at-duke",
-   "source": "Boston College Athletics",
-   "summary": "<img alt=\"Duke Recap\" src=\"https://bceagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/31/JA106522-2.jpg\" /><br /><br />KP Price records 250th career tackle",
-   "image": "https://bceagles.com/images/2026/10/31/JA106522-2.jpg?width=800",
-   "sourceLogo": "https://bceagles.com/favicon.ico",
-   "published": "2026-10-31T20:44:00+00:00"
   },
   {
    "title": "Preview: BC Seeks Third Straight Win in Road Test Against Duke",
