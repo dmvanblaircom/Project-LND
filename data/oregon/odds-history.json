@@ -1,6 +1,6 @@
 {
 "team": "oregon",
-"updated": "2026-11-17T02:37Z",
+"updated": "2026-11-17T05:07Z",
 "points": [
 {
 "t": "2026-10-28T01:37Z",
@@ -1937,6 +1937,13 @@
 {
 "t": "2026-11-17T02:37Z",
 "title": 2.0,
+"titleEvent": "KXNCAAF-27",
+"playoff": 32.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-17T05:07Z",
+"title": 1.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 32.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
