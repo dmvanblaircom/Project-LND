@@ -1,7 +1,16 @@
 {
  "team": "colorado-state",
- "updated": "2026-11-17T01:08:03.332340+00:00",
+ "updated": "2026-11-17T21:38:08.455474+00:00",
  "items": [
+  {
+   "title": "Game Week: at Fresno State",
+   "link": "https://csurams.com/news/2026/11/17/football-game-week-at-fresno-state",
+   "source": "Colorado State Athletics",
+   "summary": "<img alt=\"Game Week vs. Fresno State\" src=\"https://csurams.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/FB26_-_Game_Week_FS.png\" /><br /><br />Colorado State stays on the road and heads to Fresno for final road trip.",
+   "image": "https://csurams.com/images/2026/11/17/FB26_-_Game_Week_FS.png?width=800",
+   "sourceLogo": "https://csurams.com/favicon.ico",
+   "published": "2026-11-17T20:50:00+00:00"
+  },
   {
    "title": "Watch Coach Mora's Weekly Press Conference",
    "link": "https://csurams.com/news/2026/11/16/football-watch-coach-moras-weekly-press-conference",
@@ -100,15 +109,6 @@
    "image": "https://csurams.com/images/2026/11/11/Jauss.jpg?width=800",
    "sourceLogo": "https://csurams.com/favicon.ico",
    "published": "2026-11-11T19:00:00+00:00"
-  },
-  {
-   "title": "Game Week: at Washington State",
-   "link": "https://csurams.com/news/2026/11/10/football-game-week-at-washington-state",
-   "source": "Colorado State Athletics",
-   "summary": "<img alt=\"Game Week at Washington State\" src=\"https://csurams.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/FB26_-_Game_Week__WSU.png\" /><br /><br />Colorado State continues Pac-12 play at Washington State.",
-   "image": "https://csurams.com/images/2026/11/10/FB26_-_Game_Week__WSU.png?width=800",
-   "sourceLogo": "https://csurams.com/favicon.ico",
-   "published": "2026-11-10T15:56:00+00:00"
   },
   {
    "title": "Mora looks to salvage season ahead of CSU football\u2019s must-win matchup against Washington State",
