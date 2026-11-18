@@ -1,7 +1,16 @@
 {
  "team": "florida",
- "updated": "2026-11-18T21:08:04.398764+00:00",
+ "updated": "2026-11-18T22:08:07.332973+00:00",
  "items": [
+  {
+   "title": "Carter's Corner: Remembering Charley Casey",
+   "link": "https://floridagators.com/news/2026/11/18/football-gators-carters-corner-remembering-charley-casey-southeastern-conference-steve-spurrier",
+   "source": "Florida Athletics",
+   "summary": "<img alt=\"FloridaGators.com graphic\" src=\"https://floridagators.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2017/4/27/FloridaGators.jpg\" /><br /><br />Charley Casey departed UF as the Southeastern Conference's single-season record holder for catches and receiving yards.",
+   "image": "https://floridagators.com/images/2017/4/27/FloridaGators.jpg?width=800",
+   "sourceLogo": "https://floridagators.com/favicon.ico",
+   "published": "2026-11-18T21:00:00+00:00"
+  },
   {
    "title": "Inside Florida's push for No. 2 IOL Kendrick Harris ahead of Saturday's visit",
    "link": "https://on3.com/teams/florida-gators/news/florida-gators-elite-offensive-lineman-kendrick-harris/",
@@ -219,15 +228,6 @@
    "published": "2026-11-17T13:00:00+00:00"
   },
   {
-   "title": "Keith's weekly SEC Power Rankings",
-   "link": "https://on3.com/teams/florida-gators/news/keiths-weekly-sec-power-rankings-12/",
-   "source": "On3",
-   "summary": "As we head into Saturday\u2019s Week 12 slate, it\u2019s time for Keith Niebuhr's latest SEC Power Rankings.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/08/30220338/SEC-1.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-17T12:31:42+00:00"
-  },
-  {
    "title": "Near Consensus on Latest Bowl Projections for Florida Gators",
    "link": "https://www.si.com/college/florida/football/near-consensus-on-latest-bowl-projections-for-florida-gators?utm_source=RSS",
    "source": "Florida On SI",
@@ -343,15 +343,6 @@
    "image": "https://floridagators.com/images/2026/11/15/img_tag_reuters.com_2026_newsml_MT1USATODAY30355704_1038744566_w6lsP.jpg?width=800",
    "sourceLogo": "https://floridagators.com/favicon.ico",
    "published": "2026-11-15T08:17:00+00:00"
-  },
-  {
-   "title": "FINAL: Gators 21, Kentucky 14",
-   "link": "https://floridagators.com/news/2026/11/14/football-final-gators-21-kentucky-14-florida-gators-kentucky-wildcats-southeastern-conference",
-   "source": "Florida Athletics",
-   "summary": "<img alt=\"Scott Carter's Quick Slant powered by Ticketmaster\" src=\"https://floridagators.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/9/QuickSlant_SC_DallasWilson.jpg\" /><br /><br />A quick wrap of the Florida-Kentucky game on Saturday night at Kroger Field.",
-   "image": "https://floridagators.com/images/2026/10/9/QuickSlant_SC_DallasWilson.jpg?width=800",
-   "sourceLogo": "https://floridagators.com/favicon.ico",
-   "published": "2026-11-15T02:50:00+00:00"
   }
  ]
 }
