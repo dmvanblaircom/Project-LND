@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-11T11:08:26.749734+00:00",
+ "fetchedAt": "2026-11-18T23:08:36.718964+00:00",
  "reported": true,
- "effectiveAt": "2026-11-10",
+ "effectiveAt": "2026-11-18",
  "heading": "Game Day",
- "kickoffDate": "2026-11-10",
- "game": "vs. Western Michigan",
+ "kickoffDate": "2026-11-18",
+ "game": "Massachusetts",
  "players": [
   {
    "pos": "S",
@@ -39,6 +39,13 @@
    "pos": "WR",
    "no": "12",
    "name": "Cameron Monteiro",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "13",
+   "name": "Rodrick Hunter",
    "status": "out-game",
    "detail": ""
   },
@@ -78,16 +85,9 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "65",
-   "name": "Logan Hindmarch",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "OL",
-   "no": "75",
-   "name": "Dayne Shor",
+   "no": "57",
+   "name": "Ian Falkner",
    "status": "out-game",
    "detail": ""
   },
@@ -99,13 +99,6 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "83",
-   "name": "Elijah Alexander",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "94",
    "name": "Malakai Ross-Graves",
@@ -113,9 +106,9 @@
    "detail": ""
   },
   {
-   "pos": "DE",
-   "no": "97",
-   "name": "Vann Kavals",
+   "pos": "DL",
+   "no": "99",
+   "name": "Jaiden Brown-Demery",
    "status": "out-game",
    "detail": ""
   }

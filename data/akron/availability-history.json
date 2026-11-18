@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "akron",
- "updated": "2026-11-11T11:08:26.749734+00:00",
+ "updated": "2026-11-18T23:08:36.718964+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1153,6 +1153,123 @@
      "pos": "DE",
      "no": "97",
      "name": "Vann Kavals",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "akron",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-18T23:08:36.718964+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-18",
+   "game": "Massachusetts",
+   "players": [
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Daymon David",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "3",
+     "name": "Alex Branch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "12",
+     "name": "Iesa Jarmon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "12",
+     "name": "Cameron Monteiro",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "13",
+     "name": "Rodrick Hunter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Jaborree Riggins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "16",
+     "name": "Paul Davis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "21",
+     "name": "Catrell White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Chris Gee",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "31",
+     "name": "Gavin James",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "57",
+     "name": "Ian Falkner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "81",
+     "name": "Luke Sivon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "Malakai Ross-Graves",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Jaiden Brown-Demery",
      "status": "out-game",
      "detail": ""
     }

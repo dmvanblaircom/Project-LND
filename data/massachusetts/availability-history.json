@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "massachusetts",
- "updated": "2026-11-12T11:09:23.970550+00:00",
+ "updated": "2026-11-18T23:08:51.916781+00:00",
  "reports": [
   {
    "schema": 1,
@@ -671,6 +671,151 @@
      "no": "78",
      "name": "Greg Klingensmith",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "massachusetts",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-18T23:08:51.916781+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-18",
+   "game": "Akron",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "Jordan Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Joseph Griffin Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "T.Y. Harding",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "2",
+     "name": "Joshua Nobles",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "4",
+     "name": "Chris Stanley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "5",
+     "name": "William \"Pop\" Watson III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "7",
+     "name": "TJ Magee",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "9",
+     "name": "Justin Krueger",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "10",
+     "name": "Aubrey Melvin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Dallas Elliott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "17",
+     "name": "Zachary Betts",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "19",
+     "name": "David Chiavegato",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "33",
+     "name": "Justin Lewis",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "38",
+     "name": "Zeraun Daniel",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LS",
+     "no": "51",
+     "name": "Grant Mills",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Greg Klingensmith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "92",
+     "name": "Romando Johnson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "William DePaepe",
+     "status": "questionable",
      "detail": ""
     }
    ],
