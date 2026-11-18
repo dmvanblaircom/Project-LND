@@ -1,7 +1,16 @@
 {
  "team": "purdue",
- "updated": "2026-11-18T11:08:17.487679+00:00",
+ "updated": "2026-11-18T14:08:11.181274+00:00",
  "items": [
+  {
+   "title": "Opponent View: Wisconsin",
+   "link": "https://on3.com/teams/purdue-boilermakers/news/opponent-view-wisconsin-2/",
+   "source": "On3",
+   "summary": "The voice of Wisconsin, Matt Lepay, previews the Badgers.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/17143741/1-copy-3-7.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-18T13:47:42+00:00"
+  },
   {
    "title": "University Book Store Purdue Sports Headlines: November 18",
    "link": "https://on3.com/teams/purdue-boilermakers/news/university-book-store-purdue-sports-headlines-november-18/",
@@ -190,15 +199,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31142741/2026-10-18T032340Z_818461772_MT1USATODAY30120388_RTRMADP_3_NCAA-FOOTBALL-WISCONSIN-AT-UCLA.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-16T02:36:44+00:00"
-  },
-  {
-   "title": "The Definitive Week 11 Review: Big plays, data driven, and more from Purdue football's loss to Iowa",
-   "link": "https://on3.com/teams/purdue-boilermakers/news/the-definitive-week-11-review-big-plays-data-driven-and-more-from-purdue-footballs-loss-to-iowa/",
-   "source": "On3",
-   "summary": "Each Sunday, GoldandBlack.com looks back in-depth at the weekend's Purdue football game, through statistics, data and film review, now all consolidated in one place: Our Definitive Review.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15100733/Untitled-design-2026-11-15T100714.527.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-15T17:04:31+00:00"
   },
   {
    "title": "Hammering Down: Purdue Football Staring Down an Offseason of Difficult Decisions",
