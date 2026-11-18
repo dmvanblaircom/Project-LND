@@ -114,9 +114,12 @@ Example sentence: "No. 4 UCLA plays Michigan. A UCLA loss could open a top-four 
 
 **2. Résumé Impact.** The team is a Contender.
 
-G involves a team T has **already played** that is **currently or previously ranked**: in the CFP or AP poll now, or in any poll week Suite has kept this season (`data/league/rankings-2026.json`). That includes a team that was ranked when T played it and has since dropped out. Phase 2 adds: in the FPI top 30. Prior play alone never qualifies. This is the rule that separates Miami from Rice. (David, 2026-11-18: "a currently or previously ranked team we already played plays a real game".)
+G involves a team T has **already played** that meets either test:
 
-**Open, for David:** a team that **beat** T, whether ranked or not. Its results decide whether that loss reads as a good loss or a bad one, which is the strongest résumé link there is. Recommendation: include it, for any week of the season, not only last week (section 8, item 6).
+- **Currently or previously ranked:** in the CFP or AP poll now, or in any poll week Suite has kept this season (`data/league/rankings-2026.json`). That includes a team that was ranked when T played it and has since dropped out. Phase 2 adds: in the FPI top 30. (David, 2026-11-18: "a currently or previously ranked team we already played plays a real game".)
+- **Beat T,** ranked or not, in any week of the season. Its results decide whether that loss reads as a good loss or a bad one, which is the strongest résumé link there is. (David, 2026-11-18.)
+
+Prior play alone never qualifies, and neither does recency: last week's opponent counts only if it passes one of the two tests. This is the rule that separates Miami from Rice. The stake applies only while T is a Contender.
 
 Example sentence: "Notre Dame played No. 10 BYU on Oct 17. BYU's finish decides how that result reads on Notre Dame's résumé."
 
@@ -345,7 +348,7 @@ These are filled in from the official format when it is published.
 3. **Top 25 games:** a collapsed "All ranked games" row under the list until Around → College Football exists? *Recommendation: yes. Nothing fans use today disappears.*
 4. **Phase 2:** approve keeping FPI's projections (a data-contract change)?
 5. **Labels:** confirm the five label names with ChatGPT (copy is design's).
-6. **A team that beat us:** a Résumé stake whether it is ranked or not, for any week? *Recommendation: yes, while the team is a Contender. A past opponent from last week only because it was last week: no, since recency alone is an association, not a stake.*
+6. ~~A team that beat us~~ **Decided (David, 2026-11-18):** a team that beat T is a Résumé stake, ranked or not, any week, while T is a Contender. Last week's opponent by recency alone is not.
 
 ## Sources (REPORTED items)
 
