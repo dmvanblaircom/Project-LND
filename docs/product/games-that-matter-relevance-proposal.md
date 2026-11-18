@@ -101,8 +101,9 @@ The mode changes the order. For a Conference contender, Conference Race comes fi
 **1. Playoff Impact.** The team is a Contender.
 
 G involves a **competitor** of T. A competitor is a ranked team that:
-- sits within four places of T, or
-- sits between T and the nearest **cutline** above or below it.
+- sits within four places of T;
+- sits between T and the nearest **cutline** below it, so it could pass T and push it across that line; or
+- holds a place in the band **above the nearest cutline over T**, when T is within four places of that cutline. Any of those teams losing could open a place T is chasing. For No. 6 Notre Dame and the bye line after 4, that is every team ranked 1 to 4, so No. 1 Georgia counts even though it is five places away (Codex, #262).
 
 The cutlines come from the format (section 4):
 - **2026** (**REPORTED**, the 12-team format as amended in 2025: straight seeding, top four byes; to be confirmed): the bye line after 4 and the field line after 12, plus the automatic bids for conference champions.
