@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T20:34:31.503907+00:00",
+ "fetchedAt": "2026-11-18T01:08:54.575333+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Washington",
+ "effectiveAt": "2026-11-17",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-20",
+ "game": "Oregon",
  "players": [
   {
    "pos": "RB",
    "no": "0",
    "name": "Cam Edwards",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "2",
+   "name": "Cam Fancher",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -32,21 +39,21 @@
    "pos": "WR",
    "no": "3",
    "name": "Rodney Bullard Jr.",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "CB",
    "no": "3",
    "name": "Tre Bell",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "4",
    "name": "Jaziun Patterson",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -57,16 +64,23 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "21",
-   "name": "Marvis Parrish",
+   "pos": "S",
+   "no": "7",
+   "name": "Michael Richard",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "11",
+   "name": "Alessio Milivojevic",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "28",
-   "name": "Brayden Thomas",
+   "pos": "RB",
+   "no": "21",
+   "name": "Marvis Parrish",
    "status": "out-game",
    "detail": ""
   },
@@ -88,7 +102,14 @@
    "pos": "DL",
    "no": "55",
    "name": "Ben Roberts",
-   "status": "gtd",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "58",
+   "name": "Conner Moore",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -96,6 +117,13 @@
    "no": "79",
    "name": "Tristan Comer",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "82",
+   "name": "Brennan Parachek",
+   "status": "questionable",
    "detail": ""
   },
   {

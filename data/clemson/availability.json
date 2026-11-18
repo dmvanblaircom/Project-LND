@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:01.728368+00:00",
+ "fetchedAt": "2026-11-18T01:08:50.385527+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Georgia Tech",
+ "effectiveAt": "2026-11-17",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-20",
+ "game": "Duke",
  "players": [
   {
    "pos": "CB",
@@ -22,17 +22,31 @@
    "detail": ""
   },
   {
+   "pos": "QB",
+   "no": "2",
+   "name": "Tait Reynolds",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "6",
    "name": "Tyler Brown",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "7",
+   "name": "Jeremiah Alexander",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "8",
    "name": "Gideon Davidson",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -57,6 +71,13 @@
    "detail": ""
   },
   {
+   "pos": "QB",
+   "no": "17",
+   "name": "Christopher Vizzina",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "22",
    "name": "Cole Turner",
@@ -71,9 +92,16 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "52",
-   "name": "Elyjah Thurmon",
+   "pos": "DT",
+   "no": "29",
+   "name": "Champ Thompson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "45",
+   "name": "Vic Burley",
    "status": "out-game",
    "detail": ""
   },
@@ -81,7 +109,14 @@
    "pos": "OL",
    "no": "55",
    "name": "Harris Sewell",
-   "status": "out-game",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "63",
+   "name": "Easton Ware",
+   "status": "questionable",
    "detail": ""
   },
   {

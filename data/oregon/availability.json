@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T18:39:04.863886+00:00",
+ "fetchedAt": "2026-11-18T01:08:56.292740+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Michigan",
+ "effectiveAt": "2026-11-17",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-20",
+ "game": "Michigan State",
  "players": [
   {
    "pos": "RB",
    "no": "0",
    "name": "Jordon Davison",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "1",
+   "name": "Bear Alexander",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -29,10 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "19",
-   "name": "Andrew Olesh",
-   "status": "out-game",
+   "pos": "ILB",
+   "no": "6",
+   "name": "Jerry Mixon",
+   "status": "doubtful",
    "detail": ""
   },
   {
