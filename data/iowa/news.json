@@ -1,7 +1,16 @@
 {
  "team": "iowa",
- "updated": "2026-11-18T23:08:05.890893+00:00",
+ "updated": "2026-11-18T23:38:01.634402+00:00",
  "items": [
+  {
+   "title": "Hawkeye Report Podcast",
+   "link": "https://on3.com/teams/iowa-hawkeyes/news/iowa-hawkeye-report-podcast-football-basketball-wrestling-2/",
+   "source": "On3",
+   "summary": "We talk CFP snub, Iowa football, Hawkeye men's and women's basketball, and Iowa men's and women's wrestling on the podcast.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/18172848/Iowa-Coop-Hank-Dani-hookly-1.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-18T23:32:40+00:00"
+  },
   {
    "title": "Hawkeye Report Podcast with Trevor Lauck",
    "link": "https://on3.com/teams/iowa-hawkeyes/news/hawkeye-report-podcast-trevor-lauck-caseys-pizza/",
@@ -289,15 +298,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/09200634/Illinois.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-17T14:18:52+00:00"
-  },
-  {
-   "title": "Tuesdays with Torbee",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/tuesday-torbee-iowa-hawkeyes-football-5/",
-   "source": "On3",
-   "summary": "It's Torbee, but it's not this week as his pod partner Chopsy chips for a column.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/24233119/Kirk-Ferentz-26.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-17T14:11:29+00:00"
   },
   {
    "title": "Iowa vs. Illinois Injury Update: Illini Facing Massive Potential Shakeup at Quarterback",

@@ -1,7 +1,16 @@
 {
  "team": "charlotte",
- "updated": "2026-11-18T01:07:58.758662+00:00",
+ "updated": "2026-11-18T23:37:57.850269+00:00",
  "items": [
+  {
+   "title": "Listen Live: Charlotte Football Coaches Show",
+   "link": "https://charlotte49ers.com/news/2026/11/18/listen-live-charlotte-football-coaches-show",
+   "source": "Charlotte Athletics",
+   "summary": "<img alt=\"Football coaches show graphic\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/GENATH_ALBIN_CoachesShow26_16x9.png\" /><br /><br />",
+   "image": "https://charlotte49ers.com/images/2026/10/28/GENATH_ALBIN_CoachesShow26_16x9.png?width=800",
+   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
+   "published": "2026-11-18T23:25:00+00:00"
+  },
   {
    "title": "Charlotte Treks to Tulsa for Final Road Game",
    "link": "https://charlotte49ers.com/news/2026/11/17/football-charlotte-treks-to-tulsa-for-final-road-game",
@@ -82,15 +91,6 @@
    "image": "https://charlotte49ers.com/images/2026/10/31/20261030_FB_Rutledge.jpg?width=800",
    "sourceLogo": "https://charlotte49ers.com/favicon.ico",
    "published": "2026-10-31T06:12:00+00:00"
-  },
-  {
-   "title": "Niners Host Tulane on Friday Night",
-   "link": "https://charlotte49ers.com/news/2026/10/27/football-niners-host-tulane-on-friday-night",
-   "source": "Charlotte Athletics",
-   "summary": "<img alt=\"Football team running out of the tunnel\" src=\"https://charlotte49ers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/27/20261027_FB_Team.jpg\" /><br /><br />CHARLOTTE, N.C. -- Charlotte Football returns to the gridiron following its bye week this Friday (Oct 30) when Tulane makes the trip to Jerry Richardson Stadium.",
-   "image": "https://charlotte49ers.com/images/2026/10/27/20261027_FB_Team.jpg?width=800",
-   "sourceLogo": "https://charlotte49ers.com/favicon.ico",
-   "published": "2026-10-27T18:08:00+00:00"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "buffalo",
- "updated": "2026-11-12T11:09:18.918018+00:00",
+ "updated": "2026-11-18T23:38:40.978179+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1084,6 +1084,102 @@
      "no": "69",
      "name": "Jackson Bellamy",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Nino Francavilla",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "96",
+     "name": "Charlton Goodell",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "buffalo",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-18T23:38:40.978179+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-18",
+   "game": "Central Michigan",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "8",
+     "name": "Ramari Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "16",
+     "name": "Elijah Holmes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "17",
+     "name": "Jeremiah Watkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "DJ Mangan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "26",
+     "name": "Chase Enlow",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "38",
+     "name": "Dylan Cleary",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "52",
+     "name": "Jack Garbolino",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "55",
+     "name": "Mason Nickel",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Jackson Bellamy",
+     "status": "questionable",
      "detail": ""
     },
     {

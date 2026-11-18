@@ -7,24 +7,17 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:18.918018+00:00",
+ "fetchedAt": "2026-11-18T23:38:40.978179+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
+ "effectiveAt": "2026-11-18",
  "heading": "Game Day",
- "kickoffDate": "2026-11-11",
- "game": "at Ball State",
+ "kickoffDate": "2026-11-18",
+ "game": "Central Michigan",
  "players": [
   {
    "pos": "CB",
    "no": "8",
    "name": "Ramari Taylor",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "10",
-   "name": "Mark-Anthony Scott, Jr.",
    "status": "out-game",
    "detail": ""
   },
@@ -36,16 +29,23 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "19",
-   "name": "Mathew Hilty",
+   "pos": "WR",
+   "no": "17",
+   "name": "Jeremiah Watkins",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "EDG",
-   "no": "30",
-   "name": "Jacari Bennett",
+   "pos": "LB",
+   "no": "20",
+   "name": "DJ Mangan",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "26",
+   "name": "Chase Enlow",
    "status": "out-game",
    "detail": ""
   },
@@ -64,10 +64,17 @@
    "detail": ""
   },
   {
+   "pos": "DT",
+   "no": "55",
+   "name": "Mason Nickel",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "69",
    "name": "Jackson Bellamy",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
