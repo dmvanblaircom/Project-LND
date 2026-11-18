@@ -1,6 +1,6 @@
 {
 "team": "kentucky",
-"updated": "2026-11-18T13:37Z",
+"updated": "2026-11-18T17:55Z",
 "points": [
 {
 "t": "2026-10-28T03:37Z",
@@ -1967,6 +1967,13 @@
 "title": 0.5,
 "titleEvent": "KXNCAAF-27",
 "playoff": 7.5,
+"playoffEvent": "KXNCAAFPLAYOFF-26"
+},
+{
+"t": "2026-11-18T17:55Z",
+"title": 0.5,
+"titleEvent": "KXNCAAF-27",
+"playoff": 6.5,
 "playoffEvent": "KXNCAAFPLAYOFF-26"
 }
 ]
