@@ -1,7 +1,16 @@
 {
  "team": "duke",
- "updated": "2026-11-18T19:38:01.995892+00:00",
+ "updated": "2026-11-18T21:38:01.231127+00:00",
  "items": [
+  {
+   "title": "The Talk of the Town",
+   "link": "https://goduke.com/news/2026/11/18/football-the-talk-of-the-town",
+   "source": "Duke Athletics",
+   "summary": "<img alt=\"Nate Sheppard is the Talk of the Town\" src=\"https://goduke.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/18/image-hd__6_.jpg\" /><br /><br />Maxwell Award, Doak Walker Award and Walter Camp Player of the Year semifinalist Nate Sheppard can do it all and he's the talk of the town.",
+   "image": "https://goduke.com/images/2026/11/18/image-hd__6_.jpg?width=800",
+   "sourceLogo": "https://goduke.com/favicon.ico",
+   "published": "2026-11-18T21:07:00+00:00"
+  },
   {
    "title": "Across the Beat: Getting to know Clemson",
    "link": "https://on3.com/sites/devils-illustrated/news/across-the-beat-getting-to-know-clemson/",
@@ -280,15 +289,6 @@
    "image": "https://goduke.com/images/2026/9/8/20260905_FB_Tulane_JF-037.jpg?width=800",
    "sourceLogo": "https://goduke.com/favicon.ico",
    "published": "2026-11-11T22:47:00+00:00"
-  },
-  {
-   "title": "Line of Trust",
-   "link": "https://goduke.com/news/2026/11/11/football-line-of-trust",
-   "source": "Duke Athletics",
-   "summary": "<img alt=\"Duke defensive end Bryce Davis, wearing a blue helmet, blue jersey and blue pants, leans forward and awaits a snap during the Blue Devils' 19-16 victory at Virginia on October 23, 2026.\" src=\"https://goduke.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/20261023_FB_UVA_JF-256_q0gy0.jpg\" /><br /><br />Duke's excelling defensive line has been built on hard work and a healthy dose of trust.",
-   "image": "https://goduke.com/images/2026/10/26/20261023_FB_UVA_JF-256_q0gy0.jpg?width=800",
-   "sourceLogo": "https://goduke.com/favicon.ico",
-   "published": "2026-11-11T22:17:00+00:00"
   }
  ]
 }
