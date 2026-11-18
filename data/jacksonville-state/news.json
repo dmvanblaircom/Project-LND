@@ -1,7 +1,16 @@
 {
  "team": "jacksonville-state",
- "updated": "2026-11-15T00:38:09.104573+00:00",
+ "updated": "2026-11-18T02:38:06.993836+00:00",
  "items": [
+  {
+   "title": "Jax State Football Press Conference 2026--Missouri State",
+   "link": "https://jaxstatesports.com/news/2026/11/17/jax-state-football-press-conference-2026-missouri-state",
+   "source": "Jax State Athletics",
+   "summary": "<img alt=\"ck-1117pc\" src=\"https://jaxstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/press__7.jpg\" /><br /><br />Coach Charles Kelly",
+   "image": "https://jaxstatesports.com/images/2026/11/17/press__7.jpg?width=800",
+   "sourceLogo": "https://jaxstatesports.com/favicon.ico",
+   "published": "2026-11-18T02:14:00+00:00"
+  },
   {
    "title": "Gamecock offense struggles in loss at Western Kentucky",
    "link": "https://jaxstatesports.com/news/2026/11/14/football-gamecock-offense-struggles-in-loss-at-western-kentucky",
@@ -82,15 +91,6 @@
    "image": "https://jaxstatesports.com/images/2026/10/14/106113280_INGAME-145.jpg?width=800",
    "sourceLogo": "https://jaxstatesports.com/favicon.ico",
    "published": "2026-10-27T22:00:00+00:00"
-  },
-  {
-   "title": "Jax State Football Press Conference 2026--New Mexico State",
-   "link": "https://jaxstatesports.com/news/2026/10/23/jax-state-football-press-conference-2026-new-mexico-state",
-   "source": "Jax State Athletics",
-   "summary": "<img alt=\"ck-102326pc\" src=\"https://jaxstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/23/Press__2.jpg\" /><br /><br />Coach Charles Kelly",
-   "image": "https://jaxstatesports.com/images/2026/10/23/Press__2.jpg?width=800",
-   "sourceLogo": "https://jaxstatesports.com/favicon.ico",
-   "published": "2026-10-23T21:11:00+00:00"
   }
  ]
 }
