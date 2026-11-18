@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "eastern-michigan",
- "updated": "2026-11-17T22:09:38.225903+00:00",
+ "updated": "2026-11-18T11:08:59.262718+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1483,12 +1483,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-17T22:09:38.225903+00:00",
+   "fetchedAt": "2026-11-18T11:08:59.262718+00:00",
    "reported": true,
    "effectiveAt": "2026-11-17",
    "heading": "Game Day",
    "kickoffDate": "2026-11-17",
-   "game": "Western Michigan",
+   "game": "at Western Michigan",
    "players": [
     {
      "pos": "QB",

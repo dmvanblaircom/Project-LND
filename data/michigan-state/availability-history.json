@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan-state",
- "updated": "2026-11-18T01:08:54.575333+00:00",
+ "updated": "2026-11-18T11:09:02.767164+00:00",
  "reports": [
   {
    "schema": 1,
@@ -712,12 +712,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-18T01:08:54.575333+00:00",
+   "fetchedAt": "2026-11-18T11:09:02.767164+00:00",
    "reported": true,
    "effectiveAt": "2026-11-17",
    "heading": "Initial",
    "kickoffDate": "2026-11-20",
-   "game": "Oregon",
+   "game": "vs. Oregon",
    "players": [
     {
      "pos": "RB",
