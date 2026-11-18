@@ -114,7 +114,9 @@ Example sentence: "No. 4 UCLA plays Michigan. A UCLA loss could open a top-four 
 
 **2. Résumé Impact.** The team is a Contender.
 
-G involves a team T has **already played**, and that team **matters on a résumé**: it is ranked in the CFP or AP poll (Phase 2 adds: in the FPI top 30). Prior play alone never qualifies. This is the rule that separates Miami from Rice.
+G involves a team T has **already played** that is **currently or previously ranked**: in the CFP or AP poll now, or in any poll week Suite has kept this season (`data/league/rankings-2026.json`). That includes a team that was ranked when T played it and has since dropped out. Phase 2 adds: in the FPI top 30. Prior play alone never qualifies. This is the rule that separates Miami from Rice. (David, 2026-11-18: "a currently or previously ranked team we already played plays a real game".)
+
+**Open, for David:** a team that **beat** T, whether ranked or not. Its results decide whether that loss reads as a good loss or a bad one, which is the strongest résumé link there is. Recommendation: include it, for any week of the season, not only last week (section 8, item 6).
 
 Example sentence: "Notre Dame played No. 10 BYU on Oct 17. BYU's finish decides how that result reads on Notre Dame's résumé."
 
@@ -227,7 +229,7 @@ The rule never changes. Its inputs do.
 | Moment | What leads | Notes |
 |---|---|---|
 | Offseason (Feb to Aug) | No games | Around shows next season's opponents (brief of 2026-11-02, out-of-season table) |
-| Weeks 1 to 4 | Few stakes | Résumé requires a ranked opponent, so lists are short. Conference races are not yet formed. The AP leads |
+| Weeks 1 to 4 | Few stakes | Résumé requires an opponent ranked now or earlier in the season (the preseason poll counts), so lists are short. Conference races are not yet formed. The AP leads |
 | Weeks 5 to 9 | Conference races form | Conference Race enters for Conference contenders once standings separate. Résumé grows as past opponents get ranked |
 | CFP rankings (from early November) | Playoff Impact | The committee's ranking becomes the reference. The 3- to 4-day gap after each release is covered by #261 |
 | Rivalry week | Rivalry | Lead-in games rise |
@@ -266,7 +268,7 @@ These are filled in from the official format when it is published.
 | The week's FBS scoreboard: teams, top-25 rank, record, state | **In hand** (`TeamOS.espn.scoreboard`) | All |
 | Pregame line (spread) | **In hand:** 65 of 65 pregame games on Sep 26 carried one | Matchup test |
 | T's schedule and results | **In hand** | Résumé, Next Opponent |
-| CFP, AP and Coaches, with kept weeks | **In hand** | Playoff, Résumé |
+| CFP, AP and Coaches, with kept weeks | **In hand:** the kept weeks answer "previously ranked" | Playoff, Résumé |
 | FPI rating and rank, all 138 teams | **In hand** (`data/league/fpi.json`) | Matchup test without a line; résumé-quality floor |
 | `series` (rivals) | **Partial:** 27 of 138 teams have no trophy or rivalry entry (Kent State among them). Entries list only current opponents (USC is kept dormant for Notre Dame) | Rivalry |
 | ESPN FPI projections: playoff %, conference %, win-out %, all teams | **Extend:** in the payload Suite already downloads. The producer discards them (audit §4.4). Keeping them is a data-contract change | Entry tests for unranked and lower-conference teams |
@@ -343,6 +345,7 @@ These are filled in from the official format when it is published.
 3. **Top 25 games:** a collapsed "All ranked games" row under the list until Around → College Football exists? *Recommendation: yes. Nothing fans use today disappears.*
 4. **Phase 2:** approve keeping FPI's projections (a data-contract change)?
 5. **Labels:** confirm the five label names with ChatGPT (copy is design's).
+6. **A team that beat us:** a Résumé stake whether it is ranked or not, for any week? *Recommendation: yes, while the team is a Contender. A past opponent from last week only because it was last week: no, since recency alone is an association, not a stake.*
 
 ## Sources (REPORTED items)
 
