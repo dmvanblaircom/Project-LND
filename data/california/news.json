@@ -1,6 +1,6 @@
 {
  "team": "california",
- "updated": "2026-11-18T20:08:01.549909+00:00",
+ "updated": "2026-11-18T20:38:10.360755+00:00",
  "items": [
   {
    "title": "Cal vs Pitt Kickoff Time Released",
@@ -19,6 +19,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_7032,h_3955,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m7qz5tdkh3bmv1ym8w.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-18T19:44:13+00:00"
+  },
+  {
+   "title": "Pro Bears Week 10: Nohl Williams Intercepts Michael Penix Jr.",
+   "link": "https://calbears.com/news/2026/11/18/football-pro-bears-week-10-nohl-williams-intercepts-michael-penix-jr",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"2026 Pro Bears Title Slide\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/16/2026_Pro_Bears_1920x1080.png\" /><br /><br />Jared Goff Leads Lions To Win In Munich",
+   "image": "https://calbears.com/images/2026/9/16/2026_Pro_Bears_1920x1080.png?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-18T19:00:00+00:00"
   },
   {
    "title": "Jahvid Best, Geoff McArthur, Ron Coccimiglio Relive Their Big Game Moments",
@@ -325,15 +334,6 @@
    "image": "https://calbears.com/images/2026/11/10/GAMEWEEK_WEBvirginia.jpg?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-11-10T22:00:00+00:00"
-  },
-  {
-   "title": "Kingston Lopa Named Bednarik Award Semifinalist",
-   "link": "https://calbears.com/news/2026/11/10/football-kingston-lopa-named-bednarik-award-semifinalist",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Kingston Lopa at NC State (Oct. 31, 2026)\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/Kingston_Lopa__vs_NC_State__10.31.26_BA_0139.JPG\" /><br /><br />Cal Safety Up For Nation's Most Outstanding Defensive Player Of The Year Award",
-   "image": "https://calbears.com/images/2026/11/9/Kingston_Lopa__vs_NC_State__10.31.26_BA_0139.JPG?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-11-10T16:00:00+00:00"
   }
  ]
 }

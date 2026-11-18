@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "57",
  "classYear": 2027,
- "listed": 28,
+ "listed": 27,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -230,19 +230,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272010",
-   "name": "Cain Van Norden",
-   "position": "DT",
-   "highSchool": "St. Frances Academy",
-   "city": "Baltimore",
-   "state": "MD",
-   "grade": 79,
-   "rank": null,
-   "positionRank": 45,
-   "stateRank": 11,
-   "status": "Verbal"
-  },
-  {
    "id": "271829",
    "name": "De'Voun Kendrick",
    "position": "DT",
@@ -373,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:09Z"
+ "fetchedAt": "2026-11-18T20:39Z"
 }

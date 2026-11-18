@@ -5,22 +5,9 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "167",
  "classYear": 2027,
- "listed": 21,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
-  {
-   "id": "271830",
-   "name": "Ben Wiepert",
-   "position": "S",
-   "highSchool": "Wilsonville High School",
-   "city": "Wilsonville",
-   "state": "OR",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 98,
-   "stateRank": 2,
-   "status": "Verbal"
-  },
   {
    "id": "267671",
    "name": "D.J. Clanton",
@@ -282,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:42Z"
+ "fetchedAt": "2026-11-18T20:40Z"
 }

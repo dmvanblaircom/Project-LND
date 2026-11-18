@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "204",
  "classYear": 2027,
- "listed": 20,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -256,6 +256,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274826",
+   "name": "Darren Goodman",
+   "position": "TE-H",
+   "highSchool": "Redding Christian School",
+   "city": "Redding",
+   "state": "CA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274786",
    "name": "Derek Earl",
    "position": "CB",
@@ -267,7 +280,20 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
+  },
+  {
+   "id": "274825",
+   "name": "Godspower Otuonye",
+   "position": "OT",
+   "highSchool": null,
+   "city": "Fullerton",
+   "state": "CA",
+   "grade": 4,
+   "rank": 1,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-14T14:10Z"
+ "fetchedAt": "2026-11-18T20:40Z"
 }

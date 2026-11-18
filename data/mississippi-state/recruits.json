@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "344",
  "classYear": 2027,
- "listed": 19,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -165,19 +165,6 @@
    "status": "Verbal"
   },
   {
-   "id": "268625",
-   "name": "Hudson Fuqua",
-   "position": "S",
-   "highSchool": "Riverdale High School",
-   "city": "Murfreesboro",
-   "state": "TN",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 140,
-   "stateRank": 42,
-   "status": "Verbal"
-  },
-  {
    "id": "272802",
    "name": "Ke'Vontae Pitts",
    "position": "CB",
@@ -256,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-18T20:40Z"
 }

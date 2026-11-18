@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "197",
  "classYear": 2027,
- "listed": 17,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -97,6 +97,19 @@
    "rank": null,
    "positionRank": 100,
    "stateRank": 37,
+   "status": "Verbal"
+  },
+  {
+   "id": "272556",
+   "name": "Finn Walker",
+   "position": "DE",
+   "highSchool": "Oak Ridge High School",
+   "city": "Conroe",
+   "state": "TX",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 95,
+   "stateRank": 106,
    "status": "Verbal"
   },
   {
@@ -228,7 +241,20 @@
    "positionRank": 177,
    "stateRank": 267,
    "status": "Verbal"
+  },
+  {
+   "id": "274824",
+   "name": "John Rangel",
+   "position": "WR",
+   "highSchool": "Ridge Point High School",
+   "city": "Missouri City",
+   "state": "TX",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-18T20:40Z"
 }
