@@ -1,7 +1,16 @@
 {
  "team": "akron",
- "updated": "2026-11-11T04:07:58.865916+00:00",
+ "updated": "2026-11-18T09:37:55.666871+00:00",
  "items": [
+  {
+   "title": "Football At UMass For Wednesday MACTion",
+   "link": "https://gozips.com/news/2026/11/18/football-at-umass-for-wednesday-maction",
+   "source": "Akron Athletics",
+   "summary": "<img alt=\"Photos from Akron's game against Western Michigan on Tuesday, Nov. 10, 2026 at InfoCision Stadium \u2014 Summa Health Field.\" src=\"https://gozips.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/DSC_0717.JPG\" /><br /><br />",
+   "image": "https://gozips.com/images/2026/11/10/DSC_0717.JPG?width=800",
+   "sourceLogo": "https://gozips.com/favicon.ico",
+   "published": "2026-11-18T08:37:00+00:00"
+  },
   {
    "title": "Broughton, Williams Connect Twice in Akron's Setback to Western Michigan",
    "link": "https://gozips.com/news/2026/11/10/football-broughton-williams-connect-twice-in-akrons-setback-to-western-michigan",
@@ -82,15 +91,6 @@
    "image": "https://gozips.com/images/2026/10/10/DSC_2137.JPG?width=800",
    "sourceLogo": "https://gozips.com/favicon.ico",
    "published": "2026-10-11T00:05:00+00:00"
-  },
-  {
-   "title": "Know Before You Go \u2014 Football vs. Eastern Michigan",
-   "link": "https://gozips.com/news/2026/10/9/know-before-you-go-football-vs-eastern-michigan",
-   "source": "Akron Athletics",
-   "summary": "<img alt=\"2026 Know Before You Go Football Graphic\" src=\"https://gozips.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/9/KnowBeforeYouGo-FB_1920x1080.png\" /><br /><br />",
-   "image": "https://gozips.com/images/2026/10/9/KnowBeforeYouGo-FB_1920x1080.png?width=800",
-   "sourceLogo": "https://gozips.com/favicon.ico",
-   "published": "2026-10-09T22:00:00+00:00"
   }
  ]
 }
