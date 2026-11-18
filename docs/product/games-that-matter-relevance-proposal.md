@@ -1,6 +1,6 @@
 # Games That Matter: a relevance model for all 138 FBS teams
 
-**Status:** Proposed, for David's review (2026-11-18). This is a solution design only. No code, data contract or deployment is changed by it.
+**Status:** Direction approved by David (2026-11-18): decisions 1 to 4 and 6 in section 8. Label wording (decision 5) is open with ChatGPT. This is a solution design only. No code, data contract or deployment is changed by it; building Phase 1 is the next step.
 
 **Responds to:** the problem statement "Games That Matter: Relevance Across 138 FBS Teams" (2026-11-18).
 
@@ -343,12 +343,12 @@ These are filled in from the official format when it is published.
 
 ## 8. Decisions for David
 
-1. **A rival's games:** shown only with a stake, as proposed, or every week? *Recommendation: with a stake, plus the lead-in week.*
-2. **Next Opponent:** include it as a label? *Recommendation: yes, the next opponent only.*
-3. **Top 25 games:** a collapsed "All ranked games" row under the list until Around → College Football exists? *Recommendation: yes. Nothing fans use today disappears.*
-4. **Phase 2:** approve keeping FPI's projections (a data-contract change)?
-5. **Labels:** confirm the five label names with ChatGPT (copy is design's).
-6. ~~A team that beat us~~ **Decided (David, 2026-11-18):** a team that beat T is a Résumé stake, ranked or not, any week, while T is a Contender. Last week's opponent by recency alone is not.
+1. **A rival's games. Decided (David, 2026-11-18):** shown only with a stake, plus the lead-in week.
+2. **Next Opponent. Decided (David, 2026-11-18):** included as a label, for the next opponent only.
+3. **Top 25 games. Decided (David, 2026-11-18):** a collapsed "All ranked games" row under the list until Around → College Football exists. Nothing fans use today disappears.
+4. **Phase 2. Decided (David, 2026-11-18):** keep FPI's projections (the data-contract change is approved).
+5. **Labels. Open, with ChatGPT:** confirm the five label names and the sentence style (copy is design's).
+6. **A team that beat us. Decided (David, 2026-11-18):** a team that beat T is a Résumé stake, ranked or not, any week, while T is a Contender. Last week's opponent by recency alone is not.
 
 ## Sources (REPORTED items)
 
