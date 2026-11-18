@@ -5501,6 +5501,217 @@
       "firstPlace": 0
      }
     ]
+   },
+   {
+    "id": "w12",
+    "type": 2,
+    "week": 12,
+    "label": "Week 12",
+    "name": "Playoff Committee Rankings",
+    "date": "2026-11-17T08:00Z",
+    "updated": "2026-11-18T05:46Z",
+    "ranks": [
+     {
+      "rank": 1,
+      "previous": 1,
+      "id": "61",
+      "record": "9-1",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 2,
+      "previous": 2,
+      "id": "254",
+      "record": "10-0",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 3,
+      "previous": 3,
+      "id": "333",
+      "record": "8-2",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 4,
+      "previous": 4,
+      "id": "26",
+      "record": "10-0",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 5,
+      "previous": 6,
+      "id": "251",
+      "record": "8-2",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 6,
+      "previous": 5,
+      "id": "87",
+      "record": "9-1",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 7,
+      "previous": 7,
+      "id": "2390",
+      "record": "9-1",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 8,
+      "previous": 9,
+      "id": "84",
+      "record": "9-1",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 9,
+      "previous": 8,
+      "id": "2633",
+      "record": "8-2",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 10,
+      "previous": 10,
+      "id": "252",
+      "record": "8-2",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 11,
+      "previous": 13,
+      "id": "154",
+      "record": "9-1",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 12,
+      "previous": 12,
+      "id": "2641",
+      "record": "9-1",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 13,
+      "previous": 16,
+      "id": "2483",
+      "record": "7-3",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 14,
+      "previous": 20,
+      "id": "194",
+      "record": "7-3",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 15,
+      "previous": 15,
+      "id": "2294",
+      "record": "8-2",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 16,
+      "previous": 11,
+      "id": "96",
+      "record": "7-3",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 17,
+      "previous": 24,
+      "id": "68",
+      "record": "9-1",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 18,
+      "previous": 18,
+      "id": "30",
+      "record": "7-3",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 19,
+      "previous": 23,
+      "id": "12",
+      "record": "7-3",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 20,
+      "previous": 14,
+      "id": "248",
+      "record": "7-3",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 21,
+      "previous": 17,
+      "id": "2579",
+      "record": "6-4",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 22,
+      "previous": 0,
+      "id": "201",
+      "record": "6-4",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 23,
+      "previous": 0,
+      "id": "97",
+      "record": "7-3",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 24,
+      "previous": 0,
+      "id": "57",
+      "record": "6-4",
+      "points": 0.0,
+      "firstPlace": 0
+     },
+     {
+      "rank": 25,
+      "previous": 19,
+      "id": "145",
+      "record": "6-4",
+      "points": 0.0,
+      "firstPlace": 0
+     }
+    ]
    }
   ]
  },
