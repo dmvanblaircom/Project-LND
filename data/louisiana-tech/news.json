@@ -1,7 +1,16 @@
 {
  "team": "louisiana-tech",
- "updated": "2026-11-18T11:38:06.844958+00:00",
+ "updated": "2026-11-18T15:38:10.183832+00:00",
  "items": [
+  {
+   "title": "Know Before You Go | Arkansas State Gameday Guide",
+   "link": "https://latechsports.com/news/2026/11/18/football-know-before-you-go-arkansas-state-gameday-guide",
+   "source": "LA Tech Athletics",
+   "summary": "<img alt=\"KBYG | Arkansas State Release Hero\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/Game_6_KBYG_16x9.png\" /><br /><br />RUSTON |\u00a0One more Saturday at The Joe. One more opportunity to celebrate the people who make Louisiana Tech special.",
+   "image": "https://latechsports.com/images/2026/11/17/Game_6_KBYG_16x9.png?width=800",
+   "sourceLogo": "https://latechsports.com/favicon.ico",
+   "published": "2026-11-18T15:00:00+00:00"
+  },
   {
    "title": "Scouting Arkansas State QB Trey Owens",
    "link": "https://on3.com/sites/bleed-tech-blue/news/scouting-arkansas-state-qb-trey-owens/",
@@ -217,15 +226,6 @@
    "image": "https://latechsports.com/images/2026/11/9/250919_FTB_Southern_Miss_047.jpg?width=800",
    "sourceLogo": "https://latechsports.com/favicon.ico",
    "published": "2026-11-09T14:18:00+00:00"
-  },
-  {
-   "title": "Bulldogs Showcase Defensively, Down Troy To Remain Undefeated In Sun Belt Play",
-   "link": "https://latechsports.com/news/2026/11/7/football-bulldogs-showcase-defensively-down-troy-to-remain-undefeated-in-sun-belt-play",
-   "source": "LA Tech Athletics",
-   "summary": "<img alt=\"Alonzo Jackson Jr. at Troy\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/recap_image_Troy_FB.png\" /><br /><br />TROY, Ala. -- Louisiana Tech continued its unbeaten start to Sun Belt Conference play Saturday afternoon, forcing five turnovers and scoring 21 unanswered points in the second half to defeat Troy, 41-17, in the first-ever meeting between the two programs at Veterans Memorial Stadium.",
-   "image": "https://latechsports.com/images/2026/11/7/recap_image_Troy_FB.png?width=800",
-   "sourceLogo": "https://latechsports.com/favicon.ico",
-   "published": "2026-11-08T01:58:00+00:00"
   }
  ]
 }
