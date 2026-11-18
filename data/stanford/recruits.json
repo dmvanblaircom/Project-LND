@@ -212,7 +212,7 @@
    "state": "AZ",
    "grade": 74,
    "rank": null,
-   "positionRank": 90,
+   "positionRank": 89,
    "stateRank": 33,
    "status": "Verbal"
   },
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-12T21:15Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

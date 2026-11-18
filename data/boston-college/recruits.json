@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "103",
  "classYear": 2027,
- "listed": 28,
+ "listed": 27,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -243,19 +243,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272776",
-   "name": "Samajai Davis",
-   "position": "CB",
-   "highSchool": "Arlington High School",
-   "city": "Arlington",
-   "state": "TX",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 144,
-   "stateRank": 198,
-   "status": "Verbal"
-  },
-  {
    "id": "271721",
    "name": "Will Mettee",
    "position": "ILB",
@@ -355,7 +342,7 @@
    "state": "CT",
    "grade": 72,
    "rank": null,
-   "positionRank": 136,
+   "positionRank": 135,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -373,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:39Z"
+ "fetchedAt": "2026-11-18T00:09Z"
 }

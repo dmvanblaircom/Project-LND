@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "256",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -152,19 +152,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273104",
-   "name": "Dre'Keim Abercrombie",
-   "position": "OLB",
-   "highSchool": "East Liverpool High School",
-   "city": "East Liverpool",
-   "state": "OH",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 97,
-   "stateRank": 60,
-   "status": "Verbal"
-  },
-  {
    "id": "274476",
    "name": "Michael Gibbs",
    "position": "DT",
@@ -186,7 +173,7 @@
    "state": "NC",
    "grade": 74,
    "rank": null,
-   "positionRank": 104,
+   "positionRank": 103,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -316,10 +303,10 @@
    "state": "NJ",
    "grade": 71,
    "rank": null,
-   "positionRank": 153,
+   "positionRank": 152,
    "stateRank": 49,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:41Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

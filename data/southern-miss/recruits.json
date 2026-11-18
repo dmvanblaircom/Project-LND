@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2572",
  "classYear": 2027,
- "listed": 10,
+ "listed": 13,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -18,7 +18,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 66,
-   "stateRank": 18,
+   "stateRank": 19,
    "status": "Verbal"
   },
   {
@@ -69,7 +69,7 @@
    "state": "MS",
    "grade": 71,
    "rank": null,
-   "positionRank": 150,
+   "positionRank": 149,
    "stateRank": 49,
    "status": "Verbal"
   },
@@ -126,6 +126,45 @@
    "status": "Verbal"
   },
   {
+   "id": "274651",
+   "name": "Dawson Kennedy",
+   "position": "OT",
+   "highSchool": null,
+   "city": "Carriere",
+   "state": "MS",
+   "grade": 4,
+   "rank": 1,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "274822",
+   "name": "Jayden O'Hara",
+   "position": "OG",
+   "highSchool": null,
+   "city": "Pearl",
+   "state": "MS",
+   "grade": 4,
+   "rank": 1,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "274820",
+   "name": "Jaylon Ruffin",
+   "position": "QB-PP",
+   "highSchool": null,
+   "city": "Starkville",
+   "state": "MS",
+   "grade": 4,
+   "rank": 1,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "268416",
    "name": "Waymond Jenerette Jr.",
    "position": "WR",
@@ -139,5 +178,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:44Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

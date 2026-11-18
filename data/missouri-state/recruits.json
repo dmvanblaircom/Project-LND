@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2623",
  "classYear": 2027,
- "listed": 22,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "262328",
+   "name": "Aden Starling",
+   "position": "WR",
+   "highSchool": "Shadow Creek High School",
+   "city": "Pearland",
+   "state": "TX",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 165,
+   "stateRank": 152,
+   "status": "Verbal"
+  },
   {
    "id": "274465",
    "name": "Kambrien Blackmon",
@@ -295,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:40Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

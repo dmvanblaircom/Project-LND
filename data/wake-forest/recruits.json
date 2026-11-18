@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "154",
  "classYear": 2027,
- "listed": 34,
+ "listed": 33,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -100,19 +100,6 @@
    "status": "Verbal"
   },
   {
-   "id": "268548",
-   "name": "Keland Shelton Jr.",
-   "position": "S",
-   "highSchool": "Julius L. Chambers High School",
-   "city": "Charlotte",
-   "state": "NC",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 107,
-   "stateRank": 32,
-   "status": "Verbal"
-  },
-  {
    "id": "267362",
    "name": "Walter Maestre Jr.",
    "position": "WR",
@@ -147,7 +134,7 @@
    "state": "WI",
    "grade": 75,
    "rank": null,
-   "positionRank": 73,
+   "positionRank": 72,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -451,5 +438,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:46Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

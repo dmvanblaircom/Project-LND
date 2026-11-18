@@ -95,7 +95,7 @@
    "state": "FL",
    "grade": 72,
    "rank": null,
-   "positionRank": 142,
+   "positionRank": 141,
    "stateRank": 229,
    "status": "Verbal"
   },
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:41Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

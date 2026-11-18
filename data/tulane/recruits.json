@@ -9,6 +9,19 @@
  "committedElsewhere": 0,
  "recruits": [
   {
+   "id": "265163",
+   "name": "Caleb Unger",
+   "position": "OC",
+   "highSchool": "Madison-Ridgeland Academy",
+   "city": "Madison",
+   "state": "MS",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 2,
+   "stateRank": 15,
+   "status": "Verbal"
+  },
+  {
    "id": "272583",
    "name": "Anquan Jackson",
    "position": "ATH",
@@ -18,7 +31,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 51,
-   "stateRank": 21,
+   "stateRank": 22,
    "status": "Verbal"
   },
   {
@@ -58,19 +71,6 @@
    "rank": null,
    "positionRank": 93,
    "stateRank": 36,
-   "status": "Verbal"
-  },
-  {
-   "id": "265163",
-   "name": "Caleb Unger",
-   "position": "OG",
-   "highSchool": "Madison-Ridgeland Academy",
-   "city": "Madison",
-   "state": "MS",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 68,
-   "stateRank": 31,
    "status": "Verbal"
   },
   {
@@ -134,7 +134,7 @@
    "state": "AL",
    "grade": 75,
    "rank": null,
-   "positionRank": 77,
+   "positionRank": 76,
    "stateRank": 55,
    "status": "Verbal"
   },
@@ -264,7 +264,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 119,
+   "positionRank": 118,
    "stateRank": 235,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:41Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

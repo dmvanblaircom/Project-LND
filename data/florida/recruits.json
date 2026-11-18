@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "57",
  "classYear": 2027,
- "listed": 27,
+ "listed": 28,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -269,6 +269,19 @@
    "status": "Verbal"
   },
   {
+   "id": "261902",
+   "name": "Terrance Grant Jr.",
+   "position": "RB",
+   "highSchool": "DeMatha Catholic High School",
+   "city": "Hyattsville",
+   "state": "MD",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 36,
+   "stateRank": 9,
+   "status": "Verbal"
+  },
+  {
    "id": "272453",
    "name": "Zahmar Tookes",
    "position": "DE",
@@ -360,5 +373,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-13T17:40Z"
+ "fetchedAt": "2026-11-18T00:09Z"
 }

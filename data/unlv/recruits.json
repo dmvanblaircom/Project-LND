@@ -186,7 +186,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 124,
+   "positionRank": 123,
    "stateRank": 161,
    "status": "Verbal"
   },
@@ -303,7 +303,7 @@
    "state": "AZ",
    "grade": 73,
    "rank": null,
-   "positionRank": 127,
+   "positionRank": 126,
    "stateRank": 41,
    "status": "Verbal"
   },
@@ -316,7 +316,7 @@
    "state": "CA",
    "grade": 72,
    "rank": null,
-   "positionRank": 148,
+   "positionRank": 147,
    "stateRank": 184,
    "status": "Verbal"
   },
@@ -386,5 +386,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:45Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

@@ -212,7 +212,7 @@
    "state": "CA",
    "grade": 75,
    "rank": null,
-   "positionRank": 82,
+   "positionRank": 81,
    "stateRank": 110,
    "status": "Verbal"
   },
@@ -290,10 +290,10 @@
    "state": "AZ",
    "grade": 73,
    "rank": null,
-   "positionRank": 114,
+   "positionRank": 113,
    "stateRank": 39,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:45Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "120",
  "classYear": 2027,
- "listed": 21,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,19 +32,6 @@
    "rank": null,
    "positionRank": 27,
    "stateRank": 7,
-   "status": "Verbal"
-  },
-  {
-   "id": "261902",
-   "name": "Terrance Grant Jr.",
-   "position": "RB",
-   "highSchool": "DeMatha Catholic High School",
-   "city": "Hyattsville",
-   "state": "MD",
-   "grade": 79,
-   "rank": null,
-   "positionRank": 36,
-   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -243,19 +230,6 @@
    "status": "Verbal"
   },
   {
-   "id": "266579",
-   "name": "Mekhi Graham",
-   "position": "RB",
-   "highSchool": "Owen J. Roberts High School",
-   "city": "Pottstown",
-   "state": "PA",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 99,
-   "stateRank": 38,
-   "status": "Verbal"
-  },
-  {
    "id": "272775",
    "name": "Zeke Walkup",
    "position": "DE",
@@ -267,20 +241,7 @@
    "positionRank": 123,
    "stateRank": 42,
    "status": "Verbal"
-  },
-  {
-   "id": "274802",
-   "name": "Christopher Griffin",
-   "position": "S",
-   "highSchool": "St. Frances Academy",
-   "city": "Baltimore",
-   "state": "MD",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:40Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "326",
  "classYear": 2027,
- "listed": 18,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -74,19 +74,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273140",
-   "name": "Ellison Collins IV",
-   "position": "CB",
-   "highSchool": "George Ranch High School",
-   "city": "Richmond",
-   "state": "TX",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 133,
-   "stateRank": 178,
-   "status": "Verbal"
-  },
-  {
    "id": "271577",
    "name": "Liam Madkins",
    "position": "WR",
@@ -147,7 +134,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 128,
+   "positionRank": 127,
    "stateRank": 253,
    "status": "Verbal"
   },
@@ -173,7 +160,7 @@
    "state": "LA",
    "grade": 72,
    "rank": null,
-   "positionRank": 135,
+   "positionRank": 134,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -243,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-12T21:15Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

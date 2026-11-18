@@ -121,7 +121,7 @@
    "state": "WV",
    "grade": 73,
    "rank": null,
-   "positionRank": 117,
+   "positionRank": 116,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:41Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

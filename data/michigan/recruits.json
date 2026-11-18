@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "130",
  "classYear": 2027,
- "listed": 21,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -256,6 +256,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272224",
+   "name": "Conner Rutherford",
+   "position": "OT",
+   "highSchool": "Chillicothe High School",
+   "city": "Chillicothe",
+   "state": "OH",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 112,
+   "stateRank": 49,
+   "status": "Verbal"
+  },
+  {
    "id": "271821",
    "name": "Braden Chaffin",
    "position": "OG",
@@ -264,7 +277,7 @@
    "state": "MI",
    "grade": 74,
    "rank": null,
-   "positionRank": 101,
+   "positionRank": 100,
    "stateRank": 21,
    "status": "Verbal"
   },
@@ -282,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-15T10:42Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

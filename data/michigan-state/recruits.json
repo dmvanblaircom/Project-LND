@@ -173,7 +173,7 @@
    "state": "MI",
    "grade": 73,
    "rank": null,
-   "positionRank": 110,
+   "positionRank": 109,
    "stateRank": 23,
    "status": "Verbal"
   },
@@ -204,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:42Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2636",
  "classYear": 2027,
- "listed": 18,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -58,19 +58,6 @@
    "rank": null,
    "positionRank": 130,
    "stateRank": 171,
-   "status": "Verbal"
-  },
-  {
-   "id": "273114",
-   "name": "Kaegan Morton",
-   "position": "WR",
-   "highSchool": "Barbers Hill High",
-   "city": "Mont Belvieu",
-   "state": "TX",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 191,
-   "stateRank": 185,
    "status": "Verbal"
   },
   {
@@ -147,7 +134,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 126,
+   "positionRank": 125,
    "stateRank": 244,
    "status": "Verbal"
   },
@@ -243,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:41Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

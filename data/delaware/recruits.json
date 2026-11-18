@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "48",
  "classYear": 2027,
- "listed": 17,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -87,19 +87,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271231",
-   "name": "Chase Hyacinth",
-   "position": "OLB",
-   "highSchool": "Eagle Academy",
-   "city": "Brooklyn",
-   "state": "NY",
-   "grade": 73,
-   "rank": null,
-   "positionRank": 118,
-   "stateRank": 14,
-   "status": "Verbal"
-  },
-  {
    "id": "272708",
    "name": "Cooper Hodson",
    "position": "OG",
@@ -108,7 +95,7 @@
    "state": "NC",
    "grade": 73,
    "rank": null,
-   "positionRank": 125,
+   "positionRank": 124,
    "stateRank": 51,
    "status": "Verbal"
   },
@@ -230,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:40Z"
+ "fetchedAt": "2026-11-18T00:09Z"
 }

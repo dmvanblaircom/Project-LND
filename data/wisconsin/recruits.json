@@ -212,7 +212,7 @@
    "state": "WI",
    "grade": 77,
    "rank": null,
-   "positionRank": 5,
+   "positionRank": 6,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:46Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

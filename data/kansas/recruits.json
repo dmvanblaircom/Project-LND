@@ -199,7 +199,7 @@
    "state": "IN",
    "grade": 73,
    "rank": null,
-   "positionRank": 109,
+   "positionRank": 108,
    "stateRank": 26,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:41Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

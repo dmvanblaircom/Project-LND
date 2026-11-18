@@ -277,7 +277,7 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 8,
+   "positionRank": 9,
    "stateRank": 146,
    "status": "Verbal"
   },
@@ -316,10 +316,10 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 116,
+   "positionRank": 115,
    "stateRank": 185,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:43Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

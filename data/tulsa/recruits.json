@@ -108,7 +108,7 @@
    "state": "MO",
    "grade": 72,
    "rank": null,
-   "positionRank": 137,
+   "positionRank": 136,
    "stateRank": 22,
    "status": "Verbal"
   },
@@ -204,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:41Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

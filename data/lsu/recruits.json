@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "99",
  "classYear": 2027,
- "listed": 17,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -217,6 +217,19 @@
    "status": "Verbal"
   },
   {
+   "id": "268548",
+   "name": "Keland Shelton Jr.",
+   "position": "S",
+   "highSchool": "Julius L. Chambers High School",
+   "city": "Charlotte",
+   "state": "NC",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 107,
+   "stateRank": 32,
+   "status": "Verbal"
+  },
+  {
    "id": "273211",
    "name": "Devin Lavalais",
    "position": "S",
@@ -230,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:40Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

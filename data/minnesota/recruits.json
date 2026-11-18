@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "135",
  "classYear": 2027,
- "listed": 30,
+ "listed": 28,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -139,19 +139,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271335",
-   "name": "Greg Hargrow",
-   "position": "RB",
-   "highSchool": "Rosa Fort High School",
-   "city": "Tunica",
-   "state": "MS",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 63,
-   "stateRank": 19,
-   "status": "Verbal"
-  },
-  {
    "id": "271448",
    "name": "Jett Feeney",
    "position": "QB-PP",
@@ -265,7 +252,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 100,
-   "stateRank": 27,
+   "stateRank": 28,
    "status": "Verbal"
   },
   {
@@ -384,20 +371,7 @@
    "positionRank": 95,
    "stateRank": 11,
    "status": "Verbal"
-  },
-  {
-   "id": "262477",
-   "name": "Furian Infererra",
-   "position": "QB-PP",
-   "highSchool": "Mater Dei High School",
-   "city": "Santa Ana",
-   "state": "CA",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 69,
-   "stateRank": 130,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:42Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

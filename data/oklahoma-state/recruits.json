@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "197",
  "classYear": 2027,
- "listed": 18,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -165,19 +165,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273709",
-   "name": "Jayden Vessell",
-   "position": "DE",
-   "highSchool": "Catholic High School",
-   "city": "Baton Rouge",
-   "state": "LA",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 137,
-   "stateRank": 41,
-   "status": "Verbal"
-  },
-  {
    "id": "271513",
    "name": "Talan Scott",
    "position": "TE-H",
@@ -243,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-15T10:43Z"
+ "fetchedAt": "2026-11-18T00:10Z"
 }

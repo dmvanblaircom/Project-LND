@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "151",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -178,6 +178,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271231",
+   "name": "Chase Hyacinth",
+   "position": "OLB",
+   "highSchool": "Eagle Academy",
+   "city": "Brooklyn",
+   "state": "NY",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 118,
+   "stateRank": 14,
+   "status": "Verbal"
+  },
+  {
    "id": "273035",
    "name": "Ja'Quez Johnson",
    "position": "CB",
@@ -212,7 +225,7 @@
    "state": "NC",
    "grade": 72,
    "rank": null,
-   "positionRank": 141,
+   "positionRank": 140,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -225,7 +238,7 @@
    "state": "TN",
    "grade": 72,
    "rank": null,
-   "positionRank": 140,
+   "positionRank": 139,
    "stateRank": 71,
    "status": "Verbal"
   },
@@ -308,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:39Z"
+ "fetchedAt": "2026-11-18T00:09Z"
 }

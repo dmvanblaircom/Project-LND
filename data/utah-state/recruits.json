@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "328",
  "classYear": 2027,
- "listed": 6,
+ "listed": 7,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -74,6 +74,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274821",
+   "name": "Mason Bush",
+   "position": "OG",
+   "highSchool": "Davis High School",
+   "city": "Kaysville",
+   "state": "UT",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273142",
    "name": "Samuel Coleman",
    "position": "WR",
@@ -87,5 +100,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-09T16:40Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }

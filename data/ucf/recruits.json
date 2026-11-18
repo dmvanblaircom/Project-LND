@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2116",
  "classYear": 2027,
- "listed": 14,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -95,7 +95,7 @@
    "state": "FL",
    "grade": 75,
    "rank": null,
-   "positionRank": 85,
+   "positionRank": 84,
    "stateRank": 137,
    "status": "Verbal"
   },
@@ -110,6 +110,19 @@
    "rank": null,
    "positionRank": 59,
    "stateRank": 160,
+   "status": "Verbal"
+  },
+  {
+   "id": "273104",
+   "name": "Dre'Keim Abercrombie",
+   "position": "OLB",
+   "highSchool": "East Liverpool High School",
+   "city": "East Liverpool",
+   "state": "OH",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 97,
+   "stateRank": 60,
    "status": "Verbal"
   },
   {
@@ -191,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:45Z"
+ "fetchedAt": "2026-11-18T00:11Z"
 }
