@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-18T21:38:08.211326+00:00",
+ "updated": "2026-11-19T07:08:09.253216+00:00",
  "items": [
+  {
+   "title": "The Memphis Preview",
+   "link": "https://on3.com/sites/the-mid-report/news/the-memphis-preview-2/",
+   "source": "The Mid Report",
+   "summary": "Senior Day in Annapolis",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/18204004/2026-10-23T023300Z_155670914_MT1USATODAY30158909_RTRMADP_3_NCAA-FOOTBALL-EAST-CAROLINA-AT-MEMPHIS.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-19T06:56:09+00:00"
+  },
   {
    "title": "Anchors Aweigh Podcast - Memphis Preview, Rifle",
    "link": "https://on3.com/sites/the-mid-report/news/anchors-aweigh-podcast-memphis-preview-rifle/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28165208/Untitled-Design-145.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-29T23:53:21+00:00"
-  },
-  {
-   "title": "The North Texas Debrief",
-   "link": "https://on3.com/sites/the-mid-report/news/the-north-texas-debrief-2/",
-   "source": "The Mid Report",
-   "summary": "The Mids can crank out the yards, but that's not what wins football games.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25121219/DSC_0091.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-28T22:41:30+00:00"
   }
  ]
 }
