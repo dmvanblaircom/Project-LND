@@ -7,12 +7,12 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T22:08:53.106236+00:00",
+ "fetchedAt": "2026-11-19T01:38:46.495311+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Kentucky",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Vanderbilt",
  "players": [
   {
    "pos": "WR",
@@ -25,21 +25,28 @@
    "pos": "S",
    "no": "1",
    "name": "Bryce Thornton",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "JCK",
-   "no": "22",
-   "name": "Kofi Asare",
-   "status": "gtd",
+   "pos": "WR",
+   "no": "3",
+   "name": "Bailey Stockton",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "17",
+   "name": "Lacota Dippre",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "CB",
    "no": "27",
    "name": "Dijon Johnson",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -50,9 +57,16 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "85",
-   "name": "Evan Chieca",
+   "pos": "S",
+   "no": "33",
+   "name": "DJ Coleman",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "66",
+   "name": "Emeka Ugorji",
    "status": "out-game",
    "detail": ""
   }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "lsu",
- "updated": "2026-11-14T23:08:55.967434+00:00",
+ "updated": "2026-11-19T01:38:49.649342+00:00",
  "reports": [
   {
    "schema": 1,
@@ -368,6 +368,88 @@
      "pos": "DT",
      "no": "88",
      "name": "Richard Anderson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "lsu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:38:49.649342+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Tennessee",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Jackson Harris",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Winston Watkins Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "7",
+     "name": "Whit Weeks",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "10",
+     "name": "Dashawn Spears",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Phillip Wright III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "26",
+     "name": "Charles Ross II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "28",
+     "name": "Jhase Thomas",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "88",
+     "name": "Richard Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "91",
+     "name": "Trenton Henderson",
      "status": "out-game",
      "detail": ""
     }

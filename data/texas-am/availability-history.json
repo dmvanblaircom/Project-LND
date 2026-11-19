@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-am",
- "updated": "2026-11-14T18:39:07.032620+00:00",
+ "updated": "2026-11-19T01:38:55.063175+00:00",
  "reports": [
   {
    "schema": 1,
@@ -305,6 +305,74 @@
      "pos": "OL",
      "no": "76",
      "name": "Trovon Baugh",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "texas-am",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:38:55.063175+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Oklahoma",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Terry Bussey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "Ashton Bethel-Roman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Kelshaun Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "TK Norman",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "52",
+     "name": "Blake Ivy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "76",
+     "name": "Trovon Baugh",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "99",
+     "name": "Landon Rink",
      "status": "out-game",
      "detail": ""
     }

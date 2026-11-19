@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kentucky",
- "updated": "2026-11-14T22:08:54.997515+00:00",
+ "updated": "2026-11-19T01:38:49.166826+00:00",
  "reports": [
   {
    "schema": 1,
@@ -471,6 +471,67 @@
      "pos": "DB",
      "no": "30",
      "name": "Grant Grayton",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "kentucky",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:38:49.166826+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Missouri",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Nic Anderson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "4",
+     "name": "Antwan Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "9",
+     "name": "Alex Afari Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "24",
+     "name": "Jaden Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "30",
+     "name": "Grant Grayton",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "31",
+     "name": "Quintavion Norman",
      "status": "out-game",
      "detail": ""
     }

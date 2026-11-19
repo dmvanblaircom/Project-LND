@@ -1,7 +1,16 @@
 {
  "team": "minnesota",
- "updated": "2026-11-19T01:08:05.557430+00:00",
+ "updated": "2026-11-19T01:38:11.934196+00:00",
  "items": [
+  {
+   "title": "Johnson Named Outland Trophy Semifinalist",
+   "link": "https://gophersports.com/news/2026/11/18/football-johnson-named-outland-trophy-semifinalist",
+   "source": "Minnesota Athletics",
+   "summary": "<img alt=\"Greg Johnson is an offensive lineman for Minnesota\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/15/Johnson_Greg_10756.jpg\" /><br /><br />Minnesota has had three individuals win the Outland Trophy",
+   "image": "https://gophersports.com/images/2026/10/15/Johnson_Greg_10756.jpg?width=800",
+   "sourceLogo": "https://gophersports.com/favicon.ico",
+   "published": "2026-11-19T01:00:00+00:00"
+  },
   {
    "title": "Game 11 Preview: Minnesota vs. Northwestern",
    "link": "https://gophersports.com/news/2026/11/18/football-game-11-preview-minnesota-vs-northwestern",
@@ -111,15 +120,6 @@
    "published": "2026-11-14T18:00:00+00:00"
   },
   {
-   "title": "OPEN THREAD: Gophers at Penn State for the Governor\u2019s Bell",
-   "link": "https://www.thedailygopher.com/minnesota-golden-gophers-football/41698/open-thread-gophers-at-penn-state-for-the-governors-bell",
-   "source": "The Daily Gopher",
-   "summary": "Can we go three-for-three in rivalry games?",
-   "image": "https://platform.thedailygopher.com/wp-content/uploads/sites/159/2026/11/gettyimages-1435730713.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-14T17:58:09+00:00"
-  },
-  {
    "title": "Tracy a Finalist for Jet Award",
    "link": "https://gophersports.com/news/2026/11/12/football-tracy-a-finalist-for-jet-award",
    "source": "Minnesota Athletics",
@@ -145,15 +145,6 @@
    "image": "https://gophersports.com/images/2026/11/9/Fleck_PJ_049.jpg?width=800",
    "sourceLogo": "https://gophersports.com/favicon.ico",
    "published": "2026-11-09T16:38:00+00:00"
-  },
-  {
-   "title": "#5 UCLA Pulls Away Late for 34-20 Win Against Minnesota",
-   "link": "https://gophersports.com/news/2026/11/7/football-5-ucla-pulls-away-late-for-34-20-win-against-minnesota",
-   "source": "Minnesota Athletics",
-   "summary": "<img alt=\"George Rohl, TD, UCLA\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/rohl-ucla-110726.JPG\" /><br /><br />A pair of long touchdown passes in the fourth quarter lifted No. 5 UCLA to a 34-20 win against the Golden Gophers on Saturday afternoon.",
-   "image": "https://gophersports.com/images/2026/11/7/rohl-ucla-110726.JPG?width=800",
-   "sourceLogo": "https://gophersports.com/favicon.ico",
-   "published": "2026-11-07T21:10:00+00:00"
   }
  ]
 }

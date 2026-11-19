@@ -1,7 +1,16 @@
 {
  "team": "arkansas",
- "updated": "2026-11-18T23:08:01.165166+00:00",
+ "updated": "2026-11-19T01:38:01.703029+00:00",
  "items": [
+  {
+   "title": "Arkansas Football Availability Report: Texas week (Wednesday)",
+   "link": "https://on3.com/sites/hawg-beat/news/arkansas-football-availability-report-texas-week-wednesday/",
+   "source": "HawgBeat",
+   "summary": "The first SEC Availability Report for Arkansas versus Texas was released on Wednesday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/18172834/SILV-WED-REP.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-19T01:12:19+00:00"
+  },
   {
    "title": "Arkansas JUCO commit flips to Big 12 school",
    "link": "https://on3.com/sites/hawg-beat/news/arkansas-juco-commit-flips-to-big-12-school/",
@@ -235,15 +244,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1800,h_1012,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/all_hogs/01m7g4shkh2wsahns3se.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-16T13:15:15+00:00"
-  },
-  {
-   "title": "PHOTO GALLERY: Arkansas' rout of No. 17 South Carolina",
-   "link": "https://on3.com/sites/hawg-beat/news/photo-gallery-arkansas-rout-of-no-17-south-carolina/",
-   "source": "HawgBeat",
-   "summary": "Photos from Arkansas' 34-6 win over South Carolina, courtesy of Parker Hyatt Productions.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/15150039/HOG.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-15T21:11:05+00:00"
   }
  ]
 }

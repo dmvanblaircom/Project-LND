@@ -7,20 +7,13 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T18:39:07.032620+00:00",
+ "fetchedAt": "2026-11-19T01:38:55.063175+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Tennessee",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Oklahoma",
  "players": [
-  {
-   "pos": "WR",
-   "no": "1",
-   "name": "Mario Craver",
-   "status": "gtd",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "6",
@@ -43,6 +36,13 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "18",
+   "name": "TK Norman",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "52",
    "name": "Blake Ivy",
@@ -53,6 +53,13 @@
    "pos": "OL",
    "no": "76",
    "name": "Trovon Baugh",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "99",
+   "name": "Landon Rink",
    "status": "out-game",
    "detail": ""
   }

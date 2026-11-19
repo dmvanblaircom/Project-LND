@@ -7,17 +7,24 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T18:39:06.782845+00:00",
+ "fetchedAt": "2026-11-19T01:38:54.803401+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Texas A&M",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "LSU",
  "players": [
   {
    "pos": "TE",
    "no": "0",
    "name": "Ethan Davis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "4",
+   "name": "Mike Matthews",
    "status": "out-game",
    "detail": ""
   },
@@ -60,13 +67,6 @@
    "pos": "DB",
    "no": "24",
    "name": "Dylan Lewis",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "26",
-   "name": "JJ Finch",
    "status": "out-game",
    "detail": ""
   },

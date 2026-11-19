@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "missouri",
- "updated": "2026-11-14T19:08:58.291097+00:00",
+ "updated": "2026-11-19T01:38:50.995128+00:00",
  "reports": [
   {
    "schema": 1,
@@ -362,6 +362,60 @@
      "no": "11",
      "name": "Langden Kitchen",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Malae Fonoti",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "54",
+     "name": "Josh Atkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "Gavin Hoffman",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "missouri",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:38:50.995128+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Kentucky",
+   "players": [
+    {
+     "pos": "EDG",
+     "no": "11",
+     "name": "Langden Kitchen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "21",
+     "name": "Jahlil Florence",
+     "status": "questionable",
      "detail": ""
     },
     {

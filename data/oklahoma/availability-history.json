@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-11-15T16:38:44.635706+00:00",
+ "updated": "2026-11-19T01:38:52.119305+00:00",
  "reports": [
   {
    "schema": 1,
@@ -696,6 +696,109 @@
      "no": "94",
      "name": "Kenny Ozowalu",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "oklahoma",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:38:52.119305+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Texas A&M",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Manny Choice",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "6",
+     "name": "Tory Blaylock",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "7",
+     "name": "Taylor Heim",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "9",
+     "name": "Dakoda Fields",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Trell Harris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "16",
+     "name": "Danny Okoye",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "22",
+     "name": "Trynae Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "57",
+     "name": "Gunnar Allen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Ryan Fodje",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "Fred Hinton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "89",
+     "name": "Hayden Hansen",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "Kenny Ozowalu",
+     "status": "questionable",
      "detail": ""
     }
    ],

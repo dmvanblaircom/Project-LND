@@ -7,13 +7,20 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T16:38:49.648031+00:00",
+ "fetchedAt": "2026-11-19T01:38:56.822616+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Alabama",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Florida",
  "players": [
+  {
+   "pos": "CB",
+   "no": "0",
+   "name": "Cobey Sellers",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "QB",
    "no": "1",
@@ -40,6 +47,13 @@
    "no": "23",
    "name": "Evan Hampton",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "29",
+   "name": "Miles Capers",
+   "status": "probable",
    "detail": ""
   },
   {

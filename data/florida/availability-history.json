@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida",
- "updated": "2026-11-14T22:08:53.106236+00:00",
+ "updated": "2026-11-19T01:38:46.495311+00:00",
  "reports": [
   {
    "schema": 1,
@@ -317,6 +317,81 @@
      "pos": "TE",
      "no": "85",
      "name": "Evan Chieca",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "florida",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:38:46.495311+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Vanderbilt",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Vernell Brown III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "1",
+     "name": "Bryce Thornton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "3",
+     "name": "Bailey Stockton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "17",
+     "name": "Lacota Dippre",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "27",
+     "name": "Dijon Johnson",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "29",
+     "name": "Jaden Robinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "33",
+     "name": "DJ Coleman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "66",
+     "name": "Emeka Ugorji",
      "status": "out-game",
      "detail": ""
     }

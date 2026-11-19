@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-southern",
- "updated": "2026-11-14T15:39:03.268960+00:00",
+ "updated": "2026-11-19T01:38:47.100944+00:00",
  "reports": [
   {
    "schema": 1,
@@ -216,6 +216,109 @@
      "no": "",
      "name": "Aidan Mccowan",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jaquari Brown",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Fabo Chaney",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "RJ Myles",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Ashton Hollins",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Terrance Gibbs",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "King Phillips",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "georgia-southern",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:38:47.100944+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-19",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "at Troy",
+   "players": [
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Jacob Hammonds",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Kru Casey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Colin Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Taylor Bradshaw",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Carlo Thompson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Caleb Ellis",
+     "status": "out-game",
      "detail": ""
     },
     {

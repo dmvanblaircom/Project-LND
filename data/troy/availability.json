@@ -7,32 +7,39 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:11.706918+00:00",
+ "fetchedAt": "2026-11-19T01:38:55.514007+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at South Alabama",
+ "effectiveAt": "2026-11-19",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "vs. Georgia Southern",
  "players": [
   {
    "pos": "DB",
    "no": "",
-   "name": "Shemar Welch",
-   "status": "out-game",
+   "name": "Jon Bocchino",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Tyler Cappi",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "",
    "name": "Jaheim Merriweather",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "WR",
    "no": "",
-   "name": "Jon Bocchino",
-   "status": "out-game",
+   "name": "Kristian Tate",
+   "status": "out-season",
    "detail": ""
   },
   {

@@ -7,18 +7,32 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T23:09:00.270609+00:00",
+ "fetchedAt": "2026-11-19T01:38:54.933140+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at LSU",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Arkansas",
  "players": [
+  {
+   "pos": "EDG",
+   "no": "1",
+   "name": "Colin Simmons",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "RB",
    "no": "2",
    "name": "Hollywood Smothers",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "24",
+   "name": "Warren Roberson",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -32,6 +46,13 @@
    "pos": "TE",
    "no": "81",
    "name": "Nick Townsend",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "93",
+   "name": "Hero Kanu",
    "status": "out-game",
    "detail": ""
   },

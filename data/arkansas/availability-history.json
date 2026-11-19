@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arkansas",
- "updated": "2026-11-14T23:38:40.632422+00:00",
+ "updated": "2026-11-19T01:38:42.082321+00:00",
  "reports": [
   {
    "schema": 1,
@@ -299,6 +299,67 @@
      "no": "47",
      "name": "Maddox Lassiter",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "arkansas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:38:42.082321+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Texas",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "3",
+     "name": "Braydon Lee",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "34",
+     "name": "Brylan Green",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "47",
+     "name": "Maddox Lassiter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "64",
+     "name": "Bryant Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "89",
+     "name": "Gavin Garretson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "97",
+     "name": "Quincy Rhodes Jr.",
+     "status": "probable",
      "detail": ""
     }
    ],

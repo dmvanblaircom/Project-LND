@@ -7,18 +7,25 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T19:08:58.291097+00:00",
+ "fetchedAt": "2026-11-19T01:38:50.995128+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Georgia",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Kentucky",
  "players": [
   {
    "pos": "EDG",
    "no": "11",
    "name": "Langden Kitchen",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "21",
+   "name": "Jahlil Florence",
+   "status": "questionable",
    "detail": ""
   },
   {
