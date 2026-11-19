@@ -1,6 +1,6 @@
 {
  "team": "california",
- "updated": "2026-11-19T17:07:54.184532+00:00",
+ "updated": "2026-11-19T18:37:51.247380+00:00",
  "items": [
   {
    "title": "This Week in the ACC: Now Wake Forest Has To Hold Onto Its No. 11 Ranking",
@@ -19,6 +19,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/18214119/Fake-Axe.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-19T15:00:00+00:00"
+  },
+  {
+   "title": "Smith Named 2026 Recipient Of Glenn Seaborg Award",
+   "link": "https://calbears.com/news/2026/11/18/football-smith-named-2026-recipient-of-glenn-seaborg-award",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Dr. Michael A. Smith\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/18/IMG_1947.jpeg\" /><br /><br />Former Cal Receiver Went On To Become Nationally Recognized Surgeon And Healthcare Leader",
+   "image": "https://calbears.com/images/2026/11/18/IMG_1947.jpeg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-19T07:55:00+00:00"
   },
   {
    "title": "Cal-Stanford Injury Report: Several Key Bears Players Questionable",
@@ -325,15 +334,6 @@
    "image": "https://calbears.com/images/2026/11/11/Richter-Les.jpg?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-11-11T22:28:00+00:00"
-  },
-  {
-   "title": "Cal Set For Final Road Contest At Virginia",
-   "link": "https://calbears.com/news/2026/11/10/football-cal-set-for-final-road-contest-at-virginia",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Cal FB vs. Virginia (11.14.2026) Web Preview Graphic\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/GAMEWEEK_WEBvirginia.jpg\" /><br /><br />Bears, Cavaliers Ready For First-Ever Matchup In Charlottesville, Va.",
-   "image": "https://calbears.com/images/2026/11/10/GAMEWEEK_WEBvirginia.jpg?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-11-10T22:00:00+00:00"
   }
  ]
 }
