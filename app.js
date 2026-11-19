@@ -699,7 +699,7 @@ function loadStandings(){
     var d=r && r.data;
     AROUND.standings=(d && d.source==="standings" && Array.isArray(d.conferences) ? d.conferences : []).map(function(c){
       return { name:c.name, teams:(c.teams||[]).map(function(t){
-        return { providerId:String(t.espnId), wins:(t.conf||{}).wins||0, losses:(t.conf||{}).losses||0 }; }) };
+        return { providerId:String(t.espnId), wins:(t.conf||{}).wins||0, losses:(t.conf||{}).losses||0, division:t.division||null }; }) };
     });
   }).catch(function(){ AROUND.standings=[]; }).then(function(){ AROUND.standingsP=null; paintTop25(); });
 }

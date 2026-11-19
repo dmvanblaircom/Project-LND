@@ -10,10 +10,15 @@ FBS are one read of about 2.6 MB (probed 2026-11-13 and 2026-11-19); the
 snapshot keeps only what the race needs, per conference:
 
   name           the conference as ESPN names it ("Big 12 Conference")
-  teams          [{ espnId, name, conf: { wins, losses }, overall }]
+  teams          [{ espnId, name, conf: { wins, losses }, overall,
+                    division? }]
                  sorted by conference losses, then wins - ESPN's own list
                  order is not a ranking (audit, 2026-11-13: its order and
                  its summary disagreed)
+                 A conference split into divisions (the Sun Belt in 2026)
+                 comes from ESPN one level deeper, each division a child
+                 group with its own entries; its teams carry the division's
+                 name, since each division has its own race to the title game.
 
 The independents are left out: they have no race. Nothing here claims a
 clinch, an elimination or a tiebreak; the page reads only the records.
@@ -58,6 +63,18 @@ def _stat(entry, kind):
     return None
 
 
+def _entries(group):
+    """(entry, division) for every team in a conference: its own entries,
+    then each division's (a conference split in two nests them one level
+    deeper; division is None when it is not split)."""
+    for e in ((group.get("standings") or {}).get("entries")) or []:
+        yield e, None
+    for child in group.get("children") or []:
+        name = (child or {}).get("name") or (child or {}).get("abbreviation") or "division"
+        for e in (((child or {}).get("standings") or {}).get("entries")) or []:
+            yield e, name
+
+
 def normalize(payload, season=None):
     if not isinstance(payload, dict) or not isinstance(payload.get("children"), list):
         raise Refused("no conference list")
@@ -69,9 +86,8 @@ def normalize(payload, season=None):
         name = (group or {}).get("name") or ""
         if re.search(r"independent", name, re.I):
             continue
-        entries = ((group.get("standings") or {}).get("entries")) or []
         teams = []
-        for e in entries:
+        for e, division in _entries(group):
             team = e.get("team") or {}
             tid = str(team.get("id") or "")
             conf = _record(_stat(e, "vsconf"))
@@ -80,8 +96,11 @@ def normalize(payload, season=None):
             if tid in seen:
                 raise Refused("team %s listed twice" % tid)
             seen.add(tid)
-            teams.append({"espnId": tid, "name": team.get("shortDisplayName") or team.get("location") or team.get("displayName"),
-                          "conf": conf, "overall": _stat(e, "total")})
+            row = {"espnId": tid, "name": team.get("shortDisplayName") or team.get("location") or team.get("displayName"),
+                   "conf": conf, "overall": _stat(e, "total")}
+            if division:
+                row["division"] = division
+            teams.append(row)
         if not teams:
             raise Refused("%s has no teams" % name)
         teams.sort(key=lambda t: (t["conf"]["losses"], -t["conf"]["wins"], t["name"] or ""))
