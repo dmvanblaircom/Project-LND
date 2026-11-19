@@ -7,7 +7,7 @@
    fails, and never passes CFBD's raw payload or errors through.
 
    Usage: node tools/workercheck.mjs      (exit 1 on any failure) */
-import worker, { cfbdCache, fbsRanks, RANKED, pickSeason, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, CFBD_FIELDS, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts, Ratings, spClock } from "../worker/src/index.js";
+import worker, { cfbdCache, pickSp, schoolIds, wholeSp, SP_TOP, VERSION, startRefresh, CLOCK, probeEspn, PROBE , ALERTS_CRON, Alerts, Ratings, spClock } from "../worker/src/index.js";
 import { migrateSp, keepSp, spWeeks, spWeek, spIdOf, spDue, weekOf, SP_DUE, SP_KEEP_MAX, keptOp, KEPT_MAX } from "../worker/src/sp.js";
 import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIMITS, migrate, vapidKey, b64u, unb64u, APP_URL, report, validOptions, scoreStep, DEFAULTS,
          words, playText, tryOf, scoringPlays, network, pickGame, kickoffs, timeChanges, claimKey, cfpShow, cfpRelease,
@@ -15,7 +15,6 @@ import { validSubscription, validTeam, subscribe, unsubscribe, tick, minute, LIM
 import { RANKINGS_SHOWS, SELECTION_DAYS } from "../worker/src/calendar.js";
 import { DatabaseSync } from "node:sqlite";
 import { readFileSync } from "node:fs";
-import { SCHOOLS } from "../worker/src/schools.js";
 
 let failures = 0;
 function ok(cond, what) { console.log("  " + (cond ? "ok  " : "FAIL") + " " + what); if (!cond) failures++; }
@@ -33,14 +32,13 @@ const ROWS = [
   { season: 2025, team: "Notre Dame", conference: "FBS Independents", statName: "rushingYards", statValue: 3000 },
   { season: 2026, team: "Notre Dame", conference: "FBS Independents", statName: "netPassingYards", statValue: "n/a" }
 ];
-const FIELDS = ["rushingYards", "games", "netPassingYards", "turnovers"];
 const SITE = "https://dmvanblaircom.github.io";
 
 function env(opts) {
   opts = opts || {};
   const calls = [];
   // the season is judged against this date, so the checks do not age
-  return { calls, NOW: () => Date.parse("2026-10-02T12:00:00Z"), CACHE: opts.cache || memoryCache(), FIELDS, CFBD_API_KEY: "key" in opts ? opts.key : "test-key",
+  return { calls, NOW: () => Date.parse("2026-10-02T12:00:00Z"), CACHE: opts.cache || memoryCache(), CFBD_API_KEY: "key" in opts ? opts.key : "test-key",
     FETCH: async (url, init) => { calls.push({ url, init });
       if (opts.down) throw new Error("network");
       if (opts.status) return new Response("upstream says no: " + "x".repeat(50), { status: opts.status });
@@ -50,10 +48,6 @@ async function get(path, e, origin) {
   const r = await worker.fetch(new Request("https://suite-api.example" + path, { headers: origin ? { origin } : {} }), e, null);
   return { r, body: r.status === 204 ? null : await r.json() };
 }
-
-console.log("what may leave CFBD");
-ok(JSON.stringify(CFBD_FIELDS) === JSON.stringify(["games", "rushingYardsOpponent", "netPassingYardsOpponent", "turnovers", "turnoversOpponent"]),
-   "exactly the fields the screens need - W15's yards allowed and the turnover margin (2026-10-27), each read from a real CFBD response; widening it is a deliberate change");
 
 console.log("health");
 { const { r, body } = await get("/v1/health", env());
@@ -97,71 +91,14 @@ console.log("the ESPN probe (W19 Phase 0)");
   ok(route.status === 200 && rb.source === "probe" && rb.events === 2 && route.headers.get("cache-control") === "no-store",
      "the route answers with the probe, never cached"); }
 
-console.log("only what a screen shows");
-{ const s = pickSeason(ROWS, "notre dame", 2026, FIELDS);
-  ok(JSON.stringify(s) === JSON.stringify({ rushingYards: 1100, games: 4 }), "this team, this season, allowed fields only = " + JSON.stringify(s));
-  ok(!("secretSauce" in s), "a field not on the list is dropped");
-  ok(!("netPassingYards" in s) && !("turnovers" in s), "a non-number or absent field stays absent - never 0");
-  ok(JSON.stringify(pickSeason(ROWS, "Notre Dame", 2026, [])) === "{}", "with no fields approved yet, nothing at all");
-  ok(JSON.stringify(pickSeason({ error: "x" }, "Notre Dame", 2026, FIELDS)) === "{}", "a non-list payload gives nothing"); }
-
-console.log("the CFBD route");
-{ const e = env();
-  const { r, body } = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, SITE);
-  ok(r.status === 200 && body.source === "cfbd" && body.team === "Notre Dame" && body.year === 2026, "answers for the team and year asked");
-  ok(JSON.stringify(body.stats) === JSON.stringify({ rushingYards: 1100, games: 4 }), "with the allowed fields only");
-  ok(!JSON.stringify(body).includes("Ohio State") && !JSON.stringify(body).includes("conference"), "never CFBD's raw rows");
-  ok(e.calls.length === 1 && e.calls[0].init.headers.authorization === "Bearer test-key", "the key goes to CFBD, server-side");
-  ok(!JSON.stringify(body).includes("test-key"), "and never comes back to the caller");
-  ok(r.headers.get("access-control-allow-origin") === SITE, "Suite's origin may read it");
-  const other = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, "https://elsewhere.example");
-  ok(other.r.headers.get("access-control-allow-origin") === null, "another site's browser may not");
-  await get("/v1/cfbd/season?team=notre%20dame&year=2026", e, SITE);
-  ok(e.calls.length === 1, "a second request within the fresh window is served from the cache: CFBD called once");
-  const wider = Object.assign({}, e, { FIELDS: FIELDS.concat(["sacks"]) });
-  await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", wider, SITE);
-  ok(e.calls.length === 2, "after the allowed fields change, the old copy is not reused: CFBD is asked again"); }
-
-console.log("when CFBD fails");
-{ const cache = memoryCache();
-  await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", env({ cache }), SITE);
-  const k = [...cache.map.keys()][0], old = JSON.parse(cache.map.get(k));
-  old.fetchedAt = new Date(Date.now() - 25 * 3600 * 1000).toISOString(); cache.map.set(k, JSON.stringify(old));
-  const down = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", env({ cache, down: true }), SITE);
-  ok(down.r.status === 200 && down.body.stale === true && down.body.stats.rushingYards === 1100 && down.body.fetchedAt === old.fetchedAt,
-     "past the fresh window and CFBD down: the saved copy, marked stale, with its own time");
-  const none = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", env({ status: 500 }), SITE);
-  ok(none.r.status === 502 && none.body.error === "CFBD could not be reached" && !JSON.stringify(none.body).includes("upstream"),
-     "nothing saved and CFBD failing: a plain error, never CFBD's body");
-  ok(none.r.headers.get("cache-control") === "no-store", "and an error is never cached"); }
-
-console.log("the schools it answers for");
-{ const fs = await import("fs"), vm = await import("vm");
-  const c = vm.createContext({});
-  vm.runInContext(fs.readFileSync(new URL("../teams/index.js", import.meta.url), "utf8") + "\nthis.R = TEAM_REGISTRY;", c);
-  const reg = c.R.map((t) => t.name);
-  ok(SCHOOLS.length >= 100 && reg.every((n) => SCHOOLS.includes(n)), "every program in the registry (" + reg.length + "), by the name the app sends");
-  ok(SCHOOLS.every((n) => reg.includes(n)), "and nothing else"); }
-
 console.log("bad requests");
 { const e = env();
-  ok((await get("/v1/cfbd/season?year=2026", e)).r.status === 400, "no team: 400");
-  ok((await get("/v1/cfbd/season?team=%3Cscript%3E&year=2026", e)).r.status === 400, "a team that is not a name: 400");
-  ok((await get("/v1/cfbd/season?team=Notre%20Dame", e)).r.status === 400, "no year: 400");
-  ok(e.calls.length === 0, "none of them reaches CFBD");
-  // Bug hunt, 2026-10-02: any name or year used to reach CFBD and spend the
-  // key's monthly allowance.
-  ok((await get("/v1/cfbd/season?team=Made%20Up%20State&year=2026", e)).r.status === 404, "a school not in the registry: 404");
-  ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2019", e)).r.status === 400, "a season before last: 400");
-  ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2027", e)).r.status === 400, "a season not yet played: 400");
-  ok(e.calls.length === 0, "none of those reaches CFBD either");
-  ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2025", e)).r.status === 200 && e.calls.length === 1, "last season is still answered (January's bowl games)");
-  ok((await get("/v1/cfbd/season?team=ohio%20state&year=2026", e)).r.status === 200, "a registry school in any case is answered");
-  ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", env({ key: "" }))).r.status === 503, "no key configured: 503, not a crash");
   ok((await get("/nope", e)).r.status === 404, "an unknown route: 404");
+  ok((await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e)).r.status === 404 && (await get("/v1/cfbd/ranks?year=2026", e)).r.status === 404 && e.calls.length === 0,
+     "the season and ranks routes are gone (no caller after decision 0044): 404, and CFBD is never asked");
   const post = await worker.fetch(new Request("https://suite-api.example/v1/health", { method: "POST" }), e, null);
   ok(post.status === 405, "anything but GET: 405");
-  const pre = await worker.fetch(new Request("https://suite-api.example/v1/cfbd/season", { method: "OPTIONS", headers: { origin: SITE } }), e, null);
+  const pre = await worker.fetch(new Request("https://suite-api.example/v1/cfbd/sp", { method: "OPTIONS", headers: { origin: SITE } }), e, null);
   ok(pre.status === 204 && pre.headers.get("access-control-allow-origin") === SITE, "the browser's preflight is answered for Suite"); }
 
 // ---- SP+ (handoff 2026-10-14, slice 4) -----------------------------------------
@@ -169,7 +106,9 @@ console.log("bad requests");
 // the values): no CFBD data lives in this repository. 30 ranked schools with a
 // tie at 3 and at 25, the unranked national-averages row CFBD adds, a school
 // CFBD's FBS list does not have, and a row from another season.
-const SP_SCHOOLS = SCHOOLS.slice(0, 30);
+const SP_SCHOOLS = ["Air Force", "Akron", "Alabama", "App State", "Arizona", "Arizona State", "Arkansas", "Arkansas State", "Army", "Auburn",
+  "BYU", "Ball State", "Baylor", "Boise State", "Boston College", "Bowling Green", "Buffalo", "California", "Central Michigan", "Charlotte",
+  "Cincinnati", "Clemson", "Coastal Carolina", "Colorado", "Colorado State", "Delaware", "Duke", "East Carolina", "Eastern Michigan", "Florida"];
 function spRows(year) {
   const rows = SP_SCHOOLS.map((team, i) => {
     const rank = i < 3 ? i + 1 : i === 3 ? 3 : i < 25 ? i + 1 : i === 25 ? 25 : i + 1;
@@ -1686,52 +1625,6 @@ console.log("SP+ week by week: the routes and the clock");
   await spClock(jan, null);
   ok(jan.calls.some((x) => /ratings\/sp\?year=2026$/.test(x.url)), "in January the clock keeps last season's final table"); }
 
-console.log("FBS ranks Suite computes (decision 0037): passing offense and the turnover margin");
-// Thirty FBS schools; season totals for each, as CFBD's /stats/season lists them.
-function statRows(year, skip) {
-  const rows = [];
-  SP_SCHOOLS.forEach((team, i) => {
-    if (skip && skip(i)) return;
-    const add = (statName, statValue) => rows.push({ season: year, team, conference: "Somewhere", statName, statValue });
-    add("games", i === 4 ? 8 : 7);
-    add("netPassingYards", 7 * (300 - i * 5));          // 300.0, 295.0, ... per game: school 0 first
-    add("turnovers", 10); add("turnoversOpponent", i === 1 || i === 2 ? 20 : 10 + (i % 7));  // schools 1 and 2 tie for first
-  });
-  rows.push({ season: year, team: "Somewhere FCS", statName: "games", statValue: 7 });
-  rows.push({ season: year, team: "Somewhere FCS", statName: "netPassingYards", statValue: 99999 });
-  rows.push({ season: year - 1, team: SP_SCHOOLS[29], statName: "netPassingYards", statValue: 99999 });
-  return rows;
-}
-{ const ids = schoolIds(fbs(2026)), r = fbsRanks(statRows(2026), ids, 2026);
-  eq(RANKED, ["passOffense", "turnoverMargin"], "exactly the two ranks ESPN gets wrong");
-  eq(r.teams, 30, "every FBS school counted");
-  eq(r.ranks["1000"].passOffense, { rank: 1, tied: false }, "the most passing yards per game is 1st");
-  eq(r.ranks["1004"].passOffense.rank, 11, "per game, not in total: a school's eighth game does not lift it (5th in total yards, 11th per game)");
-  ok(!JSON.stringify(r).includes("99999"), "a school outside the FBS, or another season's row, ranks no one and is not ranked");
-  eq([r.ranks["1001"].turnoverMargin, r.ranks["1002"].turnoverMargin], [{ rank: 1, tied: true }, { rank: 1, tied: true }], "a shared margin shares the best place, and says so");
-  eq(r.ranks["1006"].turnoverMargin, { rank: 3, tied: true }, "and the next place after a two-way tie is 3rd, here shared by four");
-  ok(Object.values(r.ranks).every((t) => JSON.stringify(Object.keys(t)) === JSON.stringify(["passOffense", "turnoverMargin"]) &&
-     Object.values(t).every((x) => JSON.stringify(Object.keys(x)) === JSON.stringify(["rank", "tied"]))), "places only: no CFBD figure leaves the Worker");
-  eq(fbsRanks(statRows(2026, (i) => i < 4), ids, 2026), null, "a read missing more than one FBS school in ten is no answer: it would rank the rest too high");
-  ok(fbsRanks(statRows(2026, (i) => i === 0), ids, 2026) !== null, "one school missing is still a table");
-  eq(fbsRanks([], ids, 2026), null, "no rows: no answer"); }
-{ const ranksEnv = (opts) => { opts = opts || {}; const calls = [];
-    return { calls, NOW: () => Date.parse("2026-10-27T12:00:00Z"), CACHE: opts.cache || memoryCache(), CFBD_API_KEY: "test-key",
-      FETCH: async (url) => { calls.push(url); if (opts.down) throw new Error("network");
-        const body = /\/stats\/season\?/.test(url) ? statRows(2026) : fbs(2026);
-        return new Response(JSON.stringify(body), { status: 200, headers: { "content-type": "application/json" } }); } }; };
-  const e = ranksEnv(), { r, body } = await get("/v1/cfbd/ranks?year=2026", e, SITE);
-  ok(r.status === 200 && body.source === "cfbd-ranks" && body.year === 2026 && body.teams === 30, "answers with every FBS school's places");
-  ok(e.calls.some((u) => /\/stats\/season\?year=2026$/.test(u)), "from one league-wide read: no team named");
-  ok(!JSON.stringify(body).includes("netPassingYards") && !JSON.stringify(body).includes("turnovers"), "never CFBD's rows or field names");
-  const n = e.calls.length; await get("/v1/cfbd/ranks?year=2026", e, SITE);
-  ok(e.calls.length === n, "a second ask within six hours is the kept copy: CFBD is not asked again");
-  const down = await get("/v1/cfbd/ranks?year=2026", Object.assign(ranksEnv({ down: true, cache: e.CACHE }), { NOW: () => Date.parse("2026-10-28T12:00:00Z") }), SITE);
-  ok(down.r.status === 200, "CFBD down: the kept copy answers");
-  ok((await get("/v1/cfbd/ranks?year=2026", ranksEnv({ down: true }), SITE)).r.status === 502, "and with none kept, a 502, not a crash");
-  ok((await get("/v1/cfbd/ranks?year=2019", ranksEnv(), SITE)).r.status === 400, "only this season or last");
-  ok((await get("/v1/cfbd/ranks", ranksEnv(), SITE)).r.status === 400, "no year: 400"); }
-
 console.log("code review, 2026-11-09");
 ok(alertUrl("194", "#game") === APP_URL + "?team=ohio-state#game" && alertUrl("87", "#home") === APP_URL + "?team=notre-dame#home",
    "an alert opens the team it is about, whichever the phone saw last");
@@ -1742,31 +1635,20 @@ ok(alertUrl("999999", "#game") === APP_URL + "#game", "a team Suite does not kno
   prune(db, now);
   const left = db.all("SELECT event FROM deliveries ORDER BY event").map((r) => r.event).join();
   ok(left === "c,d,e", "finished deliveries older than a month are let go; due, sending and recent ones stay (" + left + ")"); }
-{ const feb = Object.assign(env(), { NOW: () => Date.parse("2027-02-10T12:00:00Z") });
-  const last = await get("/v1/cfbd/season?team=Notre%20Dame&year=2025", feb, SITE);
-  const next = await get("/v1/cfbd/season?team=Notre%20Dame&year=2027", feb, SITE);
+{ const feb = Object.assign(spEnv(), { NOW: () => Date.parse("2027-02-10T12:00:00Z") });
+  const last = await get("/v1/cfbd/sp?year=2025", feb, SITE);
+  const next = await get("/v1/cfbd/sp?year=2027", feb, SITE);
   ok(last.r.status === 200 && next.r.status === 400, "in February the season is 2026: last season (2025) is answered, 2027 not yet (" + last.r.status + ", " + next.r.status + ")"); }
 
 console.log("CFBD's answers, kept in the Worker's own store (David, 2026-11-10: the allowance ran out)");
-{ // One read of every team's season serves every team's Matchup, and the ranks.
-  const e = env();
-  await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, SITE);
-  const two = await get("/v1/cfbd/season?team=Ohio%20State&year=2026", e, SITE);
-  ok(e.calls.length === 1 && !/[?&]team=/.test(e.calls[0].url) && two.r.status === 200 && two.body.stats.rushingYards === 800,
-     "two teams' Matchups, one CFBD read of every team's season (" + e.calls.length + " call)");
-  const big = Array.from({ length: 4000 }, (_, i) => ({ season: 2026, team: "T" + (i % 130), conference: "C", statName: i % 2 ? "games" : "tacklesForLoss", statValue: i }));
-  const e2 = Object.assign(env(), { FETCH: async (u) => { e2.calls.push({ url: u }); return new Response(JSON.stringify(big), { status: 200 }); } });
-  await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e2, SITE);
-  const keptRows = JSON.parse([...e2.CACHE.map.values()][0]).rows;
-  ok(keptRows.length === 2000 && keptRows.every((r) => r.statName === "games" && !("conference" in r)), "kept slim: the statistics a route uses, nothing else (" + keptRows.length + " of 4000 rows)"); }
 { // With no Cache (workers.dev), the Ratings store keeps them.
   const obj = new Ratings({ storage: { sql: fakeSql() } }, {});
   const RATINGS = { idFromName: () => "ratings", get: () => ({ fetch: (u, init) => obj.fetch(new Request(u, init)) }) };
-  const e = Object.assign(env(), { RATINGS }); delete e.CACHE;
-  const first = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, SITE);
-  const again = await get("/v1/cfbd/season?team=Notre%20Dame&year=2026", e, SITE);
-  ok(first.r.status === 200 && again.r.status === 200 && e.calls.length === 1 && again.body.stats.rushingYards === 1100,
-     "no Cache API: the second fan's Matchup is answered from the Worker's store, not CFBD (" + e.calls.length + " call)");
+  const e = Object.assign(spEnv(), { RATINGS }); delete e.CACHE;
+  const first = await get("/v1/cfbd/sp?year=2026", e, SITE), n = e.calls.length;
+  const again = await get("/v1/cfbd/sp?year=2026", e, SITE);
+  ok(first.r.status === 200 && again.r.status === 200 && n > 0 && e.calls.length === n && again.body.ranks.length === first.body.ranks.length,
+     "no Cache API: the second fan's SP+ is answered from the Worker's store, not CFBD (" + n + " calls, then none)");
   const down = Object.assign(env({ down: true }), { RATINGS, NOW: () => Date.parse("2026-10-02T12:00:00Z") }); delete down.CACHE;
   const c = cfbdCache(down), k = new Request("https://edge.cache/x");
   await c.put(k, new Response("{\"a\":1}", { headers: { "cache-control": "max-age=1" } }));
@@ -1780,13 +1662,5 @@ console.log("CFBD's answers, kept in the Worker's own store (David, 2026-11-10: 
   ok(keptOp(db, "kept-put", { k: "b", body: "x".repeat(KEPT_MAX + 1), seconds: 10 }, now).status === 413, "an answer too big for one row is refused, not truncated");
   keptOp(db, "kept-put", { k: "c", body: "{}", seconds: 10 }, now + 20000);
   ok(db.all("SELECT k FROM cfbd_kept").map((r) => r.k).join() === "c", "expired answers are let go when the next is kept"); }
-{ // The ranks read the same kept season: no second /stats/season call.
-  const calls = [];
-  const e = { calls, NOW: () => Date.parse("2026-10-27T12:00:00Z"), CACHE: memoryCache(), CFBD_API_KEY: "test-key",
-    FETCH: async (url) => { calls.push(url); return new Response(JSON.stringify(/\/stats\/season\?/.test(url) ? statRows(2026) : fbs(2026)), { status: 200 }); } };
-  await get("/v1/cfbd/season?team=" + encodeURIComponent(SP_SCHOOLS[0]) + "&year=2026", e, SITE);
-  const rk = await get("/v1/cfbd/ranks?year=2026", e, SITE);
-  ok(rk.r.status === 200 && calls.filter((u) => /\/stats\/season/.test(u)).length === 1, "the FBS ranks reuse the season Matchup already read (" + calls.join(" | ").replace(/https:\/\/[^/]+/g, "") + ")"); }
-
 console.log("\n" + (failures ? failures + " check(s) FAILED" : "the edge API answers only what a screen shows"));
 process.exit(failures ? 1 : 0);

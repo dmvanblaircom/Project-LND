@@ -7,12 +7,6 @@
 
    Routes
      GET /v1/health                         liveness and version
-     GET /v1/cfbd/season?team=&year=        CFBD season stats for one team,
-                                            only the fields in CFBD_FIELDS; a school in
-                                            the registry, this season or last
-     GET /v1/cfbd/ranks?year=               FBS ranks for passing offense and
-                                            the turnover margin, from the same
-                                            all-teams read: places only
      GET /v1/cfbd/sp?year=                  the SP+ top 25: rank, school, rating
                                             and the school's id - nothing else -
                                             and the weeks kept (./sp.js)
@@ -39,7 +33,6 @@
 
    No dependencies: Workers' standard fetch, Request, Response and Cache. */
 
-import { SCHOOLS } from "./schools.js";
 import { Alerts } from "./push.js";
 import { Ratings } from "./sp.js";
 
@@ -48,33 +41,13 @@ import { Ratings } from "./sp.js";
 // module.
 export { Alerts, Ratings };
 
-export const VERSION = "edge-2026-11-11spkept";
+export const VERSION = "edge-2026-11-19trim";
 export const ALERTS_CRON = "* * * * *";
 
 const ORIGINS = ["https://dmvanblaircom.github.io"];
 const CFBD = "https://api.collegefootballdata.com";
-// Season stats move only when a team plays (Saturdays, the odd weeknight),
-// so one read a day is enough: about 30 of CFBD's calls a month (David,
-// 2026-11-10: "are they actually even changing that we need that many?").
-const FRESH_SECONDS = 24 * 3600;
-const KEEP_SECONDS = 7 * 24 * 3600;    // a stale copy may stand in for a week
-
-// The CFBD stat names a screen may show, read from a real response by the
-// CFBD probe (2026-10-01, tools/cfbd_probe.py): the Matchup card's rushing
-// and passing yards allowed per game (W15) - season totals the opponents
-// gained, and the games they came from. Nothing else leaves CFBD.
-// turnovers / turnoversOpponent: what a team gave away and took away, for its
-// turnover margin - ESPN's matched the NCAA's own table for 10% of FBS
-// teams, CFBD's for 93% (2026-10-27).
-export const CFBD_FIELDS = ["games", "rushingYardsOpponent", "netPassingYardsOpponent", "turnovers", "turnoversOpponent"];
-
-const TEAM = /^[A-Za-z0-9 .&'()À-ſ-]{2,40}$/;
-// Only the registry's schools, and only this season or last, ever reach
-// CFBD: each new (school, season) spends one call of the key's monthly
-// allowance, and a script asking for made-up names or years could spend it
-// all and blank Matchup's yards-allowed rows for every fan (bug hunt,
-// 2026-10-02). worker/src/schools.js is generated from teams/index.js.
-const KNOWN = new Set(SCHOOLS.map(function (s) { return s.toLowerCase(); }));
+// A CFBD answer kept for SP+ may stand in for a week when CFBD fails.
+const KEEP_SECONDS = 7 * 24 * 3600;
 
 function cors(origin) {
   const h = { "vary": "Origin" };
@@ -91,63 +64,6 @@ function json(body, status, origin, extra) {
 
 function fail(status, error, origin) {
   return json({ error: error }, status, origin, { "cache-control": "no-store" });
-}
-
-// CFBD's /stats/season rows -> the fields a screen may show. Rows for other
-// teams or seasons, unknown names and non-numeric values are dropped; a
-// field CFBD does not send stays absent, never 0.
-export function pickSeason(rows, team, year, fields) {
-  const out = {};
-  (Array.isArray(rows) ? rows : []).forEach(function (r) {
-    if (!r || String(r.team || "").toLowerCase() !== team.toLowerCase() || Number(r.season) !== year) return;
-    if (fields.indexOf(r.statName) < 0) return;
-    const v = Number(r.statValue);
-    if (Number.isFinite(v)) out[r.statName] = v;
-  });
-  return out;
-}
-
-async function cfbdSeason(url, env, origin, ctx) {
-  const team = (url.searchParams.get("team") || "").trim();
-  const year = Number(url.searchParams.get("year"));
-  if (!TEAM.test(team)) return fail(400, "team is required", origin);
-  if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
-  if (!KNOWN.has(team.toLowerCase())) return fail(404, "not a school Suite covers", origin);
-  // seasons, not calendar years: in February the season is last year's (code review, 2026-11-09)
-  if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
-  if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
-
-  const cache = cfbdCache(env);
-  const fields = env.FIELDS || CFBD_FIELDS;
-  // Every team's season from one read, shared by every team's Matchup and by
-  // the FBS ranks: a read per team spent the key's monthly allowance (David,
-  // 2026-11-10). The answer is this team's allowed fields only.
-  const s = await seasonRows(year, env, cache, ctx, fields);
-  if (!s) return fail(502, "CFBD could not be reached", origin);
-  const body = { source: "cfbd", team: team, year: year, fetchedAt: s.fetchedAt, stats: pickSeason(s.rows, team, year, fields) };
-  if (s.stale) body.stale = true;
-  return json(body, 200, origin);
-}
-
-// The season statistics every route reads, for every team, from CFBD's one
-// all-teams read (/stats/season?year=), kept FRESH_SECONDS and stood in for
-// up to KEEP_SECONDS when CFBD fails. Kept slim: only the statistics a route
-// shows or ranks, so the copy stays small. The fields are part of the key:
-// after the allowed list changes, a copy without them is never reused.
-// -> { rows, fetchedAt, stale } or null.
-const RANK_FIELDS = ["games", "netPassingYards", "turnovers", "turnoversOpponent"];
-async function seasonRows(year, env, cache, ctx, fields) {
-  const want = Array.from(new Set((fields || env.FIELDS || CFBD_FIELDS).concat(RANK_FIELDS))).sort();
-  const key = new Request("https://edge.cache/v1/cfbd/season-all?year=" + year + "&f=" + encodeURIComponent(want.join(",")));
-  const old = await held(cache, key);
-  if (old && Date.now() - Date.parse(old.fetchedAt) < FRESH_SECONDS * 1000) return { rows: old.rows, fetchedAt: old.fetchedAt, stale: false };
-  const rows = await cfbdJson("/stats/season?year=" + year, env);
-  if (!Array.isArray(rows)) return old ? { rows: old.rows, fetchedAt: old.fetchedAt, stale: true } : null;
-  const slim = rows.filter(function (r) { return r && Number(r.season) === year && want.indexOf(r.statName) > -1; })
-                   .map(function (r) { return { season: r.season, team: r.team, statName: r.statName, statValue: r.statValue }; });
-  const body = { fetchedAt: new Date().toISOString(), rows: slim };
-  await keep(cache, key, body, KEEP_SECONDS, ctx);
-  return { rows: slim, fetchedAt: body.fetchedAt, stale: false };
 }
 
 // SP+ (W07, issue #29; handoff 2026-10-14, slice 4). Bill's permission
@@ -380,71 +296,6 @@ async function cfbdSp(url, env, origin, ctx) {
   return json(await withWeeks(body, env, true), 200, origin);
 }
 
-// FBS ranks Suite computes itself (decision 0037): ESPN ranks net passing
-// yards across all of Division I, and its turnover rank does not follow the
-// margin. From one league-wide read of CFBD's season totals, each FBS
-// school's place in passing yards per game and in turnover margin (taken
-// away less given away), more being better, a tie sharing the best place as
-// ESPN prints "Tied-". Only places leave the Worker, never CFBD's figures.
-// A read that cannot place nine in ten FBS schools is no answer: a table
-// missing teams would rank the rest too high.
-export const RANKED = ["passOffense", "turnoverMargin"];
-export function fbsRanks(rows, ids, year) {
-  if (!ids || !ids.size) return null;
-  const by = new Map();
-  (Array.isArray(rows) ? rows : []).forEach(function (r) {
-    if (!r || Number(r.season) !== year || typeof r.team !== "string") return;
-    const v = Number(r.statValue);
-    if (!Number.isFinite(v)) return;
-    if (!by.has(r.team)) by.set(r.team, {});
-    by.get(r.team)[r.statName] = v;
-  });
-  const values = { passOffense: new Map(), turnoverMargin: new Map() };
-  ids.forEach(function (id, school) {
-    const s = id && by.get(school);
-    if (!s || !(s.games > 0)) return;
-    if (Number.isFinite(s.netPassingYards)) values.passOffense.set(id, s.netPassingYards / s.games);
-    if (Number.isFinite(s.turnovers) && Number.isFinite(s.turnoversOpponent)) values.turnoverMargin.set(id, s.turnoversOpponent - s.turnovers);
-  });
-  const named = Array.from(ids.values()).filter(Boolean).length;
-  const out = {};
-  for (const k of RANKED) {
-    const m = values[k];
-    if (m.size < 0.9 * named) return null;
-    const all = Array.from(m.values());
-    m.forEach(function (v, id) {
-      let better = 0, same = 0;
-      all.forEach(function (x) { if (x > v) better++; else if (x === v) same++; });
-      (out[id] = out[id] || {})[k] = { rank: better + 1, tied: same > 1 };
-    });
-  }
-  return { teams: named, ranks: out };
-}
-
-async function cfbdRanks(url, env, origin, ctx) {
-  const year = Number(url.searchParams.get("year"));
-  if (!(year >= 2000 && year <= 2100)) return fail(400, "year is required", origin);
-  if (!spYearOk(year, env)) return fail(400, "only this season or last", origin);
-  if (!env.CFBD_API_KEY) return fail(503, "CFBD is not configured", origin);
-
-  const cache = cfbdCache(env);
-  const key = new Request("https://edge.cache/v1/cfbd/ranks?year=" + year + "&r=" + RANKED.join(","));
-  const heldBody = await held(cache, key);
-  if (heldBody && Date.now() - Date.parse(heldBody.fetchedAt) < FRESH_SECONDS * 1000) return json(heldBody, 200, origin);
-
-  const s = await seasonRows(year, env, cache, ctx);
-  const rows = s && !s.stale ? s.rows : null;          // ranks from a fresh read only; a stale one is the kept answer below
-  const ids = rows ? await fbsIds(year, env, cache, ctx) : null;
-  const ranked = ids ? fbsRanks(rows, ids, year) : null;
-  if (!ranked) {
-    if (heldBody) return json(Object.assign({}, heldBody, { stale: true }), 200, origin);
-    return fail(502, "CFBD could not be reached", origin);
-  }
-  const body = { source: "cfbd-ranks", year: year, fetchedAt: new Date().toISOString(), teams: ranked.teams, ranks: ranked.ranks };
-  await keep(cache, key, body, KEEP_SECONDS, ctx);
-  return json(body, 200, origin);
-}
-
 // The refresh clock. Starts the data refresh through GitHub's API with a
 // fine-grained token that can do only that (REFRESH_CLOCK_TOKEN, Actions
 // read/write on this repository). Never throws: a failed start is logged and
@@ -542,9 +393,7 @@ export default {
     // `clock` says only whether the refresh clock has its token - never the token.
     if (url.pathname === "/v1/health") return json({ ok: true, version: VERSION, clock: !!(env && env.REFRESH_CLOCK_TOKEN) },
                                                    200, origin, { "cache-control": "no-store" });
-    if (url.pathname === "/v1/cfbd/season") return cfbdSeason(url, env || {}, origin, ctx);
     if (url.pathname === "/v1/cfbd/sp") return cfbdSp(url, env || {}, origin, ctx);
-    if (url.pathname === "/v1/cfbd/ranks") return cfbdRanks(url, env || {}, origin, ctx);
     if (url.pathname === "/v1/cfbd/sp/week") return cfbdSpWeek(url, env || {}, origin);
     if (url.pathname === "/v1/probe/espn") return json(await probeEspn(env || {}, request.cf && request.cf.colo), 200, origin,
                                                        { "cache-control": "no-store" });

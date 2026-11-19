@@ -150,7 +150,11 @@ if (require.main === module) {
   if (skipped.length) console.log("skipped: " + skipped.join(", "));
   if (args.indexOf("--github") !== -1 && process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(process.env.GITHUB_OUTPUT,
-      "unit=" + JSON.stringify(unit) + "\n" + "browser=" + JSON.stringify(browser) + "\n" + "visual=" + JSON.stringify(visual) + "\n");
+      "unit=" + JSON.stringify(unit) + "\n" + "browser=" + JSON.stringify(browser) + "\n" + "visual=" + JSON.stringify(visual) + "\n" +
+      // each browser shard's number: the matrix runs over these, so the job
+      // is named "browser (0)" by GitHub itself, and a skipped one shows a
+      // plain "browser", never an unexpanded expression
+      "shards=" + JSON.stringify(browser.map(function (x, i) { return i; })) + "\n");
   }
   if (args.indexOf("--ids") !== -1) process.stdout.write(sel.ids.join("\n") + "\n");
 }
