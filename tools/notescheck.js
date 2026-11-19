@@ -119,10 +119,10 @@ console.log("2-3. on screen");
              text: s ? s.innerText.replace(/\s+/g, " ") : "", link: s && s.querySelector('a.sec-link[href="#game"]') ? true : false, order: order };
   });
   await shot(a.page, "notes-home");
-  ok(home.shown && home.items === 3, "Home: By the Numbers, three of them (" + home.text.slice(0, 90) + "...)");
-  ok(/By the Numbers/.test(home.text) && /\b2\b.*captain twice/.test(home.text), "the number and the fact it counts");
-  ok(home.link, "View All goes to Game");
-  ok(home.order.indexOf("numbers") === home.order.indexOf("milestone") + 1, "right under the milestone");
+  // The redesign brief (§4.8, David, 2026-11-20) takes By the Numbers off
+  // Home: no stats strip there. The notes are Game's, below, in full.
+  ok(!home.shown && home.order.indexOf("numbers") === -1 && !/By the Numbers/i.test(home.text),
+     "Home: no By the Numbers section (" + home.order.join(",") + ")");
 
   await go(a.page, "#game");
   var game = await a.page.evaluate(function () {
@@ -210,15 +210,18 @@ console.log("2-3. on screen");
     return { shown: !!s && !s.hidden, text: s ? s.innerText.replace(/\s+/g, " ") : "" };
   });
   await shot(o.page, "notes-osu-home");
-  ok(oh.shown && /99-100/.test(oh.text) && /\.870/.test(oh.text), "Ohio State, Home: By the Numbers from its notes (" + oh.text.slice(0, 80) + "...)");
+  ok(!oh.shown, "Ohio State, Home: no By the Numbers either (brief §4.8)");
   await go(o.page, "#game");
   var og = await o.page.evaluate(function () {
     var s = document.querySelector("#screenGame .gcard-series");
+    var n = document.querySelector("#screenGame .gcard-numbers");
     return { text: s ? s.innerText.replace(/\s+/g, " ") : "", facts: document.querySelectorAll("#screenGame .gcard-series .gn-facts li").length,
+             nums: n ? n.innerText.replace(/\s+/g, " ") : "",
              src: [].map.call(document.querySelectorAll("#screenGame .gn-src a"), function (x) { return x.href; }) };
   });
   await shot(o.page, "notes-osu-game");
   ok(og.facts === 2 && /80-13-5 against the Hoosiers/.test(og.text), "Game: the series card, the series bullets only (" + og.facts + " facts)");
+  ok(/99-100/.test(og.nums) && /\.870/.test(og.nums), "and its By the Numbers, from its notes, on Game (" + og.nums.slice(0, 80) + "...)");
   ok(og.src.length >= 1 && og.src.every(function (h) { return /^https:\/\/ohiostatebuckeyes\.com\/documents\//.test(h); }), "naming its source and linking the notes");
   await go(o.page, "#roster/roster");
   var orr = await o.page.evaluate(function () {

@@ -109,11 +109,11 @@ function rankings(apLast) {
     // the confirmed opener, not an empty band (redesign audit, 2026-11-06),
     // and Game shows the same game.
     var s5 = await e.page.evaluate(function () {
-      var card = document.querySelector("#screenHome .gamecard");
+      var card = document.querySelector("#screenHome .stage");
       return { cls: card ? card.className : null, text: card ? card.textContent : "",
                season: !!document.querySelector("#screenHome .os-hero") };
     });
-    ok(s5.cls && /gc-upcoming/.test(s5.cls) && /Wisconsin/.test(s5.text) && !s5.season,
+    ok(s5.cls && /st-upcoming/.test(s5.cls) && /Wisconsin/.test(s5.text) && !s5.season,
        "S5: Home's hero is the next season's opener, Wisconsin (" + JSON.stringify(s5) + ")");
     await e.page.evaluate(function () { location.hash = "#game"; });
     await e.page.waitForTimeout(600);

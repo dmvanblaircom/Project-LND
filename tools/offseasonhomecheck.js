@@ -29,13 +29,13 @@ function check(value,label){assert(value,label);checks++;}
      return {overflow:document.documentElement.scrollWidth>innerWidth+1,left:r.left,right:r.right,
       order:[...document.querySelectorAll("[data-home]")].map(e=>e.dataset.home),
       tabs:[...document.querySelectorAll("#navbar a")].map(a=>({screen:a.dataset.screen,height:a.getBoundingClientRect().height,width:a.getBoundingClientRect().width})),
-      season:!!hero.querySelector(".os-hero"),game:!!hero.querySelector(".gamecard"),copy:hero.textContent};
+      season:!!hero.querySelector(".os-hero"),game:!!hero.querySelector(".sb"),copy:hero.textContent};
     });
     const label=[team,style,state,width].join(" ");
     check(!d.overflow&&d.left>=-1&&d.right<=width+1,label+" fits page");
     check(d.tabs.length===5&&d.tabs.every(t=>t.width>=44&&t.height>=44),label+" five 44px targets");
     const complete=["complete","failed","opener"].includes(state);
-    check(d.order.indexOf("news")===(complete?3:5),label+" News order");
+    check(d.order.indexOf("news")===(complete?3:6),label+" News order");
     check(d.season===["awaiting","complete","failed"].includes(state),label+" season hero boundary");
     check(d.game===["opener","in-season"].includes(state),label+" existing game hero");
     if(state==="opener")check(/Time TBA/.test(d.copy)&&!/\d:\d\d/.test(d.copy),label+" no invented kickoff");

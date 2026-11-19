@@ -218,10 +218,13 @@ ok(W.gameWeek([g("1", "2026-09-12T19:30:00Z", "pre", null)], "2026-09-08T12:00:0
 ok(W.gameWeek([], "2026-09-08T12:00:00Z") === null && W.gameWeek(null) === null && W.gameWeek(season, "not a date") === null, "no schedule, no game week");
 ok(W.gameWeek(season.slice().reverse(), "2026-09-20T12:00:00Z").gameId === "3", "the schedule's order does not matter");
 
-console.log("groundwork only: the page does not load it");
-ok(fs.readFileSync(path.join(root, "index.html"), "utf8").indexOf("teamos/wire.js") === -1 &&
-   fs.readFileSync(path.join(root, "sw.js"), "utf8").indexOf("teamos/wire.js") === -1,
-   "teamos/wire.js is in neither index.html nor the service worker's shell");
+// The 90% gate was met on fresh headlines (wire-measurement-2026-11-19.md),
+// and the wire is on Home with Stage 2 (David, 2026-11-11): the page loads it,
+// and so does the offline shell.
+console.log("on Home: the page and the offline shell load it");
+ok(fs.readFileSync(path.join(root, "index.html"), "utf8").indexOf("teamos/wire.js") !== -1 &&
+   fs.readFileSync(path.join(root, "sw.js"), "utf8").indexOf("./teamos/wire.js") !== -1,
+   "teamos/wire.js is in index.html and the service worker's shell");
 
 console.log("");
 if (failures) { console.log(failures + " check(s) FAILED"); process.exit(1); }

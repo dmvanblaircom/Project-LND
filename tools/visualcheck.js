@@ -166,7 +166,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
 
   // Where a team's, player's or figure's name is drawn.
   var NAME_SELECTORS = ".sched-opp, .ro-name, .rk-team, .rk-name, .tg-name, .sp-team, .series-name, .ld-name, " +
-                       ".gh-name, .gh-opp, .gc-name, .ab-name, .mu-l, .ss-l, .ts-l, .out-label, .gcard-title, .sec-title";
+                       ".gh-name, .gh-opp, .sb-name, .ab-name, .mu-l, .ss-l, .ts-l, .out-label, .gcard-title, .sec-title";
   var wordsUnjudged = 0;
   async function checkState(page, label) {
     await launchGone(page);
@@ -496,7 +496,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                 .map(function (s) { return s.getAttribute("data-home"); });
               var links = [].slice.call(host.querySelectorAll(".news-card"));
               var rows = [].slice.call(host.querySelectorAll(".sched-row"));
-              var cta = host.querySelector(".gc-cta");
+              var cta = host.querySelector(".stage-cta");
               return { shown: !host.hidden, legacy: !!document.getElementById("legacy"), order: order,
                        news: links.length, rows: rows.length,
                        safe: links.every(function (a) { return a.target === "_blank" && /noopener/.test(a.rel) && /noreferrer/.test(a.rel)
@@ -504,7 +504,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                        labels: rows.every(function (r) { var s = r.querySelector(".site"); return s && /^(home|away|neutral)$/i.test(s.textContent.trim()); }),
                        current: /current game/i.test(host.textContent),
                        cta: cta ? cta.getAttribute("href") : null,
-                       card: !!host.querySelector(".gamecard"), summary: (host.querySelector("#gcSummary") || {}).textContent || "" };
+                       card: !!host.querySelector(".sb"), summary: (host.querySelector(".sb") || { getAttribute: function () { return ""; } }).getAttribute("aria-label") || "" };
             });
             if (!hm.shown || hm.legacy) fail(label, "behaviour", "#screenHome", "Home is not the canonical screen (legacy showing: " + hm.legacy + ")");
             var want = ["hero", "news", "schedule", "outlook"];
@@ -517,8 +517,8 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             if (!hm.safe) fail(label, "behaviour", ".news-card", "a story does not open its source in a new tab with rel protections and a disclosure");
             if (!hm.labels) fail(label, "behaviour", ".site", "a schedule row relies on colour: its HOME/AWAY/NEUTRAL text is missing");
             if (hm.current) fail(label, "behaviour", "#screenHome", "Home shows a Current Game card, which decision 0023 removed");
-            if (!hm.card || !hm.summary) fail(label, "behaviour", ".gamecard", "the hero has no game card or no spoken summary");
-            if (hm.cta && hm.cta !== "#game") fail(label, "behaviour", ".gc-cta", "the hero's action goes to " + hm.cta + ", not Game");
+            if (!hm.card || !hm.summary) fail(label, "behaviour", ".sb", "the hero has no game card or no spoken summary");
+            if (hm.cta && hm.cta !== "#game") fail(label, "behaviour", ".stage-cta", "the hero's action goes to " + hm.cta + ", not Game");
           }
           if (screen === "top25") {
             // Top 25 (0024 §5, §6): the canonical screen, a Games | Rankings

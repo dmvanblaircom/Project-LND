@@ -77,7 +77,7 @@ function fixture(url) {
   // team's own display face (Phase 2 spec §3.2).
   var nums = await o.page.evaluate(function () {
     // ranks and records too, on Around and Schedule (Codex, #238)
-    return [".gc-score", ".gh-score", ".gc-clock", ".cd-n", ".tg-rank", ".tg-rec", ".sc-record"].map(function (c) {
+    return [".sb-score", ".gh-score", ".sb-clock", ".sb-cd-n", ".cd-n", ".tg-rank", ".tg-rec", ".sc-record"].map(function (c) {
       var el = document.createElement("span"); el.className = c.slice(1); document.body.appendChild(el);
       var f = getComputedStyle(el).fontFamily; el.remove(); return f;
     });
@@ -125,7 +125,7 @@ function fixture(url) {
   var n = await open("/?team=notre-dame#home");
   ok(n.fonts.length === 0, "Notre Dame: no Nunito Sans request");
   ok((await family(n.page, "body")).includes("Instrument Sans"), "Notre Dame uses Instrument Sans");
-  ok((await family(n.page, ".hh-nick")).includes("Instrument Display"), "display uses the native condensed instance");
+  ok((await family(n.page, ".stage-nick")).includes("Instrument Display"), "display uses the native condensed instance");
   var head = await family(n.page, ".sec-title");
   ok(head.includes("Instrument Sans") && !/georgia/i.test(head),
      "section titles are the UI sans, no Georgia (Phase 2 spec §3.2: " + head + ")");

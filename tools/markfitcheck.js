@@ -47,7 +47,7 @@ var LOGO = "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/";
   });
   await page.setContent('<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="' + base + '/app.css"></head>' +
     '<body><main class="page-main"><div id="home"></div><div id="home2"></div><div id="top"></div></main></body></html>');
-  for (var f of ["teams/notre-dame.js", "teamos/team.js", "teamos/identity.js", "teamos/espn.js", "teamos/game.js", "teamos/live.js", "suite/ui.js", "suite/schedule.js", "suite/prospects.js", "suite/home.js", "suite/top25.js"])
+  for (var f of ["teams/notre-dame.js", "teamos/team.js", "teamos/identity.js", "teamos/espn.js", "teamos/game.js", "teamos/live.js", "suite/ui.js", "suite/schedule.js", "suite/prospects.js", "suite/stadium.js", "suite/scoreboard.js", "suite/home.js", "suite/top25.js"])
     await page.addScriptTag({ url: base + "/" + f });
   await page.evaluate(function (LOGO) {
     var team = { name: "Notre Dame", abbr: "ND", markUrl: LOGO + "87.png" };
@@ -66,7 +66,7 @@ var LOGO = "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/";
   await page.waitForTimeout(800);
   var r = await page.evaluate(function () {
     function s(sel) { var i = document.querySelector(sel); var t = i && i.style.transform; var m = /scale\(([\d.]+)\)/.exec(t || ""); return m ? +m[1] : 1; }
-    return { ndHero: s("#home .gc-side.us .mark img"), navyHero: s("#home .gc-side.them .mark img"), noCors: s("#home2 .gc-side.them .mark img"),
+    return { ndHero: s("#home .sb-us .mark img"), navyHero: s("#home .sb-them .mark img"), noCors: s("#home2 .sb-them .mark img"),
              ndRow: s('#top .mark img[src$="/87.png"]'), navyRow: s('#top .mark img[src$="/2426.png"]'),
              kept: Object.keys(localStorage).filter(function (k) { return /^suite-markfit:/.test(k); }).length };
   });
@@ -87,7 +87,7 @@ var LOGO = "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/";
     Suite.home.paint(document.getElementById("home"), { team: { name: "Notre Dame", abbr: "ND", markUrl: LOGO + "87.png" }, oppMark: function (i) { return LOGO + i + ".png"; }, art: {}, hero: { game: g }, news: [], outlook: [], fresh: null, schedule: [] });
   }, LOGO);
   await page.waitForTimeout(800);
-  var again = await page.evaluate(function () { var i = document.querySelector("#home .gc-side.them .mark img"); return i && i.style.transform; });
+  var again = await page.evaluate(function () { var i = document.querySelector("#home .sb-them .mark img"); return i && i.style.transform; });
   ok(/scale\(1\.\d+\)/.test(again || ""), "a mark drawn again keeps its size (" + again + ")");
   await browser.close(); server.close();
   console.log("\n" + checks.length + " checks: every team's mark at one size");

@@ -314,14 +314,14 @@ Suite.home = (function () {
   // wire then the news; the schedule; one compact line of context. Stable:
   // the content changes with the season, the order does not move. The
   // supporting column (desktop) comes last in reading order.
-  var SECTIONS = ["fresh", "hero", "champion", "milestone", "actions", "wire", "news", "schedule", "outlook", "recruiting", "draft", "side"];
-  var OFFSEASON_SECTIONS = ["fresh", "hero", "champion", "news", "recruiting", "draft", "milestone", "actions", "wire", "schedule", "outlook", "side"];
+  var SECTIONS = ["fresh", "champion", "hero", "milestone", "actions", "wire", "news", "schedule", "outlook", "recruiting", "draft", "side"];
+  var OFFSEASON_SECTIONS = ["fresh", "champion", "hero", "news", "recruiting", "draft", "milestone", "actions", "wire", "schedule", "outlook", "side"];
 
   function paint(host, m) {
     if (!host) return;
     if (!host.querySelector("[data-home]")) {
       host.innerHTML = SECTIONS.map(function (k) {
-        return k === "hero" || k === "fresh"
+        return k === "hero" || k === "fresh" || k === "champion"
           ? '<div data-home="' + k + '"' + (k === "fresh" ? ' role="status"' : "") + "></div>"
           : k === "side" ? '<aside class="home-side" data-home="side" aria-label="Season and conference"></aside>'
           : '<section class="home-sec home-' + k + '" data-home="' + k + '"></section>';

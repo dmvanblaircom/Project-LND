@@ -47,10 +47,10 @@ function forecast() {
     if (/\/rankings/.test(u)) return json(fixture("espn-rankings-sep20.json"));
     return route.abort();
   });
-  function wx() { return page.evaluate(function () { var w = document.querySelector("#screenHome .gc-wx"); return w ? w.textContent : null; }); }
+  function wx() { return page.evaluate(function () { var w = document.querySelector("#screenHome .sf-wx .sf-v"); return w ? w.textContent : null; }); }
   try {
     await page.goto(base + "/?team=notre-dame#home");
-    await page.waitForFunction(function () { return !document.getElementById("launch") && document.querySelector("#screenHome .gc-wx"); }, null, { timeout: 15000 });
+    await page.waitForFunction(function () { return !document.getElementById("launch") && document.querySelector("#screenHome .sf-wx .sf-v"); }, null, { timeout: 15000 });
     ok(new RegExp("^" + FORECAST_F + "°F").test(await wx()), "before kickoff: the forecast for the kickoff hour (" + await wx() + ")");
 
     // Kickoff: the board has the game under way. The conditions-now answer
@@ -60,11 +60,11 @@ function forecast() {
     var asked = st.asked;
     await page.clock.fastForward(2 * 3600e3 + 10 * 60e3);
     await page.clock.runFor(60e3);
-    await page.waitForFunction(function () { var h = document.querySelector("#screenHome .gc-live, #screenHome .live-pill"); return !!h; }, null, { timeout: 15000 }).catch(function () {});
+    await page.waitForFunction(function () { var h = document.querySelector("#screenHome .live-pill"); return !!h; }, null, { timeout: 15000 }).catch(function () {});
     ok(st.asked > asked, "under way: the conditions now are asked for at once, not half an hour on");
     ok(await wx() === null, "and until they answer, no weather - never the kickoff forecast as \"now\" (" + await wx() + ")");
     st.held.splice(0).forEach(function (f) { f(); });
-    await page.waitForFunction(function (t) { var w = document.querySelector("#screenHome .gc-wx"); return w && w.textContent.indexOf(t + "°F") === 0; }, NOW_F, { timeout: 10000 }).catch(function () {});
+    await page.waitForFunction(function (t) { var w = document.querySelector("#screenHome .sf-wx .sf-v"); return w && w.textContent.indexOf(t + "°F") === 0; }, NOW_F, { timeout: 10000 }).catch(function () {});
     ok(new RegExp("^" + NOW_F + "°F").test(await wx() || ""), "then the conditions at the venue now (" + await wx() + ")");
     ok(!errors.length, "no page errors (" + errors.join(" | ") + ")");
   } finally {

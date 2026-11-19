@@ -567,7 +567,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .fresh-banner.offline{background:var(--s-inset);border-color:var(--s-line);color:var(--s-ink-2)}
 /* Defending national champions (David, 2026-10-27): a strip in the team's
    own colours across the top of Home, the trophy mark in its accent. */
-.champ{display:grid;grid-template-columns:auto 1fr;column-gap:.75rem;align-items:center;margin-top:var(--s-space-4);padding:.8rem 1rem;border-radius:var(--s-radius-card);background:linear-gradient(135deg,var(--t-surface),var(--t-abyss));color:#FFFFFF;box-shadow:var(--s-elev-1)}
+.champ{display:grid;grid-template-columns:auto 1fr;column-gap:.65rem;align-items:center;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:.6rem calc(var(--gutter) + env(safe-area-inset-left,0px));background:var(--t-surface);color:#FFFFFF;border-bottom:2px solid var(--t-accent)}
 .champ-ic{grid-row:1 / span 2;display:flex;width:1.9rem;height:1.9rem;color:var(--t-accent-text)}
 .champ-ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .champ-t{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;line-height:1.15;letter-spacing:.05em;text-transform:uppercase;color:var(--t-accent-text)}
@@ -609,7 +609,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .qa-item{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ic t chev" "ic s chev";align-items:center;column-gap:.7rem;row-gap:.05rem;
   min-height:4rem;padding:.7rem .85rem;color:var(--s-ink);text-decoration:none;box-shadow:none;border:1px solid var(--s-line)}
 .qa-item:hover{border-color:var(--s-line-strong)}
-.qa-item:focus-visible{outline:3px solid var(--r-signal-focus);outline-offset:2px}
+.qa-item:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
 .qa-ic{grid-area:ic;display:flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border-radius:var(--s-radius-ctl);background:var(--t-accent-tint-soft);color:var(--t-accent-on-light)}
 .qa-ic svg{width:1.3rem;height:1.3rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .qa-t{grid-area:t;font-weight:700;font-size:1.02rem;line-height:1.2}
@@ -1461,6 +1461,7 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   #screenHome > *{grid-column:1;min-width:0}
   #screenHome > .home-side{display:block;grid-column:2;grid-row:1 / span 30;position:sticky;top:calc(var(--s-bar-h) + var(--s-space-5));margin-top:var(--s-space-5)}
   #screenHome .home-hero{margin:var(--s-space-5) 0 0;border-radius:20px;box-shadow:var(--s-elev-3)}
+  #screenHome .champ{margin:var(--s-space-5) 0 0;padding:.7rem 1rem;border-radius:var(--s-radius-card)}
   #screenHome .home-hero .stage-inner{padding:var(--s-space-6)}
   /* Game, while the team's game is under way: no raised circle here; the
      control carries the state in words - a red Live chip with its light, or
@@ -1919,23 +1920,26 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .sb-when{color:var(--r-stage-ink-2);font-size:var(--s-type-md)}
 .sb-when .nb{white-space:nowrap}
 .sb-net{flex:none;padding:.2rem .55rem;border:1px solid var(--r-stage-line);border-radius:6px;background:rgba(var(--t-abyss-rgb),.7);font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.04em}
-.sb-board{display:grid;grid-template-columns:minmax(0,1.12fr) auto minmax(0,1fr);grid-template-areas:"us mid them" "uss mid thems";align-items:end;column-gap:var(--s-space-2);row-gap:var(--s-space-2)}
+.sb-board{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"us mid them" "uss mid thems";align-items:end;column-gap:var(--s-space-2);row-gap:var(--s-space-2)}
 .sb-us{grid-area:us}.sb-them{grid-area:them}.sb-score-us{grid-area:uss}.sb-score-them{grid-area:thems}.sb-mid{grid-area:mid;align-self:center}
 .sb-team{display:flex;flex-direction:column;align-items:center;gap:var(--s-space-1);min-width:0;text-align:center}
 .sb-team p{margin:0}
-/* Home: the helmet stands behind the mark; ours a step forward */
+/* Home: the helmet stands behind the mark. Ours is the bigger helmet - our
+   team, our game (brief §4.1) - but the marks are one size on one line, and
+   the name and record lines one height, whatever the data (David's iPhone,
+   2026-10-25) */
 .sb-figure{position:relative;display:flex;flex-direction:column;align-items:center;width:100%;margin-bottom:var(--s-space-1)}
 .sb-us .sb-figure{max-width:9.5rem}
-.sb-them .sb-figure{max-width:8rem}
-.sb-figure .sb-mark{--mark:3rem;position:relative;margin-top:-1.5rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.55))}
-.sb-us .sb-figure .sb-mark{--mark:3.5rem;margin-top:-1.75rem}
+.sb-them .sb-figure{max-width:7.75rem}
+.sb-figure .sb-mark{--mark:3.25rem;position:relative;margin-top:-1.6rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.55))}
 .sb-game .sb-mark{--mark:3.25rem}
 .sb-name{max-width:100%;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);text-transform:uppercase;letter-spacing:.02em}
+.sb-home .sb-name{line-height:1.6rem}
 .sb-us .sb-name{font-size:var(--s-type-lg)}
 .sb-rank{color:var(--r-stage-mark);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 .sb-abbr,.fit-abbr .sb-full{display:none}
 .fit-abbr .sb-abbr{display:inline}
-.sb-rec{font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
+.sb-rec{min-height:1lh;font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
 .sb-score{position:relative;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--s-font-score);font-weight:var(--s-num-primary);
   font-size:clamp(3rem,22cqi,4.75rem);line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .sb-score .sb-n{min-width:1.1ch;text-align:center}
@@ -2002,10 +2006,10 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 @container sb (min-width:38rem){
   .sb-board{grid-template-columns:minmax(0,1fr) auto auto auto minmax(0,1fr);grid-template-areas:"us uss mid thems them";column-gap:var(--s-space-5);align-items:center}
   .sb-us .sb-figure{max-width:13rem}
-  .sb-them .sb-figure{max-width:11rem}
-  .sb-figure .sb-mark{--mark:4rem;margin-top:-2rem}
-  .sb-us .sb-figure .sb-mark{--mark:4.75rem;margin-top:-2.4rem}
+  .sb-them .sb-figure{max-width:10.5rem}
+  .sb-figure .sb-mark{--mark:4.5rem;margin-top:-2.25rem}
   .sb-name{font-size:var(--s-type-lg)}
+  .sb-home .sb-name{line-height:2rem}
   .sb-us .sb-name{font-size:var(--s-type-xl)}
   .sb-score{font-size:clamp(4rem,11cqi,6.5rem)}
   .sb-mid{padding-bottom:0}
