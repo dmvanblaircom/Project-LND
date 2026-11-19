@@ -1,7 +1,16 @@
 {
  "team": "sam-houston",
- "updated": "2026-11-14T23:38:12.931969+00:00",
+ "updated": "2026-11-19T15:08:06.625746+00:00",
  "items": [
+  {
+   "title": "Game 11 Preview: vs MTSU",
+   "link": "https://gobearkats.com/news/2026/11/19/football-game-11-preview-vs-mtsu",
+   "source": "Sam Houston Athletics",
+   "summary": "<img alt=\"Tim Burns vs Kennesaw State 2026\" src=\"https://gobearkats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/18/1J4A4373.jpg\" /><br /><br />Game 11 \u2022 vs Middle Tennessee",
+   "image": "https://gobearkats.com/images/2026/11/18/1J4A4373.jpg?width=800",
+   "sourceLogo": "https://gobearkats.com/favicon.ico",
+   "published": "2026-11-19T14:45:00+00:00"
+  },
   {
    "title": "Kats fall to Kennesaw State",
    "link": "https://gobearkats.com/news/2026/11/14/football-kats-fall-to-kennesaw-state",
@@ -82,15 +91,6 @@
    "image": "https://gobearkats.com/images/2026/10/25/1J4A4360.jpg?width=800",
    "sourceLogo": "https://gobearkats.com/favicon.ico",
    "published": "2026-10-26T02:43:00+00:00"
-  },
-  {
-   "title": "Locke Added to Manning Award Watch List",
-   "link": "https://gobearkats.com/news/2026/10/23/football-locke-added-to-manning-award-watch-list",
-   "source": "Sam Houston Athletics",
-   "summary": "<img alt=\"Landyn Locke vs NMSU 2026\" src=\"https://gobearkats.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/Locke_Warmups.jpg\" /><br /><br />NEW ORLEANS \u2013 Sam Houston sophomore quarterback Landyn Locke has been added to the Manning Award Watch List, per an announcement from the Allstate Sugar Bowl.",
-   "image": "https://gobearkats.com/images/2026/10/22/Locke_Warmups.jpg?width=800",
-   "sourceLogo": "https://gobearkats.com/favicon.ico",
-   "published": "2026-10-23T16:00:00+00:00"
   }
  ]
 }
