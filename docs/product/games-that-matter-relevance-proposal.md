@@ -222,7 +222,7 @@ Two inputs are not available yet: this week's spreads and conference standings. 
 
 - **Proposed:** the list is the Next Opponent game, if any, or the empty state.
 - **Today it shows:** Georgia-South Carolina and Nebraska-Ohio State, only because Kent played South Carolina and Ohio State.
-- **Data gap:** Kent State's config has **no** `series` entry. The Wagon Wheel game with Akron is missing (**FACT (repo)**: `teams/kent-state.js`). Without it the Rivalry stake cannot work for Kent.
+- **Correction (2026-11-19):** an earlier version of this section said Kent State's config had no `series` entry. It has one: the Wagon Wheel with Akron (`teams/kent-state.js`). So the Rivalry stake applies to Kent State: Akron's last game before the Wagon Wheel is listed.
 
 ---
 
@@ -274,7 +274,7 @@ These are filled in from the official format when it is published.
 | T's schedule and results | **In hand** | Résumé, Next Opponent |
 | CFP, AP and Coaches, with kept weeks | **In hand:** the kept weeks answer "previously ranked" | Playoff, Résumé |
 | FPI rating and rank, all 138 teams | **In hand** (`data/league/fpi.json`) | Matchup test without a line; résumé-quality floor |
-| `series` (rivals) | **Partial:** 27 of 138 teams have no trophy or rivalry entry (Kent State among them). Entries list only current opponents (USC is kept dormant for Notre Dame) | Rivalry |
+| `series` (rivals) | **Partial:** 26 of 138 teams have no trophy or rivalry entry (corrected 2026-11-19 from 27: Kent State has the Wagon Wheel). Entries list only current opponents (USC is kept dormant for Notre Dame) | Rivalry |
 | ESPN FPI projections: playoff %, conference %, win-out %, all teams | **Extend:** in the payload Suite already downloads. The producer discards them (audit §4.4). Keeping them is a data-contract change | Entry tests for unranked and lower-conference teams |
 | Conference standings | **Extend:** probed. ESPN serves them, but at 2.6 MB they need a refresh-side snapshot. Each side's conference record is also on the scoreboard, with gaps when a team has a bye | Conference Race |
 | Playoff format (field, cutlines, bids) | **Missing as data.** It needs a small league-config block. The 2027 details are partly unknown | Playoff |
@@ -331,7 +331,7 @@ These are filled in from the official format when it is published.
 | 2 | Keep FPI's projections: playoff % and conference % become entry tests for every team | FPI producer field additions (**data contract change, David's approval**) | small |
 | 3 | Conference standings snapshot, so Conference Race uses real records | ESPN standings via the refresh | medium |
 | 4 | Live ordering (late upsets rise), postseason Next Opponent, the 2027 format values | in hand, plus the official format | small to medium |
-| 5 | Rivalry data: fill the 27 teams with no entry, and add rivals not on this season's schedule | team config, one-time | data work |
+| 5 | Rivalry data: fill the 26 teams with no entry, and add rivals not on this season's schedule | team config, one-time | data work |
 
 **Material tradeoffs:**
 
