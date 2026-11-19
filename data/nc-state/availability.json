@@ -7,18 +7,18 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:08:50.207045+00:00",
+ "fetchedAt": "2026-11-19T01:08:39.481953+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Syracuse",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Florida State",
  "players": [
   {
    "pos": "ILB",
    "no": "0",
    "name": "Popo Aguirre",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -43,13 +43,6 @@
    "detail": ""
   },
   {
-   "pos": "OLB",
-   "no": "5",
-   "name": "Harvey Dyson III",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
    "pos": "NCK",
    "no": "8",
    "name": "Isaiah Crowell",
@@ -57,17 +50,17 @@
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "10",
-   "name": "Will Wilson",
+   "pos": "WR",
+   "no": "8",
+   "name": "Keenan Jackson",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "14",
-   "name": "Jaren Sensabaugh",
-   "status": "gtd",
+   "pos": "QB",
+   "no": "10",
+   "name": "Will Wilson",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -79,16 +72,9 @@
   },
   {
    "pos": "OL",
-   "no": "50",
-   "name": "Daniel Cruz",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "64",
    "name": "Rico Jackson",
-   "status": "gtd",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -123,6 +109,20 @@
    "pos": "K",
    "no": "91",
    "name": "Nick Konieczynski",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "92",
+   "name": "Chase Bond",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "AJ Prim",
    "status": "out-game",
    "detail": ""
   }

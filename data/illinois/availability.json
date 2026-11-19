@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T00:08:48.299479+00:00",
+ "fetchedAt": "2026-11-19T01:08:37.072697+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Game Day",
- "kickoffDate": "2026-11-13",
- "game": "at UCLA",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Iowa",
  "players": [
   {
    "pos": "WR",
    "no": "1",
    "name": "Jayshon Platt",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "4",
+   "name": "Katin Houser",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -43,17 +50,24 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "24",
-   "name": "Javari Barnett",
+   "pos": "WR",
+   "no": "13",
+   "name": "Hudson Clement",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "DB",
+   "no": "16",
+   "name": "Tanner Heckel",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
    "no": "24",
-   "name": "Will Holmes",
-   "status": "gtd",
+   "name": "Javari Barnett",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -67,6 +81,13 @@
    "pos": "LB",
    "no": "33",
    "name": "Grant Beerman",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "45",
+   "name": "Robert Edmonson",
    "status": "out-game",
    "detail": ""
   },
@@ -85,31 +106,10 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "54",
-   "name": "Demetrius John",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "55",
    "name": "TJ McMillen",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "59",
-   "name": "Jake Renfro",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "87",
-   "name": "BJ Thurman",
-   "status": "gtd",
    "detail": ""
   }
  ],

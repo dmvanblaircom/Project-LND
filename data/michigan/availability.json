@@ -7,17 +7,38 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T18:39:03.003799+00:00",
+ "fetchedAt": "2026-11-19T01:08:38.877761+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Oregon",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "UCLA",
  "players": [
   {
    "pos": "WR",
    "no": "0",
    "name": "Kendrick Bell",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "1",
+   "name": "Rod Moore",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "3",
+   "name": "Andrew Marsh",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "6",
+   "name": "JJ Buchanan",
    "status": "out-game",
    "detail": ""
   },
@@ -25,7 +46,14 @@
    "pos": "WR",
    "no": "9",
    "name": "Channing Goodwin",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "20",
+   "name": "Jaylen Pile",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -50,6 +78,13 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "42",
+   "name": "Jalen Hoffman",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "52",
    "name": "Ace Hamilton",
@@ -67,7 +102,7 @@
    "pos": "OL",
    "no": "70",
    "name": "Brady Norton",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -79,9 +114,9 @@
   },
   {
    "pos": "DE",
-   "no": "94",
-   "name": "Nate Marshall",
-   "status": "out-game",
+   "no": "90",
+   "name": "John Henry Daley",
+   "status": "questionable",
    "detail": ""
   }
  ],

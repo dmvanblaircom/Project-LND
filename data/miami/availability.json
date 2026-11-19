@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:08:49.278611+00:00",
+ "fetchedAt": "2026-11-19T01:08:38.681684+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Duke",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Virginia Tech",
  "players": [
   {
    "pos": "WR",
@@ -39,7 +39,7 @@
    "pos": "DB",
    "no": "7",
    "name": "Zechariah Poyser",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {

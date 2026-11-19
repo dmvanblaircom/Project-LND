@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-alabama",
- "updated": "2026-11-14T15:39:09.843445+00:00",
+ "updated": "2026-11-19T01:08:41.491866+00:00",
  "reports": [
   {
    "schema": 1,
@@ -272,6 +272,151 @@
      "no": "",
      "name": "Jones-Thomas, Jeremiah",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Barnes, Brian",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Chiedo, Dylan",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Lynch, Maddox",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Marion, Khatori",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Dozier, Caleb",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Laseter, Matt",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Kidd, Julius",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Woods, Micah",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Johnson, Tirrell",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Crow, Donovan",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Hines, Andrew",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Moore, DJ",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "south-alabama",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:41.491866+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-19",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "at Southern Miss",
+   "players": [
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Korchagin, Artem",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Mosley, Demetress",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Siler, Jamal",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Blaylock, Cole",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Booker, Jaylen",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Carter, Tyler",
+     "status": "questionable",
      "detail": ""
     },
     {

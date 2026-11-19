@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-11-14T15:08:50.808547+00:00",
+ "updated": "2026-11-19T01:08:40.065022+00:00",
  "reports": [
   {
    "schema": 1,
@@ -621,6 +621,109 @@
      "no": "72",
      "name": "Deontae Armstrong",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Max Riley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "Maxence LeBlanc",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "ohio-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:40.065022+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Nebraska",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "10",
+     "name": "Julian Sayin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "11",
+     "name": "Terry Moore",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Brock Boyd",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "21",
+     "name": "Brenten \"Inky\" Jones",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Ja’Kobi Jackson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "29",
+     "name": "Deshawn Stewart",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "33",
+     "name": "Eli Lee",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "34",
+     "name": "Brennen Schramm",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Jaxon Powell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Phillip Daniels",
+     "status": "questionable",
      "detail": ""
     },
     {

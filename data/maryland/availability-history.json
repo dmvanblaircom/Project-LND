@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "maryland",
- "updated": "2026-11-14T15:08:48.953469+00:00",
+ "updated": "2026-11-19T01:08:38.384933+00:00",
  "reports": [
   {
    "schema": 1,
@@ -754,6 +754,102 @@
      "no": "81",
      "name": "Javonte Williams",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "maryland",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:38.384933+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "USC",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "DeJuan Williams",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "7",
+     "name": "Malik Washington",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "9",
+     "name": "Zahir Mathis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "13",
+     "name": "Chris Durr Jr.",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Josiah Teasley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "20",
+     "name": "DJ Samuels",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Harry Dalton III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "29",
+     "name": "Dontay Joyner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Trevor Szymanski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "71",
+     "name": "Ryan Howerton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Javonte Williams",
+     "status": "questionable",
      "detail": ""
     }
    ],

@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:08:48.953469+00:00",
+ "fetchedAt": "2026-11-19T01:08:38.384933+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Wisconsin",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "USC",
  "players": [
+  {
+   "pos": "RB",
+   "no": "0",
+   "name": "DeJuan Williams",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "QB",
    "no": "7",
    "name": "Malik Washington",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -26,6 +33,13 @@
    "no": "9",
    "name": "Zahir Mathis",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "13",
+   "name": "Chris Durr Jr.",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,13 +53,6 @@
    "pos": "RB",
    "no": "20",
    "name": "DJ Samuels",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "23",
-   "name": "Jordan Williams",
    "status": "out-game",
    "detail": ""
   },
@@ -64,13 +71,6 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "29",
-   "name": "Liam Willson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "50",
    "name": "Trevor Szymanski",
@@ -78,10 +78,17 @@
    "detail": ""
   },
   {
+   "pos": "OL",
+   "no": "71",
+   "name": "Ryan Howerton",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "TE",
    "no": "81",
    "name": "Javonte Williams",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

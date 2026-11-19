@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida-state",
- "updated": "2026-11-13T22:08:46.370043+00:00",
+ "updated": "2026-11-19T01:08:36.158941+00:00",
  "reports": [
   {
    "schema": 1,
@@ -677,6 +677,165 @@
      "no": "93",
      "name": "Conor McAneney",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "florida-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:36.158941+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "NC State",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "0",
+     "name": "Quindarrius Jones",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Duce Robinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "3",
+     "name": "Samuel Singleton Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "5",
+     "name": "Quintrevion Wisner",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "Ja’Bril Rawls",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "8",
+     "name": "Deante McCray",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "14",
+     "name": "Ma'Khi Jones",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "15",
+     "name": "Rylan Kennedy",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "16",
+     "name": "Karson Hobbs",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "18",
+     "name": "Jamari Howard",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Amari Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "29",
+     "name": "Caleb LaVallee",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "30",
+     "name": "Izayia Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "32",
+     "name": "Ousmane Kromah",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "38",
+     "name": "Daylen Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "45",
+     "name": "Noah LaVallee",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "52",
+     "name": "Chavez Thompson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Bradyn Welch-Joiner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Kevin Wynn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "93",
+     "name": "Conor McAneney",
+     "status": "probable",
      "detail": ""
     }
    ],

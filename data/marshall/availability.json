@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:05.552365+00:00",
+ "fetchedAt": "2026-11-19T01:08:38.290313+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. App State",
+ "effectiveAt": "2026-11-19",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "vs. Georgia State",
  "players": [
   {
    "pos": "OL",
@@ -36,6 +36,13 @@
    "detail": ""
   },
   {
+   "pos": "QB",
+   "no": "",
+   "name": "Khalil Wilkins",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
    "pos": "DL",
    "no": "",
    "name": "Mikailin Warren",
@@ -43,17 +50,17 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "",
-   "name": "Tariq Montgomery",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "",
    "name": "Braydin Ward",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Terrente Hinton",
+   "status": "questionable",
    "detail": ""
   }
  ],

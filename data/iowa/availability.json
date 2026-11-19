@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T22:38:40.680427+00:00",
+ "fetchedAt": "2026-11-19T01:08:37.261786+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Purdue",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Illinois",
  "players": [
   {
    "pos": "DB",
    "no": "2",
    "name": "Tyler Brown",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "6",
+   "name": "Zach Lutmer",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -29,9 +36,30 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "11",
+   "name": "Jacob Wallace",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "11",
    "name": "Brody Schaffer",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "14",
+   "name": "Tony Diaz",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "18",
+   "name": "Xavier Styles",
    "status": "out-game",
    "detail": ""
   },
@@ -46,20 +74,6 @@
    "pos": "RB",
    "no": "28",
    "name": "Kamari Moulton",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "60",
-   "name": "Lucas Allgeyer",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "61",
-   "name": "Cael Winter",
    "status": "out-game",
    "detail": ""
   },

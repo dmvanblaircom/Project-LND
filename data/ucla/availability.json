@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T00:08:57.012461+00:00",
+ "fetchedAt": "2026-11-19T01:08:43.312802+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Game Day",
- "kickoffDate": "2026-11-13",
- "game": "vs. Illinois",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Michigan",
  "players": [
   {
    "pos": "WR",
@@ -29,6 +29,13 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "9",
+   "name": "Jalen Woods",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OLB",
    "no": "19",
    "name": "Ryan McCulloch",
@@ -39,7 +46,7 @@
    "pos": "WR",
    "no": "20",
    "name": "Shane Rosenthal",
-   "status": "gtd",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -60,7 +67,7 @@
    "pos": "OL",
    "no": "51",
    "name": "Riley Robell",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {

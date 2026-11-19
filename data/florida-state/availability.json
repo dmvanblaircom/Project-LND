@@ -7,18 +7,18 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T22:08:46.370043+00:00",
+ "fetchedAt": "2026-11-19T01:08:36.158941+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Game Day",
- "kickoffDate": "2026-11-13",
- "game": "at Pittsburgh",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "NC State",
  "players": [
   {
    "pos": "DB",
    "no": "0",
    "name": "Quindarrius Jones",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -39,14 +39,35 @@
    "pos": "RB",
    "no": "5",
    "name": "Quintrevion Wisner",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "6",
+   "name": "Ja’Bril Rawls",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "8",
    "name": "Deante McCray",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "14",
+   "name": "Ma'Khi Jones",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "15",
+   "name": "Rylan Kennedy",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -60,7 +81,21 @@
    "pos": "DB",
    "no": "18",
    "name": "Jamari Howard",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "24",
+   "name": "Amari Thomas",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "29",
+   "name": "Caleb LaVallee",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -93,6 +128,13 @@
   },
   {
    "pos": "OL",
+   "no": "52",
+   "name": "Chavez Thompson",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "55",
    "name": "Bradyn Welch-Joiner",
    "status": "out-game",
@@ -109,7 +151,7 @@
    "pos": "K",
    "no": "93",
    "name": "Conor McAneney",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   }
  ],

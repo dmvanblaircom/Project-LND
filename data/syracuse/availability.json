@@ -7,13 +7,20 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:08:52.791193+00:00",
+ "fetchedAt": "2026-11-19T01:08:41.991227+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at NC State",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Boston College",
  "players": [
+  {
+   "pos": "RB",
+   "no": "4",
+   "name": "Ju'Juan Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "7",
@@ -39,7 +46,7 @@
    "pos": "RB",
    "no": "23",
    "name": "Shavane Anderson Jr.",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -60,7 +67,7 @@
    "pos": "OL",
    "no": "75",
    "name": "Trevion Mack",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

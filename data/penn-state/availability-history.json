@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "penn-state",
- "updated": "2026-11-14T22:08:57.831257+00:00",
+ "updated": "2026-11-19T01:08:40.714930+00:00",
  "reports": [
   {
    "schema": 1,
@@ -803,6 +803,95 @@
      "no": "78",
      "name": "Malachi Goodman",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "penn-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:40.714930+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Rutgers",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "0",
+     "name": "Jahmir Joseph",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Koby Howard",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "10",
+     "name": "Caleb Bacon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "18",
+     "name": "Max Granville",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Carson Hansen",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "25",
+     "name": "Alex Tatsch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "35",
+     "name": "Tyler Armstead",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "56",
+     "name": "Alijah Carnell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "79",
+     "name": "Donnie Harbour",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "P",
+     "no": "96",
+     "name": "Lucas Tenbrock",
+     "status": "questionable",
      "detail": ""
     }
    ],

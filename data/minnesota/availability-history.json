@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "minnesota",
- "updated": "2026-11-14T22:08:56.173173+00:00",
+ "updated": "2026-11-19T01:08:39.073570+00:00",
  "reports": [
   {
    "schema": 1,
@@ -495,6 +495,102 @@
      "no": "46",
      "name": "Mason Carrier",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Jaylin Hicks",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Brett Carroll",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Ashton Beers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "84",
+     "name": "Hayden Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "93",
+     "name": "Riley Sunram",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Theorin Randle",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "minnesota",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:39.073570+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Northwestern",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "9",
+     "name": "Garrison Monroe",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "17",
+     "name": "John Nestor",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Donielle Hayes",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "20",
+     "name": "Ryan Estrada",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "46",
+     "name": "Mason Carrier",
+     "status": "doubtful",
      "detail": ""
     },
     {

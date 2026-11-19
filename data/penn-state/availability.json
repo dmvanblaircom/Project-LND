@@ -7,25 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T22:08:57.831257+00:00",
+ "fetchedAt": "2026-11-19T01:08:40.714930+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Minnesota",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Rutgers",
  "players": [
   {
    "pos": "CB",
    "no": "0",
    "name": "Jahmir Joseph",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "4",
-   "name": "Jeremiah Cooper",
-   "status": "gtd",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -50,6 +43,13 @@
    "detail": ""
   },
   {
+   "pos": "RB",
+   "no": "21",
+   "name": "Carson Hansen",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "25",
    "name": "Alex Tatsch",
@@ -60,21 +60,28 @@
    "pos": "CB",
    "no": "35",
    "name": "Tyler Armstead",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DT",
    "no": "56",
    "name": "Alijah Carnell",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OL",
-   "no": "78",
-   "name": "Malachi Goodman",
-   "status": "gtd",
+   "no": "79",
+   "name": "Donnie Harbour",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "P",
+   "no": "96",
+   "name": "Lucas Tenbrock",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -7,24 +7,31 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:03.381366+00:00",
+ "fetchedAt": "2026-11-19T01:08:36.517094+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Georgia Southern",
+ "effectiveAt": "2026-11-19",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "at Marshall",
  "players": [
   {
-   "pos": "RB",
+   "pos": "WR",
    "no": "",
-   "name": "Dennis Murray Jr",
-   "status": "gtd",
+   "name": "Isaiah Stone",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "",
+   "name": "Cameran Brown",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
-   "name": "Curtis Walker",
+   "name": "Malique Harrell",
    "status": "out-game",
    "detail": ""
   },
@@ -36,16 +43,9 @@
    "detail": ""
   },
   {
-   "pos": "QB",
+   "pos": "DB",
    "no": "",
-   "name": "Cameran Brown",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Kelze Howard",
+   "name": "Curtis Walker",
    "status": "out-game",
    "detail": ""
   },
@@ -64,17 +64,17 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "",
-   "name": "Malique Harrell",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "",
    "name": "Jordan Brown",
    "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Dennis Murray Jr",
+   "status": "questionable",
    "detail": ""
   }
  ],

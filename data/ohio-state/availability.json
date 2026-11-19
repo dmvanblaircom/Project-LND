@@ -7,20 +7,13 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:08:50.808547+00:00",
+ "fetchedAt": "2026-11-19T01:08:40.065022+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Northwestern",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Nebraska",
  "players": [
-  {
-   "pos": "WR",
-   "no": "7",
-   "name": "Phillip Bell",
-   "status": "gtd",
-   "detail": ""
-  },
   {
    "pos": "QB",
    "no": "10",
@@ -32,14 +25,21 @@
    "pos": "S",
    "no": "11",
    "name": "Terry Moore",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "11",
    "name": "Brock Boyd",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "21",
+   "name": "Brenten \"Inky\" Jones",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -60,27 +60,13 @@
    "pos": "LB",
    "no": "33",
    "name": "Eli Lee",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "34",
    "name": "Brennen Schramm",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "44",
-   "name": "Epi Sitanilei",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "51",
-   "name": "Luke Montgomery",
    "status": "out-game",
    "detail": ""
   },
@@ -95,14 +81,7 @@
    "pos": "OL",
    "no": "70",
    "name": "Phillip Daniels",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "72",
-   "name": "Deontae Armstrong",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {

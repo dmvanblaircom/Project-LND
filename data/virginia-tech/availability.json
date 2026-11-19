@@ -7,25 +7,32 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T22:38:46.686041+00:00",
+ "fetchedAt": "2026-11-19T01:08:44.073169+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Stanford",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Miami",
  "players": [
   {
    "pos": "WR",
-   "no": "2",
-   "name": "Takye Heath",
-   "status": "out-game",
+   "no": "11",
+   "name": "Davion Brown",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "CB",
-   "no": "5",
-   "name": "Joshua Clarke",
-   "status": "out-game",
+   "no": "22",
+   "name": "Kenny Woseley Jr.",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "23",
+   "name": "Thomas Williams",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -36,10 +43,10 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "36",
-   "name": "Randy Adirika",
-   "status": "gtd",
+   "pos": "RB",
+   "no": "27",
+   "name": "Marcellous Hawkins",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -58,9 +65,16 @@
   },
   {
    "pos": "OL",
+   "no": "66",
+   "name": "Montavious Cunningham",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "72",
    "name": "Justin Terry",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -74,7 +88,7 @@
    "pos": "WR",
    "no": "83",
    "name": "Luke Stuewe",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

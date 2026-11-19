@@ -7,17 +7,17 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:38:54.519306+00:00",
+ "fetchedAt": "2026-11-19T01:08:32.759479+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Coastal Carolina",
+ "effectiveAt": "2026-11-19",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "at LA Tech",
  "players": [
   {
    "pos": "OL",
    "no": "",
-   "name": "Baker North",
+   "name": "Sterling Wiggins",
    "status": "out-season",
    "detail": ""
   },
@@ -31,7 +31,7 @@
   {
    "pos": "OL",
    "no": "",
-   "name": "Sterling Wiggins",
+   "name": "Baker North",
    "status": "out-season",
    "detail": ""
   }

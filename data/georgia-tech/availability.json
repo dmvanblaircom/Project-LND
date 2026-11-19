@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:03.524252+00:00",
+ "fetchedAt": "2026-11-19T01:08:36.625589+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Clemson",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Wake Forest",
  "players": [
   {
    "pos": "RB",
@@ -22,10 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "CB",
    "no": "3",
-   "name": "Rahkeem Smith",
-   "status": "gtd",
+   "name": "Jaylen Mbakwe",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -65,30 +65,9 @@
   },
   {
    "pos": "CB",
-   "no": "21",
-   "name": "Jaedyn Terry",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
    "no": "23",
    "name": "Trae Stevenson, Jr.",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "24",
-   "name": "Shane Marshall",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "26",
-   "name": "Chris Hewitt, Jr.",
-   "status": "gtd",
    "detail": ""
   },
   {
@@ -116,13 +95,6 @@
    "pos": "OL",
    "no": "52",
    "name": "Kevin Peay, Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "65",
-   "name": "Courtney Heard",
    "status": "out-game",
    "detail": ""
   },
@@ -162,17 +134,17 @@
    "detail": ""
   },
   {
-   "pos": "DT",
-   "no": "96",
-   "name": "Shymeik Jones",
-   "status": "out-game",
+   "pos": "WR",
+   "no": "89",
+   "name": "Chris Elko",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DT",
-   "no": "97",
-   "name": "Landen Marshall",
-   "status": "out-game",
+   "no": "96",
+   "name": "Shymeik Jones",
+   "status": "questionable",
    "detail": ""
   }
  ],

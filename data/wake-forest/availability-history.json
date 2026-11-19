@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wake-forest",
- "updated": "2026-11-14T15:08:55.164702+00:00",
+ "updated": "2026-11-19T01:08:44.179319+00:00",
  "reports": [
   {
    "schema": 1,
@@ -312,6 +312,88 @@
      "pos": "OL",
      "no": "69",
      "name": "Dalton DeBoer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Landon Morris",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:44.179319+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Georgia Tech",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "3",
+     "name": "Gio Lopez",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "15",
+     "name": "Devin Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Drayden Dickmann",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "20",
+     "name": "Elijah Otieno",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "37",
+     "name": "Trey Warren III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Tolu Olajide",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Dalton DeBoer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Dylan Durbin",
      "status": "out-game",
      "detail": ""
     },

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan",
- "updated": "2026-11-14T18:39:03.003799+00:00",
+ "updated": "2026-11-19T01:08:38.877761+00:00",
  "reports": [
   {
    "schema": 1,
@@ -600,6 +600,130 @@
      "no": "94",
      "name": "Nate Marshall",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "michigan",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:38.877761+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "UCLA",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Kendrick Bell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "1",
+     "name": "Rod Moore",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "3",
+     "name": "Andrew Marsh",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "JJ Buchanan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Channing Goodwin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "20",
+     "name": "Jaylen Pile",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "22",
+     "name": "Braydon Alford",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Micah Ka'apana",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "37",
+     "name": "Julius Holly",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "42",
+     "name": "Jalen Hoffman",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "52",
+     "name": "Ace Hamilton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "54",
+     "name": "Andrew Sprague",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Brady Norton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Blake Frazier",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "90",
+     "name": "John Henry Daley",
+     "status": "questionable",
      "detail": ""
     }
    ],

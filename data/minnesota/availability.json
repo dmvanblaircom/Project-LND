@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T22:08:56.173173+00:00",
+ "fetchedAt": "2026-11-19T01:08:39.073570+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Penn State",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Northwestern",
  "players": [
   {
    "pos": "DB",
@@ -25,7 +25,14 @@
    "pos": "DB",
    "no": "17",
    "name": "John Nestor",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "18",
+   "name": "Donielle Hayes",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -39,7 +46,7 @@
    "pos": "LB",
    "no": "46",
    "name": "Mason Carrier",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {

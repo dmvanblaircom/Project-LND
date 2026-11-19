@@ -7,13 +7,34 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:09.843445+00:00",
+ "fetchedAt": "2026-11-19T01:08:41.491866+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Troy",
+ "effectiveAt": "2026-11-19",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "at Southern Miss",
  "players": [
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Korchagin, Artem",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Mosley, Demetress",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Siler, Jamal",
+   "status": "out-season",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "",
@@ -22,31 +43,17 @@
    "detail": ""
   },
   {
-   "pos": "ILB",
-   "no": "",
-   "name": "Hand, Perry",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "",
-   "name": "Korchagin, Artem",
-   "status": "out-game",
+   "name": "Booker, Jaylen",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "DL",
    "no": "",
-   "name": "Mosley, Demetress",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Jones-Thomas, Jeremiah",
-   "status": "gtd",
+   "name": "Carter, Tyler",
+   "status": "questionable",
    "detail": ""
   },
   {

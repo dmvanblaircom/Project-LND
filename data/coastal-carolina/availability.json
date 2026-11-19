@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:01.841773+00:00",
+ "fetchedAt": "2026-11-19T01:08:35.385545+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Arkansas State",
+ "effectiveAt": "2026-11-19",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "at Louisiana",
  "players": [
   {
    "pos": "OL",
@@ -26,41 +26,6 @@
    "no": "",
    "name": "Mason Barton",
    "status": "out-season",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Jayden Johnson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "King White",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "Breyahn Townsend",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Dom Rijos",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Mitchell Toney",
-   "status": "gtd",
    "detail": ""
   }
  ],

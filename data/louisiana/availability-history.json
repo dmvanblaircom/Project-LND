@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisiana",
- "updated": "2026-11-12T16:09:05.044914+00:00",
+ "updated": "2026-11-19T01:08:37.905643+00:00",
  "reports": [
   {
    "schema": 1,
@@ -113,6 +113,123 @@
      "no": "",
      "name": "Landon Strother",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Anthony Reagan",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "louisiana",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:37.905643+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-19",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "vs. Coastal Carolina",
+   "players": [
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Priest Ashe",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Jake  St. Andre",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Khristian Mackintrush",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Na'Tori Brown",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Ethan Veal",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Ashley Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "J'Marion Gooch",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Landon Strother",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Hayden Darbonne",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jeremiah Holts",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Alexander Spencer",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Conor McPherson",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Darrell Smith",
+     "status": "out-season",
      "detail": ""
     },
     {

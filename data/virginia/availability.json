@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T18:39:08.676342+00:00",
+ "fetchedAt": "2026-11-19T01:08:43.966331+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. California",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "North Carolina",
  "players": [
   {
    "pos": "S",
@@ -39,13 +39,6 @@
    "pos": "CB",
    "no": "20",
    "name": "Omillio Agard",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "26",
-   "name": "Caleb Hardy",
    "status": "out-game",
    "detail": ""
   },
@@ -82,6 +75,13 @@
    "no": "58",
    "name": "Noah Hartsoe",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "60",
+   "name": "Drake Metcalf",
+   "status": "questionable",
    "detail": ""
   },
   {

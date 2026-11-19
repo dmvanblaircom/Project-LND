@@ -7,13 +7,20 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:08:55.642003+00:00",
+ "fetchedAt": "2026-11-19T01:08:44.628850+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Maryland",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Purdue",
  "players": [
+  {
+   "pos": "CB",
+   "no": "2",
+   "name": "Javan Robinson",
+   "status": "doubtful",
+   "detail": ""
+  },
   {
    "pos": "CB",
    "no": "3",
@@ -22,23 +29,51 @@
    "detail": ""
   },
   {
+   "pos": "CB",
+   "no": "6",
+   "name": "Jai'mier Scott",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "10",
+   "name": "Ryan Hopkins",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "S",
    "no": "11",
    "name": "Carson Van Dinter",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OLB",
    "no": "15",
    "name": "Sebastian Cheeks",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "15",
    "name": "Nate Palmer",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "19",
+   "name": "Thomas Heiberger",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "29",
+   "name": "Matthew Jung",
    "status": "out-game",
    "detail": ""
   },
@@ -53,7 +88,14 @@
    "pos": "OL",
    "no": "70",
    "name": "Barrett Nelson",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "75",
+   "name": "Emerson Mandell",
+   "status": "questionable",
    "detail": ""
   },
   {

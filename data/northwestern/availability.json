@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:08:50.608623+00:00",
+ "fetchedAt": "2026-11-19T01:08:39.873049+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Ohio State",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Minnesota",
  "players": [
   {
    "pos": "QB",
@@ -23,16 +23,16 @@
   },
   {
    "pos": "DB",
-   "no": "13",
-   "name": "Josh Fussell",
-   "status": "out-game",
+   "no": "7",
+   "name": "Ore Adeyi",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DB",
-   "no": "16",
-   "name": "J.J. Lewis",
-   "status": "out-game",
+   "no": "13",
+   "name": "Josh Fussell",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -44,15 +44,15 @@
   },
   {
    "pos": "LB",
-   "no": "37",
-   "name": "Max Mohring",
-   "status": "out-game",
+   "no": "32",
+   "name": "Matthew Smith",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "LB",
-   "no": "40",
-   "name": "Jason Reynolds II",
+   "no": "37",
+   "name": "Max Mohring",
    "status": "out-game",
    "detail": ""
   },

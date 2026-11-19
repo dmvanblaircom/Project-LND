@@ -7,18 +7,39 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:39:09.352644+00:00",
+ "fetchedAt": "2026-11-19T01:08:41.116779+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Nebraska",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Penn State",
  "players": [
+  {
+   "pos": "WR",
+   "no": "0",
+   "name": "Dyzier Carter",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "1",
    "name": "Kaj Sanders",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "6",
+   "name": "Sean Ashenfelder",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "6",
+   "name": "Abram Wright",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -32,7 +53,7 @@
    "pos": "QB",
    "no": "10",
    "name": "AJ Surace",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -46,7 +67,7 @@
    "pos": "QB",
    "no": "12",
    "name": "Dylan Lonergan",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -57,10 +78,31 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "27",
+   "name": "Sage Clawges",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "38",
+   "name": "Joey Kopec",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "44",
+   "name": "Tariq Hayer",
+   "status": "out-half",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "56",
    "name": "Tyler Needham",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -72,16 +114,9 @@
   },
   {
    "pos": "DL",
-   "no": "94",
-   "name": "J'Dan Burnett",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
    "no": "96",
    "name": "Keshon Griffin",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   }
  ],

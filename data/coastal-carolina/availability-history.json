@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "coastal-carolina",
- "updated": "2026-11-14T15:39:01.841773+00:00",
+ "updated": "2026-11-19T01:08:35.385545+00:00",
  "reports": [
   {
    "schema": 1,
@@ -195,6 +195,39 @@
      "no": "",
      "name": "Mitchell Toney",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "coastal-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:35.385545+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-19",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "at Louisiana",
+   "players": [
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Gavin McLaughlin",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Mason Barton",
+     "status": "out-season",
      "detail": ""
     }
    ],

@@ -7,13 +7,20 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T20:34:37.490934+00:00",
+ "fetchedAt": "2026-11-19T01:08:44.273144+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Michigan State",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Indiana",
  "players": [
+  {
+   "pos": "WR",
+   "no": "2",
+   "name": "Dezmen Roebuck",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "RB",
    "no": "4",
@@ -29,6 +36,20 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "11",
+   "name": "Jordan Clay",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "12",
+   "name": "Logan George",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "21",
    "name": "Quaid Carr",
@@ -39,7 +60,14 @@
    "pos": "RB",
    "no": "22",
    "name": "Trey Cooley",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
+   "no": "52",
+   "name": "Devin Hyde",
+   "status": "questionable",
    "detail": ""
   },
   {

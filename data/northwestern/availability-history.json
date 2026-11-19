@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "northwestern",
- "updated": "2026-11-14T15:08:50.608623+00:00",
+ "updated": "2026-11-19T01:08:39.873049+00:00",
  "reports": [
   {
    "schema": 1,
@@ -788,6 +788,88 @@
      "pos": "LB",
      "no": "40",
      "name": "Jason Reynolds II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "50",
+     "name": "Qayvier Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "62",
+     "name": "Ezomo Oratokhai",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Chris Petrucci",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "northwestern",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T01:08:39.873049+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Minnesota",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "0",
+     "name": "Aidan Chiles",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Ore Adeyi",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "13",
+     "name": "Josh Fussell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Daniel Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "32",
+     "name": "Matthew Smith",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "37",
+     "name": "Max Mohring",
      "status": "out-game",
      "detail": ""
     },
