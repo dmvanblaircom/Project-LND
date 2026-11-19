@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas",
- "updated": "2026-11-19T01:38:54.933140+00:00",
+ "updated": "2026-11-19T11:38:34.839065+00:00",
  "reports": [
   {
    "schema": 1,
@@ -348,12 +348,12 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:38:54.933140+00:00",
+   "fetchedAt": "2026-11-19T11:38:34.839065+00:00",
    "reported": true,
    "effectiveAt": "2026-11-18",
    "heading": "Initial",
    "kickoffDate": "2026-11-21",
-   "game": "Arkansas",
+   "game": "vs. Arkansas",
    "players": [
     {
      "pos": "EDG",
