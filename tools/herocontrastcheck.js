@@ -125,7 +125,7 @@ function drawBatch(arg) {
         '<link rel="stylesheet" href="' + base + '/app.css"><style>body{margin:0;background:#fff}' +
         '.hc-row{display:flex;gap:16px;align-items:flex-start;padding:12px 16px}.hc-cell{flex:none}</style></head>' +
         '<body><main id="hc"></main></body></html>');
-      for (var f of ["teams/index.js", "teamos/team.js", "teamos/identity.js", "teamos/game.js", "teamos/espn.js", "suite/ui.js", "suite/home.js", "suite/scoreboard.js"])
+      for (var f of ["teams/index.js", "teamos/team.js", "teamos/identity.js", "teamos/game.js", "teamos/espn.js", "suite/ui.js", "suite/stadium.js", "suite/home.js", "suite/scoreboard.js"])
         await page.addScriptTag({ url: base + "/" + f });
       var boxes = await page.evaluate(drawBatch, { ids: run.ids, style: run.style });
       cells += boxes.length;

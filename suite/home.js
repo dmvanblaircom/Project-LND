@@ -1,42 +1,42 @@
-/* Suite - Home, the canonical dashboard (references 02, 05, 06; decisions
-   0022, 0023, 0024).
+/* Suite - Home, the team's command center (Phase 2 spec §5; brief of
+   2026-11-19; decisions 0022, 0023, 0024, 0043).
 
-   Order: Hero, a program milestone when one is near, Latest News, Schedule,
-   Season Outlook's one line (its card is Around's). No Current Game card. Once the season is complete (S4/S5):
-   Hero, Latest News, Recruiting, NFL Draft, then the rest.
+   Order, stable whatever the season (spec §5.1): the hero; the team's
+   identity and context (defending champions, a program milestone); the
+   quick actions (Matchup, Availability); the team's updates - The Wire, then
+   Latest News, never the same story twice; the schedule (the last result and
+   the next three, the next one first in emphasis); one compact line of
+   context (Season Outlook, opening Around). Once the season is complete
+   (S4/S5) News, Recruiting and the NFL Draft follow the hero. On a desktop,
+   a supporting column: Season Context and Conference Standing.
 
    This file only draws. Every decision it shows was made in TeamOS - which
-   game is the hero and why, what state it is in, which three schedule rows,
-   which Season Outlook metrics, whether the screen is fresh - and app.js
-   hands the results over as a model. Nothing here fetches, reads a provider
-   payload, or names a team.
+   game is the hero and why, what state it is in, which schedule rows, which
+   Season Outlook metrics, which stories are wire items, whether the screen
+   is fresh - and app.js hands the results over as a model. Nothing here
+   fetches, reads a provider payload, or names a team.
 
      Suite.home.paint(host, model)
-       model.team      { name, nick, abbr, markUrl, oppMark(id) }
-       model.art       { photo?, name, abbr, markUrl, atmosphere }
+       model.team      { name, nick, abbr, markUrl, timeZone }
+       model.now       the time the screen is drawn for
+       model.art       { zone, atmosphere }
        model.hero      { game, reason, weather }   game is a normalized Game
-       model.news      NewsItem[] | null (still loading)
-       model.schedule  Game[] (the preview) and heroId
+       model.news      NewsItem[] | null (still loading); wire items removed
+       model.wire      TeamOS.wire items, newest first, or []
+       model.actions   { matchup: href, availability: { href, external } }
+       model.schedule  Game[] (the preview), heroId, nextId
        model.outlook   TeamOS.outlook.metrics() output
+       model.season    { record, rank, rankLabel, metrics } - Season Context
+       model.standing  { conference, rows } - Conference Standing
        model.milestone TeamOS.milestones.wins() output, or null
-       model.numbers   [{ n, text }] | null - By the Numbers from the week's
-                       game notes, for the hero game only
+       model.champion  TeamOS.champions.defending() output, or null
        model.fresh     TeamOS.freshness.summary() output
-       model.offseason Optional Suite.offseason model from the controller;
-                       absent keeps the existing in-season presentation.
-       model.recruits  TeamOS.prospects.recruits() output, or null
-       model.draft     TeamOS.prospects.draft() output, or null - the
-                       controller passes both only once the season is
-                       complete (S4/S5), where they follow News.
+       model.offseason Optional Suite.offseason model from the controller
+       model.recruits, model.draft  TeamOS.prospects output in S4/S5
 
    Each section is redrawn only when its markup changed, so a 30-second live
    refresh never throws away the fan's focus or scroll inside a section that
-   did not change.
-
-   The hero follows an explicit hierarchy (0024 §2): matchup, state, score
-   and date/time are primary and always kept; period, clock, possession,
-   down-and-distance and the CTA are secondary; weather and the betting
-   line are tertiary and are the first to go on a small phone. */
+   did not change. The hero is the stage (suite/scoreboard.js). */
 
 var Suite = Suite || {};
 
@@ -48,11 +48,6 @@ Suite.home = (function () {
 
   var CHEVRON = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg>';
   var EXTERNAL = '<svg class="ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4"/></svg>';
-  var BALL = ui.ball("gc-ball");
-
-  var ordinal = ui.period;
-  function whereWord(g) { return g.home || g.neutral ? "vs" : "at"; }
-  var oppLabel = ui.oppLabel;
 
   // ---- the hero ------------------------------------------------------------
 
@@ -68,11 +63,6 @@ Suite.home = (function () {
     return "upcoming";
   }
 
-  var LABEL = { upcoming: "Next Game", final: "Final" };
-  // The exceptional states say exactly what the source says (0022 #5): a
-  // delay is DELAYED and a suspension SUSPENDED, never one for the other.
-  var PILL = { delayed: "Delayed", postponed: "Postponed", canceled: "Canceled" };
-
   // Presentation only: keep ties and incomplete finals balanced. The score
   // itself supplies the winner cue, including an active-team loss.
   function scoreTone(g, us) {
@@ -80,79 +70,6 @@ Suite.home = (function () {
     var a = Number(g.us), b = Number(g.them);
     if (!isFinite(a) || !isFinite(b) || a < 0 || b < 0 || a === b) return "";
     return (us ? a > b : b > a) ? " is-winner" : " is-loser";
-  }
-
-  function side(team, g, us, st, m) {
-    var name = us ? team.name : g.oppName;
-    var rank = us ? g.usRank : g.oppRank;
-    var record = us ? g.usRecord : g.oppRecord;
-    var score = us ? g.us : g.them;
-    var mark = us ? ui.mark(team.markUrl, team.name, team.abbr, "bare")
-                  : ui.mark(m.oppMark(g.oppProviderId), g.oppName, g.oppAbbr, "bare");
-    // A final the source reports without a score says Final and nothing
-    // else (B7): no 0-0, no winner.
-    var showScore = st === "live" || st === "paused" || (st === "final" && TeamOS.game.scored(g));
-    // Who has the ball. At halftime no one does: the pill under the score
-    // says who gets it to start the second half (David, 2026-10-14).
-    var ball = (st === "live" || st === "paused") && g.situation &&
-               !TeamOS.game.halftime(g) && g.situation.possession === (us ? "us" : "them");
-    return '<div class="gc-side ' + (us ? "us" : "them") + scoreTone(g, us) + '">' +
-             '<div class="gc-line">' + mark +
-               (showScore ? '<span class="gc-score">' + esc(score == null ? "0" : score) + "</span>" : "") +
-               (ball ? BALL : "") +
-             "</div>" +
-             // The name, and the abbreviation ui.fitNames swaps in for BOTH
-             // sides when either will not fit - never an ellipsis.
-             '<p class="gc-name">' + (rank ? '<span class="gc-rank">#' + rank + "</span> " : "") +
-               '<span class="gc-full">' + esc(name) + '</span><span class="gc-abbr">' + esc((us ? team.abbr : g.oppAbbr) || name) + "</span></p>" +
-             (record ? '<p class="gc-record">' + esc(record) + "</p>"
-                     // the other side's record line, kept empty, so the two
-                     // marks sit on one line (David, 2026-10-25: Navy, with no
-                     // record, sat lower than Notre Dame)
-                     : (us ? g.oppRecord : g.usRecord) ? '<p class="gc-record" aria-hidden="true">\u00a0</p>' : "") +
-           "</div>";
-  }
-
-  function middle(g, st) {
-    if (st === "live") {
-      var per = TeamOS.game.halftime(g) ? "Half" : ordinal(g.period);
-      return '<div class="gc-mid"><span class="gc-period">' + esc(per) + "</span>" +
-             (g.clock && per !== "Half" ? '<span class="gc-clock">' + esc(g.clock) + "</span>" : "") + "</div>";
-    }
-    if (st === "paused") {
-      // The pill above already says DELAYED or SUSPENDED; the middle keeps
-      // where the game stopped.
-      return '<div class="gc-mid is-held"><span class="gc-period">' + esc(ordinal(g.period)) + "</span>" +
-             (g.clock ? '<span class="gc-clock">' + esc(g.clock) + "</span>" : "") + "</div>";
-    }
-    if (st === "final") {
-      // Team-neutral (review of 2026-09-24): the state is FINAL, said once
-      // above the scores; no per-team victory phrase, no Win/Loss word.
-      return '<div class="gc-mid"><span class="gc-rule" aria-hidden="true"></span></div>';
-    }
-    return '<div class="gc-mid"><span class="gc-vs">' + whereWord(g) + "</span></div>";
-  }
-
-  // One sentence a screen reader reads instead of the visual scoreboard.
-  // The team getting the ball after halftime, as the card names teams.
-  function receiver(team, g) { return g.situation.receives === "us" ? team.abbr : (g.oppAbbr || g.oppName); }
-
-  function summary(team, g, st) {
-    var opp = oppLabel(g), w = g.home || g.neutral ? "versus " : "at ";
-    var ko = ui.kickoff(g.date, g.timeSet);
-    if (st === "final" && !TeamOS.game.scored(g)) return "Final. " + team.name + " " + w + opp + ".";
-    if (st === "live" || st === "paused" || st === "final") {
-      var line = team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0) + ".";
-      if (st === "final") return "Final. " + line;
-      if (st === "paused") return (g.status === "suspended" ? "Suspended" : "Delayed") + ", " + ordinal(g.period) + " quarter. " + line;
-      if (TeamOS.game.halftime(g)) return "Halftime. " + line +
-        (g.situation && g.situation.receives ? " " + (g.situation.receives === "us" ? team.name : g.oppName) + " gets the ball to start the second half." : "");
-      return "Live, " + (ordinal(g.period) ? ordinal(g.period) + " quarter" : "") + (g.clock ? ", " + g.clock : "") + ". " + line +
-        (g.situation && g.situation.short ? " " + g.situation.short + (g.situation.spot ? " at " + g.situation.spot : "") + "." : "");
-    }
-    if (st === "postponed") return "Postponed. " + team.name + " " + w + opp + ". " + newDate(g) + ".";
-    var head = st === "canceled" ? "Canceled. " : st === "delayed" ? "Delayed. " : "Next game: ";
-    return head + team.name + " " + w + opp + ", " + ko.day + (st === "upcoming" ? ", " + ko.time : "") + (g.net ? ", on " + g.net : "") + ".";
   }
 
   // A postponed game's replacement date (decision 0022 #5), only when the
@@ -168,84 +85,28 @@ Suite.home = (function () {
       : d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", timeZoneName: "short" }));
   }
 
-  function tertiary(g, st, weather) {
-    var bits = [];
-    if (weather && (st === "upcoming" || st === "delayed" || st === "live" || st === "paused")) {
-      bits.push('<span class="gc-wx">' + esc(weather.tempF + "°F") + (weather.sky ? " " + esc(weather.sky) : "") + "</span>");
-    }
-    // Odds are compact secondary metadata, the values alone - "ND -29.5 ·
-    // O/U 52.5" - the way a sports-media product shows them (decision 0025).
-    // No "line" labels and never "live": nothing here says what the source
-    // does not.
-    if (g.odds && (g.odds.line || g.odds.total != null) && st !== "final" && st !== "canceled") {
-      bits.push('<span class="gc-odds">' +
-        esc([g.odds.line, g.odds.total != null ? "O/U " + g.odds.total : ""].filter(Boolean).join(" · ")) + "</span>");
-    }
-    return bits.length ? '<p class="gc-extra">' + bits.join('<span class="dot" aria-hidden="true"> · </span>') + "</p>" : "";
-  }
-
-  function cta(st) {
-    if (st === "canceled" || st === "none") return "";
-    var text = st === "final" ? "Game Recap" : st === "live" || st === "paused" ? "View Game" : "Game Details";
-    return '<a class="btn btn-primary gc-cta" href="#game">' + text + CHEVRON + "</a>";
-  }
-
   function made(ms, g) { return !!(ms && ms.phase === "reached" && ms.game && g && String(ms.game.id) === String(g.id)); }
 
   function heroHtml(m) {
-    var seasonHero = Suite.offseason && Suite.offseason.hero(m.offseason);
-    if (seasonHero) return seasonHero;
     var team = m.team, h = m.hero || {}, g = h.game, st = cardState(g, h.reason);
-    var ko = g ? ui.kickoff(g.date, g.timeSet) : null;
-    var id = '<div class="hh-id">' +
-               '<p class="hh-school">' + esc(team.name) + "</p>" +
-               (team.nick ? '<p class="hh-nick">' + esc(team.nick) + "</p>" : "") +
-             "</div>";
-    var card = "";
-    if (g) {
-      var top = '<div class="gc-top">';
-      if (st === "live") top += '<span class="live-pill">Live</span>';
-      else if (st === "paused" || st === "delayed" || st === "postponed" || st === "canceled")
-        top += '<span class="state-pill ' + st + '">' + esc(st === "paused" ? (g.status === "suspended" ? "Suspended" : "Delayed") : PILL[st]) + "</span>";
-      else top += '<span class="gc-label' + (st === "final" ? " gc-final" : "") + '">' + esc(LABEL[st]) + "</span>";
-      // The day and the time each stay whole: beside a long network ("SEC
-      // Network") the line breaks at the dot, never before "EDT" (sweep,
-      // 2026-10-29).
-      if (st === "upcoming") top += '<span class="gc-when"><span class="nb">' + esc(ko.day) + '</span> \u00B7 <span class="nb">' + esc(ko.time) + "</span></span>";
-      else if (st === "delayed") top += '<span class="gc-when">' + esc(ko.day) + "</span>";
-      else if (st === "postponed") top += '<span class="gc-when">' + esc(newDate(g)) + "</span>";
-      if (g.net && st !== "final" && st !== "canceled") top += '<span class="gc-net">' + esc(g.net) + "</span>";
-      top += "</div>";
-
-      var situation = (st === "live" || st === "paused") && !TeamOS.game.halftime(g) && g.situation && g.situation.short
-        ? '<p class="gc-situation" aria-hidden="true"><span>' + esc(g.situation.short) + "</span>" +
-          (g.situation.spot ? "<span>" + esc(g.situation.spot) + "</span>" : "") + "</p>"
-        : TeamOS.game.halftime(g) && g.situation && g.situation.receives
-        ? '<p class="gc-situation" aria-hidden="true"><span>' + esc(receiver(team, g)) + " gets the ball</span></p>"
-        : "";
-
-      card = '<article class="gamecard gc-' + st + '" aria-labelledby="gcSummary">' +
-               '<h2 class="sr-only" id="gcSummary">' + esc(summary(team, g, st)) + "</h2>" +
-               '<div aria-hidden="true">' + top +
-                 '<div class="gc-matchup">' + side(team, g, true, st, m) + middle(g, st) + side(team, g, false, st, m) + "</div>" +
-               "</div>" +
-               situation +
-               // the final that made a program milestone says so, for as
-               // long as the milestone card holds it
-               (st === "final" && made(m.milestone, g) ? '<p class="gc-milestone">' + esc(hundredth(m.milestone, team)) + "</p>" : "") +
-               (g.series && st !== "final" ? '<p class="gc-series">' + esc(g.series) + "</p>" : "") +
-               tertiary(g, st, h.weather) +
-               cta(st) +
-             "</article>";
-    } else if (h.reason === "none") {
-      card = '<article class="gamecard gc-none"><h2 class="gc-label">No games on the schedule yet</h2></article>';
-    }
-    // season-over: TeamOS chooses no hero game. Drawing no card is an INTERIM
-    // safe rendering only - not the end-of-season design, which Product will
-    // define. Do not build on it.
-    return '<section class="home-hero on-dark' + (m.art.atmosphere ? " art-" + esc(m.art.atmosphere) : "") +
-             '" aria-label="' + esc(team.name) + '">' +
-             ui.art(m.art) + '<div class="hh-inner">' + id + card + "</div></section>";
+    var zone = m.art && m.art.zone;
+    // The season's own composition (S2/S4) stands on the same stadium, so
+    // the end of a season looks like Suite, not like a different app.
+    var seasonHero = Suite.offseason && Suite.offseason.hero(m.offseason);
+    var body = seasonHero || (!g && h.reason === "none"
+      ? '<p class="stage-empty">No games on the schedule yet</p>' : "");
+    // season-over with nothing to show: TeamOS chooses no hero game, and the
+    // stage carries the program's identity alone - an INTERIM rendering until
+    // Product defines the end-of-season design. Do not build on it.
+    var label = st === "upcoming" || st === "delayed" || st === "postponed" ? "Game Details" : "View Game";
+    var stage = Suite.scoreboard.stage({
+      team: team, game: seasonHero ? null : g, oppMark: m.oppMark, now: m.now || new Date(), weather: h.weather,
+      // the final that made a program milestone says so, for as long as the
+      // milestone card holds it
+      line: st === "final" && made(m.milestone, g) ? hundredth(m.milestone, team) : null
+    }, { variant: "home", zone: zone, body: body,
+         cta: g && !seasonHero && st !== "canceled" && st !== "none" ? { href: "#game", label: label } : null });
+    return '<section class="home-hero' + (seasonHero ? " is-season" : "") + '" aria-label="' + esc(team.name) + '">' + stage + "</section>";
   }
 
   // ---- news ----------------------------------------------------------------
@@ -269,13 +130,13 @@ Suite.home = (function () {
 
   // ---- schedule ------------------------------------------------------------
 
-  function scheduleHtml(rows, heroId) {
+  function scheduleHtml(rows, heroId, nextId) {
     var head = '<div class="sec-head"><h2 class="sec-title" id="schedHead">Schedule</h2>' +
                '<a class="sec-link" href="#schedule">View Full Schedule' + CHEVRON + "</a></div>";
     if (!rows || !rows.length) return head + '<p class="sec-quiet">No games on the schedule yet.</p>';
     // The same row the Schedule screen draws (suite/schedule.js), compact.
     return head + '<ul class="sched-list card" aria-labelledby="schedHead">' + rows.map(function (g) {
-      return Suite.schedule.row(g, { heroId: heroId });
+      return Suite.schedule.row(g, { heroId: heroId, nextId: nextId });
     }).join("") + "</ul>";
   }
 
@@ -362,34 +223,107 @@ Suite.home = (function () {
       '<p class="champ-s">' + esc(line) + "</p></div>";
   }
 
-  // ---- By the Numbers (David, 2026-10-09) -------------------------------------
-  // Three of the program's weekly figures from its game notes; all of them on
-  // Game's pregame view.
+  // ---- Quick Actions (Home review, 2026-11-11) -------------------------------
+  // Matchup and Availability: the two core actions. Game Info is gone - the
+  // hero is the way into Game. A contextual shortcut joins only when the data
+  // behind it exists; none is invented to fill a row.
 
-  var NUMBERS_HOME = 3;
-  function numbersHtml(list) {
-    if (!list || !list.length) return "";
-    return '<div class="sec-head"><h2 class="sec-title" id="bnHead">By the Numbers</h2>' +
-             '<a class="sec-link" href="#game">View All' + CHEVRON + "</a></div>" +
-      '<div class="card bn" role="group" aria-labelledby="bnHead"><ul class="bn-list">' +
-      list.slice(0, NUMBERS_HOME).map(function (x) {
-        return '<li><span class="bn-n">' + esc(x.n) + '</span><span class="bn-t">' + esc(x.text) + "</span></li>";
-      }).join("") + "</ul></div>";
+  var ICON = {
+    matchup: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 18h4V9H4zM10 18h4V5h-4zM16 18h4v-6h-4z"/></svg>',
+    availability: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4h6v4h4v6h-4v6H9v-6H5V8h4z"/></svg>'
+  };
+  function actionsHtml(a) {
+    if (!a) return "";
+    var items = [];
+    if (a.matchup) items.push({ k: "matchup", href: a.matchup, t: "Matchup", s: "How the teams compare" });
+    if (a.availability) items.push({ k: "availability", href: a.availability.href, ext: a.availability.external,
+                                     t: "Availability", s: a.availability.sub || "Who is in and who is out" });
+    if (!items.length) return "";
+    return '<nav class="qa" aria-label="Quick actions">' + items.map(function (x) {
+      return '<a class="qa-item card qa-' + x.k + '" href="' + esc(x.href) + '"' + (x.ext ? ' target="_blank" rel="noopener noreferrer"' : "") + ">" +
+               '<span class="qa-ic">' + ICON[x.k] + '</span><span class="qa-t">' + esc(x.t) + '</span><span class="qa-s">' + esc(x.s) + "</span>" +
+               (x.ext ? EXTERNAL + '<span class="sr-only"> (opens in a new tab)</span>' : CHEVRON) + "</a>";
+    }).join("") + "</nav>";
+  }
+
+  // ---- The Wire (decision 0043; measured 92.1%, 2026-11-19) --------------------
+  // Status changes - injuries, availability, coaching, commitments - kept
+  // apart from Latest News, and never the same story in both. Each item is
+  // the outlet's headline as it came, with the kind beside it. Omitted when
+  // there is none.
+
+  var KIND = { drafted: "Drafted", suspension: "Suspension", coaching: "Coaching", transfer: "Transfer",
+               commitment: "Commitment", availability: "Availability", injury: "Injury" };
+  function wireHtml(items) {
+    if (!items || !items.length) return "";
+    var now = Date.now();
+    return '<div class="sec-head"><h2 class="sec-title" id="wireHead">The Wire</h2></div>' +
+      '<ul class="wire card" aria-labelledby="wireHead">' + items.map(function (w) {
+        var a = w.story;
+        return '<li><a class="wire-row" href="' + esc(a.link) + '" target="_blank" rel="noopener noreferrer">' +
+                 '<span class="wire-kind wk-' + esc(w.kind) + '">' + esc(KIND[w.kind] || w.kind) + "</span>" +
+                 '<span class="wire-hl">' + esc(a.title) + "</span>" +
+                 '<span class="wire-meta">' + esc([ui.ago(a.publishedAt, now), a.source].filter(Boolean).join(" · ")) +
+                   EXTERNAL + '<span class="sr-only"> (opens the original story in a new tab)</span></span></a></li>';
+      }).join("") + "</ul>";
+  }
+
+  // ---- the supporting column (desktop; spec §5.1) ------------------------------
+  // Two panels, as approved: Season Context and Conference Standing. Each
+  // from data Suite already holds, and absent rather than empty when it has
+  // none. On a phone the column is not drawn; Around has both in full.
+
+  function seasonHtml(s) {
+    if (!s) return "";
+    var rows = [];
+    if (s.record) rows.push('<div><dt>Record</dt><dd class="num">' + esc(s.record) + "</dd></div>");
+    if (s.rank) rows.push('<div><dt>' + esc(s.rankLabel || "Rank") + '</dt><dd class="num">#' + esc(s.rank) + "</dd></div>");
+    (s.metrics || []).forEach(function (x) {
+      rows.push("<div><dt>" + esc(x.key === "title" ? "National title" : x.label) + '</dt><dd class="num">' + Math.round(x.value) + "%</dd></div>");
+    });
+    if (!rows.length) return "";
+    return '<section class="side-panel card" aria-labelledby="sideSeason"><h2 class="side-title" id="sideSeason">Season Context</h2>' +
+             '<dl class="side-dl">' + rows.join("") + "</dl>" +
+             (s.metrics && s.metrics.length ? '<p class="side-note">Projected odds from ESPN FPI. Not betting advice.</p>' : "") +
+             '<a class="side-link" href="#top25">Open Around' + CHEVRON + "</a></section>";
+  }
+
+  function standingHtml(t) {
+    if (!t || !t.rows || !t.rows.length) return "";
+    return '<section class="side-panel card" aria-labelledby="sideConf"><h2 class="side-title" id="sideConf">Conference Standing</h2>' +
+             '<p class="side-sub">' + esc(t.conference) + "</p>" +
+             '<table class="side-table"><thead><tr><th scope="col"><span class="sr-only">Place</span></th><th scope="col">Team</th><th scope="col" class="num">Conf</th></tr></thead><tbody>' +
+             t.rows.map(function (r) {
+               return '<tr' + (r.us ? ' class="is-us"' : "") + (r.gap ? ' data-gap' : "") + '><td class="num">' + esc(r.place) + "</td><td>" + esc(r.name) +
+                      (r.division ? '<span class="side-div">' + esc(r.division) + "</span>" : "") + '</td><td class="num">' + esc(r.wins + "-" + r.losses) + "</td></tr>";
+             }).join("") + "</tbody></table>" +
+             '<a class="side-link" href="#top25">Around: our conference' + CHEVRON + "</a></section>";
+  }
+
+  function sideHtml(m) {
+    var html = seasonHtml(m.season) + standingHtml(m.standing);
+    return html;
   }
 
   // ---- mount -----------------------------------------------------------------
 
   // Recruiting and the draft are drawn only in S4/S5; in season their
   // wrappers stay last and hidden.
-  var SECTIONS = ["fresh", "champion", "hero", "milestone", "numbers", "news", "schedule", "outlook", "recruiting", "draft"];
-  var OFFSEASON_SECTIONS = ["fresh", "champion", "hero", "news", "recruiting", "draft", "milestone", "numbers", "schedule", "outlook"];
+  // The approved order (spec §5.1, Home review 2026-11-11): the hero; the
+  // team's identity and context; the quick actions; the team's updates, the
+  // wire then the news; the schedule; one compact line of context. Stable:
+  // the content changes with the season, the order does not move. The
+  // supporting column (desktop) comes last in reading order.
+  var SECTIONS = ["fresh", "hero", "champion", "milestone", "actions", "wire", "news", "schedule", "outlook", "recruiting", "draft", "side"];
+  var OFFSEASON_SECTIONS = ["fresh", "hero", "champion", "news", "recruiting", "draft", "milestone", "actions", "wire", "schedule", "outlook", "side"];
 
   function paint(host, m) {
     if (!host) return;
     if (!host.querySelector("[data-home]")) {
       host.innerHTML = SECTIONS.map(function (k) {
-        return k === "hero" || k === "fresh" || k === "champion"
+        return k === "hero" || k === "fresh"
           ? '<div data-home="' + k + '"' + (k === "fresh" ? ' role="status"' : "") + "></div>"
+          : k === "side" ? '<aside class="home-side" data-home="side" aria-label="Season and conference"></aside>'
           : '<section class="home-sec home-' + k + '" data-home="' + k + '"></section>';
       }).join("");
       last = {};
@@ -413,12 +347,14 @@ Suite.home = (function () {
       champion: championHtml(m.champion),
       hero: heroHtml(m),
       milestone: milestoneHtml(m.milestone, m.team),
-      numbers: numbersHtml(m.numbers),
+      actions: actionsHtml(m.actions),
+      wire: wireHtml(m.wire),
       news: newsHtml(m.news, m.team),
-      schedule: scheduleHtml(m.schedule, m.heroId),
+      schedule: scheduleHtml(m.schedule, m.heroId, m.nextId),
       outlook: outlookHtml(m.outlook),
       recruiting: Suite.prospects.recruiting(m.recruits, "home"),
-      draft: Suite.prospects.draft(m.draft, "home")
+      draft: Suite.prospects.draft(m.draft, "home"),
+      side: sideHtml(m)
     };
     SECTIONS.forEach(function (k) {
       if (last[k] === html[k]) return;
@@ -426,7 +362,7 @@ Suite.home = (function () {
       ui.fill(el, html[k]);
       el.hidden = !html[k];
       last[k] = html[k];
-      if (k === "hero") ui.fitNames(host, ".gc-matchup", ".gc-name");
+      if (k === "hero") Suite.scoreboard.fit(host);
     });
   }
 
