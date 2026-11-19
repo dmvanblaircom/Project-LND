@@ -47,7 +47,8 @@ var TEAM_CONFIG = {
   },
 
   series: [
-    { match: /^western michigan( broncos)?$/i, name: "Victory Cannon", kind: "trophy" }
+    { match: /^western michigan( broncos)?$/i, name: "Victory Cannon", kind: "trophy" },
+    { match: /^eastern michigan( eagles)?$/i, name: "Michigan MAC Trophy", kind: "trophy" }
   ],
 
   links: {

@@ -48,7 +48,8 @@ var TEAM_CONFIG = {
 
   series: [
     { match: /^smu( mustangs)?$/i, name: "Iron Skillet", kind: "trophy" },
-    { match: /^baylor( bears)?$/i, name: "Revivalry", kind: "rivalry" }
+    { match: /^baylor( bears)?$/i, name: "Revivalry", kind: "rivalry" },
+    { match: /^texas tech( red raiders)?$/i, name: "Saddle Trophy", kind: "trophy" }
   ],
 
   links: {

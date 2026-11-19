@@ -46,7 +46,8 @@ var TEAM_CONFIG = {
   },
 
   series: [
-    { match: /^central michigan( chippewas)?$/i, name: "Victory Cannon", kind: "trophy" }
+    { match: /^central michigan( chippewas)?$/i, name: "Victory Cannon", kind: "trophy" },
+    { match: /^eastern michigan( eagles)?$/i, name: "Michigan MAC Trophy", kind: "trophy" }
   ],
 
   links: {

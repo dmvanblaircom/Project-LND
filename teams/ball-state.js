@@ -46,7 +46,7 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^northern illinois( huskies)?$/i, name: "Bronze Stalk Trophy", kind: "trophy" }
   ],
 
   links: {

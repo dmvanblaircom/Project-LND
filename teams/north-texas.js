@@ -45,7 +45,7 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^smu( mustangs)?$/i, name: "Safeway Bowl", kind: "rivalry" }
   ],
 
   links: {

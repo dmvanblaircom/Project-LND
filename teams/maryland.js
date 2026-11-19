@@ -48,7 +48,7 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^navy( midshipmen)?$/i, name: "Crab Bowl", kind: "trophy" }
   ],
 
   links: {

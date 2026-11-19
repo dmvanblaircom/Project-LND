@@ -47,7 +47,8 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^central michigan( chippewas)?$/i, name: "Michigan MAC Trophy", kind: "trophy" },
+    { match: /^western michigan( broncos)?$/i, name: "Michigan MAC Trophy", kind: "trophy" }
   ],
 
   links: {

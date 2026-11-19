@@ -48,7 +48,8 @@ var TEAM_CONFIG = {
 
   series: [
     { match: /^oklahoma( sooners)?$/i, name: "Red River Rivalry", kind: "rivalry" },
-    { match: /^texas a&m( aggies)?$/i, name: "Lone Star Showdown", kind: "rivalry" }
+    { match: /^texas a&m( aggies)?$/i, name: "Lone Star Showdown", kind: "rivalry" },
+    { match: /^texas tech( red raiders)?$/i, name: "Chancellor's Spurs", kind: "trophy" }
   ],
 
   links: {
