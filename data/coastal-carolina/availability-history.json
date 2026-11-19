@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "coastal-carolina",
- "updated": "2026-11-19T01:08:35.385545+00:00",
+ "updated": "2026-11-19T02:08:37.390114+00:00",
  "reports": [
   {
    "schema": 1,
@@ -224,9 +224,79 @@
      "detail": ""
     },
     {
+     "pos": "DL",
+     "no": "",
+     "name": "Ibe Diawara",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Tre Guerra",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Tray Franklin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Jayden Johnson",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Ryan Grayson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Kaden Sapp",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Tristian Gardner",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Azarel Juste",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Mitch Toney",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
      "pos": "OL",
      "no": "",
      "name": "Mason Barton",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jordan Stevens",
      "status": "out-season",
      "detail": ""
     }
