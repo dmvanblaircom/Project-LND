@@ -46,7 +46,7 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^nc state( wolfpack)?$/i, name: "Victory Barrel", kind: "trophy" }
   ],
 
   links: {

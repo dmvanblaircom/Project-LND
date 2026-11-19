@@ -43,7 +43,7 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^troy( trojans)?$/i, name: "Battle for the Ol’ School Bell", kind: "trophy" }
   ],
 
   links: {

@@ -50,7 +50,8 @@ var TEAM_CONFIG = {
   series: [
     { match: /^army( black knights| west point)?$/i, name: "Army-Navy Game", kind: "rivalry" },
     { match: /^air force( falcons)?$/i, name: "Commander-in-Chief's Trophy", kind: "trophy" },
-    { match: /^notre dame( fighting irish)?$/i, name: "Rip Miller Trophy", kind: "trophy" }
+    { match: /^notre dame( fighting irish)?$/i, name: "Rip Miller Trophy", kind: "trophy" },
+    { match: /^maryland( terrapins)?$/i, name: "Crab Bowl", kind: "trophy" }
   ],
 
   links: {
