@@ -5,9 +5,10 @@ The gate for the wire (F1 step b; David, 2026-11-11): it ships only once a fresh
 ## Method
 
 - **The rule:** `TeamOS.wire.classify()` as last changed in 74ab058d3 (2026-11-11T03:42Z), unchanged since.
-- **The sample:** `node tools/wiremeasure.js --since 2026-11-11 --sample <file>`. It covers every story first seen on or after 2026-11-11 in the 138 teams' beat feeds: **6,533 stories**. None of them was read while the rule was written.
+- **The sample:** `node tools/wiremeasure.js --since 2026-11-11 --sample <file>`. It covers every story in the 138 teams' beat feeds that was both published and first seen by Suite on or after 2026-11-11: **6,428 stories**. Publication date is David's test, and first-seen date guarantees the rule never read the story. None of them was read while the rule was written.
+- **Corrected after review (Codex, #269).** The first draw filtered on first-seen date only. Four of its 200 untagged stories had been published earlier (2026-10-29 to 2026-11-10); none of the 101 tagged had. The four were replaced by the next four eligible stories, all ordinary news. The figures below are from the corrected sample, and every graded story is now on or after 2026-11-11 (`published` is in the grades file).
 - **Drawn:** every story the rule tagged, up to 40 a kind (101 in all), and 200 of the stories it left, at random.
-- **Grading:** by hand under David's taxonomy of 2026-11-09. Grades are in `wire-grades-2026-11-19.json`; each mislabel carries a note. Where a call was close, the story was graded against the rule.
+- **Grading:** by hand, under David's taxonomy of 2026-11-09. Grades are in `wire-grades-2026-11-19.json`; each mislabel carries a note. Where a call was close, the story was graded against the rule.
 
 ## What the rule tagged in the fresh corpus
 
@@ -44,7 +45,7 @@ The gate for the wire (F1 step b; David, 2026-11-11): it ships only once a fresh
 - **availability:** "Iowa Football Injury Update: Star WR Tony Diaz 'Has a Chance' To Play vs. Illinois"
 - **availability:** "Lewis Carter back on the field, ready to help UCF finish season strong"
 
-That suggests about 160 missed wire stories against about 142 found, so **recall is roughly 47%**. The range is wide, 28% to 67%, because 5 in 200 is a thin estimate. The first measurement estimated 77%.
+That suggests about 157 missed wire stories against about 142 found, so **recall is roughly 47%**. The range is wide, 28% to 68%, because 5 in 200 is a thin estimate. The first measurement estimated 77%.
 
 The rule is built to miss rather than mislabel, and this is the side it errs on. A fan sees fewer wire items, not wrong ones.
 
@@ -52,4 +53,4 @@ The rule is built to miss rather than mislabel, and this is the side it errs on.
 
 - **Step (b) is met.** The wire can take its place on Home with Stage 2 (step c, CD's design), as David approved on 2026-11-11.
 - **Leave the rule as measured.** Tuning it on these grades would void this measurement. The two clear fixes, a series "suspended" and the portal analysis pieces, can wait for a later round with its own fresh sample.
-- **A source note.** An official athletics site's feed carries every sport, so a basketball signing can read as a football commitment. A per-source "football only" filter belongs with the news producer, not the wire rule. Not urgent: two stories in 6,533.
+- **A source note.** An official athletics site's feed carries every sport, so a basketball signing can read as a football commitment. A per-source "football only" filter belongs with the news producer, not the wire rule. Not urgent: two stories in 6,428.
