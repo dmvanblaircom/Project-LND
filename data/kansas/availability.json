@@ -7,12 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T19:08:56.294122+00:00",
+ "fetchedAt": "2026-11-19T03:08:50.224694+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at West Virginia",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "BYU",
  "players": [
   {
    "pos": "RB",
@@ -22,10 +22,24 @@
    "detail": ""
   },
   {
+   "pos": "CB",
+   "no": "6",
+   "name": "Jahlil Hurley",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "15",
+   "name": "Cole Ballard",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "S",
    "no": "23",
    "name": "Mason Ellis",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -36,9 +50,23 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "44",
+   "name": "Carson Bruhn",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "51",
    "name": "Kasen Carpenter",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "53",
+   "name": "Kaden Moody",
    "status": "out-game",
    "detail": ""
   },
@@ -50,9 +78,16 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "79",
-   "name": "Connor Stroh",
+   "pos": "TE",
+   "no": "81",
+   "name": "Quinton Conley",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "92",
+   "name": "Nakwaine Carter",
    "status": "out-game",
    "detail": ""
   }

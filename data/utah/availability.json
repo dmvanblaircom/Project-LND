@@ -7,18 +7,53 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T02:08:48.040953+00:00",
+ "fetchedAt": "2026-11-19T03:08:58.426640+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Arizona",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "TCU",
  "players": [
+  {
+   "pos": "RB",
+   "no": "1",
+   "name": "Wayshawn Parker",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "8",
+   "name": "Mana Carvalho",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "24",
+   "name": "Marcus Wimberly",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "DT",
    "no": "51",
    "name": "Karson Kaufusi",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LS",
+   "no": "65",
+   "name": "Logan Castor",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "99",
+   "name": "Semi Taulanga",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -7,67 +7,46 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T17:39:17.285161+00:00",
+ "fetchedAt": "2026-11-19T03:08:56.410019+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Kansas State",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Utah",
  "players": [
   {
+   "pos": "QB",
+   "no": "1",
+   "name": "Jaden Craig",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "RB",
-   "no": "2",
-   "name": "Jon Denman",
-   "status": "out-game",
+   "no": "20",
+   "name": "G'Ivori Graham",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "4",
-   "name": "Ace Theus",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "17",
-   "name": "Devondre McGee",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "60",
-   "name": "Cade Bennett",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "83",
-   "name": "Keagan Cunningham",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "84",
-   "name": "Cooper Reid",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "89",
-   "name": "Braden Bach",
-   "status": "out-game",
+   "pos": "EDG",
+   "no": "36",
+   "name": "Cheta Ofili",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "DT",
    "no": "92",
    "name": "Ansel Din-Mbuh",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "95",
+   "name": "Markis Deal",
+   "status": "probable",
    "detail": ""
   }
  ],

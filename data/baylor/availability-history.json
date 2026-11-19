@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "baylor",
- "updated": "2026-11-14T22:38:37.623418+00:00",
+ "updated": "2026-11-19T03:08:44.864204+00:00",
  "reports": [
   {
    "schema": 1,
@@ -355,6 +355,81 @@
      "no": "13",
      "name": "Quinn Murphy",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "38",
+     "name": "Jamarion Richardson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "59",
+     "name": "Devonte Tezino",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "61",
+     "name": "Cayden Tone",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "87",
+     "name": "Ashton Jones",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "baylor",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T03:08:44.864204+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Texas Tech",
+   "players": [
+    {
+     "pos": "S",
+     "no": "8",
+     "name": "Jacob Redding",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "13",
+     "name": "Quinn Murphy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "14",
+     "name": "Daniel Cobbs",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Taz Williams Jr.",
+     "status": "probable",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona",
- "updated": "2026-11-15T02:08:32.314909+00:00",
+ "updated": "2026-11-19T03:08:43.218247+00:00",
  "reports": [
   {
    "schema": 1,
@@ -481,6 +481,95 @@
      "no": "92",
      "name": "Ezra Funa",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "arizona",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T03:08:43.218247+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Kansas State",
+   "players": [
+    {
+     "pos": "DL",
+     "no": "3",
+     "name": "Tre Smith",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "5",
+     "name": "Max Harris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "12",
+     "name": "Dwight Bootle II",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "13",
+     "name": "Cam Chapa",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "15",
+     "name": "Malcolm Hartzog Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "20",
+     "name": "Dajon Hinton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Ismail Mahdi",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "27",
+     "name": "Keytrin Harris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "28",
+     "name": "Swayde Griffin",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "38",
+     "name": "Kevin Moorer Jr.",
+     "status": "questionable",
      "detail": ""
     }
    ],

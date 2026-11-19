@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kansas-state",
- "updated": "2026-11-14T17:39:11.252853+00:00",
+ "updated": "2026-11-19T03:08:50.353905+00:00",
  "reports": [
   {
    "schema": 1,
@@ -327,6 +327,67 @@
      "no": "88",
      "name": "Eli Jackson",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "kansas-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T03:08:50.353905+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Arizona",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "2",
+     "name": "Avery Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "7",
+     "name": "Jacob Knuth",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "26",
+     "name": "Sawyer Schilke",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Tyler Johnson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "75",
+     "name": "Holden Bass",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "88",
+     "name": "Eli Jackson",
+     "status": "questionable",
      "detail": ""
     }
    ],

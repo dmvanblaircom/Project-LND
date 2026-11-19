@@ -7,12 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T01:09:12.523298+00:00",
+ "fetchedAt": "2026-11-19T03:08:57.184548+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Oklahoma State",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Baylor",
  "players": [
   {
    "pos": "RB",
@@ -23,9 +23,37 @@
   },
   {
    "pos": "WR",
+   "no": "1",
+   "name": "Micah Hudson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "2",
+   "name": "Kenny Johnson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "3",
    "name": "Coy Eakin",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "3",
+   "name": "Peyton Morgan",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "4",
+   "name": "Thomas Castellanos",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -36,24 +64,38 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "7",
+   "name": "Brenden Jordan",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "17",
    "name": "Leyton Stone",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "21",
    "name": "Miquel Dingle Jr.",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "32",
+   "name": "LaDamion Guyton",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OLB",
    "no": "33",
    "name": "Ansel Nedore",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

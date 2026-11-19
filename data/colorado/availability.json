@@ -7,12 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T02:08:43.773422+00:00",
+ "fetchedAt": "2026-11-19T03:08:46.968288+00:00",
  "reported": true,
- "effectiveAt": "2026-11-13",
- "heading": "Game Day",
- "kickoffDate": "2026-11-13",
- "game": "vs. Houston",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Cincinnati",
  "players": [
   {
    "pos": "DB",
@@ -25,7 +25,7 @@
    "pos": "WR",
    "no": "13",
    "name": "Kaleb Mathis",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -37,15 +37,15 @@
   },
   {
    "pos": "DB",
-   "no": "26",
-   "name": "Braylon Edwards",
-   "status": "out-game",
+   "no": "20",
+   "name": "Cree Thomas",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "29",
-   "name": "Micah Welch",
+   "pos": "DB",
+   "no": "26",
+   "name": "Braylon Edwards",
    "status": "out-game",
    "detail": ""
   },
@@ -53,7 +53,14 @@
    "pos": "K",
    "no": "46",
    "name": "Elliot Arnold",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "88",
+   "name": "Corbin Laisure",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -61,6 +68,13 @@
    "no": "92",
    "name": "Sam Gadie",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Dylan Manuel",
+   "status": "questionable",
    "detail": ""
   }
  ],

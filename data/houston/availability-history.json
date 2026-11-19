@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "houston",
- "updated": "2026-11-14T02:08:45.458897+00:00",
+ "updated": "2026-11-19T03:08:48.654313+00:00",
  "reports": [
   {
    "schema": 1,
@@ -277,6 +277,60 @@
      "no": "50",
      "name": "Aaron Wolford",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "houston",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T03:08:48.654313+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "West Virginia",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "3",
+     "name": "JD Rhym",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "26",
+     "name": "Jamaal Shaw",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Aaron Wolford",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "66",
+     "name": "McKenzie Agnello",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "90",
+     "name": "De'Marion Thomas",
+     "status": "probable",
      "detail": ""
     }
    ],

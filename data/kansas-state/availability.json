@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T17:39:11.252853+00:00",
+ "fetchedAt": "2026-11-19T03:08:50.353905+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at TCU",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Arizona",
  "players": [
-  {
-   "pos": "S",
-   "no": "0",
-   "name": "Koy Beasley",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "QB",
    "no": "2",
@@ -36,13 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "14",
-   "name": "Max Lovett",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "26",
    "name": "Sawyer Schilke",
@@ -50,10 +36,24 @@
    "detail": ""
   },
   {
+   "pos": "OL",
+   "no": "65",
+   "name": "Tyler Johnson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "75",
+   "name": "Holden Bass",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DT",
    "no": "88",
    "name": "Eli Jackson",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "cincinnati",
- "updated": "2026-11-14T15:39:01.583275+00:00",
+ "updated": "2026-11-19T03:08:46.585653+00:00",
  "reports": [
   {
    "schema": 1,
@@ -299,6 +299,67 @@
      "no": "11",
      "name": "JV Gibson",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "12",
+     "name": "Filip Maciorowski",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "cincinnati",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T03:08:46.585653+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Colorado",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "0",
+     "name": "Jacob Finley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "3",
+     "name": "Cole Tabb",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "6",
+     "name": "Gi'Bran Payne",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Malachi Henry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "11",
+     "name": "Chidera Otutu",
+     "status": "questionable",
      "detail": ""
     },
     {

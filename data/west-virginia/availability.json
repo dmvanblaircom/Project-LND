@@ -7,13 +7,27 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T19:09:04.284819+00:00",
+ "fetchedAt": "2026-11-19T03:08:59.600769+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Kansas",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Houston",
  "players": [
+  {
+   "pos": "QB",
+   "no": "3",
+   "name": "Michael Hawkins Jr.",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "5",
+   "name": "Jaden Bray",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "TE",
    "no": "10",
@@ -36,24 +50,10 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "30",
-   "name": "Jacorey Thomas",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "54",
    "name": "Amare Grayson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "56",
-   "name": "Lamarcus Dillard",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
