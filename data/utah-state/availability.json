@@ -7,67 +7,67 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T00:39:05.237459+00:00",
+ "fetchedAt": "2026-11-19T03:38:46.516638+00:00",
  "reported": true,
- "effectiveAt": "2026-11-15",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at San Diego State",
+ "effectiveAt": "2026-11-19",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "at Oregon State",
  "players": [
   {
-   "pos": "",
-   "no": "",
-   "name": "Eli Wood",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "",
-   "name": "Jimmy Liston",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "",
-   "name": "Chapman Lewis",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
+   "pos": "ILB",
    "no": "",
    "name": "Harrison Taggart",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
    "no": "",
-   "name": "John McClellan",
-   "status": "out-game",
+   "name": "Jimmy Liston",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "",
+   "pos": "OL",
+   "no": "",
+   "name": "George Maile",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Jackson Nelson",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "John McClellan",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Eli Wood",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Chapman Lewis",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
    "no": "",
    "name": "Tevita Tuha",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "",
-   "name": "Jackson Nelson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "",
-   "name": "K'Leyone Iosua",
-   "status": "gtd",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "fresno-state",
- "updated": "2026-11-14T19:08:54.758297+00:00",
+ "updated": "2026-11-19T03:38:36.806002+00:00",
  "reports": [
   {
    "schema": 1,
@@ -258,6 +258,81 @@
      "no": "",
      "name": "Oscar Weigel",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Ryan Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Noah Yeh",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "fresno-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T03:38:36.806002+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-19",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "vs. Colorado State",
+   "players": [
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Niko Baumgartner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Julius Gillick",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jahzon Jacks",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Sione Noa",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Gino Quinones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jairus Satele",
+     "status": "out-game",
      "detail": ""
     },
     {

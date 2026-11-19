@@ -7,32 +7,74 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T00:39:02.460422+00:00",
+ "fetchedAt": "2026-11-19T03:38:43.326190+00:00",
  "reported": true,
- "effectiveAt": "2026-11-15",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Utah State",
+ "effectiveAt": "2026-11-19",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "at Boise State",
  "players": [
   {
-   "pos": "ILB",
+   "pos": "OLB",
    "no": "",
-   "name": "Tano Letuli",
-   "status": "gtd",
+   "name": "Dominic Coelho",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Amari Comier",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Kainoa Davis",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "",
-   "name": "Jeremiah Lewis",
-   "status": "gtd",
+   "name": "Charlie Stewart",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Tano Letuli",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
-   "name": "Yannick Parker",
+   "name": "Jelani McLaughlin",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Yanick Parker",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Cammeron Purnell",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Nate Acevedo",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,17 +85,24 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "",
+   "name": "Bert Emanuel Jr",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Parker Threatt",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "",
    "name": "DJ Overstreet",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "",
-   "name": "Jayden Denegal",
-   "status": "gtd",
    "detail": ""
   },
   {
@@ -81,13 +130,6 @@
    "pos": "SP",
    "no": "",
    "name": "Luke Williams",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Charlie Stewart",
    "status": "out-game",
    "detail": ""
   }
