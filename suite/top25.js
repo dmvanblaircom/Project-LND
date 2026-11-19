@@ -131,7 +131,7 @@ Suite.top25 = (function () {
   }
   function lastAt(g) { return lastPlay(g) && g.live.lastPlayAt ? g.live.lastPlayAt : ""; }
 
-  function gameRow(m, g, why) {
+  function gameRow(m, g, why, label) {
     var as = Number(g.away.score), hs = Number(g.home.score);
     var final = g.state === "post" && !isNaN(as) && !isNaN(hs) && as !== hs;
     var awayWon = final ? as > hs : null, homeWon = final ? hs > as : null;
@@ -145,10 +145,11 @@ Suite.top25 = (function () {
                  // At halftime, who gets the ball next says more than "End of 2nd quarter."
                  (receiver(g) ? '<span class="tg-last">' + esc(receiver(g).name) + " gets the ball to start the second half</span>"
                   : lastPlay(g) ? '<span class="tg-last">' + (lastAt(g) ? '<span class="tg-at">' + esc(lastAt(g)) + "</span> " : "") + esc(lastPlay(g)) + "</span>" : "") +
-               // Why this game is in "Games that matter" (TeamOS.around)
-               (why && why.length ? '<span class="tg-why">' + esc(why.join(" · ")) + "</span>" : "") +
+               // Why this game is in "Games that matter" (TeamOS.around): its
+               // label, then the one sentence that says why
+               (why && why.length ? '<span class="tg-why">' + (label ? '<span class="tg-tag">' + esc(label) + "</span> " : "") + esc(why.join(" · ")) + "</span>" : "") +
                "</span>" +
-               '<span class="sr-only">' + esc(summary(g)) + (why && why.length ? ". " + esc(why.join(". ")) : "") + "</span>";
+               '<span class="sr-only">' + esc(summary(g)) + (why && why.length ? ". " + (label ? esc(label) + ": " : "") + esc(why.join(". ")) : "") + "</span>";
     // Every row is a way in (David, 2026-10-20): the team's own game - the
     // one #game opens - to Game, every other game to its sheet.
     var game = g.mine && m.heroId && g.id === m.heroId;
@@ -174,14 +175,24 @@ Suite.top25 = (function () {
              days.map(function (d, i) {
                var id = key + "Day" + i;
                return '<div class="t25-day" role="group" aria-labelledby="' + id + '"><h3 class="t25-day-title" id="' + id + '">' + esc(d.label) + "</h3>" +
-                      '<ul class="card tg-list">' + d.rows.map(function (r) { return gameRow(m, r.game, r.why); }).join("") + "</ul></div>";
+                      '<ul class="card tg-list">' + d.rows.map(function (r) { return gameRow(m, r.game, r.why, r.label); }).join("") + "</ul></div>";
              }).join("") +
            "</section>";
   }
 
-  // Around's Games (David, 2026-11-05): our conference, the games that
-  // matter to us, then Top 25 - each game once, in the first layer that
-  // claims it (TeamOS.around). Without layers (no team data yet), Top 25.
+  // Games that matter, in TeamOS's order of importance (the stake, then how
+  // close it is), not by day: the first row is the one to watch.
+  function matterSection(m, rows) {
+    return '<section class="ar-sec" aria-labelledby="arMatterHead">' +
+             '<div class="sec-head t25-head"><h2 class="sec-title" id="arMatterHead">Games that matter</h2></div>' +
+             '<ul class="card tg-list">' + rows.map(function (r) { return gameRow(m, r.game, r.why, r.label); }).join("") + "</ul>" +
+           "</section>";
+  }
+
+  // Around's Games: the games that matter to us first (David, 2026-11-18:
+  // what is at stake for the team leads), then our conference, then Top 25 -
+  // each game once, in the first layer that claims it (TeamOS.around).
+  // Without layers (no team data yet), Top 25.
   function games(m) {
     if (m.games == null) return quiet(m.gamesFailed ? "This week’s games didn’t load. They appear when the connection returns."
                                                     : "Loading this week’s Top 25 games…");
@@ -191,6 +202,7 @@ Suite.top25 = (function () {
     // 2026-11-09: an offseason Around said "Every ranked game this week is
     // listed above" under its conference's "No games in this window").
     var out = "", listed = false;
+    if (a.matter.length) { out += matterSection(m, a.matter); listed = true; }
     if (a.conference) {
       listed = listed || a.conference.games.length > 0;
       out += a.conference.games.length
@@ -198,7 +210,6 @@ Suite.top25 = (function () {
         : '<section class="ar-sec"><div class="sec-head t25-head"><h2 class="sec-title">' + esc(a.conference.name) + "</h2></div>" +
           quiet("No " + a.conference.name + " games in this window.") + "</section>";
     }
-    if (a.matter.length) { out += section(m, "arMatter", "Games that matter", a.matter, ""); listed = true; }
     var top = a.top25.map(function (g) { return { game: g, why: null }; });
     out += top.length
       ? section(m, "t25", "Top 25", top, top.length + (top.length === 1 ? " game" : " games") + " with a ranked team" +

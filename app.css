@@ -1059,6 +1059,7 @@ a.tg-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 /* the latest play of a live game: secondary, under the matchup and status */
 /* Why a game is in Around's "Games that matter" (David, 2026-11-05) */
 .tg-why{grid-area:why;margin-top:.3rem;font-size:.85rem;font-weight:600;line-height:1.35;color:var(--t-accent-on-light)}
+.tg-why .tg-tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
 .ar-sec + .ar-sec .sec-head{margin-top:1.8rem}
 .tg-last{grid-area:last;margin-top:.35rem;padding-top:.45rem;border-top:1px dashed var(--s-line);font-size:.85rem;line-height:1.35;color:var(--s-ink-2)}
 /* The snap's game clock, lifted out of the play text: a time, not words. */
