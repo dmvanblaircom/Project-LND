@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-19T18:37:51.247380+00:00",
+ "updated": "2026-11-19T19:07:55.183328+00:00",
  "items": [
+  {
+   "title": "The BGH Club",
+   "link": "https://calbears.com/news/2026/11/19/inside-cal-football-the-bgh-club",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Inside Cal Football: The BGH Club \" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/19/Inside_Cal_FB_Feature_WebBGH.jpg\" /><br /><br />Geoff McArthur, Jahvid Best, Ron Coccimiglio Speak On Being Designated A BGH",
+   "image": "https://calbears.com/images/2026/11/19/Inside_Cal_FB_Feature_WebBGH.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-19T19:00:00+00:00"
+  },
   {
    "title": "This Week in the ACC: Now Wake Forest Has To Hold Onto Its No. 11 Ranking",
    "link": "https://www.si.com/college/cal/football/this-week-in-the-acc-now-wake-forest-has-to-hold-onto-its-no-11-ranking-01m7r8g6fp5a?utm_source=RSS",
@@ -325,15 +334,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6095,h_3428,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m76qhjxvks6cx4yvct.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-12T02:12:38+00:00"
-  },
-  {
-   "title": "Richter Selected For Rose Bowl Hall of Fame",
-   "link": "https://calbears.com/news/2026/11/11/football-richter-selected-for-rose-bowl-hall-of-fame",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Les Richter\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/Richter-Les.jpg\" /><br /><br />The Tournament of Roses announced last week that former California football star Les Richter will be inducted into the Rose Bowl Hall of Fame as a member of the Class of 2026.",
-   "image": "https://calbears.com/images/2026/11/11/Richter-Les.jpg?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-11-11T22:28:00+00:00"
   }
  ]
 }

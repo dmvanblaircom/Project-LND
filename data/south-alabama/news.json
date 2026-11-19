@@ -1,7 +1,16 @@
 {
  "team": "south-alabama",
- "updated": "2026-11-16T19:38:17.054460+00:00",
+ "updated": "2026-11-19T19:08:08.871579+00:00",
  "items": [
+  {
+   "title": "Football Travels to Southern Miss for Final Road Test",
+   "link": "https://usajaguars.com/news/2026/11/19/football-travels-to-southern-miss-for-final-road-test.aspx",
+   "source": "South Alabama Athletics",
+   "summary": "<img alt=\"Game week\" src=\"https://usajaguars.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/19/Game_Week_G11-_Web.png\" /><br /><br />Game 11",
+   "image": "https://usajaguars.com/images/2026/11/19/Game_Week_G11-_Web.png?width=800",
+   "sourceLogo": "https://usajaguars.com/favicon.ico",
+   "published": "2026-11-19T19:00:00+00:00"
+  },
   {
    "title": "Trae'von Dunbar Crowned Sun Belt Offensive Player of the Week",
    "link": "https://usajaguars.com/news/2026/11/16/football-trae-von-dunbar-crowned-sun-belt-offensive-player-of-the-week.aspx",
@@ -82,15 +91,6 @@
    "image": "https://usajaguars.com/images/2026/10/28/Game_Week_G8_-_Web.png?width=800",
    "sourceLogo": "https://usajaguars.com/favicon.ico",
    "published": "2026-10-28T21:14:00+00:00"
-  },
-  {
-   "title": "Kickoff at Louisiana Set for 4 PM on November 7",
-   "link": "https://usajaguars.com/news/2026/10/26/football-kickoff-at-louisiana-set-for-4-pm-on-november-7.aspx",
-   "source": "South Alabama Athletics",
-   "summary": "<img alt=\"Louisiana Kickoff Release\" src=\"https://usajaguars.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/26/FB_Ohio_1072.jpg\" /><br /><br />MOBILE \u2013 South Alabama at Louisiana will kick off at 4 p.m. on ESPN+ on Saturday, Nov. 7, the Sun Belt Conference announced Monday afternoon.",
-   "image": "https://usajaguars.com/images/2026/10/26/FB_Ohio_1072.jpg?width=800",
-   "sourceLogo": "https://usajaguars.com/favicon.ico",
-   "published": "2026-10-26T20:02:00+00:00"
   }
  ]
 }

@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-18T13:08:16.931500+00:00",
+ "updated": "2026-11-19T19:08:10.706164+00:00",
  "items": [
+  {
+   "title": "Gameday preview: Rice at Temple",
+   "link": "https://on3.com/sites/owl-scoop/news/gameday-preview-rice-at-temple/",
+   "source": "OwlScoop",
+   "summary": "Temple is playing for pride - and to get some answers about the future of its roster - when it takes on Rice Thursday night at Lincoln Financial Field.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/05174048/Keveun-Mason-Rhode-Island.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-19T19:01:28+00:00"
+  },
   {
    "title": "Recruiting Roundup: Jaiyon Lewis helps lead Harrisburg to win over Wilson",
    "link": "https://on3.com/sites/owl-scoop/news/recruiting-roundup-jaiyon-lewis-helps-lead-harrisburg-to-win-over-wilson/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/03192512/Temple-afi-hookly-5.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-04T12:30:00+00:00"
-  },
-  {
-   "title": "Monday notebook: K.C. Keeler talks Navy, Peter Clarke's season-ending injury",
-   "link": "https://on3.com/sites/owl-scoop/news/monday-notebook-k-c-keeler-talks-navy-peter-clarkes-season-ending-injury/",
-   "source": "OwlScoop",
-   "summary": "K.C. Keeler\u00a0wrapped up conversation about Saturday\u2019s 17-9 loss at East Carolina, looked ahead to Saturday\u2019s road game at Navy and provided some injury updates during his weekly Monday media availability at Edberg-Olson Hall.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/16200830/Peter-Clarke-UConn.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-02T20:37:30+00:00"
   }
  ]
 }
