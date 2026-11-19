@@ -12,7 +12,11 @@
           Résumé Impact    a team we already played, ranked now, ranked
                            earlier this season, or one that beat us, plays a
                            real game
-          Conference Race  (with conference standings: not yet built)
+          Conference Race  a conference game between teams in this team's
+                           conference race - within one loss of the
+                           leader, once three conference games are played
+                           - read from the standings; records only, never
+                           a tiebreak, clinch or elimination
           Rivalry          a rival (the team's `series`: trophies and
                            rivalries, never branded events) plays a ranked
                            team or is ranked, or plays its last game before
@@ -47,6 +51,8 @@
        ratings:     { providerId: rating } - a predictive rating (FPI), for
                     the matchup test when a game has no line
        cutlines:    [{ at, what }] - the playoff format's lines
+       standings:   [{ name, teams: [{ providerId, wins, losses }] }] - each
+                    conference's records (conference games only)
        now:         Date
      }) -> { matter: [{ game, label, kind, why: [sentence], also: [{ kind, label, why }] }],
              conference: { name, games: [{ game, why }] } | null,
@@ -214,6 +220,40 @@ TeamOS.around = (function () {
     return best;
   }
 
+  // The conference race: the team's own conference, the teams within one
+  // loss of its leader. Early on, when nobody has played three conference
+  // games, there is no race to speak of.
+  function raceOf(o, me) {
+    var groups = o.standings || [];
+    for (var i = 0; i < groups.length; i++) {
+      var g = groups[i], rows = (g && g.teams) || [];
+      var mine = rows.filter(function (t) { return String(t.providerId) === me; })[0];
+      if (!mine) continue;
+      var played = rows.reduce(function (m, t) { return Math.max(m, (t.wins || 0) + (t.losses || 0)); }, 0);
+      if (played < 3) return null;
+      var best = rows.reduce(function (m, t) { return Math.min(m, t.losses || 0); }, Infinity);
+      var inRace = {};
+      rows.forEach(function (t) { if ((t.losses || 0) <= best + 1) inRace[String(t.providerId)] = t; });
+      var members = {};
+      rows.forEach(function (t) { members[String(t.providerId)] = t; });
+      return inRace[me] ? { name: (o.short || {})[g.name] || g.name, me: mine, inRace: inRace, members: members } : null;
+    }
+    return null;
+  }
+  function rec(t) { return t.wins + "-" + t.losses; }
+  function conferenceWhy(g, ctx) {
+    var r = ctx.race;
+    if (!r) return null;
+    var a = sides(g)[0], b = sides(g)[1], ra = r.members[idOf(a)], rb = r.members[idOf(b)];
+    if (!ra || !rb) return null;                       // only a conference game moves a conference race
+    var ia = r.inRace[idOf(a)], ib = r.inRace[idOf(b)];
+    if (!ia && !ib) return null;
+    var you = ctx.name + " is " + rec(r.me) + " in the " + r.name + ".";
+    if (ia && ib) return { strength: 0, why: a.name + " (" + rec(ra) + ") and " + b.name + " (" + rec(rb) + ") meet, both in the " + r.name + " race. " + you };
+    var s = ia ? a : b, t = ia ? ra : rb, other = ia ? b : a;
+    return { strength: 1, why: s.name + ", " + rec(t) + " in the " + r.name + ", plays " + (other.name || "TBD") + ". " + you };
+  }
+
   function nextWhy(g, ctx) {
     if (!ctx.next) return null;
     var hit = sides(g).filter(function (s) { return idOf(s) === ctx.next.id; })[0];
@@ -248,6 +288,7 @@ TeamOS.around = (function () {
     var ctx = { name: name, lead: lead, polls: o.polls || [], myRank: myRank, cuts: cuts, played: played,
                 upcoming: upcoming, ever: o.everRanked || {},
                 compete: myRank ? competitors(myRank, cuts) : function () { return null; },
+                race: me ? raceOf(o, me) : null,
                 next: upcoming.filter(function (u) { return u.id !== thisWeek; })[0] || null };
 
     // 1. games that matter
@@ -261,6 +302,7 @@ TeamOS.around = (function () {
         var r = null;
         if (st.kind === "playoff") r = contender && competitive(g, o) ? playoffWhy(g, ctx) : null;
         else if (st.kind === "resume") r = contender && competitive(g, o) ? resumeWhy(g, ctx) : null;
+        else if (st.kind === "conference") r = conferenceWhy(g, ctx);
         else if (st.kind === "rivalry") r = rivalryWhy(g, o, ctx);
         else if (st.kind === "next") r = nextWhy(g, ctx);
         if (!r) return;

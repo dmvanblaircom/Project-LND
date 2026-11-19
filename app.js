@@ -689,7 +689,20 @@ function top25Sources(){
 // Around's layers (David, 2026-11-05): our conference, the games that matter
 // to us, then Top 25 - TeamOS.around decides which game goes where. The
 // conference of every FBS program comes from the registry, read once.
-var AROUND={ conferences:null };
+var AROUND={ conferences:null, standings:null, standingsP:null };
+// Each conference's records, for the Conference Race (Games That Matter,
+// Phase 3): the league snapshot the refresh keeps once a day. Read once a
+// visit; without it, no game is listed for the race.
+function loadStandings(){
+  if(AROUND.standings || AROUND.standingsP) return;
+  AROUND.standingsP=fetchJSON("data/league/standings.json").then(function(r){
+    var d=r && r.data;
+    AROUND.standings=(d && d.source==="standings" && Array.isArray(d.conferences) ? d.conferences : []).map(function(c){
+      return { name:c.name, teams:(c.teams||[]).map(function(t){
+        return { providerId:String(t.espnId), wins:(t.conf||{}).wins||0, losses:(t.conf||{}).losses||0 }; }) };
+    });
+  }).catch(function(){ AROUND.standings=[]; }).then(function(){ AROUND.standingsP=null; paintTop25(); });
+}
 function aroundLayers(now){
   if(!AROUND.conferences){
     var list=typeof TEAM_REGISTRY!=="undefined" ? TEAM_REGISTRY : [];
@@ -702,7 +715,7 @@ function aroundLayers(now){
   return TeamOS.around.layers({ games:games, teamId:TEAM_CONFIG.sources.espn.teamId, teamName:TEAM.name,
     conference: me ? me.conference : null, conferences:AROUND.conferences,
     short: window.LEAGUE_CONFERENCES || {}, schedule:S.games||[], series:TEAM_CONFIG.series||[],
-    polls:polls()||[], everRanked:everRanked(), ratings:fpiRatings(),
+    polls:polls()||[], everRanked:everRanked(), ratings:fpiRatings(), standings:AROUND.standings||[],
     cutlines:TeamOS.around.cutlinesFor(window.LEAGUE_PLAYOFF, seasonYear()), now:now });
 }
 // Every team ranked in any poll week kept this season (Résumé Impact: a team
@@ -834,6 +847,7 @@ function loadTop25(){
   // stopped carrying stands at its newest kept week everywhere Around uses
   // the polls (the games near us in the leading poll included).
   loadWeeks();
+  loadStandings();
   if(ratingKey(route)) loadRating(ratingKey(route));
   if(T25.polls==null) cachedJSON(TeamOS.espn.rankingsUrl()).then(function(d){
     if(T25.polls==null && d){ T25.polls=TeamOS.espn.rankings(d, TEAM_CONFIG); paintTop25(); }

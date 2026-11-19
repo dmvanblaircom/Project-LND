@@ -123,6 +123,36 @@ var L27 = A.layers({ games: [g2("x", side("1", "Team 10", 10), side("2", "Team U
 ok(L27.matter.map(function (r) { return r.game.id; }).sort().join() === "x,y", "No. 14 in a 24-team field: No. 10, and No. 16 at the home-game line, bear on it; No. 21 does not - from the format alone");
 ok(L27.matter.filter(function (r) { return r.game.id === "y"; })[0].why[0].indexOf("2 places behind No. 14 Ohio State") > -1, "and the sentence says where it stands");
 
+console.log("the conference race (Phase 3)");
+var MW = { name: "Mountain West Conference", teams: [
+  { providerId: "68", wins: 5, losses: 0 },  { providerId: "278", wins: 4, losses: 1 }, { providerId: "36", wins: 4, losses: 1 },
+  { providerId: "2439", wins: 4, losses: 1 }, { providerId: "23", wins: 3, losses: 2 }, { providerId: "2751", wins: 1, losses: 4 },
+  { providerId: "167", wins: 1, losses: 4 } ] };
+var mwGames = [
+  g2("fc", side("278", "Fresno State"), side("36", "Colorado State")),
+  g2("su", side("23", "San José State"), side("2439", "UNLV")),
+  g2("wn", side("2751", "Wyoming"), side("167", "New Mexico")),
+  g2("nc", side("278", "Fresno State"), side("999", "Some FCS")),
+  g2("bo", side("68", "Boise State", 17), side("21", "San Diego State"), { mine: true })
+];
+var mwConf = { "68": "Mountain West Conference", "278": "Mountain West Conference", "36": "Mountain West Conference", "2439": "Mountain West Conference",
+               "23": "Mountain West Conference", "2751": "Mountain West Conference", "167": "Mountain West Conference", "21": "Mountain West Conference" };
+var MWL = A.layers({ games: mwGames, teamId: "68", teamName: "Boise State", conference: "Mountain West Conference", conferences: mwConf,
+                     short: { "Mountain West Conference": "Mountain West" }, standings: [MW], polls: [], cutlines: cuts2026, now: new Date("2026-11-19T12:00:00Z") });
+var mw = {}; MWL.matter.forEach(function (r) { mw[r.game.id] = r; });
+ok(mw.fc && mw.fc.label === "Conference Race" && /Fresno State \(4-1\) and Colorado State \(4-1\) meet, both in the Mountain West race\. Boise State is 5-0/.test(mw.fc.why[0]),
+   "two teams a loss behind meet: " + (mw.fc || {}).why);
+ok(mw.su && mw.su.label === "Conference Race" && /^UNLV, 4-1 in the Mountain West, plays San José State/.test(mw.su.why[0]), "one in the race: " + (mw.su || {}).why);
+ok(!mw.wn, "two teams out of the race: not listed (it stays in Our conference)");
+ok(!mw.nc, "a non-conference game moves no conference race");
+ok(MWL.matter[0].game.id === "fc", "the game between two contenders comes first");
+ok(MWL.conference.games.map(function (r) { return r.game.id; }).sort().join() === "bo,nc,wn", "the rest of the conference's games stay in Our conference");
+var early = JSON.parse(JSON.stringify(MW)); early.teams.forEach(function (t) { t.wins = Math.min(t.wins, 1); t.losses = Math.min(t.losses, 1); });
+ok(!A.layers({ games: mwGames, teamId: "68", teamName: "Boise State", conferences: mwConf, standings: [early] }).matter.length,
+   "before three conference games, there is no race to speak of");
+var out2 = A.layers({ games: mwGames, teamId: "2751", teamName: "Wyoming", conferences: mwConf, standings: [MW], short: { "Mountain West Conference": "Mountain West" } });
+ok(!out2.matter.some(function (r) { return r.label === "Conference Race"; }), "a team three losses back is in no race: Wyoming gets none");
+
 console.log("rivals, by name (Codex, #232)");
 var R = function (name, re) {
   var g = [game("r1", side("60", name, 5), side("61", "Somebody", 9))];
