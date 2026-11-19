@@ -46,6 +46,13 @@ ok(all(c["teams"] == sorted(c["teams"], key=lambda t: (t["conf"]["losses"], -t["
 t = snap["conferences"][0]["teams"][0]
 ok(set(t) == {"espnId", "name", "conf", "overall"} and set(t["conf"]) == {"wins", "losses"}, "a row: id, name, conference record, overall")
 
+print("a conference in divisions")
+sbt = [c for c in snap["conferences"] if c["name"] == "Sun Belt Conference"][0]["teams"]
+ok(len(sbt) == 14 and {t.get("division") for t in sbt} == {"Sun Belt - East", "Sun Belt - West"},
+   "the Sun Belt's teams, one level deeper in ESPN's table (probe, 2026-11-19): all 14 read, each with its division")
+ok(all("division" not in t for c in snap["conferences"] if c["name"] != "Sun Belt Conference" for t in c["teams"]),
+   "and a conference that is not split carries none")
+
 print("refused, with a reason")
 ok(refused(REAL, 2027) == "season 2026, expected 2027", "another season")
 bad = copy.deepcopy(REAL)

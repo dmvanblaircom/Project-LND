@@ -231,9 +231,13 @@ TeamOS.around = (function () {
       if (!mine) continue;
       var played = rows.reduce(function (m, t) { return Math.max(m, (t.wins || 0) + (t.losses || 0)); }, 0);
       if (played < 3) return null;
-      var best = rows.reduce(function (m, t) { return Math.min(m, t.losses || 0); }, Infinity);
+      // A conference split into divisions has a race in each: the division
+      // winners meet for the title (the Sun Belt in 2026). Otherwise the
+      // whole conference is one race.
+      var best = {};
+      rows.forEach(function (t) { var d = t.division || ""; best[d] = Math.min(best[d] === undefined ? Infinity : best[d], t.losses || 0); });
       var inRace = {};
-      rows.forEach(function (t) { if ((t.losses || 0) <= best + 1) inRace[String(t.providerId)] = t; });
+      rows.forEach(function (t) { if ((t.losses || 0) <= best[t.division || ""] + 1) inRace[String(t.providerId)] = t; });
       var members = {};
       rows.forEach(function (t) { members[String(t.providerId)] = t; });
       return inRace[me] ? { name: (o.short || {})[g.name] || g.name, me: mine, inRace: inRace, members: members } : null;

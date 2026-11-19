@@ -153,6 +153,18 @@ ok(!A.layers({ games: mwGames, teamId: "68", teamName: "Boise State", conference
 var out2 = A.layers({ games: mwGames, teamId: "2751", teamName: "Wyoming", conferences: mwConf, standings: [MW], short: { "Mountain West Conference": "Mountain West" } });
 ok(!out2.matter.some(function (r) { return r.label === "Conference Race"; }), "a team three losses back is in no race: Wyoming gets none");
 
+var SB = { name: "Sun Belt Conference", teams: [
+  { providerId: "1", wins: 6, losses: 0, division: "East" }, { providerId: "2", wins: 4, losses: 2, division: "East" },
+  { providerId: "3", wins: 4, losses: 2, division: "West" }, { providerId: "4", wins: 3, losses: 3, division: "West" },
+  { providerId: "5", wins: 2, losses: 4, division: "West" } ] };
+var sbConf = { "1": "Sun Belt Conference", "2": "Sun Belt Conference", "3": "Sun Belt Conference", "4": "Sun Belt Conference", "5": "Sun Belt Conference" };
+var sbGames = [g2("w", side("4", "West Three"), side("5", "West Five")), g2("e", side("2", "East Two"), side("9", "Elsewhere"))];
+var SBL = A.layers({ games: sbGames, teamId: "3", teamName: "West Leader", conferences: sbConf, standings: [SB], short: { "Sun Belt Conference": "Sun Belt" } });
+ok(SBL.matter.some(function (r) { return r.game.id === "w" && r.label === "Conference Race" && /^West Three, 3-3 in the Sun Belt, plays West Five/.test(r.why[0]); }),
+   "a conference in divisions: each division is its own race (3-3 is a loss off the West's lead, though three off the East's)");
+ok(!A.layers({ games: sbGames, teamId: "2", teamName: "East Two", conferences: sbConf, standings: [SB] }).matter.some(function (r) { return r.label === "Conference Race"; }),
+   "and the East's 4-2, two back of its own leader, is in no race");
+
 console.log("rivals, by name (Codex, #232)");
 var R = function (name, re) {
   var g = [game("r1", side("60", name, 5), side("61", "Somebody", 9))];
