@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-11-19T01:08:44.273144+00:00",
+ "updated": "2026-11-19T11:08:43.673483+00:00",
  "reports": [
   {
    "schema": 1,
@@ -502,12 +502,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:08:44.273144+00:00",
+   "fetchedAt": "2026-11-19T11:08:43.673483+00:00",
    "reported": true,
    "effectiveAt": "2026-11-18",
    "heading": "Initial",
    "kickoffDate": "2026-11-21",
-   "game": "Indiana",
+   "game": "vs. Indiana",
    "players": [
     {
      "pos": "WR",
