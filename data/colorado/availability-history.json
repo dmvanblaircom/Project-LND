@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado",
- "updated": "2026-11-19T03:08:46.968288+00:00",
+ "updated": "2026-11-19T11:55:53.231979+00:00",
  "reports": [
   {
    "schema": 1,
@@ -474,12 +474,12 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T03:08:46.968288+00:00",
+   "fetchedAt": "2026-11-19T11:55:53.231979+00:00",
    "reported": true,
    "effectiveAt": "2026-11-18",
    "heading": "Initial",
    "kickoffDate": "2026-11-21",
-   "game": "Cincinnati",
+   "game": "at Cincinnati",
    "players": [
     {
      "pos": "DB",

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "akron",
- "updated": "2026-11-18T23:08:36.718964+00:00",
+ "updated": "2026-11-19T11:55:47.748318+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1168,12 +1168,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-18T23:08:36.718964+00:00",
+   "fetchedAt": "2026-11-19T11:55:47.748318+00:00",
    "reported": true,
    "effectiveAt": "2026-11-18",
    "heading": "Game Day",
    "kickoffDate": "2026-11-18",
-   "game": "Massachusetts",
+   "game": "at Massachusetts",
    "players": [
     {
      "pos": "S",

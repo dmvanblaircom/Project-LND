@@ -12651,7 +12651,18 @@
       "rank": 1,
       "rating": 28.1,
       "rankChange": 0,
-      "record": "9-1"
+      "record": "9-1",
+      "odds": {
+       "playoff": 99.2,
+       "title": 23.3,
+       "titleGame": 39.2,
+       "conference": 62.0,
+       "winOut": 52.9
+      },
+      "projected": {
+       "wins": 11.5,
+       "losses": 1.5
+      }
      },
      {
       "espnId": "87",
@@ -12660,7 +12671,18 @@
       "rank": 2,
       "rating": 27.4,
       "rankChange": 0,
-      "record": "9-1"
+      "record": "9-1",
+      "odds": {
+       "playoff": 95.8,
+       "title": 16.9,
+       "titleGame": 29.4,
+       "conference": 0.0,
+       "winOut": 88.0
+      },
+      "projected": {
+       "wins": 10.9,
+       "losses": 1.1
+      }
      },
      {
       "espnId": "2390",
@@ -12669,7 +12691,18 @@
       "rank": 3,
       "rating": 25.7,
       "rankChange": 0,
-      "record": "9-1"
+      "record": "9-1",
+      "odds": {
+       "playoff": 98.3,
+       "title": 14.4,
+       "titleGame": 26.9,
+       "conference": 66.2,
+       "winOut": 62.5
+      },
+      "projected": {
+       "wins": 11.6,
+       "losses": 1.4
+      }
      },
      {
       "espnId": "333",
@@ -12678,7 +12711,18 @@
       "rank": 4,
       "rating": 24.8,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 96.7,
+       "title": 12.3,
+       "titleGame": 24.0,
+       "conference": 14.0,
+       "winOut": 69.1
+      },
+      "projected": {
+       "wins": 10.0,
+       "losses": 2.3
+      }
      },
      {
       "espnId": "194",
@@ -12687,7 +12731,18 @@
       "rank": 5,
       "rating": 24.1,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 41.5,
+       "title": 3.0,
+       "titleGame": 6.2,
+       "conference": 9.0,
+       "winOut": 60.8
+      },
+      "projected": {
+       "wins": 8.7,
+       "losses": 3.4
+      }
      },
      {
       "espnId": "251",
@@ -12696,7 +12751,18 @@
       "rank": 6,
       "rating": 24.0,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 92.3,
+       "title": 9.5,
+       "titleGame": 19.8,
+       "conference": 19.4,
+       "winOut": 42.4
+      },
+      "projected": {
+       "wins": 9.9,
+       "losses": 2.6
+      }
      },
      {
       "espnId": "99",
@@ -12705,7 +12771,18 @@
       "rank": 7,
       "rating": 22.0,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.1,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 43.5
+      },
+      "projected": {
+       "wins": 7.4,
+       "losses": 4.6
+      }
      },
      {
       "espnId": "84",
@@ -12714,7 +12791,18 @@
       "rank": 8,
       "rating": 21.7,
       "rankChange": 0,
-      "record": "9-1"
+      "record": "9-1",
+      "odds": {
+       "playoff": 87.9,
+       "title": 6.0,
+       "titleGame": 14.5,
+       "conference": 55.5,
+       "winOut": 52.4
+      },
+      "projected": {
+       "wins": 11.3,
+       "losses": 1.5
+      }
      },
      {
       "espnId": "2483",
@@ -12723,7 +12811,18 @@
       "rank": 9,
       "rating": 20.6,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 35.4,
+       "title": 1.2,
+       "titleGame": 3.0,
+       "conference": 12.8,
+       "winOut": 66.5
+      },
+      "projected": {
+       "wins": 8.9,
+       "losses": 3.4
+      }
      },
      {
       "espnId": "154",
@@ -12732,7 +12831,18 @@
       "rank": 10,
       "rating": 20.2,
       "rankChange": 0,
-      "record": "9-1"
+      "record": "9-1",
+      "odds": {
+       "playoff": 73.2,
+       "title": 3.0,
+       "titleGame": 7.2,
+       "conference": 33.4,
+       "winOut": 23.4
+      },
+      "projected": {
+       "wins": 11.0,
+       "losses": 2.0
+      }
      },
      {
       "espnId": "2633",
@@ -12741,7 +12851,18 @@
       "rank": 11,
       "rating": 19.6,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 57.5,
+       "title": 2.1,
+       "titleGame": 5.1,
+       "conference": 4.6,
+       "winOut": 32.5
+      },
+      "projected": {
+       "wins": 9.4,
+       "losses": 2.7
+      }
      },
      {
       "espnId": "254",
@@ -12750,7 +12871,18 @@
       "rank": 12,
       "rating": 18.9,
       "rankChange": 0,
-      "record": "10-0"
+      "record": "10-0",
+      "odds": {
+       "playoff": 97.4,
+       "title": 5.1,
+       "titleGame": 13.7,
+       "conference": 56.1,
+       "winOut": 39.3
+      },
+      "projected": {
+       "wins": 12.2,
+       "losses": 0.8
+      }
      },
      {
       "espnId": "145",
@@ -12759,7 +12891,18 @@
       "rank": 13,
       "rating": 17.6,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 86.4
+      },
+      "projected": {
+       "wins": 7.9,
+       "losses": 4.1
+      }
      },
      {
       "espnId": "2641",
@@ -12768,7 +12911,18 @@
       "rank": 14,
       "rating": 16.8,
       "rankChange": 0,
-      "record": "9-1"
+      "record": "9-1",
+      "odds": {
+       "playoff": 53.8,
+       "title": 1.0,
+       "titleGame": 3.1,
+       "conference": 29.3,
+       "winOut": 21.8
+      },
+      "projected": {
+       "wins": 10.7,
+       "losses": 2.0
+      }
      },
      {
       "espnId": "252",
@@ -12777,7 +12931,18 @@
       "rank": 15,
       "rating": 16.0,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 59.3,
+       "title": 0.8,
+       "titleGame": 2.6,
+       "conference": 14.5,
+       "winOut": 44.0
+      },
+      "projected": {
+       "wins": 9.7,
+       "losses": 2.6
+      }
      },
      {
       "espnId": "97",
@@ -12786,7 +12951,18 @@
       "rank": 16,
       "rating": 15.2,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.5,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.4,
+       "winOut": 45.1
+      },
+      "projected": {
+       "wins": 8.4,
+       "losses": 3.7
+      }
      },
      {
       "espnId": "2294",
@@ -12795,7 +12971,18 @@
       "rank": 17,
       "rating": 15.2,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 23.5,
+       "title": 0.3,
+       "titleGame": 0.9,
+       "conference": 1.5,
+       "winOut": 35.9
+      },
+      "projected": {
+       "wins": 9.3,
+       "losses": 2.8
+      }
      },
      {
       "espnId": "158",
@@ -12804,7 +12991,18 @@
       "rank": 18,
       "rating": 14.2,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 11.7
+      },
+      "projected": {
+       "wins": 6.7,
+       "losses": 5.3
+      }
      },
      {
       "espnId": "30",
@@ -12813,7 +13011,18 @@
       "rank": 19,
       "rating": 14.1,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 8.7,
+       "title": 0.1,
+       "titleGame": 0.2,
+       "conference": 0.0,
+       "winOut": 44.7
+      },
+      "projected": {
+       "wins": 8.4,
+       "losses": 3.6
+      }
      },
      {
       "espnId": "201",
@@ -12822,7 +13031,18 @@
       "rank": 20,
       "rating": 13.6,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.1,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 30.1
+      },
+      "projected": {
+       "wins": 7.1,
+       "losses": 4.9
+      }
      },
      {
       "espnId": "150",
@@ -12831,7 +13051,18 @@
       "rank": 21,
       "rating": 13.3,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 20.4
+      },
+      "projected": {
+       "wins": 8.0,
+       "losses": 4.0
+      }
      },
      {
       "espnId": "213",
@@ -12840,7 +13071,18 @@
       "rank": 22,
       "rating": 13.1,
       "rankChange": 1,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 78.2
+      },
+      "projected": {
+       "wins": 7.8,
+       "losses": 4.2
+      }
      },
      {
       "espnId": "12",
@@ -12849,7 +13091,18 @@
       "rank": 23,
       "rating": 13.1,
       "rankChange": -1,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 60.0
+      },
+      "projected": {
+       "wins": 8.5,
+       "losses": 3.5
+      }
      },
      {
       "espnId": "77",
@@ -12858,7 +13111,18 @@
       "rank": 24,
       "rating": 12.9,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 54.4
+      },
+      "projected": {
+       "wins": 7.5,
+       "losses": 4.5
+      }
      },
      {
       "espnId": "26",
@@ -12867,7 +13131,18 @@
       "rank": 25,
       "rating": 12.7,
       "rankChange": 0,
-      "record": "10-0"
+      "record": "10-0",
+      "odds": {
+       "playoff": 68.6,
+       "title": 0.7,
+       "titleGame": 2.7,
+       "conference": 21.2,
+       "winOut": 7.3
+      },
+      "projected": {
+       "wins": 11.3,
+       "losses": 1.6
+      }
      },
      {
       "espnId": "57",
@@ -12876,7 +13151,18 @@
       "rank": 26,
       "rating": 12.7,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 49.4
+      },
+      "projected": {
+       "wins": 7.4,
+       "losses": 4.6
+      }
      },
      {
       "espnId": "197",
@@ -12885,7 +13171,18 @@
       "rank": 27,
       "rating": 12.1,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 49.4
+      },
+      "projected": {
+       "wins": 7.4,
+       "losses": 4.6
+      }
      },
      {
       "espnId": "142",
@@ -12894,7 +13191,18 @@
       "rank": 28,
       "rating": 11.9,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 31.5
+      },
+      "projected": {
+       "wins": 7.1,
+       "losses": 4.9
+      }
      },
      {
       "espnId": "245",
@@ -12903,7 +13211,18 @@
       "rank": 29,
       "rating": 11.8,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 8.5
+      },
+      "projected": {
+       "wins": 4.6,
+       "losses": 7.4
+      }
      },
      {
       "espnId": "248",
@@ -12912,7 +13231,18 @@
       "rank": 30,
       "rating": 11.7,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.1,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.1,
+       "winOut": 42.4
+      },
+      "projected": {
+       "wins": 8.3,
+       "losses": 3.7
+      }
      },
      {
       "espnId": "68",
@@ -12921,7 +13251,18 @@
       "rank": 31,
       "rating": 11.5,
       "rankChange": 0,
-      "record": "9-1"
+      "record": "9-1",
+      "odds": {
+       "playoff": 90.8,
+       "title": 0.3,
+       "titleGame": 1.3,
+       "conference": 77.6,
+       "winOut": 62.2
+      },
+      "projected": {
+       "wins": 11.6,
+       "losses": 1.4
+      }
      },
      {
       "espnId": "239",
@@ -12930,7 +13271,18 @@
       "rank": 32,
       "rating": 10.9,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 16.1
+      },
+      "projected": {
+       "wins": 6.8,
+       "losses": 5.2
+      }
      },
      {
       "espnId": "2579",
@@ -12939,7 +13291,18 @@
       "rank": 33,
       "rating": 10.8,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.1,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 8.6
+      },
+      "projected": {
+       "wins": 6.8,
+       "losses": 5.2
+      }
      },
      {
       "espnId": "96",
@@ -12948,7 +13311,18 @@
       "rank": 34,
       "rating": 10.3,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 9.8,
+       "title": 0.0,
+       "titleGame": 0.1,
+       "conference": 0.0,
+       "winOut": 15.9
+      },
+      "projected": {
+       "wins": 7.8,
+       "losses": 4.2
+      }
      },
      {
       "espnId": "2",
@@ -12957,7 +13331,18 @@
       "rank": 35,
       "rating": 10.0,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.1,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 11.5
+      },
+      "projected": {
+       "wins": 7.1,
+       "losses": 4.9
+      }
      },
      {
       "espnId": "153",
@@ -12966,7 +13351,18 @@
       "rank": 36,
       "rating": 9.2,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 47.5
+      },
+      "projected": {
+       "wins": 6.4,
+       "losses": 5.6
+      }
      },
      {
       "espnId": "2567",
@@ -12975,7 +13371,18 @@
       "rank": 37,
       "rating": 8.6,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 5.3
+      },
+      "projected": {
+       "wins": 7.9,
+       "losses": 4.1
+      }
      },
      {
       "espnId": "275",
@@ -12984,7 +13391,18 @@
       "rank": 38,
       "rating": 8.1,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 49.5
+      },
+      "projected": {
+       "wins": 7.4,
+       "losses": 4.6
+      }
      },
      {
       "espnId": "130",
@@ -12993,7 +13411,18 @@
       "rank": 39,
       "rating": 8.0,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 4.6
+      },
+      "projected": {
+       "wins": 5.6,
+       "losses": 6.4
+      }
      },
      {
       "espnId": "52",
@@ -13002,7 +13431,18 @@
       "rank": 40,
       "rating": 7.9,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 33.1
+      },
+      "projected": {
+       "wins": 6.2,
+       "losses": 5.8
+      }
      },
      {
       "espnId": "356",
@@ -13011,7 +13451,18 @@
       "rank": 41,
       "rating": 7.9,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 10.7
+      },
+      "projected": {
+       "wins": 6.7,
+       "losses": 5.3
+      }
      },
      {
       "espnId": "2628",
@@ -13020,7 +13471,18 @@
       "rank": 42,
       "rating": 7.8,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 5.8
+      },
+      "projected": {
+       "wins": 5.5,
+       "losses": 6.5
+      }
      },
      {
       "espnId": "264",
@@ -13029,7 +13491,18 @@
       "rank": 43,
       "rating": 7.3,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 2.9
+      },
+      "projected": {
+       "wins": 6.3,
+       "losses": 5.7
+      }
      },
      {
       "espnId": "221",
@@ -13038,7 +13511,18 @@
       "rank": 44,
       "rating": 7.2,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 18.8
+      },
+      "projected": {
+       "wins": 7.0,
+       "losses": 5.0
+      }
      },
      {
       "espnId": "167",
@@ -13047,7 +13531,18 @@
       "rank": 45,
       "rating": 6.2,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 0.3,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 51.5,
+       "winOut": 48.0
+      },
+      "projected": {
+       "wins": 10.2,
+       "losses": 2.6
+      }
      },
      {
       "espnId": "2305",
@@ -13056,7 +13551,18 @@
       "rank": 46,
       "rating": 6.0,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 8.2
+      },
+      "projected": {
+       "wins": 4.6,
+       "losses": 7.4
+      }
      },
      {
       "espnId": "228",
@@ -13065,7 +13571,18 @@
       "rank": 47,
       "rating": 4.6,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 8.5
+      },
+      "projected": {
+       "wins": 6.6,
+       "losses": 5.4
+      }
      },
      {
       "espnId": "66",
@@ -13074,7 +13591,18 @@
       "rank": 48,
       "rating": 4.6,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 32.2
+      },
+      "projected": {
+       "wins": 6.1,
+       "losses": 5.9
+      }
      },
      {
       "espnId": "258",
@@ -13083,7 +13611,18 @@
       "rank": 49,
       "rating": 4.2,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 21.4
+      },
+      "projected": {
+       "wins": 5.9,
+       "losses": 6.1
+      }
      },
      {
       "espnId": "344",
@@ -13092,7 +13631,18 @@
       "rank": 50,
       "rating": 4.0,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 12.5
+      },
+      "projected": {
+       "wins": 5.1,
+       "losses": 6.9
+      }
      },
      {
       "espnId": "8",
@@ -13101,7 +13651,18 @@
       "rank": 51,
       "rating": 3.8,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 0.9
+      },
+      "projected": {
+       "wins": 4.2,
+       "losses": 7.8
+      }
      },
      {
       "espnId": "235",
@@ -13110,7 +13671,18 @@
       "rank": 52,
       "rating": 3.6,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 0.5,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 42.7,
+       "winOut": 34.5
+      },
+      "projected": {
+       "wins": 10.0,
+       "losses": 2.7
+      }
      },
      {
       "espnId": "9",
@@ -13119,7 +13691,18 @@
       "rank": 53,
       "rating": 3.3,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 6.3
+      },
+      "projected": {
+       "wins": 6.5,
+       "losses": 5.5
+      }
      },
      {
       "espnId": "2335",
@@ -13128,7 +13711,18 @@
       "rank": 54,
       "rating": 3.2,
       "rankChange": 0,
-      "record": "9-1"
+      "record": "9-1",
+      "odds": {
+       "playoff": 4.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 75.0,
+       "winOut": 60.5
+      },
+      "projected": {
+       "wins": 11.5,
+       "losses": 1.5
+      }
      },
      {
       "espnId": "326",
@@ -13137,7 +13731,18 @@
       "rank": 55,
       "rating": 3.0,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 20.5,
+       "winOut": 22.6
+      },
+      "projected": {
+       "wins": 7.9,
+       "losses": 4.9
+      }
      },
      {
       "espnId": "204",
@@ -13146,7 +13751,18 @@
       "rank": 56,
       "rating": 2.3,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 51.9
+      },
+      "projected": {
+       "wins": 6.4,
+       "losses": 5.6
+      }
      },
      {
       "espnId": "249",
@@ -13155,7 +13771,18 @@
       "rank": 57,
       "rating": 2.2,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 30.5,
+       "winOut": 42.2
+      },
+      "projected": {
+       "wins": 8.9,
+       "losses": 3.6
+      }
      },
      {
       "espnId": "2132",
@@ -13164,7 +13791,18 @@
       "rank": 58,
       "rating": 2.1,
       "rankChange": 1,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 7.2
+      },
+      "projected": {
+       "wins": 5.7,
+       "losses": 6.3
+      }
      },
      {
       "espnId": "256",
@@ -13173,7 +13811,18 @@
       "rank": 59,
       "rating": 2.1,
       "rankChange": -1,
-      "record": "8-3"
+      "record": "8-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 29.7,
+       "winOut": 63.0
+      },
+      "projected": {
+       "wins": 9.2,
+       "losses": 3.4
+      }
      },
      {
       "espnId": "2116",
@@ -13182,7 +13831,18 @@
       "rank": 60,
       "rating": 2.1,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 23.2
+      },
+      "projected": {
+       "wins": 6.0,
+       "losses": 6.0
+      }
      },
      {
       "espnId": "183",
@@ -13191,7 +13851,18 @@
       "rank": 61,
       "rating": 2.0,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 3.7
+      },
+      "projected": {
+       "wins": 5.7,
+       "losses": 6.3
+      }
      },
      {
       "espnId": "259",
@@ -13200,7 +13871,18 @@
       "rank": 62,
       "rating": 1.9,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 1.9
+      },
+      "projected": {
+       "wins": 6.5,
+       "losses": 5.5
+      }
      },
      {
       "espnId": "127",
@@ -13209,7 +13891,18 @@
       "rank": 63,
       "rating": 1.8,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 9.7
+      },
+      "projected": {
+       "wins": 3.8,
+       "losses": 8.2
+      }
      },
      {
       "espnId": "2306",
@@ -13218,7 +13911,18 @@
       "rank": 64,
       "rating": 1.6,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 9.1
+      },
+      "projected": {
+       "wins": 4.6,
+       "losses": 7.4
+      }
      },
      {
       "espnId": "238",
@@ -13227,7 +13931,18 @@
       "rank": 65,
       "rating": 1.3,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 2.2
+      },
+      "projected": {
+       "wins": 4.3,
+       "losses": 7.7
+      }
      },
      {
       "espnId": "2509",
@@ -13236,7 +13951,18 @@
       "rank": 66,
       "rating": 1.0,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 2.3
+      },
+      "projected": {
+       "wins": 3.4,
+       "losses": 8.6
+      }
      },
      {
       "espnId": "2348",
@@ -13245,7 +13971,18 @@
       "rank": 67,
       "rating": 0.9,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 2.6,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 51.3,
+       "winOut": 20.3
+      },
+      "projected": {
+       "wins": 9.9,
+       "losses": 3.1
+      }
      },
      {
       "espnId": "277",
@@ -13254,7 +13991,18 @@
       "rank": 68,
       "rating": 0.9,
       "rankChange": 1,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 1.9
+      },
+      "projected": {
+       "wins": 5.3,
+       "losses": 6.7
+      }
      },
      {
       "espnId": "2449",
@@ -13263,7 +14011,18 @@
       "rank": 69,
       "rating": 0.9,
       "rankChange": -1,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 0.1,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 35.2,
+       "winOut": 35.2
+      },
+      "projected": {
+       "wins": 10.1,
+       "losses": 2.7
+      }
      },
      {
       "espnId": "38",
@@ -13272,7 +14031,18 @@
       "rank": 70,
       "rating": 0.5,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 20.5
+      },
+      "projected": {
+       "wins": 4.9,
+       "losses": 7.1
+      }
      },
      {
       "espnId": "278",
@@ -13281,7 +14051,18 @@
       "rank": 71,
       "rating": 0.5,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 70.6
+      },
+      "projected": {
+       "wins": 6.7,
+       "losses": 5.3
+      }
      },
      {
       "espnId": "202",
@@ -13290,7 +14071,18 @@
       "rank": 72,
       "rating": 0.5,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 47.8
+      },
+      "projected": {
+       "wins": 7.5,
+       "losses": 4.5
+      }
      },
      {
       "espnId": "135",
@@ -13299,7 +14091,18 @@
       "rank": 73,
       "rating": 0.4,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 5.4
+      },
+      "projected": {
+       "wins": 5.5,
+       "losses": 6.5
+      }
      },
      {
       "espnId": "152",
@@ -13308,7 +14111,18 @@
       "rank": 74,
       "rating": -0.9,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 4.0
+      },
+      "projected": {
+       "wins": 4.4,
+       "losses": 7.6
+      }
      },
      {
       "espnId": "290",
@@ -13317,7 +14131,18 @@
       "rank": 75,
       "rating": -1.6,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 19.1,
+       "winOut": 16.4
+      },
+      "projected": {
+       "wins": 7.4,
+       "losses": 5.0
+      }
      },
      {
       "espnId": "2636",
@@ -13326,7 +14151,18 @@
       "rank": 76,
       "rating": -1.8,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 1.7,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 21.6,
+       "winOut": 12.8
+      },
+      "projected": {
+       "wins": 9.4,
+       "losses": 3.2
+      }
      },
      {
       "espnId": "2005",
@@ -13335,7 +14171,18 @@
       "rank": 77,
       "rating": -1.9,
       "rankChange": 0,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 6.0,
+       "winOut": 14.9
+      },
+      "projected": {
+       "wins": 9.2,
+       "losses": 2.9
+      }
      },
      {
       "espnId": "59",
@@ -13344,7 +14191,18 @@
       "rank": 78,
       "rating": -2.3,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 0.2
+      },
+      "projected": {
+       "wins": 3.1,
+       "losses": 8.9
+      }
      },
      {
       "espnId": "120",
@@ -13353,7 +14211,18 @@
       "rank": 79,
       "rating": -2.6,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 1.3
+      },
+      "projected": {
+       "wins": 4.2,
+       "losses": 7.8
+      }
      },
      {
       "espnId": "349",
@@ -13362,7 +14231,18 @@
       "rank": 80,
       "rating": -2.7,
       "rankChange": 0,
-      "record": "5-4"
+      "record": "5-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 4.8,
+       "winOut": 19.6
+      },
+      "projected": {
+       "wins": 7.0,
+       "losses": 5.1
+      }
      },
      {
       "espnId": "2649",
@@ -13371,7 +14251,18 @@
       "rank": 81,
       "rating": -3.2,
       "rankChange": 2,
-      "record": "8-2"
+      "record": "8-2",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 24.6,
+       "winOut": 37.8
+      },
+      "projected": {
+       "wins": 9.8,
+       "losses": 2.7
+      }
      },
      {
       "espnId": "58",
@@ -13380,7 +14271,18 @@
       "rank": 82,
       "rating": -3.3,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 43.4
+      },
+      "projected": {
+       "wins": 7.3,
+       "losses": 4.7
+      }
      },
      {
       "espnId": "309",
@@ -13389,7 +14291,18 @@
       "rank": 83,
       "rating": -3.3,
       "rankChange": 1,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 48.3
+      },
+      "projected": {
+       "wins": 8.4,
+       "losses": 3.6
+      }
      },
      {
       "espnId": "2711",
@@ -13398,7 +14311,18 @@
       "rank": 84,
       "rating": -3.4,
       "rankChange": -3,
-      "record": "8-3"
+      "record": "8-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 46.7,
+       "winOut": 43.6
+      },
+      "projected": {
+       "wins": 9.2,
+       "losses": 3.6
+      }
      },
      {
       "espnId": "2439",
@@ -13407,7 +14331,18 @@
       "rank": 85,
       "rating": -3.7,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.9,
+       "winOut": 49.2
+      },
+      "projected": {
+       "wins": 7.4,
+       "losses": 4.6
+      }
      },
      {
       "espnId": "41",
@@ -13416,7 +14351,18 @@
       "rank": 86,
       "rating": -3.9,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 49.4
+      },
+      "projected": {
+       "wins": 6.4,
+       "losses": 5.6
+      }
      },
      {
       "espnId": "2426",
@@ -13425,7 +14371,18 @@
       "rank": 87,
       "rating": -4.2,
       "rankChange": 0,
-      "record": "3-6"
+      "record": "3-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 14.7
+      },
+      "projected": {
+       "wins": 4.7,
+       "losses": 7.3
+      }
      },
      {
       "espnId": "103",
@@ -13434,7 +14391,18 @@
       "rank": 88,
       "rating": -4.5,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 0.7
+      },
+      "projected": {
+       "wins": 4.4,
+       "losses": 7.6
+      }
      },
      {
       "espnId": "151",
@@ -13443,7 +14411,18 @@
       "rank": 89,
       "rating": -4.7,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.1,
+       "winOut": 22.8
+      },
+      "projected": {
+       "wins": 7.0,
+       "losses": 5.0
+      }
      },
      {
       "espnId": "265",
@@ -13452,7 +14431,18 @@
       "rank": 90,
       "rating": -4.9,
       "rankChange": 0,
-      "record": "2-8"
+      "record": "2-8",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 7.0
+      },
+      "projected": {
+       "wins": 2.5,
+       "losses": 9.5
+      }
      },
      {
       "espnId": "55",
@@ -13461,7 +14451,18 @@
       "rank": 91,
       "rating": -5.7,
       "rankChange": 0,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 24.2,
+       "winOut": 11.6
+      },
+      "projected": {
+       "wins": 8.6,
+       "losses": 4.4
+      }
      },
      {
       "espnId": "328",
@@ -13470,7 +14471,18 @@
       "rank": 92,
       "rating": -5.7,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 2.9
+      },
+      "projected": {
+       "wins": 4.3,
+       "losses": 7.7
+      }
      },
      {
       "espnId": "164",
@@ -13479,7 +14491,18 @@
       "rank": 93,
       "rating": -6.6,
       "rankChange": 0,
-      "record": "2-8"
+      "record": "2-8",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 2.2
+      },
+      "projected": {
+       "wins": 2.4,
+       "losses": 9.6
+      }
      },
      {
       "espnId": "24",
@@ -13488,7 +14511,18 @@
       "rank": 94,
       "rating": -6.9,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 9.3
+      },
+      "projected": {
+       "wins": 5.7,
+       "losses": 6.3
+      }
      },
      {
       "espnId": "2226",
@@ -13497,7 +14531,18 @@
       "rank": 95,
       "rating": -7.8,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 14.3
+      },
+      "projected": {
+       "wins": 6.8,
+       "losses": 5.2
+      }
      },
      {
       "espnId": "21",
@@ -13506,7 +14551,18 @@
       "rank": 96,
       "rating": -7.8,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 1.9,
+       "winOut": 0.1
+      },
+      "projected": {
+       "wins": 5.3,
+       "losses": 6.9
+      }
      },
      {
       "espnId": "25",
@@ -13515,7 +14571,18 @@
       "rank": 97,
       "rating": -8.0,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 11.2
+      },
+      "projected": {
+       "wins": 3.7,
+       "losses": 8.3
+      }
      },
      {
       "espnId": "2440",
@@ -13524,7 +14591,18 @@
       "rank": 98,
       "rating": -8.5,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 20.5
+      },
+      "projected": {
+       "wins": 5.0,
+       "losses": 7.0
+      }
      },
      {
       "espnId": "193",
@@ -13533,7 +14611,18 @@
       "rank": 99,
       "rating": -8.6,
       "rankChange": 2,
-      "record": "7-4"
+      "record": "7-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.7,
+       "winOut": 28.8
+      },
+      "projected": {
+       "wins": 7.3,
+       "losses": 4.7
+      }
      },
      {
       "espnId": "48",
@@ -13542,7 +14631,18 @@
       "rank": 100,
       "rating": -9.0,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.6,
+       "winOut": 26.2
+      },
+      "projected": {
+       "wins": 6.1,
+       "losses": 6.0
+      }
      },
      {
       "espnId": "2247",
@@ -13551,7 +14651,18 @@
       "rank": 101,
       "rating": -9.0,
       "rankChange": -2,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 26.0
+      },
+      "projected": {
+       "wins": 6.0,
+       "losses": 6.0
+      }
      },
      {
       "espnId": "6",
@@ -13560,7 +14671,18 @@
       "rank": 102,
       "rating": -9.5,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 38.3
+      },
+      "projected": {
+       "wins": 6.2,
+       "losses": 5.8
+      }
      },
      {
       "espnId": "2655",
@@ -13569,7 +14691,18 @@
       "rank": 103,
       "rating": -9.7,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 6.6
+      },
+      "projected": {
+       "wins": 5.5,
+       "losses": 6.5
+      }
      },
      {
       "espnId": "62",
@@ -13578,7 +14711,18 @@
       "rank": 104,
       "rating": -9.9,
       "rankChange": 1,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 30.8
+      },
+      "projected": {
+       "wins": 4.3,
+       "losses": 7.7
+      }
      },
      {
       "espnId": "2084",
@@ -13587,7 +14731,18 @@
       "rank": 105,
       "rating": -10.0,
       "rankChange": 5,
-      "record": "8-3"
+      "record": "8-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 21.1,
+       "winOut": 38.3
+      },
+      "projected": {
+       "wins": 9.0,
+       "losses": 3.6
+      }
      },
      {
       "espnId": "195",
@@ -13596,7 +14751,18 @@
       "rank": 106,
       "rating": -10.1,
       "rankChange": -2,
-      "record": "8-3"
+      "record": "8-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 6.9,
+       "winOut": 27.3
+      },
+      "projected": {
+       "wins": 8.4,
+       "losses": 3.7
+      }
      },
      {
       "espnId": "2026",
@@ -13605,7 +14771,18 @@
       "rank": 107,
       "rating": -10.6,
       "rankChange": -1,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 35.0
+      },
+      "projected": {
+       "wins": 7.3,
+       "losses": 4.7
+      }
      },
      {
       "espnId": "2032",
@@ -13614,7 +14791,18 @@
       "rank": 108,
       "rating": -11.0,
       "rankChange": -1,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 9.9
+      },
+      "projected": {
+       "wins": 4.8,
+       "losses": 7.2
+      }
      },
      {
       "espnId": "338",
@@ -13623,7 +14811,18 @@
       "rank": 109,
       "rating": -11.1,
       "rankChange": -1,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.2,
+       "winOut": 32.4
+      },
+      "projected": {
+       "wins": 5.2,
+       "losses": 6.9
+      }
      },
      {
       "espnId": "2751",
@@ -13632,7 +14831,18 @@
       "rank": 110,
       "rating": -11.2,
       "rankChange": -1,
-      "record": "7-3"
+      "record": "7-3",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 6.4,
+       "winOut": 1.2
+      },
+      "projected": {
+       "wins": 7.6,
+       "losses": 4.8
+      }
      },
      {
       "espnId": "5",
@@ -13641,7 +14851,18 @@
       "rank": 111,
       "rating": -11.5,
       "rankChange": 0,
-      "record": "6-4"
+      "record": "6-4",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.3,
+       "winOut": 2.4
+      },
+      "projected": {
+       "wins": 6.4,
+       "losses": 5.6
+      }
      },
      {
       "espnId": "324",
@@ -13650,7 +14871,18 @@
       "rank": 112,
       "rating": -11.9,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 2.3
+      },
+      "projected": {
+       "wins": 4.3,
+       "losses": 7.7
+      }
      },
      {
       "espnId": "2653",
@@ -13659,7 +14891,18 @@
       "rank": 113,
       "rating": -12.3,
       "rankChange": 1,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 10.6
+      },
+      "projected": {
+       "wins": 4.7,
+       "losses": 7.3
+      }
      },
      {
       "espnId": "218",
@@ -13668,7 +14911,18 @@
       "rank": 114,
       "rating": -12.4,
       "rankChange": 1,
-      "record": "2-8"
+      "record": "2-8",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 6.5
+      },
+      "projected": {
+       "wins": 2.8,
+       "losses": 9.2
+      }
      },
      {
       "espnId": "2229",
@@ -13677,7 +14931,18 @@
       "rank": 115,
       "rating": -12.9,
       "rankChange": 1,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 30.6
+      },
+      "projected": {
+       "wins": 5.2,
+       "losses": 6.8
+      }
      },
      {
       "espnId": "23",
@@ -13686,7 +14951,18 @@
       "rank": 116,
       "rating": -13.1,
       "rankChange": 1,
-      "record": "5-6"
+      "record": "5-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 6.7
+      },
+      "projected": {
+       "wins": 5.5,
+       "losses": 7.5
+      }
      },
      {
       "espnId": "2117",
@@ -13695,7 +14971,18 @@
       "rank": 117,
       "rating": -13.2,
       "rankChange": -4,
-      "record": "5-6"
+      "record": "5-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 66.4
+      },
+      "projected": {
+       "wins": 5.7,
+       "losses": 6.3
+      }
      },
      {
       "espnId": "98",
@@ -13704,7 +14991,18 @@
       "rank": 118,
       "rating": -14.3,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 4.0
+      },
+      "projected": {
+       "wins": 4.6,
+       "losses": 7.4
+      }
      },
      {
       "espnId": "242",
@@ -13713,7 +15011,18 @@
       "rank": 119,
       "rating": -15.0,
       "rankChange": 0,
-      "record": "1-9"
+      "record": "1-9",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 8.7
+      },
+      "projected": {
+       "wins": 1.6,
+       "losses": 10.4
+      }
      },
      {
       "espnId": "2393",
@@ -13722,7 +15031,18 @@
       "rank": 120,
       "rating": -15.1,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 37.8
+      },
+      "projected": {
+       "wins": 6.2,
+       "losses": 5.8
+      }
      },
      {
       "espnId": "295",
@@ -13731,7 +15051,18 @@
       "rank": 121,
       "rating": -15.3,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 11.4
+      },
+      "projected": {
+       "wins": 3.8,
+       "losses": 8.2
+      }
      },
      {
       "espnId": "166",
@@ -13740,7 +15071,18 @@
       "rank": 122,
       "rating": -15.5,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 16.7
+      },
+      "projected": {
+       "wins": 3.8,
+       "losses": 8.2
+      }
      },
      {
       "espnId": "276",
@@ -13749,7 +15091,18 @@
       "rank": 123,
       "rating": -15.9,
       "rankChange": 0,
-      "record": "5-5"
+      "record": "5-5",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 24.3
+      },
+      "projected": {
+       "wins": 6.0,
+       "losses": 6.0
+      }
      },
      {
       "espnId": "2623",
@@ -13758,7 +15111,18 @@
       "rank": 124,
       "rating": -16.0,
       "rankChange": 0,
-      "record": "4-6"
+      "record": "4-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 1.9
+      },
+      "projected": {
+       "wins": 4.3,
+       "losses": 7.7
+      }
      },
      {
       "espnId": "2572",
@@ -13767,7 +15131,18 @@
       "rank": 125,
       "rating": -16.2,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 14.5
+      },
+      "projected": {
+       "wins": 3.8,
+       "losses": 8.2
+      }
      },
      {
       "espnId": "36",
@@ -13776,7 +15151,18 @@
       "rank": 126,
       "rating": -16.3,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 1.0
+      },
+      "projected": {
+       "wins": 3.2,
+       "losses": 8.8
+      }
      },
      {
       "espnId": "113",
@@ -13785,7 +15171,18 @@
       "rank": 127,
       "rating": -16.9,
       "rankChange": 0,
-      "record": "5-6"
+      "record": "5-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 45.3
+      },
+      "projected": {
+       "wins": 5.5,
+       "losses": 6.5
+      }
      },
      {
       "espnId": "189",
@@ -13794,7 +15191,18 @@
       "rank": 128,
       "rating": -17.5,
       "rankChange": 0,
-      "record": "3-7"
+      "record": "3-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 7.0
+      },
+      "projected": {
+       "wins": 3.7,
+       "losses": 8.3
+      }
      },
      {
       "espnId": "2199",
@@ -13803,7 +15211,18 @@
       "rank": 129,
       "rating": -17.7,
       "rankChange": 0,
-      "record": "4-7"
+      "record": "4-7",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 74.1
+      },
+      "projected": {
+       "wins": 4.7,
+       "losses": 7.3
+      }
      },
      {
       "espnId": "2429",
@@ -13812,7 +15231,18 @@
       "rank": 130,
       "rating": -20.9,
       "rankChange": 0,
-      "record": "1-9"
+      "record": "1-9",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 0.8
+      },
+      "projected": {
+       "wins": 1.2,
+       "losses": 10.8
+      }
      },
      {
       "espnId": "2050",
@@ -13821,7 +15251,18 @@
       "rank": 131,
       "rating": -21.0,
       "rankChange": 0,
-      "record": "3-8"
+      "record": "3-8",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 33.7
+      },
+      "projected": {
+       "wins": 3.3,
+       "losses": 8.7
+      }
      },
      {
       "espnId": "2534",
@@ -13830,7 +15271,18 @@
       "rank": 132,
       "rating": -22.0,
       "rankChange": 0,
-      "record": "1-9"
+      "record": "1-9",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 7.1
+      },
+      "projected": {
+       "wins": 1.6,
+       "losses": 10.4
+      }
      },
      {
       "espnId": "2459",
@@ -13839,7 +15291,18 @@
       "rank": 133,
       "rating": -22.2,
       "rankChange": 0,
-      "record": "0-10"
+      "record": "0-10",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 2.9
+      },
+      "projected": {
+       "wins": 0.7,
+       "losses": 11.3
+      }
      },
      {
       "espnId": "2006",
@@ -13848,7 +15311,18 @@
       "rank": 134,
       "rating": -23.1,
       "rankChange": 0,
-      "record": "2-9"
+      "record": "2-9",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 20.2
+      },
+      "projected": {
+       "wins": 2.2,
+       "losses": 9.8
+      }
      },
      {
       "espnId": "2433",
@@ -13857,7 +15331,18 @@
       "rank": 135,
       "rating": -24.2,
       "rankChange": 1,
-      "record": "2-8"
+      "record": "2-8",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 4.6
+      },
+      "projected": {
+       "wins": 2.5,
+       "losses": 9.5
+      }
      },
      {
       "espnId": "2638",
@@ -13866,7 +15351,18 @@
       "rank": 136,
       "rating": -24.5,
       "rankChange": 1,
-      "record": "1-9"
+      "record": "1-9",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 1.7
+      },
+      "projected": {
+       "wins": 1.4,
+       "losses": 10.6
+      }
      },
      {
       "espnId": "2309",
@@ -13875,7 +15371,18 @@
       "rank": 137,
       "rating": -24.5,
       "rankChange": -2,
-      "record": "3-8"
+      "record": "3-8",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 25.9
+      },
+      "projected": {
+       "wins": 3.3,
+       "losses": 8.7
+      }
      },
      {
       "espnId": "16",
@@ -13884,10 +15391,21 @@
       "rank": 138,
       "rating": -29.3,
       "rankChange": 0,
-      "record": "2-9"
+      "record": "2-9",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 6.0
+      },
+      "projected": {
+       "wins": 2.1,
+       "losses": 9.9
+      }
      }
     ],
-    "fetchedAt": "2026-11-19T10:37Z"
+    "fetchedAt": "2026-11-19T11:55Z"
    }
   }
  ]
