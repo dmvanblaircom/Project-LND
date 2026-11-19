@@ -1,6 +1,5 @@
-# 2026-11-19: Games That Matter Phase 3 (David: "Build now"). The shape of
-# ESPN's conference standings, to build the standings snapshot. Prints only.
-https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^children\[[0-9]+\]\.(name|abbreviation|id) = 
-https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^children\[0\]\.(standings\.(name|season|seasonType)|children\[[0-9]+\]\.name) = 
-https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^children\[2\]\.standings\.entries\[0\]\.(team\.(id|displayName|location|shortDisplayName|abbreviation)|note\.[a-z]+|stats\[[0-9]+\]\.(name|type|abbreviation|displayValue|summary|value)) = 
-https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^children\[2\]\.standings\.entries\[[0-9]+\]\.(team\.displayName|stats\[[0-9]+\]\.(type|summary|displayValue)) = 
+# 2026-11-19: Games That Matter Phase 3, round 2: where the conference
+# record sits in each standings row (stats past index 18). Prints only.
+https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^children\[2\]\.standings\.entries\[0\]\.stats\[(19|2[0-9]|3[0-9])\]\.(type|summary|displayValue) = 
+https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^children\[2\]\.standings\.entries\[0\]\.stats\[(4[0-9]|5[0-9]|6[0-9])\]\.(type|summary|displayValue) = 
+https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=2026 | ^children\[2\]\.standings\.entries\[[0-9]+\]\.(team\.(id|shortDisplayName)|note\.(description|rank)) = 
