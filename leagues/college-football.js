@@ -60,6 +60,27 @@ var LEAGUE_MARKETS = {
   playoff: { series: "KXNCAAFPLAYOFF", offset: 0 }
 };
 
+/* The College Football Playoff's format, by season: where the lines fall
+   that a team can be on either side of. Around's "Games that matter" reads
+   them (TeamOS.around; docs/product/games-that-matter-relevance-proposal.md),
+   so a new format is a new block here, never code.
+
+   2026 (REPORTED, the 12-team format as amended in 2025): the top four
+   are seeded with byes, twelve make the field.
+   2027 on (REPORTED, the CFP's announcement of 2026-11-09): 24 teams, the
+   top eight with byes, 9 to 16 host 17 to 24 in the first round.
+
+   cutlines  { at: the last place on the good side, what: what that side has } */
+var LEAGUE_PLAYOFF = {
+  league: "college-football",
+  formats: [
+    { from: 2024, to: 2026, field: 12,
+      cutlines: [{ at: 4, what: "a first-round bye" }, { at: 12, what: "a place in the field" }] },
+    { from: 2027, field: 24,
+      cutlines: [{ at: 8, what: "a first-round bye" }, { at: 16, what: "a first-round home game" }, { at: 24, what: "a place in the field" }] }
+  ]
+};
+
 // What fans call each conference (David, 2026-11-05: Around's "your
 // conference" layer). The registry (teams/index.js) carries the full names;
 // these are the names a heading uses. A conference not listed reads in full.

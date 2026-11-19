@@ -746,7 +746,26 @@ function aroundLayers(now){
   return TeamOS.around.layers({ games:games, teamId:TEAM_CONFIG.sources.espn.teamId, teamName:TEAM.name,
     conference: me ? me.conference : null, conferences:AROUND.conferences,
     short: window.LEAGUE_CONFERENCES || {}, schedule:S.games||[], series:TEAM_CONFIG.series||[],
-    polls:polls()||[], now:now });
+    polls:polls()||[], everRanked:everRanked(), ratings:fpiRatings(),
+    cutlines:TeamOS.around.cutlinesFor(window.LEAGUE_PLAYOFF, seasonYear()), now:now });
+}
+// Every team ranked in any poll week kept this season (Résumé Impact: a team
+// we played that was ranked earlier counts; David, 2026-11-18).
+function everRanked(){
+  var out={}, kept=WEEKS.polls||{};
+  Object.keys(kept).forEach(function(k){
+    (kept[k]||[]).forEach(function(w){ ((w.poll&&w.poll.ranks)||[]).forEach(function(r){ if(r.providerId) out[String(r.providerId)]=true; }); });
+  });
+  (polls()||[]).forEach(function(p){ (p.ranks||[]).forEach(function(r){ if(r.providerId) out[String(r.providerId)]=true; }); });
+  return out;
+}
+// Each program's FPI rating, for whether a game with no line could go either
+// way (TeamOS.around's matchup test). Read from Rankings' FPI snapshot when
+// it is in; without it, no game is ruled out on ratings.
+function fpiRatings(){
+  var d=RATINGS.fpi && RATINGS.fpi.raw, out={};
+  ((d && d.teams)||[]).forEach(function(t){ if(t && t.espnId!=null && typeof t.rating==="number") out[String(t.espnId)]=t.rating; });
+  return out;
 }
 function paintTop25(){
   if(SHEET.id) paintSheet();
