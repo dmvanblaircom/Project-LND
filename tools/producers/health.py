@@ -44,6 +44,7 @@ NAMES = {
     "prospects": "Recruiting and draft",
     "champion": "National champion",
     "seasonstats": "Season figures (turnovers, yards allowed)",
+    "standings": "Conference standings",
 }
 
 
